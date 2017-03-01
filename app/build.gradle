@@ -1,0 +1,147 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION as int
+    buildToolsVersion BUILD_TOOLS_VERSION
+    defaultConfig {
+        applicationId "com.supers.clean.junk"
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
+        buildConfigField "boolean", "PRINT_LOG", "true"
+        ndk {
+            moduleName "bindings"
+        }
+    }
+    signingConfigs {
+        release {
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+        }
+    }
+    buildTypes {
+        release_n {
+            buildConfigField "boolean", "PRINT_LOG", "true"
+            jniDebuggable false
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+        release_test {
+            buildConfigField "boolean", "PRINT_LOG", "true"
+            jniDebuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //Zipalign优化
+            zipAlignEnabled true
+            multiDexEnabled false
+            // 移除无用的resource文件
+            shrinkResources true
+            signingConfig signingConfigs.release
+        }
+        release {
+            //混淆
+            buildConfigField "boolean", "PRINT_LOG", "false"
+            jniDebuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //Zipalign优化
+            zipAlignEnabled true
+            multiDexEnabled false
+            // 移除无用的resource文件
+            shrinkResources true
+            signingConfig signingConfigs.release
+        }
+        debug {
+            buildConfigField "boolean", "PRINT_LOG", "true"
+            jniDebuggable true
+            minifyEnabled false
+            zipAlignEnabled false
+            multiDexEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    /** Rename output file names */
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            // 更改最终apk命名
+            String appName = project.name
+            String vCode = variant.versionCode
+            String vName = variant.versionName
+            String buildTypeName = variant.buildType.name
+            String flavorName = null
+            if (variant.productFlavors && !variant.productFlavors.isEmpty()) {
+                // productFlavors可能有多个维度，但现在实际用只会用1个维度，所以只取第一个flavorName
+                flavorName = variant.productFlavors[0]?.name
+            }
+            //String apkFileName = "${appName}_${vCode}_${vName}.apk"
+            String apkFileName = "${appName}_" + MIN_SDK_VERSION + "_" + TARGET_SDK_VERSION + ".apk"
+            if (flavorName) { // 如果配置了productFlavors就加上flavorName
+                apkFileName = "${appName}_${flavorName}_${vCode}_${vName}.apk"
+            }
+            if (!apkFileName.contains(buildTypeName)) { // 如果apk文件名中没有buildType名称就在末尾加上
+                apkFileName = apkFileName.replace(".apk", "_${buildTypeName}.apk")
+            }
+            output.outputFile = new File(output.outputFile.parent, apkFileName)
+
+            // 打完混淆包后来干一些事情
+            if (variant.buildType.minifyEnabled) {
+                variant.assemble.doLast {
+                    // 定义文件拷贝方法
+                    def copyFile = { File source, File dest ->
+                        if (source.exists()) {
+                            dest.withDataOutputStream { os ->
+                                source.withDataInputStream { is ->
+                                    os << is
+                                }
+                            }
+                        }
+                    }
+                    // 混淆的mapping文件拷贝一份出来保存着
+                    File sourceMappingFile = new File("${output.outputFile.parentFile.parent}/mapping/${variant.dirName}/mapping.txt")
+                    File destMappingFile = new File(project.projectDir, "map.txt")
+                    copyFile(sourceMappingFile, destMappingFile)
+
+                    // 混淆的seeds文件拷贝一份出来保存着
+                    File sourceSeedsFile = new File("${output.outputFile.parentFile.parent}/mapping/${variant.dirName}/seeds.txt")
+                    File destSeedsFile = new File(project.projectDir, sourceSeedsFile.name)
+                    copyFile(sourceSeedsFile, destSeedsFile)
+
+                    // apk文件拷贝一份出来保存着
+                    File destTestDir = new File(rootDir.absolutePath + "/build/apk4test/")
+                    destTestDir.mkdirs()
+                    File destTestApkFile = new File(destTestDir, getDate() + "_" + apkFileName)
+                    copyFile(output.outputFile, destTestApkFile)
+                }
+            }
+        }
+    }
+
+    sourceSets.main {
+        jni.srcDirs = []
+    }
+
+}
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmm')
+    return formattedDate
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.jaredrummler:android-processes:1.0.8'
+}

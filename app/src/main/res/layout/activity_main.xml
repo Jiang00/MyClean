@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.supers.clean.junk.activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_first"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/view_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_hight">
+
+            <ImageView
+                android:id="@+id/iv_title_left"
+                android:layout_width="@dimen/title_hight"
+                android:layout_height="@dimen/title_hight"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:scaleType="center"
+                android:src="@mipmap/main_menu" />
+
+            <TextView
+                android:id="@+id/tv_title_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/app_name"
+                android:textColor="@color/white_100" />
+
+            <ImageView
+                android:id="@+id/iv_title_right"
+                android:layout_width="@dimen/title_hight"
+                android:layout_height="@dimen/title_hight"
+                android:layout_alignParentRight="true"
+                android:scaleType="center"
+                android:src="@mipmap/main_setting" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <com.supers.clean.junk.myView.MainScrollView
+        android:id="@+id/main_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/main_all_cercle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_color_first">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/backg3" />
+            </FrameLayout>
+
+            <!--六个按钮-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="185dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="92dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/main_junk_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:src="@mipmap/main_junk_button" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_junk_name"
+                            android:textColor="@color/black_87"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f1f1f1" />
+
+                    <LinearLayout
+                        android:id="@+id/main_ram_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:src="@mipmap/main_ram_button" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_ram_name"
+                            android:textColor="@color/black_87"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f1f1f1" />
+
+                    <LinearLayout
+                        android:id="@+id/main_manager_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:src="@mipmap/main_manager_button" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_manager_name"
+                            android:textColor="@color/black_87"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="92dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/main_cooling_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:src="@mipmap/main_cooling_button" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_cooling_name"
+                            android:textColor="@color/black_87"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f1f1f1" />
+
+                    <LinearLayout
+                        android:id="@+id/main_applock_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:src="@mipmap/main_applock_button" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_aopplock_name"
+                            android:textColor="@color/black_87"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f1f1f1" />
+
+                    <LinearLayout
+                        android:id="@+id/main_theme_button"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:src="@mipmap/main_theme_button" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_theme_name"
+                            android:textColor="@color/black_87"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:background="#e8e8e8" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:background="@color/colorPrimaryDark"></LinearLayout>
+        </LinearLayout>
+    </com.supers.clean.junk.myView.MainScrollView>
+</LinearLayout>
