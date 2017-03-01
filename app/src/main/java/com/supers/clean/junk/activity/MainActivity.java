@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity {
                             state = DOWN;
                         }
                         if (state == UP) {
-                            if (cercleHeight > 0) {
+                            if (cercleHeight == cercle_value) {
                                 if ((int) (cercleHeight - deltaY) > cercle_value) {
                                     cercle_linearParams.height = cercle_value;
                                 } else if ((int) (cercleHeight - deltaY) < 0) {
@@ -91,13 +91,13 @@ public class MainActivity extends BaseActivity {
                                 }
                                 main_all_cercle.setLayoutParams(cercle_linearParams);
                                 main_scroll_view.setShutTouch(true);
-                            } else {
+                            } else if (cercleHeight == 0) {
                                 main_scroll_view.setShutTouch(false);
                             }
                         } else {
-                            if (cercleHeight > 0) {
-                                main_scroll_view.setShutTouch(false);
-                            } else {
+                            if (cercleHeight == cercle_value) {
+                                main_scroll_view.setShutTouch(true);
+                            } else if (cercleHeight == 0) {
                                 if (main_scroll_view.getScrollY() > 0) {
                                     main_scroll_view.setShutTouch(false);
                                     break;
@@ -119,7 +119,7 @@ public class MainActivity extends BaseActivity {
                             break;
                         }
                         if (state == UP) {
-                            if (cercleHeight > 0) {
+                            if (cercleHeight == cercle_value) {
                                 if (cercle_linearParams.height < (cercle_value / 2)) {
                                     cercle_linearParams.height = 0;
                                     main_all_cercle.setLayoutParams(cercle_linearParams);
