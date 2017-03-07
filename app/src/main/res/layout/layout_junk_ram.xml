@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/junk_title_backg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/app_color_first"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/view_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <include layout="@layout/layout_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="100dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/junk_fangxin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/junk_title_clean"
+                        android:textColor="#8affffff"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/junk_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="B"
+                        android:textColor="#8affffff"
+                        android:textSize="27sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/junk_size_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/ll_tv"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#ffffff"
+                    android:textSize="63sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#e8e8e8">
+
+        <ListView
+            android:id="@+id/junk_list_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="0px"
+            android:visibility="invisible" />
+
+        <com.supers.clean.junk.myView.MyScrollView
+            android:id="@+id/junk_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/junk_button_system"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/file_yiji_item_hight"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/junk_system" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/junk_system"
+                            android:textColor="#434c5f"
+                            android:textSize="@dimen/file_yiji_item_text_size" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/junk_predict"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <TextView
+                            android:id="@+id/junk_system_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="10.00"
+                            android:textColor="#1e88e5"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/junk_system_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="MB"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <ImageView
+                            android:id="@+id/junk_system_jiantou"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
+                            android:src="@mipmap/junk_jiantou"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="#f1f1f1" />
+                </LinearLayout>
+
+                <com.supers.clean.junk.myView.ListViewForScrollView
+                    android:id="@+id/junk_system_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="0px" />
+
+                <LinearLayout
+                    android:id="@+id/junk_button_apk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/file_yiji_item_hight"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/junk_apk" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/junk_apk"
+                            android:textColor="#434c5f"
+                            android:textSize="@dimen/file_yiji_item_text_size" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/junk_predict"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <TextView
+                            android:id="@+id/junk_apk_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="10.00"
+                            android:textColor="#1e88e5"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/junk_apk_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="MB"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <ImageView
+                            android:id="@+id/junk_apk_jiaotou"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
+                            android:src="@mipmap/junk_jiantou"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="#f1f1f1" />
+                </LinearLayout>
+
+                <com.supers.clean.junk.myView.ListViewForScrollView
+                    android:id="@+id/junk_apk_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="0px" />
+
+                <LinearLayout
+                    android:id="@+id/junk_button_unload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/file_yiji_item_hight"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/junk_unload" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/junk_unload"
+                            android:textColor="#434c5f"
+                            android:textSize="@dimen/file_yiji_item_text_size" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/junk_predict"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <TextView
+                            android:id="@+id/junk_unload_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="10.00"
+                            android:textColor="#1e88e5"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/junk_unload_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="MB"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <ImageView
+                            android:id="@+id/junk_unload_jiantou"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
+                            android:src="@mipmap/junk_jiantou"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="#f1f1f1" />
+                </LinearLayout>
+
+                <com.supers.clean.junk.myView.ListViewForScrollView
+                    android:id="@+id/junk_unload_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="0px" />
+
+                <LinearLayout
+                    android:id="@+id/junk_button_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/file_yiji_item_hight"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/junk_log" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/junk_log"
+                            android:textColor="#434c5f"
+                            android:textSize="@dimen/file_yiji_item_text_size" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/junk_predict"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <TextView
+                            android:id="@+id/junk_log_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="10.00"
+                            android:textColor="#1e88e5"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/junk_log_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="MB"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <ImageView
+                            android:id="@+id/junk_log_jiantou"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
+                            android:src="@mipmap/junk_jiantou"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="#f1f1f1" />
+                </LinearLayout>
+
+                <com.supers.clean.junk.myView.ListViewForScrollView
+                    android:id="@+id/junk_log_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="0px" />
+
+                <LinearLayout
+                    android:id="@+id/junk_button_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/file_yiji_item_hight"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/junk_user" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/junk_user"
+                            android:textColor="#434c5f"
+                            android:textSize="@dimen/file_yiji_item_text_size" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/junk_predict"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <TextView
+                            android:id="@+id/junk_user_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="10.00"
+                            android:textColor="#1e88e5"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/junk_user_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="MB"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <ImageView
+                            android:id="@+id/junk_user_jiantou"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
+                            android:src="@mipmap/junk_jiantou"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="#f1f1f1" />
+                </LinearLayout>
+
+                <com.supers.clean.junk.myView.ListViewForScrollView
+                    android:id="@+id/junk_user_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="0px" />
+
+                <LinearLayout
+                    android:id="@+id/junk_button_ram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/file_yiji_item_hight"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/junk_ram" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/junk_ram"
+                            android:textColor="#434c5f"
+                            android:textSize="@dimen/file_yiji_item_text_size" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/junk_predict"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <TextView
+                            android:id="@+id/junk_ram_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="10.00"
+                            android:textColor="#1e88e5"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/junk_ram_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="MB"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/file_yiji_item_yuji_size" />
+
+                        <ImageView
+                            android:id="@+id/junk_ram_jiantou"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
+                            android:src="@mipmap/junk_jiantou"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="#f1f1f1" />
+                </LinearLayout>
+
+                <com.supers.clean.junk.myView.ListViewForScrollView
+                    android:id="@+id/junk_ram_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="0px" />
+
+            </LinearLayout>
+        </com.supers.clean.junk.myView.MyScrollView>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/junk_button_backg">
+
+        <Button
+            android:id="@+id/junk_button_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/junk_button"
+            android:text="@string/junk_button"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

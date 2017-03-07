@@ -4,6 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_100"
     android:orientation="vertical"
     tools:context="com.supers.clean.junk.activity.MainActivity">
 
@@ -37,13 +38,15 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/app_name"
-                android:textColor="@color/white_100" />
+                android:textColor="@color/white_100"
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/iv_title_right"
                 android:layout_width="@dimen/title_hight"
                 android:layout_height="@dimen/title_hight"
                 android:layout_alignParentRight="true"
+                android:background="?attr/selectableItemBackground"
                 android:scaleType="center"
                 android:src="@mipmap/main_setting" />
         </RelativeLayout>
@@ -51,219 +54,771 @@
 
     </LinearLayout>
 
-    <com.supers.clean.junk.myView.MainScrollView
-        android:id="@+id/main_scroll_view"
+    <com.supers.clean.junk.myView.PullToRefreshLayout
+        android:id="@+id/main_pull_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <include layout="@layout/layout_load_more" />
+
+        <com.supers.clean.junk.myView.MainScrollView
+            android:id="@+id/main_scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:scrollbars="none">
 
-            <FrameLayout
-                android:id="@+id/main_all_cercle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/app_color_first">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/backg3" />
-            </FrameLayout>
-
-            <!--六个按钮-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="185dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <!--球-->
+                <FrameLayout
+                    android:id="@+id/main_all_cercle"
+                    android:layout_width="match_parent"
+                    android:layout_height="311dp"
+                    android:background="@color/app_color_first">
 
+                    <FrameLayout
+                        android:id="@+id/main_scale_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="311dp"
+                        android:layout_gravity="center">
+
+                        <RelativeLayout
+                            android:id="@+id/main_cpu_air_button"
+                            android:layout_width="89dp"
+                            android:layout_height="89dp"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="41dp"
+                            android:layout_marginTop="4dp">
+
+                            <com.supers.clean.junk.myView.CustomRoundCpu
+                                android:id="@+id/main_custom_cpu"
+                                android:layout_width="89dp"
+                                android:layout_height="89dp"
+                                android:layout_centerInParent="true" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/main_cpu_temp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="33℃"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="21sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="@string/main_arc_cpu"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/main_sd_air_button"
+                            android:layout_width="144dp"
+                            android:layout_height="144dp"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="43dp">
+
+                            <com.supers.clean.junk.myView.CustomRoundCpu
+                                android:id="@+id/main_custom_sd"
+                                android:layout_width="144dp"
+                                android:layout_height="144dp"
+                                android:layout_centerInParent="true" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/main_sd_per"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="78%"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="29sp" />
+
+                                <TextView
+                                    android:id="@+id/main_sd_size"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="1.3/1.7GB"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="@string/main_arc_sd"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/main_ram_air_button"
+                            android:layout_width="164dp"
+                            android:layout_height="164dp"
+                            android:layout_marginLeft="125dp"
+                            android:layout_marginTop="109dp">
+
+                            <com.supers.clean.junk.myView.CustomRoundCpu
+                                android:id="@+id/main_custom_ram"
+                                android:layout_width="164dp"
+                                android:layout_height="164dp"
+                                android:layout_centerInParent="true" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/main_ram_per"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="78%"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="38sp" />
+
+                                <TextView
+                                    android:id="@+id/main_ram_size"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="1.3/1.7GB"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="@string/main_arc_ram"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|bottom"
+                            android:layout_marginRight="17dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/main_air_all"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@mipmap/main_air" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@mipmap/main_air_smoke" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <!--六个按钮-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="92dp"
-                    android:layout_weight="1">
+                    android:layout_height="185dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/main_junk_button"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:layout_width="match_parent"
+                        android:layout_height="92dp"
+                        android:layout_weight="1">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:src="@mipmap/main_junk_button" />
+                        <LinearLayout
+                            android:id="@+id/main_junk_button"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/main_junk_name"
-                            android:textColor="@color/black_87"
-                            android:textSize="12sp" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:src="@mipmap/main_junk_button" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_junk_name"
+                                android:textColor="@color/black_87"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f1f1f1" />
+
+                        <LinearLayout
+                            android:id="@+id/main_ram_button"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:src="@mipmap/main_ram_button" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_ram_name"
+                                android:textColor="@color/black_87"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f1f1f1" />
+
+                        <LinearLayout
+                            android:id="@+id/main_manager_button"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:src="@mipmap/main_manager_button" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_manager_name"
+                                android:textColor="@color/black_87"
+                                android:textSize="12sp" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
                         android:background="#f1f1f1" />
 
                     <LinearLayout
-                        android:id="@+id/main_ram_button"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:layout_width="match_parent"
+                        android:layout_height="92dp"
+                        android:layout_weight="1">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:src="@mipmap/main_ram_button" />
+                        <LinearLayout
+                            android:id="@+id/main_cooling_button"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/main_ram_name"
-                            android:textColor="@color/black_87"
-                            android:textSize="12sp" />
-                    </LinearLayout>
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:src="@mipmap/main_cooling_button" />
 
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="#f1f1f1" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_cooling_name"
+                                android:textColor="@color/black_87"
+                                android:textSize="12sp" />
+                        </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/main_manager_button"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f1f1f1" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:src="@mipmap/main_manager_button" />
+                        <LinearLayout
+                            android:id="@+id/main_applock_button"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/main_manager_name"
-                            android:textColor="@color/black_87"
-                            android:textSize="12sp" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:src="@mipmap/main_applock_button" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_aopplock_name"
+                                android:textColor="@color/black_87"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f1f1f1" />
+
+                        <LinearLayout
+                            android:id="@+id/main_theme_button"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:src="@mipmap/main_theme_button" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_theme_name"
+                                android:textColor="@color/black_87"
+                                android:textSize="12sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#f1f1f1" />
-
+                    android:layout_height="16dp"
+                    android:background="#e8e8e8" />
+                <!--好评-->
                 <LinearLayout
+                    android:id="@+id/main_rotate_all"
                     android:layout_width="match_parent"
-                    android:layout_height="92dp"
-                    android:layout_weight="1">
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_100"
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/main_cooling_button"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:src="@mipmap/main_cooling_button" />
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="19dp"
+                            android:src="@mipmap/main_rotate_1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/main_cooling_name"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:text="@string/main_rotate_title"
                             android:textColor="@color/black_87"
-                            android:textSize="12sp" />
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/main_rotate_2" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="53dp"
+                        android:layout_marginRight="53dp"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:text="@string/main_rotate_msg"
+                        android:textColor="#1e88e5"
+                        android:textSize="17sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="30dp"
+                        android:background="#e5e5e5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/main_rotate_bad"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:text="@string/main_rotate_bad"
+                            android:textColor="@color/black_54"
+                            android:textSize="17sp" />
+
+                        <LinearLayout
+                            android:id="@+id/main_rotate_good"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_rotate_good"
+                                android:textColor="@color/black_54"
+                                android:textSize="17sp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:src="@mipmap/main_rotate_3" />
+                        </LinearLayout>
+
                     </LinearLayout>
 
                     <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="#f1f1f1" />
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        android:background="#e8e8e8" />
+                </LinearLayout>
+
+
+                <!--硬件信息-->
+                <LinearLayout
+                    android:id="@+id/main_msg_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/main_applock_button"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:src="@mipmap/main_applock_button" />
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="19dp"
+                            android:src="@mipmap/main_rotate_1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/main_aopplock_name"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:text="@string/main_msg_title"
                             android:textColor="@color/black_87"
-                            android:textSize="12sp" />
+                            android:textSize="16sp" />
                     </LinearLayout>
 
                     <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="14dp"
                         android:background="#f1f1f1" />
 
                     <LinearLayout
-                        android:id="@+id/main_theme_button"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/main_msg_ram_backg"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_2a97fe" />
+
+                                <TextView
+                                    android:id="@+id/main_msg_ram_percent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="96%"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="24sp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/main_msg_ram"
+                                android:textColor="@color/black_87"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/main_msg_sd_backg"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_fac100" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/main_msg_sd_percent"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:text="864"
+                                        android:textColor="@color/white_100"
+                                        android:textSize="24sp" />
+
+                                    <TextView
+                                        android:id="@+id/main_msg_sd_unit"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:text="MB"
+                                        android:textColor="@color/white_100"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/main_msg_sd"
+                                android:textColor="@color/black_87"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/main_msg_cpu_backg"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/shape_31cb39" />
+
+                                <TextView
+                                    android:id="@+id/main_msg_cpu_percent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="12%"
+                                    android:textColor="@color/white_100"
+                                    android:textSize="24sp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/main_msg_cpu"
+                                android:textColor="@color/black_87"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="9dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginRight="9dp"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal|right"
+                            android:text="@string/main_msg_more"
+                            android:textColor="#de42a5f5"
+                            android:textSize="12sp" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:src="@mipmap/main_theme_button" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/main_theme_name"
-                            android:textColor="@color/black_87"
-                            android:textSize="12sp" />
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginRight="24dp"
+                            android:src="@mipmap/main_msg_1" />
                     </LinearLayout>
                 </LinearLayout>
+
+                <!--守护信息-->
+                <FrameLayout
+                    android:id="@+id/main_guard_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="222dp"
+                    android:background="#e8e8e8">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:src="@mipmap/main_guard_1" />
+
+                    <ImageView
+                        android:id="@+id/main_guard_rotate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:src="@mipmap/main_guard_2" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/main_gurad_app_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/app_name"
+                            android:textColor="@color/black_54"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/main_gurad_app_name"
+                            android:text="@string/main_guard_title"
+                            android:textColor="@color/black_54"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/main_gurad_app_name"
+                            android:layout_centerHorizontal="true"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/main_gurad_num"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="11"
+                                android:textColor="@color/black_54"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/main_gurad_app_name"
+                                android:text="@string/main_guard_unit"
+                                android:textColor="@color/black_54"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </FrameLayout>
+
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                android:background="#e8e8e8" />
+        </com.supers.clean.junk.myView.MainScrollView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="800dp"
-                android:background="@color/colorPrimaryDark"></LinearLayout>
-        </LinearLayout>
-    </com.supers.clean.junk.myView.MainScrollView>
+        <include layout="@layout/layout_load_more" />
+
+    </com.supers.clean.junk.myView.PullToRefreshLayout>
 </LinearLayout>

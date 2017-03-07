@@ -1,0 +1,227 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <LinearLayout
+        android:id="@+id/success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_color_first"
+        android:orientation="vertical">
+        <!--android:visibility="invisible"-->
+        <LinearLayout
+            android:id="@+id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_color_first"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/view_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <include layout="@layout/layout_title" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="208dp"
+                android:layout_height="208dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="250dp"
+                android:src="@mipmap/success_1" />
+
+            <ImageView
+                android:layout_width="208dp"
+                android:layout_height="208dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="250dp"
+                android:src="@mipmap/success_2" />
+
+            <ImageView
+                android:id="@+id/success_progress"
+                android:layout_width="208dp"
+                android:layout_height="208dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="250dp"
+                android:src="@mipmap/success_3" />
+
+            <com.supers.clean.junk.myView.DrawHookView
+                android:id="@+id/success_drawhook"
+                android:layout_width="208dp"
+                android:layout_height="208dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="250dp" />
+
+            <ImageView
+                android:id="@+id/success_huojian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="250dp"
+                android:src="@mipmap/success_huojian"
+                android:visibility="invisible" />
+
+            <com.supers.clean.junk.myView.SlowScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none"
+                android:visibility="invisible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#e8e8e8"
+                    android:orientation="vertical">
+                    <!--tou-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="117dp"
+                        android:background="@mipmap/success_title_backg"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="17dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="40dp"
+                                android:src="@mipmap/success_duigou" />
+
+                            <TextView
+                                android:id="@+id/success_clean_size"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="13dp"
+                                android:text="@string/success_cleaned"
+                                android:textColor="@color/white_100"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="11dp"
+                            android:src="@mipmap/success_tt" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/main_rotate_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/white_100"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:src="@mipmap/main_rotate_2" />
+
+                            <ImageView
+                                android:id="@+id/delete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginTop="5dp"
+                                android:src="@mipmap/delete" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="53dp"
+                            android:layout_marginRight="53dp"
+                            android:layout_marginTop="18dp"
+                            android:gravity="center"
+                            android:text="@string/main_rotate_msg"
+                            android:textColor="#1e88e5"
+                            android:textSize="17sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="30dp"
+                            android:background="#e5e5e5" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/main_rotate_bad"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="?attr/selectableItemBackground"
+                                android:gravity="center"
+                                android:text="@string/main_rotate_bad"
+                                android:textColor="@color/black_54"
+                                android:textSize="17sp" />
+
+                            <LinearLayout
+                                android:id="@+id/main_rotate_good"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="?attr/selectableItemBackground"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/main_rotate_good"
+                                    android:textColor="@color/black_54"
+                                    android:textSize="17sp" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="3dp"
+                                    android:src="@mipmap/main_rotate_3" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ad_native_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:visibility="invisible">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.supers.clean.junk.myView.SlowScrollView>
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

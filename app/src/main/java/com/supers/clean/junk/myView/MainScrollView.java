@@ -9,7 +9,7 @@ import android.widget.ScrollView;
  * Created by Ivy on 2017/2/28.
  */
 
-public class MainScrollView extends ScrollView {
+public class MainScrollView extends ScrollView implements Pullable {
 
 
     private boolean shutTouch;
@@ -36,7 +36,22 @@ public class MainScrollView extends ScrollView {
 
     }
 
+
     public void setShutTouch(boolean shutTouch) {
         this.shutTouch = shutTouch;
+    }
+
+    public boolean canPullDown() {
+//        if (getScrollY() == 0)
+//            return true;
+//        else
+        return false;
+    }
+
+    public boolean canPullUp() {
+        if (getScrollY() >= (getChildAt(0).getHeight() - getMeasuredHeight()))
+            return true;
+        else
+            return false;
     }
 }

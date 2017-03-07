@@ -1,26 +1,29 @@
 package com.supers.clean.junk.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.entity.Contents;
-import com.supers.clean.junk.manager.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.modle.PreData;
 
 /**
  * Created by Ivy on 2017/2/28.
  */
 
 public class BaseActivity extends AppCompatActivity {
+    private Toast toast;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,10 @@ public class BaseActivity extends AppCompatActivity {
         ViewGroup.LayoutParams linearParams = view_title_bar.getLayoutParams();
         linearParams.height = getStatusHeight(this);
         view_title_bar.setLayoutParams(linearParams);
+        findId();
+    }
+
+    protected void findId() {
 
     }
 
@@ -53,6 +60,21 @@ public class BaseActivity extends AppCompatActivity {
             result = getResources().getDimensionPixelSize(resourceId);
         }
         return result;
+    }
+    /**
+     * 获取导航栏高度
+     * @param context
+     * @return
+     */
+    public int getDaoHangHeight(Context context) {
+        int result = 0;
+        int resourceId=0;
+        int rid = context.getResources().getIdentifier("config_showNavigationBar", "bool", "android");
+        if (rid!=0){
+            resourceId = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
+            return context.getResources().getDimensionPixelSize(resourceId);
+        }else
+            return 0;
     }
 
     private void setTranslucentStatus(boolean on) {
@@ -93,7 +115,17 @@ public class BaseActivity extends AppCompatActivity {
         }
         window.getDecorView().setSystemUiVisibility(uiOptions);
     }
+
     public int dp2px(int dp) {
         return (int) (Resources.getSystem().getDisplayMetrics().density * dp);
+    }
+    public void showToast(String text) {
+        if (toast == null) {
+            toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        } else {
+            toast.setText(text);
+        }
+        toast.show();
+
     }
 }

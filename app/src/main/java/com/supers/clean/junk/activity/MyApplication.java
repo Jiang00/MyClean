@@ -13,20 +13,20 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
-import com.supers.clean.junk.entity.Contents;
-import com.supers.clean.junk.entity.JsonData;
-import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.manager.CommonUtil;
-import com.supers.clean.junk.manager.PreData;
-import com.supers.clean.junk.manager.TopActivityPkg;
+import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.modle.entity.JsonData;
+import com.supers.clean.junk.modle.entity.JunkInfo;
+import com.supers.clean.junk.modle.CommonUtil;
+import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.TopActivityPkg;
 import com.supers.clean.junk.service.ReStarService;
-import com.supers.clean.junk.task.ApkFileAndAppJunkTask;
-import com.supers.clean.junk.task.AppCacheTask;
-import com.supers.clean.junk.task.AppManager;
-import com.supers.clean.junk.task.FilesOfUninstalledAppTask;
-import com.supers.clean.junk.task.RamTask;
-import com.supers.clean.junk.task.SimpleTask;
-import com.supers.clean.junk.task.SystemCacheTask;
+import com.supers.clean.junk.modle.task.ApkFileAndAppJunkTask;
+import com.supers.clean.junk.modle.task.AppCacheTask;
+import com.supers.clean.junk.modle.task.AppManager;
+import com.supers.clean.junk.modle.task.FilesOfUninstalledAppTask;
+import com.supers.clean.junk.modle.task.RamTask;
+import com.supers.clean.junk.modle.task.SimpleTask;
+import com.supers.clean.junk.modle.task.SystemCacheTask;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -210,8 +210,9 @@ public class MyApplication extends Application {
         if (myHandler.hasCallbacks(runnable)) {
             myHandler.removeCallbacks(runnable);
         }
-        myHandler.post(runnable);
-
+        myHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
+        asyncInitData();
+        saomiaoSuccess = false;
         saomiaoSuccess = true;
         //charging
 //        startService(new Intent(this, BatteryService.class));
@@ -225,10 +226,10 @@ public class MyApplication extends Application {
 //            intent.setAction("notification");
 //            startService(intent);
 //        }
-//        if (SharedPre.getFloat(this)) {
-//            Intent intent1 = new Intent(this, MyFloatService.class);
-//            startService(intent1);
-//        }
+        if (PreData.getDB(this, Contents.FlOAT_SWITCH, true)) {
+            Intent intent1 = new Intent(this, FloatService.class);
+            startService(intent1);
+        }
         if (PreData.getDB(this, Contents.FIRST_INSTALL, true)) {
             PreData.putDB(this, Contents.IS_ACTION_BAR, CommonUtil.checkDeviceHasNavigationBar(this));
             PreData.putDB(this, Contents.FIRST_INSTALL, false);
@@ -261,7 +262,6 @@ public class MyApplication extends Application {
     @Override
     public void onTerminate() {
         myHandler.removeCallbacks(runnable);
-        Log.e("aaaaa", "杀死啦================");
         super.onTerminate();
     }
 
