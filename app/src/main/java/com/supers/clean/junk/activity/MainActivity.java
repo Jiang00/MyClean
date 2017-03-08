@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.IView;
 import com.supers.clean.junk.View.MainView;
@@ -131,7 +132,6 @@ public class MainActivity extends BaseActivity implements MainView {
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
         initHandler();
-
     }
 
     private void initHandler() {
@@ -252,7 +252,9 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     public void loadFullAd() {
-
+        if (PreData.getDB(this, Contents.FULL_MAIN, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        }
     }
 
     //scrollView 监听
@@ -495,6 +497,7 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     protected void onResume() {
         super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
     }
 
     public void onBackPressed() {

@@ -43,6 +43,8 @@ public class MyApplication extends Application {
 
     private ArrayList<JunkInfo> systemCache, filesOfUnintalledApk, apkFiles, appJunk, appCache, appRam, listMng;
 
+    private ArrayList<JunkInfo> white_ram;
+
     private long cacheSize, apkSize, unloadSize, logSize, dataSize, ramSize, appMngSize;
 
     private boolean saomiaoSuccess;
@@ -93,6 +95,10 @@ public class MyApplication extends Application {
 
     public ArrayList<JunkInfo> getAppRam() {
         return appRam;
+    }
+
+    public ArrayList<JunkInfo> getWhiteRam() {
+        return white_ram;
     }
 
     public ArrayList<JunkInfo> getAppJunk() {
@@ -221,11 +227,11 @@ public class MyApplication extends Application {
 //        Utils.writeData(this, Constants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
 //        Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.drawable.icon_loading);
 
-//        if (SharedPre.getNotifi(this)) {
-//            Intent intent = new Intent(this, NotifactionShow.class);
-//            intent.setAction("notification");
-//            startService(intent);
-//        }
+        if (PreData.getDB(this, Contents.TONGZHILAN_SWITCH, true)) {
+            Intent intent = new Intent(this, NotifactionService.class);
+            intent.setAction("notification");
+            startService(intent);
+        }
         if (PreData.getDB(this, Contents.FlOAT_SWITCH, true)) {
             Intent intent1 = new Intent(this, FloatService.class);
             startService(intent1);
@@ -291,6 +297,7 @@ public class MyApplication extends Application {
         appJunk = new ArrayList<>();
         appCache = new ArrayList<>();
         appRam = new ArrayList<>();
+        white_ram = new ArrayList<>();
         listMng = new ArrayList<>();
     }
 
@@ -301,6 +308,7 @@ public class MyApplication extends Application {
         appJunk.clear();
         appCache.clear();
         appRam.clear();
+        white_ram.clear();
         listMng.clear();
     }
 
@@ -324,6 +332,11 @@ public class MyApplication extends Application {
 
             @Override
             public void loading(JunkInfo JunkInfo, long size) {
+
+            }
+
+            @Override
+            public void loadingW(JunkInfo fileInfo) {
 
             }
 
@@ -352,7 +365,13 @@ public class MyApplication extends Application {
 
             @Override
             public void loading(JunkInfo JunkInfo, long size) {
+                ramSize += size;
+                appRam.add(JunkInfo);
+            }
 
+            @Override
+            public void loadingW(JunkInfo fileInfo) {
+                white_ram.add(fileInfo);
             }
 
             @Override
@@ -362,8 +381,6 @@ public class MyApplication extends Application {
 
             @Override
             public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
-                ramSize = dataSize;
-                appRam = dataList;
                 count++;
                 saoMiaoOver();
             }
@@ -380,6 +397,11 @@ public class MyApplication extends Application {
 
             @Override
             public void loading(JunkInfo JunkInfo, long size) {
+
+            }
+
+            @Override
+            public void loadingW(JunkInfo fileInfo) {
 
             }
 
@@ -434,6 +456,11 @@ public class MyApplication extends Application {
             }
 
             @Override
+            public void loadingW(JunkInfo fileInfo) {
+
+            }
+
+            @Override
             public void cancelLoading() {
 
             }
@@ -457,6 +484,11 @@ public class MyApplication extends Application {
 
             @Override
             public void loading(JunkInfo JunkInfo, long size) {
+
+            }
+
+            @Override
+            public void loadingW(JunkInfo fileInfo) {
 
             }
 

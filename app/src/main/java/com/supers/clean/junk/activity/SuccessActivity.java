@@ -99,7 +99,7 @@ public class SuccessActivity extends BaseActivity {
         title_name.setText(R.string.success_title);
         long size = getIntent().getLongExtra("size", 0);
         if (size > 0) {
-            success_clean_size.setText(CommonUtil.getFileSize2(size) + " " + getText(R.string.success_cleaned));
+            success_clean_size.setText(CommonUtil.getFileSize4(size) + " " + getText(R.string.success_cleaned));
         } else {
             success_clean_size.setText(getText(R.string.success_normal));
         }
@@ -114,7 +114,11 @@ public class SuccessActivity extends BaseActivity {
         if (PreData.getDB(this, Contents.IS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
-        addAd();
+        if (PreData.getDB(this, Contents.FULL_SUCCESS, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        } else {
+            addAd();
+        }
         addListener();
         TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
         translate.setInterpolator(new AccelerateInterpolator());//OvershootInterpolator

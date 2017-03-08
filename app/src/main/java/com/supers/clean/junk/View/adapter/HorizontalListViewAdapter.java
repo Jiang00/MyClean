@@ -58,6 +58,10 @@ public class HorizontalListViewAdapter extends BaseAdapter {
         list.addAll(ls);
     }
 
+    public void addDataListLocation(int location, List<JunkInfo> ls) {
+        list.addAll(location, ls);
+    }
+
     public void clear() {
         list.clear();
     }
@@ -92,15 +96,20 @@ public class HorizontalListViewAdapter extends BaseAdapter {
         holder.mTitle.setText(info.name);
         iconBitmap = getPropThumnail(info.icon);
         holder.mImage.setImageBitmap(iconBitmap);
-        holder.delete_app.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                list.remove(position);
-                am.killBackgroundProcesses(info.packageName);
-                notifyDataSetChanged();
-                Log.e("aaa", "delete_app======");
-            }
-        });
+        if (info.isChecked) {
+            holder.delete_app.setImageResource(R.mipmap.qing);
+            holder.delete_app.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    list.remove(position);
+                    am.killBackgroundProcesses(info.packageName);
+                    notifyDataSetChanged();
+                    Log.e("aaa", "delete_app======");
+                }
+            });
+        } else {
+            holder.delete_app.setImageResource(R.mipmap.float_white);
+        }
         return convertView;
     }
 

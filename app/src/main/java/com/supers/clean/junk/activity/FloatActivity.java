@@ -50,7 +50,7 @@ public class FloatActivity extends BaseActivity {
 
     private HorizontalListViewAdapter adapter;
     private MyApplication cleanApplication;
-    private ArrayList<JunkInfo> listFloat;
+    private ArrayList<JunkInfo> listFloat, listFloat_white;
     private Handler myHandler;
     private String TAG_DIALOG = "junk_float";
     private Animation rotate, suo, fang;
@@ -95,12 +95,15 @@ public class FloatActivity extends BaseActivity {
 
     private void initList() {
         listFloat = new ArrayList<>();
+        listFloat_white = new ArrayList<>();
         listFloat = cleanApplication.getAppRam();
+        listFloat_white = cleanApplication.getWhiteRam();
         adapter = new HorizontalListViewAdapter(this);
         if (listFloat.size() == 0) {
             RamTask ramTask = new RamTask(this, new SimpleTask.SimpleTaskListener() {
                 @Override
                 public void startLoad() {
+
                 }
 
                 @Override
@@ -116,12 +119,23 @@ public class FloatActivity extends BaseActivity {
                 }
 
                 @Override
+                public void loadingW(JunkInfo fileInfo) {
+                    listFloat_white.add(fileInfo);
+                }
+
+                @Override
                 public void cancelLoading() {
                 }
 
                 @Override
                 public void finishLoading(final long dataSize, final ArrayList<JunkInfo> dataList) {
-
+                    myHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.addDataListLocation(0, listFloat_white);
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
                 }
             });
 
@@ -129,6 +143,7 @@ public class FloatActivity extends BaseActivity {
 
         } else {
             adapter.addDataList(listFloat);
+            adapter.addDataListLocation(0, listFloat_white);
             adapter.notifyDataSetChanged();
 //            waterView.setOnClickListener(WaterViewOnclick);
         }
@@ -243,7 +258,7 @@ public class FloatActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                int a = adapter.getCount();
+                int a = adapter.getCount() - listFloat_white.size();
                 int time = 100;
                 for (int i = 0; i < a; i++) {
                     try {
@@ -256,8 +271,8 @@ public class FloatActivity extends BaseActivity {
                     }
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            if (adapter.getData().size() != 0) {
-                                adapter.removeData(0);
+                            if (adapter.getData().size() > listFloat_white.size()) {
+                                adapter.removeData(listFloat_white.size());
                                 adapter.notifyDataSetChanged();
                             }
                         }

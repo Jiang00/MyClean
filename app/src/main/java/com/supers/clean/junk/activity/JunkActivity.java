@@ -17,11 +17,14 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.JunkView;
 import com.supers.clean.junk.View.adapter.JunkAdapter;
 import com.supers.clean.junk.View.adapter.JunkRamAdapter;
 import com.supers.clean.junk.modle.CommonUtil;
+import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.myView.ListViewForScrollView;
 import com.supers.clean.junk.myView.MyScrollView;
@@ -102,11 +105,14 @@ public class JunkActivity extends BaseActivity implements JunkView {
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);
         junkPresenter.init();
+
     }
 
     @Override
     public void loadFullAd() {
-
+        if (PreData.getDB(this, Contents.FULL_JUNK, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        }
     }
 
     @Override
@@ -395,6 +401,12 @@ public class JunkActivity extends BaseActivity implements JunkView {
 
         }
     };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

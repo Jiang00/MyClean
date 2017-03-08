@@ -50,6 +50,8 @@ public abstract class SimpleTask extends Thread {
 
         void loading(JunkInfo fileInfo, long size);
 
+        void loadingW(JunkInfo fileInfo);
+
         void cancelLoading();
 
         void finishLoading(long dataSize, ArrayList<JunkInfo> dataList);

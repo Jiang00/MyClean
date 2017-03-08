@@ -99,18 +99,18 @@ public class DrawHookView extends View {
         }
         if (line1_x < radius / 3) {
             line1_x += 3;
-            line1_y += 2;
+            line1_y += 3;
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
         } else if (line1_x == radius / 3) {
             line2_x = line1_x;
             line2_y = line1_y;
-            line1_x += 2;
+            line1_x += 3;
             line1_y += 3;
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
         } else if (line1_x >= radius / 3 && line2_x <= radius * 4 / 5) {
-            line2_x += 2;
+            line2_x += 3;
             line2_y -= 3;
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);

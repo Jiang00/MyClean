@@ -53,7 +53,7 @@ public class AppCacheTask extends SimpleTask {
                 try {
                     drawable = packageInfo.applicationInfo.loadIcon(pm);
                 } catch (Exception e) {
-                    drawable = mContext.getResources().getDrawable(R.mipmap.ic_launcher);
+                    drawable = mContext.getResources().getDrawable(R.mipmap.icon);
                 }
                 final String label = (String) packageInfo.applicationInfo.loadLabel(pm);
                 JunkInfo info = new JunkInfo(drawable, path, label, packageName, true, size);
