@@ -1,7 +1,7 @@
 package com.supers.clean.junk;
 
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
+import android.support.tes.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;

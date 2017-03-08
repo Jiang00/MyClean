@@ -214,16 +214,16 @@ public class PullToRefreshLayout extends RelativeLayout {
                 // 刷新成功
                 refreshStateImageView.setVisibility(View.VISIBLE);
 //                refreshStateTextView.setText("刷新成功");
-                refreshStateImageView
-                        .setBackgroundResource(R.drawable.shape_31cb39);
+//                refreshStateImageView
+//                        .setBackgroundResource(R.drawable.shape_31cb39);
                 break;
             case FAIL:
             default:
                 // 刷新失败
                 refreshStateImageView.setVisibility(View.VISIBLE);
 //                refreshStateTextView.setText("刷新失败");
-                refreshStateImageView
-                        .setBackgroundResource(R.drawable.shape_2a97fe);
+//                refreshStateImageView
+//                        .setBackgroundResource(R.drawable.shape_2a97fe);
                 break;
         }
         if (pullDownY > 0) {
@@ -234,7 +234,7 @@ public class PullToRefreshLayout extends RelativeLayout {
                     changeState(DONE);
                     hide();
                 }
-            }.sendEmptyMessageDelayed(0, 1000);
+            }.sendEmptyMessageDelayed(0, 500);
         } else {
             changeState(DONE);
             hide();
@@ -254,14 +254,14 @@ public class PullToRefreshLayout extends RelativeLayout {
                 // 加载成功
                 loadStateImageView.setVisibility(View.VISIBLE);
 //                loadStateTextView.setText("加载成功");
-                loadStateImageView.setBackgroundResource(R.drawable.shape_2a97fe);
+//                loadStateImageView.setBackgroundResource(R.drawable.shape_2a97fe);
                 break;
             case FAIL:
             default:
                 // 加载失败
                 loadStateImageView.setVisibility(View.VISIBLE);
 //                loadStateTextView.setText("加载失败");
-                loadStateImageView.setBackgroundResource(R.drawable.shape_2a97fe);
+//                loadStateImageView.setBackgroundResource(R.drawable.shape_2a97fe);
                 break;
         }
         if (pullUpY < 0) {
@@ -272,7 +272,7 @@ public class PullToRefreshLayout extends RelativeLayout {
                     changeState(DONE);
                     hide();
                 }
-            }.sendEmptyMessageDelayed(0, 1000);
+            }.sendEmptyMessageDelayed(0, 500);
         } else {
             changeState(DONE);
             hide();

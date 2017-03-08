@@ -6,70 +6,231 @@
     android:background="#d6000000"
     android:orientation="vertical">
 
-    <LinearLayout
+    <View
+        android:id="@+id/view_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:background="@mipmap/float_dialog_beijing" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true">
+                android:layout_width="match_parent"
+                android:layout_height="187dp">
 
                 <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="147dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@mipmap/float_dialog_beijing" />
+
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:src="@mipmap/float_dialog_1" />
+                    android:layout_centerHorizontal="true">
 
-                <ImageView
-                    android:id="@+id/float_cricle"
-                    android:layout_width="wrap_content"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/float_dialog_1" />
+
+                    <ImageView
+                        android:id="@+id/float_cricle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/float_dialog_2" />
+
+                    <ImageView
+                        android:id="@+id/float_rotate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/float_dialog_3" />
+
+                    <TextView
+                        android:id="@+id/float_memory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:text="77%"
+                        android:textColor="@color/white_100"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/float_tishi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/float_memory"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/float_jiasu"
+                        android:textColor="@color/white_100"
+                        android:textSize="11sp" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:src="@mipmap/float_dialog_2" />
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="19dp">
 
-                <ImageView
-                    android:id="@+id/float_rotate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:src="@mipmap/float_dialog_3" />
+                    <LinearLayout
+                        android:id="@+id/ll_wifi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/float_memory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="24dp"
-                    android:text="77%"
-                    android:textColor="@color/white_100"
-                    android:textSize="30sp" />
+                        <ImageView
+                            android:id="@+id/iv_wifi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/float_dialog_4"
+                            android:src="@mipmap/float_wifi" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/float_memory"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/float_jiasu"
-                    android:textColor="@color/white_100"
-                    android:textSize="11sp" />
+                        <TextView
+                            android:id="@+id/tv_wifi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lines="1"
+                            android:text="@string/float_wifi"
+                            android:textColor="@color/white_100"
+                            android:textSize="13sp" />
+                    </LinearLayout>
 
+                    <LinearLayout
+                        android:id="@+id/ll_liuliang"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_liuliang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/float_dialog_4"
+                            android:src="@mipmap/float_liuliang" />
+
+                        <TextView
+                            android:id="@+id/tv_liuliang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lines="1"
+                            android:text="@string/float_liuliang"
+                            android:textColor="@color/white_100"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_xianshi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_xianshi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/float_dialog_4"
+                            android:src="@mipmap/float_liangdu_0" />
+
+                        <TextView
+                            android:id="@+id/tv_xianshi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lines="1"
+                            android:text="@string/float_liangdu"
+                            android:textColor="@color/white_100"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_shengyin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_shengyin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/float_dialog_4"
+                            android:src="@mipmap/float_shengyin" />
+
+                        <TextView
+                            android:id="@+id/tv_shengyin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lines="1"
+                            android:text="@string/float_shengyin"
+                            android:textColor="@color/white_100"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_gps"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_gps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/float_dialog_4"
+                            android:src="@mipmap/float_gps" />
+
+                        <TextView
+                            android:id="@+id/tv_gps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lines="1"
+                            android:text="@string/float_gps"
+                            android:textColor="@color/white_100"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
             </RelativeLayout>
 
+            <LinearLayout
+                android:id="@+id/ll_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
-        </RelativeLayout>
-    </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -86,7 +247,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/horizontal_listview"
-            android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="@string/float_h_1"
             android:textColor="#ffffff"

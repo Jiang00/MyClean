@@ -118,5 +118,4 @@ public class JunkInfo implements Serializable {
         this.isWhiteList = isWhiteList;
     }
 
-
 }

@@ -69,6 +69,4 @@ public class RamTask extends SimpleTask {
             e.printStackTrace();
         }
     }
-
-
 }

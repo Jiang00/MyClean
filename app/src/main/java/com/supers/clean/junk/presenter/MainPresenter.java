@@ -49,13 +49,13 @@ public class MainPresenter extends BasePresenter<MainView> {
         iView.initSideData();
         reStart();
 
-        TranslateAnimation translate = new TranslateAnimation(0, 0, 5, 2);
+        TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
         translate.setInterpolator(new AccelerateInterpolator());//OvershootInterpolator
-        translate.setDuration(100);
+        translate.setDuration(300);
         translate.setRepeatCount(-1);
         translate.setRepeatMode(Animation.REVERSE);
         iView.loadAirAnimator(translate);
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, 229, 229);
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, CommonUtil.dp2px(115), CommonUtil.dp2px(115));
         rotateAnimation.setDuration(2000);
         rotateAnimation.setRepeatCount(-1);
         iView.initGuard(MemoryManager.getInstallNum(context), rotateAnimation);

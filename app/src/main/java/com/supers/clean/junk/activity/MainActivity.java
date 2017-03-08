@@ -27,6 +27,8 @@ import com.supers.clean.junk.View.IView;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
 import com.supers.clean.junk.modle.CommonUtil;
+import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.myView.CustomRoundCpu;
 import com.supers.clean.junk.myView.MainFrameLayout;
@@ -216,7 +218,7 @@ public class MainActivity extends BaseActivity implements MainView {
         }
         adapter.clear();
         adapter.addData(new JunkInfo(R.string.side_charging, R.mipmap.side_charging, true));//充电屏保
-        adapter.addData(new JunkInfo(R.string.side_float, R.mipmap.side_float, true));//桌面悬浮球
+        adapter.addData(new JunkInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Contents.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new JunkInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new JunkInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new JunkInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
@@ -408,7 +410,7 @@ public class MainActivity extends BaseActivity implements MainView {
                 public void run() {
                     main_pull_refresh.loadmoreFinish(PullToRefreshLayout.SUCCEED);
                 }
-            }, 1000);
+            }, 500);
         }
     };
 

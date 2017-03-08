@@ -1,6 +1,8 @@
 package com.supers.clean.junk.View.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -11,6 +13,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.activity.FloatService;
+import com.supers.clean.junk.activity.JunkActivity;
+import com.supers.clean.junk.activity.ManagerActivity;
+import com.supers.clean.junk.activity.RamAvtivity;
+import com.supers.clean.junk.activity.SettingActivity;
+import com.supers.clean.junk.activity.ThemeActivity;
+import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.UtilGp;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 
 
@@ -82,7 +93,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-        if (position == 1 || position == 4) {
+        if (position == 2 || position == 5) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);
@@ -96,18 +107,38 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
 
                 break;
             case 1:
+                if (PreData.getDB(context, Contents.FlOAT_SWITCH, true)) {
+                    PreData.putDB(context, Contents.FlOAT_SWITCH, false);
+                    Intent intent1 = new Intent(context, FloatService.class);
+                    context.stopService(intent1);
+                } else {
+                    PreData.putDB(context, Contents.FlOAT_SWITCH, true);
+                    Intent intent1 = new Intent(context, FloatService.class);
+                    context.startService(intent1);
+                }
                 break;
             case 2:
+                Intent intent2 = new Intent(context, JunkActivity.class);
+                ((Activity) context).startActivityForResult(intent2, 1);
                 break;
             case 3:
+                Intent intent3 = new Intent(context, RamAvtivity.class);
+                ((Activity) context).startActivityForResult(intent3, 1);
                 break;
             case 4:
+                Intent intent4 = new Intent(context, ManagerActivity.class);
+                ((Activity) context).startActivityForResult(intent4, 1);
                 break;
             case 5:
+                Intent intent5 = new Intent(context, ThemeActivity.class);
+                ((Activity) context).startActivityForResult(intent5, 1);
                 break;
             case 6:
+                Intent intent6 = new Intent(context, SettingActivity.class);
+                ((Activity) context).startActivityForResult(intent6, 1);
                 break;
             case 7:
+                UtilGp.openPlayStore(context, context.getPackageName());
                 break;
         }
     }

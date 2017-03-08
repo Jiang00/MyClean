@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wangqi on 16/4/13.
+ *
  */
 public class UtilGp {
 

@@ -13,8 +13,10 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CameraUtils;
 import com.supers.clean.junk.modle.CommonUtil;
@@ -32,7 +34,10 @@ public class MessageActivity extends BaseActivity {
     TextView title_name;
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
+    LinearLayout ll_ad;
+    private View nativeView;
     private TelephonyManager telManager;
+    private String TAG_MESSAGE = "junk_message";
 
     @Override
     protected void findId() {
@@ -50,6 +55,7 @@ public class MessageActivity extends BaseActivity {
         message_imei = (TextView) findViewById(R.id.message_imei);
         message_ram = (TextView) findViewById(R.id.message_ram);
         message_sd = (TextView) findViewById(R.id.message_sd);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -116,6 +122,22 @@ public class MessageActivity extends BaseActivity {
         message_ram.setText(CommonUtil.getFileSize1(ram_all));
         long sd_all = MemoryManager.getPhoneAllSize();
         message_sd.setText(CommonUtil.getFileSize1(sd_all));
+    }
+
+    private void addAd() {
+        if (AndroidSdk.hasNativeAd(TAG_MESSAGE, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+            if (nativeView != null)
+                AndroidSdk.destroyNativeAdView(TAG_MESSAGE, nativeView);
+            nativeView = AndroidSdk.peekNativeAdViewWithLayout(TAG_MESSAGE, AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.native_ad, null);
+
+            if (nativeView != null && ll_ad != null) {
+                ll_ad.addView(nativeView);
+            } else {
+                ll_ad.setVisibility(View.GONE);
+            }
+        } else {
+            ll_ad.setVisibility(View.GONE);
+        }
     }
 
     private boolean isW() {

@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,6 +40,7 @@ import com.supers.clean.junk.myView.SlowScrollView;
 public class SuccessActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
+    ImageView success_jiantou;
     TextView success_clean_size;
     DrawHookView success_drawhook;
     ImageView success_huojian;
@@ -69,6 +72,7 @@ public class SuccessActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
+        success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
         success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
@@ -112,6 +116,12 @@ public class SuccessActivity extends BaseActivity {
         }
         addAd();
         addListener();
+        TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
+        translate.setInterpolator(new AccelerateInterpolator());//OvershootInterpolator
+        translate.setDuration(400);
+        translate.setRepeatCount(-1);
+        translate.setRepeatMode(Animation.REVERSE);
+        success_jiantou.startAnimation(translate);
     }
 
     private void initAnimation() {
