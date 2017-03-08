@@ -67,6 +67,8 @@ android.support.v4.BuildConfig: java.lang.String FLAVOR
 android.support.v4.BuildConfig: int VERSION_CODE
 android.support.v4.BuildConfig: java.lang.String VERSION_NAME
 android.support.v4.BuildConfig: BuildConfig()
+android.support.v4.R
+android.support.v4.R: R()
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat: android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat$AccessibilityServiceInfoVersionImpl IMPL
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat: int CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT
@@ -18500,6 +18502,655 @@ android.support.v7.widget.ViewUtils: int combineMeasuredStates(int,int)
 android.support.v7.widget.ViewUtils: void computeFitSystemWindows(android.view.View,android.graphics.Rect,android.graphics.Rect)
 android.support.v7.widget.ViewUtils: void makeOptionalFitsSystemWindows(android.view.View)
 android.support.v7.widget.ViewUtils: void <clinit>()
+com.android.async.AsyncExecutor
+com.android.async.AsyncExecutor: AsyncExecutor(int)
+com.android.async.AsyncExecutor: void execute(java.lang.Runnable)
+com.android.async.AsyncExecutor: boolean remove(java.lang.Runnable)
+com.android.async.QueuedExecutor
+com.android.async.QueuedExecutor: QueuedExecutor()
+com.android.async.QueuedExecutor: boolean enqueue(java.lang.Object)
+com.android.async.QueuedExecutor: boolean remove(java.lang.Object)
+com.android.async.QueuedExecutor: void clear()
+com.android.async.QueuedExecutor: int size()
+com.android.async.QueuedExecutor: void onNext(java.lang.Object)
+com.android.async.QueuedExecutor: boolean onDone()
+com.android.async.QueuedExecutor: void finish()
+com.android.async.QueuedExecutor: void start()
+com.android.async.QueuedExecutor: void run()
+com.android.client.AdListener
+com.android.client.AdListener: void onReceiveReward(boolean,int)
+com.android.client.AdListener: void onFullAdClosed()
+com.android.client.AdListener: void onFullAdClicked()
+com.android.client.AdListener: void onVideoAdClosed()
+com.android.client.AdListener: void onBannerAdClicked()
+com.android.client.AdListener: void onCrossAdClicked()
+com.android.client.AndroidSdk
+com.android.client.AndroidSdk: AndroidSdk()
+com.android.client.AndroidSdk: void onCreate(android.app.Activity,com.android.client.AndroidSdk$Builder)
+com.android.client.AndroidSdk: void onCreate(android.app.Activity)
+com.android.client.AndroidSdk: boolean valid()
+com.android.client.AndroidSdk: void onCreate(android.content.Context)
+com.android.client.AndroidSdk: void onStart()
+com.android.client.AndroidSdk: void onStop()
+com.android.client.AndroidSdk: void onPause()
+com.android.client.AndroidSdk: void onResume(android.app.Activity)
+com.android.client.AndroidSdk: void onResumeWithoutTransition(android.app.Activity)
+com.android.client.AndroidSdk: void onDestroy()
+com.android.client.AndroidSdk: void onActivityResult(int,int,android.content.Intent)
+com.android.client.AndroidSdk: boolean isNetworkConnected()
+com.android.client.AndroidSdk: void showBanner(int)
+com.android.client.AndroidSdk: void showBanner(java.lang.String,int)
+com.android.client.AndroidSdk: void closeBanner()
+com.android.client.AndroidSdk: void _showBanner(java.lang.String,int)
+com.android.client.AndroidSdk: void moreGame()
+com.android.client.AndroidSdk: void showFullAd(java.lang.String)
+com.android.client.AndroidSdk: void _showInterstitialDlg(java.lang.String)
+com.android.client.AndroidSdk: void showRewardAd(java.lang.String,int)
+com.android.client.AndroidSdk: void pauseActivity()
+com.android.client.AndroidSdk: void resumeActivity()
+com.android.client.AndroidSdk: void showRewardAd(int)
+com.android.client.AndroidSdk: boolean hasRewardAd()
+com.android.client.AndroidSdk: boolean hasRewardAd(java.lang.String)
+com.android.client.AndroidSdk: boolean hasNativeAd(java.lang.String,int)
+com.android.client.AndroidSdk: int getDefaultNativeLayoutId(boolean)
+com.android.client.AndroidSdk: android.view.View peekNativeAdView(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdClickListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdViewWithLayout(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdScrollView(java.lang.String,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener)
+com.android.client.AndroidSdk: android.view.View peekNativeAdScrollViewWithLayout(java.lang.String,int,int,int,int,com.android.client.ClientNativeAd$NativeAdClickListener,com.android.client.ClientNativeAd$NativeAdScrollListener)
+com.android.client.AndroidSdk: void showNativeAdScrollView(java.lang.String,int,int)
+com.android.client.AndroidSdk: void loadNativeAd(java.lang.String,int,com.android.client.ClientNativeAd$NativeAdLoadListener)
+com.android.client.AndroidSdk: void reLoadNativeAd(java.lang.String,android.view.View,com.android.client.ClientNativeAd$NativeAdLoadListener)
+com.android.client.AndroidSdk: void hideNativeAdScrollView(java.lang.String)
+com.android.client.AndroidSdk: void destroyNativeAdView(java.lang.String,android.view.View)
+com.android.client.AndroidSdk: void track(java.lang.String,java.lang.String,java.lang.String,int)
+com.android.client.AndroidSdk: void track(java.lang.String,java.lang.String)
+com.android.client.AndroidSdk: void track(java.lang.String)
+com.android.client.AndroidSdk: void pay(int)
+com.android.client.AndroidSdk: void query(int)
+com.android.client.AndroidSdk: void share()
+com.android.client.AndroidSdk: void rateUs()
+com.android.client.AndroidSdk: void toast(java.lang.String)
+com.android.client.AndroidSdk: java.lang.String getExtraData()
+com.android.client.AndroidSdk: void onQuit()
+com.android.client.AndroidSdk: void login()
+com.android.client.AndroidSdk: void logout()
+com.android.client.AndroidSdk: boolean isLogin()
+com.android.client.AndroidSdk: void invite()
+com.android.client.AndroidSdk: void challenge(java.lang.String,java.lang.String)
+com.android.client.AndroidSdk: java.lang.String me()
+com.android.client.AndroidSdk: java.lang.String friends()
+com.android.client.AndroidSdk: void like()
+com.android.client.AndroidSdk: void showNativeBanner(java.lang.String,int,int)
+com.android.client.AndroidSdk: void hideNativeBanner(java.lang.String)
+com.android.client.AndroidSdk: java.lang.String cacheUrl(java.lang.String)
+com.android.client.AndroidSdk: void cacheUrl(int,java.lang.String)
+com.android.client.AndroidSdk: java.lang.String getConfig(int)
+com.android.client.AndroidSdk: java.lang.String getConfig(java.lang.String,int)
+com.android.client.AndroidSdk: void alert(java.lang.String,java.lang.String)
+com.android.client.AndroidSdk: void onKill(android.app.Activity)
+com.android.client.AndroidSdk: void UM_setPlayerLevel(int)
+com.android.client.AndroidSdk: void UM_onEvent(java.lang.String)
+com.android.client.AndroidSdk: void UM_onEvent(java.lang.String,java.lang.String)
+com.android.client.AndroidSdk: void UM_onEvent(java.lang.String,java.util.Map)
+com.android.client.AndroidSdk: void UM_onEventValue(java.lang.String,java.util.Map,int)
+com.android.client.AndroidSdk: void UM_onPageStart(java.lang.String)
+com.android.client.AndroidSdk: void UM_onPageEnd(java.lang.String)
+com.android.client.AndroidSdk: void UM_startLevel(java.lang.String)
+com.android.client.AndroidSdk: void UM_failLevel(java.lang.String)
+com.android.client.AndroidSdk: void UM_finishLevel(java.lang.String)
+com.android.client.AndroidSdk: void UM_pay(double,java.lang.String,int,double)
+com.android.client.AndroidSdk: void UM_buy(java.lang.String,int,double)
+com.android.client.AndroidSdk: void UM_use(java.lang.String,int,double)
+com.android.client.AndroidSdk: void UM_bonus(java.lang.String,int,double,int)
+com.android.client.AndroidSdk: void access$000(java.lang.String,int)
+com.android.client.AndroidSdk: void access$100(java.lang.String)
+com.android.client.AndroidSdk: void access$200()
+com.android.client.AndroidSdk: void access$300()
+com.android.client.AndroidSdk: boolean access$400()
+com.android.client.AndroidSdk$1
+com.android.client.AndroidSdk$1: AndroidSdk$1(int)
+com.android.client.AndroidSdk$1: void run()
+com.android.client.AndroidSdk$10
+com.android.client.AndroidSdk$10: AndroidSdk$10(java.lang.String,int)
+com.android.client.AndroidSdk$10: void run()
+com.android.client.AndroidSdk$11
+com.android.client.AndroidSdk$11: AndroidSdk$11(java.lang.String)
+com.android.client.AndroidSdk$11: void run()
+com.android.client.AndroidSdk$12
+com.android.client.AndroidSdk$12: AndroidSdk$12(int)
+com.android.client.AndroidSdk$12: void run()
+com.android.client.AndroidSdk$12$1
+com.android.client.AndroidSdk$12$1: AndroidSdk$12$1(com.android.client.AndroidSdk$12)
+com.android.client.AndroidSdk$12$1: void onClick(android.content.DialogInterface,int)
+com.android.client.AndroidSdk$12$2
+com.android.client.AndroidSdk$12$2: AndroidSdk$12$2(com.android.client.AndroidSdk$12)
+com.android.client.AndroidSdk$12$2: void onClick(android.content.DialogInterface,int)
+com.android.client.AndroidSdk$12$3
+com.android.client.AndroidSdk$12$3: AndroidSdk$12$3(com.android.client.AndroidSdk$12)
+com.android.client.AndroidSdk$12$3: void onClick(android.content.DialogInterface,int)
+com.android.client.AndroidSdk$13
+com.android.client.AndroidSdk$13: AndroidSdk$13(java.lang.String)
+com.android.client.AndroidSdk$13: void run()
+com.android.client.AndroidSdk$14
+com.android.client.AndroidSdk$14: AndroidSdk$14()
+com.android.client.AndroidSdk$14: void run()
+com.android.client.AndroidSdk$14$1
+com.android.client.AndroidSdk$14$1: AndroidSdk$14$1(com.android.client.AndroidSdk$14)
+com.android.client.AndroidSdk$14$1: void onClick(android.content.DialogInterface,int)
+com.android.client.AndroidSdk$14$2
+com.android.client.AndroidSdk$14$2: AndroidSdk$14$2(com.android.client.AndroidSdk$14)
+com.android.client.AndroidSdk$14$2: void onClick(android.content.DialogInterface,int)
+com.android.client.AndroidSdk$15
+com.android.client.AndroidSdk$15: AndroidSdk$15()
+com.android.client.AndroidSdk$15: void onSuccess(int,java.lang.String)
+com.android.client.AndroidSdk$15: void onFailure(int)
+com.android.client.AndroidSdk$16
+com.android.client.AndroidSdk$16: AndroidSdk$16(java.lang.String,java.lang.String)
+com.android.client.AndroidSdk$16: void run()
+com.android.client.AndroidSdk$2
+com.android.client.AndroidSdk$2: AndroidSdk$2(java.lang.String,int)
+com.android.client.AndroidSdk$2: void run()
+com.android.client.AndroidSdk$3
+com.android.client.AndroidSdk$3: AndroidSdk$3()
+com.android.client.AndroidSdk$3: void run()
+com.android.client.AndroidSdk$4
+com.android.client.AndroidSdk$4: AndroidSdk$4()
+com.android.client.AndroidSdk$4: void onClick(android.view.View)
+com.android.client.AndroidSdk$5
+com.android.client.AndroidSdk$5: AndroidSdk$5(java.lang.String)
+com.android.client.AndroidSdk$5: void run()
+com.android.client.AndroidSdk$6
+com.android.client.AndroidSdk$6: AndroidSdk$6()
+com.android.client.AndroidSdk$6: void onClick(android.view.View)
+com.android.client.AndroidSdk$7
+com.android.client.AndroidSdk$7: AndroidSdk$7(android.app.Dialog)
+com.android.client.AndroidSdk$7: void onClick(android.view.View)
+com.android.client.AndroidSdk$8
+com.android.client.AndroidSdk$8: AndroidSdk$8()
+com.android.client.AndroidSdk$8: void onCancel(android.content.DialogInterface)
+com.android.client.AndroidSdk$9
+com.android.client.AndroidSdk$9: AndroidSdk$9(java.lang.String,int)
+com.android.client.AndroidSdk$9: void run()
+com.android.client.AndroidSdk$9$1
+com.android.client.AndroidSdk$9$1: AndroidSdk$9$1(com.android.client.AndroidSdk$9,android.app.AlertDialog)
+com.android.client.AndroidSdk$9$1: void onClick(android.view.View)
+com.android.client.AndroidSdk$9$2
+com.android.client.AndroidSdk$9$2: AndroidSdk$9$2(com.android.client.AndroidSdk$9)
+com.android.client.AndroidSdk$9$2: void onCancel(android.content.DialogInterface)
+com.android.client.AndroidSdk$Builder
+com.android.client.AndroidSdk$Builder: AndroidSdk$Builder()
+com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setRewardAdListener(com.android.client.AdListener)
+com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setPaymentResultListener(com.android.client.PaymentResultListener)
+com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setUserCenterListener(com.android.client.UserCenterListener)
+com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setUrlListener(com.android.client.UrlListener)
+com.android.client.AndroidSdk$Builder: com.android.client.AndroidSdk$Builder setSdkResultListener(com.android.client.SdkResultListener)
+com.android.client.BuildConfig
+com.android.client.BuildConfig: BuildConfig()
+com.android.client.ClientNativeAd
+com.android.client.ClientNativeAd: ClientNativeAd()
+com.android.client.ClientNativeAd: java.lang.String getTrackTag()
+com.android.client.ClientNativeAd: java.lang.String getId()
+com.android.client.ClientNativeAd$NativeAdClickListener
+com.android.client.ClientNativeAd$NativeAdClickListener: void onNativeAdClicked(com.android.client.ClientNativeAd)
+com.android.client.ClientNativeAd$NativeAdLoadListener
+com.android.client.ClientNativeAd$NativeAdLoadListener: void onNativeAdLoadSuccess(android.view.View)
+com.android.client.ClientNativeAd$NativeAdLoadListener: void onNativeAdLoadFails()
+com.android.client.ClientNativeAd$NativeAdScrollListener
+com.android.client.ClientNativeAd$NativeAdScrollListener: void onNativeAdScrolled(float)
+com.android.client.Cocos
+com.android.client.Cocos: Cocos()
+com.android.client.Cocos: void rr(boolean,int)
+com.android.client.Cocos: void pr(int,int)
+com.android.client.Cocos: void pv()
+com.android.client.Cocos: void sns(int,boolean,int)
+com.android.client.Cocos: void sr(int,boolean,java.lang.String)
+com.android.client.Cocos: void url(int,boolean,java.lang.String)
+com.android.client.Cocos: void lb(boolean,boolean,java.lang.String,java.lang.String)
+com.android.client.Cocos: void onCreate(android.app.Activity)
+com.android.client.Cocos: void onStart()
+com.android.client.Cocos: void onStop()
+com.android.client.Cocos: void onPause()
+com.android.client.Cocos: void onResume(android.app.Activity)
+com.android.client.Cocos: void onDestroy()
+com.android.client.Cocos: void onActivityResult(int,int,android.content.Intent)
+com.android.client.Cocos: void showBanner(int)
+com.android.client.Cocos: void showBanner(java.lang.String,int)
+com.android.client.Cocos: void closeBanner()
+com.android.client.Cocos: void showFullAd(java.lang.String)
+com.android.client.Cocos: void showRewardAd(int)
+com.android.client.Cocos: boolean hasRewardAd()
+com.android.client.Cocos: void showRewardAd(java.lang.String,int)
+com.android.client.Cocos: boolean hasRewardAd(java.lang.String)
+com.android.client.Cocos: void pay(int)
+com.android.client.Cocos: void query(int)
+com.android.client.Cocos: void share()
+com.android.client.Cocos: void rate()
+com.android.client.Cocos: void moreGame()
+com.android.client.Cocos: void trackEvent(java.lang.String,java.lang.String,java.lang.String,int)
+com.android.client.Cocos: void track(java.lang.String,java.lang.String)
+com.android.client.Cocos: void track(java.lang.String)
+com.android.client.Cocos: void showNative(java.lang.String,int)
+com.android.client.Cocos: void hideNative(java.lang.String)
+com.android.client.Cocos: boolean hasNative(java.lang.String)
+com.android.client.Cocos: java.lang.String getExtraData()
+com.android.client.Cocos: void onQuit()
+com.android.client.Cocos: void login()
+com.android.client.Cocos: void logout()
+com.android.client.Cocos: boolean isLogin()
+com.android.client.Cocos: void invite()
+com.android.client.Cocos: void challenge(java.lang.String,java.lang.String)
+com.android.client.Cocos: java.lang.String me()
+com.android.client.Cocos: java.lang.String friends()
+com.android.client.Cocos: void like()
+com.android.client.Cocos: boolean isNetworkConnected()
+com.android.client.Cocos: java.lang.String cacheUrl(java.lang.String)
+com.android.client.Cocos: void cacheUrl(int,java.lang.String)
+com.android.client.Cocos: java.lang.String getConfig(int)
+com.android.client.Cocos: java.lang.String getConfig(java.lang.String,int)
+com.android.client.Cocos: void alert(java.lang.String,java.lang.String)
+com.android.client.Cocos: boolean hasApp(java.lang.String)
+com.android.client.Cocos: void launchApp(java.lang.String)
+com.android.client.Cocos: void getApp(java.lang.String)
+com.android.client.Cocos: void UM_setPlayerLevel(int)
+com.android.client.Cocos: void UM_onEvent(java.lang.String)
+com.android.client.Cocos: void UM_onEvent(java.lang.String,java.lang.String)
+com.android.client.Cocos: void UM_onEvent(java.lang.String,java.util.Map)
+com.android.client.Cocos: void UM_onEventValue(java.lang.String,java.util.Map,int)
+com.android.client.Cocos: void UM_onPageStart(java.lang.String)
+com.android.client.Cocos: void UM_onPageEnd(java.lang.String)
+com.android.client.Cocos: void UM_startLevel(java.lang.String)
+com.android.client.Cocos: void UM_failLevel(java.lang.String)
+com.android.client.Cocos: void UM_finishLevel(java.lang.String)
+com.android.client.Cocos: void UM_pay(double,java.lang.String,int,double)
+com.android.client.Cocos: void UM_buy(java.lang.String,int,double)
+com.android.client.Cocos: void UM_use(java.lang.String,int,double)
+com.android.client.Cocos: void UM_bonus(java.lang.String,int,double,int)
+com.android.client.Cocos$1
+com.android.client.Cocos$1: Cocos$1()
+com.android.client.Cocos$1: void onReceiveLoginResult(boolean)
+com.android.client.Cocos$1: void onReceiveInviteResult(boolean)
+com.android.client.Cocos$1: void onReceiveChallengeResult(int)
+com.android.client.Cocos$1: void onReceiveLikeResult(boolean)
+com.android.client.Cocos$2
+com.android.client.Cocos$2: Cocos$2()
+com.android.client.Cocos$2: void onReceiveReward(boolean,int)
+com.android.client.Cocos$2: void onFullAdClosed()
+com.android.client.Cocos$2: void onFullAdClicked()
+com.android.client.Cocos$2: void onVideoAdClosed()
+com.android.client.Cocos$2: void onBannerAdClicked()
+com.android.client.Cocos$2: void onCrossAdClicked()
+com.android.client.Cocos$3
+com.android.client.Cocos$3: Cocos$3()
+com.android.client.Cocos$3: void onSuccess(int,java.lang.String)
+com.android.client.Cocos$3: void onFailure(int)
+com.android.client.Cocos$4
+com.android.client.Cocos$4: Cocos$4()
+com.android.client.Cocos$4: void onPaymentSuccess(int)
+com.android.client.Cocos$4: void onPaymentFail(int)
+com.android.client.Cocos$4: void onPaymentSystemValid()
+com.android.client.Cocos$4: void onPaymentCanceled(int)
+com.android.client.Cocos$5
+com.android.client.Cocos$5: Cocos$5()
+com.android.client.Cocos$5: void onInitialized()
+com.android.client.Cocos$5: void onReceiveServerExtra(java.lang.String)
+com.android.client.Cocos$5: void onReceiveNotificationData(java.lang.String)
+com.android.client.DummyConfig
+com.android.client.DummyConfig: DummyConfig()
+com.android.client.LeaderBoardListener
+com.android.client.PaymentResultListener
+com.android.client.PaymentResultListener: void onPaymentSuccess(int)
+com.android.client.PaymentResultListener: void onPaymentFail(int)
+com.android.client.PaymentResultListener: void onPaymentSystemValid()
+com.android.client.PaymentResultListener: void onPaymentCanceled(int)
+com.android.client.R
+com.android.client.R: R()
+com.android.client.R$string
+com.android.client.R$string: int app_name
+com.android.client.R$string: R$string()
+com.android.client.SdkResultListener
+com.android.client.SdkResultListener: void onInitialized()
+com.android.client.SdkResultListener: void onReceiveServerExtra(java.lang.String)
+com.android.client.SdkResultListener: void onReceiveNotificationData(java.lang.String)
+com.android.client.Unity
+com.android.client.Unity: Unity()
+com.android.client.Unity: void onCreate(android.app.Activity)
+com.android.client.Unity: void sendMessage(java.lang.String,java.lang.String)
+com.android.client.Unity: void onStart()
+com.android.client.Unity: void onStop()
+com.android.client.Unity: void onPause()
+com.android.client.Unity: void onResume()
+com.android.client.Unity: void onDestroy()
+com.android.client.Unity: void onActivityResult(int,int,android.content.Intent)
+com.android.client.Unity: void showBanner(java.lang.String,int)
+com.android.client.Unity: void showBanner(int)
+com.android.client.Unity: void closeBanner()
+com.android.client.Unity: void showFullAd(java.lang.String)
+com.android.client.Unity: void showRewardAd(int)
+com.android.client.Unity: boolean hasRewardAd()
+com.android.client.Unity: void showRewardAd(java.lang.String,int)
+com.android.client.Unity: boolean hasRewardAd(java.lang.String)
+com.android.client.Unity: void pay(int)
+com.android.client.Unity: void query(int)
+com.android.client.Unity: void share()
+com.android.client.Unity: void rate()
+com.android.client.Unity: void moreGame()
+com.android.client.Unity: void trackEvent(java.lang.String,java.lang.String,java.lang.String,int)
+com.android.client.Unity: void showNative(java.lang.String,int)
+com.android.client.Unity: void hideNative(java.lang.String)
+com.android.client.Unity: boolean hasNative(java.lang.String)
+com.android.client.Unity: java.lang.String getExtraData()
+com.android.client.Unity: void onQuit()
+com.android.client.Unity: void login()
+com.android.client.Unity: void logout()
+com.android.client.Unity: boolean isLogin()
+com.android.client.Unity: void invite()
+com.android.client.Unity: void challenge(java.lang.String,java.lang.String)
+com.android.client.Unity: java.lang.String me()
+com.android.client.Unity: java.lang.String friends()
+com.android.client.Unity: void like()
+com.android.client.Unity: boolean isNetworkConnected()
+com.android.client.Unity: java.lang.String cacheUrl(java.lang.String)
+com.android.client.Unity: void cacheUrl(int,java.lang.String)
+com.android.client.Unity: java.lang.String getConfig(int)
+com.android.client.Unity: boolean hasApp(java.lang.String)
+com.android.client.Unity: void launchApp(java.lang.String)
+com.android.client.Unity: void getApp(java.lang.String)
+com.android.client.Unity: void alert(java.lang.String,java.lang.String)
+com.android.client.Unity: java.lang.String getConfig(java.lang.String,int)
+com.android.client.Unity: void onKill(android.app.Activity)
+com.android.client.Unity: void UM_setPlayerLevel(int)
+com.android.client.Unity: void UM_onEvent(java.lang.String)
+com.android.client.Unity: void UM_onEvent(java.lang.String,java.lang.String)
+com.android.client.Unity: void UM_onEvent(java.lang.String,java.util.Map)
+com.android.client.Unity: void UM_onEventValue(java.lang.String,java.util.Map,int)
+com.android.client.Unity: void UM_onPageStart(java.lang.String)
+com.android.client.Unity: void UM_onPageEnd(java.lang.String)
+com.android.client.Unity: void UM_startLevel(java.lang.String)
+com.android.client.Unity: void UM_failLevel(java.lang.String)
+com.android.client.Unity: void UM_finishLevel(java.lang.String)
+com.android.client.Unity: void UM_pay(double,java.lang.String,int,double)
+com.android.client.Unity: void UM_buy(java.lang.String,int,double)
+com.android.client.Unity: void UM_use(java.lang.String,int,double)
+com.android.client.Unity: void UM_bonus(java.lang.String,int,double,int)
+com.android.client.Unity$1
+com.android.client.Unity$1: Unity$1()
+com.android.client.Unity$1: void run()
+com.android.client.Unity$1$1
+com.android.client.Unity$1$1: Unity$1$1(com.android.client.Unity$1)
+com.android.client.Unity$1$1: void onReceiveLoginResult(boolean)
+com.android.client.Unity$1$1: void onReceiveInviteResult(boolean)
+com.android.client.Unity$1$1: void onReceiveChallengeResult(int)
+com.android.client.Unity$1$1: void onReceiveLikeResult(boolean)
+com.android.client.Unity$1$2
+com.android.client.Unity$1$2: Unity$1$2(com.android.client.Unity$1)
+com.android.client.Unity$1$2: void onReceiveReward(boolean,int)
+com.android.client.Unity$1$2: void onFullAdClosed()
+com.android.client.Unity$1$2: void onFullAdClicked()
+com.android.client.Unity$1$2: void onVideoAdClosed()
+com.android.client.Unity$1$2: void onBannerAdClicked()
+com.android.client.Unity$1$2: void onCrossAdClicked()
+com.android.client.Unity$1$3
+com.android.client.Unity$1$3: Unity$1$3(com.android.client.Unity$1)
+com.android.client.Unity$1$3: void onSuccess(int,java.lang.String)
+com.android.client.Unity$1$3: void onFailure(int)
+com.android.client.Unity$1$4
+com.android.client.Unity$1$4: Unity$1$4(com.android.client.Unity$1)
+com.android.client.Unity$1$4: void onPaymentSuccess(int)
+com.android.client.Unity$1$4: void onPaymentFail(int)
+com.android.client.Unity$1$4: void onPaymentSystemValid()
+com.android.client.Unity$1$4: void onPaymentCanceled(int)
+com.android.client.Unity$1$5
+com.android.client.Unity$1$5: Unity$1$5(com.android.client.Unity$1)
+com.android.client.Unity$1$5: void onInitialized()
+com.android.client.Unity$1$5: void onReceiveServerExtra(java.lang.String)
+com.android.client.Unity$1$5: void onReceiveNotificationData(java.lang.String)
+com.android.client.Unity$2
+com.android.client.Unity$2: Unity$2()
+com.android.client.Unity$2: void run()
+com.android.client.Unity$3
+com.android.client.Unity$3: Unity$3()
+com.android.client.Unity$3: void run()
+com.android.client.Unity$4
+com.android.client.Unity$4: Unity$4()
+com.android.client.Unity$4: void run()
+com.android.client.Unity$5
+com.android.client.Unity$5: Unity$5()
+com.android.client.Unity$5: void run()
+com.android.client.Unity$6
+com.android.client.Unity$6: Unity$6()
+com.android.client.Unity$6: void run()
+com.android.client.Unity$7
+com.android.client.Unity$7: Unity$7(int,int,android.content.Intent)
+com.android.client.Unity$7: void run()
+com.android.client.Unity3dPlayerActivity
+com.android.client.Unity3dPlayerActivity: Unity3dPlayerActivity()
+com.android.client.Unity3dPlayerActivity: void launch(android.content.Context,int)
+com.android.client.Unity3dPlayerActivity: void launchUserCenter(android.content.Context,int,java.lang.String[])
+com.android.client.UrlListener
+com.android.client.UrlListener: void onSuccess(int,java.lang.String)
+com.android.client.UrlListener: void onFailure(int)
+com.android.client.UserCenterListener
+com.android.client.UserCenterListener: void onReceiveLoginResult(boolean)
+com.android.client.UserCenterListener: void onReceiveInviteResult(boolean)
+com.android.client.UserCenterListener: void onReceiveChallengeResult(int)
+com.android.client.UserCenterListener: void onReceiveLikeResult(boolean)
+com.android.common.BuildConfig
+com.android.common.BuildConfig: boolean DEBUG
+com.android.common.BuildConfig: java.lang.String APPLICATION_ID
+com.android.common.BuildConfig: java.lang.String BUILD_TYPE
+com.android.common.BuildConfig: java.lang.String FLAVOR
+com.android.common.BuildConfig: int VERSION_CODE
+com.android.common.BuildConfig: java.lang.String VERSION_NAME
+com.android.common.BuildConfig: BuildConfig()
+com.android.common.EventBus
+com.android.common.EventBus: EventBus()
+com.android.common.EventBus: com.android.common.EventBus bus()
+com.android.common.EventBus: boolean requireEvent(int)
+com.android.common.EventBus: void sendEvent(int,java.lang.Object[])
+com.android.common.EventBus: void register(com.android.common.EventBus$EventListener,int[])
+com.android.common.EventBus: void unregister(com.android.common.EventBus$EventListener,int[])
+com.android.common.EventBus: void unregister(com.android.common.EventBus$EventListener)
+com.android.common.EventBus$1
+com.android.common.EventBus$1: void run()
+com.android.common.EventBus$2
+com.android.common.EventBus$2: void run()
+com.android.common.EventBus$3
+com.android.common.EventBus$3: void run()
+com.android.common.EventBus$4
+com.android.common.EventBus$4: void run()
+com.android.common.EventBus$EventListener
+com.android.common.EventBus$EventListener: void onReceiveEvent(int,java.lang.Object[])
+com.android.common.R
+com.android.common.R: R()
+com.android.common.R$string
+com.android.common.R$string: int app_name
+com.android.common.R$string: R$string()
+com.android.common.SdkCache
+com.android.common.SdkCache: SdkCache()
+com.android.common.SdkCache: com.android.common.SdkCache cache()
+com.android.common.SdkCache: void makeValid(android.content.Context)
+com.android.common.SdkCache: java.lang.String makeUri(java.lang.String,boolean)
+com.android.common.SdkCache: java.lang.String makeName(java.lang.String,boolean)
+com.android.common.SdkCache: boolean cacheAsset(java.lang.String,boolean)
+com.android.common.SdkCache: void cacheUrl(int,java.lang.String,boolean,com.android.common.SdkCache$CacheCallback)
+com.android.common.SdkCache: java.lang.String cacheUrl(java.lang.String,boolean)
+com.android.common.SdkCache: boolean cache(java.lang.String,byte[],boolean)
+com.android.common.SdkCache: boolean cacheBitmap(java.lang.String,android.graphics.Bitmap,boolean)
+com.android.common.SdkCache: boolean cacheInputStream(java.lang.String,java.io.InputStream,boolean)
+com.android.common.SdkCache: boolean has(java.lang.String,boolean)
+com.android.common.SdkCache: java.lang.String readSecureText(java.lang.String,boolean,boolean)
+com.android.common.SdkCache: java.lang.String readSecureText(java.io.InputStream)
+com.android.common.SdkCache: android.graphics.Bitmap readBitmap(java.lang.String,android.graphics.Bitmap,boolean)
+com.android.common.SdkCache: java.io.FileInputStream openCache(java.lang.String,boolean)
+com.android.common.SdkCache: java.io.InputStream openAsset(java.lang.String)
+com.android.common.SdkCache: java.lang.String readText(java.lang.String,boolean,boolean)
+com.android.common.SdkCache: java.lang.String readText(java.io.InputStream)
+com.android.common.SdkCache$1
+com.android.common.SdkCache$1: void onSuccess(java.net.HttpURLConnection)
+com.android.common.SdkCache$1: void onFailure(int,java.lang.String)
+com.android.common.SdkCache$2
+com.android.common.SdkCache$2: void onSuccess(java.net.HttpURLConnection)
+com.android.common.SdkCache$CacheCallback
+com.android.common.SdkCache$CacheCallback: void onSuccess(int,java.lang.String)
+com.android.common.SdkCache$CacheCallback: void onFailure(int)
+com.android.common.SdkEnv
+com.android.common.SdkEnv: java.lang.String CACHE_DIR
+com.android.common.SdkEnv: int ANDROID_API_VERSION
+com.android.common.SdkEnv: com.android.common.EventBus bus
+com.android.common.SdkEnv: android.os.Handler handler
+com.android.common.SdkEnv: android.content.Context context
+com.android.common.SdkEnv: int screenWidth
+com.android.common.SdkEnv: int screenHeight
+com.android.common.SdkEnv: int screenDensityDpi
+com.android.common.SdkEnv: float screenDensity
+com.android.common.SdkEnv: java.lang.String language
+com.android.common.SdkEnv: java.lang.String country
+com.android.common.SdkEnv: int versionCode
+com.android.common.SdkEnv: java.lang.String versionName
+com.android.common.SdkEnv: java.lang.String packageName
+com.android.common.SdkEnv: java.lang.String signInfo
+com.android.common.SdkEnv: java.lang.String GOOGLE_PALY_URL
+com.android.common.SdkEnv: SdkEnv()
+com.android.common.SdkEnv: com.android.common.SdkEnv env()
+com.android.common.SdkEnv: android.content.Context context()
+com.android.common.SdkEnv: void onCreate(android.content.Context,java.lang.String,java.lang.String)
+com.android.common.SdkEnv: void onCreate(android.app.Activity,java.lang.String,java.lang.String)
+com.android.common.SdkEnv: void onResume(android.app.Activity)
+com.android.common.SdkEnv: boolean isNetworkConnected()
+com.android.common.SdkEnv: android.app.Activity getActivity()
+com.android.common.SdkEnv: void reset(android.content.Context)
+com.android.common.SdkEnv: void setAppId(int)
+com.android.common.SdkEnv: java.lang.String getSignInfo()
+com.android.common.SdkEnv: java.lang.String md5(java.lang.String)
+com.android.common.SdkEnv: void openPlayStore(java.lang.String,java.lang.String)
+com.android.common.SdkEnv: boolean hasApp(java.lang.String)
+com.android.common.SdkEnv: void launchApp(java.lang.String)
+com.android.common.SdkEnv: boolean hasPlayStore()
+com.android.common.SdkEnv: void post(java.lang.Runnable)
+com.android.common.SdkEnv: void postDelay(java.lang.Runnable,int)
+com.android.common.SdkEnv: void remove(java.lang.Runnable)
+com.android.common.SdkEnv: android.app.AlertDialog showDialog(android.app.Activity,android.view.View)
+com.android.common.SdkEnv: android.app.AlertDialog showCommonDialog(android.app.Activity,android.view.View)
+com.android.common.SdkEnv: android.app.AlertDialog showDialog(android.content.Context,android.view.View,boolean)
+com.android.common.SdkEnv: void share(java.lang.String)
+com.android.common.SdkEnv: void rateUs()
+com.android.common.SdkEnv: int fixDp(int)
+com.android.common.SdkEnv: int dp2px(int)
+com.android.common.SdkEnv: void sendEvent(int,java.lang.Object[])
+com.android.common.SdkEnv: boolean requireEvent(int)
+com.android.common.SdkEnv: void registerEvent(com.android.common.EventBus$EventListener,int[])
+com.android.common.SdkEnv: void removeEventListener(com.android.common.EventBus$EventListener)
+com.android.common.SdkEnv: void unregisterEvents(com.android.common.EventBus$EventListener,int[])
+com.android.common.SdkEnv: java.lang.String getUUID()
+com.android.common.SdkEnv: java.lang.String getLangCode()
+com.android.common.SdkEnv: java.lang.String getMNCName()
+com.android.common.SdkEnv: java.lang.String getCountryCode()
+com.android.common.SdkLog
+com.android.common.SdkLog: SdkLog()
+com.android.common.SdkLog: void setDebug(android.app.Activity)
+com.android.common.SdkLog: void log(java.lang.String)
+com.android.common.SdkLog: boolean debug()
+com.android.common.Utils
+com.android.common.Utils: int OP_NONE
+com.android.common.Utils: int OP_COARSE_LOCATION
+com.android.common.Utils: int OP_FINE_LOCATION
+com.android.common.Utils: int OP_GPS
+com.android.common.Utils: int OP_VIBRATE
+com.android.common.Utils: int OP_READ_CONTACTS
+com.android.common.Utils: int OP_WRITE_CONTACTS
+com.android.common.Utils: int OP_READ_CALL_LOG
+com.android.common.Utils: int OP_WRITE_CALL_LOG
+com.android.common.Utils: int OP_READ_CALENDAR
+com.android.common.Utils: int OP_WRITE_CALENDAR
+com.android.common.Utils: int OP_WIFI_SCAN
+com.android.common.Utils: int OP_POST_NOTIFICATION
+com.android.common.Utils: int OP_NEIGHBORING_CELLS
+com.android.common.Utils: int OP_CALL_PHONE
+com.android.common.Utils: int OP_READ_SMS
+com.android.common.Utils: int OP_WRITE_SMS
+com.android.common.Utils: int OP_RECEIVE_SMS
+com.android.common.Utils: int OP_RECEIVE_EMERGECY_SMS
+com.android.common.Utils: int OP_RECEIVE_MMS
+com.android.common.Utils: int OP_RECEIVE_WAP_PUSH
+com.android.common.Utils: int OP_SEND_SMS
+com.android.common.Utils: int OP_READ_ICC_SMS
+com.android.common.Utils: int OP_WRITE_ICC_SMS
+com.android.common.Utils: int OP_WRITE_SETTINGS
+com.android.common.Utils: int OP_SYSTEM_ALERT_WINDOW
+com.android.common.Utils: int OP_ACCESS_NOTIFICATIONS
+com.android.common.Utils: int OP_CAMERA
+com.android.common.Utils: int OP_RECORD_AUDIO
+com.android.common.Utils: int OP_PLAY_AUDIO
+com.android.common.Utils: int OP_READ_CLIPBOARD
+com.android.common.Utils: int OP_WRITE_CLIPBOARD
+com.android.common.Utils: int OP_TAKE_MEDIA_BUTTONS
+com.android.common.Utils: int OP_TAKE_AUDIO_FOCUS
+com.android.common.Utils: int OP_AUDIO_MASTER_VOLUME
+com.android.common.Utils: int OP_AUDIO_VOICE_VOLUME
+com.android.common.Utils: int OP_AUDIO_RING_VOLUME
+com.android.common.Utils: int OP_AUDIO_MEDIA_VOLUME
+com.android.common.Utils: int OP_AUDIO_ALARM_VOLUME
+com.android.common.Utils: int OP_AUDIO_NOTIFICATION_VOLUME
+com.android.common.Utils: int OP_AUDIO_BLUETOOTH_VOLUME
+com.android.common.Utils: int OP_WAKE_LOCK
+com.android.common.Utils: int OP_MONITOR_LOCATION
+com.android.common.Utils: int OP_MONITOR_HIGH_POWER_LOCATION
+com.android.common.Utils: int OP_GET_USAGE_STATS
+com.android.common.Utils: int OP_MUTE_MICROPHONE
+com.android.common.Utils: int OP_TOAST_WINDOW
+com.android.common.Utils: int OP_PROJECT_MEDIA
+com.android.common.Utils: int OP_ACTIVATE_VPN
+com.android.common.Utils: int _NUM_OP
+com.android.common.Utils: int MODE_ALLOWED
+com.android.common.Utils: Utils()
+com.android.common.Utils: boolean requireAsk4Permission(int)
+com.android.network.HttpClient
+com.android.network.HttpClient: HttpClient()
+com.android.network.HttpClient: void get(java.lang.String,int,com.android.network.HttpClient$OnHttpResult,java.lang.String[])
+com.android.network.HttpClient: void post(java.lang.String,int,com.android.network.HttpClient$OnHttpResult,java.util.HashMap)
+com.android.network.HttpClient$1
+com.android.network.HttpClient$1: void checkClientTrusted(java.security.cert.X509Certificate[],java.lang.String)
+com.android.network.HttpClient$1: void checkServerTrusted(java.security.cert.X509Certificate[],java.lang.String)
+com.android.network.HttpClient$1: java.security.cert.X509Certificate[] getAcceptedIssuers()
+com.android.network.HttpClient$2
+com.android.network.HttpClient$2: boolean verify(java.lang.String,javax.net.ssl.SSLSession)
+com.android.network.HttpClient$OnHttpResult
+com.android.network.HttpClient$OnHttpResult: void onSuccess(java.net.HttpURLConnection)
+com.android.network.HttpClient$OnHttpResult: void onFailure(int,java.lang.String)
+com.android.network.Request
+com.android.network.Request: java.lang.String url
+com.android.network.Request: int timeOut
+com.android.network.Request: Request(java.lang.String)
+com.android.network.Request: Request(java.lang.String,java.util.HashMap)
+com.android.network.Request: Request(java.lang.String,java.lang.String[])
+com.android.network.Request: com.android.network.Request setTimeOut(int)
+com.android.network.Request: com.android.network.Request setUrl(java.lang.String)
+com.android.network.Request: void run()
+com.android.network.Request: void onFailure(int,java.lang.String)
+com.android.view.PagerIndicator
+com.android.view.PagerIndicator: void setColors(int,int)
+com.android.view.PagerIndicator: void setCount(int)
+com.android.view.PagerIndicator: void setSelection(int)
+com.android.view.PagerIndicator: PagerIndicator(android.content.Context)
+com.android.view.PagerIndicator: PagerIndicator(android.content.Context,android.util.AttributeSet)
+com.android.view.PagerIndicator: PagerIndicator(android.content.Context,android.util.AttributeSet,int)
+com.android.view.PagerIndicator: void init(android.content.Context,android.util.AttributeSet)
+com.android.view.RoundImageView
+com.android.view.RoundImageView: RoundImageView(android.content.Context)
+com.android.view.RoundImageView: RoundImageView(android.content.Context,android.util.AttributeSet)
+com.android.view.RoundImageView: RoundImageView(android.content.Context,android.util.AttributeSet,int)
+com.android.view.RoundImageView: void layout(int,int,int,int)
+com.ivy.module.tweenengine.R$string: int app_name
+com.ivy.module.tweenengine.Timeline$Modes
+com.ivy.module.tweenengine.Timeline$Modes: com.ivy.module.tweenengine.Timeline$Modes SEQUENCE
+com.ivy.module.tweenengine.Timeline$Modes: com.ivy.module.tweenengine.Timeline$Modes PARALLEL
+com.ivy.module.tweenengine.Timeline$Modes: com.ivy.module.tweenengine.Timeline$Modes[] $VALUES
+com.ivy.module.tweenengine.Timeline$Modes: com.ivy.module.tweenengine.Timeline$Modes[] values()
+com.ivy.module.tweenengine.Timeline$Modes: com.ivy.module.tweenengine.Timeline$Modes valueOf(java.lang.String)
+com.ivy.module.tweenengine.Timeline$Modes: Timeline$Modes(java.lang.String,int)
+com.ivy.module.tweenengine.Timeline$Modes: void <clinit>()
 com.jaredrummler.android.processes.models.AndroidAppProcess
 com.jaredrummler.android.processes.models.AndroidAppProcess: android.os.Parcelable$Creator CREATOR
 com.jaredrummler.android.processes.models.AndroidProcess
@@ -18526,8 +19177,13 @@ com.supers.clean.junk.R$anim: int abc_slide_in_bottom
 com.supers.clean.junk.R$anim: int abc_slide_in_top
 com.supers.clean.junk.R$anim: int abc_slide_out_bottom
 com.supers.clean.junk.R$anim: int abc_slide_out_top
+com.supers.clean.junk.R$anim: int fang
+com.supers.clean.junk.R$anim: int huojian_pop
 com.supers.clean.junk.R$anim: int reverse_anim
+com.supers.clean.junk.R$anim: int rotate_ni
 com.supers.clean.junk.R$anim: int rotating
+com.supers.clean.junk.R$anim: int suo
+com.supers.clean.junk.R$anim: int translate_success
 com.supers.clean.junk.R$attr: int actionBarDivider
 com.supers.clean.junk.R$attr: int actionBarItemBackground
 com.supers.clean.junk.R$attr: int actionBarPopupTheme
@@ -18617,6 +19273,7 @@ com.supers.clean.junk.R$attr: int divider
 com.supers.clean.junk.R$attr: int dividerHorizontal
 com.supers.clean.junk.R$attr: int dividerPadding
 com.supers.clean.junk.R$attr: int dividerVertical
+com.supers.clean.junk.R$attr: int dividerWidth
 com.supers.clean.junk.R$attr: int drawableSize
 com.supers.clean.junk.R$attr: int drawerArrowStyle
 com.supers.clean.junk.R$attr: int dropDownListViewStyle
@@ -18785,6 +19442,7 @@ com.supers.clean.junk.R$color: int dim_foreground_disabled_material_dark
 com.supers.clean.junk.R$color: int dim_foreground_disabled_material_light
 com.supers.clean.junk.R$color: int dim_foreground_material_dark
 com.supers.clean.junk.R$color: int dim_foreground_material_light
+com.supers.clean.junk.R$color: int float_kaiguan
 com.supers.clean.junk.R$color: int foreground_material_dark
 com.supers.clean.junk.R$color: int foreground_material_light
 com.supers.clean.junk.R$color: int highlighted_text_material_dark
@@ -18795,6 +19453,7 @@ com.supers.clean.junk.R$color: int main_circle_backg
 com.supers.clean.junk.R$color: int main_circle_first
 com.supers.clean.junk.R$color: int main_circle_second
 com.supers.clean.junk.R$color: int main_circle_tired
+com.supers.clean.junk.R$color: int manager_sort_text
 com.supers.clean.junk.R$color: int material_blue_grey_800
 com.supers.clean.junk.R$color: int material_blue_grey_900
 com.supers.clean.junk.R$color: int material_blue_grey_950
@@ -18827,7 +19486,9 @@ com.supers.clean.junk.R$color: int switch_thumb_material_dark
 com.supers.clean.junk.R$color: int switch_thumb_material_light
 com.supers.clean.junk.R$color: int switch_thumb_normal_material_dark
 com.supers.clean.junk.R$color: int switch_thumb_normal_material_light
+com.supers.clean.junk.R$color: int transparent
 com.supers.clean.junk.R$color: int white_100
+com.supers.clean.junk.R$color: int white_40
 com.supers.clean.junk.R$color: int white_54
 com.supers.clean.junk.R$dimen: int abc_action_bar_content_inset_material
 com.supers.clean.junk.R$dimen: int abc_action_bar_default_height_material
@@ -18905,6 +19566,22 @@ com.supers.clean.junk.R$dimen: int file_yiji_item_icon_width
 com.supers.clean.junk.R$dimen: int file_yiji_item_pro_margin
 com.supers.clean.junk.R$dimen: int file_yiji_item_text_size
 com.supers.clean.junk.R$dimen: int file_yiji_item_yuji_size
+com.supers.clean.junk.R$dimen: int float_qiu_text_size
+com.supers.clean.junk.R$dimen: int full_ad__ac_action_green_margin
+com.supers.clean.junk.R$dimen: int full_ad__ac_action_green_margin_button
+com.supers.clean.junk.R$dimen: int full_ad__ac_action_green_text_size
+com.supers.clean.junk.R$dimen: int full_ad__big_margin
+com.supers.clean.junk.R$dimen: int full_ad__desc_text_margin
+com.supers.clean.junk.R$dimen: int full_ad__desc_text_margin_top
+com.supers.clean.junk.R$dimen: int full_ad__desc_text_size
+com.supers.clean.junk.R$dimen: int full_ad__icon_margin_top
+com.supers.clean.junk.R$dimen: int full_ad__icon_size
+com.supers.clean.junk.R$dimen: int full_ad__next_text_margin
+com.supers.clean.junk.R$dimen: int full_ad__next_text_size
+com.supers.clean.junk.R$dimen: int full_ad__title_text_size
+com.supers.clean.junk.R$dimen: int full_ad_ac_action_green_margin_top
+com.supers.clean.junk.R$dimen: int full_ad_ad_image
+com.supers.clean.junk.R$dimen: int full_ad_ad_next_margin_top
 com.supers.clean.junk.R$dimen: int highlight_alpha_material_colored
 com.supers.clean.junk.R$dimen: int highlight_alpha_material_dark
 com.supers.clean.junk.R$dimen: int highlight_alpha_material_light
@@ -18983,9 +19660,14 @@ com.supers.clean.junk.R$drawable: int abc_textfield_search_default_mtrl_alpha
 com.supers.clean.junk.R$drawable: int abc_textfield_search_material
 com.supers.clean.junk.R$drawable: int list_divider
 com.supers.clean.junk.R$drawable: int notification_template_icon_bg
+com.supers.clean.junk.R$drawable: int select_text_ad
 com.supers.clean.junk.R$drawable: int shape_2a97fe
 com.supers.clean.junk.R$drawable: int shape_31cb39
 com.supers.clean.junk.R$drawable: int shape_fac100
+com.supers.clean.junk.R$drawable: int shape_green_ad
+com.supers.clean.junk.R$drawable: int shape_radio
+com.supers.clean.junk.R$drawable: int text_ad_normal
+com.supers.clean.junk.R$drawable: int text_ad_passed
 com.supers.clean.junk.R$id: int action0
 com.supers.clean.junk.R$id: int action_bar
 com.supers.clean.junk.R$id: int action_bar_activity_content
@@ -19003,48 +19685,115 @@ com.supers.clean.junk.R$id: int action_mode_bar_stub
 com.supers.clean.junk.R$id: int action_mode_close_button
 com.supers.clean.junk.R$id: int activity_chooser_view_content
 com.supers.clean.junk.R$id: int activity_main
+com.supers.clean.junk.R$id: int ad_image
+com.supers.clean.junk.R$id: int ad_native_2
+com.supers.clean.junk.R$id: int ad_right
+com.supers.clean.junk.R$id: int ad_title
 com.supers.clean.junk.R$id: int alertTitle
 com.supers.clean.junk.R$id: int always
 com.supers.clean.junk.R$id: int beginning
-com.supers.clean.junk.R$id: int bt_queren
 com.supers.clean.junk.R$id: int buttonPanel
 com.supers.clean.junk.R$id: int cancel_action
 com.supers.clean.junk.R$id: int ce_tongzhi
+com.supers.clean.junk.R$id: int check_iv
 com.supers.clean.junk.R$id: int checkbox
 com.supers.clean.junk.R$id: int chronometer
-com.supers.clean.junk.R$id: int clearList_view
-com.supers.clean.junk.R$id: int clear_scroll
+com.supers.clean.junk.R$id: int clear
 com.supers.clean.junk.R$id: int collapseActionView
 com.supers.clean.junk.R$id: int contentPanel
 com.supers.clean.junk.R$id: int custom
 com.supers.clean.junk.R$id: int customPanel
 com.supers.clean.junk.R$id: int decor_content_parent
 com.supers.clean.junk.R$id: int default_activity_button
+com.supers.clean.junk.R$id: int delete
+com.supers.clean.junk.R$id: int delete_app
 com.supers.clean.junk.R$id: int disableHome
 com.supers.clean.junk.R$id: int edit_query
 com.supers.clean.junk.R$id: int end
 com.supers.clean.junk.R$id: int end_padder
 com.supers.clean.junk.R$id: int expand_activities_button
 com.supers.clean.junk.R$id: int expanded_menu
+com.supers.clean.junk.R$id: int float_cricle
+com.supers.clean.junk.R$id: int float_memory
+com.supers.clean.junk.R$id: int float_rotate
+com.supers.clean.junk.R$id: int float_tishi
 com.supers.clean.junk.R$id: int guard_qiu
 com.supers.clean.junk.R$id: int home
 com.supers.clean.junk.R$id: int homeAsUp
+com.supers.clean.junk.R$id: int horizontal_listview
 com.supers.clean.junk.R$id: int icon
 com.supers.clean.junk.R$id: int ifRoom
 com.supers.clean.junk.R$id: int image
+com.supers.clean.junk.R$id: int img_list_item
 com.supers.clean.junk.R$id: int info
 com.supers.clean.junk.R$id: int iv_check
+com.supers.clean.junk.R$id: int iv_gps
+com.supers.clean.junk.R$id: int iv_ic
 com.supers.clean.junk.R$id: int iv_jiantou
 com.supers.clean.junk.R$id: int iv_le
+com.supers.clean.junk.R$id: int iv_liuliang
+com.supers.clean.junk.R$id: int iv_ro
+com.supers.clean.junk.R$id: int iv_shengyin
 com.supers.clean.junk.R$id: int iv_shuaxin
 com.supers.clean.junk.R$id: int iv_success
 com.supers.clean.junk.R$id: int iv_title_left
 com.supers.clean.junk.R$id: int iv_title_right
+com.supers.clean.junk.R$id: int iv_wifi
+com.supers.clean.junk.R$id: int iv_xianshi
+com.supers.clean.junk.R$id: int junk_apk_jiaotou
+com.supers.clean.junk.R$id: int junk_apk_list
+com.supers.clean.junk.R$id: int junk_apk_size
+com.supers.clean.junk.R$id: int junk_apk_unit
+com.supers.clean.junk.R$id: int junk_button_apk
+com.supers.clean.junk.R$id: int junk_button_clean
+com.supers.clean.junk.R$id: int junk_button_log
+com.supers.clean.junk.R$id: int junk_button_ram
+com.supers.clean.junk.R$id: int junk_button_system
+com.supers.clean.junk.R$id: int junk_button_unload
+com.supers.clean.junk.R$id: int junk_button_user
+com.supers.clean.junk.R$id: int junk_fangxin
+com.supers.clean.junk.R$id: int junk_item_icon
+com.supers.clean.junk.R$id: int junk_item_lable
+com.supers.clean.junk.R$id: int junk_item_rl
+com.supers.clean.junk.R$id: int junk_list_all
+com.supers.clean.junk.R$id: int junk_log_jiantou
+com.supers.clean.junk.R$id: int junk_log_list
+com.supers.clean.junk.R$id: int junk_log_size
+com.supers.clean.junk.R$id: int junk_log_unit
+com.supers.clean.junk.R$id: int junk_ram_jiantou
+com.supers.clean.junk.R$id: int junk_ram_list
+com.supers.clean.junk.R$id: int junk_ram_size
+com.supers.clean.junk.R$id: int junk_ram_unit
+com.supers.clean.junk.R$id: int junk_scroll
+com.supers.clean.junk.R$id: int junk_size_all
+com.supers.clean.junk.R$id: int junk_system_jiantou
+com.supers.clean.junk.R$id: int junk_system_list
+com.supers.clean.junk.R$id: int junk_system_size
+com.supers.clean.junk.R$id: int junk_system_unit
+com.supers.clean.junk.R$id: int junk_title_backg
+com.supers.clean.junk.R$id: int junk_unit
+com.supers.clean.junk.R$id: int junk_unload_jiantou
+com.supers.clean.junk.R$id: int junk_unload_list
+com.supers.clean.junk.R$id: int junk_unload_size
+com.supers.clean.junk.R$id: int junk_unload_unit
+com.supers.clean.junk.R$id: int junk_user_jiantou
+com.supers.clean.junk.R$id: int junk_user_list
+com.supers.clean.junk.R$id: int junk_user_size
+com.supers.clean.junk.R$id: int junk_user_unit
 com.supers.clean.junk.R$id: int line1
 com.supers.clean.junk.R$id: int line3
 com.supers.clean.junk.R$id: int listMode
 com.supers.clean.junk.R$id: int list_item
+com.supers.clean.junk.R$id: int list_si
+com.supers.clean.junk.R$id: int ll_ad
+com.supers.clean.junk.R$id: int ll_gps
+com.supers.clean.junk.R$id: int ll_item
+com.supers.clean.junk.R$id: int ll_liuliang
+com.supers.clean.junk.R$id: int ll_shengyin
 com.supers.clean.junk.R$id: int ll_tv
+com.supers.clean.junk.R$id: int ll_wifi
+com.supers.clean.junk.R$id: int ll_xianshi
+com.supers.clean.junk.R$id: int ll_zi
 com.supers.clean.junk.R$id: int main_air_all
 com.supers.clean.junk.R$id: int main_all_cercle
 com.supers.clean.junk.R$id: int main_applock_button
@@ -19083,18 +19832,40 @@ com.supers.clean.junk.R$id: int main_sd_air_button
 com.supers.clean.junk.R$id: int main_sd_per
 com.supers.clean.junk.R$id: int main_sd_size
 com.supers.clean.junk.R$id: int main_theme_button
+com.supers.clean.junk.R$id: int manager_button_pinlv
+com.supers.clean.junk.R$id: int manager_button_size
+com.supers.clean.junk.R$id: int manager_button_time
+com.supers.clean.junk.R$id: int manager_sort_pinlv_backg
+com.supers.clean.junk.R$id: int manager_sort_pinlv_name
+com.supers.clean.junk.R$id: int manager_sort_size_backg
+com.supers.clean.junk.R$id: int manager_sort_size_name
+com.supers.clean.junk.R$id: int manager_sort_time_backg
+com.supers.clean.junk.R$id: int manager_sort_time_name
 com.supers.clean.junk.R$id: int media_actions
+com.supers.clean.junk.R$id: int message_android_version
+com.supers.clean.junk.R$id: int message_h_camera
+com.supers.clean.junk.R$id: int message_imei
+com.supers.clean.junk.R$id: int message_isRoot
+com.supers.clean.junk.R$id: int message_model
+com.supers.clean.junk.R$id: int message_q_camera
+com.supers.clean.junk.R$id: int message_ram
+com.supers.clean.junk.R$id: int message_resolution
+com.supers.clean.junk.R$id: int message_sd
+com.supers.clean.junk.R$id: int message_system_start_time
+com.supers.clean.junk.R$id: int message_system_start_time2
 com.supers.clean.junk.R$id: int middle
 com.supers.clean.junk.R$id: int multiply
 com.supers.clean.junk.R$id: int never
 com.supers.clean.junk.R$id: int none
 com.supers.clean.junk.R$id: int normal
+com.supers.clean.junk.R$id: int normal_bar
 com.supers.clean.junk.R$id: int parentPanel
 com.supers.clean.junk.R$id: int progress_circular
 com.supers.clean.junk.R$id: int progress_horizontal
 com.supers.clean.junk.R$id: int radio
 com.supers.clean.junk.R$id: int rl
 com.supers.clean.junk.R$id: int rl_item
+com.supers.clean.junk.R$id: int rl_title
 com.supers.clean.junk.R$id: int screen
 com.supers.clean.junk.R$id: int scrollIndicatorDown
 com.supers.clean.junk.R$id: int scrollIndicatorUp
@@ -19103,7 +19874,9 @@ com.supers.clean.junk.R$id: int search_badge
 com.supers.clean.junk.R$id: int search_bar
 com.supers.clean.junk.R$id: int search_button
 com.supers.clean.junk.R$id: int search_close_btn
+com.supers.clean.junk.R$id: int search_container
 com.supers.clean.junk.R$id: int search_edit_frame
+com.supers.clean.junk.R$id: int search_edit_text
 com.supers.clean.junk.R$id: int search_go_btn
 com.supers.clean.junk.R$id: int search_mag_icon
 com.supers.clean.junk.R$id: int search_plate
@@ -19116,6 +19889,7 @@ com.supers.clean.junk.R$id: int showHome
 com.supers.clean.junk.R$id: int showTitle
 com.supers.clean.junk.R$id: int side_divide
 com.supers.clean.junk.R$id: int side_listView
+com.supers.clean.junk.R$id: int size_tv
 com.supers.clean.junk.R$id: int spacer
 com.supers.clean.junk.R$id: int split_action_bar
 com.supers.clean.junk.R$id: int src_atop
@@ -19123,25 +19897,36 @@ com.supers.clean.junk.R$id: int src_in
 com.supers.clean.junk.R$id: int src_over
 com.supers.clean.junk.R$id: int status_bar_latest_event_content
 com.supers.clean.junk.R$id: int submit_area
+com.supers.clean.junk.R$id: int success
+com.supers.clean.junk.R$id: int success_clean_size
+com.supers.clean.junk.R$id: int success_drawhook
+com.supers.clean.junk.R$id: int success_huojian
+com.supers.clean.junk.R$id: int success_jiantou
+com.supers.clean.junk.R$id: int success_progress
 com.supers.clean.junk.R$id: int tabMode
 com.supers.clean.junk.R$id: int text
 com.supers.clean.junk.R$id: int text2
 com.supers.clean.junk.R$id: int textSpacerNoButtons
+com.supers.clean.junk.R$id: int text_list_item
 com.supers.clean.junk.R$id: int time
 com.supers.clean.junk.R$id: int title
 com.supers.clean.junk.R$id: int title_left
 com.supers.clean.junk.R$id: int title_name
+com.supers.clean.junk.R$id: int title_right
 com.supers.clean.junk.R$id: int title_template
 com.supers.clean.junk.R$id: int topPanel
-com.supers.clean.junk.R$id: int tv_danwei
+com.supers.clean.junk.R$id: int tv_gps
+com.supers.clean.junk.R$id: int tv_liuliang
 com.supers.clean.junk.R$id: int tv_name
-com.supers.clean.junk.R$id: int tv_path
-com.supers.clean.junk.R$id: int tv_run_size_all
-com.supers.clean.junk.R$id: int tv_speed_tihsi
+com.supers.clean.junk.R$id: int tv_shengyin
 com.supers.clean.junk.R$id: int tv_title_name
+com.supers.clean.junk.R$id: int tv_wifi
+com.supers.clean.junk.R$id: int tv_xianshi
+com.supers.clean.junk.R$id: int tv_zhuangtai
 com.supers.clean.junk.R$id: int up
 com.supers.clean.junk.R$id: int useLogo
 com.supers.clean.junk.R$id: int view_title_bar
+com.supers.clean.junk.R$id: int white_wu
 com.supers.clean.junk.R$id: int withText
 com.supers.clean.junk.R$id: int wrap_content
 com.supers.clean.junk.R$integer: int abc_config_activityDefaultDur
@@ -19176,10 +19961,26 @@ com.supers.clean.junk.R$layout: int abc_search_view
 com.supers.clean.junk.R$layout: int abc_select_dialog_material
 com.supers.clean.junk.R$layout: int activity_dra
 com.supers.clean.junk.R$layout: int activity_main
-com.supers.clean.junk.R$layout: int layout_junk__ram
+com.supers.clean.junk.R$layout: int horizontal_list_item
+com.supers.clean.junk.R$layout: int layout_float
+com.supers.clean.junk.R$layout: int layout_junk
+com.supers.clean.junk.R$layout: int layout_junk_ram
+com.supers.clean.junk.R$layout: int layout_junk_ram_item
 com.supers.clean.junk.R$layout: int layout_load_more
+com.supers.clean.junk.R$layout: int layout_manager
+com.supers.clean.junk.R$layout: int layout_message
+com.supers.clean.junk.R$layout: int layout_ram
+com.supers.clean.junk.R$layout: int layout_ram_item
+com.supers.clean.junk.R$layout: int layout_setting_ignore
+com.supers.clean.junk.R$layout: int layout_setting_item
 com.supers.clean.junk.R$layout: int layout_side_item
+com.supers.clean.junk.R$layout: int layout_success
 com.supers.clean.junk.R$layout: int layout_title
+com.supers.clean.junk.R$layout: int layout_title_sousuo
+com.supers.clean.junk.R$layout: int layout_white_list_add
+com.supers.clean.junk.R$layout: int layout_white_list_item
+com.supers.clean.junk.R$layout: int native_ad
+com.supers.clean.junk.R$layout: int native_ad_full
 com.supers.clean.junk.R$layout: int notification_media_action
 com.supers.clean.junk.R$layout: int notification_media_cancel_action
 com.supers.clean.junk.R$layout: int notification_template_big_media
@@ -19193,17 +19994,38 @@ com.supers.clean.junk.R$layout: int select_dialog_multichoice_material
 com.supers.clean.junk.R$layout: int select_dialog_singlechoice_material
 com.supers.clean.junk.R$layout: int support_simple_spinner_dropdown_item
 com.supers.clean.junk.R$layout: int title_layout
+com.supers.clean.junk.R$mipmap: int ad_right
 com.supers.clean.junk.R$mipmap: int backg3
+com.supers.clean.junk.R$mipmap: int delete
+com.supers.clean.junk.R$mipmap: int edit_left_drawable
+com.supers.clean.junk.R$mipmap: int eidt_cha
+com.supers.clean.junk.R$mipmap: int float_beijing_left
+com.supers.clean.junk.R$mipmap: int float_beijing_right
+com.supers.clean.junk.R$mipmap: int float_dialog_1
+com.supers.clean.junk.R$mipmap: int float_dialog_2
+com.supers.clean.junk.R$mipmap: int float_dialog_3
+com.supers.clean.junk.R$mipmap: int float_dialog_4
+com.supers.clean.junk.R$mipmap: int float_dialog_beijing
+com.supers.clean.junk.R$mipmap: int float_gps
+com.supers.clean.junk.R$mipmap: int float_liangdu_0
+com.supers.clean.junk.R$mipmap: int float_liangdu_100
+com.supers.clean.junk.R$mipmap: int float_liangdu_50
+com.supers.clean.junk.R$mipmap: int float_liangdu_zidong
+com.supers.clean.junk.R$mipmap: int float_liuliang
+com.supers.clean.junk.R$mipmap: int float_shengyin
+com.supers.clean.junk.R$mipmap: int float_wifi
 com.supers.clean.junk.R$mipmap: int ic_launcher
 com.supers.clean.junk.R$mipmap: int junk_apk
 com.supers.clean.junk.R$mipmap: int junk_button
 com.supers.clean.junk.R$mipmap: int junk_button_backg
 com.supers.clean.junk.R$mipmap: int junk_jiantou
 com.supers.clean.junk.R$mipmap: int junk_log
+com.supers.clean.junk.R$mipmap: int junk_normal
+com.supers.clean.junk.R$mipmap: int junk_passed
 com.supers.clean.junk.R$mipmap: int junk_ram
 com.supers.clean.junk.R$mipmap: int junk_system
 com.supers.clean.junk.R$mipmap: int junk_unload
-com.supers.clean.junk.R$mipmap: int junk_usre
+com.supers.clean.junk.R$mipmap: int junk_user
 com.supers.clean.junk.R$mipmap: int load_succeed
 com.supers.clean.junk.R$mipmap: int loading
 com.supers.clean.junk.R$mipmap: int log_file
@@ -19224,7 +20046,20 @@ com.supers.clean.junk.R$mipmap: int main_rotate_2
 com.supers.clean.junk.R$mipmap: int main_rotate_3
 com.supers.clean.junk.R$mipmap: int main_setting
 com.supers.clean.junk.R$mipmap: int main_theme_button
+com.supers.clean.junk.R$mipmap: int manager_soft
+com.supers.clean.junk.R$mipmap: int native_ad_go
+com.supers.clean.junk.R$mipmap: int next_ad_pro
 com.supers.clean.junk.R$mipmap: int pullup_icon_big
+com.supers.clean.junk.R$mipmap: int qing
+com.supers.clean.junk.R$mipmap: int ram_normal
+com.supers.clean.junk.R$mipmap: int ram_passed
+com.supers.clean.junk.R$mipmap: int rotate_xing
+com.supers.clean.junk.R$mipmap: int setting_battery
+com.supers.clean.junk.R$mipmap: int setting_float
+com.supers.clean.junk.R$mipmap: int setting_rotate
+com.supers.clean.junk.R$mipmap: int setting_tongzhi
+com.supers.clean.junk.R$mipmap: int setting_tongzhilan
+com.supers.clean.junk.R$mipmap: int setting_white
 com.supers.clean.junk.R$mipmap: int side_charging
 com.supers.clean.junk.R$mipmap: int side_check_normal
 com.supers.clean.junk.R$mipmap: int side_check_passed
@@ -19236,7 +20071,18 @@ com.supers.clean.junk.R$mipmap: int side_rotate
 com.supers.clean.junk.R$mipmap: int side_setting
 com.supers.clean.junk.R$mipmap: int side_theme
 com.supers.clean.junk.R$mipmap: int side_title_1
+com.supers.clean.junk.R$mipmap: int success_1
+com.supers.clean.junk.R$mipmap: int success_2
+com.supers.clean.junk.R$mipmap: int success_3
+com.supers.clean.junk.R$mipmap: int success_duigou
+com.supers.clean.junk.R$mipmap: int success_huojian
+com.supers.clean.junk.R$mipmap: int success_title_backg
+com.supers.clean.junk.R$mipmap: int success_tt
 com.supers.clean.junk.R$mipmap: int tilte_left
+com.supers.clean.junk.R$mipmap: int white_add_right
+com.supers.clean.junk.R$mipmap: int white_jia
+com.supers.clean.junk.R$mipmap: int white_jian
+com.supers.clean.junk.R$mipmap: int white_list_right
 com.supers.clean.junk.R$string: int abc_action_bar_home_description
 com.supers.clean.junk.R$string: int abc_action_bar_home_description_format
 com.supers.clean.junk.R$string: int abc_action_bar_home_subtitle_description_format
@@ -19257,6 +20103,15 @@ com.supers.clean.junk.R$string: int abc_shareactionprovider_share_with
 com.supers.clean.junk.R$string: int abc_shareactionprovider_share_with_application
 com.supers.clean.junk.R$string: int abc_toolbar_collapse_description
 com.supers.clean.junk.R$string: int app_name
+com.supers.clean.junk.R$string: int edit_hint
+com.supers.clean.junk.R$string: int float_gps
+com.supers.clean.junk.R$string: int float_h_1
+com.supers.clean.junk.R$string: int float_jiasu
+com.supers.clean.junk.R$string: int float_liangdu
+com.supers.clean.junk.R$string: int float_liuliang
+com.supers.clean.junk.R$string: int float_shengyin
+com.supers.clean.junk.R$string: int float_wifi
+com.supers.clean.junk.R$string: int float_yijiasu
 com.supers.clean.junk.R$string: int junk_apk
 com.supers.clean.junk.R$string: int junk_button
 com.supers.clean.junk.R$string: int junk_log
@@ -19266,7 +20121,7 @@ com.supers.clean.junk.R$string: int junk_system
 com.supers.clean.junk.R$string: int junk_title_clean
 com.supers.clean.junk.R$string: int junk_title_scaning
 com.supers.clean.junk.R$string: int junk_unload
-com.supers.clean.junk.R$string: int junk_usre
+com.supers.clean.junk.R$string: int junk_user
 com.supers.clean.junk.R$string: int main_aopplock_name
 com.supers.clean.junk.R$string: int main_arc_cpu
 com.supers.clean.junk.R$string: int main_arc_ram
@@ -19288,6 +20143,34 @@ com.supers.clean.junk.R$string: int main_rotate_good
 com.supers.clean.junk.R$string: int main_rotate_msg
 com.supers.clean.junk.R$string: int main_rotate_title
 com.supers.clean.junk.R$string: int main_theme_name
+com.supers.clean.junk.R$string: int manager_button
+com.supers.clean.junk.R$string: int manager_sort_pinlv
+com.supers.clean.junk.R$string: int manager_sort_size
+com.supers.clean.junk.R$string: int manager_sort_time
+com.supers.clean.junk.R$string: int message_boot_time
+com.supers.clean.junk.R$string: int message_boot_time2
+com.supers.clean.junk.R$string: int message_fenbianlv
+com.supers.clean.junk.R$string: int message_h_camera
+com.supers.clean.junk.R$string: int message_hard
+com.supers.clean.junk.R$string: int message_imei
+com.supers.clean.junk.R$string: int message_isRoot
+com.supers.clean.junk.R$string: int message_not_root
+com.supers.clean.junk.R$string: int message_pix
+com.supers.clean.junk.R$string: int message_q_camera
+com.supers.clean.junk.R$string: int message_ram
+com.supers.clean.junk.R$string: int message_root
+com.supers.clean.junk.R$string: int message_sd
+com.supers.clean.junk.R$string: int message_start
+com.supers.clean.junk.R$string: int message_title_1
+com.supers.clean.junk.R$string: int ram_button
+com.supers.clean.junk.R$string: int ram_title_clean
+com.supers.clean.junk.R$string: int setting_battery
+com.supers.clean.junk.R$string: int setting_float
+com.supers.clean.junk.R$string: int setting_name
+com.supers.clean.junk.R$string: int setting_rotate
+com.supers.clean.junk.R$string: int setting_tongzhi
+com.supers.clean.junk.R$string: int setting_tongzhilan
+com.supers.clean.junk.R$string: int setting_white
 com.supers.clean.junk.R$string: int side_charging
 com.supers.clean.junk.R$string: int side_float
 com.supers.clean.junk.R$string: int side_junk
@@ -19297,6 +20180,16 @@ com.supers.clean.junk.R$string: int side_rotate
 com.supers.clean.junk.R$string: int side_setting
 com.supers.clean.junk.R$string: int side_theme
 com.supers.clean.junk.R$string: int status_bar_notification_info_overflow
+com.supers.clean.junk.R$string: int success_cleaned
+com.supers.clean.junk.R$string: int success_normal
+com.supers.clean.junk.R$string: int success_title
+com.supers.clean.junk.R$string: int toast_ing
+com.supers.clean.junk.R$string: int white_list_add_name
+com.supers.clean.junk.R$string: int white_list_jiaru
+com.supers.clean.junk.R$string: int white_list_name
+com.supers.clean.junk.R$string: int white_list_tishi
+com.supers.clean.junk.R$string: int white_list_yichu
+com.supers.clean.junk.R$string: int white_wu
 com.supers.clean.junk.R$style: int AlertDialog_AppCompat
 com.supers.clean.junk.R$style: int AlertDialog_AppCompat_Light
 com.supers.clean.junk.R$style: int Animation_AppCompat_Dialog
@@ -19537,6 +20430,7 @@ com.supers.clean.junk.R$style: int ThemeOverlay_AppCompat_ActionBar
 com.supers.clean.junk.R$style: int ThemeOverlay_AppCompat_Dark
 com.supers.clean.junk.R$style: int ThemeOverlay_AppCompat_Dark_ActionBar
 com.supers.clean.junk.R$style: int ThemeOverlay_AppCompat_Light
+com.supers.clean.junk.R$style: int Transparent
 com.supers.clean.junk.R$style: int Widget_AppCompat_ActionBar
 com.supers.clean.junk.R$style: int Widget_AppCompat_ActionBar_Solid
 com.supers.clean.junk.R$style: int Widget_AppCompat_ActionBar_TabBar
@@ -19673,6 +20567,11 @@ com.supers.clean.junk.R$styleable: int DrawerArrowToggle_drawableSize
 com.supers.clean.junk.R$styleable: int DrawerArrowToggle_gapBetweenBars
 com.supers.clean.junk.R$styleable: int DrawerArrowToggle_spinBars
 com.supers.clean.junk.R$styleable: int DrawerArrowToggle_thickness
+com.supers.clean.junk.R$styleable: int[] HorizontalListView
+com.supers.clean.junk.R$styleable: int HorizontalListView_android_divider
+com.supers.clean.junk.R$styleable: int HorizontalListView_android_fadingEdgeLength
+com.supers.clean.junk.R$styleable: int HorizontalListView_android_requiresFadingEdge
+com.supers.clean.junk.R$styleable: int HorizontalListView_dividerWidth
 com.supers.clean.junk.R$styleable: int[] LinearLayoutCompat
 com.supers.clean.junk.R$styleable: int LinearLayoutCompat_android_baselineAligned
 com.supers.clean.junk.R$styleable: int LinearLayoutCompat_android_baselineAlignedChildIndex
@@ -19929,14 +20828,21 @@ com.supers.clean.junk.activity.BaseActivity
 com.supers.clean.junk.activity.BaseActivity: BaseActivity()
 com.supers.clean.junk.activity.CoolingActivity
 com.supers.clean.junk.activity.CoolingActivity: CoolingActivity()
+com.supers.clean.junk.activity.FloatActivity
+com.supers.clean.junk.activity.FloatActivity: FloatActivity()
+com.supers.clean.junk.activity.FloatService
+com.supers.clean.junk.activity.FloatService: FloatService()
 com.supers.clean.junk.activity.JunkActivity
 com.supers.clean.junk.activity.JunkActivity: JunkActivity()
+com.supers.clean.junk.activity.JunkActivity: void startCleanAnimation(android.view.View)
 com.supers.clean.junk.activity.JunkAndRamActivity
 com.supers.clean.junk.activity.JunkAndRamActivity: JunkAndRamActivity()
+com.supers.clean.junk.activity.JunkAndRamActivity: void startCleanAnimation(android.view.View)
 com.supers.clean.junk.activity.MainActivity
 com.supers.clean.junk.activity.MainActivity: MainActivity()
 com.supers.clean.junk.activity.ManagerActivity
 com.supers.clean.junk.activity.ManagerActivity: ManagerActivity()
+com.supers.clean.junk.activity.ManagerActivity$MyReceiver
 com.supers.clean.junk.activity.MessageActivity
 com.supers.clean.junk.activity.MessageActivity: MessageActivity()
 com.supers.clean.junk.activity.MyApplication
@@ -19945,13 +20851,59 @@ com.supers.clean.junk.activity.RamAvtivity
 com.supers.clean.junk.activity.RamAvtivity: RamAvtivity()
 com.supers.clean.junk.activity.SettingActivity
 com.supers.clean.junk.activity.SettingActivity: SettingActivity()
+com.supers.clean.junk.activity.SuccessActivity
+com.supers.clean.junk.activity.SuccessActivity: SuccessActivity()
 com.supers.clean.junk.activity.ThemeActivity
 com.supers.clean.junk.activity.ThemeActivity: ThemeActivity()
+com.supers.clean.junk.activity.WhiteListAddActivity
+com.supers.clean.junk.activity.WhiteListAddActivity: WhiteListAddActivity()
+com.supers.clean.junk.activity.WhiteListAvtivity
+com.supers.clean.junk.activity.WhiteListAvtivity: WhiteListAvtivity()
 com.supers.clean.junk.myView.CustomRoundCpu
 com.supers.clean.junk.myView.CustomRoundCpu: CustomRoundCpu(android.content.Context)
 com.supers.clean.junk.myView.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.myView.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet,int)
 com.supers.clean.junk.myView.CustomRoundCpu: void setProgress(int)
+com.supers.clean.junk.myView.DrawHookView
+com.supers.clean.junk.myView.DrawHookView: DrawHookView(android.content.Context)
+com.supers.clean.junk.myView.DrawHookView: DrawHookView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.myView.DrawHookView: DrawHookView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.myView.DrawHookView: void setProgress(int)
+com.supers.clean.junk.myView.DrawHookView: void setListener(com.supers.clean.junk.myView.DrawHookView$DrawHookListener)
+com.supers.clean.junk.myView.FloatStateView
+com.supers.clean.junk.myView.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.myView.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.myView.FloatStateView: void setDragState(int)
+com.supers.clean.junk.myView.HorizontalListView
+com.supers.clean.junk.myView.HorizontalListView: HorizontalListView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.myView.HorizontalListView: void setDivider(android.graphics.drawable.Drawable)
+com.supers.clean.junk.myView.HorizontalListView: void setDividerWidth(int)
+com.supers.clean.junk.myView.HorizontalListView: void setSelection(int)
+com.supers.clean.junk.myView.HorizontalListView: android.view.View getSelectedView()
+com.supers.clean.junk.myView.HorizontalListView: void setAdapter(android.widget.ListAdapter)
+com.supers.clean.junk.myView.HorizontalListView: android.widget.ListAdapter getAdapter()
+com.supers.clean.junk.myView.HorizontalListView: float getLeftFadingEdgeStrength()
+com.supers.clean.junk.myView.HorizontalListView: float getRightFadingEdgeStrength()
+com.supers.clean.junk.myView.HorizontalListView: android.view.View getLeftmostChild()
+com.supers.clean.junk.myView.HorizontalListView: android.view.View getRightmostChild()
+com.supers.clean.junk.myView.HorizontalListView: int getRenderHeight()
+com.supers.clean.junk.myView.HorizontalListView: int getRenderWidth()
+com.supers.clean.junk.myView.HorizontalListView: int getFirstVisiblePosition()
+com.supers.clean.junk.myView.HorizontalListView: int getLastVisiblePosition()
+com.supers.clean.junk.myView.HorizontalListView: void setOnClickListener(android.view.View$OnClickListener)
+com.supers.clean.junk.myView.HorizontalListView: void setOnScrollStateChangedListener(com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener)
+com.supers.clean.junk.myView.HorizontalListView: void setCurrentScrollState(com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState)
+com.supers.clean.junk.myView.HorizontalListView: void setAdapter(android.widget.Adapter)
+com.supers.clean.junk.myView.HorizontalListView: android.widget.Adapter getAdapter()
+com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState
+com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState SCROLL_STATE_IDLE
+com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState SCROLL_STATE_TOUCH_SCROLL
+com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState SCROLL_STATE_FLING
+com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState[] $VALUES
+com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState[] values()
+com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState valueOf(java.lang.String)
+com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: HorizontalListView$OnScrollStateChangedListener$ScrollState(java.lang.String,int)
+com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: void <clinit>()
 com.supers.clean.junk.myView.ListViewForScrollView
 com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context)
 com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
@@ -19989,4 +20941,8 @@ com.supers.clean.junk.myView.PullToRefreshLayout: void setOnRefreshListener(com.
 com.supers.clean.junk.myView.PullToRefreshLayout: PullToRefreshLayout(android.content.Context)
 com.supers.clean.junk.myView.PullToRefreshLayout: PullToRefreshLayout(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.myView.PullToRefreshLayout: PullToRefreshLayout(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.myView.SlowScrollView
+com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context)
+com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet,int)
 com.supers.clean.junk.service.ReStarService

@@ -83,7 +83,8 @@ import java.util.Queue;
  * </ul>
  */
 // @formatter:on
-public class HorizontalListView extends AdapterView<ListAdapter> {
+public class
+HorizontalListView extends AdapterView<ListAdapter> {
     /**
      * Defines where to insert items into the ViewGroup, as defined in {@code ViewGroup #addViewInLayout(View, int, LayoutParams, boolean)}
      */
