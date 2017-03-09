@@ -34,14 +34,15 @@ public class RamTask extends SimpleTask {
             int pid = info.pid;
             String packageName = info.name;
             if (!ignoreApp.contains(packageName)) {
-                addApplica(packageName, pid);
-                if (isCancelTask) {
-                    if (mSimpleTaskListener != null) {
-                        mSimpleTaskListener.cancelLoading();
-                    }
-                    break;
+                addApplica(false, packageName, pid);
+            } else {
+                addApplica(true, packageName, pid);
+            }
+            if (isCancelTask) {
+                if (mSimpleTaskListener != null) {
+                    mSimpleTaskListener.cancelLoading();
                 }
-
+                break;
             }
         }
 
@@ -50,18 +51,25 @@ public class RamTask extends SimpleTask {
         }
     }
 
-    private void addApplica(String packageName, int pid) {
+    private void addApplica(boolean isWhite, String packageName, int pid) {
         try {
             ApplicationInfo applicationInfo = pm.getApplicationInfo(packageName, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES);
             if ((applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1) {
             } else {
                 MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
                 int totalPrivateDirty = processMemoryInfo[0].getTotalPrivateDirty();
-                JunkInfo speedUpInfo = new JunkInfo(true, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName);
-                dataSize += speedUpInfo.size;
-                dataList.add(speedUpInfo);
-                if (mSimpleTaskListener != null) {
-                    mSimpleTaskListener.loading(speedUpInfo, speedUpInfo.size);
+                if (isWhite) {
+                    JunkInfo speedUpInfo = new JunkInfo(false, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName);
+                    if (mSimpleTaskListener != null) {
+                        mSimpleTaskListener.loadingW(speedUpInfo);
+                    }
+                } else {
+                    JunkInfo speedUpInfo = new JunkInfo(true, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName);
+                    dataSize += speedUpInfo.size;
+                    dataList.add(speedUpInfo);
+                    if (mSimpleTaskListener != null) {
+                        mSimpleTaskListener.loading(speedUpInfo, speedUpInfo.size);
+                    }
                 }
             }
 

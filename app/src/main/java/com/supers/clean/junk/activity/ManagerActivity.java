@@ -13,10 +13,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.AppManagerView;
 import com.supers.clean.junk.View.adapter.ManagerAdapter;
 import com.supers.clean.junk.modle.CommonUtil;
+import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.presenter.ManagerPresenter;
 
@@ -76,7 +79,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
     @Override
     public void loadFullAd() {
-
+        if (PreData.getDB(this, Contents.FULL_MANAGER, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        }
     }
 
     @Override
@@ -164,6 +169,12 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
     }
 
     @Override

@@ -14,10 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.RamView;
 import com.supers.clean.junk.View.adapter.RamAdapter;
 import com.supers.clean.junk.modle.CommonUtil;
+import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
 
@@ -68,7 +71,9 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
     @Override
     public void loadFullAd() {
-
+        if (PreData.getDB(this, Contents.FULL_RAM, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        }
     }
 
     @Override
@@ -186,10 +191,24 @@ public class RamAvtivity extends BaseActivity implements RamView {
     };
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
             setResult(1);
             finish();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if ("notifi".equals(getIntent().getStringExtra("from"))) {
+            jumpTo(MainActivity.class);
+        }
+        finish();
     }
 }

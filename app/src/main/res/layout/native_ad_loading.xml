@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ad_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ad_right" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/full_ad_ad_image"
+        android:layout_marginLeft="@dimen/full_ad__big_margin"
+        android:layout_marginRight="@dimen/full_ad__big_margin"
+        android:layout_marginTop="@dimen/full_ad__big_margin"
+        android:scaleType="centerCrop"
+        android:tag="ad_image" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_ic"
+            android:layout_width="@dimen/full_ad__icon_size"
+            android:layout_height="@dimen/full_ad__icon_size"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/full_ad__icon_margin_top"
+            android:tag="ad_icon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_ic"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-regular"
+                android:maxLength="45"
+                android:singleLine="true"
+                android:tag="ad_title"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                tools:text="Your see" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/full_ad__desc_text_margin"
+                android:layout_marginRight="@dimen/full_ad__desc_text_margin"
+                android:layout_marginTop="@dimen/full_ad__desc_text_margin_top"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-light"
+                android:lines="2"
+                android:tag="ad_desc"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/full_ad__desc_text_size"
+                tools:text="Your seeasd df fsfsfsfsf" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/full_ad__ac_action_green_margin"
+                android:layout_marginRight="@dimen/full_ad__ac_action_green_margin"
+                android:layout_marginTop="@dimen/full_ad_ac_action_green_margin_top"
+                android:background="@drawable/shape_green_ad"
+                android:gravity="center"
+                android:tag="ac_action_green"
+                android:text="Install"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/full_ad__ac_action_green_text_size" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
+
+
+
+
+

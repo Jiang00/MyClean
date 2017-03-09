@@ -52,7 +52,7 @@ public class FilesOfUninstalledAppTask extends SimpleTask {
                         icon = pm.getApplicationIcon(apkname);
                     } catch (NameNotFoundException e) {
                         icon = mContext.getResources().getDrawable(
-                                R.mipmap.ic_launcher);
+                                R.mipmap.icon);
                     }
                     String softChinesename = c.getString(c
                             .getColumnIndex("softChinesename"));

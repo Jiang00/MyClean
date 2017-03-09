@@ -2,6 +2,7 @@ package com.supers.clean.junk.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
@@ -53,6 +54,11 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+    public void jumpTo(Class<?> classs) {
+        Intent intent = new Intent(this, classs);
+        startActivity(intent);
+    }
+
     public int getStatusHeight(Activity activity) {
         int result = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -61,19 +67,21 @@ public class BaseActivity extends AppCompatActivity {
         }
         return result;
     }
+
     /**
      * 获取导航栏高度
+     *
      * @param context
      * @return
      */
     public int getDaoHangHeight(Context context) {
         int result = 0;
-        int resourceId=0;
+        int resourceId = 0;
         int rid = context.getResources().getIdentifier("config_showNavigationBar", "bool", "android");
-        if (rid!=0){
+        if (rid != 0) {
             resourceId = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
             return context.getResources().getDimensionPixelSize(resourceId);
-        }else
+        } else
             return 0;
     }
 
@@ -119,6 +127,7 @@ public class BaseActivity extends AppCompatActivity {
     public int dp2px(int dp) {
         return (int) (Resources.getSystem().getDisplayMetrics().density * dp);
     }
+
     public void showToast(String text) {
         if (toast == null) {
             toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);

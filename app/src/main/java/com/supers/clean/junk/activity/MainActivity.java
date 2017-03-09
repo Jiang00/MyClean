@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
@@ -245,7 +246,9 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     public void loadFullAd() {
-
+        if (PreData.getDB(this, Contents.FULL_MAIN, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        }
     }
 
     //scrollView 监听
@@ -461,6 +464,7 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     protected void onResume() {
         super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
     }
 
     public void onBackPressed() {

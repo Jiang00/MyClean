@@ -22,6 +22,8 @@ import com.supers.clean.junk.modle.CameraUtils;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.MemoryManager;
 import com.supers.clean.junk.modle.PhoneManager;
+import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
 
 import java.util.Locale;
 
@@ -62,6 +64,7 @@ public class MessageActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_message);
+        loadAd();
         title_name.setText(R.string.main_msg_title);
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +125,15 @@ public class MessageActivity extends BaseActivity {
         message_ram.setText(CommonUtil.getFileSize1(ram_all));
         long sd_all = MemoryManager.getPhoneAllSize();
         message_sd.setText(CommonUtil.getFileSize1(sd_all));
+
+    }
+
+    private void loadAd() {
+        if (PreData.getDB(this, Contents.FULL_MESSAGE, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        } else {
+            addAd();
+        }
     }
 
     private void addAd() {
@@ -131,6 +143,7 @@ public class MessageActivity extends BaseActivity {
             nativeView = AndroidSdk.peekNativeAdViewWithLayout(TAG_MESSAGE, AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.native_ad, null);
 
             if (nativeView != null && ll_ad != null) {
+                ll_ad.setVisibility(View.VISIBLE);
                 ll_ad.addView(nativeView);
             } else {
                 ll_ad.setVisibility(View.GONE);

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_radio"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="72dp"
+        android:layout_height="64dp">
+
+        <ImageView
+            android:id="@+id/chongdian"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/icon" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/electricity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/notification_1"
+                android:textColor="#8a000000"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_memory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffa92b"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_jiasu"
+        android:layout_width="81dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="16dp"
+        android:background="@mipmap/notification_text_backg"
+        android:gravity="center"
+        android:text="@string/notification_button"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+</LinearLayout>

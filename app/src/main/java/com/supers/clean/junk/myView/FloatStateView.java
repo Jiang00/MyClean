@@ -79,7 +79,7 @@ public class FloatStateView extends View {
         textPaint.setColor(Color.WHITE);
         textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(true);
-        Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);
         bitmap_normal = Bitmap.createScaledBitmap(src, width, height, true);
         bitmap_left = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_left), width, height, true);
         bitmap_right = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_right), width, height, true);

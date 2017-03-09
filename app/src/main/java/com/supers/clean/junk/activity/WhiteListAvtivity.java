@@ -1,6 +1,5 @@
 package com.supers.clean.junk.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +41,7 @@ public class WhiteListAvtivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_setting_ignore);
+        setContentView(R.layout.layout_ignore);
         title_name.setText(R.string.white_list_name);
         title_right.setVisibility(View.VISIBLE);
         title_left.setOnClickListener(clickListener);
@@ -64,6 +63,8 @@ public class WhiteListAvtivity extends BaseActivity {
         adapter.notifyDataSetChanged();
         if (white_list.size() == 0) {
             white_wu.setVisibility(View.VISIBLE);
+        } else {
+            white_wu.setVisibility(View.INVISIBLE);
         }
     }
 
