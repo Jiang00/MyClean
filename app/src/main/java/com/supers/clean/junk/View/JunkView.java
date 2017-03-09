@@ -31,5 +31,4 @@ public interface JunkView extends IView {
 
     void cleanAnimation(boolean isZhankai, List<JunkInfo> cleanList, long cleanSize);
 
-
 }

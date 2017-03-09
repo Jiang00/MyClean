@@ -20,7 +20,6 @@ import android.widget.TextView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.JunkView;
 import com.supers.clean.junk.View.adapter.JunkAdapter;
-import com.supers.clean.junk.View.adapter.JunkRamAdapter;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.myView.ListViewForScrollView;

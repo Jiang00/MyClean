@@ -1,6 +1,5 @@
 package com.supers.clean.junk.View;
 
-import android.animation.ValueAnimator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
@@ -20,8 +19,6 @@ public interface MainView extends IView {
     void initGuard(int num, RotateAnimation rotateAnimation);
 
     void loadAirAnimator(TranslateAnimation translateAnimation);
-
-    void loadValueAnimator(ValueAnimator animation);
 
     void setRotateGone();
 

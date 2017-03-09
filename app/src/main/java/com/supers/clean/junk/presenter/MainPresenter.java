@@ -1,31 +1,20 @@
 package com.supers.clean.junk.presenter;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
-import android.view.animation.AnticipateInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
-import com.supers.clean.junk.View.IView;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.CpuTempReader;
 import com.supers.clean.junk.modle.MemoryManager;
-import com.supers.clean.junk.modle.PhoneManager;
 import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
 
 import java.lang.reflect.Field;
@@ -93,9 +82,6 @@ public class MainPresenter extends BasePresenter<MainView> {
         iView.initRam(memo, ram_size);
     }
 
-    public void loadValueAnimation(ValueAnimator animation) {
-        iView.loadValueAnimator(animation);
-    }
 
     public void clickRotate(boolean isGood) {
         if (isGood) {

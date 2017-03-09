@@ -1,17 +1,13 @@
 package com.supers.clean.junk.activity;
 
-import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
@@ -23,7 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.View.IView;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
 import com.supers.clean.junk.modle.CommonUtil;
@@ -31,7 +26,6 @@ import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.myView.CustomRoundCpu;
-import com.supers.clean.junk.myView.MainFrameLayout;
 import com.supers.clean.junk.myView.MainScrollView;
 import com.supers.clean.junk.myView.PullToRefreshLayout;
 import com.supers.clean.junk.presenter.MainPresenter;
@@ -44,7 +38,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
     public static MainActivity instance;
 
-    FrameLayout main_all_cercle;
+    //FrameLayout main_all_cercle;
     MainScrollView main_scroll_view;
     PullToRefreshLayout main_pull_refresh;
     FrameLayout main_scale_all;
@@ -83,7 +77,7 @@ public class MainActivity extends BaseActivity implements MainView {
     protected void findId() {
         super.findId();
         main_drawer = (DrawerLayout) findViewById(R.id.main_drawer);
-        main_all_cercle = (FrameLayout) findViewById(R.id.main_all_cercle);
+        //main_all_cercle = (FrameLayout) findViewById(R.id.main_all_cercle);
         main_scroll_view = (MainScrollView) findViewById(R.id.main_scroll_view);
         main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
         main_scale_all = (FrameLayout) findViewById(R.id.main_scale_all);
@@ -131,7 +125,6 @@ public class MainActivity extends BaseActivity implements MainView {
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
         initHandler();
-
     }
 
     private void initHandler() {
@@ -140,7 +133,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
     //初始化监听
     public void onClick() {
-        main_scroll_view.setOnTouchListener(scrollViewTouchListener);
+        //main_scroll_view.setOnTouchListener(scrollViewTouchListener);
         main_pull_refresh.setOnRefreshListener(refreshListener);
         iv_title_right.setOnClickListener(onClickListener);
         iv_title_left.setOnClickListener(onClickListener);
@@ -163,12 +156,12 @@ public class MainActivity extends BaseActivity implements MainView {
     //初始化中间的高度
     public void initCercleHight() {
         //改变尺寸
-        dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
-        cercle_linearParams = main_all_cercle.getLayoutParams();
-        int ac = getStatusHeight(this);
-        cercle_linearParams.height = dm.heightPixels - ac - dp2px(56) - dp2px(185) - dp2px(64);
-        main_all_cercle.setLayoutParams(cercle_linearParams);
+        /*dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(dm);*/
+        //cercle_linearParams = main_all_cercle.getLayoutParams();
+        //int ac = getStatusHeight(this);
+        //cercle_linearParams.height = dm.heightPixels - ac - dp2px(56) - dp2px(185) - dp2px(64);
+        //main_all_cercle.setLayoutParams(cercle_linearParams);
     }
 
     @Override
@@ -256,30 +249,39 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
     //scrollView 监听
-    View.OnTouchListener scrollViewTouchListener = new View.OnTouchListener() {
+   /* View.OnTouchListener scrollViewTouchListener = new View.OnTouchListener() {
         int state = NOMAL;
 
         @Override
         public boolean onTouch(View v, MotionEvent event) {
+            Log.e("rqy", "scrollViewTouchListener,v=" + v);
             if (first) {
                 cercle_value = cercle_linearParams.height;
                 first = false;
             }
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
+                    Log.e("rqy", "scrollViewTouchListener,ACTION_DOWN");
                     cercleHeight = cercle_linearParams.height;
                     isScroll = main_scroll_view.getScrollY() > 0;
                     firstY = event.getY();
-                    Log.e("aaa", "===" + cercleHeight);
+                    Log.e("rqy", "firstY=" + firstY);
                     break;
                 case MotionEvent.ACTION_MOVE:
+                    Log.e("rqy", "scrollViewTouchListener,ACTION_MOVE--isScroll=" + isScroll);
                     if (isScroll) {
                         break;
                     }
                     float y = event.getY();
 
+                    Log.e("rqy", "firstY=" + firstY + "--y=" + y);
                     float deltaY = firstY - y;// 滑动距离
-                    /** 对于初次Touch操作要判断方位：UP OR DOWN **/
+
+                    Log.e("rqy", "deltaY=" + deltaY + "--state=" + state);
+                    */
+    /**
+     * 对于初次Touch操作要判断方位：UP OR DOWN
+     **//*
                     if (deltaY > 10 && state == NOMAL) {
                         state = UP;
                     } else if (deltaY < -10 && state == NOMAL) {
@@ -289,6 +291,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     }
                     main_drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
                     if (state == UP) {
+                        Log.e("rqy", "scrollViewTouchListener,UP");
                         if (cercleHeight == cercle_value) {
                             if ((int) (cercleHeight - deltaY) > cercle_value) {
                                 cercle_linearParams.height = cercle_value;
@@ -305,6 +308,7 @@ public class MainActivity extends BaseActivity implements MainView {
                             main_scroll_view.setShutTouch(false);
                         }
                     } else if (state == DOWN) {
+                        Log.e("rqy", "scrollViewTouchListener,DOWN");
                         if (cercleHeight == cercle_value) {
                             main_scroll_view.setShutTouch(true);
                         } else if (cercleHeight == 0) {
@@ -328,6 +332,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     }
                     break;
                 case MotionEvent.ACTION_UP:
+                    Log.e("rqy", "scrollViewTouchListener,ACTION_UP");
                     if (isScroll) {
                         state = NOMAL;
                         break;
@@ -355,45 +360,13 @@ public class MainActivity extends BaseActivity implements MainView {
                             startValueAnimator();
                         }
                     }
-
                     state = NOMAL;
                     break;
             }
             return false;
         }
-    };
+    };*/
 
-
-    //启动回弹动画
-    private void startValueAnimator() {
-        if (valueAnimator != null) {
-            valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-            valueAnimator.setDuration(200);
-            valueAnimator.addUpdateListener(updateListener);
-            valueAnimator.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationCancel(Animator animation) {
-                    main_drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-                }
-
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    main_drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-                }
-
-                @Override
-                public void onAnimationRepeat(Animator animation) {
-
-                }
-
-                @Override
-                public void onAnimationStart(Animator animation) {
-
-                }
-            });
-            valueAnimator.start();
-        }
-    }
 
     //上拉刷新监听
     PullToRefreshLayout.OnRefreshListener refreshListener = new PullToRefreshLayout.OnRefreshListener() {
@@ -414,22 +387,15 @@ public class MainActivity extends BaseActivity implements MainView {
         }
     };
 
-    //
-    ValueAnimator.AnimatorUpdateListener updateListener = new ValueAnimator.AnimatorUpdateListener() {
-        @Override
-        public void onAnimationUpdate(ValueAnimator animation) {
-            mainPresenter.loadValueAnimation(animation);
-        }
-    };
 
-    public void loadValueAnimator(ValueAnimator animation) {
+  /*  public void loadValueAnimator(ValueAnimator animation) {
         int hight = (int) animation.getAnimatedValue();
         Log.e("animaterh", "===" + cercleHeight + "===" + hight);
         cercle_linearParams.height = hight;
-        main_all_cercle.setLayoutParams(cercle_linearParams);
-        main_scale_all.setScaleY((float) cercle_linearParams.height / cercle_value);
+        //main_all_cercle.setLayoutParams(cercle_linearParams);
+        main_scale_all.setScaleY((float) cercle_linearParams.height / );
         main_scale_all.setScaleX((float) cercle_linearParams.height / cercle_value);
-    }
+    }*/
 
     //点击事件监听
     View.OnClickListener onClickListener = new View.OnClickListener() {
