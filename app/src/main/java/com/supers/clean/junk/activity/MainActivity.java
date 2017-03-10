@@ -166,41 +166,59 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
     @Override
-    public void initCpu(int temp) {
-        main_cpu_temp.setText(String.valueOf(temp) + "℃");
+    public void initCpu(final int temp) {
         main_custom_cpu.startProgress(false, temp);
-        main_msg_cpu_percent.setText(String.valueOf(temp) + "%");
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                main_cpu_temp.setText(String.valueOf(temp) + "℃");
+                main_msg_cpu_percent.setText(String.valueOf(temp) + "%");
+            }
+        });
+
     }
 
     @Override
-    public void initSd(int percent, String size, long sd_kongxian) {
+    public void initSd(final int percent, final String size, final long sd_kongxian) {
         main_custom_sd.startProgress(true, percent);
-        main_sd_per.setText(String.valueOf(percent) + "%");
-        main_sd_size.setText(size);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
 
-        main_msg_sd_percent.setText(CommonUtil.getFileSize2(sd_kongxian));
-        if (sd_kongxian < 1024) {
-            main_msg_sd_unit.setText("B");
-        } else if (sd_kongxian < 1048576) {
-            main_msg_sd_unit.setText("KB");
-        } else if (sd_kongxian < 1073741824) {
-            main_msg_sd_unit.setText("MB");
-        } else {
-            main_msg_sd_unit.setText("GB");
-        }
+                main_sd_per.setText(String.valueOf(percent) + "%");
+                main_sd_size.setText(size);
+                main_msg_sd_percent.setText(CommonUtil.getFileSize2(sd_kongxian));
+                if (sd_kongxian < 1024) {
+                    main_msg_sd_unit.setText("B");
+                } else if (sd_kongxian < 1048576) {
+                    main_msg_sd_unit.setText("KB");
+                } else if (sd_kongxian < 1073741824) {
+                    main_msg_sd_unit.setText("MB");
+                } else {
+                    main_msg_sd_unit.setText("GB");
+                }
+            }
+        });
 
     }
 
     @Override
-    public void initRam(int percent, String size) {
+    public void initRam(final int percent, final String size) {
         main_custom_ram.startProgress(false, percent);
-        main_ram_per.setText(String.valueOf(percent) + "%");
-        main_ram_size.setText(size);
-        main_msg_ram_percent.setText(String.valueOf(percent) + "%");
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                main_ram_per.setText(String.valueOf(percent) + "%");
+                main_ram_size.setText(size);
+                main_msg_ram_percent.setText(String.valueOf(percent) + "%");
+            }
+        });
     }
 
     @Override
     public void initGuard(int num, RotateAnimation rotateAnimation) {
+
         main_gurad_num.setText(String.valueOf(num));
         main_guard_rotate.startAnimation(rotateAnimation);
     }

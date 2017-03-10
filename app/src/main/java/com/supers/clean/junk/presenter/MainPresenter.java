@@ -2,6 +2,7 @@ package com.supers.clean.junk.presenter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
@@ -25,19 +26,25 @@ import java.lang.reflect.Field;
 
 public class MainPresenter extends BasePresenter<MainView> {
     private int cpuTemp = 40;
+    Handler myHandler;
 
     public MainPresenter(MainView iView, Context context) {
         super(iView, context);
         this.iView = iView;
         this.context = context;
+        myHandler = new Handler();
     }
 
     public void init() {
         iView.loadFullAd();
         iView.initCercleHight();
         iView.initSideData();
-        reStart();
-
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                reStart();
+            }
+        }).start();
         TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
         translate.setInterpolator(new AccelerateInterpolator());//OvershootInterpolator
         translate.setDuration(300);
