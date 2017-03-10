@@ -10,8 +10,14 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.LayoutRes;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+
+import com.android.client.AndroidSdk;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -378,5 +384,24 @@ public class CommonUtil {
         return hasNavigationBar;
     }
 
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+            Log.e("rqy", "getAdView null,because not configuration tag =" + tag);
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
+        if (nativeView == null) {
+            Log.e("rqy", "getAdView null,because peek native ad = null");
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewParent viewParent = nativeView.getParent();
+            if (viewParent != null && viewParent instanceof ViewGroup) {
+                ((ViewGroup) viewParent).removeAllViews();
+            }
+        }
+        return nativeView;
+    }
 
 }

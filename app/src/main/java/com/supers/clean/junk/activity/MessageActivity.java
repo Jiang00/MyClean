@@ -1,7 +1,6 @@
 package com.supers.clean.junk.activity;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -10,7 +9,6 @@ import android.os.SystemClock;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -37,7 +35,6 @@ public class MessageActivity extends BaseActivity {
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
-    private View nativeView;
     private TelephonyManager telManager;
     private String TAG_MESSAGE = "junk_message";
 
@@ -137,17 +134,10 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void addAd() {
-        if (AndroidSdk.hasNativeAd(TAG_MESSAGE, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
-            if (nativeView != null)
-                AndroidSdk.destroyNativeAdView(TAG_MESSAGE, nativeView);
-            nativeView = AndroidSdk.peekNativeAdViewWithLayout(TAG_MESSAGE, AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.native_ad, null);
-
-            if (nativeView != null && ll_ad != null) {
-                ll_ad.setVisibility(View.VISIBLE);
-                ll_ad.addView(nativeView);
-            } else {
-                ll_ad.setVisibility(View.GONE);
-            }
+        View nativeView = CommonUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad);
+        if (nativeView != null) {
+            ll_ad.setVisibility(View.VISIBLE);
+            ll_ad.addView(nativeView);
         } else {
             ll_ad.setVisibility(View.GONE);
         }
