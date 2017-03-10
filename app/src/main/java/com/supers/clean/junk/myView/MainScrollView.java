@@ -212,7 +212,8 @@ public class MainScrollView extends ScrollView implements Pullable {
                 public void onAnimationEnd(Animator animation) {
                     // main_drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
                     if (headerParams.height == headerHeight) {
-                        smoothScrollTo(0, 0);
+                        //smoothScrollTo(0, 0);
+                        fullScroll(ScrollView.FOCUS_UP);
                     }
                 }
 
