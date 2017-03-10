@@ -4,8 +4,11 @@ import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.RotateAnimation;
@@ -30,6 +33,8 @@ import com.supers.clean.junk.myView.CustomRoundCpu;
 import com.supers.clean.junk.myView.MainScrollView;
 import com.supers.clean.junk.myView.PullToRefreshLayout;
 import com.supers.clean.junk.presenter.MainPresenter;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity implements MainView {
 
@@ -122,6 +127,48 @@ public class MainActivity extends BaseActivity implements MainView {
         super.onCreate(savedInstanceState);
         instance = this;
         setContentView(R.layout.activity_dra);
+        final ArrayList<View> arrayList = new ArrayList<>();
+        View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
+        View view2 = LayoutInflater.from(this).inflate(R.layout.layout_message, null);
+        View adView = CommonUtil.getNativeAdView("main_tag", R.layout.native_ad);
+        arrayList.add(view);
+        arrayList.add(view2);
+        if (adView != null) {
+            arrayList.add(adView);
+        }
+        /*ViewPager viewpager = findViewById(R.id.viewpager);
+
+        viewpager.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return arrayList.size();
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                container.addView(arrayList.get(position), 0);
+                return arrayList.get(position);
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                container.removeView(arrayList.get(position));
+            }
+
+            @Override
+            public boolean isViewFromObject(View arg0, Object arg1) {
+                return arg0 == arg1;
+            }
+        });
+
+        if (arrayList.size() == 2) {
+            view.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    viewpager.setCurrentItem(1);
+                }
+            }, 2000);
+        }*/
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
