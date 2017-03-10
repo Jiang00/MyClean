@@ -26,8 +26,6 @@ public class MainScrollView extends ScrollView implements Pullable {
     private int headerHeight;               //头部的原始高度
     private View headerView;                //头布局
 
-    private boolean isHeadVisible = true;          //头部是否可见
-
     private int cercleHeight;
 
     private int touchSlop;
@@ -49,7 +47,6 @@ public class MainScrollView extends ScrollView implements Pullable {
             headerView.setLayoutParams(headerParams);
             main_scale_all.setScaleY((float) cercleHeight / headerHeight);
             main_scale_all.setScaleX((float) cercleHeight / headerHeight);
-            scrollTo(0, headerHeight - cercleHeight);
         }
     };
 
@@ -85,58 +82,96 @@ public class MainScrollView extends ScrollView implements Pullable {
     }
 
     @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return super.onInterceptTouchEvent(ev);
+    }
+
+    public boolean isHeadVisible() {
+        return headerParams.height == 0;
+    }
+
+    private boolean isFirstVisibleHead = true;
+
+
+    float scrollY = 0;
+
+    public boolean isVisibleHead() {
+        return isFirstVisibleHead;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e("rqy", "scrollViewTouchListener,v=" + "onTouchEvent");
         float currentX = event.getX();
         float currentY = event.getY();
+        float dy = 0;
+
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 downX = lastEventX = currentX;
                 downY = lastEventY = currentY;
                 isActionDown = true;
+                isFirstVisibleHead = cercleHeight != 0;
+                scrollY = getScrollY();
+                Log.e("rqy", "scrollViewTouchListener,ACTION_DOWN--isFirstVisibleHead=" + isFirstVisibleHead);
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e("rqy", "getScrollY=" + getScrollY() + "scrollViewTouchListener,ACTION_MOVE--isScroll=");
                 if (!isActionDown) {
                     downX = lastEventX = currentX;
                     downY = lastEventY = currentY;
+                    isFirstVisibleHead = cercleHeight != 0;
                     isActionDown = true;
                 }
-                float shiftX = Math.abs(currentX - downX);
-                float shiftY = Math.abs(currentY - downY);
-                float dx = currentX - lastEventX;
-                float dy = currentY - lastEventY;
+                //float shiftY = Math.abs(currentY - downY);
+                dy = currentY - lastEventY;
                 lastEventY = currentY;
 
-                Log.e("rqy,", "shiftX=" + shiftX + "--shiftY=" + shiftY + "--dx=" + dx + "--dy=" + dy + "--getScrollY=" + getScrollY());
+                Log.e("rqy1", "ACTION_MOVE--dy=" + dy + "--getScrollY=" + getScrollY() + "--cercleHeight=" + cercleHeight + "--isFirstVisibleHead=" + isFirstVisibleHead);
                 //rqy move
                 // main_drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-
-                if (shiftY > shiftX && shiftY > touchSlop && getScrollY() > 0) {
+                if (dy == 0) {
+                    break;
+                }
+                if (dy > 0) { //下拉
+                    if (!isFirstVisibleHead && getScrollY() > 0) {
+                        break;
+                    }
+                    if (cercleHeight < headerHeight) {
+                        cercleHeight += dy;
+                        if (cercleHeight > headerHeight) {
+                            cercleHeight = headerHeight;
+                        }
+                        main_scale_all.setScaleY((float) cercleHeight / headerHeight);
+                        main_scale_all.setScaleX((float) cercleHeight / headerHeight);
+                        headerParams.height = cercleHeight;
+                        headerView.setLayoutParams(headerParams);
+                    }
+                } else { //上拉
+                    if (!isFirstVisibleHead && getScrollY() > 0) {
+                        break;
+                    }
                     cercleHeight += dy;
                     if (cercleHeight >= headerHeight) {
                         cercleHeight = headerHeight;
-                        isHeadVisible = false;
                     } else if (cercleHeight <= 0) {
                         cercleHeight = 0;
-                        isHeadVisible = false;
                     }
-
                     main_scale_all.setScaleY((float) cercleHeight / headerHeight);
                     main_scale_all.setScaleX((float) cercleHeight / headerHeight);
                     headerParams.height = cercleHeight;
                     headerView.setLayoutParams(headerParams);
                     Log.e("rqy1", "cercleHeight=" + cercleHeight + "--headerHeight=" + headerHeight);
-                    return true;
+                    if (cercleHeight != 0) {
+                        return true;
+                    }
                 }
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 isActionDown = false;
                 Log.e("rqy", "scrollViewTouchListener,ACTION_UP---getScrollY=" + getScrollY());
-                boolean isHeadVisible = !(headerParams.height == 0);
-                if (!isHeadVisible || headerParams.height == headerHeight) {
+                if (cercleHeight == 0 || cercleHeight == headerHeight) {
                     break;
                 }
                 if (headerParams.height < (headerHeight / 2)) {
@@ -152,7 +187,13 @@ public class MainScrollView extends ScrollView implements Pullable {
             default:
                 break;
         }
-        return super.onTouchEvent(event);
+        if (dy > 0 && !isFirstVisibleHead && getScrollY() > 0) {
+            return super.onTouchEvent(event);
+        }
+        if (dy < 0 && !isFirstVisibleHead) {
+            return super.onTouchEvent(event);
+        }
+        return (cercleHeight < headerHeight) || super.onTouchEvent(event);
     }
 
     //启动回弹动画
@@ -170,6 +211,9 @@ public class MainScrollView extends ScrollView implements Pullable {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     // main_drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+                    if (headerParams.height == headerHeight) {
+                        smoothScrollTo(0, 0);
+                    }
                 }
 
                 @Override
@@ -190,11 +234,6 @@ public class MainScrollView extends ScrollView implements Pullable {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return super.onInterceptTouchEvent(ev);
     }
 
     @Override
