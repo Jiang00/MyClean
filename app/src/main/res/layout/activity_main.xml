@@ -74,8 +74,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/main_circle" />
-                <!--<RelativeLayout
+                <RelativeLayout
+                    android:id="@+id/main_all_cercle"
                     android:layout_width="wrap_content"
                     android:layout_height="311dp"
                     android:background="@color/app_color_first">
@@ -83,17 +83,21 @@
                     <android.support.v4.view.ViewPager
                         android:id="@+id/viewpager"
                         android:layout_width="match_parent"
-                        android:layout_height="311dp" />
+                        android:layout_height="match_parent" />
 
                     <com.rd.PageIndicatorView
+                        android:id="@+id/pageindicatorview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
                         app:piv_animationType="drop"
                         app:piv_interactiveAnimation="true"
                         app:piv_radius="5dp"
                         app:piv_viewPager="@id/viewpager" />
 
-                </RelativeLayout>-->
+                </RelativeLayout>
                 <!--六个按钮-->
                 <LinearLayout
                     android:layout_width="match_parent"

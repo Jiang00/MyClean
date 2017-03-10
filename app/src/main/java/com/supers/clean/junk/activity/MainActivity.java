@@ -89,18 +89,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_scale_all = (FrameLayout) findViewById(R.id.main_scale_all);
         iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
-        main_cpu_air_button = (RelativeLayout) findViewById(R.id.main_cpu_air_button);
-        main_custom_cpu = (CustomRoundCpu) findViewById(R.id.main_custom_cpu);
-        main_cpu_temp = (TextView) findViewById(R.id.main_cpu_temp);
-        main_sd_air_button = (RelativeLayout) findViewById(R.id.main_sd_air_button);
-        main_custom_sd = (CustomRoundCpu) findViewById(R.id.main_custom_sd);
-        main_sd_per = (TextView) findViewById(R.id.main_sd_per);
-        main_sd_size = (TextView) findViewById(R.id.main_sd_size);
-        main_ram_air_button = (RelativeLayout) findViewById(R.id.main_ram_air_button);
-        main_custom_ram = (CustomRoundCpu) findViewById(R.id.main_custom_ram);
-        main_ram_per = (TextView) findViewById(R.id.main_ram_per);
-        main_ram_size = (TextView) findViewById(R.id.main_ram_size);
-        main_air_all = (ImageView) findViewById(R.id.main_air_all);
+
         main_junk_button = (LinearLayout) findViewById(R.id.main_junk_button);
         main_ram_button = (LinearLayout) findViewById(R.id.main_ram_button);
         main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
@@ -128,15 +117,27 @@ public class MainActivity extends BaseActivity implements MainView {
         instance = this;
         setContentView(R.layout.activity_dra);
         final ArrayList<View> arrayList = new ArrayList<>();
+
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
-        View view2 = LayoutInflater.from(this).inflate(R.layout.layout_message, null);
+        main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
+        main_custom_cpu = (CustomRoundCpu) view.findViewById(R.id.main_custom_cpu);
+        main_cpu_temp = (TextView) view.findViewById(R.id.main_cpu_temp);
+        main_sd_air_button = (RelativeLayout) view.findViewById(R.id.main_sd_air_button);
+        main_custom_sd = (CustomRoundCpu) view.findViewById(R.id.main_custom_sd);
+        main_sd_per = (TextView) view.findViewById(R.id.main_sd_per);
+        main_sd_size = (TextView) view.findViewById(R.id.main_sd_size);
+        main_ram_air_button = (RelativeLayout) view.findViewById(R.id.main_ram_air_button);
+        main_custom_ram = (CustomRoundCpu) view.findViewById(R.id.main_custom_ram);
+        main_ram_per = (TextView) view.findViewById(R.id.main_ram_per);
+        main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
+        main_air_all = (ImageView) view.findViewById(R.id.main_air_all);
+
         View adView = CommonUtil.getNativeAdView("main_tag", R.layout.native_ad);
         arrayList.add(view);
-        arrayList.add(view2);
         if (adView != null) {
             arrayList.add(adView);
         }
-        /*ViewPager viewpager = findViewById(R.id.viewpager);
+        final ViewPager viewpager = (ViewPager) findViewById(R.id.viewpager);
 
         viewpager.setAdapter(new PagerAdapter() {
             @Override
@@ -161,14 +162,17 @@ public class MainActivity extends BaseActivity implements MainView {
             }
         });
 
-        if (arrayList.size() == 2) {
+        if (adView == null) {
+            View pageView = findViewById(R.id.pageindicatorview);
+            pageView.setVisibility(View.GONE);
+        } else {
             view.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     viewpager.setCurrentItem(1);
                 }
-            }, 2000);
-        }*/
+            }, 3000);
+        }
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
