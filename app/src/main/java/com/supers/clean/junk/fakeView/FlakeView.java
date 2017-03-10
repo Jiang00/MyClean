@@ -95,7 +95,7 @@ public class FlakeView extends View {
             }
         });
 //        animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.setDuration(3000);
+        animator.setDuration(5000);
     }
 
     public int getNumFlakes() {
