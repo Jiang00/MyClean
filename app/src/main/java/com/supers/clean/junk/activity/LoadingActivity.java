@@ -2,6 +2,7 @@ package com.supers.clean.junk.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.ShortCutUtils;
 import com.supers.clean.junk.modle.entity.Contents;
@@ -73,6 +75,10 @@ public class LoadingActivity extends BaseActivity {
     Runnable runnable1 = new Runnable() {
         @Override
         public void run() {
+            String resolution = "";
+            DisplayMetrics metrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+            int a = CommonUtil.dp2px(100);
             jumpTo(MainActivity.class);
             finish();
         }

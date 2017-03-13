@@ -77,7 +77,7 @@ public class CoolingActivity extends BaseActivity {
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
         mHandler = new Handler();
-        cooling_zhuan.startAnimation(rotate_zheng);
+        cooling_zhuan.startAnimation(rotate_ni);
         cooling_xuehua.startAnimation(rotate_zheng);
         startCoolingAni();
         suo.setAnimationListener(new Animation.AnimationListener() {
