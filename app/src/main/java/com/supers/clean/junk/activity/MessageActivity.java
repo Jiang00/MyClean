@@ -28,7 +28,7 @@ import com.supers.clean.junk.modle.entity.Contents;
 import java.util.Locale;
 
 /**
- * Created by Ivy on 2017/3/2.
+ * Created by on 2017/3/2.
  */
 
 public class MessageActivity extends BaseActivity {

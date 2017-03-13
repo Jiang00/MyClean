@@ -19,7 +19,7 @@ import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.PreData;
 
 /**
- * Created by Ivy on 2017/2/28.
+ * Created by on 2017/2/28.
  */
 
 public class BaseActivity extends AppCompatActivity {

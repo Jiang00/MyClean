@@ -501,7 +501,7 @@ public class FloatActivity extends BaseActivity {
         if (PreData.getDB(this, Contents.FULL_FLOAT, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_full);
+            nativeView = CommonUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 layout_ad.height = nativeView.getMeasuredHeight();

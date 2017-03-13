@@ -11,7 +11,6 @@ import com.supers.clean.junk.modle.entity.Contents;
 
 
 /**
- * Created by Ivy on 2016/7/28.
  */
 public class ShortCutUtils {
     /**

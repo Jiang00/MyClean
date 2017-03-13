@@ -19,7 +19,7 @@ import java.util.Random;
 
 
 /**
- * Created by Ivy on 2017/3/2.
+ * Created by on 2017/3/2.
  */
 
 public class CoolingActivity extends BaseActivity {

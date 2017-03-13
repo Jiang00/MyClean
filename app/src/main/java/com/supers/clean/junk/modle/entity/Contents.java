@@ -1,7 +1,6 @@
 package com.supers.clean.junk.modle.entity;
 
 /**
- * Created by Ivy on 2017/2/27.
  */
 
 public class Contents {

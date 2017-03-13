@@ -2,7 +2,8 @@ package com.supers.clean.junk.myView;
 
 import android.widget.ImageView;
 
-import com.ivy.module.tweenengine.TweenAccessor;
+import com.eos.module.tweenengine.TweenAccessor;
+
 
 public class ImageAccessor implements TweenAccessor<ImageView> {
 	public static final int BOUNCE_EFFECT = 1;

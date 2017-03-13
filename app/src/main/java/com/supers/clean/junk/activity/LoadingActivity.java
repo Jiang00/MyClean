@@ -18,7 +18,7 @@ import com.supers.clean.junk.modle.ShortCutUtils;
 import com.supers.clean.junk.modle.entity.Contents;
 
 /**
- * Created by Ivy on 2017/3/8.
+ * Created by on 2017/3/8.
  */
 
 public class LoadingActivity extends BaseActivity {

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.eos.module.charge.saver.R;
 
 /**
- * Created by IVY on 2016/10/27.
+ * Created by on 2016/10/27.
  */
 
 public class CustomerTypefaceTextView extends TextView {

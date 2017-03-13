@@ -9,14 +9,13 @@ import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ivy.module.tweenengine.Tween;
-import com.ivy.module.tweenengine.TweenEquations;
-import com.ivy.module.tweenengine.TweenManager;
+import com.eos.module.tweenengine.Tween;
+import com.eos.module.tweenengine.TweenEquations;
+import com.eos.module.tweenengine.TweenManager;
 import com.supers.clean.junk.activity.BaseActivity;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.myView.ImageAccessor;
@@ -24,7 +23,7 @@ import com.supers.clean.junk.myView.ImageAccessor;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/3/8.
+ * Created by on 2017/3/8.
  */
 
 public class ShortCutActivity extends BaseActivity {

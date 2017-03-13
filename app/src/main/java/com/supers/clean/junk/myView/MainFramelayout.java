@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
 /**
- * Created by Ivy on 2017/3/2.
+ * Created by on 2017/3/2.
  */
 public class MainFrameLayout extends FrameLayout {
     public MainFrameLayout(Context context, AttributeSet attrs) {

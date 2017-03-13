@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ivy on 2016/11/29.
+ * Created by on 2016/11/29.
  */
 public class MyApplication extends Application {
 

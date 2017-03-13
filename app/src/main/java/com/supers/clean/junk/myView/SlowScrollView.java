@@ -8,7 +8,7 @@ import android.widget.ScrollView;
 import android.widget.Scroller;
 
 /**
- * Created by Ivy on 2017/1/12.
+ * Created by on 2017/1/12.
  */
 
 public class SlowScrollView extends ScrollView {

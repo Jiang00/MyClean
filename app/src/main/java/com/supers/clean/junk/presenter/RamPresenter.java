@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/3/2.
+ * Created by on 2017/3/2.
  */
 
 public class RamPresenter extends BasePresenter<RamView> {

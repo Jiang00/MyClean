@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/3/3.
  */
 
 public class ListViewAnimationDismiss {

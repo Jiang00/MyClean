@@ -7,7 +7,7 @@ import android.content.Intent;
 
 
 /**
- * Created by Ivy on 2017/2/6.
+ * Created by on 2017/2/6.
  */
 
 public class UnloadBroadcast extends BroadcastReceiver {

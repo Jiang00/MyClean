@@ -21,7 +21,7 @@ import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
 
 /**
- * Created by Ivy on 2017/3/2.
+ * Created by on 2017/3/2.
  */
 
 public class SettingActivity extends BaseActivity {

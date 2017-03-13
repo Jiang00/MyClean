@@ -1,7 +1,6 @@
 package com.supers.clean.junk.View.adapter;
 
 /**
- * Created by Ivy on 2016/12/1.
  */
 
 

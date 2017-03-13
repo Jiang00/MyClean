@@ -8,7 +8,7 @@ import com.eos.module.charge.saver.service.BatteryService;
 
 
 /**
- * Created by Ivy on 2016/12/14.
+ * Created by on 2016/12/14.
  */
 
 public class StartReceiver extends BroadcastReceiver {

@@ -22,7 +22,7 @@ import com.supers.clean.junk.modle.entity.JunkInfo;
 import java.io.File;
 
 /**
- * Created by Ivy on 2017/2/6.
+ * Created by on 2017/2/6.
  */
 
 public class UnloadActivity extends BaseActivity {

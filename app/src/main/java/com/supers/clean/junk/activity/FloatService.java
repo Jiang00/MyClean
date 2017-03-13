@@ -9,8 +9,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Handler;
 import android.os.IBinder;
+import android.provider.Settings;
 
 import com.supers.clean.junk.modle.CommonUtil;
+import com.supers.clean.junk.modle.GetTopApp;
 import com.supers.clean.junk.modle.TopActivityPkg;
 import com.supers.clean.junk.presenter.FloatStateManager;
 
@@ -18,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/3/7.
+ * Created by on 2017/3/7.
  */
 
 public class FloatService extends Service {
@@ -26,6 +28,7 @@ public class FloatService extends Service {
     private ActivityManager am;
     private int count = 0;
     private List<String> hmoes;
+    private GetTopApp topApp;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -47,6 +50,7 @@ public class FloatService extends Service {
             pm = getPackageManager();
         if (am == null)
             am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        topApp = new GetTopApp(this);
         hmoes = getLaunchers();
         manager.showFloatCircleView();
         myHandler.removeCallbacks(runnable);
@@ -72,7 +76,10 @@ public class FloatService extends Service {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String pkg = TopActivityPkg.getTopPackageName(FloatService.this);
+//                final Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//                String pkg = TopActivityPkg.getTopPackageName(FloatService.this);
+                String pkg = topApp.execute();
                 if (hmoes.contains(pkg)) {
                     manager.upDate(CommonUtil.getMemory(FloatService.this));
                     manager.addWindowsView();

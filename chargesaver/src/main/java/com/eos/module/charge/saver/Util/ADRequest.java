@@ -7,7 +7,7 @@ import com.android.client.ClientNativeAd;
 import com.eos.module.charge.saver.R;
 
 /**
- * Created by Ivy on 2016/11/9.
+ * Created by on 2016/11/9.
  */
 public class ADRequest {
 

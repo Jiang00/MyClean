@@ -68,6 +68,7 @@ public class MainActivity extends BaseActivity implements MainView {
     FrameLayout main_guard_all;
     ListView side_listView;
     DrawerLayout main_drawer;
+    LinearLayout ll_ad;
 
     private float firstY;
     private DisplayMetrics dm;
@@ -111,7 +112,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_guard_rotate = (ImageView) findViewById(R.id.main_guard_rotate);
         main_guard_all = (FrameLayout) findViewById(R.id.main_guard_all);
         side_listView = (ListView) findViewById(R.id.side_listView);
-
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -321,6 +322,14 @@ public class MainActivity extends BaseActivity implements MainView {
     public void loadFullAd() {
         if (PreData.getDB(this, Contents.FULL_MAIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        } else {
+            View nativeView = CommonUtil.getNativeAdView("main_tag", R.layout.native_ad);
+            if (ll_ad != null && nativeView != null) {
+                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+                layout_ad.height = nativeView.getMeasuredHeight();
+                ll_ad.setLayoutParams(layout_ad);
+                ll_ad.addView(nativeView);
+            }
         }
     }
 
@@ -454,9 +463,11 @@ public class MainActivity extends BaseActivity implements MainView {
         //上拉加载操作
         @Override
         public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
+
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                     main_pull_refresh.loadmoreFinish(PullToRefreshLayout.SUCCEED);
                 }
             }, 500);

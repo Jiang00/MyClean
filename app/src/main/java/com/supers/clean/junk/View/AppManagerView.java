@@ -5,7 +5,6 @@ import com.supers.clean.junk.modle.entity.JunkInfo;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/3/2.
  */
 
 public interface AppManagerView extends IView {

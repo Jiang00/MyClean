@@ -21,7 +21,6 @@ import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 
 /**
- * Created by Ivy on 2016/11/1.
  */
 
 public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {

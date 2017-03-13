@@ -15,7 +15,6 @@ import android.widget.ScrollView;
 import com.supers.clean.junk.R;
 
 /**
- * Created by Ivy on 2017/2/28.
  */
 
 public class MainScrollView extends ScrollView implements Pullable {

@@ -26,7 +26,7 @@ import com.eos.module.charge.saver.view.BatteryView;
 import com.eos.module.charge.saver.view.DuckView;
 
 /**
- * Created by Ivy on 2016/10/20.
+ * Created by on 2016/10/20.
  */
 public class BatteryService extends Service {
     private static final String TAG = "BatteryService";

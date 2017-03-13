@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/3/8.
+ * Created by on 2017/3/8.
  */
 
 public class WhiteListAddActivity extends BaseActivity {

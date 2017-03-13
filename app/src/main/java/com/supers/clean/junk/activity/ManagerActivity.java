@@ -28,7 +28,7 @@ import com.supers.clean.junk.presenter.ManagerPresenter;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/3/2.
+ * Created by on 2017/3/2.
  */
 
 public class ManagerActivity extends BaseActivity implements AppManagerView {

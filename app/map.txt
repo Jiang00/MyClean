@@ -23390,7 +23390,7 @@ com.eos.module.charge.saver.view.IndicatorView$OnPageChangeListener -> com.eos.m
     void onPageScrolled(int,float,int) -> a
     void onPageSelected(int) -> a
     void onPageScrollStateChanged(int) -> b
-com.ivy.module.tweenengine.BaseTween -> com.ivy.module.tweenengine.a:
+com.eos.module.tweenengine.BaseTween -> com.eos.module.tweenengine.a:
     int step -> f
     int repeatCnt -> g
     boolean isIterationStep -> h
@@ -23405,7 +23405,7 @@ com.ivy.module.tweenengine.BaseTween -> com.ivy.module.tweenengine.a:
     boolean isFinished -> o
     boolean isKilled -> p
     boolean isPaused -> q
-    com.ivy.module.tweenengine.TweenCallback callback -> r
+    com.eos.module.tweenengine.TweenCallback callback -> r
     int callbackTriggers -> s
     java.lang.Object userData -> t
     boolean isAutoRemoveEnabled -> c
@@ -23415,7 +23415,7 @@ com.ivy.module.tweenengine.BaseTween -> com.ivy.module.tweenengine.a:
     48:60:void reset() -> a
     74:74:java.lang.Object build() -> b
     85:88:java.lang.Object start() -> c
-    98:99:java.lang.Object start(com.ivy.module.tweenengine.TweenManager) -> a
+    98:99:java.lang.Object start(com.eos.module.tweenengine.TweenManager) -> a
     109:110:java.lang.Object delay(float) -> a
     127:127:void free() -> d
     254:254:int getRepeatCount() -> e
@@ -23437,70 +23437,70 @@ com.ivy.module.tweenengine.BaseTween -> com.ivy.module.tweenengine.a:
     471:538:void updateStep() -> o
     541:542:void testCompletion() -> p
     17:17:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.Pool -> com.ivy.module.tweenengine.b:
+com.eos.module.tweenengine.Pool -> com.eos.module.tweenengine.b:
     java.util.ArrayList objects -> a
-    com.ivy.module.tweenengine.Pool$Callback callback -> b
+    com.eos.module.tweenengine.Pool$Callback callback -> b
     java.lang.Object create() -> a
-    15:18:void <init>(int,com.ivy.module.tweenengine.Pool$Callback) -> <init>
+    15:18:void <init>(int,com.eos.module.tweenengine.Pool$Callback) -> <init>
     21:27:java.lang.Object get() -> b
     31:37:void free(java.lang.Object) -> a
-com.ivy.module.tweenengine.Pool$Callback -> com.ivy.module.tweenengine.b$a:
+com.eos.module.tweenengine.Pool$Callback -> com.eos.module.tweenengine.b$a:
     void onPool(java.lang.Object) -> a
     void onUnPool(java.lang.Object) -> b
-com.ivy.module.tweenengine.Timeline -> com.ivy.module.tweenengine.Timeline:
-    com.ivy.module.tweenengine.Pool$Callback poolCallback -> h
-    com.ivy.module.tweenengine.Pool pool -> f
+com.eos.module.tweenengine.Timeline -> com.eos.module.tweenengine.Timeline:
+    com.eos.module.tweenengine.Pool$Callback poolCallback -> h
+    com.eos.module.tweenengine.Pool pool -> f
     java.util.List children -> i
-    com.ivy.module.tweenengine.Timeline current -> j
-    com.ivy.module.tweenengine.Timeline parent -> k
-    com.ivy.module.tweenengine.Timeline$Modes mode -> l
+    com.eos.module.tweenengine.Timeline current -> j
+    com.eos.module.tweenengine.Timeline parent -> k
+    com.eos.module.tweenengine.Timeline$Modes mode -> l
     boolean isBuilt -> m
     boolean $assertionsDisabled -> g
     105:117:void <init>() -> <init>
     121:127:void reset() -> a
-    234:258:com.ivy.module.tweenengine.Timeline build() -> m
-    263:270:com.ivy.module.tweenengine.Timeline start() -> n
+    234:258:com.eos.module.tweenengine.Timeline build() -> m
+    263:270:com.eos.module.tweenengine.Timeline start() -> n
     275:281:void free() -> d
     285:324:void updateOverride(int,int,boolean,float) -> a
     332:336:void forceStartValues() -> i
     340:344:void forceEndValues() -> j
     46:46:java.lang.Object start() -> c
     46:46:java.lang.Object build() -> b
-    46:46:void <init>(com.ivy.module.tweenengine.Timeline$1) -> <init>
+    46:46:void <init>(com.eos.module.tweenengine.Timeline$1) -> <init>
     46:56:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.Timeline$1 -> com.ivy.module.tweenengine.Timeline$1:
+com.eos.module.tweenengine.Timeline$1 -> com.eos.module.tweenengine.Timeline$1:
     51:51:void <init>() -> <init>
-    52:52:void onPool(com.ivy.module.tweenengine.Timeline) -> a
-    53:53:void onUnPool(com.ivy.module.tweenengine.Timeline) -> b
+    52:52:void onPool(com.eos.module.tweenengine.Timeline) -> a
+    53:53:void onUnPool(com.eos.module.tweenengine.Timeline) -> b
     51:51:void onUnPool(java.lang.Object) -> b
     51:51:void onPool(java.lang.Object) -> a
-com.ivy.module.tweenengine.Timeline$2 -> com.ivy.module.tweenengine.Timeline$2:
-    56:56:void <init>(int,com.ivy.module.tweenengine.Pool$Callback) -> <init>
-    57:57:com.ivy.module.tweenengine.Timeline create() -> c
+com.eos.module.tweenengine.Timeline$2 -> com.eos.module.tweenengine.Timeline$2:
+    56:56:void <init>(int,com.eos.module.tweenengine.Pool$Callback) -> <init>
+    57:57:com.eos.module.tweenengine.Timeline create() -> c
     56:56:java.lang.Object create() -> a
-com.ivy.module.tweenengine.Timeline$3 -> com.ivy.module.tweenengine.Timeline$3:
+com.eos.module.tweenengine.Timeline$3 -> com.eos.module.tweenengine.Timeline$3:
     int[] $SwitchMap$com$ivy$module$tweenengine$Timeline$Modes -> a
     244:244:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.Timeline$Modes -> com.ivy.module.tweenengine.Timeline$Modes:
-    com.ivy.module.tweenengine.Timeline$Modes SEQUENCE -> SEQUENCE
-    com.ivy.module.tweenengine.Timeline$Modes PARALLEL -> PARALLEL
-    com.ivy.module.tweenengine.Timeline$Modes[] $VALUES -> $VALUES
-    103:103:com.ivy.module.tweenengine.Timeline$Modes[] values() -> values
-    103:103:com.ivy.module.tweenengine.Timeline$Modes valueOf(java.lang.String) -> valueOf
+com.eos.module.tweenengine.Timeline$Modes -> com.eos.module.tweenengine.Timeline$Modes:
+    com.eos.module.tweenengine.Timeline$Modes SEQUENCE -> SEQUENCE
+    com.eos.module.tweenengine.Timeline$Modes PARALLEL -> PARALLEL
+    com.eos.module.tweenengine.Timeline$Modes[] $VALUES -> $VALUES
+    103:103:com.eos.module.tweenengine.Timeline$Modes[] values() -> values
+    103:103:com.eos.module.tweenengine.Timeline$Modes valueOf(java.lang.String) -> valueOf
     103:103:void <init>(java.lang.String,int) -> <init>
     103:103:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.Tween -> com.ivy.module.tweenengine.c:
+com.eos.module.tweenengine.Tween -> com.eos.module.tweenengine.c:
     int combinedAttrsLimit -> g
     int waypointsLimit -> h
-    com.ivy.module.tweenengine.Pool$Callback poolCallback -> i
-    com.ivy.module.tweenengine.Pool pool -> j
+    com.eos.module.tweenengine.Pool$Callback poolCallback -> i
+    com.eos.module.tweenengine.Pool pool -> j
     java.util.Map registeredAccessors -> k
     java.lang.Object target -> l
     java.lang.Class targetClass -> m
-    com.ivy.module.tweenengine.TweenAccessor accessor -> n
+    com.eos.module.tweenengine.TweenAccessor accessor -> n
     int type -> o
-    com.ivy.module.tweenengine.TweenEquation equation -> p
-    com.ivy.module.tweenengine.TweenPath path -> q
+    com.eos.module.tweenengine.TweenEquation equation -> p
+    com.eos.module.tweenengine.TweenPath path -> q
     boolean isFrom -> r
     boolean isRelative -> s
     int combinedAttrsCnt -> t
@@ -23511,16 +23511,16 @@ com.ivy.module.tweenengine.Tween -> com.ivy.module.tweenengine.c:
     float[] accessorBuffer -> y
     float[] pathBuffer -> z
     boolean $assertionsDisabled -> f
-    161:162:void registerAccessor(java.lang.Class,com.ivy.module.tweenengine.TweenAccessor) -> a
-    209:213:com.ivy.module.tweenengine.Tween to(java.lang.Object,int,float) -> a
+    161:162:void registerAccessor(java.lang.Class,com.eos.module.tweenengine.TweenAccessor) -> a
+    209:213:com.eos.module.tweenengine.Tween to(java.lang.Object,int,float) -> a
     355:369:void <init>() -> <init>
     373:392:void reset() -> a
     395:401:void setup(java.lang.Object,int,float) -> b
     404:411:java.lang.Class findTargetClass() -> n
-    444:445:com.ivy.module.tweenengine.Tween ease(com.ivy.module.tweenengine.TweenEquation) -> a
-    538:542:com.ivy.module.tweenengine.Tween target(float,float,float,float) -> a
-    765:766:com.ivy.module.tweenengine.Tween path(com.ivy.module.tweenengine.TweenPath) -> a
-    831:839:com.ivy.module.tweenengine.Tween build() -> m
+    444:445:com.eos.module.tweenengine.Tween ease(com.eos.module.tweenengine.TweenEquation) -> a
+    538:542:com.eos.module.tweenengine.Tween target(float,float,float,float) -> a
+    765:766:com.eos.module.tweenengine.Tween path(com.eos.module.tweenengine.TweenPath) -> a
+    831:839:com.eos.module.tweenengine.Tween build() -> m
     844:845:void free() -> d
     849:866:void initializeOverride() -> k
     870:925:void updateOverride(int,int,boolean,float) -> a
@@ -23528,269 +23528,269 @@ com.ivy.module.tweenengine.Tween -> com.ivy.module.tweenengine.c:
     939:941:void forceEndValues() -> j
     958:962:void throwCombinedAttrsLimitReached() -> o
     80:80:java.lang.Object build() -> b
-    80:80:void <init>(com.ivy.module.tweenengine.Tween$1) -> <init>
+    80:80:void <init>(com.eos.module.tweenengine.Tween$1) -> <init>
     80:149:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.Tween$1 -> com.ivy.module.tweenengine.c$1:
+com.eos.module.tweenengine.Tween$1 -> com.eos.module.tweenengine.c$1:
     121:121:void <init>() -> <init>
-    122:122:void onPool(com.ivy.module.tweenengine.Tween) -> a
-    123:123:void onUnPool(com.ivy.module.tweenengine.Tween) -> b
+    122:122:void onPool(com.eos.module.tweenengine.Tween) -> a
+    123:123:void onUnPool(com.eos.module.tweenengine.Tween) -> b
     121:121:void onUnPool(java.lang.Object) -> b
     121:121:void onPool(java.lang.Object) -> a
-com.ivy.module.tweenengine.Tween$2 -> com.ivy.module.tweenengine.c$2:
-    126:126:void <init>(int,com.ivy.module.tweenengine.Pool$Callback) -> <init>
-    127:127:com.ivy.module.tweenengine.Tween create() -> c
+com.eos.module.tweenengine.Tween$2 -> com.eos.module.tweenengine.c$2:
+    126:126:void <init>(int,com.eos.module.tweenengine.Pool$Callback) -> <init>
+    127:127:com.eos.module.tweenengine.Tween create() -> c
     126:126:java.lang.Object create() -> a
-com.ivy.module.tweenengine.TweenAccessor -> com.ivy.module.tweenengine.d:
+com.eos.module.tweenengine.TweenAccessor -> com.eos.module.tweenengine.d:
     int getValues(java.lang.Object,int,float[]) -> a
     void setValues(java.lang.Object,int,float[]) -> b
-com.ivy.module.tweenengine.TweenCallback -> com.ivy.module.tweenengine.e:
-    void onEvent(int,com.ivy.module.tweenengine.BaseTween) -> a
-com.ivy.module.tweenengine.TweenEquation -> com.ivy.module.tweenengine.f:
+com.eos.module.tweenengine.TweenCallback -> com.eos.module.tweenengine.e:
+    void onEvent(int,com.eos.module.tweenengine.BaseTween) -> a
+com.eos.module.tweenengine.TweenEquation -> com.eos.module.tweenengine.f:
     10:10:void <init>() -> <init>
     float compute(float) -> a
-com.ivy.module.tweenengine.TweenEquations -> com.ivy.module.tweenengine.g:
-    com.ivy.module.tweenengine.equations.Linear easeNone -> a
-    com.ivy.module.tweenengine.equations.Quad easeInQuad -> b
-    com.ivy.module.tweenengine.equations.Quad easeOutQuad -> c
-    com.ivy.module.tweenengine.equations.Quad easeInOutQuad -> d
-    com.ivy.module.tweenengine.equations.Cubic easeInCubic -> e
-    com.ivy.module.tweenengine.equations.Cubic easeOutCubic -> f
-    com.ivy.module.tweenengine.equations.Cubic easeInOutCubic -> g
-    com.ivy.module.tweenengine.equations.Quart easeInQuart -> h
-    com.ivy.module.tweenengine.equations.Quart easeOutQuart -> i
-    com.ivy.module.tweenengine.equations.Quart easeInOutQuart -> j
-    com.ivy.module.tweenengine.equations.Quint easeInQuint -> k
-    com.ivy.module.tweenengine.equations.Quint easeOutQuint -> l
-    com.ivy.module.tweenengine.equations.Quint easeInOutQuint -> m
-    com.ivy.module.tweenengine.equations.Circ easeInCirc -> n
-    com.ivy.module.tweenengine.equations.Circ easeOutCirc -> o
-    com.ivy.module.tweenengine.equations.Circ easeInOutCirc -> p
-    com.ivy.module.tweenengine.equations.Sine easeInSine -> q
-    com.ivy.module.tweenengine.equations.Sine easeOutSine -> r
-    com.ivy.module.tweenengine.equations.Sine easeInOutSine -> s
-    com.ivy.module.tweenengine.equations.Expo easeInExpo -> t
-    com.ivy.module.tweenengine.equations.Expo easeOutExpo -> u
-    com.ivy.module.tweenengine.equations.Expo easeInOutExpo -> v
-    com.ivy.module.tweenengine.equations.Back easeInBack -> w
-    com.ivy.module.tweenengine.equations.Back easeOutBack -> x
-    com.ivy.module.tweenengine.equations.Back easeInOutBack -> y
-    com.ivy.module.tweenengine.equations.Bounce easeInBounce -> z
-    com.ivy.module.tweenengine.equations.Bounce easeOutBounce -> A
-    com.ivy.module.tweenengine.equations.Bounce easeInOutBounce -> B
-    com.ivy.module.tweenengine.equations.Elastic easeInElastic -> C
-    com.ivy.module.tweenengine.equations.Elastic easeOutElastic -> D
-    com.ivy.module.tweenengine.equations.Elastic easeInOutElastic -> E
+com.eos.module.tweenengine.TweenEquations -> com.eos.module.tweenengine.g:
+    com.eos.module.tweenengine.equations.Linear easeNone -> a
+    com.eos.module.tweenengine.equations.Quad easeInQuad -> b
+    com.eos.module.tweenengine.equations.Quad easeOutQuad -> c
+    com.eos.module.tweenengine.equations.Quad easeInOutQuad -> d
+    com.eos.module.tweenengine.equations.Cubic easeInCubic -> e
+    com.eos.module.tweenengine.equations.Cubic easeOutCubic -> f
+    com.eos.module.tweenengine.equations.Cubic easeInOutCubic -> g
+    com.eos.module.tweenengine.equations.Quart easeInQuart -> h
+    com.eos.module.tweenengine.equations.Quart easeOutQuart -> i
+    com.eos.module.tweenengine.equations.Quart easeInOutQuart -> j
+    com.eos.module.tweenengine.equations.Quint easeInQuint -> k
+    com.eos.module.tweenengine.equations.Quint easeOutQuint -> l
+    com.eos.module.tweenengine.equations.Quint easeInOutQuint -> m
+    com.eos.module.tweenengine.equations.Circ easeInCirc -> n
+    com.eos.module.tweenengine.equations.Circ easeOutCirc -> o
+    com.eos.module.tweenengine.equations.Circ easeInOutCirc -> p
+    com.eos.module.tweenengine.equations.Sine easeInSine -> q
+    com.eos.module.tweenengine.equations.Sine easeOutSine -> r
+    com.eos.module.tweenengine.equations.Sine easeInOutSine -> s
+    com.eos.module.tweenengine.equations.Expo easeInExpo -> t
+    com.eos.module.tweenengine.equations.Expo easeOutExpo -> u
+    com.eos.module.tweenengine.equations.Expo easeInOutExpo -> v
+    com.eos.module.tweenengine.equations.Back easeInBack -> w
+    com.eos.module.tweenengine.equations.Back easeOutBack -> x
+    com.eos.module.tweenengine.equations.Back easeInOutBack -> y
+    com.eos.module.tweenengine.equations.Bounce easeInBounce -> z
+    com.eos.module.tweenengine.equations.Bounce easeOutBounce -> A
+    com.eos.module.tweenengine.equations.Bounce easeInOutBounce -> B
+    com.eos.module.tweenengine.equations.Elastic easeInElastic -> C
+    com.eos.module.tweenengine.equations.Elastic easeOutElastic -> D
+    com.eos.module.tweenengine.equations.Elastic easeInOutElastic -> E
     21:51:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.TweenManager -> com.ivy.module.tweenengine.h:
+com.eos.module.tweenengine.TweenManager -> com.eos.module.tweenengine.h:
     java.util.ArrayList objects -> a
     boolean isPaused -> b
     20:52:void <init>() -> <init>
-    60:62:com.ivy.module.tweenengine.TweenManager add(com.ivy.module.tweenengine.BaseTween) -> a
+    60:62:com.eos.module.tweenengine.TweenManager add(com.eos.module.tweenengine.BaseTween) -> a
     156:175:void update(float) -> a
-com.ivy.module.tweenengine.TweenPath -> com.ivy.module.tweenengine.i:
+com.eos.module.tweenengine.TweenPath -> com.eos.module.tweenengine.i:
     float compute(float,float[],int) -> a
-com.ivy.module.tweenengine.TweenPaths -> com.ivy.module.tweenengine.j:
-    com.ivy.module.tweenengine.paths.Linear linear -> a
-    com.ivy.module.tweenengine.paths.CatmullRom catmullRom -> b
+com.eos.module.tweenengine.TweenPaths -> com.eos.module.tweenengine.j:
+    com.eos.module.tweenengine.paths.Linear linear -> a
+    com.eos.module.tweenengine.paths.CatmullRom catmullRom -> b
     12:13:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Back -> com.ivy.module.tweenengine.a.a:
-    com.ivy.module.tweenengine.equations.Back IN -> a
-    com.ivy.module.tweenengine.equations.Back OUT -> b
-    com.ivy.module.tweenengine.equations.Back INOUT -> c
+com.eos.module.tweenengine.equations.Back -> com.eos.module.tweenengine.a.a:
+    com.eos.module.tweenengine.equations.Back IN -> a
+    com.eos.module.tweenengine.equations.Back OUT -> b
+    com.eos.module.tweenengine.equations.Back INOUT -> c
     float param_s -> d
     10:53:void <init>() -> <init>
     11:37:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Back$1 -> com.ivy.module.tweenengine.a.a$1:
+com.eos.module.tweenengine.equations.Back$1 -> com.eos.module.tweenengine.a.a$1:
     11:11:void <init>() -> <init>
     14:15:float compute(float) -> a
     20:20:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Back$2 -> com.ivy.module.tweenengine.a.a$2:
+com.eos.module.tweenengine.equations.Back$2 -> com.eos.module.tweenengine.a.a$2:
     24:24:void <init>() -> <init>
     27:28:float compute(float) -> a
     33:33:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Back$3 -> com.ivy.module.tweenengine.a.a$3:
+com.eos.module.tweenengine.equations.Back$3 -> com.eos.module.tweenengine.a.a$3:
     37:37:void <init>() -> <init>
     40:42:float compute(float) -> a
     47:47:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Bounce -> com.ivy.module.tweenengine.a.b:
-    com.ivy.module.tweenengine.equations.Bounce IN -> a
-    com.ivy.module.tweenengine.equations.Bounce OUT -> b
-    com.ivy.module.tweenengine.equations.Bounce INOUT -> c
+com.eos.module.tweenengine.equations.Bounce -> com.eos.module.tweenengine.a.b:
+    com.eos.module.tweenengine.equations.Bounce IN -> a
+    com.eos.module.tweenengine.equations.Bounce OUT -> b
+    com.eos.module.tweenengine.equations.Bounce INOUT -> c
     10:10:void <init>() -> <init>
     11:43:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Bounce$1 -> com.ivy.module.tweenengine.a.b$1:
+com.eos.module.tweenengine.equations.Bounce$1 -> com.eos.module.tweenengine.a.b$1:
     11:11:void <init>() -> <init>
     14:14:float compute(float) -> a
     19:19:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Bounce$2 -> com.ivy.module.tweenengine.a.b$2:
+com.eos.module.tweenengine.equations.Bounce$2 -> com.eos.module.tweenengine.a.b$2:
     23:23:void <init>() -> <init>
     26:33:float compute(float) -> a
     39:39:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Bounce$3 -> com.ivy.module.tweenengine.a.b$3:
+com.eos.module.tweenengine.equations.Bounce$3 -> com.eos.module.tweenengine.a.b$3:
     43:43:void <init>() -> <init>
     46:47:float compute(float) -> a
     52:52:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Circ -> com.ivy.module.tweenengine.a.c:
-    com.ivy.module.tweenengine.equations.Circ IN -> a
-    com.ivy.module.tweenengine.equations.Circ OUT -> b
-    com.ivy.module.tweenengine.equations.Circ INOUT -> c
+com.eos.module.tweenengine.equations.Circ -> com.eos.module.tweenengine.a.c:
+    com.eos.module.tweenengine.equations.Circ IN -> a
+    com.eos.module.tweenengine.equations.Circ OUT -> b
+    com.eos.module.tweenengine.equations.Circ INOUT -> c
     10:10:void <init>() -> <init>
     11:35:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Circ$1 -> com.ivy.module.tweenengine.a.c$1:
+com.eos.module.tweenengine.equations.Circ$1 -> com.eos.module.tweenengine.a.c$1:
     11:11:void <init>() -> <init>
     14:14:float compute(float) -> a
     19:19:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Circ$2 -> com.ivy.module.tweenengine.a.c$2:
+com.eos.module.tweenengine.equations.Circ$2 -> com.eos.module.tweenengine.a.c$2:
     23:23:void <init>() -> <init>
     26:26:float compute(float) -> a
     31:31:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Circ$3 -> com.ivy.module.tweenengine.a.c$3:
+com.eos.module.tweenengine.equations.Circ$3 -> com.eos.module.tweenengine.a.c$3:
     35:35:void <init>() -> <init>
     38:39:float compute(float) -> a
     44:44:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Cubic -> com.ivy.module.tweenengine.a.d:
-    com.ivy.module.tweenengine.equations.Cubic IN -> a
-    com.ivy.module.tweenengine.equations.Cubic OUT -> b
-    com.ivy.module.tweenengine.equations.Cubic INOUT -> c
+com.eos.module.tweenengine.equations.Cubic -> com.eos.module.tweenengine.a.d:
+    com.eos.module.tweenengine.equations.Cubic IN -> a
+    com.eos.module.tweenengine.equations.Cubic OUT -> b
+    com.eos.module.tweenengine.equations.Cubic INOUT -> c
     10:10:void <init>() -> <init>
     11:35:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Cubic$1 -> com.ivy.module.tweenengine.a.d$1:
+com.eos.module.tweenengine.equations.Cubic$1 -> com.eos.module.tweenengine.a.d$1:
     11:11:void <init>() -> <init>
     14:14:float compute(float) -> a
     19:19:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Cubic$2 -> com.ivy.module.tweenengine.a.d$2:
+com.eos.module.tweenengine.equations.Cubic$2 -> com.eos.module.tweenengine.a.d$2:
     23:23:void <init>() -> <init>
     26:26:float compute(float) -> a
     31:31:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Cubic$3 -> com.ivy.module.tweenengine.a.d$3:
+com.eos.module.tweenengine.equations.Cubic$3 -> com.eos.module.tweenengine.a.d$3:
     35:35:void <init>() -> <init>
     38:39:float compute(float) -> a
     44:44:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Elastic -> com.ivy.module.tweenengine.a.e:
-    com.ivy.module.tweenengine.equations.Elastic IN -> a
-    com.ivy.module.tweenengine.equations.Elastic OUT -> b
-    com.ivy.module.tweenengine.equations.Elastic INOUT -> c
+com.eos.module.tweenengine.equations.Elastic -> com.eos.module.tweenengine.a.e:
+    com.eos.module.tweenengine.equations.Elastic IN -> a
+    com.eos.module.tweenengine.equations.Elastic OUT -> b
+    com.eos.module.tweenengine.equations.Elastic INOUT -> c
     float param_a -> d
     float param_p -> e
     boolean setA -> f
     boolean setP -> g
     10:73:void <init>() -> <init>
     13:49:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Elastic$1 -> com.ivy.module.tweenengine.a.e$1:
+com.eos.module.tweenengine.equations.Elastic$1 -> com.eos.module.tweenengine.a.e$1:
     13:13:void <init>() -> <init>
     16:22:float compute(float) -> a
     27:27:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Elastic$2 -> com.ivy.module.tweenengine.a.e$2:
+com.eos.module.tweenengine.equations.Elastic$2 -> com.eos.module.tweenengine.a.e$2:
     31:31:void <init>() -> <init>
     34:40:float compute(float) -> a
     45:45:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Elastic$3 -> com.ivy.module.tweenengine.a.e$3:
+com.eos.module.tweenengine.equations.Elastic$3 -> com.eos.module.tweenengine.a.e$3:
     49:49:void <init>() -> <init>
     52:59:float compute(float) -> a
     64:64:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Expo -> com.ivy.module.tweenengine.a.f:
-    com.ivy.module.tweenengine.equations.Expo IN -> a
-    com.ivy.module.tweenengine.equations.Expo OUT -> b
-    com.ivy.module.tweenengine.equations.Expo INOUT -> c
+com.eos.module.tweenengine.equations.Expo -> com.eos.module.tweenengine.a.f:
+    com.eos.module.tweenengine.equations.Expo IN -> a
+    com.eos.module.tweenengine.equations.Expo OUT -> b
+    com.eos.module.tweenengine.equations.Expo INOUT -> c
     10:10:void <init>() -> <init>
     11:35:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Expo$1 -> com.ivy.module.tweenengine.a.f$1:
+com.eos.module.tweenengine.equations.Expo$1 -> com.eos.module.tweenengine.a.f$1:
     11:11:void <init>() -> <init>
     14:14:float compute(float) -> a
     19:19:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Expo$2 -> com.ivy.module.tweenengine.a.f$2:
+com.eos.module.tweenengine.equations.Expo$2 -> com.eos.module.tweenengine.a.f$2:
     23:23:void <init>() -> <init>
     26:26:float compute(float) -> a
     31:31:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Expo$3 -> com.ivy.module.tweenengine.a.f$3:
+com.eos.module.tweenengine.equations.Expo$3 -> com.eos.module.tweenengine.a.f$3:
     35:35:void <init>() -> <init>
     38:41:float compute(float) -> a
     46:46:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Linear -> com.ivy.module.tweenengine.a.g:
-    com.ivy.module.tweenengine.equations.Linear INOUT -> a
+com.eos.module.tweenengine.equations.Linear -> com.eos.module.tweenengine.a.g:
+    com.eos.module.tweenengine.equations.Linear INOUT -> a
     10:10:void <init>() -> <init>
     11:11:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Linear$1 -> com.ivy.module.tweenengine.a.g$1:
+com.eos.module.tweenengine.equations.Linear$1 -> com.eos.module.tweenengine.a.g$1:
     11:11:void <init>() -> <init>
     14:14:float compute(float) -> a
     19:19:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Quad -> com.ivy.module.tweenengine.a.h:
-    com.ivy.module.tweenengine.equations.Quad IN -> a
-    com.ivy.module.tweenengine.equations.Quad OUT -> b
-    com.ivy.module.tweenengine.equations.Quad INOUT -> c
+com.eos.module.tweenengine.equations.Quad -> com.eos.module.tweenengine.a.h:
+    com.eos.module.tweenengine.equations.Quad IN -> a
+    com.eos.module.tweenengine.equations.Quad OUT -> b
+    com.eos.module.tweenengine.equations.Quad INOUT -> c
     10:10:void <init>() -> <init>
     11:35:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Quad$1 -> com.ivy.module.tweenengine.a.h$1:
+com.eos.module.tweenengine.equations.Quad$1 -> com.eos.module.tweenengine.a.h$1:
     11:11:void <init>() -> <init>
     14:14:float compute(float) -> a
     19:19:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Quad$2 -> com.ivy.module.tweenengine.a.h$2:
+com.eos.module.tweenengine.equations.Quad$2 -> com.eos.module.tweenengine.a.h$2:
     23:23:void <init>() -> <init>
     26:26:float compute(float) -> a
     31:31:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Quad$3 -> com.ivy.module.tweenengine.a.h$3:
+com.eos.module.tweenengine.equations.Quad$3 -> com.eos.module.tweenengine.a.h$3:
     35:35:void <init>() -> <init>
     38:39:float compute(float) -> a
     44:44:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Quart -> com.ivy.module.tweenengine.a.i:
-    com.ivy.module.tweenengine.equations.Quart IN -> a
-    com.ivy.module.tweenengine.equations.Quart OUT -> b
-    com.ivy.module.tweenengine.equations.Quart INOUT -> c
+com.eos.module.tweenengine.equations.Quart -> com.eos.module.tweenengine.a.i:
+    com.eos.module.tweenengine.equations.Quart IN -> a
+    com.eos.module.tweenengine.equations.Quart OUT -> b
+    com.eos.module.tweenengine.equations.Quart INOUT -> c
     10:10:void <init>() -> <init>
     11:35:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Quart$1 -> com.ivy.module.tweenengine.a.i$1:
+com.eos.module.tweenengine.equations.Quart$1 -> com.eos.module.tweenengine.a.i$1:
     11:11:void <init>() -> <init>
     14:14:float compute(float) -> a
     19:19:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Quart$2 -> com.ivy.module.tweenengine.a.i$2:
+com.eos.module.tweenengine.equations.Quart$2 -> com.eos.module.tweenengine.a.i$2:
     23:23:void <init>() -> <init>
     26:26:float compute(float) -> a
     31:31:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Quart$3 -> com.ivy.module.tweenengine.a.i$3:
+com.eos.module.tweenengine.equations.Quart$3 -> com.eos.module.tweenengine.a.i$3:
     35:35:void <init>() -> <init>
     38:39:float compute(float) -> a
     44:44:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Quint -> com.ivy.module.tweenengine.a.j:
-    com.ivy.module.tweenengine.equations.Quint IN -> a
-    com.ivy.module.tweenengine.equations.Quint OUT -> b
-    com.ivy.module.tweenengine.equations.Quint INOUT -> c
+com.eos.module.tweenengine.equations.Quint -> com.eos.module.tweenengine.a.j:
+    com.eos.module.tweenengine.equations.Quint IN -> a
+    com.eos.module.tweenengine.equations.Quint OUT -> b
+    com.eos.module.tweenengine.equations.Quint INOUT -> c
     10:10:void <init>() -> <init>
     11:35:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Quint$1 -> com.ivy.module.tweenengine.a.j$1:
+com.eos.module.tweenengine.equations.Quint$1 -> com.eos.module.tweenengine.a.j$1:
     11:11:void <init>() -> <init>
     14:14:float compute(float) -> a
     19:19:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Quint$2 -> com.ivy.module.tweenengine.a.j$2:
+com.eos.module.tweenengine.equations.Quint$2 -> com.eos.module.tweenengine.a.j$2:
     23:23:void <init>() -> <init>
     26:26:float compute(float) -> a
     31:31:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Quint$3 -> com.ivy.module.tweenengine.a.j$3:
+com.eos.module.tweenengine.equations.Quint$3 -> com.eos.module.tweenengine.a.j$3:
     35:35:void <init>() -> <init>
     38:39:float compute(float) -> a
     44:44:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Sine -> com.ivy.module.tweenengine.a.k:
-    com.ivy.module.tweenengine.equations.Sine IN -> a
-    com.ivy.module.tweenengine.equations.Sine OUT -> b
-    com.ivy.module.tweenengine.equations.Sine INOUT -> c
+com.eos.module.tweenengine.equations.Sine -> com.eos.module.tweenengine.a.k:
+    com.eos.module.tweenengine.equations.Sine IN -> a
+    com.eos.module.tweenengine.equations.Sine OUT -> b
+    com.eos.module.tweenengine.equations.Sine INOUT -> c
     10:10:void <init>() -> <init>
     13:37:void <clinit>() -> <clinit>
-com.ivy.module.tweenengine.equations.Sine$1 -> com.ivy.module.tweenengine.a.k$1:
+com.eos.module.tweenengine.equations.Sine$1 -> com.eos.module.tweenengine.a.k$1:
     13:13:void <init>() -> <init>
     16:16:float compute(float) -> a
     21:21:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Sine$2 -> com.ivy.module.tweenengine.a.k$2:
+com.eos.module.tweenengine.equations.Sine$2 -> com.eos.module.tweenengine.a.k$2:
     25:25:void <init>() -> <init>
     28:28:float compute(float) -> a
     33:33:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.equations.Sine$3 -> com.ivy.module.tweenengine.a.k$3:
+com.eos.module.tweenengine.equations.Sine$3 -> com.eos.module.tweenengine.a.k$3:
     37:37:void <init>() -> <init>
     40:40:float compute(float) -> a
     45:45:java.lang.String toString() -> toString
-com.ivy.module.tweenengine.paths.CatmullRom -> com.ivy.module.tweenengine.b.a:
+com.eos.module.tweenengine.paths.CatmullRom -> com.eos.module.tweenengine.b.a:
     8:8:void <init>() -> <init>
     11:25:float compute(float,float[],int) -> a
     29:37:float catmullRomSpline(float,float,float,float,float) -> a
-com.ivy.module.tweenengine.paths.Linear -> com.ivy.module.tweenengine.b.b:
+com.eos.module.tweenengine.paths.Linear -> com.eos.module.tweenengine.b.b:
     8:8:void <init>() -> <init>
     11:17:float compute(float,float[],int) -> a
 com.jaredrummler.android.processes.AndroidProcesses -> com.jaredrummler.android.processes.a:
@@ -25137,7 +25137,7 @@ com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity
     android.widget.TextView short_size -> d
     android.view.animation.Animation rotate -> e
     android.view.animation.Animation fang -> f
-    com.ivy.module.tweenengine.TweenManager tweenManager -> g
+    com.eos.module.tweenengine.TweenManager tweenManager -> g
     boolean istween -> h
     boolean isdoudong -> i
     long size -> j
@@ -25160,7 +25160,7 @@ com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity
     30:30:void access$300(com.supers.clean.junk.ShortCutActivity) -> c
     30:30:android.os.Handler access$400(com.supers.clean.junk.ShortCutActivity) -> d
     30:30:boolean access$500(com.supers.clean.junk.ShortCutActivity) -> e
-    30:30:com.ivy.module.tweenengine.TweenManager access$600(com.supers.clean.junk.ShortCutActivity) -> f
+    30:30:com.eos.module.tweenengine.TweenManager access$600(com.supers.clean.junk.ShortCutActivity) -> f
     30:30:boolean access$700(com.supers.clean.junk.ShortCutActivity) -> g
 com.supers.clean.junk.ShortCutActivity$1 -> com.supers.clean.junk.ShortCutActivity$1:
     com.supers.clean.junk.ShortCutActivity this$0 -> a
@@ -26332,7 +26332,7 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     android.widget.LinearLayout ad_native_2 -> m
     android.view.View nativeView -> o
     boolean isdoudong -> p
-    com.ivy.module.tweenengine.TweenManager tweenManager -> q
+    com.eos.module.tweenengine.TweenManager tweenManager -> q
     boolean istween -> r
     android.os.Handler myHandler -> s
     java.lang.String TAG_CLEAN -> t
@@ -26354,7 +26354,7 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     40:40:void access$000(com.supers.clean.junk.activity.SuccessActivity) -> a
     40:40:boolean access$102(com.supers.clean.junk.activity.SuccessActivity,boolean) -> a
     40:40:boolean access$100(com.supers.clean.junk.activity.SuccessActivity) -> b
-    40:40:com.ivy.module.tweenengine.TweenManager access$200(com.supers.clean.junk.activity.SuccessActivity) -> c
+    40:40:com.eos.module.tweenengine.TweenManager access$200(com.supers.clean.junk.activity.SuccessActivity) -> c
     40:40:android.os.Handler access$300(com.supers.clean.junk.activity.SuccessActivity) -> d
     40:40:boolean access$402(com.supers.clean.junk.activity.SuccessActivity,boolean) -> b
     40:40:boolean access$500(com.supers.clean.junk.activity.SuccessActivity) -> e

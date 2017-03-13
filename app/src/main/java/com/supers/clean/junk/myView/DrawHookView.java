@@ -11,7 +11,6 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
 
 /**
- * Created by Ivy on 2017/3/6.
  */
 
 public class DrawHookView extends View {

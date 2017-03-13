@@ -1,14 +1,11 @@
 package com.supers.clean.junk.activity;
 
 import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,11 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.android.client.ClientNativeAd;
-import com.android.common.EventBus;
-import com.ivy.module.tweenengine.Tween;
-import com.ivy.module.tweenengine.TweenEquations;
-import com.ivy.module.tweenengine.TweenManager;
+import com.eos.module.tweenengine.Tween;
+import com.eos.module.tweenengine.TweenEquations;
+import com.eos.module.tweenengine.TweenManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
@@ -34,7 +29,7 @@ import com.supers.clean.junk.myView.ImageAccessor;
 import com.supers.clean.junk.myView.SlowScrollView;
 
 /**
- * Created by Ivy on 2017/3/6.
+ * Created by on 2017/3/6.
  */
 
 public class SuccessActivity extends BaseActivity {

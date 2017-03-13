@@ -83,7 +83,10 @@
                     <android.support.v4.view.ViewPager
                         android:id="@+id/viewpager"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
 
                     <com.rd.PageIndicatorView
                         android:id="@+id/pageindicatorview"
@@ -94,7 +97,7 @@
                         android:layout_marginBottom="10dp"
                         app:piv_animationType="drop"
                         app:piv_interactiveAnimation="true"
-                        app:piv_radius="5dp"
+                        app:piv_radius="2dp"
                         app:piv_viewPager="@id/viewpager" />
 
                 </RelativeLayout>
@@ -281,10 +284,6 @@
                     </com.supers.clean.junk.myView.MyLinearLayout>
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/main_4"
-                    android:background="#e8e8e8" />
                 <!--好评-->
                 <LinearLayout
                     android:id="@+id/main_rotate_all"
@@ -386,6 +385,17 @@
                         android:layout_height="16dp"
                         android:background="#e8e8e8" />
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_4"
+                    android:background="#e8e8e8" />
+
+                <LinearLayout
+                    android:id="@+id/ll_ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
 
 
                 <!--硬件信息-->
@@ -600,7 +610,7 @@
                 <FrameLayout
                     android:id="@+id/main_guard_all"
                     android:layout_width="match_parent"
-                    android:layout_height="225dp"
+                    android:layout_height="@dimen/main_guard"
                     android:background="#e8e8e8">
 
                     <ImageView

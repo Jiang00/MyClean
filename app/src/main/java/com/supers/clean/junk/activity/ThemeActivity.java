@@ -12,7 +12,7 @@ import com.eos.module.charge.saver.Util.Utils;
 import com.supers.clean.junk.R;
 
 /**
- * Created by Ivy on 2017/3/2.
+ * Created by on 2017/3/2.
  */
 
 public class ThemeActivity extends BaseActivity {

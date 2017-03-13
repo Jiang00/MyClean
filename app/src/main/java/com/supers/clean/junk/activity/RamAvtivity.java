@@ -27,7 +27,7 @@ import com.supers.clean.junk.presenter.RamPresenter;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/3/2.
+ * Created by on 2017/3/2.
  */
 
 public class RamAvtivity extends BaseActivity implements RamView {

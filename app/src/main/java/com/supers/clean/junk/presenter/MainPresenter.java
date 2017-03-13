@@ -21,7 +21,7 @@ import com.supers.clean.junk.modle.entity.Contents;
 import java.lang.reflect.Field;
 
 /**
- * Created by Ivy on 2017/3/2.
+ * Created by on 2017/3/2.
  */
 
 public class MainPresenter extends BasePresenter<MainView> {

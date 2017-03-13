@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/2/27.
  */
 
 public class TopActivityPkg {
@@ -37,6 +36,7 @@ public class TopActivityPkg {
             }
             try {
                 if (packageName == null) {
+
                     packageName = getTopPackage(context);
                 }
             } catch (Exception e) {
@@ -82,7 +82,7 @@ public class TopActivityPkg {
 
     private static HashMap<String, Boolean> excludes = new HashMap<>();
 
-     static {
+    static {
         excludes.put("com.android.systemui", true);
         excludes.put("android.process.acore", true);
         excludes.put("android.process.media", true);

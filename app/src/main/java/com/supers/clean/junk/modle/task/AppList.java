@@ -14,7 +14,6 @@ import com.supers.clean.junk.modle.PreData;
 import java.util.List;
 
 /**
- * Created by Ivy on 2016/12/13.
  */
 
 public class AppList {

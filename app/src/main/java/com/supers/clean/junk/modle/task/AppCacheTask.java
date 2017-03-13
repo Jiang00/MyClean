@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ivy on 2016/11/22.
  */
 
 public class AppCacheTask extends SimpleTask {

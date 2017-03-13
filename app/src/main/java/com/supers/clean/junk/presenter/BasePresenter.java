@@ -10,7 +10,6 @@ import com.supers.clean.junk.View.IView;
 import com.supers.clean.junk.modle.UtilGp;
 
 /**
- * Created by Ivy on 2017/3/2.
  */
 
 public class BasePresenter<T> implements IPresenter {
