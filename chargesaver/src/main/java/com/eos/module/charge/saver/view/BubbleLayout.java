@@ -42,6 +42,16 @@ public class BubbleLayout extends View {
 		bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.eos_bubble);
 	}
 
+	public void destroy(){
+		starting = false;
+		if (bitmap != null) {
+			bitmap.recycle();
+		}
+		if (dstBitmap != null) {
+			dstBitmap.recycle();
+		}
+	}
+
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
@@ -51,7 +61,7 @@ public class BubbleLayout extends View {
 			starting = true;
 			new Thread() {
 				public void run() {
-					while (true) {
+					while (starting) {
 
 						Bubble bubble = new Bubble();
 						int radius = random.nextInt(30);

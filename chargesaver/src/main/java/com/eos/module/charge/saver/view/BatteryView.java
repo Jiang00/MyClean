@@ -59,6 +59,7 @@ public class BatteryView extends FrameLayout {
     private TextView batteryLeft;
     private LinearLayout slide;
     private TextView currentLevel;
+    private BubbleLayout bubbleLayout;
 
     private LottieAnimationView shell;
     private LottieAnimationView water;
@@ -147,6 +148,7 @@ public class BatteryView extends FrameLayout {
                         progress = (int) (animation.getAnimatedFraction() * 100);
                         if (le == 0) {
                             if (progress == 99) {
+                                progress = 100;
                                 water.pauseAnimation();
                             }
                         } else if (progress == le) {
@@ -318,6 +320,7 @@ public class BatteryView extends FrameLayout {
     }
 
     private void initViews() {
+        bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
         slide = (LinearLayout) findViewById(R.id.battery_slide);
         batteryView = (BatteryView) findViewById(R.id.battery_charge_save);
@@ -374,7 +377,9 @@ public class BatteryView extends FrameLayout {
         if (shell != null && shell.isAnimating()) {
             shell.cancelAnimation();
         }
-
+        if (bubbleLayout != null) {
+            bubbleLayout.destroy();
+        }
         if (isBindView) {
             isBindView = false;
         }
