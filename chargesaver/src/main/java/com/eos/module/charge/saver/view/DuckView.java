@@ -27,13 +27,11 @@ import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
-import com.eos.module.charge.saver.Util.Contants;
+import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.cpuutils.CpuTempReader;
 import com.eos.module.charge.saver.entry.BatteryEntry;
 import com.eos.module.charge.saver.lottie.LottieAnimationView;
-import com.eos.module.charge.saver.lottie.LottieComposition;
-import com.eos.module.charge.saver.lottie.OnCompositionLoadedListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -196,16 +194,16 @@ public class DuckView extends FrameLayout {
         }
         int leftTime = entry.getLeftUseTime();
         if (game != null) {
-            game.setText(entry.extractHours((int) (leftTime * Contants.GAME_PARAMETER)) + " h " +
-                    entry.extractMinutes((int) (leftTime * Contants.GAME_PARAMETER)) + " min");
+            game.setText(entry.extractHours((int) (leftTime * Constants.GAME_PARAMETER)) + " h " +
+                    entry.extractMinutes((int) (leftTime * Constants.GAME_PARAMETER)) + " min");
         }
         if (internet != null) {
-            internet.setText(entry.extractHours((int) (leftTime * Contants.INTERNET_PARAMETER)) + " h " +
-                    entry.extractMinutes((int) (leftTime * Contants.INTERNET_PARAMETER)) + " min");
+            internet.setText(entry.extractHours((int) (leftTime * Constants.INTERNET_PARAMETER)) + " h " +
+                    entry.extractMinutes((int) (leftTime * Constants.INTERNET_PARAMETER)) + " min");
         }
         if (phone != null) {
-            phone.setText(entry.extractHours((int) (leftTime * Contants.TALK_PARAMETER)) + " h " +
-                    entry.extractMinutes((int) (leftTime * Contants.TALK_PARAMETER)) + " min");
+            phone.setText(entry.extractHours((int) (leftTime * Constants.TALK_PARAMETER)) + " h " +
+                    entry.extractMinutes((int) (leftTime * Constants.TALK_PARAMETER)) + " min");
         }
     }
 
@@ -246,16 +244,16 @@ public class DuckView extends FrameLayout {
         adLayout = new LinearLayout(mContext);
         adLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
-        int id = (int) Utils.readData(mContext, Contants.CHARGE_SAVER_ICON, R.mipmap.battery_inner_icon);
+        int id = (int) Utils.readData(mContext, Constants.CHARGE_SAVER_ICON, R.mipmap.battery_inner_icon);
         if (id > 0) {
             icon.setImageResource(id);
         }
-        title.setText((String) Utils.readData(mContext, Contants.CHARGE_SAVER_TITLE, "EOSBATTERY"));
+        title.setText((String) Utils.readData(mContext, Constants.CHARGE_SAVER_TITLE, "EOSBATTERY"));
         more.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 switchLayout.setVisibility(VISIBLE);
-                if ((Boolean) Utils.readData(mContext, Contants.CHARGE_SAVER_SWITCH, true)) {
+                if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
                     switchBox.setChecked(true);
                 } else {
                     switchBox.setChecked(false);
@@ -265,11 +263,11 @@ public class DuckView extends FrameLayout {
         switchBox.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((Boolean) Utils.readData(mContext, Contants.CHARGE_SAVER_SWITCH, true)) {
-                    Utils.writeData(mContext, Contants.CHARGE_SAVER_SWITCH, false);
+                if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
+                    Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, false);
                     switchBox.setChecked(false);
                 } else {
-                    Utils.writeData(mContext, Contants.CHARGE_SAVER_SWITCH, true);
+                    Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, true);
                     switchBox.setChecked(true);
                 }
             }
@@ -278,7 +276,7 @@ public class DuckView extends FrameLayout {
     }
 
     private void initViewPager() {
-        showNativeAD(Contants.TAG_DUCK_CHARGING);
+        showNativeAD(Constants.TAG_DUCK_CHARGING);
         List<View> list = new ArrayList<>();
         if (infos != null) {
             list.add(infos);
@@ -342,16 +340,8 @@ public class DuckView extends FrameLayout {
             initViews();
             isBindView = true;
 
-            shell.setImageAssetsFolder("images/lighting");
             shell.setAnimation("shell.json");
             shell.loop(true);
-            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
-                    new OnCompositionLoadedListener() {
-                        @Override
-                        public void onCompositionLoaded(LottieComposition composition) {
-                            shell.setComposition(composition);
-                        }
-                    });
             shell.playAnimation();
 
             initViewPager();

@@ -21,7 +21,6 @@ public class BubbleLayout extends View {
 	private int width, height;
 	private boolean starting = false;
 	private Bitmap bitmap = null;
-	private Bitmap dstBitmap = null;
 
 	public BubbleLayout(Context context) {
 		super(context);
@@ -46,9 +45,6 @@ public class BubbleLayout extends View {
 		starting = false;
 		if (bitmap != null) {
 			bitmap.recycle();
-		}
-		if (dstBitmap != null) {
-			dstBitmap.recycle();
 		}
 	}
 
@@ -81,13 +77,27 @@ public class BubbleLayout extends View {
 						bubble.setSpeedY(speedY);
 						bubble.setX(random.nextInt(width));
 						bubble.setY(height);
+
 						float speedX = random.nextFloat() - 0.5f;
 						while (speedX == 0) {
 							speedX = random.nextFloat() - 0.5f;
 						}
 						bubble.setSpeedX(speedX * 2);
-						bubbles.add(bubble);
 
+						if (bitmap != null && !bitmap.isRecycled()) {
+							try {
+								int width = (int)(bitmap.getWidth() * bubble.getScale());
+								int height = (int)(bitmap.getHeight() * bubble.getScale());
+								if (width <= 0 || height <= 0) {
+									throw new RuntimeException();
+								}
+								Bitmap dstBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
+								bubble.setBitmap(dstBitmap);
+							} catch (RuntimeException e) {
+								e.printStackTrace();
+							}
+						}
+						bubbles.add(bubble);
 						try {
 							Thread.sleep(random.nextInt(5) * 300);
 						} catch (InterruptedException e) {
@@ -98,18 +108,7 @@ public class BubbleLayout extends View {
 			}.start();
 		}
 		Paint paint = new Paint();
-		// 绘制渐变正方形作为背景
-		// 我更倾向于用图片做背景
-		/*
-		Shader shader = new LinearGradient(0, 0, 0, height, new int[] {
-				getResources().getColor(android.R.color.holo_blue_bright),
-				getResources().getColor(android.R.color.holo_blue_light),
-				getResources().getColor(android.R.color.holo_blue_dark) },
-				null, Shader.TileMode.REPEAT);
-		paint.setShader(shader);
-		canvas.drawRect(0, 0, width, height, paint);
-		*/
-		//绘制气泡
+
 		paint.reset();
 		paint.setColor(0X669999);//灰白色
 		paint.setAlpha(45);//设置不透明度：透明为0，完全不透明为255
@@ -133,25 +132,15 @@ public class BubbleLayout extends View {
 					bubble.setX(bubble.getX() + bubble.getSpeedX());
 				}
 				bubble.setY(bubble.getY() - bubble.getSpeedY());
-				
-				//海底溢出的甲烷上升过程越来越大（气压减小）
-				//鱼类和潜水员吐出的气体却会越变越小（被海水和藻类吸收）
-				//如果考虑太多现实情景的话，代码量就会变得很大，也容易出现bug
-				//感兴趣的读者可以自行添加
-				//bubble.setRadius(bubble.getRadius());
-				
+
 				bubbles.set(i, bubble);
 //				canvas.drawCircle(bubble.getX(), bubble.getY(), bubble.getRadius(), paint);
-				if (bitmap != null) {
-					int width = (int)(bitmap.getWidth() * bubble.getScale());
-					int height = (int)(bitmap.getHeight() * bubble.getScale());
-					if (width <= 0 || height <= 0) {
-						bubbles.remove(bubble);
-						return;
-					}
-					dstBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
+				Bitmap dst = bubble.getBitmap();
+				if (dst != null) {
+					canvas.drawBitmap(dst, bubble.getX(), bubble.getY(), paint);
+				} else {
+					bubbles.remove(bubble);
 				}
-				canvas.drawBitmap(dstBitmap, bubble.getX(), bubble.getY(), paint);
 			}
 		}
 		//刷新屏幕
@@ -172,6 +161,16 @@ public class BubbleLayout extends View {
 		private float y;
 
 		private float scale;
+
+		private Bitmap bitmap = null;
+
+		public Bitmap getBitmap(){
+			return bitmap;
+		}
+
+		public void setBitmap (Bitmap bitmap){
+			this.bitmap = bitmap;
+		}
 
 		public float getRadius() {
 			return radius;

@@ -27,6 +27,8 @@ public class DrawHookView extends View {
     private int size;
     private boolean stop;
 
+    private int move_distance = CommonUtil.dp2px(2);
+
     DrawHookListener drawHookListener;
     private Paint paint;
 
@@ -88,7 +90,6 @@ public class DrawHookView extends View {
 
         //根据进度画圆弧
 //        canvas.drawArc(rectF, 235, -360 * progress / 100, false, paint);
-
         /**
          * 绘制对勾
          */
@@ -97,20 +98,15 @@ public class DrawHookView extends View {
             return;
         }
         if (line1_x < radius / 3) {
-            line1_x += 3;
-            line1_y += 3;
-            //画第一根线
-            canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
-        } else if (line1_x == radius / 3) {
+            line1_x += move_distance;
+            line1_y += move_distance;
             line2_x = line1_x;
             line2_y = line1_y;
-            line1_x += 3;
-            line1_y += 3;
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
         } else if (line1_x >= radius / 3 && line2_x <= radius * 4 / 5) {
-            line2_x += 3;
-            line2_y -= 3;
+            line2_x += move_distance;
+            line2_y -= move_distance;
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
             //画第二根线
