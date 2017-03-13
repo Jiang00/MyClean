@@ -25,7 +25,7 @@ import android.widget.Toast;
 import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
-import com.security.manager.SecurityAppLock;
+import com.security.manager.SecurityPatternEosActivity;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
@@ -521,7 +521,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
-                    mainPresenter.jumpToActivity(SecurityAppLock.class, 1);
+                    mainPresenter.jumpToActivity(SecurityPatternEosActivity.class, 1);
 //                    mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_theme_button:
