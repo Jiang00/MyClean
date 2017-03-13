@@ -147,12 +147,12 @@
             android:layout_gravity="center"
             android:id="@+id/battery_current_second_viewpager"
             android:layout_width="match_parent"
-            android:layout_height="250dp"/>
+            android:layout_height="250dp"
+            android:layout_marginBottom="12dp"/>
         
         <com.eos.module.charge.saver.view.IndicatorView
+            android:visibility="gone"
             android:id="@+id/battery_second_indicator"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="16dp"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -162,6 +162,7 @@
             app:indicatorRadius="16"/>
 
         <LinearLayout
+            android:layout_marginTop="16dp"
             android:id="@+id/battery_current_battery_second_slide"
             android:gravity="center"
             android:layout_width="match_parent"

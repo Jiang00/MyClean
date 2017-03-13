@@ -284,8 +284,10 @@ public class DuckView extends FrameLayout {
             list.add(infos);
         }
         if (adView != null) {
+            indicator.setVisibility(VISIBLE);
             list.add(adLayout);
         }
+
         mViewPager.setAdapter(new Adapter(list));
         indicator.setViewPager(mViewPager);
         mHandler.sendEmptyMessageDelayed(0, 2000);
