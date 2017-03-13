@@ -15,7 +15,9 @@ import android.util.Log;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
+
 import com.security.manager.App;
+import com.security.manager.SecurityAppLock;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JsonData;
@@ -200,6 +202,7 @@ public class MyApplication extends App {
     @Override
     public void onCreate() {
         super.onCreate();
+
         ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);
