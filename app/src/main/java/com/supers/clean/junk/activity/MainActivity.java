@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.RotateAnimation;
@@ -33,6 +36,8 @@ import com.supers.clean.junk.myView.CustomRoundCpu;
 import com.supers.clean.junk.myView.MainScrollView;
 import com.supers.clean.junk.myView.PullToRefreshLayout;
 import com.supers.clean.junk.presenter.MainPresenter;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity implements MainView {
 
@@ -87,18 +92,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_scale_all = (FrameLayout) findViewById(R.id.main_scale_all);
         iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
-        main_cpu_air_button = (RelativeLayout) findViewById(R.id.main_cpu_air_button);
-        main_custom_cpu = (CustomRoundCpu) findViewById(R.id.main_custom_cpu);
-        main_cpu_temp = (TextView) findViewById(R.id.main_cpu_temp);
-        main_sd_air_button = (RelativeLayout) findViewById(R.id.main_sd_air_button);
-        main_custom_sd = (CustomRoundCpu) findViewById(R.id.main_custom_sd);
-        main_sd_per = (TextView) findViewById(R.id.main_sd_per);
-        main_sd_size = (TextView) findViewById(R.id.main_sd_size);
-        main_ram_air_button = (RelativeLayout) findViewById(R.id.main_ram_air_button);
-        main_custom_ram = (CustomRoundCpu) findViewById(R.id.main_custom_ram);
-        main_ram_per = (TextView) findViewById(R.id.main_ram_per);
-        main_ram_size = (TextView) findViewById(R.id.main_ram_size);
-        main_air_all = (ImageView) findViewById(R.id.main_air_all);
+
         main_junk_button = (LinearLayout) findViewById(R.id.main_junk_button);
         main_ram_button = (LinearLayout) findViewById(R.id.main_ram_button);
         main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
@@ -125,6 +119,63 @@ public class MainActivity extends BaseActivity implements MainView {
         super.onCreate(savedInstanceState);
         instance = this;
         setContentView(R.layout.activity_dra);
+        final ArrayList<View> arrayList = new ArrayList<>();
+
+        View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
+        main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
+        main_custom_cpu = (CustomRoundCpu) view.findViewById(R.id.main_custom_cpu);
+        main_cpu_temp = (TextView) view.findViewById(R.id.main_cpu_temp);
+        main_sd_air_button = (RelativeLayout) view.findViewById(R.id.main_sd_air_button);
+        main_custom_sd = (CustomRoundCpu) view.findViewById(R.id.main_custom_sd);
+        main_sd_per = (TextView) view.findViewById(R.id.main_sd_per);
+        main_sd_size = (TextView) view.findViewById(R.id.main_sd_size);
+        main_ram_air_button = (RelativeLayout) view.findViewById(R.id.main_ram_air_button);
+        main_custom_ram = (CustomRoundCpu) view.findViewById(R.id.main_custom_ram);
+        main_ram_per = (TextView) view.findViewById(R.id.main_ram_per);
+        main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
+        main_air_all = (ImageView) view.findViewById(R.id.main_air_all);
+
+        View adView = CommonUtil.getNativeAdView("main_tag", R.layout.native_ad);
+        arrayList.add(view);
+        if (adView != null) {
+            arrayList.add(adView);
+        }
+        final ViewPager viewpager = (ViewPager) findViewById(R.id.viewpager);
+
+        viewpager.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return arrayList.size();
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                container.addView(arrayList.get(position), 0);
+                return arrayList.get(position);
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                container.removeView(arrayList.get(position));
+            }
+
+            @Override
+            public boolean isViewFromObject(View arg0, Object arg1) {
+                return arg0 == arg1;
+            }
+        });
+
+        if (adView == null) {
+            View pageView = findViewById(R.id.pageindicatorview);
+            pageView.setVisibility(View.GONE);
+        } else {
+            view.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    viewpager.setCurrentItem(1);
+                }
+            }, 3000);
+        }
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
