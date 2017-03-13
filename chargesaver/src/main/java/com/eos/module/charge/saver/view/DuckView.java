@@ -165,9 +165,9 @@ public class DuckView extends FrameLayout {
         if (timeLeft != null) {
             String str;
             if (entry.isCharging()) {
-                str = getResources().getString(R.string.ivy_battery_charging_on_left);
+                str = getResources().getString(R.string.charging_on_left);
             } else {
-                str = getResources().getString(R.string.ivy_battery_charging_use_left);
+                str = getResources().getString(R.string.charging_use_left);
             }
             String result = String.format(str, entry.extractHours(leftChargeTime), entry.extractMinutes(leftChargeTime));
             timeLeft.setText(result);
