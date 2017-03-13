@@ -84,13 +84,13 @@ public class CommonUtil {
         long hour = (millisecond % 86400000) / 3600000;
         long minute = (millisecond % 86400000 % 3600000) / 60000;
         if (day > 0) {
-            str = String.valueOf(day) + "天";
+            str = String.valueOf(day) + " d ";
         }
         if (hour > 0) {
-            str += String.valueOf(hour) + "小时";
+            str += String.valueOf(hour) + " h ";
         }
         if (minute > 0) {
-            str += String.valueOf(minute) + "分钟";
+            str += String.valueOf(minute) + " m ";
         }
         return str;
     }

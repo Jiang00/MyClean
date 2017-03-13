@@ -81,7 +81,7 @@ public class DrawHookView extends View {
         super.onDraw(canvas);
         //获取圆心的x坐标
         int center = size / 2;
-        int center1 = center - size / 6;
+        int center1 = center - size / 5;
         //圆弧半径
         int radius = size / 2;
 
@@ -104,7 +104,7 @@ public class DrawHookView extends View {
             line2_y = line1_y;
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
-        } else if (line1_x >= radius / 3 && line2_x <= radius * 4 / 5) {
+        } else if (line1_x >= radius / 3 && line2_x <= radius * 5 / 6) {
             line2_x += move_distance;
             line2_y -= move_distance;
             //画第一根线
