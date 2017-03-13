@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/left_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center|left"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/security_left_settiting" />
+
+    <LinearLayout
+        android:id="@+id/security_linera"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginLeft="73dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+      >
+
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/security_title_bar_te"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:id="@+id/security_text_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/security_ftl_black_38"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="19dp"
+        android:background="@drawable/security_ne" />
+<View
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_gravity="bottom"
+    android:background="#f1f1f1"
+    android:layout_width="wrap_content"
+    android:layout_height="2dp"></View>
+
+</FrameLayout>

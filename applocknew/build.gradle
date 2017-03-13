@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '25.0.0'
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 21
+        buildConfigField('String', 'ROOT_DIR_NAME', '"/.securityapps/"')
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':ByakuGallery')
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
+    compile project(':api')
+    compile 'com.core:empty:1.1.3'
+}
+
+group 'com.ivy.security.applock'
+version '1.0.0'
+def getNexusUrl() {
+    return version.contains("SNAPSHOT") ? nexusSnapshotUrl : nexusReleaseUrl
+}
+uploadArchives {
+    repositories {
+        apply plugin: 'maven'
+        mavenDeployer {
+            repository(url: getNexusUrl()) {
+                authentication(userName: nexusUserName, password: nexusPassword)
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
