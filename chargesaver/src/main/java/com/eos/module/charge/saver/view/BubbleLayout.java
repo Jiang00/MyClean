@@ -77,13 +77,27 @@ public class BubbleLayout extends View {
 						bubble.setSpeedY(speedY);
 						bubble.setX(random.nextInt(width));
 						bubble.setY(height);
+
 						float speedX = random.nextFloat() - 0.5f;
 						while (speedX == 0) {
 							speedX = random.nextFloat() - 0.5f;
 						}
 						bubble.setSpeedX(speedX * 2);
-						bubbles.add(bubble);
 
+						if (bitmap != null && !bitmap.isRecycled()) {
+							try {
+								int width = (int)(bitmap.getWidth() * bubble.getScale());
+								int height = (int)(bitmap.getHeight() * bubble.getScale());
+								if (width <= 0 || height <= 0) {
+									throw new RuntimeException();
+								}
+								Bitmap dstBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
+								bubble.setBitmap(dstBitmap);
+							} catch (RuntimeException e) {
+								e.printStackTrace();
+							}
+						}
+						bubbles.add(bubble);
 						try {
 							Thread.sleep(random.nextInt(5) * 300);
 						} catch (InterruptedException e) {
@@ -121,19 +135,11 @@ public class BubbleLayout extends View {
 
 				bubbles.set(i, bubble);
 //				canvas.drawCircle(bubble.getX(), bubble.getY(), bubble.getRadius(), paint);
-				if (bitmap != null && !bitmap.isRecycled()) {
-					try {
-						int width = (int)(bitmap.getWidth() * bubble.getScale());
-						int height = (int)(bitmap.getHeight() * bubble.getScale());
-						if (width <= 0 || height <= 0) {
-							bubbles.remove(bubble);
-							return;
-						}
-						Bitmap dstBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
-						canvas.drawBitmap(dstBitmap, bubble.getX(), bubble.getY(), paint);
-					} catch (RuntimeException e) {
-						e.printStackTrace();
-					}
+				Bitmap dst = bubble.getBitmap();
+				if (dst != null) {
+					canvas.drawBitmap(dst, bubble.getX(), bubble.getY(), paint);
+				} else {
+					bubbles.remove(bubble);
 				}
 			}
 		}
@@ -155,6 +161,16 @@ public class BubbleLayout extends View {
 		private float y;
 
 		private float scale;
+
+		private Bitmap bitmap = null;
+
+		public Bitmap getBitmap(){
+			return bitmap;
+		}
+
+		public void setBitmap (Bitmap bitmap){
+			this.bitmap = bitmap;
+		}
 
 		public float getRadius() {
 			return radius;
