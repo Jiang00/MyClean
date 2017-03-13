@@ -78,7 +78,7 @@ public class LoadingActivity extends BaseActivity {
             String resolution = "";
             DisplayMetrics metrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-            int a = CommonUtil.dp2px(100);
+            int a = CommonUtil.dp2px(360);
             jumpTo(MainActivity.class);
             finish();
         }

@@ -81,7 +81,7 @@ public class NotifactionService extends Service {
         notifyIntent1.setAction("notification");
         PendingIntent pendIntent1 = PendingIntent.getActivity(this, requestCode,
                 notifyIntent1, PendingIntent.FLAG_UPDATE_CURRENT);
-        remoteView_1.setOnClickPendingIntent(R.id.tv_jiasu, pendIntent1);
+        remoteView_1.setOnClickPendingIntent(R.id.ll_jiasu, pendIntent1);
         mBuilder.setContent(remoteView_1);
         mBuilder.setAutoCancel(false);
         mBuilder.setOngoing(true);

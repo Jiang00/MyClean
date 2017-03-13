@@ -53,7 +53,7 @@ public class ThemeActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.iv_title_left:
+                case R.id.title_left:
                     onBackPressed();
                     break;
                 case R.id.battery_theme_0:
