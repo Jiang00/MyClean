@@ -26,13 +26,11 @@ import java.lang.reflect.Field;
 
 public class MainPresenter extends BasePresenter<MainView> {
     private int cpuTemp = 40;
-    Handler myHandler;
 
     public MainPresenter(MainView iView, Context context) {
         super(iView, context);
         this.iView = iView;
         this.context = context;
-        myHandler = new Handler();
     }
 
     public void init() {

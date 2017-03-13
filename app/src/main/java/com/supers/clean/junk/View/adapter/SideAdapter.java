@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.eos.module.charge.saver.Util.Contants;
+import com.eos.module.charge.saver.Util.Utils;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.FloatService;
 import com.supers.clean.junk.activity.JunkActivity;
@@ -104,7 +106,11 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
     private void onC(int position) {
         switch (position) {
             case 0:
-
+                if ((boolean) Utils.readData(context, Contants.CHARGE_SAVER_SWITCH, true)) {
+                    Utils.writeData(context, Contants.CHARGE_SAVER_SWITCH, false);
+                } else {
+                    Utils.writeData(context, Contants.CHARGE_SAVER_SWITCH, true);
+                }
                 break;
             case 1:
                 if (PreData.getDB(context, Contents.FlOAT_SWITCH, true)) {

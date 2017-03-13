@@ -2,16 +2,21 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.MemoryManager;
+import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 
 import java.io.File;
@@ -25,19 +30,27 @@ public class UnloadActivity extends BaseActivity {
     TextView tv_size;
     Button bt_quxiao, bt_queren;
     ImageView iv_cha;
+    LinearLayout ll_ad;
     long size;
     String path;
+
+    private View nativeView;
+    private String TAG_UNLOAD = "eos_unload";
+
+    Handler myHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_unload);
+        myHandler = new Handler();
         MyApplication cleanApplication = (MyApplication) getApplication();
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
         tv_size = (TextView) findViewById(R.id.tv_size);
         bt_queren = (Button) findViewById(R.id.bt_queren);
         bt_quxiao = (Button) findViewById(R.id.bt_quxiao);
         iv_cha = (ImageView) findViewById(R.id.iv_cha);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         boolean a = false;
         String packageName = getIntent().getStringExtra("packageName");
         AndroidSdk.track("卸载残余页面", "展示", "", 1);
@@ -72,7 +85,27 @@ public class UnloadActivity extends BaseActivity {
         if (!a) {
             finish();
         }
+        addAd();
+    }
 
+    private void addAd() {
+        if (PreData.getDB(this, Contents.FULL_UNLOAD, 0) == 1) {
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+
+        } else {
+            nativeView = CommonUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_full);
+            if (ll_ad != null && nativeView != null) {
+                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+                layout_ad.height = nativeView.getMeasuredHeight();
+                ll_ad.setLayoutParams(layout_ad);
+                ll_ad.addView(nativeView);
+            }
+        }
     }
 
     View.OnClickListener BtClickListener = new View.OnClickListener() {

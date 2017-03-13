@@ -31,6 +31,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
     @Override
     public void init() {
         super.init();
+
         iView.loadFullAd();
         cleanSize = allSize = cleanApplication.getApkSize() + cleanApplication.getCacheSize() + cleanApplication.getUnloadSize() + cleanApplication.getLogSize() + cleanApplication.getDataSize();
         cleanApplication.getSystemCache();

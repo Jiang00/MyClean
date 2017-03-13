@@ -7,9 +7,11 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -38,13 +40,15 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     TextView manager_sort_size_name, manager_sort_time_name, manager_sort_pinlv_name;
     Button junk_button_clean;
     ListView junk_list_all;
-
+    LinearLayout ll_ad;
     private ManagerPresenter managerPresenter;
     private ManagerAdapter adapterManager;
     private Handler myHandler;
     private MyReceiver receiver;
     private IntentFilter filter;
+    private View nativeView;
 
+    private String TAG_MANAGER = "eos_manager";
 
     @Override
     protected void findId() {
@@ -62,6 +66,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         manager_sort_pinlv_name = (TextView) findViewById(R.id.manager_sort_pinlv_name);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -81,7 +86,16 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     public void loadFullAd() {
         if (PreData.getDB(this, Contents.FULL_MANAGER, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        } else {
+            nativeView = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_full);
+            if (ll_ad != null && nativeView != null) {
+                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+                layout_ad.height = nativeView.getMeasuredHeight();
+                ll_ad.setLayoutParams(layout_ad);
+                ll_ad.addView(nativeView);
+            }
         }
+
     }
 
     @Override

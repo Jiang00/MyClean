@@ -110,7 +110,13 @@ public class JunkActivity extends BaseActivity implements JunkView {
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, Contents.FULL_JUNK, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+
         }
     }
 

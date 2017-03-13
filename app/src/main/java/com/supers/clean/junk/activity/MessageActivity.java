@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -37,6 +39,7 @@ public class MessageActivity extends BaseActivity {
     LinearLayout ll_ad;
     private TelephonyManager telManager;
     private String TAG_MESSAGE = "junk_message";
+    private Handler myHandler;
 
     @Override
     protected void findId() {
@@ -61,6 +64,7 @@ public class MessageActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_message);
+        myHandler = new Handler();
         loadAd();
         title_name.setText(R.string.main_msg_title);
         title_left.setOnClickListener(new View.OnClickListener() {
@@ -75,9 +79,9 @@ public class MessageActivity extends BaseActivity {
 
         long time = System.currentTimeMillis() - SystemClock.elapsedRealtime();
 
-        message_system_start_time.setText(CommonUtil.getStrTime(SystemClock.elapsedRealtime()));
+        message_system_start_time.setText(CommonUtil.getStrTime(time));
 
-        message_system_start_time2.setText(CommonUtil.millTransFate2(time));
+        message_system_start_time2.setText(CommonUtil.millTransFate2(SystemClock.elapsedRealtime()));
 
         message_isRoot.setText(PhoneManager.isRoot() == true ? R.string.message_root : R.string.message_not_root);
 
@@ -127,19 +131,25 @@ public class MessageActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Contents.FULL_MESSAGE, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+
         } else {
             addAd();
         }
     }
 
     private void addAd() {
-        View nativeView = CommonUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad);
-        if (nativeView != null) {
-            ll_ad.setVisibility(View.VISIBLE);
+        View nativeView = CommonUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_full);
+        if (ll_ad != null && nativeView != null) {
+            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+            layout_ad.height = nativeView.getMeasuredHeight();
+            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
-        } else {
-            ll_ad.setVisibility(View.GONE);
         }
     }
 

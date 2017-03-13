@@ -45,7 +45,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     private RamAdapter adapterRam;
     private boolean color1 = true;
     private boolean color2 = true;
-
+    private Handler myHandler;
 
     @Override
     protected void findId() {
@@ -65,6 +65,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
         ramPresenter = new RamPresenter(this, this);
+        myHandler = new Handler();
         ramPresenter.init();
 
     }
@@ -72,7 +73,12 @@ public class RamAvtivity extends BaseActivity implements RamView {
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, Contents.FULL_RAM, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
         }
     }
 

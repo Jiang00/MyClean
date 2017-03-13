@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -30,7 +31,9 @@ import com.supers.clean.junk.View.adapter.HorizontalListViewAdapter;
 import com.supers.clean.junk.modle.CheckState;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.MemoryManager;
+import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.SwitchControl;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.modle.task.RamTask;
 import com.supers.clean.junk.modle.task.SimpleTask;
@@ -48,11 +51,12 @@ public class FloatActivity extends BaseActivity {
     ImageView float_cricle, float_rotate;
     TextView float_memory, float_tishi;
 
+    private View nativeView;
     private HorizontalListViewAdapter adapter;
     private MyApplication cleanApplication;
     private ArrayList<JunkInfo> listFloat, listFloat_white;
     private Handler myHandler;
-    private String TAG_DIALOG = "junk_float";
+    private String TAG_FLAOT = "eos_float";
     private Animation rotate, suo, fang;
 
     @Override
@@ -86,11 +90,25 @@ public class FloatActivity extends BaseActivity {
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
         float_rotate.startAnimation(rotate);
+        loadAd();
         initList();
         wifi();
         shengYin();
         xianshiD();
         addListener();
+    }
+
+    private void loadAd() {
+        if (PreData.getDB(this, Contents.FULL_FLOAT, 0) == 1) {
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+        } else {
+            postAd();
+        }
     }
 
     private void initList() {
@@ -480,20 +498,16 @@ public class FloatActivity extends BaseActivity {
     }
 
     private void postAd() {
-        if (AndroidSdk.hasNativeAd(TAG_DIALOG, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
-            AndroidSdk.loadNativeAd(TAG_DIALOG, R.layout.native_ad, new ClientNativeAd.NativeAdLoadListener() {
-                @Override
-                public void onNativeAdLoadSuccess(View view) {
-                    if (ll_ad != null) {
-                        ll_ad.addView(view);
-                    }
-                }
-
-                @Override
-                public void onNativeAdLoadFails() {
-
-                }
-            });
+        if (PreData.getDB(this, Contents.FULL_FLOAT, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        } else {
+            nativeView = CommonUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_full);
+            if (ll_ad != null && nativeView != null) {
+                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+                layout_ad.height = nativeView.getMeasuredHeight();
+                ll_ad.setLayoutParams(layout_ad);
+                ll_ad.addView(nativeView);
+            }
         }
     }
 

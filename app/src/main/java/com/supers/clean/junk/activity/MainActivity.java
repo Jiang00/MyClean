@@ -1,6 +1,7 @@
 package com.supers.clean.junk.activity;
 
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
+import com.eos.module.charge.saver.Util.Contants;
+import com.eos.module.charge.saver.Util.Utils;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
@@ -227,9 +230,10 @@ public class MainActivity extends BaseActivity implements MainView {
     public void initSideData() {
         if (adapter == null) {
             adapter = new SideAdapter(this);
+            side_listView.setAdapter(adapter);
         }
         adapter.clear();
-        adapter.addData(new JunkInfo(R.string.side_charging, R.mipmap.side_charging, true));//充电屏保
+        adapter.addData(new JunkInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Contants.CHARGE_SAVER_SWITCH, true)));//充电屏保
         adapter.addData(new JunkInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Contents.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new JunkInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new JunkInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
@@ -237,7 +241,7 @@ public class MainActivity extends BaseActivity implements MainView {
         adapter.addData(new JunkInfo(R.string.side_theme, R.mipmap.side_theme));//主题
         adapter.addData(new JunkInfo(R.string.side_setting, R.mipmap.side_setting));//设置
         adapter.addData(new JunkInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
-        side_listView.setAdapter(adapter);
+
     }
 
     @Override
@@ -472,6 +476,14 @@ public class MainActivity extends BaseActivity implements MainView {
             }
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == 50) {
+            initSideData();
+            adapter.notifyDataSetChanged();
+        }
+    }
 
     @Override
     protected void onRestart() {

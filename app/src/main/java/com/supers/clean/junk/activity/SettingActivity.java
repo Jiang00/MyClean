@@ -2,14 +2,20 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.module.charge.saver.Util.Contants;
+import com.eos.module.charge.saver.Util.Utils;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
@@ -23,6 +29,11 @@ public class SettingActivity extends BaseActivity {
     TextView title_name;
     RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_white, setting_rotate;
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check;
+    LinearLayout ll_ad;
+    private View nativeView;
+
+    private String TAG_SETTING = "eos_setting";
+    private Handler myHandler;
 
     @Override
     protected void findId() {
@@ -39,16 +50,37 @@ public class SettingActivity extends BaseActivity {
         setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
         setting_float_check = (ImageView) findViewById(R.id.setting_float_check);
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_setting);
+        myHandler = new Handler();
         title_name.setText(R.string.setting_name);
         title_left.setOnClickListener(onClickListener);
         initData();
         initListener();
+        if (PreData.getDB(this, Contents.FULL_SETTING, 0) == 1) {
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+        }
+        addAd();
+    }
+
+    private void addAd() {
+        nativeView = CommonUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_full);
+        if (ll_ad != null && nativeView != null) {
+            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+            layout_ad.height = nativeView.getMeasuredHeight();
+            ll_ad.setLayoutParams(layout_ad);
+            ll_ad.addView(nativeView);
+        }
     }
 
     private void initData() {
@@ -67,6 +99,11 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
         }
+        if ((boolean) Utils.readData(this, Contants.CHARGE_SAVER_SWITCH, true)) {
+            setting_battery_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            setting_battery_check.setImageResource(R.mipmap.side_check_normal);
+        }
     }
 
     private void initListener() {
@@ -84,7 +121,7 @@ public class SettingActivity extends BaseActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.title_left:
-                    finish();
+                    onBackPressed();
                     break;
                 case R.id.setting_tongzhi:
                     AndroidSdk.track("设置页面", "点击通知开关", "", 1);
@@ -128,11 +165,11 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_battery:
                     AndroidSdk.track("设置页面", "点击充电屏保开关", "", 1);
                     //chongdian
-//                if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, true)) {
-//                    Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, false);
-//                } else {
-//                    Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, true);
-//                }
+                    if ((boolean) Utils.readData(SettingActivity.this, Contants.CHARGE_SAVER_SWITCH, true)) {
+                        Utils.writeData(SettingActivity.this, Contants.CHARGE_SAVER_SWITCH, false);
+                    } else {
+                        Utils.writeData(SettingActivity.this, Contants.CHARGE_SAVER_SWITCH, true);
+                    }
                     break;
                 case R.id.setting_white:
                     AndroidSdk.track("设置页面", "进入白名单", "", 1);
@@ -146,4 +183,10 @@ public class SettingActivity extends BaseActivity {
             }
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        setResult(50);
+        finish();
+    }
 }

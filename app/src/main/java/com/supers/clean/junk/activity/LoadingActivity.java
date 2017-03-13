@@ -45,18 +45,18 @@ public class LoadingActivity extends BaseActivity {
         myHandler = new Handler();
         mimmi = 5;
         int random = (int) (Math.random() * 100) + 1;
-        if (random <= PreData.getDB(this, Contents.KEY_LOADING_GAI, 100)) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    addNative();
-                }
-            }, 1000);
-        } else {
-            tv_tiaoguo.setVisibility(View.INVISIBLE);
-            myHandler.removeCallbacks(runnable1);
-            myHandler.postDelayed(runnable1, 2000);
-        }
+//        if (random <= PreData.getDB(this, Contents.KEY_LOADING_GAI, 100)) {
+//            myHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    addNative();
+//                }
+//            }, 1000);
+//        } else {
+        tv_tiaoguo.setVisibility(View.INVISIBLE);
+        myHandler.removeCallbacks(runnable1);
+        myHandler.postDelayed(runnable1, 2000);
+//        }
 
 
         tv_tiaoguo.setOnClickListener(new View.OnClickListener() {

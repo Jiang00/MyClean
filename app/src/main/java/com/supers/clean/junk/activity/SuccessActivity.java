@@ -115,7 +115,13 @@ public class SuccessActivity extends BaseActivity {
             main_rotate_all.setVisibility(View.GONE);
         }
         if (PreData.getDB(this, Contents.FULL_SUCCESS, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+
         } else {
             addAd();
         }
@@ -146,72 +152,94 @@ public class SuccessActivity extends BaseActivity {
     }
 
     private void addAd() {
-        AndroidSdk.loadNativeAd(TAG_CLEAN, R.layout.native_ad_full, new ClientNativeAd.NativeAdLoadListener() {
-            @Override
-            public void onNativeAdLoadSuccess(View view) {
-                Log.e("inf", "reload success1");
-                nativeView = view;
-                haveAd = true;
+        nativeView = CommonUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
+        if (ad_native_2 != null && nativeView != null) {
+            if (nativeView.getHeight() > 300) {
                 ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
                 layout_ad.height = scrollView.getMeasuredHeight();
                 ad_native_2.setLayoutParams(layout_ad);
-                ad_native_2.addView(nativeView);
-                tv_next = (TextView) nativeView.findViewWithTag("ad_next");
-                iv_next = (ImageView) nativeView.findViewWithTag("ad_iv_next");
-                tv_next.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        reloadNativeAd();
-                        tv_next.setVisibility(View.INVISIBLE);
-                        iv_next.setVisibility(View.VISIBLE);
-                        iv_next.startAnimation(rotate);
-                    }
-                });
-
-                if (animationEnd) {
-                    ad_native_2.setVisibility(View.VISIBLE);
-                    scrollView.isTouch = false;
-                    scrollView.smoothScrollToSlow(2000);
-                }
+            } else {
+                ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
+                layout_ad.height = nativeView.getMeasuredHeight();
+                ad_native_2.setLayoutParams(layout_ad);
             }
-
-            @Override
-            public void onNativeAdLoadFails() {
-                Log.e("inf", "reload shibai1");
-                haveAd = false;
-                nativeView = null;
-                ad_native_2.setVisibility(View.GONE);
+            haveAd = true;
+            ad_native_2.addView(nativeView);
+            if (animationEnd) {
+                ad_native_2.setVisibility(View.VISIBLE);
+                scrollView.isTouch = false;
+                scrollView.smoothScrollToSlow(2000);
             }
-        });
+        }
+
     }
+//    private void addAd() {
+//        AndroidSdk.loadNativeAd(TAG_CLEAN, R.layout.native_ad_full, new ClientNativeAd.NativeAdLoadListener() {
+//            @Override
+//            public void onNativeAdLoadSuccess(View view) {
+//                Log.e("inf", "reload success1");
+//                nativeView = view;
+//                haveAd = true;
+//                ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
+//                layout_ad.height = scrollView.getMeasuredHeight();
+//                ad_native_2.setLayoutParams(layout_ad);
+//                ad_native_2.addView(nativeView);
+//                tv_next = (TextView) nativeView.findViewWithTag("ad_next");
+//                iv_next = (ImageView) nativeView.findViewWithTag("ad_iv_next");
+//                tv_next.setOnClickListener(new View.OnClickListener() {
+//                    public void onClick(View v) {
+//                        reloadNativeAd();
+//                        tv_next.setVisibility(View.INVISIBLE);
+//                        iv_next.setVisibility(View.VISIBLE);
+//                        iv_next.startAnimation(rotate);
+//                    }
+//                });
+//
+//                if (animationEnd) {
+//                    ad_native_2.setVisibility(View.VISIBLE);
+//                    scrollView.isTouch = false;
+//                    scrollView.smoothScrollToSlow(2000);
+//                }
+//            }
+//
+//            @Override
+//            public void onNativeAdLoadFails() {
+//                Log.e("inf", "reload shibai1");
+//                haveAd = false;
+//                nativeView = null;
+//                ad_native_2.setVisibility(View.GONE);
+//            }
+//        });
+//    }
 
-    public void reloadNativeAd() {
-        AndroidSdk.reLoadNativeAd(TAG_CLEAN, nativeView, new ClientNativeAd.NativeAdLoadListener() {
-            @Override
-            public void onNativeAdLoadSuccess(View view) {
-                Log.e("inf", "reload success");
-                tv_next.setVisibility(View.VISIBLE);
-                iv_next.setVisibility(View.GONE);
-                iv_next.clearAnimation();
-                view.findViewWithTag("ad_next").setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        reloadNativeAd();
-                        tv_next.setVisibility(View.INVISIBLE);
-                        iv_next.setVisibility(View.VISIBLE);
-                        iv_next.startAnimation(rotate);
-                    }
-                });
-            }
-
-            @Override
-            public void onNativeAdLoadFails() {
-                Log.e("inf", "reload fails");
-                tv_next.setVisibility(View.VISIBLE);
-                iv_next.setVisibility(View.GONE);
-                iv_next.clearAnimation();
-            }
-        });
-    }
+//    public void reloadNativeAd() {
+//        AndroidSdk.reLoadNativeAd(TAG_CLEAN, nativeView, new ClientNativeAd.NativeAdLoadListener() {
+//            @Override
+//            public void onNativeAdLoadSuccess(View view) {
+//                Log.e("inf", "reload success");
+//                tv_next.setVisibility(View.VISIBLE);
+//                iv_next.setVisibility(View.GONE);
+//                iv_next.clearAnimation();
+//                view.findViewWithTag("ad_next").setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        reloadNativeAd();
+//                        tv_next.setVisibility(View.INVISIBLE);
+//                        iv_next.setVisibility(View.VISIBLE);
+//                        iv_next.startAnimation(rotate);
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onNativeAdLoadFails() {
+//                Log.e("inf", "reload fails");
+//                tv_next.setVisibility(View.VISIBLE);
+//                iv_next.setVisibility(View.GONE);
+//                iv_next.clearAnimation();
+//            }
+//        });
+//    }
 
     public void startFirstAnimation() {
         Animation animation = AnimationUtils.loadAnimation(SuccessActivity.this, R.anim.huojian_pop);

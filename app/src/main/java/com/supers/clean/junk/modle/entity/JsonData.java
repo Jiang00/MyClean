@@ -8,7 +8,7 @@ import java.util.List;
 
 public class JsonData {
 
-
+//0 native 1 全屏
     /**
      * data : {"showinter":0,"full_main":0,"full_file":0,"full_speedup":0,"full_mng":0,"full_success":0,"version":1,"packageName":[]}
      */

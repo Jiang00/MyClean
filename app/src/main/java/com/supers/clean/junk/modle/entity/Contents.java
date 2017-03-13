@@ -49,5 +49,11 @@ public class Contents {
 
     public static final String FULL_MESSAGE = "FULL_MESSAGE";
 
+    public static final String FULL_SETTING = "FULL_SETTING";
+
+    public static final String FULL_UNLOAD = "FULL_UNLOAD";
+
+    public static final String FULL_FLOAT = "FULL_FLOAT";
+
 
 }
