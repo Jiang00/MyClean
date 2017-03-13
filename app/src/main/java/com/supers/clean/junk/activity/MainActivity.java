@@ -227,7 +227,7 @@ public class MainActivity extends BaseActivity implements MainView {
             @Override
             public void run() {
                 main_cpu_temp.setText(String.valueOf(temp) + "℃");
-                main_msg_cpu_percent.setText(String.valueOf(temp) + "%");
+                main_msg_cpu_percent.setText(String.valueOf(temp) + "℃");
             }
         });
 
