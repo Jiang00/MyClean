@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.eos.module.charge.saver.Util.Contants;
+import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
@@ -99,7 +99,7 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if ((boolean) Utils.readData(this, Contants.CHARGE_SAVER_SWITCH, true)) {
+        if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)) {
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
@@ -165,10 +165,10 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_battery:
                     AndroidSdk.track("设置页面", "点击充电屏保开关", "", 1);
                     //chongdian
-                    if ((boolean) Utils.readData(SettingActivity.this, Contants.CHARGE_SAVER_SWITCH, true)) {
-                        Utils.writeData(SettingActivity.this, Contants.CHARGE_SAVER_SWITCH, false);
+                    if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true)) {
+                        Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
                     } else {
-                        Utils.writeData(SettingActivity.this, Contants.CHARGE_SAVER_SWITCH, true);
+                        Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
                     }
                     break;
                 case R.id.setting_white:

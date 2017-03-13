@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.eos.module.charge.saver.Util.Contants;
+import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.supers.clean.junk.R;
 
@@ -40,7 +40,7 @@ public class ThemeActivity extends BaseActivity {
         title_left.setOnClickListener(onClickListener);
         battery_theme_0.setOnClickListener(onClickListener);
         battery_theme_1.setOnClickListener(onClickListener);
-        if (Contants.TYPE_DUCK.equals(Utils.readData(this, Contants.KEY_SAVER_TYPE, Contants.TYPE_HOR_BAR))) {
+        if (Constants.TYPE_DUCK.equals(Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR))) {
             theme_0_check.setImageResource(R.mipmap.battery_normal);
             theme_1_check.setImageResource(R.mipmap.battery_passed);
         } else {
@@ -59,15 +59,15 @@ public class ThemeActivity extends BaseActivity {
                 case R.id.battery_theme_0:
                     theme_0_check.setImageResource(R.mipmap.battery_passed);
                     theme_1_check.setImageResource(R.mipmap.battery_normal);
-                    Utils.writeData(ThemeActivity.this, Contants.KEY_SAVER_TYPE, Contants.TYPE_HOR_BAR);
+                    Utils.writeData(ThemeActivity.this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR);
                     break;
                 case R.id.battery_theme_1:
                     theme_0_check.setImageResource(R.mipmap.battery_normal);
                     theme_1_check.setImageResource(R.mipmap.battery_passed);
-                    Utils.writeData(ThemeActivity.this, Contants.KEY_SAVER_TYPE, Contants.TYPE_DUCK);
+                    Utils.writeData(ThemeActivity.this, Constants.KEY_SAVER_TYPE, Constants.TYPE_DUCK);
                     break;
             }
-            Utils.writeData(ThemeActivity.this, Contants.CHARGE_SAVER_SWITCH, true);
+            Utils.writeData(ThemeActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
         }
     };
 

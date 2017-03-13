@@ -18,7 +18,7 @@ import android.view.LayoutInflater;
 
 import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.R;
-import com.eos.module.charge.saver.Util.Contants;
+import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.Util.WidgetContainer;
 import com.eos.module.charge.saver.entry.BatteryEntry;
@@ -111,7 +111,7 @@ public class BatteryService extends Service {
 //        boolean state = batteryDb.insertDataToTableBatteryLevel(sqdb, tableName, new BatterySaveInfo(batteryDb.getCurrentHour() + "", entry.getLevel() + ""));
 //        if (state) {
 //            try {
-//                sendBroadcast(new Intent(Contants.ACTION_BATTERY_RECORD_HOUR_BATTERY));
+//                sendBroadcast(new Intent(Constants.ACTION_BATTERY_RECORD_HOUR_BATTERY));
 //            } catch (Exception e) {
 //                e.printStackTrace();
 //            }
@@ -127,7 +127,7 @@ public class BatteryService extends Service {
 //            boolean insertState = batteryDb.insertDataToTableFullCharge(sqdb, curTableName, year + ":" + month + ":" + day);
 //            if (insertState) {
 //                try {
-//                    sendBroadcast(new Intent(Contants.ACTION_BATTERY_RECORD_FULL));
+//                    sendBroadcast(new Intent(Constants.ACTION_BATTERY_RECORD_FULL));
 //                } catch (Exception e) {
 //                    e.printStackTrace();
 //                }
@@ -242,7 +242,7 @@ public class BatteryService extends Service {
         if (entry == null) {
             return;
         }
-        boolean isChargeScreenSaver = (boolean) Utils.readData(this, Contants.CHARGE_SAVER_SWITCH, true);
+        boolean isChargeScreenSaver = (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true);
         if (!isChargeScreenSaver) {
             return;
         }
@@ -266,7 +266,7 @@ public class BatteryService extends Service {
                         .build(this);
             }
 
-            if (Utils.readData(this, Contants.KEY_SAVER_TYPE, Contants.TYPE_HOR_BAR).equals(Contants.TYPE_HOR_BAR)) {
+            if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_HOR_BAR)) {
                 if (batteryView == null) {
                     batteryView = (BatteryView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
                     batteryView.bind(entry);
@@ -277,7 +277,7 @@ public class BatteryService extends Service {
                                     WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 }
                 container.addToWindow();
-            } else if (Utils.readData(this, Contants.KEY_SAVER_TYPE, Contants.TYPE_HOR_BAR).equals(Contants.TYPE_DUCK)) {
+            } else if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_DUCK)) {
                 if (duckView == null) {
                     duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
                     duckView.bind(entry);
@@ -301,13 +301,13 @@ public class BatteryService extends Service {
 //        }
 //        try {
 //            if (Build.VERSION.SDK_INT >= 16) {
-//                if ((Boolean) Utils.readData(this, Contants.CHARGE_ON_NOTIFICATION_SWITCH, true)) {
+//                if ((Boolean) Utils.readData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, true)) {
 //                    ChargeOnNotification chargeOnNotification = new ChargeOnNotification(BatteryService.this, false, R.mipmap.ivy_battery_inner_icon);
-//                    chargeOnNotification.updateNotification(Contants.CHARGE_ON_NOTIFICATION_ID, R.mipmap.ivy_battery_icon, entry);
+//                    chargeOnNotification.updateNotification(Constants.CHARGE_ON_NOTIFICATION_ID, R.mipmap.ivy_battery_icon, entry);
 //                }
-//                if ((Boolean) Utils.readData(this, Contants.CHARGE_STATE_NOTIFICATION_SWITCH, true) && (entry.getLevel() == 100 || entry.getLevel() == 70 || entry.getLevel() == 20)) {
+//                if ((Boolean) Utils.readData(this, Constants.CHARGE_STATE_NOTIFICATION_SWITCH, true) && (entry.getLevel() == 100 || entry.getLevel() == 70 || entry.getLevel() == 20)) {
 //                    ChargeFinishNotification chargeFinishNotification = new ChargeFinishNotification(BatteryService.this, true, R.mipmap.ivy_battery_inner_icon);
-//                    chargeFinishNotification.updateNotification(Contants.CHARGE_FINISH_NOTIFICATION_ID, entry);
+//                    chargeFinishNotification.updateNotification(Constants.CHARGE_FINISH_NOTIFICATION_ID, entry);
 //                }
 //            }
 //        } catch (Exception e) {

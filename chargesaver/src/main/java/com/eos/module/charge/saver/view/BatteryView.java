@@ -21,7 +21,7 @@ import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
-import com.eos.module.charge.saver.Util.Contants;
+import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.entry.BatteryEntry;
 import com.eos.module.charge.saver.lottie.LottieAnimationView;
@@ -96,7 +96,7 @@ public class BatteryView extends FrameLayout {
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private void showNativeAD() {
-        adView = new ADRequest().showCustomNativeAD(Contants.TAG_CHARGING, R.layout.native_ad, null);
+        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, null);
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);
@@ -272,9 +272,9 @@ public class BatteryView extends FrameLayout {
                 }
             });
 
-            String titleTxt = (String) Utils.readData(mContext, Contants.CHARGE_SAVER_TITLE, "EOSBATTERY");
+            String titleTxt = (String) Utils.readData(mContext, Constants.CHARGE_SAVER_TITLE, "EOSBATTERY");
             title.setText(titleTxt);
-            int iconId = (int) Utils.readData(mContext, Contants.CHARGE_SAVER_ICON, R.mipmap.battery_inner_icon);
+            int iconId = (int) Utils.readData(mContext, Constants.CHARGE_SAVER_ICON, R.mipmap.battery_inner_icon);
             if (iconId > -1) {
                 icon.setImageResource(iconId);
             }
@@ -288,7 +288,7 @@ public class BatteryView extends FrameLayout {
                 }
             });
 
-            if ((Boolean) Utils.readData(mContext, Contants.CHARGE_SAVER_SWITCH, true)) {
+            if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
                 if (saverSwitch != null) {
                     saverSwitch.setChecked(true);
                 }
@@ -300,19 +300,19 @@ public class BatteryView extends FrameLayout {
             saverSwitch.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ((Boolean) Utils.readData(mContext, Contants.CHARGE_SAVER_SWITCH, true)) {
+                    if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
                         if (saverSwitch != null) {
                             saverSwitch.setChecked(false);
-                            Utils.writeData(mContext, Contants.CHARGE_SAVER_SWITCH, false);
+                            Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, false);
                         }
                     } else {
                         if (saverSwitch != null) {
                             saverSwitch.setChecked(true);
-                            Utils.writeData(mContext, Contants.CHARGE_SAVER_SWITCH, true);
+                            Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, true);
                         }
                     }
                     if (mContext != null) {
-                        mContext.sendBroadcast(new Intent(Contants.ACTION_CHARGE_SAVER_SWITCH_STATE));
+                        mContext.sendBroadcast(new Intent(Constants.ACTION_CHARGE_SAVER_SWITCH_STATE));
                     }
                 }
             });

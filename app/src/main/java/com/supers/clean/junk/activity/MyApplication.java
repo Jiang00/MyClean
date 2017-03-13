@@ -13,7 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
-import com.eos.module.charge.saver.Util.Contants;
+import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.supers.clean.junk.R;
@@ -228,8 +228,8 @@ public class MyApplication extends Application {
         startService(new Intent(this, BatteryService.class));
 //        Utils.writeData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, false);//
 //        Utils.writeData(this, Constants.CHARGE_STATE_NOTIFICATION_SWITCH, false);//
-        Utils.writeData(this, Contants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
-        Utils.writeData(this, Contants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
+        Utils.writeData(this, Constants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
+        Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
 
         if (PreData.getDB(this, Contents.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotifactionService.class);

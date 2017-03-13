@@ -21,7 +21,7 @@ public class Utils {
 
     public static void writeData(Context context, String key, Object value){
         if (context != null) {
-            SharedPreferences sp = context.getSharedPreferences(Contants.MODULE_FILL_NAME, Context.MODE_PRIVATE);
+            SharedPreferences sp = context.getSharedPreferences(Constants.MODULE_FILL_NAME, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
             if (value instanceof Integer) {
                 editor.putInt(key, (int)value).apply();
@@ -37,7 +37,7 @@ public class Utils {
 
     public static Object readData(Context context, String key, Object defaultValue){
         if (context != null) {
-            SharedPreferences sp = context.getSharedPreferences(Contants.MODULE_FILL_NAME, Context.MODE_PRIVATE);
+            SharedPreferences sp = context.getSharedPreferences(Constants.MODULE_FILL_NAME, Context.MODE_PRIVATE);
             Map<String, ?> map = sp.getAll();
             if (map.containsKey(key)) {
                 return map.get(key);
