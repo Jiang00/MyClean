@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.privacy.lock"
-    >
+    package="com.privacy.lock">
 
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -22,18 +21,16 @@
     <supports-screens android:anyDensity="true" />
     <application
         android:allowBackup="true"
-        android:manageSpaceActivity="com.security.manager.SecurityPatternEosActivity"
         android:persistent="true"
         android:theme="@style/activityTheme">
         <activity
-            android:name="com.security.manager.SecurityAppLock"
+            android:name="com.eos.manager.AppLock"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:theme="@style/activityTheme" />
 
-
         <service
-            android:name="com.security.manager.AccessibilityService"
+            android:name="com.eos.manager.AccessibilityService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
@@ -45,7 +42,7 @@
         </service>
 
         <service
-            android:name="com.security.manager.ApplockEosC"
+            android:name="com.eos.manager.ApplockNoti"
             android:process=":remote"></service>
 
         <!--<service-->
@@ -53,28 +50,28 @@
         <!--android:process=":remote"/>-->
 
         <activity
-            android:name="com.security.manager.SecurityTansparent"
+            android:name="com.eos.manager.AppLockTansparent"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.CustomTranslucent"></activity>
         <activity
-            android:name="com.security.manager.SecuritySettings"
+            android:name="com.eos.manager.AppLockSettings"
             android:allowTaskReparenting="true"
-            android:launchMode="singleInstance"
             android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
 
         <activity
-            android:name="com.security.manager.SecuritySettingsAdvance"
+            android:name="com.eos.manager.AppLockSettingsAdvance"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
         <activity
-            android:name="com.security.manager.SecurityPermissionActivity"
+            android:name="com.eos.manager.AppLockPermissionActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
@@ -83,7 +80,7 @@
 
 
         <activity
-            android:name="com.security.manager.SecuritySetPattern"
+            android:name="com.eos.manager.AppLockSetPattern"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
@@ -91,7 +88,7 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name="com.security.manager.SecurityPatternEosActivity"
+            android:name="com.eos.manager.AppLockPatternEosActivity"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
@@ -103,6 +100,7 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -110,12 +108,12 @@
 
 
         <activity
-            android:name="com.security.manager.SecurityTogglePatternActivity"
+            android:name="com.eos.manager.AppLockTogglePatternActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/locktheme" />
         <activity
-            android:name="com.security.manager.UnlockActivitySecurityPatternActivity"
+            android:name="com.eos.manager.AppLockPatternActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
@@ -127,7 +125,7 @@
         </activity>
 
         <activity
-            android:name="com.security.manager.SecurityResetPattern"
+            android:name="com.eos.manager.AppLockResetPattern"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
@@ -135,7 +133,7 @@
             android:theme="@style/Theme.AppCompat.Dialog.Alert" />
 
         <activity
-            android:name="com.security.manager.SecurityIntruderSetting"
+            android:name="com.eos.manager.AppLockIntruderSetting"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
@@ -144,7 +142,7 @@
 
 
         <activity
-            android:name="com.security.manager.UnlockApp"
+            android:name="com.eos.manager.AppLockUnlockApp"
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
@@ -152,10 +150,10 @@
             android:theme="@style/activityTheme" />
 
 
-        <service android:name="com.security.manager.SecurityEosService" />
+        <service android:name="com.eos.manager.AppLockEosService" />
 
 
-        <receiver android:name="com.security.manager.WidgetReceiver">
+        <receiver android:name="com.eos.manager.AppLockWidgetReceiver">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -175,7 +173,7 @@
                 android:resource="@xml/security_widget" />
         </receiver>
         <receiver
-            android:name="com.security.manager.SecurityBootReceiver"
+            android:name="com.eos.manager.AppLockBootReceiver"
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

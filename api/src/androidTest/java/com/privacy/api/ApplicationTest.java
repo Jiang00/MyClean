@@ -2,12 +2,12 @@ package com.privacy.api;
 
 import android.test.ApplicationTestCase;
 
-import com.security.manager.History;
-import com.security.manager.SafeApi;
-import com.security.manager.lib.BaseApp;
-import com.security.manager.lib.Utils;
-import com.security.mymodule.FileType;
-import com.security.mymodule.FolderEntry;
+import com.eos.manager.History;
+import com.eos.manager.SafeApi;
+import com.eos.manager.lib.BaseApp;
+import com.eos.manager.lib.Utils;
+import com.eos.mymodule.FileType;
+import com.eos.mymodule.FolderEntry;
 
 import junit.framework.Assert;
 

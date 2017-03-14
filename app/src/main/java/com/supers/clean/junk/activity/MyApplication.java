@@ -16,8 +16,7 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 
-import com.security.manager.App;
-import com.security.manager.SecurityAppLock;
+import com.eos.manager.App;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JsonData;
