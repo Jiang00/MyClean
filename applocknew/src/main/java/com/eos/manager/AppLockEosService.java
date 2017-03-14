@@ -6,6 +6,7 @@ import android.app.AppOpsManager;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.app.usage.UsageEvents;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
@@ -105,40 +106,34 @@ public class AppLockEosService extends Service {
         }
     };
 
-    public String getTopPackageName() {
+    public String getTopPackageName(Context context, ActivityManager activityManager) {
+        if (!SecurityMyPref.getVisitor()) {
+            return null;
+        }
         String packageName = null;
-
-        if (Build.VERSION.SDK_INT > 19) {
-            try {
-                packageName = getActivePackages();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                if (packageName == null) {
-                    packageName = getTopPackage();
-
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            List<ActivityManager.RunningTaskInfo> appTasks = activityManager.getRunningTasks(1);
+            if (null != appTasks && !appTasks.isEmpty()) {
+                return appTasks.get(0).topActivity.getPackageName();
+            } else {
+                return null;
             }
         } else {
-            List<ActivityManager.RunningTaskInfo> lst = mActivityManager.getRunningTasks(1);
-            if (lst != null && lst.size() > 0) {
-                ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
-                if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
-                    packageName = runningTaskInfo.topActivity.getPackageName();
+            //5.0浠ュ悗闇€瑕佺敤杩欐柟娉?
+            UsageStatsManager sUsageStatsManager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+            long endTime = System.currentTimeMillis();
+            long beginTime = endTime - 10000;
+            UsageEvents.Event event = new UsageEvents.Event();
+            UsageEvents usageEvents = sUsageStatsManager.queryEvents(beginTime, endTime);
+            while (usageEvents.hasNextEvent()) {
+                usageEvents.getNextEvent(event);
+                if (event.getEventType() == UsageEvents.Event.MOVE_TO_FOREGROUND) {
+                    packageName = event.getPackageName();
                 }
             }
-        }
-        if (packageName != null) {
-            if (packageName.equals(getPackageName())) {
-                packageName = null;
-            }
-        }
 
-        return packageName;
+            return packageName;
+        }
     }
 
     private ActivityManager mActivityManager;
@@ -367,7 +362,7 @@ public class AppLockEosService extends Service {
                 }
 
 
-                final String packageName = getTopPackageName();
+                final String packageName = getTopPackageName(AppLockEosService.this, mActivityManager);
 
 
                 if (packageName == null) {
@@ -784,8 +779,6 @@ public class AppLockEosService extends Service {
     String getTopPackage() {
 
 
-
-
         long ts = System.currentTimeMillis();
         if (mUsageStatsManager == null) {
             mUsageStatsManager = (UsageStatsManager) getSystemService("usagestats");
@@ -1102,7 +1095,7 @@ public class AppLockEosService extends Service {
     HashMap<String, Boolean> excludesClasses = new HashMap<>();
 
     public void onWakeUp() {
-        String pkgName = getTopPackageName();
+        String pkgName = getTopPackageName(this, mActivityManager);
         if (getPackageName().equals(pkgName)) {
             String className = mActivityManager.getRunningTasks(1).get(0).topActivity.getClassName();
             if (!excludesClasses.containsKey(className)) {
