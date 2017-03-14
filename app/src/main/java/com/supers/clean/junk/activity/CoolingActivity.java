@@ -103,7 +103,7 @@ public class CoolingActivity extends BaseActivity {
 
     private void startCoolingAni() {
         random = new Random();
-        int time = random.nextInt(5);
+        int time = random.nextInt(5) + 1;
         cooling_wendu.setText(time + "℃");
         final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
