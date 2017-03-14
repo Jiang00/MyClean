@@ -69,7 +69,9 @@ public class MainActivity extends BaseActivity implements MainView {
     FrameLayout main_guard_all;
     ListView side_listView;
     DrawerLayout main_drawer;
-    LinearLayout ll_ad;
+    LinearLayout ll_ad, ll_ad_side;
+
+    private String TAG_MAIN = "eos_main";
 
     private float firstY;
     private DisplayMetrics dm;
@@ -114,6 +116,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_guard_all = (FrameLayout) findViewById(R.id.main_guard_all);
         side_listView = (ListView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
     }
 
     @Override
@@ -137,7 +140,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
         main_air_all = (ImageView) view.findViewById(R.id.main_air_all);
 
-        View adView = CommonUtil.getNativeAdView("main_tag", R.layout.native_ad);
+        View adView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad);
         arrayList.add(view);
         if (adView != null) {
             arrayList.add(adView);
@@ -324,12 +327,13 @@ public class MainActivity extends BaseActivity implements MainView {
         if (PreData.getDB(this, Contents.FULL_MAIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            View nativeView = CommonUtil.getNativeAdView("main_tag", R.layout.native_ad);
+            View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 layout_ad.height = nativeView.getMeasuredHeight();
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
+                ll_ad_side.addView(nativeView);
             }
         }
     }
@@ -521,7 +525,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
-                      mainPresenter.jumpToActivity(AppLockPatternEosActivity.class, 1);
+                    mainPresenter.jumpToActivity(AppLockPatternEosActivity.class, 1);
 //                    mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_theme_button:

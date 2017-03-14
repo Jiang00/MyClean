@@ -331,8 +331,14 @@ public class CommonUtil {
 
     public static Drawable getApkIcon(Context context, String apkPath) {
         PackageManager pm = context.getPackageManager();
-        PackageInfo info = pm.getPackageArchiveInfo(apkPath,
-                PackageManager.GET_ACTIVITIES);
+        PackageInfo info = null;
+        try {
+            info = pm.getPackageArchiveInfo(apkPath,
+                    PackageManager.GET_ACTIVITIES);
+        } catch (Exception e) {
+
+        }
+
         if (info != null) {
             ApplicationInfo appInfo = info.applicationInfo;
             appInfo.sourceDir = apkPath;

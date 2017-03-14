@@ -8,32 +8,18 @@ import java.util.List;
 
 public class JsonData {
 
-//0 native 1 全屏
-    /**
-     * data : {"showinter":0,"full_main":0,"full_file":0,"full_speedup":0,"full_mng":0,"full_success":0,"version":1,"packageName":[]}
-     */
-
-
-    /**
-     * showinter : 0
-     * full_main : 0
-     * full_file : 0
-     * full_speedup : 0
-     * full_mng : 0
-     * full_success : 0
-     * version : 1
-     * packageName : []
-     */
-
-    public int showinter;
+    //0 native 1 全屏
     public int full_main;
-    public int full_file;
-    public int full_speedup;
-    public int full_mng;
+    public int full_junk;
+    public int full_ram;
+    public int full_junk_ram;
+    public int full_manager;
+    public int full_message;
     public int full_success;
+    public int full_setting;
+    public int full_unload;
+    public int full_float;
     public int charging;
-    public int version;
-    public int loading_gailv;
     public List<String> packageName;
 
 }

@@ -38,7 +38,7 @@ public class MessageActivity extends BaseActivity {
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
     private TelephonyManager telManager;
-    private String TAG_MESSAGE = "junk_message";
+    private String TAG_MESSAGE = "eos_message";
     private Handler myHandler;
 
     @Override

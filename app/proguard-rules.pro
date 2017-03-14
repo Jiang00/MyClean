@@ -104,5 +104,13 @@
 -dontwarn android.**
 -keep class android.** { *;}
 
+-keep class com.android.client.** { *;}
+-keep class com.core.** { *;}
+
+-keep class com.supers.clean.junk.modle.entity.** { *; }
+
+
+
+
 
 

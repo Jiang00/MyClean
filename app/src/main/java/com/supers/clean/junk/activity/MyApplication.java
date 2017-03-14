@@ -287,7 +287,7 @@ public class MyApplication extends App {
 
         loadFilesOfUninstallApk();
 
-        //loadApkFileAndAppJunk();
+        loadApkFileAndAppJunk();
 
         loadAppCache();
 
