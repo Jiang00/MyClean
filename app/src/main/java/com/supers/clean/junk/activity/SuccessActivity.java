@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.manager.page.SecuritySharPFive;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
 import com.eos.module.tweenengine.TweenManager;
@@ -60,7 +61,7 @@ public class SuccessActivity extends BaseActivity {
 
     private boolean haveAd;
     private boolean animationEnd;
-
+    private SecuritySharPFive shareFive;
 
     @Override
     protected void findId() {
@@ -89,6 +90,7 @@ public class SuccessActivity extends BaseActivity {
         istween = true;
         setAnimationThread();
         myHandler = new Handler();
+        shareFive = new SecuritySharPFive(this);
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
         success_progress.startAnimation(rotate);
         title_name.setText(R.string.success_title);
@@ -106,7 +108,7 @@ public class SuccessActivity extends BaseActivity {
                 startSecondAnimation();
             }
         });
-        if (PreData.getDB(this, Contents.IS_ROTATE, false)) {
+        if (PreData.getDB(this, Contents.IS_ROTATE, false) || shareFive.getFiveRate()) {
             main_rotate_all.setVisibility(View.GONE);
         }
         if (PreData.getDB(this, Contents.FULL_SUCCESS, 0) == 1) {
@@ -353,8 +355,10 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.main_rotate_bad:
                     PreData.putDB(SuccessActivity.this, Contents.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
+                    shareFive.setFiveRate(true);
                     break;
                 case R.id.main_rotate_good:
+                    shareFive.setFiveRate(true);
                     PreData.putDB(SuccessActivity.this, Contents.IS_ROTATE, true);
                     UtilGp.openPlayStore(SuccessActivity.this, SuccessActivity.this.getPackageName());
                     main_rotate_all.setVisibility(View.GONE);

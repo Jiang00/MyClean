@@ -33,6 +33,9 @@ public class RamTask extends SimpleTask {
         for (AndroidAppProcess info : listInfo) {
             int pid = info.pid;
             String packageName = info.name;
+            if (packageName.equals(mContext.getPackageName()) || packageName.contains("com.eosmobi")) {
+                continue;
+            }
             if (!ignoreApp.contains(packageName)) {
                 addApplica(false, packageName, pid);
             } else {

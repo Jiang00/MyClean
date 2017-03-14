@@ -1,9 +1,16 @@
 package com.supers.clean.junk.activity;
 
 import android.animation.ValueAnimator;
+import android.app.AlertDialog;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -23,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
+import com.eos.manager.page.SecuritySharPFive;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.manager.AppLockPatternEosActivity;
@@ -39,6 +47,7 @@ import com.supers.clean.junk.myView.PullToRefreshLayout;
 import com.supers.clean.junk.presenter.MainPresenter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity implements MainView {
 
@@ -57,7 +66,7 @@ public class MainActivity extends BaseActivity implements MainView {
     RelativeLayout main_cpu_air_button, main_sd_air_button, main_ram_air_button;
     CustomRoundCpu main_custom_cpu, main_custom_sd, main_custom_ram;
     TextView main_cpu_temp, main_sd_per, main_sd_size, main_ram_per, main_ram_size;
-    ImageView main_air_all;
+    LinearLayout main_air_all;
     LinearLayout main_junk_button, main_ram_button, main_manager_button, main_cooling_button, main_applock_button, main_theme_button;
     LinearLayout main_rotate_all;
     TextView main_rotate_bad;
@@ -139,7 +148,8 @@ public class MainActivity extends BaseActivity implements MainView {
         main_custom_ram = (CustomRoundCpu) view.findViewById(R.id.main_custom_ram);
         main_ram_per = (TextView) view.findViewById(R.id.main_ram_per);
         main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
-        main_air_all = (ImageView) view.findViewById(R.id.main_air_all);
+        main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
+
 
         View adView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad);
         arrayList.add(view);
@@ -186,6 +196,35 @@ public class MainActivity extends BaseActivity implements MainView {
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
         initHandler();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (!isNoSwitch()) {
+                final AlertDialog.Builder normalDialog =
+                        new AlertDialog.Builder(MainActivity.this);
+                normalDialog.setIcon(R.mipmap.icon);
+                normalDialog.setTitle(R.string.premiss_1);
+                normalDialog.setMessage(R.string.premiss_2);
+                normalDialog.setPositiveButton(R.string.premiss_3,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //...To-do
+                                Intent intent = new Intent(
+                                        Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                                startActivity(intent);
+                            }
+                        });
+                normalDialog.setNegativeButton(R.string.premiss_4,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //...To-do
+                            }
+                        });
+                // 显示
+                normalDialog.show();
+            }
+        }
     }
 
     private void initHandler() {
@@ -563,12 +602,14 @@ public class MainActivity extends BaseActivity implements MainView {
             }
             initCpu(temp);
         }
+
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
         mainPresenter.reStart();
+
     }
 
     @Override
@@ -589,4 +630,17 @@ public class MainActivity extends BaseActivity implements MainView {
         }
     }
 
+    //判断“有权查看使用权限的应用”这个选项的APP有没有打开
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private boolean isNoSwitch() {
+        long ts = System.currentTimeMillis();
+        UsageStatsManager usageStatsManager = (UsageStatsManager) getApplicationContext()
+                .getSystemService("usagestats");
+        List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(
+                UsageStatsManager.INTERVAL_BEST, 0, ts);
+        if (queryUsageStats == null || queryUsageStats.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
 }

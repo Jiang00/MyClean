@@ -21,7 +21,6 @@ public class SecuritySharPFive {
 		Editor editor = preferences.edit();
 		editor.putBoolean("five_rate", value);
 		editor.commit();
-	
 	}
 	
 	

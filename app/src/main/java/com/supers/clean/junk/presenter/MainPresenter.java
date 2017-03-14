@@ -6,11 +6,13 @@ import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
+import com.eos.manager.page.SecuritySharPFive;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.CpuTempReader;
@@ -26,11 +28,13 @@ import java.lang.reflect.Field;
 
 public class MainPresenter extends BasePresenter<MainView> {
     private int cpuTemp = 40;
+    private SecuritySharPFive shareFive;
 
     public MainPresenter(MainView iView, Context context) {
         super(iView, context);
         this.iView = iView;
         this.context = context;
+        shareFive = new SecuritySharPFive(context);
     }
 
     public void init() {
@@ -41,6 +45,18 @@ public class MainPresenter extends BasePresenter<MainView> {
             @Override
             public void run() {
                 reStart();
+                //cpu温度
+                CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
+                    @Override
+                    public void callbackResult(CpuTempReader.ResultCpuTemperature result) {
+                        if (result != null) {
+                            cpuTemp = (int) result.getTemperature();
+                        } else {
+                            cpuTemp = 40;
+                        }
+                        iView.initCpu(cpuTemp);
+                    }
+                });
             }
         }).start();
         TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
@@ -59,18 +75,7 @@ public class MainPresenter extends BasePresenter<MainView> {
     }
 
     public void reStart() {
-        //cpu温度
-        CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
-            @Override
-            public void callbackResult(CpuTempReader.ResultCpuTemperature result) {
-                if (result != null) {
-                    cpuTemp = (int) result.getTemperature();
-                } else {
-                    cpuTemp = 40;
-                }
-                iView.initCpu(cpuTemp);
-            }
-        });
+
         //SD卡储存
         long sd_all = MemoryManager.getPhoneAllSize();
         long sd_kongxian = MemoryManager.getPhoneAllFreeSize();
@@ -85,6 +90,7 @@ public class MainPresenter extends BasePresenter<MainView> {
         int memo = (int) (ram_shiyong * 100 / ram_all);
         String ram_size = CommonUtil.getFileSize1(ram_shiyong) + "/" + CommonUtil.getFileSize1(ram_all);
         iView.initRam(memo, ram_size);
+        setRotateGone();
     }
 
 
@@ -92,12 +98,13 @@ public class MainPresenter extends BasePresenter<MainView> {
         if (isGood) {
             goToGooglePlay();
         }
+        shareFive.setFiveRate(true);
         PreData.putDB(context, Contents.IS_ROTATE, true);
         setRotateGone();
     }
 
     public void setRotateGone() {
-        if (PreData.getDB(context, Contents.IS_ROTATE, false)) {
+        if (PreData.getDB(context, Contents.IS_ROTATE, false) || shareFive.getFiveRate()) {
             iView.setRotateGone();
         }
     }

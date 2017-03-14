@@ -1,7 +1,11 @@
 package com.supers.clean.junk.activity;
 
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,6 +20,8 @@ import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.ShortCutUtils;
 import com.supers.clean.junk.modle.entity.Contents;
+
+import java.util.List;
 
 /**
  * Created by on 2017/3/8.
@@ -69,7 +75,6 @@ public class LoadingActivity extends BaseActivity {
                 finish();
             }
         });
-
     }
 
     Runnable runnable1 = new Runnable() {
@@ -98,6 +103,8 @@ public class LoadingActivity extends BaseActivity {
             }
         }
     };
+
+
 
     private void addNative() {
         if (AndroidSdk.hasNativeAd(TAG_LOADING, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
