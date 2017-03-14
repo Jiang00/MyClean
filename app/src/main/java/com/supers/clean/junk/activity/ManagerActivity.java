@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +43,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     LinearLayout ll_ad;
     private ManagerPresenter managerPresenter;
     private ManagerAdapter adapterManager;
-    private Handler myHandler;
     private MyReceiver receiver;
     private IntentFilter filter;
     private View nativeView;
