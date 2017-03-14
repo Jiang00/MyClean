@@ -3,11 +3,16 @@ package com.supers.clean.junk.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -21,6 +26,8 @@ import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.entity.JsonData;
 
+import java.util.Locale;
+
 /**
  * Created by on 2017/2/28.
  */
@@ -31,6 +38,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
 
@@ -156,6 +164,28 @@ public class BaseActivity extends AppCompatActivity {
             toast.setText(text);
         }
         toast.show();
+    }
 
+    protected <T extends View> T $(@IdRes int id) {
+        return (T) findViewById(id);
+    }
+
+    protected <T extends View> T $(View view, @IdRes int id) {
+        return (T) view.findViewById(id);
+    }
+
+    public void changeAppLanguage() {
+        Locale locale = getResources().getConfiguration().locale;
+        String language = locale.getLanguage();
+        if (TextUtils.equals(language, "ar")) {
+            Locale myLocale = new Locale("en");
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+        }
+        Log.e("rqy", "--language--" + language);
+        // 本地语言设置
     }
 }

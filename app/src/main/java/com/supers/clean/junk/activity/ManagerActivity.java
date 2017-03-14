@@ -115,7 +115,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         junk_list_all.setAdapter(adapterManager);
         managerPresenter.addAdapterData();
         String fileSize = CommonUtil.getFileSize4(cleanSize);
-        if (TextUtils.equals(fileSize, "0B")) {
+        if (TextUtils.isEmpty(fileSize)) {
             junk_button_clean.setText(getResources().getText(R.string.manager_button));
         } else {
             junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
@@ -132,7 +132,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     @Override
     public void setCleanDAta(long size) {
         String fileSize = CommonUtil.getFileSize4(size);
-        if (TextUtils.equals(fileSize, "0B")) {
+        if (TextUtils.isEmpty(fileSize)) {
             junk_button_clean.setText(getResources().getText(R.string.manager_button));
         } else {
             junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");

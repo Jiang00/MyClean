@@ -202,7 +202,7 @@ public class CommonUtil {
     public static String getFileSize4(long filesize) {
         StringBuffer mstrbuf = new StringBuffer();
         if (filesize <= 0) {
-            return "0B";
+            return "";
         }
         if (filesize < 1024) {
             mstrbuf.append(filesize);
