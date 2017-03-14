@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -113,7 +114,12 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         adapterManager = new ManagerAdapter(this, managerPresenter);
         junk_list_all.setAdapter(adapterManager);
         managerPresenter.addAdapterData();
-        junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + CommonUtil.getFileSize4(cleanSize) + ")");
+        String fileSize = CommonUtil.getFileSize4(cleanSize);
+        if (TextUtils.equals(fileSize, "0B")) {
+            junk_button_clean.setText(getResources().getText(R.string.manager_button));
+        } else {
+            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
+        }
     }
 
     @Override
@@ -125,7 +131,12 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
     @Override
     public void setCleanDAta(long size) {
-        junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + CommonUtil.getFileSize4(size) + ")");
+        String fileSize = CommonUtil.getFileSize4(size);
+        if (TextUtils.equals(fileSize, "0B")) {
+            junk_button_clean.setText(getResources().getText(R.string.manager_button));
+        } else {
+            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
+        }
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
