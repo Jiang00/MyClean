@@ -1,6 +1,7 @@
 package com.supers.clean.junk.activity;
 
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -46,6 +47,7 @@ public class CoolingActivity extends BaseActivity {
     private Animation rotate_ni;
     private Animation suo;
     private Animation fang;
+    private int time;
 
     @Override
     protected void findId() {
@@ -103,7 +105,7 @@ public class CoolingActivity extends BaseActivity {
 
     private void startCoolingAni() {
         random = new Random();
-        int time = random.nextInt(5) + 1;
+        time = random.nextInt(5) + 1;
         cooling_wendu.setText(time + "℃");
         final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -148,6 +150,12 @@ public class CoolingActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         hideSnow();
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(2, new Intent().putExtra("wendu", time));
+        finish();
     }
 
     @Override

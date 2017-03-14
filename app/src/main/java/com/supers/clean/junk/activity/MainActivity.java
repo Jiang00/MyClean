@@ -85,6 +85,7 @@ public class MainActivity extends BaseActivity implements MainView {
     private MainPresenter mainPresenter;
     private SideAdapter adapter;
     private long mExitTime;
+    private int temp;
 
     @Override
     protected void findId() {
@@ -226,6 +227,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     public void initCpu(final int temp) {
+        this.temp = temp;
         main_custom_cpu.startProgress(false, temp);
         runOnUiThread(new Runnable() {
             @Override
@@ -552,6 +554,14 @@ public class MainActivity extends BaseActivity implements MainView {
         if (resultCode == 50) {
             initSideData();
             adapter.notifyDataSetChanged();
+        }
+        if (resultCode == 2) {
+            int wendu = data.getIntExtra("wendu", 0);
+            temp -= wendu;
+            if (temp == 0) {
+                temp = 40;
+            }
+            initCpu(temp);
         }
     }
 

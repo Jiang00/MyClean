@@ -167,8 +167,10 @@ public class SettingActivity extends BaseActivity {
                     //chongdian
                     if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true)) {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
+                        setting_battery_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                        setting_battery_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
                 case R.id.setting_white:
