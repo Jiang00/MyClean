@@ -52,6 +52,8 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
     boolean normal = false;
     Intent notiIntent;
 
+    private boolean fromMainPage = false;
+
     public void toggle(boolean normal) {
         if (normal) {
             if (passFrag == null) {
@@ -136,13 +138,11 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
 
     @Override
     public void onBackPressed() {
-        if (unlockApp || setting == SET_EMPTY) {
+        if (!fromMainPage && (unlockApp || setting == SET_EMPTY)) {
             backHome();
             Log.e("testback", "four");
-
         }
-
-//        finish();
+        finish();
         Log.e("testback", "five");
 
     }
@@ -204,6 +204,7 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
         Tracker.sendEvent(Tracker.CATE_ACTION_OPEN_APP, Tracker.CATE_ACTION_OPEN_APP_TIME, Tracker.CATE_ACTION_OPEN_APP_TIME, 1L);
         SecurityMyPref.upgrade();
         Intent intent = getIntent();
+        fromMainPage = intent.getBooleanExtra("is_main", false);
         if (intent.hasExtra("theme")) {
             String theme = intent.getStringExtra("theme");
             App.getSharedPreferences().edit().putString("theme", theme).putBoolean("theme-switched", true).apply();
@@ -371,24 +372,24 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
                 }
             });
 
-            Log.e("tag","tag3");
-            List<ResolveInfo> pkgs=null;
-            PackageManager packageManager=null;
+            Log.e("tag", "tag3");
+            List<ResolveInfo> pkgs = null;
+            PackageManager packageManager = null;
 
-            Log.e("tag",Thread.currentThread().getName()+"name");
+            Log.e("tag", Thread.currentThread().getName() + "name");
 
             try {
-                 packageManager = getPackageManager();
+                packageManager = getPackageManager();
                 final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
                 mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-                 pkgs = packageManager.queryIntentActivities(mainIntent, 0);
-            }catch (Exception e){
-                Log.e("tag",e.getMessage()+"-------");
+                pkgs = packageManager.queryIntentActivities(mainIntent, 0);
+            } catch (Exception e) {
+                Log.e("tag", e.getMessage() + "-------");
 
 
             }
 
-            if(pkgs!=null&&packageManager!=null) {
+            if (pkgs != null && packageManager != null) {
 
 
                 String pkgname = getPackageName();
@@ -493,7 +494,7 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
 
             lv.setVisibility(View.GONE);
             this.finish();
-            Intent intent = new Intent(AppLockPatternEosActivity.this,AppLock.class);
+            Intent intent = new Intent(AppLockPatternEosActivity.this, AppLock.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             firstLaunchList.clear();
@@ -502,7 +503,7 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
 
         }
         if (firstLaunchShowResult) {
-            Log.e("tag","tag2");
+            Log.e("tag", "tag2");
 
             next.setVisibility(View.GONE);
             TextView title = (TextView) header.findViewById(R.id.title);
@@ -517,14 +518,14 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
                 public void onClick(View v) {
                     startListApp();
                     Tracker.sendEvent(Tracker.ACT_LEADER, Tracker.ACT_LEDADER_OK, Tracker.ACT_LEDADER_OK, 1L);
-                    int min= (int) (System.currentTimeMillis()/1000/60);
+                    int min = (int) (System.currentTimeMillis() / 1000 / 60);
                     SecurityMyPref.setMainFirstFullCountDown(min);
                     SecurityMyPref.setPasswordLockOk(true);
 
                 }
             });
         } else {
-            Log.e("tag","tag1");
+            Log.e("tag", "tag1");
 
             next.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -560,7 +561,7 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
     }
 
 
-    public void setData(){
+    public void setData() {
         if (firstSetup) {
             if (firstLaunchLocked != null && firstLaunchLocked.size() > 0) {
                 try {

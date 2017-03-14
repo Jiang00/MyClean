@@ -525,7 +525,9 @@ public class MainActivity extends BaseActivity implements MainView {
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
-                    mainPresenter.jumpToActivity(AppLockPatternEosActivity.class, 1);
+                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
+                    intent.putExtra("is_main", true);
+                    startActivity(intent);
 //                    mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_theme_button:
