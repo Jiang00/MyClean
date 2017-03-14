@@ -1,6 +1,7 @@
 package com.supers.clean.junk.activity;
 
 import android.app.ActivityManager;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.IPackageDataObserver;
@@ -12,11 +13,11 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
+import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 
-import com.eos.manager.App;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JsonData;
@@ -201,7 +202,6 @@ public class MyApplication extends App {
     @Override
     public void onCreate() {
         super.onCreate();
-
         ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);
@@ -246,6 +246,7 @@ public class MyApplication extends App {
             PreData.putDB(this, Contents.IS_ACTION_BAR, CommonUtil.checkDeviceHasNavigationBar(this));
             PreData.putDB(this, Contents.FIRST_INSTALL, false);
         }
+
     }
 
     private Runnable getScanIntervalRunnable() {
@@ -286,7 +287,7 @@ public class MyApplication extends App {
 
         loadFilesOfUninstallApk();
 
-        loadApkFileAndAppJunk();
+        //loadApkFileAndAppJunk();
 
         loadAppCache();
 
