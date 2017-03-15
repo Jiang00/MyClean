@@ -21749,68 +21749,69 @@ com.eos.manager.AppLockPatternEosActivity -> com.eos.manager.AppLockPatternEosAc
     com.eos.manager.page.PasswordFragmentSecurity passFrag -> c
     boolean normal -> d
     android.content.Intent notiIntent -> e
-    boolean fromMainPage -> K
-    boolean firstLaunchShowResult -> f
-    boolean unlockApp -> g
-    byte setting -> h
-    java.util.ArrayList firstLaunchList -> i
-    java.util.HashMap firstLaunchLabels -> j
-    java.util.HashMap firstLaunchLocked -> k
-    java.util.HashMap firstLaunchFilter -> l
-    java.lang.String pkg -> m
-    boolean toggled -> n
-    java.lang.String profileName -> o
-    43:609:void <init>() -> <init>
-    58:70:void toggle(boolean) -> b
-    74:79:void onStart() -> onStart
-    83:84:void resetThemeBridgeImpl() -> b_
-    88:91:void onResume() -> onResume
-    95:100:void onStop() -> onStop
-    103:137:void unlockSuccess(boolean) -> a
-    141:148:void onBackPressed() -> onBackPressed
-    154:166:void startListApp() -> d
-    169:175:void switchTheme() -> e
-    178:190:void destroyThemeContext() -> f
-    198:217:void setupView() -> c
-    225:271:void loadPackages() -> g
-    276:541:void firstTimeLaunch() -> h
-    545:561:void setEmail() -> i
-    585:589:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    593:596:void onRestoreInstanceStateOnCreate(android.os.Bundle) -> a
-    602:606:void onIntent(android.content.Intent) -> a
-    613:633:void selectOperation() -> j
-    637:640:void onDestroy() -> onDestroy
+    android.content.Context context -> f
+    boolean fromMainPage -> L
+    boolean firstLaunchShowResult -> g
+    boolean unlockApp -> h
+    byte setting -> i
+    java.util.ArrayList firstLaunchList -> j
+    java.util.HashMap firstLaunchLabels -> k
+    java.util.HashMap firstLaunchLocked -> l
+    java.util.HashMap firstLaunchFilter -> m
+    java.lang.String pkg -> n
+    boolean toggled -> o
+    java.lang.String profileName -> p
+    44:611:void <init>() -> <init>
+    60:72:void toggle(boolean) -> b
+    76:81:void onStart() -> onStart
+    85:86:void resetThemeBridgeImpl() -> b_
+    90:93:void onResume() -> onResume
+    97:102:void onStop() -> onStop
+    105:139:void unlockSuccess(boolean) -> a
+    143:150:void onBackPressed() -> onBackPressed
+    156:168:void startListApp() -> d
+    171:177:void switchTheme() -> e
+    180:192:void destroyThemeContext() -> f
+    200:219:void setupView() -> c
+    227:273:void loadPackages() -> g
+    278:543:void firstTimeLaunch() -> h
+    547:563:void setEmail() -> i
+    587:591:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    595:598:void onRestoreInstanceStateOnCreate(android.os.Bundle) -> a
+    604:608:void onIntent(android.content.Intent) -> a
+    615:635:void selectOperation() -> j
+    639:642:void onDestroy() -> onDestroy
 com.eos.manager.AppLockPatternEosActivity$1 -> com.eos.manager.AppLockPatternEosActivity$1:
     boolean val$clickable -> a
     com.eos.manager.AppLockPatternEosActivity this$0 -> b
-    288:288:void <init>(com.eos.manager.AppLockPatternEosActivity,boolean) -> <init>
-    291:291:int getCount() -> getCount
-    296:296:boolean isEnabled(int) -> isEnabled
-    301:301:boolean areAllItemsEnabled() -> areAllItemsEnabled
-    306:306:java.lang.Object getItem(int) -> getItem
-    311:311:long getItemId(int) -> getItemId
-    318:349:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    290:290:void <init>(com.eos.manager.AppLockPatternEosActivity,boolean) -> <init>
+    293:293:int getCount() -> getCount
+    298:298:boolean isEnabled(int) -> isEnabled
+    303:303:boolean areAllItemsEnabled() -> areAllItemsEnabled
+    308:308:java.lang.Object getItem(int) -> getItem
+    313:313:long getItemId(int) -> getItemId
+    320:351:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.eos.manager.AppLockPatternEosActivity$2 -> com.eos.manager.AppLockPatternEosActivity$2:
     android.widget.Button val$next -> a
     android.widget.ListView val$lv -> b
     com.eos.manager.AppLockPatternEosActivity this$0 -> c
-    354:354:void <init>(com.eos.manager.AppLockPatternEosActivity,android.widget.Button,android.widget.ListView) -> <init>
-    357:372:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    356:356:void <init>(com.eos.manager.AppLockPatternEosActivity,android.widget.Button,android.widget.ListView) -> <init>
+    359:374:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.eos.manager.AppLockPatternEosActivity$3 -> com.eos.manager.AppLockPatternEosActivity$3:
     java.util.ArrayList val$apps_ -> a
     java.util.HashMap val$labels_ -> b
     android.widget.ListView val$lv -> c
     com.eos.manager.AppLockPatternEosActivity this$0 -> d
-    425:425:void <init>(com.eos.manager.AppLockPatternEosActivity,java.util.ArrayList,java.util.HashMap,android.widget.ListView) -> <init>
-    428:433:void run() -> run
+    427:427:void <init>(com.eos.manager.AppLockPatternEosActivity,java.util.ArrayList,java.util.HashMap,android.widget.ListView) -> <init>
+    430:435:void run() -> run
 com.eos.manager.AppLockPatternEosActivity$4 -> com.eos.manager.AppLockPatternEosActivity$4:
     com.eos.manager.AppLockPatternEosActivity this$0 -> a
-    516:516:void <init>(com.eos.manager.AppLockPatternEosActivity) -> <init>
-    519:525:void onClick(android.view.View) -> onClick
+    518:518:void <init>(com.eos.manager.AppLockPatternEosActivity) -> <init>
+    521:527:void onClick(android.view.View) -> onClick
 com.eos.manager.AppLockPatternEosActivity$5 -> com.eos.manager.AppLockPatternEosActivity$5:
     com.eos.manager.AppLockPatternEosActivity this$0 -> a
-    530:530:void <init>(com.eos.manager.AppLockPatternEosActivity) -> <init>
-    533:538:void onClick(android.view.View) -> onClick
+    532:532:void <init>(com.eos.manager.AppLockPatternEosActivity) -> <init>
+    535:540:void onClick(android.view.View) -> onClick
 com.eos.manager.AppLockPermissionActivity -> com.eos.manager.AppLockPermissionActivity:
     13:13:void <init>() -> <init>
     17:28:void onCreate(android.os.Bundle) -> onCreate
@@ -21850,17 +21851,17 @@ com.eos.manager.AppLockResetPattern$4 -> com.eos.manager.AppLockResetPattern$4:
     146:146:void <init>(com.eos.manager.AppLockResetPattern) -> <init>
     149:151:void run() -> run
 com.eos.manager.AppLockSetPattern -> com.eos.manager.AppLockSetPattern:
-    boolean firsetShowf -> p
-    com.eos.manager.page.NumberDot passdot -> q
-    int size -> r
-    com.eos.manager.page.SecurityPatternView securityPatternView -> s
-    boolean confirmMode -> t
-    android.widget.Button cancel -> u
-    android.widget.TextView tip -> v
-    boolean firstSetup -> w
-    boolean togglePattern -> x
-    java.util.List pattern1 -> y
-    byte setProgress -> z
+    boolean firsetShowf -> q
+    com.eos.manager.page.NumberDot passdot -> r
+    int size -> s
+    com.eos.manager.page.SecurityPatternView securityPatternView -> t
+    boolean confirmMode -> u
+    android.widget.Button cancel -> v
+    android.widget.TextView tip -> w
+    boolean firstSetup -> x
+    boolean togglePattern -> y
+    java.util.List pattern1 -> z
+    byte setProgress -> A
     25:424:void <init>() -> <init>
     36:36:boolean hasHelp() -> b
     41:43:void onCreate(android.os.Bundle) -> onCreate
@@ -22020,7 +22021,7 @@ com.eos.manager.AppLockTogglePatternActivity -> com.eos.manager.AppLockTogglePat
     10:10:void startListApp() -> d
 com.eos.manager.AppLockUnlockApp -> com.eos.manager.AppLockUnlockApp:
     12:12:void <init>() -> <init>
-    21:34:void setupView() -> c
+    16:35:void setupView() -> c
 com.eos.manager.AppLockWidgetReceiver -> com.eos.manager.AppLockWidgetReceiver:
     15:15:void <init>() -> <init>
     18:20:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -22038,7 +22039,7 @@ com.eos.manager.AppsCore -> com.eos.manager.a:
     java.lang.String ROOT -> a
     16:18:boolean init(android.content.Context,java.lang.String) -> a
 com.eos.manager.ClientActivitySecurity -> com.eos.manager.ClientActivitySecurity:
-    com.privacy.lock.aidl.IWorker server -> A
+    com.privacy.lock.aidl.IWorker server -> B
     15:15:void <init>() -> <init>
     20:21:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
     25:26:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
@@ -22098,17 +22099,17 @@ com.eos.manager.SearchView$OnQueryTextListener -> com.eos.manager.SearchView$a:
     boolean onStartSearch() -> a
     boolean onQueryTextChange(java.lang.String) -> a
 com.eos.manager.SecurityAbsActivity -> com.eos.manager.SecurityAbsActivity:
-    com.eos.manager.SecurityAbsActivity context -> B
-    boolean invisible -> C
+    com.eos.manager.SecurityAbsActivity context -> C
+    boolean invisible -> D
     android.animation.AnimatorListenerAdapter invis2visAnimatorListener -> a
     java.lang.Thread$UncaughtExceptionHandler exceptionHandler -> b
-    java.lang.Thread$UncaughtExceptionHandler defaultHandler -> D
-    com.eos.manager.page.SlideMenu menu -> E
-    boolean search -> F
-    boolean edit -> G
-    com.eos.manager.SearchThread searchThread -> H
-    android.view.animation.Interpolator acc -> I
-    android.view.animation.Interpolator dec -> J
+    java.lang.Thread$UncaughtExceptionHandler defaultHandler -> E
+    com.eos.manager.page.SlideMenu menu -> F
+    boolean search -> G
+    boolean edit -> H
+    com.eos.manager.SearchThread searchThread -> I
+    android.view.animation.Interpolator acc -> J
+    android.view.animation.Interpolator dec -> K
     41:289:void <init>() -> <init>
     50:52:void onPause() -> onPause
     56:56:void onIntent(android.content.Intent) -> a
@@ -22615,7 +22616,6 @@ com.eos.manager.page.ListViewForScrollView -> com.eos.manager.page.ListViewForSc
     21:23:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     27:29:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     45:49:void onMeasure(int,int) -> onMeasure
-    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.eos.manager.page.LockPatternUtils -> com.eos.manager.page.b:
     52:62:java.lang.String patternToString(java.util.List) -> a
     84:84:boolean checkPattern(java.util.List,java.util.List) -> a
@@ -24950,15 +24950,15 @@ com.eos.module.charge.saver.view.BatteryView -> com.eos.module.charge.saver.view
     87:88:void setUnlockListener(com.eos.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
     100:112:void showNativeAD() -> d
     115:129:void updateTime() -> a
-    134:201:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
-    210:328:void onFinishInflate() -> onFinishInflate
-    331:348:void initViews() -> e
-    352:359:void onAttachedToWindow() -> onAttachedToWindow
-    363:394:void onDetachedFromWindow() -> onDetachedFromWindow
-    397:401:int analysisJson(org.json.JSONObject) -> a
-    406:413:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    416:418:void registerTimeUpdateReceiver() -> b
-    421:423:void unregisterTimeUpdateReceiver() -> c
+    134:203:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
+    212:330:void onFinishInflate() -> onFinishInflate
+    333:350:void initViews() -> e
+    354:361:void onAttachedToWindow() -> onAttachedToWindow
+    365:396:void onDetachedFromWindow() -> onDetachedFromWindow
+    399:403:int analysisJson(org.json.JSONObject) -> a
+    408:415:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    418:420:void registerTimeUpdateReceiver() -> b
+    423:425:void unregisterTimeUpdateReceiver() -> c
     39:39:int access$002(com.eos.module.charge.saver.view.BatteryView,int) -> a
     39:39:int access$000(com.eos.module.charge.saver.view.BatteryView) -> a
     39:39:com.eos.module.charge.saver.lottie.LottieAnimationView access$100(com.eos.module.charge.saver.view.BatteryView) -> b
@@ -24982,27 +24982,27 @@ com.eos.module.charge.saver.view.BatteryView$2 -> com.eos.module.charge.saver.vi
     149:158:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.eos.module.charge.saver.view.BatteryView$3 -> com.eos.module.charge.saver.view.BatteryView$3:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    219:219:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    222:223:void onCompositionLoaded(com.eos.module.charge.saver.lottie.LottieComposition) -> a
+    221:221:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    224:225:void onCompositionLoaded(com.eos.module.charge.saver.lottie.LottieComposition) -> a
 com.eos.module.charge.saver.view.BatteryView$4 -> com.eos.module.charge.saver.view.BatteryView$4:
     int val$halfWidth -> a
     com.eos.module.charge.saver.view.BatteryView this$0 -> b
-    232:232:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
-    235:254:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    234:234:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
+    237:256:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.eos.module.charge.saver.view.BatteryView$5 -> com.eos.module.charge.saver.view.BatteryView$5:
     int val$halfWidth -> a
     com.eos.module.charge.saver.view.BatteryView this$0 -> b
-    257:257:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
-    260:266:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    271:279:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    259:259:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
+    262:268:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    273:281:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.eos.module.charge.saver.view.BatteryView$6 -> com.eos.module.charge.saver.view.BatteryView$6:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    290:290:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    293:296:void onClick(android.view.View) -> onClick
+    292:292:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    295:298:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$7 -> com.eos.module.charge.saver.view.BatteryView$7:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    308:308:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    311:325:void onClick(android.view.View) -> onClick
+    310:310:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    313:327:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$UnlockListener -> com.eos.module.charge.saver.view.BatteryView$a:
     void onUnlock() -> a
 com.eos.module.charge.saver.view.BubbleLayout -> com.eos.module.charge.saver.view.BubbleLayout:
@@ -29627,11 +29627,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-<<<<<<< HEAD
-    4185:9627:void <clinit>() -> <clinit>
-=======
-    4165:9607:void <clinit>() -> <clinit>
->>>>>>> b50a1d6beb67864496b7e71d1fe804aef6d0473c
+    4182:9624:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.ImageView short_zhuan -> a
     android.widget.ImageView short_huojian -> b
@@ -31603,7 +31599,6 @@ com.supers.clean.junk.myView.ListViewForScrollView -> com.supers.clean.junk.myVi
     17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     22:24:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     31:34:void onMeasure(int,int) -> onMeasure
-    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.supers.clean.junk.myView.MainFrameLayout -> com.supers.clean.junk.myView.MainFrameLayout:
     13:14:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     18:18:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent

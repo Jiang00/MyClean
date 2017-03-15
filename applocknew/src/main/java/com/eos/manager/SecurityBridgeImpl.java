@@ -76,7 +76,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
             } else {
                 if (context == null) {
                     try {
-                        ((AppLockPatternEosActivity) App.getContext()).unlockSuccess(unlockMe);
+                        ((AppLockPatternEosActivity) AppLockUnlockApp.context).unlockSuccess(unlockMe);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

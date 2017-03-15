@@ -1,5 +1,6 @@
 package com.eos.manager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -51,6 +52,7 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
     PasswordFragmentSecurity passFrag;
     boolean normal = false;
     Intent notiIntent;
+    static Context context;
 
     private boolean fromMainPage = false;
 

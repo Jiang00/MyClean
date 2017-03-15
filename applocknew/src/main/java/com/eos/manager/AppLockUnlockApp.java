@@ -13,6 +13,7 @@ public class AppLockUnlockApp extends AppLockPatternEosActivity {
 
     @Override
     public void setupView() {
+        context=this;
 
 
         //设置无标题
