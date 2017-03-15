@@ -167,6 +167,13 @@ public class MyApplication extends App {
         }
     }
 
+    public void clearRam() {
+        if (appRam != null) {
+            appRam.clear();
+            ramSize = 0;
+        }
+    }
+
     public void removeAppCache(JunkInfo fileListInfo) {
         CommonUtil.deleteFile(fileListInfo.path);
         dataSize -= fileListInfo.size;

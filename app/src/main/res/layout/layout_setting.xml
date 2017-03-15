@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting_scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/setting_scroll"
     android:fillViewport="true"
     android:scrollbars="none">
 
@@ -276,6 +276,11 @@
                 android:scaleType="center"
                 android:src="@mipmap/setting_rig" />
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f1f1f1" />
 
         <LinearLayout
             android:id="@+id/ll_ad"

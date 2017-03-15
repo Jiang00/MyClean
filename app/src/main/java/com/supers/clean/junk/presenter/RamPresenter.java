@@ -32,9 +32,14 @@ public class RamPresenter extends BasePresenter<RamView> {
     public void init() {
         super.init();
         iView.loadFullAd();
-        cleanSize = allSize = cleanApplication.getRamSize();
-
+        allSize = cleanApplication.getRamSize();
+        for (JunkInfo info : cleanApplication.getAppRam()) {
+            if (info.isChecked) {
+                cleanSize += info.size;
+            }
+        }
         iView.initData(allSize);
+        iView.setCleanDAta(cleanSize);
         changeColor(allSize);
         iView.onClick();
     }

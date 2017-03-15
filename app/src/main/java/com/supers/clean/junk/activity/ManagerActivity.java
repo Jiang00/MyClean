@@ -30,6 +30,7 @@ import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
+import com.supers.clean.junk.myView.ListViewForScrollView;
 import com.supers.clean.junk.presenter.ManagerPresenter;
 
 import java.util.List;
@@ -46,7 +47,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     ImageView manager_sort_size_backg, manager_sort_time_backg, manager_sort_pinlv_backg;
     TextView manager_sort_size_name, manager_sort_time_name, manager_sort_pinlv_name;
     Button junk_button_clean;
-    ListView junk_list_all;
+    ListViewForScrollView junk_list_all;
     LinearLayout ll_ad;
     private ManagerPresenter managerPresenter;
     private ManagerAdapter adapterManager;
@@ -71,7 +72,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         manager_sort_time_name = (TextView) findViewById(R.id.manager_sort_time_name);
         manager_sort_pinlv_name = (TextView) findViewById(R.id.manager_sort_pinlv_name);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
-        junk_list_all = (ListView) findViewById(R.id.junk_list_all);
+        junk_list_all = (ListViewForScrollView) findViewById(R.id.junk_list_all);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
@@ -160,7 +161,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
     @Override
     public void addAppManagerdata(List<JunkInfo> list) {
-        adapterManager.upList(list);
+        adapterManager.clear();
+        adapterManager.addDataList(list);
+//        adapterManager.upList(list);
         adapterManager.notifyDataSetChanged();
     }
 

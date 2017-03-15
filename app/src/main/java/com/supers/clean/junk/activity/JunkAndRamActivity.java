@@ -153,7 +153,6 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         junk_ram_list.setAdapter(adapterRam);
         junkPresenter.setUnit(allSize, junk_unit);
         junkPresenter.addAdapterData();
-        junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(allSize) + ")");
     }
 
     @Override
@@ -243,7 +242,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     @Override
     public void setCleanDAta(long cleanSize) {
-        junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(cleanSize) + ")");
+        if (cleanSize != 0) {
+            junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(cleanSize) + ")");
+        }
     }
 
     @Override

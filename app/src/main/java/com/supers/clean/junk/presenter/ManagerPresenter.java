@@ -43,9 +43,10 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         list = cleanApplication.getListMng();
         Collections.sort(list, new Sizesort());
         for (JunkInfo info : list) {
-            if (info.isChecked) {
-                cleanSize += info.size;
-            }
+            info.isChecked = false;
+//            if (info.isChecked) {
+//                cleanSize += info.size;
+//            }
         }
         iView.initData(cleanSize);
         iView.onClick();
@@ -61,7 +62,6 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     }
 
     public void addAdapterData() {
-
         addAppAdapterData();
     }
 

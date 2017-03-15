@@ -115,11 +115,9 @@ public class FloatActivity extends BaseActivity {
         listFloat = new ArrayList<>();
         listFloat_white = new ArrayList<>();
         listFloat = cleanApplication.getAppRam();
-        listFloat_white = cleanApplication.getWhiteRam();
         adapter = new HorizontalListViewAdapter(this);
         adapter.clear();
         if (listFloat.size() == 0) {
-            listFloat_white.clear();
             RamTask ramTask = new RamTask(this, new SimpleTask.SimpleTaskListener() {
                 @Override
                 public void startLoad() {
@@ -161,6 +159,7 @@ public class FloatActivity extends BaseActivity {
             ramTask.start();
 
         } else {
+            listFloat_white = cleanApplication.getWhiteRam();
             adapter.addDataList(listFloat);
             adapter.addDataListLocation(0, listFloat_white);
             adapter.notifyDataSetChanged();
@@ -231,6 +230,7 @@ public class FloatActivity extends BaseActivity {
                 killAll(FloatActivity.this);
             }
         }).start();
+        cleanApplication.clearRam();
         setListAnimation();
         float_cricle.setVisibility(View.INVISIBLE);
         float_tishi.setVisibility(View.INVISIBLE);
@@ -292,6 +292,7 @@ public class FloatActivity extends BaseActivity {
                         public void run() {
                             if (adapter.getData().size() > listFloat_white.size()) {
                                 adapter.removeData(listFloat_white.size());
+
                                 adapter.notifyDataSetChanged();
                             }
                         }
