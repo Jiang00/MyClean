@@ -72,14 +72,6 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
     @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, Contents.FULL_RAM, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-            }, 1000);
-        }
     }
 
     @Override

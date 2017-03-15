@@ -97,7 +97,7 @@
                         android:layout_marginBottom="10dp"
                         app:piv_animationType="drop"
                         app:piv_interactiveAnimation="true"
-                        app:piv_radius="2dp"
+                        app:piv_radius="3dp"
                         app:piv_viewPager="@id/viewpager" />
 
                 </RelativeLayout>
@@ -391,12 +391,6 @@
                         android:background="#e8e8e8" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/ll_ad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-
 
                 <!--硬件信息-->
                 <LinearLayout
@@ -440,9 +434,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="19dp"
                         android:layout_marginLeft="14dp"
                         android:layout_marginRight="14dp"
+                        android:layout_marginTop="19dp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -606,6 +600,11 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/ll_ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
                 <!--守护信息-->
                 <FrameLayout
                     android:id="@+id/main_guard_all"

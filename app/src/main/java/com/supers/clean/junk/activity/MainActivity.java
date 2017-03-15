@@ -16,6 +16,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -81,6 +83,8 @@ public class MainActivity extends BaseActivity implements MainView {
     LinearLayout ll_ad, ll_ad_side;
 
     private String TAG_MAIN = "eos_main";
+    private String TAG_HUA = "eos_hua";
+    private String TAG_SIDE = "eos_side";
 
     private float firstY;
     private DisplayMetrics dm;
@@ -151,7 +155,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
 
 
-        View adView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad);
+        View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad);
         arrayList.add(view);
         if (adView != null) {
             arrayList.add(adView);
@@ -197,34 +201,7 @@ public class MainActivity extends BaseActivity implements MainView {
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
         initHandler();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (!isNoSwitch()) {
-                final AlertDialog.Builder normalDialog =
-                        new AlertDialog.Builder(MainActivity.this);
-                normalDialog.setIcon(R.mipmap.icon);
-                normalDialog.setTitle(R.string.premiss_1);
-                normalDialog.setMessage(R.string.premiss_2);
-                normalDialog.setPositiveButton(R.string.premiss_3,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //...To-do
-                                Intent intent = new Intent(
-                                        Settings.ACTION_USAGE_ACCESS_SETTINGS);
-                                startActivity(intent);
-                            }
-                        });
-                normalDialog.setNegativeButton(R.string.premiss_4,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //...To-do
-                            }
-                        });
-                // 显示
-                normalDialog.show();
-            }
-        }
+
     }
 
     private void initHandler() {
@@ -371,11 +348,22 @@ public class MainActivity extends BaseActivity implements MainView {
             View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                layout_ad.height = nativeView.getMeasuredHeight();
+                Log.e("aaa", "=====" + layout_ad.height);
+                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                    layout_ad.height = CommonUtil.dp2px(250);
+                }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
-                ll_ad_side.addView(nativeView);
+                main_scroll_view.fullScroll(ScrollView.FOCUS_UP);
             }
+            View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad);
+            if (ll_ad_side != null && nativeView_side != null) {
+                ViewGroup.LayoutParams layout_ad = ll_ad_side.getLayoutParams();
+                layout_ad.height = nativeView.getMeasuredHeight();
+                ll_ad_side.setLayoutParams(layout_ad);
+                ll_ad_side.addView(nativeView_side);
+            }
+
         }
     }
 
@@ -630,17 +618,5 @@ public class MainActivity extends BaseActivity implements MainView {
         }
     }
 
-    //判断“有权查看使用权限的应用”这个选项的APP有没有打开
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private boolean isNoSwitch() {
-        long ts = System.currentTimeMillis();
-        UsageStatsManager usageStatsManager = (UsageStatsManager) getApplicationContext()
-                .getSystemService("usagestats");
-        List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(
-                UsageStatsManager.INTERVAL_BEST, 0, ts);
-        if (queryUsageStats == null || queryUsageStats.isEmpty()) {
-            return false;
-        }
-        return true;
-    }
+
 }

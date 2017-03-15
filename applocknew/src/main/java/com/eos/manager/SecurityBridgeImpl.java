@@ -54,7 +54,7 @@ public class SecurityBridgeImpl implements ISecurityBridge {
             return pi.applicationInfo.loadIcon(packageManager);
         } catch (Exception e) {
             appName = context.getResources().getString(R.string.app_name);
-            return context.getResources().getDrawable(R.drawable.ic_launcher);
+            return context.getResources().getDrawable(R.drawable.icon);
         }
     }
 

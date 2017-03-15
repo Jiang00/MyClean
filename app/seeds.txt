@@ -25904,7 +25904,7 @@ com.privacy.lock.R$drawable: int button_bg_normal
 com.privacy.lock.R$drawable: int card_bg
 com.privacy.lock.R$drawable: int delete
 com.privacy.lock.R$drawable: int evaluation_rectangle
-com.privacy.lock.R$drawable: int ic_launcher
+com.privacy.lock.R$drawable: int icon
 com.privacy.lock.R$drawable: int menu_bg_new
 com.privacy.lock.R$drawable: int normal_rectangle
 com.privacy.lock.R$drawable: int notification_template_icon_bg
@@ -29384,7 +29384,7 @@ com.supers.clean.junk.R$drawable: int button_bg_normal
 com.supers.clean.junk.R$drawable: int card_bg
 com.supers.clean.junk.R$drawable: int delete
 com.supers.clean.junk.R$drawable: int evaluation_rectangle
-com.supers.clean.junk.R$drawable: int ic_launcher
+com.supers.clean.junk.R$drawable: int icon
 com.supers.clean.junk.R$drawable: int line_select
 com.supers.clean.junk.R$drawable: int line_unselect
 com.supers.clean.junk.R$drawable: int list_divider
@@ -29976,6 +29976,7 @@ com.supers.clean.junk.R$id: int setting_battery_check
 com.supers.clean.junk.R$id: int setting_float
 com.supers.clean.junk.R$id: int setting_float_check
 com.supers.clean.junk.R$id: int setting_rotate
+com.supers.clean.junk.R$id: int setting_scroll
 com.supers.clean.junk.R$id: int setting_tongzhi
 com.supers.clean.junk.R$id: int setting_tongzhi_check
 com.supers.clean.junk.R$id: int setting_tongzhilan
@@ -31420,25 +31421,25 @@ com.supers.clean.junk.activity.JunkActivity
 com.supers.clean.junk.activity.JunkActivity: JunkActivity()
 com.supers.clean.junk.activity.JunkActivity: void onClick()
 com.supers.clean.junk.activity.JunkActivity: void startCleanAnimation(android.view.View)
-com.supers.clean.junk.activity.JunkActivity$9: void onClick(android.view.View)
+com.supers.clean.junk.activity.JunkActivity$8: void onClick(android.view.View)
 com.supers.clean.junk.activity.JunkAndRamActivity
 com.supers.clean.junk.activity.JunkAndRamActivity: JunkAndRamActivity()
 com.supers.clean.junk.activity.JunkAndRamActivity: void onClick()
 com.supers.clean.junk.activity.JunkAndRamActivity: void startCleanAnimation(android.view.View)
-com.supers.clean.junk.activity.JunkAndRamActivity$10: void onClick(android.view.View)
+com.supers.clean.junk.activity.JunkAndRamActivity$9: void onClick(android.view.View)
 com.supers.clean.junk.activity.LoadingActivity
 com.supers.clean.junk.activity.LoadingActivity: LoadingActivity()
 com.supers.clean.junk.activity.LoadingActivity$1: void onClick(android.view.View)
 com.supers.clean.junk.activity.MainActivity
 com.supers.clean.junk.activity.MainActivity: MainActivity()
 com.supers.clean.junk.activity.MainActivity: void onClick()
-com.supers.clean.junk.activity.MainActivity$3: void onClick(android.content.DialogInterface,int)
-com.supers.clean.junk.activity.MainActivity$4: void onClick(android.content.DialogInterface,int)
-com.supers.clean.junk.activity.MainActivity$9: void onClick(android.view.View)
+com.supers.clean.junk.activity.MainActivity$7: void onClick(android.view.View)
 com.supers.clean.junk.activity.ManagerActivity
 com.supers.clean.junk.activity.ManagerActivity: ManagerActivity()
 com.supers.clean.junk.activity.ManagerActivity: void onClick()
-com.supers.clean.junk.activity.ManagerActivity$1: void onClick(android.view.View)
+com.supers.clean.junk.activity.ManagerActivity$1: void onClick(android.content.DialogInterface,int)
+com.supers.clean.junk.activity.ManagerActivity$2: void onClick(android.content.DialogInterface,int)
+com.supers.clean.junk.activity.ManagerActivity$3: void onClick(android.view.View)
 com.supers.clean.junk.activity.ManagerActivity$MyReceiver
 com.supers.clean.junk.activity.MessageActivity
 com.supers.clean.junk.activity.MessageActivity: MessageActivity()
@@ -31450,7 +31451,7 @@ com.supers.clean.junk.activity.NotifactionService: NotifactionService()
 com.supers.clean.junk.activity.RamAvtivity
 com.supers.clean.junk.activity.RamAvtivity: RamAvtivity()
 com.supers.clean.junk.activity.RamAvtivity: void onClick()
-com.supers.clean.junk.activity.RamAvtivity$3: void onClick(android.view.View)
+com.supers.clean.junk.activity.RamAvtivity$2: void onClick(android.view.View)
 com.supers.clean.junk.activity.SettingActivity
 com.supers.clean.junk.activity.SettingActivity: SettingActivity()
 com.supers.clean.junk.activity.SettingActivity$2: void onClick(android.view.View)
@@ -31499,18 +31500,17 @@ com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_MESSAGE
 com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_SETTING
 com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_UNLOAD
 com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_FLOAT
+com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_COOL
 com.supers.clean.junk.modle.entity.Contents: Contents()
 com.supers.clean.junk.modle.entity.JsonData
 com.supers.clean.junk.modle.entity.JsonData: int full_main
-com.supers.clean.junk.modle.entity.JsonData: int full_junk
-com.supers.clean.junk.modle.entity.JsonData: int full_ram
-com.supers.clean.junk.modle.entity.JsonData: int full_junk_ram
 com.supers.clean.junk.modle.entity.JsonData: int full_manager
 com.supers.clean.junk.modle.entity.JsonData: int full_message
 com.supers.clean.junk.modle.entity.JsonData: int full_success
 com.supers.clean.junk.modle.entity.JsonData: int full_setting
 com.supers.clean.junk.modle.entity.JsonData: int full_unload
 com.supers.clean.junk.modle.entity.JsonData: int full_float
+com.supers.clean.junk.modle.entity.JsonData: int full_cool
 com.supers.clean.junk.modle.entity.JsonData: int charging
 com.supers.clean.junk.modle.entity.JsonData: java.util.List packageName
 com.supers.clean.junk.modle.entity.JsonData: JsonData()
@@ -31533,7 +31533,7 @@ com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(int,int)
 com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,boolean,android.graphics.drawable.Drawable,long)
 com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,long,boolean,android.graphics.drawable.Drawable,long)
 com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawable,java.lang.String,java.lang.String,java.lang.String,boolean,long)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,long,java.lang.String)
+com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,boolean,android.graphics.drawable.Drawable,java.lang.String,long,java.lang.String)
 com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawable,java.lang.String,java.lang.String,boolean)
 com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long)
 com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String)

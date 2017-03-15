@@ -736,7 +736,7 @@ public class AppLockEosService extends Service {
                 builder.setContentTitle(getResources().getString(R.string.security_applock_stop));
                 builder.setContentText(getResources().getString(R.string.security_lock_to_open));
                 builder.setTicker(getResources().getString(R.string.security_applock_stop));
-                builder.setSmallIcon(R.drawable.ic_launcher);
+                builder.setSmallIcon(R.drawable.icon);
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -750,7 +750,7 @@ public class AppLockEosService extends Service {
                 builder.setContentTitle(getResources().getString(R.string.security_applock_open));
                 builder.setContentText(getResources().getString(R.string.security_lock_to_stop));
                 builder.setTicker(getResources().getString(R.string.security_applock_open));
-                builder.setSmallIcon(R.drawable.ic_launcher);
+                builder.setSmallIcon(R.drawable.icon);
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -766,7 +766,7 @@ public class AppLockEosService extends Service {
 
             builder.setContentIntent(pi);
             builder.setOngoing(true);
-            builder.setLargeIcon(((BitmapDrawable) getResources().getDrawable(R.drawable.ic_launcher)).getBitmap());
+            builder.setLargeIcon(((BitmapDrawable) getResources().getDrawable(R.drawable.icon)).getBitmap());
 
             Notification n = builder.build();
             startForeground(1, n);
@@ -1074,7 +1074,7 @@ public class AppLockEosService extends Service {
             String label = pi.applicationInfo.loadLabel(getPackageManager()).toString();
             String format = getResources().getString(R.string.security_for_lock_new);
             label = String.format(format, label);
-            AlertDialog dialog = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog_Alert).setTitle(R.string.app_name).setIcon(R.drawable.ic_launcher).setMessage(label)
+            AlertDialog dialog = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog_Alert).setTitle(R.string.app_name).setIcon(R.drawable.icon).setMessage(label)
                     .setNegativeButton(android.R.string.no, null)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 @Override

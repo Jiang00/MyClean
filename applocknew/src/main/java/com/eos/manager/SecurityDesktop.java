@@ -172,7 +172,7 @@ public class SecurityDesktop {
         String activeProfile = SafeDB.defaultDB().getString(SecurityMyPref.PREF_ACTIVE_PROFILE, SecurityMyPref.PREF_DEFAULT_LOCK);
 
         for (String profile : SecuritProfiles.getProfiles()) {
-            WidgetSwitch.Data d = new WidgetSwitch.Data(profile, R.drawable.ic_launcher, profile.equals(activeProfile), true);
+            WidgetSwitch.Data d = new WidgetSwitch.Data(profile, R.drawable.icon, profile.equals(activeProfile), true);
             data.add(d);
         }
 

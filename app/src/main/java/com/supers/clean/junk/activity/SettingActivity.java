@@ -3,12 +3,14 @@ package com.supers.clean.junk.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -30,6 +32,7 @@ public class SettingActivity extends BaseActivity {
     RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_white, setting_rotate;
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check;
     LinearLayout ll_ad;
+    ScrollView setting_scroll;
     private View nativeView;
 
     private String TAG_SETTING = "eos_setting";
@@ -51,6 +54,7 @@ public class SettingActivity extends BaseActivity {
         setting_float_check = (ImageView) findViewById(R.id.setting_float_check);
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
     }
 
     @Override
@@ -77,9 +81,13 @@ public class SettingActivity extends BaseActivity {
         nativeView = CommonUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_full);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            layout_ad.height = nativeView.getMeasuredHeight();
+            Log.e("aaa", "=====" + layout_ad.height);
+            if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                layout_ad.height = CommonUtil.dp2px(250);
+            }
             ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
+            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
         }
     }
 

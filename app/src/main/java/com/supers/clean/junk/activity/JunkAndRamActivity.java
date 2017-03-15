@@ -116,14 +116,6 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, Contents.FULL_JUNK_RAM, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-            },1000);
-        }
     }
 
     @Override

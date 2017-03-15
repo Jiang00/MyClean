@@ -36,7 +36,7 @@ public class MessageBox {
         public int msg = 0;
         public int title = 0;
         public boolean cancelable;
-        public int icon = R.drawable.ic_launcher;
+        public int icon = R.drawable.icon;
         public int style = R.style.Theme_AppCompat_Light_Dialog_Alert;
     }
 

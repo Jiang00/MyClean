@@ -166,6 +166,6 @@ public class AppLockResetPattern extends SecurityAbsActivity {
 
     @Override
     protected int getBackImage() {
-        return R.drawable.ic_launcher;
+        return R.drawable.icon;
     }
 }

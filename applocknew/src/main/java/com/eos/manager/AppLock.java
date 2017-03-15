@@ -25,7 +25,6 @@ import com.eos.manager.lib.io.SafeDB;
 import com.eos.manager.meta.SecuritProfiles;
 
 
-
 /**
  * Created by SongHualin on 6/12/2015.
  */
@@ -46,7 +45,6 @@ public class AppLock extends ClientActivitySecurity {
     public static ForOnbackPress onbakc;
 
     Toolbar toolbar;
-
 
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -107,7 +105,7 @@ public class AppLock extends ClientActivitySecurity {
 
     public void setupView() {
         setContentView(R.layout.security_slidemenu_data);
-      toolbar= (Toolbar) this.findViewById(R.id.toolbar);
+        toolbar = (Toolbar) this.findViewById(R.id.toolbar);
         setupToolbar();
         SecurityMenu.currentMenuIt = SecurityMenu.MENU_LOCK_APP;
         setup(R.string.security_lock_app);
@@ -201,13 +199,11 @@ public class AppLock extends ClientActivitySecurity {
         boolean value = onbakc.forOnback();
         if (!value) {
             super.onBackPressed();
-
             if (SecurityMyPref.getMainFirstFull()) {
-                AndroidSdk.showFullAd(SecurityThemeFragment.TAG_MAIN_PAGE_FULL);
+//                AndroidSdk.showFullAd(SecurityThemeFragment.TAG_MAIN_PAGE_FULL);
                 SecurityMyPref.setMainFirstFull(false);
             } else {
-
-                AndroidSdk.showFullAd(SecurityThemeFragment.TAG_MAIN_PAGE_FULL);
+//                AndroidSdk.showFullAd(SecurityThemeFragment.TAG_MAIN_PAGE_FULL);
             }
         } else {
             onbakc.forOnback();

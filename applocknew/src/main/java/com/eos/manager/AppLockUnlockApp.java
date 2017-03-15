@@ -26,7 +26,7 @@ public class AppLockUnlockApp extends AppLockPatternEosActivity {
 
         if(min-(SecurityMyPref.getMainFirstFullCountDown())>5){
 
-            AndroidSdk.showFullAd(SecurityThemeFragment.TAG_UNLOCK_FULL);
+//            AndroidSdk.showFullAd(SecurityThemeFragment.TAG_UNLOCK_FULL);
 
         }
 

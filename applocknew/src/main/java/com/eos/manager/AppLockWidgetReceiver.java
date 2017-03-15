@@ -28,7 +28,7 @@ public class AppLockWidgetReceiver extends AppWidgetProvider {
             RemoteViews remoteView = new RemoteViews(context.getPackageName(), R.layout.security_mywidget_switch);
 
             // 设置显示图片
-            remoteView.setImageViewResource(R.id.icon, R.drawable.ic_launcher);
+            remoteView.setImageViewResource(R.id.icon, R.drawable.icon);
 
             // 更新 widget
             appWidgetManager.updateAppWidget(appID, remoteView);

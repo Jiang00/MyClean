@@ -1,10 +1,17 @@
 package com.supers.clean.junk.activity;
 
+import android.app.AlertDialog;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,6 +86,35 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         System.out.println(Intent.ACTION_PACKAGE_REMOVED);
         filter.addDataScheme("package");
         registerReceiver(receiver, filter);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (!isNoSwitch()) {
+                final AlertDialog.Builder normalDialog =
+                        new AlertDialog.Builder(ManagerActivity.this);
+                normalDialog.setIcon(R.mipmap.icon);
+                normalDialog.setTitle(R.string.premiss_1);
+                normalDialog.setMessage(R.string.premiss_2);
+                normalDialog.setPositiveButton(R.string.premiss_3,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //...To-do
+                                Intent intent = new Intent(
+                                        Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                                startActivity(intent);
+                            }
+                        });
+                normalDialog.setNegativeButton(R.string.premiss_4,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //...To-do
+                            }
+                        });
+                // 显示
+                normalDialog.show();
+            }
+        }
     }
 
     @Override
@@ -89,7 +125,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             nativeView = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_full);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                layout_ad.height = nativeView.getMeasuredHeight();
+                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                    layout_ad.height = CommonUtil.dp2px(250);
+                }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
             }
@@ -192,6 +230,20 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
         }
 
+    }
+
+    //判断“有权查看使用权限的应用”这个选项的APP有没有打开
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private boolean isNoSwitch() {
+        long ts = System.currentTimeMillis();
+        UsageStatsManager usageStatsManager = (UsageStatsManager) getApplicationContext()
+                .getSystemService("usagestats");
+        List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(
+                UsageStatsManager.INTERVAL_BEST, 0, ts);
+        if (queryUsageStats == null || queryUsageStats.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
     @Override

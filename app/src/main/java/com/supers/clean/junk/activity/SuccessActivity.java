@@ -115,9 +115,11 @@ public class SuccessActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    success_jiantou.clearAnimation();
+                    success_jiantou.setVisibility(View.INVISIBLE);
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
-            }, 1000);
+            }, 3000);
 
         } else {
             addAd();
@@ -157,7 +159,9 @@ public class SuccessActivity extends BaseActivity {
                 ad_native_2.setLayoutParams(layout_ad);
             } else {
                 ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
-                layout_ad.height = nativeView.getMeasuredHeight();
+                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                    layout_ad.height = CommonUtil.dp2px(250);
+                }
                 ad_native_2.setLayoutParams(layout_ad);
             }
             haveAd = true;
@@ -331,6 +335,7 @@ public class SuccessActivity extends BaseActivity {
                         }
                     }
                 }, 1000);
+
             }
 
             @Override

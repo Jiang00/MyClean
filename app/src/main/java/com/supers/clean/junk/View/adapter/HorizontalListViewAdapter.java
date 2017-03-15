@@ -95,7 +95,7 @@ public class HorizontalListViewAdapter extends BaseAdapter {
         holder.mTitle.setText(info.name);
         iconBitmap = getPropThumnail(info.icon);
         holder.mImage.setImageBitmap(iconBitmap);
-        if (info.isChecked) {
+        if (!info.isWhiteList) {
             holder.delete_app.setImageResource(R.mipmap.qing);
             holder.delete_app.setOnClickListener(new View.OnClickListener() {
                 @Override

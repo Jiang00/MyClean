@@ -53,15 +53,13 @@ public class BaseActivity extends AppCompatActivity {
             try {
                 MyApplication.data = JsonParser.getInstance().fromJson(AndroidSdk.getExtraData(), JsonData.class);
                 PreData.putDB(this, Contents.FULL_MAIN, MyApplication.data.full_main);
-                PreData.putDB(this, Contents.FULL_JUNK, MyApplication.data.full_junk);
-                PreData.putDB(this, Contents.FULL_RAM, MyApplication.data.full_ram);
-                PreData.putDB(this, Contents.FULL_JUNK_RAM, MyApplication.data.full_junk_ram);
                 PreData.putDB(this, Contents.FULL_MANAGER, MyApplication.data.full_manager);
                 PreData.putDB(this, Contents.FULL_MESSAGE, MyApplication.data.full_message);
                 PreData.putDB(this, Contents.FULL_SUCCESS, MyApplication.data.full_success);
                 PreData.putDB(this, Contents.FULL_SETTING, MyApplication.data.full_setting);
                 PreData.putDB(this, Contents.FULL_UNLOAD, MyApplication.data.full_unload);
                 PreData.putDB(this, Contents.FULL_FLOAT, MyApplication.data.full_float);
+                PreData.putDB(this, Contents.FULL_COOL, MyApplication.data.full_cool);
 
             } catch (Exception e) {
 

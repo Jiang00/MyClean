@@ -101,7 +101,9 @@ public class UnloadActivity extends BaseActivity {
             nativeView = CommonUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_full);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                layout_ad.height = nativeView.getMeasuredHeight();
+                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                    layout_ad.height = CommonUtil.dp2px(250);
+                }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
             }

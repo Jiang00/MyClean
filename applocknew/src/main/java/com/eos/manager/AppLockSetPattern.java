@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.*;
 
 
-
 import com.privacy.lock.R;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.manager.page.LockPatternUtils;
@@ -30,7 +29,7 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
     public static final byte SET_NORMAL_PASSWD = 1;
     public static final byte SET_GRAPH_PASSWD = 2;
     public static final byte SET_EMAIL = 3;
-    boolean firsetShowf=false;
+    boolean firsetShowf = false;
 
     @Override
     protected boolean hasHelp() {
@@ -97,7 +96,6 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
     }
 
 
-
     NumberDot passdot;
     int size = 0;
 
@@ -129,7 +127,7 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
             PackageInfo pi = getPackageManager().getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
             return pi.applicationInfo.loadIcon(getPackageManager());
         } catch (Exception e) {
-            return super.getResources().getDrawable(R.drawable.ic_launcher);
+            return super.getResources().getDrawable(R.drawable.icon);
         }
     }
 
@@ -180,12 +178,12 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
 
         }
         setContentView(R.layout.security_pattern_view_set);
-       cancel= (Button) this.findViewById(R.id.number_cancel);
-      tip= (TextView) this.findViewById(R.id.tip);
+        cancel = (Button) this.findViewById(R.id.number_cancel);
+        tip = (TextView) this.findViewById(R.id.tip);
         View back = findViewById(R.id.back);
         if (firstSetup) {
             back.setVisibility(View.GONE);
-            firsetShowf=true;
+            firsetShowf = true;
         }
         securityPatternView = (SecurityPatternView) findViewById(R.id.lpv_lock);
         back.setOnClickListener(new View.OnClickListener() {
@@ -232,8 +230,6 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
                             SecurityMyPref.setClickOK(true);
 
 
-
-
                             if (firstSetup) {
 //                                finish();
                                 setEmail();
@@ -242,7 +238,7 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
 //                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                                startActivity(intent);
                                 firstSetup = false;
-                                int min= (int) (System.currentTimeMillis()/1000/60);
+                                int min = (int) (System.currentTimeMillis() / 1000 / 60);
                                 SecurityMyPref.setMainFirstFullCountDown(min);
                             } else {
                                 startListApp();
@@ -290,7 +286,7 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
         View back = findViewById(R.id.back);
         if (firstSetup) {
             back.setVisibility(View.GONE);
-            firsetShowf=true;
+            firsetShowf = true;
         }
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -316,7 +312,7 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
 //                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                    startActivity(intent);
                     firstSetup = false;
-                    int min= (int) (System.currentTimeMillis()/1000/60);
+                    int min = (int) (System.currentTimeMillis() / 1000 / 60);
                     SecurityMyPref.setMainFirstFullCountDown(min);
 
                 } else {
@@ -384,7 +380,7 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
                 if (passdot.empty() && !togglePattern) {
                     togglePattern = true;
                     okBtn.setText(R.string.security_use_pattern);
-                    okBtn.setBackgroundDrawable(null);
+//                    okBtn.setBackgroundDrawable(null);
                     okBtn.setTextColor(getResources().getColor(R.color.leadr_color));
                 }
             }
@@ -408,8 +404,8 @@ public class AppLockSetPattern extends ClientActivitySecurity implements View.On
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(firsetShowf==true){
-            if(event.getAction()==KeyEvent.ACTION_DOWN){
+        if (firsetShowf == true) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
                 finish();
 
             }

@@ -54,5 +54,7 @@ public class Contents {
 
     public static final String FULL_FLOAT = "FULL_FLOAT";
 
+    public static final String FULL_COOL = "FULL_COOL";
+
 
 }

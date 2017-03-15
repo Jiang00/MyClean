@@ -62,12 +62,12 @@ public class RamTask extends SimpleTask {
                 MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
                 int totalPrivateDirty = processMemoryInfo[0].getTotalPrivateDirty();
                 if (isWhite) {
-                    JunkInfo speedUpInfo = new JunkInfo(false, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName);
+                    JunkInfo speedUpInfo = new JunkInfo(false, true, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName);
                     if (mSimpleTaskListener != null) {
                         mSimpleTaskListener.loadingW(speedUpInfo);
                     }
                 } else {
-                    JunkInfo speedUpInfo = new JunkInfo(true, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName);
+                    JunkInfo speedUpInfo = new JunkInfo(true, false, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName);
                     dataSize += speedUpInfo.size;
                     dataList.add(speedUpInfo);
                     if (mSimpleTaskListener != null) {
