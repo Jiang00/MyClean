@@ -131,7 +131,6 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
     @Override
     public void cleanAnimation(List<JunkInfo> cleanList, final long cleanSize) {
-        Log.e("aaa", "===ram清理");
         adapterRam.upList(cleanList);
         adapterRam.notifyDataSetChanged();
         new Thread(new Runnable() {
@@ -179,6 +178,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
                     break;
 
                 case R.id.junk_button_clean:
+                    AndroidSdk.track("ram页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     Log.e("aaa", "===ram点击");
                     showToast((String) getText(R.string.toast_ing));

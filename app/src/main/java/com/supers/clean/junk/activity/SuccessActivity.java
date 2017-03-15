@@ -365,7 +365,7 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.main_rotate_good:
                     shareFive.setFiveRate(true);
                     PreData.putDB(SuccessActivity.this, Contents.IS_ROTATE, true);
-                    UtilGp.openPlayStore(SuccessActivity.this, SuccessActivity.this.getPackageName());
+                    UtilGp.rate(SuccessActivity.this);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.delete:

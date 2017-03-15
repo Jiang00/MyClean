@@ -201,7 +201,7 @@ public class MainActivity extends BaseActivity implements MainView {
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
         initHandler();
 
-
+        AndroidSdk.track("主页面", "进入主页面", "", 1);
     }
 
     private void initHandler() {
@@ -498,7 +498,7 @@ public class MainActivity extends BaseActivity implements MainView {
         //上拉加载操作
         @Override
         public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
-
+            AndroidSdk.track("主页面", "刷新成功", "", 1);
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -526,47 +526,61 @@ public class MainActivity extends BaseActivity implements MainView {
             switch (v.getId()) {
                 case R.id.iv_title_left:
                     mainPresenter.openDrawer();
+                    AndroidSdk.track("主页面", "点击进入侧边栏按钮", "", 1);
                     break;
                 case R.id.iv_title_right:
+                    AndroidSdk.track("主页面", "点击进入设置页面", "", 1);
                     mainPresenter.jumpToActivity(SettingActivity.class, 1);
                     break;
                 case R.id.main_cpu_air_button:
+                    AndroidSdk.track("主页面", "点击cpu球进入硬件信息页面", "", 1);
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
                     break;
                 case R.id.main_sd_air_button:
+                    AndroidSdk.track("主页面", "点击sd球进入垃圾清理页面", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
                     break;
                 case R.id.main_ram_air_button:
+                    AndroidSdk.track("主页面", "点击ram球进入内存加速页面", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
                 case R.id.main_air_all:
+                    AndroidSdk.track("主页面", "点击火箭进入清理所有界面", "", 1);
                     mainPresenter.jumpToActivity(JunkAndRamActivity.class, 1);
                     break;
                 case R.id.main_junk_button:
+                    AndroidSdk.track("主页面", "点击垃圾清理按钮", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
                     break;
                 case R.id.main_ram_button:
+                    AndroidSdk.track("主页面", "点击ram清理按钮", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
                 case R.id.main_manager_button:
+                    AndroidSdk.track("主页面", "点击应用管理按钮", "", 1);
                     mainPresenter.jumpToActivity(ManagerActivity.class, 1);
                     break;
                 case R.id.main_cooling_button:
+                    AndroidSdk.track("主页面", "点击降温按钮", "", 1);
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
+                    AndroidSdk.track("主页面", "点击applock按钮", "", 1);
                     Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
                     intent.putExtra("is_main", true);
                     startActivity(intent);
 //                    mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_theme_button:
+                    AndroidSdk.track("主页面", "点击主题按钮", "", 1);
                     mainPresenter.jumpToActivity(ThemeActivity.class, 1);
                     break;
                 case R.id.main_rotate_bad:
+                    AndroidSdk.track("主页面", "点击好评bad按钮", "", 1);
                     mainPresenter.clickRotate(false);
                     break;
                 case R.id.main_rotate_good:
+                    AndroidSdk.track("主页面", "点击好评good按钮", "", 1);
                     mainPresenter.clickRotate(true);
                     break;
                 case R.id.main_msg_button:

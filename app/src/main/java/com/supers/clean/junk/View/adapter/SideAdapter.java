@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.supers.clean.junk.R;
@@ -107,44 +108,54 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
         switch (position) {
             case 0:
                 if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, true)) {
+                    AndroidSdk.track("侧边栏", "点击关闭充电屏保", "", 1);
                     Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, false);
                 } else {
+                    AndroidSdk.track("侧边栏", "点击开启充电屏保", "", 1);
                     Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, true);
                 }
                 break;
             case 1:
                 if (PreData.getDB(context, Contents.FlOAT_SWITCH, true)) {
+                    AndroidSdk.track("侧边栏", "点击关闭悬浮窗", "", 1);
                     PreData.putDB(context, Contents.FlOAT_SWITCH, false);
                     Intent intent1 = new Intent(context, FloatService.class);
                     context.stopService(intent1);
                 } else {
+                    AndroidSdk.track("侧边栏", "点击开启悬浮窗", "", 1);
                     PreData.putDB(context, Contents.FlOAT_SWITCH, true);
                     Intent intent1 = new Intent(context, FloatService.class);
                     context.startService(intent1);
                 }
                 break;
             case 2:
+                AndroidSdk.track("侧边栏", "点击进入垃圾页面", "", 1);
                 Intent intent2 = new Intent(context, JunkActivity.class);
                 ((Activity) context).startActivityForResult(intent2, 1);
                 break;
             case 3:
+                AndroidSdk.track("侧边栏", "点击进入ram页面", "", 1);
                 Intent intent3 = new Intent(context, RamAvtivity.class);
                 ((Activity) context).startActivityForResult(intent3, 1);
                 break;
             case 4:
+                AndroidSdk.track("侧边栏", "点击进入应用管理页面", "", 1);
                 Intent intent4 = new Intent(context, ManagerActivity.class);
                 ((Activity) context).startActivityForResult(intent4, 1);
                 break;
             case 5:
+                AndroidSdk.track("侧边栏", "点击进入主题页面", "", 1);
                 Intent intent5 = new Intent(context, ThemeActivity.class);
                 ((Activity) context).startActivityForResult(intent5, 1);
                 break;
             case 6:
+                AndroidSdk.track("侧边栏", "点击进入设置页面", "", 1);
                 Intent intent6 = new Intent(context, SettingActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
                 break;
             case 7:
-                UtilGp.openPlayStore(context, context.getPackageName());
+                AndroidSdk.track("侧边栏", "点击好评", "", 1);
+                UtilGp.rate(context);
                 break;
         }
     }

@@ -39,7 +39,7 @@ public class BasePresenter<T> implements IPresenter {
     }
 
     public void goToGooglePlay() {
-        UtilGp.openPlayStore(context, context.getPackageName());
+        UtilGp.rate(context);
     }
 
     public void setUnit(long size, TextView textView) {

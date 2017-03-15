@@ -352,6 +352,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.title_left:
+                    AndroidSdk.track("所有垃圾页面", "点击返回", "", 1);
                     onBackPressed();
                     break;
                 case R.id.junk_button_system:
@@ -359,8 +360,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
+                        AndroidSdk.track("所有垃圾页面", "点击收起系统缓存", "", 1);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
+                        AndroidSdk.track("所有垃圾页面", "点击打开系统缓存", "", 1);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -369,8 +372,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
+                        AndroidSdk.track("所有垃圾页面", "点击收起apk文件", "", 1);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
+                        AndroidSdk.track("所有垃圾页面", "点击打开apk文件", "", 1);
                         junk_apk_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -379,8 +384,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
+                        AndroidSdk.track("所有垃圾页面", "点击收起unload文件", "", 1);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
+                        AndroidSdk.track("所有垃圾页面", "点击打开apk文件", "", 1);
                         junk_unload_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -389,8 +396,12 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
+                        AndroidSdk.track("所有垃圾页面", "点击收起log文件", "", 1);
+
                         junk_log_list.setVisibility(View.GONE);
                     } else {
+                        AndroidSdk.track("所有垃圾页面", "点击打开log文件", "", 1);
+
                         junk_log_list.setVisibility(View.VISIBLE);
                     }
 
@@ -400,8 +411,12 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
+                        AndroidSdk.track("所有垃圾页面", "点击收起user文件", "", 1);
+
                         junk_user_list.setVisibility(View.GONE);
                     } else {
+                        AndroidSdk.track("所有垃圾页面", "点击打开user文件", "", 1);
+
                         junk_user_list.setVisibility(View.VISIBLE);
                     }
 
@@ -410,6 +425,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     if (adapterRam.getCount() == 0) {
                         break;
                     }
+
                     if (junk_ram_list.getVisibility() == View.VISIBLE) {
                         junk_ram_list.setVisibility(View.GONE);
                     } else {
@@ -417,6 +433,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     }
                     break;
                 case R.id.junk_button_clean:
+                    AndroidSdk.track("所有垃圾页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&

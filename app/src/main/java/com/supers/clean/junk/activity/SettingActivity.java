@@ -188,7 +188,7 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_rotate:
                     AndroidSdk.track("设置页面", "好评", "", 1);
-                    UtilGp.openPlayStore(SettingActivity.this, SettingActivity.this.getPackageName());
+                    UtilGp.rate(SettingActivity.this);
                     break;
             }
         }
