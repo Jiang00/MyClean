@@ -22,8 +22,8 @@
                 android:layout_marginLeft="@dimen/icon_p"
                 android:src="@mipmap/battery_inner_icon"
                 android:id="@+id/battery_second_icon"
-                android:layout_width="@dimen/icon_w"
-                android:layout_height="@dimen/icon_h"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:scaleType="fitCenter"/>
 
             <com.eos.module.charge.saver.view.CustomerTypefaceTextView
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="EOSBATTERY"
-                android:textSize="@dimen/txt_common"
+                android:textSize="13sp"
                 android:paddingLeft="@dimen/title_p"
                 android:textColor="@color/white_100"/>
             <LinearLayout
@@ -49,8 +49,8 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:src="@mipmap/battery_more"
-                    android:layout_width="@dimen/icon_w"
-                    android:layout_height="@dimen/icon_w" />
+                    android:layout_width="15dp"
+                    android:layout_height="15dp" />
             </LinearLayout>
         </RelativeLayout>
 
