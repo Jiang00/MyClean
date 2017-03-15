@@ -75,7 +75,7 @@ class ImageAssetBitmapManager {
         return null;
       }
       BitmapFactory.Options opts = new BitmapFactory.Options();
-      opts.inScaled = true;
+      opts.inScaled = false;
       opts.inDensity = 160;
       bitmap = BitmapFactory.decodeStream(is, null, opts);
       bitmaps.put(id, bitmap);

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -160,17 +161,24 @@ public class BatteryView extends FrameLayout {
         }
 
         if (entry.isCharging()) {
-            if (lighting.getVisibility() == View.GONE) {
-                lighting.setVisibility(VISIBLE);
-                slide.setVisibility(GONE);
-                lighting.resumeAnimation();
+            if (entry.getLevel() == 100) {
+                if (lighting.isAnimating()) {
+                    lighting.cancelAnimation();
+                }
             } else {
-                if (!lighting.isAnimating()) {
-                    lighting.setAnimation("lighting.json");
-                    lighting.loop(true);
-                    lighting.playAnimation();
+                if (lighting.getVisibility() == View.GONE) {
+                    lighting.setVisibility(VISIBLE);
+                    slide.setVisibility(GONE);
+                    lighting.resumeAnimation();
+                } else {
+                    if (!lighting.isAnimating()) {
+                        lighting.setAnimation("lighting.json");
+                        lighting.loop(true);
+                        lighting.playAnimation();
+                    }
                 }
             }
+
         } else {
             if (lighting.isAnimating()) {
                 lighting.pauseAnimation();
