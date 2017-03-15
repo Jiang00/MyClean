@@ -235,6 +235,13 @@ public class MainScrollView extends ScrollView implements Pullable {
         super.onFinishInflate();
 
     }
+    /**
+     * 滑动事件，这是控制手指滑动的惯性速度
+     */
+    @Override
+    public void fling(int velocityY) {
+        super.fling(1 / 4);
+    }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {

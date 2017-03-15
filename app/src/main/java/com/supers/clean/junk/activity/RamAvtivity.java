@@ -91,7 +91,6 @@ public class RamAvtivity extends BaseActivity implements RamView {
         junk_list_all.setAdapter(adapterRam);
 
         ramPresenter.addAdapterData();
-        junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.getFileSize4(allSize) + ")");
     }
 
     @Override
@@ -125,7 +124,9 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
     @Override
     public void setCleanDAta(long size) {
-        junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.getFileSize4(size) + ")");
+        if (size != 0) {
+            junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.getFileSize4(size) + ")");
+        }
     }
 
     @Override

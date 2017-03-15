@@ -144,7 +144,6 @@ public class JunkActivity extends BaseActivity implements JunkView {
 
         junkPresenter.setUnit(allSize, junk_unit);
         junkPresenter.addAdapterData();
-        junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(allSize) + ")");
     }
 
     @Override
@@ -226,7 +225,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
 
     @Override
     public void setCleanDAta(long size) {
-        junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(size) + ")");
+        if (size != 0) {
+            junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(size) + ")");
+        }
     }
 
     @Override

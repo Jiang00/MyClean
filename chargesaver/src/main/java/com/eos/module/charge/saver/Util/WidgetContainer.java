@@ -44,7 +44,6 @@ public class WidgetContainer extends FrameLayout implements View.OnClickListener
                 PixelFormat.TRANSPARENT);
         lp.gravity = builder.gravity;
         lp.screenOrientation = builder.orientation;
-
         wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         screenHeight = wm.getDefaultDisplay().getHeight();
 
@@ -74,11 +73,13 @@ public class WidgetContainer extends FrameLayout implements View.OnClickListener
         int type = Build.VERSION.SDK_INT >= 19 ? (Build.VERSION.SDK_INT < 24 ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR) : WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
 
         int flag = Build.VERSION.SDK_INT >= 19 ?
-                (WindowManager.LayoutParams.FLAG_FULLSCREEN
-                        | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-                        | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
-                        | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                        | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD) : 0;
+                (WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR)
+//                (WindowManager.LayoutParams.FLAG_FULLSCREEN
+//                        | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+//                        | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
+//                        | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+//                        | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD)
+                : 0;
 
         public Builder setMovable(boolean movable) {
             this.movable = movable;

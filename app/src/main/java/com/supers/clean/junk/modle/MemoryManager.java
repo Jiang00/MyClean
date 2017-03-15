@@ -243,9 +243,13 @@ public class MemoryManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        long installTime = System.currentTimeMillis() - firstInstallTime;
 
-        return CommonUtil.millTransFate(installTime);
+        long installTime = System.currentTimeMillis() - firstInstallTime;
+        if (firstInstallTime == 0) {
+            return -1;
+        } else {
+            return CommonUtil.millTransFate(installTime);
+        }
     }
 
 }

@@ -90,8 +90,8 @@ public class ShortCutActivity extends BaseActivity {
             short_huojian.setScaleX(1);
             short_huojian.setScaleY(1);
             short_size.setText(CommonUtil.getFileSize4(size));
-            ObjectAnimator a = ObjectAnimator.ofFloat(short_huojian, View.TRANSLATION_Y, 0, -1200);
-            a.setDuration(300);
+            ObjectAnimator a = ObjectAnimator.ofFloat(short_huojian, View.TRANSLATION_Y, 0, -2000);
+            a.setDuration(400);
             a.start();
             short_text.startAnimation(fang);
             short_text.setVisibility(View.VISIBLE);

@@ -30,9 +30,34 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
     public void init() {
         super.init();
         iView.loadFullAd();
-        cleanSize = allSize = cleanApplication.getApkSize() + cleanApplication.getCacheSize() + cleanApplication.getRamSize() + cleanApplication.getUnloadSize() + cleanApplication.getLogSize() + cleanApplication.getDataSize();
-        cleanApplication.getSystemCache();
+        allSize = cleanApplication.getApkSize() + cleanApplication.getCacheSize() + cleanApplication.getRamSize() + cleanApplication.getUnloadSize() + cleanApplication.getLogSize() + cleanApplication.getDataSize();
+        for (JunkInfo info : cleanApplication.getSystemCache()) {
+            if (info.isChecked) {
+                cleanSize += info.size;
+            }
+        }
+        for (JunkInfo info : cleanApplication.getApkFiles()) {
+            if (info.isChecked) {
+                cleanSize += info.size;
+            }
+        }
+        for (JunkInfo info : cleanApplication.getAppCache()) {
+            if (info.isChecked) {
+                cleanSize += info.size;
+            }
+        }
+        for (JunkInfo info : cleanApplication.getAppJunk()) {
+            if (info.isChecked) {
+                cleanSize += info.size;
+            }
+        }
+        for (JunkInfo info : cleanApplication.getFilesOfUnintalledApk()) {
+            if (info.isChecked) {
+                cleanSize += info.size;
+            }
+        }
         iView.initData(allSize);
+        iView.setCleanDAta(cleanSize);
         iView.setColor(allSize);
         iView.onClick();
     }

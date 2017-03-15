@@ -295,8 +295,9 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     public void initGuard(int num, RotateAnimation rotateAnimation) {
-
-        main_gurad_num.setText(String.valueOf(num));
+        if (num != -1) {
+            main_gurad_num.setText(String.valueOf(num));
+        }
         main_guard_rotate.startAnimation(rotateAnimation);
     }
 

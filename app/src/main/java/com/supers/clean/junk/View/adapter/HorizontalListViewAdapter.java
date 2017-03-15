@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.activity.MyApplication;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 
 import java.util.ArrayList;
@@ -101,7 +102,7 @@ public class HorizontalListViewAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     list.remove(position);
-                    am.killBackgroundProcesses(info.packageName);
+                    ((MyApplication) mContext.getApplicationContext()).removeRam(info);
                     notifyDataSetChanged();
                     Log.e("aaa", "delete_app======");
                 }
