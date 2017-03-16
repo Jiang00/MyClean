@@ -402,9 +402,13 @@ public class CommonUtil {
         }
 
         if (nativeView != null) {
-            ViewParent viewParent = nativeView.getParent();
-            if (viewParent != null && viewParent instanceof ViewGroup) {
-                ((ViewGroup) viewParent).removeAllViews();
+//            ViewParent viewParent = nativeView.getParent();
+//            if (viewParent != null && viewParent instanceof ViewGroup) {
+//                ((ViewGroup) viewParent).removeAllViews();
+//            }
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
             }
         }
         return nativeView;

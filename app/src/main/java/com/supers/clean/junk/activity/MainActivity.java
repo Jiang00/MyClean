@@ -245,24 +245,38 @@ public class MainActivity extends BaseActivity implements MainView {
     public void initCpu(final int temp) {
         this.temp = temp;
         main_custom_cpu.startProgress(false, temp);
-        runOnUiThread(new Runnable() {
+        main_custom_cpu.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
             @Override
-            public void run() {
-                main_cpu_temp.setText(String.valueOf(temp) + "℃");
-                main_msg_cpu_percent.setText(String.valueOf(temp) + "℃");
+            public void progressUpdate(final int progress) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        main_cpu_temp.setText(String.valueOf(progress) + "℃");
+                        main_msg_cpu_percent.setText(String.valueOf(progress) + "℃");
+                    }
+                });
             }
         });
-
     }
 
     @Override
     public void initSd(final int percent, final String size, final long sd_kongxian) {
         main_custom_sd.startProgress(true, percent);
+        main_custom_sd.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
+            @Override
+            public void progressUpdate(final int progress) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        main_sd_per.setText(String.valueOf(progress) + "%");
+
+                    }
+                });
+            }
+        });
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
-                main_sd_per.setText(String.valueOf(percent) + "%");
                 main_sd_size.setText(size);
                 main_msg_sd_percent.setText(CommonUtil.getFileSize2(sd_kongxian));
                 if (sd_kongxian < 1024) {
@@ -276,27 +290,31 @@ public class MainActivity extends BaseActivity implements MainView {
                 }
             }
         });
-
     }
 
     @Override
     public void initRam(final int percent, final String size) {
         main_custom_ram.startProgress(false, percent);
-        runOnUiThread(new Runnable() {
+        main_custom_ram.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
             @Override
-            public void run() {
-
-                main_ram_per.setText(String.valueOf(percent) + "%");
-                main_ram_size.setText(size);
-                main_msg_ram_percent.setText(String.valueOf(percent) + "%");
+            public void progressUpdate(final int progress) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        main_ram_per.setText(String.valueOf(progress) + "%");
+                        main_ram_size.setText(size);
+                        main_msg_ram_percent.setText(String.valueOf(progress) + "%");
+                    }
+                });
             }
         });
+
     }
 
     @Override
     public void initGuard(int num, RotateAnimation rotateAnimation) {
         if (num != -1) {
-            main_gurad_num.setText(String.valueOf(num)+" ");
+            main_gurad_num.setText(String.valueOf(num) + " ");
         }
         main_guard_rotate.startAnimation(rotateAnimation);
     }
@@ -360,7 +378,7 @@ public class MainActivity extends BaseActivity implements MainView {
             View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad);
             if (ll_ad_side != null && nativeView_side != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_side.getLayoutParams();
-                layout_ad.height = nativeView.getMeasuredHeight();
+                layout_ad.height = nativeView_side.getMeasuredHeight();
                 ll_ad_side.setLayoutParams(layout_ad);
                 ll_ad_side.addView(nativeView_side);
             }

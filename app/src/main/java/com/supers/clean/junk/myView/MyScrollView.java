@@ -3,12 +3,12 @@ package com.supers.clean.junk.myView;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.widget.ScrollView;
+import android.support.v4.widget.NestedScrollView;
 
 /**
  */
 
-public class MyScrollView extends ScrollView {
+public class MyScrollView extends NestedScrollView {
     public MyScrollView(Context context) {
         super(context);
     }

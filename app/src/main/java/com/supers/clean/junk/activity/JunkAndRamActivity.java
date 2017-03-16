@@ -133,7 +133,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     @Override
     public void initData(long allSize) {
-        title_name.setText(R.string.main_junk_name);
+        title_name.setText(R.string.junk_ram_title_clean);
         if (allSize <= 0) {
             junkPresenter.jumpToActivity(SuccessActivity.class, 1);
             return;
@@ -156,8 +156,34 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     }
 
     @Override
-    public void setColor(long size) {
-        junk_size_all.setText(CommonUtil.getFileSize2(size));
+    public void setColor(final long size) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                for (long i = 0; i <= size; i += (size / 15)) {
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_size_all.setText(CommonUtil.getFileSize2(finalI));
+                            junkPresenter.setUnit(size, junk_unit);
+                        }
+                    });
+                }
+            }
+        }).start();
+//        junk_size_all.setText(CommonUtil.getFileSize2(size));
+
         if (size > 1024 * 1024 * 100 && size <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
@@ -180,51 +206,203 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     }
 
     @Override
-    public void addSystemdata(long size, List<JunkInfo> list) {
+    public void addSystemdata(final long size, List<JunkInfo> list) {
         adapterSystem.addDataList(list);
-        junk_system_size.setText(CommonUtil.getFileSizeKongge(size));
         junk_system_list.setVisibility(View.GONE);
-        junkPresenter.setUnit(size, junk_system_unit);
+//        junk_system_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junkPresenter.setUnit(size, junk_system_unit);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                for (long i = 0; i <= size; i += (size / 15)) {
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_system_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junkPresenter.setUnit(size, junk_system_unit);
+                        }
+                    });
+                }
+            }
+        }).start();
     }
 
     @Override
-    public void addApkdata(long size, List<JunkInfo> list) {
+    public void addApkdata(final long size, List<JunkInfo> list) {
         adapterApk.addDataList(list);
-        junk_apk_size.setText(CommonUtil.getFileSizeKongge(size));
         junk_apk_list.setVisibility(View.GONE);
-        junkPresenter.setUnit(size, junk_apk_unit);
+//        junk_apk_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junkPresenter.setUnit(size, junk_apk_unit);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                for (long i = 0; i <= size; i += (size / 15)) {
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_apk_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junkPresenter.setUnit(size, junk_apk_unit);
+                        }
+                    });
+                }
+            }
+        }).start();
     }
 
     @Override
-    public void addUnloaddata(long size, List<JunkInfo> list) {
+    public void addUnloaddata(final long size, List<JunkInfo> list) {
         adapterUnload.addDataList(list);
-        junk_unload_size.setText(CommonUtil.getFileSizeKongge(size));
         junk_unload_list.setVisibility(View.GONE);
-        junkPresenter.setUnit(size, junk_unload_unit);
+//        junk_unload_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junkPresenter.setUnit(size, junk_unload_unit);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                for (long i = 0; i <= size; i += (size / 15)) {
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_unload_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junkPresenter.setUnit(size, junk_unload_unit);
+                        }
+                    });
+                }
+            }
+        }).start();
     }
 
     @Override
-    public void addLogdata(long size, List<JunkInfo> list) {
+    public void addLogdata(final long size, List<JunkInfo> list) {
         adapterLog.addDataList(list);
-        junk_log_size.setText(CommonUtil.getFileSizeKongge(size));
         junk_log_list.setVisibility(View.GONE);
-        junkPresenter.setUnit(size, junk_log_unit);
+//        junk_log_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junkPresenter.setUnit(size, junk_log_unit);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                for (long i = 0; i <= size; i += (size / 15)) {
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_log_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junkPresenter.setUnit(size, junk_log_unit);
+                        }
+                    });
+                }
+            }
+        }).start();
     }
 
     @Override
-    public void addUserdata(long size, List<JunkInfo> list) {
+    public void addUserdata(final long size, List<JunkInfo> list) {
         adapterUser.addDataList(list);
-        junk_user_size.setText(CommonUtil.getFileSizeKongge(size));
         junk_user_list.setVisibility(View.GONE);
-        junkPresenter.setUnit(size, junk_user_unit);
+//        junk_user_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junkPresenter.setUnit(size, junk_user_unit);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                for (long i = 0; i <= size; i += (size / 15)) {
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_user_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junkPresenter.setUnit(size, junk_user_unit);
+                        }
+                    });
+                }
+            }
+        }).start();
+
     }
 
     @Override
-    public void addRamdata(long size, List<JunkInfo> list) {
+    public void addRamdata(final long size, List<JunkInfo> list) {
         adapterRam.addDataList(list);
-        junk_ram_size.setText(CommonUtil.getFileSizeKongge(size));
         junk_ram_list.setVisibility(View.GONE);
-        junkPresenter.setUnit(size, junk_ram_unit);
+//        junk_ram_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junkPresenter.setUnit(size, junk_ram_unit);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                for (long i = 0; i <= size; i += (size / 15)) {
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_ram_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junkPresenter.setUnit(size, junk_ram_unit);
+                        }
+                    });
+                }
+            }
+        }).start();
     }
 
     @Override
@@ -241,10 +419,40 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     }
 
     @Override
-    public void setCleanDAta(long cleanSize) {
-        if (cleanSize != 0) {
-            junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(cleanSize) + ")");
+    public void setCleanDAta(boolean isFirst, final long cleanSize) {
+        if (isFirst) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    int time = 100;
+                    for (long i = 0; i <= cleanSize; i += (cleanSize / 15)) {
+                        final long finalI = i;
+                        time -= 5;
+                        if (time < 30) {
+                            time = 30;
+                        }
+                        try {
+                            Thread.sleep(time);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (finalI != 0) {
+                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(finalI) + ")");
+                                }
+                            }
+                        });
+                    }
+                }
+            }).start();
+        } else {
+            if (cleanSize != 0) {
+                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(cleanSize) + ")");
+            }
         }
+
     }
 
     @Override

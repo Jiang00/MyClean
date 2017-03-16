@@ -60,7 +60,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
             }
         }
         iView.initData(allSize);
-        iView.setCleanDAta(cleanSize);
+        iView.setCleanDAta(true, cleanSize);
         iView.setColor(allSize);
         iView.onClick();
     }
@@ -75,7 +75,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
         } else {
             cleanSize -= size;
         }
-        iView.setCleanDAta(cleanSize);
+        iView.setCleanDAta(false, cleanSize);
     }
 
     public void addAdapterData() {

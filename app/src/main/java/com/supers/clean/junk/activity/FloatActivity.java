@@ -107,7 +107,15 @@ public class FloatActivity extends BaseActivity {
                 }
             }, 1000);
         } else {
-            postAd();
+            nativeView = CommonUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad);
+            if (ll_ad != null && nativeView != null) {
+                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                    layout_ad.height = CommonUtil.dp2px(250);
+                }
+                ll_ad.setLayoutParams(layout_ad);
+                ll_ad.addView(nativeView);
+            }
         }
     }
 
@@ -499,21 +507,6 @@ public class FloatActivity extends BaseActivity {
         window.setAttributes(lp);
     }
 
-    private void postAd() {
-        if (PreData.getDB(this, Contents.FULL_FLOAT, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-        } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad);
-            if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
-                    layout_ad.height = CommonUtil.dp2px(250);
-                }
-                ll_ad.setLayoutParams(layout_ad);
-                ll_ad.addView(nativeView);
-            }
-        }
-    }
 
     @Override
     protected void onResume() {

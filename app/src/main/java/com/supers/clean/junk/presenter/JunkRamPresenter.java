@@ -62,7 +62,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
             }
         }
         iView.initData(allSize);
-        iView.setCleanDAta(cleanSize);
+        iView.setCleanDAta(true,cleanSize);
         iView.setColor(allSize);
         iView.onClick();
     }
@@ -77,7 +77,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
         } else {
             cleanSize -= size;
         }
-        iView.setCleanDAta(cleanSize);
+        iView.setCleanDAta(false,cleanSize);
     }
 
     public void addAdapterData() {
