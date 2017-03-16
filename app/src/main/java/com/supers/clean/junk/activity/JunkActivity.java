@@ -141,14 +141,35 @@ public class JunkActivity extends BaseActivity implements JunkView {
         junk_unload_list.setAdapter(adapterUnload);
         junk_log_list.setAdapter(adapterLog);
         junk_user_list.setAdapter(adapterUser);
-
-        junkPresenter.setUnit(allSize, junk_unit);
         junkPresenter.addAdapterData();
     }
 
     @Override
-    public void setColor(long allSize) {
-        junk_size_all.setText(CommonUtil.getFileSize2(allSize));
+    public void setColor(final long allSize) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (long i = 0; i <= allSize; i += (allSize / 15)) {
+                    final long finalI = i;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_size_all.setText(CommonUtil.getFileSize2(finalI));
+                            junkPresenter.setUnit(allSize, junk_unit);
+                        }
+                    });
+                }
+            }
+        }).start();
+
+//        junk_size_all.setText(CommonUtil.getFileSize2(allSize));
+
         if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;

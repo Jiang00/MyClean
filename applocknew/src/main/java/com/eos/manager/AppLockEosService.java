@@ -1096,13 +1096,13 @@ public class AppLockEosService extends Service {
 
     public void onWakeUp() {
         String pkgName = getTopPackageName(this, mActivityManager);
-        if (getPackageName().equals(pkgName)) {
-            String className = mActivityManager.getRunningTasks(1).get(0).topActivity.getClassName();
-            if (!excludesClasses.containsKey(className)) {
-                Intent i = new Intent(getApplicationContext(), AppLockTogglePatternActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-            }
-        }
+//        if (getPackageName().equals(pkgName)) {
+//            String className = mActivityManager.getRunningTasks(1).get(0).topActivity.getClassName();
+//            if (!excludesClasses.containsKey(className)) {
+//                Intent i = new Intent(getApplicationContext(), AppLockTogglePatternActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(i);
+//            }
+//        }
         int slot = App.getSharedPreferences().getInt(SecurityMyPref.PREF_BRIEF_SLOT, SecurityMyPref.PREF_DEFAULT);
         if (slot != SecurityMyPref.PREF_BRIEF_5_MIN) {
             tmpUnlockedApps.clear();

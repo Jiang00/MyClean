@@ -56,6 +56,11 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
                 cleanSize += info.size;
             }
         }
+        for (JunkInfo info : cleanApplication.getAppRam()) {
+            if (info.isChecked) {
+                cleanSize += info.size;
+            }
+        }
         iView.initData(allSize);
         iView.setCleanDAta(cleanSize);
         iView.setColor(allSize);

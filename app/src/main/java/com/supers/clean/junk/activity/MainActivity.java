@@ -296,7 +296,7 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     public void initGuard(int num, RotateAnimation rotateAnimation) {
         if (num != -1) {
-            main_gurad_num.setText(String.valueOf(num));
+            main_gurad_num.setText(String.valueOf(num)+" ");
         }
         main_guard_rotate.startAnimation(rotateAnimation);
     }
@@ -534,7 +534,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     break;
                 case R.id.main_cpu_air_button:
                     AndroidSdk.track("主页面", "点击cpu球进入硬件信息页面", "", 1);
-                    mainPresenter.jumpToActivity(MessageActivity.class, 1);
+                    mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_sd_air_button:
                     AndroidSdk.track("主页面", "点击sd球进入垃圾清理页面", "", 1);

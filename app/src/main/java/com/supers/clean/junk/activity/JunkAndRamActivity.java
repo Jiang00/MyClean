@@ -352,7 +352,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.title_left:
-                    AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷·µ»Ø", "", 1);
+                    AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»è¿”å›", "", 1);
                     onBackPressed();
                     break;
                 case R.id.junk_button_system:
@@ -360,10 +360,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷ÊÕÆğÏµÍ³»º´æ", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ”¶èµ·ç³»ç»Ÿç¼“å­˜", "", 1);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷´ò¿ªÏµÍ³»º´æ", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ‰“å¼€ç³»ç»Ÿç¼“å­˜", "", 1);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -372,10 +372,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷ÊÕÆğapkÎÄ¼ş", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ”¶èµ·apkæ–‡ä»¶", "", 1);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷´ò¿ªapkÎÄ¼ş", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ‰“å¼€apkæ–‡ä»¶", "", 1);
                         junk_apk_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -384,10 +384,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷ÊÕÆğunloadÎÄ¼ş", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ”¶èµ·unloadæ–‡ä»¶", "", 1);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷´ò¿ªapkÎÄ¼ş", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ‰“å¼€apkæ–‡ä»¶", "", 1);
                         junk_unload_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -396,11 +396,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷ÊÕÆğlogÎÄ¼ş", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ”¶èµ·logæ–‡ä»¶", "", 1);
 
                         junk_log_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷´ò¿ªlogÎÄ¼ş", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ‰“å¼€logæ–‡ä»¶", "", 1);
 
                         junk_log_list.setVisibility(View.VISIBLE);
                     }
@@ -411,11 +411,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷ÊÕÆğuserÎÄ¼ş", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ”¶èµ·useræ–‡ä»¶", "", 1);
 
                         junk_user_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷´ò¿ªuserÎÄ¼ş", "", 1);
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ‰“å¼€useræ–‡ä»¶", "", 1);
 
                         junk_user_list.setVisibility(View.VISIBLE);
                     }
@@ -427,13 +427,15 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     }
 
                     if (junk_ram_list.getVisibility() == View.VISIBLE) {
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ”¶ç¼©ram", "", 1);
                         junk_ram_list.setVisibility(View.GONE);
                     } else {
+                        AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»å±•å¼€ram", "", 1);
                         junk_ram_list.setVisibility(View.VISIBLE);
                     }
                     break;
                 case R.id.junk_button_clean:
-                    AndroidSdk.track("ËùÓĞÀ¬»øÒ³Ãæ", "µã»÷ÇåÀí", "", 1);
+                    AndroidSdk.track("æ‰€æœ‰åƒåœ¾é¡µé¢", "ç‚¹å‡»æ¸…ç†", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
