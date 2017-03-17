@@ -105,7 +105,6 @@ public class LoadingActivity extends BaseActivity {
     };
 
 
-
     private void addNative() {
         if (AndroidSdk.hasNativeAd(TAG_LOADING, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
             AndroidSdk.loadNativeAd(TAG_LOADING, R.layout.native_ad_loading, new ClientNativeAd.NativeAdLoadListener() {
