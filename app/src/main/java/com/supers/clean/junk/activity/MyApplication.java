@@ -213,6 +213,23 @@ public class MyApplication extends App {
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);
 
+        //charging
+        startService(new Intent(this, BatteryService.class));
+//        Utils.writeData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, false);//
+//        Utils.writeData(this, Constants.CHARGE_STATE_NOTIFICATION_SWITCH, false);//
+        Utils.writeData(this, Constants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
+        Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
+
+        if (PreData.getDB(this, Contents.TONGZHILAN_SWITCH, true)) {
+            Intent intent = new Intent(this, NotifactionService.class);
+            intent.setAction("notification");
+            startService(intent);
+        }
+        if (PreData.getDB(this, Contents.FlOAT_SWITCH, true)) {
+            Intent intent1 = new Intent(this, FloatService.class);
+            startService(intent1);
+        }
+
         String name = CommonUtil.getProcessName(this);
         if (!TextUtils.equals(name, getPackageName())) {
             return;
@@ -233,22 +250,7 @@ public class MyApplication extends App {
         asyncInitData();
         saomiaoSuccess = false;
         saomiaoSuccess = true;
-        //charging
-        startService(new Intent(this, BatteryService.class));
-//        Utils.writeData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, false);//
-//        Utils.writeData(this, Constants.CHARGE_STATE_NOTIFICATION_SWITCH, false);//
-        Utils.writeData(this, Constants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
-        Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
 
-        if (PreData.getDB(this, Contents.TONGZHILAN_SWITCH, true)) {
-            Intent intent = new Intent(this, NotifactionService.class);
-            intent.setAction("notification");
-            startService(intent);
-        }
-        if (PreData.getDB(this, Contents.FlOAT_SWITCH, true)) {
-            Intent intent1 = new Intent(this, FloatService.class);
-            startService(intent1);
-        }
         if (PreData.getDB(this, Contents.FIRST_INSTALL, true)) {
             PreData.putDB(this, Contents.IS_ACTION_BAR, CommonUtil.checkDeviceHasNavigationBar(this));
             PreData.putDB(this, Contents.FIRST_INSTALL, false);

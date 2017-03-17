@@ -30,17 +30,13 @@ public class Contents {
 
     public static final String KEY_SHORTCUT = "KEY_SHORTCUT";//桌面快捷方式
 
+    public static final String ROOT_TRAK = "ROOT_TRAK";
+
     public static final String KEY_LOADING_GAI = "KEY_LOADING_GAI";//loading页面广告概率
     /**
      * 广告控制
      */
     public static final String FULL_MAIN = "FULL_MAIN";
-
-    public static final String FULL_JUNK = "FULL_JUNK";
-
-    public static final String FULL_JUNK_RAM = "FULL_JUNK_RAM";
-
-    public static final String FULL_RAM = "FULL_RAM";
 
     public static final String FULL_MANAGER = "FULL_MANAGER";
 

@@ -38,9 +38,11 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = inflater
-                    .inflate(R.layout.layout_ram_item, null);
+                    .inflate(R.layout.layout_manager_item, null);
             holder.name = (TextView) convertView
                     .findViewById(R.id.junk_item_lable);
+            holder.time = (TextView) convertView
+                    .findViewById(R.id.item_time);
             holder.icon = (ImageView) convertView
                     .findViewById(R.id.junk_item_icon);
             holder.checkBox = (ImageView) convertView
@@ -52,6 +54,8 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.name.setText(info.label);
+        holder.time.setText(CommonUtil.getStrTime(info.time));
+        holder.size.setText(CommonUtil.getFileSize(info.size));
         Drawable icon = info.icon;
         holder.icon.setImageDrawable(icon);
         if (info.isChecked) {
@@ -72,7 +76,7 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
                 }
             }
         });
-        holder.size.setText(CommonUtil.getFileSize(info.size));
+
 
         return convertView;
     }
@@ -82,6 +86,7 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
         ImageView icon;
         ImageView checkBox;
         TextView size;
+        TextView time;
     }
 
     public interface AllListener {

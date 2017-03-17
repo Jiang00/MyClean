@@ -17,6 +17,7 @@ import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
+import com.supers.clean.junk.modle.PhoneManager;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.ShortCutUtils;
 import com.supers.clean.junk.modle.entity.Contents;
@@ -75,6 +76,11 @@ public class LoadingActivity extends BaseActivity {
                 finish();
             }
         });
+        if (PreData.getDB(this, Contents.ROOT_TRAK, true)) {
+            AndroidSdk.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
+            PreData.putDB(this, Contents.ROOT_TRAK, false);
+        }
+
     }
 
     Runnable runnable1 = new Runnable() {
@@ -103,7 +109,6 @@ public class LoadingActivity extends BaseActivity {
             }
         }
     };
-
 
 
     private void addNative() {

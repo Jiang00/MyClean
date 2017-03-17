@@ -14,4 +14,5 @@ public interface AppManagerView extends IView {
 
     void setCleanDAta(long size);
 
+    void reStart();
 }

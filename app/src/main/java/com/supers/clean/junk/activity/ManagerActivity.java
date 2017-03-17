@@ -20,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -49,6 +50,10 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     Button junk_button_clean;
     ListViewForScrollView junk_list_all;
     LinearLayout ll_ad;
+    LinearLayout manager_permision;
+    TextView manager_shouquan;
+    RelativeLayout manager_clean;
+
     private ManagerPresenter managerPresenter;
     private ManagerAdapter adapterManager;
     private MyReceiver receiver;
@@ -74,6 +79,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         junk_list_all = (ListViewForScrollView) findViewById(R.id.junk_list_all);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        manager_permision = $(R.id.manager_permision);
+        manager_shouquan = $(R.id.manager_shouquan);
+        manager_clean = $(R.id.manager_clean);
     }
 
     @Override
@@ -84,38 +92,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         managerPresenter.init();
         receiver = new MyReceiver();
         filter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
-        System.out.println(Intent.ACTION_PACKAGE_REMOVED);
         filter.addDataScheme("package");
         registerReceiver(receiver, filter);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (!isNoSwitch()) {
-                final AlertDialog.Builder normalDialog =
-                        new AlertDialog.Builder(ManagerActivity.this);
-                normalDialog.setIcon(R.mipmap.icon);
-                normalDialog.setTitle(R.string.premiss_1);
-                normalDialog.setMessage(R.string.premiss_2);
-                normalDialog.setPositiveButton(R.string.premiss_3,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //...To-do
-                                Intent intent = new Intent(
-                                        Settings.ACTION_USAGE_ACCESS_SETTINGS);
-                                startActivity(intent);
-                            }
-                        });
-                normalDialog.setNegativeButton(R.string.premiss_4,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //...To-do
-                            }
-                        });
-                // 显示
-                normalDialog.show();
-            }
-        }
     }
 
     @Override
@@ -176,6 +155,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         } else {
             junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
         }
+        if (manager_clean.getVisibility() == View.GONE) {
+            manager_clean.setVisibility(View.VISIBLE);
+        }
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -193,7 +175,8 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                     manager_sort_time_backg.setVisibility(View.INVISIBLE);
                     manager_sort_pinlv_backg.setVisibility(View.INVISIBLE);
                     managerPresenter.sortList(ManagerPresenter.SIZE_TYPE);
-
+                    manager_permision.setVisibility(View.INVISIBLE);
+                    junk_list_all.setVisibility(View.VISIBLE);
                     break;
                 case R.id.manager_button_time:
                     manager_sort_size_name.setTextColor(getResources().getColorStateList(R.color.manager_sort_text));
@@ -203,6 +186,8 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                     manager_sort_time_backg.setVisibility(View.VISIBLE);
                     manager_sort_pinlv_backg.setVisibility(View.INVISIBLE);
                     managerPresenter.sortList(ManagerPresenter.TIME_TYPE);
+                    manager_permision.setVisibility(View.INVISIBLE);
+                    junk_list_all.setVisibility(View.VISIBLE);
                     break;
                 case R.id.manager_button_pinlv:
                     manager_sort_size_name.setTextColor(getResources().getColorStateList(R.color.manager_sort_text));
@@ -211,6 +196,21 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                     manager_sort_size_backg.setVisibility(View.INVISIBLE);
                     manager_sort_time_backg.setVisibility(View.INVISIBLE);
                     manager_sort_pinlv_backg.setVisibility(View.VISIBLE);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch()) {
+                        manager_permision.setVisibility(View.VISIBLE);
+                        junk_list_all.setVisibility(View.GONE);
+                        manager_shouquan.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(
+                                        Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                                startActivity(intent);
+                            }
+                        });
+                    } else {
+                        manager_permision.setVisibility(View.INVISIBLE);
+                        junk_list_all.setVisibility(View.VISIBLE);
+                    }
                     managerPresenter.sortList(ManagerPresenter.PINLV_TYPE);
                     break;
                 case R.id.junk_button_clean:
@@ -226,10 +226,10 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
         @Override
         public void onReceive(Context context, Intent intent) {
+
             // TODO Auto-generated method stub
             String packageName = intent.getData().getSchemeSpecificPart();
             managerPresenter.unloadSuccess(packageName);
-
 
         }
 
@@ -250,9 +250,36 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     }
 
     @Override
+    public void reStart() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch()) {
+            manager_permision.setVisibility(View.VISIBLE);
+            junk_list_all.setVisibility(View.GONE);
+            manager_shouquan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(
+                            Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                    startActivity(intent);
+                }
+            });
+        } else {
+            manager_permision.setVisibility(View.INVISIBLE);
+            junk_list_all.setVisibility(View.VISIBLE);
+            managerPresenter.sortList(ManagerPresenter.PINLV_TYPE);
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        managerPresenter.restart();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+
     }
 
     @Override

@@ -33,6 +33,9 @@ public class ApkFileAndAppJunkTask extends Thread {
 
     void loadData() {
         path = MemoryManager.getPhoneInSDCardPath();
+        if (path == null) {
+            path = "/storage/";
+        }
         File rootPath = new File(path);
         File[] dirs = rootPath.listFiles();
         searchDirs(dirs);

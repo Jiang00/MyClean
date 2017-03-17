@@ -29,6 +29,7 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     private long cleanSize = 0;
     private ArrayList<JunkInfo> clearList;
     private ArrayList<JunkInfo> list;
+    private int type;
 
     public ManagerPresenter(AppManagerView iView, Context context) {
         super(iView, context);
@@ -59,6 +60,7 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
             cleanSize -= size;
         }
         iView.setCleanDAta(cleanSize);
+
     }
 
     public void addAdapterData() {
@@ -66,6 +68,7 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     }
 
     public void sortList(int type) {
+        this.type = type;
         switch (type) {
             case SIZE_TYPE:
                 Collections.sort(list, new Sizesort());
@@ -82,6 +85,12 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
 
     public void addAppAdapterData() {
         iView.addAppManagerdata(list);
+    }
+
+    public void restart() {
+        if (type == PINLV_TYPE) {
+            iView.reStart();
+        }
     }
 
     public void bleachFile(List<JunkInfo> appManager) {
