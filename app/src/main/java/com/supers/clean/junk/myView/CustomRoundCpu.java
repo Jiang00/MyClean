@@ -22,6 +22,7 @@ public class CustomRoundCpu extends View {
     int size;
     private int progress;
     private boolean isRotate;
+    private CustomRoundListener customRoundListener;
 
     public CustomRoundCpu(Context context) {
         this(context, null);
@@ -102,6 +103,9 @@ public class CustomRoundCpu extends View {
                         e.printStackTrace();
                     }
                     setProgress(i);
+                    if (customRoundListener != null) {
+                        customRoundListener.progressUpdate(i);
+                    }
                 }
             }
         }).start();
@@ -113,4 +117,12 @@ public class CustomRoundCpu extends View {
         postInvalidate();
     }
 
+    public void setCustomRoundListener(CustomRoundListener customRoundListener) {
+        this.customRoundListener = customRoundListener;
+
+    }
+
+    public interface CustomRoundListener {
+        void progressUpdate(int progress);
+    }
 }

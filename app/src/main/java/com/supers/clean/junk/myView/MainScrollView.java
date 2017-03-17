@@ -235,6 +235,7 @@ public class MainScrollView extends ScrollView implements Pullable {
         super.onFinishInflate();
 
     }
+
     /**
      * 滑动事件，这是控制手指滑动的惯性速度
      */

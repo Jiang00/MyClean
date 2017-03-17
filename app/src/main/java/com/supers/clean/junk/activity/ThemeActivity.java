@@ -1,5 +1,6 @@
 package com.supers.clean.junk.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
+import com.eos.module.charge.saver.service.BatteryService;
 import com.supers.clean.junk.R;
 
 /**
@@ -63,15 +65,19 @@ public class ThemeActivity extends BaseActivity {
                     theme_0_check.setImageResource(R.mipmap.battery_passed);
                     theme_1_check.setImageResource(R.mipmap.battery_normal);
                     Utils.writeData(ThemeActivity.this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR);
+                    Utils.writeData(ThemeActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                    startService(new Intent(ThemeActivity.this, BatteryService.class).putExtra("show", true));
                     break;
                 case R.id.battery_theme_1:
                     AndroidSdk.track("主题页面", "选择第二个主题", "", 1);
                     theme_0_check.setImageResource(R.mipmap.battery_normal);
                     theme_1_check.setImageResource(R.mipmap.battery_passed);
                     Utils.writeData(ThemeActivity.this, Constants.KEY_SAVER_TYPE, Constants.TYPE_DUCK);
+                    Utils.writeData(ThemeActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                    startService(new Intent(ThemeActivity.this, BatteryService.class).putExtra("show", true));
                     break;
             }
-            Utils.writeData(ThemeActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+
         }
     };
 

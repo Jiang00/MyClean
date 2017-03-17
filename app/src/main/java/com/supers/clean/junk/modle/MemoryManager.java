@@ -243,8 +243,8 @@ public class MemoryManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        long installTime = System.currentTimeMillis() - firstInstallTime;
+        long time_ = firstInstallTime % 86400000;
+        long installTime = System.currentTimeMillis() - firstInstallTime + time_;
         if (firstInstallTime == 0) {
             return -1;
         } else {

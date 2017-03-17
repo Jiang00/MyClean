@@ -7,17 +7,22 @@ import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
 import com.eos.module.tweenengine.TweenManager;
 import com.supers.clean.junk.activity.BaseActivity;
 import com.supers.clean.junk.modle.CommonUtil;
+import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.myView.ImageAccessor;
 
 import java.util.List;
@@ -27,9 +32,11 @@ import java.util.List;
  */
 
 public class ShortCutActivity extends BaseActivity {
+    FrameLayout short_backg;
     ImageView short_zhuan, short_huojian;
     LinearLayout short_text;
     TextView short_size;
+    LinearLayout ll_ad;
     private Animation rotate;
     private Animation fang;
     private TweenManager tweenManager;
@@ -38,15 +45,18 @@ public class ShortCutActivity extends BaseActivity {
     private long size;
     private int count;
     private Handler myHandler;
-
+    private View nativeView;
+    private String TAG_SHORTCUT = "eos_shortcut";
 
     @Override
     protected void findId() {
         super.findId();
+        short_backg = $(R.id.short_backg);
         short_zhuan = (ImageView) findViewById(R.id.short_zhuan);
         short_huojian = (ImageView) findViewById(R.id.short_huojian);
         short_text = (LinearLayout) findViewById(R.id.short_text);
         short_size = (TextView) findViewById(R.id.short_size);
+        ll_ad = $(R.id.ll_ad);
     }
 
     @Override
@@ -80,6 +90,22 @@ public class ShortCutActivity extends BaseActivity {
                 });
             }
         }).start();
+        loadAd();
+    }
+
+    private void loadAd() {
+        if (PreData.getDB(this, Contents.FULL_SHORTCUT, 0) == 1) {
+        } else {
+            nativeView = CommonUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad);
+            if (ll_ad != null && nativeView != null) {
+                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                    layout_ad.height = CommonUtil.dp2px(250);
+                }
+                ll_ad.setLayoutParams(layout_ad);
+                ll_ad.addView(nativeView);
+            }
+        }
     }
 
     private void show_text() {
@@ -98,12 +124,17 @@ public class ShortCutActivity extends BaseActivity {
             fang.setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationEnd(Animation animation) {
-                    myHandler.postDelayed(new Runnable() {
+                    if (PreData.getDB(ShortCutActivity.this, Contents.FULL_SHORTCUT, 0) == 1) {
+                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    } else {
+                        ll_ad.setVisibility(View.VISIBLE);
+                    }
+                    short_backg.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void run() {
+                        public void onClick(View v) {
                             finish();
                         }
-                    }, 1000);
+                    });
                 }
 
                 @Override

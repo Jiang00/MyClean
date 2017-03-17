@@ -26,7 +26,7 @@ public interface JunkView extends IView {
 
     void setUnit(long size, TextView textView);
 
-    void setCleanDAta(long size);
+    void setCleanDAta(boolean isFirst,long size);
 
     void cleanAnimation(boolean isZhankai, List<JunkInfo> cleanList, long cleanSize);
 

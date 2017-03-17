@@ -52,5 +52,7 @@ public class Contents {
 
     public static final String FULL_COOL = "FULL_COOL";
 
+    public static final String FULL_SHORTCUT = "FULL_SHORTCUT";
+
 
 }
