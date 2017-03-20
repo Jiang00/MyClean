@@ -94,8 +94,33 @@ public class RamAvtivity extends BaseActivity implements RamView {
     }
 
     @Override
-    public void setColor(int memory, long allSize) {
-        junk_size_all.setText(String.valueOf(memory));
+    public void setColor(int memory, final long allSize) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                for (long i = 0; i <= allSize; i += (allSize / 15)) {
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_size_all.setText(CommonUtil.getFileSize2(finalI));
+                            setUnit(allSize, junk_fangxin);
+                        }
+                    });
+                }
+            }
+        }).start();
+//        junk_size_all.setText(String.valueOf(memory));
         if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
@@ -117,16 +142,58 @@ public class RamAvtivity extends BaseActivity implements RamView {
         }
     }
 
+    public void setUnit(long size, TextView textView) {
+        if (size < 1024) {
+            textView.setText("B");
+        } else if (size < 1048576) {
+            textView.setText("KB");
+        } else if (size < 1073741824) {
+            textView.setText("MB");
+        } else {
+            textView.setText("GB");
+        }
+    }
+
     @Override
     public void addRamdata(long size, List<JunkInfo> list) {
         adapterRam.addDataList(list);
     }
 
     @Override
-    public void setCleanDAta(long size) {
-        if (size != 0) {
-            junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.getFileSize4(size) + ")");
+    public void setCleanDAta(boolean isFirst, final long size) {
+        if (isFirst) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    int time = 100;
+                    for (long i = 0; i <= size; i += (size / 15)) {
+                        final long finalI = i;
+                        time -= 5;
+                        if (time < 30) {
+                            time = 30;
+                        }
+                        try {
+                            Thread.sleep(time);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (finalI != 0) {
+                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.getFileSize4(finalI) + ")");
+                                }
+                            }
+                        });
+                    }
+                }
+            }).start();
+        } else {
+            if (size != 0) {
+                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.getFileSize4(size) + ")");
+            }
         }
+
     }
 
     @Override

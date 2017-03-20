@@ -32,8 +32,8 @@ public class SecurityDesktop {
         SecurityWidget parent;
         IWorker worker;
 
-        public void notifyDataSetChanged(List<WidgetSwitch.Data> data){
-            if (this.data != null && this.data.size() > 0){
+        public void notifyDataSetChanged(List<WidgetSwitch.Data> data) {
+            if (this.data != null && this.data.size() > 0) {
                 this.data.clear();
             }
             this.data = data;
@@ -124,11 +124,11 @@ public class SecurityDesktop {
         };
     }
 
-    public static void updateData(SecurityWidget container){
-        try{
-            WidgetAdapter adapter = (WidgetAdapter) ((GridView)container.findViewById(R.id.switches)).getAdapter();
+    public static void updateData(SecurityWidget container) {
+        try {
+            WidgetAdapter adapter = (WidgetAdapter) ((GridView) container.findViewById(R.id.switches)).getAdapter();
             adapter.notifyDataSetChanged(updateData(adapter.context));
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

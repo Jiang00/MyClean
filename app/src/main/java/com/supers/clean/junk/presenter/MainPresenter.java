@@ -44,6 +44,11 @@ public class MainPresenter extends BasePresenter<MainView> {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 reStart();
                 //cpu温度
                 CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
@@ -75,7 +80,6 @@ public class MainPresenter extends BasePresenter<MainView> {
     }
 
     public void reStart() {
-
         //SD卡储存
         long sd_all = MemoryManager.getPhoneAllSize();
         long sd_kongxian = MemoryManager.getPhoneAllFreeSize();

@@ -73,6 +73,7 @@ public class WidgetContainer extends FrameLayout implements View.OnClickListener
         int type = Build.VERSION.SDK_INT >= 19 ? (Build.VERSION.SDK_INT < 24 ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR) : WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
 
         int flag = Build.VERSION.SDK_INT >= 19 ?
+
 //                (WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR)
                 (WindowManager.LayoutParams.FLAG_FULLSCREEN
                         | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED

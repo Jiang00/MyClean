@@ -18,7 +18,7 @@ public class CustomRoundCpu extends View {
     private Context context;
     private Paint circlePoint;
     private Paint backgPoint;
-    float lineWidth = CommonUtil.dp2px(4);
+    float lineWidth = getResources().getDimension(R.dimen.d4);
     int size;
     private int progress;
     private boolean isRotate;

@@ -16,7 +16,7 @@ public interface RamView extends IView {
 
     void addRamdata(long size, List<JunkInfo> list);
 
-    void setCleanDAta(long size);
+    void setCleanDAta(boolean isFirst,long size);
 
     void cleanAnimation(List<JunkInfo> cleanList, long cleanSize);
 

@@ -60,7 +60,7 @@ public class SecurityThemeFragment extends Fragment {
         try {
             createAdView((ViewGroup) view);
         } catch (Exception e) {
-            Log.e("testback","exception----"+e);
+            Log.e("testback", "exception----" + e);
 
             e.printStackTrace();
         }
@@ -142,20 +142,23 @@ public class SecurityThemeFragment extends Fragment {
                 layoutParams.topMargin = Utils.getDimens(view.getContext(), 48);
             }
 
-
-            adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
-                @Override
-                public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
-
-                }
-            }, new ClientNativeAd.NativeAdScrollListener() {
-                @Override
-                public void onNativeAdScrolled(float v) {
-//                    icon.setAlpha(1 - v);
-//                    appName.setAlpha(1 - v);
-//                    realAppName.setAlpha(v);
-                }
-            });
+            adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK,
+                    AndroidSdk.NATIVE_AD_TYPE_ALL,
+                    AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE,
+                    AndroidSdk.getDefaultNativeLayoutId(false), null, null);
+//            adView = AndroidSdk.peekNativeAdScrollViewWithLayout(TAG_UNLOCK, AndroidSdk.NATIVE_AD_TYPE_ALL, AndroidSdk.HIDE_BEHAVIOR_AUTO_HIDE, R.layout.security_native_layout, new ClientNativeAd.NativeAdClickListener() {
+//                @Override
+//                public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
+//
+//                }
+//            }, new ClientNativeAd.NativeAdScrollListener() {
+//                @Override
+//                public void onNativeAdScrolled(float v) {
+////                    icon.setAlpha(1 - v);
+////                    appName.setAlpha(1 - v);
+////                    realAppName.setAlpha(v);
+//                }
+//            });
             if (adView != null) {
                 App.getWatcher().watch(adView);
                 view.addView(adView, layoutParams);

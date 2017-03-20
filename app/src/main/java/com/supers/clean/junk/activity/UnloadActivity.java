@@ -98,10 +98,10 @@ public class UnloadActivity extends BaseActivity {
             }, 1000);
 
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_full);
+            nativeView = CommonUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
                     layout_ad.height = CommonUtil.dp2px(250);
                 }
                 ll_ad.setLayoutParams(layout_ad);

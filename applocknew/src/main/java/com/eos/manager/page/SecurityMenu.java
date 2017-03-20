@@ -33,10 +33,6 @@ public class SecurityMenu {
     public static final int MENU_ABOUT = 10;
     public static final int MENU_DAILY = 11;
     public static final int MENU_FAQ = 2;
-    public static final String FACEBOOK = "https://www.facebook.com/IvyAppLock";
-    public static final String GOOGLE = "https://plus.google.com/u/0/communities/113134139742239607331";
-    public static final String GOOGLEPLAY = "https://play.google.com/store/apps/developer?id=IVYMOBILE";
-
 
     public static final String[] newidkeys = {
             "nlk", "np", "nv", "npr", "nfk", "npl", "nt", "nf", "nh", "ns", "na", "nd"

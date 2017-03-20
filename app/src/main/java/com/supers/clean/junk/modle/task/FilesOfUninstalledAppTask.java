@@ -9,6 +9,7 @@ import android.os.Environment;
 
 
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.modle.CopyDbManager;
 import com.supers.clean.junk.modle.MemoryManager;
@@ -39,6 +40,10 @@ public class FilesOfUninstalledAppTask extends SimpleTask {
             Cursor c = db.rawQuery(sql, null);
             String sdpath = MemoryManager.getPhoneInSDCardPath();
             while (c.moveToNext()) {
+                String apkname = c.getString(c.getColumnIndex("apkname"));
+                if (CommonUtil.isPkgInstalled(apkname, pm)) {
+                    continue;
+                }
                 String filepath = c.getString(c.getColumnIndex("filepath"));
 
                 filepath = sdpath + filepath;
@@ -46,7 +51,7 @@ public class FilesOfUninstalledAppTask extends SimpleTask {
                 File file = new File(filepath);
 
                 if (file.exists()) {
-                    String apkname = c.getString(c.getColumnIndex("apkname"));
+
                     Drawable icon;
                     try {
                         icon = pm.getApplicationIcon(apkname);

@@ -92,6 +92,7 @@ public class NotifactionService extends Service {
         notification_1.flags |= Notification.FLAG_ONGOING_EVENT;
         // 表明在点击了通知栏中的"清除通知"后，此通知不清除， 经常与FLAG_ONGOING_EVENT一起使用
         notification_1.flags |= Notification.FLAG_NO_CLEAR;
+        notification_1.priority = Notification.PRIORITY_MAX;
         mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotifyManager.notify(154, notification_1);
     }

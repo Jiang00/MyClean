@@ -40,7 +40,7 @@ public class AppCacheTask extends SimpleTask {
             if (packageName.equals(mContext.getPackageName())) {
                 continue;
             }
-            String path = sdPath + "/Android/data/" + packageName;
+            String path = sdPath + "/Android/data/" + packageName + "cache/";
             long size = 0;
             try {
                 size = CommonUtil.getFileSize(new File(path));

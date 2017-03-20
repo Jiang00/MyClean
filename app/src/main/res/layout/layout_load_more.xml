@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="@dimen/d30"
             android:src="@mipmap/pullup_icon_big" />
 
         <ImageView
@@ -29,16 +29,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="@dimen/d30"
             android:src="@mipmap/loading"
             android:visibility="gone" />
 
         <ImageView
             android:id="@+id/iv_success"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/d30"
+            android:layout_height="@dimen/d30"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="@dimen/d30"
             android:src="@mipmap/load_succeed"
             android:visibility="gone" />
     </RelativeLayout>

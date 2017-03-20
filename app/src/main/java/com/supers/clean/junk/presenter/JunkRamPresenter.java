@@ -118,7 +118,6 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
     public void setUnit(long size, TextView textView) {
         super.setUnit(size, textView);
         iView.setUnit(size, textView);
-
     }
 
     public void bleachFile(boolean isZhankai, List<JunkInfo> systemCache, List<JunkInfo> apkFiles, List<JunkInfo> filesOfUnintalledApk,

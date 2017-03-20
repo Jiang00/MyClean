@@ -7,7 +7,6 @@ import android.content.Intent;
 import com.supers.clean.junk.service.ReStarService;
 
 /**
- * Created by Ivy on 2017/3/17.
  */
 
 public class BootBroadcast extends BroadcastReceiver {

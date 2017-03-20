@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -102,10 +104,10 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         if (PreData.getDB(this, Contents.FULL_MANAGER, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_full);
+            nativeView = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
                     layout_ad.height = CommonUtil.dp2px(250);
                 }
                 ll_ad.setLayoutParams(layout_ad);
@@ -196,7 +198,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                     manager_sort_size_backg.setVisibility(View.INVISIBLE);
                     manager_sort_time_backg.setVisibility(View.INVISIBLE);
                     manager_sort_pinlv_backg.setVisibility(View.VISIBLE);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch()) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch() && isNoOption()) {
                         manager_permision.setVisibility(View.VISIBLE);
                         junk_list_all.setVisibility(View.GONE);
                         manager_shouquan.setOnClickListener(new View.OnClickListener() {
@@ -249,9 +251,18 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         return true;
     }
 
+    private boolean isNoOption() {
+        PackageManager packageManager = getApplicationContext()
+                .getPackageManager();
+        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+        List<ResolveInfo> list = packageManager.queryIntentActivities(intent,
+                PackageManager.MATCH_DEFAULT_ONLY);
+        return list.size() > 0;
+    }
+
     @Override
     public void reStart() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch() && isNoOption()) {
             manager_permision.setVisibility(View.VISIBLE);
             junk_list_all.setVisibility(View.GONE);
             manager_shouquan.setOnClickListener(new View.OnClickListener() {

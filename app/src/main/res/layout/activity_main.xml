@@ -94,10 +94,10 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="@dimen/d10"
                         app:piv_animationType="drop"
                         app:piv_interactiveAnimation="true"
-                        app:piv_radius="3dp"
+                        app:piv_radius="@dimen/d3"
                         app:piv_viewPager="@id/viewpager" />
 
                 </RelativeLayout>
@@ -124,7 +124,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
+                                android:layout_marginBottom="@dimen/d8"
                                 android:src="@mipmap/main_junk_button" />
 
                             <TextView
@@ -132,7 +132,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/main_junk_name"
                                 android:textColor="@color/black_87"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
                         </com.supers.clean.junk.myView.MyLinearLayout>
 
                         <View
@@ -152,7 +152,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
+                                android:layout_marginBottom="@dimen/d8"
                                 android:src="@mipmap/main_ram_button" />
 
                             <TextView
@@ -160,7 +160,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/main_ram_name"
                                 android:textColor="@color/black_87"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
                         </com.supers.clean.junk.myView.MyLinearLayout>
 
                         <View
@@ -180,7 +180,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
+                                android:layout_marginBottom="@dimen/d8"
                                 android:src="@mipmap/main_manager_button" />
 
                             <TextView
@@ -188,7 +188,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/main_manager_name"
                                 android:textColor="@color/black_87"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
                         </com.supers.clean.junk.myView.MyLinearLayout>
                     </LinearLayout>
 
@@ -214,7 +214,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
+                                android:layout_marginBottom="@dimen/d8"
                                 android:src="@mipmap/main_cooling_button" />
 
                             <TextView
@@ -222,7 +222,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/main_cooling_name"
                                 android:textColor="@color/black_87"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
                         </LinearLayout>
 
                         <View
@@ -242,7 +242,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
+                                android:layout_marginBottom="@dimen/d8"
                                 android:src="@mipmap/main_applock_button" />
 
                             <TextView
@@ -250,7 +250,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/main_aopplock_name"
                                 android:textColor="@color/black_87"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
                         </LinearLayout>
 
 
@@ -271,7 +271,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
+                                android:layout_marginBottom="@dimen/d8"
                                 android:src="@mipmap/main_theme_button" />
 
                             <TextView
@@ -279,7 +279,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/main_theme_name"
                                 android:textColor="@color/black_87"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
                         </com.supers.clean.junk.myView.MyLinearLayout>
                     </com.supers.clean.junk.myView.MyLinearLayout>
 
@@ -300,53 +300,53 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="@dimen/d15"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="19dp"
+                            android:layout_marginLeft="@dimen/d19"
                             android:src="@mipmap/main_rotate_1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="@dimen/d5"
                             android:text="@string/main_rotate_title"
                             android:textColor="@color/black_87"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/s16" />
                     </LinearLayout>
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
+                        android:layout_height="@dimen/d121"
+                        android:layout_marginTop="@dimen/d15"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/main_rotate_2" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="53dp"
-                        android:layout_marginRight="53dp"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginLeft="@dimen/d53"
+                        android:layout_marginRight="@dimen/d53"
+                        android:layout_marginTop="@dimen/d18"
                         android:gravity="center"
                         android:text="@string/main_rotate_msg"
                         android:textColor="#1e88e5"
-                        android:textSize="17sp" />
+                        android:textSize="@dimen/s17" />
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="@dimen/d30"
                         android:background="#e5e5e5" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/d40"
                         android:orientation="horizontal">
 
                         <TextView
@@ -358,7 +358,7 @@
                             android:gravity="center"
                             android:text="@string/main_rotate_bad"
                             android:textColor="@color/black_54"
-                            android:textSize="17sp" />
+                            android:textSize="@dimen/s17" />
 
                         <LinearLayout
                             android:id="@+id/main_rotate_good"
@@ -374,12 +374,12 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/main_rotate_good"
                                 android:textColor="@color/black_54"
-                                android:textSize="17sp" />
+                                android:textSize="@dimen/s17" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="3dp"
+                                android:layout_marginLeft="@dimen/d3"
                                 android:src="@mipmap/main_rotate_3" />
                         </LinearLayout>
 
@@ -387,7 +387,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="16dp"
+                        android:layout_height="@dimen/d16"
                         android:background="#e8e8e8" />
                 </LinearLayout>
 
@@ -403,40 +403,40 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="@dimen/d15"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="19dp"
+                            android:layout_marginLeft="@dimen/d19"
                             android:src="@mipmap/main_rotate_1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="@dimen/d5"
                             android:text="@string/main_msg_title"
                             android:textColor="@color/black_87"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/s16" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:layout_marginRight="@dimen/d16"
                         android:layout_marginTop="@dimen/main_4"
                         android:background="#f1f1f1" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="14dp"
-                        android:layout_marginRight="14dp"
-                        android:layout_marginTop="19dp"
+                        android:layout_marginLeft="@dimen/d14"
+                        android:layout_marginRight="@dimen/d14"
+                        android:layout_marginTop="@dimen/d19"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -464,17 +464,17 @@
                                     android:layout_centerInParent="true"
                                     android:text="96%"
                                     android:textColor="@color/white_100"
-                                    android:textSize="24sp" />
+                                    android:textSize="@dimen/s24" />
                             </RelativeLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="5dp"
+                                android:layout_marginTop="@dimen/d5"
                                 android:text="@string/main_msg_ram"
                                 android:textColor="@color/black_87"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -508,7 +508,7 @@
                                         android:layout_gravity="center_horizontal"
                                         android:text="864"
                                         android:textColor="@color/white_100"
-                                        android:textSize="24sp" />
+                                        android:textSize="@dimen/s24" />
 
                                     <TextView
                                         android:id="@+id/main_msg_sd_unit"
@@ -517,7 +517,7 @@
                                         android:layout_gravity="center_horizontal"
                                         android:text="MB"
                                         android:textColor="@color/white_100"
-                                        android:textSize="12sp" />
+                                        android:textSize="@dimen/s12" />
                                 </LinearLayout>
 
                             </RelativeLayout>
@@ -526,10 +526,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="5dp"
+                                android:layout_marginTop="@dimen/d5"
                                 android:text="@string/main_msg_sd"
                                 android:textColor="@color/black_87"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
 
                         </LinearLayout>
 
@@ -558,17 +558,17 @@
                                     android:layout_centerInParent="true"
                                     android:text="12%"
                                     android:textColor="@color/white_100"
-                                    android:textSize="24sp" />
+                                    android:textSize="@dimen/s24" />
                             </RelativeLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="5dp"
+                                android:layout_marginTop="@dimen/d5"
                                 android:text="@string/main_msg_cpu"
                                 android:textColor="@color/black_87"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
                         </LinearLayout>
 
 
@@ -577,25 +577,25 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="9dp">
+                        android:layout_marginBottom="@dimen/d10"
+                        android:layout_marginTop="@dimen/d9">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginRight="9dp"
+                            android:layout_marginRight="@dimen/d9"
                             android:layout_weight="1"
                             android:gravity="center_horizontal|right"
                             android:text="@string/main_msg_more"
                             android:textColor="#de42a5f5"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/s12" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginRight="24dp"
+                            android:layout_marginRight="@dimen/d24"
                             android:src="@mipmap/main_msg_1" />
                     </LinearLayout>
                 </LinearLayout>
@@ -604,7 +604,9 @@
                     android:id="@+id/ll_ad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" />
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/d16"
+                    android:paddingRight="@dimen/d16" />
                 <!--守护信息-->
                 <FrameLayout
                     android:id="@+id/main_guard_all"
@@ -637,16 +639,16 @@
                             android:layout_height="wrap_content"
                             android:text="@string/app_name"
                             android:textColor="@color/black_54"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/s12" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="2dp"
+                            android:layout_marginLeft="@dimen/d2"
                             android:layout_toRightOf="@id/main_gurad_app_name"
                             android:text="@string/main_guard_title"
                             android:textColor="@color/black_54"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/s12" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -661,7 +663,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="11"
                                 android:textColor="@color/black_54"
-                                android:textSize="20sp" />
+                                android:textSize="@dimen/s20" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -669,7 +671,7 @@
                                 android:layout_toRightOf="@id/main_gurad_app_name"
                                 android:text="@string/main_guard_unit"
                                 android:textColor="@color/black_54"
-                                android:textSize="12sp" />
+                                android:textSize="@dimen/s12" />
                         </LinearLayout>
                     </RelativeLayout>
                 </FrameLayout>

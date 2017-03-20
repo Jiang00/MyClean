@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.android.themeshop.ShopMaster;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PhoneManager;
@@ -48,6 +49,7 @@ public class LoadingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         AndroidSdk.Builder builder = new AndroidSdk.Builder();
         AndroidSdk.onCreate(this, builder);
+        ShopMaster.onCreate(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
         ShortCutUtils.addShortcut(this);

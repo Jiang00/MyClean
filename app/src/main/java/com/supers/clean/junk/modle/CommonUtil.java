@@ -353,7 +353,7 @@ public class CommonUtil {
     }
 
     //是否安装该应用
-    public boolean isPkgInstalled(String pkgName, PackageManager pm) {
+    public static boolean isPkgInstalled(String pkgName, PackageManager pm) {
         PackageInfo packageInfo = null;
         try {
             packageInfo = pm.getPackageInfo(pkgName, 0);

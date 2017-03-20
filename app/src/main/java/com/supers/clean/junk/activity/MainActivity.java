@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -17,6 +18,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +34,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
+import com.android.common.SdkEnv;
+import com.android.themeshop.ShopMaster;
+import com.android.themeshop.internal.Theme;
 import com.eos.manager.page.SecuritySharPFive;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.manager.AppLockPatternEosActivity;
+import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
@@ -81,6 +87,7 @@ public class MainActivity extends BaseActivity implements MainView {
     ListView side_listView;
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side;
+    LottieAnimationView lot_side;
 
     private String TAG_MAIN = "eos_main";
     private String TAG_HUA = "eos_hua";
@@ -131,6 +138,7 @@ public class MainActivity extends BaseActivity implements MainView {
         side_listView = (ListView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
+        lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
     }
 
     @Override
@@ -155,10 +163,19 @@ public class MainActivity extends BaseActivity implements MainView {
         main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
 
 
+        View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
+        LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
         View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad);
         arrayList.add(view);
         if (adView != null) {
-            arrayList.add(adView);
+            ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
+            if (adView.getHeight() == CommonUtil.dp2px(250)) {
+                layout_ad.height = CommonUtil.dp2px(250);
+            }
+            view_ad.setLayoutParams(layout_ad);
+            view_ad.addView(adView);
+            view_ad.setGravity(Gravity.CENTER);
+            arrayList.add(view_ad);
         }
         final ViewPager viewpager = (ViewPager) findViewById(R.id.viewpager);
 
@@ -202,6 +219,11 @@ public class MainActivity extends BaseActivity implements MainView {
         initHandler();
 
         AndroidSdk.track("主页面", "进入主页面", "", 1);
+
+        lot_side.setImageAssetsFolder("images/sideClean/");
+        lot_side.setAnimation("sideClean.json");
+        lot_side.loop(true);
+        lot_side.playAnimation();
     }
 
     private void initHandler() {
@@ -368,12 +390,13 @@ public class MainActivity extends BaseActivity implements MainView {
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 Log.e("aaa", "=====" + layout_ad.height);
-                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
+                if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
                     layout_ad.height = CommonUtil.dp2px(250);
                 }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
-                main_scroll_view.fullScroll(ScrollView.FOCUS_UP);
+//                main_scroll_view.fullScroll(ScrollView.FOCUS_UP);
+                main_scroll_view.setScrollY(0);
             }
             View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad);
             if (ll_ad_side != null && nativeView_side != null) {
@@ -591,7 +614,13 @@ public class MainActivity extends BaseActivity implements MainView {
                     break;
                 case R.id.main_theme_button:
                     AndroidSdk.track("主页面", "点击主题按钮", "", 1);
-                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
+//                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
+                    final Context context = SdkEnv.context();
+                    ShopMaster.applyTheme(getApplicationContext(), "theme_preview_two", true);
+                    ShopMaster.launch(context,
+                            new Theme(R.raw.battery_0, context.getPackageName())
+//                            ,new Theme(R.raw.theme_preview_two, "theme_preview_two")
+                    );
                     break;
                 case R.id.main_rotate_bad:
                     AndroidSdk.track("主页面", "点击好评bad按钮", "", 1);

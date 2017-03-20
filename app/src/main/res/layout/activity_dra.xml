@@ -29,7 +29,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="154dp"
+                    android:layout_height="@dimen/d154"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/side_title_1" />
 
@@ -37,14 +37,14 @@
                     android:id="@+id/ll_ad_side"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"/>
+                    android:orientation="vertical" />
 
             </FrameLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/d8"
                 android:orientation="vertical">
 
                 <ListView
@@ -53,7 +53,13 @@
                     android:layout_height="wrap_content"
                     android:divider="#00000000"
                     android:dividerHeight="0dp" />
-            </LinearLayout>
+
+                <com.eos.module.charge.saver.lottie.LottieAnimationView
+                    android:id="@+id/lot_side"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
         </LinearLayout>
     </com.supers.clean.junk.myView.MainFrameLayout>
 

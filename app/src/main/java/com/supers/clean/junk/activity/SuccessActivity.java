@@ -119,7 +119,7 @@ public class SuccessActivity extends BaseActivity {
                     success_jiantou.setVisibility(View.INVISIBLE);
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
-            }, 3000);
+            }, 4000);
 
         } else {
             addAd();
