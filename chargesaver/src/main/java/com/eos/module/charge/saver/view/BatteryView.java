@@ -99,6 +99,9 @@ public class BatteryView extends FrameLayout {
 
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
     private void showNativeAD() {
+//        adView = new LinearLayout(mContext);
+//        adView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+//        adView.setBackgroundColor(Color.RED);
         adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, new ADRequest.ICustomNativeADClicked() {
             @Override
             public void onNativeADClicked(ClientNativeAd clientNativeAd) {
@@ -121,6 +124,10 @@ public class BatteryView extends FrameLayout {
                     float startX = event.getX();
                     detector.onTouchEvent(event);
                     switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            break;
+                        case MotionEvent.ACTION_MOVE:
+                            break;
                         case MotionEvent.ACTION_UP:
                             if((event.getX() - startX) > 50 || (startX - event.getX()) > 50){
                                 return true;
