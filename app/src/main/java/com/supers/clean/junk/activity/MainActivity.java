@@ -16,6 +16,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -37,6 +38,9 @@ import com.android.client.AndroidSdk;
 import com.android.common.SdkEnv;
 import com.android.themeshop.ShopMaster;
 import com.android.themeshop.internal.Theme;
+import com.eos.manager.AccessibilityService;
+import com.eos.manager.AppLockPermissionActivity;
+import com.eos.manager.Tracker;
 import com.eos.manager.page.SecuritySharPFive;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
@@ -106,6 +110,9 @@ public class MainActivity extends BaseActivity implements MainView {
     private SideAdapter adapter;
     private long mExitTime;
     private int temp;
+    private ViewPager viewpager;
+    private PagerAdapter pagerAdapter;
+    private View pageView;
 
     @Override
     protected void findId() {
@@ -161,7 +168,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_ram_per = (TextView) view.findViewById(R.id.main_ram_per);
         main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
         main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
-
+        pageView = findViewById(R.id.pageindicatorview);
 
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
@@ -175,11 +182,45 @@ public class MainActivity extends BaseActivity implements MainView {
             view_ad.setLayoutParams(layout_ad);
             view_ad.addView(adView);
             view_ad.setGravity(Gravity.CENTER);
-            arrayList.add(view_ad);
+            arrayList.add(viewpager_2);
+        } else if (!isAccessibilitySettingsOn(this)) {
+            final View viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_permiss, null);
+            RelativeLayout permiss_ok = (RelativeLayout) viewpager_3.findViewById(R.id.permiss_ok);
+            TextView permiss_cancle = (TextView) viewpager_3.findViewById(R.id.permiss_cancle);
+            permiss_ok.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                    startActivity(intent);
+                    try {
+                        new Thread().sleep(1500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Intent transintent = new Intent(MainActivity.this, AppLockPermissionActivity.class);
+                    startActivity(transintent);
+                    pageView.setVisibility(View.GONE);
+                    viewpager.setCurrentItem(0);
+                    viewpager.removeView(viewpager_3);
+                    arrayList.remove(viewpager_3);
+                    pagerAdapter.notifyDataSetChanged();
+                }
+            });
+            permiss_cancle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    pageView.setVisibility(View.GONE);
+                    viewpager.setCurrentItem(0);
+                    viewpager.removeView(viewpager_3);
+                    arrayList.remove(viewpager_3);
+                    pagerAdapter.notifyDataSetChanged();
+                }
+            });
+            arrayList.add(viewpager_3);
         }
-        final ViewPager viewpager = (ViewPager) findViewById(R.id.viewpager);
+        viewpager = (ViewPager) findViewById(R.id.viewpager);
 
-        viewpager.setAdapter(new PagerAdapter() {
+        viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
             @Override
             public int getCount() {
                 return arrayList.size();
@@ -194,6 +235,7 @@ public class MainActivity extends BaseActivity implements MainView {
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
                 container.removeView(arrayList.get(position));
+
             }
 
             @Override
@@ -202,8 +244,7 @@ public class MainActivity extends BaseActivity implements MainView {
             }
         });
 
-        if (adView == null) {
-            View pageView = findViewById(R.id.pageindicatorview);
+        if (adView == null && isAccessibilitySettingsOn(this)) {
             pageView.setVisibility(View.GONE);
         } else {
             view.postDelayed(new Runnable() {
@@ -225,6 +266,69 @@ public class MainActivity extends BaseActivity implements MainView {
 //        lot_side.loop(true);
 //        lot_side.playAnimation();
     }
+
+    public static void showPermission(final Context c) {
+        final View alertDialogView = View.inflate(c, com.privacy.lock.R.layout.security_show_permission, null);
+        final android.support.v7.app.AlertDialog d = new android.support.v7.app.AlertDialog.Builder(c, com.privacy.lock.R.style.dialog).create();
+        d.setView(alertDialogView);
+        d.setCanceledOnTouchOutside(false);
+        d.show();
+        alertDialogView.findViewById(com.privacy.lock.R.id.ok).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d.cancel();
+                final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                c.startActivity(intent);
+                try {
+                    new Thread().sleep(1500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                Intent transintent = new Intent(c, AppLockPermissionActivity.class);
+                c.startActivity(transintent);
+                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
+            }
+        });
+
+        alertDialogView.findViewById(com.privacy.lock.R.id.cancle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_CANCLE, 1L);
+                d.cancel();
+            }
+        });
+    }
+
+    // To check if service is enabled
+    private boolean isAccessibilitySettingsOn(Context mContext) {
+        int accessibilityEnabled = 0;
+        final String service = getPackageName() + "/" + AccessibilityService.class.getCanonicalName();
+        try {
+            accessibilityEnabled = Settings.Secure.getInt(
+                    mContext.getApplicationContext().getContentResolver(),
+                    android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
+        } catch (Settings.SettingNotFoundException e) {
+        }
+        TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
+        if (accessibilityEnabled == 1) {
+            String settingValue = Settings.Secure.getString(
+                    mContext.getApplicationContext().getContentResolver(),
+                    Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+            if (settingValue != null) {
+                mStringColonSplitter.setString(settingValue);
+                while (mStringColonSplitter.hasNext()) {
+                    String accessibilityService = mStringColonSplitter.next();
+                    if (accessibilityService.equalsIgnoreCase(service)) {
+                        return true;
+                    }
+                }
+            }
+        } else {
+        }
+        return false;
+    }
+
 
     private void initHandler() {
         handler = new Handler();
