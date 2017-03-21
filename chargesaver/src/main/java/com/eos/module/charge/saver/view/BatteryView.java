@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -19,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.android.client.ClientNativeAd;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
@@ -65,6 +67,7 @@ public class BatteryView extends FrameLayout {
     private LottieAnimationView shell;
     private LottieAnimationView water;
     private LottieAnimationView lighting;
+    private int halfWidth;
 
     public interface UnlockListener {
         void onUnlock();
@@ -95,9 +98,24 @@ public class BatteryView extends FrameLayout {
     };
 
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
-
+    boolean isMove = false;
     private void showNativeAD() {
-        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, null);
+
+        adView = new LinearLayout(mContext);
+        adView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+        adView.setBackgroundColor(Color.RED);
+        adView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("MyTest", "ad click");
+            }
+        });
+//        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, new ADRequest.ICustomNativeADClicked() {
+//            @Override
+//            public void onNativeADClicked(ClientNativeAd clientNativeAd) {
+//                Log.d("MyTest", "ad click ");
+//            }
+//        });
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);
@@ -108,6 +126,45 @@ public class BatteryView extends FrameLayout {
             }
             adLayout.removeAllViews();
             adLayout.addView(adView);
+            adView.setOnTouchListener(new OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    float startX = 0;
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            Log.d("MyTest", "ad touch down");
+                            startX = event.getX();
+                            break;
+                        case MotionEvent.ACTION_MOVE:
+                            Log.d("MyTest", "ad touch move");
+                            if ((event.getX() - startX) > halfWidth) {
+                                if (listener != null) {
+                                    Log.d("MyTest", "ad touch move alpha change listener != null");
+                                    batteryView.setAlpha(1.0f);
+                                    listener.onUnlock();
+                                }
+                            } else {
+                                Log.d("MyTest", "ad touch move alpha change ");
+                                if (batteryView != null) {
+                                    Log.d("MyTest", "ad touch move alpha change batteryView=" + batteryView);
+                                    batteryView.setAlpha(1.0f);
+                                }
+                            }
+                            isMove = true;
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            Log.d("MyTest", "ad touch up");
+                            if (isMove) {
+                                isMove = false;
+                                return true;
+                            } else {
+                                break;
+                            }
+
+                    }
+                    return false;
+                }
+            });
         }
     }
 
@@ -230,7 +287,7 @@ public class BatteryView extends FrameLayout {
 
             showNativeAD();
 
-            final int halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 1.3f);
+            halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 1.3f);
             setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
@@ -247,9 +304,6 @@ public class BatteryView extends FrameLayout {
                         } else {
                             if (batteryView != null) {
                                 batteryView.setAlpha(1.0f);
-//                                ObjectAnimator animator = ObjectAnimator.ofFloat(batteryView, View.ALPHA, 0);
-//                                animator.setDuration(500);
-//                                animator.start();
                             }
                         }
                     }
