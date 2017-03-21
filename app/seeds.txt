@@ -29704,6 +29704,7 @@ com.eos.module.charge.saver.R$attr: int initialActivityCount
 com.eos.module.charge.saver.R$attr: int isLightTheme
 com.eos.module.charge.saver.R$attr: int itemPadding
 com.eos.module.charge.saver.R$attr: int layout
+com.eos.module.charge.saver.R$attr: int layoutManager
 com.eos.module.charge.saver.R$attr: int listChoiceBackgroundIndicator
 com.eos.module.charge.saver.R$attr: int listDividerAlertDialog
 com.eos.module.charge.saver.R$attr: int listItemLayout
@@ -29746,6 +29747,7 @@ com.eos.module.charge.saver.R$attr: int queryBackground
 com.eos.module.charge.saver.R$attr: int queryHint
 com.eos.module.charge.saver.R$attr: int radioButtonStyle
 com.eos.module.charge.saver.R$attr: int ratingBarStyle
+com.eos.module.charge.saver.R$attr: int reverseLayout
 com.eos.module.charge.saver.R$attr: int searchHintIcon
 com.eos.module.charge.saver.R$attr: int searchIcon
 com.eos.module.charge.saver.R$attr: int searchViewStyle
@@ -29758,10 +29760,12 @@ com.eos.module.charge.saver.R$attr: int showAsAction
 com.eos.module.charge.saver.R$attr: int showDividers
 com.eos.module.charge.saver.R$attr: int showText
 com.eos.module.charge.saver.R$attr: int singleChoiceItemLayout
+com.eos.module.charge.saver.R$attr: int spanCount
 com.eos.module.charge.saver.R$attr: int spinBars
 com.eos.module.charge.saver.R$attr: int spinnerDropDownItemStyle
 com.eos.module.charge.saver.R$attr: int spinnerStyle
 com.eos.module.charge.saver.R$attr: int splitTrack
+com.eos.module.charge.saver.R$attr: int stackFromEnd
 com.eos.module.charge.saver.R$attr: int state_above_anchor
 com.eos.module.charge.saver.R$attr: int submitBackground
 com.eos.module.charge.saver.R$attr: int subtitle
@@ -30005,6 +30009,7 @@ com.eos.module.charge.saver.R$dimen: int highlight_alpha_material_light
 com.eos.module.charge.saver.R$dimen: int icon_h
 com.eos.module.charge.saver.R$dimen: int icon_p
 com.eos.module.charge.saver.R$dimen: int icon_w
+com.eos.module.charge.saver.R$dimen: int item_touch_helper_max_drag_scroll_per_frame
 com.eos.module.charge.saver.R$dimen: int left
 com.eos.module.charge.saver.R$dimen: int msg_16
 com.eos.module.charge.saver.R$dimen: int msg_250
@@ -30196,6 +30201,7 @@ com.eos.module.charge.saver.R$id: int icon
 com.eos.module.charge.saver.R$id: int ifRoom
 com.eos.module.charge.saver.R$id: int image
 com.eos.module.charge.saver.R$id: int info
+com.eos.module.charge.saver.R$id: int item_touch_helper_previous_elevation
 com.eos.module.charge.saver.R$id: int line1
 com.eos.module.charge.saver.R$id: int line3
 com.eos.module.charge.saver.R$id: int listMode
@@ -30813,6 +30819,12 @@ com.eos.module.charge.saver.R$styleable: int[] PopupWindowBackgroundState
 com.eos.module.charge.saver.R$styleable: int PopupWindowBackgroundState_state_above_anchor
 com.eos.module.charge.saver.R$styleable: int PopupWindow_android_popupBackground
 com.eos.module.charge.saver.R$styleable: int PopupWindow_overlapAnchor
+com.eos.module.charge.saver.R$styleable: int[] RecyclerView
+com.eos.module.charge.saver.R$styleable: int RecyclerView_android_orientation
+com.eos.module.charge.saver.R$styleable: int RecyclerView_layoutManager
+com.eos.module.charge.saver.R$styleable: int RecyclerView_reverseLayout
+com.eos.module.charge.saver.R$styleable: int RecyclerView_spanCount
+com.eos.module.charge.saver.R$styleable: int RecyclerView_stackFromEnd
 com.eos.module.charge.saver.R$styleable: int[] SearchView
 com.eos.module.charge.saver.R$styleable: int SearchView_android_focusable
 com.eos.module.charge.saver.R$styleable: int SearchView_android_imeOptions
@@ -32569,6 +32581,7 @@ com.privacy.api.R$attr: int initialActivityCount
 com.privacy.api.R$attr: int isLightTheme
 com.privacy.api.R$attr: int itemPadding
 com.privacy.api.R$attr: int layout
+com.privacy.api.R$attr: int layoutManager
 com.privacy.api.R$attr: int listChoiceBackgroundIndicator
 com.privacy.api.R$attr: int listDividerAlertDialog
 com.privacy.api.R$attr: int listItemLayout
@@ -32603,6 +32616,7 @@ com.privacy.api.R$attr: int queryBackground
 com.privacy.api.R$attr: int queryHint
 com.privacy.api.R$attr: int radioButtonStyle
 com.privacy.api.R$attr: int ratingBarStyle
+com.privacy.api.R$attr: int reverseLayout
 com.privacy.api.R$attr: int searchHintIcon
 com.privacy.api.R$attr: int searchIcon
 com.privacy.api.R$attr: int searchViewStyle
@@ -32613,10 +32627,12 @@ com.privacy.api.R$attr: int showAsAction
 com.privacy.api.R$attr: int showDividers
 com.privacy.api.R$attr: int showText
 com.privacy.api.R$attr: int singleChoiceItemLayout
+com.privacy.api.R$attr: int spanCount
 com.privacy.api.R$attr: int spinBars
 com.privacy.api.R$attr: int spinnerDropDownItemStyle
 com.privacy.api.R$attr: int spinnerStyle
 com.privacy.api.R$attr: int splitTrack
+com.privacy.api.R$attr: int stackFromEnd
 com.privacy.api.R$attr: int state_above_anchor
 com.privacy.api.R$attr: int submitBackground
 com.privacy.api.R$attr: int subtitle
@@ -32809,6 +32825,7 @@ com.privacy.api.R$dimen: int disabled_alpha_material_light
 com.privacy.api.R$dimen: int highlight_alpha_material_colored
 com.privacy.api.R$dimen: int highlight_alpha_material_dark
 com.privacy.api.R$dimen: int highlight_alpha_material_light
+com.privacy.api.R$dimen: int item_touch_helper_max_drag_scroll_per_frame
 com.privacy.api.R$dimen: int notification_large_icon_height
 com.privacy.api.R$dimen: int notification_large_icon_width
 com.privacy.api.R$dimen: int notification_subtext_size
@@ -32912,6 +32929,7 @@ com.privacy.api.R$id: int icon
 com.privacy.api.R$id: int ifRoom
 com.privacy.api.R$id: int image
 com.privacy.api.R$id: int info
+com.privacy.api.R$id: int item_touch_helper_previous_elevation
 com.privacy.api.R$id: int line1
 com.privacy.api.R$id: int line3
 com.privacy.api.R$id: int listMode
@@ -33458,6 +33476,12 @@ com.privacy.api.R$styleable: int[] PopupWindowBackgroundState
 com.privacy.api.R$styleable: int PopupWindowBackgroundState_state_above_anchor
 com.privacy.api.R$styleable: int PopupWindow_android_popupBackground
 com.privacy.api.R$styleable: int PopupWindow_overlapAnchor
+com.privacy.api.R$styleable: int[] RecyclerView
+com.privacy.api.R$styleable: int RecyclerView_android_orientation
+com.privacy.api.R$styleable: int RecyclerView_layoutManager
+com.privacy.api.R$styleable: int RecyclerView_reverseLayout
+com.privacy.api.R$styleable: int RecyclerView_spanCount
+com.privacy.api.R$styleable: int RecyclerView_stackFromEnd
 com.privacy.api.R$styleable: int[] SearchView
 com.privacy.api.R$styleable: int SearchView_android_focusable
 com.privacy.api.R$styleable: int SearchView_android_imeOptions
@@ -33678,6 +33702,7 @@ com.privacy.lock.R$attr: int initialActivityCount
 com.privacy.lock.R$attr: int isLightTheme
 com.privacy.lock.R$attr: int itemPadding
 com.privacy.lock.R$attr: int layout
+com.privacy.lock.R$attr: int layoutManager
 com.privacy.lock.R$attr: int listChoiceBackgroundIndicator
 com.privacy.lock.R$attr: int listDividerAlertDialog
 com.privacy.lock.R$attr: int listItemLayout
@@ -33712,6 +33737,7 @@ com.privacy.lock.R$attr: int queryBackground
 com.privacy.lock.R$attr: int queryHint
 com.privacy.lock.R$attr: int radioButtonStyle
 com.privacy.lock.R$attr: int ratingBarStyle
+com.privacy.lock.R$attr: int reverseLayout
 com.privacy.lock.R$attr: int searchHintIcon
 com.privacy.lock.R$attr: int searchIcon
 com.privacy.lock.R$attr: int searchViewStyle
@@ -33722,10 +33748,12 @@ com.privacy.lock.R$attr: int showAsAction
 com.privacy.lock.R$attr: int showDividers
 com.privacy.lock.R$attr: int showText
 com.privacy.lock.R$attr: int singleChoiceItemLayout
+com.privacy.lock.R$attr: int spanCount
 com.privacy.lock.R$attr: int spinBars
 com.privacy.lock.R$attr: int spinnerDropDownItemStyle
 com.privacy.lock.R$attr: int spinnerStyle
 com.privacy.lock.R$attr: int splitTrack
+com.privacy.lock.R$attr: int stackFromEnd
 com.privacy.lock.R$attr: int state_above_anchor
 com.privacy.lock.R$attr: int submitBackground
 com.privacy.lock.R$attr: int subtitle
@@ -34045,6 +34073,7 @@ com.privacy.lock.R$dimen: int highlight_alpha_material_dark
 com.privacy.lock.R$dimen: int highlight_alpha_material_light
 com.privacy.lock.R$dimen: int icon_padding_top
 com.privacy.lock.R$dimen: int icon_size
+com.privacy.lock.R$dimen: int item_touch_helper_max_drag_scroll_per_frame
 com.privacy.lock.R$dimen: int lock_icon
 com.privacy.lock.R$dimen: int menu_height
 com.privacy.lock.R$dimen: int noti_icon
@@ -34393,6 +34422,7 @@ com.privacy.lock.R$id: int inder_two_set
 com.privacy.lock.R$id: int info
 com.privacy.lock.R$id: int intrude_new_i
 com.privacy.lock.R$id: int intrude_set
+com.privacy.lock.R$id: int item_touch_helper_previous_elevation
 com.privacy.lock.R$id: int layout
 com.privacy.lock.R$id: int layout_clear_search_text
 com.privacy.lock.R$id: int left
@@ -35245,6 +35275,12 @@ com.privacy.lock.R$styleable: int[] PopupWindowBackgroundState
 com.privacy.lock.R$styleable: int PopupWindowBackgroundState_state_above_anchor
 com.privacy.lock.R$styleable: int PopupWindow_android_popupBackground
 com.privacy.lock.R$styleable: int PopupWindow_overlapAnchor
+com.privacy.lock.R$styleable: int[] RecyclerView
+com.privacy.lock.R$styleable: int RecyclerView_android_orientation
+com.privacy.lock.R$styleable: int RecyclerView_layoutManager
+com.privacy.lock.R$styleable: int RecyclerView_reverseLayout
+com.privacy.lock.R$styleable: int RecyclerView_spanCount
+com.privacy.lock.R$styleable: int RecyclerView_stackFromEnd
 com.privacy.lock.R$styleable: int[] SearchView
 com.privacy.lock.R$styleable: int SearchView_android_focusable
 com.privacy.lock.R$styleable: int SearchView_android_imeOptions
@@ -39583,6 +39619,8 @@ com.supers.clean.junk.R$id: int ll_zi
 com.supers.clean.junk.R$id: int load_text_3
 com.supers.clean.junk.R$id: int lock
 com.supers.clean.junk.R$id: int lockscreen_normal_bar
+com.supers.clean.junk.R$id: int lot_main
+com.supers.clean.junk.R$id: int lot_setting
 com.supers.clean.junk.R$id: int lot_side
 com.supers.clean.junk.R$id: int lottie_layer_name
 com.supers.clean.junk.R$id: int lpv_lock
@@ -39625,6 +39663,7 @@ com.supers.clean.junk.R$id: int main_sd_air_button
 com.supers.clean.junk.R$id: int main_sd_per
 com.supers.clean.junk.R$id: int main_sd_size
 com.supers.clean.junk.R$id: int main_theme_button
+com.supers.clean.junk.R$id: int main_tuiguang_button
 com.supers.clean.junk.R$id: int manager_button_pinlv
 com.supers.clean.junk.R$id: int manager_button_size
 com.supers.clean.junk.R$id: int manager_button_time
@@ -40173,6 +40212,7 @@ com.supers.clean.junk.R$mipmap: int white_list_right
 com.supers.clean.junk.R$raw: int a7dog
 com.supers.clean.junk.R$raw: int adog
 com.supers.clean.junk.R$raw: int battery_0
+com.supers.clean.junk.R$raw: int battery_1
 com.supers.clean.junk.R$raw: int notices
 com.supers.clean.junk.R$raw: int shutter
 com.supers.clean.junk.R$raw: int xdog
@@ -40259,6 +40299,7 @@ com.supers.clean.junk.R$string: int main_msg_more
 com.supers.clean.junk.R$string: int main_msg_ram
 com.supers.clean.junk.R$string: int main_msg_sd
 com.supers.clean.junk.R$string: int main_msg_title
+com.supers.clean.junk.R$string: int main_msg_tuiguang
 com.supers.clean.junk.R$string: int main_ram_name
 com.supers.clean.junk.R$string: int main_rotate_bad
 com.supers.clean.junk.R$string: int main_rotate_good
@@ -41512,7 +41553,9 @@ com.supers.clean.junk.modle.entity.JsonData: int full_setting
 com.supers.clean.junk.modle.entity.JsonData: int full_unload
 com.supers.clean.junk.modle.entity.JsonData: int full_float
 com.supers.clean.junk.modle.entity.JsonData: int full_cool
+com.supers.clean.junk.modle.entity.JsonData: int full_shortcut
 com.supers.clean.junk.modle.entity.JsonData: int charging
+com.supers.clean.junk.modle.entity.JsonData: java.util.List tuiguang
 com.supers.clean.junk.modle.entity.JsonData: java.util.List packageName
 com.supers.clean.junk.modle.entity.JsonData: JsonData()
 com.supers.clean.junk.modle.entity.JunkInfo
