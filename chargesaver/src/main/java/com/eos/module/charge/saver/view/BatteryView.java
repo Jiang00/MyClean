@@ -129,6 +129,11 @@ public class BatteryView extends FrameLayout {
                     case MotionEvent.ACTION_CANCEL:
                     case MotionEvent.ACTION_UP:
                         if((event.getX() - startX) > 20 || (startX - event.getX()) > 20){
+                            if ((event.getX() - startX) > halfWidth / 2) {
+                                if (listener != null) {
+                                    listener.onUnlock();
+                                }
+                            }
                             return true;
                         } else {
                             break;
