@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.res.AssetManager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -21,6 +20,9 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.android.theme.ThemeInfo;
+import com.android.theme.ThemeManager;
+import com.android.themeshop.ShopMaster;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
@@ -28,8 +30,6 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.entry.BatteryEntry;
 import com.eos.module.charge.saver.lottie.LottieAnimationView;
-import com.eos.module.charge.saver.lottie.LottieComposition;
-import com.eos.module.charge.saver.lottie.OnCompositionLoadedListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -232,8 +232,8 @@ public class BatteryView extends FrameLayout {
 
     private void initShell(){
         try{
-            String themePkg = (String) Utils.readData(mContext, "theme_one", "");
-            Context themeContext = mContext.createPackageContext(themePkg, Context.CONTEXT_IGNORE_SECURITY);
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             shell.setImageAssetsFolder(themeContext, "theme://images/shell");
             shell.setAnimation(themeContext, "theme://shell.json");
             shell.loop(true);
@@ -248,8 +248,8 @@ public class BatteryView extends FrameLayout {
 
     private void initWater(){
         try{
-            String themePkg = (String) Utils.readData(mContext, "theme_one", "");
-            Context themeContext = mContext.createPackageContext(themePkg, Context.CONTEXT_IGNORE_SECURITY);
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             water.setImageAssetsFolder(themeContext, "theme://images/water");
             water.setAnimation(themeContext, "theme://water.json");
         } catch (Exception e) {
@@ -264,8 +264,8 @@ public class BatteryView extends FrameLayout {
 
     private void initLighting(){
         try{
-            String themePkg = (String) Utils.readData(mContext, "theme_one", "");
-            Context themeContext = mContext.createPackageContext(themePkg, Context.CONTEXT_IGNORE_SECURITY);
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             lighting.setImageAssetsFolder(themeContext, "theme://images/lighting");
             lighting.setAnimation(themeContext, "theme://lighting.json");
         } catch (Exception e) {

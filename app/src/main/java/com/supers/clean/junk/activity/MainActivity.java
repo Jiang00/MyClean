@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.android.common.SdkEnv;
+import com.android.theme.ThemeManager;
 import com.android.themeshop.ShopMaster;
 import com.android.themeshop.internal.Theme;
 import com.eos.manager.page.SecuritySharPFive;
@@ -159,22 +160,9 @@ public class MainActivity extends BaseActivity implements MainView {
         instance = this;
         setContentView(R.layout.activity_dra);
 
-        try {
-            Intent intent = getIntent();
-            if (intent.hasExtra("theme_package_name")) {
-                String pkgName = intent.getExtras().getString("theme_package_name", "");
-                Context themeContext = createPackageContext(pkgName, Context.CONTEXT_IGNORE_SECURITY);
-                Resources res = themeContext.getResources();
-                String type = res.getString(res.getIdentifier("type", "string", pkgName));
-                if (type != null) {
-                    if (type.equals("type_one")) {
-                        Utils.writeData(this, "theme_one", pkgName);
-                    } else if (type.equals("type_two")) {
-                        Utils.writeData(this, "theme_two", pkgName);
-                    }
-                }
-                themeContext = null;
-            }
+        try{
+            String pkg = getIntent().getExtras().getString("theme_package_name");
+            ThemeManager.applyTheme(this, pkg, false);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -681,10 +669,10 @@ public class MainActivity extends BaseActivity implements MainView {
                     AndroidSdk.track("主页面", "点击主题按钮", "", 1);
 //                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
                     final Context context = SdkEnv.context();
-                    ShopMaster.applyTheme(getApplicationContext(), "theme_preview_two", true);
+//                    ShopMaster.applyTheme(getApplicationContext(), "theme_preview_two", true);
                     ShopMaster.launch(MainActivity.this,
                             new Theme(R.raw.battery_0, context.getPackageName())
-                            , new Theme(R.raw.battery_1, context.getPackageName())
+//                            , new Theme(R.raw.battery_1, context.getPackageName())
 //                            ,new Theme(R.raw.theme_preview_two, "theme_preview_two")
                     );
                     break;

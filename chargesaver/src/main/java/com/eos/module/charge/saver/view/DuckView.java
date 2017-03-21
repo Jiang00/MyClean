@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.android.theme.ThemeManager;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
@@ -334,8 +335,8 @@ public class DuckView extends FrameLayout {
 
     private void initShell(){
         try{
-            String themePkg = (String) Utils.readData(mContext, "theme_two", "");
-            Context themeContext = mContext.createPackageContext(themePkg, Context.CONTEXT_IGNORE_SECURITY);
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             shell.setImageAssetsFolder(themeContext, "theme://images/shell");
             shell.setAnimation(themeContext, "theme://shell.json");
             shell.loop(true);
@@ -350,8 +351,8 @@ public class DuckView extends FrameLayout {
 
     private void initWater(){
         try{
-            String themePkg = (String) Utils.readData(mContext, "theme_two", "");
-            Context themeContext = mContext.createPackageContext(themePkg, Context.CONTEXT_IGNORE_SECURITY);
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             water.setImageAssetsFolder(themeContext, "theme://images/water");
             water.setAnimation(themeContext, "theme://water.json");
         } catch (Exception e) {
