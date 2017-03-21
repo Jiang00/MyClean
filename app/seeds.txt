@@ -20293,6 +20293,60 @@ android.support.v7.appcompat.R$styleable: int View_paddingStart
 android.support.v7.appcompat.R$styleable: int View_theme
 android.support.v7.appcompat.R$styleable: R$styleable()
 android.support.v7.appcompat.R$styleable: void <clinit>()
+android.support.v7.cardview.BuildConfig
+android.support.v7.cardview.BuildConfig: boolean DEBUG
+android.support.v7.cardview.BuildConfig: java.lang.String APPLICATION_ID
+android.support.v7.cardview.BuildConfig: java.lang.String BUILD_TYPE
+android.support.v7.cardview.BuildConfig: java.lang.String FLAVOR
+android.support.v7.cardview.BuildConfig: int VERSION_CODE
+android.support.v7.cardview.BuildConfig: java.lang.String VERSION_NAME
+android.support.v7.cardview.BuildConfig: BuildConfig()
+android.support.v7.cardview.R
+android.support.v7.cardview.R: R()
+android.support.v7.cardview.R$attr
+android.support.v7.cardview.R$attr: int cardBackgroundColor
+android.support.v7.cardview.R$attr: int cardCornerRadius
+android.support.v7.cardview.R$attr: int cardElevation
+android.support.v7.cardview.R$attr: int cardMaxElevation
+android.support.v7.cardview.R$attr: int cardPreventCornerOverlap
+android.support.v7.cardview.R$attr: int cardUseCompatPadding
+android.support.v7.cardview.R$attr: int contentPadding
+android.support.v7.cardview.R$attr: int contentPaddingBottom
+android.support.v7.cardview.R$attr: int contentPaddingLeft
+android.support.v7.cardview.R$attr: int contentPaddingRight
+android.support.v7.cardview.R$attr: int contentPaddingTop
+android.support.v7.cardview.R$attr: R$attr()
+android.support.v7.cardview.R$color
+android.support.v7.cardview.R$color: int cardview_dark_background
+android.support.v7.cardview.R$color: int cardview_light_background
+android.support.v7.cardview.R$color: int cardview_shadow_end_color
+android.support.v7.cardview.R$color: int cardview_shadow_start_color
+android.support.v7.cardview.R$color: R$color()
+android.support.v7.cardview.R$dimen
+android.support.v7.cardview.R$dimen: int cardview_compat_inset_shadow
+android.support.v7.cardview.R$dimen: int cardview_default_elevation
+android.support.v7.cardview.R$dimen: int cardview_default_radius
+android.support.v7.cardview.R$dimen: R$dimen()
+android.support.v7.cardview.R$style
+android.support.v7.cardview.R$style: int CardView
+android.support.v7.cardview.R$style: int CardView_Dark
+android.support.v7.cardview.R$style: int CardView_Light
+android.support.v7.cardview.R$style: R$style()
+android.support.v7.cardview.R$styleable
+android.support.v7.cardview.R$styleable: int[] CardView
+android.support.v7.cardview.R$styleable: int CardView_cardBackgroundColor
+android.support.v7.cardview.R$styleable: int CardView_cardCornerRadius
+android.support.v7.cardview.R$styleable: int CardView_cardElevation
+android.support.v7.cardview.R$styleable: int CardView_cardMaxElevation
+android.support.v7.cardview.R$styleable: int CardView_cardPreventCornerOverlap
+android.support.v7.cardview.R$styleable: int CardView_cardUseCompatPadding
+android.support.v7.cardview.R$styleable: int CardView_contentPadding
+android.support.v7.cardview.R$styleable: int CardView_contentPaddingBottom
+android.support.v7.cardview.R$styleable: int CardView_contentPaddingLeft
+android.support.v7.cardview.R$styleable: int CardView_contentPaddingRight
+android.support.v7.cardview.R$styleable: int CardView_contentPaddingTop
+android.support.v7.cardview.R$styleable: R$styleable()
+android.support.v7.cardview.R$styleable: void <clinit>()
 android.support.v7.content.res.AppCompatColorStateListInflater
 android.support.v7.content.res.AppCompatColorStateListInflater: int DEFAULT_COLOR
 android.support.v7.content.res.AppCompatColorStateListInflater: AppCompatColorStateListInflater()
@@ -23021,6 +23075,105 @@ android.support.v7.widget.ButtonBarLayout: void setAllowStacking(boolean)
 android.support.v7.widget.ButtonBarLayout: void onMeasure(int,int)
 android.support.v7.widget.ButtonBarLayout: void setStacked(boolean)
 android.support.v7.widget.ButtonBarLayout: boolean isStacked()
+android.support.v7.widget.CardView
+android.support.v7.widget.CardView: android.support.v7.widget.CardViewImpl IMPL
+android.support.v7.widget.CardView: boolean mCompatPadding
+android.support.v7.widget.CardView: boolean mPreventCornerOverlap
+android.support.v7.widget.CardView: android.graphics.Rect mContentPadding
+android.support.v7.widget.CardView: android.graphics.Rect mShadowBounds
+android.support.v7.widget.CardView: CardView(android.content.Context)
+android.support.v7.widget.CardView: CardView(android.content.Context,android.util.AttributeSet)
+android.support.v7.widget.CardView: CardView(android.content.Context,android.util.AttributeSet,int)
+android.support.v7.widget.CardView: void setPadding(int,int,int,int)
+android.support.v7.widget.CardView: void setPaddingRelative(int,int,int,int)
+android.support.v7.widget.CardView: boolean getUseCompatPadding()
+android.support.v7.widget.CardView: void setUseCompatPadding(boolean)
+android.support.v7.widget.CardView: void setContentPadding(int,int,int,int)
+android.support.v7.widget.CardView: void onMeasure(int,int)
+android.support.v7.widget.CardView: void initialize(android.content.Context,android.util.AttributeSet,int)
+android.support.v7.widget.CardView: void setCardBackgroundColor(int)
+android.support.v7.widget.CardView: int getContentPaddingLeft()
+android.support.v7.widget.CardView: int getContentPaddingRight()
+android.support.v7.widget.CardView: int getContentPaddingTop()
+android.support.v7.widget.CardView: int getContentPaddingBottom()
+android.support.v7.widget.CardView: void setRadius(float)
+android.support.v7.widget.CardView: float getRadius()
+android.support.v7.widget.CardView: void setShadowPadding(int,int,int,int)
+android.support.v7.widget.CardView: void setCardElevation(float)
+android.support.v7.widget.CardView: float getCardElevation()
+android.support.v7.widget.CardView: void setMaxCardElevation(float)
+android.support.v7.widget.CardView: float getMaxCardElevation()
+android.support.v7.widget.CardView: boolean getPreventCornerOverlap()
+android.support.v7.widget.CardView: void setPreventCornerOverlap(boolean)
+android.support.v7.widget.CardView: void <clinit>()
+android.support.v7.widget.CardViewApi21
+android.support.v7.widget.CardViewApi21: CardViewApi21()
+android.support.v7.widget.CardViewApi21: void initialize(android.support.v7.widget.CardViewDelegate,android.content.Context,int,float,float,float)
+android.support.v7.widget.CardViewApi21: void setRadius(android.support.v7.widget.CardViewDelegate,float)
+android.support.v7.widget.CardViewApi21: void initStatic()
+android.support.v7.widget.CardViewApi21: void setMaxElevation(android.support.v7.widget.CardViewDelegate,float)
+android.support.v7.widget.CardViewApi21: float getMaxElevation(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewApi21: float getMinWidth(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewApi21: float getMinHeight(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewApi21: float getRadius(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewApi21: void setElevation(android.support.v7.widget.CardViewDelegate,float)
+android.support.v7.widget.CardViewApi21: float getElevation(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewApi21: void updatePadding(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewApi21: void onCompatPaddingChanged(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewApi21: void onPreventCornerOverlapChanged(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewApi21: void setBackgroundColor(android.support.v7.widget.CardViewDelegate,int)
+android.support.v7.widget.CardViewDelegate
+android.support.v7.widget.CardViewDelegate: void setBackgroundDrawable(android.graphics.drawable.Drawable)
+android.support.v7.widget.CardViewDelegate: android.graphics.drawable.Drawable getBackground()
+android.support.v7.widget.CardViewDelegate: boolean getUseCompatPadding()
+android.support.v7.widget.CardViewDelegate: boolean getPreventCornerOverlap()
+android.support.v7.widget.CardViewDelegate: float getRadius()
+android.support.v7.widget.CardViewDelegate: void setShadowPadding(int,int,int,int)
+android.support.v7.widget.CardViewEclairMr1
+android.support.v7.widget.CardViewEclairMr1: android.graphics.RectF sCornerRect
+android.support.v7.widget.CardViewEclairMr1: CardViewEclairMr1()
+android.support.v7.widget.CardViewEclairMr1: void initStatic()
+android.support.v7.widget.CardViewEclairMr1: void initialize(android.support.v7.widget.CardViewDelegate,android.content.Context,int,float,float,float)
+android.support.v7.widget.CardViewEclairMr1: android.support.v7.widget.RoundRectDrawableWithShadow createBackground(android.content.Context,int,float,float,float)
+android.support.v7.widget.CardViewEclairMr1: void updatePadding(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewEclairMr1: void onCompatPaddingChanged(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewEclairMr1: void onPreventCornerOverlapChanged(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewEclairMr1: void setBackgroundColor(android.support.v7.widget.CardViewDelegate,int)
+android.support.v7.widget.CardViewEclairMr1: void setRadius(android.support.v7.widget.CardViewDelegate,float)
+android.support.v7.widget.CardViewEclairMr1: float getRadius(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewEclairMr1: void setElevation(android.support.v7.widget.CardViewDelegate,float)
+android.support.v7.widget.CardViewEclairMr1: float getElevation(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewEclairMr1: void setMaxElevation(android.support.v7.widget.CardViewDelegate,float)
+android.support.v7.widget.CardViewEclairMr1: float getMaxElevation(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewEclairMr1: float getMinWidth(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewEclairMr1: float getMinHeight(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewEclairMr1: android.support.v7.widget.RoundRectDrawableWithShadow getShadowBackground(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewEclairMr1$1
+android.support.v7.widget.CardViewEclairMr1$1: android.support.v7.widget.CardViewEclairMr1 this$0
+android.support.v7.widget.CardViewEclairMr1$1: CardViewEclairMr1$1(android.support.v7.widget.CardViewEclairMr1)
+android.support.v7.widget.CardViewEclairMr1$1: void drawRoundRect(android.graphics.Canvas,android.graphics.RectF,float,android.graphics.Paint)
+android.support.v7.widget.CardViewImpl
+android.support.v7.widget.CardViewImpl: void initialize(android.support.v7.widget.CardViewDelegate,android.content.Context,int,float,float,float)
+android.support.v7.widget.CardViewImpl: void setRadius(android.support.v7.widget.CardViewDelegate,float)
+android.support.v7.widget.CardViewImpl: float getRadius(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewImpl: void setElevation(android.support.v7.widget.CardViewDelegate,float)
+android.support.v7.widget.CardViewImpl: float getElevation(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewImpl: void initStatic()
+android.support.v7.widget.CardViewImpl: void setMaxElevation(android.support.v7.widget.CardViewDelegate,float)
+android.support.v7.widget.CardViewImpl: float getMaxElevation(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewImpl: float getMinWidth(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewImpl: float getMinHeight(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewImpl: void updatePadding(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewImpl: void onCompatPaddingChanged(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewImpl: void onPreventCornerOverlapChanged(android.support.v7.widget.CardViewDelegate)
+android.support.v7.widget.CardViewImpl: void setBackgroundColor(android.support.v7.widget.CardViewDelegate,int)
+android.support.v7.widget.CardViewJellybeanMr1
+android.support.v7.widget.CardViewJellybeanMr1: CardViewJellybeanMr1()
+android.support.v7.widget.CardViewJellybeanMr1: void initStatic()
+android.support.v7.widget.CardViewJellybeanMr1$1
+android.support.v7.widget.CardViewJellybeanMr1$1: android.support.v7.widget.CardViewJellybeanMr1 this$0
+android.support.v7.widget.CardViewJellybeanMr1$1: CardViewJellybeanMr1$1(android.support.v7.widget.CardViewJellybeanMr1)
+android.support.v7.widget.CardViewJellybeanMr1$1: void drawRoundRect(android.graphics.Canvas,android.graphics.RectF,float,android.graphics.Paint)
 android.support.v7.widget.ChildHelper
 android.support.v7.widget.ChildHelper: boolean DEBUG
 android.support.v7.widget.ChildHelper: java.lang.String TAG
@@ -25212,6 +25365,75 @@ android.support.v7.widget.ResourcesWrapper: java.lang.String getResourceTypeName
 android.support.v7.widget.ResourcesWrapper: java.lang.String getResourceEntryName(int)
 android.support.v7.widget.ResourcesWrapper: void parseBundleExtras(android.content.res.XmlResourceParser,android.os.Bundle)
 android.support.v7.widget.ResourcesWrapper: void parseBundleExtra(java.lang.String,android.util.AttributeSet,android.os.Bundle)
+android.support.v7.widget.RoundRectDrawable
+android.support.v7.widget.RoundRectDrawable: float mRadius
+android.support.v7.widget.RoundRectDrawable: android.graphics.Paint mPaint
+android.support.v7.widget.RoundRectDrawable: android.graphics.RectF mBoundsF
+android.support.v7.widget.RoundRectDrawable: android.graphics.Rect mBoundsI
+android.support.v7.widget.RoundRectDrawable: float mPadding
+android.support.v7.widget.RoundRectDrawable: boolean mInsetForPadding
+android.support.v7.widget.RoundRectDrawable: boolean mInsetForRadius
+android.support.v7.widget.RoundRectDrawable: RoundRectDrawable(int,float)
+android.support.v7.widget.RoundRectDrawable: void setPadding(float,boolean,boolean)
+android.support.v7.widget.RoundRectDrawable: float getPadding()
+android.support.v7.widget.RoundRectDrawable: void draw(android.graphics.Canvas)
+android.support.v7.widget.RoundRectDrawable: void updateBounds(android.graphics.Rect)
+android.support.v7.widget.RoundRectDrawable: void onBoundsChange(android.graphics.Rect)
+android.support.v7.widget.RoundRectDrawable: void getOutline(android.graphics.Outline)
+android.support.v7.widget.RoundRectDrawable: void setRadius(float)
+android.support.v7.widget.RoundRectDrawable: void setAlpha(int)
+android.support.v7.widget.RoundRectDrawable: void setColorFilter(android.graphics.ColorFilter)
+android.support.v7.widget.RoundRectDrawable: int getOpacity()
+android.support.v7.widget.RoundRectDrawable: float getRadius()
+android.support.v7.widget.RoundRectDrawable: void setColor(int)
+android.support.v7.widget.RoundRectDrawableWithShadow
+android.support.v7.widget.RoundRectDrawableWithShadow: double COS_45
+android.support.v7.widget.RoundRectDrawableWithShadow: float SHADOW_MULTIPLIER
+android.support.v7.widget.RoundRectDrawableWithShadow: int mInsetShadow
+android.support.v7.widget.RoundRectDrawableWithShadow: android.support.v7.widget.RoundRectDrawableWithShadow$RoundRectHelper sRoundRectHelper
+android.support.v7.widget.RoundRectDrawableWithShadow: android.graphics.Paint mPaint
+android.support.v7.widget.RoundRectDrawableWithShadow: android.graphics.Paint mCornerShadowPaint
+android.support.v7.widget.RoundRectDrawableWithShadow: android.graphics.Paint mEdgeShadowPaint
+android.support.v7.widget.RoundRectDrawableWithShadow: android.graphics.RectF mCardBounds
+android.support.v7.widget.RoundRectDrawableWithShadow: float mCornerRadius
+android.support.v7.widget.RoundRectDrawableWithShadow: android.graphics.Path mCornerShadowPath
+android.support.v7.widget.RoundRectDrawableWithShadow: float mMaxShadowSize
+android.support.v7.widget.RoundRectDrawableWithShadow: float mRawMaxShadowSize
+android.support.v7.widget.RoundRectDrawableWithShadow: float mShadowSize
+android.support.v7.widget.RoundRectDrawableWithShadow: float mRawShadowSize
+android.support.v7.widget.RoundRectDrawableWithShadow: boolean mDirty
+android.support.v7.widget.RoundRectDrawableWithShadow: int mShadowStartColor
+android.support.v7.widget.RoundRectDrawableWithShadow: int mShadowEndColor
+android.support.v7.widget.RoundRectDrawableWithShadow: boolean mAddPaddingForCorners
+android.support.v7.widget.RoundRectDrawableWithShadow: boolean mPrintedShadowClipWarning
+android.support.v7.widget.RoundRectDrawableWithShadow: RoundRectDrawableWithShadow(android.content.res.Resources,int,float,float,float)
+android.support.v7.widget.RoundRectDrawableWithShadow: int toEven(float)
+android.support.v7.widget.RoundRectDrawableWithShadow: void setAddPaddingForCorners(boolean)
+android.support.v7.widget.RoundRectDrawableWithShadow: void setAlpha(int)
+android.support.v7.widget.RoundRectDrawableWithShadow: void onBoundsChange(android.graphics.Rect)
+android.support.v7.widget.RoundRectDrawableWithShadow: void setShadowSize(float,float)
+android.support.v7.widget.RoundRectDrawableWithShadow: boolean getPadding(android.graphics.Rect)
+android.support.v7.widget.RoundRectDrawableWithShadow: float calculateVerticalPadding(float,float,boolean)
+android.support.v7.widget.RoundRectDrawableWithShadow: float calculateHorizontalPadding(float,float,boolean)
+android.support.v7.widget.RoundRectDrawableWithShadow: void setColorFilter(android.graphics.ColorFilter)
+android.support.v7.widget.RoundRectDrawableWithShadow: int getOpacity()
+android.support.v7.widget.RoundRectDrawableWithShadow: void setCornerRadius(float)
+android.support.v7.widget.RoundRectDrawableWithShadow: void draw(android.graphics.Canvas)
+android.support.v7.widget.RoundRectDrawableWithShadow: void drawShadow(android.graphics.Canvas)
+android.support.v7.widget.RoundRectDrawableWithShadow: void buildShadowCorners()
+android.support.v7.widget.RoundRectDrawableWithShadow: void buildComponents(android.graphics.Rect)
+android.support.v7.widget.RoundRectDrawableWithShadow: float getCornerRadius()
+android.support.v7.widget.RoundRectDrawableWithShadow: void getMaxShadowAndCornerPadding(android.graphics.Rect)
+android.support.v7.widget.RoundRectDrawableWithShadow: void setShadowSize(float)
+android.support.v7.widget.RoundRectDrawableWithShadow: void setMaxShadowSize(float)
+android.support.v7.widget.RoundRectDrawableWithShadow: float getShadowSize()
+android.support.v7.widget.RoundRectDrawableWithShadow: float getMaxShadowSize()
+android.support.v7.widget.RoundRectDrawableWithShadow: float getMinWidth()
+android.support.v7.widget.RoundRectDrawableWithShadow: float getMinHeight()
+android.support.v7.widget.RoundRectDrawableWithShadow: void setColor(int)
+android.support.v7.widget.RoundRectDrawableWithShadow: void <clinit>()
+android.support.v7.widget.RoundRectDrawableWithShadow$RoundRectHelper
+android.support.v7.widget.RoundRectDrawableWithShadow$RoundRectHelper: void drawRoundRect(android.graphics.Canvas,android.graphics.RectF,float,android.graphics.Paint)
 android.support.v7.widget.RtlSpacingHelper
 android.support.v7.widget.RtlSpacingHelper: int UNDEFINED
 android.support.v7.widget.RtlSpacingHelper: int mLeft
@@ -38241,6 +38463,12 @@ com.supers.clean.junk.R$attr: int buttonStyle
 com.supers.clean.junk.R$attr: int buttonStyleSmall
 com.supers.clean.junk.R$attr: int buttonTint
 com.supers.clean.junk.R$attr: int buttonTintMode
+com.supers.clean.junk.R$attr: int cardBackgroundColor
+com.supers.clean.junk.R$attr: int cardCornerRadius
+com.supers.clean.junk.R$attr: int cardElevation
+com.supers.clean.junk.R$attr: int cardMaxElevation
+com.supers.clean.junk.R$attr: int cardPreventCornerOverlap
+com.supers.clean.junk.R$attr: int cardUseCompatPadding
 com.supers.clean.junk.R$attr: int charge_background_color
 com.supers.clean.junk.R$attr: int charge_fill_triangle
 com.supers.clean.junk.R$attr: int charge_gravity
@@ -38276,6 +38504,11 @@ com.supers.clean.junk.R$attr: int contentInsetLeft
 com.supers.clean.junk.R$attr: int contentInsetRight
 com.supers.clean.junk.R$attr: int contentInsetStart
 com.supers.clean.junk.R$attr: int contentInsetStartWithNavigation
+com.supers.clean.junk.R$attr: int contentPadding
+com.supers.clean.junk.R$attr: int contentPaddingBottom
+com.supers.clean.junk.R$attr: int contentPaddingLeft
+com.supers.clean.junk.R$attr: int contentPaddingRight
+com.supers.clean.junk.R$attr: int contentPaddingTop
 com.supers.clean.junk.R$attr: int contentScrim
 com.supers.clean.junk.R$attr: int controlBackground
 com.supers.clean.junk.R$attr: int counterEnabled
@@ -38553,6 +38786,7 @@ com.supers.clean.junk.R$color: int background_floating_material_dark
 com.supers.clean.junk.R$color: int background_floating_material_light
 com.supers.clean.junk.R$color: int background_material_dark
 com.supers.clean.junk.R$color: int background_material_light
+com.supers.clean.junk.R$color: int black_100
 com.supers.clean.junk.R$color: int black_35
 com.supers.clean.junk.R$color: int black_50
 com.supers.clean.junk.R$color: int black_54
@@ -38566,6 +38800,10 @@ com.supers.clean.junk.R$color: int bright_foreground_material_dark
 com.supers.clean.junk.R$color: int bright_foreground_material_light
 com.supers.clean.junk.R$color: int button_material_dark
 com.supers.clean.junk.R$color: int button_material_light
+com.supers.clean.junk.R$color: int cardview_dark_background
+com.supers.clean.junk.R$color: int cardview_light_background
+com.supers.clean.junk.R$color: int cardview_shadow_end_color
+com.supers.clean.junk.R$color: int cardview_shadow_start_color
 com.supers.clean.junk.R$color: int colorAccent
 com.supers.clean.junk.R$color: int colorPrimary
 com.supers.clean.junk.R$color: int colorPrimaryDark
@@ -38842,6 +39080,9 @@ com.supers.clean.junk.R$dimen: int battery_p
 com.supers.clean.junk.R$dimen: int battery_w
 com.supers.clean.junk.R$dimen: int bottom_8
 com.supers.clean.junk.R$dimen: int bottom_ab_h
+com.supers.clean.junk.R$dimen: int cardview_compat_inset_shadow
+com.supers.clean.junk.R$dimen: int cardview_default_elevation
+com.supers.clean.junk.R$dimen: int cardview_default_radius
 com.supers.clean.junk.R$dimen: int charge_bottom
 com.supers.clean.junk.R$dimen: int charge_left
 com.supers.clean.junk.R$dimen: int charge_radius
@@ -38862,6 +39103,7 @@ com.supers.clean.junk.R$dimen: int d14
 com.supers.clean.junk.R$dimen: int d15
 com.supers.clean.junk.R$dimen: int d154
 com.supers.clean.junk.R$dimen: int d16
+com.supers.clean.junk.R$dimen: int d160
 com.supers.clean.junk.R$dimen: int d17
 com.supers.clean.junk.R$dimen: int d18
 com.supers.clean.junk.R$dimen: int d19
@@ -38869,6 +39111,7 @@ com.supers.clean.junk.R$dimen: int d2
 com.supers.clean.junk.R$dimen: int d24
 com.supers.clean.junk.R$dimen: int d3
 com.supers.clean.junk.R$dimen: int d30
+com.supers.clean.junk.R$dimen: int d37
 com.supers.clean.junk.R$dimen: int d4
 com.supers.clean.junk.R$dimen: int d40
 com.supers.clean.junk.R$dimen: int d5
@@ -39006,8 +39249,12 @@ com.supers.clean.junk.R$dimen: int pattern_line_size
 com.supers.clean.junk.R$dimen: int pattern_outer_stroke_width
 com.supers.clean.junk.R$dimen: int s11
 com.supers.clean.junk.R$dimen: int s12
+com.supers.clean.junk.R$dimen: int s13
+com.supers.clean.junk.R$dimen: int s14
+com.supers.clean.junk.R$dimen: int s15
 com.supers.clean.junk.R$dimen: int s16
 com.supers.clean.junk.R$dimen: int s17
+com.supers.clean.junk.R$dimen: int s18
 com.supers.clean.junk.R$dimen: int s20
 com.supers.clean.junk.R$dimen: int s21
 com.supers.clean.junk.R$dimen: int s24
@@ -39694,6 +39941,8 @@ com.supers.clean.junk.R$id: int passwd_cancel
 com.supers.clean.junk.R$id: int passwd_dot_id
 com.supers.clean.junk.R$id: int passwd_unlock
 com.supers.clean.junk.R$id: int pattern
+com.supers.clean.junk.R$id: int permiss_cancle
+com.supers.clean.junk.R$id: int permiss_ok
 com.supers.clean.junk.R$id: int pin
 com.supers.clean.junk.R$id: int progressBar
 com.supers.clean.junk.R$id: int progress_circular
@@ -39856,6 +40105,7 @@ com.supers.clean.junk.R$id: int top
 com.supers.clean.junk.R$id: int topPanel
 com.supers.clean.junk.R$id: int touch_outside
 com.supers.clean.junk.R$id: int tutorial_slide_bg
+com.supers.clean.junk.R$id: int tv_1
 com.supers.clean.junk.R$id: int tv_danwei
 com.supers.clean.junk.R$id: int tv_gps
 com.supers.clean.junk.R$id: int tv_jiasu
@@ -39963,6 +40213,7 @@ com.supers.clean.junk.R$layout: int layout_white_list_add
 com.supers.clean.junk.R$layout: int layout_white_list_item
 com.supers.clean.junk.R$layout: int main_ad
 com.supers.clean.junk.R$layout: int main_circle
+com.supers.clean.junk.R$layout: int main_permiss
 com.supers.clean.junk.R$layout: int native_ad
 com.supers.clean.junk.R$layout: int native_ad_full
 com.supers.clean.junk.R$layout: int native_ad_loading
@@ -40136,6 +40387,7 @@ com.supers.clean.junk.R$mipmap: int native_ad_go
 com.supers.clean.junk.R$mipmap: int next_ad_pro
 com.supers.clean.junk.R$mipmap: int notification_text_backg
 com.supers.clean.junk.R$mipmap: int notification_title
+com.supers.clean.junk.R$mipmap: int permiss_b
 com.supers.clean.junk.R$mipmap: int pullup_icon_big
 com.supers.clean.junk.R$mipmap: int qing
 com.supers.clean.junk.R$mipmap: int ram_normal
@@ -40298,6 +40550,8 @@ com.supers.clean.junk.R$string: int message_title_1
 com.supers.clean.junk.R$string: int notification_1
 com.supers.clean.junk.R$string: int notification_2
 com.supers.clean.junk.R$string: int notification_button
+com.supers.clean.junk.R$string: int permiss_6
+com.supers.clean.junk.R$string: int permiss_7
 com.supers.clean.junk.R$string: int premiss_1
 com.supers.clean.junk.R$string: int premiss_2
 com.supers.clean.junk.R$string: int premiss_3
@@ -40659,6 +40913,9 @@ com.supers.clean.junk.R$style: int Base_Widget_AppCompat_TextView_SpinnerItem
 com.supers.clean.junk.R$style: int Base_Widget_AppCompat_Toolbar
 com.supers.clean.junk.R$style: int Base_Widget_AppCompat_Toolbar_Button_Navigation
 com.supers.clean.junk.R$style: int Base_Widget_Design_TabLayout
+com.supers.clean.junk.R$style: int CardView
+com.supers.clean.junk.R$style: int CardView_Dark
+com.supers.clean.junk.R$style: int CardView_Light
 com.supers.clean.junk.R$style: int ForceClose
 com.supers.clean.junk.R$style: int MessageBox
 com.supers.clean.junk.R$style: int MyAnimation_Window
@@ -41084,6 +41341,18 @@ com.supers.clean.junk.R$styleable: int BottomSheetBehavior_Params_behavior_hidea
 com.supers.clean.junk.R$styleable: int BottomSheetBehavior_Params_behavior_peekHeight
 com.supers.clean.junk.R$styleable: int[] ButtonBarLayout
 com.supers.clean.junk.R$styleable: int ButtonBarLayout_allowStacking
+com.supers.clean.junk.R$styleable: int[] CardView
+com.supers.clean.junk.R$styleable: int CardView_cardBackgroundColor
+com.supers.clean.junk.R$styleable: int CardView_cardCornerRadius
+com.supers.clean.junk.R$styleable: int CardView_cardElevation
+com.supers.clean.junk.R$styleable: int CardView_cardMaxElevation
+com.supers.clean.junk.R$styleable: int CardView_cardPreventCornerOverlap
+com.supers.clean.junk.R$styleable: int CardView_cardUseCompatPadding
+com.supers.clean.junk.R$styleable: int CardView_contentPadding
+com.supers.clean.junk.R$styleable: int CardView_contentPaddingBottom
+com.supers.clean.junk.R$styleable: int CardView_contentPaddingLeft
+com.supers.clean.junk.R$styleable: int CardView_contentPaddingRight
+com.supers.clean.junk.R$styleable: int CardView_contentPaddingTop
 com.supers.clean.junk.R$styleable: int[] Charge_Label
 com.supers.clean.junk.R$styleable: int Charge_Label_charge_background_color
 com.supers.clean.junk.R$styleable: int Charge_Label_charge_fill_triangle
@@ -41446,9 +41715,11 @@ com.supers.clean.junk.activity.LoadingActivity$1: void onClick(android.view.View
 com.supers.clean.junk.activity.MainActivity
 com.supers.clean.junk.activity.MainActivity: MainActivity()
 com.supers.clean.junk.activity.MainActivity: void onClick()
-com.supers.clean.junk.activity.MainActivity$10: void onClick(android.view.View)
-com.supers.clean.junk.activity.MainActivity$3: void onClick(android.view.View)
-com.supers.clean.junk.activity.MainActivity$4: void onClick(android.view.View)
+com.supers.clean.junk.activity.MainActivity$1: void onClick(android.view.View)
+com.supers.clean.junk.activity.MainActivity$12: void onClick(android.view.View)
+com.supers.clean.junk.activity.MainActivity$2: void onClick(android.view.View)
+com.supers.clean.junk.activity.MainActivity$5: void onClick(android.view.View)
+com.supers.clean.junk.activity.MainActivity$6: void onClick(android.view.View)
 com.supers.clean.junk.activity.ManagerActivity
 com.supers.clean.junk.activity.ManagerActivity: ManagerActivity()
 com.supers.clean.junk.activity.ManagerActivity: void onClick()
