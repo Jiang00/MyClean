@@ -392,6 +392,58 @@
                 </LinearLayout>
 
 
+                <!--交叉推广-->
+                <LinearLayout
+                    android:id="@+id/main_tuiguang_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d15"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d19"
+                            android:src="@mipmap/main_rotate_1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d5"
+                            android:text="@string/main_msg_tuiguang"
+                            android:textColor="@color/black_87"
+                            android:textSize="@dimen/s16" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:layout_marginRight="@dimen/d16"
+                        android:layout_marginTop="@dimen/main_4"
+                        android:background="#f1f1f1" />
+
+                    <com.eos.module.charge.saver.lottie.LottieAnimationView
+                        android:id="@+id/lot_main"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:layout_marginRight="@dimen/d16"
+                        android:layout_height="wrap_content" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d16"
+                        android:background="#e8e8e8" />
+                </LinearLayout>
+
                 <!--硬件信息-->
                 <LinearLayout
                     android:id="@+id/main_msg_button"

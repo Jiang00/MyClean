@@ -16,11 +16,16 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
+import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by on 2017/3/2.
@@ -33,6 +38,7 @@ public class SettingActivity extends BaseActivity {
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
+    LottieAnimationView lot_setting;
     private View nativeView;
 
     private String TAG_SETTING = "eos_setting";
@@ -55,6 +61,7 @@ public class SettingActivity extends BaseActivity {
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
+        lot_setting = (LottieAnimationView) findViewById(R.id.lot_setting);
     }
 
     @Override
@@ -75,6 +82,29 @@ public class SettingActivity extends BaseActivity {
             }, 1000);
         }
         addAd();
+
+        tuiGuang();
+    }
+
+    public void tuiGuang() {
+        super.tuiGuang();
+        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+            lot_setting.setImageAssetsFolder("images/flashs/");
+            lot_setting.setAnimation("flashs.json");
+            lot_setting.loop(true);
+            lot_setting.playAnimation();
+
+        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+            lot_setting.setImageAssetsFolder("images/flashs/");
+            lot_setting.setAnimation("flashs.json");
+            lot_setting.loop(true);
+            lot_setting.playAnimation();
+
+        } else {
+            lot_setting.setVisibility(View.GONE);
+        }
+
+
     }
 
     private void addAd() {
@@ -122,6 +152,7 @@ public class SettingActivity extends BaseActivity {
         setting_battery.setOnClickListener(onClickListener);
         setting_white.setOnClickListener(onClickListener);
         setting_rotate.setOnClickListener(onClickListener);
+        lot_setting.setOnClickListener(onClickListener);
     }
 
 
@@ -190,6 +221,14 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_rotate:
                     AndroidSdk.track("设置页面", "好评", "", 1);
                     UtilGp.rate(SettingActivity.this);
+                    break;
+                case R.id.lot_setting:
+                    AndroidSdk.track("设置页面", "推广", "", 1);
+                    if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                        UtilGp.openPlayStore(SettingActivity.this, tuiguang);
+                    } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+                        UtilGp.openPlayStore(SettingActivity.this, tuiguang1);
+                    }
                     break;
             }
         }

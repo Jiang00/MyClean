@@ -47,12 +47,18 @@ import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.myView.CustomRoundCpu;
+import com.supers.clean.junk.myView.ListViewForScrollView;
 import com.supers.clean.junk.myView.MainScrollView;
 import com.supers.clean.junk.myView.PullToRefreshLayout;
 import com.supers.clean.junk.presenter.MainPresenter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,15 +85,18 @@ public class MainActivity extends BaseActivity implements MainView {
     LinearLayout main_rotate_all;
     TextView main_rotate_bad;
     LinearLayout main_rotate_good;
+    LinearLayout main_tuiguang_button;
     LinearLayout main_msg_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_sd_unit, main_msg_cpu_percent;
     TextView main_gurad_num;
     ImageView main_guard_rotate;
     FrameLayout main_guard_all;
-    ListView side_listView;
+    ListViewForScrollView side_listView;
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side;
+
     LottieAnimationView lot_side;
+    LottieAnimationView lot_main;
 
     private String TAG_MAIN = "eos_main";
     private String TAG_HUA = "eos_hua";
@@ -127,6 +136,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
+        main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
@@ -135,10 +145,11 @@ public class MainActivity extends BaseActivity implements MainView {
         main_gurad_num = (TextView) findViewById(R.id.main_gurad_num);
         main_guard_rotate = (ImageView) findViewById(R.id.main_guard_rotate);
         main_guard_all = (FrameLayout) findViewById(R.id.main_guard_all);
-        side_listView = (ListView) findViewById(R.id.side_listView);
+        side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
+        lot_main = (LottieAnimationView) findViewById(R.id.lot_main);
     }
 
     @Override
@@ -220,10 +231,37 @@ public class MainActivity extends BaseActivity implements MainView {
 
         AndroidSdk.track("主页面", "进入主页面", "", 1);
 
-        lot_side.setImageAssetsFolder("images/sideClean/");
-        lot_side.setAnimation("sideClean.json");
-        lot_side.loop(true);
-        lot_side.playAnimation();
+        tuiGuang();
+    }
+
+    public void tuiGuang() {
+        super.tuiGuang();
+        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+            lot_main.setImageAssetsFolder("images/flashs/");
+            lot_main.setAnimation("flashs.json");
+            lot_main.loop(true);
+            lot_main.playAnimation();
+
+            lot_side.setImageAssetsFolder("images/flashs/");
+            lot_side.setAnimation("flashs.json");
+            lot_side.loop(true);
+            lot_side.playAnimation();
+        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+            lot_main.setImageAssetsFolder("images/flashs/");
+            lot_main.setAnimation("flashs.json");
+            lot_main.loop(true);
+            lot_main.playAnimation();
+
+            lot_side.setImageAssetsFolder("images/flashs/");
+            lot_side.setAnimation("flashs.json");
+            lot_side.loop(true);
+            lot_side.playAnimation();
+        } else {
+            main_tuiguang_button.setVisibility(View.GONE);
+            lot_side.setVisibility(View.GONE);
+        }
+
+
     }
 
     private void initHandler() {
@@ -249,6 +287,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
+        main_tuiguang_button.setOnClickListener(onClickListener);
 
     }
 
@@ -617,8 +656,9 @@ public class MainActivity extends BaseActivity implements MainView {
 //                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
                     final Context context = SdkEnv.context();
                     ShopMaster.applyTheme(getApplicationContext(), "theme_preview_two", true);
-                    ShopMaster.launch(context,
+                    ShopMaster.launch(MainActivity.this,
                             new Theme(R.raw.battery_0, context.getPackageName())
+                            , new Theme(R.raw.battery_1, context.getPackageName())
 //                            ,new Theme(R.raw.theme_preview_two, "theme_preview_two")
                     );
                     break;
@@ -631,7 +671,19 @@ public class MainActivity extends BaseActivity implements MainView {
                     mainPresenter.clickRotate(true);
                     break;
                 case R.id.main_msg_button:
+                    AndroidSdk.track("主页面", "点击进入硬件信息", "", 1);
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
+                    break;
+                case R.id.main_tuiguang_button:
+                case R.id.lot_side:
+                    AndroidSdk.track("主页面", "点击交叉推广", "", 1);
+                    if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                        UtilGp.openPlayStore(MainActivity.this, tuiguang);
+                    } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+                        UtilGp.openPlayStore(MainActivity.this, tuiguang1);
+                    }
+
+
                     break;
 
             }

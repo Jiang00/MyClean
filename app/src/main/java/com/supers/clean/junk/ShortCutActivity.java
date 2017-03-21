@@ -51,12 +51,12 @@ public class ShortCutActivity extends BaseActivity {
     @Override
     protected void findId() {
         super.findId();
-        short_backg = $(R.id.short_backg);
+        short_backg = (FrameLayout) findViewById(R.id.short_backg);
         short_zhuan = (ImageView) findViewById(R.id.short_zhuan);
         short_huojian = (ImageView) findViewById(R.id.short_huojian);
         short_text = (LinearLayout) findViewById(R.id.short_text);
         short_size = (TextView) findViewById(R.id.short_size);
-        ll_ad = $(R.id.ll_ad);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
