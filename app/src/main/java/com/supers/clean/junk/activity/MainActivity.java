@@ -253,44 +253,41 @@ public class MainActivity extends BaseActivity implements MainView {
 
         AndroidSdk.track("主页面", "进入主页面", "", 1);
 
-<<<<<<< HEAD
-//        lot_side.setImageAssetsFolder("images/sideClean/");
-//        lot_side.setAnimation("sideClean.json");
-//        lot_side.loop(true);
-//        lot_side.playAnimation();
-=======
+
+        lot_side.setImageAssetsFolder(null, "images/sideClean/");
+        lot_side.setAnimation(null, "sideClean.json");
+        lot_side.loop(true);
+        lot_side.playAnimation();
+
         tuiGuang();
     }
 
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_main.setImageAssetsFolder("images/flashs/");
-            lot_main.setAnimation("flashs.json");
+            lot_main.setImageAssetsFolder(null, "images/flashs/");
+            lot_main.setAnimation(null, "flashs.json");
             lot_main.loop(true);
             lot_main.playAnimation();
 
-            lot_side.setImageAssetsFolder("images/flashs/");
-            lot_side.setAnimation("flashs.json");
+            lot_side.setImageAssetsFolder(null, "images/flashs/");
+            lot_side.setAnimation(null, "flashs.json");
             lot_side.loop(true);
             lot_side.playAnimation();
         } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_main.setImageAssetsFolder("images/flashs/");
-            lot_main.setAnimation("flashs.json");
+            lot_main.setImageAssetsFolder(null, "images/flashs/");
+            lot_main.setAnimation(null, "flashs.json");
             lot_main.loop(true);
             lot_main.playAnimation();
 
-            lot_side.setImageAssetsFolder("images/flashs/");
-            lot_side.setAnimation("flashs.json");
+            lot_side.setImageAssetsFolder(null, "images/flashs/");
+            lot_side.setAnimation(null, "flashs.json");
             lot_side.loop(true);
             lot_side.playAnimation();
         } else {
             main_tuiguang_button.setVisibility(View.GONE);
             lot_side.setVisibility(View.GONE);
         }
-
-
->>>>>>> 49ed13bd604273c5c06b1c98a5be6070b2ff3069
     }
 
     private void initHandler() {
