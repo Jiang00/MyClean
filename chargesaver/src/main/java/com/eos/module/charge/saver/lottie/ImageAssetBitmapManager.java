@@ -1,6 +1,7 @@
 package com.eos.module.charge.saver.lottie;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -25,12 +26,23 @@ class ImageAssetBitmapManager {
     private final Map<String, LottieImageAsset> imageAssets;
     private final Map<String, Bitmap> bitmaps = new HashMap<>();
 
-    ImageAssetBitmapManager(Drawable.Callback callback, String imagesFolder,
+    private boolean isTheme = false;
+    private Context themeContext;
+
+    ImageAssetBitmapManager(Context themeContext, Drawable.Callback callback, String imagesFolder,
                             ImageAssetDelegate assetDelegate, Map<String, LottieImageAsset> imageAssets) {
         assertNotNull(callback);
+        this.themeContext = themeContext;
 
-        this.imagesFolder = imagesFolder;
-        if (!TextUtils.isEmpty(imagesFolder) &&
+        if (imagesFolder.startsWith("theme://")) {
+            isTheme = true;
+            this.imagesFolder = imagesFolder.replace("theme://", "");
+        } else {
+            isTheme = false;
+            this.imagesFolder = imagesFolder;
+        }
+
+        if (!TextUtils.isEmpty(this.imagesFolder) &&
                 this.imagesFolder.charAt(this.imagesFolder.length() - 1) != '/') {
             this.imagesFolder += '/';
         }
@@ -53,33 +65,63 @@ class ImageAssetBitmapManager {
 
     Bitmap bitmapForId(String id) {
         Bitmap bitmap = bitmaps.get(id);
-        if (bitmap == null) {
-            LottieImageAsset imageAsset = imageAssets.get(id);
-            if (imageAsset == null) {
-                return null;
-            }
-            if (assetDelegate != null) {
-                bitmap = assetDelegate.fetchBitmap(imageAsset);
-                bitmaps.put(id, bitmap);
-                return bitmap;
-            }
-
-            InputStream is;
-            try {
-                if (TextUtils.isEmpty(imagesFolder)) {
-                    throw new IllegalStateException("You must set an images folder before loading an image." +
-                            " Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
+        if (isTheme) {
+            if (bitmap == null) {
+                LottieImageAsset imageAsset = imageAssets.get(id);
+                if (imageAsset == null) {
+                    return null;
                 }
-                is = context.getAssets().open(imagesFolder + imageAsset.getFileName());
-            } catch (IOException e) {
-                Log.w(L.TAG, "Unable to open asset.", e);
-                return null;
+                if (assetDelegate != null) {
+                    bitmap = assetDelegate.fetchBitmap(imageAsset);
+                    bitmaps.put(id, bitmap);
+                    return bitmap;
+                }
+                InputStream input;
+                try{
+                    if (TextUtils.isEmpty(imagesFolder) || themeContext == null) {
+                        throw new IllegalStateException("You must set an images folder before loading an image." +
+                                " Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
+                    }
+                    input = themeContext.getAssets().open(imagesFolder + imageAsset.getFileName());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+                BitmapFactory.Options opts = new BitmapFactory.Options();
+                opts.inScaled = false;
+                opts.inDensity = 160;
+                bitmap = BitmapFactory.decodeStream(input, null, opts);
+                bitmaps.put(id, bitmap);
             }
-            BitmapFactory.Options opts = new BitmapFactory.Options();
-            opts.inScaled = false;
-            opts.inDensity = 160;
-            bitmap = BitmapFactory.decodeStream(is, null, opts);
-            bitmaps.put(id, bitmap);
+        } else {
+            if (bitmap == null) {
+                LottieImageAsset imageAsset = imageAssets.get(id);
+                if (imageAsset == null) {
+                    return null;
+                }
+                if (assetDelegate != null) {
+                    bitmap = assetDelegate.fetchBitmap(imageAsset);
+                    bitmaps.put(id, bitmap);
+                    return bitmap;
+                }
+
+                InputStream is;
+                try {
+                    if (TextUtils.isEmpty(imagesFolder)) {
+                        throw new IllegalStateException("You must set an images folder before loading an image." +
+                                " Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
+                    }
+                    is = context.getAssets().open(imagesFolder + imageAsset.getFileName());
+                } catch (IOException e) {
+                    Log.w(L.TAG, "Unable to open asset.", e);
+                    return null;
+                }
+                BitmapFactory.Options opts = new BitmapFactory.Options();
+                opts.inScaled = false;
+                opts.inDensity = 160;
+                bitmap = BitmapFactory.decodeStream(is, null, opts);
+                bitmaps.put(id, bitmap);
+            }
         }
         return bitmap;
     }

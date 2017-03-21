@@ -139,26 +139,23 @@ public class DuckView extends FrameLayout {
         final int level = entry.getLevel();
         currentLevel.setText(level + "%");
         final int le = level % 100;
-        if (water != null) {
-            if (progress != level) {
-                water.setAnimation("battery.json");
-                water.loop(true);
-                water.setSpeed(5.0f);
-                water.playAnimation();
-                water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator animation) {
-                        progress = (int) (animation.getAnimatedFraction() * 100);
-                        if (le == 0) {
-                            if (progress == 99) {
-                                water.pauseAnimation();
-                            }
-                        } else if (progress == le) {
+        if (!water.isAnimating()) {
+            initWater();
+            water.playAnimation();
+            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    progress = (int) (animation.getAnimatedFraction() * 100);
+                    if (le == 0) {
+                        if (progress == 99) {
+                            progress = 100;
                             water.pauseAnimation();
                         }
+                    } else if (progress == le) {
+                        water.pauseAnimation();
                     }
-                });
-            }
+                }
+            });
         }
         int leftChargeTime = entry.getLeftTime();
         if (timeLeft != null) {
@@ -335,6 +332,38 @@ public class DuckView extends FrameLayout {
         }
     }
 
+    private void initShell(){
+        try{
+            String themePkg = (String) Utils.readData(mContext, "theme_two", "");
+            Context themeContext = mContext.createPackageContext(themePkg, Context.CONTEXT_IGNORE_SECURITY);
+            shell.setImageAssetsFolder(themeContext, "theme://images/shell");
+            shell.setAnimation(themeContext, "theme://shell.json");
+            shell.loop(true);
+            shell.playAnimation();
+        } catch (Exception e) {
+            shell.setImageAssetsFolder(null, "images/shell");
+            shell.setAnimation(null, "shell.json");
+        }
+        shell.loop(true);
+        shell.playAnimation();
+    }
+
+    private void initWater(){
+        try{
+            String themePkg = (String) Utils.readData(mContext, "theme_two", "");
+            Context themeContext = mContext.createPackageContext(themePkg, Context.CONTEXT_IGNORE_SECURITY);
+            water.setImageAssetsFolder(themeContext, "theme://images/water");
+            water.setAnimation(themeContext, "theme://water.json");
+        } catch (Exception e) {
+            if (!water.isAnimating()) {
+                water.setImageAssetsFolder(null, "images/water");
+                water.setAnimation(null, "water.json");
+            }
+        }
+        water.loop(true);
+        water.setSpeed(5.0f);
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
@@ -342,9 +371,7 @@ public class DuckView extends FrameLayout {
             initViews();
             isBindView = true;
 
-            shell.setAnimation("shell.json");
-            shell.loop(true);
-            shell.playAnimation();
+            initShell();
 
             initViewPager();
 

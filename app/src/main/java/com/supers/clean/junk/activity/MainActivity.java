@@ -7,6 +7,7 @@ import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -146,6 +147,27 @@ public class MainActivity extends BaseActivity implements MainView {
         super.onCreate(savedInstanceState);
         instance = this;
         setContentView(R.layout.activity_dra);
+
+        try {
+            Intent intent = getIntent();
+            if (intent.hasExtra("theme_package_name")) {
+                String pkgName = intent.getExtras().getString("theme_package_name", "");
+                Context themeContext = createPackageContext(pkgName, Context.CONTEXT_IGNORE_SECURITY);
+                Resources res = themeContext.getResources();
+                String type = res.getString(res.getIdentifier("type", "string", pkgName));
+                if (type != null) {
+                    if (type.equals("type_one")) {
+                        Utils.writeData(this, "theme_one", pkgName);
+                    } else if (type.equals("type_two")) {
+                        Utils.writeData(this, "theme_two", pkgName);
+                    }
+                }
+                themeContext = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         final ArrayList<View> arrayList = new ArrayList<>();
 
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
@@ -220,10 +242,10 @@ public class MainActivity extends BaseActivity implements MainView {
 
         AndroidSdk.track("主页面", "进入主页面", "", 1);
 
-        lot_side.setImageAssetsFolder("images/sideClean/");
-        lot_side.setAnimation("sideClean.json");
-        lot_side.loop(true);
-        lot_side.playAnimation();
+//        lot_side.setImageAssetsFolder("images/sideClean/");
+//        lot_side.setAnimation("sideClean.json");
+//        lot_side.loop(true);
+//        lot_side.playAnimation();
     }
 
     private void initHandler() {

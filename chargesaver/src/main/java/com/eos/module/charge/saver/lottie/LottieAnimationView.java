@@ -95,13 +95,13 @@ public class LottieAnimationView extends AppCompatImageView {
     TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.LottieAnimationView);
     String fileName = ta.getString(R.styleable.LottieAnimationView_lottie_fileName);
     if (!isInEditMode() && fileName != null) {
-      setAnimation(fileName);
+      setAnimation(null, fileName);
     }
     if (ta.getBoolean(R.styleable.LottieAnimationView_lottie_autoPlay, false)) {
       lottieDrawable.playAnimation();
     }
     lottieDrawable.loop(ta.getBoolean(R.styleable.LottieAnimationView_lottie_loop, false));
-    setImageAssetsFolder(ta.getString(R.styleable.LottieAnimationView_lottie_imageAssetsFolder));
+    setImageAssetsFolder(null, ta.getString(R.styleable.LottieAnimationView_lottie_imageAssetsFolder));
     setProgress(ta.getFloat(R.styleable.LottieAnimationView_lottie_progress, 0));
     int cacheStrategy = ta.getInt(
         R.styleable.LottieAnimationView_lottie_cacheStrategy,
@@ -162,7 +162,7 @@ public class LottieAnimationView extends AppCompatImageView {
     super.onRestoreInstanceState(ss.getSuperState());
     this.animationName = ss.animationName;
     if (!TextUtils.isEmpty(animationName)) {
-      setAnimation(animationName);
+      setAnimation(null, animationName);
     }
     setProgress(ss.progress);
     loop(ss.isLooping);
@@ -187,7 +187,10 @@ public class LottieAnimationView extends AppCompatImageView {
    * <p>
    * Will not cache the composition once loaded.
    */
-  public void setAnimation(String animationName) {
+  private Context themeContext;
+;
+  public void setAnimation(Context context, String animationName) {
+    this.themeContext = context;
     setAnimation(animationName, defaultCacheStrategy);
   }
 
@@ -199,33 +202,44 @@ public class LottieAnimationView extends AppCompatImageView {
    * strong reference to the composition once it is loaded
    * and deserialized. {@link CacheStrategy#Weak} will hold a weak reference to said composition.
    */
+  private String curAniName = "";
   @SuppressWarnings("WeakerAccess")
   public void setAnimation(final String animationName, final CacheStrategy cacheStrategy) {
     this.animationName = animationName;
-    if (weakRefCache.containsKey(animationName)) {
-      WeakReference<LottieComposition> compRef = weakRefCache.get(animationName);
+    curAniName = animationName;
+    boolean isTheme = false;
+    if (curAniName.startsWith("theme://")) {
+      curAniName = curAniName.replace("theme://", "");
+      isTheme = true;
+    }
+    if (weakRefCache.containsKey(curAniName)) {
+      WeakReference<LottieComposition> compRef = weakRefCache.get(curAniName);
       if (compRef.get() != null) {
         setComposition(compRef.get());
         return;
       }
-    } else if (strongRefCache.containsKey(animationName)) {
-      setComposition(strongRefCache.get(animationName));
+    } else if (strongRefCache.containsKey(curAniName)) {
+      setComposition(strongRefCache.get(curAniName));
       return;
     }
 
-    this.animationName = animationName;
     lottieDrawable.cancelAnimation();
     cancelLoaderTask();
-    compositionLoader = LottieComposition.Factory.fromAssetFileName(getContext(), animationName,
+    Context context = null;
+    if (isTheme) {
+        context = themeContext;
+    } else {
+        context = getContext();
+    }
+    compositionLoader = LottieComposition.Factory.fromAssetFileName(context, curAniName,
         new OnCompositionLoadedListener() {
           @Override
           public void onCompositionLoaded(LottieComposition composition) {
             if (cacheStrategy == CacheStrategy.Strong) {
-              strongRefCache.put(animationName, composition);
+              strongRefCache.put(curAniName, composition);
             } else if (cacheStrategy == CacheStrategy.Weak) {
-              weakRefCache.put(animationName, new WeakReference<>(composition));
+              weakRefCache.put(curAniName, new WeakReference<>(composition));
             }
-
             setComposition(composition);
           }
         });
@@ -315,8 +329,8 @@ public class LottieAnimationView extends AppCompatImageView {
    * If your images are located in src/main/assets/airbnb_loader/ then call
    * `setImageAssetsFolder("airbnb_loader/");`.
    */
-  @SuppressWarnings("WeakerAccess") public void setImageAssetsFolder(String imageAssetsFolder) {
-    lottieDrawable.setImagesAssetsFolder(imageAssetsFolder);
+  @SuppressWarnings("WeakerAccess") public void setImageAssetsFolder(Context themeContext, String imageAssetsFolder) {
+    lottieDrawable.setImagesAssetsFolder(themeContext, imageAssetsFolder);
   }
 
   public void addAnimatorUpdateListener(ValueAnimator.AnimatorUpdateListener updateListener) {
