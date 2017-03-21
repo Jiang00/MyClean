@@ -29704,6 +29704,7 @@ com.eos.module.charge.saver.R$attr: int initialActivityCount
 com.eos.module.charge.saver.R$attr: int isLightTheme
 com.eos.module.charge.saver.R$attr: int itemPadding
 com.eos.module.charge.saver.R$attr: int layout
+com.eos.module.charge.saver.R$attr: int layoutManager
 com.eos.module.charge.saver.R$attr: int listChoiceBackgroundIndicator
 com.eos.module.charge.saver.R$attr: int listDividerAlertDialog
 com.eos.module.charge.saver.R$attr: int listItemLayout
@@ -29746,6 +29747,7 @@ com.eos.module.charge.saver.R$attr: int queryBackground
 com.eos.module.charge.saver.R$attr: int queryHint
 com.eos.module.charge.saver.R$attr: int radioButtonStyle
 com.eos.module.charge.saver.R$attr: int ratingBarStyle
+com.eos.module.charge.saver.R$attr: int reverseLayout
 com.eos.module.charge.saver.R$attr: int searchHintIcon
 com.eos.module.charge.saver.R$attr: int searchIcon
 com.eos.module.charge.saver.R$attr: int searchViewStyle
@@ -29758,10 +29760,12 @@ com.eos.module.charge.saver.R$attr: int showAsAction
 com.eos.module.charge.saver.R$attr: int showDividers
 com.eos.module.charge.saver.R$attr: int showText
 com.eos.module.charge.saver.R$attr: int singleChoiceItemLayout
+com.eos.module.charge.saver.R$attr: int spanCount
 com.eos.module.charge.saver.R$attr: int spinBars
 com.eos.module.charge.saver.R$attr: int spinnerDropDownItemStyle
 com.eos.module.charge.saver.R$attr: int spinnerStyle
 com.eos.module.charge.saver.R$attr: int splitTrack
+com.eos.module.charge.saver.R$attr: int stackFromEnd
 com.eos.module.charge.saver.R$attr: int state_above_anchor
 com.eos.module.charge.saver.R$attr: int submitBackground
 com.eos.module.charge.saver.R$attr: int subtitle
@@ -30005,6 +30009,7 @@ com.eos.module.charge.saver.R$dimen: int highlight_alpha_material_light
 com.eos.module.charge.saver.R$dimen: int icon_h
 com.eos.module.charge.saver.R$dimen: int icon_p
 com.eos.module.charge.saver.R$dimen: int icon_w
+com.eos.module.charge.saver.R$dimen: int item_touch_helper_max_drag_scroll_per_frame
 com.eos.module.charge.saver.R$dimen: int left
 com.eos.module.charge.saver.R$dimen: int msg_16
 com.eos.module.charge.saver.R$dimen: int msg_250
@@ -30196,6 +30201,7 @@ com.eos.module.charge.saver.R$id: int icon
 com.eos.module.charge.saver.R$id: int ifRoom
 com.eos.module.charge.saver.R$id: int image
 com.eos.module.charge.saver.R$id: int info
+com.eos.module.charge.saver.R$id: int item_touch_helper_previous_elevation
 com.eos.module.charge.saver.R$id: int line1
 com.eos.module.charge.saver.R$id: int line3
 com.eos.module.charge.saver.R$id: int listMode
@@ -30813,6 +30819,12 @@ com.eos.module.charge.saver.R$styleable: int[] PopupWindowBackgroundState
 com.eos.module.charge.saver.R$styleable: int PopupWindowBackgroundState_state_above_anchor
 com.eos.module.charge.saver.R$styleable: int PopupWindow_android_popupBackground
 com.eos.module.charge.saver.R$styleable: int PopupWindow_overlapAnchor
+com.eos.module.charge.saver.R$styleable: int[] RecyclerView
+com.eos.module.charge.saver.R$styleable: int RecyclerView_android_orientation
+com.eos.module.charge.saver.R$styleable: int RecyclerView_layoutManager
+com.eos.module.charge.saver.R$styleable: int RecyclerView_reverseLayout
+com.eos.module.charge.saver.R$styleable: int RecyclerView_spanCount
+com.eos.module.charge.saver.R$styleable: int RecyclerView_stackFromEnd
 com.eos.module.charge.saver.R$styleable: int[] SearchView
 com.eos.module.charge.saver.R$styleable: int SearchView_android_focusable
 com.eos.module.charge.saver.R$styleable: int SearchView_android_imeOptions
@@ -31017,7 +31029,6 @@ com.eos.module.charge.saver.view.BatteryView: BatteryView(android.content.Contex
 com.eos.module.charge.saver.view.BatteryView: BatteryView(android.content.Context,android.util.AttributeSet)
 com.eos.module.charge.saver.view.BatteryView: BatteryView(android.content.Context,android.util.AttributeSet,int)
 com.eos.module.charge.saver.view.BatteryView: void setUnlockListener(com.eos.module.charge.saver.view.BatteryView$UnlockListener)
-com.eos.module.charge.saver.view.BatteryView$2: void onClick(android.view.View)
 com.eos.module.charge.saver.view.BatteryView$8: void onClick(android.view.View)
 com.eos.module.charge.saver.view.BatteryView$9: void onClick(android.view.View)
 com.eos.module.charge.saver.view.BubbleLayout

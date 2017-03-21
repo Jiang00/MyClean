@@ -98,24 +98,13 @@ public class BatteryView extends FrameLayout {
     };
 
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
-    boolean isMove = false;
     private void showNativeAD() {
-
-        adView = new LinearLayout(mContext);
-        adView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-        adView.setBackgroundColor(Color.RED);
-        adView.setOnClickListener(new OnClickListener() {
+        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, new ADRequest.ICustomNativeADClicked() {
             @Override
-            public void onClick(View v) {
-                Log.d("MyTest", "ad click");
+            public void onNativeADClicked(ClientNativeAd clientNativeAd) {
+
             }
         });
-//        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, new ADRequest.ICustomNativeADClicked() {
-//            @Override
-//            public void onNativeADClicked(ClientNativeAd clientNativeAd) {
-//                Log.d("MyTest", "ad click ");
-//            }
-//        });
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);
@@ -129,38 +118,15 @@ public class BatteryView extends FrameLayout {
             adView.setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    float startX = 0;
+                    float startX = event.getX();
+                    detector.onTouchEvent(event);
                     switch (event.getAction()) {
-                        case MotionEvent.ACTION_DOWN:
-                            Log.d("MyTest", "ad touch down");
-                            startX = event.getX();
-                            break;
-                        case MotionEvent.ACTION_MOVE:
-                            Log.d("MyTest", "ad touch move");
-                            if ((event.getX() - startX) > halfWidth) {
-                                if (listener != null) {
-                                    Log.d("MyTest", "ad touch move alpha change listener != null");
-                                    batteryView.setAlpha(1.0f);
-                                    listener.onUnlock();
-                                }
-                            } else {
-                                Log.d("MyTest", "ad touch move alpha change ");
-                                if (batteryView != null) {
-                                    Log.d("MyTest", "ad touch move alpha change batteryView=" + batteryView);
-                                    batteryView.setAlpha(1.0f);
-                                }
-                            }
-                            isMove = true;
-                            break;
                         case MotionEvent.ACTION_UP:
-                            Log.d("MyTest", "ad touch up");
-                            if (isMove) {
-                                isMove = false;
+                            if((event.getX() - startX) > 50 || (startX - event.getX()) > 50){
                                 return true;
                             } else {
                                 break;
                             }
-
                     }
                     return false;
                 }

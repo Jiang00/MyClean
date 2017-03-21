@@ -220,10 +220,10 @@ public class MainActivity extends BaseActivity implements MainView {
 
         AndroidSdk.track("主页面", "进入主页面", "", 1);
 
-        lot_side.setImageAssetsFolder("images/sideClean/");
-        lot_side.setAnimation("sideClean.json");
-        lot_side.loop(true);
-        lot_side.playAnimation();
+//        lot_side.setImageAssetsFolder("images/sideClean/");
+//        lot_side.setAnimation("sideClean.json");
+//        lot_side.loop(true);
+//        lot_side.playAnimation();
     }
 
     private void initHandler() {
@@ -614,13 +614,13 @@ public class MainActivity extends BaseActivity implements MainView {
                     break;
                 case R.id.main_theme_button:
                     AndroidSdk.track("主页面", "点击主题按钮", "", 1);
-//                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
-                    final Context context = SdkEnv.context();
-                    ShopMaster.applyTheme(getApplicationContext(), "theme_preview_two", true);
-                    ShopMaster.launch(context,
-                            new Theme(R.raw.battery_0, context.getPackageName())
-//                            ,new Theme(R.raw.theme_preview_two, "theme_preview_two")
-                    );
+                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
+//                    final Context context = SdkEnv.context();
+//                    ShopMaster.applyTheme(getApplicationContext(), "theme_preview_two", true);
+//                    ShopMaster.launch(context,
+//                            new Theme(R.raw.battery_0, context.getPackageName())
+////                            ,new Theme(R.raw.theme_preview_two, "theme_preview_two")
+//                    );
                     break;
                 case R.id.main_rotate_bad:
                     AndroidSdk.track("主页面", "点击好评bad按钮", "", 1);
