@@ -20293,6 +20293,60 @@ android.support.v7.appcompat.R$styleable -> android.support.v7.appcompat.R$style
     int View_theme -> View_theme
     1017:1017:void <init>() -> <init>
     1018:1367:void <clinit>() -> <clinit>
+android.support.v7.cardview.BuildConfig -> android.support.v7.cardview.BuildConfig:
+    boolean DEBUG -> DEBUG
+    java.lang.String APPLICATION_ID -> APPLICATION_ID
+    java.lang.String BUILD_TYPE -> BUILD_TYPE
+    java.lang.String FLAVOR -> FLAVOR
+    int VERSION_CODE -> VERSION_CODE
+    java.lang.String VERSION_NAME -> VERSION_NAME
+    6:6:void <init>() -> <init>
+android.support.v7.cardview.R -> android.support.v7.cardview.R:
+    9:9:void <init>() -> <init>
+android.support.v7.cardview.R$attr -> android.support.v7.cardview.R$attr:
+    int cardBackgroundColor -> cardBackgroundColor
+    int cardCornerRadius -> cardCornerRadius
+    int cardElevation -> cardElevation
+    int cardMaxElevation -> cardMaxElevation
+    int cardPreventCornerOverlap -> cardPreventCornerOverlap
+    int cardUseCompatPadding -> cardUseCompatPadding
+    int contentPadding -> contentPadding
+    int contentPaddingBottom -> contentPaddingBottom
+    int contentPaddingLeft -> contentPaddingLeft
+    int contentPaddingRight -> contentPaddingRight
+    int contentPaddingTop -> contentPaddingTop
+    10:10:void <init>() -> <init>
+android.support.v7.cardview.R$color -> android.support.v7.cardview.R$color:
+    int cardview_dark_background -> cardview_dark_background
+    int cardview_light_background -> cardview_light_background
+    int cardview_shadow_end_color -> cardview_shadow_end_color
+    int cardview_shadow_start_color -> cardview_shadow_start_color
+    23:23:void <init>() -> <init>
+android.support.v7.cardview.R$dimen -> android.support.v7.cardview.R$dimen:
+    int cardview_compat_inset_shadow -> cardview_compat_inset_shadow
+    int cardview_default_elevation -> cardview_default_elevation
+    int cardview_default_radius -> cardview_default_radius
+    29:29:void <init>() -> <init>
+android.support.v7.cardview.R$style -> android.support.v7.cardview.R$style:
+    int CardView -> CardView
+    int CardView_Dark -> CardView_Dark
+    int CardView_Light -> CardView_Light
+    34:34:void <init>() -> <init>
+android.support.v7.cardview.R$styleable -> android.support.v7.cardview.R$styleable:
+    int[] CardView -> CardView
+    int CardView_cardBackgroundColor -> CardView_cardBackgroundColor
+    int CardView_cardCornerRadius -> CardView_cardCornerRadius
+    int CardView_cardElevation -> CardView_cardElevation
+    int CardView_cardMaxElevation -> CardView_cardMaxElevation
+    int CardView_cardPreventCornerOverlap -> CardView_cardPreventCornerOverlap
+    int CardView_cardUseCompatPadding -> CardView_cardUseCompatPadding
+    int CardView_contentPadding -> CardView_contentPadding
+    int CardView_contentPaddingBottom -> CardView_contentPaddingBottom
+    int CardView_contentPaddingLeft -> CardView_contentPaddingLeft
+    int CardView_contentPaddingRight -> CardView_contentPaddingRight
+    int CardView_contentPaddingTop -> CardView_contentPaddingTop
+    39:39:void <init>() -> <init>
+    40:40:void <clinit>() -> <clinit>
 android.support.v7.content.res.AppCompatColorStateListInflater -> android.support.v7.content.res.AppCompatColorStateListInflater:
     int DEFAULT_COLOR -> DEFAULT_COLOR
     40:40:void <init>() -> <init>
@@ -23021,6 +23075,105 @@ android.support.v7.widget.ButtonBarLayout -> android.support.v7.widget.ButtonBar
     67:115:void onMeasure(int,int) -> onMeasure
     118:130:void setStacked(boolean) -> setStacked
     133:133:boolean isStacked() -> isStacked
+android.support.v7.widget.CardView -> android.support.v7.widget.CardView:
+    android.support.v7.widget.CardViewImpl IMPL -> IMPL
+    boolean mCompatPadding -> mCompatPadding
+    boolean mPreventCornerOverlap -> mPreventCornerOverlap
+    android.graphics.Rect mContentPadding -> mContentPadding
+    android.graphics.Rect mShadowBounds -> mShadowBounds
+    89:97:void <init>(android.content.Context) -> <init>
+    89:102:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    89:107:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    112:112:void setPadding(int,int,int,int) -> setPadding
+    116:116:void setPaddingRelative(int,int,int,int) -> setPaddingRelative
+    126:126:boolean getUseCompatPadding() -> getUseCompatPadding
+    146:151:void setUseCompatPadding(boolean) -> setUseCompatPadding
+    170:172:void setContentPadding(int,int,int,int) -> setContentPadding
+    176:200:void onMeasure(int,int) -> onMeasure
+    203:225:void initialize(android.content.Context,android.util.AttributeSet,int) -> initialize
+    234:235:void setCardBackgroundColor(int) -> setCardBackgroundColor
+    243:243:int getContentPaddingLeft() -> getContentPaddingLeft
+    252:252:int getContentPaddingRight() -> getContentPaddingRight
+    261:261:int getContentPaddingTop() -> getContentPaddingTop
+    270:270:int getContentPaddingBottom() -> getContentPaddingBottom
+    281:282:void setRadius(float) -> setRadius
+    291:291:float getRadius() -> getRadius
+    301:304:void setShadowPadding(int,int,int,int) -> setShadowPadding
+    315:316:void setCardElevation(float) -> setCardElevation
+    326:326:float getCardElevation() -> getCardElevation
+    341:342:void setMaxCardElevation(float) -> setMaxCardElevation
+    352:352:float getMaxCardElevation() -> getMaxCardElevation
+    364:364:boolean getPreventCornerOverlap() -> getPreventCornerOverlap
+    381:386:void setPreventCornerOverlap(boolean) -> setPreventCornerOverlap
+    75:83:void <clinit>() -> <clinit>
+android.support.v7.widget.CardViewApi21 -> android.support.v7.widget.CardViewApi21:
+    21:21:void <init>() -> <init>
+    26:32:void initialize(android.support.v7.widget.CardViewDelegate,android.content.Context,int,float,float,float) -> initialize
+    36:37:void setRadius(android.support.v7.widget.CardViewDelegate,float) -> setRadius
+    41:41:void initStatic() -> initStatic
+    45:48:void setMaxElevation(android.support.v7.widget.CardViewDelegate,float) -> setMaxElevation
+    52:52:float getMaxElevation(android.support.v7.widget.CardViewDelegate) -> getMaxElevation
+    57:57:float getMinWidth(android.support.v7.widget.CardViewDelegate) -> getMinWidth
+    62:62:float getMinHeight(android.support.v7.widget.CardViewDelegate) -> getMinHeight
+    67:67:float getRadius(android.support.v7.widget.CardViewDelegate) -> getRadius
+    72:73:void setElevation(android.support.v7.widget.CardViewDelegate,float) -> setElevation
+    77:77:float getElevation(android.support.v7.widget.CardViewDelegate) -> getElevation
+    82:93:void updatePadding(android.support.v7.widget.CardViewDelegate) -> updatePadding
+    97:98:void onCompatPaddingChanged(android.support.v7.widget.CardViewDelegate) -> onCompatPaddingChanged
+    102:103:void onPreventCornerOverlapChanged(android.support.v7.widget.CardViewDelegate) -> onPreventCornerOverlapChanged
+    107:108:void setBackgroundColor(android.support.v7.widget.CardViewDelegate,int) -> setBackgroundColor
+android.support.v7.widget.CardViewDelegate -> android.support.v7.widget.CardViewDelegate:
+    void setBackgroundDrawable(android.graphics.drawable.Drawable) -> setBackgroundDrawable
+    android.graphics.drawable.Drawable getBackground() -> getBackground
+    boolean getUseCompatPadding() -> getUseCompatPadding
+    boolean getPreventCornerOverlap() -> getPreventCornerOverlap
+    float getRadius() -> getRadius
+    void setShadowPadding(int,int,int,int) -> setShadowPadding
+android.support.v7.widget.CardViewEclairMr1 -> android.support.v7.widget.CardViewEclairMr1:
+    android.graphics.RectF sCornerRect -> sCornerRect
+    25:27:void <init>() -> <init>
+    34:72:void initStatic() -> initStatic
+    77:82:void initialize(android.support.v7.widget.CardViewDelegate,android.content.Context,int,float,float,float) -> initialize
+    86:86:android.support.v7.widget.RoundRectDrawableWithShadow createBackground(android.content.Context,int,float,float,float) -> createBackground
+    92:98:void updatePadding(android.support.v7.widget.CardViewDelegate) -> updatePadding
+    103:103:void onCompatPaddingChanged(android.support.v7.widget.CardViewDelegate) -> onCompatPaddingChanged
+    107:109:void onPreventCornerOverlapChanged(android.support.v7.widget.CardViewDelegate) -> onPreventCornerOverlapChanged
+    113:114:void setBackgroundColor(android.support.v7.widget.CardViewDelegate,int) -> setBackgroundColor
+    118:120:void setRadius(android.support.v7.widget.CardViewDelegate,float) -> setRadius
+    124:124:float getRadius(android.support.v7.widget.CardViewDelegate) -> getRadius
+    129:130:void setElevation(android.support.v7.widget.CardViewDelegate,float) -> setElevation
+    134:134:float getElevation(android.support.v7.widget.CardViewDelegate) -> getElevation
+    139:141:void setMaxElevation(android.support.v7.widget.CardViewDelegate,float) -> setMaxElevation
+    145:145:float getMaxElevation(android.support.v7.widget.CardViewDelegate) -> getMaxElevation
+    150:150:float getMinWidth(android.support.v7.widget.CardViewDelegate) -> getMinWidth
+    155:155:float getMinHeight(android.support.v7.widget.CardViewDelegate) -> getMinHeight
+    159:159:android.support.v7.widget.RoundRectDrawableWithShadow getShadowBackground(android.support.v7.widget.CardViewDelegate) -> getShadowBackground
+android.support.v7.widget.CardViewEclairMr1$1 -> android.support.v7.widget.CardViewEclairMr1$1:
+    android.support.v7.widget.CardViewEclairMr1 this$0 -> this$0
+    35:35:void <init>(android.support.v7.widget.CardViewEclairMr1) -> <init>
+    39:70:void drawRoundRect(android.graphics.Canvas,android.graphics.RectF,float,android.graphics.Paint) -> drawRoundRect
+android.support.v7.widget.CardViewImpl -> android.support.v7.widget.CardViewImpl:
+    void initialize(android.support.v7.widget.CardViewDelegate,android.content.Context,int,float,float,float) -> initialize
+    void setRadius(android.support.v7.widget.CardViewDelegate,float) -> setRadius
+    float getRadius(android.support.v7.widget.CardViewDelegate) -> getRadius
+    void setElevation(android.support.v7.widget.CardViewDelegate,float) -> setElevation
+    float getElevation(android.support.v7.widget.CardViewDelegate) -> getElevation
+    void initStatic() -> initStatic
+    void setMaxElevation(android.support.v7.widget.CardViewDelegate,float) -> setMaxElevation
+    float getMaxElevation(android.support.v7.widget.CardViewDelegate) -> getMaxElevation
+    float getMinWidth(android.support.v7.widget.CardViewDelegate) -> getMinWidth
+    float getMinHeight(android.support.v7.widget.CardViewDelegate) -> getMinHeight
+    void updatePadding(android.support.v7.widget.CardViewDelegate) -> updatePadding
+    void onCompatPaddingChanged(android.support.v7.widget.CardViewDelegate) -> onCompatPaddingChanged
+    void onPreventCornerOverlapChanged(android.support.v7.widget.CardViewDelegate) -> onPreventCornerOverlapChanged
+    void setBackgroundColor(android.support.v7.widget.CardViewDelegate,int) -> setBackgroundColor
+android.support.v7.widget.CardViewJellybeanMr1 -> android.support.v7.widget.CardViewJellybeanMr1:
+    22:22:void <init>() -> <init>
+    26:34:void initStatic() -> initStatic
+android.support.v7.widget.CardViewJellybeanMr1$1 -> android.support.v7.widget.CardViewJellybeanMr1$1:
+    android.support.v7.widget.CardViewJellybeanMr1 this$0 -> this$0
+    27:27:void <init>(android.support.v7.widget.CardViewJellybeanMr1) -> <init>
+    31:32:void drawRoundRect(android.graphics.Canvas,android.graphics.RectF,float,android.graphics.Paint) -> drawRoundRect
 android.support.v7.widget.ChildHelper -> android.support.v7.widget.ChildHelper:
     boolean DEBUG -> DEBUG
     java.lang.String TAG -> TAG
@@ -25212,6 +25365,75 @@ android.support.v7.widget.ResourcesWrapper -> android.support.v7.widget.Resource
     264:264:java.lang.String getResourceEntryName(int) -> getResourceEntryName
     270:271:void parseBundleExtras(android.content.res.XmlResourceParser,android.os.Bundle) -> parseBundleExtras
     276:277:void parseBundleExtra(java.lang.String,android.util.AttributeSet,android.os.Bundle) -> parseBundleExtra
+android.support.v7.widget.RoundRectDrawable -> android.support.v7.widget.RoundRectDrawable:
+    float mRadius -> mRadius
+    android.graphics.Paint mPaint -> mPaint
+    android.graphics.RectF mBoundsF -> mBoundsF
+    android.graphics.Rect mBoundsI -> mBoundsI
+    float mPadding -> mPadding
+    boolean mInsetForPadding -> mInsetForPadding
+    boolean mInsetForRadius -> mInsetForRadius
+    42:51:void <init>(int,float) -> <init>
+    54:63:void setPadding(float,boolean,boolean) -> setPadding
+    66:66:float getPadding() -> getPadding
+    71:72:void draw(android.graphics.Canvas) -> draw
+    75:87:void updateBounds(android.graphics.Rect) -> updateBounds
+    91:93:void onBoundsChange(android.graphics.Rect) -> onBoundsChange
+    97:98:void getOutline(android.graphics.Outline) -> getOutline
+    101:107:void setRadius(float) -> setRadius
+    112:112:void setAlpha(int) -> setAlpha
+    117:117:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
+    121:121:int getOpacity() -> getOpacity
+    125:125:float getRadius() -> getRadius
+    129:131:void setColor(int) -> setColor
+android.support.v7.widget.RoundRectDrawableWithShadow -> android.support.v7.widget.RoundRectDrawableWithShadow:
+    double COS_45 -> COS_45
+    float SHADOW_MULTIPLIER -> SHADOW_MULTIPLIER
+    int mInsetShadow -> mInsetShadow
+    android.support.v7.widget.RoundRectDrawableWithShadow$RoundRectHelper sRoundRectHelper -> sRoundRectHelper
+    android.graphics.Paint mPaint -> mPaint
+    android.graphics.Paint mCornerShadowPaint -> mCornerShadowPaint
+    android.graphics.Paint mEdgeShadowPaint -> mEdgeShadowPaint
+    android.graphics.RectF mCardBounds -> mCardBounds
+    float mCornerRadius -> mCornerRadius
+    android.graphics.Path mCornerShadowPath -> mCornerShadowPath
+    float mMaxShadowSize -> mMaxShadowSize
+    float mRawMaxShadowSize -> mRawMaxShadowSize
+    float mShadowSize -> mShadowSize
+    float mRawShadowSize -> mRawShadowSize
+    boolean mDirty -> mDirty
+    int mShadowStartColor -> mShadowStartColor
+    int mShadowEndColor -> mShadowEndColor
+    boolean mAddPaddingForCorners -> mAddPaddingForCorners
+    boolean mPrintedShadowClipWarning -> mPrintedShadowClipWarning
+    75:102:void <init>(android.content.res.Resources,int,float,float,float) -> <init>
+    108:112:int toEven(float) -> toEven
+    116:118:void setAddPaddingForCorners(boolean) -> setAddPaddingForCorners
+    122:125:void setAlpha(int) -> setAlpha
+    129:131:void onBoundsChange(android.graphics.Rect) -> onBoundsChange
+    134:154:void setShadowSize(float,float) -> setShadowSize
+    158:163:boolean getPadding(android.graphics.Rect) -> getPadding
+    168:171:float calculateVerticalPadding(float,float,boolean) -> calculateVerticalPadding
+    177:180:float calculateHorizontalPadding(float,float,boolean) -> calculateHorizontalPadding
+    186:189:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
+    193:193:int getOpacity() -> getOpacity
+    197:204:void setCornerRadius(float) -> setCornerRadius
+    208:216:void draw(android.graphics.Canvas) -> draw
+    219:264:void drawShadow(android.graphics.Canvas) -> drawShadow
+    267:298:void buildShadowCorners() -> buildShadowCorners
+    304:308:void buildComponents(android.graphics.Rect) -> buildComponents
+    311:311:float getCornerRadius() -> getCornerRadius
+    315:316:void getMaxShadowAndCornerPadding(android.graphics.Rect) -> getMaxShadowAndCornerPadding
+    319:320:void setShadowSize(float) -> setShadowSize
+    323:324:void setMaxShadowSize(float) -> setMaxShadowSize
+    327:327:float getShadowSize() -> getShadowSize
+    331:331:float getMaxShadowSize() -> getMaxShadowSize
+    335:337:float getMinWidth() -> getMinWidth
+    341:343:float getMinHeight() -> getMinHeight
+    347:349:void setColor(int) -> setColor
+    37:37:void <clinit>() -> <clinit>
+android.support.v7.widget.RoundRectDrawableWithShadow$RoundRectHelper -> android.support.v7.widget.RoundRectDrawableWithShadow$RoundRectHelper:
+    void drawRoundRect(android.graphics.Canvas,android.graphics.RectF,float,android.graphics.Paint) -> drawRoundRect
 android.support.v7.widget.RtlSpacingHelper -> android.support.v7.widget.RtlSpacingHelper:
     int UNDEFINED -> UNDEFINED
     int mLeft -> mLeft
@@ -35033,21 +35255,21 @@ com.eos.module.charge.saver.view.BatteryView -> com.eos.module.charge.saver.view
     android.content.BroadcastReceiver timerUpdateReceiver -> z
     android.content.IntentFilter mIntentFilter -> A
     int progress -> B
-    46:159:void <init>(android.content.Context) -> <init>
-    46:159:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    46:159:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    46:160:void <init>(android.content.Context) -> <init>
+    46:160:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    46:160:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     90:91:void setUnlockListener(com.eos.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
-    102:140:void showNativeAD() -> d
-    143:157:void updateTime() -> a
-    162:231:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
-    240:355:void onFinishInflate() -> onFinishInflate
-    358:375:void initViews() -> e
-    379:386:void onAttachedToWindow() -> onAttachedToWindow
-    390:421:void onDetachedFromWindow() -> onDetachedFromWindow
-    424:428:int analysisJson(org.json.JSONObject) -> a
-    433:440:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    443:445:void registerTimeUpdateReceiver() -> b
-    448:450:void unregisterTimeUpdateReceiver() -> c
+    103:141:void showNativeAD() -> d
+    144:158:void updateTime() -> a
+    163:232:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
+    241:356:void onFinishInflate() -> onFinishInflate
+    359:376:void initViews() -> e
+    380:387:void onAttachedToWindow() -> onAttachedToWindow
+    391:422:void onDetachedFromWindow() -> onDetachedFromWindow
+    425:429:int analysisJson(org.json.JSONObject) -> a
+    434:441:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    444:446:void registerTimeUpdateReceiver() -> b
+    449:451:void unregisterTimeUpdateReceiver() -> c
     41:41:android.view.GestureDetector access$000(com.eos.module.charge.saver.view.BatteryView) -> a
     41:41:int access$102(com.eos.module.charge.saver.view.BatteryView,int) -> a
     41:41:int access$100(com.eos.module.charge.saver.view.BatteryView) -> b
@@ -35067,38 +35289,38 @@ com.eos.module.charge.saver.view.BatteryView$1 -> com.eos.module.charge.saver.vi
     96:97:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.eos.module.charge.saver.view.BatteryView$2 -> com.eos.module.charge.saver.view.BatteryView$2:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    102:102:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    106:106:void onNativeADClicked(com.android.client.ClientNativeAd) -> a
+    103:103:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    107:107:void onNativeADClicked(com.android.client.ClientNativeAd) -> a
 com.eos.module.charge.saver.view.BatteryView$3 -> com.eos.module.charge.saver.view.BatteryView$3:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    119:119:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    122:137:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    120:120:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    123:138:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.eos.module.charge.saver.view.BatteryView$4 -> com.eos.module.charge.saver.view.BatteryView$4:
     int val$le -> a
     com.eos.module.charge.saver.view.BatteryView this$0 -> b
-    174:174:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
-    177:186:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    175:175:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
+    178:187:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.eos.module.charge.saver.view.BatteryView$5 -> com.eos.module.charge.saver.view.BatteryView$5:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    249:249:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    252:253:void onCompositionLoaded(com.eos.module.charge.saver.lottie.LottieComposition) -> a
+    250:250:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    253:254:void onCompositionLoaded(com.eos.module.charge.saver.lottie.LottieComposition) -> a
 com.eos.module.charge.saver.view.BatteryView$6 -> com.eos.module.charge.saver.view.BatteryView$6:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    262:262:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    265:281:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    263:263:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    266:282:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.eos.module.charge.saver.view.BatteryView$7 -> com.eos.module.charge.saver.view.BatteryView$7:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    284:284:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    287:293:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    298:306:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    285:285:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    288:294:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    299:307:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.eos.module.charge.saver.view.BatteryView$8 -> com.eos.module.charge.saver.view.BatteryView$8:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    317:317:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    320:323:void onClick(android.view.View) -> onClick
+    318:318:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    321:324:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$9 -> com.eos.module.charge.saver.view.BatteryView$9:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    335:335:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    338:352:void onClick(android.view.View) -> onClick
+    336:336:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    339:353:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$UnlockListener -> com.eos.module.charge.saver.view.BatteryView$a:
     void onUnlock() -> a
 com.eos.module.charge.saver.view.BubbleLayout -> com.eos.module.charge.saver.view.BubbleLayout:
@@ -40947,6 +41169,18 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int BottomSheetBehavior_Params_behavior_peekHeight -> BottomSheetBehavior_Params_behavior_peekHeight
     int[] ButtonBarLayout -> ButtonBarLayout
     int ButtonBarLayout_allowStacking -> ButtonBarLayout_allowStacking
+    int[] CardView -> CardView
+    int CardView_cardBackgroundColor -> CardView_cardBackgroundColor
+    int CardView_cardCornerRadius -> CardView_cardCornerRadius
+    int CardView_cardElevation -> CardView_cardElevation
+    int CardView_cardMaxElevation -> CardView_cardMaxElevation
+    int CardView_cardPreventCornerOverlap -> CardView_cardPreventCornerOverlap
+    int CardView_cardUseCompatPadding -> CardView_cardUseCompatPadding
+    int CardView_contentPadding -> CardView_contentPadding
+    int CardView_contentPaddingBottom -> CardView_contentPaddingBottom
+    int CardView_contentPaddingLeft -> CardView_contentPaddingLeft
+    int CardView_contentPaddingRight -> CardView_contentPaddingRight
+    int CardView_contentPaddingTop -> CardView_contentPaddingTop
     int[] Charge_Label -> Charge_Label
     int Charge_Label_charge_background_color -> Charge_Label_charge_background_color
     int Charge_Label_charge_fill_triangle -> Charge_Label_charge_fill_triangle
@@ -41267,7 +41501,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5031:12116:void <clinit>() -> <clinit>
+    5160:12451:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
@@ -42221,100 +42455,107 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     com.supers.clean.junk.View.adapter.SideAdapter adapter -> W
     long mExitTime -> X
     int temp -> Y
+    android.support.v4.view.ViewPager viewpager -> Z
+    android.support.v4.view.PagerAdapter pagerAdapter -> aa
+    android.view.View pageView -> ab
     com.supers.clean.junk.myView.PullToRefreshLayout$OnRefreshListener refreshListener -> O
     android.view.View$OnClickListener onClickListener -> P
-    64:635:void <init>() -> <init>
-    116:146:void findId() -> a
-    150:235:void onCreate(android.os.Bundle) -> onCreate
-    238:268:void showPermission(android.content.Context) -> a
-    272:296:boolean isAccessibilitySettingsOn(android.content.Context) -> b
-    301:302:void initHandler() -> g
-    307:324:void onClick() -> onClick
-    335:335:void initCercleHight() -> b
-    339:353:void initCpu(int) -> a
-    357:386:void initSd(int,java.lang.String,long) -> a
-    390:405:void initRam(int,java.lang.String) -> a
-    409:413:void initGuard(int,android.view.animation.RotateAnimation) -> a
-    417:431:void initSideData() -> e
-    435:436:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    440:441:void setRotateGone() -> d
-    445:446:void openDrawer() -> f
-    457:481:void loadFullAd() -> c
-    714:727:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    731:734:void onRestart() -> onRestart
-    738:740:void onResume() -> onResume
-    743:752:void onBackPressed() -> onBackPressed
-    64:64:android.os.Handler access$000(com.supers.clean.junk.activity.MainActivity) -> a
-    64:64:com.supers.clean.junk.presenter.MainPresenter access$100(com.supers.clean.junk.activity.MainActivity) -> b
+    64:668:void <init>() -> <init>
+    119:149:void findId() -> a
+    153:268:void onCreate(android.os.Bundle) -> onCreate
+    305:329:boolean isAccessibilitySettingsOn(android.content.Context) -> a
+    334:335:void initHandler() -> g
+    340:357:void onClick() -> onClick
+    368:368:void initCercleHight() -> b
+    372:386:void initCpu(int) -> a
+    390:419:void initSd(int,java.lang.String,long) -> a
+    423:438:void initRam(int,java.lang.String) -> a
+    442:446:void initGuard(int,android.view.animation.RotateAnimation) -> a
+    450:464:void initSideData() -> e
+    468:469:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    473:474:void setRotateGone() -> d
+    478:479:void openDrawer() -> f
+    490:514:void loadFullAd() -> c
+    747:760:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    764:767:void onRestart() -> onRestart
+    771:773:void onResume() -> onResume
+    776:785:void onBackPressed() -> onBackPressed
+    64:64:android.view.View access$000(com.supers.clean.junk.activity.MainActivity) -> a
+    64:64:android.support.v4.view.ViewPager access$100(com.supers.clean.junk.activity.MainActivity) -> b
+    64:64:android.support.v4.view.PagerAdapter access$200(com.supers.clean.junk.activity.MainActivity) -> c
+    64:64:android.os.Handler access$300(com.supers.clean.junk.activity.MainActivity) -> d
+    64:64:com.supers.clean.junk.presenter.MainPresenter access$400(com.supers.clean.junk.activity.MainActivity) -> e
 com.supers.clean.junk.activity.MainActivity$1 -> com.supers.clean.junk.activity.MainActivity$1:
+    android.view.View val$viewpager_3 -> a
+    java.util.ArrayList val$arrayList -> b
+    com.supers.clean.junk.activity.MainActivity this$0 -> c
+    190:190:void <init>(com.supers.clean.junk.activity.MainActivity,android.view.View,java.util.ArrayList) -> <init>
+    193:207:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MainActivity$10 -> com.supers.clean.junk.activity.MainActivity$2:
+    java.lang.String val$size -> a
+    com.supers.clean.junk.activity.MainActivity this$0 -> b
+    424:424:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
+    427:435:void progressUpdate(int) -> a
+com.supers.clean.junk.activity.MainActivity$10$1 -> com.supers.clean.junk.activity.MainActivity$2$1:
+    int val$progress -> a
+    com.supers.clean.junk.activity.MainActivity$10 this$1 -> b
+    427:427:void <init>(com.supers.clean.junk.activity.MainActivity$10,int) -> <init>
+    430:433:void run() -> run
+com.supers.clean.junk.activity.MainActivity$11 -> com.supers.clean.junk.activity.MainActivity$3:
+    com.supers.clean.junk.activity.MainActivity this$0 -> a
+    637:637:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    641:641:void onRefresh(com.supers.clean.junk.myView.PullToRefreshLayout) -> a
+    646:654:void onLoadMore(com.supers.clean.junk.myView.PullToRefreshLayout) -> b
+com.supers.clean.junk.activity.MainActivity$11$1 -> com.supers.clean.junk.activity.MainActivity$3$1:
+    com.supers.clean.junk.activity.MainActivity$11 this$1 -> a
+    647:647:void <init>(com.supers.clean.junk.activity.MainActivity$11) -> <init>
+    650:652:void run() -> run
+com.supers.clean.junk.activity.MainActivity$12 -> com.supers.clean.junk.activity.MainActivity$4:
+    com.supers.clean.junk.activity.MainActivity this$0 -> a
+    668:668:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    671:742:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$5:
+    android.view.View val$viewpager_3 -> a
+    java.util.ArrayList val$arrayList -> b
+    com.supers.clean.junk.activity.MainActivity this$0 -> c
+    209:209:void <init>(com.supers.clean.junk.activity.MainActivity,android.view.View,java.util.ArrayList) -> <init>
+    212:217:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MainActivity$3 -> com.supers.clean.junk.activity.MainActivity$6:
     java.util.ArrayList val$arrayList -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    186:186:void <init>(com.supers.clean.junk.activity.MainActivity,java.util.ArrayList) -> <init>
-    189:189:int getCount() -> getCount
-    194:195:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    200:201:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    205:205:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-com.supers.clean.junk.activity.MainActivity$10 -> com.supers.clean.junk.activity.MainActivity$2:
+    223:223:void <init>(com.supers.clean.junk.activity.MainActivity,java.util.ArrayList) -> <init>
+    226:226:int getCount() -> getCount
+    231:232:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    237:239:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    243:243:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+com.supers.clean.junk.activity.MainActivity$4 -> com.supers.clean.junk.activity.MainActivity$7:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    635:635:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    638:709:void onClick(android.view.View) -> onClick
-com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$3:
-    android.support.v4.view.ViewPager val$viewpager -> a
-    com.supers.clean.junk.activity.MainActivity this$0 -> b
-    213:213:void <init>(com.supers.clean.junk.activity.MainActivity,android.support.v4.view.ViewPager) -> <init>
-    216:217:void run() -> run
-com.supers.clean.junk.activity.MainActivity$3 -> com.supers.clean.junk.activity.MainActivity$4:
-    android.support.v7.app.AlertDialog val$d -> a
-    android.content.Context val$c -> b
-    243:243:void <init>(android.support.v7.app.AlertDialog,android.content.Context) -> <init>
-    246:258:void onClick(android.view.View) -> onClick
-com.supers.clean.junk.activity.MainActivity$4 -> com.supers.clean.junk.activity.MainActivity$5:
-    android.support.v7.app.AlertDialog val$d -> a
-    261:261:void <init>(android.support.v7.app.AlertDialog) -> <init>
-    264:266:void onClick(android.view.View) -> onClick
-com.supers.clean.junk.activity.MainActivity$5 -> com.supers.clean.junk.activity.MainActivity$6:
-    com.supers.clean.junk.activity.MainActivity this$0 -> a
-    341:341:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    344:351:void progressUpdate(int) -> a
-com.supers.clean.junk.activity.MainActivity$5$1 -> com.supers.clean.junk.activity.MainActivity$6$1:
-    int val$progress -> a
-    com.supers.clean.junk.activity.MainActivity$5 this$1 -> b
-    344:344:void <init>(com.supers.clean.junk.activity.MainActivity$5,int) -> <init>
-    347:349:void run() -> run
-com.supers.clean.junk.activity.MainActivity$6 -> com.supers.clean.junk.activity.MainActivity$7:
-    com.supers.clean.junk.activity.MainActivity this$0 -> a
-    358:358:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    361:368:void progressUpdate(int) -> a
-com.supers.clean.junk.activity.MainActivity$6$1 -> com.supers.clean.junk.activity.MainActivity$7$1:
-    int val$progress -> a
-    com.supers.clean.junk.activity.MainActivity$6 this$1 -> b
-    361:361:void <init>(com.supers.clean.junk.activity.MainActivity$6,int) -> <init>
-    364:366:void run() -> run
+    250:250:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    253:254:void run() -> run
 com.supers.clean.junk.activity.MainActivity$7 -> com.supers.clean.junk.activity.MainActivity$8:
-    java.lang.String val$size -> a
-    long val$sd_kongxian -> b
-    com.supers.clean.junk.activity.MainActivity this$0 -> c
-    370:370:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
-    373:384:void run() -> run
+    com.supers.clean.junk.activity.MainActivity this$0 -> a
+    374:374:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    377:384:void progressUpdate(int) -> a
+com.supers.clean.junk.activity.MainActivity$7$1 -> com.supers.clean.junk.activity.MainActivity$8$1:
+    int val$progress -> a
+    com.supers.clean.junk.activity.MainActivity$7 this$1 -> b
+    377:377:void <init>(com.supers.clean.junk.activity.MainActivity$7,int) -> <init>
+    380:382:void run() -> run
 com.supers.clean.junk.activity.MainActivity$8 -> com.supers.clean.junk.activity.MainActivity$9:
-    java.lang.String val$size -> a
-    com.supers.clean.junk.activity.MainActivity this$0 -> b
-    391:391:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
-    394:402:void progressUpdate(int) -> a
+    com.supers.clean.junk.activity.MainActivity this$0 -> a
+    391:391:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    394:401:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$8$1 -> com.supers.clean.junk.activity.MainActivity$9$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$8 this$1 -> b
     394:394:void <init>(com.supers.clean.junk.activity.MainActivity$8,int) -> <init>
-    397:400:void run() -> run
+    397:399:void run() -> run
 com.supers.clean.junk.activity.MainActivity$9 -> com.supers.clean.junk.activity.MainActivity$10:
-    com.supers.clean.junk.activity.MainActivity this$0 -> a
-    604:604:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    608:608:void onRefresh(com.supers.clean.junk.myView.PullToRefreshLayout) -> a
-    613:621:void onLoadMore(com.supers.clean.junk.myView.PullToRefreshLayout) -> b
-com.supers.clean.junk.activity.MainActivity$9$1 -> com.supers.clean.junk.activity.MainActivity$10$1:
-    com.supers.clean.junk.activity.MainActivity$9 this$1 -> a
-    614:614:void <init>(com.supers.clean.junk.activity.MainActivity$9) -> <init>
-    617:619:void run() -> run
+    java.lang.String val$size -> a
+    long val$sd_kongxian -> b
+    com.supers.clean.junk.activity.MainActivity this$0 -> c
+    403:403:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
+    406:417:void run() -> run
 com.supers.clean.junk.activity.ManagerActivity -> com.supers.clean.junk.activity.ManagerActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
