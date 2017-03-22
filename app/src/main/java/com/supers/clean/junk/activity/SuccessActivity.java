@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.eos.manager.page.SecuritySharPFive;
+import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
 import com.eos.module.tweenengine.TweenManager;
@@ -48,6 +49,7 @@ public class SuccessActivity extends BaseActivity {
     ImageView success_progress;
 
     LinearLayout ad_native_2;
+    LottieAnimationView lot_success;
     private TextView tv_next;
     private ImageView iv_next;
     private View nativeView;
@@ -79,6 +81,7 @@ public class SuccessActivity extends BaseActivity {
         delete = (ImageView) findViewById(R.id.delete);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         success_progress = (ImageView) findViewById(R.id.success_progress);
+        lot_success = (LottieAnimationView) findViewById(R.id.lot_success);
     }
 
     @Override
@@ -131,6 +134,27 @@ public class SuccessActivity extends BaseActivity {
         translate.setRepeatCount(-1);
         translate.setRepeatMode(Animation.REVERSE);
         success_jiantou.startAnimation(translate);
+        tuiGuang();
+    }
+
+    @Override
+    public void tuiGuang() {
+        super.tuiGuang();
+        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+            lot_success.setImageAssetsFolder("images/applocks/");
+            lot_success.setAnimation("applocks.json");
+            lot_success.loop(true);
+            lot_success.playAnimation();
+
+        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+            lot_success.setImageAssetsFolder("images/flashs/");
+            lot_success.setAnimation("flashs.json");
+            lot_success.loop(true);
+            lot_success.playAnimation();
+
+        } else {
+            lot_success.setVisibility(View.GONE);
+        }
     }
 
     private void initAnimation() {
@@ -147,6 +171,7 @@ public class SuccessActivity extends BaseActivity {
         main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         delete.setOnClickListener(onClickListener);
+        lot_success.setOnClickListener(onClickListener);
 
     }
 
@@ -370,6 +395,15 @@ public class SuccessActivity extends BaseActivity {
                     break;
                 case R.id.delete:
                     main_rotate_all.setVisibility(View.GONE);
+                    break;
+                case R.id.lot_success:
+                    if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                        AndroidSdk.track("清理完成页面", "推广applock点击", "", 1);
+                        UtilGp.openPlayStore(SuccessActivity.this, tuiguang);
+                    } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+                        AndroidSdk.track("清理完成页面", "推广手电筒点击", "", 1);
+                        UtilGp.openPlayStore(SuccessActivity.this, tuiguang1);
+                    }
                     break;
             }
         }

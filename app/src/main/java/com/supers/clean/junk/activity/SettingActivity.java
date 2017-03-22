@@ -80,17 +80,19 @@ public class SettingActivity extends BaseActivity {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, 1000);
+            tuiGuang();
+        } else {
+            addAd();
         }
-        addAd();
 
-        tuiGuang();
+
     }
 
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_setting.setImageAssetsFolder("images/flashs/");
-            lot_setting.setAnimation("flashs.json");
+            lot_setting.setImageAssetsFolder("images/applocks/");
+            lot_setting.setAnimation("applocks.json");
             lot_setting.loop(true);
             lot_setting.playAnimation();
 
@@ -103,8 +105,6 @@ public class SettingActivity extends BaseActivity {
         } else {
             lot_setting.setVisibility(View.GONE);
         }
-
-
     }
 
     private void addAd() {
@@ -119,6 +119,8 @@ public class SettingActivity extends BaseActivity {
             ll_ad.addView(nativeView);
 //            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
             setting_scroll.setScrollY(0);
+        } else {
+            tuiGuang();
         }
     }
 
@@ -223,10 +225,11 @@ public class SettingActivity extends BaseActivity {
                     UtilGp.rate(SettingActivity.this);
                     break;
                 case R.id.lot_setting:
-                    AndroidSdk.track("设置页面", "推广", "", 1);
                     if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                        AndroidSdk.track("设置页面", "推广applock点击", "", 1);
                         UtilGp.openPlayStore(SettingActivity.this, tuiguang);
                     } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+                        AndroidSdk.track("设置页面", "推广手电筒点击", "", 1);
                         UtilGp.openPlayStore(SettingActivity.this, tuiguang1);
                     }
                     break;

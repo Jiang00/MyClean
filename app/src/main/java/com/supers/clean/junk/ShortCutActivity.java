@@ -16,12 +16,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
 import com.eos.module.tweenengine.TweenManager;
 import com.supers.clean.junk.activity.BaseActivity;
+import com.supers.clean.junk.activity.SettingActivity;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.myView.ImageAccessor;
 
@@ -37,6 +40,7 @@ public class ShortCutActivity extends BaseActivity {
     LinearLayout short_text;
     TextView short_size;
     LinearLayout ll_ad;
+    LottieAnimationView lot_short;
     private Animation rotate;
     private Animation fang;
     private TweenManager tweenManager;
@@ -57,6 +61,7 @@ public class ShortCutActivity extends BaseActivity {
         short_text = (LinearLayout) findViewById(R.id.short_text);
         short_size = (TextView) findViewById(R.id.short_size);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        lot_short = (LottieAnimationView) findViewById(R.id.lot_short);
     }
 
     @Override
@@ -95,6 +100,7 @@ public class ShortCutActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Contents.FULL_SHORTCUT, 0) == 1) {
+            tuiGuang();
         } else {
             nativeView = CommonUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad);
             if (ll_ad != null && nativeView != null) {
@@ -104,8 +110,41 @@ public class ShortCutActivity extends BaseActivity {
                 }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
+            } else {
+                tuiGuang();
             }
         }
+    }
+
+    public void tuiGuang() {
+        super.tuiGuang();
+        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+            lot_short.setImageAssetsFolder("images/applocks/");
+            lot_short.setAnimation("applocks.json");
+            lot_short.loop(true);
+            lot_short.playAnimation();
+
+        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+            lot_short.setImageAssetsFolder("images/flashs/");
+            lot_short.setAnimation("flashs.json");
+            lot_short.loop(true);
+            lot_short.playAnimation();
+
+        } else {
+            lot_short.setVisibility(View.GONE);
+        }
+        lot_short.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                    AndroidSdk.track("桌面快捷方式", "推广applock点击", "", 1);
+                    UtilGp.openPlayStore(ShortCutActivity.this, tuiguang);
+                } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+                    AndroidSdk.track("桌面快捷方式", "推广手电筒点击", "", 1);
+                    UtilGp.openPlayStore(ShortCutActivity.this, tuiguang1);
+                }
+            }
+        });
     }
 
     private void show_text() {

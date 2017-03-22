@@ -9,8 +9,7 @@
     android:fitsSystemWindows="true">
 
 
-    <com.eos.manager.page.MyRelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.eos.manager.page.MyRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,16 +26,33 @@
             layout="@layout/security_normal_actionbar"
             android:visibility="gone"></include>
 
-        <ListView
-            android:id="@+id/abs_list"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:choiceMode="multipleChoice"
-            android:divider="@null"
-            android:fastScrollEnabled="false"
-            android:longClickable="false"
-            android:visibility="gone" />
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.eos.module.charge.saver.lottie.LottieAnimationView
+                    android:id="@+id/lot_applock_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.eos.manager.page.ListViewForScrollView
+                    android:id="@+id/abs_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:choiceMode="multipleChoice"
+                    android:divider="@null"
+                    android:fastScrollEnabled="false"
+                    android:longClickable="false"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
 
         <ProgressBar
             android:id="@+id/progressBar"

@@ -17,12 +17,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CameraUtils;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.MemoryManager;
 import com.supers.clean.junk.modle.PhoneManager;
 import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
 
 import java.util.Locale;
@@ -37,6 +39,8 @@ public class MessageActivity extends BaseActivity {
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
+    LottieAnimationView lot_message;
+
     private TelephonyManager telManager;
     private String TAG_MESSAGE = "eos_message";
     private Handler myHandler;
@@ -58,6 +62,7 @@ public class MessageActivity extends BaseActivity {
         message_ram = (TextView) findViewById(R.id.message_ram);
         message_sd = (TextView) findViewById(R.id.message_sd);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        lot_message = (LottieAnimationView) findViewById(R.id.lot_message);
     }
 
     @Override
@@ -129,6 +134,38 @@ public class MessageActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void tuiGuang() {
+        super.tuiGuang();
+        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+            lot_message.setImageAssetsFolder("images/applocks/");
+            lot_message.setAnimation("applocks.json");
+            lot_message.loop(true);
+            lot_message.playAnimation();
+
+        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+            lot_message.setImageAssetsFolder("images/flashs/");
+            lot_message.setAnimation("flashs.json");
+            lot_message.loop(true);
+            lot_message.playAnimation();
+
+        } else {
+            lot_message.setVisibility(View.GONE);
+        }
+        lot_message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                    AndroidSdk.track("硬件信息页面", "推广applock点击", "", 1);
+                    UtilGp.openPlayStore(MessageActivity.this, tuiguang);
+                } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+                    AndroidSdk.track("硬件信息页面", "推广手电筒点击", "", 1);
+                    UtilGp.openPlayStore(MessageActivity.this, tuiguang1);
+                }
+            }
+        });
+    }
+
     private void loadAd() {
         if (PreData.getDB(this, Contents.FULL_MESSAGE, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
@@ -137,7 +174,7 @@ public class MessageActivity extends BaseActivity {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, 1000);
-
+            tuiGuang();
         } else {
             addAd();
         }
@@ -152,6 +189,8 @@ public class MessageActivity extends BaseActivity {
             }
             ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
+        } else {
+            tuiGuang();
         }
     }
 

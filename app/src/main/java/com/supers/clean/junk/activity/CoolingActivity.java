@@ -14,9 +14,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.fakeView.FlakeView;
+import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
 
 import java.util.Random;
@@ -34,6 +37,7 @@ public class CoolingActivity extends BaseActivity {
     ImageView cooling_zhuan, cooling_xuehua;
     LinearLayout cooling_text;
     TextView cooling_wendu;
+    LottieAnimationView lot_cooling;
 
     private FlakeView flakeView;
     private Handler mHandler = new Handler();
@@ -62,6 +66,7 @@ public class CoolingActivity extends BaseActivity {
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
+        lot_cooling = (LottieAnimationView) findViewById(R.id.lot_cooling);
     }
 
     @Override
@@ -120,6 +125,38 @@ public class CoolingActivity extends BaseActivity {
             @Override
             public void onAnimationStart(Animation animation) {
 
+            }
+        });
+        tuiGuang();
+    }
+
+    public void tuiGuang() {
+        super.tuiGuang();
+        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+            lot_cooling.setImageAssetsFolder("images/applocks/");
+            lot_cooling.setAnimation("applocks.json");
+            lot_cooling.loop(true);
+            lot_cooling.playAnimation();
+
+        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+            lot_cooling.setImageAssetsFolder("images/flashs/");
+            lot_cooling.setAnimation("flashs.json");
+            lot_cooling.loop(true);
+            lot_cooling.playAnimation();
+
+        } else {
+            lot_cooling.setVisibility(View.GONE);
+        }
+        lot_cooling.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                    AndroidSdk.track("降温页面", "推广applock点击", "", 1);
+                    UtilGp.openPlayStore(CoolingActivity.this, tuiguang);
+                } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+                    AndroidSdk.track("降温页面", "推广手电筒点击", "", 1);
+                    UtilGp.openPlayStore(CoolingActivity.this, tuiguang1);
+                }
             }
         });
     }

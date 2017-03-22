@@ -1,7 +1,9 @@
 package com.eos.manager;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
+
 
 /**
  * Created by song on 16/4/6.
@@ -14,6 +16,7 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
             if (event.getPackageName() != null) {
                 String packageName = event.getPackageName().toString();
                 if (!packageName.equals(getPackageName())) {
+                    Log.e("wuzhangai", "=====启动充电屏保");
                     AppLockEosService.startLock(this, packageName);
                 }
             }

@@ -1,6 +1,8 @@
 package com.eos.manager;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -14,10 +16,17 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
+import com.eos.manager.lib.Utils;
+import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.privacy.lock.R;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.manager.page.ShowDialogview;
 import com.eos.manager.page.showDialog;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by superjoy on 2014/9/4.
@@ -33,11 +42,14 @@ public class AppLockSettings extends ClientActivitySecurity {
 
     int[] items;
     ListView lv;
+    LottieAnimationView lot_applock_setting;
 
     TextView normalTitle;
 
 
     Toolbar toolbar;
+    private String tuiguang = "com.eosmobi.applock";
+    private String tuiguang1 = "com.eosmobi.flashlight.free";
 
 
     @Override
@@ -51,6 +63,7 @@ public class AppLockSettings extends ClientActivitySecurity {
 
         normalTitle = (TextView) this.findViewById(R.id.normal_title_name);
         toolbar = (Toolbar) this.findViewById(R.id.toolbar);
+        lot_applock_setting = (LottieAnimationView) this.findViewById(R.id.lot_applock_setting);
         setupToolbar();
 
 
@@ -82,6 +95,7 @@ public class AppLockSettings extends ClientActivitySecurity {
         setViewVisible(View.GONE, R.id.search_button, R.id.bottom_action_bar, R.id.progressBar);
         findViewById(R.id.abs_list).setVisibility(View.VISIBLE);
 
+        tuiGuang();
 
         lv = (ListView) findViewById(R.id.abs_list);
         lv.setAdapter(new BaseAdapter() {
@@ -231,6 +245,62 @@ public class AppLockSettings extends ClientActivitySecurity {
         Log.e("permissionvalue", value + "");
     }
 
+    public void tuiGuang() {
+        String extraData = AndroidSdk.getExtraData();
+        try {
+            JSONObject json = new JSONObject(extraData);
+            if (json.has("tuiguang")) {
+                JSONArray array = json.getJSONArray("tuiguang");
+                tuiguang = array.getString(0);
+                tuiguang1 = array.getString(1);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (!isPkgInstalled(tuiguang, getPackageManager())) {
+            lot_applock_setting.setImageAssetsFolder("images/applocks/");
+            lot_applock_setting.setAnimation("applocks.json");
+            lot_applock_setting.loop(true);
+            lot_applock_setting.playAnimation();
+
+        } else if (!isPkgInstalled(tuiguang1, getPackageManager())) {
+            lot_applock_setting.setImageAssetsFolder("images/flashs/");
+            lot_applock_setting.setAnimation("flashs.json");
+            lot_applock_setting.loop(true);
+            lot_applock_setting.playAnimation();
+
+        } else {
+            lot_applock_setting.setVisibility(View.GONE);
+        }
+        lot_applock_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isPkgInstalled(tuiguang, getPackageManager())) {
+                    AndroidSdk.track("applock设置页面", "推广applock点击", "", 1);
+                    Utils.openPlayStore(AppLockSettings.this, tuiguang);
+                } else if (!isPkgInstalled(tuiguang1, getPackageManager())) {
+                    AndroidSdk.track("applock设置页面", "推广手电筒点击", "", 1);
+                    Utils.openPlayStore(AppLockSettings.this, tuiguang1);
+                }
+            }
+        });
+    }
+
+    //是否安装该应用
+    public static boolean isPkgInstalled(String pkgName, PackageManager pm) {
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = pm.getPackageInfo(pkgName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            packageInfo = null;
+            e.printStackTrace();
+        }
+        if (packageInfo == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     @Override
     protected void onResume() {

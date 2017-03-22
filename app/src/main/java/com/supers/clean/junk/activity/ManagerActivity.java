@@ -26,11 +26,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.AppManagerView;
 import com.supers.clean.junk.View.adapter.ManagerAdapter;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.myView.ListViewForScrollView;
@@ -55,6 +57,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     LinearLayout manager_permision;
     TextView manager_shouquan;
     RelativeLayout manager_clean;
+    LottieAnimationView lot_manager;
 
     private ManagerPresenter managerPresenter;
     private ManagerAdapter adapterManager;
@@ -84,6 +87,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         manager_permision = $(R.id.manager_permision);
         manager_shouquan = $(R.id.manager_shouquan);
         manager_clean = $(R.id.manager_clean);
+        lot_manager = (LottieAnimationView) findViewById(R.id.lot_manager);
     }
 
     @Override
@@ -103,6 +107,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     public void loadFullAd() {
         if (PreData.getDB(this, Contents.FULL_MANAGER, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            tuiGuang();
         } else {
             nativeView = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad);
             if (ll_ad != null && nativeView != null) {
@@ -112,9 +117,31 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                 }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
+            } else {
+                tuiGuang();
             }
         }
 
+    }
+
+    @Override
+    public void tuiGuang() {
+        super.tuiGuang();
+        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+            lot_manager.setImageAssetsFolder("images/applocks/");
+            lot_manager.setAnimation("applocks.json");
+            lot_manager.loop(true);
+            lot_manager.playAnimation();
+
+        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+            lot_manager.setImageAssetsFolder("images/flashs/");
+            lot_manager.setAnimation("flashs.json");
+            lot_manager.loop(true);
+            lot_manager.playAnimation();
+
+        } else {
+            lot_manager.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -124,6 +151,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         manager_button_size.setOnClickListener(onClickListener);
         manager_button_time.setOnClickListener(onClickListener);
         manager_button_pinlv.setOnClickListener(onClickListener);
+        lot_manager.setOnClickListener(onClickListener);
     }
 
     @Override
@@ -217,6 +245,15 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                     break;
                 case R.id.junk_button_clean:
                     managerPresenter.bleachFile(adapterManager.getData());
+                    break;
+                case R.id.lot_manager:
+                    if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                        AndroidSdk.track("应用管理页面", "推广applock点击", "", 1);
+                        UtilGp.openPlayStore(ManagerActivity.this, tuiguang);
+                    } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+                        AndroidSdk.track("应用管理页面", "推广手电筒点击", "", 1);
+                        UtilGp.openPlayStore(ManagerActivity.this, tuiguang1);
+                    }
                     break;
             }
 

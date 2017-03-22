@@ -198,7 +198,7 @@ public class BatteryService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (intent.getBooleanExtra("show", false)) {
+        if (intent != null && intent.hasExtra("show") && intent.getBooleanExtra("show", false)) {
             showChargeView();
         }
         return START_STICKY_COMPATIBILITY;

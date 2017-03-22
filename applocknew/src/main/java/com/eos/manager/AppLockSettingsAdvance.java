@@ -60,7 +60,7 @@ public class AppLockSettingsAdvance extends AppCompatActivity {
                         R.string.security_power_mode,
                 };
             }
-         toolbar= (Toolbar) this.findViewById(R.id.toolbar);
+            toolbar = (Toolbar) this.findViewById(R.id.toolbar);
 
             setupToolbar();
 

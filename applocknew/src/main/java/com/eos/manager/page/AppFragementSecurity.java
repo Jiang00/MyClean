@@ -1,6 +1,8 @@
 package com.eos.manager.page;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 //import com.android.client.AndroidSdk;
 //import com.android.client.ClientNativeAd;
+import com.android.client.AndroidSdk;
 import com.eos.lib.customview.MyWidgetContainer;
 import com.eos.lib.customview.SecurityBaseFragment;
 import com.eos.manager.App;
@@ -26,6 +29,7 @@ import com.eos.manager.lib.Utils;
 import com.eos.manager.lib.controller.CListViewAdaptor;
 import com.eos.manager.lib.controller.CListViewScroller;
 import com.eos.lib.customview.SecurityloadImage;
+import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.privacy.lock.R;
 import com.eos.manager.SearchThread;
 import com.privacy.lock.aidl.IWorker;
@@ -34,6 +38,10 @@ import com.eos.manager.lib.io.RefreshList;
 import com.eos.manager.meta.MApps;
 import com.eos.manager.meta.SecuritProfiles;
 import com.eos.manager.meta.SecurityMyPref;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.*;
 
@@ -81,6 +89,9 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
 
     int count = 0;
     boolean hide;
+    protected String tuiguang = "com.eosmobi.applock";
+    protected String tuiguang1 = "com.eosmobi.flashlight.free";
+    private LottieAnimationView lot_applock;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -415,8 +426,20 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         });
 
         SearchView searchview = (SearchView) headerView.findViewById(R.id.search_id);
-
-
+        lot_applock = (LottieAnimationView) headerView.findViewById(R.id.lot_applock);
+        tuiGuang();
+        lot_applock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isPkgInstalled(tuiguang, getActivity().getPackageManager())) {
+                    AndroidSdk.track("applock页面", "推广applock点击", "", 1);
+                    Utils.openPlayStore(getActivity(), tuiguang);
+                } else if (!isPkgInstalled(tuiguang1, getActivity().getPackageManager())) {
+                    AndroidSdk.track("applock页面", "推广手电筒点击", "", 1);
+                    Utils.openPlayStore(getActivity(), tuiguang1);
+                }
+            }
+        });
         searchview.setQueryTextChange(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onStartSearch() {
@@ -438,6 +461,51 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         });
 
 
+    }
+
+    public void tuiGuang() {
+        String extraData = AndroidSdk.getExtraData();
+        try {
+            JSONObject json = new JSONObject(extraData);
+            if (json.has("tuiguang")) {
+                JSONArray array = json.getJSONArray("tuiguang");
+                tuiguang = array.getString(0);
+                tuiguang1 = array.getString(1);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (!isPkgInstalled(tuiguang, getActivity().getPackageManager())) {
+            lot_applock.setImageAssetsFolder("images/applocks/");
+            lot_applock.setAnimation("applocks.json");
+            lot_applock.loop(true);
+            lot_applock.playAnimation();
+
+        } else if (!isPkgInstalled(tuiguang1, getActivity().getPackageManager())) {
+            lot_applock.setImageAssetsFolder("images/flashs/");
+            lot_applock.setAnimation("flashs.json");
+            lot_applock.loop(true);
+            lot_applock.playAnimation();
+
+        } else {
+            lot_applock.setVisibility(View.GONE);
+        }
+    }
+
+    //是否安装该应用
+    public static boolean isPkgInstalled(String pkgName, PackageManager pm) {
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = pm.getPackageInfo(pkgName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            packageInfo = null;
+            e.printStackTrace();
+        }
+        if (packageInfo == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public ArrayList<SearchThread.SearchData> filter(ArrayList<SearchThread.SearchData> models, String query) {
