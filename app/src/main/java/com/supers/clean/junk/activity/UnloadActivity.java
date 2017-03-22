@@ -20,6 +20,7 @@ import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by on 2017/2/6.
@@ -36,7 +37,7 @@ public class UnloadActivity extends BaseActivity {
 
     private View nativeView;
     private String TAG_UNLOAD = "eos_unload";
-
+    private ArrayList<JunkInfo> mngList;
     Handler myHandler;
 
     @Override
@@ -68,7 +69,11 @@ public class UnloadActivity extends BaseActivity {
             }
         }
         if (!a) {
-            for (JunkInfo info : cleanApplication.getListMng()) {
+            mngList = cleanApplication.getListMng();
+            if (mngList == null || mngList.size() == 0) {
+                return;
+            }
+            for (JunkInfo info : mngList) {
                 if (info.packageName.equals(packageName)) {
                     a = true;
                     iv_icon.setRotation(-10);

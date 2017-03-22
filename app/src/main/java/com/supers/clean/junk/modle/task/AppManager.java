@@ -13,6 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.RemoteException;
 import android.os.UserHandle;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 
 
@@ -51,6 +52,9 @@ public class AppManager extends SimpleTask {
             Collections.sort(usageStatsList, new Sizesort());
         } else {
             recentTasks = am.getRecentTasks(10, ActivityManager.RECENT_IGNORE_UNAVAILABLE);
+        }
+        if (pm == null) {
+            pm = mContext.getPackageManager();
         }
         // 获取所有package,
         List<PackageInfo> packages = pm
