@@ -41,6 +41,7 @@ public class ShortCutActivity extends BaseActivity {
     TextView short_size;
     LinearLayout ll_ad;
     LottieAnimationView lot_short;
+    FrameLayout fl_lot_short;
     private Animation rotate;
     private Animation fang;
     private TweenManager tweenManager;
@@ -62,6 +63,7 @@ public class ShortCutActivity extends BaseActivity {
         short_size = (TextView) findViewById(R.id.short_size);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         lot_short = (LottieAnimationView) findViewById(R.id.lot_short);
+        fl_lot_short = (FrameLayout) findViewById(R.id.fl_lot_short);
     }
 
     @Override
@@ -119,19 +121,19 @@ public class ShortCutActivity extends BaseActivity {
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_short.setImageAssetsFolder("images/applocks/");
-            lot_short.setAnimation("applocks.json");
+            lot_short.setImageAssetsFolder(null, "images/applocks/");
+            lot_short.setAnimation(null, "applocks.json");
             lot_short.loop(true);
             lot_short.playAnimation();
 
         } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_short.setImageAssetsFolder("images/flashs/");
-            lot_short.setAnimation("flashs.json");
+            lot_short.setImageAssetsFolder(null, "images/flashs/");
+            lot_short.setAnimation(null, "flashs.json");
             lot_short.loop(true);
             lot_short.playAnimation();
 
         } else {
-            lot_short.setVisibility(View.GONE);
+            fl_lot_short.setVisibility(View.GONE);
         }
         lot_short.setOnClickListener(new View.OnClickListener() {
             @Override

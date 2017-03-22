@@ -40,6 +40,7 @@ public class MessageActivity extends BaseActivity {
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
     LottieAnimationView lot_message;
+    FrameLayout fl_lot_message;
 
     private TelephonyManager telManager;
     private String TAG_MESSAGE = "eos_message";
@@ -63,6 +64,7 @@ public class MessageActivity extends BaseActivity {
         message_sd = (TextView) findViewById(R.id.message_sd);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         lot_message = (LottieAnimationView) findViewById(R.id.lot_message);
+        fl_lot_message = (FrameLayout) findViewById(R.id.fl_lot_message);
     }
 
     @Override
@@ -138,19 +140,19 @@ public class MessageActivity extends BaseActivity {
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_message.setImageAssetsFolder("images/applocks/");
-            lot_message.setAnimation("applocks.json");
+            lot_message.setImageAssetsFolder(null, "images/applocks/");
+            lot_message.setAnimation(null, "applocks.json");
             lot_message.loop(true);
             lot_message.playAnimation();
 
         } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_message.setImageAssetsFolder("images/flashs/");
-            lot_message.setAnimation("flashs.json");
+            lot_message.setImageAssetsFolder(null, "images/flashs/");
+            lot_message.setAnimation(null, "flashs.json");
             lot_message.loop(true);
             lot_message.playAnimation();
 
         } else {
-            lot_message.setVisibility(View.GONE);
+            fl_lot_message.setVisibility(View.GONE);
         }
         lot_message.setOnClickListener(new View.OnClickListener() {
             @Override

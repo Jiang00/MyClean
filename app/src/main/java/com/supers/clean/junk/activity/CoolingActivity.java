@@ -38,6 +38,7 @@ public class CoolingActivity extends BaseActivity {
     LinearLayout cooling_text;
     TextView cooling_wendu;
     LottieAnimationView lot_cooling;
+    FrameLayout fl_lot_cooling;
 
     private FlakeView flakeView;
     private Handler mHandler = new Handler();
@@ -67,6 +68,7 @@ public class CoolingActivity extends BaseActivity {
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
         lot_cooling = (LottieAnimationView) findViewById(R.id.lot_cooling);
+        fl_lot_cooling = (FrameLayout) findViewById(R.id.fl_lot_cooling);
     }
 
     @Override
@@ -115,6 +117,7 @@ public class CoolingActivity extends BaseActivity {
                 if (PreData.getDB(CoolingActivity.this, Contents.FULL_COOL, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
+                tuiGuang();
             }
 
             @Override
@@ -127,25 +130,25 @@ public class CoolingActivity extends BaseActivity {
 
             }
         });
-        tuiGuang();
+
     }
 
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_cooling.setImageAssetsFolder("images/applocks/");
-            lot_cooling.setAnimation("applocks.json");
+            lot_cooling.setImageAssetsFolder(null, "images/applocks/");
+            lot_cooling.setAnimation(null, "applocks.json");
             lot_cooling.loop(true);
             lot_cooling.playAnimation();
 
         } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_cooling.setImageAssetsFolder("images/flashs/");
-            lot_cooling.setAnimation("flashs.json");
+            lot_cooling.setImageAssetsFolder(null, "images/flashs/");
+            lot_cooling.setAnimation(null, "flashs.json");
             lot_cooling.loop(true);
             lot_cooling.playAnimation();
 
         } else {
-            lot_cooling.setVisibility(View.GONE);
+            fl_lot_cooling.setVisibility(View.GONE);
         }
         lot_cooling.setOnClickListener(new View.OnClickListener() {
             @Override

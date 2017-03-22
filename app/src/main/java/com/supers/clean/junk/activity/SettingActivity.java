@@ -39,6 +39,7 @@ public class SettingActivity extends BaseActivity {
     LinearLayout ll_ad;
     ScrollView setting_scroll;
     LottieAnimationView lot_setting;
+    FrameLayout fl_lot_setting;
     private View nativeView;
 
     private String TAG_SETTING = "eos_setting";
@@ -62,6 +63,7 @@ public class SettingActivity extends BaseActivity {
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
         lot_setting = (LottieAnimationView) findViewById(R.id.lot_setting);
+        fl_lot_setting = (FrameLayout) findViewById(R.id.fl_lot_setting);
     }
 
     @Override
@@ -91,8 +93,8 @@ public class SettingActivity extends BaseActivity {
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_setting.setImageAssetsFolder(null,"images/applocks/");
-            lot_setting.setAnimation(null,"applocks.json");
+            lot_setting.setImageAssetsFolder(null, "images/applocks/");
+            lot_setting.setAnimation(null, "applocks.json");
             lot_setting.loop(true);
             lot_setting.playAnimation();
 
@@ -103,7 +105,7 @@ public class SettingActivity extends BaseActivity {
             lot_setting.playAnimation();
 
         } else {
-            lot_setting.setVisibility(View.GONE);
+            fl_lot_setting.setVisibility(View.GONE);
         }
     }
 

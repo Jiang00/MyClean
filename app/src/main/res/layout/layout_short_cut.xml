@@ -85,12 +85,29 @@
             android:layout_marginRight="16dp"
             android:orientation="vertical"
             android:visibility="gone" />
-
-        <com.eos.module.charge.saver.lottie.LottieAnimationView
-            android:id="@+id/lot_short"
-            android:layout_gravity="center_horizontal"
+        <FrameLayout
+            android:id="@+id/fl_lot_short"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content">
+
+            <com.eos.module.charge.saver.lottie.LottieAnimationView
+                android:id="@+id/lot_short"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:background="#32000000"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="AD"
+                android:textColor="@android:color/white"
+                android:textSize="8sp" />
+        </FrameLayout>
+
     </LinearLayout>
 
 

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -43,6 +44,7 @@ public class AppLockSettings extends ClientActivitySecurity {
     int[] items;
     ListView lv;
     LottieAnimationView lot_applock_setting;
+    FrameLayout fl_lot_applock_setting;
 
     TextView normalTitle;
 
@@ -64,6 +66,7 @@ public class AppLockSettings extends ClientActivitySecurity {
         normalTitle = (TextView) this.findViewById(R.id.normal_title_name);
         toolbar = (Toolbar) this.findViewById(R.id.toolbar);
         lot_applock_setting = (LottieAnimationView) this.findViewById(R.id.lot_applock_setting);
+        fl_lot_applock_setting = (FrameLayout) this.findViewById(R.id.fl_lot_applock_setting);
         setupToolbar();
 
 
@@ -258,19 +261,19 @@ public class AppLockSettings extends ClientActivitySecurity {
             e.printStackTrace();
         }
         if (!isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_applock_setting.setImageAssetsFolder("images/applocks/");
-            lot_applock_setting.setAnimation("applocks.json");
+            lot_applock_setting.setImageAssetsFolder(null, "images/applocks/");
+            lot_applock_setting.setAnimation(null, "applocks.json");
             lot_applock_setting.loop(true);
             lot_applock_setting.playAnimation();
 
         } else if (!isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_applock_setting.setImageAssetsFolder("images/flashs/");
-            lot_applock_setting.setAnimation("flashs.json");
+            lot_applock_setting.setImageAssetsFolder(null, "images/flashs/");
+            lot_applock_setting.setAnimation(null, "flashs.json");
             lot_applock_setting.loop(true);
             lot_applock_setting.playAnimation();
 
         } else {
-            lot_applock_setting.setVisibility(View.GONE);
+            fl_lot_applock_setting.setVisibility(View.GONE);
         }
         lot_applock_setting.setOnClickListener(new View.OnClickListener() {
             @Override

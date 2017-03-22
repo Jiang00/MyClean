@@ -58,6 +58,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     TextView manager_shouquan;
     RelativeLayout manager_clean;
     LottieAnimationView lot_manager;
+    FrameLayout fl_lot_manager;
 
     private ManagerPresenter managerPresenter;
     private ManagerAdapter adapterManager;
@@ -88,6 +89,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         manager_shouquan = $(R.id.manager_shouquan);
         manager_clean = $(R.id.manager_clean);
         lot_manager = (LottieAnimationView) findViewById(R.id.lot_manager);
+        fl_lot_manager = (FrameLayout) findViewById(R.id.fl_lot_manager);
     }
 
     @Override
@@ -128,19 +130,19 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_manager.setImageAssetsFolder("images/applocks/");
-            lot_manager.setAnimation("applocks.json");
+            lot_manager.setImageAssetsFolder(null, "images/applocks/");
+            lot_manager.setAnimation(null, "applocks.json");
             lot_manager.loop(true);
             lot_manager.playAnimation();
 
         } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_manager.setImageAssetsFolder("images/flashs/");
-            lot_manager.setAnimation("flashs.json");
+            lot_manager.setImageAssetsFolder(null, "images/flashs/");
+            lot_manager.setAnimation(null, "flashs.json");
             lot_manager.loop(true);
             lot_manager.playAnimation();
 
         } else {
-            lot_manager.setVisibility(View.GONE);
+            fl_lot_manager.setVisibility(View.GONE);
         }
     }
 
@@ -279,7 +281,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     private boolean isNoSwitch() {
         long ts = System.currentTimeMillis();
         UsageStatsManager usageStatsManager = (UsageStatsManager) getApplicationContext()
-                .getSystemService("usagestats");
+                .getSystemService(USAGE_STATS_SERVICE);
         List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(
                 UsageStatsManager.INTERVAL_BEST, 0, ts);
         if (queryUsageStats == null || queryUsageStats.isEmpty()) {

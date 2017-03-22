@@ -102,6 +102,7 @@ public class MainActivity extends BaseActivity implements MainView {
     LinearLayout ll_ad, ll_ad_side;
 
     LottieAnimationView lot_side;
+    FrameLayout fl_lot_side;
     LottieAnimationView lot_main;
 
     private String TAG_MAIN = "eos_main";
@@ -158,6 +159,7 @@ public class MainActivity extends BaseActivity implements MainView {
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
+        fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         lot_main = (LottieAnimationView) findViewById(R.id.lot_main);
     }
 
@@ -167,7 +169,7 @@ public class MainActivity extends BaseActivity implements MainView {
         instance = this;
         setContentView(R.layout.activity_dra);
 
-        try{
+        try {
             String pkg = getIntent().getExtras().getString("theme_package_name");
             ThemeManager.applyTheme(this, pkg, false);
         } catch (Exception e) {
@@ -281,25 +283,19 @@ public class MainActivity extends BaseActivity implements MainView {
 
         AndroidSdk.track("主页面", "进入主页面", "", 1);
 
-
-        lot_side.setImageAssetsFolder(null, "images/sideClean/");
-        lot_side.setAnimation(null, "sideClean.json");
-        lot_side.loop(true);
-        lot_side.playAnimation();
-
         tuiGuang();
     }
 
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_main.setImageAssetsFolder(null,"images/applocks/");
-            lot_main.setAnimation(null,"applocks.json");
+            lot_main.setImageAssetsFolder(null, "images/applocks/");
+            lot_main.setAnimation(null, "applocks.json");
             lot_main.loop(true);
             lot_main.playAnimation();
 
-            lot_side.setImageAssetsFolder(null,"images/applocks/");
-            lot_side.setAnimation(null,"applocks.json");
+            lot_side.setImageAssetsFolder(null, "images/applocks/");
+            lot_side.setAnimation(null, "applocks.json");
             lot_side.loop(true);
             lot_side.playAnimation();
         } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
@@ -314,7 +310,7 @@ public class MainActivity extends BaseActivity implements MainView {
             lot_side.playAnimation();
         } else {
             main_tuiguang_button.setVisibility(View.GONE);
-            lot_side.setVisibility(View.GONE);
+            fl_lot_side.setVisibility(View.GONE);
         }
     }
 
@@ -772,13 +768,11 @@ public class MainActivity extends BaseActivity implements MainView {
                 case R.id.main_theme_button:
                     AndroidSdk.track("主页面", "点击主题按钮", "", 1);
                     final Context context = SdkEnv.context();
-//                    ShopMaster.applyTheme(getApplicationContext(), "theme_preview_two", true);
                     ShopMaster.launch(MainActivity.this,
                             new Theme(R.raw.battery_0, context.getPackageName())
 //                            , new Theme(R.raw.battery_1, context.getPackageName())
-//                            ,new Theme(R.raw.theme_preview_two, "theme_preview_two")
                     );
-                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
+//                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
                     break;
                 case R.id.main_rotate_bad:
                     AndroidSdk.track("主页面", "点击好评bad按钮", "", 1);
@@ -801,8 +795,6 @@ public class MainActivity extends BaseActivity implements MainView {
                         AndroidSdk.track("主页面", "推广手电筒点击", "", 1);
                         UtilGp.openPlayStore(MainActivity.this, tuiguang1);
                     }
-
-
                     break;
 
             }

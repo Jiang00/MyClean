@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -92,6 +93,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     protected String tuiguang = "com.eosmobi.applock";
     protected String tuiguang1 = "com.eosmobi.flashlight.free";
     private LottieAnimationView lot_applock;
+    private FrameLayout fl_lot_applock;
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -427,6 +429,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
 
         SearchView searchview = (SearchView) headerView.findViewById(R.id.search_id);
         lot_applock = (LottieAnimationView) headerView.findViewById(R.id.lot_applock);
+        fl_lot_applock = (FrameLayout) headerView.findViewById(R.id.fl_lot_applock);
         tuiGuang();
         lot_applock.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -476,19 +479,19 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             e.printStackTrace();
         }
         if (!isPkgInstalled(tuiguang, getActivity().getPackageManager())) {
-            lot_applock.setImageAssetsFolder("images/applocks/");
-            lot_applock.setAnimation("applocks.json");
+            lot_applock.setImageAssetsFolder(null, "images/applocks/");
+            lot_applock.setAnimation(null, "applocks.json");
             lot_applock.loop(true);
             lot_applock.playAnimation();
 
         } else if (!isPkgInstalled(tuiguang1, getActivity().getPackageManager())) {
-            lot_applock.setImageAssetsFolder("images/flashs/");
-            lot_applock.setAnimation("flashs.json");
+            lot_applock.setImageAssetsFolder(null, "images/flashs/");
+            lot_applock.setAnimation(null, "flashs.json");
             lot_applock.loop(true);
             lot_applock.playAnimation();
 
         } else {
-            lot_applock.setVisibility(View.GONE);
+            fl_lot_applock.setVisibility(View.GONE);
         }
     }
 

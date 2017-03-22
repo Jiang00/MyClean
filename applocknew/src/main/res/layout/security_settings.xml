@@ -36,10 +36,28 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <com.eos.module.charge.saver.lottie.LottieAnimationView
-                    android:id="@+id/lot_applock_setting"
+                <FrameLayout
+                    android:id="@+id/fl_lot_applock_setting"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content">
+
+                    <com.eos.module.charge.saver.lottie.LottieAnimationView
+                        android:id="@+id/lot_applock_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|right"
+                        android:background="#32000000"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+                        android:text="AD"
+                        android:textColor="@android:color/white"
+                        android:textSize="8sp" />
+                </FrameLayout>
+
 
                 <com.eos.manager.page.ListViewForScrollView
                     android:id="@+id/abs_list"

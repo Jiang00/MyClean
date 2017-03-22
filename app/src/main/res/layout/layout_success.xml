@@ -209,12 +209,29 @@
 
                         </LinearLayout>
                     </LinearLayout>
-
-                    <com.eos.module.charge.saver.lottie.LottieAnimationView
-                        android:id="@+id/lot_success"
+                    <FrameLayout
+                        android:id="@+id/fl_lot_success"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp" />
+                        android:layout_height="wrap_content">
+
+                        <com.eos.module.charge.saver.lottie.LottieAnimationView
+                            android:id="@+id/lot_success"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|right"
+                            android:background="#32000000"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:text="AD"
+                            android:textColor="@android:color/white"
+                            android:textSize="8sp" />
+                    </FrameLayout>
+
 
                     <LinearLayout
                         android:id="@+id/ad_native_2"

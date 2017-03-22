@@ -25,7 +25,7 @@ public class ShortCutUtils {
                 "com.android.launcher.action.INSTALL_SHORTCUT");
         Intent shortcutIntent = new Intent();
         shortcutIntent.setComponent(new ComponentName(cx.getPackageName(),
-                cx.getPackageName() + "."
+                "com.supers.clean.junk" + "."
                         + ShortCutActivity.class.getSimpleName()));
         //设置启动的模式
         shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS

@@ -352,13 +352,28 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp" />
 
-            <com.eos.module.charge.saver.lottie.LottieAnimationView
-                android:id="@+id/lot_message"
+            <FrameLayout
+                android:id="@+id/fl_lot_message"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+
+                <com.eos.module.charge.saver.lottie.LottieAnimationView
+                    android:id="@+id/lot_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:background="#32000000"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="AD"
+                    android:textColor="@android:color/white"
+                    android:textSize="8sp" />
+            </FrameLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
