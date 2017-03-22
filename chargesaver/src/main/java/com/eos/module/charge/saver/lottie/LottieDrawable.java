@@ -97,8 +97,12 @@ public class LottieDrawable extends AnimatableLayer implements Drawable.Callback
    * are done. Calling {@link #recycleBitmaps()} doesn't have to be final and {@link LottieDrawable}
    * will recreate the bitmaps if needed but they will leak if you don't recycle them.
    */
-  @SuppressWarnings("WeakerAccess") public void setImagesAssetsFolder(@Nullable String imageAssetsFolder) {
+
+  private Context themeContext;
+
+  @SuppressWarnings("WeakerAccess") public void setImagesAssetsFolder(Context themeContext, @Nullable String imageAssetsFolder) {
     this.imageAssetsFolder = imageAssetsFolder;
+    this.themeContext = themeContext;
   }
 
   /**
@@ -358,11 +362,18 @@ public class LottieDrawable extends AnimatableLayer implements Drawable.Callback
     }
 
     if (imageAssetBitmapManager == null) {
-      imageAssetBitmapManager = new ImageAssetBitmapManager(getCallback(),
+      imageAssetBitmapManager = new ImageAssetBitmapManager(themeContext, getCallback(),
           imageAssetsFolder, imageAssetDelegate, composition.getImages());
     }
 
     return imageAssetBitmapManager;
+  }
+
+  public void clearBitmapManager(){
+    if (imageAssetBitmapManager != null) {
+        imageAssetBitmapManager.recycleBitmaps();
+        imageAssetBitmapManager = null;
+    }
   }
 
   private @Nullable Context getContext() {

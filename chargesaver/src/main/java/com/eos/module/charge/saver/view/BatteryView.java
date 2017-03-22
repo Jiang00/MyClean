@@ -21,6 +21,9 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.android.theme.ThemeInfo;
+import com.android.theme.ThemeManager;
+import com.android.themeshop.ShopMaster;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
@@ -28,8 +31,6 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.entry.BatteryEntry;
 import com.eos.module.charge.saver.lottie.LottieAnimationView;
-import com.eos.module.charge.saver.lottie.LottieComposition;
-import com.eos.module.charge.saver.lottie.OnCompositionLoadedListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -115,7 +116,7 @@ public class BatteryView extends FrameLayout {
             }
             adLayout.removeAllViews();
             adLayout.addView(adView);
-            adView.setOnTouchListener(new OnTouchListener() {
+            adLayout.setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     float startX = event.getX();
@@ -191,27 +192,24 @@ public class BatteryView extends FrameLayout {
         final int curLevel = entry.getLevel();
         currentLevel.setText(curLevel + "%");
         final int le = curLevel % 100;
-        if (water != null) {
-            if (progress != curLevel) {
-                water.setAnimation("battery.json");
-                water.loop(true);
-                water.setSpeed(5.0f);
-                water.playAnimation();
-                water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator animation) {
-                        progress = (int) (animation.getAnimatedFraction() * 100);
-                        if (le == 0) {
-                            if (progress == 99) {
-                                progress = 100;
-                                water.pauseAnimation();
-                            }
-                        } else if (progress == le) {
+
+        if (!water.isAnimating()) {
+            initWater();
+            water.playAnimation();
+            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    progress = (int) (animation.getAnimatedFraction() * 100);
+                    if (le == 0) {
+                        if (progress == 99) {
+                            progress = 100;
                             water.pauseAnimation();
                         }
+                    } else if (progress == le) {
+                        water.pauseAnimation();
                     }
-                });
-            }
+                }
+            });
         }
 
         if (entry.isCharging()) {
@@ -228,13 +226,11 @@ public class BatteryView extends FrameLayout {
                     lighting.resumeAnimation();
                 } else {
                     if (!lighting.isAnimating()) {
-                        lighting.setAnimation("lighting.json");
-                        lighting.loop(true);
+                        initLighting();
                         lighting.playAnimation();
                     }
                 }
             }
-
         } else {
             if (lighting.isAnimating()) {
                 lighting.pauseAnimation();
@@ -261,6 +257,51 @@ public class BatteryView extends FrameLayout {
         return (int) (dp * scale + 0.5f);
     }
 
+    private void initShell(){
+        try{
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            shell.setImageAssetsFolder(themeContext, "theme://images/shell");
+            shell.setAnimation(themeContext, "theme://shell.json");
+            shell.loop(true);
+            shell.playAnimation();
+        } catch (Exception e) {
+            shell.setImageAssetsFolder(null, "images/shell");
+            shell.setAnimation(null, "shell.json");
+        }
+        shell.loop(true);
+        shell.playAnimation();
+    }
+
+    private void initWater(){
+        try{
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            water.setImageAssetsFolder(themeContext, "theme://images/water");
+            water.setAnimation(themeContext, "theme://water.json");
+        } catch (Exception e) {
+            if (!water.isAnimating()) {
+                water.setImageAssetsFolder(null, "images/water");
+                water.setAnimation(null, "water.json");
+            }
+        }
+        water.loop(true);
+        water.setSpeed(5.0f);
+    }
+
+    private void initLighting(){
+        try{
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            lighting.setImageAssetsFolder(themeContext, "theme://images/lighting");
+            lighting.setAnimation(themeContext, "theme://lighting.json");
+        } catch (Exception e) {
+            lighting.setImageAssetsFolder(null, "images/lighting");
+            lighting.setAnimation(null, "lighting.json");
+        }
+        lighting.loop(true);
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
@@ -268,17 +309,17 @@ public class BatteryView extends FrameLayout {
             initViews();
             isBindView = true;
 
-            shell.setImageAssetsFolder("images/lighting");
-            shell.setAnimation("shell.json");
-            shell.loop(true);
-            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
-                    new OnCompositionLoadedListener() {
-                        @Override
-                        public void onCompositionLoaded(LottieComposition composition) {
-                            shell.setComposition(composition);
-                        }
-                    });
-            shell.playAnimation();
+//            shell.setAnimation("shell.json");
+//            shell.loop(true);
+//            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
+//                    new OnCompositionLoadedListener() {
+//                        @Override
+//                        public void onCompositionLoaded(LottieComposition composition) {
+//                            shell.setComposition(composition);
+//                        }
+//                    });
+//            shell.playAnimation();
+            initShell();
 
             updateTime();
 

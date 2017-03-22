@@ -7,6 +7,7 @@ import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,6 +37,7 @@ import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.android.common.SdkEnv;
+import com.android.theme.ThemeManager;
 import com.android.themeshop.ShopMaster;
 import com.android.themeshop.internal.Theme;
 import com.eos.manager.AccessibilityService;
@@ -164,6 +166,14 @@ public class MainActivity extends BaseActivity implements MainView {
         super.onCreate(savedInstanceState);
         instance = this;
         setContentView(R.layout.activity_dra);
+
+        try{
+            String pkg = getIntent().getExtras().getString("theme_package_name");
+            ThemeManager.applyTheme(this, pkg, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         final ArrayList<View> arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
         main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
@@ -271,41 +281,41 @@ public class MainActivity extends BaseActivity implements MainView {
 
         AndroidSdk.track("主页面", "进入主页面", "", 1);
 
+
+        lot_side.setImageAssetsFolder(null, "images/sideClean/");
+        lot_side.setAnimation(null, "sideClean.json");
+        lot_side.loop(true);
+        lot_side.playAnimation();
+
         tuiGuang();
     }
 
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_main.setImageAssetsFolder("images/applocks/");
-            lot_main.setAnimation("applocks.json");
+            lot_main.setImageAssetsFolder(null,"images/applocks/");
+            lot_main.setAnimation(null,"applocks.json");
             lot_main.loop(true);
             lot_main.playAnimation();
 
-            lot_side.setImageAssetsFolder("images/applocks/");
-            lot_side.setAnimation("applocks.json");
+            lot_side.setImageAssetsFolder(null,"images/applocks/");
+            lot_side.setAnimation(null,"applocks.json");
             lot_side.loop(true);
             lot_side.playAnimation();
         } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_main.setImageAssetsFolder("images/flashs/");
-            lot_main.setAnimation("flashs.json");
+            lot_main.setImageAssetsFolder(null, "images/flashs/");
+            lot_main.setAnimation(null, "flashs.json");
             lot_main.loop(true);
             lot_main.playAnimation();
 
-            lot_side.setImageAssetsFolder("images/flashs/");
-            lot_side.setAnimation("flashs.json");
+            lot_side.setImageAssetsFolder(null, "images/flashs/");
+            lot_side.setAnimation(null, "flashs.json");
             lot_side.loop(true);
             lot_side.playAnimation();
         } else {
             main_tuiguang_button.setVisibility(View.GONE);
             lot_side.setVisibility(View.GONE);
         }
-
-
-//        lot_side.setImageAssetsFolder("images/sideClean/");
-//        lot_side.setAnimation("sideClean.json");
-//        lot_side.loop(true);
-//        lot_side.playAnimation();
     }
 
     public static void showPermission(final Context c) {
@@ -762,7 +772,7 @@ public class MainActivity extends BaseActivity implements MainView {
                 case R.id.main_theme_button:
                     AndroidSdk.track("主页面", "点击主题按钮", "", 1);
                     final Context context = SdkEnv.context();
-                    ShopMaster.applyTheme(getApplicationContext(), "theme_preview_two", true);
+//                    ShopMaster.applyTheme(getApplicationContext(), "theme_preview_two", true);
                     ShopMaster.launch(MainActivity.this,
                             new Theme(R.raw.battery_0, context.getPackageName())
 //                            , new Theme(R.raw.battery_1, context.getPackageName())

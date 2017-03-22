@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 
 import com.android.client.AndroidSdk;
+import com.android.themeshop.ShopMaster;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
@@ -201,6 +202,7 @@ public class BatteryService extends Service {
         if (intent != null && intent.hasExtra("show") && intent.getBooleanExtra("show", false)) {
             showChargeView();
         }
+        ShopMaster.onCreate(getApplicationContext());
         return START_STICKY_COMPATIBILITY;
     }
 

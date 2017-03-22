@@ -91,14 +91,14 @@ public class SettingActivity extends BaseActivity {
     public void tuiGuang() {
         super.tuiGuang();
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_setting.setImageAssetsFolder("images/applocks/");
-            lot_setting.setAnimation("applocks.json");
+            lot_setting.setImageAssetsFolder(null,"images/applocks/");
+            lot_setting.setAnimation(null,"applocks.json");
             lot_setting.loop(true);
             lot_setting.playAnimation();
 
         } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_setting.setImageAssetsFolder("images/flashs/");
-            lot_setting.setAnimation("flashs.json");
+            lot_setting.setImageAssetsFolder(null, "images/flashs/");
+            lot_setting.setAnimation(null, "flashs.json");
             lot_setting.loop(true);
             lot_setting.playAnimation();
 
