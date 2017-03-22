@@ -1,7 +1,6 @@
 package com.supers.clean.junk.activity;
 
 import android.app.ActivityManager;
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.IPackageDataObserver;
@@ -16,8 +15,11 @@ import android.util.Log;
 import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
+import com.eos.module.charge.saver.receiver.StartReceiver;
 import com.eos.module.charge.saver.service.BatteryService;
 
+import com.marswin89.marsdaemon.DaemonClient;
+import com.marswin89.marsdaemon.DaemonConfigurations;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JsonData;
@@ -203,6 +205,44 @@ public class MyApplication extends App {
         apkSize -= fileListInfo.size;
         if (apkFiles != null) {
             apkFiles.remove(fileListInfo);
+        }
+    }
+
+
+    private DaemonClient mDaemonClient;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        mDaemonClient = new DaemonClient(createDaemonConfigurations());
+        mDaemonClient.onAttachBaseContext(base);
+    }
+
+
+    private DaemonConfigurations createDaemonConfigurations() {
+        DaemonConfigurations.DaemonConfiguration persistentConfig = new DaemonConfigurations.DaemonConfiguration(
+                getPackageName() + ":persistent", BatteryService.class, StartReceiver.class);
+
+        DaemonConfigurations.DaemonListener listener = new MyDaemonListener();
+        //return new DaemonConfigurations(configuration1, configuration2);//listener can be null
+        return new DaemonConfigurations(this, persistentConfig, listener);
+    }
+
+
+    class MyDaemonListener implements DaemonConfigurations.DaemonListener {
+        @Override
+        public void onPersistentStart(Context context) {
+            Log.e("rqy", "--onPersistentStart--");
+        }
+
+        @Override
+        public void onDaemonAssistantStart(Context context) {
+            Log.e("rqy", "--onDaemonAssistantStart--");
+        }
+
+        @Override
+        public void onWatchDaemonDead() {
+            Log.e("rqy", "--onWatchDaemonDaed--");
         }
     }
 

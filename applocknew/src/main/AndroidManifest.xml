@@ -81,9 +81,9 @@
 
         <activity
             android:name="com.eos.manager.AppLockSetPattern"
-            android:launchMode="singleInstance"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/activityTheme"
             android:windowSoftInputMode="adjustResize" />
@@ -140,8 +140,8 @@
             android:allowTaskReparenting="true"
             android:configChanges="orientation|layoutDirection|screenSize|keyboard|keyboardHidden|fontScale"
             android:excludeFromRecents="true"
-            android:screenOrientation="portrait"
             android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
             android:theme="@style/activityTheme" />
 
 
