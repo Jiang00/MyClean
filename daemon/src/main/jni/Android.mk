@@ -1,15 +1,15 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
-LOCAL_MODULE    := daemon_api20
-LOCAL_SRC_FILES := daemon_api20.c \
+LOCAL_MODULE    := daemon_apik
+LOCAL_SRC_FILES := daemon_apik.c \
 	common.c
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog -lm -lz
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE    := daemon_api21
-LOCAL_SRC_FILES := daemon_api21.c \
+LOCAL_MODULE    := daemon_apil
+LOCAL_SRC_FILES := daemon_apil.c \
 	common.c
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog -lm -lz
