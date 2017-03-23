@@ -135,6 +135,7 @@ public class CoolingActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
+        fl_lot_cooling.setVisibility(View.VISIBLE);
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
             lot_cooling.setImageAssetsFolder(null, "images/applocks/");
             lot_cooling.setAnimation(null, "applocks.json");

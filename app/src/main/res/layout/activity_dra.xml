@@ -59,6 +59,7 @@
                         android:layout_height="wrap_content"
                         android:divider="#00000000"
                         android:dividerHeight="0dp" />
+
                     <FrameLayout
                         android:id="@+id/fl_lot_side"
                         android:layout_width="wrap_content"
@@ -68,13 +69,13 @@
                             android:id="@+id/lot_side"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d5" />
+                            android:scaleType="fitEnd" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom|right"
-                            android:background="#32000000"
+                            android:background="@color/black_35"
                             android:fontFamily="sans-serif-light"
                             android:gravity="center"
                             android:text="AD"

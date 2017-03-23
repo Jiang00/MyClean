@@ -298,6 +298,7 @@
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp" />
+
             <FrameLayout
                 android:id="@+id/fl_lot_setting"
                 android:layout_width="wrap_content"
@@ -306,13 +307,14 @@
                 <com.eos.module.charge.saver.lottie.LottieAnimationView
                     android:id="@+id/lot_setting"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitEnd" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|right"
-                    android:background="#32000000"
+                    android:background="@color/black_35"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center"
                     android:text="AD"

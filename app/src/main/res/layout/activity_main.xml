@@ -433,20 +433,21 @@
 
                     <FrameLayout
                         android:layout_width="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:layout_marginRight="@dimen/d16"
                         android:layout_height="wrap_content">
 
                         <com.eos.module.charge.saver.lottie.LottieAnimationView
                             android:id="@+id/lot_main"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/d16"
-                            android:layout_marginRight="@dimen/d16" />
-
+                            android:scaleType="fitEnd"
+                            />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom|right"
-                            android:background="#32000000"
+                            android:background="@color/black_35"
                             android:fontFamily="sans-serif-light"
                             android:gravity="center"
                             android:text="AD"

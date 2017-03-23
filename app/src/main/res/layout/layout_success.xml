@@ -215,7 +215,7 @@
                         android:layout_height="wrap_content">
 
                         <com.eos.module.charge.saver.lottie.LottieAnimationView
-                            android:id="@+id/lot_success"
+                            android:id="@+id/lot_success" android:scaleType="fitEnd"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp" />
@@ -224,7 +224,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom|right"
-                            android:background="#32000000"
+                            android:background="@color/black_35"
                             android:fontFamily="sans-serif-light"
                             android:gravity="center"
                             android:text="AD"
