@@ -9,6 +9,11 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        externalNativeBuild {
+            ndkBuild {
+                abiFilters "armeabi", "armeabi-v7a", "x86"
+            }
+        }
     }
     buildTypes {
         release {
@@ -16,11 +21,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets {
-        main {
-            jniLibs.srcDirs =['libs']
+    /* sourceSets {
+         main {
+             jniLibs.srcDirs =['libs']
+         }
+     }*/
+    externalNativeBuild {
+        ndkBuild {
+            path file("src/main/jni/Android.mk")
         }
     }
+}
+
+task copyTask(type: Copy) {
+    from("build/intermediates/ndkBuild/release/obj/local") {
+        exclude 'armeabi/objs', 'armeabi-v7a/objs', 'x86/objs'
+    }
+    into 'libs'
 }
 
 dependencies {

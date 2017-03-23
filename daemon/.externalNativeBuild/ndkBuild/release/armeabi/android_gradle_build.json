@@ -1,0 +1,67 @@
+{
+  "buildFiles": [
+    "F:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Android.mk",
+    "F:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "E:\\android-sdk_r24.4.1-windows\\android-ndk-r12b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi NDK_ALL_ABIS\u003darmeabi NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dF:/develop/gitlab/JunkClean/daemon/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\build\\intermediates\\ndkBuild\\release\\lib clean"
+  ],
+  "libraries": {
+    "daemon_api20-release-armeabi": {
+      "buildCommand": "E:\\android-sdk_r24.4.1-windows\\android-ndk-r12b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi NDK_ALL_ABIS\u003darmeabi NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dF:/develop/gitlab/JunkClean/daemon/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\build\\intermediates\\ndkBuild\\release\\lib F:/develop/gitlab/JunkClean/daemon/build/intermediates/ndkBuild/release/obj/local/armeabi/libdaemon_api20.so",
+      "toolchain": "toolchain-armeabi",
+      "abi": "armeabi",
+      "artifactName": "daemon_api20",
+      "files": [
+        {
+          "src": "F:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\common.c",
+          "flags": "\"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-no-canonical-prefixes\" \"-g\" \"-march\u003darmv5te\" \"-mtune\u003dxscale\" \"-msoft-float\" \"-mthumb\" \"-Os\" \"-DNDEBUG\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni/include\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-isystem\" \"E:/android-sdk_r24.4.1-windows/android-ndk-r12b/build//../platforms/android-9/arch-arm/usr/include\""
+        },
+        {
+          "src": "F:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\daemon_api20.c",
+          "flags": "\"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-no-canonical-prefixes\" \"-g\" \"-march\u003darmv5te\" \"-mtune\u003dxscale\" \"-msoft-float\" \"-mthumb\" \"-Os\" \"-DNDEBUG\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni/include\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-isystem\" \"E:/android-sdk_r24.4.1-windows/android-ndk-r12b/build//../platforms/android-9/arch-arm/usr/include\""
+        }
+      ],
+      "output": "F:\\develop\\gitlab\\JunkClean\\daemon\\build\\intermediates\\ndkBuild\\release\\obj\\local\\armeabi\\libdaemon_api20.so"
+    },
+    "daemon-release-armeabi": {
+      "buildCommand": "E:\\android-sdk_r24.4.1-windows\\android-ndk-r12b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi NDK_ALL_ABIS\u003darmeabi NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dF:/develop/gitlab/JunkClean/daemon/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\build\\intermediates\\ndkBuild\\release\\lib F:/develop/gitlab/JunkClean/daemon/build/intermediates/ndkBuild/release/obj/local/armeabi/daemon",
+      "toolchain": "toolchain-armeabi",
+      "abi": "armeabi",
+      "artifactName": "daemon",
+      "files": [
+        {
+          "src": "F:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\daemon.c",
+          "flags": "\"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-no-canonical-prefixes\" \"-g\" \"-march\u003darmv5te\" \"-mtune\u003dxscale\" \"-msoft-float\" \"-mthumb\" \"-Os\" \"-DNDEBUG\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni/include\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni\" \"-DANDROID\" \"-pie\" \"-fPIE\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-isystem\" \"E:/android-sdk_r24.4.1-windows/android-ndk-r12b/build//../platforms/android-9/arch-arm/usr/include\""
+        }
+      ],
+      "output": "F:\\develop\\gitlab\\JunkClean\\daemon\\build\\intermediates\\ndkBuild\\release\\obj\\local\\armeabi\\daemon"
+    },
+    "daemon_api21-release-armeabi": {
+      "buildCommand": "E:\\android-sdk_r24.4.1-windows\\android-ndk-r12b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi NDK_ALL_ABIS\u003darmeabi NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-9 NDK_OUT\u003dF:/develop/gitlab/JunkClean/daemon/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\develop\\gitlab\\JunkClean\\daemon\\build\\intermediates\\ndkBuild\\release\\lib F:/develop/gitlab/JunkClean/daemon/build/intermediates/ndkBuild/release/obj/local/armeabi/libdaemon_api21.so",
+      "toolchain": "toolchain-armeabi",
+      "abi": "armeabi",
+      "artifactName": "daemon_api21",
+      "files": [
+        {
+          "src": "F:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\common.c",
+          "flags": "\"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-no-canonical-prefixes\" \"-g\" \"-march\u003darmv5te\" \"-mtune\u003dxscale\" \"-msoft-float\" \"-mthumb\" \"-Os\" \"-DNDEBUG\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni/include\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-isystem\" \"E:/android-sdk_r24.4.1-windows/android-ndk-r12b/build//../platforms/android-9/arch-arm/usr/include\""
+        },
+        {
+          "src": "F:\\develop\\gitlab\\JunkClean\\daemon\\src\\main\\jni\\daemon_api21.c",
+          "flags": "\"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-no-canonical-prefixes\" \"-g\" \"-march\u003darmv5te\" \"-mtune\u003dxscale\" \"-msoft-float\" \"-mthumb\" \"-Os\" \"-DNDEBUG\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni/include\" \"-IF:/develop/gitlab/JunkClean/daemon/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-isystem\" \"E:/android-sdk_r24.4.1-windows/android-ndk-r12b/build//../platforms/android-9/arch-arm/usr/include\""
+        }
+      ],
+      "output": "F:\\develop\\gitlab\\JunkClean\\daemon\\build\\intermediates\\ndkBuild\\release\\obj\\local\\armeabi\\libdaemon_api21.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-armeabi": {
+      "cCompilerExecutable": "E:\\android-sdk_r24.4.1-windows\\android-ndk-r12b\\build\\..\\toolchains\\arm-linux-androideabi-4.9\\prebuilt\\windows-x86_64\\bin\\arm-linux-androideabi-gcc"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}
