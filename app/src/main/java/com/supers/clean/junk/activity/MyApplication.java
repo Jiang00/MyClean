@@ -15,11 +15,12 @@ import android.util.Log;
 import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
-import com.eos.module.charge.saver.receiver.StartReceiver;
 import com.eos.module.charge.saver.service.BatteryService;
 
 import com.marswin89.marsdaemon.DaemonClient;
 import com.marswin89.marsdaemon.DaemonConfigurations;
+import com.supers.clean.junk.PersistReceiver;
+import com.supers.clean.junk.PersistService;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JsonData;
@@ -221,7 +222,7 @@ public class MyApplication extends App {
 
     private DaemonConfigurations createDaemonConfigurations() {
         DaemonConfigurations.DaemonConfiguration persistentConfig = new DaemonConfigurations.DaemonConfiguration(
-                getPackageName() + ":persistent", BatteryService.class, StartReceiver.class);
+                getPackageName() + getString(R.string.persist_process_name), PersistService.class, PersistReceiver.class);
 
         DaemonConfigurations.DaemonListener listener = new MyDaemonListener();
         //return new DaemonConfigurations(configuration1, configuration2);//listener can be null
@@ -253,6 +254,7 @@ public class MyApplication extends App {
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);
 
+        startService(new Intent(this, PersistService.class));
         //charging
         startService(new Intent(this, BatteryService.class));
 //        Utils.writeData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, false);//

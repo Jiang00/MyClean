@@ -176,6 +176,19 @@ public class MainActivity extends BaseActivity implements MainView {
             e.printStackTrace();
         }
 
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                // 返回系统包名
+                if (CommonUtil.isRoot()) {
+                    String apkRoot = "chmod 777 " + getPackageCodePath();
+                    CommonUtil.RootCommand(apkRoot);
+                }
+            }
+        }.start();
+
+
         final ArrayList<View> arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
         main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);

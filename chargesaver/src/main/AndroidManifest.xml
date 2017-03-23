@@ -7,18 +7,14 @@
         android:allowBackup="true"
         android:supportsRtl="true">
 
-        <service
-            android:name="com.eos.module.charge.saver.service.BatteryService"
-            android:process=":persistent">
+        <service android:name="com.eos.module.charge.saver.service.BatteryService">
             <intent-filter>
                 <action android:name="com.eos.battery.service" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
-        <receiver
-            android:name="com.eos.module.charge.saver.receiver.StartReceiver"
-            android:process=":persistent">
+        <receiver android:name="com.eos.module.charge.saver.receiver.StartReceiver">
             <intent-filter android:priority="2147483647">
 
                 <!-- 优先级加最高 -->

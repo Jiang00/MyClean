@@ -33,7 +33,7 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
 
     public ManagerPresenter(AppManagerView iView, Context context) {
         super(iView, context);
-        cleanApplication = (MyApplication) ((Activity) context).getApplication();
+        cleanApplication = (MyApplication) context.getApplicationContext();
     }
 
     @Override

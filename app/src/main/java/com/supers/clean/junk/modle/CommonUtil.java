@@ -19,6 +19,7 @@ import android.view.ViewParent;
 
 import com.android.client.AndroidSdk;
 
+import java.io.DataOutputStream;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.text.DecimalFormat;
@@ -413,5 +414,65 @@ public class CommonUtil {
         }
         return nativeView;
     }
+
+    /**
+     * 判断手机是否ROOT
+     */
+    public static boolean isRoot() {
+
+        boolean root = false;
+
+        try {
+            if ((!new File("/system/bin/su").exists())
+                    && (!new File("/system/xbin/su").exists())) {
+                root = false;
+            } else {
+                root = true;
+            }
+
+        } catch (Exception e) {
+        }
+
+        Log.e("rqy", "get root--" + root);
+        return root;
+    }
+
+    /**
+     * 应用程序运行命令获取 Root权限，设备必须已破解(获得ROOT权限)
+     *
+     * @param command 命令： String apkRoot="chmod 777 "+getPackageCodePath();
+     *                RootCommand(apkRoot);
+     * @return 应用程序是/否获取Root权限
+     */
+    public static boolean RootCommand(String command) {
+
+        Process process = null;
+        DataOutputStream os = null;
+
+        try {
+            process = Runtime.getRuntime().exec("su");
+            os = new DataOutputStream(process.getOutputStream());
+            os.writeBytes(command + "\n");
+            os.writeBytes("exit\n");
+            os.flush();
+            process.waitFor();
+        } catch (Exception e) {
+            Log.e("rqy", "ROOT REE" + e.getMessage());
+            return false;
+        } finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+                process.destroy();
+            } catch (Exception e) {
+            }
+        }
+
+        Log.e("rqy", "Root SUC ");
+        return true;
+
+    }
+
 
 }
