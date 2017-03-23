@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.eos.module.charge.saver.lottie.LottieAnimationView;
+import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CameraUtils;
 import com.supers.clean.junk.modle.CommonUtil;
@@ -139,6 +139,7 @@ public class MessageActivity extends BaseActivity {
     @Override
     public void tuiGuang() {
         super.tuiGuang();
+        fl_lot_message.setVisibility(View.VISIBLE);
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
             lot_message.setImageAssetsFolder(null, "images/applocks/");
             lot_message.setAnimation(null, "applocks.json");

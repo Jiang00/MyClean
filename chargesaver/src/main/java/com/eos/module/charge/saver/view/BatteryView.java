@@ -30,8 +30,8 @@ import com.eos.module.charge.saver.Util.ADRequest;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.entry.BatteryEntry;
-import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.eos.theme.ThemeManager;
+import com.sample.lottie.LottieAnimationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -102,6 +102,7 @@ public class BatteryView extends FrameLayout {
     };
 
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
+
     private void showNativeAD() {
         adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, new ADRequest.ICustomNativeADClicked() {
             @Override
@@ -131,7 +132,7 @@ public class BatteryView extends FrameLayout {
                             break;
                         case MotionEvent.ACTION_CANCEL:
                         case MotionEvent.ACTION_UP:
-                            if((event.getX() - startX) > 50 || (startX - event.getX()) > 50){
+                            if ((event.getX() - startX) > 50 || (startX - event.getX()) > 50) {
                                 return true;
                             } else {
                                 break;
@@ -153,7 +154,7 @@ public class BatteryView extends FrameLayout {
                         break;
                     case MotionEvent.ACTION_CANCEL:
                     case MotionEvent.ACTION_UP:
-                        if((event.getX() - startX) > 20 || (startX - event.getX()) > 20){
+                        if ((event.getX() - startX) > 20 || (startX - event.getX()) > 20) {
                             if ((event.getX() - startX) > halfWidth / 2) {
                                 if (listener != null) {
                                     listener.onUnlock();
@@ -260,8 +261,8 @@ public class BatteryView extends FrameLayout {
         return (int) (dp * scale + 0.5f);
     }
 
-    private void initBack(){
-        try{
+    private void initBack() {
+        try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             InputStream input = themeContext.getAssets().open("eos_back.png");
@@ -276,8 +277,8 @@ public class BatteryView extends FrameLayout {
         }
     }
 
-    private void initShutter(){
-        try{
+    private void initShutter() {
+        try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             InputStream input = themeContext.getAssets().open("eos_shutter.png");
@@ -292,8 +293,8 @@ public class BatteryView extends FrameLayout {
         }
     }
 
-    private void initParticle(){
-        try{
+    private void initParticle() {
+        try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             InputStream input = themeContext.getAssets().open("eos_particle.png");
@@ -308,8 +309,8 @@ public class BatteryView extends FrameLayout {
         }
     }
 
-    private void initShell(){
-        try{
+    private void initShell() {
+        try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             shell.setImageAssetsFolder(themeContext, "theme://images/shell");
@@ -324,8 +325,8 @@ public class BatteryView extends FrameLayout {
         shell.playAnimation();
     }
 
-    private void initWater(){
-        try{
+    private void initWater() {
+        try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             water.setImageAssetsFolder(themeContext, "theme://images/water");
@@ -340,8 +341,8 @@ public class BatteryView extends FrameLayout {
         water.setSpeed(5.0f);
     }
 
-    private void initLighting(){
-        try{
+    private void initLighting() {
+        try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             lighting.setImageAssetsFolder(themeContext, "theme://images/lighting");

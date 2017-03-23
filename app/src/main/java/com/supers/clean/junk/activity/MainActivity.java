@@ -36,7 +36,7 @@ import com.eos.manager.AppLockPermissionActivity;
 import com.eos.manager.Tracker;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
-import com.eos.module.charge.saver.lottie.LottieAnimationView;
+import com.sample.lottie.LottieAnimationView;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.eos.theme.ThemeManager;
 import com.supers.clean.junk.R;

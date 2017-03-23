@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
-import com.eos.module.charge.saver.lottie.LottieAnimationView;
+import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
@@ -92,6 +92,7 @@ public class SettingActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
+        fl_lot_setting.setVisibility(View.VISIBLE);
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
             lot_setting.setImageAssetsFolder(null, "images/applocks/");
             lot_setting.setAnimation(null, "applocks.json");

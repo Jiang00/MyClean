@@ -35,8 +35,8 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.cpuutils.CpuTempReader;
 import com.eos.module.charge.saver.entry.BatteryEntry;
-import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import com.eos.theme.ThemeManager;
+import com.sample.lottie.LottieAnimationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
