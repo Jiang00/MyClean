@@ -5,7 +5,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -35,6 +38,7 @@ import com.eos.module.charge.saver.lottie.LottieAnimationView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -69,6 +73,7 @@ public class BatteryView extends FrameLayout {
     private LottieAnimationView water;
     private LottieAnimationView lighting;
     private int halfWidth;
+    private ImageView shutter;
 
     public interface UnlockListener {
         void onUnlock();
@@ -257,6 +262,54 @@ public class BatteryView extends FrameLayout {
         return (int) (dp * scale + 0.5f);
     }
 
+    private void initBack(){
+        try{
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            InputStream input = themeContext.getAssets().open("eos_back.png");
+            BitmapFactory.Options opts = new BitmapFactory.Options();
+            opts.inScaled = false;
+            opts.inDensity = 160;
+            Bitmap bitmap = BitmapFactory.decodeStream(input, null, opts);
+            if (bitmap != null && batteryView != null) {
+                batteryView.setBackgroundDrawable(new BitmapDrawable(bitmap));
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private void initShutter(){
+        try{
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            InputStream input = themeContext.getAssets().open("eos_shutter.png");
+            BitmapFactory.Options opts = new BitmapFactory.Options();
+            opts.inScaled = false;
+            opts.inDensity = 160;
+            Bitmap bitmap = BitmapFactory.decodeStream(input, null, opts);
+            if (bitmap != null && shutter != null) {
+                shutter.setBackgroundDrawable(new BitmapDrawable(bitmap));
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private void initParticle(){
+        try{
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            InputStream input = themeContext.getAssets().open("eos_particle.png");
+            BitmapFactory.Options opts = new BitmapFactory.Options();
+            opts.inScaled = false;
+            opts.inDensity = 160;
+            Bitmap bitmap = BitmapFactory.decodeStream(input, null, opts);
+            if (bitmap != null && bubbleLayout != null) {
+                bubbleLayout.setParticleBitmap(bitmap);
+            }
+        } catch (Exception e) {
+        }
+    }
+
     private void initShell(){
         try{
             String pkg = ThemeManager.currentTheme().getPackageName();
@@ -320,6 +373,9 @@ public class BatteryView extends FrameLayout {
 //                    });
 //            shell.playAnimation();
             initShell();
+            initBack();
+            initShutter();
+            initParticle();
 
             updateTime();
 
@@ -422,6 +478,7 @@ public class BatteryView extends FrameLayout {
     }
 
     private void initViews() {
+        shutter = (ImageView) findViewById(R.id.battery_shutter);
         bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
         slide = (LinearLayout) findViewById(R.id.battery_slide);
