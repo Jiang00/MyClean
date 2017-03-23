@@ -33029,7 +33029,6 @@ com.eos.manager.page.ListViewForScrollView -> com.eos.manager.page.ListViewForSc
     21:23:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     27:29:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     45:49:void onMeasure(int,int) -> onMeasure
-    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.eos.manager.page.LockPatternUtils -> com.eos.manager.page.b:
     52:62:java.lang.String patternToString(java.util.List) -> a
     84:84:boolean checkPattern(java.util.List,java.util.List) -> a
@@ -34355,6 +34354,24 @@ com.eos.module.charge.saver.Util.ADRequest$1 -> com.eos.module.charge.saver.Util
     26:29:void onNativeAdClicked(com.android.client.ClientNativeAd) -> onNativeAdClicked
 com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked -> com.eos.module.charge.saver.Util.a$a:
     void onNativeADClicked(com.android.client.ClientNativeAd) -> a
+com.eos.module.charge.saver.Util.MyWidgetContainer -> com.eos.module.charge.saver.Util.MyWidgetContainer:
+    android.view.WindowManager$LayoutParams lp -> a
+    boolean movable -> b
+    int screenHeight -> c
+    com.eos.module.charge.saver.Util.MyWidgetContainer$IWidgetListener listener -> d
+    android.view.WindowManager wm -> e
+    float x -> f
+    float y -> g
+    boolean moving -> h
+    59:62:void onClick(android.view.View) -> onClick
+    103:104:void setWidgetListener(com.eos.module.charge.saver.Util.MyWidgetContainer$IWidgetListener) -> setWidgetListener
+    110:127:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    132:132:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    140:166:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.eos.module.charge.saver.Util.MyWidgetContainer$IWidgetListener -> com.eos.module.charge.saver.Util.MyWidgetContainer$a:
+    boolean onBackPressed() -> a
+    boolean onMenuPressed() -> b
+    void onClick() -> onClick
 com.eos.module.charge.saver.Util.Utils -> com.eos.module.charge.saver.Util.b:
     23:36:void writeData(android.content.Context,java.lang.String,java.lang.Object) -> a
     39:46:java.lang.Object readData(android.content.Context,java.lang.String,java.lang.Object) -> b
@@ -36692,6 +36709,174 @@ com.google.gson.stream.MalformedJsonException -> com.google.gson.stream.Malforme
     29:30:void <init>(java.lang.String) -> <init>
     33:37:void <init>(java.lang.String,java.lang.Throwable) -> <init>
     39:43:void <init>(java.lang.Throwable) -> <init>
+com.ivy.kpa.DaemonApplication -> com.ivy.kpa.DaemonApplication:
+    com.ivy.kpa.IDaemonClient mDaemonClient -> a
+    boolean mHasAttachBaseContext -> b
+    com.ivy.kpa.DaemonConfigurations getDaemonConfigurations() -> a
+    23:32:void <init>() -> <init>
+    36:43:void attachBaseContext(android.content.Context) -> attachBaseContext
+    51:51:void attachBaseContextByDaemon(android.content.Context) -> a
+com.ivy.kpa.DaemonClient -> com.ivy.kpa.a:
+    com.ivy.kpa.DaemonConfigurations mConfigurations -> a
+    java.lang.String DAEMON_PERMITTING_SP_FILENAME -> b
+    java.lang.String DAEMON_PERMITTING_SP_KEY -> c
+    java.io.BufferedReader mBufferedReader -> d
+    19:29:void <init>(com.ivy.kpa.DaemonConfigurations) -> <init>
+    24:25:void onAttachBaseContext(android.content.Context) -> a
+    40:55:void initDaemon(android.content.Context) -> b
+    75:80:java.lang.String getProcessName() -> a
+    88:96:void releaseIO() -> b
+    99:100:boolean isDaemonPermitting(android.content.Context) -> c
+com.ivy.kpa.DaemonConfigurations -> com.ivy.kpa.b:
+    com.ivy.kpa.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
+    com.ivy.kpa.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
+    com.ivy.kpa.DaemonConfigurations$DaemonListener LISTENER -> c
+    14:34:void <init>(android.content.Context,com.ivy.kpa.DaemonConfigurations$DaemonConfiguration,com.ivy.kpa.DaemonConfigurations$DaemonListener) -> <init>
+com.ivy.kpa.DaemonConfigurations$DaemonConfiguration -> com.ivy.kpa.b$a:
+    java.lang.String PROCESS_NAME -> a
+    java.lang.String SERVICE_NAME -> b
+    java.lang.String RECEIVER_NAME -> c
+    48:52:void <init>(java.lang.String,java.lang.Class,java.lang.Class) -> <init>
+com.ivy.kpa.DaemonConfigurations$DaemonListener -> com.ivy.kpa.b$b:
+    void onPersistentStart(android.content.Context) -> a
+    void onDaemonAssistantStart(android.content.Context) -> b
+    void onWatchDaemonDead() -> a
+com.ivy.kpa.DaemonReceiver -> com.ivy.kpa.DaemonReceiver:
+    12:12:void <init>() -> <init>
+    16:16:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.ivy.kpa.DaemonService -> com.ivy.kpa.DaemonService:
+    12:12:void <init>() -> <init>
+    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
+    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+com.ivy.kpa.IDaemonClient -> com.ivy.kpa.c:
+    void onAttachBaseContext(android.content.Context) -> a
+com.ivy.kpa.IDaemonStrategy -> com.ivy.kpa.d:
+    boolean onInitialization(android.content.Context) -> a
+    void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
+    void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+com.ivy.kpa.IDaemonStrategy$Fetcher -> com.ivy.kpa.d$a:
+    com.ivy.kpa.IDaemonStrategy mDaemonStrategy -> a
+    63:94:com.ivy.kpa.IDaemonStrategy fetchStrategy() -> a
+com.ivy.kpa.NativeDaemonBase -> com.ivy.kpa.e:
+    android.content.Context mContext -> a
+    17:19:void <init>(android.content.Context) -> <init>
+com.ivy.kpa.nativ.NativeDaemonAPIK -> com.ivy.kpa.nativ.NativeDaemonAPIK:
+    15:16:void <init>(android.content.Context) -> <init>
+    void doDaemon(java.lang.String,java.lang.String,java.lang.String) -> doDaemon
+    20:24:void <clinit>() -> <clinit>
+com.ivy.kpa.nativ.NativeDaemonAPIL -> com.ivy.kpa.nativ.NativeDaemonAPIL:
+    15:16:void <init>(android.content.Context) -> <init>
+    void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> doDaemon
+    20:24:void <clinit>() -> <clinit>
+com.ivy.kpa.strategy.DaemonStrategy21 -> com.ivy.kpa.a.a:
+    android.app.AlarmManager mAlarmManager -> a
+    android.app.PendingIntent mPendingIntent -> b
+    com.ivy.kpa.DaemonConfigurations mConfigs -> c
+    22:22:void <init>() -> <init>
+    35:35:boolean onInitialization(android.content.Context) -> a
+    40:65:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
+    69:93:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+    107:118:void initAlarm(android.content.Context,java.lang.String) -> a
+    122:132:boolean initIndicators(android.content.Context) -> b
+    138:142:void createNewFile(java.io.File,java.lang.String) -> a
+com.ivy.kpa.strategy.DaemonStrategy21$1 -> com.ivy.kpa.a.a$1:
+    android.content.Context val$context -> a
+    com.ivy.kpa.strategy.DaemonStrategy21 this$0 -> b
+    47:47:void <init>(com.ivy.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    50:56:void run() -> run
+com.ivy.kpa.strategy.DaemonStrategy21$2 -> com.ivy.kpa.a.a$2:
+    android.content.Context val$context -> a
+    com.ivy.kpa.strategy.DaemonStrategy21 this$0 -> b
+    76:76:void <init>(com.ivy.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    78:84:void run() -> run
+com.ivy.kpa.strategy.DaemonStrategy22 -> com.ivy.kpa.a.b:
+    android.os.IBinder mRemote -> a
+    android.os.Parcel mServiceData -> b
+    com.ivy.kpa.DaemonConfigurations mConfigs -> c
+    26:26:void <init>() -> <init>
+    39:39:boolean onInitialization(android.content.Context) -> a
+    44:64:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
+    68:89:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+    108:126:void initAmsBinder() -> a
+    131:163:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    168:176:boolean startServiceByAmsBinder() -> b
+    184:194:boolean initIndicatorFiles(android.content.Context) -> b
+    199:203:void createNewFile(java.io.File,java.lang.String) -> a
+com.ivy.kpa.strategy.DaemonStrategy22$1 -> com.ivy.kpa.a.b$1:
+    android.content.Context val$context -> a
+    com.ivy.kpa.strategy.DaemonStrategy22 this$0 -> b
+    48:48:void <init>(com.ivy.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    50:56:void run() -> run
+com.ivy.kpa.strategy.DaemonStrategy22$2 -> com.ivy.kpa.a.b$2:
+    android.content.Context val$context -> a
+    com.ivy.kpa.strategy.DaemonStrategy22 this$0 -> b
+    72:72:void <init>(com.ivy.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    74:80:void run() -> run
+com.ivy.kpa.strategy.DaemonStrategy23 -> com.ivy.kpa.a.c:
+    android.os.IBinder mRemote -> a
+    android.os.Parcel mBroadcastData -> b
+    com.ivy.kpa.DaemonConfigurations mConfigs -> c
+    27:27:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:72:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
+    76:103:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+    120:138:void initAmsBinder() -> a
+    144:180:void initBroadcastParcel(android.content.Context,java.lang.String) -> a
+    186:194:boolean sendBroadcastByAmsBinder() -> b
+    200:210:boolean initIndicatorFiles(android.content.Context) -> b
+    215:219:void createNewFile(java.io.File,java.lang.String) -> a
+com.ivy.kpa.strategy.DaemonStrategy23$1 -> com.ivy.kpa.a.c$1:
+    android.content.Context val$context -> a
+    com.ivy.kpa.strategy.DaemonStrategy23 this$0 -> b
+    49:49:void <init>(com.ivy.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    51:57:void run() -> run
+com.ivy.kpa.strategy.DaemonStrategy23$2 -> com.ivy.kpa.a.c$2:
+    android.content.Context val$context -> a
+    com.ivy.kpa.strategy.DaemonStrategy23 this$0 -> b
+    80:80:void <init>(com.ivy.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    82:88:void run() -> run
+com.ivy.kpa.strategy.DaemonStrategyUnder21 -> com.ivy.kpa.a.d:
+    java.lang.String BINARY_DEST_DIR_NAME -> a
+    java.lang.String BINARY_FILE_NAME -> b
+    android.app.AlarmManager mAlarmManager -> c
+    android.app.PendingIntent mPendingIntent -> d
+    28:30:void <init>() -> <init>
+    37:37:boolean onInitialization(android.content.Context) -> a
+    42:58:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
+    62:70:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+    81:92:void initAlarm(android.content.Context,java.lang.String) -> a
+    96:105:boolean installBinary(android.content.Context) -> b
+    110:118:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    123:126:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
+    129:142:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
+com.ivy.kpa.strategy.DaemonStrategyUnder21$1 -> com.ivy.kpa.a.d$1:
+    android.content.Context val$context -> a
+    com.ivy.kpa.DaemonConfigurations val$configs -> b
+    com.ivy.kpa.strategy.DaemonStrategyUnder21 this$0 -> c
+    43:43:void <init>(com.ivy.kpa.strategy.DaemonStrategyUnder21,android.content.Context,com.ivy.kpa.DaemonConfigurations) -> <init>
+    45:50:void run() -> run
+com.ivy.kpa.strategy.DaemonStrategyXiaomi -> com.ivy.kpa.a.e:
+    java.lang.String BINARY_DEST_DIR_NAME -> a
+    java.lang.String BINARY_FILE_NAME -> b
+    android.os.IBinder mRemote -> c
+    android.os.Parcel mServiceData -> d
+    com.ivy.kpa.DaemonConfigurations mConfigs -> e
+    31:33:void <init>() -> <init>
+    41:41:boolean onInitialization(android.content.Context) -> a
+    46:65:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
+    70:78:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+    95:113:void initAmsBinder() -> a
+    118:150:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    167:176:boolean installBinary(android.content.Context) -> b
+    181:189:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    194:197:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
+    200:213:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
+com.ivy.kpa.strategy.DaemonStrategyXiaomi$1 -> com.ivy.kpa.a.e$1:
+    android.content.Context val$context -> a
+    com.ivy.kpa.DaemonConfigurations val$configs -> b
+    com.ivy.kpa.strategy.DaemonStrategyXiaomi this$0 -> c
+    48:48:void <init>(com.ivy.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.ivy.kpa.DaemonConfigurations) -> <init>
+    50:55:void run() -> run
 com.jaredrummler.android.processes.AndroidProcesses -> com.jaredrummler.android.processes.a:
     boolean loggingEnabled -> a
     128:131:void log(java.lang.String,java.lang.Object[]) -> a
@@ -36828,182 +37013,6 @@ com.jaredrummler.android.processes.models.Status$1 -> com.jaredrummler.android.p
     201:201:com.jaredrummler.android.processes.models.Status[] newArray(int) -> a
     194:194:java.lang.Object[] newArray(int) -> newArray
     194:194:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.marswin89.marsdaemon.DaemonApplication -> com.marswin89.marsdaemon.DaemonApplication:
-    com.marswin89.marsdaemon.IDaemonClient mDaemonClient -> a
-    boolean mHasAttachBaseContext -> b
-    com.marswin89.marsdaemon.DaemonConfigurations getDaemonConfigurations() -> a
-    23:32:void <init>() -> <init>
-    36:43:void attachBaseContext(android.content.Context) -> attachBaseContext
-    51:51:void attachBaseContextByDaemon(android.content.Context) -> a
-com.marswin89.marsdaemon.DaemonClient -> com.marswin89.marsdaemon.a:
-    com.marswin89.marsdaemon.DaemonConfigurations mConfigurations -> a
-    java.lang.String DAEMON_PERMITTING_SP_FILENAME -> b
-    java.lang.String DAEMON_PERMITTING_SP_KEY -> c
-    java.io.BufferedReader mBufferedReader -> d
-    19:29:void <init>(com.marswin89.marsdaemon.DaemonConfigurations) -> <init>
-    24:25:void onAttachBaseContext(android.content.Context) -> a
-    40:55:void initDaemon(android.content.Context) -> b
-    75:80:java.lang.String getProcessName() -> a
-    88:96:void releaseIO() -> b
-    99:100:boolean isDaemonPermitting(android.content.Context) -> c
-com.marswin89.marsdaemon.DaemonConfigurations -> com.marswin89.marsdaemon.b:
-    com.marswin89.marsdaemon.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
-    com.marswin89.marsdaemon.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
-    com.marswin89.marsdaemon.DaemonConfigurations$DaemonListener LISTENER -> c
-    16:36:void <init>(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations$DaemonConfiguration,com.marswin89.marsdaemon.DaemonConfigurations$DaemonListener) -> <init>
-com.marswin89.marsdaemon.DaemonConfigurations$DaemonConfiguration -> com.marswin89.marsdaemon.b$a:
-    java.lang.String PROCESS_NAME -> a
-    java.lang.String SERVICE_NAME -> b
-    java.lang.String RECEIVER_NAME -> c
-    50:54:void <init>(java.lang.String,java.lang.Class,java.lang.Class) -> <init>
-com.marswin89.marsdaemon.DaemonConfigurations$DaemonListener -> com.marswin89.marsdaemon.b$b:
-    void onPersistentStart(android.content.Context) -> a
-    void onDaemonAssistantStart(android.content.Context) -> b
-    void onWatchDaemonDead() -> a
-com.marswin89.marsdaemon.DaemonReceiver -> com.marswin89.marsdaemon.DaemonReceiver:
-    12:12:void <init>() -> <init>
-    16:16:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.marswin89.marsdaemon.DaemonService -> com.marswin89.marsdaemon.DaemonService:
-    12:12:void <init>() -> <init>
-    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
-    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-com.marswin89.marsdaemon.IDaemonClient -> com.marswin89.marsdaemon.c:
-    void onAttachBaseContext(android.content.Context) -> a
-com.marswin89.marsdaemon.IDaemonStrategy -> com.marswin89.marsdaemon.d:
-    boolean onInitialization(android.content.Context) -> a
-    void onPersistentCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> a
-    void onDaemonAssistantCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> b
-    void onDaemonDead() -> a
-com.marswin89.marsdaemon.IDaemonStrategy$Fetcher -> com.marswin89.marsdaemon.d$a:
-    com.marswin89.marsdaemon.IDaemonStrategy mDaemonStrategy -> a
-    63:94:com.marswin89.marsdaemon.IDaemonStrategy fetchStrategy() -> a
-com.marswin89.marsdaemon.NativeDaemonBase -> com.marswin89.marsdaemon.e:
-    android.content.Context mContext -> mContext
-    17:19:void <init>(android.content.Context) -> <init>
-    25:26:void onDaemonDead() -> onDaemonDead
-com.marswin89.marsdaemon.nativ.NativeDaemonAPI20 -> com.marswin89.marsdaemon.nativ.NativeDaemonAPI20:
-    15:16:void <init>(android.content.Context) -> <init>
-    void doDaemon(java.lang.String,java.lang.String,java.lang.String) -> doDaemon
-    20:24:void <clinit>() -> <clinit>
-com.marswin89.marsdaemon.nativ.NativeDaemonAPI21 -> com.marswin89.marsdaemon.nativ.NativeDaemonAPI21:
-    15:16:void <init>(android.content.Context) -> <init>
-    void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> doDaemon
-    20:24:void <clinit>() -> <clinit>
-com.marswin89.marsdaemon.strategy.DaemonStrategy21 -> com.marswin89.marsdaemon.a.a:
-    android.app.AlarmManager mAlarmManager -> a
-    android.app.PendingIntent mPendingIntent -> b
-    com.marswin89.marsdaemon.DaemonConfigurations mConfigs -> c
-    22:22:void <init>() -> <init>
-    35:35:boolean onInitialization(android.content.Context) -> a
-    40:65:void onPersistentCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> a
-    69:93:void onDaemonAssistantCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> b
-    97:103:void onDaemonDead() -> a
-    107:118:void initAlarm(android.content.Context,java.lang.String) -> a
-    122:132:boolean initIndicators(android.content.Context) -> b
-    138:142:void createNewFile(java.io.File,java.lang.String) -> a
-com.marswin89.marsdaemon.strategy.DaemonStrategy21$1 -> com.marswin89.marsdaemon.a.a$1:
-    android.content.Context val$context -> a
-    com.marswin89.marsdaemon.strategy.DaemonStrategy21 this$0 -> b
-    47:47:void <init>(com.marswin89.marsdaemon.strategy.DaemonStrategy21,android.content.Context) -> <init>
-    50:56:void run() -> run
-com.marswin89.marsdaemon.strategy.DaemonStrategy21$2 -> com.marswin89.marsdaemon.a.a$2:
-    android.content.Context val$context -> a
-    com.marswin89.marsdaemon.strategy.DaemonStrategy21 this$0 -> b
-    76:76:void <init>(com.marswin89.marsdaemon.strategy.DaemonStrategy21,android.content.Context) -> <init>
-    78:84:void run() -> run
-com.marswin89.marsdaemon.strategy.DaemonStrategy22 -> com.marswin89.marsdaemon.a.b:
-    android.os.IBinder mRemote -> a
-    android.os.Parcel mServiceData -> b
-    com.marswin89.marsdaemon.DaemonConfigurations mConfigs -> c
-    26:26:void <init>() -> <init>
-    39:39:boolean onInitialization(android.content.Context) -> a
-    44:64:void onPersistentCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> a
-    68:89:void onDaemonAssistantCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> b
-    94:102:void onDaemonDead() -> a
-    108:126:void initAmsBinder() -> b
-    131:163:void initServiceParcel(android.content.Context,java.lang.String) -> a
-    168:176:boolean startServiceByAmsBinder() -> c
-    184:194:boolean initIndicatorFiles(android.content.Context) -> b
-    199:203:void createNewFile(java.io.File,java.lang.String) -> a
-com.marswin89.marsdaemon.strategy.DaemonStrategy22$1 -> com.marswin89.marsdaemon.a.b$1:
-    android.content.Context val$context -> a
-    com.marswin89.marsdaemon.strategy.DaemonStrategy22 this$0 -> b
-    48:48:void <init>(com.marswin89.marsdaemon.strategy.DaemonStrategy22,android.content.Context) -> <init>
-    50:56:void run() -> run
-com.marswin89.marsdaemon.strategy.DaemonStrategy22$2 -> com.marswin89.marsdaemon.a.b$2:
-    android.content.Context val$context -> a
-    com.marswin89.marsdaemon.strategy.DaemonStrategy22 this$0 -> b
-    72:72:void <init>(com.marswin89.marsdaemon.strategy.DaemonStrategy22,android.content.Context) -> <init>
-    74:80:void run() -> run
-com.marswin89.marsdaemon.strategy.DaemonStrategy23 -> com.marswin89.marsdaemon.a.c:
-    android.os.IBinder mRemote -> a
-    android.os.Parcel mBroadcastData -> b
-    com.marswin89.marsdaemon.DaemonConfigurations mConfigs -> c
-    27:27:void <init>() -> <init>
-    40:40:boolean onInitialization(android.content.Context) -> a
-    45:72:void onPersistentCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> a
-    76:103:void onDaemonAssistantCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> b
-    108:114:void onDaemonDead() -> a
-    120:138:void initAmsBinder() -> b
-    144:180:void initBroadcastParcel(android.content.Context,java.lang.String) -> a
-    186:194:boolean sendBroadcastByAmsBinder() -> c
-    200:210:boolean initIndicatorFiles(android.content.Context) -> b
-    215:219:void createNewFile(java.io.File,java.lang.String) -> a
-com.marswin89.marsdaemon.strategy.DaemonStrategy23$1 -> com.marswin89.marsdaemon.a.c$1:
-    android.content.Context val$context -> a
-    com.marswin89.marsdaemon.strategy.DaemonStrategy23 this$0 -> b
-    49:49:void <init>(com.marswin89.marsdaemon.strategy.DaemonStrategy23,android.content.Context) -> <init>
-    51:57:void run() -> run
-com.marswin89.marsdaemon.strategy.DaemonStrategy23$2 -> com.marswin89.marsdaemon.a.c$2:
-    android.content.Context val$context -> a
-    com.marswin89.marsdaemon.strategy.DaemonStrategy23 this$0 -> b
-    80:80:void <init>(com.marswin89.marsdaemon.strategy.DaemonStrategy23,android.content.Context) -> <init>
-    82:88:void run() -> run
-com.marswin89.marsdaemon.strategy.DaemonStrategyUnder21 -> com.marswin89.marsdaemon.a.d:
-    java.lang.String BINARY_DEST_DIR_NAME -> a
-    java.lang.String BINARY_FILE_NAME -> b
-    android.app.AlarmManager mAlarmManager -> c
-    android.app.PendingIntent mPendingIntent -> d
-    28:30:void <init>() -> <init>
-    37:37:boolean onInitialization(android.content.Context) -> a
-    42:58:void onPersistentCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> a
-    62:70:void onDaemonAssistantCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> b
-    75:77:void onDaemonDead() -> a
-    81:92:void initAlarm(android.content.Context,java.lang.String) -> a
-    96:105:boolean installBinary(android.content.Context) -> b
-    110:118:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
-    123:126:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
-    129:142:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
-com.marswin89.marsdaemon.strategy.DaemonStrategyUnder21$1 -> com.marswin89.marsdaemon.a.d$1:
-    android.content.Context val$context -> a
-    com.marswin89.marsdaemon.DaemonConfigurations val$configs -> b
-    com.marswin89.marsdaemon.strategy.DaemonStrategyUnder21 this$0 -> c
-    43:43:void <init>(com.marswin89.marsdaemon.strategy.DaemonStrategyUnder21,android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> <init>
-    45:50:void run() -> run
-com.marswin89.marsdaemon.strategy.DaemonStrategyXiaomi -> com.marswin89.marsdaemon.a.e:
-    java.lang.String BINARY_DEST_DIR_NAME -> a
-    java.lang.String BINARY_FILE_NAME -> b
-    android.os.IBinder mRemote -> c
-    android.os.Parcel mServiceData -> d
-    com.marswin89.marsdaemon.DaemonConfigurations mConfigs -> e
-    31:33:void <init>() -> <init>
-    41:41:boolean onInitialization(android.content.Context) -> a
-    46:65:void onPersistentCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> a
-    70:78:void onDaemonAssistantCreate(android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> b
-    82:90:void onDaemonDead() -> a
-    95:113:void initAmsBinder() -> b
-    118:150:void initServiceParcel(android.content.Context,java.lang.String) -> a
-    154:162:boolean startServiceByAmsBinder() -> c
-    167:176:boolean installBinary(android.content.Context) -> b
-    181:189:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
-    194:197:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
-    200:213:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
-com.marswin89.marsdaemon.strategy.DaemonStrategyXiaomi$1 -> com.marswin89.marsdaemon.a.e$1:
-    android.content.Context val$context -> a
-    com.marswin89.marsdaemon.DaemonConfigurations val$configs -> b
-    com.marswin89.marsdaemon.strategy.DaemonStrategyXiaomi this$0 -> c
-    48:48:void <init>(com.marswin89.marsdaemon.strategy.DaemonStrategyXiaomi,android.content.Context,com.marswin89.marsdaemon.DaemonConfigurations) -> <init>
-    50:55:void run() -> run
 com.privacy.lock.R -> com.privacy.lock.a:
 com.privacy.lock.R$anim -> com.privacy.lock.a$a:
     int abc_fade_in -> abc_fade_in
@@ -42225,7 +42234,7 @@ com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.M
     java.util.List launcherPkg -> u
     android.os.Handler myHandler -> v
     java.lang.Runnable runnable -> w
-    com.marswin89.marsdaemon.DaemonClient mDaemonClient -> x
+    com.ivy.kpa.DaemonClient mDaemonClient -> x
     47:47:void <init>() -> <init>
     70:70:boolean isSaomiaoSuccess() -> e
     74:74:long getCacheSize() -> f
@@ -42251,7 +42260,7 @@ com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.M
     197:202:void removeFilesOfUnintalledApk(com.supers.clean.junk.modle.entity.JunkInfo) -> e
     205:210:void removeApkFiles(com.supers.clean.junk.modle.entity.JunkInfo) -> f
     217:220:void attachBaseContext(android.content.Context) -> attachBaseContext
-    224:229:com.marswin89.marsdaemon.DaemonConfigurations createDaemonConfigurations() -> A
+    224:229:com.ivy.kpa.DaemonConfigurations createDaemonConfigurations() -> A
     252:301:void onCreate() -> onCreate
     304:304:java.lang.Runnable getScanIntervalRunnable() -> B
     328:330:void onTerminate() -> onTerminate
@@ -43256,7 +43265,6 @@ com.supers.clean.junk.myView.ListViewForScrollView -> com.supers.clean.junk.myVi
     17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     22:24:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     31:34:void onMeasure(int,int) -> onMeasure
-    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.supers.clean.junk.myView.MainFrameLayout -> com.supers.clean.junk.myView.MainFrameLayout:
     13:14:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     18:18:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent

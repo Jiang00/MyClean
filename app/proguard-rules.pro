@@ -108,7 +108,7 @@
 -keep class com.core.** { *;}
 
 -keep class com.supers.clean.junk.modle.entity.** { *; }
--keep class com.marswin89.marsdaemon.nativ.** { *; }
+-keep class com.ivy.marsdaemon.nativ.** { *; }
 
 
 

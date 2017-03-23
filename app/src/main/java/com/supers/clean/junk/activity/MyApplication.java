@@ -17,8 +17,8 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 
-import com.marswin89.marsdaemon.DaemonClient;
-import com.marswin89.marsdaemon.DaemonConfigurations;
+import com.ivy.kpa.DaemonClient;
+import com.ivy.kpa.DaemonConfigurations;
 import com.supers.clean.junk.PersistReceiver;
 import com.supers.clean.junk.PersistService;
 import com.supers.clean.junk.R;
