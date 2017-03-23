@@ -16,6 +16,7 @@
             android:layout_height="match_parent" />
 
         <ImageView
+            android:id="@+id/battery_shutter"
             android:scaleType="fitXY"
             android:src="@mipmap/bubble_masked"
             android:layout_width="match_parent"
@@ -117,13 +118,13 @@
                 android:layout_width="@dimen/battery_w"
                 android:layout_height="@dimen/battery_h">
 
-                <com.eos.module.charge.saver.lottie.LottieAnimationView
+                <com.sample.lottie.LottieAnimationView
                     android:id="@+id/battery_electricity"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:lottie_autoPlay="false"/>
 
-                <com.eos.module.charge.saver.lottie.LottieAnimationView
+                <com.sample.lottie.LottieAnimationView
                     android:id="@+id/battery_shell"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -166,7 +167,7 @@
             android:layout_gravity="center_horizontal|bottom"
             android:layout_width="wrap_content"
             android:layout_height="63dp">
-            <com.eos.module.charge.saver.lottie.LottieAnimationView
+            <com.sample.lottie.LottieAnimationView
                 android:id="@+id/battery_lighting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

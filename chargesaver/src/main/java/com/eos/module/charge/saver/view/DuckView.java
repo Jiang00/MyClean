@@ -6,6 +6,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
@@ -25,7 +28,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.android.theme.ThemeManager;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
@@ -33,11 +35,13 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.cpuutils.CpuTempReader;
 import com.eos.module.charge.saver.entry.BatteryEntry;
-import com.eos.module.charge.saver.lottie.LottieAnimationView;
+import com.eos.theme.ThemeManager;
+import com.sample.lottie.LottieAnimationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -214,8 +218,10 @@ public class DuckView extends FrameLayout {
     private TextView cpu;
     private TextView ram;
     private int progress = 0;
+    private DuckView duckView;
 
     private void initViews() {
+        duckView = (DuckView) findViewById(R.id.battery_duck);
         indicator = (IndicatorView) findViewById(R.id.battery_second_indicator);
         icon = (ImageView) findViewById(R.id.battery_second_icon);
         title = (TextView) findViewById(R.id.battery_second_title);
@@ -365,6 +371,22 @@ public class DuckView extends FrameLayout {
         water.setSpeed(5.0f);
     }
 
+    private void initBack(){
+        try{
+            String pkg = ThemeManager.currentTheme().getPackageName();
+            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            InputStream input = themeContext.getAssets().open("eos_back.png");
+            BitmapFactory.Options opts = new BitmapFactory.Options();
+            opts.inScaled = false;
+            opts.inDensity = 160;
+            Bitmap bitmap = BitmapFactory.decodeStream(input, null, opts);
+            if (bitmap != null && duckView != null) {
+                duckView.setBackgroundDrawable(new BitmapDrawable(bitmap));
+            }
+        } catch (Exception e) {
+        }
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
@@ -373,6 +395,7 @@ public class DuckView extends FrameLayout {
             isBindView = true;
 
             initShell();
+            initBack();
 
             initViewPager();
 

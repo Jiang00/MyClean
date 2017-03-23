@@ -17,7 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 
 import com.android.client.AndroidSdk;
-import com.android.themeshop.ShopMaster;
+import com.eos.eshop.ShopMaster;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
@@ -277,21 +277,21 @@ public class BatteryService extends Service {
                     batteryView.bind(entry);
                     batteryView.setUnlockListener(horUnlock);
                     container.removeAllViews();
-                    container.addView(batteryView,
-                            container.makeLayoutParams(
-                                    WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 }
+                container.addView(batteryView,
+                        container.makeLayoutParams(
+                                WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
             } else if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_DUCK)) {
                 if (duckView == null) {
                     duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
                     duckView.bind(entry);
                     duckView.setUnlockListener(duckUnlock);
-                    container.removeAllViews();
-                    container.addView(duckView,
-                            container.makeLayoutParams(
-                                    WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 }
+                container.removeAllViews();
+                container.addView(duckView,
+                        container.makeLayoutParams(
+                                WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
             }
             AndroidSdk.track("充电屏保", "", "", 1);

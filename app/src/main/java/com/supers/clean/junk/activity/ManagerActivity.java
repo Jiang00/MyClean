@@ -26,7 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.eos.module.charge.saver.lottie.LottieAnimationView;
+import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.AppManagerView;
 import com.supers.clean.junk.View.adapter.ManagerAdapter;
@@ -129,6 +129,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     @Override
     public void tuiGuang() {
         super.tuiGuang();
+        fl_lot_manager.setVisibility(View.VISIBLE);
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
             lot_manager.setImageAssetsFolder(null, "images/applocks/");
             lot_manager.setAnimation(null, "applocks.json");

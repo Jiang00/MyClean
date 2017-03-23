@@ -1,18 +1,11 @@
 package com.supers.clean.junk.activity;
 
 import android.animation.ValueAnimator;
-import android.app.AlertDialog;
-import android.app.usage.UsageStats;
-import android.app.usage.UsageStatsManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.support.annotation.RequiresApi;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -29,25 +22,23 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.android.common.SdkEnv;
-import com.android.theme.ThemeManager;
-import com.android.themeshop.ShopMaster;
-import com.android.themeshop.internal.Theme;
+import com.eos.eshop.ShopMaster;
+import com.eos.eshop.internal.Theme;
 import com.eos.manager.AccessibilityService;
+import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.AppLockPermissionActivity;
 import com.eos.manager.Tracker;
-import com.eos.manager.page.SecuritySharPFive;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
-import com.eos.manager.AppLockPatternEosActivity;
-import com.eos.module.charge.saver.lottie.LottieAnimationView;
+import com.sample.lottie.LottieAnimationView;
+import com.eos.module.charge.saver.service.BatteryService;
+import com.eos.theme.ThemeManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
@@ -62,12 +53,7 @@ import com.supers.clean.junk.myView.MainScrollView;
 import com.supers.clean.junk.myView.PullToRefreshLayout;
 import com.supers.clean.junk.presenter.MainPresenter;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends BaseActivity implements MainView {
 
@@ -172,6 +158,7 @@ public class MainActivity extends BaseActivity implements MainView {
         try {
             String pkg = getIntent().getExtras().getString("theme_package_name");
             ThemeManager.applyTheme(this, pkg, false);
+            startService(new Intent(this, BatteryService.class).putExtra("show", true));
         } catch (Exception e) {
             e.printStackTrace();
         }

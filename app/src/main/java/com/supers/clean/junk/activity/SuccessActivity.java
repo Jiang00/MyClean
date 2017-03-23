@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.eos.manager.page.SecuritySharPFive;
-import com.eos.module.charge.saver.lottie.LottieAnimationView;
+import com.sample.lottie.LottieAnimationView;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
 import com.eos.module.tweenengine.TweenManager;

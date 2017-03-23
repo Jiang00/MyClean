@@ -48,6 +48,10 @@ public class BubbleLayout extends View {
 		}
 	}
 
+	public void setParticleBitmap(Bitmap bitmap){
+		this.bitmap = bitmap;
+	}
+
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
