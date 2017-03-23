@@ -235,6 +235,7 @@ public class BatteryService extends Service {
 
     @Override
     public void onDestroy() {
+        unregisterReceiver(mReceiver);
         try {
             Intent localIntent = new Intent();
             localIntent.setClass(this, BatteryService.class);

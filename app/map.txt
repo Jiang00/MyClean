@@ -27810,6 +27810,7 @@ com.android.themeshop.R$drawable -> com.android.a.a$b:
     int shop_icon -> shop_icon
     int shop_load_fails -> shop_load_fails
     int shop_local_themes -> shop_local_themes
+    int shop_page_indicator_bg -> shop_page_indicator_bg
     int shop_remove -> shop_remove
     int shop_selected -> shop_selected
     int shop_wallpaper_apply -> shop_wallpaper_apply
@@ -34343,7 +34344,7 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$e:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1419:1883:void <clinit>() -> <clinit>
+    1420:1884:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
     12:12:void <init>() -> <init>
     15:16:void showFullAD() -> a
@@ -34355,6 +34356,24 @@ com.eos.module.charge.saver.Util.ADRequest$1 -> com.eos.module.charge.saver.Util
     26:29:void onNativeAdClicked(com.android.client.ClientNativeAd) -> onNativeAdClicked
 com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked -> com.eos.module.charge.saver.Util.a$a:
     void onNativeADClicked(com.android.client.ClientNativeAd) -> a
+com.eos.module.charge.saver.Util.MyWidgetContainer -> com.eos.module.charge.saver.Util.MyWidgetContainer:
+    android.view.WindowManager$LayoutParams lp -> a
+    boolean movable -> b
+    int screenHeight -> c
+    com.eos.module.charge.saver.Util.MyWidgetContainer$IWidgetListener listener -> d
+    android.view.WindowManager wm -> e
+    float x -> f
+    float y -> g
+    boolean moving -> h
+    59:62:void onClick(android.view.View) -> onClick
+    103:104:void setWidgetListener(com.eos.module.charge.saver.Util.MyWidgetContainer$IWidgetListener) -> setWidgetListener
+    110:127:boolean dispatchKeyEvent(android.view.KeyEvent) -> dispatchKeyEvent
+    132:132:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
+    140:166:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.eos.module.charge.saver.Util.MyWidgetContainer$IWidgetListener -> com.eos.module.charge.saver.Util.MyWidgetContainer$a:
+    boolean onBackPressed() -> a
+    boolean onMenuPressed() -> b
+    void onClick() -> onClick
 com.eos.module.charge.saver.Util.Utils -> com.eos.module.charge.saver.Util.b:
     23:36:void writeData(android.content.Context,java.lang.String,java.lang.Object) -> a
     39:46:java.lang.Object readData(android.content.Context,java.lang.String,java.lang.Object) -> b
@@ -34476,14 +34495,14 @@ com.eos.module.charge.saver.service.BatteryService -> com.eos.module.charge.save
     android.content.BroadcastReceiver mReceiver -> b
     com.eos.module.charge.saver.view.BatteryView$UnlockListener horUnlock -> c
     com.eos.module.charge.saver.view.DuckView$UnlockListener duckUnlock -> d
-    32:335:void <init>() -> <init>
+    32:336:void <init>() -> <init>
     38:38:android.os.IBinder onBind(android.content.Intent) -> onBind
     141:145:boolean isScreenOn() -> a
     202:206:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     214:220:void batteryChange(android.content.Intent) -> a
     224:234:void onCreate() -> onCreate
-    239:244:void onDestroy() -> onDestroy
-    247:301:void showChargeView() -> b
+    238:245:void onDestroy() -> onDestroy
+    248:302:void showChargeView() -> b
     32:32:boolean access$000(com.eos.module.charge.saver.service.BatteryService) -> a
     32:32:void access$100(com.eos.module.charge.saver.service.BatteryService) -> b
     32:32:com.eos.module.charge.saver.Util.WidgetContainer access$200(com.eos.module.charge.saver.service.BatteryService) -> c
@@ -34509,12 +34528,12 @@ com.eos.module.charge.saver.service.BatteryService$3 -> com.eos.module.charge.sa
     152:171:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.eos.module.charge.saver.service.BatteryService$4 -> com.eos.module.charge.saver.service.BatteryService$4:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    323:323:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    326:332:void onUnlock() -> a
+    324:324:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    327:333:void onUnlock() -> a
 com.eos.module.charge.saver.service.BatteryService$5 -> com.eos.module.charge.saver.service.BatteryService$5:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    335:335:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    338:344:void onUnlock() -> a
+    336:336:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    339:345:void onUnlock() -> a
 com.eos.module.charge.saver.view.ADLabel -> com.eos.module.charge.saver.view.ADLabel:
     java.lang.String mTextContent -> a
     int mTextColor -> b
@@ -37495,6 +37514,7 @@ com.privacy.lock.R$drawable -> com.privacy.lock.a$d:
     int shop_icon -> shop_icon
     int shop_load_fails -> shop_load_fails
     int shop_local_themes -> shop_local_themes
+    int shop_page_indicator_bg -> shop_page_indicator_bg
     int shop_remove -> shop_remove
     int shop_selected -> shop_selected
     int shop_wallpaper_apply -> shop_wallpaper_apply
@@ -40998,7 +41018,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5069:12154:void <clinit>() -> <clinit>
+    5070:12155:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
