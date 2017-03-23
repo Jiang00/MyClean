@@ -17,7 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 
 import com.android.client.AndroidSdk;
-import com.android.themeshop.ShopMaster;
+import com.eos.eshop.ShopMaster;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;

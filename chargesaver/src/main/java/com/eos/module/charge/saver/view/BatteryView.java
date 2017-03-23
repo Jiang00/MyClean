@@ -21,9 +21,6 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.android.theme.ThemeInfo;
-import com.android.theme.ThemeManager;
-import com.android.themeshop.ShopMaster;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
@@ -31,6 +28,7 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.entry.BatteryEntry;
 import com.eos.module.charge.saver.lottie.LottieAnimationView;
+import com.eos.theme.ThemeManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;

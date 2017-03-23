@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.android.themeshop.ShopMaster;
+import com.eos.eshop.ShopMaster;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PhoneManager;
