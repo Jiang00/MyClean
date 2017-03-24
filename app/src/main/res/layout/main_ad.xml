@@ -4,17 +4,14 @@
     android:id="@+id/main_all_cercle"
     android:layout_width="match_parent"
     android:layout_height="@dimen/main_t"
-    android:background="@color/app_color_first"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:background="@color/app_color_first">
 
     <LinearLayout
         android:id="@+id/view_ad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical" />
 
 </RelativeLayout>

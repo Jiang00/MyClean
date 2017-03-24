@@ -78,6 +78,7 @@ public class MainActivity extends BaseActivity implements MainView {
     TextView main_rotate_bad;
     LinearLayout main_rotate_good;
     LinearLayout main_tuiguang_button;
+    TextView main_msg_tuiguang;
     LinearLayout main_msg_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_sd_unit, main_msg_cpu_percent;
     TextView main_gurad_num;
@@ -89,7 +90,9 @@ public class MainActivity extends BaseActivity implements MainView {
 
     LottieAnimationView lot_side;
     FrameLayout fl_lot_side;
+    ImageView side_title;
     LottieAnimationView lot_main;
+    LottieAnimationView lot_family;
 
     private String TAG_MAIN = "eos_main";
     private String TAG_HUA = "eos_hua";
@@ -133,6 +136,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
+        main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
@@ -146,7 +150,9 @@ public class MainActivity extends BaseActivity implements MainView {
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
+        side_title = (ImageView) findViewById(R.id.side_title);
         lot_main = (LottieAnimationView) findViewById(R.id.lot_main);
+        lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
     }
 
     @Override
@@ -155,9 +161,11 @@ public class MainActivity extends BaseActivity implements MainView {
         instance = this;
         setContentView(R.layout.activity_dra);
 
+
         try {
             String pkg = getIntent().getExtras().getString("theme_package_name");
             ThemeManager.applyTheme(this, pkg, false);
+            Utils.writeData(this, Constants.CHARGE_SAVER_SWITCH, true);
             startService(new Intent(this, BatteryService.class).putExtra("show", true));
         } catch (Exception e) {
             e.printStackTrace();
@@ -194,7 +202,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
-        View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad);
+        View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
         arrayList.add(view);
         if (adView != null) {
             ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
@@ -203,7 +211,7 @@ public class MainActivity extends BaseActivity implements MainView {
             }
             view_ad.setLayoutParams(layout_ad);
             view_ad.addView(adView);
-            view_ad.setGravity(Gravity.CENTER);
+            view_ad.setGravity(Gravity.CENTER_HORIZONTAL);
             arrayList.add(viewpager_2);
         } else if (!isAccessibilitySettingsOn(this)) {
             final View viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_permiss, null);
@@ -214,6 +222,7 @@ public class MainActivity extends BaseActivity implements MainView {
                 public void onClick(View v) {
                     final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                     startActivity(intent);
+                    AndroidSdk.track("主页面", "点击跳转进入辅助功能", "", 1);
                     try {
                         new Thread().sleep(1500);
                     } catch (InterruptedException e) {
@@ -231,6 +240,7 @@ public class MainActivity extends BaseActivity implements MainView {
             permiss_cancle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    AndroidSdk.track("主页面", "点击取消辅助功能", "", 1);
                     pageView.setVisibility(View.GONE);
                     viewpager.setCurrentItem(0);
                     viewpager.removeView(viewpager_3);
@@ -282,7 +292,10 @@ public class MainActivity extends BaseActivity implements MainView {
         initHandler();
 
         AndroidSdk.track("主页面", "进入主页面", "", 1);
-
+        lot_family.setImageAssetsFolder("images/box/");
+        lot_family.setAnimation("box.json");
+        lot_family.loop(true);
+        lot_family.playAnimation();
         tuiGuang();
     }
 
@@ -293,7 +306,7 @@ public class MainActivity extends BaseActivity implements MainView {
             lot_main.setAnimation(null, "applocks.json");
             lot_main.loop(true);
             lot_main.playAnimation();
-
+            main_msg_tuiguang.setText("EOS Applock");
             lot_side.setImageAssetsFolder(null, "images/applocks/");
             lot_side.setAnimation(null, "applocks.json");
             lot_side.loop(true);
@@ -303,14 +316,17 @@ public class MainActivity extends BaseActivity implements MainView {
             lot_main.setAnimation(null, "flashs.json");
             lot_main.loop(true);
             lot_main.playAnimation();
+            main_msg_tuiguang.setText("EOS Flashlight");
 
             lot_side.setImageAssetsFolder(null, "images/flashs/");
             lot_side.setAnimation(null, "flashs.json");
             lot_side.loop(true);
             lot_side.playAnimation();
+
         } else {
             main_tuiguang_button.setVisibility(View.GONE);
             fl_lot_side.setVisibility(View.GONE);
+            side_title.setVisibility(View.VISIBLE);
         }
     }
 
@@ -402,6 +418,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_msg_button.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
         lot_side.setOnClickListener(onClickListener);
+        lot_family.setOnClickListener(onClickListener);
 
     }
 
@@ -506,6 +523,7 @@ public class MainActivity extends BaseActivity implements MainView {
         adapter.addData(new JunkInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new JunkInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new JunkInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
+        adapter.addData(new JunkInfo(R.string.side_family, R.mipmap.side_theme));//family
         adapter.addData(new JunkInfo(R.string.side_theme, R.mipmap.side_theme));//主题
         adapter.addData(new JunkInfo(R.string.side_setting, R.mipmap.side_setting));//设置
         adapter.addData(new JunkInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
@@ -539,19 +557,24 @@ public class MainActivity extends BaseActivity implements MainView {
         if (PreData.getDB(this, Contents.FULL_MAIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad);
+            View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 Log.e("aaa", "=====" + layout_ad.height);
                 if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
                     layout_ad.height = CommonUtil.dp2px(250);
                 }
+                Log.e("ad_mob", "h=" + nativeView.getHeight() + "w=" + nativeView.getWidth());
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
-//                main_scroll_view.fullScroll(ScrollView.FOCUS_UP);
+                ll_ad.setGravity(Gravity.CENTER_HORIZONTAL);
                 main_scroll_view.setScrollY(0);
+//                main_scroll_view.fullScroll(ScrollView.FOCUS_UP);
+
+            } else {
+                ll_ad.setVisibility(View.GONE);
             }
-            View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad);
+            View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
             if (ll_ad_side != null && nativeView_side != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_side.getLayoutParams();
                 layout_ad.height = nativeView_side.getMeasuredHeight();
@@ -721,6 +744,7 @@ public class MainActivity extends BaseActivity implements MainView {
                 case R.id.iv_title_left:
                     mainPresenter.openDrawer();
                     AndroidSdk.track("主页面", "点击进入侧边栏按钮", "", 1);
+
                     break;
                 case R.id.iv_title_right:
                     AndroidSdk.track("主页面", "点击进入设置页面", "", 1);
@@ -767,9 +791,15 @@ public class MainActivity extends BaseActivity implements MainView {
                     break;
                 case R.id.main_theme_button:
                     AndroidSdk.track("主页面", "点击主题按钮", "", 1);
-                    final Context context = SdkEnv.context();
                     ShopMaster.launch(MainActivity.this,
-                            new Theme(R.raw.battery_0, context.getPackageName())
+                            new Theme(R.raw.battery_0, getPackageName())
+                    );
+//                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
+                    break;
+                case R.id.lot_family:
+                    AndroidSdk.track("主页面", "点击主题family按钮", "", 1);
+                    ShopMaster.launch(MainActivity.this, "EOS_Family",
+                            new Theme(R.raw.battery_0, getPackageName())
 //                            , new Theme(R.raw.battery_1, context.getPackageName())
                     );
 //                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
@@ -796,6 +826,7 @@ public class MainActivity extends BaseActivity implements MainView {
                         UtilGp.openPlayStore(MainActivity.this, tuiguang1);
                     }
                     break;
+
 
             }
         }
@@ -829,6 +860,7 @@ public class MainActivity extends BaseActivity implements MainView {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
     }
 
     public void onBackPressed() {

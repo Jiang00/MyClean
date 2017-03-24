@@ -11,12 +11,20 @@
         android:layout_height="48dp"
         android:orientation="horizontal">
 
+        <com.sample.lottie.LottieAnimationView
+            android:id="@+id/lot_family"
+            android:layout_width="@dimen/d30"
+            android:layout_height="@dimen/d30"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp" />
+
         <ImageView
             android:id="@+id/iv_le"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp" />
+
     </RelativeLayout>
 
     <TextView

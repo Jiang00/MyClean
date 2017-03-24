@@ -119,6 +119,7 @@ public class ShortCutActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
+        fl_lot_short.setVisibility(View.VISIBLE);
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
             lot_short.setImageAssetsFolder(null, "images/applocks/");
             lot_short.setAnimation(null, "applocks.json");

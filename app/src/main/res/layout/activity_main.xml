@@ -50,6 +50,12 @@
                 android:background="?attr/selectableItemBackground"
                 android:scaleType="center"
                 android:src="@mipmap/main_setting" />
+
+            <com.sample.lottie.LottieAnimationView
+                android:id="@+id/lot_family"
+                android:layout_width="@dimen/d40"
+                android:layout_height="@dimen/d40"
+                android:layout_toLeftOf="@id/iv_title_right" />
         </RelativeLayout>
 
 
@@ -414,11 +420,11 @@
                             android:src="@mipmap/main_rotate_1" />
 
                         <TextView
+                            android:id="@+id/main_msg_tuiguang"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/d5"
-                            android:text="@string/main_msg_tuiguang"
                             android:textColor="@color/black_87"
                             android:textSize="@dimen/s16" />
                     </LinearLayout>
@@ -433,16 +439,16 @@
 
                     <FrameLayout
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d16"
-                        android:layout_height="wrap_content">
+                        android:layout_marginRight="@dimen/d16">
 
                         <com.sample.lottie.LottieAnimationView
                             android:id="@+id/lot_main"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:scaleType="fitEnd"
-                            />
+                            android:scaleType="fitEnd" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -674,9 +680,8 @@
                     android:id="@+id/ll_ad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/d16"
-                    android:paddingRight="@dimen/d16" />
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" />
                 <!--守护信息-->
                 <FrameLayout
                     android:id="@+id/main_guard_all"

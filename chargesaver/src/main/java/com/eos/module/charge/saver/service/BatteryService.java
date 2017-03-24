@@ -31,6 +31,7 @@ import com.eos.module.charge.saver.view.DuckView;
  */
 public class BatteryService extends Service {
     private static final String TAG = "BatteryService";
+    private boolean b = false;
 
     @Nullable
     @Override
@@ -200,6 +201,8 @@ public class BatteryService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null && intent.hasExtra("show") && intent.getBooleanExtra("show", false)) {
+            b = true;
+            Log.e("battery", "1");
             showChargeView();
         }
         ShopMaster.onCreate(getApplicationContext());
@@ -248,13 +251,14 @@ public class BatteryService extends Service {
         if (entry == null) {
             return;
         }
+        AndroidSdk.track("AndroidSDK", "aaaa", BatteryService.class.getSimpleName(), 1);
         boolean isChargeScreenSaver = (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true);
         if (!isChargeScreenSaver) {
             return;
         }
-
+        AndroidSdk.track("AndroidSDK", "bbbb", BatteryService.class.getSimpleName(), 1);
         boolean isCharging = entry.isCharging();
-        if (!isCharging) {
+        if (!isCharging && !b) {
             if (batteryView != null) {
                 batteryView.bind(entry);
             }
@@ -263,6 +267,7 @@ public class BatteryService extends Service {
             }
             return;
         }
+        AndroidSdk.track("AndroidSDK", "ccc", BatteryService.class.getSimpleName(), 1);
         try {
             if (container == null) {
                 container = new WidgetContainer.Builder()
@@ -271,7 +276,7 @@ public class BatteryService extends Service {
                         .setOrientation(WidgetContainer.PORTRAIT)
                         .build(this);
             }
-
+            AndroidSdk.track("AndroidSDK", "111", BatteryService.class.getSimpleName(), 1);
             if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_HOR_BAR)) {
                 if (batteryView == null) {
                     batteryView = (BatteryView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
@@ -283,6 +288,7 @@ public class BatteryService extends Service {
                         container.makeLayoutParams(
                                 WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
+                Log.e("battery", "2");
             } else if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_DUCK)) {
                 if (duckView == null) {
                     duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
@@ -294,6 +300,7 @@ public class BatteryService extends Service {
                         container.makeLayoutParams(
                                 WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
+
             }
             AndroidSdk.track("充电屏保", "", "", 1);
         } catch (Exception e) {

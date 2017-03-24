@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.BatteryManager;
+
 import com.android.internal.os.PowerProfile;
 
 /**
@@ -57,8 +58,8 @@ public class BatteryEntry {
         return charging ? (averagePercent1ChargingTime * (scale - level)) : (averagePercent1DisChargingTime * level);
     }
 
-    public int getLeftUseTime(){
-        return  (averagePercent1DisChargingTime * level);
+    public int getLeftUseTime() {
+        return (averagePercent1DisChargingTime * level);
     }
 
     public int extractHours(int time) {

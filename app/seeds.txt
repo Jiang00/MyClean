@@ -30728,6 +30728,7 @@ com.eos.manager.page.ListViewForScrollView
 com.eos.manager.page.ListViewForScrollView: ListViewForScrollView(android.content.Context)
 com.eos.manager.page.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
 com.eos.manager.page.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet,int)
+com.eos.manager.page.ListViewForScrollView: void setAdapter(android.widget.Adapter)
 com.eos.manager.page.MyFrameLayout
 com.eos.manager.page.MyFrameLayout: MyFrameLayout(android.content.Context)
 com.eos.manager.page.MyFrameLayout: MyFrameLayout(android.content.Context,android.util.AttributeSet)
@@ -41179,7 +41180,10 @@ com.supers.clean.junk.R$dimen: int circle_yuan3_left
 com.supers.clean.junk.R$dimen: int circle_yuan3_top
 com.supers.clean.junk.R$dimen: int d10
 com.supers.clean.junk.R$dimen: int d100
+com.supers.clean.junk.R$dimen: int d12
 com.supers.clean.junk.R$dimen: int d121
+com.supers.clean.junk.R$dimen: int d13
+com.supers.clean.junk.R$dimen: int d133
 com.supers.clean.junk.R$dimen: int d14
 com.supers.clean.junk.R$dimen: int d15
 com.supers.clean.junk.R$dimen: int d154
@@ -41190,14 +41194,19 @@ com.supers.clean.junk.R$dimen: int d18
 com.supers.clean.junk.R$dimen: int d19
 com.supers.clean.junk.R$dimen: int d2
 com.supers.clean.junk.R$dimen: int d24
+com.supers.clean.junk.R$dimen: int d280
 com.supers.clean.junk.R$dimen: int d3
 com.supers.clean.junk.R$dimen: int d30
+com.supers.clean.junk.R$dimen: int d301
+com.supers.clean.junk.R$dimen: int d333
 com.supers.clean.junk.R$dimen: int d37
 com.supers.clean.junk.R$dimen: int d4
 com.supers.clean.junk.R$dimen: int d40
+com.supers.clean.junk.R$dimen: int d44
 com.supers.clean.junk.R$dimen: int d5
 com.supers.clean.junk.R$dimen: int d50
 com.supers.clean.junk.R$dimen: int d53
+com.supers.clean.junk.R$dimen: int d6
 com.supers.clean.junk.R$dimen: int d72
 com.supers.clean.junk.R$dimen: int d8
 com.supers.clean.junk.R$dimen: int d9
@@ -41341,6 +41350,7 @@ com.supers.clean.junk.R$dimen: int s21
 com.supers.clean.junk.R$dimen: int s24
 com.supers.clean.junk.R$dimen: int s38
 com.supers.clean.junk.R$dimen: int s48
+com.supers.clean.junk.R$dimen: int s8
 com.supers.clean.junk.R$dimen: int saver_11
 com.supers.clean.junk.R$dimen: int saver_12
 com.supers.clean.junk.R$dimen: int saver_13
@@ -41645,6 +41655,7 @@ com.supers.clean.junk.R$drawable: int shop_page_indicator_bg
 com.supers.clean.junk.R$drawable: int shop_remove
 com.supers.clean.junk.R$drawable: int shop_selected
 com.supers.clean.junk.R$drawable: int shop_wallpaper_apply
+com.supers.clean.junk.R$drawable: int text_ad_a8c600
 com.supers.clean.junk.R$drawable: int text_ad_normal
 com.supers.clean.junk.R$drawable: int text_ad_passed
 com.supers.clean.junk.R$id: int BOTTOM_LEFT
@@ -41672,9 +41683,11 @@ com.supers.clean.junk.R$id: int action_mode_close_button
 com.supers.clean.junk.R$id: int action_setting
 com.supers.clean.junk.R$id: int activity_chooser_view_content
 com.supers.clean.junk.R$id: int activity_main
+com.supers.clean.junk.R$id: int ad_icon
 com.supers.clean.junk.R$id: int ad_image
 com.supers.clean.junk.R$id: int ad_native_2
 com.supers.clean.junk.R$id: int ad_right
+com.supers.clean.junk.R$id: int ad_subtitle
 com.supers.clean.junk.R$id: int ad_title
 com.supers.clean.junk.R$id: int add
 com.supers.clean.junk.R$id: int alertTitle
@@ -41919,6 +41932,7 @@ com.supers.clean.junk.R$id: int line3
 com.supers.clean.junk.R$id: int listMode
 com.supers.clean.junk.R$id: int list_item
 com.supers.clean.junk.R$id: int list_si
+com.supers.clean.junk.R$id: int ll
 com.supers.clean.junk.R$id: int ll_ad
 com.supers.clean.junk.R$id: int ll_ad_side
 com.supers.clean.junk.R$id: int ll_gps
@@ -41936,6 +41950,7 @@ com.supers.clean.junk.R$id: int lockscreen_normal_bar
 com.supers.clean.junk.R$id: int lot_applock
 com.supers.clean.junk.R$id: int lot_applock_setting
 com.supers.clean.junk.R$id: int lot_cooling
+com.supers.clean.junk.R$id: int lot_family
 com.supers.clean.junk.R$id: int lot_main
 com.supers.clean.junk.R$id: int lot_manager
 com.supers.clean.junk.R$id: int lot_message
@@ -41970,6 +41985,7 @@ com.supers.clean.junk.R$id: int main_msg_ram_percent
 com.supers.clean.junk.R$id: int main_msg_sd_backg
 com.supers.clean.junk.R$id: int main_msg_sd_percent
 com.supers.clean.junk.R$id: int main_msg_sd_unit
+com.supers.clean.junk.R$id: int main_msg_tuiguang
 com.supers.clean.junk.R$id: int main_pull_refresh
 com.supers.clean.junk.R$id: int main_ram_air_button
 com.supers.clean.junk.R$id: int main_ram_button
@@ -42157,6 +42173,7 @@ com.supers.clean.junk.R$id: int showHome
 com.supers.clean.junk.R$id: int showTitle
 com.supers.clean.junk.R$id: int side_divide
 com.supers.clean.junk.R$id: int side_listView
+com.supers.clean.junk.R$id: int side_title
 com.supers.clean.junk.R$id: int size_tv
 com.supers.clean.junk.R$id: int slide
 com.supers.clean.junk.R$id: int slide_menu_ad
@@ -42317,6 +42334,7 @@ com.supers.clean.junk.R$layout: int main_ad
 com.supers.clean.junk.R$layout: int main_circle
 com.supers.clean.junk.R$layout: int main_permiss
 com.supers.clean.junk.R$layout: int native_ad
+com.supers.clean.junk.R$layout: int native_ad_2
 com.supers.clean.junk.R$layout: int native_ad_full
 com.supers.clean.junk.R$layout: int native_ad_loading
 com.supers.clean.junk.R$layout: int native_side
@@ -42406,6 +42424,7 @@ com.supers.clean.junk.R$menu: int security_intruder_menu
 com.supers.clean.junk.R$menu: int security_setting_menu
 com.supers.clean.junk.R$menu: int shop_main
 com.supers.clean.junk.R$mipmap: int ad_right
+com.supers.clean.junk.R$mipmap: int ad_xing
 com.supers.clean.junk.R$mipmap: int battery_0
 com.supers.clean.junk.R$mipmap: int battery_1
 com.supers.clean.junk.R$mipmap: int battery_duck
@@ -42621,7 +42640,6 @@ com.supers.clean.junk.R$string: int main_msg_more
 com.supers.clean.junk.R$string: int main_msg_ram
 com.supers.clean.junk.R$string: int main_msg_sd
 com.supers.clean.junk.R$string: int main_msg_title
-com.supers.clean.junk.R$string: int main_msg_tuiguang
 com.supers.clean.junk.R$string: int main_ram_name
 com.supers.clean.junk.R$string: int main_rotate_bad
 com.supers.clean.junk.R$string: int main_rotate_good
@@ -42837,6 +42855,7 @@ com.supers.clean.junk.R$string: int shop_wallpaper_load_fails
 com.supers.clean.junk.R$string: int short_cut
 com.supers.clean.junk.R$string: int short_shifang
 com.supers.clean.junk.R$string: int side_charging
+com.supers.clean.junk.R$string: int side_family
 com.supers.clean.junk.R$string: int side_float
 com.supers.clean.junk.R$string: int side_junk
 com.supers.clean.junk.R$string: int side_manager
@@ -43967,6 +43986,7 @@ com.supers.clean.junk.myView.ListViewForScrollView
 com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context)
 com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.myView.ListViewForScrollView: void setAdapter(android.widget.Adapter)
 com.supers.clean.junk.myView.MainFrameLayout
 com.supers.clean.junk.myView.MainFrameLayout: MainFrameLayout(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.myView.MainScrollView

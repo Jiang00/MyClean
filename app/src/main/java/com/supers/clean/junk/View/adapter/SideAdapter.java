@@ -13,11 +13,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.eshop.ShopMaster;
+import com.eos.eshop.internal.Theme;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
+import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.FloatService;
 import com.supers.clean.junk.activity.JunkActivity;
+import com.supers.clean.junk.activity.MainActivity;
 import com.supers.clean.junk.activity.ManagerActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SettingActivity;
@@ -44,6 +48,8 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
             holder = new ViewHolder();
             holder.checkBox = (ImageView) convertView
                     .findViewById(R.id.iv_check);
+            holder.lot_family = (LottieAnimationView) convertView
+                    .findViewById(R.id.lot_family);
             holder.iv_le = (ImageView) convertView
                     .findViewById(R.id.iv_le);
             holder.tv_name = (TextView) convertView
@@ -55,7 +61,15 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.tv_name.setText(info.textrid);
-        holder.iv_le.setImageResource(info.drawableRid);
+        if (position == 5) {
+            holder.lot_family.setImageAssetsFolder("images/box/");
+            holder.lot_family.setAnimation("box.json");
+            holder.lot_family.loop(true);
+            holder.lot_family.playAnimation();
+        } else {
+            holder.lot_family.setVisibility(View.GONE);
+            holder.iv_le.setImageResource(info.drawableRid);
+        }
         if (info.isChecked) {
             holder.checkBox.setImageResource(R.mipmap.side_check_passed);
         } else {
@@ -144,16 +158,23 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
                 ((Activity) context).startActivityForResult(intent4, 1);
                 break;
             case 5:
-                AndroidSdk.track("侧边栏", "点击进入主题页面", "", 1);
-                Intent intent5 = new Intent(context, ThemeActivity.class);
-                ((Activity) context).startActivityForResult(intent5, 1);
+                AndroidSdk.track("侧边栏", "点击进入family页面", "", 1);
+                ShopMaster.launch(context, "EOS_Family",
+                        new Theme(R.raw.battery_0, context.getPackageName()));
                 break;
             case 6:
+                AndroidSdk.track("侧边栏", "点击进入主题页面", "", 1);
+//                Intent intent5 = new Intent(context, ThemeActivity.class);
+//                ((Activity) context).startActivityForResult(intent5, 1);
+                ShopMaster.launch(context,
+                        new Theme(R.raw.battery_0, context.getPackageName()));
+                break;
+            case 7:
                 AndroidSdk.track("侧边栏", "点击进入设置页面", "", 1);
                 Intent intent6 = new Intent(context, SettingActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
                 break;
-            case 7:
+            case 8:
                 AndroidSdk.track("侧边栏", "点击好评", "", 1);
                 UtilGp.rate(context);
                 break;
@@ -170,6 +191,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
     public class ViewHolder {
         ImageView checkBox;
         ImageView iv_le;
+        LottieAnimationView lot_family;
         TextView tv_name;
         View side_divide;
     }
