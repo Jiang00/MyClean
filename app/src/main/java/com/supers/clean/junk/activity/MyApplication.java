@@ -19,7 +19,6 @@ import com.eos.module.charge.saver.service.BatteryService;
 
 import com.ivy.kpa.DaemonClient;
 import com.ivy.kpa.DaemonConfigurations;
-import com.supers.clean.junk.PersistReceiver;
 import com.supers.clean.junk.PersistService;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.entity.Contents;
@@ -209,26 +208,12 @@ public class MyApplication extends App {
         }
     }
 
-
-    private DaemonClient mDaemonClient;
-
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        mDaemonClient = new DaemonClient(createDaemonConfigurations());
+        DaemonClient mDaemonClient = new DaemonClient(base, new MyDaemonListener());
         mDaemonClient.onAttachBaseContext(base);
     }
-
-
-    private DaemonConfigurations createDaemonConfigurations() {
-        DaemonConfigurations.DaemonConfiguration persistentConfig = new DaemonConfigurations.DaemonConfiguration(
-                getPackageName() + getString(R.string.persist_process_name), PersistService.class, PersistReceiver.class);
-
-        DaemonConfigurations.DaemonListener listener = new MyDaemonListener();
-        //return new DaemonConfigurations(configuration1, configuration2);//listener can be null
-        return new DaemonConfigurations(this, persistentConfig, listener);
-    }
-
 
     class MyDaemonListener implements DaemonConfigurations.DaemonListener {
         @Override
@@ -253,8 +238,6 @@ public class MyApplication extends App {
         ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);
-
-        startService(new Intent(this, PersistService.class));
         //charging
         startService(new Intent(this, BatteryService.class));
 //        Utils.writeData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, false);//

@@ -149,17 +149,6 @@
             android:enabled="true"
             android:excludeFromRecents="true" />
 
-        <service
-            android:name=".PersistService"
-            android:excludeFromRecents="true"
-            android:process="@string/persist_process_name" />
-
-        <receiver
-            android:name=".PersistReceiver"
-            android:process="@string/persist_process_name">
-
-        </receiver>
-
     </application>
 
 </manifest>
