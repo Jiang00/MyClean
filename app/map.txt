@@ -34606,27 +34606,27 @@ com.eos.module.charge.saver.view.BatteryView -> com.eos.module.charge.saver.view
     android.content.BroadcastReceiver timerUpdateReceiver -> A
     android.content.IntentFilter mIntentFilter -> B
     int progress -> C
-    49:190:void <init>(android.content.Context) -> <init>
-    49:190:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    49:190:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    49:171:void <init>(android.content.Context) -> <init>
+    49:171:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    49:171:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     94:95:void setUnlockListener(com.eos.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
-    107:171:void showNativeAD() -> d
-    174:188:void updateTime() -> a
-    193:257:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
-    266:278:void initBack() -> e
-    282:294:void initShutter() -> f
-    298:310:void initParticle() -> g
-    314:326:void initShell() -> h
-    330:342:void initWater() -> i
-    346:355:void initLighting() -> j
-    359:477:void onFinishInflate() -> onFinishInflate
-    480:498:void initViews() -> k
-    502:509:void onAttachedToWindow() -> onAttachedToWindow
-    513:544:void onDetachedFromWindow() -> onDetachedFromWindow
-    547:551:int analysisJson(org.json.JSONObject) -> a
-    556:563:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    566:568:void registerTimeUpdateReceiver() -> b
-    571:573:void unregisterTimeUpdateReceiver() -> c
+    107:152:void showNativeAD() -> d
+    155:169:void updateTime() -> a
+    174:238:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
+    247:259:void initBack() -> e
+    263:275:void initShutter() -> f
+    279:291:void initParticle() -> g
+    295:307:void initShell() -> h
+    311:323:void initWater() -> i
+    327:336:void initLighting() -> j
+    340:458:void onFinishInflate() -> onFinishInflate
+    461:479:void initViews() -> k
+    483:490:void onAttachedToWindow() -> onAttachedToWindow
+    494:525:void onDetachedFromWindow() -> onDetachedFromWindow
+    528:532:int analysisJson(org.json.JSONObject) -> a
+    537:544:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    547:549:void registerTimeUpdateReceiver() -> b
+    552:554:void unregisterTimeUpdateReceiver() -> c
     44:44:android.view.GestureDetector access$000(com.eos.module.charge.saver.view.BatteryView) -> a
     44:44:int access$100(com.eos.module.charge.saver.view.BatteryView) -> b
     44:44:com.eos.module.charge.saver.view.BatteryView$UnlockListener access$200(com.eos.module.charge.saver.view.BatteryView) -> c
@@ -34645,38 +34645,34 @@ com.eos.module.charge.saver.view.BatteryView$1 -> com.eos.module.charge.saver.vi
     100:101:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.eos.module.charge.saver.view.BatteryView$2 -> com.eos.module.charge.saver.view.BatteryView$2:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    107:107:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    111:111:void onNativeADClicked(com.android.client.ClientNativeAd) -> a
+    109:109:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    113:113:void onNativeADClicked(com.android.client.ClientNativeAd) -> a
 com.eos.module.charge.saver.view.BatteryView$3 -> com.eos.module.charge.saver.view.BatteryView$3:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    123:123:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    126:141:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    126:126:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    129:149:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.eos.module.charge.saver.view.BatteryView$4 -> com.eos.module.charge.saver.view.BatteryView$4:
-    com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    145:145:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    148:168:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
-com.eos.module.charge.saver.view.BatteryView$5 -> com.eos.module.charge.saver.view.BatteryView$5:
     int val$le -> a
     com.eos.module.charge.saver.view.BatteryView this$0 -> b
-    203:203:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
-    206:215:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    184:184:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
+    187:196:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+com.eos.module.charge.saver.view.BatteryView$5 -> com.eos.module.charge.saver.view.BatteryView$5:
+    com.eos.module.charge.saver.view.BatteryView this$0 -> a
+    365:365:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    368:384:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.eos.module.charge.saver.view.BatteryView$6 -> com.eos.module.charge.saver.view.BatteryView$6:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    384:384:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    387:403:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    387:387:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    390:396:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    401:409:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.eos.module.charge.saver.view.BatteryView$7 -> com.eos.module.charge.saver.view.BatteryView$7:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    406:406:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    409:415:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    420:428:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    420:420:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    423:426:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$8 -> com.eos.module.charge.saver.view.BatteryView$8:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    439:439:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    442:445:void onClick(android.view.View) -> onClick
-com.eos.module.charge.saver.view.BatteryView$9 -> com.eos.module.charge.saver.view.BatteryView$9:
-    com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    457:457:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    460:474:void onClick(android.view.View) -> onClick
+    438:438:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    441:455:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$UnlockListener -> com.eos.module.charge.saver.view.BatteryView$a:
     void onUnlock() -> a
 com.eos.module.charge.saver.view.BubbleLayout -> com.eos.module.charge.saver.view.BubbleLayout:
@@ -41047,7 +41043,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5092:12177:void <clinit>() -> <clinit>
+    5096:12181:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
