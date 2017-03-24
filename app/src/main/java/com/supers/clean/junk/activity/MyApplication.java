@@ -19,7 +19,6 @@ import com.eos.module.charge.saver.service.BatteryService;
 
 import com.ivy.kpa.DaemonClient;
 import com.ivy.kpa.DaemonConfigurations;
-import com.supers.clean.junk.PersistService;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JsonData;
