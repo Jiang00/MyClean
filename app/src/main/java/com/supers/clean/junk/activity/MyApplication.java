@@ -1,9 +1,13 @@
 package com.supers.clean.junk.activity;
 
 import android.app.ActivityManager;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.IPackageDataObserver;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.RemoteException;
@@ -210,8 +214,17 @@ public class MyApplication extends App {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        DaemonClient mDaemonClient = new DaemonClient(base, new MyDaemonListener());
-        mDaemonClient.onAttachBaseContext(base);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+            JobInfo jobInfo = new JobInfo.Builder(1, new ComponentName(getPackageName(), BatteryService.class.getName()))
+                    .setPeriodic(1000 * 5)
+                    .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                    .build();
+            jobScheduler.schedule(jobInfo);
+        } else {
+            DaemonClient mDaemonClient = new DaemonClient(base, new MyDaemonListener());
+            mDaemonClient.onAttachBaseContext(base);
+        }
     }
 
     class MyDaemonListener implements DaemonConfigurations.DaemonListener {
