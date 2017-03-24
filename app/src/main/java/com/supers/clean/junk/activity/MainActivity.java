@@ -202,7 +202,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
-        View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_3);
+        View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
         arrayList.add(view);
         if (adView != null) {
             ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
@@ -211,7 +211,7 @@ public class MainActivity extends BaseActivity implements MainView {
             }
             view_ad.setLayoutParams(layout_ad);
             view_ad.addView(adView);
-            view_ad.setGravity(Gravity.CENTER_HORIZONTAL);
+            view_ad.setGravity(Gravity.CENTER);
             arrayList.add(viewpager_2);
         } else if (!isAccessibilitySettingsOn(this)) {
             final View viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_permiss, null);

@@ -6,17 +6,16 @@
     android:background="#00000000">
 
     <RelativeLayout
-        android:layout_width="@dimen/d301"
+        android:layout_width="@dimen/d333"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/shape_radio"
         android:paddingLeft="@dimen/d14"
         android:paddingRight="@dimen/d14">
 
         <ImageView
             android:id="@+id/ad_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d109"
+            android:layout_height="@dimen/d120"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
             android:src="@mipmap/icon"
@@ -96,31 +95,18 @@
             android:layout_marginTop="@dimen/d8"
             android:fontFamily="sans-serif-light"
             android:lines="2"
-            android:singleLine="true"
             android:tag="ad_desc"
-            android:textColor="#9a9a9a"
-            android:textSize="@dimen/s9"
+            android:textColor="#000000"
+            android:textSize="@dimen/s11"
             tools:text="Your see Your see Your see Your see" />
-
-
-        <!--<ImageButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_below="@+id/ad_image"-->
-        <!--android:layout_gravity="end"-->
-        <!--android:layout_marginRight="4dp"-->
-        <!--android:layout_marginTop="7dp"-->
-        <!--android:background="@mipmap/native_ad_go"-->
-        <!--android:tag="ad_action" />-->
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d29"
+            android:layout_height="@dimen/d37"
             android:layout_below="@id/ad_subtitle"
             android:layout_marginBottom="@dimen/d13"
             android:layout_marginTop="@dimen/d8"
-            android:background="@drawable/text_ad_a8c600"
+            android:background="@drawable/text_ad_2ee232"
             android:gravity="center"
             android:tag="ac_action_green"
             android:text="Install"

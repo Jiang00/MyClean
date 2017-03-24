@@ -34132,6 +34132,13 @@ com.ivy.kpa.DaemonReceiver
 com.ivy.kpa.DaemonReceiver: DaemonReceiver()
 com.ivy.kpa.DaemonService
 com.ivy.kpa.DaemonService: DaemonService()
+com.ivy.kpa.NativeDaemonBase: android.content.Context mContext
+com.ivy.kpa.NativeDaemonBase: NativeDaemonBase(android.content.Context)
+com.ivy.kpa.NativeDaemonBase: void onDaemonDead()
+com.ivy.kpa.PersistReceiver
+com.ivy.kpa.PersistReceiver: PersistReceiver()
+com.ivy.kpa.PersistService
+com.ivy.kpa.PersistService: PersistService()
 com.ivy.kpa.R$anim: int abc_fade_in
 com.ivy.kpa.R$anim: int abc_fade_out
 com.ivy.kpa.R$anim: int abc_grow_fade_in_from_bottom
@@ -34710,6 +34717,7 @@ com.ivy.kpa.R$string: int abc_shareactionprovider_share_with
 com.ivy.kpa.R$string: int abc_shareactionprovider_share_with_application
 com.ivy.kpa.R$string: int abc_toolbar_collapse_description
 com.ivy.kpa.R$string: int app_name
+com.ivy.kpa.R$string: int com_ivy_kpa_nativ_process_name
 com.ivy.kpa.R$string: int status_bar_notification_info_overflow
 com.ivy.kpa.R$style: int AlertDialog_AppCompat
 com.ivy.kpa.R$style: int AlertDialog_AppCompat_Light
@@ -35228,9 +35236,13 @@ com.ivy.kpa.R$styleable: int View_paddingEnd
 com.ivy.kpa.R$styleable: int View_paddingStart
 com.ivy.kpa.R$styleable: int View_theme
 com.ivy.kpa.nativ.NativeDaemonAPIK
+com.ivy.kpa.nativ.NativeDaemonAPIK: NativeDaemonAPIK(android.content.Context)
 com.ivy.kpa.nativ.NativeDaemonAPIK: void doDaemon(java.lang.String,java.lang.String,java.lang.String)
+com.ivy.kpa.nativ.NativeDaemonAPIK: void <clinit>()
 com.ivy.kpa.nativ.NativeDaemonAPIL
+com.ivy.kpa.nativ.NativeDaemonAPIL: NativeDaemonAPIL(android.content.Context)
 com.ivy.kpa.nativ.NativeDaemonAPIL: void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.ivy.kpa.nativ.NativeDaemonAPIL: void <clinit>()
 com.jaredrummler.android.processes.models.AndroidAppProcess
 com.jaredrummler.android.processes.models.AndroidAppProcess: android.os.Parcelable$Creator CREATOR
 com.jaredrummler.android.processes.models.AndroidProcess
@@ -40448,10 +40460,6 @@ com.sample.lottie.ShapeStroke$LineJoinType: com.sample.lottie.ShapeStroke$LineJo
 com.sample.lottie.ShapeStroke$LineJoinType: com.sample.lottie.ShapeStroke$LineJoinType valueOf(java.lang.String)
 com.sample.lottie.ShapeStroke$LineJoinType: ShapeStroke$LineJoinType(java.lang.String,int)
 com.sample.lottie.ShapeStroke$LineJoinType: void <clinit>()
-com.supers.clean.junk.PersistReceiver
-com.supers.clean.junk.PersistReceiver: PersistReceiver()
-com.supers.clean.junk.PersistService
-com.supers.clean.junk.PersistService: PersistService()
 com.supers.clean.junk.R$anim: int abc_fade_in
 com.supers.clean.junk.R$anim: int abc_fade_out
 com.supers.clean.junk.R$anim: int abc_grow_fade_in_from_bottom
@@ -41182,6 +41190,7 @@ com.supers.clean.junk.R$dimen: int d10
 com.supers.clean.junk.R$dimen: int d100
 com.supers.clean.junk.R$dimen: int d109
 com.supers.clean.junk.R$dimen: int d12
+com.supers.clean.junk.R$dimen: int d120
 com.supers.clean.junk.R$dimen: int d121
 com.supers.clean.junk.R$dimen: int d13
 com.supers.clean.junk.R$dimen: int d133
@@ -41200,6 +41209,7 @@ com.supers.clean.junk.R$dimen: int d29
 com.supers.clean.junk.R$dimen: int d3
 com.supers.clean.junk.R$dimen: int d30
 com.supers.clean.junk.R$dimen: int d301
+com.supers.clean.junk.R$dimen: int d33
 com.supers.clean.junk.R$dimen: int d333
 com.supers.clean.junk.R$dimen: int d37
 com.supers.clean.junk.R$dimen: int d4
@@ -41659,7 +41669,7 @@ com.supers.clean.junk.R$drawable: int shop_page_indicator_bg
 com.supers.clean.junk.R$drawable: int shop_remove
 com.supers.clean.junk.R$drawable: int shop_selected
 com.supers.clean.junk.R$drawable: int shop_wallpaper_apply
-com.supers.clean.junk.R$drawable: int text_ad_a8c600
+com.supers.clean.junk.R$drawable: int text_ad_2ee232
 com.supers.clean.junk.R$drawable: int text_ad_normal
 com.supers.clean.junk.R$drawable: int text_ad_passed
 com.supers.clean.junk.R$id: int BOTTOM_LEFT
@@ -42602,6 +42612,7 @@ com.supers.clean.junk.R$string: int character_counter_pattern
 com.supers.clean.junk.R$string: int charge_screen_save
 com.supers.clean.junk.R$string: int charging_on_left
 com.supers.clean.junk.R$string: int charging_use_left
+com.supers.clean.junk.R$string: int com_ivy_kpa_nativ_process_name
 com.supers.clean.junk.R$string: int cooling_succ
 com.supers.clean.junk.R$string: int cpu
 com.supers.clean.junk.R$string: int edit_hint
