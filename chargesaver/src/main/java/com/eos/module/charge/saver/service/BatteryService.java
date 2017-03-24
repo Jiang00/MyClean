@@ -2,6 +2,8 @@ package com.eos.module.charge.saver.service;
 
 import android.annotation.TargetApi;
 import android.app.Service;
+import android.app.job.JobParameters;
+import android.app.job.JobService;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -29,14 +31,19 @@ import com.eos.module.charge.saver.view.DuckView;
 /**
  * Created by on 2016/10/20.
  */
-public class BatteryService extends Service {
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+public class BatteryService extends JobService {
     private static final String TAG = "BatteryService";
     private boolean b = false;
 
-    @Nullable
     @Override
-    public IBinder onBind(Intent intent) {
-        return null;
+    public boolean onStartJob(JobParameters params) {
+        return false;
+    }
+
+    @Override
+    public boolean onStopJob(JobParameters params) {
+        return false;
     }
 
     private WidgetContainer container;

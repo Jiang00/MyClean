@@ -7,7 +7,9 @@
         android:allowBackup="true"
         android:supportsRtl="true">
 
-        <service android:name="com.eos.module.charge.saver.service.BatteryService">
+        <service
+            android:name="com.eos.module.charge.saver.service.BatteryService"
+            android:permission="android.permission.BIND_JOB_SERVICE">
             <intent-filter>
                 <action android:name="com.eos.battery.service" />
                 <category android:name="android.intent.category.DEFAULT" />
