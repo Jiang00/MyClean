@@ -202,7 +202,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
-        View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
+        View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_3);
         arrayList.add(view);
         if (adView != null) {
             ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
@@ -557,7 +557,7 @@ public class MainActivity extends BaseActivity implements MainView {
         if (PreData.getDB(this, Contents.FULL_MAIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
+            View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_3);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 Log.e("aaa", "=====" + layout_ad.height);
@@ -574,7 +574,7 @@ public class MainActivity extends BaseActivity implements MainView {
             } else {
                 ll_ad.setVisibility(View.GONE);
             }
-            View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
+            View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_3);
             if (ll_ad_side != null && nativeView_side != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_side.getLayoutParams();
                 layout_ad.height = nativeView_side.getMeasuredHeight();
