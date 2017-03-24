@@ -36721,12 +36721,12 @@ com.ivy.kpa.DaemonClient -> com.ivy.kpa.a:
     java.lang.String DAEMON_PERMITTING_SP_FILENAME -> b
     java.lang.String DAEMON_PERMITTING_SP_KEY -> c
     java.io.BufferedReader mBufferedReader -> d
-    19:29:void <init>(com.ivy.kpa.DaemonConfigurations) -> <init>
-    24:25:void onAttachBaseContext(android.content.Context) -> a
-    40:55:void initDaemon(android.content.Context) -> b
-    75:80:java.lang.String getProcessName() -> a
-    88:96:void releaseIO() -> b
-    99:100:boolean isDaemonPermitting(android.content.Context) -> c
+    19:30:void <init>(com.ivy.kpa.DaemonConfigurations) -> <init>
+    25:26:void onAttachBaseContext(android.content.Context) -> a
+    42:64:void initDaemon(android.content.Context) -> b
+    84:89:java.lang.String getProcessName() -> a
+    97:105:void releaseIO() -> b
+    108:109:boolean isDaemonPermitting(android.content.Context) -> c
 com.ivy.kpa.DaemonConfigurations -> com.ivy.kpa.b:
     com.ivy.kpa.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
     com.ivy.kpa.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
@@ -36754,12 +36754,14 @@ com.ivy.kpa.IDaemonStrategy -> com.ivy.kpa.d:
     boolean onInitialization(android.content.Context) -> a
     void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
     void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+    void onDaemonDead() -> a
 com.ivy.kpa.IDaemonStrategy$Fetcher -> com.ivy.kpa.d$a:
     com.ivy.kpa.IDaemonStrategy mDaemonStrategy -> a
     63:94:com.ivy.kpa.IDaemonStrategy fetchStrategy() -> a
 com.ivy.kpa.NativeDaemonBase -> com.ivy.kpa.e:
-    android.content.Context mContext -> a
+    android.content.Context mContext -> mContext
     17:19:void <init>(android.content.Context) -> <init>
+    25:26:void onDaemonDead() -> onDaemonDead
 com.ivy.kpa.nativ.NativeDaemonAPIK -> com.ivy.kpa.nativ.NativeDaemonAPIK:
     15:16:void <init>(android.content.Context) -> <init>
     void doDaemon(java.lang.String,java.lang.String,java.lang.String) -> doDaemon
@@ -36776,6 +36778,7 @@ com.ivy.kpa.strategy.DaemonStrategy21 -> com.ivy.kpa.a.a:
     35:35:boolean onInitialization(android.content.Context) -> a
     40:65:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
     69:93:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+    97:103:void onDaemonDead() -> a
     107:118:void initAlarm(android.content.Context,java.lang.String) -> a
     122:132:boolean initIndicators(android.content.Context) -> b
     138:142:void createNewFile(java.io.File,java.lang.String) -> a
@@ -36797,9 +36800,10 @@ com.ivy.kpa.strategy.DaemonStrategy22 -> com.ivy.kpa.a.b:
     39:39:boolean onInitialization(android.content.Context) -> a
     44:64:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
     68:89:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
-    108:126:void initAmsBinder() -> a
+    94:102:void onDaemonDead() -> a
+    108:126:void initAmsBinder() -> b
     131:163:void initServiceParcel(android.content.Context,java.lang.String) -> a
-    168:176:boolean startServiceByAmsBinder() -> b
+    168:176:boolean startServiceByAmsBinder() -> c
     184:194:boolean initIndicatorFiles(android.content.Context) -> b
     199:203:void createNewFile(java.io.File,java.lang.String) -> a
 com.ivy.kpa.strategy.DaemonStrategy22$1 -> com.ivy.kpa.a.b$1:
@@ -36820,9 +36824,10 @@ com.ivy.kpa.strategy.DaemonStrategy23 -> com.ivy.kpa.a.c:
     40:40:boolean onInitialization(android.content.Context) -> a
     45:72:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
     76:103:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
-    120:138:void initAmsBinder() -> a
+    108:114:void onDaemonDead() -> a
+    120:138:void initAmsBinder() -> b
     144:180:void initBroadcastParcel(android.content.Context,java.lang.String) -> a
-    186:194:boolean sendBroadcastByAmsBinder() -> b
+    186:194:boolean sendBroadcastByAmsBinder() -> c
     200:210:boolean initIndicatorFiles(android.content.Context) -> b
     215:219:void createNewFile(java.io.File,java.lang.String) -> a
 com.ivy.kpa.strategy.DaemonStrategy23$1 -> com.ivy.kpa.a.c$1:
@@ -36844,6 +36849,7 @@ com.ivy.kpa.strategy.DaemonStrategyUnder21 -> com.ivy.kpa.a.d:
     37:37:boolean onInitialization(android.content.Context) -> a
     42:58:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
     62:70:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+    75:77:void onDaemonDead() -> a
     81:92:void initAlarm(android.content.Context,java.lang.String) -> a
     96:105:boolean installBinary(android.content.Context) -> b
     110:118:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
@@ -36861,12 +36867,14 @@ com.ivy.kpa.strategy.DaemonStrategyXiaomi -> com.ivy.kpa.a.e:
     android.os.IBinder mRemote -> c
     android.os.Parcel mServiceData -> d
     com.ivy.kpa.DaemonConfigurations mConfigs -> e
-    31:33:void <init>() -> <init>
-    41:41:boolean onInitialization(android.content.Context) -> a
-    46:65:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
-    70:78:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
-    95:113:void initAmsBinder() -> a
+    30:32:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:64:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
+    69:77:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
+    81:89:void onDaemonDead() -> a
+    94:112:void initAmsBinder() -> b
     118:150:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    154:162:boolean startServiceByAmsBinder() -> c
     167:176:boolean installBinary(android.content.Context) -> b
     181:189:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
     194:197:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
@@ -36875,8 +36883,8 @@ com.ivy.kpa.strategy.DaemonStrategyXiaomi$1 -> com.ivy.kpa.a.e$1:
     android.content.Context val$context -> a
     com.ivy.kpa.DaemonConfigurations val$configs -> b
     com.ivy.kpa.strategy.DaemonStrategyXiaomi this$0 -> c
-    48:48:void <init>(com.ivy.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.ivy.kpa.DaemonConfigurations) -> <init>
-    50:55:void run() -> run
+    47:47:void <init>(com.ivy.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.ivy.kpa.DaemonConfigurations) -> <init>
+    49:54:void run() -> run
 com.jaredrummler.android.processes.AndroidProcesses -> com.jaredrummler.android.processes.a:
     boolean loggingEnabled -> a
     128:131:void log(java.lang.String,java.lang.Object[]) -> a

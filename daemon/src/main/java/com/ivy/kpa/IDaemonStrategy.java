@@ -50,7 +50,7 @@ public interface IDaemonStrategy {
      *
      * @author renqingyou
      */
-    public static class Fetcher {
+    class Fetcher {
 
         private static IDaemonStrategy mDaemonStrategy;
 
@@ -65,15 +65,15 @@ public interface IDaemonStrategy {
             }
             int sdk = Build.VERSION.SDK_INT;
             switch (sdk) {
-                case 23:
+                case Build.VERSION_CODES.M:
                     mDaemonStrategy = new DaemonStrategy23();
                     break;
 
-                case 22:
+                case Build.VERSION_CODES.LOLLIPOP_MR1:
                     mDaemonStrategy = new DaemonStrategy22();
                     break;
 
-                case 21:
+                case Build.VERSION_CODES.LOLLIPOP:
                     if ("MX4 Pro".equalsIgnoreCase(Build.MODEL)) {
                         mDaemonStrategy = new DaemonStrategyUnder21();
                     } else {

@@ -22,7 +22,7 @@ import com.ivy.kpa.nativ.NativeDaemonAPIK;
 /**
  * the strategy in android API below 21.
  * 
- * @author Mars
+ * @author renqingyou
  *
  */
 public class DaemonStrategyUnder21 implements IDaemonStrategy{

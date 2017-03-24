@@ -34129,6 +34129,9 @@ com.ivy.kpa.DaemonReceiver
 com.ivy.kpa.DaemonReceiver: DaemonReceiver()
 com.ivy.kpa.DaemonService
 com.ivy.kpa.DaemonService: DaemonService()
+com.ivy.kpa.NativeDaemonBase: android.content.Context mContext
+com.ivy.kpa.NativeDaemonBase: NativeDaemonBase(android.content.Context)
+com.ivy.kpa.NativeDaemonBase: void onDaemonDead()
 com.ivy.kpa.R$anim: int abc_fade_in
 com.ivy.kpa.R$anim: int abc_fade_out
 com.ivy.kpa.R$anim: int abc_grow_fade_in_from_bottom
@@ -35225,9 +35228,13 @@ com.ivy.kpa.R$styleable: int View_paddingEnd
 com.ivy.kpa.R$styleable: int View_paddingStart
 com.ivy.kpa.R$styleable: int View_theme
 com.ivy.kpa.nativ.NativeDaemonAPIK
+com.ivy.kpa.nativ.NativeDaemonAPIK: NativeDaemonAPIK(android.content.Context)
 com.ivy.kpa.nativ.NativeDaemonAPIK: void doDaemon(java.lang.String,java.lang.String,java.lang.String)
+com.ivy.kpa.nativ.NativeDaemonAPIK: void <clinit>()
 com.ivy.kpa.nativ.NativeDaemonAPIL
+com.ivy.kpa.nativ.NativeDaemonAPIL: NativeDaemonAPIL(android.content.Context)
 com.ivy.kpa.nativ.NativeDaemonAPIL: void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.ivy.kpa.nativ.NativeDaemonAPIL: void <clinit>()
 com.jaredrummler.android.processes.models.AndroidAppProcess
 com.jaredrummler.android.processes.models.AndroidAppProcess: android.os.Parcelable$Creator CREATOR
 com.jaredrummler.android.processes.models.AndroidProcess

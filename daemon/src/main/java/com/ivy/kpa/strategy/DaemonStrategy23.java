@@ -22,7 +22,7 @@ import com.ivy.kpa.nativ.NativeDaemonAPIL;
 /**
  * the strategy in android API 23.
  *
- * @author Mars
+ * @author renqingyou
  */
 public class DaemonStrategy23 implements IDaemonStrategy {
     private final static String INDICATOR_DIR_NAME = "indicators";

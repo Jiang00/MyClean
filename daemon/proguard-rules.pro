@@ -16,11 +16,11 @@
 #   public *;
 #}
 
--keep class com.ivy.marsdaemon.NativeDaemonBase{*;}
--keep class com.ivy.marsdaemon.nativ.NativeDaemonAPI20{*;}
--keep class com.ivy.marsdaemon.nativ.NativeDaemonAPI21{*;}
--keep class com.ivy.marsdaemon.DaemonApplication{*;}
--keep class com.ivy.marsdaemon.DaemonClient{*;}
+-keep class com.ivy.kpa.NativeDaemonBase{*;}
+-keep class com.ivy.kpa.nativ.NativeDaemonAPI20{*;}
+-keep class com.ivy.kpa.nativ.NativeDaemonAPI21{*;}
+-keep class com.ivy.kpa.DaemonApplication{*;}
+-keep class com.ivy.kpa.DaemonClient{*;}
 -keepattributes Exceptions,InnerClasses,...
--keep class com.ivy.marsdaemon.DaemonConfigurations{*;}
--keep class com.ivy.marsdaemon.DaemonConfigurations$*{*;}
+-keep class com.ivy.kpa.DaemonConfigurations{*;}
+-keep class com.ivy.kpa.DaemonConfigurations$*{*;}
