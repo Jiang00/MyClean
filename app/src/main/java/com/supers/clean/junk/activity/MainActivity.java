@@ -171,7 +171,7 @@ public class MainActivity extends BaseActivity implements MainView {
             e.printStackTrace();
         }
 
-        new Thread() {
+      /*  new Thread() {
             @Override
             public void run() {
                 super.run();
@@ -181,8 +181,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     CommonUtil.RootCommand(apkRoot);
                 }
             }
-        }.start();
-
+        }.start();*/
 
         final ArrayList<View> arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
