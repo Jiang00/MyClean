@@ -41047,7 +41047,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5096:12181:void <clinit>() -> <clinit>
+    5107:12192:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
@@ -42404,22 +42404,33 @@ com.supers.clean.junk.activity.NotifactionService -> com.supers.clean.junk.activ
     android.widget.RemoteViews remoteView_1 -> e
     android.app.Notification notification_1 -> f
     com.supers.clean.junk.activity.MyApplication cleanApplication -> g
-    java.lang.Runnable runnable -> h
-    22:100:void <init>() -> <init>
-    35:35:android.os.IBinder onBind(android.content.Intent) -> onBind
-    41:47:void onCreate() -> onCreate
-    54:57:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    66:68:void onstart() -> a
-    72:98:void changZhuTongzhi() -> b
-    108:170:void update() -> c
-    174:193:void tonghzi_1() -> d
-    197:216:void tonghzi_2() -> e
-    222:228:void onDestroy() -> onDestroy
-    22:22:void access$000(com.supers.clean.junk.activity.NotifactionService) -> a
+    android.graphics.Bitmap bitmap_progress -> h
+    android.graphics.Canvas canvas -> i
+    android.graphics.Paint paint_1 -> j
+    int pointX -> k
+    android.graphics.RectF oval -> l
+    int cpuTemp -> m
+    java.lang.Runnable runnable -> n
+    28:141:void <init>() -> <init>
+    49:49:android.os.IBinder onBind(android.content.Intent) -> onBind
+    55:85:void onCreate() -> onCreate
+    92:95:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    104:106:void onstart() -> a
+    110:139:void changZhuTongzhi() -> b
+    149:213:void update() -> c
+    217:236:void tonghzi_1() -> d
+    240:259:void tonghzi_2() -> e
+    265:271:void onDestroy() -> onDestroy
+    28:28:int access$002(com.supers.clean.junk.activity.NotifactionService,int) -> a
+    28:28:void access$100(com.supers.clean.junk.activity.NotifactionService) -> a
 com.supers.clean.junk.activity.NotifactionService$1 -> com.supers.clean.junk.activity.NotifactionService$1:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    100:100:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    102:104:void run() -> run
+    75:75:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    78:83:void callbackResult(com.supers.clean.junk.modle.CpuTempReader$ResultCpuTemperature) -> a
+com.supers.clean.junk.activity.NotifactionService$2 -> com.supers.clean.junk.activity.NotifactionService$2:
+    com.supers.clean.junk.activity.NotifactionService this$0 -> a
+    141:141:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    143:145:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity -> com.supers.clean.junk.activity.RamAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -43344,6 +43355,24 @@ com.supers.clean.junk.myView.MyScrollView -> com.supers.clean.junk.myView.MyScro
     37:41:void onScrollChanged(int,int,int,int) -> onScrollChanged
 com.supers.clean.junk.myView.MyScrollView$ScrollViewListener -> com.supers.clean.junk.myView.MyScrollView$a:
     void onScrollChanged(com.supers.clean.junk.myView.MyScrollView,int,int,int,int) -> a
+com.supers.clean.junk.myView.NotifiArcView -> com.supers.clean.junk.myView.NotifiArcView:
+    android.graphics.Paint cirPaint -> c
+    java.lang.String text -> d
+    android.graphics.Paint textPaint -> e
+    int textSize -> f
+    android.content.Context context -> a
+    int percent -> g
+    com.supers.clean.junk.myView.NotifiArcView$PercentViewListener listener -> b
+    22:38:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    22:44:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    48:54:void init(android.util.AttributeSet,int) -> a
+    57:57:int dp2px(int) -> a
+    63:88:void onDraw(android.graphics.Canvas) -> onDraw
+    93:97:void onMeasure(int,int) -> onMeasure
+    143:144:void setProgress(int) -> setProgress
+    148:151:void setPercent(int) -> setPercent
+    156:157:void setListener(com.supers.clean.junk.myView.NotifiArcView$PercentViewListener) -> setListener
+com.supers.clean.junk.myView.NotifiArcView$PercentViewListener -> com.supers.clean.junk.myView.NotifiArcView$a:
 com.supers.clean.junk.myView.PersonalScrollView -> com.supers.clean.junk.myView.PersonalScrollView:
     java.lang.String TAG -> a
     android.view.View inner -> b
@@ -43499,6 +43528,12 @@ com.supers.clean.junk.myView.SlowScrollView -> com.supers.clean.junk.myView.Slow
     53:61:void computeScroll() -> computeScroll
     68:69:void fling(int) -> fling
     75:76:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.supers.clean.junk.myView.WidgetProgressbar -> com.supers.clean.junk.myView.WidgetProgressbar:
+    14:16:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    20:22:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    34:37:void onDraw(android.graphics.Canvas) -> onDraw
+    41:43:void onMeasure(int,int) -> onMeasure
+    47:48:void onSizeChanged(int,int,int,int) -> onSizeChanged
 com.supers.clean.junk.presenter.BasePresenter -> com.supers.clean.junk.b.a:
     java.lang.Object iView -> a
     int cpuTemp -> c

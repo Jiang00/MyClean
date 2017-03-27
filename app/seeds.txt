@@ -41095,6 +41095,7 @@ com.supers.clean.junk.R$color: int transparent
 com.supers.clean.junk.R$color: int white_100
 com.supers.clean.junk.R$color: int white_40
 com.supers.clean.junk.R$color: int white_54
+com.supers.clean.junk.R$color: int white_80
 com.supers.clean.junk.R$dimen: int abc_action_bar_content_inset_material
 com.supers.clean.junk.R$dimen: int abc_action_bar_content_inset_with_nav
 com.supers.clean.junk.R$dimen: int abc_action_bar_default_height_material
@@ -41661,6 +41662,7 @@ com.supers.clean.junk.R$drawable: int shape_fac100
 com.supers.clean.junk.R$drawable: int shape_ffffff_b
 com.supers.clean.junk.R$drawable: int shape_green_ad
 com.supers.clean.junk.R$drawable: int shape_radio
+com.supers.clean.junk.R$drawable: int shape_radio_000000
 com.supers.clean.junk.R$drawable: int share_btnbg_clicked
 com.supers.clean.junk.R$drawable: int share_btnbg_normal
 com.supers.clean.junk.R$drawable: int shop_back
@@ -42056,9 +42058,12 @@ com.supers.clean.junk.R$id: int new_normal_bar
 com.supers.clean.junk.R$id: int next
 com.supers.clean.junk.R$id: int nitifaction_theme
 com.supers.clean.junk.R$id: int none
+com.supers.clean.junk.R$id: int norifi_memory_text
 com.supers.clean.junk.R$id: int normal
 com.supers.clean.junk.R$id: int normal_bar
 com.supers.clean.junk.R$id: int normal_title_name
+com.supers.clean.junk.R$id: int notifi_cpu
+com.supers.clean.junk.R$id: int notifi_memory
 com.supers.clean.junk.R$id: int notification
 com.supers.clean.junk.R$id: int number_cancel
 com.supers.clean.junk.R$id: int numpad
@@ -42343,6 +42348,7 @@ com.supers.clean.junk.R$layout: int layout_success
 com.supers.clean.junk.R$layout: int layout_theme
 com.supers.clean.junk.R$layout: int layout_title
 com.supers.clean.junk.R$layout: int layout_title_sousuo
+com.supers.clean.junk.R$layout: int layout_tongzhi
 com.supers.clean.junk.R$layout: int layout_unload
 com.supers.clean.junk.R$layout: int layout_white_list_add
 com.supers.clean.junk.R$layout: int layout_white_list_item
@@ -42521,6 +42527,11 @@ com.supers.clean.junk.R$mipmap: int main_theme_button
 com.supers.clean.junk.R$mipmap: int manager_soft
 com.supers.clean.junk.R$mipmap: int native_ad_go
 com.supers.clean.junk.R$mipmap: int next_ad_pro
+com.supers.clean.junk.R$mipmap: int notifi_flash
+com.supers.clean.junk.R$mipmap: int notifi_line
+com.supers.clean.junk.R$mipmap: int notifi_liuliang
+com.supers.clean.junk.R$mipmap: int notifi_speed
+com.supers.clean.junk.R$mipmap: int notifi_wifi
 com.supers.clean.junk.R$mipmap: int notification_text_backg
 com.supers.clean.junk.R$mipmap: int notification_title
 com.supers.clean.junk.R$mipmap: int permiss_b
@@ -42683,6 +42694,10 @@ com.supers.clean.junk.R$string: int message_root
 com.supers.clean.junk.R$string: int message_sd
 com.supers.clean.junk.R$string: int message_start
 com.supers.clean.junk.R$string: int message_title_1
+com.supers.clean.junk.R$string: int notifi_clean
+com.supers.clean.junk.R$string: int notifi_flash
+com.supers.clean.junk.R$string: int notifi_jiasu
+com.supers.clean.junk.R$string: int notifi_wendu
 com.supers.clean.junk.R$string: int notification_1
 com.supers.clean.junk.R$string: int notification_2
 com.supers.clean.junk.R$string: int notification_button
@@ -44020,6 +44035,12 @@ com.supers.clean.junk.myView.MyScrollView: MyScrollView(android.content.Context)
 com.supers.clean.junk.myView.MyScrollView: MyScrollView(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.myView.MyScrollView: MyScrollView(android.content.Context,android.util.AttributeSet,int)
 com.supers.clean.junk.myView.MyScrollView: void setScrollViewListener(com.supers.clean.junk.myView.MyScrollView$ScrollViewListener)
+com.supers.clean.junk.myView.NotifiArcView
+com.supers.clean.junk.myView.NotifiArcView: NotifiArcView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.myView.NotifiArcView: NotifiArcView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.myView.NotifiArcView: void setProgress(int)
+com.supers.clean.junk.myView.NotifiArcView: void setPercent(int)
+com.supers.clean.junk.myView.NotifiArcView: void setListener(com.supers.clean.junk.myView.NotifiArcView$PercentViewListener)
 com.supers.clean.junk.myView.PersonalScrollView
 com.supers.clean.junk.myView.PersonalScrollView: void setImageHeader(android.widget.ImageView)
 com.supers.clean.junk.myView.PersonalScrollView: void setTurnListener(com.supers.clean.junk.myView.PersonalScrollView$onTurnListener)
@@ -44046,6 +44067,9 @@ com.supers.clean.junk.myView.SlowScrollView
 com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context)
 com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.myView.WidgetProgressbar
+com.supers.clean.junk.myView.WidgetProgressbar: WidgetProgressbar(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.myView.WidgetProgressbar: WidgetProgressbar(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.presenter.FloatStateManager$2: void onClick(android.view.View)
 com.supers.clean.junk.service.ReStarService
 org.byteam.superadapter.RecyclerSupportAdapter$1: void onClick(android.view.View)

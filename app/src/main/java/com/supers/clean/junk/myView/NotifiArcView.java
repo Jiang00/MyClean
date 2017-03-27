@@ -8,11 +8,12 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.RemoteViews;
 
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
 
-
+@RemoteViews.RemoteView
 public class NotifiArcView extends ProgressBar {
 
     private Paint percentPaint;

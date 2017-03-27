@@ -7,6 +7,11 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -15,6 +20,7 @@ import android.widget.RemoteViews;
 
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
+import com.supers.clean.junk.modle.CpuTempReader;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.entity.Contents;
 
@@ -29,6 +35,14 @@ public class NotifactionService extends Service {
 
     private MyApplication cleanApplication;
 
+    private Bitmap bitmap_progress;
+    private Canvas canvas;
+    private Paint paint_1;
+    private Paint paint_2;
+    private int pointX = CommonUtil.dp2px(29) / 2;
+    private RectF oval;
+    private int cpuTemp = 40;
+
     @Override
     public IBinder onBind(Intent arg0) {
         // TODO Auto-generated method stub
@@ -42,8 +56,32 @@ public class NotifactionService extends Service {
         if (myHandler == null)
             myHandler = new Handler();
         cleanApplication = (MyApplication) getApplication();
+        bitmap_progress = Bitmap.createBitmap(CommonUtil.dp2px(29), CommonUtil.dp2px(29), Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(bitmap_progress);
+        paint_1 = new Paint();
+        paint_1.setAntiAlias(true);
+        paint_1.setStrokeWidth(CommonUtil.dp2px(2));
+        paint_1.setStyle(Paint.Style.STROKE);
+        paint_1.setColor(getResources().getColor(R.color.white_40));
+        oval = new RectF(0 + CommonUtil.dp2px(2), -pointX + CommonUtil.dp2px(2), pointX
+                * 2 - CommonUtil.dp2px(2), pointX - CommonUtil.dp2px(2));
+        canvas.save();
+        canvas.translate(0, pointX);
+        canvas.rotate(135, pointX, 0);
+        canvas.drawArc(oval, 0, 270, false, paint_1);
+        paint_1.setColor(this.getResources().getColor(R.color.white_100));
         changZhuTongzhi();
-
+        //cpu温度
+        CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
+            @Override
+            public void callbackResult(CpuTempReader.ResultCpuTemperature result) {
+                if (result != null) {
+                    cpuTemp = (int) result.getTemperature();
+                } else {
+                    cpuTemp = 40;
+                }
+            }
+        });
     }
 
 
@@ -72,7 +110,10 @@ public class NotifactionService extends Service {
         Notification.Builder mBuilder = new Notification.Builder(this);
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
-        remoteView_1.setProgressBar(R.id.notifi_memory, 100, CommonUtil.getMemory(this), true);
+        canvas.drawArc(oval, 0, 270 * CommonUtil.getMemory(this) / 100, false, paint_1);
+        remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
+        remoteView_1.setTextViewText(R.id.norifi_memory_text, CommonUtil.getMemory(this) + "%");
+        remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
         int requestCode = (int) SystemClock.uptimeMillis();
         Intent notifyIntent1 = new Intent(this, RamAvtivity.class);
         notifyIntent1.putExtra("from", "notifi");
@@ -81,7 +122,7 @@ public class NotifactionService extends Service {
         notifyIntent1.setAction("notification");
         PendingIntent pendIntent1 = PendingIntent.getActivity(this, requestCode,
                 notifyIntent1, PendingIntent.FLAG_UPDATE_CURRENT);
-        remoteView_1.setOnClickPendingIntent(R.id.ll_jiasu, pendIntent1);
+        remoteView_1.setOnClickPendingIntent(R.id.notifi_memory, pendIntent1);
         mBuilder.setContent(remoteView_1);
         mBuilder.setAutoCancel(false);
         mBuilder.setOngoing(true);
@@ -106,12 +147,14 @@ public class NotifactionService extends Service {
 
     private void update() {
         int memory = CommonUtil.getMemory(this);
-        remoteView_1.setTextViewText(R.id.notifi_memory, memory + "%");
-        if (memory > 80) {
-            remoteView_1.setTextColor(R.id.notifi_memory, 0xfffa4f48);
+        if (memory > 70) {
+            paint_1.setColor(this.getResources().getColor(R.color.app_color_third));
         } else {
-            remoteView_1.setTextColor(R.id.notifi_memory, 0xffffa92b);
+            paint_1.setColor(this.getResources().getColor(R.color.white_100));
         }
+        canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
+        remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
+        remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
         mNotifyManager.notify(154, notification_1);
         long time = System.currentTimeMillis();
         if (PreData.getDB(this, Contents.TONGZHI_SWITCH, true)) {
@@ -173,7 +216,7 @@ public class NotifactionService extends Service {
     private void tonghzi_1() {
         Notification.Builder mBuilder = new Notification.Builder(this);
         remoteView_2 = new RemoteViews(getPackageName(),
-                R.layout.layout_notification);
+                R.layout.layout_tongzhi);
         int requestCode = (int) SystemClock.uptimeMillis();
         Intent notifyIntent = new Intent(this, RamAvtivity.class);
         notifyIntent.putExtra("from", "notifi");
@@ -196,7 +239,7 @@ public class NotifactionService extends Service {
     private void tonghzi_2() {
         Notification.Builder mBuilder = new Notification.Builder(this);
         remoteView_2 = new RemoteViews(getPackageName(),
-                R.layout.layout_notification);
+                R.layout.layout_tongzhi);
         int requestCode = (int) SystemClock.uptimeMillis();
         Intent notifyIntent = new Intent(this, JunkAndRamActivity.class);
         notifyIntent.putExtra("from", "notifi");
