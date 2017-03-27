@@ -9,7 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.JsonParser;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.PreData;
@@ -37,7 +36,7 @@ import java.util.Locale;
  * Created by on 2017/2/28.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends FragmentActivity {
     private Toast toast;
     protected String tuiguang = "com.eosmobi.applock";
     protected String tuiguang1 = "com.eosmobi.flashlight.free";

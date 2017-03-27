@@ -107,7 +107,7 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     }
 
     public void unloadSuccess(String packageName) {
-        if (clearList == null && clearList.size() == 0) {
+        if (clearList == null || clearList.size() == 0) {
             return;
         }
         for (JunkInfo softinfo : clearList) {
