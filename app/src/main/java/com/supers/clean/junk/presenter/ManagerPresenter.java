@@ -1,14 +1,11 @@
 package com.supers.clean.junk.presenter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
 import com.supers.clean.junk.View.AppManagerView;
-import com.supers.clean.junk.View.RamView;
 import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.modle.MemoryManager;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 
 import java.util.ArrayList;
