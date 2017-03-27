@@ -72,7 +72,7 @@ public class NotifactionService extends Service {
         Notification.Builder mBuilder = new Notification.Builder(this);
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
-        remoteView_1.setTextViewText(R.id.tv_memory, CommonUtil.getMemory(this) + "%");
+        remoteView_1.setProgressBar(R.id.notifi_memory, 100, CommonUtil.getMemory(this), true);
         int requestCode = (int) SystemClock.uptimeMillis();
         Intent notifyIntent1 = new Intent(this, RamAvtivity.class);
         notifyIntent1.putExtra("from", "notifi");
@@ -106,11 +106,11 @@ public class NotifactionService extends Service {
 
     private void update() {
         int memory = CommonUtil.getMemory(this);
-        remoteView_1.setTextViewText(R.id.tv_memory, memory + "%");
+        remoteView_1.setTextViewText(R.id.notifi_memory, memory + "%");
         if (memory > 80) {
-            remoteView_1.setTextColor(R.id.tv_memory, 0xfffa4f48);
+            remoteView_1.setTextColor(R.id.notifi_memory, 0xfffa4f48);
         } else {
-            remoteView_1.setTextColor(R.id.tv_memory, 0xffffa92b);
+            remoteView_1.setTextColor(R.id.notifi_memory, 0xffffa92b);
         }
         mNotifyManager.notify(154, notification_1);
         long time = System.currentTimeMillis();
