@@ -33031,7 +33031,6 @@ com.eos.manager.page.ListViewForScrollView -> com.eos.manager.page.ListViewForSc
     21:23:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     27:29:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     45:49:void onMeasure(int,int) -> onMeasure
-    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.eos.manager.page.LockPatternUtils -> com.eos.manager.page.b:
     52:62:java.lang.String patternToString(java.util.List) -> a
     84:84:boolean checkPattern(java.util.List,java.util.List) -> a
@@ -42298,21 +42297,21 @@ com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.M
     191:196:void removeAppJunk(com.supers.clean.junk.modle.entity.JunkInfo) -> d
     199:204:void removeFilesOfUnintalledApk(com.supers.clean.junk.modle.entity.JunkInfo) -> e
     207:212:void removeApkFiles(com.supers.clean.junk.modle.entity.JunkInfo) -> f
-    216:228:void attachBaseContext(android.content.Context) -> attachBaseContext
-    249:296:void onCreate() -> onCreate
-    299:299:java.lang.Runnable getScanIntervalRunnable() -> A
-    323:325:void onTerminate() -> onTerminate
-    328:344:void asyncInitData() -> B
-    347:355:void initLists() -> C
-    358:366:void resetLists() -> D
-    369:377:void resetSizes() -> E
-    380:410:void loadWhiteListAndAppManager() -> F
-    413:442:void loadAppRam() -> G
-    445:475:void loadAppCache() -> v
-    478:496:void loadApkFileAndAppJunk() -> w
-    499:529:void loadSystemCache() -> x
-    532:562:void loadFilesOfUninstallApk() -> y
-    565:569:void saoMiaoOver() -> z
+    216:219:void attachBaseContext(android.content.Context) -> attachBaseContext
+    223:270:void onCreate() -> onCreate
+    273:273:java.lang.Runnable getScanIntervalRunnable() -> A
+    297:299:void onTerminate() -> onTerminate
+    302:318:void asyncInitData() -> B
+    321:329:void initLists() -> C
+    332:340:void resetLists() -> D
+    343:351:void resetSizes() -> E
+    354:384:void loadWhiteListAndAppManager() -> F
+    387:416:void loadAppRam() -> G
+    419:449:void loadAppCache() -> v
+    452:470:void loadApkFileAndAppJunk() -> w
+    473:503:void loadSystemCache() -> x
+    506:536:void loadFilesOfUninstallApk() -> y
+    539:543:void saoMiaoOver() -> z
     49:49:java.util.List access$000(com.supers.clean.junk.activity.MyApplication) -> a
     49:49:void access$100(com.supers.clean.junk.activity.MyApplication) -> b
     49:49:boolean access$202(com.supers.clean.junk.activity.MyApplication,boolean) -> a
@@ -42344,58 +42343,52 @@ com.supers.clean.junk.activity.MyApplication$1 -> com.supers.clean.junk.activity
     146:147:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
 com.supers.clean.junk.activity.MyApplication$2 -> com.supers.clean.junk.activity.MyApplication$2:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    299:299:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    302:316:void run() -> run
+    273:273:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    276:290:void run() -> run
 com.supers.clean.junk.activity.MyApplication$3 -> com.supers.clean.junk.activity.MyApplication$3:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    380:380:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    384:384:void startLoad() -> a
-    389:389:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    394:394:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    399:399:void cancelLoading() -> b
-    403:407:void finishLoading(long,java.util.ArrayList) -> a
+    354:354:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    358:358:void startLoad() -> a
+    363:363:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    368:368:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    373:373:void cancelLoading() -> b
+    377:381:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$4 -> com.supers.clean.junk.activity.MyApplication$4:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    413:413:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    417:417:void startLoad() -> a
-    421:423:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    427:428:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    433:433:void cancelLoading() -> b
-    437:439:void finishLoading(long,java.util.ArrayList) -> a
+    387:387:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    391:391:void startLoad() -> a
+    395:397:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    401:402:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    407:407:void cancelLoading() -> b
+    411:413:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$5 -> com.supers.clean.junk.activity.MyApplication$5:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    445:445:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    449:449:void startLoad() -> a
-    454:454:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    459:459:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    464:464:void cancelLoading() -> b
-    468:472:void finishLoading(long,java.util.ArrayList) -> a
+    419:419:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    423:423:void startLoad() -> a
+    428:428:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    433:433:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    438:438:void cancelLoading() -> b
+    442:446:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$6 -> com.supers.clean.junk.activity.MyApplication$6:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    479:479:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    482:493:void loadFinish(long,long,java.util.ArrayList,java.util.ArrayList) -> a
+    453:453:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    456:467:void loadFinish(long,long,java.util.ArrayList,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$7 -> com.supers.clean.junk.activity.MyApplication$7:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    499:499:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    503:503:void startLoad() -> a
-    507:509:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    514:514:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    519:519:void cancelLoading() -> b
-    523:526:void finishLoading(long,java.util.ArrayList) -> a
+    473:473:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    477:477:void startLoad() -> a
+    481:483:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    488:488:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    493:493:void cancelLoading() -> b
+    497:500:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$8 -> com.supers.clean.junk.activity.MyApplication$8:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    532:532:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    536:536:void startLoad() -> a
-    541:541:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    546:546:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    551:551:void cancelLoading() -> b
-    555:559:void finishLoading(long,java.util.ArrayList) -> a
-com.supers.clean.junk.activity.MyApplication$MyDaemonListener -> com.supers.clean.junk.activity.MyApplication$a:
-    com.supers.clean.junk.activity.MyApplication this$0 -> a
-    230:230:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    233:234:void onPersistentStart(android.content.Context) -> a
-    238:239:void onDaemonAssistantStart(android.content.Context) -> b
-    243:244:void onWatchDaemonDead() -> a
+    506:506:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    510:510:void startLoad() -> a
+    515:515:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    520:520:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    525:525:void cancelLoading() -> b
+    529:533:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.NotifactionService -> com.supers.clean.junk.activity.NotifactionService:
     android.os.Handler myHandler -> a
     android.app.NotificationManager mNotifyManager -> b
@@ -42415,27 +42408,27 @@ com.supers.clean.junk.activity.NotifactionService -> com.supers.clean.junk.activ
     android.graphics.RectF oval -> p
     int cpuTemp -> q
     java.lang.Runnable runnable -> r
-    28:157:void <init>() -> <init>
-    50:50:android.os.IBinder onBind(android.content.Intent) -> onBind
-    56:87:void onCreate() -> onCreate
-    90:106:void initIntent() -> a
-    113:116:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    125:127:void onstart() -> b
-    131:155:void changZhuTongzhi() -> c
-    165:229:void update() -> d
-    233:252:void tonghzi_1() -> e
-    256:275:void tonghzi_2() -> f
-    281:287:void onDestroy() -> onDestroy
-    28:28:int access$002(com.supers.clean.junk.activity.NotifactionService,int) -> a
-    28:28:void access$100(com.supers.clean.junk.activity.NotifactionService) -> a
+    27:156:void <init>() -> <init>
+    49:49:android.os.IBinder onBind(android.content.Intent) -> onBind
+    55:86:void onCreate() -> onCreate
+    89:105:void initIntent() -> a
+    112:115:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    124:126:void onstart() -> b
+    130:154:void changZhuTongzhi() -> c
+    164:228:void update() -> d
+    232:251:void tonghzi_1() -> e
+    255:274:void tonghzi_2() -> f
+    280:286:void onDestroy() -> onDestroy
+    27:27:int access$002(com.supers.clean.junk.activity.NotifactionService,int) -> a
+    27:27:void access$100(com.supers.clean.junk.activity.NotifactionService) -> a
 com.supers.clean.junk.activity.NotifactionService$1 -> com.supers.clean.junk.activity.NotifactionService$1:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    77:77:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    80:85:void callbackResult(com.supers.clean.junk.modle.CpuTempReader$ResultCpuTemperature) -> a
+    76:76:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    79:84:void callbackResult(com.supers.clean.junk.modle.CpuTempReader$ResultCpuTemperature) -> a
 com.supers.clean.junk.activity.NotifactionService$2 -> com.supers.clean.junk.activity.NotifactionService$2:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    157:157:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    159:161:void run() -> run
+    156:156:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    158:160:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity -> com.supers.clean.junk.activity.RamAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -43320,7 +43313,6 @@ com.supers.clean.junk.myView.ListViewForScrollView -> com.supers.clean.junk.myVi
     17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     22:24:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     31:34:void onMeasure(int,int) -> onMeasure
-    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.supers.clean.junk.myView.MainFrameLayout -> com.supers.clean.junk.myView.MainFrameLayout:
     13:14:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     18:18:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
