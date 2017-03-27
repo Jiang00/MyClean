@@ -41390,8 +41390,8 @@ com.supers.clean.junk.activity.CoolingActivity -> com.supers.clean.junk.activity
     192:196:void onResume() -> onResume
     199:209:void hideSnow() -> d
     213:215:void onPause() -> onPause
-    219:221:void onBackPressed() -> onBackPressed
-    225:229:void onDestroy() -> onDestroy
+    219:225:void onBackPressed() -> onBackPressed
+    229:233:void onDestroy() -> onDestroy
     32:32:com.supers.clean.junk.fakeView.FlakeView access$000(com.supers.clean.junk.activity.CoolingActivity) -> a
     32:32:android.view.animation.Animation access$100(com.supers.clean.junk.activity.CoolingActivity) -> b
     32:32:android.view.animation.Animation access$200(com.supers.clean.junk.activity.CoolingActivity) -> c
@@ -41812,7 +41812,7 @@ com.supers.clean.junk.activity.JunkAndRamActivity -> com.supers.clean.junk.activ
     549:555:void startCleanAnimation(android.view.View) -> startCleanAnimation
     666:668:void onResume() -> onResume
     672:676:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    680:681:void onBackPressed() -> onBackPressed
+    680:684:void onBackPressed() -> onBackPressed
     39:39:com.supers.clean.junk.presenter.JunkRamPresenter access$000(com.supers.clean.junk.activity.JunkAndRamActivity) -> a
     39:39:com.supers.clean.junk.View.adapter.JunkRamAdapter access$100(com.supers.clean.junk.activity.JunkAndRamActivity) -> b
     39:39:com.supers.clean.junk.View.adapter.JunkRamAdapter access$200(com.supers.clean.junk.activity.JunkAndRamActivity) -> c
@@ -42404,33 +42404,38 @@ com.supers.clean.junk.activity.NotifactionService -> com.supers.clean.junk.activ
     android.widget.RemoteViews remoteView_1 -> e
     android.app.Notification notification_1 -> f
     com.supers.clean.junk.activity.MyApplication cleanApplication -> g
-    android.graphics.Bitmap bitmap_progress -> h
-    android.graphics.Canvas canvas -> i
-    android.graphics.Paint paint_1 -> j
-    int pointX -> k
-    android.graphics.RectF oval -> l
-    int cpuTemp -> m
-    java.lang.Runnable runnable -> n
-    28:141:void <init>() -> <init>
-    49:49:android.os.IBinder onBind(android.content.Intent) -> onBind
-    55:85:void onCreate() -> onCreate
-    92:95:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    104:106:void onstart() -> a
-    110:139:void changZhuTongzhi() -> b
-    149:213:void update() -> c
-    217:236:void tonghzi_1() -> d
-    240:259:void tonghzi_2() -> e
-    265:271:void onDestroy() -> onDestroy
+    android.content.Intent notifyIntentRam -> h
+    android.content.Intent notifyIntentCooling -> i
+    android.content.Intent notifyIntentFlash -> j
+    android.content.Intent notifyIntentJunkRam -> k
+    android.graphics.Bitmap bitmap_progress -> l
+    android.graphics.Canvas canvas -> m
+    android.graphics.Paint paint_1 -> n
+    int pointX -> o
+    android.graphics.RectF oval -> p
+    int cpuTemp -> q
+    java.lang.Runnable runnable -> r
+    28:157:void <init>() -> <init>
+    50:50:android.os.IBinder onBind(android.content.Intent) -> onBind
+    56:87:void onCreate() -> onCreate
+    90:106:void initIntent() -> a
+    113:116:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    125:127:void onstart() -> b
+    131:155:void changZhuTongzhi() -> c
+    165:229:void update() -> d
+    233:252:void tonghzi_1() -> e
+    256:275:void tonghzi_2() -> f
+    281:287:void onDestroy() -> onDestroy
     28:28:int access$002(com.supers.clean.junk.activity.NotifactionService,int) -> a
     28:28:void access$100(com.supers.clean.junk.activity.NotifactionService) -> a
 com.supers.clean.junk.activity.NotifactionService$1 -> com.supers.clean.junk.activity.NotifactionService$1:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    75:75:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    78:83:void callbackResult(com.supers.clean.junk.modle.CpuTempReader$ResultCpuTemperature) -> a
+    77:77:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    80:85:void callbackResult(com.supers.clean.junk.modle.CpuTempReader$ResultCpuTemperature) -> a
 com.supers.clean.junk.activity.NotifactionService$2 -> com.supers.clean.junk.activity.NotifactionService$2:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    141:141:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    143:145:void run() -> run
+    157:157:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    159:161:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity -> com.supers.clean.junk.activity.RamAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b

@@ -34,6 +34,7 @@ public class NotifactionService extends Service {
     private Notification notification_1;
 
     private MyApplication cleanApplication;
+    private Intent notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam;
 
     private Bitmap bitmap_progress;
     private Canvas canvas;
@@ -56,6 +57,7 @@ public class NotifactionService extends Service {
         if (myHandler == null)
             myHandler = new Handler();
         cleanApplication = (MyApplication) getApplication();
+        initIntent();
         bitmap_progress = Bitmap.createBitmap(CommonUtil.dp2px(29), CommonUtil.dp2px(29), Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap_progress);
         paint_1 = new Paint();
@@ -82,6 +84,25 @@ public class NotifactionService extends Service {
                 }
             }
         });
+    }
+
+    private void initIntent() {
+        notifyIntentRam = new Intent(this, RamAvtivity.class);
+        notifyIntentRam.putExtra("from", "notifi");
+        notifyIntentRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notifyIntentCooling = new Intent(this, CoolingActivity.class);
+        notifyIntentCooling.putExtra("from", "notifi");
+        notifyIntentCooling.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notifyIntentFlash = new Intent(this, TranslateActivity.class);
+        notifyIntentFlash.putExtra("from", "notifi");
+        notifyIntentFlash.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notifyIntentJunkRam = new Intent(this, JunkAndRamActivity.class);
+        notifyIntentJunkRam.putExtra("from", "notifi");
+        notifyIntentJunkRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
     }
 
 
@@ -115,13 +136,8 @@ public class NotifactionService extends Service {
         remoteView_1.setTextViewText(R.id.norifi_memory_text, CommonUtil.getMemory(this) + "%");
         remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
         int requestCode = (int) SystemClock.uptimeMillis();
-        Intent notifyIntent1 = new Intent(this, RamAvtivity.class);
-        notifyIntent1.putExtra("from", "notifi");
-        notifyIntent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        notifyIntent1.setAction("notification");
         PendingIntent pendIntent1 = PendingIntent.getActivity(this, requestCode,
-                notifyIntent1, PendingIntent.FLAG_UPDATE_CURRENT);
+                notifyIntentRam, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_memory, pendIntent1);
         mBuilder.setContent(remoteView_1);
         mBuilder.setAutoCancel(false);

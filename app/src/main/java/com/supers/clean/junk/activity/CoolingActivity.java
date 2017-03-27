@@ -216,7 +216,11 @@ public class CoolingActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        setResult(2, new Intent().putExtra("wendu", time));
+        if ("notifi".equals(getIntent().getStringExtra("from"))) {
+            jumpTo(MainActivity.class);
+        } else {
+            setResult(2, new Intent().putExtra("wendu", time));
+        }
         finish();
     }
 

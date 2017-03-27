@@ -677,6 +677,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     @Override
     public void onBackPressed() {
+        if ("notifi".equals(getIntent().getStringExtra("from"))) {
+            jumpTo(MainActivity.class);
+        }
         finish();
     }
 }
