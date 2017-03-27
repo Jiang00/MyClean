@@ -130,9 +130,6 @@ public class BatteryView extends FrameLayout {
                     case MotionEvent.ACTION_DOWN:
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        break;
-                    case MotionEvent.ACTION_CANCEL:
-                    case MotionEvent.ACTION_UP:
                         if ((event.getX() - startX) > 20 || (startX - event.getX()) > 20) {
                             if ((event.getX() - startX) > halfWidth / 2) {
                                 if (listener != null) {
@@ -143,6 +140,9 @@ public class BatteryView extends FrameLayout {
                         } else {
                             break;
                         }
+                    case MotionEvent.ACTION_CANCEL:
+                    case MotionEvent.ACTION_UP:
+                        break;
                 }
                 return false;
             }
@@ -385,11 +385,9 @@ public class BatteryView extends FrameLayout {
             detector = new GestureDetector(mContext, new GestureDetector.SimpleOnGestureListener() {
                 @Override
                 public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                    if (velocityX > 1000) {
                         if (listener != null) {
                             batteryView.setAlpha(1.0f);
                             listener.onUnlock();
-                        }
                     }
                     return true;
                 }
