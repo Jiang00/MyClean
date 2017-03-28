@@ -283,8 +283,8 @@ public class BatteryService extends Service {
                     batteryView = (BatteryView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
                     batteryView.bind(entry);
                     batteryView.setUnlockListener(horUnlock);
-                    container.removeAllViews();
                 }
+                container.removeAllViews();
                 container.addView(batteryView,
                         container.makeLayoutParams(
                                 WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));

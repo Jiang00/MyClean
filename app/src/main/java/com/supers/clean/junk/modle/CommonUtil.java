@@ -172,12 +172,47 @@ public class CommonUtil {
         if (filesize <= 0) {
             return "0";
         }
-        if (filesize < 1024) {
+        if (filesize < 1000) {
             mstrbuf.append(filesize);
-        } else if (filesize < 1048576) {
-            mstrbuf.append(df2.format((double) filesize / 1024));
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(df2.format((double) filesize / 1048576));
+        } else if (filesize < 1000 * 1000) {
+            if (filesize < 1024 * 1024 * 100) {
+                mstrbuf.append(df1.format((double) filesize / 1024));
+            } else {
+                mstrbuf.append(df2.format((double) filesize / 1024));
+            }
+
+        } else if (filesize < 1000 * 1000 * 1000) {
+            if (filesize < 1024 * 1024 * 1024 * 100) {
+                mstrbuf.append(df1.format((double) filesize / 1048576));
+            } else {
+                mstrbuf.append(df2.format((double) filesize / 1048576));
+            }
+        } else {
+            mstrbuf.append(df.format((double) filesize / 1073741824));
+        }
+        return mstrbuf.toString();
+    }
+
+    public static String getFileSizeWifi(long filesize) {
+        StringBuffer mstrbuf = new StringBuffer();
+        if (filesize <= 0) {
+            return "0 B/s";
+        }
+        if (filesize < 1000) {
+            mstrbuf.append(filesize + " B/s");
+        } else if (filesize < 1000 * 1000) {
+            if (filesize < 1024 * 1024 * 100) {
+                mstrbuf.append(df1.format((double) filesize / 1024) + " KB/s");
+            } else {
+                mstrbuf.append(df2.format((double) filesize / 1024) + " KB/s");
+            }
+
+        } else if (filesize < 1000 * 1000 * 1000) {
+            if (filesize < 1024 * 1024 * 1024 * 100) {
+                mstrbuf.append(df1.format((double) filesize / 1048576) + " MB/s");
+            } else {
+                mstrbuf.append(df2.format((double) filesize / 1048576) + " MB/s");
+            }
         } else {
             mstrbuf.append(df.format((double) filesize / 1073741824));
         }

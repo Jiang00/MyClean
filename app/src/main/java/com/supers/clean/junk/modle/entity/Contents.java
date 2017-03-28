@@ -20,11 +20,23 @@ public class Contents {
 
     public static final String TONGZHILAN_SWITCH = "TONGZHILAN_SWITCH";//通知栏开关
 
-    public static final String KEY_TONGZHI_ZAO = "tongzhi_zao";//一天三次
+    public static final String KEY_TONGZHI_ZAO_RAM = "KEY_TONGZHI_ZAO_RAM";//一天三次
 
-    public static final String KEY_TONGZHI_ZHONG = "tongzhi_zhong";//一天三次
+    public static final String KEY_TONGZHI_ZHONG_RAM = "KEY_TONGZHI_ZHONG_RAM";//一天三次
 
-    public static final String KEY_TONGZHI_WAN = "tongzhi_wan";//一天三次
+    public static final String KEY_TONGZHI_WAN_RAM = "KEY_TONGZHI_WAN_RAM";//一天三次
+
+    public static final String KEY_TONGZHI_ZAO_COOLING = "KEY_TONGZHI_ZAO_COOLING";//一天三次
+
+    public static final String KEY_TONGZHI_ZHONG_COOLING = "KEY_TONGZHI_ZHONG_COOLING";//一天三次
+
+    public static final String KEY_TONGZHI_WAN_COOLING = "KEY_TONGZHI_WAN_COOLING";//一天三次
+
+    public static final String KEY_TONGZHI_ZAO_JUNK = "KEY_TONGZHI_ZAO_JUNK";//一天三次
+
+    public static final String KEY_TONGZHI_ZHONG_JUNK = "KEY_TONGZHI_ZHONG_JUNK";//一天三次
+
+    public static final String KEY_TONGZHI_WAN_JUNK = "KEY_TONGZHI_WAN_JUNK";//一天三次
 
     public static final String KEY_FILE_SAN = "tongzhi_file";//三天一次
 
