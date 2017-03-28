@@ -41047,7 +41047,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5108:12193:void <clinit>() -> <clinit>
+    5131:12216:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
@@ -42275,44 +42275,43 @@ com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.M
     android.os.Handler myHandler -> v
     java.lang.Runnable runnable -> w
     49:49:void <init>() -> <init>
-    72:72:boolean isSaomiaoSuccess() -> e
-    76:76:long getCacheSize() -> f
-    80:80:long getApkSize() -> g
-    84:84:long getUnloadSize() -> h
-    88:88:long getLogSize() -> i
-    92:92:long getDataSize() -> j
-    96:96:long getRamSize() -> k
-    104:104:java.util.ArrayList getListMng() -> l
-    108:108:java.util.ArrayList getAppRam() -> m
-    112:112:java.util.ArrayList getWhiteRam() -> n
-    116:116:java.util.ArrayList getAppJunk() -> o
-    120:120:java.util.ArrayList getAppCache() -> p
-    124:124:java.util.ArrayList getSystemCache() -> q
-    128:128:java.util.ArrayList getFilesOfUnintalledApk() -> r
-    132:132:java.util.ArrayList getApkFiles() -> s
-    136:158:void clearSystemCache() -> t
+    76:76:long getCacheSize() -> e
+    80:80:long getApkSize() -> f
+    84:84:long getUnloadSize() -> g
+    88:88:long getLogSize() -> h
+    92:92:long getDataSize() -> i
+    96:96:long getRamSize() -> j
+    104:104:java.util.ArrayList getListMng() -> k
+    108:108:java.util.ArrayList getAppRam() -> l
+    112:112:java.util.ArrayList getWhiteRam() -> m
+    116:116:java.util.ArrayList getAppJunk() -> n
+    120:120:java.util.ArrayList getAppCache() -> o
+    124:124:java.util.ArrayList getSystemCache() -> p
+    128:128:java.util.ArrayList getFilesOfUnintalledApk() -> q
+    132:132:java.util.ArrayList getApkFiles() -> r
+    136:158:void clearSystemCache() -> s
     161:165:void removeAppManager(com.supers.clean.junk.modle.entity.JunkInfo) -> a
     168:173:void removeRam(com.supers.clean.junk.modle.entity.JunkInfo) -> b
-    176:180:void clearRam() -> u
+    176:180:void clearRam() -> t
     183:188:void removeAppCache(com.supers.clean.junk.modle.entity.JunkInfo) -> c
     191:196:void removeAppJunk(com.supers.clean.junk.modle.entity.JunkInfo) -> d
     199:204:void removeFilesOfUnintalledApk(com.supers.clean.junk.modle.entity.JunkInfo) -> e
     207:212:void removeApkFiles(com.supers.clean.junk.modle.entity.JunkInfo) -> f
-    216:228:void attachBaseContext(android.content.Context) -> attachBaseContext
-    249:296:void onCreate() -> onCreate
-    299:299:java.lang.Runnable getScanIntervalRunnable() -> A
-    323:325:void onTerminate() -> onTerminate
-    328:344:void asyncInitData() -> B
-    347:355:void initLists() -> C
-    358:366:void resetLists() -> D
-    369:377:void resetSizes() -> E
-    380:410:void loadWhiteListAndAppManager() -> F
-    413:442:void loadAppRam() -> G
-    445:475:void loadAppCache() -> v
-    478:496:void loadApkFileAndAppJunk() -> w
-    499:529:void loadSystemCache() -> x
-    532:562:void loadFilesOfUninstallApk() -> y
-    565:569:void saoMiaoOver() -> z
+    216:219:void attachBaseContext(android.content.Context) -> attachBaseContext
+    223:270:void onCreate() -> onCreate
+    273:273:java.lang.Runnable getScanIntervalRunnable() -> z
+    297:299:void onTerminate() -> onTerminate
+    302:318:void asyncInitData() -> A
+    321:329:void initLists() -> B
+    332:340:void resetLists() -> C
+    343:351:void resetSizes() -> D
+    354:384:void loadWhiteListAndAppManager() -> E
+    387:416:void loadAppRam() -> F
+    419:449:void loadAppCache() -> u
+    452:470:void loadApkFileAndAppJunk() -> v
+    473:503:void loadSystemCache() -> w
+    506:536:void loadFilesOfUninstallApk() -> x
+    539:543:void saoMiaoOver() -> y
     49:49:java.util.List access$000(com.supers.clean.junk.activity.MyApplication) -> a
     49:49:void access$100(com.supers.clean.junk.activity.MyApplication) -> b
     49:49:boolean access$202(com.supers.clean.junk.activity.MyApplication,boolean) -> a
@@ -42344,98 +42343,114 @@ com.supers.clean.junk.activity.MyApplication$1 -> com.supers.clean.junk.activity
     146:147:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
 com.supers.clean.junk.activity.MyApplication$2 -> com.supers.clean.junk.activity.MyApplication$2:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    299:299:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    302:316:void run() -> run
+    273:273:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    276:290:void run() -> run
 com.supers.clean.junk.activity.MyApplication$3 -> com.supers.clean.junk.activity.MyApplication$3:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    380:380:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    384:384:void startLoad() -> a
-    389:389:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    394:394:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    399:399:void cancelLoading() -> b
-    403:407:void finishLoading(long,java.util.ArrayList) -> a
+    354:354:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    358:358:void startLoad() -> a
+    363:363:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    368:368:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    373:373:void cancelLoading() -> b
+    377:381:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$4 -> com.supers.clean.junk.activity.MyApplication$4:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    413:413:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    417:417:void startLoad() -> a
-    421:423:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    427:428:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    433:433:void cancelLoading() -> b
-    437:439:void finishLoading(long,java.util.ArrayList) -> a
+    387:387:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    391:391:void startLoad() -> a
+    395:397:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    401:402:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    407:407:void cancelLoading() -> b
+    411:413:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$5 -> com.supers.clean.junk.activity.MyApplication$5:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    445:445:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    449:449:void startLoad() -> a
-    454:454:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    459:459:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    464:464:void cancelLoading() -> b
-    468:472:void finishLoading(long,java.util.ArrayList) -> a
+    419:419:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    423:423:void startLoad() -> a
+    428:428:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    433:433:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    438:438:void cancelLoading() -> b
+    442:446:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$6 -> com.supers.clean.junk.activity.MyApplication$6:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    479:479:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    482:493:void loadFinish(long,long,java.util.ArrayList,java.util.ArrayList) -> a
+    453:453:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    456:467:void loadFinish(long,long,java.util.ArrayList,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$7 -> com.supers.clean.junk.activity.MyApplication$7:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    499:499:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    503:503:void startLoad() -> a
-    507:509:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    514:514:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    519:519:void cancelLoading() -> b
-    523:526:void finishLoading(long,java.util.ArrayList) -> a
+    473:473:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    477:477:void startLoad() -> a
+    481:483:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    488:488:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    493:493:void cancelLoading() -> b
+    497:500:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$8 -> com.supers.clean.junk.activity.MyApplication$8:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    532:532:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    536:536:void startLoad() -> a
-    541:541:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
-    546:546:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
-    551:551:void cancelLoading() -> b
-    555:559:void finishLoading(long,java.util.ArrayList) -> a
-com.supers.clean.junk.activity.MyApplication$MyDaemonListener -> com.supers.clean.junk.activity.MyApplication$a:
-    com.supers.clean.junk.activity.MyApplication this$0 -> a
-    230:230:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    233:234:void onPersistentStart(android.content.Context) -> a
-    238:239:void onDaemonAssistantStart(android.content.Context) -> b
-    243:244:void onWatchDaemonDead() -> a
+    506:506:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    510:510:void startLoad() -> a
+    515:515:void loading(com.supers.clean.junk.modle.entity.JunkInfo,long) -> a
+    520:520:void loadingW(com.supers.clean.junk.modle.entity.JunkInfo) -> a
+    525:525:void cancelLoading() -> b
+    529:533:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.NotifactionService -> com.supers.clean.junk.activity.NotifactionService:
     android.os.Handler myHandler -> a
-    android.app.NotificationManager mNotifyManager -> b
-    android.app.Notification notification_2 -> c
-    android.widget.RemoteViews remoteView_2 -> d
-    android.widget.RemoteViews remoteView_1 -> e
-    android.app.Notification notification_1 -> f
-    com.supers.clean.junk.activity.MyApplication cleanApplication -> g
-    android.content.Intent notifyIntentRam -> h
-    android.content.Intent notifyIntentCooling -> i
-    android.content.Intent notifyIntentFlash -> j
-    android.content.Intent notifyIntentJunkRam -> k
-    android.graphics.Bitmap bitmap_progress -> l
-    android.graphics.Canvas canvas -> m
-    android.graphics.Paint paint_1 -> n
-    int pointX -> o
-    android.graphics.RectF oval -> p
-    int cpuTemp -> q
-    java.lang.Runnable runnable -> r
-    28:157:void <init>() -> <init>
-    50:50:android.os.IBinder onBind(android.content.Intent) -> onBind
-    56:87:void onCreate() -> onCreate
-    90:106:void initIntent() -> a
-    113:116:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    125:127:void onstart() -> b
-    131:155:void changZhuTongzhi() -> c
-    165:229:void update() -> d
-    233:252:void tonghzi_1() -> e
-    256:275:void tonghzi_2() -> f
-    281:287:void onDestroy() -> onDestroy
-    28:28:int access$002(com.supers.clean.junk.activity.NotifactionService,int) -> a
-    28:28:void access$100(com.supers.clean.junk.activity.NotifactionService) -> a
+    com.supers.clean.junk.modle.PhoneManager phoneManager -> b
+    android.app.NotificationManager mNotifyManager -> c
+    android.app.Notification notification_ram -> d
+    android.app.Notification notification_cooling -> e
+    android.app.Notification notification_junk -> f
+    android.widget.RemoteViews remoteView_1 -> g
+    android.app.Notification notification_1 -> h
+    com.supers.clean.junk.activity.MyApplication cleanApplication -> i
+    android.content.Intent notifyIntentMain -> j
+    android.content.Intent notifyIntentRam -> k
+    android.content.Intent notifyIntentCooling -> l
+    android.content.Intent notifyIntentFlash -> m
+    android.content.Intent notifyIntentJunkRam -> n
+    android.graphics.Bitmap bitmap_progress -> o
+    android.graphics.Canvas canvas -> p
+    android.graphics.Paint paint_1 -> q
+    int pointX -> r
+    android.graphics.RectF oval -> s
+    int cpuTemp -> t
+    long lastTotalRxBytes -> u
+    long lastTimeStamp -> v
+    java.lang.Runnable runnable -> w
+    java.lang.Runnable runnableW -> x
+    30:176:void <init>() -> <init>
+    54:54:android.os.IBinder onBind(android.content.Intent) -> onBind
+    60:83:void onCreate() -> onCreate
+    86:105:void initIntent() -> a
+    112:115:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    124:128:void onstart() -> b
+    132:167:void changZhuTongzhi() -> c
+    202:203:long getTotalRxBytes() -> d
+    213:331:void update() -> e
+    335:350:void tonghzi_Ram() -> f
+    354:369:void tonghzi_cooling() -> g
+    373:388:void tonghzi_junk() -> h
+    394:401:void onDestroy() -> onDestroy
+    30:30:void access$000(com.supers.clean.junk.activity.NotifactionService) -> a
+    30:30:long access$100(com.supers.clean.junk.activity.NotifactionService) -> b
+    30:30:long access$200(com.supers.clean.junk.activity.NotifactionService) -> c
+    30:30:long access$300(com.supers.clean.junk.activity.NotifactionService) -> d
+    30:30:com.supers.clean.junk.modle.PhoneManager access$400(com.supers.clean.junk.activity.NotifactionService) -> e
+    30:30:android.widget.RemoteViews access$500(com.supers.clean.junk.activity.NotifactionService) -> f
+    30:30:android.app.Notification access$600(com.supers.clean.junk.activity.NotifactionService) -> g
+    30:30:android.app.NotificationManager access$700(com.supers.clean.junk.activity.NotifactionService) -> h
+    30:30:long access$302(com.supers.clean.junk.activity.NotifactionService,long) -> a
+    30:30:long access$202(com.supers.clean.junk.activity.NotifactionService,long) -> b
+    30:30:int access$802(com.supers.clean.junk.activity.NotifactionService,int) -> a
+    30:30:int access$800(com.supers.clean.junk.activity.NotifactionService) -> i
 com.supers.clean.junk.activity.NotifactionService$1 -> com.supers.clean.junk.activity.NotifactionService$1:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    77:77:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    80:85:void callbackResult(com.supers.clean.junk.modle.CpuTempReader$ResultCpuTemperature) -> a
+    169:169:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    171:173:void run() -> run
 com.supers.clean.junk.activity.NotifactionService$2 -> com.supers.clean.junk.activity.NotifactionService$2:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    157:157:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    159:161:void run() -> run
+    176:176:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    178:197:void run() -> run
+com.supers.clean.junk.activity.NotifactionService$3 -> com.supers.clean.junk.activity.NotifactionService$3:
+    com.supers.clean.junk.activity.NotifactionService this$0 -> a
+    213:213:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    216:223:void callbackResult(com.supers.clean.junk.modle.CpuTempReader$ResultCpuTemperature) -> a
 com.supers.clean.junk.activity.RamAvtivity -> com.supers.clean.junk.activity.RamAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -42815,24 +42830,24 @@ com.supers.clean.junk.modle.CommonUtil -> com.supers.clean.junk.modle.c:
     java.text.DecimalFormat df2 -> c
     36:39:java.lang.String getStrTime(long) -> a
     55:57:java.lang.String getStrTimeHH(long) -> b
-    61:63:java.lang.String getStrTimedd(long) -> c
-    67:80:int millTransFate(long) -> d
-    84:97:java.lang.String millTransFate2(long) -> e
-    112:129:java.lang.String getFileSize(long) -> f
-    133:150:java.lang.String getFileSize1(long) -> g
-    154:167:java.lang.String getFileSizeKongge(long) -> h
-    171:184:java.lang.String getFileSize2(long) -> i
-    205:222:java.lang.String getFileSize4(long) -> j
-    226:226:int dp2px(int) -> a
-    230:243:java.util.List getLauncherPkgs(android.content.Context) -> a
-    291:294:int getMemory(android.content.Context) -> b
-    298:317:void deleteFile(java.lang.String) -> a
-    339:351:java.lang.String getProcessName(android.content.Context) -> c
-    355:375:long getFileSize(java.io.File) -> a
-    379:398:android.graphics.drawable.Drawable getApkIcon(android.content.Context,java.lang.String) -> a
-    403:413:boolean isPkgInstalled(java.lang.String,android.content.pm.PackageManager) -> a
-    419:436:boolean checkDeviceHasNavigationBar(android.content.Context) -> d
-    440:460:android.view.View getNativeAdView(java.lang.String,int) -> a
+    67:80:int millTransFate(long) -> c
+    84:97:java.lang.String millTransFate2(long) -> d
+    112:129:java.lang.String getFileSize(long) -> e
+    133:150:java.lang.String getFileSize1(long) -> f
+    154:167:java.lang.String getFileSizeKongge(long) -> g
+    171:193:java.lang.String getFileSize2(long) -> h
+    197:219:java.lang.String getFileSizeWifi(long) -> i
+    240:257:java.lang.String getFileSize4(long) -> j
+    261:261:int dp2px(int) -> a
+    265:278:java.util.List getLauncherPkgs(android.content.Context) -> a
+    326:329:int getMemory(android.content.Context) -> b
+    333:352:void deleteFile(java.lang.String) -> a
+    374:386:java.lang.String getProcessName(android.content.Context) -> c
+    390:410:long getFileSize(java.io.File) -> a
+    414:433:android.graphics.drawable.Drawable getApkIcon(android.content.Context,java.lang.String) -> a
+    438:448:boolean isPkgInstalled(java.lang.String,android.content.pm.PackageManager) -> a
+    454:471:boolean checkDeviceHasNavigationBar(android.content.Context) -> d
+    475:495:android.view.View getNativeAdView(java.lang.String,int) -> a
     107:109:void <clinit>() -> <clinit>
 com.supers.clean.junk.modle.CopyDbManager -> com.supers.clean.junk.modle.d:
     17:47:void copyDB(android.content.Context,java.lang.String) -> a
@@ -42899,7 +42914,16 @@ com.supers.clean.junk.modle.OneLineReader -> com.supers.clean.junk.modle.i:
     15:39:java.lang.Double getValue(java.lang.String) -> a
     10:10:void <clinit>() -> <clinit>
 com.supers.clean.junk.modle.PhoneManager -> com.supers.clean.junk.modle.j:
-    382:391:boolean isRoot() -> a
+    android.content.Context context -> a
+    android.telephony.TelephonyManager telManager -> b
+    android.net.ConnectivityManager connManager -> c
+    android.net.wifi.WifiManager wifiManager -> d
+    com.supers.clean.junk.modle.PhoneManager systemManager -> e
+    45:51:void <init>(android.content.Context) -> <init>
+    54:57:com.supers.clean.junk.modle.PhoneManager getPhoneManage(android.content.Context) -> a
+    113:120:java.lang.String getPhoneNetworkType() -> a
+    125:128:boolean isOnline(android.net.NetworkInfo) -> a
+    382:391:boolean isRoot() -> b
 com.supers.clean.junk.modle.PreData -> com.supers.clean.junk.modle.k:
     int _putCount -> a
     android.content.SharedPreferences db -> b
@@ -42953,9 +42977,15 @@ com.supers.clean.junk.modle.entity.Contents -> com.supers.clean.junk.modle.entit
     java.lang.String FlOAT_SWITCH -> FlOAT_SWITCH
     java.lang.String TONGZHI_SWITCH -> TONGZHI_SWITCH
     java.lang.String TONGZHILAN_SWITCH -> TONGZHILAN_SWITCH
-    java.lang.String KEY_TONGZHI_ZAO -> KEY_TONGZHI_ZAO
-    java.lang.String KEY_TONGZHI_ZHONG -> KEY_TONGZHI_ZHONG
-    java.lang.String KEY_TONGZHI_WAN -> KEY_TONGZHI_WAN
+    java.lang.String KEY_TONGZHI_ZAO_RAM -> KEY_TONGZHI_ZAO_RAM
+    java.lang.String KEY_TONGZHI_ZHONG_RAM -> KEY_TONGZHI_ZHONG_RAM
+    java.lang.String KEY_TONGZHI_WAN_RAM -> KEY_TONGZHI_WAN_RAM
+    java.lang.String KEY_TONGZHI_ZAO_COOLING -> KEY_TONGZHI_ZAO_COOLING
+    java.lang.String KEY_TONGZHI_ZHONG_COOLING -> KEY_TONGZHI_ZHONG_COOLING
+    java.lang.String KEY_TONGZHI_WAN_COOLING -> KEY_TONGZHI_WAN_COOLING
+    java.lang.String KEY_TONGZHI_ZAO_JUNK -> KEY_TONGZHI_ZAO_JUNK
+    java.lang.String KEY_TONGZHI_ZHONG_JUNK -> KEY_TONGZHI_ZHONG_JUNK
+    java.lang.String KEY_TONGZHI_WAN_JUNK -> KEY_TONGZHI_WAN_JUNK
     java.lang.String KEY_FILE_SAN -> KEY_FILE_SAN
     java.lang.String KEY_SHORTCUT -> KEY_SHORTCUT
     java.lang.String ROOT_TRAK -> ROOT_TRAK

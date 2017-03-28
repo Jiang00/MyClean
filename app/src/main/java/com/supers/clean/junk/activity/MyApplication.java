@@ -214,34 +214,8 @@ public class MyApplication extends App {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
-            JobInfo jobInfo = new JobInfo.Builder(1, new ComponentName(getPackageName(), BatteryService.class.getName()))
-                    .setPeriodic(1000 * 5)
-                    .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
-                    .build();
-            jobScheduler.schedule(jobInfo);
-        } else {
-            DaemonClient mDaemonClient = new DaemonClient(base, new MyDaemonListener());
-            mDaemonClient.onAttachBaseContext(base);
-        }
-    }
-
-    class MyDaemonListener implements DaemonConfigurations.DaemonListener {
-        @Override
-        public void onPersistentStart(Context context) {
-            Log.e("rqy", "--onPersistentStart--");
-        }
-
-        @Override
-        public void onDaemonAssistantStart(Context context) {
-            Log.e("rqy", "--onDaemonAssistantStart--");
-        }
-
-        @Override
-        public void onWatchDaemonDead() {
-            Log.e("rqy", "--onWatchDaemonDaed--");
-        }
+        DaemonClient mDaemonClient = new DaemonClient(base, null);
+        mDaemonClient.onAttachBaseContext(base);
     }
 
     @Override
