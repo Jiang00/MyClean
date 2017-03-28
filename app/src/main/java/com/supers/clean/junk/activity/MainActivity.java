@@ -304,33 +304,37 @@ public class MainActivity extends BaseActivity implements MainView {
 
     public void tuiGuang() {
         super.tuiGuang();
-        if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
-            lot_main.setImageAssetsFolder(null, "images/applocks/");
-            lot_main.setAnimation(null, "applocks.json");
-            lot_main.loop(true);
-            lot_main.playAnimation();
-            main_msg_tuiguang.setText("EOS Applock");
-            lot_side.setImageAssetsFolder(null, "images/applocks/");
-            lot_side.setAnimation(null, "applocks.json");
-            lot_side.loop(true);
-            lot_side.playAnimation();
-        } else if (!CommonUtil.isPkgInstalled(tuiguang1, packageManager)) {
-            lot_main.setImageAssetsFolder(null, "images/flashs/");
-            lot_main.setAnimation(null, "flashs.json");
-            lot_main.loop(true);
-            lot_main.playAnimation();
-            main_msg_tuiguang.setText("EOS Flashlight");
-
-            lot_side.setImageAssetsFolder(null, "images/flashs/");
-            lot_side.setAnimation(null, "flashs.json");
-            lot_side.loop(true);
-            lot_side.playAnimation();
-
-        } else {
-            main_tuiguang_button.setVisibility(View.GONE);
-            fl_lot_side.setVisibility(View.GONE);
-            side_title.setVisibility(View.VISIBLE);
+        View view_side = CrossManager.getInstance().getCrossView(this, AndroidSdk.getExtraData(), "list1", "side");
+        if (view_side != null) {
+            fl_lot_side.addView(view_side);
         }
+//        if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
+//            lot_main.setImageAssetsFolder(null, "images/applocks/");
+//            lot_main.setAnimation(null, "applocks.json");
+//            lot_main.loop(true);
+//            lot_main.playAnimation();
+//            main_msg_tuiguang.setText("EOS Applock");
+//            lot_side.setImageAssetsFolder(null, "images/applocks/");
+//            lot_side.setAnimation(null, "applocks.json");
+//            lot_side.loop(true);
+//            lot_side.playAnimation();
+//        } else if (!CommonUtil.isPkgInstalled(tuiguang1, packageManager)) {
+//            lot_main.setImageAssetsFolder(null, "images/flashs/");
+//            lot_main.setAnimation(null, "flashs.json");
+//            lot_main.loop(true);
+//            lot_main.playAnimation();
+//            main_msg_tuiguang.setText("EOS Flashlight");
+//
+//            lot_side.setImageAssetsFolder(null, "images/flashs/");
+//            lot_side.setAnimation(null, "flashs.json");
+//            lot_side.loop(true);
+//            lot_side.playAnimation();
+//
+//        } else {
+//            main_tuiguang_button.setVisibility(View.GONE);
+//            fl_lot_side.setVisibility(View.GONE);
+//            side_title.setVisibility(View.VISIBLE);
+//        }
     }
 
     public static void showPermission(final Context c) {
@@ -795,17 +799,17 @@ public class MainActivity extends BaseActivity implements MainView {
 //                    } else {
 //
 //                    }
-                    CrossManager.getInstance().showCrossDialog(MainActivity.this, AndroidSdk.getExtraData(), "list2", "主页面", new CrossView.onCrossDialogClickListener() {
-                        @Override
-                        public void onCancel() {
-
-                        }
-
-                        @Override
-                        public void onInstall() {
-
-                        }
-                    });
+//                    CrossManager.getInstance().showCrossDialog(MainActivity.this, AndroidSdk.getExtraData(), "list2", "主页面", new CrossView.onCrossDialogClickListener() {
+//                        @Override
+//                        public void onCancel() {
+//
+//                        }
+//
+//                        @Override
+//                        public void onInstall() {
+//
+//                        }
+//                    });
 
                     AndroidSdk.track("主页面", "点击applock按钮", "", 1);
                     Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
