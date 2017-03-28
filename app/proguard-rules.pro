@@ -110,7 +110,7 @@
 -keep class com.supers.clean.junk.modle.entity.** { *; }
 -keep class com.ivy.kpa.nativ.** { *; }
 
-
+-keep class com.eos.ui.demo.entries.** { *;}
 
 
 

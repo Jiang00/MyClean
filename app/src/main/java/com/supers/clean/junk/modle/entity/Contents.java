@@ -38,13 +38,17 @@ public class Contents {
 
     public static final String KEY_TONGZHI_WAN_JUNK = "KEY_TONGZHI_WAN_JUNK";//一天三次
 
-    public static final String KEY_FILE_SAN = "tongzhi_file";//三天一次
-
     public static final String KEY_SHORTCUT = "KEY_SHORTCUT";//桌面快捷方式
 
     public static final String ROOT_TRAK = "ROOT_TRAK";
 
     public static final String KEY_LOADING_GAI = "KEY_LOADING_GAI";//loading页面广告概率
+
+    public static final String FIRST_APPLOCK = "FIRST_APPLOCK";//applock
+
+    public static final String KEY_APPLOCK = "KEY_APPLOCK";//applock
+
+
     /**
      * 广告控制
      */

@@ -3,6 +3,7 @@ package com.supers.clean.junk.activity;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -36,6 +37,8 @@ import com.eos.manager.AppLockPermissionActivity;
 import com.eos.manager.Tracker;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
+import com.eos.ui.demo.Cross.CrossManager;
+import com.eos.ui.demo.view.CrossView;
 import com.sample.lottie.LottieAnimationView;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.eos.theme.ThemeManager;
@@ -114,6 +117,7 @@ public class MainActivity extends BaseActivity implements MainView {
     private ViewPager viewpager;
     private PagerAdapter pagerAdapter;
     private View pageView;
+    private PackageManager packageManager;
 
     @Override
     protected void findId() {
@@ -161,7 +165,7 @@ public class MainActivity extends BaseActivity implements MainView {
         instance = this;
         setContentView(R.layout.activity_dra);
 
-
+        packageManager = getPackageManager();
         try {
             String pkg = getIntent().getExtras().getString("theme_package_name");
             ThemeManager.applyTheme(this, pkg, false);
@@ -300,7 +304,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
     public void tuiGuang() {
         super.tuiGuang();
-        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+        if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
             lot_main.setImageAssetsFolder(null, "images/applocks/");
             lot_main.setAnimation(null, "applocks.json");
             lot_main.loop(true);
@@ -310,7 +314,7 @@ public class MainActivity extends BaseActivity implements MainView {
             lot_side.setAnimation(null, "applocks.json");
             lot_side.loop(true);
             lot_side.playAnimation();
-        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+        } else if (!CommonUtil.isPkgInstalled(tuiguang1, packageManager)) {
             lot_main.setImageAssetsFolder(null, "images/flashs/");
             lot_main.setAnimation(null, "flashs.json");
             lot_main.loop(true);
@@ -782,6 +786,27 @@ public class MainActivity extends BaseActivity implements MainView {
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
+//                    if (PreData.getDB(MainActivity.this, Contents.FIRST_APPLOCK, true)) {
+//
+//                    }
+//                    String pkg = CrossManager.getInstance().getCrossData(MainActivity.this, AndroidSdk.getExtraData(), "list2", "").pkg;
+//                    if (CommonUtil.isPkgInstalled(pkg, packageManager)) {
+//                        CommonUtil.doStartApplicationWithPackageName(MainActivity.this, pkg);
+//                    } else {
+//
+//                    }
+                    CrossManager.getInstance().showCrossDialog(MainActivity.this, AndroidSdk.getExtraData(), "list2", "主页面", new CrossView.onCrossDialogClickListener() {
+                        @Override
+                        public void onCancel() {
+
+                        }
+
+                        @Override
+                        public void onInstall() {
+
+                        }
+                    });
+
                     AndroidSdk.track("主页面", "点击applock按钮", "", 1);
                     Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
                     intent.putExtra("is_main", true);
@@ -817,10 +842,10 @@ public class MainActivity extends BaseActivity implements MainView {
                     break;
                 case R.id.main_tuiguang_button:
                 case R.id.lot_side:
-                    if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                    if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
                         AndroidSdk.track("主页面", "推广applock点击", "", 1);
                         UtilGp.openPlayStore(MainActivity.this, tuiguang);
-                    } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
+                    } else if (!CommonUtil.isPkgInstalled(tuiguang1, packageManager)) {
                         AndroidSdk.track("主页面", "推广手电筒点击", "", 1);
                         UtilGp.openPlayStore(MainActivity.this, tuiguang1);
                     }
