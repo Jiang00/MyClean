@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.android.theme.internal.data.ThemeManager;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
@@ -35,7 +36,6 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.cpuutils.CpuTempReader;
 import com.eos.module.charge.saver.entry.BatteryEntry;
-import com.eos.theme.ThemeManager;
 import com.sample.lottie.LottieAnimationView;
 
 import org.json.JSONException;

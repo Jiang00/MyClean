@@ -68,7 +68,7 @@ public class NotifactionService extends Service {
         paint_1 = new Paint();
         paint_1.setAntiAlias(true);
         paint_1.setStrokeCap(Paint.Cap.ROUND);
-        paint_1.setStrokeWidth(CommonUtil.dp2px(2));
+        paint_1.setStrokeWidth(CommonUtil.dp2px(1));
         paint_1.setStyle(Paint.Style.STROKE);
         paint_1.setColor(getResources().getColor(R.color.white_40));
         oval = new RectF(0 + CommonUtil.dp2px(2), -pointX + CommonUtil.dp2px(2), pointX
@@ -356,7 +356,7 @@ public class NotifactionService extends Service {
                 R.layout.layout_tongzhi_cooling);
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
-                notifyIntentJunkRam, PendingIntent.FLAG_CANCEL_CURRENT);
+                notifyIntentCooling, PendingIntent.FLAG_CANCEL_CURRENT);
         mBuilder.setContent(remoteView);
         mBuilder.setContentIntent(pendIntent);
         mBuilder.setAutoCancel(true);

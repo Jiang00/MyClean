@@ -13,8 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.android.theme.internal.data.Theme;
 import com.eos.eshop.ShopMaster;
-import com.eos.eshop.internal.Theme;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.sample.lottie.LottieAnimationView;

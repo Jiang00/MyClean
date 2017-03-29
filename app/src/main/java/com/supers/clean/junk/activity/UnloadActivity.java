@@ -54,6 +54,10 @@ public class UnloadActivity extends BaseActivity {
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         boolean a = false;
         String packageName = getIntent().getStringExtra("packageName");
+        if (TextUtils.equals(getPackageName(), packageName)) {
+            finish();
+            return;
+        }
         AndroidSdk.track("卸载残余页面", "展示", "", 1);
         for (JunkInfo info : cleanApplication.getAppCache()) {
             if (info.packageName.equals(packageName)) {
@@ -89,6 +93,7 @@ public class UnloadActivity extends BaseActivity {
         }
         if (!a) {
             finish();
+            return;
         }
         addAd();
     }
@@ -103,7 +108,7 @@ public class UnloadActivity extends BaseActivity {
             }, 1000);
 
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad);
+            nativeView = CommonUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 if (nativeView.getHeight() == CommonUtil.dp2px(250)) {

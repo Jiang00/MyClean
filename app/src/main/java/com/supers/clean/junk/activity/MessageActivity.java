@@ -184,7 +184,7 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void addAd() {
-        View nativeView = CommonUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad);
+        View nativeView = CommonUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             if (nativeView.getHeight() == CommonUtil.dp2px(250)) {

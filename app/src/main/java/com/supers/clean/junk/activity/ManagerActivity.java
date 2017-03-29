@@ -111,7 +111,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
             tuiGuang();
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad);
+            nativeView = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 if (nativeView.getHeight() == CommonUtil.dp2px(250)) {

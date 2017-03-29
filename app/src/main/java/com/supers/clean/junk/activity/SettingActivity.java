@@ -111,7 +111,7 @@ public class SettingActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = CommonUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad);
+        nativeView = CommonUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             Log.e("aaa", "=====" + layout_ad.height);

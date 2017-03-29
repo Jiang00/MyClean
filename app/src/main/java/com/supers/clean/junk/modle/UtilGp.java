@@ -191,7 +191,7 @@ public class UtilGp {
     }
 
     public static void launchApp(Context context, String url, Intent i) {
-        i.setData(Uri.parse(url));
+        i.setData(Uri.parse(url + "&referrer=utm_source%3Dcross_eosclean"));
         try {
             if (context instanceof Activity) {
                 context.startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));

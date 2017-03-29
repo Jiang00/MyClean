@@ -29,8 +29,9 @@ import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.android.common.SdkEnv;
+import com.android.theme.internal.data.Theme;
+import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;
-import com.eos.eshop.internal.Theme;
 import com.eos.manager.AccessibilityService;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.AppLockPermissionActivity;
@@ -41,7 +42,6 @@ import com.eos.ui.demo.Cross.CrossManager;
 import com.eos.ui.demo.view.CrossView;
 import com.sample.lottie.LottieAnimationView;
 import com.eos.module.charge.saver.service.BatteryService;
-import com.eos.theme.ThemeManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
@@ -304,37 +304,37 @@ public class MainActivity extends BaseActivity implements MainView {
 
     public void tuiGuang() {
         super.tuiGuang();
-        View view_side = CrossManager.getInstance().getCrossView(this, AndroidSdk.getExtraData(), "list1", "side");
-        if (view_side != null) {
-            fl_lot_side.addView(view_side);
-        }
-//        if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
-//            lot_main.setImageAssetsFolder(null, "images/applocks/");
-//            lot_main.setAnimation(null, "applocks.json");
-//            lot_main.loop(true);
-//            lot_main.playAnimation();
-//            main_msg_tuiguang.setText("EOS Applock");
-//            lot_side.setImageAssetsFolder(null, "images/applocks/");
-//            lot_side.setAnimation(null, "applocks.json");
-//            lot_side.loop(true);
-//            lot_side.playAnimation();
-//        } else if (!CommonUtil.isPkgInstalled(tuiguang1, packageManager)) {
-//            lot_main.setImageAssetsFolder(null, "images/flashs/");
-//            lot_main.setAnimation(null, "flashs.json");
-//            lot_main.loop(true);
-//            lot_main.playAnimation();
-//            main_msg_tuiguang.setText("EOS Flashlight");
-//
-//            lot_side.setImageAssetsFolder(null, "images/flashs/");
-//            lot_side.setAnimation(null, "flashs.json");
-//            lot_side.loop(true);
-//            lot_side.playAnimation();
-//
-//        } else {
-//            main_tuiguang_button.setVisibility(View.GONE);
-//            fl_lot_side.setVisibility(View.GONE);
-//            side_title.setVisibility(View.VISIBLE);
+//        View view_side = CrossManager.getInstance().getCrossView(this, AndroidSdk.getExtraData(), "list1", "side");
+//        if (view_side != null) {
+//            fl_lot_side.addView(view_side);
 //        }
+        if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
+            lot_main.setImageAssetsFolder(null, "images/applocks/");
+            lot_main.setAnimation(null, "applocks.json");
+            lot_main.loop(true);
+            lot_main.playAnimation();
+            main_msg_tuiguang.setText("EOS Applock");
+            lot_side.setImageAssetsFolder(null, "images/applocks/");
+            lot_side.setAnimation(null, "applocks.json");
+            lot_side.loop(true);
+            lot_side.playAnimation();
+        } else if (!CommonUtil.isPkgInstalled(tuiguang1, packageManager)) {
+            lot_main.setImageAssetsFolder(null, "images/flashs/");
+            lot_main.setAnimation(null, "flashs.json");
+            lot_main.loop(true);
+            lot_main.playAnimation();
+            main_msg_tuiguang.setText("EOS Flashlight");
+
+            lot_side.setImageAssetsFolder(null, "images/flashs/");
+            lot_side.setAnimation(null, "flashs.json");
+            lot_side.loop(true);
+            lot_side.playAnimation();
+
+        } else {
+            main_tuiguang_button.setVisibility(View.GONE);
+            fl_lot_side.setVisibility(View.GONE);
+            side_title.setVisibility(View.VISIBLE);
+        }
     }
 
     public static void showPermission(final Context c) {
@@ -564,7 +564,7 @@ public class MainActivity extends BaseActivity implements MainView {
         if (PreData.getDB(this, Contents.FULL_MAIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_3);
+            View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 Log.e("aaa", "=====" + layout_ad.height);
@@ -581,7 +581,7 @@ public class MainActivity extends BaseActivity implements MainView {
             } else {
                 ll_ad.setVisibility(View.GONE);
             }
-            View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_3);
+            View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
             if (ll_ad_side != null && nativeView_side != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_side.getLayoutParams();
                 layout_ad.height = nativeView_side.getMeasuredHeight();

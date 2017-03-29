@@ -148,25 +148,6 @@
         <service android:name="com.eos.manager.AppLockEosService" />
 
 
-        <receiver android:name="com.eos.manager.AppLockWidgetReceiver">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SCREEN_ON" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SCREEN_ON" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/security_widget" />
-        </receiver>
         <receiver
             android:name="com.eos.manager.AppLockBootReceiver"
             android:exported="false">

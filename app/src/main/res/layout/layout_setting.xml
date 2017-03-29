@@ -22,6 +22,12 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
     <ScrollView
         android:id="@+id/setting_scroll"
         android:layout_width="match_parent"
@@ -291,19 +297,12 @@
                 android:layout_height="1dp"
                 android:background="#f1f1f1" />
 
-            <LinearLayout
-                android:id="@+id/ll_ad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp" />
 
             <FrameLayout
                 android:id="@+id/fl_lot_setting"
                 android:layout_width="wrap_content"
-                android:visibility="gone"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <com.sample.lottie.LottieAnimationView
                     android:id="@+id/lot_setting"

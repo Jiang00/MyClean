@@ -62,6 +62,12 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -78,7 +84,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
-                android:background="#e8e8e8"
+                android:background="#f1f1f1"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
                 android:text="@string/message_start"
@@ -140,7 +146,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
-                android:background="#e8e8e8"
+                android:background="#f1f1f1"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
                 android:text="@string/message_hard"
@@ -344,19 +350,11 @@
                     android:textColor="@color/black_87" />
             </RelativeLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_ad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp" />
-
             <FrameLayout
                 android:id="@+id/fl_lot_message"
                 android:layout_width="wrap_content"
-                android:visibility="gone"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <com.sample.lottie.LottieAnimationView
                     android:id="@+id/lot_message"

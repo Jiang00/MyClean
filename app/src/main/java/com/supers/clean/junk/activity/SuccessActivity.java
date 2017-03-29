@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -127,7 +128,12 @@ public class SuccessActivity extends BaseActivity {
             }, 4000);
 
         } else {
-            addAd();
+            myHandler.postDelayed(new Runnable() {
+                public void run() {
+                    addAd();
+                }
+            }, 1000);
+
         }
         addListener();
         TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
@@ -180,17 +186,11 @@ public class SuccessActivity extends BaseActivity {
     private void addAd() {
         nativeView = CommonUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
         if (ad_native_2 != null && nativeView != null) {
-            if (nativeView.getHeight() > 300) {
-                ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
-                layout_ad.height = scrollView.getMeasuredHeight();
-                ad_native_2.setLayoutParams(layout_ad);
-            } else {
-                ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
-                if (nativeView.getHeight() <= CommonUtil.dp2px(250)) {
-                    layout_ad.height = CommonUtil.dp2px(250);
-                }
-                ad_native_2.setLayoutParams(layout_ad);
-            }
+            ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
+            layout_ad.height = scrollView.getMeasuredHeight();
+            Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
+            ad_native_2.setLayoutParams(layout_ad);
+            ad_native_2.setLayoutParams(layout_ad);
             haveAd = true;
             ad_native_2.addView(nativeView);
             if (animationEnd) {
@@ -201,6 +201,7 @@ public class SuccessActivity extends BaseActivity {
         }
 
     }
+
 //    private void addAd() {
 //        AndroidSdk.loadNativeAd(TAG_CLEAN, R.layout.native_ad_full, new ClientNativeAd.NativeAdLoadListener() {
 //            @Override

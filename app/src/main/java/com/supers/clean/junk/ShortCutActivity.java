@@ -103,7 +103,7 @@ public class ShortCutActivity extends BaseActivity {
         if (PreData.getDB(this, Contents.FULL_SHORTCUT, 0) == 1) {
             tuiGuang();
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad);
+            nativeView = CommonUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 if (nativeView.getHeight() == CommonUtil.dp2px(250)) {

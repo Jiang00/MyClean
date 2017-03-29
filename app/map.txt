@@ -20293,6 +20293,60 @@ android.support.v7.appcompat.R$styleable -> android.support.v7.appcompat.R$style
     int View_theme -> View_theme
     1017:1017:void <init>() -> <init>
     1018:1367:void <clinit>() -> <clinit>
+android.support.v7.cardview.BuildConfig -> android.support.v7.cardview.BuildConfig:
+    boolean DEBUG -> DEBUG
+    java.lang.String APPLICATION_ID -> APPLICATION_ID
+    java.lang.String BUILD_TYPE -> BUILD_TYPE
+    java.lang.String FLAVOR -> FLAVOR
+    int VERSION_CODE -> VERSION_CODE
+    java.lang.String VERSION_NAME -> VERSION_NAME
+    6:6:void <init>() -> <init>
+android.support.v7.cardview.R -> android.support.v7.cardview.R:
+    9:9:void <init>() -> <init>
+android.support.v7.cardview.R$attr -> android.support.v7.cardview.R$attr:
+    int cardBackgroundColor -> cardBackgroundColor
+    int cardCornerRadius -> cardCornerRadius
+    int cardElevation -> cardElevation
+    int cardMaxElevation -> cardMaxElevation
+    int cardPreventCornerOverlap -> cardPreventCornerOverlap
+    int cardUseCompatPadding -> cardUseCompatPadding
+    int contentPadding -> contentPadding
+    int contentPaddingBottom -> contentPaddingBottom
+    int contentPaddingLeft -> contentPaddingLeft
+    int contentPaddingRight -> contentPaddingRight
+    int contentPaddingTop -> contentPaddingTop
+    10:10:void <init>() -> <init>
+android.support.v7.cardview.R$color -> android.support.v7.cardview.R$color:
+    int cardview_dark_background -> cardview_dark_background
+    int cardview_light_background -> cardview_light_background
+    int cardview_shadow_end_color -> cardview_shadow_end_color
+    int cardview_shadow_start_color -> cardview_shadow_start_color
+    23:23:void <init>() -> <init>
+android.support.v7.cardview.R$dimen -> android.support.v7.cardview.R$dimen:
+    int cardview_compat_inset_shadow -> cardview_compat_inset_shadow
+    int cardview_default_elevation -> cardview_default_elevation
+    int cardview_default_radius -> cardview_default_radius
+    29:29:void <init>() -> <init>
+android.support.v7.cardview.R$style -> android.support.v7.cardview.R$style:
+    int CardView -> CardView
+    int CardView_Dark -> CardView_Dark
+    int CardView_Light -> CardView_Light
+    34:34:void <init>() -> <init>
+android.support.v7.cardview.R$styleable -> android.support.v7.cardview.R$styleable:
+    int[] CardView -> CardView
+    int CardView_cardBackgroundColor -> CardView_cardBackgroundColor
+    int CardView_cardCornerRadius -> CardView_cardCornerRadius
+    int CardView_cardElevation -> CardView_cardElevation
+    int CardView_cardMaxElevation -> CardView_cardMaxElevation
+    int CardView_cardPreventCornerOverlap -> CardView_cardPreventCornerOverlap
+    int CardView_cardUseCompatPadding -> CardView_cardUseCompatPadding
+    int CardView_contentPadding -> CardView_contentPadding
+    int CardView_contentPaddingBottom -> CardView_contentPaddingBottom
+    int CardView_contentPaddingLeft -> CardView_contentPaddingLeft
+    int CardView_contentPaddingRight -> CardView_contentPaddingRight
+    int CardView_contentPaddingTop -> CardView_contentPaddingTop
+    39:39:void <init>() -> <init>
+    40:40:void <clinit>() -> <clinit>
 android.support.v7.content.res.AppCompatColorStateListInflater -> android.support.v7.content.res.AppCompatColorStateListInflater:
     int DEFAULT_COLOR -> DEFAULT_COLOR
     40:40:void <init>() -> <init>
@@ -23021,6 +23075,105 @@ android.support.v7.widget.ButtonBarLayout -> android.support.v7.widget.ButtonBar
     67:115:void onMeasure(int,int) -> onMeasure
     118:130:void setStacked(boolean) -> setStacked
     133:133:boolean isStacked() -> isStacked
+android.support.v7.widget.CardView -> android.support.v7.widget.CardView:
+    android.support.v7.widget.CardViewImpl IMPL -> IMPL
+    boolean mCompatPadding -> mCompatPadding
+    boolean mPreventCornerOverlap -> mPreventCornerOverlap
+    android.graphics.Rect mContentPadding -> mContentPadding
+    android.graphics.Rect mShadowBounds -> mShadowBounds
+    89:97:void <init>(android.content.Context) -> <init>
+    89:102:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    89:107:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    112:112:void setPadding(int,int,int,int) -> setPadding
+    116:116:void setPaddingRelative(int,int,int,int) -> setPaddingRelative
+    126:126:boolean getUseCompatPadding() -> getUseCompatPadding
+    146:151:void setUseCompatPadding(boolean) -> setUseCompatPadding
+    170:172:void setContentPadding(int,int,int,int) -> setContentPadding
+    176:200:void onMeasure(int,int) -> onMeasure
+    203:225:void initialize(android.content.Context,android.util.AttributeSet,int) -> initialize
+    234:235:void setCardBackgroundColor(int) -> setCardBackgroundColor
+    243:243:int getContentPaddingLeft() -> getContentPaddingLeft
+    252:252:int getContentPaddingRight() -> getContentPaddingRight
+    261:261:int getContentPaddingTop() -> getContentPaddingTop
+    270:270:int getContentPaddingBottom() -> getContentPaddingBottom
+    281:282:void setRadius(float) -> setRadius
+    291:291:float getRadius() -> getRadius
+    301:304:void setShadowPadding(int,int,int,int) -> setShadowPadding
+    315:316:void setCardElevation(float) -> setCardElevation
+    326:326:float getCardElevation() -> getCardElevation
+    341:342:void setMaxCardElevation(float) -> setMaxCardElevation
+    352:352:float getMaxCardElevation() -> getMaxCardElevation
+    364:364:boolean getPreventCornerOverlap() -> getPreventCornerOverlap
+    381:386:void setPreventCornerOverlap(boolean) -> setPreventCornerOverlap
+    75:83:void <clinit>() -> <clinit>
+android.support.v7.widget.CardViewApi21 -> android.support.v7.widget.CardViewApi21:
+    21:21:void <init>() -> <init>
+    26:32:void initialize(android.support.v7.widget.CardViewDelegate,android.content.Context,int,float,float,float) -> initialize
+    36:37:void setRadius(android.support.v7.widget.CardViewDelegate,float) -> setRadius
+    41:41:void initStatic() -> initStatic
+    45:48:void setMaxElevation(android.support.v7.widget.CardViewDelegate,float) -> setMaxElevation
+    52:52:float getMaxElevation(android.support.v7.widget.CardViewDelegate) -> getMaxElevation
+    57:57:float getMinWidth(android.support.v7.widget.CardViewDelegate) -> getMinWidth
+    62:62:float getMinHeight(android.support.v7.widget.CardViewDelegate) -> getMinHeight
+    67:67:float getRadius(android.support.v7.widget.CardViewDelegate) -> getRadius
+    72:73:void setElevation(android.support.v7.widget.CardViewDelegate,float) -> setElevation
+    77:77:float getElevation(android.support.v7.widget.CardViewDelegate) -> getElevation
+    82:93:void updatePadding(android.support.v7.widget.CardViewDelegate) -> updatePadding
+    97:98:void onCompatPaddingChanged(android.support.v7.widget.CardViewDelegate) -> onCompatPaddingChanged
+    102:103:void onPreventCornerOverlapChanged(android.support.v7.widget.CardViewDelegate) -> onPreventCornerOverlapChanged
+    107:108:void setBackgroundColor(android.support.v7.widget.CardViewDelegate,int) -> setBackgroundColor
+android.support.v7.widget.CardViewDelegate -> android.support.v7.widget.CardViewDelegate:
+    void setBackgroundDrawable(android.graphics.drawable.Drawable) -> setBackgroundDrawable
+    android.graphics.drawable.Drawable getBackground() -> getBackground
+    boolean getUseCompatPadding() -> getUseCompatPadding
+    boolean getPreventCornerOverlap() -> getPreventCornerOverlap
+    float getRadius() -> getRadius
+    void setShadowPadding(int,int,int,int) -> setShadowPadding
+android.support.v7.widget.CardViewEclairMr1 -> android.support.v7.widget.CardViewEclairMr1:
+    android.graphics.RectF sCornerRect -> sCornerRect
+    25:27:void <init>() -> <init>
+    34:72:void initStatic() -> initStatic
+    77:82:void initialize(android.support.v7.widget.CardViewDelegate,android.content.Context,int,float,float,float) -> initialize
+    86:86:android.support.v7.widget.RoundRectDrawableWithShadow createBackground(android.content.Context,int,float,float,float) -> createBackground
+    92:98:void updatePadding(android.support.v7.widget.CardViewDelegate) -> updatePadding
+    103:103:void onCompatPaddingChanged(android.support.v7.widget.CardViewDelegate) -> onCompatPaddingChanged
+    107:109:void onPreventCornerOverlapChanged(android.support.v7.widget.CardViewDelegate) -> onPreventCornerOverlapChanged
+    113:114:void setBackgroundColor(android.support.v7.widget.CardViewDelegate,int) -> setBackgroundColor
+    118:120:void setRadius(android.support.v7.widget.CardViewDelegate,float) -> setRadius
+    124:124:float getRadius(android.support.v7.widget.CardViewDelegate) -> getRadius
+    129:130:void setElevation(android.support.v7.widget.CardViewDelegate,float) -> setElevation
+    134:134:float getElevation(android.support.v7.widget.CardViewDelegate) -> getElevation
+    139:141:void setMaxElevation(android.support.v7.widget.CardViewDelegate,float) -> setMaxElevation
+    145:145:float getMaxElevation(android.support.v7.widget.CardViewDelegate) -> getMaxElevation
+    150:150:float getMinWidth(android.support.v7.widget.CardViewDelegate) -> getMinWidth
+    155:155:float getMinHeight(android.support.v7.widget.CardViewDelegate) -> getMinHeight
+    159:159:android.support.v7.widget.RoundRectDrawableWithShadow getShadowBackground(android.support.v7.widget.CardViewDelegate) -> getShadowBackground
+android.support.v7.widget.CardViewEclairMr1$1 -> android.support.v7.widget.CardViewEclairMr1$1:
+    android.support.v7.widget.CardViewEclairMr1 this$0 -> this$0
+    35:35:void <init>(android.support.v7.widget.CardViewEclairMr1) -> <init>
+    39:70:void drawRoundRect(android.graphics.Canvas,android.graphics.RectF,float,android.graphics.Paint) -> drawRoundRect
+android.support.v7.widget.CardViewImpl -> android.support.v7.widget.CardViewImpl:
+    void initialize(android.support.v7.widget.CardViewDelegate,android.content.Context,int,float,float,float) -> initialize
+    void setRadius(android.support.v7.widget.CardViewDelegate,float) -> setRadius
+    float getRadius(android.support.v7.widget.CardViewDelegate) -> getRadius
+    void setElevation(android.support.v7.widget.CardViewDelegate,float) -> setElevation
+    float getElevation(android.support.v7.widget.CardViewDelegate) -> getElevation
+    void initStatic() -> initStatic
+    void setMaxElevation(android.support.v7.widget.CardViewDelegate,float) -> setMaxElevation
+    float getMaxElevation(android.support.v7.widget.CardViewDelegate) -> getMaxElevation
+    float getMinWidth(android.support.v7.widget.CardViewDelegate) -> getMinWidth
+    float getMinHeight(android.support.v7.widget.CardViewDelegate) -> getMinHeight
+    void updatePadding(android.support.v7.widget.CardViewDelegate) -> updatePadding
+    void onCompatPaddingChanged(android.support.v7.widget.CardViewDelegate) -> onCompatPaddingChanged
+    void onPreventCornerOverlapChanged(android.support.v7.widget.CardViewDelegate) -> onPreventCornerOverlapChanged
+    void setBackgroundColor(android.support.v7.widget.CardViewDelegate,int) -> setBackgroundColor
+android.support.v7.widget.CardViewJellybeanMr1 -> android.support.v7.widget.CardViewJellybeanMr1:
+    22:22:void <init>() -> <init>
+    26:34:void initStatic() -> initStatic
+android.support.v7.widget.CardViewJellybeanMr1$1 -> android.support.v7.widget.CardViewJellybeanMr1$1:
+    android.support.v7.widget.CardViewJellybeanMr1 this$0 -> this$0
+    27:27:void <init>(android.support.v7.widget.CardViewJellybeanMr1) -> <init>
+    31:32:void drawRoundRect(android.graphics.Canvas,android.graphics.RectF,float,android.graphics.Paint) -> drawRoundRect
 android.support.v7.widget.ChildHelper -> android.support.v7.widget.ChildHelper:
     boolean DEBUG -> DEBUG
     java.lang.String TAG -> TAG
@@ -25212,6 +25365,75 @@ android.support.v7.widget.ResourcesWrapper -> android.support.v7.widget.Resource
     264:264:java.lang.String getResourceEntryName(int) -> getResourceEntryName
     270:271:void parseBundleExtras(android.content.res.XmlResourceParser,android.os.Bundle) -> parseBundleExtras
     276:277:void parseBundleExtra(java.lang.String,android.util.AttributeSet,android.os.Bundle) -> parseBundleExtra
+android.support.v7.widget.RoundRectDrawable -> android.support.v7.widget.RoundRectDrawable:
+    float mRadius -> mRadius
+    android.graphics.Paint mPaint -> mPaint
+    android.graphics.RectF mBoundsF -> mBoundsF
+    android.graphics.Rect mBoundsI -> mBoundsI
+    float mPadding -> mPadding
+    boolean mInsetForPadding -> mInsetForPadding
+    boolean mInsetForRadius -> mInsetForRadius
+    42:51:void <init>(int,float) -> <init>
+    54:63:void setPadding(float,boolean,boolean) -> setPadding
+    66:66:float getPadding() -> getPadding
+    71:72:void draw(android.graphics.Canvas) -> draw
+    75:87:void updateBounds(android.graphics.Rect) -> updateBounds
+    91:93:void onBoundsChange(android.graphics.Rect) -> onBoundsChange
+    97:98:void getOutline(android.graphics.Outline) -> getOutline
+    101:107:void setRadius(float) -> setRadius
+    112:112:void setAlpha(int) -> setAlpha
+    117:117:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
+    121:121:int getOpacity() -> getOpacity
+    125:125:float getRadius() -> getRadius
+    129:131:void setColor(int) -> setColor
+android.support.v7.widget.RoundRectDrawableWithShadow -> android.support.v7.widget.RoundRectDrawableWithShadow:
+    double COS_45 -> COS_45
+    float SHADOW_MULTIPLIER -> SHADOW_MULTIPLIER
+    int mInsetShadow -> mInsetShadow
+    android.support.v7.widget.RoundRectDrawableWithShadow$RoundRectHelper sRoundRectHelper -> sRoundRectHelper
+    android.graphics.Paint mPaint -> mPaint
+    android.graphics.Paint mCornerShadowPaint -> mCornerShadowPaint
+    android.graphics.Paint mEdgeShadowPaint -> mEdgeShadowPaint
+    android.graphics.RectF mCardBounds -> mCardBounds
+    float mCornerRadius -> mCornerRadius
+    android.graphics.Path mCornerShadowPath -> mCornerShadowPath
+    float mMaxShadowSize -> mMaxShadowSize
+    float mRawMaxShadowSize -> mRawMaxShadowSize
+    float mShadowSize -> mShadowSize
+    float mRawShadowSize -> mRawShadowSize
+    boolean mDirty -> mDirty
+    int mShadowStartColor -> mShadowStartColor
+    int mShadowEndColor -> mShadowEndColor
+    boolean mAddPaddingForCorners -> mAddPaddingForCorners
+    boolean mPrintedShadowClipWarning -> mPrintedShadowClipWarning
+    75:102:void <init>(android.content.res.Resources,int,float,float,float) -> <init>
+    108:112:int toEven(float) -> toEven
+    116:118:void setAddPaddingForCorners(boolean) -> setAddPaddingForCorners
+    122:125:void setAlpha(int) -> setAlpha
+    129:131:void onBoundsChange(android.graphics.Rect) -> onBoundsChange
+    134:154:void setShadowSize(float,float) -> setShadowSize
+    158:163:boolean getPadding(android.graphics.Rect) -> getPadding
+    168:171:float calculateVerticalPadding(float,float,boolean) -> calculateVerticalPadding
+    177:180:float calculateHorizontalPadding(float,float,boolean) -> calculateHorizontalPadding
+    186:189:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
+    193:193:int getOpacity() -> getOpacity
+    197:204:void setCornerRadius(float) -> setCornerRadius
+    208:216:void draw(android.graphics.Canvas) -> draw
+    219:264:void drawShadow(android.graphics.Canvas) -> drawShadow
+    267:298:void buildShadowCorners() -> buildShadowCorners
+    304:308:void buildComponents(android.graphics.Rect) -> buildComponents
+    311:311:float getCornerRadius() -> getCornerRadius
+    315:316:void getMaxShadowAndCornerPadding(android.graphics.Rect) -> getMaxShadowAndCornerPadding
+    319:320:void setShadowSize(float) -> setShadowSize
+    323:324:void setMaxShadowSize(float) -> setMaxShadowSize
+    327:327:float getShadowSize() -> getShadowSize
+    331:331:float getMaxShadowSize() -> getMaxShadowSize
+    335:337:float getMinWidth() -> getMinWidth
+    341:343:float getMinHeight() -> getMinHeight
+    347:349:void setColor(int) -> setColor
+    37:37:void <clinit>() -> <clinit>
+android.support.v7.widget.RoundRectDrawableWithShadow$RoundRectHelper -> android.support.v7.widget.RoundRectDrawableWithShadow$RoundRectHelper:
+    void drawRoundRect(android.graphics.Canvas,android.graphics.RectF,float,android.graphics.Paint) -> drawRoundRect
 android.support.v7.widget.RtlSpacingHelper -> android.support.v7.widget.RtlSpacingHelper:
     int UNDEFINED -> UNDEFINED
     int mLeft -> mLeft
@@ -27645,6 +27867,337 @@ com.android.network.Request -> com.android.network.Request:
     33:34:com.android.network.Request setUrl(java.lang.String) -> setUrl
     39:46:void run() -> run
     50:51:void onFailure(int,java.lang.String) -> onFailure
+com.android.theme.internal.UIController -> com.android.theme.internal.a:
+    void showLoading() -> a
+    void hideLoading() -> b
+    void onReceiveNone() -> c
+    void onReceiveOne(java.lang.Object) -> a
+    void onReceiveSome(java.util.List) -> a
+    void onReceiveMany(java.util.List) -> b
+    void onError(java.lang.Object) -> b
+    void nothing() -> d
+com.android.theme.internal.adapter.AutoLoadOnScrollListener -> com.android.theme.internal.a.a:
+    boolean loading -> a
+    android.support.v7.widget.LinearLayoutManager mLinearLayoutManager -> b
+    com.android.theme.internal.data.PageThemes themes -> c
+    android.support.v7.widget.RecyclerView recyclerView -> d
+    15:25:void <init>(android.support.v7.widget.RecyclerView,com.android.theme.internal.data.PageThemes) -> <init>
+    29:38:void onScrolled(android.support.v7.widget.RecyclerView,int,int) -> onScrolled
+    41:61:void onLoadMore() -> a
+    68:69:void setLoading(boolean) -> a
+    14:14:com.android.theme.internal.data.PageThemes access$000(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> a
+    14:14:android.support.v7.widget.RecyclerView access$100(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> b
+com.android.theme.internal.adapter.AutoLoadOnScrollListener$1 -> com.android.theme.internal.a.a$1:
+    com.android.theme.internal.adapter.AutoLoadOnScrollListener this$0 -> a
+    48:48:void <init>(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> <init>
+    51:53:void notifyDataSetChanged() -> a
+    57:58:void complete() -> b
+com.android.theme.internal.adapter.BitmapCache -> com.android.theme.internal.a.b:
+    java.util.HashMap pendingImageViews -> a
+    com.android.async.AsyncExecutor executor -> b
+    51:68:void setImageView(java.lang.String,java.lang.String,android.widget.ImageView,int,int,com.android.theme.internal.adapter.BitmapCache$LoadingListener) -> a
+    71:75:boolean isLoading(java.lang.String,android.widget.ImageView) -> a
+    80:80:android.graphics.Bitmap cached(java.lang.String) -> a
+    84:121:boolean loadFromDisk(java.lang.String,android.widget.ImageView,int,int,com.android.theme.internal.adapter.BitmapCache$LoadingListener) -> a
+    126:173:void loadFromNetwork(java.lang.String,android.widget.ImageView,int,int,com.android.theme.internal.adapter.BitmapCache$LoadingListener) -> b
+    176:177:void setImageView(android.widget.ImageView,java.lang.String) -> a
+    31:33:void <clinit>() -> <clinit>
+com.android.theme.internal.adapter.BitmapCache$1 -> com.android.theme.internal.a.b$1:
+    java.lang.String val$url -> a
+    int val$width -> b
+    int val$height -> c
+    com.android.theme.internal.adapter.BitmapCache$LoadingListener val$listener -> d
+    90:90:void <init>(java.lang.String,int,int,com.android.theme.internal.adapter.BitmapCache$LoadingListener) -> <init>
+    93:117:void run() -> run
+com.android.theme.internal.adapter.BitmapCache$1$1 -> com.android.theme.internal.a.b$1$1:
+    android.graphics.Bitmap val$bitmap -> a
+    com.android.theme.internal.adapter.BitmapCache$1 this$0 -> b
+    96:96:void <init>(com.android.theme.internal.adapter.BitmapCache$1,android.graphics.Bitmap) -> <init>
+    100:110:void run() -> run
+com.android.theme.internal.adapter.BitmapCache$2 -> com.android.theme.internal.a.b$2:
+    int val$width -> a
+    int val$height -> b
+    com.android.theme.internal.adapter.BitmapCache$LoadingListener val$listener -> c
+    131:131:void <init>(java.lang.String,int,int,com.android.theme.internal.adapter.BitmapCache$LoadingListener) -> <init>
+    134:157:void onSuccess(java.net.HttpURLConnection) -> onSuccess
+    161:171:void onFailure(int,java.lang.String) -> onFailure
+com.android.theme.internal.adapter.BitmapCache$2$1 -> com.android.theme.internal.a.b$2$1:
+    android.graphics.Bitmap val$bitmap -> a
+    com.android.theme.internal.adapter.BitmapCache$2 this$0 -> b
+    138:138:void <init>(com.android.theme.internal.adapter.BitmapCache$2,android.graphics.Bitmap) -> <init>
+    142:152:void run() -> run
+com.android.theme.internal.adapter.BitmapCache$2$2 -> com.android.theme.internal.a.b$2$2:
+    com.android.theme.internal.adapter.BitmapCache$2 this$0 -> a
+    162:162:void <init>(com.android.theme.internal.adapter.BitmapCache$2) -> <init>
+    165:166:void run() -> run
+com.android.theme.internal.adapter.BitmapCache$LoadingListener -> com.android.theme.internal.a.b$a:
+    void onStart() -> a
+    void onSuccess() -> b
+    void onFails() -> c
+com.android.theme.internal.adapter.BitmapReader -> com.android.theme.internal.a.c:
+    19:50:android.graphics.Bitmap readBitmap(java.lang.String,int,int,boolean) -> a
+com.android.theme.internal.adapter.LoadMoreAdapter -> com.android.theme.internal.a.d:
+    21:23:void <init>(android.content.Context,java.util.List,int) -> <init>
+    32:35:void onReceiveEvent(int,java.lang.Object[]) -> onReceiveEvent
+    void onReceiveMoreEvent(com.android.theme.internal.data.LoadMoreEvent) -> a
+com.android.theme.internal.data.Css -> com.android.theme.internal.data.a:
+    boolean largeHeight -> a
+    12:14:void <init>(org.json.JSONObject) -> <init>
+    16:18:void <init>() -> <init>
+com.android.theme.internal.data.EventHook -> com.android.theme.internal.data.b:
+    android.util.SparseArray eventHookers -> a
+    com.android.theme.internal.data.EventHook HOOK -> b
+    12:21:void <init>() -> <init>
+    26:27:void register(com.android.theme.internal.data.EventHook$Hooker,int[]) -> a
+    30:38:void register_(com.android.theme.internal.data.EventHook$Hooker,int[]) -> b
+    59:59:boolean hooked(int,java.lang.Object[]) -> a
+    63:73:boolean hooked_(int,java.lang.Object[]) -> b
+    23:23:void <clinit>() -> <clinit>
+com.android.theme.internal.data.EventHook$Hooker -> com.android.theme.internal.data.b$a:
+    boolean onHook(int,java.lang.Object[]) -> a
+com.android.theme.internal.data.GAEvent -> com.android.theme.internal.data.c:
+    17:18:void track(java.lang.String,java.lang.String,java.lang.String) -> a
+com.android.theme.internal.data.LoadMoreEvent -> com.android.theme.internal.data.d:
+    int LOAD_MORE -> a
+    boolean end -> b
+    java.util.ArrayList loaded -> c
+    int id -> f
+    int page -> d
+    com.android.theme.internal.data.PageThemes themes -> e
+    18:24:void <init>(int,boolean,int,java.util.ArrayList,com.android.theme.internal.data.PageThemes) -> <init>
+    27:27:boolean match(java.lang.String,java.lang.String) -> a
+    10:10:void <clinit>() -> <clinit>
+com.android.theme.internal.data.Local -> com.android.theme.internal.data.e:
+    25:29:java.lang.String load() -> a
+    33:33:boolean save(java.io.InputStream) -> a
+    37:112:void loadInstalled(android.content.Context,java.lang.String[],com.android.theme.internal.data.Theme[]) -> a
+    115:127:com.android.theme.internal.data.ThemeTag loadWallpaper(java.lang.String,java.lang.String) -> b
+    20:20:com.android.theme.internal.data.ThemeTag access$000(java.lang.String,java.lang.String) -> a
+com.android.theme.internal.data.Local$1 -> com.android.theme.internal.data.e$1:
+    android.content.Context val$context -> a
+    java.lang.String[] val$tags -> b
+    com.android.theme.internal.data.Theme[] val$localThemes -> c
+    37:37:void <init>(android.content.Context,java.lang.String[],com.android.theme.internal.data.Theme[]) -> <init>
+    40:110:void run() -> run
+com.android.theme.internal.data.PageThemes -> com.android.theme.internal.data.PageThemes:
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    java.lang.String shopTag -> c
+    java.lang.String containerTag -> d
+    int page -> e
+    boolean end -> f
+    int loadedCount -> a
+    java.util.ArrayList themes -> b
+    24:85:void <init>(android.os.Parcel) -> <init>
+    46:46:int describeContents() -> describeContents
+    51:56:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    60:70:void onReceiveEvent(int,java.lang.Object[]) -> onReceiveEvent
+    85:96:void <init>(java.lang.String,java.lang.String) -> <init>
+    105:116:java.util.ArrayList loadThemes(org.json.JSONArray) -> a
+    120:120:java.lang.String url(java.lang.String) -> a
+    124:124:boolean isEOF() -> a
+    128:184:void loadNextPage(com.android.theme.internal.data.PageThemes$Notifiable) -> a
+    23:23:boolean access$002(com.android.theme.internal.data.PageThemes,boolean) -> a
+    23:23:java.lang.String access$100(com.android.theme.internal.data.PageThemes) -> a
+    23:23:java.lang.String access$200(com.android.theme.internal.data.PageThemes) -> b
+    23:23:boolean access$000(com.android.theme.internal.data.PageThemes) -> c
+    23:23:int access$300(com.android.theme.internal.data.PageThemes) -> d
+    23:23:int access$304(com.android.theme.internal.data.PageThemes) -> e
+    32:32:void <clinit>() -> <clinit>
+com.android.theme.internal.data.PageThemes$1 -> com.android.theme.internal.data.PageThemes$1:
+    32:32:void <init>() -> <init>
+    35:35:com.android.theme.internal.data.PageThemes createFromParcel(android.os.Parcel) -> a
+    40:40:com.android.theme.internal.data.PageThemes[] newArray(int) -> a
+    32:32:java.lang.Object[] newArray(int) -> newArray
+    32:32:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+com.android.theme.internal.data.PageThemes$2 -> com.android.theme.internal.data.PageThemes$2:
+    com.android.theme.internal.data.PageThemes$Notifiable val$notifiable -> a
+    com.android.theme.internal.data.PageThemes this$0 -> b
+    142:142:void <init>(com.android.theme.internal.data.PageThemes,java.lang.String,com.android.theme.internal.data.PageThemes$Notifiable) -> <init>
+    145:173:void onSuccess(java.net.HttpURLConnection) -> onSuccess
+    177:182:void onFailure(int,java.lang.String) -> onFailure
+com.android.theme.internal.data.PageThemes$2$1 -> com.android.theme.internal.data.PageThemes$2$1:
+    java.util.ArrayList val$loaded -> a
+    com.android.theme.internal.data.PageThemes$2 this$1 -> b
+    162:162:void <init>(com.android.theme.internal.data.PageThemes$2,java.util.ArrayList) -> <init>
+    165:170:void run() -> run
+com.android.theme.internal.data.PageThemes$Notifiable -> com.android.theme.internal.data.PageThemes$a:
+    void notifyDataSetChanged() -> a
+    void complete() -> b
+com.android.theme.internal.data.Server -> com.android.theme.internal.data.f:
+    com.android.async.AsyncExecutor executor -> a
+    boolean requireReload -> b
+    com.android.theme.internal.data.Server SERVER -> c
+    java.lang.String url -> d
+    22:23:void execute(java.lang.Runnable) -> a
+    25:27:void <init>() -> <init>
+    30:31:void load() -> a
+    34:35:void setUrl(java.lang.String) -> a
+    38:91:void load_() -> d
+    94:94:boolean requireReload() -> b
+    98:98:java.lang.String baseUrl() -> c
+    102:102:java.lang.String baseUrl_() -> e
+    14:14:java.lang.String access$000(com.android.theme.internal.data.Server) -> a
+    14:14:boolean access$202(com.android.theme.internal.data.Server,boolean) -> a
+    18:18:void <clinit>() -> <clinit>
+com.android.theme.internal.data.Server$1 -> com.android.theme.internal.data.f$1:
+    com.android.theme.internal.data.Server this$0 -> a
+    38:38:void <init>(com.android.theme.internal.data.Server,java.lang.String) -> <init>
+    41:76:void onSuccess(java.net.HttpURLConnection) -> onSuccess
+    80:82:void onFailure(int,java.lang.String) -> onFailure
+    85:89:void onComplete(boolean) -> a
+    38:38:void access$100(com.android.theme.internal.data.Server$1,boolean) -> a
+com.android.theme.internal.data.Server$1$1 -> com.android.theme.internal.data.f$1$1:
+    com.android.theme.internal.data.Server$1 this$1 -> a
+    57:57:void <init>(com.android.theme.internal.data.Server$1,java.lang.String) -> <init>
+    60:62:void onSuccess(java.net.HttpURLConnection) -> onSuccess
+    66:68:void onFailure(int,java.lang.String) -> onFailure
+com.android.theme.internal.data.ShopLoadEvent -> com.android.theme.internal.data.g:
+    int EVENT_LOAD_COMPLETE -> a
+    java.util.ArrayList tags -> b
+    int errorCode -> c
+    boolean local -> d
+    14:34:void <init>(java.util.ArrayList) -> <init>
+    14:34:void <init>(java.lang.String) -> <init>
+    42:42:boolean success() -> a
+    12:12:void <clinit>() -> <clinit>
+com.android.theme.internal.data.ShopProperties -> com.android.theme.internal.data.h:
+    java.lang.String serverUrl -> a
+    java.lang.String actionPrefix -> b
+    java.lang.String appTag -> c
+    com.android.theme.internal.data.ShopProperties PROPERTIES -> d
+    19:29:void <init>() -> <init>
+    32:32:java.lang.String serverUrl() -> a
+    36:36:java.lang.String themeAction() -> b
+    40:40:java.lang.String appTag() -> c
+    17:17:void <clinit>() -> <clinit>
+com.android.theme.internal.data.Theme -> com.android.theme.internal.data.Theme:
+    java.lang.String icon -> a
+    java.lang.String download -> b
+    boolean isLocal -> c
+    int iconRes -> d
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    19:22:void <init>(org.json.JSONObject) -> <init>
+    24:29:void <init>(android.os.Parcel) -> <init>
+    47:50:void <init>(java.lang.String,java.lang.String) -> <init>
+    52:57:void <init>(int,java.lang.String) -> <init>
+    61:61:int describeContents() -> describeContents
+    66:70:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    74:74:int hashCode() -> hashCode
+    79:79:boolean equals(java.lang.Object) -> equals
+    83:83:java.lang.String pkgName() -> a
+    35:35:void <clinit>() -> <clinit>
+com.android.theme.internal.data.Theme$1 -> com.android.theme.internal.data.Theme$1:
+    35:35:void <init>() -> <init>
+    38:38:com.android.theme.internal.data.Theme createFromParcel(android.os.Parcel) -> a
+    43:43:com.android.theme.internal.data.Theme[] newArray(int) -> a
+    35:35:java.lang.Object[] newArray(int) -> newArray
+    35:35:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+com.android.theme.internal.data.ThemeChangedEvent -> com.android.theme.internal.data.i:
+    int EVENT_THEME_CHANGED -> a
+    com.android.theme.internal.data.ThemeInfo themeInfo -> b
+    12:14:void <init>(com.android.theme.internal.data.ThemeInfo) -> <init>
+    8:8:void <clinit>() -> <clinit>
+com.android.theme.internal.data.ThemeContainer -> com.android.theme.internal.data.ThemeContainer:
+    java.lang.String tag -> a
+    java.lang.String icon -> b
+    java.lang.String name -> c
+    java.lang.String detail -> d
+    com.android.theme.internal.data.PageThemes pageThemes -> e
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    20:22:void <init>() -> <init>
+    24:38:void <init>(java.lang.String,org.json.JSONObject) -> <init>
+    40:46:void <init>(android.os.Parcel) -> <init>
+    62:62:int describeContents() -> describeContents
+    67:72:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    48:48:void <clinit>() -> <clinit>
+com.android.theme.internal.data.ThemeContainer$1 -> com.android.theme.internal.data.ThemeContainer$1:
+    48:48:void <init>() -> <init>
+    51:51:com.android.theme.internal.data.ThemeContainer createFromParcel(android.os.Parcel) -> a
+    56:56:com.android.theme.internal.data.ThemeContainer[] newArray(int) -> a
+    48:48:java.lang.Object[] newArray(int) -> newArray
+    48:48:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+com.android.theme.internal.data.ThemeInfo -> com.android.theme.internal.data.j:
+    java.lang.String themePackageName -> b
+    android.content.Context themeContext -> c
+    java.lang.String name -> d
+    java.util.HashMap bitmapCache -> e
+    java.util.HashMap fonts -> f
+    java.util.Properties config -> g
+    boolean isLocal -> h
+    android.graphics.Typeface ROBOTO_REGULAR -> i
+    android.graphics.Typeface ROBOTO_LIGHT -> j
+    android.graphics.Typeface ROBOTO_THIN -> k
+    android.graphics.Typeface ROBOTO_MEDIUM -> l
+    android.graphics.Typeface ROBOTO_BLACK -> m
+    java.util.HashMap hasFontMap -> n
+    boolean $assertionsDisabled -> a
+    34:447:void <init>(android.content.Context,java.lang.String,boolean) -> <init>
+    119:126:void setField(java.lang.Object,java.lang.String,java.lang.Object) -> a
+    129:137:java.lang.reflect.Field getField(java.lang.Object,java.lang.String) -> a
+    142:160:void destroy() -> a
+    163:163:java.lang.String getPackageName() -> b
+    167:167:java.lang.String getName() -> c
+    30:30:java.lang.String access$002(com.android.theme.internal.data.ThemeInfo,java.lang.String) -> a
+    30:30:void access$100(com.android.theme.internal.data.ThemeInfo,java.lang.Object,java.lang.String,java.lang.Object) -> a
+    30:30:java.lang.String access$000(com.android.theme.internal.data.ThemeInfo) -> a
+    30:404:void <clinit>() -> <clinit>
+com.android.theme.internal.data.ThemeInfo$CW -> com.android.theme.internal.data.j$a:
+    android.content.res.AssetManager mAssetManager -> b
+    android.content.res.Resources mResources -> c
+    android.content.res.Resources$Theme mTheme -> d
+    com.android.theme.internal.data.ThemeInfo this$0 -> a
+    50:61:void <init>(com.android.theme.internal.data.ThemeInfo,android.content.Context,java.lang.String) -> <init>
+    65:65:android.content.res.AssetManager getAssets() -> getAssets
+    70:70:android.content.res.Resources getResources() -> getResources
+    75:75:android.content.res.Resources$Theme getTheme() -> getTheme
+    80:80:java.lang.String getPackageName() -> getPackageName
+com.android.theme.internal.data.ThemeManager -> com.android.theme.internal.data.k:
+    com.android.theme.internal.data.ThemeInfo currentThemeInfo -> a
+    java.lang.String tag -> b
+    21:30:void onCreate(android.content.Context,java.lang.String) -> a
+    34:54:boolean useTheme(android.content.Context,java.lang.String,boolean) -> a
+    59:63:com.android.theme.internal.data.ThemeInfo save(android.content.Context,java.lang.String,boolean) -> c
+    67:67:java.lang.String getCurrentThemeSelector(java.lang.String) -> a
+    71:73:boolean applyTheme(android.content.Context,java.lang.String,boolean) -> b
+    77:78:void sendThemeChangedEvent() -> a
+    81:81:com.android.theme.internal.data.ThemeInfo currentTheme() -> b
+com.android.theme.internal.data.ThemeSegment -> com.android.theme.internal.data.l:
+    com.android.theme.internal.data.Css css -> a
+    java.util.ArrayList themeContainers -> b
+    java.lang.String tag -> c
+    16:26:void <init>(java.lang.String) -> <init>
+    22:22:boolean isSpecial(java.lang.String) -> a
+    26:45:void <init>(java.lang.String,org.json.JSONObject) -> <init>
+com.android.theme.internal.data.ThemeSelector -> com.android.theme.internal.data.m:
+    java.util.HashMap selectedThemes -> a
+    java.util.HashMap themeTagMap -> b
+    com.android.theme.internal.data.ThemeSelector SELECTOR -> c
+    java.lang.String[] tags -> d
+    11:13:void <init>() -> <init>
+    18:19:void setTags(java.lang.String[]) -> a
+    22:24:boolean isSelected(com.android.theme.internal.data.Theme) -> a
+    28:29:void refresh() -> a
+    32:42:void refresh_() -> b
+    14:14:void <clinit>() -> <clinit>
+com.android.theme.internal.data.ThemeTag -> com.android.theme.internal.data.n:
+    java.util.ArrayList segments -> a
+    java.lang.String tag -> b
+    java.lang.String name -> c
+    13:19:void <init>() -> <init>
+    13:34:void <init>(org.json.JSONObject) -> <init>
+com.android.theme.internal.data.WallpaperManager -> com.android.theme.internal.data.o:
+    com.android.theme.internal.data.WallpaperManager MANAGER -> a
+    java.util.ArrayList localThemes -> b
+    java.util.HashMap map -> c
+    15:21:void <init>() -> <init>
+    24:37:void load_() -> b
+    40:45:void save_() -> c
+    48:49:void saveWallpaper(com.android.theme.internal.data.Theme) -> a
+    52:57:void saveWallpaper_(com.android.theme.internal.data.Theme) -> c
+    60:61:void removeWallpaper(com.android.theme.internal.data.Theme) -> b
+    64:71:void removeWallpaper_(com.android.theme.internal.data.Theme) -> d
+    74:74:java.util.ArrayList getThemes() -> a
+    14:14:void <clinit>() -> <clinit>
 com.android.themeshop.R -> com.android.a.a:
 com.android.themeshop.R$color -> com.android.a.a$a:
     int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
@@ -27928,7 +28481,6 @@ com.android.themeshop.R$id -> com.android.a.a$c:
     int shop_selected -> shop_selected
     int shop_tab -> shop_tab
     int shop_tab_line -> shop_tab_line
-    int shop_themes -> shop_themes
     int shop_title -> shop_title
     int shop_toolbar -> shop_toolbar
     int shop_view_pager -> shop_view_pager
@@ -28024,14 +28576,12 @@ com.android.themeshop.R$layout -> com.android.a.a$d:
     int shop_activity_toolbar -> shop_activity_toolbar
     int shop_activity_wallpaper -> shop_activity_wallpaper
     int shop_banner_list -> shop_banner_list
-    int shop_common_list -> shop_common_list
     int shop_designer -> shop_designer
     int shop_designer_header -> shop_designer_header
     int shop_designer_list -> shop_designer_list
     int shop_header_wrapper -> shop_header_wrapper
     int shop_load_more_footer -> shop_load_more_footer
     int shop_loading -> shop_loading
-    int shop_tag_view_normal -> shop_tag_view_normal
     int shop_theme_item -> shop_theme_item
     int shop_theme_tag -> shop_theme_tag
     int shop_theme_widget -> shop_theme_widget
@@ -28229,7 +28779,6 @@ com.bumptech.glide.Glide -> com.bumptech.glide.e:
     567:567:com.bumptech.glide.load.model.ModelLoader buildStreamModelLoader(java.lang.Class,android.content.Context) -> a
     588:588:com.bumptech.glide.load.model.ModelLoader buildFileDescriptorModelLoader(java.lang.Class,android.content.Context) -> b
     628:629:com.bumptech.glide.RequestManager with(android.content.Context) -> b
-    652:653:com.bumptech.glide.RequestManager with(android.support.v4.app.FragmentActivity) -> a
 com.bumptech.glide.GlideBuilder -> com.bumptech.glide.f:
     android.content.Context context -> a
     com.bumptech.glide.load.engine.Engine engine -> b
@@ -30740,122 +31289,63 @@ com.bumptech.glide.util.Util$1 -> com.bumptech.glide.h.h$1:
     int[] $SwitchMap$android$graphics$Bitmap$Config -> a
     104:104:void <clinit>() -> <clinit>
 com.eos.eshop.ShopMaster -> com.eos.eshop.a:
-    25:32:void launch(android.content.Context,com.eos.eshop.internal.Theme[]) -> a
-    41:48:void launch(android.content.Context,java.lang.String,com.eos.eshop.internal.Theme[]) -> a
+    25:32:void launch(android.content.Context,com.android.theme.internal.data.Theme[]) -> a
+    41:48:void launch(android.content.Context,java.lang.String,com.android.theme.internal.data.Theme[]) -> a
     51:53:void onCreate(android.content.Context) -> a
-com.eos.eshop.internal.AutoLoadOnScrollListener -> com.eos.eshop.internal.a:
-    boolean loading -> a
-    android.support.v7.widget.LinearLayoutManager mLinearLayoutManager -> b
-    com.eos.eshop.internal.PageThemes themes -> c
-    android.support.v7.widget.RecyclerView recyclerView -> d
-    13:23:void <init>(android.support.v7.widget.RecyclerView,com.eos.eshop.internal.PageThemes) -> <init>
-    27:36:void onScrolled(android.support.v7.widget.RecyclerView,int,int) -> onScrolled
-    39:59:void onLoadMore() -> a
-    66:67:void setLoading(boolean) -> a
-    12:12:com.eos.eshop.internal.PageThemes access$000(com.eos.eshop.internal.AutoLoadOnScrollListener) -> a
-    12:12:android.support.v7.widget.RecyclerView access$100(com.eos.eshop.internal.AutoLoadOnScrollListener) -> b
-com.eos.eshop.internal.AutoLoadOnScrollListener$1 -> com.eos.eshop.internal.a$1:
-    com.eos.eshop.internal.AutoLoadOnScrollListener this$0 -> a
-    46:46:void <init>(com.eos.eshop.internal.AutoLoadOnScrollListener) -> <init>
-    49:51:void notifyDataSetChanged() -> a
-    55:56:void complete() -> b
 com.eos.eshop.internal.BannerActivity -> com.eos.eshop.internal.BannerActivity:
-    com.eos.eshop.internal.ThemeContainer themeContainer -> a
+    com.android.theme.internal.data.ThemeContainer themeContainer -> a
     java.lang.String shopTag -> b
-    24:24:void <init>() -> <init>
-    31:35:void launch(android.content.Context,java.lang.String,com.eos.eshop.internal.ThemeContainer) -> a
-    39:45:void onCreate(android.os.Bundle) -> onCreate
-    48:76:void setupList() -> a
-    80:82:void onReceiveIntent(android.content.Intent) -> a
-    86:89:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    93:96:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
-    99:108:void setupToolbar() -> b
-    24:24:java.lang.String access$000(com.eos.eshop.internal.BannerActivity) -> a
-    24:24:com.eos.eshop.internal.ThemeContainer access$100(com.eos.eshop.internal.BannerActivity) -> b
+    30:30:void <init>() -> <init>
+    37:41:void launch(android.content.Context,java.lang.String,com.android.theme.internal.data.ThemeContainer) -> a
+    45:51:void onCreate(android.os.Bundle) -> onCreate
+    54:83:void setupList() -> a
+    87:89:void onReceiveIntent(android.content.Intent) -> a
+    93:96:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    100:103:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
+    106:115:void setupToolbar() -> b
+    30:30:java.lang.String access$000(com.eos.eshop.internal.BannerActivity) -> a
+    30:30:com.android.theme.internal.data.ThemeContainer access$100(com.eos.eshop.internal.BannerActivity) -> b
 com.eos.eshop.internal.BannerActivity$1 -> com.eos.eshop.internal.BannerActivity$1:
     com.eos.eshop.internal.BannerActivity this$0 -> a
-    51:51:void <init>(com.eos.eshop.internal.BannerActivity,android.content.Context,java.util.List,int) -> <init>
-    54:59:void onReceiveMoreEvent(com.eos.eshop.internal.LoadMoreEvent) -> a
-    63:70:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.eos.eshop.internal.Theme) -> a
-    51:51:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
+    57:57:void <init>(com.eos.eshop.internal.BannerActivity,android.content.Context,java.util.List,int) -> <init>
+    60:65:void onReceiveMoreEvent(com.android.theme.internal.data.LoadMoreEvent) -> a
+    69:77:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.android.theme.internal.data.Theme) -> a
+    57:57:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
 com.eos.eshop.internal.BannerActivity$1$1 -> com.eos.eshop.internal.BannerActivity$1$1:
-    com.eos.eshop.internal.Theme val$theme -> a
+    com.android.theme.internal.data.Theme val$theme -> a
     com.eos.eshop.internal.BannerActivity$1 this$1 -> b
-    64:64:void <init>(com.eos.eshop.internal.BannerActivity$1,com.eos.eshop.internal.Theme) -> <init>
-    67:68:void onClick(android.view.View) -> onClick
+    71:71:void <init>(com.eos.eshop.internal.BannerActivity$1,com.android.theme.internal.data.Theme) -> <init>
+    74:75:void onClick(android.view.View) -> onClick
 com.eos.eshop.internal.BannerActivity$2 -> com.eos.eshop.internal.BannerActivity$2:
     com.eos.eshop.internal.BannerActivity this$0 -> a
-    102:102:void <init>(com.eos.eshop.internal.BannerActivity) -> <init>
-    105:106:void onClick(android.view.View) -> onClick
-com.eos.eshop.internal.BannerView -> com.eos.eshop.internal.b:
-    24:99:android.view.View create(android.content.Context,java.lang.String,android.view.ViewGroup,com.eos.eshop.internal.ThemeSegment) -> a
-com.eos.eshop.internal.BannerView$1 -> com.eos.eshop.internal.b$1:
+    109:109:void <init>(com.eos.eshop.internal.BannerActivity) -> <init>
+    112:113:void onClick(android.view.View) -> onClick
+com.eos.eshop.internal.BannerView -> com.eos.eshop.internal.a:
+    25:100:android.view.View create(android.content.Context,java.lang.String,android.view.ViewGroup,com.android.theme.internal.data.ThemeSegment) -> a
+com.eos.eshop.internal.BannerView$1 -> com.eos.eshop.internal.a$1:
     com.android.view.PagerIndicator val$bannerIndicator -> a
-    37:37:void <init>(com.android.view.PagerIndicator) -> <init>
-    41:41:void onPageScrolled(int,float,int) -> onPageScrolled
-    45:46:void onPageSelected(int) -> onPageSelected
-    51:51:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
-com.eos.eshop.internal.BannerView$2 -> com.eos.eshop.internal.b$2:
+    38:38:void <init>(com.android.view.PagerIndicator) -> <init>
+    42:42:void onPageScrolled(int,float,int) -> onPageScrolled
+    46:47:void onPageSelected(int) -> onPageSelected
+    52:52:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+com.eos.eshop.internal.BannerView$2 -> com.eos.eshop.internal.a$2:
     android.widget.ImageView[] pages -> a
-    com.eos.eshop.internal.ThemeSegment val$segment -> b
+    com.android.theme.internal.data.ThemeSegment val$segment -> b
     java.lang.String val$shopTag -> c
-    56:57:void <init>(com.eos.eshop.internal.ThemeSegment,java.lang.String) -> <init>
-    61:61:int getCount() -> getCount
-    66:66:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-    71:91:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    97:97:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-com.eos.eshop.internal.BannerView$2$1 -> com.eos.eshop.internal.b$2$1:
-    com.eos.eshop.internal.ThemeContainer val$container1 -> a
+    57:58:void <init>(com.android.theme.internal.data.ThemeSegment,java.lang.String) -> <init>
+    62:62:int getCount() -> getCount
+    67:67:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    72:92:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    98:98:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+com.eos.eshop.internal.BannerView$2$1 -> com.eos.eshop.internal.a$2$1:
+    com.android.theme.internal.data.ThemeContainer val$container1 -> a
     com.eos.eshop.internal.BannerView$2 this$0 -> b
-    78:78:void <init>(com.eos.eshop.internal.BannerView$2,com.eos.eshop.internal.ThemeContainer) -> <init>
-    81:86:void onClick(android.view.View) -> onClick
+    79:79:void <init>(com.eos.eshop.internal.BannerView$2,com.android.theme.internal.data.ThemeContainer) -> <init>
+    82:87:void onClick(android.view.View) -> onClick
 com.eos.eshop.internal.BaseActivity -> com.eos.eshop.internal.BaseActivity:
     12:12:void <init>() -> <init>
     15:21:void onCreate(android.os.Bundle) -> onCreate
     25:25:void onReceiveIntent(android.content.Intent) -> a
-com.eos.eshop.internal.BitmapCache -> com.eos.eshop.internal.c:
-    java.util.HashMap pendingImageViews -> a
-    com.android.async.AsyncExecutor executor -> b
-    49:66:void setImageView(java.lang.String,java.lang.String,android.widget.ImageView,int,int,com.eos.eshop.internal.BitmapCache$LoadingListener) -> a
-    69:73:boolean isLoading(java.lang.String,android.widget.ImageView) -> a
-    78:78:android.graphics.Bitmap cached(java.lang.String) -> a
-    82:119:boolean loadFromDisk(java.lang.String,android.widget.ImageView,int,int,com.eos.eshop.internal.BitmapCache$LoadingListener) -> a
-    124:171:void loadFromNetwork(java.lang.String,android.widget.ImageView,int,int,com.eos.eshop.internal.BitmapCache$LoadingListener) -> b
-    29:31:void <clinit>() -> <clinit>
-com.eos.eshop.internal.BitmapCache$1 -> com.eos.eshop.internal.c$1:
-    java.lang.String val$url -> a
-    int val$width -> b
-    int val$height -> c
-    com.eos.eshop.internal.BitmapCache$LoadingListener val$listener -> d
-    88:88:void <init>(java.lang.String,int,int,com.eos.eshop.internal.BitmapCache$LoadingListener) -> <init>
-    91:115:void run() -> run
-com.eos.eshop.internal.BitmapCache$1$1 -> com.eos.eshop.internal.c$1$1:
-    android.graphics.Bitmap val$bitmap -> a
-    com.eos.eshop.internal.BitmapCache$1 this$0 -> b
-    94:94:void <init>(com.eos.eshop.internal.BitmapCache$1,android.graphics.Bitmap) -> <init>
-    98:108:void run() -> run
-com.eos.eshop.internal.BitmapCache$2 -> com.eos.eshop.internal.c$2:
-    int val$width -> a
-    int val$height -> b
-    com.eos.eshop.internal.BitmapCache$LoadingListener val$listener -> c
-    129:129:void <init>(java.lang.String,int,int,com.eos.eshop.internal.BitmapCache$LoadingListener) -> <init>
-    132:155:void onSuccess(java.net.HttpURLConnection) -> onSuccess
-    159:169:void onFailure(int,java.lang.String) -> onFailure
-com.eos.eshop.internal.BitmapCache$2$1 -> com.eos.eshop.internal.c$2$1:
-    android.graphics.Bitmap val$bitmap -> a
-    com.eos.eshop.internal.BitmapCache$2 this$0 -> b
-    136:136:void <init>(com.eos.eshop.internal.BitmapCache$2,android.graphics.Bitmap) -> <init>
-    140:150:void run() -> run
-com.eos.eshop.internal.BitmapCache$2$2 -> com.eos.eshop.internal.c$2$2:
-    com.eos.eshop.internal.BitmapCache$2 this$0 -> a
-    160:160:void <init>(com.eos.eshop.internal.BitmapCache$2) -> <init>
-    163:164:void run() -> run
-com.eos.eshop.internal.BitmapCache$LoadingListener -> com.eos.eshop.internal.c$a:
-    void onStart() -> a
-    void onSuccess() -> b
-    void onFails() -> c
-com.eos.eshop.internal.BitmapReader -> com.eos.eshop.internal.d:
-    19:50:android.graphics.Bitmap readBitmap(java.lang.String,int,int,boolean) -> a
 com.eos.eshop.internal.CircleImageView -> com.eos.eshop.internal.CircleImageView:
     android.graphics.Paint paint -> a
     int circle -> b
@@ -30867,164 +31357,49 @@ com.eos.eshop.internal.CircleImageView -> com.eos.eshop.internal.CircleImageView
     67:75:void setImageDrawable(android.graphics.drawable.Drawable) -> setImageDrawable
     79:81:void onLayout(boolean,int,int,int,int) -> onLayout
     85:88:void onDraw(android.graphics.Canvas) -> onDraw
-com.eos.eshop.internal.Css -> com.eos.eshop.internal.e:
-    boolean largeHeight -> a
-    12:14:void <init>(org.json.JSONObject) -> <init>
-    16:18:void <init>() -> <init>
 com.eos.eshop.internal.DesignerActivity -> com.eos.eshop.internal.DesignerActivity:
-    com.eos.eshop.internal.ThemeContainer themeContainer -> a
+    com.android.theme.internal.data.ThemeContainer themeContainer -> a
     java.lang.String shopTag -> b
-    24:24:void <init>() -> <init>
-    31:35:void launch(android.content.Context,java.lang.String,com.eos.eshop.internal.ThemeContainer) -> a
-    39:45:void onCreate(android.os.Bundle) -> onCreate
-    48:51:void setupDesigner(android.view.View) -> a
-    54:86:void setupList() -> a
-    90:92:void onReceiveIntent(android.content.Intent) -> a
-    96:99:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    103:106:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
-    109:124:void setupToolbar() -> b
-    24:24:java.lang.String access$000(com.eos.eshop.internal.DesignerActivity) -> a
-    24:24:com.eos.eshop.internal.ThemeContainer access$100(com.eos.eshop.internal.DesignerActivity) -> b
+    30:30:void <init>() -> <init>
+    37:41:void launch(android.content.Context,java.lang.String,com.android.theme.internal.data.ThemeContainer) -> a
+    45:51:void onCreate(android.os.Bundle) -> onCreate
+    54:58:void setupDesigner(android.view.View) -> a
+    61:94:void setupList() -> a
+    98:100:void onReceiveIntent(android.content.Intent) -> a
+    104:107:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    111:114:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
+    117:132:void setupToolbar() -> b
+    30:30:java.lang.String access$000(com.eos.eshop.internal.DesignerActivity) -> a
+    30:30:com.android.theme.internal.data.ThemeContainer access$100(com.eos.eshop.internal.DesignerActivity) -> b
 com.eos.eshop.internal.DesignerActivity$1 -> com.eos.eshop.internal.DesignerActivity$1:
     com.eos.eshop.internal.DesignerActivity this$0 -> a
-    59:59:void <init>(com.eos.eshop.internal.DesignerActivity,android.content.Context,java.util.List,int) -> <init>
-    62:67:void onReceiveMoreEvent(com.eos.eshop.internal.LoadMoreEvent) -> a
-    71:78:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.eos.eshop.internal.Theme) -> a
-    59:59:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
+    66:66:void <init>(com.eos.eshop.internal.DesignerActivity,android.content.Context,java.util.List,int) -> <init>
+    69:74:void onReceiveMoreEvent(com.android.theme.internal.data.LoadMoreEvent) -> a
+    78:86:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.android.theme.internal.data.Theme) -> a
+    66:66:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
 com.eos.eshop.internal.DesignerActivity$1$1 -> com.eos.eshop.internal.DesignerActivity$1$1:
-    com.eos.eshop.internal.Theme val$item -> a
+    com.android.theme.internal.data.Theme val$item -> a
     com.eos.eshop.internal.DesignerActivity$1 this$1 -> b
-    72:72:void <init>(com.eos.eshop.internal.DesignerActivity$1,com.eos.eshop.internal.Theme) -> <init>
-    75:76:void onClick(android.view.View) -> onClick
+    80:80:void <init>(com.eos.eshop.internal.DesignerActivity$1,com.android.theme.internal.data.Theme) -> <init>
+    83:84:void onClick(android.view.View) -> onClick
 com.eos.eshop.internal.DesignerActivity$2 -> com.eos.eshop.internal.DesignerActivity$2:
     com.eos.eshop.internal.DesignerActivity this$0 -> a
-    118:118:void <init>(com.eos.eshop.internal.DesignerActivity) -> <init>
-    121:122:void onClick(android.view.View) -> onClick
-com.eos.eshop.internal.DesignerView -> com.eos.eshop.internal.f:
-    21:36:android.view.View create(android.content.Context,java.lang.String,android.view.ViewGroup,com.eos.eshop.internal.ThemeSegment) -> a
-com.eos.eshop.internal.DesignerView$1 -> com.eos.eshop.internal.f$1:
+    126:126:void <init>(com.eos.eshop.internal.DesignerActivity) -> <init>
+    129:130:void onClick(android.view.View) -> onClick
+com.eos.eshop.internal.DesignerView -> com.eos.eshop.internal.b:
+    21:37:android.view.View create(android.content.Context,java.lang.String,android.view.ViewGroup,com.android.theme.internal.data.ThemeSegment) -> a
+com.eos.eshop.internal.DesignerView$1 -> com.eos.eshop.internal.b$1:
     java.lang.String val$shopTag -> a
-    com.eos.eshop.internal.ThemeContainer val$themeContainer -> b
-    29:29:void <init>(java.lang.String,com.eos.eshop.internal.ThemeContainer) -> <init>
-    32:33:void onClick(android.view.View) -> onClick
-com.eos.eshop.internal.EventHook -> com.eos.eshop.internal.g:
-    android.util.SparseArray eventHookers -> a
-    com.eos.eshop.internal.EventHook HOOK -> b
-    12:21:void <init>() -> <init>
-    26:27:void register(com.eos.eshop.internal.EventHook$Hooker,int[]) -> a
-    30:38:void register_(com.eos.eshop.internal.EventHook$Hooker,int[]) -> b
-    59:59:boolean hooked(int,java.lang.Object[]) -> a
-    63:73:boolean hooked_(int,java.lang.Object[]) -> b
-    23:23:void <clinit>() -> <clinit>
-com.eos.eshop.internal.EventHook$Hooker -> com.eos.eshop.internal.g$a:
-    boolean onHook(int,java.lang.Object[]) -> a
-com.eos.eshop.internal.GAEvent -> com.eos.eshop.internal.h:
-    17:18:void track(java.lang.String,java.lang.String,java.lang.String) -> a
-com.eos.eshop.internal.LoadMoreAdapter -> com.eos.eshop.internal.i:
-    20:22:void <init>(android.content.Context,java.util.List,int) -> <init>
-    31:34:void onReceiveEvent(int,java.lang.Object[]) -> onReceiveEvent
-    void onReceiveMoreEvent(com.eos.eshop.internal.LoadMoreEvent) -> a
-com.eos.eshop.internal.LoadMoreEvent -> com.eos.eshop.internal.j:
-    int LOAD_MORE -> a
-    boolean end -> b
-    java.util.ArrayList loaded -> c
-    int id -> f
-    int page -> d
-    com.eos.eshop.internal.PageThemes themes -> e
-    18:24:void <init>(int,boolean,int,java.util.ArrayList,com.eos.eshop.internal.PageThemes) -> <init>
-    27:27:boolean match(java.lang.String,java.lang.String) -> a
-    10:10:void <clinit>() -> <clinit>
-com.eos.eshop.internal.Local -> com.eos.eshop.internal.k:
-    25:29:java.lang.String load() -> a
-    33:33:boolean save(java.io.InputStream) -> a
-    37:112:void loadInstalled(android.content.Context,java.lang.String[],com.eos.eshop.internal.Theme[]) -> a
-    115:127:com.eos.eshop.internal.ThemeTag loadWallpaper(java.lang.String,java.lang.String) -> b
-    20:20:com.eos.eshop.internal.ThemeTag access$000(java.lang.String,java.lang.String) -> a
-com.eos.eshop.internal.Local$1 -> com.eos.eshop.internal.k$1:
-    android.content.Context val$context -> a
-    java.lang.String[] val$tags -> b
-    com.eos.eshop.internal.Theme[] val$localThemes -> c
-    37:37:void <init>(android.content.Context,java.lang.String[],com.eos.eshop.internal.Theme[]) -> <init>
-    40:110:void run() -> run
+    com.android.theme.internal.data.ThemeContainer val$themeContainer -> b
+    30:30:void <init>(java.lang.String,com.android.theme.internal.data.ThemeContainer) -> <init>
+    33:34:void onClick(android.view.View) -> onClick
 com.eos.eshop.internal.LocalShopActivity -> com.eos.eshop.internal.LocalShopActivity:
     boolean requireResume -> e
-    3:3:void <init>() -> <init>
-    8:17:void onPostResume() -> onPostResume
-    21:23:void onStop() -> onStop
-    27:30:void setupPresenter() -> a
-    34:37:void onBackPressed() -> onBackPressed
-com.eos.eshop.internal.PageThemes -> com.eos.eshop.internal.PageThemes:
-    android.os.Parcelable$Creator CREATOR -> CREATOR
-    java.lang.String shopTag -> c
-    java.lang.String containerTag -> d
-    int page -> e
-    boolean end -> f
-    int loadedCount -> a
-    java.util.ArrayList themes -> b
-    24:85:void <init>(android.os.Parcel) -> <init>
-    46:46:int describeContents() -> describeContents
-    51:56:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    60:70:void onReceiveEvent(int,java.lang.Object[]) -> onReceiveEvent
-    85:96:void <init>(java.lang.String,java.lang.String) -> <init>
-    105:116:java.util.ArrayList loadThemes(org.json.JSONArray) -> a
-    120:120:java.lang.String url(java.lang.String) -> a
-    124:124:boolean isEOF() -> a
-    128:184:void loadNextPage(com.eos.eshop.internal.PageThemes$Notifiable) -> a
-    23:23:boolean access$002(com.eos.eshop.internal.PageThemes,boolean) -> a
-    23:23:java.lang.String access$100(com.eos.eshop.internal.PageThemes) -> a
-    23:23:java.lang.String access$200(com.eos.eshop.internal.PageThemes) -> b
-    23:23:boolean access$000(com.eos.eshop.internal.PageThemes) -> c
-    23:23:int access$300(com.eos.eshop.internal.PageThemes) -> d
-    23:23:int access$304(com.eos.eshop.internal.PageThemes) -> e
-    32:32:void <clinit>() -> <clinit>
-com.eos.eshop.internal.PageThemes$1 -> com.eos.eshop.internal.PageThemes$1:
-    32:32:void <init>() -> <init>
-    35:35:com.eos.eshop.internal.PageThemes createFromParcel(android.os.Parcel) -> a
-    40:40:com.eos.eshop.internal.PageThemes[] newArray(int) -> a
-    32:32:java.lang.Object[] newArray(int) -> newArray
-    32:32:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.eos.eshop.internal.PageThemes$2 -> com.eos.eshop.internal.PageThemes$2:
-    com.eos.eshop.internal.PageThemes$Notifiable val$notifiable -> a
-    com.eos.eshop.internal.PageThemes this$0 -> b
-    142:142:void <init>(com.eos.eshop.internal.PageThemes,java.lang.String,com.eos.eshop.internal.PageThemes$Notifiable) -> <init>
-    145:173:void onSuccess(java.net.HttpURLConnection) -> onSuccess
-    177:182:void onFailure(int,java.lang.String) -> onFailure
-com.eos.eshop.internal.PageThemes$2$1 -> com.eos.eshop.internal.PageThemes$2$1:
-    java.util.ArrayList val$loaded -> a
-    com.eos.eshop.internal.PageThemes$2 this$1 -> b
-    162:162:void <init>(com.eos.eshop.internal.PageThemes$2,java.util.ArrayList) -> <init>
-    165:170:void run() -> run
-com.eos.eshop.internal.PageThemes$Notifiable -> com.eos.eshop.internal.PageThemes$a:
-    void notifyDataSetChanged() -> a
-    void complete() -> b
-com.eos.eshop.internal.Server -> com.eos.eshop.internal.l:
-    com.android.async.AsyncExecutor executor -> a
-    boolean requireReload -> b
-    com.eos.eshop.internal.Server SERVER -> c
-    java.lang.String url -> d
-    22:23:void execute(java.lang.Runnable) -> a
-    25:27:void <init>() -> <init>
-    30:31:void load() -> a
-    34:35:void setUrl(java.lang.String) -> a
-    38:91:void load_() -> d
-    94:94:boolean requireReload() -> b
-    98:98:java.lang.String baseUrl() -> c
-    102:102:java.lang.String baseUrl_() -> e
-    14:14:java.lang.String access$000(com.eos.eshop.internal.Server) -> a
-    14:14:boolean access$202(com.eos.eshop.internal.Server,boolean) -> a
-    18:18:void <clinit>() -> <clinit>
-com.eos.eshop.internal.Server$1 -> com.eos.eshop.internal.l$1:
-    com.eos.eshop.internal.Server this$0 -> a
-    38:38:void <init>(com.eos.eshop.internal.Server,java.lang.String) -> <init>
-    41:76:void onSuccess(java.net.HttpURLConnection) -> onSuccess
-    80:82:void onFailure(int,java.lang.String) -> onFailure
-    85:89:void onComplete(boolean) -> a
-    38:38:void access$100(com.eos.eshop.internal.Server$1,boolean) -> a
-com.eos.eshop.internal.Server$1$1 -> com.eos.eshop.internal.l$1$1:
-    com.eos.eshop.internal.Server$1 this$1 -> a
-    57:57:void <init>(com.eos.eshop.internal.Server$1,java.lang.String) -> <init>
-    60:62:void onSuccess(java.net.HttpURLConnection) -> onSuccess
-    66:68:void onFailure(int,java.lang.String) -> onFailure
+    5:5:void <init>() -> <init>
+    10:19:void onPostResume() -> onPostResume
+    23:25:void onStop() -> onStop
+    29:32:void setupPresenter() -> a
+    36:39:void onBackPressed() -> onBackPressed
 com.eos.eshop.internal.ShopActivity -> com.eos.eshop.internal.ShopActivity:
     android.support.v4.view.ViewPager viewPager -> e
     android.widget.TextView title -> f
@@ -31032,260 +31407,149 @@ com.eos.eshop.internal.ShopActivity -> com.eos.eshop.internal.ShopActivity:
     boolean local -> h
     java.lang.String mainTag -> i
     java.lang.String currentTag -> j
-    com.eos.eshop.internal.Theme[] localThemes -> a
+    com.android.theme.internal.data.Theme[] localThemes -> a
     java.lang.String[] tags -> b
     java.util.List themeTags -> k
     android.widget.ImageView loadFails -> l
     com.eos.eshop.internal.ShopPresenter presenter -> c
-    com.eos.eshop.internal.UIController controller -> d
-    27:48:void <init>() -> <init>
-    222:227:void onCreate(android.os.Bundle) -> onCreate
-    230:233:void setupPresenter() -> a
-    236:257:void setupToolbar() -> c
-    260:272:void setupNavigationIcon() -> d
-    275:289:void startLocal() -> b
-    292:305:void onReceiveIntent(android.content.Intent) -> a
-    309:315:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    319:331:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
-    335:337:void onDestroy() -> onDestroy
-    340:346:void refreshThemeSelector(java.lang.String[]) -> a
-    27:27:android.widget.ImageView access$000(com.eos.eshop.internal.ShopActivity) -> a
-    27:27:android.support.design.widget.TabLayout access$100(com.eos.eshop.internal.ShopActivity) -> b
-    27:27:android.widget.TextView access$200(com.eos.eshop.internal.ShopActivity) -> c
-    27:27:java.util.List access$300(com.eos.eshop.internal.ShopActivity) -> d
-    27:27:java.util.List access$302(com.eos.eshop.internal.ShopActivity,java.util.List) -> a
-    27:27:boolean access$400(com.eos.eshop.internal.ShopActivity) -> e
-    27:27:java.lang.String access$500(com.eos.eshop.internal.ShopActivity) -> f
-    27:27:android.support.v4.view.ViewPager access$600(com.eos.eshop.internal.ShopActivity) -> g
-    27:27:java.lang.String access$700(com.eos.eshop.internal.ShopActivity) -> h
+    com.android.theme.internal.UIController controller -> d
+    32:53:void <init>() -> <init>
+    227:232:void onCreate(android.os.Bundle) -> onCreate
+    235:238:void setupPresenter() -> a
+    241:262:void setupToolbar() -> c
+    265:277:void setupNavigationIcon() -> d
+    280:294:void startLocal() -> b
+    297:310:void onReceiveIntent(android.content.Intent) -> a
+    314:320:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    324:336:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
+    340:342:void onDestroy() -> onDestroy
+    345:351:void refreshThemeSelector(java.lang.String[]) -> a
+    32:32:android.widget.ImageView access$000(com.eos.eshop.internal.ShopActivity) -> a
+    32:32:android.support.design.widget.TabLayout access$100(com.eos.eshop.internal.ShopActivity) -> b
+    32:32:android.widget.TextView access$200(com.eos.eshop.internal.ShopActivity) -> c
+    32:32:java.util.List access$300(com.eos.eshop.internal.ShopActivity) -> d
+    32:32:java.util.List access$302(com.eos.eshop.internal.ShopActivity,java.util.List) -> a
+    32:32:boolean access$400(com.eos.eshop.internal.ShopActivity) -> e
+    32:32:java.lang.String access$500(com.eos.eshop.internal.ShopActivity) -> f
+    32:32:android.support.v4.view.ViewPager access$600(com.eos.eshop.internal.ShopActivity) -> g
 com.eos.eshop.internal.ShopActivity$1 -> com.eos.eshop.internal.ShopActivity$1:
     com.sample.lottie.LottieAnimationView loading -> a
     com.eos.eshop.internal.ShopActivity this$0 -> b
-    48:48:void <init>(com.eos.eshop.internal.ShopActivity) -> <init>
-    53:64:void showLoading() -> a
-    68:73:void hideLoading() -> b
-    77:81:void onReceiveNone() -> c
-    85:91:void onReceiveOne(com.eos.eshop.internal.ThemeTag) -> a
-    95:97:void onReceiveSome(java.util.List) -> a
-    101:103:void onReceiveMany(java.util.List) -> b
-    106:195:void setup(java.util.List) -> c
-    204:207:void onError(java.lang.Object) -> a
-    217:217:void nothing() -> d
-    48:48:void onReceiveOne(java.lang.Object) -> b
+    53:53:void <init>(com.eos.eshop.internal.ShopActivity) -> <init>
+    58:69:void showLoading() -> a
+    73:78:void hideLoading() -> b
+    82:86:void onReceiveNone() -> c
+    90:96:void onReceiveOne(com.android.theme.internal.data.ThemeTag) -> a
+    100:102:void onReceiveSome(java.util.List) -> a
+    106:108:void onReceiveMany(java.util.List) -> b
+    111:200:void setup(java.util.List) -> c
+    209:212:void onError(java.lang.Object) -> b
+    222:222:void nothing() -> d
+    53:53:void onReceiveOne(java.lang.Object) -> a
 com.eos.eshop.internal.ShopActivity$1$1 -> com.eos.eshop.internal.ShopActivity$1$1:
     com.eos.eshop.internal.ShopActivity$1 this$1 -> a
-    132:132:void <init>(com.eos.eshop.internal.ShopActivity$1) -> <init>
-    136:136:void onPageScrolled(int,float,int) -> onPageScrolled
-    140:141:void onPageSelected(int) -> onPageSelected
-    146:146:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    137:137:void <init>(com.eos.eshop.internal.ShopActivity$1) -> <init>
+    141:141:void onPageScrolled(int,float,int) -> onPageScrolled
+    145:146:void onPageSelected(int) -> onPageSelected
+    151:151:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.eos.eshop.internal.ShopActivity$1$2 -> com.eos.eshop.internal.ShopActivity$1$2:
     android.view.View[] pages -> a
     java.util.List val$data -> b
     com.eos.eshop.internal.ShopActivity$1 this$1 -> c
-    148:149:void <init>(com.eos.eshop.internal.ShopActivity$1,java.util.List) -> <init>
-    153:153:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    158:158:int getCount() -> getCount
-    163:163:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-    168:174:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    181:181:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    153:154:void <init>(com.eos.eshop.internal.ShopActivity$1,java.util.List) -> <init>
+    158:158:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    163:163:int getCount() -> getCount
+    168:168:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    173:179:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    186:186:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
 com.eos.eshop.internal.ShopActivity$2 -> com.eos.eshop.internal.ShopActivity$2:
     com.eos.eshop.internal.ShopActivity this$0 -> a
-    244:244:void <init>(com.eos.eshop.internal.ShopActivity) -> <init>
-    247:252:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
+    249:249:void <init>(com.eos.eshop.internal.ShopActivity) -> <init>
+    252:257:boolean onMenuItemClick(android.view.MenuItem) -> onMenuItemClick
 com.eos.eshop.internal.ShopActivity$3 -> com.eos.eshop.internal.ShopActivity$3:
     com.eos.eshop.internal.ShopActivity this$0 -> a
-    265:265:void <init>(com.eos.eshop.internal.ShopActivity) -> <init>
-    268:269:void onClick(android.view.View) -> onClick
-com.eos.eshop.internal.ShopImageView -> com.eos.eshop.internal.ShopImageView:
-    17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    21:22:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-com.eos.eshop.internal.ShopLoadEvent -> com.eos.eshop.internal.m:
-    int EVENT_LOAD_COMPLETE -> a
-    java.util.ArrayList tags -> b
-    int errorCode -> c
-    boolean local -> d
-    14:34:void <init>(java.util.ArrayList) -> <init>
-    14:34:void <init>(java.lang.String) -> <init>
-    42:42:boolean success() -> a
-    12:12:void <clinit>() -> <clinit>
-com.eos.eshop.internal.ShopPresenter -> com.eos.eshop.internal.n:
-    com.eos.eshop.internal.UIController controller -> a
+    270:270:void <init>(com.eos.eshop.internal.ShopActivity) -> <init>
+    273:274:void onClick(android.view.View) -> onClick
+com.eos.eshop.internal.ShopPresenter -> com.eos.eshop.internal.c:
+    com.android.theme.internal.UIController controller -> a
     boolean local -> b
-    18:21:void <init>(com.eos.eshop.internal.UIController) -> <init>
-    24:25:void start() -> a
-    28:30:void stop() -> b
-    33:35:void loading() -> c
-    38:41:void loadLocal(android.content.Context,java.lang.String[],com.eos.eshop.internal.Theme[]) -> a
-    45:66:void onReceiveEvent(int,java.lang.Object[]) -> onReceiveEvent
-com.eos.eshop.internal.ShopProperties -> com.eos.eshop.internal.o:
-    java.lang.String serverUrl -> a
-    java.lang.String actionPrefix -> b
-    java.lang.String appTag -> c
-    com.eos.eshop.internal.ShopProperties PROPERTIES -> d
-    19:29:void <init>() -> <init>
-    32:32:java.lang.String serverUrl() -> a
-    36:36:java.lang.String themeAction() -> b
-    40:40:java.lang.String appTag() -> c
-    17:17:void <clinit>() -> <clinit>
-com.eos.eshop.internal.Theme -> com.eos.eshop.internal.Theme:
-    java.lang.String icon -> a
-    java.lang.String download -> b
-    boolean isLocal -> c
-    int iconRes -> d
-    android.os.Parcelable$Creator CREATOR -> CREATOR
-    19:22:void <init>(org.json.JSONObject) -> <init>
-    24:29:void <init>(android.os.Parcel) -> <init>
-    47:50:void <init>(java.lang.String,java.lang.String) -> <init>
-    52:57:void <init>(int,java.lang.String) -> <init>
-    61:61:int describeContents() -> describeContents
-    66:70:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    74:74:int hashCode() -> hashCode
-    79:79:boolean equals(java.lang.Object) -> equals
-    83:83:java.lang.String pkgName() -> a
-    35:35:void <clinit>() -> <clinit>
-com.eos.eshop.internal.Theme$1 -> com.eos.eshop.internal.Theme$1:
-    35:35:void <init>() -> <init>
-    38:38:com.eos.eshop.internal.Theme createFromParcel(android.os.Parcel) -> a
-    43:43:com.eos.eshop.internal.Theme[] newArray(int) -> a
-    35:35:java.lang.Object[] newArray(int) -> newArray
-    35:35:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.eos.eshop.internal.ThemeContainer -> com.eos.eshop.internal.ThemeContainer:
-    java.lang.String tag -> a
-    java.lang.String icon -> b
-    java.lang.String name -> c
-    java.lang.String detail -> d
-    com.eos.eshop.internal.PageThemes pageThemes -> e
-    android.os.Parcelable$Creator CREATOR -> CREATOR
-    20:22:void <init>() -> <init>
-    24:38:void <init>(java.lang.String,org.json.JSONObject) -> <init>
-    40:46:void <init>(android.os.Parcel) -> <init>
-    62:62:int describeContents() -> describeContents
-    67:72:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    48:48:void <clinit>() -> <clinit>
-com.eos.eshop.internal.ThemeContainer$1 -> com.eos.eshop.internal.ThemeContainer$1:
-    48:48:void <init>() -> <init>
-    51:51:com.eos.eshop.internal.ThemeContainer createFromParcel(android.os.Parcel) -> a
-    56:56:com.eos.eshop.internal.ThemeContainer[] newArray(int) -> a
-    48:48:java.lang.Object[] newArray(int) -> newArray
-    48:48:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.eos.eshop.internal.ThemeSegment -> com.eos.eshop.internal.p:
-    com.eos.eshop.internal.Css css -> a
-    java.util.ArrayList themeContainers -> b
-    java.lang.String tag -> c
-    16:26:void <init>(java.lang.String) -> <init>
-    22:22:boolean isSpecial(java.lang.String) -> a
-    26:45:void <init>(java.lang.String,org.json.JSONObject) -> <init>
-com.eos.eshop.internal.ThemeSelector -> com.eos.eshop.internal.q:
-    java.util.HashMap selectedThemes -> a
-    java.util.HashMap themeTagMap -> b
-    com.eos.eshop.internal.ThemeSelector SELECTOR -> c
-    java.lang.String[] tags -> d
-    12:14:void <init>() -> <init>
-    19:20:void setTags(java.lang.String[]) -> a
-    23:25:boolean isSelected(com.eos.eshop.internal.Theme) -> a
-    29:30:void refresh() -> a
-    33:43:void refresh_() -> b
-    15:15:void <clinit>() -> <clinit>
-com.eos.eshop.internal.ThemeTag -> com.eos.eshop.internal.r:
-    java.util.ArrayList segments -> a
-    java.lang.String tag -> b
-    java.lang.String name -> c
-    13:19:void <init>() -> <init>
-    13:34:void <init>(org.json.JSONObject) -> <init>
-com.eos.eshop.internal.ThemeTagView -> com.eos.eshop.internal.s:
-    34:83:android.view.View newView(android.content.Context,java.lang.String,android.view.ViewGroup,com.eos.eshop.internal.ThemeTag,boolean) -> a
-    211:211:org.byteam.superadapter.SuperAdapter editableAdapter(java.lang.String,android.content.Context,java.util.ArrayList,int,boolean) -> a
-    215:215:org.byteam.superadapter.SuperAdapter normalAdapter(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.util.ArrayList,int,boolean) -> a
-com.eos.eshop.internal.ThemeTagView$1 -> com.eos.eshop.internal.s$1:
+    24:27:void <init>(com.android.theme.internal.UIController) -> <init>
+    30:31:void start() -> a
+    34:36:void stop() -> b
+    39:41:void loading() -> c
+    44:47:void loadLocal(android.content.Context,java.lang.String[],com.android.theme.internal.data.Theme[]) -> a
+    51:72:void onReceiveEvent(int,java.lang.Object[]) -> onReceiveEvent
+com.eos.eshop.internal.ThemeTagView -> com.eos.eshop.internal.d:
+    46:95:android.view.View newView(android.content.Context,android.view.ViewGroup,com.android.theme.internal.data.ThemeTag,boolean) -> a
+    225:225:org.byteam.superadapter.SuperAdapter editableAdapter(java.lang.String,android.content.Context,java.util.ArrayList,int,boolean) -> a
+    229:229:org.byteam.superadapter.SuperAdapter normalAdapter(android.content.Context,java.lang.String,java.lang.String,java.util.ArrayList,int,boolean) -> a
+com.eos.eshop.internal.ThemeTagView$1 -> com.eos.eshop.internal.d$1:
     java.lang.String val$shopTag -> a
     java.lang.String val$containerTag -> b
     boolean val$isWallpaper -> c
-    java.lang.String val$mainTag -> d
-    215:215:void <init>(android.content.Context,java.util.List,int,java.lang.String,java.lang.String,boolean,java.lang.String) -> <init>
-    219:222:void onReceiveMoreEvent(com.eos.eshop.internal.LoadMoreEvent) -> a
-    226:239:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.eos.eshop.internal.Theme) -> a
-    215:215:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
-com.eos.eshop.internal.ThemeTagView$1$1 -> com.eos.eshop.internal.s$1$1:
-    com.eos.eshop.internal.Theme val$theme -> a
+    229:229:void <init>(android.content.Context,java.util.List,int,java.lang.String,java.lang.String,boolean) -> <init>
+    233:236:void onReceiveMoreEvent(com.android.theme.internal.data.LoadMoreEvent) -> a
+    240:254:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.android.theme.internal.data.Theme) -> a
+    229:229:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
+com.eos.eshop.internal.ThemeTagView$1$1 -> com.eos.eshop.internal.d$1$1:
+    com.android.theme.internal.data.Theme val$theme -> a
     com.eos.eshop.internal.ThemeTagView$1 this$0 -> b
-    227:227:void <init>(com.eos.eshop.internal.ThemeTagView$1,com.eos.eshop.internal.Theme) -> <init>
-    230:237:void onClick(android.view.View) -> onClick
-com.eos.eshop.internal.ThemeTagView$1EditorAdapter -> com.eos.eshop.internal.s$a:
-    boolean editing -> d
+    242:242:void <init>(com.eos.eshop.internal.ThemeTagView$1,com.android.theme.internal.data.Theme) -> <init>
+    245:252:void onClick(android.view.View) -> onClick
+com.eos.eshop.internal.ThemeTagView$1EditorAdapter -> com.eos.eshop.internal.d$a:
+    boolean editing -> l
     boolean val$isWallpaper -> a
     java.lang.String val$shopTag -> b
     java.util.ArrayList val$themes -> c
-    90:96:void <init>(android.content.Context,java.util.List,int,boolean,java.lang.String,java.util.ArrayList) -> <init>
-    100:180:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.eos.eshop.internal.Theme) -> a
-    184:206:boolean onHook(int,java.lang.Object[]) -> a
-    87:87:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
-    87:87:boolean access$000(com.eos.eshop.internal.ThemeTagView$1EditorAdapter) -> a
-    87:87:boolean access$002(com.eos.eshop.internal.ThemeTagView$1EditorAdapter,boolean) -> a
-com.eos.eshop.internal.ThemeTagView$1EditorAdapter$1 -> com.eos.eshop.internal.s$a$1:
-    com.eos.eshop.internal.Theme val$theme -> a
+    102:108:void <init>(android.content.Context,java.util.List,int,boolean,java.lang.String,java.util.ArrayList) -> <init>
+    112:194:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.android.theme.internal.data.Theme) -> a
+    198:220:boolean onHook(int,java.lang.Object[]) -> a
+    99:99:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
+    99:99:boolean access$000(com.eos.eshop.internal.ThemeTagView$1EditorAdapter) -> a
+    99:99:boolean access$002(com.eos.eshop.internal.ThemeTagView$1EditorAdapter,boolean) -> a
+com.eos.eshop.internal.ThemeTagView$1EditorAdapter$1 -> com.eos.eshop.internal.d$a$1:
+    com.android.theme.internal.data.Theme val$theme -> a
     com.eos.eshop.internal.ThemeTagView$1EditorAdapter this$0 -> b
-    101:101:void <init>(com.eos.eshop.internal.ThemeTagView$1EditorAdapter,com.eos.eshop.internal.Theme) -> <init>
-    104:114:void onClick(android.view.View) -> onClick
-    117:137:void apply(android.content.Context,java.lang.String,com.eos.eshop.internal.Theme) -> a
-com.eos.eshop.internal.ThemeTagView$1EditorAdapter$2 -> com.eos.eshop.internal.s$a$2:
+    115:115:void <init>(com.eos.eshop.internal.ThemeTagView$1EditorAdapter,com.android.theme.internal.data.Theme) -> <init>
+    118:128:void onClick(android.view.View) -> onClick
+    131:151:void apply(android.content.Context,java.lang.String,com.android.theme.internal.data.Theme) -> a
+com.eos.eshop.internal.ThemeTagView$1EditorAdapter$2 -> com.eos.eshop.internal.d$a$2:
     com.eos.eshop.internal.ThemeTagView$1EditorAdapter this$0 -> a
-    139:139:void <init>(com.eos.eshop.internal.ThemeTagView$1EditorAdapter) -> <init>
-    142:147:boolean onLongClick(android.view.View) -> onLongClick
-com.eos.eshop.internal.ThemeTagView$1EditorAdapter$3 -> com.eos.eshop.internal.s$a$3:
-    com.eos.eshop.internal.Theme val$theme -> a
+    153:153:void <init>(com.eos.eshop.internal.ThemeTagView$1EditorAdapter) -> <init>
+    156:161:boolean onLongClick(android.view.View) -> onLongClick
+com.eos.eshop.internal.ThemeTagView$1EditorAdapter$3 -> com.eos.eshop.internal.d$a$3:
+    com.android.theme.internal.data.Theme val$theme -> a
     com.eos.eshop.internal.ThemeTagView$1EditorAdapter this$0 -> b
-    160:160:void <init>(com.eos.eshop.internal.ThemeTagView$1EditorAdapter,com.eos.eshop.internal.Theme) -> <init>
-    163:174:void onClick(android.view.View) -> onClick
-com.eos.eshop.internal.UIController -> com.eos.eshop.internal.t:
-    void showLoading() -> a
-    void hideLoading() -> b
-    void onReceiveNone() -> c
-    void onReceiveOne(java.lang.Object) -> b
-    void onReceiveSome(java.util.List) -> a
-    void onReceiveMany(java.util.List) -> b
-    void onError(java.lang.Object) -> a
-    void nothing() -> d
-com.eos.eshop.internal.Utils -> com.eos.eshop.internal.u:
+    174:174:void <init>(com.eos.eshop.internal.ThemeTagView$1EditorAdapter,com.android.theme.internal.data.Theme) -> <init>
+    177:188:void onClick(android.view.View) -> onClick
+com.eos.eshop.internal.Utils -> com.eos.eshop.internal.e:
     19:50:void setupGridRecycler(android.content.Context,android.support.v7.widget.RecyclerView,int) -> a
-com.eos.eshop.internal.Utils$1 -> com.eos.eshop.internal.u$1:
+com.eos.eshop.internal.Utils$1 -> com.eos.eshop.internal.e$1:
     int val$padding -> a
     21:21:void <init>(int) -> <init>
     25:48:void getItemOffsets(android.graphics.Rect,android.view.View,android.support.v7.widget.RecyclerView,android.support.v7.widget.RecyclerView$State) -> getItemOffsets
 com.eos.eshop.internal.WallpaperActivity -> com.eos.eshop.internal.WallpaperActivity:
-    com.eos.eshop.internal.Theme theme -> a
+    com.android.theme.internal.data.Theme theme -> a
     java.lang.String shopTag -> b
-    29:29:void <init>() -> <init>
-    38:42:void launch(android.content.Context,java.lang.String,com.eos.eshop.internal.Theme) -> a
-    46:91:void onCreate(android.os.Bundle) -> onCreate
-    95:97:void onReceiveIntent(android.content.Intent) -> a
-    101:104:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    108:111:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
-    115:132:void setWallpaper(java.lang.String) -> a
-    29:29:com.eos.eshop.internal.Theme access$000(com.eos.eshop.internal.WallpaperActivity) -> a
-    29:29:void access$100(com.eos.eshop.internal.WallpaperActivity,java.lang.String) -> a
+    31:31:void <init>() -> <init>
+    40:44:void launch(android.content.Context,java.lang.String,com.android.theme.internal.data.Theme) -> a
+    48:93:void onCreate(android.os.Bundle) -> onCreate
+    97:99:void onReceiveIntent(android.content.Intent) -> a
+    103:106:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    110:113:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
+    117:134:void setWallpaper(java.lang.String) -> a
+    31:31:com.android.theme.internal.data.Theme access$000(com.eos.eshop.internal.WallpaperActivity) -> a
+    31:31:void access$100(com.eos.eshop.internal.WallpaperActivity,java.lang.String) -> a
 com.eos.eshop.internal.WallpaperActivity$1 -> com.eos.eshop.internal.WallpaperActivity$1:
     com.eos.eshop.internal.WallpaperActivity this$0 -> a
-    52:52:void <init>(com.eos.eshop.internal.WallpaperActivity) -> <init>
-    55:57:void onStart() -> a
-    61:64:void onSuccess() -> b
-    68:72:void onFails() -> c
+    54:54:void <init>(com.eos.eshop.internal.WallpaperActivity) -> <init>
+    57:59:void onStart() -> a
+    63:66:void onSuccess() -> b
+    70:74:void onFails() -> c
 com.eos.eshop.internal.WallpaperActivity$2 -> com.eos.eshop.internal.WallpaperActivity$2:
     com.eos.eshop.internal.WallpaperActivity this$0 -> a
-    85:85:void <init>(com.eos.eshop.internal.WallpaperActivity) -> <init>
-    88:89:void onClick(android.view.View) -> onClick
-com.eos.eshop.internal.WallpaperManager -> com.eos.eshop.internal.v:
-    com.eos.eshop.internal.WallpaperManager MANAGER -> a
-    java.util.ArrayList localThemes -> b
-    java.util.HashMap map -> c
-    15:21:void <init>() -> <init>
-    24:37:void load_() -> b
-    40:45:void save_() -> c
-    48:49:void saveWallpaper(com.eos.eshop.internal.Theme) -> a
-    52:57:void saveWallpaper_(com.eos.eshop.internal.Theme) -> c
-    60:61:void removeWallpaper(com.eos.eshop.internal.Theme) -> b
-    64:71:void removeWallpaper_(com.eos.eshop.internal.Theme) -> d
-    74:74:java.util.ArrayList getThemes() -> a
-    14:14:void <clinit>() -> <clinit>
+    87:87:void <init>(com.eos.eshop.internal.WallpaperActivity) -> <init>
+    90:91:void onClick(android.view.View) -> onClick
 com.eos.gallery.view.FlingScroller -> com.eos.gallery.view.a:
     int mStartX -> a
     int mStartY -> b
@@ -33613,6 +33877,7 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
     int contentPanel -> contentPanel
     int custom -> custom
     int customPanel -> customPanel
+    int customerTypefaceTextView -> customerTypefaceTextView
     int decor_content_parent -> decor_content_parent
     int default_activity_button -> default_activity_button
     int design_bottom_sheet -> design_bottom_sheet
@@ -33694,7 +33959,6 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
     int shop_selected -> shop_selected
     int shop_tab -> shop_tab
     int shop_tab_line -> shop_tab_line
-    int shop_themes -> shop_themes
     int shop_title -> shop_title
     int shop_toolbar -> shop_toolbar
     int shop_view_pager -> shop_view_pager
@@ -33794,35 +34058,27 @@ com.eos.module.charge.saver.R$layout -> com.eos.module.charge.saver.a$b:
     int shop_activity_toolbar -> shop_activity_toolbar
     int shop_activity_wallpaper -> shop_activity_wallpaper
     int shop_banner_list -> shop_banner_list
-    int shop_common_list -> shop_common_list
     int shop_designer -> shop_designer
     int shop_designer_header -> shop_designer_header
     int shop_designer_list -> shop_designer_list
     int shop_header_wrapper -> shop_header_wrapper
     int shop_load_more_footer -> shop_load_more_footer
     int shop_loading -> shop_loading
-    int shop_tag_view_normal -> shop_tag_view_normal
     int shop_theme_item -> shop_theme_item
     int shop_theme_tag -> shop_theme_tag
     int shop_theme_widget -> shop_theme_widget
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
 com.eos.module.charge.saver.R$mipmap -> com.eos.module.charge.saver.a$c:
     int ad_right -> ad_right
-    int battery_duck -> battery_duck
-    int battery_icon -> battery_icon
     int battery_inner_icon -> battery_inner_icon
     int battery_more -> battery_more
     int battery_second_back -> battery_second_back
     int battery_setting_checkbox_close -> battery_setting_checkbox_close
     int battery_setting_checkbox_open -> battery_setting_checkbox_open
     int bubble_masked -> bubble_masked
-    int charge_saver_parent -> charge_saver_parent
-    int container -> container
-    int data_line -> data_line
     int eos_bubble -> eos_bubble
     int game_icon -> game_icon
     int internet_icon -> internet_icon
-    int screen_save_unlock -> screen_save_unlock
     int talk_icon -> talk_icon
     int unlock -> unlock
 com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$d:
@@ -34345,7 +34601,7 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$e:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1420:1884:void <clinit>() -> <clinit>
+    1412:1876:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
     12:12:void <init>() -> <init>
     15:16:void showFullAD() -> a
@@ -34550,6 +34806,7 @@ com.eos.module.charge.saver.view.ADLabel -> com.eos.module.charge.saver.view.ADL
     android.graphics.Paint mTextPaint -> k
     android.graphics.Paint mBackgroundPaint -> l
     android.graphics.Path mPath -> m
+    33:34:void <init>(android.content.Context) -> <init>
     28:40:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     43:55:void obtainAttributes(android.content.Context,android.util.AttributeSet) -> a
     58:60:void setTextColor(int) -> setTextColor
@@ -35278,75 +35535,7 @@ com.eos.module.tweenengine.paths.CatmullRom -> com.eos.module.tweenengine.b.a:
 com.eos.module.tweenengine.paths.Linear -> com.eos.module.tweenengine.b.b:
     8:8:void <init>() -> <init>
     11:17:float compute(float,float[],int) -> a
-com.eos.theme.ThemeChangedEvent -> com.eos.b.a:
-    int EVENT_THEME_CHANGED -> a
-    com.eos.theme.ThemeInfo themeInfo -> b
-    12:14:void <init>(com.eos.theme.ThemeInfo) -> <init>
-    8:8:void <clinit>() -> <clinit>
-com.eos.theme.ThemeInfo -> com.eos.b.b:
-    java.lang.String themePackageName -> b
-    android.content.Context themeContext -> c
-    java.lang.String name -> d
-    java.util.HashMap bitmapCache -> e
-    java.util.HashMap fonts -> f
-    java.util.Properties config -> g
-    boolean isLocal -> h
-    android.graphics.Typeface ROBOTO_REGULAR -> i
-    android.graphics.Typeface ROBOTO_LIGHT -> j
-    android.graphics.Typeface ROBOTO_THIN -> k
-    android.graphics.Typeface ROBOTO_MEDIUM -> l
-    android.graphics.Typeface ROBOTO_BLACK -> m
-    java.util.HashMap hasFontMap -> n
-    boolean $assertionsDisabled -> a
-    34:447:void <init>(android.content.Context,java.lang.String,boolean) -> <init>
-    119:126:void setField(java.lang.Object,java.lang.String,java.lang.Object) -> a
-    129:137:java.lang.reflect.Field getField(java.lang.Object,java.lang.String) -> a
-    142:160:void destroy() -> a
-    163:163:java.lang.String getPackageName() -> b
-    167:167:java.lang.String getName() -> c
-    30:30:java.lang.String access$002(com.eos.theme.ThemeInfo,java.lang.String) -> a
-    30:30:void access$100(com.eos.theme.ThemeInfo,java.lang.Object,java.lang.String,java.lang.Object) -> a
-    30:30:java.lang.String access$000(com.eos.theme.ThemeInfo) -> a
-    30:404:void <clinit>() -> <clinit>
-com.eos.theme.ThemeInfo$CW -> com.eos.b.b$a:
-    android.content.res.AssetManager mAssetManager -> b
-    android.content.res.Resources mResources -> c
-    android.content.res.Resources$Theme mTheme -> d
-    com.eos.theme.ThemeInfo this$0 -> a
-    50:61:void <init>(com.eos.theme.ThemeInfo,android.content.Context,java.lang.String) -> <init>
-    65:65:android.content.res.AssetManager getAssets() -> getAssets
-    70:70:android.content.res.Resources getResources() -> getResources
-    75:75:android.content.res.Resources$Theme getTheme() -> getTheme
-    80:80:java.lang.String getPackageName() -> getPackageName
-com.eos.theme.ThemeManager -> com.eos.b.c:
-    com.eos.theme.ThemeInfo currentThemeInfo -> a
-    java.lang.String tag -> b
-    21:30:void onCreate(android.content.Context,java.lang.String) -> a
-    34:54:boolean useTheme(android.content.Context,java.lang.String,boolean) -> a
-    59:63:com.eos.theme.ThemeInfo save(android.content.Context,java.lang.String,boolean) -> c
-    67:67:java.lang.String getCurrentThemeSelector(java.lang.String) -> a
-    71:73:boolean applyTheme(android.content.Context,java.lang.String,boolean) -> b
-    77:78:void sendThemeChangedEvent() -> a
-    81:81:com.eos.theme.ThemeInfo currentTheme() -> b
-com.eos.ui.demo.Cross.CrossDialog -> com.eos.ui.demo.a.a:
-    15:15:void <init>() -> <init>
-    18:35:void showCrossDialog(android.content.Context,com.eos.ui.demo.view.CrossView,com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> a
-com.eos.ui.demo.Cross.CrossDialog$1 -> com.eos.ui.demo.a.a$1:
-    android.app.Dialog val$dialog -> a
-    com.eos.ui.demo.view.CrossView$onCrossDialogClickListener val$listener -> b
-    com.eos.ui.demo.Cross.CrossDialog this$0 -> c
-    24:24:void <init>(com.eos.ui.demo.Cross.CrossDialog,android.app.Dialog,com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> <init>
-    27:33:void onClick(android.view.View) -> onClick
-com.eos.ui.demo.Cross.CrossManager -> com.eos.ui.demo.a.b:
-    com.eos.ui.demo.Cross.CrossManager instance -> a
-    boolean isShowClick -> b
-    34:200:void <init>() -> <init>
-    38:41:com.eos.ui.demo.Cross.CrossManager getInstance() -> a
-    46:63:void showCrossDialog(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> a
-    212:288:com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean analysisJson(android.content.Context,java.util.List,java.util.List,int) -> a
-    292:322:com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean getCurrentShowItem(android.content.Context,java.lang.String,java.lang.String) -> a
-    36:36:void <clinit>() -> <clinit>
-com.eos.ui.demo.Cross.FileDownLoad -> com.eos.ui.demo.a.c:
+com.eos.ui.demo.Cross.FileDownLoad -> com.eos.ui.demo.a.a:
     com.eos.ui.demo.Cross.FileDownLoad instance -> a
     23:23:void <init>() -> <init>
     28:35:com.eos.ui.demo.Cross.FileDownLoad getInstance() -> a
@@ -35354,21 +35543,21 @@ com.eos.ui.demo.Cross.FileDownLoad -> com.eos.ui.demo.a.c:
     93:144:void downLoadJson(android.content.Context,java.lang.String,java.lang.String,com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack) -> a
     206:270:void downLoadZip(android.content.Context,java.lang.String,java.lang.String,com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack) -> b
     25:25:void <clinit>() -> <clinit>
-com.eos.ui.demo.Cross.FileDownLoad$1 -> com.eos.ui.demo.a.c$1:
+com.eos.ui.demo.Cross.FileDownLoad$1 -> com.eos.ui.demo.a.a$1:
     com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack val$callBack -> a
     java.lang.String val$pkg -> b
     com.eos.ui.demo.Cross.FileDownLoad this$0 -> c
     101:101:void <init>(com.eos.ui.demo.Cross.FileDownLoad,com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack,java.lang.String) -> <init>
     104:135:void onSuccess(int,cz.msebera.android.httpclient.Header[],byte[]) -> a
     139:142:void onFailure(int,cz.msebera.android.httpclient.Header[],byte[],java.lang.Throwable) -> a
-com.eos.ui.demo.Cross.FileDownLoad$2 -> com.eos.ui.demo.a.c$2:
+com.eos.ui.demo.Cross.FileDownLoad$2 -> com.eos.ui.demo.a.a$2:
     java.lang.String val$pkg -> a
     com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack val$callBack -> b
     com.eos.ui.demo.Cross.FileDownLoad this$0 -> c
     214:214:void <init>(com.eos.ui.demo.Cross.FileDownLoad,java.lang.String,com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack) -> <init>
     217:260:void onSuccess(int,cz.msebera.android.httpclient.Header[],byte[]) -> a
     264:267:void onFailure(int,cz.msebera.android.httpclient.Header[],byte[],java.lang.Throwable) -> a
-com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack -> com.eos.ui.demo.a.c$a:
+com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack -> com.eos.ui.demo.a.a$a:
     void onLoadSuccess(java.lang.String) -> a
     void onLoadFailed() -> a
 com.eos.ui.demo.R -> com.eos.ui.demo.a:
@@ -35966,19 +36155,12 @@ com.eos.ui.demo.R$styleable -> com.eos.ui.demo.a$e:
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
     1063:1397:void <clinit>() -> <clinit>
-com.eos.ui.demo.Utils.JsonParser -> com.eos.ui.demo.b.a:
-    com.eos.ui.demo.Utils.JsonParser jsonParser -> a
-    10:10:void <init>() -> <init>
-    14:17:com.eos.ui.demo.Utils.JsonParser getInstance() -> a
-    25:69:java.lang.Object fromJson(java.lang.String,java.lang.Class) -> a
-com.eos.ui.demo.Utils.Util -> com.eos.ui.demo.b.b:
+com.eos.ui.demo.Utils.Util -> com.eos.ui.demo.b.a:
     com.google.gson.Gson gson -> a
-    32:38:boolean isInstallApp(android.content.Context,java.lang.String) -> a
-    46:46:com.google.gson.Gson getGson() -> a
     63:70:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
     123:136:void writeData(android.content.Context,java.lang.String,java.lang.Object) -> a
     139:146:java.lang.Object readData(android.content.Context,java.lang.String,java.lang.Object) -> b
-    150:163:void openPlayStore(android.content.Context,java.lang.String) -> b
+    150:163:void openPlayStore(android.content.Context,java.lang.String) -> a
     166:166:java.lang.String fixUrl(java.lang.String) -> a
     170:170:boolean isPlayStoreUrl(java.lang.String) -> b
     175:178:boolean hasPlayStore(android.content.Context) -> a
@@ -35988,18 +36170,15 @@ com.eos.ui.demo.Utils.Util -> com.eos.ui.demo.b.b:
     212:218:java.lang.String getDefaultBrowserPackageName(android.content.Context,android.content.Intent) -> b
     43:43:void <clinit>() -> <clinit>
 com.eos.ui.demo.entries.CrossData -> com.eos.ui.demo.entries.CrossData:
-    com.eos.ui.demo.entries.CrossData$DataBean data -> data
-    9:9:void <init>() -> <init>
-com.eos.ui.demo.entries.CrossData$DataBean -> com.eos.ui.demo.entries.CrossData$DataBean:
     java.lang.String divide -> divide
     java.util.List cross -> cross
     java.util.List crossPromotion -> crossPromotion
-    18:18:void <init>() -> <init>
-com.eos.ui.demo.entries.CrossData$DataBean$CrossBean -> com.eos.ui.demo.entries.CrossData$DataBean$CrossBean:
+    14:14:void <init>() -> <init>
+com.eos.ui.demo.entries.CrossData$CrossBean -> com.eos.ui.demo.entries.CrossData$CrossBean:
     java.lang.String crossMark -> crossMark
     java.util.List sequence -> sequence
-    29:29:void <init>() -> <init>
-com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean -> com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean:
+    25:25:void <init>() -> <init>
+com.eos.ui.demo.entries.CrossData$CrossPromotionBean -> com.eos.ui.demo.entries.CrossData$CrossPromotionBean:
     int mark -> mark
     java.lang.String crossType -> crossType
     java.lang.String jsonName -> jsonName
@@ -36012,15 +36191,15 @@ com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean -> com.eos.ui.demo
     java.lang.String topPicUrl -> topPicUrl
     java.util.List appName -> appName
     java.util.List content -> content
-    39:39:void <init>() -> <init>
-com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean$AppNameBean -> com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean$AppNameBean:
+    35:35:void <init>() -> <init>
+com.eos.ui.demo.entries.CrossData$CrossPromotionBean$AppNameBean -> com.eos.ui.demo.entries.CrossData$CrossPromotionBean$AppNameBean:
     java.lang.String lag -> lag
     java.lang.String content -> content
-    70:70:void <init>() -> <init>
-com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean$ContentBean -> com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean$ContentBean:
+    66:66:void <init>() -> <init>
+com.eos.ui.demo.entries.CrossData$CrossPromotionBean$ContentBean -> com.eos.ui.demo.entries.CrossData$CrossPromotionBean$ContentBean:
     java.lang.String lag -> lag
     java.util.List content -> content
-    80:80:void <init>() -> <init>
+    76:76:void <init>() -> <init>
 com.eos.ui.demo.entries.PermissionInfo -> com.eos.ui.demo.entries.PermissionInfo:
     java.lang.String permissionId -> permissionId
     java.lang.String permissionName -> permissionName
@@ -36043,7 +36222,7 @@ com.eos.ui.demo.permission.PermissionActivity -> com.eos.ui.demo.permission.Perm
     90:97:void onClick(android.view.View) -> onClick
     100:103:com.eos.ui.demo.entries.PermissionInfo createPermissionInfo(java.lang.String) -> a
     107:156:void setPermissionDescription(com.eos.ui.demo.entries.PermissionInfo) -> a
-    159:170:void startAimActivity() -> b
+    159:169:void startAimActivity() -> b
 com.eos.ui.demo.permission.PermissionListAdapter -> com.eos.ui.demo.permission.a:
     android.content.Context mContext -> a
     java.util.ArrayList mList -> b
@@ -36129,37 +36308,37 @@ com.eos.ui.demo.view.CrossView -> com.eos.ui.demo.view.CrossView:
     android.widget.LinearLayout footLayout -> k
     java.lang.String pkgName -> l
     java.lang.String position -> m
-    36:94:void <init>(android.content.Context) -> <init>
-    41:94:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    46:94:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    52:71:void onClick(android.view.View) -> onClick
-    75:76:void setCrossDialogClickListener(com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> setCrossDialogClickListener
-    98:111:void onFinishInflate() -> onFinishInflate
-    115:116:void onAttachedToWindow() -> onAttachedToWindow
-    120:124:void onDetachedFromWindow() -> onDetachedFromWindow
-    127:128:void setPosition(java.lang.String) -> setPosition
-    131:245:void setData(com.eos.ui.demo.entries.CrossData$DataBean$CrossPromotionBean) -> setData
-    33:33:android.widget.ImageView access$000(com.eos.ui.demo.view.CrossView) -> a
-    33:33:com.sample.lottie.LottieAnimationView access$100(com.eos.ui.demo.view.CrossView) -> b
-    33:33:android.content.Context access$200(com.eos.ui.demo.view.CrossView) -> c
+    37:95:void <init>(android.content.Context) -> <init>
+    42:95:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    47:95:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    53:72:void onClick(android.view.View) -> onClick
+    76:77:void setCrossDialogClickListener(com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> setCrossDialogClickListener
+    99:112:void onFinishInflate() -> onFinishInflate
+    116:117:void onAttachedToWindow() -> onAttachedToWindow
+    121:125:void onDetachedFromWindow() -> onDetachedFromWindow
+    128:129:void setPosition(java.lang.String) -> setPosition
+    132:247:void setData(com.eos.ui.demo.entries.CrossData$CrossPromotionBean) -> setData
+    34:34:android.widget.ImageView access$000(com.eos.ui.demo.view.CrossView) -> a
+    34:34:com.sample.lottie.LottieAnimationView access$100(com.eos.ui.demo.view.CrossView) -> b
+    34:34:android.content.Context access$200(com.eos.ui.demo.view.CrossView) -> c
 com.eos.ui.demo.view.CrossView$1 -> com.eos.ui.demo.view.CrossView$1:
     com.eos.ui.demo.view.CrossView this$0 -> a
-    149:149:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
-    152:167:void onLoadSuccess(java.lang.String) -> a
-    171:172:void onLoadFailed() -> a
+    151:151:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
+    154:169:void onLoadSuccess(java.lang.String) -> a
+    173:174:void onLoadFailed() -> a
 com.eos.ui.demo.view.CrossView$1$1 -> com.eos.ui.demo.view.CrossView$1$1:
     com.eos.ui.demo.view.CrossView$1 this$1 -> a
-    156:156:void <init>(com.eos.ui.demo.view.CrossView$1) -> <init>
-    159:160:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    158:158:void <init>(com.eos.ui.demo.view.CrossView$1) -> <init>
+    161:162:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
 com.eos.ui.demo.view.CrossView$2 -> com.eos.ui.demo.view.CrossView$2:
     com.eos.ui.demo.view.CrossView this$0 -> a
-    177:177:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
-    180:197:void onLoadSuccess(java.lang.String) -> a
-    201:202:void onLoadFailed() -> a
+    179:179:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
+    182:199:void onLoadSuccess(java.lang.String) -> a
+    203:204:void onLoadFailed() -> a
 com.eos.ui.demo.view.CrossView$2$1 -> com.eos.ui.demo.view.CrossView$2$1:
     com.eos.ui.demo.view.CrossView$2 this$1 -> a
-    185:185:void <init>(com.eos.ui.demo.view.CrossView$2) -> <init>
-    188:189:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    187:187:void <init>(com.eos.ui.demo.view.CrossView$2) -> <init>
+    190:191:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
 com.eos.ui.demo.view.CrossView$onCrossDialogClickListener -> com.eos.ui.demo.view.CrossView$a:
     void onCancel() -> a
     void onInstall() -> b
@@ -38706,6 +38885,7 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int contentPanel -> contentPanel
     int custom -> custom
     int customPanel -> customPanel
+    int customerTypefaceTextView -> customerTypefaceTextView
     int decor_content_parent -> decor_content_parent
     int default_activity_button -> default_activity_button
     int del -> del
@@ -38883,7 +39063,6 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int shop_selected -> shop_selected
     int shop_tab -> shop_tab
     int shop_tab_line -> shop_tab_line
-    int shop_themes -> shop_themes
     int shop_title -> shop_title
     int shop_toolbar -> shop_toolbar
     int shop_view_pager -> shop_view_pager
@@ -39047,14 +39226,12 @@ com.privacy.lock.R$layout -> com.privacy.lock.a$f:
     int shop_activity_toolbar -> shop_activity_toolbar
     int shop_activity_wallpaper -> shop_activity_wallpaper
     int shop_banner_list -> shop_banner_list
-    int shop_common_list -> shop_common_list
     int shop_designer -> shop_designer
     int shop_designer_header -> shop_designer_header
     int shop_designer_list -> shop_designer_list
     int shop_header_wrapper -> shop_header_wrapper
     int shop_load_more_footer -> shop_load_more_footer
     int shop_loading -> shop_loading
-    int shop_tag_view_normal -> shop_tag_view_normal
     int shop_theme_item -> shop_theme_item
     int shop_theme_tag -> shop_theme_tag
     int shop_theme_widget -> shop_theme_widget
@@ -42441,6 +42618,18 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int BottomSheetBehavior_Params_behavior_peekHeight -> BottomSheetBehavior_Params_behavior_peekHeight
     int[] ButtonBarLayout -> ButtonBarLayout
     int ButtonBarLayout_allowStacking -> ButtonBarLayout_allowStacking
+    int[] CardView -> CardView
+    int CardView_cardBackgroundColor -> CardView_cardBackgroundColor
+    int CardView_cardCornerRadius -> CardView_cardCornerRadius
+    int CardView_cardElevation -> CardView_cardElevation
+    int CardView_cardMaxElevation -> CardView_cardMaxElevation
+    int CardView_cardPreventCornerOverlap -> CardView_cardPreventCornerOverlap
+    int CardView_cardUseCompatPadding -> CardView_cardUseCompatPadding
+    int CardView_contentPadding -> CardView_contentPadding
+    int CardView_contentPaddingBottom -> CardView_contentPaddingBottom
+    int CardView_contentPaddingLeft -> CardView_contentPaddingLeft
+    int CardView_contentPaddingRight -> CardView_contentPaddingRight
+    int CardView_contentPaddingTop -> CardView_contentPaddingTop
     int[] Charge_Label -> Charge_Label
     int Charge_Label_charge_background_color -> Charge_Label_charge_background_color
     int Charge_Label_charge_fill_triangle -> Charge_Label_charge_fill_triangle
@@ -42771,7 +42960,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5301:12548:void <clinit>() -> <clinit>
+    5454:12907:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
@@ -43064,6 +43253,9 @@ com.supers.clean.junk.View.adapter.WhiteListAdapter$ViewHolder -> com.supers.cle
     android.widget.TextView tv_zhuangtai -> d
     com.supers.clean.junk.View.adapter.WhiteListAdapter this$0 -> e
     117:117:void <init>(com.supers.clean.junk.View.adapter.WhiteListAdapter) -> <init>
+com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
+    12:12:void <init>() -> <init>
+    15:17:void onCreate(android.os.Bundle) -> onCreate
 com.supers.clean.junk.activity.BaseActivity -> com.supers.clean.junk.activity.BaseActivity:
     android.widget.Toast toast -> a
     java.lang.String tuiguang -> i
@@ -43759,27 +43951,27 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     android.content.pm.PackageManager packageManager -> ak
     com.supers.clean.junk.myView.PullToRefreshLayout$OnRefreshListener refreshListener -> W
     android.view.View$OnClickListener onClickListener -> X
-    61:745:void <init>() -> <init>
+    61:747:void <init>() -> <init>
     124:160:void findId() -> a
     164:303:void onCreate(android.os.Bundle) -> onCreate
-    306:336:void tuiGuang() -> b
-    373:397:boolean isAccessibilitySettingsOn(android.content.Context) -> a
-    402:403:void initHandler() -> h
-    408:428:void onClick() -> onClick
-    439:439:void initCercleHight() -> c
-    443:457:void initCpu(int) -> a
-    461:490:void initSd(int,java.lang.String,long) -> a
-    494:509:void initRam(int,java.lang.String) -> a
-    513:517:void initGuard(int,android.view.animation.RotateAnimation) -> a
-    521:536:void initSideData() -> f
-    540:541:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    545:546:void setRotateGone() -> e
-    550:551:void openDrawer() -> g
-    562:591:void loadFullAd() -> d
-    863:876:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    880:883:void onRestart() -> onRestart
-    887:890:void onResume() -> onResume
-    893:902:void onBackPressed() -> onBackPressed
+    306:338:void tuiGuang() -> b
+    375:399:boolean isAccessibilitySettingsOn(android.content.Context) -> a
+    404:405:void initHandler() -> h
+    410:430:void onClick() -> onClick
+    441:441:void initCercleHight() -> c
+    445:459:void initCpu(int) -> a
+    463:492:void initSd(int,java.lang.String,long) -> a
+    496:511:void initRam(int,java.lang.String) -> a
+    515:519:void initGuard(int,android.view.animation.RotateAnimation) -> a
+    523:538:void initSideData() -> f
+    542:543:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    547:548:void setRotateGone() -> e
+    552:553:void openDrawer() -> g
+    564:593:void loadFullAd() -> d
+    865:878:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    882:885:void onRestart() -> onRestart
+    889:892:void onResume() -> onResume
+    895:904:void onBackPressed() -> onBackPressed
     61:61:android.view.View access$000(com.supers.clean.junk.activity.MainActivity) -> a
     61:61:android.support.v4.view.ViewPager access$100(com.supers.clean.junk.activity.MainActivity) -> b
     61:61:android.support.v4.view.PagerAdapter access$200(com.supers.clean.junk.activity.MainActivity) -> c
@@ -43795,31 +43987,26 @@ com.supers.clean.junk.activity.MainActivity$1 -> com.supers.clean.junk.activity.
 com.supers.clean.junk.activity.MainActivity$10 -> com.supers.clean.junk.activity.MainActivity$2:
     java.lang.String val$size -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    495:495:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
-    498:506:void progressUpdate(int) -> a
+    497:497:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
+    500:508:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$10$1 -> com.supers.clean.junk.activity.MainActivity$2$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$10 this$1 -> b
-    498:498:void <init>(com.supers.clean.junk.activity.MainActivity$10,int) -> <init>
-    501:504:void run() -> run
+    500:500:void <init>(com.supers.clean.junk.activity.MainActivity$10,int) -> <init>
+    503:506:void run() -> run
 com.supers.clean.junk.activity.MainActivity$11 -> com.supers.clean.junk.activity.MainActivity$3:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    714:714:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    718:718:void onRefresh(com.supers.clean.junk.myView.PullToRefreshLayout) -> a
-    723:731:void onLoadMore(com.supers.clean.junk.myView.PullToRefreshLayout) -> b
+    716:716:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    720:720:void onRefresh(com.supers.clean.junk.myView.PullToRefreshLayout) -> a
+    725:733:void onLoadMore(com.supers.clean.junk.myView.PullToRefreshLayout) -> b
 com.supers.clean.junk.activity.MainActivity$11$1 -> com.supers.clean.junk.activity.MainActivity$3$1:
     com.supers.clean.junk.activity.MainActivity$11 this$1 -> a
-    724:724:void <init>(com.supers.clean.junk.activity.MainActivity$11) -> <init>
-    727:729:void run() -> run
+    726:726:void <init>(com.supers.clean.junk.activity.MainActivity$11) -> <init>
+    729:731:void run() -> run
 com.supers.clean.junk.activity.MainActivity$12 -> com.supers.clean.junk.activity.MainActivity$4:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    745:745:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    748:858:void onClick(android.view.View) -> onClick
-com.supers.clean.junk.activity.MainActivity$12$1 -> com.supers.clean.junk.activity.MainActivity$4$1:
-    com.supers.clean.junk.activity.MainActivity$12 this$1 -> a
-    800:800:void <init>(com.supers.clean.junk.activity.MainActivity$12) -> <init>
-    804:804:void onCancel() -> a
-    809:809:void onInstall() -> b
+    747:747:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    750:860:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$5:
     android.view.View val$viewpager_3 -> a
     java.util.ArrayList val$arrayList -> b
@@ -43840,28 +44027,28 @@ com.supers.clean.junk.activity.MainActivity$4 -> com.supers.clean.junk.activity.
     288:289:void run() -> run
 com.supers.clean.junk.activity.MainActivity$7 -> com.supers.clean.junk.activity.MainActivity$8:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    445:445:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    448:455:void progressUpdate(int) -> a
+    447:447:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    450:457:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$7$1 -> com.supers.clean.junk.activity.MainActivity$8$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$7 this$1 -> b
-    448:448:void <init>(com.supers.clean.junk.activity.MainActivity$7,int) -> <init>
-    451:453:void run() -> run
+    450:450:void <init>(com.supers.clean.junk.activity.MainActivity$7,int) -> <init>
+    453:455:void run() -> run
 com.supers.clean.junk.activity.MainActivity$8 -> com.supers.clean.junk.activity.MainActivity$9:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    462:462:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    465:472:void progressUpdate(int) -> a
+    464:464:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    467:474:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$8$1 -> com.supers.clean.junk.activity.MainActivity$9$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$8 this$1 -> b
-    465:465:void <init>(com.supers.clean.junk.activity.MainActivity$8,int) -> <init>
-    468:470:void run() -> run
+    467:467:void <init>(com.supers.clean.junk.activity.MainActivity$8,int) -> <init>
+    470:472:void run() -> run
 com.supers.clean.junk.activity.MainActivity$9 -> com.supers.clean.junk.activity.MainActivity$10:
     java.lang.String val$size -> a
     long val$sd_kongxian -> b
     com.supers.clean.junk.activity.MainActivity this$0 -> c
-    474:474:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
-    477:488:void run() -> run
+    476:476:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
+    479:490:void run() -> run
 com.supers.clean.junk.activity.ManagerActivity -> com.supers.clean.junk.activity.ManagerActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -44314,86 +44501,91 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     boolean animationEnd -> A
     com.eos.manager.page.SecuritySharPFive shareFive -> B
     android.view.View$OnClickListener onClickListener -> r
-    37:380:void <init>() -> <init>
-    71:87:void findId() -> a
-    91:140:void onCreate(android.os.Bundle) -> onCreate
-    144:160:void tuiGuang() -> b
-    163:169:void initAnimation() -> d
-    172:178:void addListener() -> e
-    181:203:void addAd() -> f
-    273:345:void startFirstAnimation() -> c
-    348:378:void startSecondAnimation() -> g
-    416:418:void onStop() -> onStop
-    422:424:void onBackPressed() -> onBackPressed
-    427:455:void setAnimationThread() -> h
-    37:37:void access$000(com.supers.clean.junk.activity.SuccessActivity) -> a
-    37:37:boolean access$102(com.supers.clean.junk.activity.SuccessActivity,boolean) -> a
-    37:37:boolean access$100(com.supers.clean.junk.activity.SuccessActivity) -> b
-    37:37:com.eos.module.tweenengine.TweenManager access$200(com.supers.clean.junk.activity.SuccessActivity) -> c
-    37:37:android.os.Handler access$300(com.supers.clean.junk.activity.SuccessActivity) -> d
-    37:37:boolean access$402(com.supers.clean.junk.activity.SuccessActivity,boolean) -> b
-    37:37:boolean access$500(com.supers.clean.junk.activity.SuccessActivity) -> e
-    37:37:com.eos.manager.page.SecuritySharPFive access$600(com.supers.clean.junk.activity.SuccessActivity) -> f
-    37:37:boolean access$700(com.supers.clean.junk.activity.SuccessActivity) -> g
+    38:381:void <init>() -> <init>
+    72:88:void findId() -> a
+    92:146:void onCreate(android.os.Bundle) -> onCreate
+    150:166:void tuiGuang() -> b
+    169:175:void initAnimation() -> d
+    178:184:void addListener() -> e
+    187:203:void addAd() -> f
+    274:346:void startFirstAnimation() -> c
+    349:379:void startSecondAnimation() -> g
+    417:419:void onStop() -> onStop
+    423:425:void onBackPressed() -> onBackPressed
+    428:456:void setAnimationThread() -> h
+    38:38:void access$000(com.supers.clean.junk.activity.SuccessActivity) -> a
+    38:38:void access$100(com.supers.clean.junk.activity.SuccessActivity) -> b
+    38:38:boolean access$202(com.supers.clean.junk.activity.SuccessActivity,boolean) -> a
+    38:38:boolean access$200(com.supers.clean.junk.activity.SuccessActivity) -> c
+    38:38:com.eos.module.tweenengine.TweenManager access$300(com.supers.clean.junk.activity.SuccessActivity) -> d
+    38:38:android.os.Handler access$400(com.supers.clean.junk.activity.SuccessActivity) -> e
+    38:38:boolean access$502(com.supers.clean.junk.activity.SuccessActivity,boolean) -> b
+    38:38:boolean access$600(com.supers.clean.junk.activity.SuccessActivity) -> f
+    38:38:com.eos.manager.page.SecuritySharPFive access$700(com.supers.clean.junk.activity.SuccessActivity) -> g
+    38:38:boolean access$800(com.supers.clean.junk.activity.SuccessActivity) -> h
 com.supers.clean.junk.activity.SuccessActivity$1 -> com.supers.clean.junk.activity.SuccessActivity$1:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    109:109:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    113:114:void duogouSc() -> a
+    110:110:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    114:115:void duogouSc() -> a
 com.supers.clean.junk.activity.SuccessActivity$2 -> com.supers.clean.junk.activity.SuccessActivity$2:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    120:120:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    123:126:void run() -> run
+    121:121:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    124:127:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$3 -> com.supers.clean.junk.activity.SuccessActivity$3:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    163:163:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    166:167:void run() -> run
+    131:131:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    133:134:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$4 -> com.supers.clean.junk.activity.SuccessActivity$4:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    277:277:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    280:333:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    338:338:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    343:343:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.supers.clean.junk.activity.SuccessActivity$4$1 -> com.supers.clean.junk.activity.SuccessActivity$4$1:
-    float val$hx -> a
-    float val$hy -> b
-    com.supers.clean.junk.activity.SuccessActivity$4 this$1 -> c
-    283:283:void <init>(com.supers.clean.junk.activity.SuccessActivity$4,float,float) -> <init>
-    286:298:void run() -> run
-com.supers.clean.junk.activity.SuccessActivity$4$2 -> com.supers.clean.junk.activity.SuccessActivity$4$2:
-    com.supers.clean.junk.activity.SuccessActivity$4 this$1 -> a
-    300:300:void <init>(com.supers.clean.junk.activity.SuccessActivity$4) -> <init>
-    303:331:void run() -> run
-com.supers.clean.junk.activity.SuccessActivity$4$2$1 -> com.supers.clean.junk.activity.SuccessActivity$4$2$1:
-    com.supers.clean.junk.activity.SuccessActivity$4$2 this$2 -> a
-    309:309:void <init>(com.supers.clean.junk.activity.SuccessActivity$4$2) -> <init>
-    313:313:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    317:318:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    323:323:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    328:328:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    169:169:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    172:173:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$5 -> com.supers.clean.junk.activity.SuccessActivity$5:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    351:351:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    354:366:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    371:371:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    376:376:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    278:278:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    281:334:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    339:339:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    344:344:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$5$1 -> com.supers.clean.junk.activity.SuccessActivity$5$1:
+    float val$hx -> a
+    float val$hy -> b
+    com.supers.clean.junk.activity.SuccessActivity$5 this$1 -> c
+    284:284:void <init>(com.supers.clean.junk.activity.SuccessActivity$5,float,float) -> <init>
+    287:299:void run() -> run
+com.supers.clean.junk.activity.SuccessActivity$5$2 -> com.supers.clean.junk.activity.SuccessActivity$5$2:
     com.supers.clean.junk.activity.SuccessActivity$5 this$1 -> a
-    354:354:void <init>(com.supers.clean.junk.activity.SuccessActivity$5) -> <init>
-    357:363:void run() -> run
+    301:301:void <init>(com.supers.clean.junk.activity.SuccessActivity$5) -> <init>
+    304:332:void run() -> run
+com.supers.clean.junk.activity.SuccessActivity$5$2$1 -> com.supers.clean.junk.activity.SuccessActivity$5$2$1:
+    com.supers.clean.junk.activity.SuccessActivity$5$2 this$2 -> a
+    310:310:void <init>(com.supers.clean.junk.activity.SuccessActivity$5$2) -> <init>
+    314:314:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    318:319:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    324:324:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    329:329:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$6 -> com.supers.clean.junk.activity.SuccessActivity$6:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    380:380:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    383:411:void onClick(android.view.View) -> onClick
+    352:352:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    355:367:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    372:372:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    377:377:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.supers.clean.junk.activity.SuccessActivity$6$1 -> com.supers.clean.junk.activity.SuccessActivity$6$1:
+    com.supers.clean.junk.activity.SuccessActivity$6 this$1 -> a
+    355:355:void <init>(com.supers.clean.junk.activity.SuccessActivity$6) -> <init>
+    358:364:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$7 -> com.supers.clean.junk.activity.SuccessActivity$7:
+    com.supers.clean.junk.activity.SuccessActivity this$0 -> a
+    381:381:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    384:412:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.SuccessActivity$8 -> com.supers.clean.junk.activity.SuccessActivity$8:
     long lastMillis -> b
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    427:428:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    431:453:void run() -> run
-com.supers.clean.junk.activity.SuccessActivity$7$1 -> com.supers.clean.junk.activity.SuccessActivity$7$1:
+    428:429:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    432:454:void run() -> run
+com.supers.clean.junk.activity.SuccessActivity$8$1 -> com.supers.clean.junk.activity.SuccessActivity$8$1:
     float val$delta -> a
-    com.supers.clean.junk.activity.SuccessActivity$7 this$1 -> b
-    436:436:void <init>(com.supers.clean.junk.activity.SuccessActivity$7,float) -> <init>
-    439:441:void run() -> run
+    com.supers.clean.junk.activity.SuccessActivity$8 this$1 -> b
+    437:437:void <init>(com.supers.clean.junk.activity.SuccessActivity$8,float) -> <init>
+    440:442:void run() -> run
 com.supers.clean.junk.activity.ThemeActivity -> com.supers.clean.junk.activity.ThemeActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -44427,19 +44619,19 @@ com.supers.clean.junk.activity.UnloadActivity -> com.supers.clean.junk.activity.
     java.util.ArrayList mngList -> o
     android.os.Handler myHandler -> k
     android.view.View$OnClickListener BtClickListener -> l
-    29:118:void <init>() -> <init>
-    45:94:void onCreate(android.os.Bundle) -> onCreate
-    97:116:void addAd() -> c
-    144:145:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    148:170:void deleteFiles(java.lang.String) -> b
+    29:123:void <init>() -> <init>
+    45:99:void onCreate(android.os.Bundle) -> onCreate
+    102:121:void addAd() -> c
+    149:150:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    153:175:void deleteFiles(java.lang.String) -> b
 com.supers.clean.junk.activity.UnloadActivity$1 -> com.supers.clean.junk.activity.UnloadActivity$1:
     com.supers.clean.junk.activity.UnloadActivity this$0 -> a
-    98:98:void <init>(com.supers.clean.junk.activity.UnloadActivity) -> <init>
-    101:102:void run() -> run
+    103:103:void <init>(com.supers.clean.junk.activity.UnloadActivity) -> <init>
+    106:107:void run() -> run
 com.supers.clean.junk.activity.UnloadActivity$2 -> com.supers.clean.junk.activity.UnloadActivity$2:
     com.supers.clean.junk.activity.UnloadActivity this$0 -> a
-    118:118:void <init>(com.supers.clean.junk.activity.UnloadActivity) -> <init>
-    121:139:void onClick(android.view.View) -> onClick
+    123:123:void <init>(com.supers.clean.junk.activity.UnloadActivity) -> <init>
+    126:144:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.UnloadBroadcast -> com.supers.clean.junk.activity.UnloadBroadcast:
     13:13:void <init>() -> <init>
     19:25:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -44502,6 +44694,82 @@ com.supers.clean.junk.activity.WhiteListAvtivity$1 -> com.supers.clean.junk.acti
     com.supers.clean.junk.activity.WhiteListAvtivity this$0 -> a
     71:71:void <init>(com.supers.clean.junk.activity.WhiteListAvtivity) -> <init>
     74:83:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.WidgetProvider -> com.supers.clean.junk.activity.WidgetProvider:
+    android.widget.RemoteViews rv -> a
+    android.content.res.ColorStateList green -> b
+    android.content.res.ColorStateList yellow -> c
+    android.content.res.ColorStateList red -> d
+    20:20:void <init>() -> <init>
+    26:28:void onDeleted(android.content.Context,int[]) -> onDeleted
+    32:35:void onDisabled(android.content.Context) -> onDisabled
+    39:42:void onEnabled(android.content.Context) -> onEnabled
+    46:68:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    72:102:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
+com.supers.clean.junk.activity.WidgetService -> com.supers.clean.junk.activity.WidgetService:
+    java.util.Timer mTimer -> d
+    android.os.Handler handler -> e
+    com.supers.clean.junk.activity.WidgetService$KillBackg killBackg -> f
+    int memory -> g
+    int memory_kill -> h
+    android.widget.RemoteViews rv -> i
+    android.appwidget.AppWidgetManager manager -> j
+    android.content.ComponentName cn -> k
+    boolean isRuning -> l
+    android.content.res.ColorStateList green -> m
+    android.content.res.ColorStateList yellow -> n
+    android.content.res.ColorStateList red -> o
+    java.lang.Thread kill -> p
+    java.lang.Thread runing -> q
+    java.lang.Runnable runnable -> a
+    boolean isxiao -> b
+    java.lang.Runnable runnableT -> c
+    30:144:void <init>() -> <init>
+    44:44:android.os.IBinder onBind(android.content.Intent) -> onBind
+    49:134:void onCreate() -> onCreate
+    184:187:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    191:257:void updata() -> a
+    264:278:void killAll(android.content.Context) -> a
+    281:284:long getAvailMemory(android.app.ActivityManager) -> a
+    289:291:void onDestroy() -> onDestroy
+    30:30:int access$002(com.supers.clean.junk.activity.WidgetService,int) -> a
+    30:30:boolean access$102(com.supers.clean.junk.activity.WidgetService,boolean) -> a
+    30:30:android.os.Handler access$200(com.supers.clean.junk.activity.WidgetService) -> a
+    30:30:android.widget.RemoteViews access$300(com.supers.clean.junk.activity.WidgetService) -> b
+    30:30:android.content.res.ColorStateList access$400(com.supers.clean.junk.activity.WidgetService) -> c
+    30:30:android.content.res.ColorStateList access$500(com.supers.clean.junk.activity.WidgetService) -> d
+    30:30:android.content.res.ColorStateList access$600(com.supers.clean.junk.activity.WidgetService) -> e
+    30:30:android.content.ComponentName access$700(com.supers.clean.junk.activity.WidgetService) -> f
+    30:30:android.appwidget.AppWidgetManager access$800(com.supers.clean.junk.activity.WidgetService) -> g
+    30:30:int access$900(com.supers.clean.junk.activity.WidgetService) -> h
+    30:30:int access$902(com.supers.clean.junk.activity.WidgetService,int) -> b
+    30:30:int access$000(com.supers.clean.junk.activity.WidgetService) -> i
+    30:30:boolean access$100(com.supers.clean.junk.activity.WidgetService) -> j
+com.supers.clean.junk.activity.WidgetService$1 -> com.supers.clean.junk.activity.WidgetService$1:
+    com.supers.clean.junk.activity.WidgetService this$0 -> a
+    57:57:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
+    60:61:void killS(int,long) -> a
+com.supers.clean.junk.activity.WidgetService$2 -> com.supers.clean.junk.activity.WidgetService$2:
+    com.supers.clean.junk.activity.WidgetService this$0 -> a
+    63:63:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
+    67:67:void run() -> run
+com.supers.clean.junk.activity.WidgetService$3 -> com.supers.clean.junk.activity.WidgetService$3:
+    com.supers.clean.junk.activity.WidgetService this$0 -> a
+    69:69:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
+    72:123:void run() -> run
+com.supers.clean.junk.activity.WidgetService$4 -> com.supers.clean.junk.activity.WidgetService$4:
+    com.supers.clean.junk.activity.WidgetService this$0 -> a
+    136:136:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
+    139:141:void run() -> run
+com.supers.clean.junk.activity.WidgetService$5 -> com.supers.clean.junk.activity.WidgetService$5:
+    com.supers.clean.junk.activity.WidgetService this$0 -> a
+    144:144:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
+    147:179:void run() -> run
+com.supers.clean.junk.activity.WidgetService$6 -> com.supers.clean.junk.activity.WidgetService$6:
+    com.supers.clean.junk.activity.WidgetService this$0 -> a
+    193:193:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
+    196:197:void run() -> run
+com.supers.clean.junk.activity.WidgetService$KillBackg -> com.supers.clean.junk.activity.WidgetService$a:
+    void killS(int,long) -> a
 com.supers.clean.junk.fakeView.Flake -> com.supers.clean.junk.fakeView.a:
     float x -> a
     float y -> b
@@ -48757,18 +49025,18 @@ org.byteam.superadapter.OnItemClickListener -> org.a.a.d:
 org.byteam.superadapter.OnItemLongClickListener -> org.a.a.e:
     void onItemLongClick(android.view.View,int,int) -> a
 org.byteam.superadapter.RecyclerSupportAdapter -> org.a.a.f:
-    java.lang.String TAG -> e
-    android.content.Context mContext -> f
-    java.util.List mData -> g
-    int mLayoutResId -> h
-    org.byteam.superadapter.IMulItemViewType mMulItemViewType -> i
+    java.lang.String TAG -> d
+    android.content.Context mContext -> e
+    java.util.List mData -> f
+    int mLayoutResId -> g
+    org.byteam.superadapter.IMulItemViewType mMulItemViewType -> h
     org.byteam.superadapter.OnItemClickListener mOnItemClickListener -> a
     org.byteam.superadapter.OnItemLongClickListener mOnItemLongClickListener -> b
-    android.support.v7.widget.RecyclerView mRecyclerView -> j
-    android.view.View mHeader -> k
-    android.view.View mFooter -> l
+    android.support.v7.widget.RecyclerView mRecyclerView -> i
+    android.view.View mHeader -> j
+    android.view.View mFooter -> k
     android.view.animation.Interpolator mInterpolator -> c
-    long mDuration -> d
+    long mDuration -> l
     boolean mLoadAnimationEnabled -> m
     boolean mOnlyOnce -> n
     org.byteam.superadapter.animation.BaseAnimation mLoadAnimation -> o
