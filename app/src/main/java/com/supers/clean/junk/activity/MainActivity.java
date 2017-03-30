@@ -38,7 +38,7 @@ import com.eos.manager.AppLockPermissionActivity;
 import com.eos.manager.Tracker;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
-import com.eos.ui.demo.Cross.CrossManager;
+import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.view.CrossView;
 import com.sample.lottie.LottieAnimationView;
 import com.eos.module.charge.saver.service.BatteryService;
@@ -81,6 +81,7 @@ public class MainActivity extends BaseActivity implements MainView {
     TextView main_rotate_bad;
     LinearLayout main_rotate_good;
     LinearLayout main_tuiguang_button;
+    FrameLayout fl_lot_main;
     TextView main_msg_tuiguang;
     LinearLayout main_msg_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_sd_unit, main_msg_cpu_percent;
@@ -140,6 +141,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
+        fl_lot_main = (FrameLayout) findViewById(R.id.fl_lot_main);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
@@ -304,37 +306,49 @@ public class MainActivity extends BaseActivity implements MainView {
 
     public void tuiGuang() {
         super.tuiGuang();
-//        View view_side = CrossManager.getInstance().getCrossView(this, AndroidSdk.getExtraData(), "list1", "side");
-//        if (view_side != null) {
-//            fl_lot_side.addView(view_side);
-//        }
-        if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
-            lot_main.setImageAssetsFolder(null, "images/applocks/");
-            lot_main.setAnimation(null, "applocks.json");
-            lot_main.loop(true);
-            lot_main.playAnimation();
-            main_msg_tuiguang.setText("EOS Applock");
-            lot_side.setImageAssetsFolder(null, "images/applocks/");
-            lot_side.setAnimation(null, "applocks.json");
-            lot_side.loop(true);
-            lot_side.playAnimation();
-        } else if (!CommonUtil.isPkgInstalled(tuiguang1, packageManager)) {
-            lot_main.setImageAssetsFolder(null, "images/flashs/");
-            lot_main.setAnimation(null, "flashs.json");
-            lot_main.loop(true);
-            lot_main.playAnimation();
-            main_msg_tuiguang.setText("EOS Flashlight");
-
-            lot_side.setImageAssetsFolder(null, "images/flashs/");
-            lot_side.setAnimation(null, "flashs.json");
-            lot_side.loop(true);
-            lot_side.playAnimation();
-
+        View view_side = CrossManager.getInstance().getCrossView(this, AndroidSdk.getExtraData(), "list1", "side", true, null);
+        View view_main = CrossManager.getInstance().getCrossView(this, AndroidSdk.getExtraData(), "list1", "side", true, null);
+        if (view_side != null) {
+            String pkg = CrossManager.getInstance().getCrossData(this, AndroidSdk.getExtraData(), "list1", "side").pkg;
+            if (TextUtils.equals(pkg, "com.eosmobi.applock")) {
+                main_msg_tuiguang.setText("EOS Applock");
+            } else if (TextUtils.equals(pkg, "com.eosmobi.flashlight.free")) {
+                main_msg_tuiguang.setText("EOS Flashlight");
+            }
+            fl_lot_side.addView(view_side);
+            fl_lot_main.addView(view_main);
         } else {
-            main_tuiguang_button.setVisibility(View.GONE);
             fl_lot_side.setVisibility(View.GONE);
             side_title.setVisibility(View.VISIBLE);
+            main_tuiguang_button.setVisibility(View.GONE);
         }
+//        if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
+//            lot_main.setImageAssetsFolder(null, "images/applocks/");
+//            lot_main.setAnimation(null, "applocks.json");
+//            lot_main.loop(true);
+//            lot_main.playAnimation();
+//            main_msg_tuiguang.setText("EOS Applock");
+//            lot_side.setImageAssetsFolder(null, "images/applocks/");
+//            lot_side.setAnimation(null, "applocks.json");
+//            lot_side.loop(true);
+//            lot_side.playAnimation();
+//        } else if (!CommonUtil.isPkgInstalled(tuiguang1, packageManager)) {
+//            lot_main.setImageAssetsFolder(null, "images/flashs/");
+//            lot_main.setAnimation(null, "flashs.json");
+//            lot_main.loop(true);
+//            lot_main.playAnimation();
+//            main_msg_tuiguang.setText("EOS Flashlight");
+//
+//            lot_side.setImageAssetsFolder(null, "images/flashs/");
+//            lot_side.setAnimation(null, "flashs.json");
+//            lot_side.loop(true);
+//            lot_side.playAnimation();
+//
+//        } else {
+//            main_tuiguang_button.setVisibility(View.GONE);
+//            fl_lot_side.setVisibility(View.GONE);
+//            side_title.setVisibility(View.VISIBLE);
+//        }
     }
 
     public static void showPermission(final Context c) {
@@ -790,32 +804,33 @@ public class MainActivity extends BaseActivity implements MainView {
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
-//                    if (PreData.getDB(MainActivity.this, Contents.FIRST_APPLOCK, true)) {
-//
-//                    }
-//                    String pkg = CrossManager.getInstance().getCrossData(MainActivity.this, AndroidSdk.getExtraData(), "list2", "").pkg;
-//                    if (CommonUtil.isPkgInstalled(pkg, packageManager)) {
-//                        CommonUtil.doStartApplicationWithPackageName(MainActivity.this, pkg);
+//                    int type = PreData.getDB(MainActivity.this, Contents.FIRST_APPLOCK, 0);
+//                    if (type == 0) {
+//                        if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
+//                            CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
+//                            PreData.putDB(MainActivity.this, Contents.FIRST_APPLOCK, 1);
+//                        } else {
+//                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
+//                            startActivity(intent);
+//                        }
+//                    } else if (type == 1) {
+//                        if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
+//                            CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
+//                        } else {
+//                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
+//                            startActivity(intent);
+//                        }
 //                    } else {
-//
+//                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
+//                        intent.putExtra("is_main", true);
+//                        startActivity(intent);
 //                    }
-//                    CrossManager.getInstance().showCrossDialog(MainActivity.this, AndroidSdk.getExtraData(), "list2", "主页面", new CrossView.onCrossDialogClickListener() {
-//                        @Override
-//                        public void onCancel() {
-//
-//                        }
-//
-//                        @Override
-//                        public void onInstall() {
-//
-//                        }
-//                    });
+
 
                     AndroidSdk.track("主页面", "点击applock按钮", "", 1);
                     Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
                     intent.putExtra("is_main", true);
                     startActivity(intent);
-//                    mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_theme_button:
                     AndroidSdk.track("主页面", "点击主题按钮", "", 1);

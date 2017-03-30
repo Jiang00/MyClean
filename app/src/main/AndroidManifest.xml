@@ -152,13 +152,17 @@
         <activity
             android:name=".activity.TranslateActivity"
             android:theme="@style/Transparent" />
+        <activity
+            android:name=".activity.ApplockActivity"
+            android:screenOrientation="portrait" />
+
         <service
             android:name=".widget.WidgetService"
             android:enabled="true" />
         <receiver android:name=".widget.WidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="app.eosmobi.action.widget.ram"/>
+                <action android:name="app.eosmobi.action.widget.ram" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"

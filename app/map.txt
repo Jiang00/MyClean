@@ -27879,19 +27879,31 @@ com.android.theme.internal.UIController -> com.android.theme.internal.a:
 com.android.theme.internal.adapter.AutoLoadOnScrollListener -> com.android.theme.internal.a.a:
     boolean loading -> a
     android.support.v7.widget.LinearLayoutManager mLinearLayoutManager -> b
-    com.android.theme.internal.data.PageThemes themes -> c
+    com.android.theme.internal.data.Pageable themes -> c
     android.support.v7.widget.RecyclerView recyclerView -> d
-    15:25:void <init>(android.support.v7.widget.RecyclerView,com.android.theme.internal.data.PageThemes) -> <init>
-    29:38:void onScrolled(android.support.v7.widget.RecyclerView,int,int) -> onScrolled
-    41:61:void onLoadMore() -> a
-    68:69:void setLoading(boolean) -> a
-    14:14:com.android.theme.internal.data.PageThemes access$000(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> a
-    14:14:android.support.v7.widget.RecyclerView access$100(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> b
+    org.byteam.superadapter.SuperAdapter adapter -> e
+    18:30:void <init>(android.support.v7.widget.RecyclerView,com.android.theme.internal.data.Pageable,org.byteam.superadapter.SuperAdapter) -> <init>
+    34:43:void onScrolled(android.support.v7.widget.RecyclerView,int,int) -> onScrolled
+    46:68:void onLoadMore() -> a
+    71:82:void setLoading(boolean) -> a
+    17:17:void access$000(com.android.theme.internal.adapter.AutoLoadOnScrollListener,boolean) -> a
+    17:17:com.android.theme.internal.data.Pageable access$100(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> a
+    17:17:android.support.v7.widget.RecyclerView access$200(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> b
+    17:17:org.byteam.superadapter.SuperAdapter access$300(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> c
 com.android.theme.internal.adapter.AutoLoadOnScrollListener$1 -> com.android.theme.internal.a.a$1:
     com.android.theme.internal.adapter.AutoLoadOnScrollListener this$0 -> a
-    48:48:void <init>(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> <init>
-    51:53:void notifyDataSetChanged() -> a
-    57:58:void complete() -> b
+    49:49:void <init>(com.android.theme.internal.adapter.AutoLoadOnScrollListener) -> <init>
+    52:54:void notifyDataSetChanged() -> a
+    58:65:void complete() -> b
+com.android.theme.internal.adapter.AutoLoadOnScrollListener$1$1 -> com.android.theme.internal.a.a$1$1:
+    com.android.theme.internal.adapter.AutoLoadOnScrollListener$1 this$1 -> a
+    59:59:void <init>(com.android.theme.internal.adapter.AutoLoadOnScrollListener$1) -> <init>
+    62:63:void run() -> run
+com.android.theme.internal.adapter.AutoLoadOnScrollListener$2 -> com.android.theme.internal.a.a$2:
+    boolean val$loading -> a
+    com.android.theme.internal.adapter.AutoLoadOnScrollListener this$0 -> b
+    73:73:void <init>(com.android.theme.internal.adapter.AutoLoadOnScrollListener,boolean) -> <init>
+    76:79:void run() -> run
 com.android.theme.internal.adapter.BitmapCache -> com.android.theme.internal.a.b:
     java.util.HashMap pendingImageViews -> a
     com.android.async.AsyncExecutor executor -> b
@@ -27987,15 +27999,17 @@ com.android.theme.internal.data.PageThemes -> com.android.theme.internal.data.Pa
     boolean end -> f
     int loadedCount -> a
     java.util.ArrayList themes -> b
-    24:85:void <init>(android.os.Parcel) -> <init>
+    24:79:void <init>(android.os.Parcel) -> <init>
     46:46:int describeContents() -> describeContents
     51:56:void writeToParcel(android.os.Parcel,int) -> writeToParcel
     60:70:void onReceiveEvent(int,java.lang.Object[]) -> onReceiveEvent
-    85:96:void <init>(java.lang.String,java.lang.String) -> <init>
-    105:116:java.util.ArrayList loadThemes(org.json.JSONArray) -> a
-    120:120:java.lang.String url(java.lang.String) -> a
-    124:124:boolean isEOF() -> a
-    128:184:void loadNextPage(com.android.theme.internal.data.PageThemes$Notifiable) -> a
+    79:90:void <init>(java.lang.String,java.lang.String) -> <init>
+    99:110:java.util.ArrayList loadThemes(org.json.JSONArray) -> a
+    114:114:java.lang.String url(java.lang.String) -> a
+    118:118:boolean isEOF() -> a
+    122:179:void loadNextPage(com.android.theme.internal.data.Pageable$Notifiable) -> a
+    183:183:int size() -> b
+    188:188:int loadedCount() -> c
     23:23:boolean access$002(com.android.theme.internal.data.PageThemes,boolean) -> a
     23:23:java.lang.String access$100(com.android.theme.internal.data.PageThemes) -> a
     23:23:java.lang.String access$200(com.android.theme.internal.data.PageThemes) -> b
@@ -28010,20 +28024,25 @@ com.android.theme.internal.data.PageThemes$1 -> com.android.theme.internal.data.
     32:32:java.lang.Object[] newArray(int) -> newArray
     32:32:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.android.theme.internal.data.PageThemes$2 -> com.android.theme.internal.data.PageThemes$2:
-    com.android.theme.internal.data.PageThemes$Notifiable val$notifiable -> a
+    com.android.theme.internal.data.Pageable$Notifiable val$notifiable -> a
     com.android.theme.internal.data.PageThemes this$0 -> b
-    142:142:void <init>(com.android.theme.internal.data.PageThemes,java.lang.String,com.android.theme.internal.data.PageThemes$Notifiable) -> <init>
-    145:173:void onSuccess(java.net.HttpURLConnection) -> onSuccess
-    177:182:void onFailure(int,java.lang.String) -> onFailure
+    137:137:void <init>(com.android.theme.internal.data.PageThemes,java.lang.String,com.android.theme.internal.data.Pageable$Notifiable) -> <init>
+    140:168:void onSuccess(java.net.HttpURLConnection) -> onSuccess
+    172:177:void onFailure(int,java.lang.String) -> onFailure
 com.android.theme.internal.data.PageThemes$2$1 -> com.android.theme.internal.data.PageThemes$2$1:
     java.util.ArrayList val$loaded -> a
     com.android.theme.internal.data.PageThemes$2 this$1 -> b
-    162:162:void <init>(com.android.theme.internal.data.PageThemes$2,java.util.ArrayList) -> <init>
-    165:170:void run() -> run
-com.android.theme.internal.data.PageThemes$Notifiable -> com.android.theme.internal.data.PageThemes$a:
+    157:157:void <init>(com.android.theme.internal.data.PageThemes$2,java.util.ArrayList) -> <init>
+    160:165:void run() -> run
+com.android.theme.internal.data.Pageable -> com.android.theme.internal.data.f:
+    boolean isEOF() -> a
+    void loadNextPage(com.android.theme.internal.data.Pageable$Notifiable) -> a
+    int size() -> b
+    int loadedCount() -> c
+com.android.theme.internal.data.Pageable$Notifiable -> com.android.theme.internal.data.f$a:
     void notifyDataSetChanged() -> a
     void complete() -> b
-com.android.theme.internal.data.Server -> com.android.theme.internal.data.f:
+com.android.theme.internal.data.Server -> com.android.theme.internal.data.g:
     com.android.async.AsyncExecutor executor -> a
     boolean requireReload -> b
     com.android.theme.internal.data.Server SERVER -> c
@@ -28039,19 +28058,19 @@ com.android.theme.internal.data.Server -> com.android.theme.internal.data.f:
     14:14:java.lang.String access$000(com.android.theme.internal.data.Server) -> a
     14:14:boolean access$202(com.android.theme.internal.data.Server,boolean) -> a
     18:18:void <clinit>() -> <clinit>
-com.android.theme.internal.data.Server$1 -> com.android.theme.internal.data.f$1:
+com.android.theme.internal.data.Server$1 -> com.android.theme.internal.data.g$1:
     com.android.theme.internal.data.Server this$0 -> a
     38:38:void <init>(com.android.theme.internal.data.Server,java.lang.String) -> <init>
     41:76:void onSuccess(java.net.HttpURLConnection) -> onSuccess
     80:82:void onFailure(int,java.lang.String) -> onFailure
     85:89:void onComplete(boolean) -> a
     38:38:void access$100(com.android.theme.internal.data.Server$1,boolean) -> a
-com.android.theme.internal.data.Server$1$1 -> com.android.theme.internal.data.f$1$1:
+com.android.theme.internal.data.Server$1$1 -> com.android.theme.internal.data.g$1$1:
     com.android.theme.internal.data.Server$1 this$1 -> a
     57:57:void <init>(com.android.theme.internal.data.Server$1,java.lang.String) -> <init>
     60:62:void onSuccess(java.net.HttpURLConnection) -> onSuccess
     66:68:void onFailure(int,java.lang.String) -> onFailure
-com.android.theme.internal.data.ShopLoadEvent -> com.android.theme.internal.data.g:
+com.android.theme.internal.data.ShopLoadEvent -> com.android.theme.internal.data.h:
     int EVENT_LOAD_COMPLETE -> a
     java.util.ArrayList tags -> b
     int errorCode -> c
@@ -28060,7 +28079,7 @@ com.android.theme.internal.data.ShopLoadEvent -> com.android.theme.internal.data
     14:34:void <init>(java.lang.String) -> <init>
     42:42:boolean success() -> a
     12:12:void <clinit>() -> <clinit>
-com.android.theme.internal.data.ShopProperties -> com.android.theme.internal.data.h:
+com.android.theme.internal.data.ShopProperties -> com.android.theme.internal.data.i:
     java.lang.String serverUrl -> a
     java.lang.String actionPrefix -> b
     java.lang.String appTag -> c
@@ -28092,7 +28111,7 @@ com.android.theme.internal.data.Theme$1 -> com.android.theme.internal.data.Theme
     43:43:com.android.theme.internal.data.Theme[] newArray(int) -> a
     35:35:java.lang.Object[] newArray(int) -> newArray
     35:35:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.android.theme.internal.data.ThemeChangedEvent -> com.android.theme.internal.data.i:
+com.android.theme.internal.data.ThemeChangedEvent -> com.android.theme.internal.data.j:
     int EVENT_THEME_CHANGED -> a
     com.android.theme.internal.data.ThemeInfo themeInfo -> b
     12:14:void <init>(com.android.theme.internal.data.ThemeInfo) -> <init>
@@ -28116,7 +28135,7 @@ com.android.theme.internal.data.ThemeContainer$1 -> com.android.theme.internal.d
     56:56:com.android.theme.internal.data.ThemeContainer[] newArray(int) -> a
     48:48:java.lang.Object[] newArray(int) -> newArray
     48:48:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.android.theme.internal.data.ThemeInfo -> com.android.theme.internal.data.j:
+com.android.theme.internal.data.ThemeInfo -> com.android.theme.internal.data.k:
     java.lang.String themePackageName -> b
     android.content.Context themeContext -> c
     java.lang.String name -> d
@@ -28131,17 +28150,17 @@ com.android.theme.internal.data.ThemeInfo -> com.android.theme.internal.data.j:
     android.graphics.Typeface ROBOTO_BLACK -> m
     java.util.HashMap hasFontMap -> n
     boolean $assertionsDisabled -> a
-    34:447:void <init>(android.content.Context,java.lang.String,boolean) -> <init>
-    119:126:void setField(java.lang.Object,java.lang.String,java.lang.Object) -> a
-    129:137:java.lang.reflect.Field getField(java.lang.Object,java.lang.String) -> a
-    142:160:void destroy() -> a
-    163:163:java.lang.String getPackageName() -> b
-    167:167:java.lang.String getName() -> c
+    34:451:void <init>(android.content.Context,java.lang.String,boolean) -> <init>
+    123:130:void setField(java.lang.Object,java.lang.String,java.lang.Object) -> a
+    133:141:java.lang.reflect.Field getField(java.lang.Object,java.lang.String) -> a
+    146:164:void destroy() -> a
+    167:167:java.lang.String getPackageName() -> b
+    171:171:java.lang.String getName() -> c
     30:30:java.lang.String access$002(com.android.theme.internal.data.ThemeInfo,java.lang.String) -> a
     30:30:void access$100(com.android.theme.internal.data.ThemeInfo,java.lang.Object,java.lang.String,java.lang.Object) -> a
     30:30:java.lang.String access$000(com.android.theme.internal.data.ThemeInfo) -> a
-    30:404:void <clinit>() -> <clinit>
-com.android.theme.internal.data.ThemeInfo$CW -> com.android.theme.internal.data.j$a:
+    30:408:void <clinit>() -> <clinit>
+com.android.theme.internal.data.ThemeInfo$CW -> com.android.theme.internal.data.k$a:
     android.content.res.AssetManager mAssetManager -> b
     android.content.res.Resources mResources -> c
     android.content.res.Resources$Theme mTheme -> d
@@ -28151,7 +28170,7 @@ com.android.theme.internal.data.ThemeInfo$CW -> com.android.theme.internal.data.
     70:70:android.content.res.Resources getResources() -> getResources
     75:75:android.content.res.Resources$Theme getTheme() -> getTheme
     80:80:java.lang.String getPackageName() -> getPackageName
-com.android.theme.internal.data.ThemeManager -> com.android.theme.internal.data.k:
+com.android.theme.internal.data.ThemeManager -> com.android.theme.internal.data.l:
     com.android.theme.internal.data.ThemeInfo currentThemeInfo -> a
     java.lang.String tag -> b
     21:30:void onCreate(android.content.Context,java.lang.String) -> a
@@ -28161,14 +28180,14 @@ com.android.theme.internal.data.ThemeManager -> com.android.theme.internal.data.
     71:73:boolean applyTheme(android.content.Context,java.lang.String,boolean) -> b
     77:78:void sendThemeChangedEvent() -> a
     81:81:com.android.theme.internal.data.ThemeInfo currentTheme() -> b
-com.android.theme.internal.data.ThemeSegment -> com.android.theme.internal.data.l:
+com.android.theme.internal.data.ThemeSegment -> com.android.theme.internal.data.m:
     com.android.theme.internal.data.Css css -> a
     java.util.ArrayList themeContainers -> b
     java.lang.String tag -> c
     16:26:void <init>(java.lang.String) -> <init>
     22:22:boolean isSpecial(java.lang.String) -> a
     26:45:void <init>(java.lang.String,org.json.JSONObject) -> <init>
-com.android.theme.internal.data.ThemeSelector -> com.android.theme.internal.data.m:
+com.android.theme.internal.data.ThemeSelector -> com.android.theme.internal.data.n:
     java.util.HashMap selectedThemes -> a
     java.util.HashMap themeTagMap -> b
     com.android.theme.internal.data.ThemeSelector SELECTOR -> c
@@ -28179,13 +28198,13 @@ com.android.theme.internal.data.ThemeSelector -> com.android.theme.internal.data
     28:29:void refresh() -> a
     32:42:void refresh_() -> b
     14:14:void <clinit>() -> <clinit>
-com.android.theme.internal.data.ThemeTag -> com.android.theme.internal.data.n:
+com.android.theme.internal.data.ThemeTag -> com.android.theme.internal.data.o:
     java.util.ArrayList segments -> a
     java.lang.String tag -> b
     java.lang.String name -> c
     13:19:void <init>() -> <init>
     13:34:void <init>(org.json.JSONObject) -> <init>
-com.android.theme.internal.data.WallpaperManager -> com.android.theme.internal.data.o:
+com.android.theme.internal.data.WallpaperManager -> com.android.theme.internal.data.p:
     com.android.theme.internal.data.WallpaperManager MANAGER -> a
     java.util.ArrayList localThemes -> b
     java.util.HashMap map -> c
@@ -28277,6 +28296,7 @@ com.android.themeshop.R$color -> com.android.a.a$a:
     int shop_color_primary -> shop_color_primary
     int shop_color_primary_dark -> shop_color_primary_dark
     int shop_loading_bg -> shop_loading_bg
+    int shop_loading_color -> shop_loading_color
     int shop_tab_indicator_normal -> shop_tab_indicator_normal
     int shop_tab_indicator_selected -> shop_tab_indicator_selected
     int shop_tab_title_normal -> shop_tab_title_normal
@@ -31307,15 +31327,15 @@ com.eos.eshop.internal.BannerActivity -> com.eos.eshop.internal.BannerActivity:
     30:30:com.android.theme.internal.data.ThemeContainer access$100(com.eos.eshop.internal.BannerActivity) -> b
 com.eos.eshop.internal.BannerActivity$1 -> com.eos.eshop.internal.BannerActivity$1:
     com.eos.eshop.internal.BannerActivity this$0 -> a
-    57:57:void <init>(com.eos.eshop.internal.BannerActivity,android.content.Context,java.util.List,int) -> <init>
-    60:65:void onReceiveMoreEvent(com.android.theme.internal.data.LoadMoreEvent) -> a
-    69:77:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.android.theme.internal.data.Theme) -> a
-    57:57:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
+    56:56:void <init>(com.eos.eshop.internal.BannerActivity,android.content.Context,java.util.List,int) -> <init>
+    59:64:void onReceiveMoreEvent(com.android.theme.internal.data.LoadMoreEvent) -> a
+    68:76:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.android.theme.internal.data.Theme) -> a
+    56:56:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
 com.eos.eshop.internal.BannerActivity$1$1 -> com.eos.eshop.internal.BannerActivity$1$1:
     com.android.theme.internal.data.Theme val$theme -> a
     com.eos.eshop.internal.BannerActivity$1 this$1 -> b
-    71:71:void <init>(com.eos.eshop.internal.BannerActivity$1,com.android.theme.internal.data.Theme) -> <init>
-    74:75:void onClick(android.view.View) -> onClick
+    70:70:void <init>(com.eos.eshop.internal.BannerActivity$1,com.android.theme.internal.data.Theme) -> <init>
+    73:74:void onClick(android.view.View) -> onClick
 com.eos.eshop.internal.BannerActivity$2 -> com.eos.eshop.internal.BannerActivity$2:
     com.eos.eshop.internal.BannerActivity this$0 -> a
     109:109:void <init>(com.eos.eshop.internal.BannerActivity) -> <init>
@@ -31373,15 +31393,15 @@ com.eos.eshop.internal.DesignerActivity -> com.eos.eshop.internal.DesignerActivi
     30:30:com.android.theme.internal.data.ThemeContainer access$100(com.eos.eshop.internal.DesignerActivity) -> b
 com.eos.eshop.internal.DesignerActivity$1 -> com.eos.eshop.internal.DesignerActivity$1:
     com.eos.eshop.internal.DesignerActivity this$0 -> a
-    66:66:void <init>(com.eos.eshop.internal.DesignerActivity,android.content.Context,java.util.List,int) -> <init>
-    69:74:void onReceiveMoreEvent(com.android.theme.internal.data.LoadMoreEvent) -> a
-    78:86:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.android.theme.internal.data.Theme) -> a
-    66:66:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
+    65:65:void <init>(com.eos.eshop.internal.DesignerActivity,android.content.Context,java.util.List,int) -> <init>
+    68:73:void onReceiveMoreEvent(com.android.theme.internal.data.LoadMoreEvent) -> a
+    77:85:void onBind(org.byteam.superadapter.SuperViewHolder,int,int,com.android.theme.internal.data.Theme) -> a
+    65:65:void onBind(java.lang.Object,int,int,java.lang.Object) -> a
 com.eos.eshop.internal.DesignerActivity$1$1 -> com.eos.eshop.internal.DesignerActivity$1$1:
     com.android.theme.internal.data.Theme val$item -> a
     com.eos.eshop.internal.DesignerActivity$1 this$1 -> b
-    80:80:void <init>(com.eos.eshop.internal.DesignerActivity$1,com.android.theme.internal.data.Theme) -> <init>
-    83:84:void onClick(android.view.View) -> onClick
+    79:79:void <init>(com.eos.eshop.internal.DesignerActivity$1,com.android.theme.internal.data.Theme) -> <init>
+    82:83:void onClick(android.view.View) -> onClick
 com.eos.eshop.internal.DesignerActivity$2 -> com.eos.eshop.internal.DesignerActivity$2:
     com.eos.eshop.internal.DesignerActivity this$0 -> a
     126:126:void <init>(com.eos.eshop.internal.DesignerActivity) -> <init>
@@ -34603,7 +34623,7 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$e:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1414:1878:void <clinit>() -> <clinit>
+    1415:1879:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
     12:12:void <init>() -> <init>
     15:16:void showFullAD() -> a
@@ -35536,31 +35556,6 @@ com.eos.module.tweenengine.paths.CatmullRom -> com.eos.module.tweenengine.b.a:
 com.eos.module.tweenengine.paths.Linear -> com.eos.module.tweenengine.b.b:
     8:8:void <init>() -> <init>
     11:17:float compute(float,float[],int) -> a
-com.eos.ui.demo.Cross.FileDownLoad -> com.eos.ui.demo.a.a:
-    com.eos.ui.demo.Cross.FileDownLoad instance -> a
-    23:23:void <init>() -> <init>
-    28:35:com.eos.ui.demo.Cross.FileDownLoad getInstance() -> a
-    39:43:boolean isSdCardExist() -> b
-    93:144:void downLoadJson(android.content.Context,java.lang.String,java.lang.String,com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack) -> a
-    206:270:void downLoadZip(android.content.Context,java.lang.String,java.lang.String,com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack) -> b
-    25:25:void <clinit>() -> <clinit>
-com.eos.ui.demo.Cross.FileDownLoad$1 -> com.eos.ui.demo.a.a$1:
-    com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack val$callBack -> a
-    java.lang.String val$pkg -> b
-    com.eos.ui.demo.Cross.FileDownLoad this$0 -> c
-    101:101:void <init>(com.eos.ui.demo.Cross.FileDownLoad,com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack,java.lang.String) -> <init>
-    104:135:void onSuccess(int,cz.msebera.android.httpclient.Header[],byte[]) -> a
-    139:142:void onFailure(int,cz.msebera.android.httpclient.Header[],byte[],java.lang.Throwable) -> a
-com.eos.ui.demo.Cross.FileDownLoad$2 -> com.eos.ui.demo.a.a$2:
-    java.lang.String val$pkg -> a
-    com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack val$callBack -> b
-    com.eos.ui.demo.Cross.FileDownLoad this$0 -> c
-    214:214:void <init>(com.eos.ui.demo.Cross.FileDownLoad,java.lang.String,com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack) -> <init>
-    217:260:void onSuccess(int,cz.msebera.android.httpclient.Header[],byte[]) -> a
-    264:267:void onFailure(int,cz.msebera.android.httpclient.Header[],byte[],java.lang.Throwable) -> a
-com.eos.ui.demo.Cross.FileDownLoad$IOnFileDownLoadCallBack -> com.eos.ui.demo.a.a$a:
-    void onLoadSuccess(java.lang.String) -> a
-    void onLoadFailed() -> a
 com.eos.ui.demo.R -> com.eos.ui.demo.a:
 com.eos.ui.demo.R$id -> com.eos.ui.demo.a$a:
     int CIRCLE -> CIRCLE
@@ -36156,20 +36151,80 @@ com.eos.ui.demo.R$styleable -> com.eos.ui.demo.a$e:
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
     1063:1397:void <clinit>() -> <clinit>
-com.eos.ui.demo.Utils.Util -> com.eos.ui.demo.b.a:
-    com.google.gson.Gson gson -> a
-    63:70:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
-    123:136:void writeData(android.content.Context,java.lang.String,java.lang.Object) -> a
-    139:146:java.lang.Object readData(android.content.Context,java.lang.String,java.lang.Object) -> b
-    150:163:void openPlayStore(android.content.Context,java.lang.String) -> a
-    166:166:java.lang.String fixUrl(java.lang.String) -> a
-    170:170:boolean isPlayStoreUrl(java.lang.String) -> b
-    175:178:boolean hasPlayStore(android.content.Context) -> a
-    183:188:void launchPlayStore(android.content.Context,java.lang.String,android.content.Intent) -> a
-    192:200:void launchApp(android.content.Context,android.content.Intent) -> a
-    203:209:void launchBrowser(android.content.Context,java.lang.String,android.content.Intent) -> b
-    212:218:java.lang.String getDefaultBrowserPackageName(android.content.Context,android.content.Intent) -> b
-    43:43:void <clinit>() -> <clinit>
+com.eos.ui.demo.cross.CrossManager -> com.eos.ui.demo.a.a:
+    com.eos.ui.demo.cross.CrossManager instance -> b
+    android.view.View view -> c
+    boolean isShowClick -> d
+    com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener listener -> a
+    36:209:void <init>() -> <init>
+    40:43:com.eos.ui.demo.cross.CrossManager getInstance() -> a
+    79:197:android.view.View getCrossView(android.content.Context,java.lang.String,java.lang.String,java.lang.String,boolean,com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener) -> a
+    220:296:com.eos.ui.demo.entries.CrossData$CrossPromotionBean analysisJson(android.content.Context,java.util.List,java.util.List,int) -> a
+    300:330:com.eos.ui.demo.entries.CrossData$CrossPromotionBean getCurrentShowItem(android.content.Context,java.lang.String,java.lang.String) -> a
+    34:34:boolean access$000(com.eos.ui.demo.cross.CrossManager) -> a
+    34:34:android.view.View access$100(com.eos.ui.demo.cross.CrossManager) -> b
+    34:34:android.view.View access$102(com.eos.ui.demo.cross.CrossManager,android.view.View) -> a
+    38:38:void <clinit>() -> <clinit>
+com.eos.ui.demo.cross.CrossManager$1 -> com.eos.ui.demo.a.a$1:
+    android.content.Context val$context -> a
+    boolean val$isJumpToGp -> b
+    com.eos.ui.demo.entries.CrossData$CrossPromotionBean val$bean -> c
+    com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener val$listener -> d
+    java.lang.String val$position -> e
+    com.eos.ui.demo.cross.CrossManager this$0 -> f
+    102:102:void <init>(com.eos.ui.demo.cross.CrossManager,android.content.Context,boolean,com.eos.ui.demo.entries.CrossData$CrossPromotionBean,com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener,java.lang.String) -> <init>
+    105:118:void onClick(android.view.View) -> onClick
+com.eos.ui.demo.cross.CrossManager$2 -> com.eos.ui.demo.a.a$2:
+    com.sample.lottie.LottieAnimationView val$lottie -> a
+    com.eos.ui.demo.cross.CrossManager this$0 -> b
+    131:131:void <init>(com.eos.ui.demo.cross.CrossManager,com.sample.lottie.LottieAnimationView) -> <init>
+    134:135:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+com.eos.ui.demo.cross.CrossManager$3 -> com.eos.ui.demo.a.a$3:
+    com.eos.ui.demo.cross.CrossManager this$0 -> a
+    148:148:void <init>(com.eos.ui.demo.cross.CrossManager) -> <init>
+    151:151:void onLoadSuccess(java.lang.String) -> a
+    155:156:void onLoadFailed() -> a
+com.eos.ui.demo.cross.CrossManager$4 -> com.eos.ui.demo.a.a$4:
+    com.sample.lottie.LottieAnimationView val$lottie -> a
+    com.eos.ui.demo.cross.CrossManager this$0 -> b
+    168:168:void <init>(com.eos.ui.demo.cross.CrossManager,com.sample.lottie.LottieAnimationView) -> <init>
+    171:172:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+com.eos.ui.demo.cross.CrossManager$5 -> com.eos.ui.demo.a.a$5:
+    com.eos.ui.demo.cross.CrossManager this$0 -> a
+    185:185:void <init>(com.eos.ui.demo.cross.CrossManager) -> <init>
+    188:188:void onLoadSuccess(java.lang.String) -> a
+    192:193:void onLoadFailed() -> a
+com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener -> com.eos.ui.demo.a.a$a:
+    void onClick(android.view.View) -> onClick
+com.eos.ui.demo.cross.FileDownLoad -> com.eos.ui.demo.a.b:
+    com.eos.ui.demo.cross.FileDownLoad instance -> a
+    boolean isDownJson -> b
+    boolean isDownZip -> c
+    23:23:void <init>() -> <init>
+    30:37:com.eos.ui.demo.cross.FileDownLoad getInstance() -> a
+    41:45:boolean isSdCardExist() -> b
+    95:153:void downLoadJson(android.content.Context,java.lang.String,java.lang.String,com.eos.ui.demo.cross.FileDownLoad$IOnFileDownLoadCallBack) -> a
+    215:286:void downLoadZip(android.content.Context,java.lang.String,java.lang.String,com.eos.ui.demo.cross.FileDownLoad$IOnFileDownLoadCallBack) -> b
+    23:23:boolean access$002(boolean) -> a
+    23:23:boolean access$102(boolean) -> b
+    25:27:void <clinit>() -> <clinit>
+com.eos.ui.demo.cross.FileDownLoad$1 -> com.eos.ui.demo.a.b$1:
+    com.eos.ui.demo.cross.FileDownLoad$IOnFileDownLoadCallBack val$callBack -> a
+    java.lang.String val$pkg -> b
+    com.eos.ui.demo.cross.FileDownLoad this$0 -> c
+    107:107:void <init>(com.eos.ui.demo.cross.FileDownLoad,com.eos.ui.demo.cross.FileDownLoad$IOnFileDownLoadCallBack,java.lang.String) -> <init>
+    110:143:void onSuccess(int,cz.msebera.android.httpclient.Header[],byte[]) -> a
+    147:151:void onFailure(int,cz.msebera.android.httpclient.Header[],byte[],java.lang.Throwable) -> a
+com.eos.ui.demo.cross.FileDownLoad$2 -> com.eos.ui.demo.a.b$2:
+    java.lang.String val$pkg -> a
+    com.eos.ui.demo.cross.FileDownLoad$IOnFileDownLoadCallBack val$callBack -> b
+    com.eos.ui.demo.cross.FileDownLoad this$0 -> c
+    227:227:void <init>(com.eos.ui.demo.cross.FileDownLoad,java.lang.String,com.eos.ui.demo.cross.FileDownLoad$IOnFileDownLoadCallBack) -> <init>
+    230:275:void onSuccess(int,cz.msebera.android.httpclient.Header[],byte[]) -> a
+    279:283:void onFailure(int,cz.msebera.android.httpclient.Header[],byte[],java.lang.Throwable) -> a
+com.eos.ui.demo.cross.FileDownLoad$IOnFileDownLoadCallBack -> com.eos.ui.demo.a.b$a:
+    void onLoadSuccess(java.lang.String) -> a
+    void onLoadFailed() -> a
 com.eos.ui.demo.entries.CrossData -> com.eos.ui.demo.entries.CrossData:
     java.lang.String divide -> divide
     java.util.List cross -> cross
@@ -36221,9 +36276,10 @@ com.eos.ui.demo.permission.PermissionActivity -> com.eos.ui.demo.permission.Perm
     73:78:void initViews() -> a
     81:86:void setShowOkBtn(boolean) -> a
     90:97:void onClick(android.view.View) -> onClick
-    100:103:com.eos.ui.demo.entries.PermissionInfo createPermissionInfo(java.lang.String) -> a
-    107:156:void setPermissionDescription(com.eos.ui.demo.entries.PermissionInfo) -> a
-    159:169:void startAimActivity() -> b
+    101:104:void onBackPressed() -> onBackPressed
+    107:110:com.eos.ui.demo.entries.PermissionInfo createPermissionInfo(java.lang.String) -> a
+    114:163:void setPermissionDescription(com.eos.ui.demo.entries.PermissionInfo) -> a
+    166:176:void startAimActivity() -> b
 com.eos.ui.demo.permission.PermissionListAdapter -> com.eos.ui.demo.permission.a:
     android.content.Context mContext -> a
     java.util.ArrayList mList -> b
@@ -36291,58 +36347,70 @@ com.eos.ui.demo.permission.PermissionUtil -> com.eos.ui.demo.permission.b:
     176:186:boolean isGrantPermission(android.content.Context,java.lang.String) -> b
     190:197:java.lang.String[] getPermissionList(android.content.Context) -> e
     38:68:void <clinit>() -> <clinit>
-com.eos.ui.demo.permission.auxiliary.AccessibilityService -> com.eos.ui.demo.permission.auxiliary.AccessibilityService:
-    9:9:void <init>() -> <init>
-    14:14:void onAccessibilityEvent(android.view.accessibility.AccessibilityEvent) -> onAccessibilityEvent
-    19:19:void onInterrupt() -> onInterrupt
+com.eos.ui.demo.utils.JsonParser -> com.eos.ui.demo.b.a:
+    com.eos.ui.demo.utils.JsonParser jsonParser -> a
+    10:10:void <init>() -> <init>
+    14:17:com.eos.ui.demo.utils.JsonParser getInstance() -> a
+    25:69:java.lang.Object fromJson(java.lang.String,java.lang.Class) -> a
+com.eos.ui.demo.utils.Util -> com.eos.ui.demo.b.b:
+    com.google.gson.Gson gson -> a
+    31:37:boolean isInstallApp(android.content.Context,java.lang.String) -> a
+    45:45:com.google.gson.Gson getGson() -> a
+    62:69:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
+    122:135:void writeData(android.content.Context,java.lang.String,java.lang.Object) -> a
+    138:145:java.lang.Object readData(android.content.Context,java.lang.String,java.lang.Object) -> b
+    149:162:void openPlayStore(android.content.Context,java.lang.String) -> b
+    165:165:java.lang.String fixUrl(java.lang.String) -> a
+    169:169:boolean isPlayStoreUrl(java.lang.String) -> b
+    174:177:boolean hasPlayStore(android.content.Context) -> a
+    182:187:void launchPlayStore(android.content.Context,java.lang.String,android.content.Intent) -> a
+    191:199:void launchApp(android.content.Context,android.content.Intent) -> a
+    202:208:void launchBrowser(android.content.Context,java.lang.String,android.content.Intent) -> b
+    211:217:java.lang.String getDefaultBrowserPackageName(android.content.Context,android.content.Intent) -> b
+    42:42:void <clinit>() -> <clinit>
 com.eos.ui.demo.view.CrossView -> com.eos.ui.demo.view.CrossView:
+    android.app.Dialog dialog -> b
     com.eos.ui.demo.view.CrossView$onCrossDialogClickListener listener -> a
-    android.content.Context mContext -> b
-    android.widget.ImageView topPic -> c
-    com.sample.lottie.LottieAnimationView topLottie -> d
-    android.widget.LinearLayout cancel -> e
-    android.widget.ImageView icon -> f
-    android.widget.TextView name -> g
-    android.widget.TextView content -> h
-    android.widget.Button install -> i
-    android.widget.RelativeLayout headLayout -> j
-    android.widget.LinearLayout footLayout -> k
-    java.lang.String pkgName -> l
-    java.lang.String position -> m
-    37:95:void <init>(android.content.Context) -> <init>
-    42:95:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    47:95:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    53:72:void onClick(android.view.View) -> onClick
-    76:77:void setCrossDialogClickListener(com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> setCrossDialogClickListener
-    99:112:void onFinishInflate() -> onFinishInflate
-    116:117:void onAttachedToWindow() -> onAttachedToWindow
-    121:125:void onDetachedFromWindow() -> onDetachedFromWindow
-    128:129:void setPosition(java.lang.String) -> setPosition
-    132:247:void setData(com.eos.ui.demo.entries.CrossData$CrossPromotionBean) -> setData
-    34:34:android.widget.ImageView access$000(com.eos.ui.demo.view.CrossView) -> a
-    34:34:com.sample.lottie.LottieAnimationView access$100(com.eos.ui.demo.view.CrossView) -> b
-    34:34:android.content.Context access$200(com.eos.ui.demo.view.CrossView) -> c
+    android.content.Context mContext -> c
+    android.widget.ImageView topPic -> d
+    com.sample.lottie.LottieAnimationView topLottie -> e
+    android.widget.LinearLayout cancel -> f
+    android.widget.ImageView icon -> g
+    android.widget.TextView name -> h
+    android.widget.TextView content -> i
+    android.widget.Button install -> j
+    android.widget.RelativeLayout headLayout -> k
+    android.widget.LinearLayout footLayout -> l
+    java.lang.String pkgName -> m
+    java.lang.String position -> n
+    38:119:void <init>(android.content.Context) -> <init>
+    43:119:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    48:119:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    54:79:void onClick(android.view.View) -> onClick
+    83:94:void setDialog(android.app.Dialog) -> setDialog
+    98:99:void setCrossDialogClickListener(com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> setCrossDialogClickListener
+    123:137:void onFinishInflate() -> onFinishInflate
+    141:142:void onAttachedToWindow() -> onAttachedToWindow
+    146:150:void onDetachedFromWindow() -> onDetachedFromWindow
+    153:154:void setPosition(java.lang.String) -> setPosition
+    157:255:void setData(com.eos.ui.demo.entries.CrossData$CrossPromotionBean) -> setData
+    35:35:com.sample.lottie.LottieAnimationView access$000(com.eos.ui.demo.view.CrossView) -> a
 com.eos.ui.demo.view.CrossView$1 -> com.eos.ui.demo.view.CrossView$1:
     com.eos.ui.demo.view.CrossView this$0 -> a
-    151:151:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
-    154:169:void onLoadSuccess(java.lang.String) -> a
-    173:174:void onLoadFailed() -> a
-com.eos.ui.demo.view.CrossView$1$1 -> com.eos.ui.demo.view.CrossView$1$1:
-    com.eos.ui.demo.view.CrossView$1 this$1 -> a
-    158:158:void <init>(com.eos.ui.demo.view.CrossView$1) -> <init>
-    161:162:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    85:85:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
+    88:91:void onDismiss(android.content.DialogInterface) -> onDismiss
 com.eos.ui.demo.view.CrossView$2 -> com.eos.ui.demo.view.CrossView$2:
     com.eos.ui.demo.view.CrossView this$0 -> a
-    179:179:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
-    182:199:void onLoadSuccess(java.lang.String) -> a
-    203:204:void onLoadFailed() -> a
-com.eos.ui.demo.view.CrossView$2$1 -> com.eos.ui.demo.view.CrossView$2$1:
-    com.eos.ui.demo.view.CrossView$2 this$1 -> a
-    187:187:void <init>(com.eos.ui.demo.view.CrossView$2) -> <init>
-    190:191:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    180:180:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
+    183:184:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+com.eos.ui.demo.view.CrossView$3 -> com.eos.ui.demo.view.CrossView$3:
+    com.eos.ui.demo.view.CrossView this$0 -> a
+    201:201:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
+    204:205:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
 com.eos.ui.demo.view.CrossView$onCrossDialogClickListener -> com.eos.ui.demo.view.CrossView$a:
     void onCancel() -> a
     void onInstall() -> b
+    void onDialogDismiss() -> c
 com.eos.ui.demo.view.CustomTextView -> com.eos.ui.demo.view.CustomTextView:
     java.lang.String typeface -> a
     android.content.Context mContext -> b
@@ -38510,6 +38578,7 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int shop_color_primary -> shop_color_primary
     int shop_color_primary_dark -> shop_color_primary_dark
     int shop_loading_bg -> shop_loading_bg
+    int shop_loading_color -> shop_loading_color
     int shop_tab_indicator_normal -> shop_tab_indicator_normal
     int shop_tab_indicator_selected -> shop_tab_indicator_selected
     int shop_tab_title_normal -> shop_tab_title_normal
@@ -42963,7 +43032,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5457:12910:void <clinit>() -> <clinit>
+    5471:12924:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
@@ -43257,8 +43326,23 @@ com.supers.clean.junk.View.adapter.WhiteListAdapter$ViewHolder -> com.supers.cle
     com.supers.clean.junk.View.adapter.WhiteListAdapter this$0 -> e
     117:117:void <init>(com.supers.clean.junk.View.adapter.WhiteListAdapter) -> <init>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
-    12:12:void <init>() -> <init>
-    15:17:void onCreate(android.os.Bundle) -> onCreate
+    android.widget.TextView tv_2 -> a
+    android.widget.TextView tv_3 -> b
+    android.widget.TextView tv_4 -> c
+    android.widget.TextView tv_5 -> d
+    android.widget.TextView bt_1 -> e
+    android.widget.TextView bt_2 -> f
+    22:22:void <init>() -> <init>
+    28:35:void findId() -> a
+    39:62:void onCreate(android.os.Bundle) -> onCreate
+com.supers.clean.junk.activity.ApplockActivity$1 -> com.supers.clean.junk.activity.ApplockActivity$1:
+    com.supers.clean.junk.activity.ApplockActivity this$0 -> a
+    45:45:void <init>(com.supers.clean.junk.activity.ApplockActivity) -> <init>
+    48:50:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.ApplockActivity$2 -> com.supers.clean.junk.activity.ApplockActivity$2:
+    com.supers.clean.junk.activity.ApplockActivity this$0 -> a
+    52:52:void <init>(com.supers.clean.junk.activity.ApplockActivity) -> <init>
+    55:60:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.BaseActivity -> com.supers.clean.junk.activity.BaseActivity:
     android.widget.Toast toast -> a
     java.lang.String tuiguang -> i
@@ -43971,10 +44055,10 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     547:548:void setRotateGone() -> e
     552:553:void openDrawer() -> g
     564:593:void loadFullAd() -> d
-    865:878:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    882:885:void onRestart() -> onRestart
-    889:892:void onResume() -> onResume
-    895:904:void onBackPressed() -> onBackPressed
+    866:879:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    883:886:void onRestart() -> onRestart
+    890:893:void onResume() -> onResume
+    896:905:void onBackPressed() -> onBackPressed
     61:61:android.view.View access$000(com.supers.clean.junk.activity.MainActivity) -> a
     61:61:android.support.v4.view.ViewPager access$100(com.supers.clean.junk.activity.MainActivity) -> b
     61:61:android.support.v4.view.PagerAdapter access$200(com.supers.clean.junk.activity.MainActivity) -> c
@@ -44009,7 +44093,7 @@ com.supers.clean.junk.activity.MainActivity$11$1 -> com.supers.clean.junk.activi
 com.supers.clean.junk.activity.MainActivity$12 -> com.supers.clean.junk.activity.MainActivity$4:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
     747:747:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    750:860:void onClick(android.view.View) -> onClick
+    750:861:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$5:
     android.view.View val$viewpager_3 -> a
     java.util.ArrayList val$arrayList -> b
@@ -44387,59 +44471,59 @@ com.supers.clean.junk.activity.RamAvtivity -> com.supers.clean.junk.activity.Ram
     boolean color2 -> o
     android.os.Handler myHandler -> p
     android.view.View$OnClickListener onClickListener -> k
-    33:239:void <init>() -> <init>
+    33:242:void <init>() -> <init>
     52:61:void findId() -> a
     65:71:void onCreate(android.os.Bundle) -> onCreate
     75:75:void loadFullAd() -> d
     79:81:void onClick() -> onClick
-    85:94:void initData(long) -> a
-    98:143:void setColor(int,long) -> a
-    146:155:void setUnit(long,android.widget.TextView) -> a
-    159:160:void addRamdata(long,java.util.List) -> a
-    164:197:void setCleanDAta(boolean,long) -> a
-    201:237:void cleanAnimation(java.util.List,long) -> a
-    261:263:void onResume() -> onResume
-    267:271:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    275:279:void onBackPressed() -> onBackPressed
+    85:96:void initData(long) -> a
+    100:145:void setColor(int,long) -> a
+    148:157:void setUnit(long,android.widget.TextView) -> a
+    161:162:void addRamdata(long,java.util.List) -> a
+    166:199:void setCleanDAta(boolean,long) -> a
+    203:240:void cleanAnimation(java.util.List,long) -> a
+    264:266:void onResume() -> onResume
+    270:274:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    278:282:void onBackPressed() -> onBackPressed
     33:33:com.supers.clean.junk.View.adapter.RamAdapter access$000(com.supers.clean.junk.activity.RamAvtivity) -> a
     33:33:com.supers.clean.junk.presenter.RamPresenter access$100(com.supers.clean.junk.activity.RamAvtivity) -> b
 com.supers.clean.junk.activity.RamAvtivity$1 -> com.supers.clean.junk.activity.RamAvtivity$1:
     long val$allSize -> a
     com.supers.clean.junk.activity.RamAvtivity this$0 -> b
-    98:98:void <init>(com.supers.clean.junk.activity.RamAvtivity,long) -> <init>
-    101:121:void run() -> run
+    100:100:void <init>(com.supers.clean.junk.activity.RamAvtivity,long) -> <init>
+    103:123:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity$1$1 -> com.supers.clean.junk.activity.RamAvtivity$1$1:
     long val$finalI -> a
     com.supers.clean.junk.activity.RamAvtivity$1 this$1 -> b
-    113:113:void <init>(com.supers.clean.junk.activity.RamAvtivity$1,long) -> <init>
-    116:118:void run() -> run
+    115:115:void <init>(com.supers.clean.junk.activity.RamAvtivity$1,long) -> <init>
+    118:120:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity$2 -> com.supers.clean.junk.activity.RamAvtivity$2:
     long val$size -> a
     com.supers.clean.junk.activity.RamAvtivity this$0 -> b
-    165:165:void <init>(com.supers.clean.junk.activity.RamAvtivity,long) -> <init>
-    168:189:void run() -> run
+    167:167:void <init>(com.supers.clean.junk.activity.RamAvtivity,long) -> <init>
+    170:191:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity$2$1 -> com.supers.clean.junk.activity.RamAvtivity$2$1:
     long val$finalI -> a
     com.supers.clean.junk.activity.RamAvtivity$2 this$1 -> b
-    180:180:void <init>(com.supers.clean.junk.activity.RamAvtivity$2,long) -> <init>
-    183:186:void run() -> run
+    182:182:void <init>(com.supers.clean.junk.activity.RamAvtivity$2,long) -> <init>
+    185:188:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity$3 -> com.supers.clean.junk.activity.RamAvtivity$3:
     long val$cleanSize -> a
     com.supers.clean.junk.activity.RamAvtivity this$0 -> b
-    203:203:void <init>(com.supers.clean.junk.activity.RamAvtivity,long) -> <init>
-    206:235:void run() -> run
+    205:205:void <init>(com.supers.clean.junk.activity.RamAvtivity,long) -> <init>
+    208:238:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity$3$1 -> com.supers.clean.junk.activity.RamAvtivity$3$1:
     com.supers.clean.junk.activity.RamAvtivity$3 this$1 -> a
-    217:217:void <init>(com.supers.clean.junk.activity.RamAvtivity$3) -> <init>
-    219:224:void run() -> run
+    219:219:void <init>(com.supers.clean.junk.activity.RamAvtivity$3) -> <init>
+    221:226:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity$3$2 -> com.supers.clean.junk.activity.RamAvtivity$3$2:
     com.supers.clean.junk.activity.RamAvtivity$3 this$1 -> a
-    227:227:void <init>(com.supers.clean.junk.activity.RamAvtivity$3) -> <init>
-    230:233:void run() -> run
+    229:229:void <init>(com.supers.clean.junk.activity.RamAvtivity$3) -> <init>
+    232:236:void run() -> run
 com.supers.clean.junk.activity.RamAvtivity$4 -> com.supers.clean.junk.activity.RamAvtivity$4:
     com.supers.clean.junk.activity.RamAvtivity this$0 -> a
-    239:239:void <init>(com.supers.clean.junk.activity.RamAvtivity) -> <init>
-    242:256:void onClick(android.view.View) -> onClick
+    242:242:void <init>(com.supers.clean.junk.activity.RamAvtivity) -> <init>
+    245:259:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.SettingActivity -> com.supers.clean.junk.activity.SettingActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -44506,18 +44590,18 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     boolean animationEnd -> C
     com.eos.manager.page.SecuritySharPFive shareFive -> D
     android.view.View$OnClickListener onClickListener -> t
-    38:388:void <init>() -> <init>
+    38:392:void <init>() -> <init>
     74:92:void findId() -> a
-    96:150:void onCreate(android.os.Bundle) -> onCreate
-    154:173:void tuiGuang() -> b
-    176:182:void initAnimation() -> d
-    185:191:void addListener() -> e
-    194:210:void addAd() -> f
-    281:353:void startFirstAnimation() -> c
-    356:386:void startSecondAnimation() -> g
-    424:426:void onStop() -> onStop
-    430:432:void onBackPressed() -> onBackPressed
-    435:463:void setAnimationThread() -> h
+    96:154:void onCreate(android.os.Bundle) -> onCreate
+    158:177:void tuiGuang() -> b
+    180:186:void initAnimation() -> d
+    189:195:void addListener() -> e
+    198:214:void addAd() -> f
+    285:357:void startFirstAnimation() -> c
+    360:390:void startSecondAnimation() -> g
+    428:430:void onStop() -> onStop
+    434:436:void onBackPressed() -> onBackPressed
+    439:467:void setAnimationThread() -> h
     38:38:void access$000(com.supers.clean.junk.activity.SuccessActivity) -> a
     38:38:void access$100(com.supers.clean.junk.activity.SuccessActivity) -> b
     38:38:boolean access$202(com.supers.clean.junk.activity.SuccessActivity,boolean) -> a
@@ -44530,67 +44614,67 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     38:38:boolean access$800(com.supers.clean.junk.activity.SuccessActivity) -> h
 com.supers.clean.junk.activity.SuccessActivity$1 -> com.supers.clean.junk.activity.SuccessActivity$1:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    114:114:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    118:119:void duogouSc() -> a
+    118:118:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    122:123:void duogouSc() -> a
 com.supers.clean.junk.activity.SuccessActivity$2 -> com.supers.clean.junk.activity.SuccessActivity$2:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    125:125:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    128:131:void run() -> run
+    129:129:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    132:135:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$3 -> com.supers.clean.junk.activity.SuccessActivity$3:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    135:135:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    137:138:void run() -> run
+    139:139:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    141:142:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$4 -> com.supers.clean.junk.activity.SuccessActivity$4:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    176:176:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    179:180:void run() -> run
+    180:180:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    183:184:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$5 -> com.supers.clean.junk.activity.SuccessActivity$5:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    285:285:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    288:341:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    346:346:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    351:351:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    289:289:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    292:345:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    350:350:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    355:355:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$5$1 -> com.supers.clean.junk.activity.SuccessActivity$5$1:
     float val$hx -> a
     float val$hy -> b
     com.supers.clean.junk.activity.SuccessActivity$5 this$1 -> c
-    291:291:void <init>(com.supers.clean.junk.activity.SuccessActivity$5,float,float) -> <init>
-    294:306:void run() -> run
+    295:295:void <init>(com.supers.clean.junk.activity.SuccessActivity$5,float,float) -> <init>
+    298:310:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$5$2 -> com.supers.clean.junk.activity.SuccessActivity$5$2:
     com.supers.clean.junk.activity.SuccessActivity$5 this$1 -> a
-    308:308:void <init>(com.supers.clean.junk.activity.SuccessActivity$5) -> <init>
-    311:339:void run() -> run
+    312:312:void <init>(com.supers.clean.junk.activity.SuccessActivity$5) -> <init>
+    315:343:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$5$2$1 -> com.supers.clean.junk.activity.SuccessActivity$5$2$1:
     com.supers.clean.junk.activity.SuccessActivity$5$2 this$2 -> a
-    317:317:void <init>(com.supers.clean.junk.activity.SuccessActivity$5$2) -> <init>
-    321:321:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    325:326:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    331:331:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    336:336:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    321:321:void <init>(com.supers.clean.junk.activity.SuccessActivity$5$2) -> <init>
+    325:325:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    329:330:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    335:335:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    340:340:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$6 -> com.supers.clean.junk.activity.SuccessActivity$6:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    359:359:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    362:374:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    379:379:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    384:384:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    363:363:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    366:378:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    383:383:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    388:388:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$6$1 -> com.supers.clean.junk.activity.SuccessActivity$6$1:
     com.supers.clean.junk.activity.SuccessActivity$6 this$1 -> a
-    362:362:void <init>(com.supers.clean.junk.activity.SuccessActivity$6) -> <init>
-    365:371:void run() -> run
+    366:366:void <init>(com.supers.clean.junk.activity.SuccessActivity$6) -> <init>
+    369:375:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$7 -> com.supers.clean.junk.activity.SuccessActivity$7:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    388:388:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    391:419:void onClick(android.view.View) -> onClick
+    392:392:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    395:423:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.SuccessActivity$8 -> com.supers.clean.junk.activity.SuccessActivity$8:
     long lastMillis -> b
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    435:436:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    439:461:void run() -> run
+    439:440:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    443:465:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$8$1 -> com.supers.clean.junk.activity.SuccessActivity$8$1:
     float val$delta -> a
     com.supers.clean.junk.activity.SuccessActivity$8 this$1 -> b
-    444:444:void <init>(com.supers.clean.junk.activity.SuccessActivity$8,float) -> <init>
-    447:449:void run() -> run
+    448:448:void <init>(com.supers.clean.junk.activity.SuccessActivity$8,float) -> <init>
+    451:453:void run() -> run
 com.supers.clean.junk.activity.ThemeActivity -> com.supers.clean.junk.activity.ThemeActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b

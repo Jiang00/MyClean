@@ -103,7 +103,11 @@ public class SuccessActivity extends BaseActivity {
         shareFive = new SecuritySharPFive(this);
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
         success_progress.startAnimation(rotate);
-        title_name.setText(R.string.success_title);
+        if (getIntent().getStringExtra("name") != null) {
+            title_name.setText(getIntent().getStringExtra("name"));
+        } else {
+            title_name.setText(R.string.success_title);
+        }
         long size = getIntent().getLongExtra("size", 0);
         if (size > 0) {
             success_clean_size.setText(CommonUtil.getFileSize4(size) + " " + getText(R.string.success_cleaned));
@@ -168,7 +172,7 @@ public class SuccessActivity extends BaseActivity {
             lot_success.playAnimation();
 
         } else {
-            main_tuiguang_button.setGravity(View.GONE);
+            main_tuiguang_button.setVisibility(View.GONE);
         }
     }
 

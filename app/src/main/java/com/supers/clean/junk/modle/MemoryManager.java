@@ -248,7 +248,7 @@ public class MemoryManager {
         if (firstInstallTime == 0) {
             return -1;
         } else {
-            return CommonUtil.millTransFate(installTime);
+            return CommonUtil.millTransFate(installTime) + 1;
         }
     }
 

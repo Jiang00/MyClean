@@ -28171,6 +28171,7 @@ com.android.themeshop.R$color: int secondary_text_disabled_material_light
 com.android.themeshop.R$color: int shop_color_primary
 com.android.themeshop.R$color: int shop_color_primary_dark
 com.android.themeshop.R$color: int shop_loading_bg
+com.android.themeshop.R$color: int shop_loading_color
 com.android.themeshop.R$color: int shop_tab_indicator_normal
 com.android.themeshop.R$color: int shop_tab_indicator_selected
 com.android.themeshop.R$color: int shop_tab_title_normal
@@ -31448,6 +31449,7 @@ com.eos.module.charge.saver.R$color: int secondary_text_disabled_material_light
 com.eos.module.charge.saver.R$color: int shop_color_primary
 com.eos.module.charge.saver.R$color: int shop_color_primary_dark
 com.eos.module.charge.saver.R$color: int shop_loading_bg
+com.eos.module.charge.saver.R$color: int shop_loading_color
 com.eos.module.charge.saver.R$color: int shop_tab_indicator_normal
 com.eos.module.charge.saver.R$color: int shop_tab_indicator_selected
 com.eos.module.charge.saver.R$color: int shop_tab_title_normal
@@ -32954,13 +32956,6 @@ com.eos.module.tweenengine.Timeline$Modes: com.eos.module.tweenengine.Timeline$M
 com.eos.module.tweenengine.Timeline$Modes: com.eos.module.tweenengine.Timeline$Modes valueOf(java.lang.String)
 com.eos.module.tweenengine.Timeline$Modes: Timeline$Modes(java.lang.String,int)
 com.eos.module.tweenengine.Timeline$Modes: void <clinit>()
-com.eos.ui.demo.Cross.CrossDialog$1: void onClick(android.view.View)
-com.eos.ui.demo.Cross.CrossManager$1: void onClick(android.view.View)
-com.eos.ui.demo.Cross.CrossManager$2: void onClick(android.view.View)
-com.eos.ui.demo.Cross.CrossManager$onCrossViewClickListener: void onClick(android.view.View)
-com.eos.ui.demo.Dialog.PraiseDialog$1: void onClick(android.view.View)
-com.eos.ui.demo.Dialog.PraiseDialog$2: void onClick(android.view.View)
-com.eos.ui.demo.Dialog.PraiseDialog$4: void onClick(android.view.View)
 com.eos.ui.demo.R$anim: int abc_fade_in
 com.eos.ui.demo.R$anim: int abc_fade_out
 com.eos.ui.demo.R$anim: int abc_grow_fade_in_from_bottom
@@ -34333,6 +34328,11 @@ com.eos.ui.demo.R$styleable: int View_paddingEnd
 com.eos.ui.demo.R$styleable: int View_paddingStart
 com.eos.ui.demo.R$styleable: int View_theme
 com.eos.ui.demo.R$xml: int accessibility
+com.eos.ui.demo.cross.CrossManager$1: void onClick(android.view.View)
+com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener: void onClick(android.view.View)
+com.eos.ui.demo.dialog.PraiseDialog$1: void onClick(android.view.View)
+com.eos.ui.demo.dialog.PraiseDialog$2: void onClick(android.view.View)
+com.eos.ui.demo.dialog.PraiseDialog$4: void onClick(android.view.View)
 com.eos.ui.demo.entries.CrossData
 com.eos.ui.demo.entries.CrossData: java.lang.String divide
 com.eos.ui.demo.entries.CrossData: java.util.List cross
@@ -34380,13 +34380,12 @@ com.eos.ui.demo.permission.PermissionTipActivity: PermissionTipActivity()
 com.eos.ui.demo.permission.PermissionTipActivity$1: void onClick(android.view.View)
 com.eos.ui.demo.permission.PermissionTipActivity$2: void onClick(android.view.View)
 com.eos.ui.demo.permission.PermissionTipActivity$3: void onClick(android.view.View)
-com.eos.ui.demo.permission.auxiliary.AccessibilityService
-com.eos.ui.demo.permission.auxiliary.AccessibilityService: AccessibilityService()
 com.eos.ui.demo.view.CrossView
 com.eos.ui.demo.view.CrossView: CrossView(android.content.Context)
 com.eos.ui.demo.view.CrossView: CrossView(android.content.Context,android.util.AttributeSet)
 com.eos.ui.demo.view.CrossView: CrossView(android.content.Context,android.util.AttributeSet,int)
 com.eos.ui.demo.view.CrossView: void onClick(android.view.View)
+com.eos.ui.demo.view.CrossView: void setDialog(android.app.Dialog)
 com.eos.ui.demo.view.CrossView: void setCrossDialogClickListener(com.eos.ui.demo.view.CrossView$onCrossDialogClickListener)
 com.eos.ui.demo.view.CrossView: void setPosition(java.lang.String)
 com.eos.ui.demo.view.CrossView: void setData(com.eos.ui.demo.entries.CrossData$CrossPromotionBean)
@@ -38565,6 +38564,7 @@ com.privacy.lock.R$color: int security_white_87
 com.privacy.lock.R$color: int shop_color_primary
 com.privacy.lock.R$color: int shop_color_primary_dark
 com.privacy.lock.R$color: int shop_loading_bg
+com.privacy.lock.R$color: int shop_loading_color
 com.privacy.lock.R$color: int shop_tab_indicator_normal
 com.privacy.lock.R$color: int shop_tab_indicator_selected
 com.privacy.lock.R$color: int shop_tab_title_normal
@@ -42800,6 +42800,7 @@ com.supers.clean.junk.R$color: int security_white_87
 com.supers.clean.junk.R$color: int shop_color_primary
 com.supers.clean.junk.R$color: int shop_color_primary_dark
 com.supers.clean.junk.R$color: int shop_loading_bg
+com.supers.clean.junk.R$color: int shop_loading_color
 com.supers.clean.junk.R$color: int shop_tab_indicator_normal
 com.supers.clean.junk.R$color: int shop_tab_indicator_selected
 com.supers.clean.junk.R$color: int shop_tab_title_normal
@@ -42936,6 +42937,7 @@ com.supers.clean.junk.R$dimen: int d160
 com.supers.clean.junk.R$dimen: int d17
 com.supers.clean.junk.R$dimen: int d18
 com.supers.clean.junk.R$dimen: int d19
+com.supers.clean.junk.R$dimen: int d190
 com.supers.clean.junk.R$dimen: int d2
 com.supers.clean.junk.R$dimen: int d24
 com.supers.clean.junk.R$dimen: int d280
@@ -43472,6 +43474,8 @@ com.supers.clean.junk.R$id: int anim_container
 com.supers.clean.junk.R$id: int app_icon
 com.supers.clean.junk.R$id: int app_item
 com.supers.clean.junk.R$id: int app_name
+com.supers.clean.junk.R$id: int app_name_1
+com.supers.clean.junk.R$id: int app_name_2
 com.supers.clean.junk.R$id: int app_search
 com.supers.clean.junk.R$id: int applock_run
 com.supers.clean.junk.R$id: int auto
@@ -43528,6 +43532,8 @@ com.supers.clean.junk.R$id: int bri_one
 com.supers.clean.junk.R$id: int bri_three
 com.supers.clean.junk.R$id: int bri_two
 com.supers.clean.junk.R$id: int brief_setting
+com.supers.clean.junk.R$id: int bt_1
+com.supers.clean.junk.R$id: int bt_2
 com.supers.clean.junk.R$id: int bt_clear
 com.supers.clean.junk.R$id: int bt_queren
 com.supers.clean.junk.R$id: int bt_quxiao
@@ -43639,6 +43645,8 @@ com.supers.clean.junk.R$id: int home
 com.supers.clean.junk.R$id: int homeAsUp
 com.supers.clean.junk.R$id: int horizontal_listview
 com.supers.clean.junk.R$id: int icon
+com.supers.clean.junk.R$id: int icon_1
+com.supers.clean.junk.R$id: int icon_2
 com.supers.clean.junk.R$id: int icon_id
 com.supers.clean.junk.R$id: int ifRoom
 com.supers.clean.junk.R$id: int image
@@ -43723,6 +43731,7 @@ com.supers.clean.junk.R$id: int list_item
 com.supers.clean.junk.R$id: int list_si
 com.supers.clean.junk.R$id: int ll
 com.supers.clean.junk.R$id: int ll_1
+com.supers.clean.junk.R$id: int ll_2
 com.supers.clean.junk.R$id: int ll_ad
 com.supers.clean.junk.R$id: int ll_ad_side
 com.supers.clean.junk.R$id: int ll_gps
@@ -44041,6 +44050,10 @@ com.supers.clean.junk.R$id: int topPanel
 com.supers.clean.junk.R$id: int touch_outside
 com.supers.clean.junk.R$id: int tutorial_slide_bg
 com.supers.clean.junk.R$id: int tv_1
+com.supers.clean.junk.R$id: int tv_2
+com.supers.clean.junk.R$id: int tv_3
+com.supers.clean.junk.R$id: int tv_4
+com.supers.clean.junk.R$id: int tv_5
 com.supers.clean.junk.R$id: int tv_danwei
 com.supers.clean.junk.R$id: int tv_gps
 com.supers.clean.junk.R$id: int tv_jiasu
@@ -44483,6 +44496,7 @@ com.supers.clean.junk.R$string: int float_yijiasu
 com.supers.clean.junk.R$string: int ga_logLevel
 com.supers.clean.junk.R$string: int game
 com.supers.clean.junk.R$string: int internet
+com.supers.clean.junk.R$string: int jiasu_success
 com.supers.clean.junk.R$string: int junk_apk
 com.supers.clean.junk.R$string: int junk_button
 com.supers.clean.junk.R$string: int junk_log
@@ -45748,6 +45762,9 @@ com.supers.clean.junk.View.adapter.RamAdapter$1: void onClick(android.view.View)
 com.supers.clean.junk.View.adapter.SideAdapter$1: void onClick(android.view.View)
 com.supers.clean.junk.View.adapter.WhiteListAdapter$1: void onClick(android.view.View)
 com.supers.clean.junk.activity.ApplockActivity
+com.supers.clean.junk.activity.ApplockActivity: ApplockActivity()
+com.supers.clean.junk.activity.ApplockActivity$1: void onClick(android.view.View)
+com.supers.clean.junk.activity.ApplockActivity$2: void onClick(android.view.View)
 com.supers.clean.junk.activity.BaseActivity
 com.supers.clean.junk.activity.BaseActivity: BaseActivity()
 com.supers.clean.junk.activity.BootBroadcast
