@@ -206,34 +206,80 @@
                                     android:layout_marginLeft="3dp"
                                     android:src="@mipmap/main_rotate_3" />
                             </LinearLayout>
-
                         </LinearLayout>
                     </LinearLayout>
 
-                    <FrameLayout
-                        android:id="@+id/fl_lot_success"
-                        android:layout_width="wrap_content"
+
+                    <!--交叉推广-->
+                    <LinearLayout
+                        android:id="@+id/main_tuiguang_button"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="gone">
+                        android:layout_marginTop="16dp"
+                        android:background="#ffffff"
+                        android:orientation="vertical">
 
-                        <com.sample.lottie.LottieAnimationView
-                            android:id="@+id/lot_success"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:scaleType="fitEnd" />
+                            android:layout_marginTop="@dimen/d15"
+                            android:orientation="horizontal">
 
-                        <TextView
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d19"
+                                android:src="@mipmap/main_rotate_1" />
+
+                            <TextView
+                                android:id="@+id/main_msg_tuiguang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d5"
+                                android:textColor="@color/black_87"
+                                android:textSize="@dimen/s16" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="@dimen/d16"
+                            android:layout_marginRight="@dimen/d16"
+                            android:layout_marginTop="@dimen/main_4"
+                            android:background="#f1f1f1" />
+
+                        <FrameLayout
+                            android:id="@+id/fl_lot_success"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|right"
-                            android:background="@color/black_35"
-                            android:fontFamily="sans-serif-light"
-                            android:gravity="center"
-                            android:text="AD"
-                            android:textColor="@android:color/white"
-                            android:textSize="8sp" />
-                    </FrameLayout>
+                            android:layout_height="wrap_content">
+
+                            <com.sample.lottie.LottieAnimationView
+                                android:id="@+id/lot_success"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:scaleType="fitEnd" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|right"
+                                android:background="@color/black_35"
+                                android:fontFamily="sans-serif-light"
+                                android:gravity="center"
+                                android:text="AD"
+                                android:textColor="@android:color/white"
+                                android:textSize="8sp" />
+                        </FrameLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d16"
+                            android:background="#e8e8e8" />
+                    </LinearLayout>
 
 
                     <LinearLayout

@@ -52,6 +52,8 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout ad_native_2;
     LottieAnimationView lot_success;
     FrameLayout fl_lot_success;
+    LinearLayout main_tuiguang_button;
+    TextView main_msg_tuiguang;
     private TextView tv_next;
     private ImageView iv_next;
     private View nativeView;
@@ -85,6 +87,8 @@ public class SuccessActivity extends BaseActivity {
         success_progress = (ImageView) findViewById(R.id.success_progress);
         lot_success = (LottieAnimationView) findViewById(R.id.lot_success);
         fl_lot_success = (FrameLayout) findViewById(R.id.fl_lot_success);
+        main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
+        main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
     }
 
     @Override
@@ -148,20 +152,23 @@ public class SuccessActivity extends BaseActivity {
     @Override
     public void tuiGuang() {
         super.tuiGuang();
+        main_tuiguang_button.setVisibility(View.VISIBLE);
         if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
             lot_success.setImageAssetsFolder(null, "images/applocks/");
             lot_success.setAnimation(null, "applocks.json");
             lot_success.loop(true);
+            main_msg_tuiguang.setText("EOS Applock");
             lot_success.playAnimation();
 
         } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
             lot_success.setImageAssetsFolder(null, "images/flashs/");
             lot_success.setAnimation(null, "flashs.json");
             lot_success.loop(true);
+            main_msg_tuiguang.setText("EOS Flashlight");
             lot_success.playAnimation();
 
         } else {
-            fl_lot_success.setVisibility(View.GONE);
+            main_tuiguang_button.setGravity(View.GONE);
         }
     }
 

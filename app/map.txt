@@ -33820,6 +33820,8 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
     int action_mode_bar_stub -> action_mode_bar_stub
     int action_mode_close_button -> action_mode_close_button
     int activity_chooser_view_content -> activity_chooser_view_content
+    int ad_image -> ad_image
+    int ad_title -> ad_title
     int alertTitle -> alertTitle
     int always -> always
     int battery_ad_layout -> battery_ad_layout
@@ -33877,7 +33879,6 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
     int contentPanel -> contentPanel
     int custom -> custom
     int customPanel -> customPanel
-    int customerTypefaceTextView -> customerTypefaceTextView
     int decor_content_parent -> decor_content_parent
     int default_activity_button -> default_activity_button
     int design_bottom_sheet -> design_bottom_sheet
@@ -34040,6 +34041,7 @@ com.eos.module.charge.saver.R$layout -> com.eos.module.charge.saver.a$b:
     int design_navigation_menu -> design_navigation_menu
     int design_navigation_menu_item -> design_navigation_menu_item
     int native_ad -> native_ad
+    int native_ad1 -> native_ad1
     int notification_media_action -> notification_media_action
     int notification_media_cancel_action -> notification_media_cancel_action
     int notification_template_big_media -> notification_template_big_media
@@ -34601,7 +34603,7 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$e:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1412:1876:void <clinit>() -> <clinit>
+    1414:1878:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
     12:12:void <init>() -> <init>
     15:16:void showFullAD() -> a
@@ -34806,7 +34808,6 @@ com.eos.module.charge.saver.view.ADLabel -> com.eos.module.charge.saver.view.ADL
     android.graphics.Paint mTextPaint -> k
     android.graphics.Paint mBackgroundPaint -> l
     android.graphics.Path mPath -> m
-    33:34:void <init>(android.content.Context) -> <init>
     28:40:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     43:55:void obtainAttributes(android.content.Context,android.util.AttributeSet) -> a
     58:60:void setTextColor(int) -> setTextColor
@@ -38796,6 +38797,8 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int action_mode_close_button -> action_mode_close_button
     int action_setting -> action_setting
     int activity_chooser_view_content -> activity_chooser_view_content
+    int ad_image -> ad_image
+    int ad_title -> ad_title
     int add -> add
     int alertTitle -> alertTitle
     int always -> always
@@ -38885,7 +38888,6 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int contentPanel -> contentPanel
     int custom -> custom
     int customPanel -> customPanel
-    int customerTypefaceTextView -> customerTypefaceTextView
     int decor_content_parent -> decor_content_parent
     int default_activity_button -> default_activity_button
     int del -> del
@@ -39160,6 +39162,7 @@ com.privacy.lock.R$layout -> com.privacy.lock.a$f:
     int design_navigation_menu -> design_navigation_menu
     int design_navigation_menu_item -> design_navigation_menu_item
     int native_ad -> native_ad
+    int native_ad1 -> native_ad1
     int notifaction_view -> notifaction_view
     int notification_media_action -> notification_media_action
     int notification_media_cancel_action -> notification_media_cancel_action
@@ -42960,7 +42963,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5454:12907:void <clinit>() -> <clinit>
+    5457:12910:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
@@ -44490,29 +44493,31 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     android.widget.LinearLayout ad_native_2 -> o
     com.sample.lottie.LottieAnimationView lot_success -> p
     android.widget.FrameLayout fl_lot_success -> q
-    android.view.View nativeView -> s
-    boolean isdoudong -> t
-    com.eos.module.tweenengine.TweenManager tweenManager -> u
-    boolean istween -> v
-    android.os.Handler myHandler -> w
-    java.lang.String TAG_CLEAN -> x
-    android.view.animation.Animation rotate -> y
-    boolean haveAd -> z
-    boolean animationEnd -> A
-    com.eos.manager.page.SecuritySharPFive shareFive -> B
-    android.view.View$OnClickListener onClickListener -> r
-    38:381:void <init>() -> <init>
-    72:88:void findId() -> a
-    92:146:void onCreate(android.os.Bundle) -> onCreate
-    150:166:void tuiGuang() -> b
-    169:175:void initAnimation() -> d
-    178:184:void addListener() -> e
-    187:203:void addAd() -> f
-    274:346:void startFirstAnimation() -> c
-    349:379:void startSecondAnimation() -> g
-    417:419:void onStop() -> onStop
-    423:425:void onBackPressed() -> onBackPressed
-    428:456:void setAnimationThread() -> h
+    android.widget.LinearLayout main_tuiguang_button -> r
+    android.widget.TextView main_msg_tuiguang -> s
+    android.view.View nativeView -> u
+    boolean isdoudong -> v
+    com.eos.module.tweenengine.TweenManager tweenManager -> w
+    boolean istween -> x
+    android.os.Handler myHandler -> y
+    java.lang.String TAG_CLEAN -> z
+    android.view.animation.Animation rotate -> A
+    boolean haveAd -> B
+    boolean animationEnd -> C
+    com.eos.manager.page.SecuritySharPFive shareFive -> D
+    android.view.View$OnClickListener onClickListener -> t
+    38:388:void <init>() -> <init>
+    74:92:void findId() -> a
+    96:150:void onCreate(android.os.Bundle) -> onCreate
+    154:173:void tuiGuang() -> b
+    176:182:void initAnimation() -> d
+    185:191:void addListener() -> e
+    194:210:void addAd() -> f
+    281:353:void startFirstAnimation() -> c
+    356:386:void startSecondAnimation() -> g
+    424:426:void onStop() -> onStop
+    430:432:void onBackPressed() -> onBackPressed
+    435:463:void setAnimationThread() -> h
     38:38:void access$000(com.supers.clean.junk.activity.SuccessActivity) -> a
     38:38:void access$100(com.supers.clean.junk.activity.SuccessActivity) -> b
     38:38:boolean access$202(com.supers.clean.junk.activity.SuccessActivity,boolean) -> a
@@ -44525,67 +44530,67 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     38:38:boolean access$800(com.supers.clean.junk.activity.SuccessActivity) -> h
 com.supers.clean.junk.activity.SuccessActivity$1 -> com.supers.clean.junk.activity.SuccessActivity$1:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    110:110:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    114:115:void duogouSc() -> a
+    114:114:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    118:119:void duogouSc() -> a
 com.supers.clean.junk.activity.SuccessActivity$2 -> com.supers.clean.junk.activity.SuccessActivity$2:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    121:121:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    124:127:void run() -> run
+    125:125:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    128:131:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$3 -> com.supers.clean.junk.activity.SuccessActivity$3:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    131:131:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    133:134:void run() -> run
+    135:135:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    137:138:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$4 -> com.supers.clean.junk.activity.SuccessActivity$4:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    169:169:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    172:173:void run() -> run
+    176:176:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    179:180:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$5 -> com.supers.clean.junk.activity.SuccessActivity$5:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    278:278:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    281:334:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    339:339:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    344:344:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    285:285:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    288:341:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    346:346:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    351:351:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$5$1 -> com.supers.clean.junk.activity.SuccessActivity$5$1:
     float val$hx -> a
     float val$hy -> b
     com.supers.clean.junk.activity.SuccessActivity$5 this$1 -> c
-    284:284:void <init>(com.supers.clean.junk.activity.SuccessActivity$5,float,float) -> <init>
-    287:299:void run() -> run
+    291:291:void <init>(com.supers.clean.junk.activity.SuccessActivity$5,float,float) -> <init>
+    294:306:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$5$2 -> com.supers.clean.junk.activity.SuccessActivity$5$2:
     com.supers.clean.junk.activity.SuccessActivity$5 this$1 -> a
-    301:301:void <init>(com.supers.clean.junk.activity.SuccessActivity$5) -> <init>
-    304:332:void run() -> run
+    308:308:void <init>(com.supers.clean.junk.activity.SuccessActivity$5) -> <init>
+    311:339:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$5$2$1 -> com.supers.clean.junk.activity.SuccessActivity$5$2$1:
     com.supers.clean.junk.activity.SuccessActivity$5$2 this$2 -> a
-    310:310:void <init>(com.supers.clean.junk.activity.SuccessActivity$5$2) -> <init>
-    314:314:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    318:319:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    324:324:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    329:329:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    317:317:void <init>(com.supers.clean.junk.activity.SuccessActivity$5$2) -> <init>
+    321:321:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    325:326:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    331:331:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    336:336:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$6 -> com.supers.clean.junk.activity.SuccessActivity$6:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    352:352:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    355:367:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    372:372:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    377:377:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    359:359:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    362:374:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    379:379:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    384:384:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$6$1 -> com.supers.clean.junk.activity.SuccessActivity$6$1:
     com.supers.clean.junk.activity.SuccessActivity$6 this$1 -> a
-    355:355:void <init>(com.supers.clean.junk.activity.SuccessActivity$6) -> <init>
-    358:364:void run() -> run
+    362:362:void <init>(com.supers.clean.junk.activity.SuccessActivity$6) -> <init>
+    365:371:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$7 -> com.supers.clean.junk.activity.SuccessActivity$7:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    381:381:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    384:412:void onClick(android.view.View) -> onClick
+    388:388:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    391:419:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.SuccessActivity$8 -> com.supers.clean.junk.activity.SuccessActivity$8:
     long lastMillis -> b
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    428:429:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    432:454:void run() -> run
+    435:436:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    439:461:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$8$1 -> com.supers.clean.junk.activity.SuccessActivity$8$1:
     float val$delta -> a
     com.supers.clean.junk.activity.SuccessActivity$8 this$1 -> b
-    437:437:void <init>(com.supers.clean.junk.activity.SuccessActivity$8,float) -> <init>
-    440:442:void run() -> run
+    444:444:void <init>(com.supers.clean.junk.activity.SuccessActivity$8,float) -> <init>
+    447:449:void run() -> run
 com.supers.clean.junk.activity.ThemeActivity -> com.supers.clean.junk.activity.ThemeActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -44604,7 +44609,7 @@ com.supers.clean.junk.activity.ThemeActivity$1 -> com.supers.clean.junk.activity
     58:81:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.TranslateActivity -> com.supers.clean.junk.activity.TranslateActivity:
     13:13:void <init>() -> <init>
-    17:19:void onCreate(android.os.Bundle) -> onCreate
+    17:20:void onCreate(android.os.Bundle) -> onCreate
 com.supers.clean.junk.activity.UnloadActivity -> com.supers.clean.junk.activity.UnloadActivity:
     android.widget.ImageView iv_icon -> a
     android.widget.TextView tv_size -> b
@@ -44694,82 +44699,6 @@ com.supers.clean.junk.activity.WhiteListAvtivity$1 -> com.supers.clean.junk.acti
     com.supers.clean.junk.activity.WhiteListAvtivity this$0 -> a
     71:71:void <init>(com.supers.clean.junk.activity.WhiteListAvtivity) -> <init>
     74:83:void onClick(android.view.View) -> onClick
-com.supers.clean.junk.activity.WidgetProvider -> com.supers.clean.junk.activity.WidgetProvider:
-    android.widget.RemoteViews rv -> a
-    android.content.res.ColorStateList green -> b
-    android.content.res.ColorStateList yellow -> c
-    android.content.res.ColorStateList red -> d
-    20:20:void <init>() -> <init>
-    26:28:void onDeleted(android.content.Context,int[]) -> onDeleted
-    32:35:void onDisabled(android.content.Context) -> onDisabled
-    39:42:void onEnabled(android.content.Context) -> onEnabled
-    46:68:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    72:102:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
-com.supers.clean.junk.activity.WidgetService -> com.supers.clean.junk.activity.WidgetService:
-    java.util.Timer mTimer -> d
-    android.os.Handler handler -> e
-    com.supers.clean.junk.activity.WidgetService$KillBackg killBackg -> f
-    int memory -> g
-    int memory_kill -> h
-    android.widget.RemoteViews rv -> i
-    android.appwidget.AppWidgetManager manager -> j
-    android.content.ComponentName cn -> k
-    boolean isRuning -> l
-    android.content.res.ColorStateList green -> m
-    android.content.res.ColorStateList yellow -> n
-    android.content.res.ColorStateList red -> o
-    java.lang.Thread kill -> p
-    java.lang.Thread runing -> q
-    java.lang.Runnable runnable -> a
-    boolean isxiao -> b
-    java.lang.Runnable runnableT -> c
-    30:144:void <init>() -> <init>
-    44:44:android.os.IBinder onBind(android.content.Intent) -> onBind
-    49:134:void onCreate() -> onCreate
-    184:187:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    191:257:void updata() -> a
-    264:278:void killAll(android.content.Context) -> a
-    281:284:long getAvailMemory(android.app.ActivityManager) -> a
-    289:291:void onDestroy() -> onDestroy
-    30:30:int access$002(com.supers.clean.junk.activity.WidgetService,int) -> a
-    30:30:boolean access$102(com.supers.clean.junk.activity.WidgetService,boolean) -> a
-    30:30:android.os.Handler access$200(com.supers.clean.junk.activity.WidgetService) -> a
-    30:30:android.widget.RemoteViews access$300(com.supers.clean.junk.activity.WidgetService) -> b
-    30:30:android.content.res.ColorStateList access$400(com.supers.clean.junk.activity.WidgetService) -> c
-    30:30:android.content.res.ColorStateList access$500(com.supers.clean.junk.activity.WidgetService) -> d
-    30:30:android.content.res.ColorStateList access$600(com.supers.clean.junk.activity.WidgetService) -> e
-    30:30:android.content.ComponentName access$700(com.supers.clean.junk.activity.WidgetService) -> f
-    30:30:android.appwidget.AppWidgetManager access$800(com.supers.clean.junk.activity.WidgetService) -> g
-    30:30:int access$900(com.supers.clean.junk.activity.WidgetService) -> h
-    30:30:int access$902(com.supers.clean.junk.activity.WidgetService,int) -> b
-    30:30:int access$000(com.supers.clean.junk.activity.WidgetService) -> i
-    30:30:boolean access$100(com.supers.clean.junk.activity.WidgetService) -> j
-com.supers.clean.junk.activity.WidgetService$1 -> com.supers.clean.junk.activity.WidgetService$1:
-    com.supers.clean.junk.activity.WidgetService this$0 -> a
-    57:57:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
-    60:61:void killS(int,long) -> a
-com.supers.clean.junk.activity.WidgetService$2 -> com.supers.clean.junk.activity.WidgetService$2:
-    com.supers.clean.junk.activity.WidgetService this$0 -> a
-    63:63:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
-    67:67:void run() -> run
-com.supers.clean.junk.activity.WidgetService$3 -> com.supers.clean.junk.activity.WidgetService$3:
-    com.supers.clean.junk.activity.WidgetService this$0 -> a
-    69:69:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
-    72:123:void run() -> run
-com.supers.clean.junk.activity.WidgetService$4 -> com.supers.clean.junk.activity.WidgetService$4:
-    com.supers.clean.junk.activity.WidgetService this$0 -> a
-    136:136:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
-    139:141:void run() -> run
-com.supers.clean.junk.activity.WidgetService$5 -> com.supers.clean.junk.activity.WidgetService$5:
-    com.supers.clean.junk.activity.WidgetService this$0 -> a
-    144:144:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
-    147:179:void run() -> run
-com.supers.clean.junk.activity.WidgetService$6 -> com.supers.clean.junk.activity.WidgetService$6:
-    com.supers.clean.junk.activity.WidgetService this$0 -> a
-    193:193:void <init>(com.supers.clean.junk.activity.WidgetService) -> <init>
-    196:197:void run() -> run
-com.supers.clean.junk.activity.WidgetService$KillBackg -> com.supers.clean.junk.activity.WidgetService$a:
-    void killS(int,long) -> a
 com.supers.clean.junk.fakeView.Flake -> com.supers.clean.junk.fakeView.a:
     float x -> a
     float y -> b
@@ -45722,6 +45651,82 @@ com.supers.clean.junk.service.ReStarService -> com.supers.clean.junk.service.ReS
     65:72:void start(android.app.Service) -> a
     76:79:void onCreate() -> onCreate
     83:85:void onDestroy() -> onDestroy
+com.supers.clean.junk.widget.WidgetProvider -> com.supers.clean.junk.widget.WidgetProvider:
+    android.widget.RemoteViews rv -> a
+    android.content.res.ColorStateList green -> b
+    android.content.res.ColorStateList yellow -> c
+    android.content.res.ColorStateList red -> d
+    21:21:void <init>() -> <init>
+    27:29:void onDeleted(android.content.Context,int[]) -> onDeleted
+    33:36:void onDisabled(android.content.Context) -> onDisabled
+    40:43:void onEnabled(android.content.Context) -> onEnabled
+    47:69:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    73:103:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
+com.supers.clean.junk.widget.WidgetService -> com.supers.clean.junk.widget.WidgetService:
+    java.util.Timer mTimer -> d
+    android.os.Handler handler -> e
+    com.supers.clean.junk.widget.WidgetService$KillBackg killBackg -> f
+    int memory -> g
+    int memory_kill -> h
+    android.widget.RemoteViews rv -> i
+    android.appwidget.AppWidgetManager manager -> j
+    android.content.ComponentName cn -> k
+    boolean isRuning -> l
+    android.content.res.ColorStateList green -> m
+    android.content.res.ColorStateList yellow -> n
+    android.content.res.ColorStateList red -> o
+    java.lang.Thread kill -> p
+    java.lang.Thread runing -> q
+    java.lang.Runnable runnable -> a
+    boolean isxiao -> b
+    java.lang.Runnable runnableT -> c
+    27:141:void <init>() -> <init>
+    41:41:android.os.IBinder onBind(android.content.Intent) -> onBind
+    46:131:void onCreate() -> onCreate
+    181:184:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    188:254:void updata() -> a
+    261:275:void killAll(android.content.Context) -> a
+    278:281:long getAvailMemory(android.app.ActivityManager) -> a
+    286:288:void onDestroy() -> onDestroy
+    27:27:int access$002(com.supers.clean.junk.widget.WidgetService,int) -> a
+    27:27:boolean access$102(com.supers.clean.junk.widget.WidgetService,boolean) -> a
+    27:27:android.os.Handler access$200(com.supers.clean.junk.widget.WidgetService) -> a
+    27:27:android.widget.RemoteViews access$300(com.supers.clean.junk.widget.WidgetService) -> b
+    27:27:android.content.res.ColorStateList access$400(com.supers.clean.junk.widget.WidgetService) -> c
+    27:27:android.content.res.ColorStateList access$500(com.supers.clean.junk.widget.WidgetService) -> d
+    27:27:android.content.res.ColorStateList access$600(com.supers.clean.junk.widget.WidgetService) -> e
+    27:27:android.content.ComponentName access$700(com.supers.clean.junk.widget.WidgetService) -> f
+    27:27:android.appwidget.AppWidgetManager access$800(com.supers.clean.junk.widget.WidgetService) -> g
+    27:27:int access$900(com.supers.clean.junk.widget.WidgetService) -> h
+    27:27:int access$902(com.supers.clean.junk.widget.WidgetService,int) -> b
+    27:27:int access$000(com.supers.clean.junk.widget.WidgetService) -> i
+    27:27:boolean access$100(com.supers.clean.junk.widget.WidgetService) -> j
+com.supers.clean.junk.widget.WidgetService$1 -> com.supers.clean.junk.widget.WidgetService$1:
+    com.supers.clean.junk.widget.WidgetService this$0 -> a
+    54:54:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
+    57:58:void killS(int,long) -> a
+com.supers.clean.junk.widget.WidgetService$2 -> com.supers.clean.junk.widget.WidgetService$2:
+    com.supers.clean.junk.widget.WidgetService this$0 -> a
+    60:60:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
+    64:64:void run() -> run
+com.supers.clean.junk.widget.WidgetService$3 -> com.supers.clean.junk.widget.WidgetService$3:
+    com.supers.clean.junk.widget.WidgetService this$0 -> a
+    66:66:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
+    69:120:void run() -> run
+com.supers.clean.junk.widget.WidgetService$4 -> com.supers.clean.junk.widget.WidgetService$4:
+    com.supers.clean.junk.widget.WidgetService this$0 -> a
+    133:133:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
+    136:138:void run() -> run
+com.supers.clean.junk.widget.WidgetService$5 -> com.supers.clean.junk.widget.WidgetService$5:
+    com.supers.clean.junk.widget.WidgetService this$0 -> a
+    141:141:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
+    144:176:void run() -> run
+com.supers.clean.junk.widget.WidgetService$6 -> com.supers.clean.junk.widget.WidgetService$6:
+    com.supers.clean.junk.widget.WidgetService this$0 -> a
+    190:190:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
+    193:194:void run() -> run
+com.supers.clean.junk.widget.WidgetService$KillBackg -> com.supers.clean.junk.widget.WidgetService$a:
+    void killS(int,long) -> a
 cz.msebera.android.httpclient.ConnectionClosedException -> cz.msebera.android.httpclient.a:
     47:48:void <init>(java.lang.String) -> <init>
 cz.msebera.android.httpclient.ConnectionReuseStrategy -> cz.msebera.android.httpclient.b:

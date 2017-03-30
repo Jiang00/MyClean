@@ -339,8 +339,8 @@ public class DuckView extends FrameLayout {
         }
     }
 
-    private void initShell(){
-        try{
+    private void initShell() {
+        try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             shell.setImageAssetsFolder(themeContext, "theme://images/shell");
@@ -355,8 +355,8 @@ public class DuckView extends FrameLayout {
         shell.playAnimation();
     }
 
-    private void initWater(){
-        try{
+    private void initWater() {
+        try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             water.setImageAssetsFolder(themeContext, "theme://images/water");
@@ -371,8 +371,8 @@ public class DuckView extends FrameLayout {
         water.setSpeed(5.0f);
     }
 
-    private void initBack(){
-        try{
+    private void initBack() {
+        try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
             InputStream input = themeContext.getAssets().open("eos_back.png");

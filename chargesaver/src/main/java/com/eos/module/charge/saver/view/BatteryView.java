@@ -385,9 +385,9 @@ public class BatteryView extends FrameLayout {
             detector = new GestureDetector(mContext, new GestureDetector.SimpleOnGestureListener() {
                 @Override
                 public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                        if (listener != null) {
-                            batteryView.setAlpha(1.0f);
-                            listener.onUnlock();
+                    if (listener != null) {
+                        batteryView.setAlpha(1.0f);
+                        listener.onUnlock();
                     }
                     return true;
                 }
