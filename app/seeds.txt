@@ -33594,7 +33594,6 @@ com.eos.ui.demo.R$mipmap: int cross_app_icon
 com.eos.ui.demo.R$mipmap: int cross_cancel
 com.eos.ui.demo.R$mipmap: int cross_img
 com.eos.ui.demo.R$mipmap: int finger
-com.eos.ui.demo.R$mipmap: int ic_launcher
 com.eos.ui.demo.R$mipmap: int p_cancel
 com.eos.ui.demo.R$mipmap: int p_praise
 com.eos.ui.demo.R$mipmap: int permission_btn
@@ -43622,6 +43621,7 @@ com.supers.clean.junk.R$id: int fixed
 com.supers.clean.junk.R$id: int fl_lot_applock
 com.supers.clean.junk.R$id: int fl_lot_applock_setting
 com.supers.clean.junk.R$id: int fl_lot_cooling
+com.supers.clean.junk.R$id: int fl_lot_main
 com.supers.clean.junk.R$id: int fl_lot_manager
 com.supers.clean.junk.R$id: int fl_lot_message
 com.supers.clean.junk.R$id: int fl_lot_setting
@@ -43656,6 +43656,7 @@ com.supers.clean.junk.R$id: int image_bri_one
 com.supers.clean.junk.R$id: int image_bri_three
 com.supers.clean.junk.R$id: int image_bri_two
 com.supers.clean.junk.R$id: int img_list_item
+com.supers.clean.junk.R$id: int img_temp
 com.supers.clean.junk.R$id: int inder_two_set
 com.supers.clean.junk.R$id: int info
 com.supers.clean.junk.R$id: int intrude_new_i
@@ -44174,6 +44175,7 @@ com.supers.clean.junk.R$layout: int layout_unload
 com.supers.clean.junk.R$layout: int layout_white_list_add
 com.supers.clean.junk.R$layout: int layout_white_list_item
 com.supers.clean.junk.R$layout: int layout_widget_ram
+com.supers.clean.junk.R$layout: int layout_widget_temp
 com.supers.clean.junk.R$layout: int main_ad
 com.supers.clean.junk.R$layout: int main_circle
 com.supers.clean.junk.R$layout: int main_permiss
@@ -44290,6 +44292,7 @@ com.supers.clean.junk.R$mipmap: int battery_passed
 com.supers.clean.junk.R$mipmap: int battery_second_back
 com.supers.clean.junk.R$mipmap: int battery_setting_checkbox_close
 com.supers.clean.junk.R$mipmap: int battery_setting_checkbox_open
+com.supers.clean.junk.R$mipmap: int bg
 com.supers.clean.junk.R$mipmap: int bubble_masked
 com.supers.clean.junk.R$mipmap: int cooling_1
 com.supers.clean.junk.R$mipmap: int cooling_2
@@ -44322,9 +44325,9 @@ com.supers.clean.junk.R$mipmap: int float_shengyin
 com.supers.clean.junk.R$mipmap: int float_white
 com.supers.clean.junk.R$mipmap: int float_wifi
 com.supers.clean.junk.R$mipmap: int game_icon
-com.supers.clean.junk.R$mipmap: int ic_launcher
 com.supers.clean.junk.R$mipmap: int icon
 com.supers.clean.junk.R$mipmap: int internet_icon
+com.supers.clean.junk.R$mipmap: int jiantou
 com.supers.clean.junk.R$mipmap: int junk_apk
 com.supers.clean.junk.R$mipmap: int junk_button
 com.supers.clean.junk.R$mipmap: int junk_button_backg
@@ -44389,6 +44392,7 @@ com.supers.clean.junk.R$mipmap: int setting_rotate
 com.supers.clean.junk.R$mipmap: int setting_tongzhi
 com.supers.clean.junk.R$mipmap: int setting_tongzhilan
 com.supers.clean.junk.R$mipmap: int setting_white
+com.supers.clean.junk.R$mipmap: int shanxing
 com.supers.clean.junk.R$mipmap: int short_1
 com.supers.clean.junk.R$mipmap: int short_2
 com.supers.clean.junk.R$mipmap: int short_3
@@ -44424,6 +44428,8 @@ com.supers.clean.junk.R$mipmap: int white_list_right
 com.supers.clean.junk.R$mipmap: int widget_1
 com.supers.clean.junk.R$mipmap: int widget_2
 com.supers.clean.junk.R$mipmap: int widget_4
+com.supers.clean.junk.R$mipmap: int widget_temp_preview
+com.supers.clean.junk.R$mipmap: int zhongbiao
 com.supers.clean.junk.R$raw: int a7dog
 com.supers.clean.junk.R$raw: int adog
 com.supers.clean.junk.R$raw: int battery_0
@@ -45749,6 +45755,7 @@ com.supers.clean.junk.R$xml: int accessibility
 com.supers.clean.junk.R$xml: int ram
 com.supers.clean.junk.R$xml: int security_intrude_set
 com.supers.clean.junk.R$xml: int security_widget
+com.supers.clean.junk.R$xml: int temp
 com.supers.clean.junk.ShortCutActivity
 com.supers.clean.junk.ShortCutActivity: ShortCutActivity()
 com.supers.clean.junk.ShortCutActivity$3: void onClick(android.view.View)
@@ -46014,6 +46021,14 @@ com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Cont
 com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet,int)
 com.supers.clean.junk.presenter.FloatStateManager$2: void onClick(android.view.View)
 com.supers.clean.junk.service.ReStarService
+com.supers.clean.junk.widget.AutoUpdateService
+com.supers.clean.junk.widget.AutoUpdateService: AutoUpdateService()
+com.supers.clean.junk.widget.AutoUpdateWidgetProvider
+com.supers.clean.junk.widget.AutoUpdateWidgetProvider: AutoUpdateWidgetProvider()
+com.supers.clean.junk.widget.TempProvider
+com.supers.clean.junk.widget.TempProvider: TempProvider()
+com.supers.clean.junk.widget.TempService
+com.supers.clean.junk.widget.TempService: TempService()
 com.supers.clean.junk.widget.WidgetProvider
 com.supers.clean.junk.widget.WidgetProvider: WidgetProvider()
 com.supers.clean.junk.widget.WidgetService
