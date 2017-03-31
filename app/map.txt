@@ -32710,12 +32710,6 @@ com.eos.manager.AppLockTogglePatternActivity -> com.eos.manager.AppLockTogglePat
 com.eos.manager.AppLockUnlockApp -> com.eos.manager.AppLockUnlockApp:
     12:12:void <init>() -> <init>
     16:35:void setupView() -> c
-com.eos.manager.AppLockWidgetReceiver -> com.eos.manager.AppLockWidgetReceiver:
-    15:15:void <init>() -> <init>
-    18:20:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    24:37:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
-    41:43:void onEnabled(android.content.Context) -> onEnabled
-    47:48:void onDisabled(android.content.Context) -> onDisabled
 com.eos.manager.ApplockNoti -> com.eos.manager.ApplockNoti:
     15:15:void <init>() -> <init>
     19:19:android.os.IBinder onBind(android.content.Intent) -> onBind
@@ -32733,8 +32727,6 @@ com.eos.manager.ClientActivitySecurity -> com.eos.manager.ClientActivitySecurity
     25:26:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
     30:38:void onStart() -> onStart
     43:48:void onStop() -> onStop
-com.eos.manager.EditTextPreIme -> com.eos.manager.EditTextPreIme:
-    20:23:boolean dispatchKeyEventPreIme(android.view.KeyEvent) -> dispatchKeyEventPreIme
 com.eos.manager.ImageManager -> com.eos.manager.b:
     com.eos.manager.ImageManager$BitmapLruCache cache -> a
     54:69:void getDisplayMetrics(android.content.Context,android.util.DisplayMetrics) -> a
@@ -33740,64 +33732,6 @@ com.eos.manager.page.SlideMenu$YScrollDetector -> com.eos.manager.page.SlideMenu
     com.eos.manager.page.SlideMenu this$0 -> a
     136:136:void <init>(com.eos.manager.page.SlideMenu) -> <init>
     139:139:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
-com.eos.manager.page.SlideMenuNew -> com.eos.manager.page.SlideMenuNew:
-    android.support.v4.view.GestureDetectorCompat gestureDetector -> e
-    android.support.v4.widget.ViewDragHelper dragHelper -> f
-    int range -> g
-    int width -> h
-    int height -> i
-    int mainLeft -> j
-    android.view.View vg_left -> k
-    com.eos.manager.page.MyRelativeLayout vg_main -> l
-    boolean lock -> a
-    boolean lockRight -> b
-    android.app.Activity act -> c
-    boolean scrollFinished -> d
-    32:33:void setActivity(android.app.Activity) -> setActivity
-    36:37:void setLock(boolean) -> setLock
-    44:45:void setLockRight(boolean) -> setLockRight
-    56:57:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    60:216:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    140:146:void onFinishInflate() -> onFinishInflate
-    151:159:void onSizeChanged(int,int,int,int) -> onSizeChanged
-    164:167:void onLayout(boolean,int,int,int,int) -> onLayout
-    171:171:boolean onInterceptTouchEvent(android.view.MotionEvent) -> onInterceptTouchEvent
-    177:181:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
-    185:187:void dispatchDragEvent(float) -> a
-    190:214:void animateView(float) -> b
-    220:225:void computeScroll() -> computeScroll
-    232:242:com.eos.manager.page.SlideMenuNew$Status getStatus() -> getStatus
-    248:252:void open() -> a
-    255:259:void close() -> b
-    17:17:int access$000(com.eos.manager.page.SlideMenuNew) -> a
-    17:17:int access$100(com.eos.manager.page.SlideMenuNew) -> b
-    17:17:com.eos.manager.page.MyRelativeLayout access$200(com.eos.manager.page.SlideMenuNew) -> c
-    17:17:int access$300(com.eos.manager.page.SlideMenuNew) -> d
-    17:17:int access$002(com.eos.manager.page.SlideMenuNew,int) -> a
-    17:17:void access$400(com.eos.manager.page.SlideMenuNew,float) -> a
-com.eos.manager.page.SlideMenuNew$1 -> com.eos.manager.page.SlideMenuNew$1:
-    com.eos.manager.page.SlideMenuNew this$0 -> a
-    62:62:void <init>(com.eos.manager.page.SlideMenuNew) -> <init>
-    66:73:int clampViewPositionHorizontal(android.view.View,int,int) -> clampViewPositionHorizontal
-    79:79:boolean tryCaptureView(android.view.View,int) -> tryCaptureView
-    84:84:int getViewHorizontalDragRange(android.view.View) -> getViewHorizontalDragRange
-    89:108:void onViewReleased(android.view.View,float,float) -> onViewReleased
-    112:121:void onViewPositionChanged(android.view.View,int,int,int,int) -> onViewPositionChanged
-com.eos.manager.page.SlideMenuNew$Status -> com.eos.manager.page.SlideMenuNew$Status:
-    com.eos.manager.page.SlideMenuNew$Status DragLeft -> DragLeft
-    com.eos.manager.page.SlideMenuNew$Status DragRight -> DragRight
-    com.eos.manager.page.SlideMenuNew$Status OpenLeft -> OpenLeft
-    com.eos.manager.page.SlideMenuNew$Status OpenRight -> OpenRight
-    com.eos.manager.page.SlideMenuNew$Status Close -> Close
-    com.eos.manager.page.SlideMenuNew$Status[] $VALUES -> $VALUES
-    227:227:com.eos.manager.page.SlideMenuNew$Status[] values() -> values
-    227:227:com.eos.manager.page.SlideMenuNew$Status valueOf(java.lang.String) -> valueOf
-    227:227:void <init>(java.lang.String,int) -> <init>
-    227:228:void <clinit>() -> <clinit>
-com.eos.manager.page.SlideMenuNew$YScrollDetector -> com.eos.manager.page.SlideMenuNew$a:
-    com.eos.manager.page.SlideMenuNew this$0 -> a
-    131:131:void <init>(com.eos.manager.page.SlideMenuNew) -> <init>
-    134:134:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.eos.manager.page.showDialog -> com.eos.manager.page.l:
     67:126:void showResetPasswordDialog(android.content.Context) -> a
 com.eos.manager.page.showDialog$3 -> com.eos.manager.page.l$1:
