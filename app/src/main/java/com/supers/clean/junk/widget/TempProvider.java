@@ -1,7 +1,6 @@
 package com.supers.clean.junk.widget;
 
 import android.app.PendingIntent;
-import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
