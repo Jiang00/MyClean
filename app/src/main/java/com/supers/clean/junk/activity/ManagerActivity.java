@@ -140,6 +140,8 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             @Override
             public void onLoadView(View view) {
                 if (view != null) {
+                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_manager.setVisibility(View.VISIBLE);
                     fl_lot_manager.addView(view, 0);
                 } else {

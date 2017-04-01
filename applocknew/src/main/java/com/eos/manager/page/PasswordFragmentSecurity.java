@@ -29,15 +29,18 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
             @Override
             public void onSuccess() {
                 getActivity().finish();
-                Tracker.sendEvent(Tracker.ACT_UNLOCK,Tracker.CATE_ACTION_UNLOCK_SUSSFUL,Tracker.CATE_ACTION_UNLOCK_SUSSFUL,1);
+                Tracker.sendEvent(Tracker.ACT_UNLOCK, Tracker.CATE_ACTION_UNLOCK_SUSSFUL, Tracker.CATE_ACTION_UNLOCK_SUSSFUL, 1);
             }
+
             @Override
             public void unLock() {
             }
 
         });
     }
+
     public View passwd;
+
     public static View getView(LayoutInflater inflater, ViewGroup container, OverflowCtrl ctrl, final ICheckResult callback) {
         final ISecurityBridge bridge = SecurityTheBridge.bridge;
         inflater = SecurityTheBridge.themeContext == null ? inflater : LayoutInflater.from(SecurityTheBridge.themeContext);
@@ -104,7 +107,7 @@ public class PasswordFragmentSecurity extends SecurityThemeFragment {
                 dot.backSpace();
             }
         });
-        String [] buttons = {
+        String[] buttons = {
                 "button0", "button1", "button2", "button3", "button4",
                 "button5", "button6", "button7", "button8", "button9",
         };

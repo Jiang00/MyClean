@@ -36,6 +36,7 @@ import com.eos.manager.AccessibilityService;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.AppLockPermissionActivity;
 import com.eos.manager.Tracker;
+import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.ui.demo.cross.CrossManager;
@@ -171,10 +172,17 @@ public class MainActivity extends BaseActivity implements MainView {
 
         packageManager = getPackageManager();
         try {
-            String pkg = getIntent().getExtras().getString("theme_package_name");
-            ThemeManager.applyTheme(this, pkg, false);
-            Utils.writeData(this, Constants.CHARGE_SAVER_SWITCH, true);
-            startService(new Intent(this, BatteryService.class).putExtra("show", true));
+            String pkg = getIntent().getStringExtra("theme_package_name");
+            if (pkg != null) {
+                ThemeManager.applyTheme(this, pkg, false);
+                Utils.writeData(this, Constants.CHARGE_SAVER_SWITCH, true);
+                startService(new Intent(this, BatteryService.class).putExtra("show", true));
+                Log.e("jfy", "main=" + pkg);
+            }
+            String from = getIntent().getStringExtra("from");
+            if (TextUtils.equals(from, "translate")) {
+                DialogManager.showCrossDialog(this, AndroidSdk.getExtraData(), "list2", "flight", null);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -323,6 +331,8 @@ public class MainActivity extends BaseActivity implements MainView {
                 if (view != null) {
                     fl_lot_side.setVisibility(View.VISIBLE);
                     side_title.setVisibility(View.GONE);
+                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_side.addView(view, 0);
                 } else {
                     fl_lot_side.setVisibility(View.GONE);
@@ -344,6 +354,8 @@ public class MainActivity extends BaseActivity implements MainView {
                     } else if (TextUtils.equals(tuiguang, "com.eosmobi.flashlight.free")) {
                         main_msg_tuiguang.setText("EOS Flashlight");
                     }
+                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
                     Log.e("tuiguang", "main 不为空");
                     main_tuiguang_button.setVisibility(View.VISIBLE);
                     fl_lot_main.addView(view, 0);
@@ -836,6 +848,12 @@ public class MainActivity extends BaseActivity implements MainView {
                     break;
                 case R.id.main_applock_button:
                     int type = PreData.getDB(MainActivity.this, Contents.FIRST_APPLOCK, 0);
+                    if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
+                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
+                        intent.putExtra("is_main", true);
+                        startActivity(intent);
+                        break;
+                    }
                     if (type == 0) {
                         if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
                             CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
@@ -856,7 +874,6 @@ public class MainActivity extends BaseActivity implements MainView {
                         intent.putExtra("is_main", true);
                         startActivity(intent);
                     }
-
 
 //                    AndroidSdk.track("主页面", "点击applock按钮", "", 1);
 //                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);

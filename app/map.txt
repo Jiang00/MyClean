@@ -80,6 +80,1358 @@ android.support.compat.BuildConfig -> android.support.compat.BuildConfig:
     6:6:void <init>() -> <init>
 android.support.compat.R -> android.support.compat.R:
     9:9:void <init>() -> <init>
+android.support.constraint.BuildConfig -> android.support.constraint.BuildConfig:
+    boolean DEBUG -> DEBUG
+    java.lang.String APPLICATION_ID -> APPLICATION_ID
+    java.lang.String BUILD_TYPE -> BUILD_TYPE
+    java.lang.String FLAVOR -> FLAVOR
+    int VERSION_CODE -> VERSION_CODE
+    java.lang.String VERSION_NAME -> VERSION_NAME
+    6:6:void <init>() -> <init>
+android.support.constraint.ConstraintLayout -> android.support.constraint.ConstraintLayout:
+    boolean ALLOWS_EMBEDDED -> ALLOWS_EMBEDDED
+    java.lang.String VERSION -> VERSION
+    java.lang.String TAG -> TAG
+    boolean SIMPLE_LAYOUT -> SIMPLE_LAYOUT
+    android.util.SparseArray mChildrenByIds -> mChildrenByIds
+    java.util.ArrayList mVariableDimensionsWidgets -> mVariableDimensionsWidgets
+    android.support.constraint.solver.widgets.ConstraintWidgetContainer mLayoutWidget -> mLayoutWidget
+    int mMinWidth -> mMinWidth
+    int mMinHeight -> mMinHeight
+    int mMaxWidth -> mMaxWidth
+    int mMaxHeight -> mMaxHeight
+    boolean mDirtyHierarchy -> mDirtyHierarchy
+    int mOptimizationLevel -> mOptimizationLevel
+    android.support.constraint.ConstraintSet mConstraintSet -> mConstraintSet
+    int previousPaddingLeft -> previousPaddingLeft
+    int previousPaddingTop -> previousPaddingTop
+    int previousWidthMeasureSpec -> previousWidthMeasureSpec
+    int previousHeightMeasureSpec -> previousHeightMeasureSpec
+    396:932:void <init>(android.content.Context) -> <init>
+    396:932:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    396:932:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    430:457:void init(android.util.AttributeSet) -> init
+    464:468:void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
+    475:479:void removeView(android.view.View) -> removeView
+    486:501:void onViewAdded(android.view.View) -> onViewAdded
+    508:514:void onViewRemoved(android.view.View) -> onViewRemoved
+    522:527:void setMinWidth(int) -> setMinWidth
+    535:540:void setMinHeight(int) -> setMinHeight
+    550:550:int getMinWidth() -> getMinWidth
+    561:561:int getMinHeight() -> getMinHeight
+    570:575:void setMaxWidth(int) -> setMaxWidth
+    583:588:void setMaxHeight(int) -> setMaxHeight
+    598:598:int getMaxWidth() -> getMaxWidth
+    609:609:int getMaxHeight() -> getMaxHeight
+    613:627:void updateHierarchy() -> updateHierarchy
+    630:845:void setChildrenConstraints() -> setChildrenConstraints
+    848:855:android.support.constraint.solver.widgets.ConstraintWidget getTargetWidget(int) -> getTargetWidget
+    860:863:android.support.constraint.solver.widgets.ConstraintWidget getViewWidget(android.view.View) -> getViewWidget
+    867:927:void internalMeasureChildren(int,int) -> internalMeasureChildren
+    939:1056:void onMeasure(int,int) -> onMeasure
+    1059:1117:void setSelfDimensionBehaviour(int,int) -> setSelfDimensionBehaviour
+    1123:1130:void solveLinearSystem() -> solveLinearSystem
+    1137:1173:void onLayout(boolean,int,int,int,int) -> onLayout
+    1189:1190:void setOptimizationLevel(int) -> setOptimizationLevel
+    1197:1197:android.support.constraint.ConstraintLayout$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    1205:1205:android.support.constraint.ConstraintLayout$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+    1213:1213:android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams) -> generateLayoutParams
+    1221:1221:boolean checkLayoutParams(android.view.ViewGroup$LayoutParams) -> checkLayoutParams
+    1229:1230:void setConstraintSet(android.support.constraint.ConstraintSet) -> setConstraintSet
+    1936:1938:void requestLayout() -> requestLayout
+    385:385:android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+    385:385:android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+android.support.constraint.ConstraintLayout$LayoutParams -> android.support.constraint.ConstraintLayout$LayoutParams:
+    int MATCH_CONSTRAINT -> MATCH_CONSTRAINT
+    int PARENT_ID -> PARENT_ID
+    int UNSET -> UNSET
+    int HORIZONTAL -> HORIZONTAL
+    int VERTICAL -> VERTICAL
+    int LEFT -> LEFT
+    int RIGHT -> RIGHT
+    int TOP -> TOP
+    int BOTTOM -> BOTTOM
+    int BASELINE -> BASELINE
+    int START -> START
+    int END -> END
+    int MATCH_CONSTRAINT_WRAP -> MATCH_CONSTRAINT_WRAP
+    int MATCH_CONSTRAINT_SPREAD -> MATCH_CONSTRAINT_SPREAD
+    int CHAIN_SPREAD -> CHAIN_SPREAD
+    int CHAIN_SPREAD_INSIDE -> CHAIN_SPREAD_INSIDE
+    int CHAIN_PACKED -> CHAIN_PACKED
+    int guideBegin -> guideBegin
+    int guideEnd -> guideEnd
+    float guidePercent -> guidePercent
+    int leftToLeft -> leftToLeft
+    int leftToRight -> leftToRight
+    int rightToLeft -> rightToLeft
+    int rightToRight -> rightToRight
+    int topToTop -> topToTop
+    int topToBottom -> topToBottom
+    int bottomToTop -> bottomToTop
+    int bottomToBottom -> bottomToBottom
+    int baselineToBaseline -> baselineToBaseline
+    int startToEnd -> startToEnd
+    int startToStart -> startToStart
+    int endToStart -> endToStart
+    int endToEnd -> endToEnd
+    int goneLeftMargin -> goneLeftMargin
+    int goneTopMargin -> goneTopMargin
+    int goneRightMargin -> goneRightMargin
+    int goneBottomMargin -> goneBottomMargin
+    int goneStartMargin -> goneStartMargin
+    int goneEndMargin -> goneEndMargin
+    float horizontalBias -> horizontalBias
+    float verticalBias -> verticalBias
+    java.lang.String dimensionRatio -> dimensionRatio
+    float dimensionRatioValue -> dimensionRatioValue
+    int dimensionRatioSide -> dimensionRatioSide
+    float horizontalWeight -> horizontalWeight
+    float verticalWeight -> verticalWeight
+    int horizontalChainStyle -> horizontalChainStyle
+    int verticalChainStyle -> verticalChainStyle
+    int matchConstraintDefaultWidth -> matchConstraintDefaultWidth
+    int matchConstraintDefaultHeight -> matchConstraintDefaultHeight
+    int matchConstraintMinWidth -> matchConstraintMinWidth
+    int matchConstraintMinHeight -> matchConstraintMinHeight
+    int matchConstraintMaxWidth -> matchConstraintMaxWidth
+    int matchConstraintMaxHeight -> matchConstraintMaxHeight
+    int editorAbsoluteX -> editorAbsoluteX
+    int editorAbsoluteY -> editorAbsoluteY
+    int orientation -> orientation
+    boolean horizontalDimensionFixed -> horizontalDimensionFixed
+    boolean verticalDimensionFixed -> verticalDimensionFixed
+    boolean needsBaseline -> needsBaseline
+    boolean isGuideline -> isGuideline
+    int resolvedLeftToLeft -> resolvedLeftToLeft
+    int resolvedLeftToRight -> resolvedLeftToRight
+    int resolvedRightToLeft -> resolvedRightToLeft
+    int resolvedRightToRight -> resolvedRightToRight
+    int resolveGoneLeftMargin -> resolveGoneLeftMargin
+    int resolveGoneRightMargin -> resolveGoneRightMargin
+    float resolvedHorizontalBias -> resolvedHorizontalBias
+    android.support.constraint.solver.widgets.ConstraintWidget widget -> widget
+    1329:1633:void <init>(android.support.constraint.ConstraintLayout$LayoutParams) -> <init>
+    1329:1819:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    1822:1843:void validate() -> validate
+    1329:1847:void <init>(int,int) -> <init>
+    1329:1851:void <init>(android.view.ViewGroup$LayoutParams) -> <init>
+    1859:1928:void resolveLayoutDirection(int) -> resolveLayoutDirection
+android.support.constraint.ConstraintSet -> android.support.constraint.ConstraintSet:
+    java.lang.String TAG -> TAG
+    int UNSET -> UNSET
+    int MATCH_CONSTRAINT -> MATCH_CONSTRAINT
+    int WRAP_CONTENT -> WRAP_CONTENT
+    int MATCH_CONSTRAINT_WRAP -> MATCH_CONSTRAINT_WRAP
+    int MATCH_CONSTRAINT_SPREAD -> MATCH_CONSTRAINT_SPREAD
+    int PARENT_ID -> PARENT_ID
+    int HORIZONTAL -> HORIZONTAL
+    int VERTICAL -> VERTICAL
+    int HORIZONTAL_GUIDELINE -> HORIZONTAL_GUIDELINE
+    int VERTICAL_GUIDELINE -> VERTICAL_GUIDELINE
+    int VISIBLE -> VISIBLE
+    int INVISIBLE -> INVISIBLE
+    int GONE -> GONE
+    int LEFT -> LEFT
+    int RIGHT -> RIGHT
+    int TOP -> TOP
+    int BOTTOM -> BOTTOM
+    int BASELINE -> BASELINE
+    int START -> START
+    int END -> END
+    int CHAIN_SPREAD -> CHAIN_SPREAD
+    int CHAIN_SPREAD_INSIDE -> CHAIN_SPREAD_INSIDE
+    int CHAIN_PACKED -> CHAIN_PACKED
+    boolean DEBUG -> DEBUG
+    int[] VISIBILITY_FLAGS -> VISIBILITY_FLAGS
+    java.util.HashMap mConstraints -> mConstraints
+    android.util.SparseIntArray mapToConstant -> mapToConstant
+    int BASELINE_TO_BASELINE -> BASELINE_TO_BASELINE
+    int BOTTOM_MARGIN -> BOTTOM_MARGIN
+    int BOTTOM_TO_BOTTOM -> BOTTOM_TO_BOTTOM
+    int BOTTOM_TO_TOP -> BOTTOM_TO_TOP
+    int DIMENSION_RATIO -> DIMENSION_RATIO
+    int EDITOR_ABSOLUTE_X -> EDITOR_ABSOLUTE_X
+    int EDITOR_ABSOLUTE_Y -> EDITOR_ABSOLUTE_Y
+    int END_MARGIN -> END_MARGIN
+    int END_TO_END -> END_TO_END
+    int END_TO_START -> END_TO_START
+    int GONE_BOTTOM_MARGIN -> GONE_BOTTOM_MARGIN
+    int GONE_END_MARGIN -> GONE_END_MARGIN
+    int GONE_LEFT_MARGIN -> GONE_LEFT_MARGIN
+    int GONE_RIGHT_MARGIN -> GONE_RIGHT_MARGIN
+    int GONE_START_MARGIN -> GONE_START_MARGIN
+    int GONE_TOP_MARGIN -> GONE_TOP_MARGIN
+    int GUIDE_BEGIN -> GUIDE_BEGIN
+    int GUIDE_END -> GUIDE_END
+    int GUIDE_PERCENT -> GUIDE_PERCENT
+    int HORIZONTAL_BIAS -> HORIZONTAL_BIAS
+    int LAYOUT_HEIGHT -> LAYOUT_HEIGHT
+    int LAYOUT_VISIBILITY -> LAYOUT_VISIBILITY
+    int LAYOUT_WIDTH -> LAYOUT_WIDTH
+    int LEFT_MARGIN -> LEFT_MARGIN
+    int LEFT_TO_LEFT -> LEFT_TO_LEFT
+    int LEFT_TO_RIGHT -> LEFT_TO_RIGHT
+    int ORIENTATION -> ORIENTATION
+    int RIGHT_MARGIN -> RIGHT_MARGIN
+    int RIGHT_TO_LEFT -> RIGHT_TO_LEFT
+    int RIGHT_TO_RIGHT -> RIGHT_TO_RIGHT
+    int START_MARGIN -> START_MARGIN
+    int START_TO_END -> START_TO_END
+    int START_TO_START -> START_TO_START
+    int TOP_MARGIN -> TOP_MARGIN
+    int TOP_TO_BOTTOM -> TOP_TO_BOTTOM
+    int TOP_TO_TOP -> TOP_TO_TOP
+    int VERTICAL_BIAS -> VERTICAL_BIAS
+    int VIEW_ID -> VIEW_ID
+    int HORIZONTAL_WEIGHT -> HORIZONTAL_WEIGHT
+    int VERTICAL_WEIGHT -> VERTICAL_WEIGHT
+    int HORIZONTAL_STYLE -> HORIZONTAL_STYLE
+    int VERTICAL_STYLE -> VERTICAL_STYLE
+    int ALPHA -> ALPHA
+    int ELEVATION -> ELEVATION
+    int ROTATION_X -> ROTATION_X
+    int ROTATION_Y -> ROTATION_Y
+    int SCALE_X -> SCALE_X
+    int SCALE_Y -> SCALE_Y
+    int TRANSFORM_PIVOT_X -> TRANSFORM_PIVOT_X
+    int TRANSFORM_PIVOT_Y -> TRANSFORM_PIVOT_Y
+    int TRANSLATION_X -> TRANSLATION_X
+    int TRANSLATION_Y -> TRANSLATION_Y
+    int TRANSLATION_Z -> TRANSLATION_Z
+    int WIDTH_DEFAULT -> WIDTH_DEFAULT
+    int HEIGHT_DEFAULT -> HEIGHT_DEFAULT
+    int WIDTH_MAX -> WIDTH_MAX
+    int HEIGHT_MAX -> HEIGHT_MAX
+    int WIDTH_MIN -> WIDTH_MIN
+    int HEIGHT_MIN -> HEIGHT_MIN
+    int UNUSED -> UNUSED
+    55:328:void <init>() -> <init>
+    580:581:void clone(android.content.Context,int) -> clone
+    589:593:void clone(android.support.constraint.ConstraintSet) -> clone
+    601:632:void clone(android.support.constraint.ConstraintLayout) -> clone
+    640:642:void applyTo(android.support.constraint.ConstraintLayout) -> applyTo
+    648:691:void applyToInternal(android.support.constraint.ConstraintLayout) -> applyToInternal
+    711:737:void center(int,int,int,int,int,int,int,float) -> center
+    753:757:void centerHorizontally(int,int,int,int,int,int,int,float) -> centerHorizontally
+    773:777:void centerHorizontallyRtl(int,int,int,int,int,int,int,float) -> centerHorizontallyRtl
+    793:797:void centerVertically(int,int,int,int,int,int,int,float) -> centerVertically
+    813:834:void createVerticalChain(int,int,int,int,int[],float[],int) -> createVerticalChain
+    850:851:void createHorizontalChain(int,int,int,int,int[],float[],int) -> createHorizontalChain
+    867:868:void createHorizontalChainRtl(int,int,int,int,int[],float[],int) -> createHorizontalChainRtl
+    873:896:void createHorizontalChain(int,int,int,int,int[],float[],int,int,int) -> createHorizontalChain
+    908:1010:void connect(int,int,int,int,int) -> connect
+    1019:1024:void centerHorizontally(int,int) -> centerHorizontally
+    1033:1038:void centerHorizontallyRtl(int,int) -> centerHorizontallyRtl
+    1048:1053:void centerVertically(int,int) -> centerVertically
+    1061:1062:void clear(int) -> clear
+    1071:1118:void clear(int,int) -> clear
+    1128:1153:void setMargin(int,int,int) -> setMargin
+    1163:1188:void setGoneMargin(int,int,int) -> setGoneMargin
+    1197:1198:void setHorizontalBias(int,float) -> setHorizontalBias
+    1207:1208:void setVerticalBias(int,float) -> setVerticalBias
+    1218:1219:void setDimensionRatio(int,java.lang.String) -> setDimensionRatio
+    1228:1229:void setVisibility(int,int) -> setVisibility
+    1238:1239:void setAlpha(int,float) -> setAlpha
+    1247:1247:boolean getApplyElevation(int) -> getApplyElevation
+    1258:1259:void setApplyElevation(int,boolean) -> setApplyElevation
+    1268:1270:void setElevation(int,float) -> setElevation
+    1279:1280:void setRotationX(int,float) -> setRotationX
+    1289:1290:void setRotationY(int,float) -> setRotationY
+    1299:1300:void setScaleX(int,float) -> setScaleX
+    1309:1310:void setScaleY(int,float) -> setScaleY
+    1319:1320:void setTransformPivotX(int,float) -> setTransformPivotX
+    1329:1330:void setTransformPivotY(int,float) -> setTransformPivotY
+    1340:1343:void setTransformPivot(int,float,float) -> setTransformPivot
+    1352:1353:void setTranslationX(int,float) -> setTranslationX
+    1362:1363:void setTranslationY(int,float) -> setTranslationY
+    1373:1376:void setTranslation(int,float,float) -> setTranslation
+    1385:1386:void setTranslationZ(int,float) -> setTranslationZ
+    1396:1397:void constrainHeight(int,int) -> constrainHeight
+    1407:1408:void constrainWidth(int,int) -> constrainWidth
+    1418:1419:void constrainMaxHeight(int,int) -> constrainMaxHeight
+    1429:1430:void constrainMaxWidth(int,int) -> constrainMaxWidth
+    1440:1441:void constrainMinHeight(int,int) -> constrainMinHeight
+    1451:1452:void constrainMinWidth(int,int) -> constrainMinWidth
+    1463:1464:void constrainDefaultHeight(int,int) -> constrainDefaultHeight
+    1474:1475:void constrainDefaultWidth(int,int) -> constrainDefaultWidth
+    1486:1487:void setHorizontalWeight(int,float) -> setHorizontalWeight
+    1497:1498:void setVerticalWeight(int,float) -> setVerticalWeight
+    1512:1513:void setHorizontalChainStyle(int,int) -> setHorizontalChainStyle
+    1528:1529:void setVerticalChainStyle(int,int) -> setVerticalChainStyle
+    1539:1547:void addToHorizontalChain(int,int,int) -> addToHorizontalChain
+    1557:1565:void addToHorizontalChainRTL(int,int,int) -> addToHorizontalChainRTL
+    1575:1583:void addToVerticalChain(int,int,int) -> addToVerticalChain
+    1593:1615:void removeFromVerticalChain(int) -> removeFromVerticalChain
+    1625:1668:void removeFromHorizontalChain(int) -> removeFromHorizontalChain
+    1677:1680:void create(int,int) -> create
+    1689:1693:void setGuidelineBegin(int,int) -> setGuidelineBegin
+    1702:1705:void setGuidelineEnd(int,int) -> setGuidelineEnd
+    1714:1717:void setGuidelinePercent(int,float) -> setGuidelinePercent
+    1720:1723:android.support.constraint.ConstraintSet$Constraint get(int) -> get
+    1727:1743:java.lang.String sideToString(int) -> sideToString
+    1753:1786:void load(android.content.Context,int) -> load
+    1789:1793:int lookupID(android.content.res.TypedArray,int,int) -> lookupID
+    1797:1801:android.support.constraint.ConstraintSet$Constraint fillFromAttributeList(android.content.Context,android.util.AttributeSet) -> fillFromAttributeList
+    1805:2017:void populateConstraint(android.support.constraint.ConstraintSet$Constraint,android.content.res.TypedArray) -> populateConstraint
+    191:326:void <clinit>() -> <clinit>
+android.support.constraint.ConstraintSet$1 -> android.support.constraint.ConstraintSet$1:
+android.support.constraint.ConstraintSet$Constraint -> android.support.constraint.ConstraintSet$Constraint:
+    boolean mIsGuideline -> mIsGuideline
+    int mWidth -> mWidth
+    int mHeight -> mHeight
+    int mViewId -> mViewId
+    int UNSET -> UNSET
+    int guideBegin -> guideBegin
+    int guideEnd -> guideEnd
+    float guidePercent -> guidePercent
+    int leftToLeft -> leftToLeft
+    int leftToRight -> leftToRight
+    int rightToLeft -> rightToLeft
+    int rightToRight -> rightToRight
+    int topToTop -> topToTop
+    int topToBottom -> topToBottom
+    int bottomToTop -> bottomToTop
+    int bottomToBottom -> bottomToBottom
+    int baselineToBaseline -> baselineToBaseline
+    int startToEnd -> startToEnd
+    int startToStart -> startToStart
+    int endToStart -> endToStart
+    int endToEnd -> endToEnd
+    float horizontalBias -> horizontalBias
+    float verticalBias -> verticalBias
+    java.lang.String dimensionRatio -> dimensionRatio
+    int editorAbsoluteX -> editorAbsoluteX
+    int editorAbsoluteY -> editorAbsoluteY
+    int orientation -> orientation
+    int leftMargin -> leftMargin
+    int rightMargin -> rightMargin
+    int topMargin -> topMargin
+    int bottomMargin -> bottomMargin
+    int endMargin -> endMargin
+    int startMargin -> startMargin
+    int visibility -> visibility
+    int goneLeftMargin -> goneLeftMargin
+    int goneTopMargin -> goneTopMargin
+    int goneRightMargin -> goneRightMargin
+    int goneBottomMargin -> goneBottomMargin
+    int goneEndMargin -> goneEndMargin
+    int goneStartMargin -> goneStartMargin
+    float verticalWeight -> verticalWeight
+    float horizontalWeight -> horizontalWeight
+    int horizontalChainStyle -> horizontalChainStyle
+    int verticalChainStyle -> verticalChainStyle
+    float alpha -> alpha
+    boolean applyElevation -> applyElevation
+    float elevation -> elevation
+    float rotationX -> rotationX
+    float rotationY -> rotationY
+    float scaleX -> scaleX
+    float scaleY -> scaleY
+    float transformPivotX -> transformPivotX
+    float transformPivotY -> transformPivotY
+    float translationX -> translationX
+    float translationY -> translationY
+    float translationZ -> translationZ
+    int widthDefault -> widthDefault
+    int heightDefault -> heightDefault
+    int widthMax -> widthMax
+    int heightMax -> heightMax
+    int widthMin -> widthMin
+    int heightMin -> heightMin
+    328:396:void <init>() -> <init>
+    399:466:android.support.constraint.ConstraintSet$Constraint clone() -> clone
+    470:515:void fillFrom(int,android.support.constraint.ConstraintLayout$LayoutParams) -> fillFrom
+    518:570:void applyTo(android.support.constraint.ConstraintLayout$LayoutParams) -> applyTo
+    328:328:java.lang.Object clone() -> clone
+    328:328:void <init>(android.support.constraint.ConstraintSet$1) -> <init>
+    328:328:void access$100(android.support.constraint.ConstraintSet$Constraint,int,android.support.constraint.ConstraintLayout$LayoutParams) -> access$100
+android.support.constraint.Guideline -> android.support.constraint.Guideline:
+    55:57:void <init>(android.content.Context) -> <init>
+    60:62:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    65:67:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    70:72:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
+    79:79:void setVisibility(int) -> setVisibility
+    86:86:void draw(android.graphics.Canvas) -> draw
+    93:94:void onMeasure(int,int) -> onMeasure
+android.support.constraint.R -> android.support.constraint.R:
+    9:9:void <init>() -> <init>
+android.support.constraint.R$attr -> android.support.constraint.R$attr:
+    int constraintSet -> constraintSet
+    int layout_constraintBaseline_creator -> layout_constraintBaseline_creator
+    int layout_constraintBaseline_toBaselineOf -> layout_constraintBaseline_toBaselineOf
+    int layout_constraintBottom_creator -> layout_constraintBottom_creator
+    int layout_constraintBottom_toBottomOf -> layout_constraintBottom_toBottomOf
+    int layout_constraintBottom_toTopOf -> layout_constraintBottom_toTopOf
+    int layout_constraintDimensionRatio -> layout_constraintDimensionRatio
+    int layout_constraintEnd_toEndOf -> layout_constraintEnd_toEndOf
+    int layout_constraintEnd_toStartOf -> layout_constraintEnd_toStartOf
+    int layout_constraintGuide_begin -> layout_constraintGuide_begin
+    int layout_constraintGuide_end -> layout_constraintGuide_end
+    int layout_constraintGuide_percent -> layout_constraintGuide_percent
+    int layout_constraintHeight_default -> layout_constraintHeight_default
+    int layout_constraintHeight_max -> layout_constraintHeight_max
+    int layout_constraintHeight_min -> layout_constraintHeight_min
+    int layout_constraintHorizontal_bias -> layout_constraintHorizontal_bias
+    int layout_constraintHorizontal_chainStyle -> layout_constraintHorizontal_chainStyle
+    int layout_constraintHorizontal_weight -> layout_constraintHorizontal_weight
+    int layout_constraintLeft_creator -> layout_constraintLeft_creator
+    int layout_constraintLeft_toLeftOf -> layout_constraintLeft_toLeftOf
+    int layout_constraintLeft_toRightOf -> layout_constraintLeft_toRightOf
+    int layout_constraintRight_creator -> layout_constraintRight_creator
+    int layout_constraintRight_toLeftOf -> layout_constraintRight_toLeftOf
+    int layout_constraintRight_toRightOf -> layout_constraintRight_toRightOf
+    int layout_constraintStart_toEndOf -> layout_constraintStart_toEndOf
+    int layout_constraintStart_toStartOf -> layout_constraintStart_toStartOf
+    int layout_constraintTop_creator -> layout_constraintTop_creator
+    int layout_constraintTop_toBottomOf -> layout_constraintTop_toBottomOf
+    int layout_constraintTop_toTopOf -> layout_constraintTop_toTopOf
+    int layout_constraintVertical_bias -> layout_constraintVertical_bias
+    int layout_constraintVertical_chainStyle -> layout_constraintVertical_chainStyle
+    int layout_constraintVertical_weight -> layout_constraintVertical_weight
+    int layout_constraintWidth_default -> layout_constraintWidth_default
+    int layout_constraintWidth_max -> layout_constraintWidth_max
+    int layout_constraintWidth_min -> layout_constraintWidth_min
+    int layout_editor_absoluteX -> layout_editor_absoluteX
+    int layout_editor_absoluteY -> layout_editor_absoluteY
+    int layout_goneMarginBottom -> layout_goneMarginBottom
+    int layout_goneMarginEnd -> layout_goneMarginEnd
+    int layout_goneMarginLeft -> layout_goneMarginLeft
+    int layout_goneMarginRight -> layout_goneMarginRight
+    int layout_goneMarginStart -> layout_goneMarginStart
+    int layout_goneMarginTop -> layout_goneMarginTop
+    int layout_optimizationLevel -> layout_optimizationLevel
+    10:10:void <init>() -> <init>
+android.support.constraint.R$id -> android.support.constraint.R$id:
+    int all -> all
+    int basic -> basic
+    int chains -> chains
+    int none -> none
+    int packed -> packed
+    int parent -> parent
+    int spread -> spread
+    int spread_inside -> spread_inside
+    int wrap -> wrap
+    56:56:void <init>() -> <init>
+android.support.constraint.R$styleable -> android.support.constraint.R$styleable:
+    int[] ConstraintLayout_Layout -> ConstraintLayout_Layout
+    int ConstraintLayout_Layout_android_maxHeight -> ConstraintLayout_Layout_android_maxHeight
+    int ConstraintLayout_Layout_android_maxWidth -> ConstraintLayout_Layout_android_maxWidth
+    int ConstraintLayout_Layout_android_minHeight -> ConstraintLayout_Layout_android_minHeight
+    int ConstraintLayout_Layout_android_minWidth -> ConstraintLayout_Layout_android_minWidth
+    int ConstraintLayout_Layout_android_orientation -> ConstraintLayout_Layout_android_orientation
+    int ConstraintLayout_Layout_constraintSet -> ConstraintLayout_Layout_constraintSet
+    int ConstraintLayout_Layout_layout_constraintBaseline_creator -> ConstraintLayout_Layout_layout_constraintBaseline_creator
+    int ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf -> ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf
+    int ConstraintLayout_Layout_layout_constraintBottom_creator -> ConstraintLayout_Layout_layout_constraintBottom_creator
+    int ConstraintLayout_Layout_layout_constraintBottom_toBottomOf -> ConstraintLayout_Layout_layout_constraintBottom_toBottomOf
+    int ConstraintLayout_Layout_layout_constraintBottom_toTopOf -> ConstraintLayout_Layout_layout_constraintBottom_toTopOf
+    int ConstraintLayout_Layout_layout_constraintDimensionRatio -> ConstraintLayout_Layout_layout_constraintDimensionRatio
+    int ConstraintLayout_Layout_layout_constraintEnd_toEndOf -> ConstraintLayout_Layout_layout_constraintEnd_toEndOf
+    int ConstraintLayout_Layout_layout_constraintEnd_toStartOf -> ConstraintLayout_Layout_layout_constraintEnd_toStartOf
+    int ConstraintLayout_Layout_layout_constraintGuide_begin -> ConstraintLayout_Layout_layout_constraintGuide_begin
+    int ConstraintLayout_Layout_layout_constraintGuide_end -> ConstraintLayout_Layout_layout_constraintGuide_end
+    int ConstraintLayout_Layout_layout_constraintGuide_percent -> ConstraintLayout_Layout_layout_constraintGuide_percent
+    int ConstraintLayout_Layout_layout_constraintHeight_default -> ConstraintLayout_Layout_layout_constraintHeight_default
+    int ConstraintLayout_Layout_layout_constraintHeight_max -> ConstraintLayout_Layout_layout_constraintHeight_max
+    int ConstraintLayout_Layout_layout_constraintHeight_min -> ConstraintLayout_Layout_layout_constraintHeight_min
+    int ConstraintLayout_Layout_layout_constraintHorizontal_bias -> ConstraintLayout_Layout_layout_constraintHorizontal_bias
+    int ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle -> ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle
+    int ConstraintLayout_Layout_layout_constraintHorizontal_weight -> ConstraintLayout_Layout_layout_constraintHorizontal_weight
+    int ConstraintLayout_Layout_layout_constraintLeft_creator -> ConstraintLayout_Layout_layout_constraintLeft_creator
+    int ConstraintLayout_Layout_layout_constraintLeft_toLeftOf -> ConstraintLayout_Layout_layout_constraintLeft_toLeftOf
+    int ConstraintLayout_Layout_layout_constraintLeft_toRightOf -> ConstraintLayout_Layout_layout_constraintLeft_toRightOf
+    int ConstraintLayout_Layout_layout_constraintRight_creator -> ConstraintLayout_Layout_layout_constraintRight_creator
+    int ConstraintLayout_Layout_layout_constraintRight_toLeftOf -> ConstraintLayout_Layout_layout_constraintRight_toLeftOf
+    int ConstraintLayout_Layout_layout_constraintRight_toRightOf -> ConstraintLayout_Layout_layout_constraintRight_toRightOf
+    int ConstraintLayout_Layout_layout_constraintStart_toEndOf -> ConstraintLayout_Layout_layout_constraintStart_toEndOf
+    int ConstraintLayout_Layout_layout_constraintStart_toStartOf -> ConstraintLayout_Layout_layout_constraintStart_toStartOf
+    int ConstraintLayout_Layout_layout_constraintTop_creator -> ConstraintLayout_Layout_layout_constraintTop_creator
+    int ConstraintLayout_Layout_layout_constraintTop_toBottomOf -> ConstraintLayout_Layout_layout_constraintTop_toBottomOf
+    int ConstraintLayout_Layout_layout_constraintTop_toTopOf -> ConstraintLayout_Layout_layout_constraintTop_toTopOf
+    int ConstraintLayout_Layout_layout_constraintVertical_bias -> ConstraintLayout_Layout_layout_constraintVertical_bias
+    int ConstraintLayout_Layout_layout_constraintVertical_chainStyle -> ConstraintLayout_Layout_layout_constraintVertical_chainStyle
+    int ConstraintLayout_Layout_layout_constraintVertical_weight -> ConstraintLayout_Layout_layout_constraintVertical_weight
+    int ConstraintLayout_Layout_layout_constraintWidth_default -> ConstraintLayout_Layout_layout_constraintWidth_default
+    int ConstraintLayout_Layout_layout_constraintWidth_max -> ConstraintLayout_Layout_layout_constraintWidth_max
+    int ConstraintLayout_Layout_layout_constraintWidth_min -> ConstraintLayout_Layout_layout_constraintWidth_min
+    int ConstraintLayout_Layout_layout_editor_absoluteX -> ConstraintLayout_Layout_layout_editor_absoluteX
+    int ConstraintLayout_Layout_layout_editor_absoluteY -> ConstraintLayout_Layout_layout_editor_absoluteY
+    int ConstraintLayout_Layout_layout_goneMarginBottom -> ConstraintLayout_Layout_layout_goneMarginBottom
+    int ConstraintLayout_Layout_layout_goneMarginEnd -> ConstraintLayout_Layout_layout_goneMarginEnd
+    int ConstraintLayout_Layout_layout_goneMarginLeft -> ConstraintLayout_Layout_layout_goneMarginLeft
+    int ConstraintLayout_Layout_layout_goneMarginRight -> ConstraintLayout_Layout_layout_goneMarginRight
+    int ConstraintLayout_Layout_layout_goneMarginStart -> ConstraintLayout_Layout_layout_goneMarginStart
+    int ConstraintLayout_Layout_layout_goneMarginTop -> ConstraintLayout_Layout_layout_goneMarginTop
+    int ConstraintLayout_Layout_layout_optimizationLevel -> ConstraintLayout_Layout_layout_optimizationLevel
+    int[] ConstraintSet -> ConstraintSet
+    int ConstraintSet_android_alpha -> ConstraintSet_android_alpha
+    int ConstraintSet_android_elevation -> ConstraintSet_android_elevation
+    int ConstraintSet_android_id -> ConstraintSet_android_id
+    int ConstraintSet_android_layout_height -> ConstraintSet_android_layout_height
+    int ConstraintSet_android_layout_marginBottom -> ConstraintSet_android_layout_marginBottom
+    int ConstraintSet_android_layout_marginEnd -> ConstraintSet_android_layout_marginEnd
+    int ConstraintSet_android_layout_marginLeft -> ConstraintSet_android_layout_marginLeft
+    int ConstraintSet_android_layout_marginRight -> ConstraintSet_android_layout_marginRight
+    int ConstraintSet_android_layout_marginStart -> ConstraintSet_android_layout_marginStart
+    int ConstraintSet_android_layout_marginTop -> ConstraintSet_android_layout_marginTop
+    int ConstraintSet_android_layout_width -> ConstraintSet_android_layout_width
+    int ConstraintSet_android_orientation -> ConstraintSet_android_orientation
+    int ConstraintSet_android_rotationX -> ConstraintSet_android_rotationX
+    int ConstraintSet_android_rotationY -> ConstraintSet_android_rotationY
+    int ConstraintSet_android_scaleX -> ConstraintSet_android_scaleX
+    int ConstraintSet_android_scaleY -> ConstraintSet_android_scaleY
+    int ConstraintSet_android_transformPivotX -> ConstraintSet_android_transformPivotX
+    int ConstraintSet_android_transformPivotY -> ConstraintSet_android_transformPivotY
+    int ConstraintSet_android_translationX -> ConstraintSet_android_translationX
+    int ConstraintSet_android_translationY -> ConstraintSet_android_translationY
+    int ConstraintSet_android_translationZ -> ConstraintSet_android_translationZ
+    int ConstraintSet_android_visibility -> ConstraintSet_android_visibility
+    int ConstraintSet_layout_constraintBaseline_creator -> ConstraintSet_layout_constraintBaseline_creator
+    int ConstraintSet_layout_constraintBaseline_toBaselineOf -> ConstraintSet_layout_constraintBaseline_toBaselineOf
+    int ConstraintSet_layout_constraintBottom_creator -> ConstraintSet_layout_constraintBottom_creator
+    int ConstraintSet_layout_constraintBottom_toBottomOf -> ConstraintSet_layout_constraintBottom_toBottomOf
+    int ConstraintSet_layout_constraintBottom_toTopOf -> ConstraintSet_layout_constraintBottom_toTopOf
+    int ConstraintSet_layout_constraintDimensionRatio -> ConstraintSet_layout_constraintDimensionRatio
+    int ConstraintSet_layout_constraintEnd_toEndOf -> ConstraintSet_layout_constraintEnd_toEndOf
+    int ConstraintSet_layout_constraintEnd_toStartOf -> ConstraintSet_layout_constraintEnd_toStartOf
+    int ConstraintSet_layout_constraintGuide_begin -> ConstraintSet_layout_constraintGuide_begin
+    int ConstraintSet_layout_constraintGuide_end -> ConstraintSet_layout_constraintGuide_end
+    int ConstraintSet_layout_constraintGuide_percent -> ConstraintSet_layout_constraintGuide_percent
+    int ConstraintSet_layout_constraintHeight_default -> ConstraintSet_layout_constraintHeight_default
+    int ConstraintSet_layout_constraintHeight_max -> ConstraintSet_layout_constraintHeight_max
+    int ConstraintSet_layout_constraintHeight_min -> ConstraintSet_layout_constraintHeight_min
+    int ConstraintSet_layout_constraintHorizontal_bias -> ConstraintSet_layout_constraintHorizontal_bias
+    int ConstraintSet_layout_constraintHorizontal_chainStyle -> ConstraintSet_layout_constraintHorizontal_chainStyle
+    int ConstraintSet_layout_constraintHorizontal_weight -> ConstraintSet_layout_constraintHorizontal_weight
+    int ConstraintSet_layout_constraintLeft_creator -> ConstraintSet_layout_constraintLeft_creator
+    int ConstraintSet_layout_constraintLeft_toLeftOf -> ConstraintSet_layout_constraintLeft_toLeftOf
+    int ConstraintSet_layout_constraintLeft_toRightOf -> ConstraintSet_layout_constraintLeft_toRightOf
+    int ConstraintSet_layout_constraintRight_creator -> ConstraintSet_layout_constraintRight_creator
+    int ConstraintSet_layout_constraintRight_toLeftOf -> ConstraintSet_layout_constraintRight_toLeftOf
+    int ConstraintSet_layout_constraintRight_toRightOf -> ConstraintSet_layout_constraintRight_toRightOf
+    int ConstraintSet_layout_constraintStart_toEndOf -> ConstraintSet_layout_constraintStart_toEndOf
+    int ConstraintSet_layout_constraintStart_toStartOf -> ConstraintSet_layout_constraintStart_toStartOf
+    int ConstraintSet_layout_constraintTop_creator -> ConstraintSet_layout_constraintTop_creator
+    int ConstraintSet_layout_constraintTop_toBottomOf -> ConstraintSet_layout_constraintTop_toBottomOf
+    int ConstraintSet_layout_constraintTop_toTopOf -> ConstraintSet_layout_constraintTop_toTopOf
+    int ConstraintSet_layout_constraintVertical_bias -> ConstraintSet_layout_constraintVertical_bias
+    int ConstraintSet_layout_constraintVertical_chainStyle -> ConstraintSet_layout_constraintVertical_chainStyle
+    int ConstraintSet_layout_constraintVertical_weight -> ConstraintSet_layout_constraintVertical_weight
+    int ConstraintSet_layout_constraintWidth_default -> ConstraintSet_layout_constraintWidth_default
+    int ConstraintSet_layout_constraintWidth_max -> ConstraintSet_layout_constraintWidth_max
+    int ConstraintSet_layout_constraintWidth_min -> ConstraintSet_layout_constraintWidth_min
+    int ConstraintSet_layout_editor_absoluteX -> ConstraintSet_layout_editor_absoluteX
+    int ConstraintSet_layout_editor_absoluteY -> ConstraintSet_layout_editor_absoluteY
+    int ConstraintSet_layout_goneMarginBottom -> ConstraintSet_layout_goneMarginBottom
+    int ConstraintSet_layout_goneMarginEnd -> ConstraintSet_layout_goneMarginEnd
+    int ConstraintSet_layout_goneMarginLeft -> ConstraintSet_layout_goneMarginLeft
+    int ConstraintSet_layout_goneMarginRight -> ConstraintSet_layout_goneMarginRight
+    int ConstraintSet_layout_goneMarginStart -> ConstraintSet_layout_goneMarginStart
+    int ConstraintSet_layout_goneMarginTop -> ConstraintSet_layout_goneMarginTop
+    int[] LinearConstraintLayout -> LinearConstraintLayout
+    int LinearConstraintLayout_android_orientation -> LinearConstraintLayout_android_orientation
+    67:67:void <init>() -> <init>
+    68:183:void <clinit>() -> <clinit>
+android.support.constraint.solver.ArrayLinkedVariables -> android.support.constraint.solver.ArrayLinkedVariables:
+    boolean DEBUG -> DEBUG
+    int NONE -> NONE
+    int currentSize -> currentSize
+    android.support.constraint.solver.ArrayRow mRow -> mRow
+    android.support.constraint.solver.Cache mCache -> mCache
+    int ROW_SIZE -> ROW_SIZE
+    android.support.constraint.solver.SolverVariable candidate -> candidate
+    int[] mArrayIndices -> mArrayIndices
+    int[] mArrayNextIndices -> mArrayNextIndices
+    float[] mArrayValues -> mArrayValues
+    int mHead -> mHead
+    int mLast -> mLast
+    boolean mDidFillOnce -> mDidFillOnce
+    42:107:void <init>(android.support.constraint.solver.ArrayRow,android.support.constraint.solver.Cache) -> <init>
+    116:200:void put(android.support.constraint.solver.SolverVariable,float) -> put
+    212:311:void add(android.support.constraint.solver.SolverVariable,float) -> add
+    320:349:float remove(android.support.constraint.solver.SolverVariable) -> remove
+    356:360:void clear() -> clear
+    369:380:boolean containsKey(android.support.constraint.solver.SolverVariable) -> containsKey
+    389:397:boolean hasAtLeastOnePositiveVariable() -> hasAtLeastOnePositiveVariable
+    404:410:void invert() -> invert
+    419:425:void divideByAmount(float) -> divideByAmount
+    434:440:void updateClientEquations(android.support.constraint.solver.ArrayRow) -> updateClientEquations
+    448:483:android.support.constraint.solver.SolverVariable pickPivotCandidate() -> pickPivotCandidate
+    496:525:void updateFromRow(android.support.constraint.solver.ArrayRow,android.support.constraint.solver.ArrayRow) -> updateFromRow
+    537:571:void updateFromSystem(android.support.constraint.solver.ArrayRow,android.support.constraint.solver.ArrayRow[]) -> updateFromSystem
+    578:597:android.support.constraint.solver.SolverVariable getPivotCandidate() -> getPivotCandidate
+    607:615:android.support.constraint.solver.SolverVariable getVariable(int) -> getVariable
+    625:633:float getVariableValue(int) -> getVariableValue
+    642:650:float get(android.support.constraint.solver.SolverVariable) -> get
+    655:658:int sizeInBytes() -> sizeInBytes
+    662:672:void display() -> display
+    681:690:java.lang.String toString() -> toString
+android.support.constraint.solver.ArrayRow -> android.support.constraint.solver.ArrayRow:
+    boolean DEBUG -> DEBUG
+    android.support.constraint.solver.SolverVariable variable -> variable
+    float constantValue -> constantValue
+    boolean used -> used
+    android.support.constraint.solver.ArrayLinkedVariables variables -> variables
+    boolean isSimpleDefinition -> isSimpleDefinition
+    22:32:void <init>(android.support.constraint.solver.Cache) -> <init>
+    35:36:void updateClientEquations() -> updateClientEquations
+    39:39:boolean hasAtLeastOnePositiveVariable() -> hasAtLeastOnePositiveVariable
+    43:43:boolean hasKeyVariable() -> hasKeyVariable
+    51:51:java.lang.String toString() -> toString
+    55:101:java.lang.String toReadableString() -> toReadableString
+    105:109:void reset() -> reset
+    112:112:boolean hasVariable(android.support.constraint.solver.SolverVariable) -> hasVariable
+    116:120:android.support.constraint.solver.ArrayRow createRowDefinition(android.support.constraint.solver.SolverVariable,int) -> createRowDefinition
+    124:131:android.support.constraint.solver.ArrayRow createRowEquals(android.support.constraint.solver.SolverVariable,int) -> createRowEquals
+    135:151:android.support.constraint.solver.ArrayRow createRowEquals(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int) -> createRowEquals
+    155:156:android.support.constraint.solver.ArrayRow addSingleError(android.support.constraint.solver.SolverVariable,int) -> addSingleError
+    162:180:android.support.constraint.solver.ArrayRow createRowGreaterThan(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int) -> createRowGreaterThan
+    185:203:android.support.constraint.solver.ArrayRow createRowLowerThan(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int) -> createRowLowerThan
+    211:233:android.support.constraint.solver.ArrayRow createRowEqualDimension(float,float,float,android.support.constraint.solver.SolverVariable,int,android.support.constraint.solver.SolverVariable,int,android.support.constraint.solver.SolverVariable,int,android.support.constraint.solver.SolverVariable,int) -> createRowEqualDimension
+    238:280:android.support.constraint.solver.ArrayRow createRowCentering(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,float,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int) -> createRowCentering
+    284:286:android.support.constraint.solver.ArrayRow addError(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable) -> addError
+    291:294:android.support.constraint.solver.ArrayRow createRowDimensionPercent(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,float) -> createRowDimensionPercent
+    311:315:android.support.constraint.solver.ArrayRow createRowDimensionRatio(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,float) -> createRowDimensionRatio
+    319:327:int sizeInBytes() -> sizeInBytes
+    331:332:boolean updateRowWithEquation(android.support.constraint.solver.ArrayRow) -> updateRowWithEquation
+    337:342:void ensurePositiveConstant() -> ensurePositiveConstant
+    345:352:void pickRowVariable() -> pickRowVariable
+    355:368:void pivot(android.support.constraint.solver.SolverVariable) -> pivot
+android.support.constraint.solver.Cache -> android.support.constraint.solver.Cache:
+    android.support.constraint.solver.Pools$Pool arrayRowPool -> arrayRowPool
+    android.support.constraint.solver.Pools$Pool solverVariablePool -> solverVariablePool
+    android.support.constraint.solver.SolverVariable[] mIndexedVariables -> mIndexedVariables
+    21:24:void <init>() -> <init>
+android.support.constraint.solver.Goal -> android.support.constraint.solver.Goal:
+    java.util.ArrayList variables -> variables
+    26:28:void <init>() -> <init>
+    37:56:android.support.constraint.solver.SolverVariable getPivotCandidate() -> getPivotCandidate
+    66:78:void initFromSystemErrors(android.support.constraint.solver.LinearSystem) -> initFromSystemErrors
+    86:110:void updateFromSystem(android.support.constraint.solver.LinearSystem) -> updateFromSystem
+    119:126:java.lang.String toString() -> toString
+android.support.constraint.solver.LinearSystem -> android.support.constraint.solver.LinearSystem:
+    boolean DEBUG -> DEBUG
+    int POOL_SIZE -> POOL_SIZE
+    int mVariablesID -> mVariablesID
+    java.util.HashMap mVariables -> mVariables
+    android.support.constraint.solver.Goal mGoal -> mGoal
+    int TABLE_SIZE -> TABLE_SIZE
+    int mMaxColumns -> mMaxColumns
+    android.support.constraint.solver.ArrayRow[] mRows -> mRows
+    boolean[] mAlreadyTestedCandidates -> mAlreadyTestedCandidates
+    int mNumColumns -> mNumColumns
+    int mNumRows -> mNumRows
+    int mMaxRows -> mMaxRows
+    android.support.constraint.solver.Cache mCache -> mCache
+    android.support.constraint.solver.SolverVariable[] mPoolVariables -> mPoolVariables
+    int mPoolVariablesCount -> mPoolVariablesCount
+    android.support.constraint.solver.ArrayRow[] tempClientsCopy -> tempClientsCopy
+    39:73:void <init>() -> <init>
+    83:90:void increaseTableSize() -> increaseTableSize
+    96:103:void releaseRows() -> releaseRows
+    109:130:void reset() -> reset
+    137:163:android.support.constraint.solver.SolverVariable createObjectVariable(java.lang.Object) -> createObjectVariable
+    167:173:android.support.constraint.solver.ArrayRow createRow() -> createRow
+    177:185:android.support.constraint.solver.SolverVariable createSlackVariable() -> createSlackVariable
+    189:193:void addError(android.support.constraint.solver.ArrayRow) -> addError
+    196:198:void addSingleError(android.support.constraint.solver.ArrayRow,int) -> addSingleError
+    201:214:android.support.constraint.solver.SolverVariable createVariable(java.lang.String,android.support.constraint.solver.SolverVariable$Type) -> createVariable
+    218:226:android.support.constraint.solver.SolverVariable createErrorVariable() -> createErrorVariable
+    235:247:android.support.constraint.solver.SolverVariable acquireSolverVariable(android.support.constraint.solver.SolverVariable$Type) -> acquireSolverVariable
+    258:258:android.support.constraint.solver.Goal getGoal() -> getGoal
+    261:261:android.support.constraint.solver.ArrayRow getRow(int) -> getRow
+    265:269:float getValueFor(java.lang.String) -> getValueFor
+    273:277:int getObjectVariableValue(java.lang.Object) -> getObjectVariableValue
+    288:295:android.support.constraint.solver.SolverVariable getVariable(java.lang.String,android.support.constraint.solver.SolverVariable$Type) -> getVariable
+    306:310:void rebuildGoalFromErrors() -> rebuildGoalFromErrors
+    316:317:void minimize() -> minimize
+    326:338:void minimizeGoal(android.support.constraint.solver.Goal) -> minimizeGoal
+    345:351:void updateRowFromVariables(android.support.constraint.solver.ArrayRow) -> updateRowFromVariables
+    358:429:void addConstraint(android.support.constraint.solver.ArrayRow) -> addConstraint
+    437:543:int optimize(android.support.constraint.solver.Goal) -> optimize
+    552:676:int enforceBFS(android.support.constraint.solver.Goal) -> enforceBFS
+    680:684:void computeValues() -> computeValues
+    692:702:void displayRows() -> displayRows
+    705:715:void displayReadableRows() -> displayReadableRows
+    719:731:void displayVariablesReadableRows() -> displayVariablesReadableRows
+    735:741:int getMemoryUsed() -> getMemoryUsed
+    745:745:int getNumEquations() -> getNumEquations
+    747:747:int getNumVariables() -> getNumVariables
+    753:775:void displaySystemInformations() -> displaySystemInformations
+    778:786:void displaySolverVariables() -> displaySolverVariables
+    789:797:java.lang.String getDisplaySize(int) -> getDisplaySize
+    801:801:android.support.constraint.solver.Cache getCache() -> getCache
+    815:820:void addGreaterThan(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,int) -> addGreaterThan
+    833:838:void addLowerThan(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,int) -> addLowerThan
+    856:864:void addCentering(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,float,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,int) -> addCentering
+    877:885:android.support.constraint.solver.ArrayRow addEquality(android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,int) -> addEquality
+    897:912:void addEquality(android.support.constraint.solver.SolverVariable,int) -> addEquality
+    919:933:android.support.constraint.solver.ArrayRow createRowEquals(android.support.constraint.solver.LinearSystem,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,boolean) -> createRowEquals
+    948:952:android.support.constraint.solver.ArrayRow createRowDimensionPercent(android.support.constraint.solver.LinearSystem,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,float,boolean) -> createRowDimensionPercent
+    960:978:android.support.constraint.solver.ArrayRow createRowGreaterThan(android.support.constraint.solver.LinearSystem,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,boolean) -> createRowGreaterThan
+    986:1004:android.support.constraint.solver.ArrayRow createRowLowerThan(android.support.constraint.solver.LinearSystem,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,boolean) -> createRowLowerThan
+    1015:1037:android.support.constraint.solver.ArrayRow createRowCentering(android.support.constraint.solver.LinearSystem,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,float,android.support.constraint.solver.SolverVariable,android.support.constraint.solver.SolverVariable,int,boolean) -> createRowCentering
+    34:34:void <clinit>() -> <clinit>
+android.support.constraint.solver.Pools -> android.support.constraint.solver.Pools:
+    boolean DEBUG -> DEBUG
+    75:77:void <init>() -> <init>
+android.support.constraint.solver.Pools$Pool -> android.support.constraint.solver.Pools$Pool:
+    java.lang.Object acquire() -> acquire
+    boolean release(java.lang.Object) -> release
+    void releaseAll(java.lang.Object[],int) -> releaseAll
+android.support.constraint.solver.Pools$SimplePool -> android.support.constraint.solver.Pools$SimplePool:
+    java.lang.Object[] mPool -> mPool
+    int mPoolSize -> mPoolSize
+    96:101:void <init>(int) -> <init>
+    106:113:java.lang.Object acquire() -> acquire
+    123:128:boolean release(java.lang.Object) -> release
+    133:148:void releaseAll(java.lang.Object[],int) -> releaseAll
+    151:156:boolean isInPool(java.lang.Object) -> isInPool
+android.support.constraint.solver.SolverVariable -> android.support.constraint.solver.SolverVariable:
+    boolean INTERNAL_DEBUG -> INTERNAL_DEBUG
+    int STRENGTH_NONE -> STRENGTH_NONE
+    int STRENGTH_LOW -> STRENGTH_LOW
+    int STRENGTH_MEDIUM -> STRENGTH_MEDIUM
+    int STRENGTH_HIGH -> STRENGTH_HIGH
+    int STRENGTH_HIGHEST -> STRENGTH_HIGHEST
+    int STRENGTH_EQUALITY -> STRENGTH_EQUALITY
+    int uniqueId -> uniqueId
+    java.lang.String mName -> mName
+    int id -> id
+    int definitionId -> definitionId
+    int strength -> strength
+    float computedValue -> computedValue
+    int MAX_STRENGTH -> MAX_STRENGTH
+    float[] strengthVector -> strengthVector
+    android.support.constraint.solver.SolverVariable$Type mType -> mType
+    android.support.constraint.solver.ArrayRow[] mClientEquations -> mClientEquations
+    int mClientEquationsCount -> mClientEquationsCount
+    80:89:java.lang.String getUniqueName(android.support.constraint.solver.SolverVariable$Type) -> getUniqueName
+    41:100:void <init>(java.lang.String,android.support.constraint.solver.SolverVariable$Type) -> <init>
+    41:107:void <init>(android.support.constraint.solver.SolverVariable$Type) -> <init>
+    110:113:void clearStrengths() -> clearStrengths
+    116:125:java.lang.String strengthsToString() -> strengthsToString
+    129:139:void addClientEquation(android.support.constraint.solver.ArrayRow) -> addClientEquation
+    147:156:void removeClientEquation(android.support.constraint.solver.ArrayRow) -> removeClientEquation
+    159:166:void reset() -> reset
+    174:174:java.lang.String getName() -> getName
+    177:177:void setName(java.lang.String) -> setName
+    179:183:void setType(android.support.constraint.solver.SolverVariable$Type) -> setType
+    190:196:java.lang.String toString() -> toString
+    37:37:void <clinit>() -> <clinit>
+android.support.constraint.solver.SolverVariable$1 -> android.support.constraint.solver.SolverVariable$1:
+    int[] $SwitchMap$android$support$constraint$solver$SolverVariable$Type -> $SwitchMap$android$support$constraint$solver$SolverVariable$Type
+    81:81:void <clinit>() -> <clinit>
+android.support.constraint.solver.SolverVariable$Type -> android.support.constraint.solver.SolverVariable$Type:
+    android.support.constraint.solver.SolverVariable$Type UNRESTRICTED -> UNRESTRICTED
+    android.support.constraint.solver.SolverVariable$Type CONSTANT -> CONSTANT
+    android.support.constraint.solver.SolverVariable$Type SLACK -> SLACK
+    android.support.constraint.solver.SolverVariable$Type ERROR -> ERROR
+    android.support.constraint.solver.SolverVariable$Type UNKNOWN -> UNKNOWN
+    android.support.constraint.solver.SolverVariable$Type[] $VALUES -> $VALUES
+    56:56:android.support.constraint.solver.SolverVariable$Type[] values() -> values
+    56:56:android.support.constraint.solver.SolverVariable$Type valueOf(java.lang.String) -> valueOf
+    56:56:void <init>(java.lang.String,int) -> <init>
+    56:76:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.Animator -> android.support.constraint.solver.widgets.Animator:
+    boolean DEBUG -> DEBUG
+    boolean USE_EASE_IN_OUT -> USE_EASE_IN_OUT
+    android.support.constraint.solver.widgets.ConstraintWidget mWidget -> mWidget
+    android.support.constraint.solver.widgets.Animator$Frame animTarget -> animTarget
+    android.support.constraint.solver.widgets.Animator$Frame animStart -> animStart
+    android.support.constraint.solver.widgets.Animator$Frame animCurrent -> animCurrent
+    long animStartTime -> animStartTime
+    long animDuration -> animDuration
+    boolean mAnimating -> mAnimating
+    boolean sAllowsAnimation -> sAllowsAnimation
+    36:37:void setAnimationEnabled(boolean) -> setAnimationEnabled
+    40:40:boolean doAnimation() -> doAnimation
+    44:44:boolean isAnimationEnabled() -> isAnimationEnabled
+    24:49:void <init>(android.support.constraint.solver.widgets.ConstraintWidget) -> <init>
+    52:52:boolean isAnimating() -> isAnimating
+    56:58:void start() -> start
+    61:67:double EaseInOutinterpolator(double,double,double) -> EaseInOutinterpolator
+    71:71:float linearInterpolator(float,float,float) -> linearInterpolator
+    76:76:int interpolator(float,float,float) -> interpolator
+    82:97:void step() -> step
+    108:130:void animate(int,int,int,int) -> animate
+    133:133:int getCurrentLeft() -> getCurrentLeft
+    137:137:int getCurrentTop() -> getCurrentTop
+    141:141:int getCurrentRight() -> getCurrentRight
+    145:145:int getCurrentBottom() -> getCurrentBottom
+    33:33:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.Animator$Frame -> android.support.constraint.solver.widgets.Animator$Frame:
+    int left -> left
+    int right -> right
+    int top -> top
+    int bottom -> bottom
+    148:148:void <init>() -> <init>
+    155:159:void set(int,int,int,int) -> set
+    162:162:int getLeft() -> getLeft
+    166:166:int getTop() -> getTop
+    170:170:int getRight() -> getRight
+    174:174:int getBottom() -> getBottom
+android.support.constraint.solver.widgets.ConnectionCandidate -> android.support.constraint.solver.widgets.ConnectionCandidate:
+    android.support.constraint.solver.widgets.ConstraintAnchor anchorOrigin -> anchorOrigin
+    android.support.constraint.solver.widgets.ConstraintAnchor anchorTarget -> anchorTarget
+    float distance -> distance
+    18:18:void <init>() -> <init>
+android.support.constraint.solver.widgets.ConstraintAnchor -> android.support.constraint.solver.widgets.ConstraintAnchor:
+    boolean USE_CENTER_ANCHOR -> USE_CENTER_ANCHOR
+    boolean ALLOW_BINARY -> ALLOW_BINARY
+    int ANY_GROUP -> ANY_GROUP
+    int APPLY_GROUP_RESULTS -> APPLY_GROUP_RESULTS
+    int USER_CREATOR -> USER_CREATOR
+    int SCOUT_CREATOR -> SCOUT_CREATOR
+    int AUTO_CONSTRAINT_CREATOR -> AUTO_CONSTRAINT_CREATOR
+    int UNSET_GONE_MARGIN -> UNSET_GONE_MARGIN
+    android.support.constraint.solver.widgets.ConstraintWidget mOwner -> mOwner
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type mType -> mType
+    android.support.constraint.solver.widgets.ConstraintAnchor mTarget -> mTarget
+    int mMargin -> mMargin
+    int mGoneMargin -> mGoneMargin
+    android.support.constraint.solver.widgets.ConstraintAnchor$Strength mStrength -> mStrength
+    android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType mConnectionType -> mConnectionType
+    int mConnectionCreator -> mConnectionCreator
+    android.support.constraint.solver.SolverVariable mSolverVariable -> mSolverVariable
+    int mGroup -> mGroup
+    67:84:void <init>(android.support.constraint.solver.widgets.ConstraintWidget,android.support.constraint.solver.widgets.ConstraintAnchor$Type) -> <init>
+    90:90:android.support.constraint.solver.SolverVariable getSolverVariable() -> getSolverVariable
+    96:101:void resetSolverVariable(android.support.constraint.solver.Cache) -> resetSolverVariable
+    108:109:void setGroup(int) -> setGroup
+    116:116:int getGroup() -> getGroup
+    123:123:android.support.constraint.solver.widgets.ConstraintWidget getOwner() -> getOwner
+    129:129:android.support.constraint.solver.widgets.ConstraintAnchor$Type getType() -> getType
+    136:143:int getMargin() -> getMargin
+    149:149:android.support.constraint.solver.widgets.ConstraintAnchor$Strength getStrength() -> getStrength
+    155:155:android.support.constraint.solver.widgets.ConstraintAnchor getTarget() -> getTarget
+    161:161:android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType getConnectionType() -> getConnectionType
+    168:169:void setConnectionType(android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType) -> setConnectionType
+    174:174:int getConnectionCreator() -> getConnectionCreator
+    180:180:void setConnectionCreator(int) -> setConnectionCreator
+    186:192:void reset() -> reset
+    204:204:boolean connect(android.support.constraint.solver.widgets.ConstraintAnchor,int,android.support.constraint.solver.widgets.ConstraintAnchor$Strength,int) -> connect
+    220:240:boolean connect(android.support.constraint.solver.widgets.ConstraintAnchor,int,int,android.support.constraint.solver.widgets.ConstraintAnchor$Strength,int,boolean) -> connect
+    251:251:boolean connect(android.support.constraint.solver.widgets.ConstraintAnchor,int,int) -> connect
+    261:261:boolean connect(android.support.constraint.solver.widgets.ConstraintAnchor,int) -> connect
+    269:269:boolean isConnected() -> isConnected
+    278:317:boolean isValidConnection(android.support.constraint.solver.widgets.ConstraintAnchor) -> isValidConnection
+    326:333:boolean isSideAnchor() -> isSideAnchor
+    344:364:boolean isSimilarDimensionConnection(android.support.constraint.solver.widgets.ConstraintAnchor) -> isSimilarDimensionConnection
+    372:375:void setStrength(android.support.constraint.solver.widgets.ConstraintAnchor$Strength) -> setStrength
+    382:385:void setMargin(int) -> setMargin
+    392:395:void setGoneMargin(int) -> setGoneMargin
+    403:410:boolean isVerticalAnchor() -> isVerticalAnchor
+    420:421:java.lang.String toString() -> toString
+    425:428:java.lang.String toString(java.util.HashSet) -> toString
+    438:448:int getSnapPriorityLevel() -> getSnapPriorityLevel
+    459:469:int getPriorityLevel() -> getPriorityLevel
+    480:530:boolean isSnapCompatibleWith(android.support.constraint.solver.widgets.ConstraintAnchor) -> isSnapCompatibleWith
+    550:550:boolean isConnectionAllowed(android.support.constraint.solver.widgets.ConstraintWidget,android.support.constraint.solver.widgets.ConstraintAnchor) -> isConnectionAllowed
+    563:574:boolean isConnectionAllowed(android.support.constraint.solver.widgets.ConstraintWidget) -> isConnectionAllowed
+    585:602:boolean isConnectionToMe(android.support.constraint.solver.widgets.ConstraintWidget,java.util.HashSet) -> isConnectionToMe
+    610:624:android.support.constraint.solver.widgets.ConstraintAnchor getOpposite() -> getOpposite
+android.support.constraint.solver.widgets.ConstraintAnchor$1 -> android.support.constraint.solver.widgets.ConstraintAnchor$1:
+    int[] $SwitchMap$android$support$constraint$solver$widgets$ConstraintAnchor$Type -> $SwitchMap$android$support$constraint$solver$widgets$ConstraintAnchor$Type
+    294:294:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType -> android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType:
+    android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType RELAXED -> RELAXED
+    android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType STRICT -> STRICT
+    android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType[] $VALUES -> $VALUES
+    53:53:android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType[] values() -> values
+    53:53:android.support.constraint.solver.widgets.ConstraintAnchor$ConnectionType valueOf(java.lang.String) -> valueOf
+    53:53:void <init>(java.lang.String,int) -> <init>
+    53:53:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintAnchor$Strength -> android.support.constraint.solver.widgets.ConstraintAnchor$Strength:
+    android.support.constraint.solver.widgets.ConstraintAnchor$Strength NONE -> NONE
+    android.support.constraint.solver.widgets.ConstraintAnchor$Strength STRONG -> STRONG
+    android.support.constraint.solver.widgets.ConstraintAnchor$Strength WEAK -> WEAK
+    android.support.constraint.solver.widgets.ConstraintAnchor$Strength[] $VALUES -> $VALUES
+    48:48:android.support.constraint.solver.widgets.ConstraintAnchor$Strength[] values() -> values
+    48:48:android.support.constraint.solver.widgets.ConstraintAnchor$Strength valueOf(java.lang.String) -> valueOf
+    48:48:void <init>(java.lang.String,int) -> <init>
+    48:48:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintAnchor$Type -> android.support.constraint.solver.widgets.ConstraintAnchor$Type:
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type NONE -> NONE
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type LEFT -> LEFT
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type TOP -> TOP
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type RIGHT -> RIGHT
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type BOTTOM -> BOTTOM
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type BASELINE -> BASELINE
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type CENTER -> CENTER
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type CENTER_X -> CENTER_X
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type CENTER_Y -> CENTER_Y
+    android.support.constraint.solver.widgets.ConstraintAnchor$Type[] $VALUES -> $VALUES
+    43:43:android.support.constraint.solver.widgets.ConstraintAnchor$Type[] values() -> values
+    43:43:android.support.constraint.solver.widgets.ConstraintAnchor$Type valueOf(java.lang.String) -> valueOf
+    43:43:void <init>(java.lang.String,int) -> <init>
+    43:43:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintHorizontalLayout -> android.support.constraint.solver.widgets.ConstraintHorizontalLayout:
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment mAlignment -> mAlignment
+    30:35:void <init>() -> <init>
+    30:46:void <init>(int,int,int,int) -> <init>
+    30:55:void <init>(int,int) -> <init>
+    63:92:void addToSolver(android.support.constraint.solver.LinearSystem,int) -> addToSolver
+android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment -> android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment:
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment BEGIN -> BEGIN
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment MIDDLE -> MIDDLE
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment END -> END
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment TOP -> TOP
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment VERTICAL_MIDDLE -> VERTICAL_MIDDLE
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment BOTTOM -> BOTTOM
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment LEFT -> LEFT
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment RIGHT -> RIGHT
+    android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment[] $VALUES -> $VALUES
+    26:26:android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment[] values() -> values
+    26:26:android.support.constraint.solver.widgets.ConstraintHorizontalLayout$ContentAlignment valueOf(java.lang.String) -> valueOf
+    26:26:void <init>(java.lang.String,int) -> <init>
+    26:27:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintTableLayout -> android.support.constraint.solver.widgets.ConstraintTableLayout:
+    boolean mVerticalGrowth -> mVerticalGrowth
+    int mNumCols -> mNumCols
+    int mNumRows -> mNumRows
+    int mPadding -> mPadding
+    java.util.ArrayList mVerticalSlices -> mVerticalSlices
+    java.util.ArrayList mHorizontalSlices -> mHorizontalSlices
+    java.util.ArrayList mVerticalGuidelines -> mVerticalGuidelines
+    java.util.ArrayList mHorizontalGuidelines -> mHorizontalGuidelines
+    int ALIGN_CENTER -> ALIGN_CENTER
+    int ALIGN_LEFT -> ALIGN_LEFT
+    int ALIGN_RIGHT -> ALIGN_RIGHT
+    int ALIGN_FULL -> ALIGN_FULL
+    android.support.constraint.solver.LinearSystem system -> system
+    28:401:void <init>() -> <init>
+    28:401:void <init>(int,int,int,int) -> <init>
+    28:401:void <init>(int,int) -> <init>
+    98:98:java.lang.String getType() -> getType
+    107:107:int getNumRows() -> getNumRows
+    116:116:int getNumCols() -> getNumCols
+    125:125:int getPadding() -> getPadding
+    134:148:java.lang.String getColumnsAlignmentRepresentation() -> getColumnsAlignmentRepresentation
+    158:168:java.lang.String getColumnAlignmentRepresentation(int) -> getColumnAlignmentRepresentation
+    179:184:void setNumCols(int) -> setNumCols
+    194:199:void setNumRows(int) -> setNumRows
+    208:208:boolean isVerticalGrowth() -> isVerticalGrowth
+    217:218:void setVerticalGrowth(boolean) -> setVerticalGrowth
+    226:229:void setPadding(int) -> setPadding
+    239:244:void setColumnAlignment(int,int) -> setColumnAlignment
+    252:265:void cycleColumnAlignment(int) -> cycleColumnAlignment
+    273:287:void setColumnAlignment(java.lang.String) -> setColumnAlignment
+    295:295:java.util.ArrayList getVerticalGuidelines() -> getVerticalGuidelines
+    304:304:java.util.ArrayList getHorizontalGuidelines() -> getHorizontalGuidelines
+    314:342:void addToSolver(android.support.constraint.solver.LinearSystem,int) -> addToSolver
+    349:386:void setTableDimensions() -> setTableDimensions
+    396:399:void setDebugSolverName(android.support.constraint.solver.LinearSystem,java.lang.String) -> setDebugSolverName
+    404:415:void updateDebugSolverNames() -> updateDebugSolverNames
+    422:444:void setVerticalSlices() -> setVerticalSlices
+    451:473:void setHorizontalSlices() -> setHorizontalSlices
+    479:538:void setChildrenConnections() -> setChildrenConnections
+    547:562:void updateFromSolver(android.support.constraint.solver.LinearSystem,int) -> updateFromSolver
+    571:571:boolean handlesInternalConstraints() -> handlesInternalConstraints
+    578:586:void computeGuidelinesPercentPositions() -> computeGuidelinesPercentPositions
+android.support.constraint.solver.widgets.ConstraintTableLayout$HorizontalSlice -> android.support.constraint.solver.widgets.ConstraintTableLayout$HorizontalSlice:
+    android.support.constraint.solver.widgets.ConstraintWidget top -> top
+    android.support.constraint.solver.widgets.ConstraintWidget bottom -> bottom
+    int padding -> padding
+    android.support.constraint.solver.widgets.ConstraintTableLayout this$0 -> this$0
+    36:36:void <init>(android.support.constraint.solver.widgets.ConstraintTableLayout) -> <init>
+android.support.constraint.solver.widgets.ConstraintTableLayout$VerticalSlice -> android.support.constraint.solver.widgets.ConstraintTableLayout$VerticalSlice:
+    android.support.constraint.solver.widgets.ConstraintWidget left -> left
+    android.support.constraint.solver.widgets.ConstraintWidget right -> right
+    int alignment -> alignment
+    int padding -> padding
+    android.support.constraint.solver.widgets.ConstraintTableLayout this$0 -> this$0
+    45:48:void <init>(android.support.constraint.solver.widgets.ConstraintTableLayout) -> <init>
+android.support.constraint.solver.widgets.ConstraintWidget -> android.support.constraint.solver.widgets.ConstraintWidget:
+    boolean AUTOTAG_CENTER -> AUTOTAG_CENTER
+    int SOLVER -> SOLVER
+    int DIRECT -> DIRECT
+    int MATCH_CONSTRAINT_SPREAD -> MATCH_CONSTRAINT_SPREAD
+    int MATCH_CONSTRAINT_WRAP -> MATCH_CONSTRAINT_WRAP
+    android.support.constraint.solver.widgets.Animator mAnimator -> mAnimator
+    int UNKNOWN -> UNKNOWN
+    int HORIZONTAL -> HORIZONTAL
+    int VERTICAL -> VERTICAL
+    int VISIBLE -> VISIBLE
+    int INVISIBLE -> INVISIBLE
+    int GONE -> GONE
+    int CHAIN_SPREAD -> CHAIN_SPREAD
+    int CHAIN_SPREAD_INSIDE -> CHAIN_SPREAD_INSIDE
+    int CHAIN_PACKED -> CHAIN_PACKED
+    int mHorizontalResolution -> mHorizontalResolution
+    int mVerticalResolution -> mVerticalResolution
+    int mMatchConstraintDefaultWidth -> mMatchConstraintDefaultWidth
+    int mMatchConstraintDefaultHeight -> mMatchConstraintDefaultHeight
+    int mMatchConstraintMinWidth -> mMatchConstraintMinWidth
+    int mMatchConstraintMaxWidth -> mMatchConstraintMaxWidth
+    int mMatchConstraintMinHeight -> mMatchConstraintMinHeight
+    int mMatchConstraintMaxHeight -> mMatchConstraintMaxHeight
+    android.support.constraint.solver.widgets.ConstraintAnchor mLeft -> mLeft
+    android.support.constraint.solver.widgets.ConstraintAnchor mTop -> mTop
+    android.support.constraint.solver.widgets.ConstraintAnchor mRight -> mRight
+    android.support.constraint.solver.widgets.ConstraintAnchor mBottom -> mBottom
+    android.support.constraint.solver.widgets.ConstraintAnchor mBaseline -> mBaseline
+    android.support.constraint.solver.widgets.ConstraintAnchor mCenterX -> mCenterX
+    android.support.constraint.solver.widgets.ConstraintAnchor mCenterY -> mCenterY
+    android.support.constraint.solver.widgets.ConstraintAnchor mCenter -> mCenter
+    java.util.ArrayList mAnchors -> mAnchors
+    android.support.constraint.solver.widgets.ConstraintWidget mParent -> mParent
+    int mWidth -> mWidth
+    int mHeight -> mHeight
+    float mDimensionRatio -> mDimensionRatio
+    int mDimensionRatioSide -> mDimensionRatioSide
+    int mSolverLeft -> mSolverLeft
+    int mSolverTop -> mSolverTop
+    int mSolverRight -> mSolverRight
+    int mSolverBottom -> mSolverBottom
+    int mX -> mX
+    int mY -> mY
+    int mDrawX -> mDrawX
+    int mDrawY -> mDrawY
+    int mDrawWidth -> mDrawWidth
+    int mDrawHeight -> mDrawHeight
+    int mOffsetX -> mOffsetX
+    int mOffsetY -> mOffsetY
+    int mBaselineDistance -> mBaselineDistance
+    int mMinWidth -> mMinWidth
+    int mMinHeight -> mMinHeight
+    int mWrapWidth -> mWrapWidth
+    int mWrapHeight -> mWrapHeight
+    float DEFAULT_BIAS -> DEFAULT_BIAS
+    float mHorizontalBiasPercent -> mHorizontalBiasPercent
+    float mVerticalBiasPercent -> mVerticalBiasPercent
+    android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour mHorizontalDimensionBehaviour -> mHorizontalDimensionBehaviour
+    android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour mVerticalDimensionBehaviour -> mVerticalDimensionBehaviour
+    java.lang.Object mCompanionWidget -> mCompanionWidget
+    int mContainerItemSkip -> mContainerItemSkip
+    int mVisibility -> mVisibility
+    java.lang.String mDebugName -> mDebugName
+    java.lang.String mType -> mType
+    int mDistToTop -> mDistToTop
+    int mDistToLeft -> mDistToLeft
+    int mDistToRight -> mDistToRight
+    int mDistToBottom -> mDistToBottom
+    boolean mLeftHasCentered -> mLeftHasCentered
+    boolean mRightHasCentered -> mRightHasCentered
+    boolean mTopHasCentered -> mTopHasCentered
+    boolean mBottomHasCentered -> mBottomHasCentered
+    boolean mWrapVisited -> mWrapVisited
+    int mHorizontalChainStyle -> mHorizontalChainStyle
+    int mVerticalChainStyle -> mVerticalChainStyle
+    boolean mHorizontalChainFixedPosition -> mHorizontalChainFixedPosition
+    boolean mVerticalChainFixedPosition -> mVerticalChainFixedPosition
+    float mHorizontalWeight -> mHorizontalWeight
+    float mVerticalWeight -> mVerticalWeight
+    184:228:void reset() -> reset
+    48:239:void <init>() -> <init>
+    48:256:void <init>(int,int,int,int) -> <init>
+    265:266:void <init>(int,int) -> <init>
+    272:280:void resetSolverVariables(android.support.constraint.solver.Cache) -> resetSolverVariables
+    286:290:void resetGroups() -> resetGroups
+    296:306:void addAnchors() -> addAnchors
+    314:314:boolean isRoot() -> isRoot
+    324:324:boolean isRootContainer() -> isRootContainer
+    334:344:boolean isInsideConstraintLayout() -> isInsideConstraintLayout
+    354:371:boolean hasAncestor(android.support.constraint.solver.widgets.ConstraintWidget) -> hasAncestor
+    381:388:android.support.constraint.solver.widgets.WidgetContainer getRootWidgetContainer() -> getRootWidgetContainer
+    397:397:android.support.constraint.solver.widgets.ConstraintWidget getParent() -> getParent
+    406:407:void setParent(android.support.constraint.solver.widgets.ConstraintWidget) -> setParent
+    415:415:java.lang.String getType() -> getType
+    424:425:void setType(java.lang.String) -> setType
+    433:434:void setVisibility(int) -> setVisibility
+    442:442:int getVisibility() -> getVisibility
+    451:451:java.lang.String getDebugName() -> getDebugName
+    458:459:void setDebugName(java.lang.String) -> setDebugName
+    478:491:void setDebugSolverName(android.support.constraint.solver.LinearSystem,java.lang.String) -> setDebugSolverName
+    499:502:boolean isAnimating() -> isAnimating
+    512:512:java.lang.String toString() -> toString
+    529:529:int getInternalDrawX() -> getInternalDrawX
+    533:533:int getInternalDrawY() -> getInternalDrawY
+    537:537:int getInternalDrawRight() -> getInternalDrawRight
+    541:541:int getInternalDrawBottom() -> getInternalDrawBottom
+    551:551:int getX() -> getX
+    560:560:int getY() -> getY
+    569:572:int getWidth() -> getWidth
+    581:581:int getWrapWidth() -> getWrapWidth
+    590:593:int getHeight() -> getHeight
+    602:602:int getWrapHeight() -> getWrapHeight
+    611:611:int getDrawX() -> getDrawX
+    620:620:int getDrawY() -> getDrawY
+    624:624:int getDrawWidth() -> getDrawWidth
+    628:628:int getDrawHeight() -> getDrawHeight
+    637:637:int getDrawBottom() -> getDrawBottom
+    646:646:int getDrawRight() -> getDrawRight
+    656:656:int getRootX() -> getRootX
+    666:666:int getRootY() -> getRootY
+    675:675:int getMinWidth() -> getMinWidth
+    684:684:int getMinHeight() -> getMinHeight
+    693:693:int getLeft() -> getLeft
+    702:702:int getTop() -> getTop
+    711:711:int getRight() -> getRight
+    720:720:int getBottom() -> getBottom
+    730:730:float getHorizontalBiasPercent() -> getHorizontalBiasPercent
+    740:740:float getVerticalBiasPercent() -> getVerticalBiasPercent
+    749:749:boolean hasBaseline() -> hasBaseline
+    758:758:int getBaselineDistance() -> getBaselineDistance
+    768:768:java.lang.Object getCompanionWidget() -> getCompanionWidget
+    777:777:java.util.ArrayList getAnchors() -> getAnchors
+    786:787:void setX(int) -> setX
+    795:796:void setY(int) -> setY
+    805:807:void setOrigin(int,int) -> setOrigin
+    816:818:void setOffset(int,int) -> setOffset
+    827:845:void setGoneMargin(android.support.constraint.solver.widgets.ConstraintAnchor$Type,int) -> setGoneMargin
+    853:868:void updateDrawPosition() -> updateDrawPosition
+    874:882:void forceUpdateDrawPosition() -> forceUpdateDrawPosition
+    891:895:void setDrawOrigin(int,int) -> setDrawOrigin
+    903:905:void setDrawX(int) -> setDrawX
+    913:915:void setDrawY(int) -> setDrawY
+    923:924:void setDrawWidth(int) -> setDrawWidth
+    932:933:void setDrawHeight(int) -> setDrawHeight
+    941:945:void setWidth(int) -> setWidth
+    953:957:void setHeight(int) -> setHeight
+    967:970:void setHorizontalMatchStyle(int,int,int) -> setHorizontalMatchStyle
+    980:983:void setVerticalMatchStyle(int,int,int) -> setVerticalMatchStyle
+    991:1045:void setDimensionRatio(java.lang.String) -> setDimensionRatio
+    1053:1055:void setDimensionRatio(float,int) -> setDimensionRatio
+    1063:1063:float getDimensionRatio() -> getDimensionRatio
+    1072:1072:int getDimensionRatioSide() -> getDimensionRatioSide
+    1082:1083:void setHorizontalBiasPercent(float) -> setHorizontalBiasPercent
+    1092:1093:void setVerticalBiasPercent(float) -> setVerticalBiasPercent
+    1101:1102:void setMinWidth(int) -> setMinWidth
+    1110:1111:void setMinHeight(int) -> setMinHeight
+    1119:1120:void setWrapWidth(int) -> setWrapWidth
+    1128:1129:void setWrapHeight(int) -> setWrapHeight
+    1138:1146:void setDimension(int,int) -> setDimension
+    1157:1186:void setFrame(int,int,int,int) -> setFrame
+    1195:1200:void setHorizontalDimension(int,int) -> setHorizontalDimension
+    1209:1214:void setVerticalDimension(int,int) -> setVerticalDimension
+    1222:1223:void setBaselineDistance(int) -> setBaselineDistance
+    1232:1233:void setCompanionWidget(java.lang.Object) -> setCompanionWidget
+    1244:1249:void setContainerItemSkip(int) -> setContainerItemSkip
+    1257:1257:int getContainerItemSkip() -> getContainerItemSkip
+    1266:1267:void setHorizontalWeight(float) -> setHorizontalWeight
+    1275:1276:void setVerticalWeight(float) -> setVerticalWeight
+    1285:1286:void setHorizontalChainStyle(int) -> setHorizontalChainStyle
+    1295:1295:int getHorizontalChainStyle() -> getHorizontalChainStyle
+    1305:1306:void setVerticalChainStyle(int) -> setVerticalChainStyle
+    1315:1315:int getVerticalChainStyle() -> getVerticalChainStyle
+    1329:1329:void connectedTo(android.support.constraint.solver.widgets.ConstraintWidget) -> connectedTo
+    1342:1346:void immediateConnect(android.support.constraint.solver.widgets.ConstraintAnchor$Type,android.support.constraint.solver.widgets.ConstraintWidget,android.support.constraint.solver.widgets.ConstraintAnchor$Type,int,int) -> immediateConnect
+    1357:1358:void connect(android.support.constraint.solver.widgets.ConstraintAnchor,android.support.constraint.solver.widgets.ConstraintAnchor,int,int) -> connect
+    1361:1362:void connect(android.support.constraint.solver.widgets.ConstraintAnchor,android.support.constraint.solver.widgets.ConstraintAnchor,int) -> connect
+    1366:1369:void connect(android.support.constraint.solver.widgets.ConstraintAnchor,android.support.constraint.solver.widgets.ConstraintAnchor,int,android.support.constraint.solver.widgets.ConstraintAnchor$Strength,int) -> connect
+    1382:1384:void connect(android.support.constraint.solver.widgets.ConstraintAnchor$Type,android.support.constraint.solver.widgets.ConstraintWidget,android.support.constraint.solver.widgets.ConstraintAnchor$Type,int) -> connect
+    1397:1398:void connect(android.support.constraint.solver.widgets.ConstraintAnchor$Type,android.support.constraint.solver.widgets.ConstraintWidget,android.support.constraint.solver.widgets.ConstraintAnchor$Type) -> connect
+    1414:1416:void connect(android.support.constraint.solver.widgets.ConstraintAnchor$Type,android.support.constraint.solver.widgets.ConstraintWidget,android.support.constraint.solver.widgets.ConstraintAnchor$Type,int,android.support.constraint.solver.widgets.ConstraintAnchor$Strength) -> connect
+    1432:1601:void connect(android.support.constraint.solver.widgets.ConstraintAnchor$Type,android.support.constraint.solver.widgets.ConstraintWidget,android.support.constraint.solver.widgets.ConstraintAnchor$Type,int,android.support.constraint.solver.widgets.ConstraintAnchor$Strength,int) -> connect
+    1607:1627:void resetAllConstraints() -> resetAllConstraints
+    1636:1689:void resetAnchor(android.support.constraint.solver.widgets.ConstraintAnchor) -> resetAnchor
+    1695:1706:void resetAnchors() -> resetAnchors
+    1712:1730:void resetAnchors(int) -> resetAnchors
+    1738:1745:void disconnectWidget(android.support.constraint.solver.widgets.ConstraintWidget) -> disconnectWidget
+    1753:1761:void disconnectUnlockedWidget(android.support.constraint.solver.widgets.ConstraintWidget) -> disconnectUnlockedWidget
+    1770:1796:android.support.constraint.solver.widgets.ConstraintAnchor getAnchor(android.support.constraint.solver.widgets.ConstraintAnchor$Type) -> getAnchor
+    1805:1805:android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour getHorizontalDimensionBehaviour() -> getHorizontalDimensionBehaviour
+    1814:1814:android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour getVerticalDimensionBehaviour() -> getVerticalDimensionBehaviour
+    1823:1827:void setHorizontalDimensionBehaviour(android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour) -> setHorizontalDimensionBehaviour
+    1835:1839:void setVerticalDimensionBehaviour(android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour) -> setVerticalDimensionBehaviour
+    1847:1851:boolean isInHorizontalChain() -> isInHorizontalChain
+    1860:1880:android.support.constraint.solver.widgets.ConstraintWidget getHorizontalChainControlWidget() -> getHorizontalChainControlWidget
+    1890:1894:boolean isInVerticalChain() -> isInVerticalChain
+    1903:1923:android.support.constraint.solver.widgets.ConstraintWidget getVerticalChainControlWidget() -> getVerticalChainControlWidget
+    1931:1932:void addToSolver(android.support.constraint.solver.LinearSystem) -> addToSolver
+    1940:2199:void addToSolver(android.support.constraint.solver.LinearSystem,int) -> addToSolver
+    2218:2358:void applyConstraints(android.support.constraint.solver.LinearSystem,boolean,boolean,android.support.constraint.solver.widgets.ConstraintAnchor,android.support.constraint.solver.widgets.ConstraintAnchor,int,int,int,int,float,boolean,boolean,int,int,int) -> applyConstraints
+    2366:2388:void updateFromSolver(android.support.constraint.solver.LinearSystem,int) -> updateFromSolver
+    2391:2392:void updateFromSolver(android.support.constraint.solver.LinearSystem) -> updateFromSolver
+    142:142:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintWidget$1 -> android.support.constraint.solver.widgets.ConstraintWidget$1:
+    int[] $SwitchMap$android$support$constraint$solver$widgets$ConstraintAnchor$Type -> $SwitchMap$android$support$constraint$solver$widgets$ConstraintAnchor$Type
+    827:827:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment -> android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment:
+    android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment BEGIN -> BEGIN
+    android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment MIDDLE -> MIDDLE
+    android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment END -> END
+    android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment TOP -> TOP
+    android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment VERTICAL_MIDDLE -> VERTICAL_MIDDLE
+    android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment BOTTOM -> BOTTOM
+    android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment LEFT -> LEFT
+    android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment RIGHT -> RIGHT
+    android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment[] $VALUES -> $VALUES
+    77:77:android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment[] values() -> values
+    77:77:android.support.constraint.solver.widgets.ConstraintWidget$ContentAlignment valueOf(java.lang.String) -> valueOf
+    77:77:void <init>(java.lang.String,int) -> <init>
+    77:78:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour -> android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour:
+    android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour FIXED -> FIXED
+    android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour WRAP_CONTENT -> WRAP_CONTENT
+    android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour MATCH_CONSTRAINT -> MATCH_CONSTRAINT
+    android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour[] $VALUES -> $VALUES
+    84:84:android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour[] values() -> values
+    84:84:android.support.constraint.solver.widgets.ConstraintWidget$DimensionBehaviour valueOf(java.lang.String) -> valueOf
+    84:84:void <init>(java.lang.String,int) -> <init>
+    84:85:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintWidgetContainer -> android.support.constraint.solver.widgets.ConstraintWidgetContainer:
+    boolean USE_THREAD -> USE_THREAD
+    boolean DEBUG -> DEBUG
+    boolean USE_SNAPSHOT -> USE_SNAPSHOT
+    android.support.constraint.solver.LinearSystem mSystem -> mSystem
+    android.support.constraint.solver.LinearSystem mBackgroundSystem -> mBackgroundSystem
+    android.support.constraint.solver.widgets.Snapshot mSnapshot -> mSnapshot
+    boolean ALLOW_ROOT_GROUP -> ALLOW_ROOT_GROUP
+    int mWrapWidth -> mWrapWidth
+    int mWrapHeight -> mWrapHeight
+    int mPaddingLeft -> mPaddingLeft
+    int mPaddingTop -> mPaddingTop
+    int mPaddingRight -> mPaddingRight
+    int mPaddingBottom -> mPaddingBottom
+    int mHorizontalChainsSize -> mHorizontalChainsSize
+    int mVerticalChainsSize -> mVerticalChainsSize
+    android.support.constraint.solver.widgets.ConstraintWidget[] mMatchConstraintsChainedWidgets -> mMatchConstraintsChainedWidgets
+    android.support.constraint.solver.widgets.ConstraintWidget[] mVerticalChainsArray -> mVerticalChainsArray
+    android.support.constraint.solver.widgets.ConstraintWidget[] mHorizontalChainsArray -> mHorizontalChainsArray
+    int OPTIMIZATION_NONE -> OPTIMIZATION_NONE
+    int OPTIMIZATION_ALL -> OPTIMIZATION_ALL
+    int OPTIMIZATION_BASIC -> OPTIMIZATION_BASIC
+    int OPTIMIZATION_CHAIN -> OPTIMIZATION_CHAIN
+    int mOptimizationLevel -> mOptimizationLevel
+    boolean[] flags -> flags
+    int FLAG_CHAIN_OPTIMIZE -> FLAG_CHAIN_OPTIMIZE
+    int FLAG_CHAIN_DANGLING -> FLAG_CHAIN_DANGLING
+    35:77:void <init>() -> <init>
+    35:89:void <init>(int,int,int,int) -> <init>
+    35:99:void <init>(int,int) -> <init>
+    107:108:void setOptimizationLevel(int) -> setOptimizationLevel
+    117:117:java.lang.String getType() -> getType
+    122:131:void reset() -> reset
+    146:171:android.support.constraint.solver.widgets.ConstraintWidgetContainer createContainer(android.support.constraint.solver.widgets.ConstraintWidgetContainer,java.lang.String,java.util.ArrayList,int) -> createContainer
+    184:218:boolean addChildrenToSolver(android.support.constraint.solver.LinearSystem,int) -> addChildrenToSolver
+    228:310:boolean optimize(android.support.constraint.solver.LinearSystem) -> optimize
+    320:540:void applyHorizontalChain(android.support.constraint.solver.LinearSystem) -> applyHorizontalChain
+    549:776:void applyVerticalChain(android.support.constraint.solver.LinearSystem) -> applyVerticalChain
+    784:790:void updateChildrenFromSolver(android.support.constraint.solver.LinearSystem,int) -> updateChildrenFromSolver
+    801:805:void setPadding(int,int,int,int) -> setPadding
+    812:909:void layout() -> layout
+    920:938:int setGroup(android.support.constraint.solver.widgets.ConstraintAnchor,int) -> setGroup
+    942:951:int layoutFindGroupsSimple() -> layoutFindGroupsSimple
+    961:1158:void findWrapRecursive(android.support.constraint.solver.widgets.ConstraintWidget) -> findWrapRecursive
+    1166:1203:void findWrapSize(java.util.ArrayList) -> findWrapSize
+    1209:1375:int layoutFindGroups() -> layoutFindGroups
+    1382:1476:void layoutWithGroup(int) -> layoutWithGroup
+    1485:1494:boolean isAnimating() -> isAnimating
+    1503:1503:boolean handlesInternalConstraints() -> handlesInternalConstraints
+    1516:1526:java.util.ArrayList getVerticalGuidelines() -> getVerticalGuidelines
+    1535:1545:java.util.ArrayList getHorizontalGuidelines() -> getHorizontalGuidelines
+    1549:1549:android.support.constraint.solver.LinearSystem getSystem() -> getSystem
+    1556:1558:void resetChains() -> resetChains
+    1567:1587:void addChain(android.support.constraint.solver.widgets.ConstraintWidget,int) -> addChain
+    1596:1606:void addHorizontalChain(android.support.constraint.solver.widgets.ConstraintWidget) -> addHorizontalChain
+    1615:1625:void addVerticalChain(android.support.constraint.solver.widgets.ConstraintWidget) -> addVerticalChain
+    1633:1720:int countMatchConstraintsChainedWidgets(android.support.constraint.solver.widgets.ConstraintWidget,int,boolean[]) -> countMatchConstraintsChainedWidgets
+    40:40:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.ConstraintWidgetContainer$2 -> android.support.constraint.solver.widgets.ConstraintWidgetContainer$2:
+    int[] $SwitchMap$android$support$constraint$solver$widgets$ConstraintAnchor$Type -> $SwitchMap$android$support$constraint$solver$widgets$ConstraintAnchor$Type
+    1279:1279:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.Guideline -> android.support.constraint.solver.widgets.Guideline:
+    int HORIZONTAL -> HORIZONTAL
+    int VERTICAL -> VERTICAL
+    int RELATIVE_PERCENT -> RELATIVE_PERCENT
+    int RELATIVE_BEGIN -> RELATIVE_BEGIN
+    int RELATIVE_END -> RELATIVE_END
+    int RELATIVE_UNKNWON -> RELATIVE_UNKNWON
+    float mRelativePercent -> mRelativePercent
+    int mRelativeBegin -> mRelativeBegin
+    int mRelativeEnd -> mRelativeEnd
+    android.support.constraint.solver.widgets.ConstraintAnchor mAnchor -> mAnchor
+    int mOrientation -> mOrientation
+    boolean mIsPositionRelaxed -> mIsPositionRelaxed
+    int mMinimumPosition -> mMinimumPosition
+    android.support.constraint.solver.widgets.Rectangle mHead -> mHead
+    int mHeadSize -> mHeadSize
+    32:47:void <init>() -> <init>
+    50:59:int getRelativeBehaviour() -> getRelativeBehaviour
+    63:70:android.support.constraint.solver.widgets.Rectangle getHead() -> getHead
+    74:85:void setOrientation(int) -> setOrientation
+    88:88:android.support.constraint.solver.widgets.ConstraintAnchor getAnchor() -> getAnchor
+    98:98:java.lang.String getType() -> getType
+    102:102:int getOrientation() -> getOrientation
+    106:107:void setMinimumPosition(int) -> setMinimumPosition
+    110:114:void setPositionRelaxed(boolean) -> setPositionRelaxed
+    118:134:android.support.constraint.solver.widgets.ConstraintAnchor getAnchor(android.support.constraint.solver.widgets.ConstraintAnchor$Type) -> getAnchor
+    139:139:java.util.ArrayList getAnchors() -> getAnchors
+    143:144:void setGuidePercent(int) -> setGuidePercent
+    147:152:void setGuidePercent(float) -> setGuidePercent
+    155:160:void setGuideBegin(int) -> setGuideBegin
+    163:168:void setGuideEnd(int) -> setGuideEnd
+    171:171:float getRelativePercent() -> getRelativePercent
+    175:175:int getRelativeBegin() -> getRelativeBegin
+    179:179:int getRelativeEnd() -> getRelativeEnd
+    184:235:void addToSolver(android.support.constraint.solver.LinearSystem,int) -> addToSolver
+    239:254:void updateFromSolver(android.support.constraint.solver.LinearSystem,int) -> updateFromSolver
+    258:279:void setDrawOrigin(int,int) -> setDrawOrigin
+    282:287:void inferRelativePercentPosition() -> inferRelativePercentPosition
+    290:295:void inferRelativeBeginPosition() -> inferRelativeBeginPosition
+    298:303:void inferRelativeEndPosition() -> inferRelativeEndPosition
+    306:316:void cyclePosition() -> cyclePosition
+android.support.constraint.solver.widgets.Guideline$1 -> android.support.constraint.solver.widgets.Guideline$1:
+    int[] $SwitchMap$android$support$constraint$solver$widgets$ConstraintAnchor$Type -> $SwitchMap$android$support$constraint$solver$widgets$ConstraintAnchor$Type
+    118:118:void <clinit>() -> <clinit>
+android.support.constraint.solver.widgets.Optimizer -> android.support.constraint.solver.widgets.Optimizer:
+    24:24:void <init>() -> <init>
+    35:123:void applyDirectResolutionHorizontalChain(android.support.constraint.solver.widgets.ConstraintWidgetContainer,android.support.constraint.solver.LinearSystem,int,android.support.constraint.solver.widgets.ConstraintWidget) -> applyDirectResolutionHorizontalChain
+    134:222:void applyDirectResolutionVerticalChain(android.support.constraint.solver.widgets.ConstraintWidgetContainer,android.support.constraint.solver.LinearSystem,int,android.support.constraint.solver.widgets.ConstraintWidget) -> applyDirectResolutionVerticalChain
+    231:337:void checkHorizontalSimpleDependency(android.support.constraint.solver.widgets.ConstraintWidgetContainer,android.support.constraint.solver.LinearSystem,android.support.constraint.solver.widgets.ConstraintWidget) -> checkHorizontalSimpleDependency
+    347:490:void checkVerticalSimpleDependency(android.support.constraint.solver.widgets.ConstraintWidgetContainer,android.support.constraint.solver.LinearSystem,android.support.constraint.solver.widgets.ConstraintWidget) -> checkVerticalSimpleDependency
+android.support.constraint.solver.widgets.Rectangle -> android.support.constraint.solver.widgets.Rectangle:
+    int x -> x
+    int y -> y
+    int width -> width
+    int height -> height
+    21:21:void <init>() -> <init>
+    28:32:void setBounds(int,int,int,int) -> setBounds
+    34:38:void grow(int,int) -> grow
+    41:41:boolean intersects(android.support.constraint.solver.widgets.Rectangle) -> intersects
+    46:46:boolean contains(int,int) -> contains
+    50:50:int getCenterX() -> getCenterX
+    51:51:int getCenterY() -> getCenterY
+android.support.constraint.solver.widgets.Snapshot -> android.support.constraint.solver.widgets.Snapshot:
+    int mX -> mX
+    int mY -> mY
+    int mWidth -> mWidth
+    int mHeight -> mHeight
+    java.util.ArrayList mConnections -> mConnections
+    30:101:void <init>(android.support.constraint.solver.widgets.ConstraintWidget) -> <init>
+    109:118:void updateFrom(android.support.constraint.solver.widgets.ConstraintWidget) -> updateFrom
+    126:134:void applyTo(android.support.constraint.solver.widgets.ConstraintWidget) -> applyTo
+android.support.constraint.solver.widgets.Snapshot$Connection -> android.support.constraint.solver.widgets.Snapshot$Connection:
+    android.support.constraint.solver.widgets.ConstraintAnchor mAnchor -> mAnchor
+    android.support.constraint.solver.widgets.ConstraintAnchor mTarget -> mTarget
+    int mMargin -> mMargin
+    android.support.constraint.solver.widgets.ConstraintAnchor$Strength mStrengh -> mStrengh
+    int mCreator -> mCreator
+    47:53:void <init>(android.support.constraint.solver.widgets.ConstraintAnchor) -> <init>
+    61:73:void updateFrom(android.support.constraint.solver.widgets.ConstraintWidget) -> updateFrom
+    81:83:void applyTo(android.support.constraint.solver.widgets.ConstraintWidget) -> applyTo
+android.support.constraint.solver.widgets.WidgetContainer -> android.support.constraint.solver.widgets.WidgetContainer:
+    java.util.ArrayList mChildren -> mChildren
+    26:36:void <init>() -> <init>
+    26:48:void <init>(int,int,int,int) -> <init>
+    26:58:void <init>(int,int) -> <init>
+    62:64:void reset() -> reset
+    72:78:void add(android.support.constraint.solver.widgets.ConstraintWidget) -> add
+    86:88:void remove(android.support.constraint.solver.widgets.ConstraintWidget) -> remove
+    96:96:java.util.ArrayList getChildren() -> getChildren
+    105:118:android.support.constraint.solver.widgets.ConstraintWidgetContainer getRootConstraintContainer() -> getRootConstraintContainer
+    133:158:android.support.constraint.solver.widgets.ConstraintWidget findWidget(float,float) -> findWidget
+    171:183:java.util.ArrayList findWidgets(int,int,int,int) -> findWidgets
+    193:217:android.support.constraint.solver.widgets.Rectangle getBounds(java.util.ArrayList) -> getBounds
+    233:239:void setOffset(int,int) -> setOffset
+    247:259:void updateDrawPosition() -> updateDrawPosition
+    265:276:void layout() -> layout
+    280:286:void resetSolverVariables(android.support.constraint.solver.Cache) -> resetSolverVariables
+    290:296:void resetGroups() -> resetGroups
+    299:300:void removeAllChildren() -> removeAllChildren
 android.support.coreui.BuildConfig -> android.support.coreui.BuildConfig:
     boolean DEBUG -> DEBUG
     java.lang.String APPLICATION_ID -> APPLICATION_ID
@@ -33387,34 +34739,34 @@ com.eos.manager.page.PasswordFragmentSecurity -> com.eos.manager.page.f:
     android.view.View passwd -> a
     25:25:void <init>() -> <init>
     28:28:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    42:134:android.view.View getView(android.view.LayoutInflater,android.view.ViewGroup,com.eos.manager.page.OverflowCtrl,com.eos.manager.page.SecurityThemeFragment$ICheckResult) -> a
-    139:147:void onDestroyView() -> onDestroyView
-    151:155:void onResume() -> onResume
+    45:137:android.view.View getView(android.view.LayoutInflater,android.view.ViewGroup,com.eos.manager.page.OverflowCtrl,com.eos.manager.page.SecurityThemeFragment$ICheckResult) -> a
+    142:150:void onDestroyView() -> onDestroyView
+    154:158:void onResume() -> onResume
 com.eos.manager.page.PasswordFragmentSecurity$1 -> com.eos.manager.page.f$1:
     com.eos.manager.page.PasswordFragmentSecurity this$0 -> a
     28:28:void <init>(com.eos.manager.page.PasswordFragmentSecurity) -> <init>
     31:33:void onSuccess() -> a
-    36:36:void unLock() -> b
+    37:37:void unLock() -> b
 com.eos.manager.page.PasswordFragmentSecurity$2 -> com.eos.manager.page.f$2:
     com.eos.manager.myinterface.ISecurityBridge val$bridge -> a
     com.eos.manager.page.SecurityThemeFragment$ICheckResult val$callback -> b
-    47:47:void <init>(com.eos.manager.myinterface.ISecurityBridge,com.eos.manager.page.SecurityThemeFragment$ICheckResult) -> <init>
-    50:55:void match(java.lang.String) -> a
+    50:50:void <init>(com.eos.manager.myinterface.ISecurityBridge,com.eos.manager.page.SecurityThemeFragment$ICheckResult) -> <init>
+    53:58:void match(java.lang.String) -> a
 com.eos.manager.page.PasswordFragmentSecurity$3 -> com.eos.manager.page.f$3:
     com.eos.manager.page.SecurityThemeFragment$ICheckResult val$callback -> a
-    65:65:void <init>(com.eos.manager.page.SecurityThemeFragment$ICheckResult) -> <init>
-    69:94:void onClick(android.view.View) -> onClick
+    68:68:void <init>(com.eos.manager.page.SecurityThemeFragment$ICheckResult) -> <init>
+    72:97:void onClick(android.view.View) -> onClick
 com.eos.manager.page.PasswordFragmentSecurity$4 -> com.eos.manager.page.f$4:
     com.eos.manager.page.NumberDot val$dot -> a
-    101:101:void <init>(com.eos.manager.page.NumberDot) -> <init>
-    104:105:void onClick(android.view.View) -> onClick
+    104:104:void <init>(com.eos.manager.page.NumberDot) -> <init>
+    107:108:void onClick(android.view.View) -> onClick
 com.eos.manager.page.PasswordFragmentSecurity$5 -> com.eos.manager.page.f$5:
     com.eos.manager.page.NumberDot val$dot -> a
-    112:112:void <init>(com.eos.manager.page.NumberDot) -> <init>
-    115:116:void onClick(android.view.View) -> onClick
+    115:115:void <init>(com.eos.manager.page.NumberDot) -> <init>
+    118:119:void onClick(android.view.View) -> onClick
 com.eos.manager.page.PasswordFragmentSecurity$6 -> com.eos.manager.page.f$6:
-    124:124:void <init>() -> <init>
-    131:131:void onClick(android.view.View) -> onClick
+    127:127:void <init>() -> <init>
+    134:134:void onClick(android.view.View) -> onClick
 com.eos.manager.page.PatternFragmentSecurity -> com.eos.manager.page.g:
     android.view.View pattern -> a
     28:28:void <init>() -> <init>
@@ -33731,8 +35083,55 @@ com.eos.module.charge.saver.ADActivity$1 -> com.eos.module.charge.saver.ADActivi
     com.eos.module.charge.saver.ADActivity this$0 -> a
     20:20:void <init>(com.eos.module.charge.saver.ADActivity) -> <init>
     23:24:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.eos.module.charge.saver.ChargeActivity -> com.eos.module.charge.saver.ChargeActivity:
+    com.eos.module.charge.saver.view.BatteryView batteryView -> a
+    com.eos.module.charge.saver.view.DuckView duckView -> b
+    com.eos.module.charge.saver.entry.BatteryEntry entry -> c
+    boolean isBar -> d
+    android.content.BroadcastReceiver mReceiver -> e
+    20:122:void <init>() -> <init>
+    31:33:void onUserLeaveHint() -> onUserLeaveHint
+    38:40:void onBackPressed() -> onBackPressed
+    45:58:void hideBottomUIMenu() -> a
+    61:70:void doBar() -> b
+    73:82:void doDuck() -> c
+    86:101:void onCreate(android.os.Bundle) -> onCreate
+    105:107:void onResume() -> onResume
+    111:113:void onPause() -> onPause
+    117:120:void onDestroy() -> onDestroy
+    132:147:void batteryChange(android.content.Intent) -> a
+com.eos.module.charge.saver.ChargeActivity$1 -> com.eos.module.charge.saver.ChargeActivity$1:
+    com.eos.module.charge.saver.ChargeActivity this$0 -> a
+    63:63:void <init>(com.eos.module.charge.saver.ChargeActivity) -> <init>
+    66:68:void onUnlock() -> a
+com.eos.module.charge.saver.ChargeActivity$2 -> com.eos.module.charge.saver.ChargeActivity$2:
+    com.eos.module.charge.saver.ChargeActivity this$0 -> a
+    75:75:void <init>(com.eos.module.charge.saver.ChargeActivity) -> <init>
+    78:80:void onUnlock() -> a
+com.eos.module.charge.saver.ChargeActivity$3 -> com.eos.module.charge.saver.ChargeActivity$3:
+    com.eos.module.charge.saver.ChargeActivity this$0 -> a
+    122:122:void <init>(com.eos.module.charge.saver.ChargeActivity) -> <init>
+    125:128:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.eos.module.charge.saver.R -> com.eos.module.charge.saver.a:
-com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
+com.eos.module.charge.saver.R$anim -> com.eos.module.charge.saver.a$a:
+    int abc_fade_in -> abc_fade_in
+    int abc_fade_out -> abc_fade_out
+    int abc_grow_fade_in_from_bottom -> abc_grow_fade_in_from_bottom
+    int abc_popup_enter -> abc_popup_enter
+    int abc_popup_exit -> abc_popup_exit
+    int abc_shrink_fade_out_from_bottom -> abc_shrink_fade_out_from_bottom
+    int abc_slide_in_bottom -> abc_slide_in_bottom
+    int abc_slide_in_top -> abc_slide_in_top
+    int abc_slide_out_bottom -> abc_slide_out_bottom
+    int abc_slide_out_top -> abc_slide_out_top
+    int charge_exit -> charge_exit
+    int design_bottom_sheet_slide_in -> design_bottom_sheet_slide_in
+    int design_bottom_sheet_slide_out -> design_bottom_sheet_slide_out
+    int design_fab_in -> design_fab_in
+    int design_fab_out -> design_fab_out
+    int design_snackbar_in -> design_snackbar_in
+    int design_snackbar_out -> design_snackbar_out
+com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$b:
     int BOTTOM_LEFT -> BOTTOM_LEFT
     int BOTTOM_RIGHT -> BOTTOM_RIGHT
     int TOP_LEFT -> TOP_LEFT
@@ -33756,7 +35155,9 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
     int ad_image -> ad_image
     int ad_title -> ad_title
     int alertTitle -> alertTitle
+    int all -> all
     int always -> always
+    int basic -> basic
     int battery_ad_layout -> battery_ad_layout
     int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
@@ -33804,6 +35205,7 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
     int center -> center
     int center_horizontal -> center_horizontal
     int center_vertical -> center_vertical
+    int chains -> chains
     int checkbox -> checkbox
     int chronometer -> chronometer
     int clip_horizontal -> clip_horizontal
@@ -33853,7 +35255,9 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
     int never -> never
     int none -> none
     int normal -> normal
+    int packed -> packed
     int parallax -> parallax
+    int parent -> parent
     int parentPanel -> parentPanel
     int pin -> pin
     int progress_circular -> progress_circular
@@ -33910,6 +35314,8 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
     int snap -> snap
     int spacer -> spacer
     int split_action_bar -> split_action_bar
+    int spread -> spread
+    int spread_inside -> spread_inside
     int src_atop -> src_atop
     int src_in -> src_in
     int src_over -> src_over
@@ -33932,8 +35338,9 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$a:
     int view_offset_helper -> view_offset_helper
     int weak -> weak
     int withText -> withText
+    int wrap -> wrap
     int wrap_content -> wrap_content
-com.eos.module.charge.saver.R$layout -> com.eos.module.charge.saver.a$b:
+com.eos.module.charge.saver.R$layout -> com.eos.module.charge.saver.a$c:
     int abc_action_bar_title_item -> abc_action_bar_title_item
     int abc_action_bar_up_container -> abc_action_bar_up_container
     int abc_action_bar_view_list_nav_layout -> abc_action_bar_view_list_nav_layout
@@ -34003,7 +35410,7 @@ com.eos.module.charge.saver.R$layout -> com.eos.module.charge.saver.a$b:
     int shop_theme_tag -> shop_theme_tag
     int shop_theme_widget -> shop_theme_widget
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
-com.eos.module.charge.saver.R$mipmap -> com.eos.module.charge.saver.a$c:
+com.eos.module.charge.saver.R$mipmap -> com.eos.module.charge.saver.a$d:
     int ad_right -> ad_right
     int battery_inner_icon -> battery_inner_icon
     int battery_more -> battery_more
@@ -34016,7 +35423,7 @@ com.eos.module.charge.saver.R$mipmap -> com.eos.module.charge.saver.a$c:
     int internet_icon -> internet_icon
     int talk_icon -> talk_icon
     int unlock -> unlock
-com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$d:
+com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$e:
     int abc_action_bar_home_description -> abc_action_bar_home_description
     int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
     int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
@@ -34062,7 +35469,7 @@ com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$d:
     int talk -> talk
     int temp -> temp
     int unlock -> unlock
-com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$e:
+com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$f:
     int[] ActionBar -> ActionBar
     int[] ActionBarLayout -> ActionBarLayout
     int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
@@ -34285,6 +35692,121 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$e:
     int CompoundButton_android_button -> CompoundButton_android_button
     int CompoundButton_buttonTint -> CompoundButton_buttonTint
     int CompoundButton_buttonTintMode -> CompoundButton_buttonTintMode
+    int[] ConstraintLayout_Layout -> ConstraintLayout_Layout
+    int ConstraintLayout_Layout_android_maxHeight -> ConstraintLayout_Layout_android_maxHeight
+    int ConstraintLayout_Layout_android_maxWidth -> ConstraintLayout_Layout_android_maxWidth
+    int ConstraintLayout_Layout_android_minHeight -> ConstraintLayout_Layout_android_minHeight
+    int ConstraintLayout_Layout_android_minWidth -> ConstraintLayout_Layout_android_minWidth
+    int ConstraintLayout_Layout_android_orientation -> ConstraintLayout_Layout_android_orientation
+    int ConstraintLayout_Layout_constraintSet -> ConstraintLayout_Layout_constraintSet
+    int ConstraintLayout_Layout_layout_constraintBaseline_creator -> ConstraintLayout_Layout_layout_constraintBaseline_creator
+    int ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf -> ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf
+    int ConstraintLayout_Layout_layout_constraintBottom_creator -> ConstraintLayout_Layout_layout_constraintBottom_creator
+    int ConstraintLayout_Layout_layout_constraintBottom_toBottomOf -> ConstraintLayout_Layout_layout_constraintBottom_toBottomOf
+    int ConstraintLayout_Layout_layout_constraintBottom_toTopOf -> ConstraintLayout_Layout_layout_constraintBottom_toTopOf
+    int ConstraintLayout_Layout_layout_constraintDimensionRatio -> ConstraintLayout_Layout_layout_constraintDimensionRatio
+    int ConstraintLayout_Layout_layout_constraintEnd_toEndOf -> ConstraintLayout_Layout_layout_constraintEnd_toEndOf
+    int ConstraintLayout_Layout_layout_constraintEnd_toStartOf -> ConstraintLayout_Layout_layout_constraintEnd_toStartOf
+    int ConstraintLayout_Layout_layout_constraintGuide_begin -> ConstraintLayout_Layout_layout_constraintGuide_begin
+    int ConstraintLayout_Layout_layout_constraintGuide_end -> ConstraintLayout_Layout_layout_constraintGuide_end
+    int ConstraintLayout_Layout_layout_constraintGuide_percent -> ConstraintLayout_Layout_layout_constraintGuide_percent
+    int ConstraintLayout_Layout_layout_constraintHeight_default -> ConstraintLayout_Layout_layout_constraintHeight_default
+    int ConstraintLayout_Layout_layout_constraintHeight_max -> ConstraintLayout_Layout_layout_constraintHeight_max
+    int ConstraintLayout_Layout_layout_constraintHeight_min -> ConstraintLayout_Layout_layout_constraintHeight_min
+    int ConstraintLayout_Layout_layout_constraintHorizontal_bias -> ConstraintLayout_Layout_layout_constraintHorizontal_bias
+    int ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle -> ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle
+    int ConstraintLayout_Layout_layout_constraintHorizontal_weight -> ConstraintLayout_Layout_layout_constraintHorizontal_weight
+    int ConstraintLayout_Layout_layout_constraintLeft_creator -> ConstraintLayout_Layout_layout_constraintLeft_creator
+    int ConstraintLayout_Layout_layout_constraintLeft_toLeftOf -> ConstraintLayout_Layout_layout_constraintLeft_toLeftOf
+    int ConstraintLayout_Layout_layout_constraintLeft_toRightOf -> ConstraintLayout_Layout_layout_constraintLeft_toRightOf
+    int ConstraintLayout_Layout_layout_constraintRight_creator -> ConstraintLayout_Layout_layout_constraintRight_creator
+    int ConstraintLayout_Layout_layout_constraintRight_toLeftOf -> ConstraintLayout_Layout_layout_constraintRight_toLeftOf
+    int ConstraintLayout_Layout_layout_constraintRight_toRightOf -> ConstraintLayout_Layout_layout_constraintRight_toRightOf
+    int ConstraintLayout_Layout_layout_constraintStart_toEndOf -> ConstraintLayout_Layout_layout_constraintStart_toEndOf
+    int ConstraintLayout_Layout_layout_constraintStart_toStartOf -> ConstraintLayout_Layout_layout_constraintStart_toStartOf
+    int ConstraintLayout_Layout_layout_constraintTop_creator -> ConstraintLayout_Layout_layout_constraintTop_creator
+    int ConstraintLayout_Layout_layout_constraintTop_toBottomOf -> ConstraintLayout_Layout_layout_constraintTop_toBottomOf
+    int ConstraintLayout_Layout_layout_constraintTop_toTopOf -> ConstraintLayout_Layout_layout_constraintTop_toTopOf
+    int ConstraintLayout_Layout_layout_constraintVertical_bias -> ConstraintLayout_Layout_layout_constraintVertical_bias
+    int ConstraintLayout_Layout_layout_constraintVertical_chainStyle -> ConstraintLayout_Layout_layout_constraintVertical_chainStyle
+    int ConstraintLayout_Layout_layout_constraintVertical_weight -> ConstraintLayout_Layout_layout_constraintVertical_weight
+    int ConstraintLayout_Layout_layout_constraintWidth_default -> ConstraintLayout_Layout_layout_constraintWidth_default
+    int ConstraintLayout_Layout_layout_constraintWidth_max -> ConstraintLayout_Layout_layout_constraintWidth_max
+    int ConstraintLayout_Layout_layout_constraintWidth_min -> ConstraintLayout_Layout_layout_constraintWidth_min
+    int ConstraintLayout_Layout_layout_editor_absoluteX -> ConstraintLayout_Layout_layout_editor_absoluteX
+    int ConstraintLayout_Layout_layout_editor_absoluteY -> ConstraintLayout_Layout_layout_editor_absoluteY
+    int ConstraintLayout_Layout_layout_goneMarginBottom -> ConstraintLayout_Layout_layout_goneMarginBottom
+    int ConstraintLayout_Layout_layout_goneMarginEnd -> ConstraintLayout_Layout_layout_goneMarginEnd
+    int ConstraintLayout_Layout_layout_goneMarginLeft -> ConstraintLayout_Layout_layout_goneMarginLeft
+    int ConstraintLayout_Layout_layout_goneMarginRight -> ConstraintLayout_Layout_layout_goneMarginRight
+    int ConstraintLayout_Layout_layout_goneMarginStart -> ConstraintLayout_Layout_layout_goneMarginStart
+    int ConstraintLayout_Layout_layout_goneMarginTop -> ConstraintLayout_Layout_layout_goneMarginTop
+    int ConstraintLayout_Layout_layout_optimizationLevel -> ConstraintLayout_Layout_layout_optimizationLevel
+    int[] ConstraintSet -> ConstraintSet
+    int ConstraintSet_android_alpha -> ConstraintSet_android_alpha
+    int ConstraintSet_android_elevation -> ConstraintSet_android_elevation
+    int ConstraintSet_android_id -> ConstraintSet_android_id
+    int ConstraintSet_android_layout_height -> ConstraintSet_android_layout_height
+    int ConstraintSet_android_layout_marginBottom -> ConstraintSet_android_layout_marginBottom
+    int ConstraintSet_android_layout_marginEnd -> ConstraintSet_android_layout_marginEnd
+    int ConstraintSet_android_layout_marginLeft -> ConstraintSet_android_layout_marginLeft
+    int ConstraintSet_android_layout_marginRight -> ConstraintSet_android_layout_marginRight
+    int ConstraintSet_android_layout_marginStart -> ConstraintSet_android_layout_marginStart
+    int ConstraintSet_android_layout_marginTop -> ConstraintSet_android_layout_marginTop
+    int ConstraintSet_android_layout_width -> ConstraintSet_android_layout_width
+    int ConstraintSet_android_orientation -> ConstraintSet_android_orientation
+    int ConstraintSet_android_rotationX -> ConstraintSet_android_rotationX
+    int ConstraintSet_android_rotationY -> ConstraintSet_android_rotationY
+    int ConstraintSet_android_scaleX -> ConstraintSet_android_scaleX
+    int ConstraintSet_android_scaleY -> ConstraintSet_android_scaleY
+    int ConstraintSet_android_transformPivotX -> ConstraintSet_android_transformPivotX
+    int ConstraintSet_android_transformPivotY -> ConstraintSet_android_transformPivotY
+    int ConstraintSet_android_translationX -> ConstraintSet_android_translationX
+    int ConstraintSet_android_translationY -> ConstraintSet_android_translationY
+    int ConstraintSet_android_translationZ -> ConstraintSet_android_translationZ
+    int ConstraintSet_android_visibility -> ConstraintSet_android_visibility
+    int ConstraintSet_layout_constraintBaseline_creator -> ConstraintSet_layout_constraintBaseline_creator
+    int ConstraintSet_layout_constraintBaseline_toBaselineOf -> ConstraintSet_layout_constraintBaseline_toBaselineOf
+    int ConstraintSet_layout_constraintBottom_creator -> ConstraintSet_layout_constraintBottom_creator
+    int ConstraintSet_layout_constraintBottom_toBottomOf -> ConstraintSet_layout_constraintBottom_toBottomOf
+    int ConstraintSet_layout_constraintBottom_toTopOf -> ConstraintSet_layout_constraintBottom_toTopOf
+    int ConstraintSet_layout_constraintDimensionRatio -> ConstraintSet_layout_constraintDimensionRatio
+    int ConstraintSet_layout_constraintEnd_toEndOf -> ConstraintSet_layout_constraintEnd_toEndOf
+    int ConstraintSet_layout_constraintEnd_toStartOf -> ConstraintSet_layout_constraintEnd_toStartOf
+    int ConstraintSet_layout_constraintGuide_begin -> ConstraintSet_layout_constraintGuide_begin
+    int ConstraintSet_layout_constraintGuide_end -> ConstraintSet_layout_constraintGuide_end
+    int ConstraintSet_layout_constraintGuide_percent -> ConstraintSet_layout_constraintGuide_percent
+    int ConstraintSet_layout_constraintHeight_default -> ConstraintSet_layout_constraintHeight_default
+    int ConstraintSet_layout_constraintHeight_max -> ConstraintSet_layout_constraintHeight_max
+    int ConstraintSet_layout_constraintHeight_min -> ConstraintSet_layout_constraintHeight_min
+    int ConstraintSet_layout_constraintHorizontal_bias -> ConstraintSet_layout_constraintHorizontal_bias
+    int ConstraintSet_layout_constraintHorizontal_chainStyle -> ConstraintSet_layout_constraintHorizontal_chainStyle
+    int ConstraintSet_layout_constraintHorizontal_weight -> ConstraintSet_layout_constraintHorizontal_weight
+    int ConstraintSet_layout_constraintLeft_creator -> ConstraintSet_layout_constraintLeft_creator
+    int ConstraintSet_layout_constraintLeft_toLeftOf -> ConstraintSet_layout_constraintLeft_toLeftOf
+    int ConstraintSet_layout_constraintLeft_toRightOf -> ConstraintSet_layout_constraintLeft_toRightOf
+    int ConstraintSet_layout_constraintRight_creator -> ConstraintSet_layout_constraintRight_creator
+    int ConstraintSet_layout_constraintRight_toLeftOf -> ConstraintSet_layout_constraintRight_toLeftOf
+    int ConstraintSet_layout_constraintRight_toRightOf -> ConstraintSet_layout_constraintRight_toRightOf
+    int ConstraintSet_layout_constraintStart_toEndOf -> ConstraintSet_layout_constraintStart_toEndOf
+    int ConstraintSet_layout_constraintStart_toStartOf -> ConstraintSet_layout_constraintStart_toStartOf
+    int ConstraintSet_layout_constraintTop_creator -> ConstraintSet_layout_constraintTop_creator
+    int ConstraintSet_layout_constraintTop_toBottomOf -> ConstraintSet_layout_constraintTop_toBottomOf
+    int ConstraintSet_layout_constraintTop_toTopOf -> ConstraintSet_layout_constraintTop_toTopOf
+    int ConstraintSet_layout_constraintVertical_bias -> ConstraintSet_layout_constraintVertical_bias
+    int ConstraintSet_layout_constraintVertical_chainStyle -> ConstraintSet_layout_constraintVertical_chainStyle
+    int ConstraintSet_layout_constraintVertical_weight -> ConstraintSet_layout_constraintVertical_weight
+    int ConstraintSet_layout_constraintWidth_default -> ConstraintSet_layout_constraintWidth_default
+    int ConstraintSet_layout_constraintWidth_max -> ConstraintSet_layout_constraintWidth_max
+    int ConstraintSet_layout_constraintWidth_min -> ConstraintSet_layout_constraintWidth_min
+    int ConstraintSet_layout_editor_absoluteX -> ConstraintSet_layout_editor_absoluteX
+    int ConstraintSet_layout_editor_absoluteY -> ConstraintSet_layout_editor_absoluteY
+    int ConstraintSet_layout_goneMarginBottom -> ConstraintSet_layout_goneMarginBottom
+    int ConstraintSet_layout_goneMarginEnd -> ConstraintSet_layout_goneMarginEnd
+    int ConstraintSet_layout_goneMarginLeft -> ConstraintSet_layout_goneMarginLeft
+    int ConstraintSet_layout_goneMarginRight -> ConstraintSet_layout_goneMarginRight
+    int ConstraintSet_layout_goneMarginStart -> ConstraintSet_layout_goneMarginStart
+    int ConstraintSet_layout_goneMarginTop -> ConstraintSet_layout_goneMarginTop
     int[] CoordinatorLayout -> CoordinatorLayout
     int[] CoordinatorLayout_LayoutParams -> CoordinatorLayout_LayoutParams
     int CoordinatorLayout_LayoutParams_android_layout_gravity -> CoordinatorLayout_LayoutParams_android_layout_gravity
@@ -34329,6 +35851,8 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$e:
     int IndicatorView_normalDrawable -> IndicatorView_normalDrawable
     int IndicatorView_selectColor -> IndicatorView_selectColor
     int IndicatorView_selectDrawable -> IndicatorView_selectDrawable
+    int[] LinearConstraintLayout -> LinearConstraintLayout
+    int LinearConstraintLayout_android_orientation -> LinearConstraintLayout_android_orientation
     int[] LinearLayoutCompat -> LinearLayoutCompat
     int[] LinearLayoutCompat_Layout -> LinearLayoutCompat_Layout
     int LinearLayoutCompat_Layout_android_layout_gravity -> LinearLayoutCompat_Layout_android_layout_gravity
@@ -34536,7 +36060,7 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$e:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1415:1879:void <clinit>() -> <clinit>
+    1470:2051:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
     12:12:void <init>() -> <init>
     15:16:void showFullAD() -> a
@@ -34688,14 +36212,14 @@ com.eos.module.charge.saver.service.BatteryService -> com.eos.module.charge.save
     android.content.BroadcastReceiver mReceiver -> b
     com.eos.module.charge.saver.view.BatteryView$UnlockListener horUnlock -> c
     com.eos.module.charge.saver.view.DuckView$UnlockListener duckUnlock -> d
-    32:344:void <init>() -> <init>
-    137:141:boolean isScreenOn() -> a
-    198:204:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    212:218:void batteryChange(android.content.Intent) -> a
-    223:223:android.os.IBinder onBind(android.content.Intent) -> onBind
-    228:238:void onCreate() -> onCreate
-    242:249:void onDestroy() -> onDestroy
-    252:310:void showChargeView() -> b
+    32:230:void <init>() -> <init>
+    72:76:boolean isScreenOn() -> a
+    100:105:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    109:115:void batteryChange(android.content.Intent) -> a
+    120:120:android.os.IBinder onBind(android.content.Intent) -> onBind
+    125:135:void onCreate() -> onCreate
+    139:146:void onDestroy() -> onDestroy
+    149:216:void showChargeView() -> b
     32:32:boolean access$000(com.eos.module.charge.saver.service.BatteryService) -> a
     32:32:void access$100(com.eos.module.charge.saver.service.BatteryService) -> b
     32:32:com.eos.module.charge.saver.Util.WidgetContainer access$200(com.eos.module.charge.saver.service.BatteryService) -> c
@@ -34709,24 +36233,24 @@ com.eos.module.charge.saver.service.BatteryService -> com.eos.module.charge.save
     32:32:com.eos.module.charge.saver.view.DuckView access$302(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.view.DuckView) -> a
 com.eos.module.charge.saver.service.BatteryService$1 -> com.eos.module.charge.saver.service.BatteryService$1:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    47:47:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    50:58:void run() -> run
+    44:44:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    47:55:void run() -> run
 com.eos.module.charge.saver.service.BatteryService$2 -> com.eos.module.charge.saver.service.BatteryService$2:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    61:61:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    64:77:void run() -> run
+    58:58:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    61:67:void run() -> run
 com.eos.module.charge.saver.service.BatteryService$3 -> com.eos.module.charge.saver.service.BatteryService$3:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    145:145:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    148:167:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    80:80:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    83:95:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.eos.module.charge.saver.service.BatteryService$4 -> com.eos.module.charge.saver.service.BatteryService$4:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    332:332:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    335:341:void onUnlock() -> a
+    218:218:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    221:227:void onUnlock() -> a
 com.eos.module.charge.saver.service.BatteryService$5 -> com.eos.module.charge.saver.service.BatteryService$5:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    344:344:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    347:353:void onUnlock() -> a
+    230:230:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    233:239:void onUnlock() -> a
 com.eos.module.charge.saver.view.ADLabel -> com.eos.module.charge.saver.view.ADLabel:
     java.lang.String mTextContent -> a
     int mTextColor -> b
@@ -38279,6 +39803,7 @@ com.privacy.lock.R$anim -> com.privacy.lock.a$a:
     int abc_slide_in_top -> abc_slide_in_top
     int abc_slide_out_bottom -> abc_slide_out_bottom
     int abc_slide_out_top -> abc_slide_out_top
+    int charge_exit -> charge_exit
     int design_bottom_sheet_slide_in -> design_bottom_sheet_slide_in
     int design_bottom_sheet_slide_out -> design_bottom_sheet_slide_out
     int design_fab_in -> design_fab_in
@@ -38759,6 +40284,7 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int ad_title -> ad_title
     int add -> add
     int alertTitle -> alertTitle
+    int all -> all
     int always -> always
     int anim_container -> anim_container
     int app_icon -> app_icon
@@ -38767,6 +40293,7 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int app_search -> app_search
     int back -> back
     int backspace -> backspace
+    int basic -> basic
     int battery_ad_layout -> battery_ad_layout
     int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
@@ -38833,6 +40360,7 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int center -> center
     int center_horizontal -> center_horizontal
     int center_vertical -> center_vertical
+    int chains -> chains
     int checkbox -> checkbox
     int chronometer -> chronometer
     int clear -> clear
@@ -38934,7 +40462,9 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int onclick -> onclick
     int overflow_id -> overflow_id
     int overflow_stub -> overflow_stub
+    int packed -> packed
     int parallax -> parallax
+    int parent -> parent
     int parentPanel -> parentPanel
     int passwd_cancel -> passwd_cancel
     int passwd_dot_id -> passwd_dot_id
@@ -39021,6 +40551,8 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int snap -> snap
     int spacer -> spacer
     int split_action_bar -> split_action_bar
+    int spread -> spread
+    int spread_inside -> spread_inside
     int src_atop -> src_atop
     int src_in -> src_in
     int src_over -> src_over
@@ -39055,6 +40587,7 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int view_offset_helper -> view_offset_helper
     int weak -> weak
     int withText -> withText
+    int wrap -> wrap
     int wrap_content -> wrap_content
 com.privacy.lock.R$layout -> com.privacy.lock.a$f:
     int abc_action_bar_title_item -> abc_action_bar_title_item
@@ -39514,6 +41047,7 @@ com.privacy.lock.R$style -> com.privacy.lock.a$i:
     int Base_Widget_AppCompat_Toolbar -> Base_Widget_AppCompat_Toolbar
     int Base_Widget_AppCompat_Toolbar_Button_Navigation -> Base_Widget_AppCompat_Toolbar_Button_Navigation
     int Base_Widget_Design_TabLayout -> Base_Widget_Design_TabLayout
+    int CustomTranslate -> CustomTranslate
     int ForceClose -> ForceClose
     int MessageBox -> MessageBox
     int MyAnimation_Window -> MyAnimation_Window
@@ -39720,6 +41254,7 @@ com.privacy.lock.R$style -> com.privacy.lock.a$i:
     int Widget_Design_TabLayout -> Widget_Design_TabLayout
     int Widget_Design_TextInputLayout -> Widget_Design_TextInputLayout
     int activityTheme -> activityTheme
+    int animation -> animation
     int dialog -> dialog
     int dialog_animation -> dialog_animation
     int locktheme -> locktheme
@@ -42588,6 +44123,121 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int CompoundButton_android_button -> CompoundButton_android_button
     int CompoundButton_buttonTint -> CompoundButton_buttonTint
     int CompoundButton_buttonTintMode -> CompoundButton_buttonTintMode
+    int[] ConstraintLayout_Layout -> ConstraintLayout_Layout
+    int ConstraintLayout_Layout_android_maxHeight -> ConstraintLayout_Layout_android_maxHeight
+    int ConstraintLayout_Layout_android_maxWidth -> ConstraintLayout_Layout_android_maxWidth
+    int ConstraintLayout_Layout_android_minHeight -> ConstraintLayout_Layout_android_minHeight
+    int ConstraintLayout_Layout_android_minWidth -> ConstraintLayout_Layout_android_minWidth
+    int ConstraintLayout_Layout_android_orientation -> ConstraintLayout_Layout_android_orientation
+    int ConstraintLayout_Layout_constraintSet -> ConstraintLayout_Layout_constraintSet
+    int ConstraintLayout_Layout_layout_constraintBaseline_creator -> ConstraintLayout_Layout_layout_constraintBaseline_creator
+    int ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf -> ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf
+    int ConstraintLayout_Layout_layout_constraintBottom_creator -> ConstraintLayout_Layout_layout_constraintBottom_creator
+    int ConstraintLayout_Layout_layout_constraintBottom_toBottomOf -> ConstraintLayout_Layout_layout_constraintBottom_toBottomOf
+    int ConstraintLayout_Layout_layout_constraintBottom_toTopOf -> ConstraintLayout_Layout_layout_constraintBottom_toTopOf
+    int ConstraintLayout_Layout_layout_constraintDimensionRatio -> ConstraintLayout_Layout_layout_constraintDimensionRatio
+    int ConstraintLayout_Layout_layout_constraintEnd_toEndOf -> ConstraintLayout_Layout_layout_constraintEnd_toEndOf
+    int ConstraintLayout_Layout_layout_constraintEnd_toStartOf -> ConstraintLayout_Layout_layout_constraintEnd_toStartOf
+    int ConstraintLayout_Layout_layout_constraintGuide_begin -> ConstraintLayout_Layout_layout_constraintGuide_begin
+    int ConstraintLayout_Layout_layout_constraintGuide_end -> ConstraintLayout_Layout_layout_constraintGuide_end
+    int ConstraintLayout_Layout_layout_constraintGuide_percent -> ConstraintLayout_Layout_layout_constraintGuide_percent
+    int ConstraintLayout_Layout_layout_constraintHeight_default -> ConstraintLayout_Layout_layout_constraintHeight_default
+    int ConstraintLayout_Layout_layout_constraintHeight_max -> ConstraintLayout_Layout_layout_constraintHeight_max
+    int ConstraintLayout_Layout_layout_constraintHeight_min -> ConstraintLayout_Layout_layout_constraintHeight_min
+    int ConstraintLayout_Layout_layout_constraintHorizontal_bias -> ConstraintLayout_Layout_layout_constraintHorizontal_bias
+    int ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle -> ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle
+    int ConstraintLayout_Layout_layout_constraintHorizontal_weight -> ConstraintLayout_Layout_layout_constraintHorizontal_weight
+    int ConstraintLayout_Layout_layout_constraintLeft_creator -> ConstraintLayout_Layout_layout_constraintLeft_creator
+    int ConstraintLayout_Layout_layout_constraintLeft_toLeftOf -> ConstraintLayout_Layout_layout_constraintLeft_toLeftOf
+    int ConstraintLayout_Layout_layout_constraintLeft_toRightOf -> ConstraintLayout_Layout_layout_constraintLeft_toRightOf
+    int ConstraintLayout_Layout_layout_constraintRight_creator -> ConstraintLayout_Layout_layout_constraintRight_creator
+    int ConstraintLayout_Layout_layout_constraintRight_toLeftOf -> ConstraintLayout_Layout_layout_constraintRight_toLeftOf
+    int ConstraintLayout_Layout_layout_constraintRight_toRightOf -> ConstraintLayout_Layout_layout_constraintRight_toRightOf
+    int ConstraintLayout_Layout_layout_constraintStart_toEndOf -> ConstraintLayout_Layout_layout_constraintStart_toEndOf
+    int ConstraintLayout_Layout_layout_constraintStart_toStartOf -> ConstraintLayout_Layout_layout_constraintStart_toStartOf
+    int ConstraintLayout_Layout_layout_constraintTop_creator -> ConstraintLayout_Layout_layout_constraintTop_creator
+    int ConstraintLayout_Layout_layout_constraintTop_toBottomOf -> ConstraintLayout_Layout_layout_constraintTop_toBottomOf
+    int ConstraintLayout_Layout_layout_constraintTop_toTopOf -> ConstraintLayout_Layout_layout_constraintTop_toTopOf
+    int ConstraintLayout_Layout_layout_constraintVertical_bias -> ConstraintLayout_Layout_layout_constraintVertical_bias
+    int ConstraintLayout_Layout_layout_constraintVertical_chainStyle -> ConstraintLayout_Layout_layout_constraintVertical_chainStyle
+    int ConstraintLayout_Layout_layout_constraintVertical_weight -> ConstraintLayout_Layout_layout_constraintVertical_weight
+    int ConstraintLayout_Layout_layout_constraintWidth_default -> ConstraintLayout_Layout_layout_constraintWidth_default
+    int ConstraintLayout_Layout_layout_constraintWidth_max -> ConstraintLayout_Layout_layout_constraintWidth_max
+    int ConstraintLayout_Layout_layout_constraintWidth_min -> ConstraintLayout_Layout_layout_constraintWidth_min
+    int ConstraintLayout_Layout_layout_editor_absoluteX -> ConstraintLayout_Layout_layout_editor_absoluteX
+    int ConstraintLayout_Layout_layout_editor_absoluteY -> ConstraintLayout_Layout_layout_editor_absoluteY
+    int ConstraintLayout_Layout_layout_goneMarginBottom -> ConstraintLayout_Layout_layout_goneMarginBottom
+    int ConstraintLayout_Layout_layout_goneMarginEnd -> ConstraintLayout_Layout_layout_goneMarginEnd
+    int ConstraintLayout_Layout_layout_goneMarginLeft -> ConstraintLayout_Layout_layout_goneMarginLeft
+    int ConstraintLayout_Layout_layout_goneMarginRight -> ConstraintLayout_Layout_layout_goneMarginRight
+    int ConstraintLayout_Layout_layout_goneMarginStart -> ConstraintLayout_Layout_layout_goneMarginStart
+    int ConstraintLayout_Layout_layout_goneMarginTop -> ConstraintLayout_Layout_layout_goneMarginTop
+    int ConstraintLayout_Layout_layout_optimizationLevel -> ConstraintLayout_Layout_layout_optimizationLevel
+    int[] ConstraintSet -> ConstraintSet
+    int ConstraintSet_android_alpha -> ConstraintSet_android_alpha
+    int ConstraintSet_android_elevation -> ConstraintSet_android_elevation
+    int ConstraintSet_android_id -> ConstraintSet_android_id
+    int ConstraintSet_android_layout_height -> ConstraintSet_android_layout_height
+    int ConstraintSet_android_layout_marginBottom -> ConstraintSet_android_layout_marginBottom
+    int ConstraintSet_android_layout_marginEnd -> ConstraintSet_android_layout_marginEnd
+    int ConstraintSet_android_layout_marginLeft -> ConstraintSet_android_layout_marginLeft
+    int ConstraintSet_android_layout_marginRight -> ConstraintSet_android_layout_marginRight
+    int ConstraintSet_android_layout_marginStart -> ConstraintSet_android_layout_marginStart
+    int ConstraintSet_android_layout_marginTop -> ConstraintSet_android_layout_marginTop
+    int ConstraintSet_android_layout_width -> ConstraintSet_android_layout_width
+    int ConstraintSet_android_orientation -> ConstraintSet_android_orientation
+    int ConstraintSet_android_rotationX -> ConstraintSet_android_rotationX
+    int ConstraintSet_android_rotationY -> ConstraintSet_android_rotationY
+    int ConstraintSet_android_scaleX -> ConstraintSet_android_scaleX
+    int ConstraintSet_android_scaleY -> ConstraintSet_android_scaleY
+    int ConstraintSet_android_transformPivotX -> ConstraintSet_android_transformPivotX
+    int ConstraintSet_android_transformPivotY -> ConstraintSet_android_transformPivotY
+    int ConstraintSet_android_translationX -> ConstraintSet_android_translationX
+    int ConstraintSet_android_translationY -> ConstraintSet_android_translationY
+    int ConstraintSet_android_translationZ -> ConstraintSet_android_translationZ
+    int ConstraintSet_android_visibility -> ConstraintSet_android_visibility
+    int ConstraintSet_layout_constraintBaseline_creator -> ConstraintSet_layout_constraintBaseline_creator
+    int ConstraintSet_layout_constraintBaseline_toBaselineOf -> ConstraintSet_layout_constraintBaseline_toBaselineOf
+    int ConstraintSet_layout_constraintBottom_creator -> ConstraintSet_layout_constraintBottom_creator
+    int ConstraintSet_layout_constraintBottom_toBottomOf -> ConstraintSet_layout_constraintBottom_toBottomOf
+    int ConstraintSet_layout_constraintBottom_toTopOf -> ConstraintSet_layout_constraintBottom_toTopOf
+    int ConstraintSet_layout_constraintDimensionRatio -> ConstraintSet_layout_constraintDimensionRatio
+    int ConstraintSet_layout_constraintEnd_toEndOf -> ConstraintSet_layout_constraintEnd_toEndOf
+    int ConstraintSet_layout_constraintEnd_toStartOf -> ConstraintSet_layout_constraintEnd_toStartOf
+    int ConstraintSet_layout_constraintGuide_begin -> ConstraintSet_layout_constraintGuide_begin
+    int ConstraintSet_layout_constraintGuide_end -> ConstraintSet_layout_constraintGuide_end
+    int ConstraintSet_layout_constraintGuide_percent -> ConstraintSet_layout_constraintGuide_percent
+    int ConstraintSet_layout_constraintHeight_default -> ConstraintSet_layout_constraintHeight_default
+    int ConstraintSet_layout_constraintHeight_max -> ConstraintSet_layout_constraintHeight_max
+    int ConstraintSet_layout_constraintHeight_min -> ConstraintSet_layout_constraintHeight_min
+    int ConstraintSet_layout_constraintHorizontal_bias -> ConstraintSet_layout_constraintHorizontal_bias
+    int ConstraintSet_layout_constraintHorizontal_chainStyle -> ConstraintSet_layout_constraintHorizontal_chainStyle
+    int ConstraintSet_layout_constraintHorizontal_weight -> ConstraintSet_layout_constraintHorizontal_weight
+    int ConstraintSet_layout_constraintLeft_creator -> ConstraintSet_layout_constraintLeft_creator
+    int ConstraintSet_layout_constraintLeft_toLeftOf -> ConstraintSet_layout_constraintLeft_toLeftOf
+    int ConstraintSet_layout_constraintLeft_toRightOf -> ConstraintSet_layout_constraintLeft_toRightOf
+    int ConstraintSet_layout_constraintRight_creator -> ConstraintSet_layout_constraintRight_creator
+    int ConstraintSet_layout_constraintRight_toLeftOf -> ConstraintSet_layout_constraintRight_toLeftOf
+    int ConstraintSet_layout_constraintRight_toRightOf -> ConstraintSet_layout_constraintRight_toRightOf
+    int ConstraintSet_layout_constraintStart_toEndOf -> ConstraintSet_layout_constraintStart_toEndOf
+    int ConstraintSet_layout_constraintStart_toStartOf -> ConstraintSet_layout_constraintStart_toStartOf
+    int ConstraintSet_layout_constraintTop_creator -> ConstraintSet_layout_constraintTop_creator
+    int ConstraintSet_layout_constraintTop_toBottomOf -> ConstraintSet_layout_constraintTop_toBottomOf
+    int ConstraintSet_layout_constraintTop_toTopOf -> ConstraintSet_layout_constraintTop_toTopOf
+    int ConstraintSet_layout_constraintVertical_bias -> ConstraintSet_layout_constraintVertical_bias
+    int ConstraintSet_layout_constraintVertical_chainStyle -> ConstraintSet_layout_constraintVertical_chainStyle
+    int ConstraintSet_layout_constraintVertical_weight -> ConstraintSet_layout_constraintVertical_weight
+    int ConstraintSet_layout_constraintWidth_default -> ConstraintSet_layout_constraintWidth_default
+    int ConstraintSet_layout_constraintWidth_max -> ConstraintSet_layout_constraintWidth_max
+    int ConstraintSet_layout_constraintWidth_min -> ConstraintSet_layout_constraintWidth_min
+    int ConstraintSet_layout_editor_absoluteX -> ConstraintSet_layout_editor_absoluteX
+    int ConstraintSet_layout_editor_absoluteY -> ConstraintSet_layout_editor_absoluteY
+    int ConstraintSet_layout_goneMarginBottom -> ConstraintSet_layout_goneMarginBottom
+    int ConstraintSet_layout_goneMarginEnd -> ConstraintSet_layout_goneMarginEnd
+    int ConstraintSet_layout_goneMarginLeft -> ConstraintSet_layout_goneMarginLeft
+    int ConstraintSet_layout_goneMarginRight -> ConstraintSet_layout_goneMarginRight
+    int ConstraintSet_layout_goneMarginStart -> ConstraintSet_layout_goneMarginStart
+    int ConstraintSet_layout_goneMarginTop -> ConstraintSet_layout_goneMarginTop
     int[] CoordinatorLayout -> CoordinatorLayout
     int CoordinatorLayout_keylines -> CoordinatorLayout_keylines
     int CoordinatorLayout_statusBarBackground -> CoordinatorLayout_statusBarBackground
@@ -42639,6 +44289,8 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int IndicatorView_normalDrawable -> IndicatorView_normalDrawable
     int IndicatorView_selectColor -> IndicatorView_selectColor
     int IndicatorView_selectDrawable -> IndicatorView_selectDrawable
+    int[] LinearConstraintLayout -> LinearConstraintLayout
+    int LinearConstraintLayout_android_orientation -> LinearConstraintLayout_android_orientation
     int[] LinearLayoutCompat -> LinearLayoutCompat
     int LinearLayoutCompat_android_baselineAligned -> LinearLayoutCompat_android_baselineAligned
     int LinearLayoutCompat_android_baselineAlignedChildIndex -> LinearLayoutCompat_android_baselineAlignedChildIndex
@@ -42881,7 +44533,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5408:12861:void <clinit>() -> <clinit>
+    5868:15170:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
@@ -42905,15 +44557,15 @@ com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity
     59:68:void findId() -> a
     72:102:void onCreate(android.os.Bundle) -> onCreate
     105:120:void loadAd() -> c
-    123:140:void tuiGuang() -> b
-    143:182:void show_text() -> d
-    185:186:void clear(android.content.Context) -> b
-    189:203:long killAll(android.content.Context) -> a
-    207:210:long getAvailMemory(android.app.ActivityManager) -> a
-    214:242:void startTween() -> e
-    245:273:void setAnimationThread() -> f
-    277:280:void onResume() -> onResume
-    284:288:void onStop() -> onStop
+    123:142:void tuiGuang() -> b
+    145:184:void show_text() -> d
+    187:188:void clear(android.content.Context) -> b
+    191:205:long killAll(android.content.Context) -> a
+    209:212:long getAvailMemory(android.app.ActivityManager) -> a
+    216:244:void startTween() -> e
+    247:275:void setAnimationThread() -> f
+    279:282:void onResume() -> onResume
+    286:290:void onStop() -> onStop
     38:38:void access$000(com.supers.clean.junk.ShortCutActivity) -> a
     38:38:void access$100(com.supers.clean.junk.ShortCutActivity,android.content.Context) -> a
     38:38:int access$208(com.supers.clean.junk.ShortCutActivity) -> b
@@ -42938,37 +44590,37 @@ com.supers.clean.junk.ShortCutActivity$3 -> com.supers.clean.junk.ShortCutActivi
     com.supers.clean.junk.ShortCutActivity this$0 -> a
     124:124:void <init>(com.supers.clean.junk.ShortCutActivity) -> <init>
     128:128:void onClick(android.view.View) -> onClick
-    132:138:void onLoadView(android.view.View) -> a
+    132:140:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.ShortCutActivity$4 -> com.supers.clean.junk.ShortCutActivity$4:
     com.supers.clean.junk.ShortCutActivity this$0 -> a
-    155:155:void <init>(com.supers.clean.junk.ShortCutActivity) -> <init>
-    158:169:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    174:174:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    179:179:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    157:157:void <init>(com.supers.clean.junk.ShortCutActivity) -> <init>
+    160:171:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    176:176:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    181:181:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.ShortCutActivity$4$1 -> com.supers.clean.junk.ShortCutActivity$4$1:
     com.supers.clean.junk.ShortCutActivity$4 this$1 -> a
-    163:163:void <init>(com.supers.clean.junk.ShortCutActivity$4) -> <init>
-    166:167:void onClick(android.view.View) -> onClick
+    165:165:void <init>(com.supers.clean.junk.ShortCutActivity$4) -> <init>
+    168:169:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.ShortCutActivity$5 -> com.supers.clean.junk.ShortCutActivity$5:
     float val$hx -> a
     float val$hy -> b
     com.supers.clean.junk.ShortCutActivity this$0 -> c
-    217:217:void <init>(com.supers.clean.junk.ShortCutActivity,float,float) -> <init>
-    220:239:void run() -> run
+    219:219:void <init>(com.supers.clean.junk.ShortCutActivity,float,float) -> <init>
+    222:241:void run() -> run
 com.supers.clean.junk.ShortCutActivity$5$1 -> com.supers.clean.junk.ShortCutActivity$5$1:
     com.supers.clean.junk.ShortCutActivity$5 this$1 -> a
-    220:220:void <init>(com.supers.clean.junk.ShortCutActivity$5) -> <init>
-    223:225:void run() -> run
+    222:222:void <init>(com.supers.clean.junk.ShortCutActivity$5) -> <init>
+    225:227:void run() -> run
 com.supers.clean.junk.ShortCutActivity$6 -> com.supers.clean.junk.ShortCutActivity$6:
     long lastMillis -> b
     com.supers.clean.junk.ShortCutActivity this$0 -> a
-    245:246:void <init>(com.supers.clean.junk.ShortCutActivity) -> <init>
-    249:271:void run() -> run
+    247:248:void <init>(com.supers.clean.junk.ShortCutActivity) -> <init>
+    251:273:void run() -> run
 com.supers.clean.junk.ShortCutActivity$6$1 -> com.supers.clean.junk.ShortCutActivity$6$1:
     float val$delta -> a
     com.supers.clean.junk.ShortCutActivity$6 this$1 -> b
-    254:254:void <init>(com.supers.clean.junk.ShortCutActivity$6,float) -> <init>
-    257:259:void run() -> run
+    256:256:void <init>(com.supers.clean.junk.ShortCutActivity$6,float) -> <init>
+    259:261:void run() -> run
 com.supers.clean.junk.View.AppManagerView -> com.supers.clean.junk.a.a:
     void initData(long) -> a
     void addAppManagerdata(java.util.List) -> a
@@ -43234,13 +44886,13 @@ com.supers.clean.junk.activity.CoolingActivity -> com.supers.clean.junk.activity
     34:47:void <init>() -> <init>
     64:74:void findId() -> a
     78:136:void onCreate(android.os.Bundle) -> onCreate
-    139:158:void tuiGuang() -> b
-    161:180:void startCoolingAni() -> c
-    184:188:void onResume() -> onResume
-    191:201:void hideSnow() -> d
-    205:207:void onPause() -> onPause
-    211:217:void onBackPressed() -> onBackPressed
-    221:225:void onDestroy() -> onDestroy
+    139:160:void tuiGuang() -> b
+    163:182:void startCoolingAni() -> c
+    186:190:void onResume() -> onResume
+    193:203:void hideSnow() -> d
+    207:209:void onPause() -> onPause
+    213:219:void onBackPressed() -> onBackPressed
+    223:227:void onDestroy() -> onDestroy
     34:34:com.supers.clean.junk.fakeView.FlakeView access$000(com.supers.clean.junk.activity.CoolingActivity) -> a
     34:34:android.view.animation.Animation access$100(com.supers.clean.junk.activity.CoolingActivity) -> b
     34:34:android.view.animation.Animation access$200(com.supers.clean.junk.activity.CoolingActivity) -> c
@@ -43269,11 +44921,11 @@ com.supers.clean.junk.activity.CoolingActivity$5 -> com.supers.clean.junk.activi
     com.supers.clean.junk.activity.CoolingActivity this$0 -> a
     141:141:void <init>(com.supers.clean.junk.activity.CoolingActivity) -> <init>
     145:145:void onClick(android.view.View) -> onClick
-    149:155:void onLoadView(android.view.View) -> a
+    149:157:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.CoolingActivity$6 -> com.supers.clean.junk.activity.CoolingActivity$6:
     com.supers.clean.junk.activity.CoolingActivity this$0 -> a
-    165:165:void <init>(com.supers.clean.junk.activity.CoolingActivity) -> <init>
-    168:175:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    167:167:void <init>(com.supers.clean.junk.activity.CoolingActivity) -> <init>
+    170:177:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.supers.clean.junk.activity.FloatActivity -> com.supers.clean.junk.activity.FloatActivity:
     com.supers.clean.junk.myView.HorizontalListView horizontal_listview -> a
     android.widget.LinearLayout ll_ad -> b
@@ -43886,114 +45538,114 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     android.content.pm.PackageManager packageManager -> al
     com.supers.clean.junk.myView.PullToRefreshLayout$OnRefreshListener refreshListener -> X
     android.view.View$OnClickListener onClickListener -> Y
-    63:792:void <init>() -> <init>
-    127:164:void findId() -> a
-    168:307:void onCreate(android.os.Bundle) -> onCreate
-    310:383:void tuiGuang() -> b
-    420:444:boolean isAccessibilitySettingsOn(android.content.Context) -> a
-    449:450:void initHandler() -> h
-    455:475:void onClick() -> onClick
-    486:486:void initCercleHight() -> c
-    490:504:void initCpu(int) -> a
-    508:537:void initSd(int,java.lang.String,long) -> a
-    541:556:void initRam(int,java.lang.String) -> a
-    560:564:void initGuard(int,android.view.animation.RotateAnimation) -> a
-    568:583:void initSideData() -> f
-    587:588:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    592:593:void setRotateGone() -> e
-    597:598:void openDrawer() -> g
-    609:638:void loadFullAd() -> d
-    905:918:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    922:925:void onRestart() -> onRestart
-    929:932:void onResume() -> onResume
-    935:944:void onBackPressed() -> onBackPressed
-    63:63:android.view.View access$000(com.supers.clean.junk.activity.MainActivity) -> a
-    63:63:android.support.v4.view.ViewPager access$100(com.supers.clean.junk.activity.MainActivity) -> b
-    63:63:android.support.v4.view.PagerAdapter access$200(com.supers.clean.junk.activity.MainActivity) -> c
-    63:63:android.os.Handler access$300(com.supers.clean.junk.activity.MainActivity) -> d
-    63:63:com.supers.clean.junk.presenter.MainPresenter access$400(com.supers.clean.junk.activity.MainActivity) -> e
-    63:63:android.content.pm.PackageManager access$500(com.supers.clean.junk.activity.MainActivity) -> f
+    64:804:void <init>() -> <init>
+    128:165:void findId() -> a
+    169:315:void onCreate(android.os.Bundle) -> onCreate
+    318:395:void tuiGuang() -> b
+    432:456:boolean isAccessibilitySettingsOn(android.content.Context) -> a
+    461:462:void initHandler() -> h
+    467:487:void onClick() -> onClick
+    498:498:void initCercleHight() -> c
+    502:516:void initCpu(int) -> a
+    520:549:void initSd(int,java.lang.String,long) -> a
+    553:568:void initRam(int,java.lang.String) -> a
+    572:576:void initGuard(int,android.view.animation.RotateAnimation) -> a
+    580:595:void initSideData() -> f
+    599:600:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    604:605:void setRotateGone() -> e
+    609:610:void openDrawer() -> g
+    621:650:void loadFullAd() -> d
+    922:935:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    939:942:void onRestart() -> onRestart
+    946:949:void onResume() -> onResume
+    952:961:void onBackPressed() -> onBackPressed
+    64:64:android.view.View access$000(com.supers.clean.junk.activity.MainActivity) -> a
+    64:64:android.support.v4.view.ViewPager access$100(com.supers.clean.junk.activity.MainActivity) -> b
+    64:64:android.support.v4.view.PagerAdapter access$200(com.supers.clean.junk.activity.MainActivity) -> c
+    64:64:android.os.Handler access$300(com.supers.clean.junk.activity.MainActivity) -> d
+    64:64:com.supers.clean.junk.presenter.MainPresenter access$400(com.supers.clean.junk.activity.MainActivity) -> e
+    64:64:android.content.pm.PackageManager access$500(com.supers.clean.junk.activity.MainActivity) -> f
 com.supers.clean.junk.activity.MainActivity$1 -> com.supers.clean.junk.activity.MainActivity$1:
     android.view.View val$viewpager_3 -> a
     java.util.ArrayList val$arrayList -> b
     com.supers.clean.junk.activity.MainActivity this$0 -> c
-    227:227:void <init>(com.supers.clean.junk.activity.MainActivity,android.view.View,java.util.ArrayList) -> <init>
-    230:245:void onClick(android.view.View) -> onClick
+    235:235:void <init>(com.supers.clean.junk.activity.MainActivity,android.view.View,java.util.ArrayList) -> <init>
+    238:253:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$10 -> com.supers.clean.junk.activity.MainActivity$2:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    509:509:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    512:519:void progressUpdate(int) -> a
+    521:521:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    524:531:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$10$1 -> com.supers.clean.junk.activity.MainActivity$2$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$10 this$1 -> b
-    512:512:void <init>(com.supers.clean.junk.activity.MainActivity$10,int) -> <init>
-    515:517:void run() -> run
+    524:524:void <init>(com.supers.clean.junk.activity.MainActivity$10,int) -> <init>
+    527:529:void run() -> run
 com.supers.clean.junk.activity.MainActivity$11 -> com.supers.clean.junk.activity.MainActivity$3:
     java.lang.String val$size -> a
     long val$sd_kongxian -> b
     com.supers.clean.junk.activity.MainActivity this$0 -> c
-    521:521:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
-    524:535:void run() -> run
+    533:533:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
+    536:547:void run() -> run
 com.supers.clean.junk.activity.MainActivity$12 -> com.supers.clean.junk.activity.MainActivity$4:
     java.lang.String val$size -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    542:542:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
-    545:553:void progressUpdate(int) -> a
+    554:554:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
+    557:565:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$12$1 -> com.supers.clean.junk.activity.MainActivity$4$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$12 this$1 -> b
-    545:545:void <init>(com.supers.clean.junk.activity.MainActivity$12,int) -> <init>
-    548:551:void run() -> run
+    557:557:void <init>(com.supers.clean.junk.activity.MainActivity$12,int) -> <init>
+    560:563:void run() -> run
 com.supers.clean.junk.activity.MainActivity$13 -> com.supers.clean.junk.activity.MainActivity$5:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    761:761:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    765:765:void onRefresh(com.supers.clean.junk.myView.PullToRefreshLayout) -> a
-    770:778:void onLoadMore(com.supers.clean.junk.myView.PullToRefreshLayout) -> b
+    773:773:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    777:777:void onRefresh(com.supers.clean.junk.myView.PullToRefreshLayout) -> a
+    782:790:void onLoadMore(com.supers.clean.junk.myView.PullToRefreshLayout) -> b
 com.supers.clean.junk.activity.MainActivity$13$1 -> com.supers.clean.junk.activity.MainActivity$5$1:
     com.supers.clean.junk.activity.MainActivity$13 this$1 -> a
-    771:771:void <init>(com.supers.clean.junk.activity.MainActivity$13) -> <init>
-    774:776:void run() -> run
+    783:783:void <init>(com.supers.clean.junk.activity.MainActivity$13) -> <init>
+    786:788:void run() -> run
 com.supers.clean.junk.activity.MainActivity$14 -> com.supers.clean.junk.activity.MainActivity$6:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    792:792:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    795:900:void onClick(android.view.View) -> onClick
+    804:804:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    807:917:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$7:
     android.view.View val$viewpager_3 -> a
     java.util.ArrayList val$arrayList -> b
     com.supers.clean.junk.activity.MainActivity this$0 -> c
-    247:247:void <init>(com.supers.clean.junk.activity.MainActivity,android.view.View,java.util.ArrayList) -> <init>
-    250:256:void onClick(android.view.View) -> onClick
+    255:255:void <init>(com.supers.clean.junk.activity.MainActivity,android.view.View,java.util.ArrayList) -> <init>
+    258:264:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$3 -> com.supers.clean.junk.activity.MainActivity$8:
     java.util.ArrayList val$arrayList -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    262:262:void <init>(com.supers.clean.junk.activity.MainActivity,java.util.ArrayList) -> <init>
-    265:265:int getCount() -> getCount
-    270:271:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    276:278:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    282:282:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    270:270:void <init>(com.supers.clean.junk.activity.MainActivity,java.util.ArrayList) -> <init>
+    273:273:int getCount() -> getCount
+    278:279:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    284:286:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    290:290:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.supers.clean.junk.activity.MainActivity$4 -> com.supers.clean.junk.activity.MainActivity$9:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    289:289:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    292:293:void run() -> run
+    297:297:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    300:301:void run() -> run
 com.supers.clean.junk.activity.MainActivity$5 -> com.supers.clean.junk.activity.MainActivity$10:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    315:315:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    319:319:void onClick(android.view.View) -> onClick
-    323:331:void onLoadView(android.view.View) -> a
+    323:323:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    327:327:void onClick(android.view.View) -> onClick
+    331:341:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.MainActivity$6 -> com.supers.clean.junk.activity.MainActivity$11:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    333:333:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    337:337:void onClick(android.view.View) -> onClick
-    341:354:void onLoadView(android.view.View) -> a
+    343:343:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    347:347:void onClick(android.view.View) -> onClick
+    351:366:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.MainActivity$9 -> com.supers.clean.junk.activity.MainActivity$12:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    492:492:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    495:502:void progressUpdate(int) -> a
+    504:504:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    507:514:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$9$1 -> com.supers.clean.junk.activity.MainActivity$12$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$9 this$1 -> b
-    495:495:void <init>(com.supers.clean.junk.activity.MainActivity$9,int) -> <init>
-    498:500:void run() -> run
+    507:507:void <init>(com.supers.clean.junk.activity.MainActivity$9,int) -> <init>
+    510:512:void run() -> run
 com.supers.clean.junk.activity.ManagerActivity -> com.supers.clean.junk.activity.ManagerActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -44021,21 +45673,21 @@ com.supers.clean.junk.activity.ManagerActivity -> com.supers.clean.junk.activity
     android.view.View nativeView -> A
     java.lang.String TAG_MANAGER -> B
     android.view.View$OnClickListener onClickListener -> v
-    49:200:void <init>() -> <init>
+    49:202:void <init>() -> <init>
     75:95:void findId() -> a
     99:108:void onCreate(android.os.Bundle) -> onCreate
     112:129:void loadFullAd() -> d
-    133:152:void tuiGuang() -> b
-    156:162:void onClick() -> onClick
-    166:176:void initData(long) -> a
-    180:184:void addAppManagerdata(java.util.List) -> a
-    189:198:void setCleanDAta(long) -> b
-    278:286:boolean isNoSwitch() -> e
-    290:295:boolean isNoOption() -> f
-    300:316:void reStart() -> c
-    320:322:void onRestart() -> onRestart
-    326:329:void onResume() -> onResume
-    333:335:void onDestroy() -> onDestroy
+    133:154:void tuiGuang() -> b
+    158:164:void onClick() -> onClick
+    168:178:void initData(long) -> a
+    182:186:void addAppManagerdata(java.util.List) -> a
+    191:200:void setCleanDAta(long) -> b
+    280:288:boolean isNoSwitch() -> e
+    292:297:boolean isNoOption() -> f
+    302:318:void reStart() -> c
+    322:324:void onRestart() -> onRestart
+    328:331:void onResume() -> onResume
+    335:337:void onDestroy() -> onDestroy
     49:49:com.supers.clean.junk.presenter.ManagerPresenter access$000(com.supers.clean.junk.activity.ManagerActivity) -> a
     49:49:boolean access$100(com.supers.clean.junk.activity.ManagerActivity) -> b
     49:49:boolean access$200(com.supers.clean.junk.activity.ManagerActivity) -> c
@@ -44044,23 +45696,23 @@ com.supers.clean.junk.activity.ManagerActivity$1 -> com.supers.clean.junk.activi
     com.supers.clean.junk.activity.ManagerActivity this$0 -> a
     134:134:void <init>(com.supers.clean.junk.activity.ManagerActivity) -> <init>
     138:138:void onClick(android.view.View) -> onClick
-    142:148:void onLoadView(android.view.View) -> a
+    142:150:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.ManagerActivity$2 -> com.supers.clean.junk.activity.ManagerActivity$2:
     com.supers.clean.junk.activity.ManagerActivity this$0 -> a
-    200:200:void <init>(com.supers.clean.junk.activity.ManagerActivity) -> <init>
-    203:258:void onClick(android.view.View) -> onClick
+    202:202:void <init>(com.supers.clean.junk.activity.ManagerActivity) -> <init>
+    205:260:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.ManagerActivity$2$1 -> com.supers.clean.junk.activity.ManagerActivity$2$1:
     com.supers.clean.junk.activity.ManagerActivity$2 this$1 -> a
-    239:239:void <init>(com.supers.clean.junk.activity.ManagerActivity$2) -> <init>
-    242:245:void onClick(android.view.View) -> onClick
+    241:241:void <init>(com.supers.clean.junk.activity.ManagerActivity$2) -> <init>
+    244:247:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.ManagerActivity$3 -> com.supers.clean.junk.activity.ManagerActivity$3:
     com.supers.clean.junk.activity.ManagerActivity this$0 -> a
-    303:303:void <init>(com.supers.clean.junk.activity.ManagerActivity) -> <init>
-    306:309:void onClick(android.view.View) -> onClick
+    305:305:void <init>(com.supers.clean.junk.activity.ManagerActivity) -> <init>
+    308:311:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.ManagerActivity$MyReceiver -> com.supers.clean.junk.activity.ManagerActivity$MyReceiver:
     com.supers.clean.junk.activity.ManagerActivity this$0 -> a
-    262:262:void <init>(com.supers.clean.junk.activity.ManagerActivity) -> <init>
-    268:271:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    264:264:void <init>(com.supers.clean.junk.activity.ManagerActivity) -> <init>
+    270:273:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.supers.clean.junk.activity.MessageActivity -> com.supers.clean.junk.activity.MessageActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -44081,45 +45733,45 @@ com.supers.clean.junk.activity.MessageActivity -> com.supers.clean.junk.activity
     android.telephony.TelephonyManager telManager -> s
     java.lang.String TAG_MESSAGE -> t
     android.os.Handler myHandler -> u
-    38:48:void <init>() -> <init>
-    53:70:void findId() -> a
-    74:139:void onCreate(android.os.Bundle) -> onCreate
-    143:160:void tuiGuang() -> b
-    163:174:void loadAd() -> e
-    177:188:void addAd() -> f
-    191:196:boolean isW() -> g
-    201:205:java.lang.String getResolution() -> c
-    213:217:java.lang.String getPhoneIMEI() -> d
-    38:38:boolean access$000(com.supers.clean.junk.activity.MessageActivity) -> a
+    39:49:void <init>() -> <init>
+    54:71:void findId() -> a
+    75:140:void onCreate(android.os.Bundle) -> onCreate
+    144:163:void tuiGuang() -> b
+    166:177:void loadAd() -> e
+    180:191:void addAd() -> f
+    194:199:boolean isW() -> g
+    204:208:java.lang.String getResolution() -> c
+    216:220:java.lang.String getPhoneIMEI() -> d
+    39:39:boolean access$000(com.supers.clean.junk.activity.MessageActivity) -> a
 com.supers.clean.junk.activity.MessageActivity$1 -> com.supers.clean.junk.activity.MessageActivity$1:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    79:79:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    82:83:void onClick(android.view.View) -> onClick
+    80:80:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    83:84:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MessageActivity$2 -> com.supers.clean.junk.activity.MessageActivity$2:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    99:99:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    102:129:void run() -> run
+    100:100:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    103:130:void run() -> run
 com.supers.clean.junk.activity.MessageActivity$2$1 -> com.supers.clean.junk.activity.MessageActivity$2$1:
     double val$q_w -> a
     double val$h_w -> b
     com.supers.clean.junk.activity.MessageActivity$2 this$1 -> c
-    109:109:void <init>(com.supers.clean.junk.activity.MessageActivity$2,double,double) -> <init>
-    112:114:void run() -> run
+    110:110:void <init>(com.supers.clean.junk.activity.MessageActivity$2,double,double) -> <init>
+    113:115:void run() -> run
 com.supers.clean.junk.activity.MessageActivity$2$2 -> com.supers.clean.junk.activity.MessageActivity$2$2:
     java.lang.String val$q -> a
     java.lang.String val$h -> b
     com.supers.clean.junk.activity.MessageActivity$2 this$1 -> c
-    120:120:void <init>(com.supers.clean.junk.activity.MessageActivity$2,java.lang.String,java.lang.String) -> <init>
-    123:125:void run() -> run
+    121:121:void <init>(com.supers.clean.junk.activity.MessageActivity$2,java.lang.String,java.lang.String) -> <init>
+    124:126:void run() -> run
 com.supers.clean.junk.activity.MessageActivity$3 -> com.supers.clean.junk.activity.MessageActivity$3:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    144:144:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    148:148:void onClick(android.view.View) -> onClick
-    152:158:void onLoadView(android.view.View) -> a
+    145:145:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    149:149:void onClick(android.view.View) -> onClick
+    153:161:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.MessageActivity$4 -> com.supers.clean.junk.activity.MessageActivity$4:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    164:164:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    167:168:void run() -> run
+    167:167:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    170:171:void run() -> run
 com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.MyApplication:
     com.supers.clean.junk.modle.entity.JsonData data -> b
     java.util.ArrayList systemCache -> c
@@ -44283,19 +45935,19 @@ com.supers.clean.junk.activity.NotifactionService -> com.supers.clean.junk.activ
     long lastTimeStamp -> v
     java.lang.Runnable runnable -> w
     java.lang.Runnable runnableW -> x
-    30:176:void <init>() -> <init>
+    30:182:void <init>() -> <init>
     54:54:android.os.IBinder onBind(android.content.Intent) -> onBind
     60:83:void onCreate() -> onCreate
     86:105:void initIntent() -> a
     112:115:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     124:128:void onstart() -> b
-    132:167:void changZhuTongzhi() -> c
-    202:203:long getTotalRxBytes() -> d
-    213:331:void update() -> e
-    335:350:void tonghzi_Ram() -> f
-    354:369:void tonghzi_cooling() -> g
-    373:388:void tonghzi_junk() -> h
-    394:401:void onDestroy() -> onDestroy
+    132:173:void changZhuTongzhi() -> c
+    208:209:long getTotalRxBytes() -> d
+    219:337:void update() -> e
+    341:356:void tonghzi_Ram() -> f
+    360:375:void tonghzi_cooling() -> g
+    379:394:void tonghzi_junk() -> h
+    400:407:void onDestroy() -> onDestroy
     30:30:void access$000(com.supers.clean.junk.activity.NotifactionService) -> a
     30:30:long access$100(com.supers.clean.junk.activity.NotifactionService) -> b
     30:30:long access$200(com.supers.clean.junk.activity.NotifactionService) -> c
@@ -44310,16 +45962,16 @@ com.supers.clean.junk.activity.NotifactionService -> com.supers.clean.junk.activ
     30:30:int access$800(com.supers.clean.junk.activity.NotifactionService) -> i
 com.supers.clean.junk.activity.NotifactionService$1 -> com.supers.clean.junk.activity.NotifactionService$1:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    169:169:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    171:173:void run() -> run
+    175:175:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    177:179:void run() -> run
 com.supers.clean.junk.activity.NotifactionService$2 -> com.supers.clean.junk.activity.NotifactionService$2:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    176:176:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    178:197:void run() -> run
+    182:182:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    184:203:void run() -> run
 com.supers.clean.junk.activity.NotifactionService$3 -> com.supers.clean.junk.activity.NotifactionService$3:
     com.supers.clean.junk.activity.NotifactionService this$0 -> a
-    213:213:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
-    216:223:void callbackResult(com.supers.clean.junk.modle.CpuTempReader$ResultCpuTemperature) -> a
+    219:219:void <init>(com.supers.clean.junk.activity.NotifactionService) -> <init>
+    222:229:void callbackResult(com.supers.clean.junk.modle.CpuTempReader$ResultCpuTemperature) -> a
 com.supers.clean.junk.activity.RamAvtivity -> com.supers.clean.junk.activity.RamAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -44409,14 +46061,14 @@ com.supers.clean.junk.activity.SettingActivity -> com.supers.clean.junk.activity
     java.lang.String TAG_SETTING -> u
     android.os.Handler myHandler -> v
     android.view.View$OnClickListener onClickListener -> s
-    36:166:void <init>() -> <init>
+    36:168:void <init>() -> <init>
     52:69:void findId() -> a
     73:93:void onCreate(android.os.Bundle) -> onCreate
-    96:113:void tuiGuang() -> b
-    116:130:void addAd() -> c
-    133:153:void initData() -> d
-    156:163:void initListener() -> e
-    238:240:void onBackPressed() -> onBackPressed
+    96:115:void tuiGuang() -> b
+    118:132:void addAd() -> c
+    135:155:void initData() -> d
+    158:165:void initListener() -> e
+    240:242:void onBackPressed() -> onBackPressed
 com.supers.clean.junk.activity.SettingActivity$1 -> com.supers.clean.junk.activity.SettingActivity$1:
     com.supers.clean.junk.activity.SettingActivity this$0 -> a
     81:81:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
@@ -44425,11 +46077,11 @@ com.supers.clean.junk.activity.SettingActivity$2 -> com.supers.clean.junk.activi
     com.supers.clean.junk.activity.SettingActivity this$0 -> a
     97:97:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
     101:101:void onClick(android.view.View) -> onClick
-    105:111:void onLoadView(android.view.View) -> a
+    105:113:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.SettingActivity$3 -> com.supers.clean.junk.activity.SettingActivity$3:
     com.supers.clean.junk.activity.SettingActivity this$0 -> a
-    166:166:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
-    169:233:void onClick(android.view.View) -> onClick
+    168:168:void <init>(com.supers.clean.junk.activity.SettingActivity) -> <init>
+    171:235:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity.SuccessActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -44459,18 +46111,18 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     boolean animationEnd -> C
     com.eos.manager.page.SecuritySharPFive shareFive -> D
     android.view.View$OnClickListener onClickListener -> t
-    42:405:void <init>() -> <init>
+    42:407:void <init>() -> <init>
     78:96:void findId() -> a
     100:158:void onCreate(android.os.Bundle) -> onCreate
-    162:190:void tuiGuang() -> b
-    193:199:void initAnimation() -> d
-    202:208:void addListener() -> e
-    211:227:void addAd() -> f
-    298:370:void startFirstAnimation() -> c
-    373:403:void startSecondAnimation() -> g
-    435:437:void onStop() -> onStop
-    441:443:void onBackPressed() -> onBackPressed
-    446:474:void setAnimationThread() -> h
+    162:192:void tuiGuang() -> b
+    195:201:void initAnimation() -> d
+    204:210:void addListener() -> e
+    213:229:void addAd() -> f
+    300:372:void startFirstAnimation() -> c
+    375:405:void startSecondAnimation() -> g
+    437:439:void onStop() -> onStop
+    443:445:void onBackPressed() -> onBackPressed
+    448:476:void setAnimationThread() -> h
     42:42:void access$000(com.supers.clean.junk.activity.SuccessActivity) -> a
     42:42:void access$100(com.supers.clean.junk.activity.SuccessActivity) -> b
     42:42:boolean access$202(com.supers.clean.junk.activity.SuccessActivity,boolean) -> a
@@ -44497,58 +46149,58 @@ com.supers.clean.junk.activity.SuccessActivity$4 -> com.supers.clean.junk.activi
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
     167:167:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
     171:171:void onClick(android.view.View) -> onClick
-    175:188:void onLoadView(android.view.View) -> a
+    175:190:void onLoadView(android.view.View) -> a
 com.supers.clean.junk.activity.SuccessActivity$5 -> com.supers.clean.junk.activity.SuccessActivity$5:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    193:193:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    196:197:void run() -> run
+    195:195:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    198:199:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$6 -> com.supers.clean.junk.activity.SuccessActivity$6:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    302:302:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    305:358:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    363:363:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    368:368:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    304:304:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    307:360:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    365:365:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    370:370:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$6$1 -> com.supers.clean.junk.activity.SuccessActivity$6$1:
     float val$hx -> a
     float val$hy -> b
     com.supers.clean.junk.activity.SuccessActivity$6 this$1 -> c
-    308:308:void <init>(com.supers.clean.junk.activity.SuccessActivity$6,float,float) -> <init>
-    311:323:void run() -> run
+    310:310:void <init>(com.supers.clean.junk.activity.SuccessActivity$6,float,float) -> <init>
+    313:325:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$6$2 -> com.supers.clean.junk.activity.SuccessActivity$6$2:
     com.supers.clean.junk.activity.SuccessActivity$6 this$1 -> a
-    325:325:void <init>(com.supers.clean.junk.activity.SuccessActivity$6) -> <init>
-    328:356:void run() -> run
+    327:327:void <init>(com.supers.clean.junk.activity.SuccessActivity$6) -> <init>
+    330:358:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$6$2$1 -> com.supers.clean.junk.activity.SuccessActivity$6$2$1:
     com.supers.clean.junk.activity.SuccessActivity$6$2 this$2 -> a
-    334:334:void <init>(com.supers.clean.junk.activity.SuccessActivity$6$2) -> <init>
-    338:338:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    342:343:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    348:348:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    353:353:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    336:336:void <init>(com.supers.clean.junk.activity.SuccessActivity$6$2) -> <init>
+    340:340:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    344:345:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    350:350:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    355:355:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$7 -> com.supers.clean.junk.activity.SuccessActivity$7:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    376:376:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    379:391:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    396:396:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    401:401:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    378:378:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    381:393:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    398:398:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    403:403:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.activity.SuccessActivity$7$1 -> com.supers.clean.junk.activity.SuccessActivity$7$1:
     com.supers.clean.junk.activity.SuccessActivity$7 this$1 -> a
-    379:379:void <init>(com.supers.clean.junk.activity.SuccessActivity$7) -> <init>
-    382:388:void run() -> run
+    381:381:void <init>(com.supers.clean.junk.activity.SuccessActivity$7) -> <init>
+    384:390:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$8 -> com.supers.clean.junk.activity.SuccessActivity$8:
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    405:405:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    408:430:void onClick(android.view.View) -> onClick
+    407:407:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    410:432:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.SuccessActivity$9 -> com.supers.clean.junk.activity.SuccessActivity$9:
     long lastMillis -> b
     com.supers.clean.junk.activity.SuccessActivity this$0 -> a
-    446:447:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
-    450:472:void run() -> run
+    448:449:void <init>(com.supers.clean.junk.activity.SuccessActivity) -> <init>
+    452:474:void run() -> run
 com.supers.clean.junk.activity.SuccessActivity$9$1 -> com.supers.clean.junk.activity.SuccessActivity$9$1:
     float val$delta -> a
     com.supers.clean.junk.activity.SuccessActivity$9 this$1 -> b
-    455:455:void <init>(com.supers.clean.junk.activity.SuccessActivity$9,float) -> <init>
-    458:460:void run() -> run
+    457:457:void <init>(com.supers.clean.junk.activity.SuccessActivity$9,float) -> <init>
+    460:462:void run() -> run
 com.supers.clean.junk.activity.ThemeActivity -> com.supers.clean.junk.activity.ThemeActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -44566,15 +46218,8 @@ com.supers.clean.junk.activity.ThemeActivity$1 -> com.supers.clean.junk.activity
     55:55:void <init>(com.supers.clean.junk.activity.ThemeActivity) -> <init>
     58:81:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.TranslateActivity -> com.supers.clean.junk.activity.TranslateActivity:
-    17:17:void <init>() -> <init>
-    21:52:void onCreate(android.os.Bundle) -> onCreate
-com.supers.clean.junk.activity.TranslateActivity$1 -> com.supers.clean.junk.activity.TranslateActivity$1:
-    com.supers.clean.junk.activity.TranslateActivity this$0 -> a
-    27:27:void <init>(com.supers.clean.junk.activity.TranslateActivity) -> <init>
-    30:31:void onCancel() -> a
-    35:36:void onInstall() -> b
-    40:41:void onDialogDismiss() -> c
-    45:48:void onIsShowDialog(boolean) -> a
+    18:18:void <init>() -> <init>
+    22:33:void onCreate(android.os.Bundle) -> onCreate
 com.supers.clean.junk.activity.UnloadActivity -> com.supers.clean.junk.activity.UnloadActivity:
     android.widget.ImageView iv_icon -> a
     android.widget.TextView tv_size -> b
@@ -45626,11 +47271,11 @@ com.supers.clean.junk.widget.AutoUpdateService -> com.supers.clean.junk.widget.A
     android.content.Intent alarmIntent -> f
     19:40:void <init>() -> <init>
     android.content.Intent createAlarmIntent(android.content.Context) -> a
-    76:85:void onCreate() -> onCreate
-    89:110:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    115:115:android.os.IBinder onBind(android.content.Intent) -> onBind
-    19:19:boolean access$000(com.supers.clean.junk.widget.AutoUpdateService) -> a
-    19:19:java.lang.String access$100(com.supers.clean.junk.widget.AutoUpdateService) -> b
+    76:88:void onCreate() -> onCreate
+    92:109:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    114:114:android.os.IBinder onBind(android.content.Intent) -> onBind
+    19:19:java.lang.String access$000(com.supers.clean.junk.widget.AutoUpdateService) -> a
+    19:19:boolean access$100(com.supers.clean.junk.widget.AutoUpdateService) -> b
     19:19:android.os.Handler access$200(com.supers.clean.junk.widget.AutoUpdateService) -> c
     19:19:int access$300(com.supers.clean.junk.widget.AutoUpdateService) -> d
 com.supers.clean.junk.widget.AutoUpdateService$1 -> com.supers.clean.junk.widget.AutoUpdateService$1:
@@ -45650,7 +47295,7 @@ com.supers.clean.junk.widget.TempProvider -> com.supers.clean.junk.widget.TempPr
     46:48:void onEnabled(android.content.Context) -> onEnabled
     52:81:void onReceive(android.content.Context,android.content.Intent) -> onReceive
     85:113:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
-    116:187:android.graphics.Bitmap getBitmap(android.content.Context,int) -> a
+    116:188:android.graphics.Bitmap getBitmap(android.content.Context,int) -> a
     27:27:android.widget.RemoteViews access$000(com.supers.clean.junk.widget.TempProvider) -> a
 com.supers.clean.junk.widget.TempProvider$1 -> com.supers.clean.junk.widget.TempProvider$1:
     android.content.Context val$context -> a
@@ -45668,67 +47313,51 @@ com.supers.clean.junk.widget.TempService -> com.supers.clean.junk.widget.TempSer
     10:10:void <init>() -> <init>
     17:30:android.content.Intent createAlarmIntent(android.content.Context) -> a
 com.supers.clean.junk.widget.WidgetProvider -> com.supers.clean.junk.widget.WidgetProvider:
-    android.widget.RemoteViews rv -> a
-    android.content.res.ColorStateList green -> b
-    android.content.res.ColorStateList yellow -> c
-    android.content.res.ColorStateList red -> d
-    20:20:void <init>() -> <init>
-    27:29:void onDeleted(android.content.Context,int[]) -> onDeleted
-    33:33:android.content.Intent launcherService(android.content.Context) -> a
-    38:41:void onDisabled(android.content.Context) -> onDisabled
-    45:47:void onEnabled(android.content.Context) -> onEnabled
-    51:73:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    77:109:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
-com.supers.clean.junk.widget.WidgetService -> com.supers.clean.junk.widget.WidgetService:
-    android.os.Handler handler -> c
-    com.supers.clean.junk.widget.WidgetService$KillBackg killBackg -> d
-    int memory -> e
-    int memory_kill -> f
-    android.widget.RemoteViews rv -> g
-    android.appwidget.AppWidgetManager manager -> h
-    android.content.ComponentName cn -> i
-    boolean isRuning -> j
-    android.content.res.ColorStateList green -> k
-    android.content.res.ColorStateList yellow -> l
-    android.content.res.ColorStateList red -> m
     boolean isxiao -> a
-    java.lang.Runnable runnableT -> b
-    25:78:void <init>() -> <init>
-    37:37:android.os.IBinder onBind(android.content.Intent) -> onBind
-    42:55:android.content.Intent createAlarmIntent(android.content.Context) -> a
-    60:75:void onCreate() -> onCreate
-    117:120:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    124:132:void updata() -> a
-    135:149:void killAll(android.content.Context) -> b
-    152:155:long getAvailMemory(android.app.ActivityManager) -> a
-    160:161:void onDestroy() -> onDestroy
-    25:25:int access$002(com.supers.clean.junk.widget.WidgetService,int) -> a
-    25:25:boolean access$102(com.supers.clean.junk.widget.WidgetService,boolean) -> a
-    25:25:int access$200(com.supers.clean.junk.widget.WidgetService) -> a
-    25:25:int access$202(com.supers.clean.junk.widget.WidgetService,int) -> b
-    25:25:int access$000(com.supers.clean.junk.widget.WidgetService) -> b
-    25:25:android.widget.RemoteViews access$300(com.supers.clean.junk.widget.WidgetService) -> c
-    25:25:android.content.res.ColorStateList access$400(com.supers.clean.junk.widget.WidgetService) -> d
-    25:25:android.content.res.ColorStateList access$500(com.supers.clean.junk.widget.WidgetService) -> e
-    25:25:android.content.res.ColorStateList access$600(com.supers.clean.junk.widget.WidgetService) -> f
-    25:25:android.content.ComponentName access$700(com.supers.clean.junk.widget.WidgetService) -> g
-    25:25:android.appwidget.AppWidgetManager access$800(com.supers.clean.junk.widget.WidgetService) -> h
-    25:25:boolean access$100(com.supers.clean.junk.widget.WidgetService) -> i
-    25:25:android.os.Handler access$900(com.supers.clean.junk.widget.WidgetService) -> j
-com.supers.clean.junk.widget.WidgetService$1 -> com.supers.clean.junk.widget.WidgetService$1:
-    com.supers.clean.junk.widget.WidgetService this$0 -> a
-    68:68:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
-    71:72:void killS(int,long) -> a
-com.supers.clean.junk.widget.WidgetService$2 -> com.supers.clean.junk.widget.WidgetService$2:
-    com.supers.clean.junk.widget.WidgetService this$0 -> a
-    78:78:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
-    81:112:void run() -> run
-com.supers.clean.junk.widget.WidgetService$3 -> com.supers.clean.junk.widget.WidgetService$3:
-    com.supers.clean.junk.widget.WidgetService this$0 -> a
-    125:125:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
-    128:129:void run() -> run
-com.supers.clean.junk.widget.WidgetService$KillBackg -> com.supers.clean.junk.widget.WidgetService$a:
-    void killS(int,long) -> a
+    int memory -> c
+    android.widget.RemoteViews rv -> d
+    android.appwidget.AppWidgetManager manager -> e
+    android.content.ComponentName cn -> f
+    boolean isRuning -> g
+    android.content.res.ColorStateList green -> h
+    android.content.res.ColorStateList yellow -> i
+    android.content.res.ColorStateList red -> j
+    android.content.Context mContext -> k
+    android.os.Handler handler -> b
+    27:42:void <init>() -> <init>
+    95:97:void onDeleted(android.content.Context,int[]) -> onDeleted
+    101:101:android.content.Intent launcherService(android.content.Context) -> a
+    106:109:void onDisabled(android.content.Context) -> onDisabled
+    113:115:void onEnabled(android.content.Context) -> onEnabled
+    119:128:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    131:141:void updateRemoteView() -> a
+    144:154:void init(android.content.Context) -> c
+    158:179:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
+    182:189:void update() -> b
+    192:200:void killAll(android.content.Context) -> b
+    27:27:boolean access$002(com.supers.clean.junk.widget.WidgetProvider,boolean) -> a
+    27:27:android.widget.RemoteViews access$100(com.supers.clean.junk.widget.WidgetProvider) -> a
+    27:27:android.content.res.ColorStateList access$200(com.supers.clean.junk.widget.WidgetProvider) -> b
+    27:27:android.content.res.ColorStateList access$300(com.supers.clean.junk.widget.WidgetProvider) -> c
+    27:27:android.content.res.ColorStateList access$400(com.supers.clean.junk.widget.WidgetProvider) -> d
+    27:27:android.content.ComponentName access$500(com.supers.clean.junk.widget.WidgetProvider) -> e
+    27:27:android.appwidget.AppWidgetManager access$600(com.supers.clean.junk.widget.WidgetProvider) -> f
+    27:27:boolean access$000(com.supers.clean.junk.widget.WidgetProvider) -> g
+    27:27:android.content.Context access$700(com.supers.clean.junk.widget.WidgetProvider) -> h
+com.supers.clean.junk.widget.WidgetProvider$1 -> com.supers.clean.junk.widget.WidgetProvider$1:
+    com.supers.clean.junk.widget.WidgetProvider this$0 -> a
+    183:183:void <init>(com.supers.clean.junk.widget.WidgetProvider) -> <init>
+    186:187:void run() -> run
+com.supers.clean.junk.widget.WidgetProvider$MyRunnable -> com.supers.clean.junk.widget.WidgetProvider$a:
+    int internalMemory -> b
+    int externalMemory -> c
+    com.supers.clean.junk.widget.WidgetProvider this$0 -> a
+    49:52:void <init>(com.supers.clean.junk.widget.WidgetProvider,int) -> <init>
+    56:90:void run() -> run
+com.supers.clean.junk.widget.WidgetService -> com.supers.clean.junk.widget.WidgetService:
+    11:11:void <init>() -> <init>
+    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
+    21:34:android.content.Intent createAlarmIntent(android.content.Context) -> a
 cz.msebera.android.httpclient.ConnectionClosedException -> cz.msebera.android.httpclient.a:
     47:48:void <init>(java.lang.String) -> <init>
 cz.msebera.android.httpclient.ConnectionReuseStrategy -> cz.msebera.android.httpclient.b:

@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -150,6 +151,8 @@ public class MessageActivity extends BaseActivity {
             @Override
             public void onLoadView(View view) {
                 if (view != null) {
+                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_message.setVisibility(View.VISIBLE);
                     fl_lot_message.addView(view, 0);
                 } else {

@@ -147,6 +147,8 @@ public class CoolingActivity extends BaseActivity {
             @Override
             public void onLoadView(View view) {
                 if (view != null) {
+                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_cooling.setVisibility(View.VISIBLE);
                     fl_lot_cooling.addView(view, 0);
                 } else {

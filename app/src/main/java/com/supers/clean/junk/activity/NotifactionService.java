@@ -132,7 +132,13 @@ public class NotifactionService extends Service {
         Notification.Builder mBuilder = new Notification.Builder(this);
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
-        canvas.drawArc(oval, 0, 270 * CommonUtil.getMemory(this) / 100, false, paint_1);
+        int memory = CommonUtil.getMemory(this);
+        if (memory > 70) {
+            paint_1.setColor(this.getResources().getColor(R.color.app_color_third));
+        } else {
+            paint_1.setColor(this.getResources().getColor(R.color.white_100));
+        }
+        canvas.drawArc(oval, 0, 270 * memory/ 100, false, paint_1);
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
         remoteView_1.setTextViewText(R.id.norifi_memory_text, CommonUtil.getMemory(this) + "%");
         int requestCode = (int) SystemClock.uptimeMillis();
