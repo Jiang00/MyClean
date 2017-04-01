@@ -82,9 +82,6 @@ public abstract class AutoUpdateService extends Service {
         update_widget_action = alarmIntent.getStringExtra(UPDATE_WIDGET_ACTION);
         service_update_duration = alarmIntent.getIntExtra(SERVICE_UPDATE, DEFAULT_SERVICE_UPDATE_DURATION);
         widget_update_duration = alarmIntent.getIntExtra(WIDGET_UPDATE, DEFAULT_WIDGET_UPDATE_DURATION);
-
-        Message message = updateHandler.obtainMessage(UPDATE_MESSAGE);
-        updateHandler.sendMessageDelayed(message, widget_update_duration);
     }
 
     @Override
@@ -92,7 +89,12 @@ public abstract class AutoUpdateService extends Service {
         Log.e("rqy", "AutoUpdateService--onStartCommand");
         isNeedStop = intent.getBooleanExtra(SERVICE_NEED_STOP, false);
         if (isNeedStop) {
+            updateHandler.removeMessages(UPDATE_MESSAGE);
             return START_NOT_STICKY;
+        } else {
+            updateHandler.removeMessages(UPDATE_MESSAGE);
+            Message message = updateHandler.obtainMessage(UPDATE_MESSAGE);
+            updateHandler.sendMessageDelayed(message, widget_update_duration);
         }
         if (alarmIntent == null) {
             alarmIntent = createAlarmIntent(this);

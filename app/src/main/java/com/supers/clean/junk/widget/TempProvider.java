@@ -162,7 +162,15 @@ public class TempProvider extends AutoUpdateWidgetProvider {
         canvas.drawBitmap(zhongbiao, 0, 0, new Paint());
 
         Paint textPaint = new Paint();
-        textPaint.setColor(Color.parseColor("#3cb728"));
+        String textColor;
+        if (actualTemp < 28) {
+            textColor = "#3db729";
+        } else if (actualTemp < 40) {
+            textColor = "#eaa81b";
+        } else {
+            textColor = "#dc1010";
+        }
+        textPaint.setColor(Color.parseColor(textColor));
         textPaint.setTextSize(40);
         textPaint.setStyle(Paint.Style.FILL);
         //该方法即为设置基线上那个点究竟是left,center,还是right  这里我设置为center

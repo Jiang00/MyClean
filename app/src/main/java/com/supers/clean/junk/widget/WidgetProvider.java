@@ -2,7 +2,6 @@ package com.supers.clean.junk.widget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
-import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -18,7 +17,8 @@ import com.supers.clean.junk.modle.CommonUtil;
  * Created by Ivy on 2017/3/28.
  */
 
-public class WidgetProvider extends AppWidgetProvider {
+public class WidgetProvider extends AutoUpdateWidgetProvider {
+    public static final String TEMP_PROVIDER_ACTION = "app.eosmobi.action.widget.ram";
     private RemoteViews rv;
     private ColorStateList green, yellow, red;
 
@@ -26,6 +26,11 @@ public class WidgetProvider extends AppWidgetProvider {
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context, appWidgetIds);
         //widget被从屏幕移除
+    }
+
+    @Override
+    public Intent launcherService(Context context) {
+        return new Intent(context, WidgetService.class);
     }
 
     @Override
@@ -39,7 +44,6 @@ public class WidgetProvider extends AppWidgetProvider {
     public void onEnabled(Context context) {
         super.onEnabled(context);
         //widget添加到屏幕上执行
-        context.startService(new Intent(context, WidgetService.class));
     }
 
     @Override
@@ -49,7 +53,7 @@ public class WidgetProvider extends AppWidgetProvider {
         yellow = context.getResources().getColorStateList(R.color.widget_yellow);
         red = context.getResources().getColorStateList(R.color.widget_red);
         if (TextUtils.equals(intent.getAction(), "app.eosmobi.action.widget.ram")) {
-            int memory = intent.getIntExtra("memory", CommonUtil.getMemory(context));
+            int memory = CommonUtil.getMemory(context);
             if (rv == null) {
                 rv = new RemoteViews(context.getPackageName(), R.layout.layout_widget_ram);
             }
@@ -71,6 +75,7 @@ public class WidgetProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         super.onUpdate(context, appWidgetManager, appWidgetIds);
+        context.startService(new Intent(context, WidgetService.class));
         //刷新的时候执行widget
         //remoteView  AppWidgetManager
  /*
@@ -79,6 +84,7 @@ public class WidgetProvider extends AppWidgetProvider {
         green = context.getResources().getColorStateList(R.color.widget_green);
         yellow = context.getResources().getColorStateList(R.color.widget_yellow);
         red = context.getResources().getColorStateList(R.color.widget_red);
+
         Intent intent1 = new Intent(context, WidgetService.class);
         PendingIntent pendingIntent1 = PendingIntent.getService(context, 0, intent1, 0);
         Intent intent = new Intent(context, MainActivity.class);
