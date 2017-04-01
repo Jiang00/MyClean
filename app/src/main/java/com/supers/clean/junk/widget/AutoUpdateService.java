@@ -21,9 +21,11 @@ public abstract class AutoUpdateService extends Service {
     public static final String SERVICE_UPDATE = "SERVICE_UPDATE";
     public static final String WIDGET_UPDATE = "WIDGET_UPDATE";
     public static final String UPDATE_WIDGET_ACTION = "UPDATE_WIDGET_ACTION";
+
     private static final int DEFAULT_SERVICE_UPDATE_DURATION = 5 * 60 * 1000; // service 自启间隔
     private static final int DEFAULT_WIDGET_UPDATE_DURATION = 30 * 1000;     // Widget 更新间隔
-    private static final int UPDATE_MESSAGE = 1000;
+
+    private static final int SERVICE_UPDATE_MESSAGE = 1000;
 
     private int widget_update_duration = DEFAULT_WIDGET_UPDATE_DURATION;
     private int service_update_duration = DEFAULT_SERVICE_UPDATE_DURATION;
@@ -32,19 +34,20 @@ public abstract class AutoUpdateService extends Service {
     /**
      * widget被移除，停止service
      */
-    public static final String SERVICE_NEED_STOP = "need_stop";
+    public static final String STOP_UPDATE_WIDGET = "stop_update_widget";
+    public static final String START_UPDATE_WIDGET = "start_update_widget";
 
-    private boolean isNeedStop = false;
+    private boolean isStopUpdateWidget = false;
 
     // 更新 Widget 的 Handler
     private Handler updateHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case UPDATE_MESSAGE:
+                case SERVICE_UPDATE_MESSAGE:
                     Log.e("rqy", "update widget--broadcast action=" + update_widget_action);
-                    if (isNeedStop) {
-                        removeMessages(UPDATE_MESSAGE);
+                    if (isStopUpdateWidget) {
+                        removeMessages(SERVICE_UPDATE_MESSAGE);
                         stopSelf();
                         break;
                     }
@@ -52,7 +55,7 @@ public abstract class AutoUpdateService extends Service {
                         sendBroadcast(new Intent(update_widget_action));
                     }
                     Message message = updateHandler.obtainMessage();
-                    message.what = UPDATE_MESSAGE;
+                    message.what = SERVICE_UPDATE_MESSAGE;
                     updateHandler.sendMessageDelayed(message, widget_update_duration);
                     break;
                 default:
@@ -83,18 +86,34 @@ public abstract class AutoUpdateService extends Service {
         service_update_duration = alarmIntent.getIntExtra(SERVICE_UPDATE, DEFAULT_SERVICE_UPDATE_DURATION);
         widget_update_duration = alarmIntent.getIntExtra(WIDGET_UPDATE, DEFAULT_WIDGET_UPDATE_DURATION);
 
-        Message message = updateHandler.obtainMessage(UPDATE_MESSAGE);
+        startUpdate();
+    }
+
+    private void stopUpdate() {
+        updateHandler.removeMessages(SERVICE_UPDATE_MESSAGE);
+    }
+
+    private void startUpdate() {
+        Message message = updateHandler.obtainMessage(SERVICE_UPDATE_MESSAGE);
         updateHandler.sendMessageDelayed(message, widget_update_duration);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.e("rqy", "AutoUpdateService--onStartCommand");
-        isNeedStop = intent.getBooleanExtra(SERVICE_NEED_STOP, false);
-        if (isNeedStop) {
-            updateHandler.removeMessages(UPDATE_MESSAGE);
+
+        isStopUpdateWidget = intent.getBooleanExtra(STOP_UPDATE_WIDGET, false);
+        if (isStopUpdateWidget) {
+            stopUpdate();
             return START_NOT_STICKY;
+        } else {
+            boolean start_update = intent.getBooleanExtra(START_UPDATE_WIDGET, false);
+            if (start_update) {
+                updateHandler.removeMessages(SERVICE_UPDATE_MESSAGE);
+                startUpdate();
+            }
         }
+
         if (alarmIntent == null) {
             alarmIntent = createAlarmIntent(this);
         }

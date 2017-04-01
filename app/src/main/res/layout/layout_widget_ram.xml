@@ -21,13 +21,19 @@
             android:layout_height="29dp"
             android:layout_gravity="center_vertical">
 
-            <ProgressBar
+        <!--    <ProgressBar
+                android:visibility="gone"
                 android:id="@+id/widget_progress"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="241dp"
                 android:layout_height="29dp"
                 android:progress="50"
-                android:progressDrawable="@drawable/green_progress" />
+                android:progressDrawable="@drawable/green_progress" />-->
+            
+            <ImageView
+                android:id="@+id/widget_progress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/widget_msg"

@@ -26,7 +26,7 @@ public abstract class AutoUpdateWidgetProvider extends AppWidgetProvider {
         PendingIntent pendingIntent = PendingIntent.getService(context, 0,
                 bootService, PendingIntent.FLAG_UPDATE_CURRENT);
         manager.cancel(pendingIntent);
-        bootService.putExtra(TempService.SERVICE_NEED_STOP, true);
+        bootService.putExtra(TempService.STOP_UPDATE_WIDGET, true);
         context.startService(bootService);
     }
 
