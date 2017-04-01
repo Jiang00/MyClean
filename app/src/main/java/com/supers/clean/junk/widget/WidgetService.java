@@ -26,7 +26,7 @@ public class WidgetService extends AutoUpdateService {
         /**
          * widget更新时间
          */
-        intent.putExtra(AutoUpdateService.WIDGET_UPDATE, 1 * 1000);
+        intent.putExtra(AutoUpdateService.WIDGET_UPDATE, 5 * 1000);
         /**
          * 更新widget 广播action
          */

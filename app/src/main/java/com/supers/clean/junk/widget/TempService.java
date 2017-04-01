@@ -18,7 +18,7 @@ public class TempService extends AutoUpdateService {
         /**
          * Service通过alarm manager定时启动
          */
-        intent.putExtra(AutoUpdateService.SERVICE_UPDATE, 5 * 60 * 1000);
+        intent.putExtra(AutoUpdateService.SERVICE_UPDATE, 30 * 60 * 1000);
         /**
          * widget更新时间
          */

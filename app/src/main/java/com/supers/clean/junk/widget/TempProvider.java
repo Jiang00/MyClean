@@ -171,8 +171,9 @@ public class TempProvider extends AutoUpdateWidgetProvider {
             textColor = "#dc1010";
         }
         textPaint.setColor(Color.parseColor(textColor));
-        textPaint.setTextSize(40);
+        textPaint.setTextSize(36);
         textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setAntiAlias(true);
         //该方法即为设置基线上那个点究竟是left,center,还是right  这里我设置为center
         textPaint.setTextAlign(Paint.Align.CENTER);
 
