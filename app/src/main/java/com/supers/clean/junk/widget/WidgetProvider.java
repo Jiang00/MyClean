@@ -7,12 +7,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -85,9 +83,9 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
             }
 
             int progressColor;
-            if (memory <= 40) {
+            if (internalMemory <= 40) {
                 progressColor = R.drawable.green_progress;
-            } else if (memory <= 80) {
+            } else if (internalMemory <= 80) {
                 progressColor = R.drawable.huang_progress;
             } else {
                 progressColor = R.drawable.hong_progress;
