@@ -23,7 +23,6 @@ import java.util.Timer;
  */
 
 public class WidgetService extends AutoUpdateService {
-    private Timer mTimer;
     private Handler handler;
     private KillBackg killBackg;
     private int memory, memory_kill;
@@ -32,7 +31,6 @@ public class WidgetService extends AutoUpdateService {
     private ComponentName cn;
     private boolean isRuning;
     private ColorStateList green, yellow, red;
-    private Thread kill, runing;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -73,12 +71,6 @@ public class WidgetService extends AutoUpdateService {
                 WidgetService.this.memory_kill = memory;
             }
         };
-        kill = new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        });
 
     }
 
@@ -139,10 +131,6 @@ public class WidgetService extends AutoUpdateService {
 
     }
 
-    public void up() {
-
-    }
-
     public void killAll(Context context) {
         final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
@@ -170,7 +158,6 @@ public class WidgetService extends AutoUpdateService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mTimer = null;
     }
 
     interface KillBackg {

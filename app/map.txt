@@ -42881,7 +42881,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5406:12859:void <clinit>() -> <clinit>
+    5408:12861:void <clinit>() -> <clinit>
 com.supers.clean.junk.ShortCutActivity -> com.supers.clean.junk.ShortCutActivity:
     android.widget.FrameLayout short_backg -> a
     android.widget.ImageView short_zhuan -> b
@@ -45626,9 +45626,9 @@ com.supers.clean.junk.widget.AutoUpdateService -> com.supers.clean.junk.widget.A
     android.content.Intent alarmIntent -> f
     19:40:void <init>() -> <init>
     android.content.Intent createAlarmIntent(android.content.Context) -> a
-    76:88:void onCreate() -> onCreate
-    92:108:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    113:113:android.os.IBinder onBind(android.content.Intent) -> onBind
+    76:85:void onCreate() -> onCreate
+    89:110:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    115:115:android.os.IBinder onBind(android.content.Intent) -> onBind
     19:19:boolean access$000(com.supers.clean.junk.widget.AutoUpdateService) -> a
     19:19:java.lang.String access$100(com.supers.clean.junk.widget.AutoUpdateService) -> b
     19:19:android.os.Handler access$200(com.supers.clean.junk.widget.AutoUpdateService) -> c
@@ -45650,7 +45650,7 @@ com.supers.clean.junk.widget.TempProvider -> com.supers.clean.junk.widget.TempPr
     46:48:void onEnabled(android.content.Context) -> onEnabled
     52:81:void onReceive(android.content.Context,android.content.Intent) -> onReceive
     85:113:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
-    116:179:android.graphics.Bitmap getBitmap(android.content.Context,int) -> a
+    116:187:android.graphics.Bitmap getBitmap(android.content.Context,int) -> a
     27:27:android.widget.RemoteViews access$000(com.supers.clean.junk.widget.TempProvider) -> a
 com.supers.clean.junk.widget.TempProvider$1 -> com.supers.clean.junk.widget.TempProvider$1:
     android.content.Context val$context -> a
@@ -45672,75 +45672,61 @@ com.supers.clean.junk.widget.WidgetProvider -> com.supers.clean.junk.widget.Widg
     android.content.res.ColorStateList green -> b
     android.content.res.ColorStateList yellow -> c
     android.content.res.ColorStateList red -> d
-    21:21:void <init>() -> <init>
+    20:20:void <init>() -> <init>
     27:29:void onDeleted(android.content.Context,int[]) -> onDeleted
-    33:36:void onDisabled(android.content.Context) -> onDisabled
-    40:43:void onEnabled(android.content.Context) -> onEnabled
-    47:69:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    73:103:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
+    33:33:android.content.Intent launcherService(android.content.Context) -> a
+    38:41:void onDisabled(android.content.Context) -> onDisabled
+    45:47:void onEnabled(android.content.Context) -> onEnabled
+    51:73:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    77:109:void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
 com.supers.clean.junk.widget.WidgetService -> com.supers.clean.junk.widget.WidgetService:
-    java.util.Timer mTimer -> d
-    android.os.Handler handler -> e
-    com.supers.clean.junk.widget.WidgetService$KillBackg killBackg -> f
-    int memory -> g
-    int memory_kill -> h
-    android.widget.RemoteViews rv -> i
-    android.appwidget.AppWidgetManager manager -> j
-    android.content.ComponentName cn -> k
-    boolean isRuning -> l
-    android.content.res.ColorStateList green -> m
-    android.content.res.ColorStateList yellow -> n
-    android.content.res.ColorStateList red -> o
-    java.lang.Thread kill -> p
-    java.lang.Thread runing -> q
-    java.lang.Runnable runnable -> a
-    boolean isxiao -> b
-    java.lang.Runnable runnableT -> c
-    27:141:void <init>() -> <init>
-    41:41:android.os.IBinder onBind(android.content.Intent) -> onBind
-    46:131:void onCreate() -> onCreate
-    181:184:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    188:254:void updata() -> a
-    261:275:void killAll(android.content.Context) -> a
-    278:281:long getAvailMemory(android.app.ActivityManager) -> a
-    286:288:void onDestroy() -> onDestroy
-    27:27:int access$002(com.supers.clean.junk.widget.WidgetService,int) -> a
-    27:27:boolean access$102(com.supers.clean.junk.widget.WidgetService,boolean) -> a
-    27:27:android.os.Handler access$200(com.supers.clean.junk.widget.WidgetService) -> a
-    27:27:android.widget.RemoteViews access$300(com.supers.clean.junk.widget.WidgetService) -> b
-    27:27:android.content.res.ColorStateList access$400(com.supers.clean.junk.widget.WidgetService) -> c
-    27:27:android.content.res.ColorStateList access$500(com.supers.clean.junk.widget.WidgetService) -> d
-    27:27:android.content.res.ColorStateList access$600(com.supers.clean.junk.widget.WidgetService) -> e
-    27:27:android.content.ComponentName access$700(com.supers.clean.junk.widget.WidgetService) -> f
-    27:27:android.appwidget.AppWidgetManager access$800(com.supers.clean.junk.widget.WidgetService) -> g
-    27:27:int access$900(com.supers.clean.junk.widget.WidgetService) -> h
-    27:27:int access$902(com.supers.clean.junk.widget.WidgetService,int) -> b
-    27:27:int access$000(com.supers.clean.junk.widget.WidgetService) -> i
-    27:27:boolean access$100(com.supers.clean.junk.widget.WidgetService) -> j
+    android.os.Handler handler -> c
+    com.supers.clean.junk.widget.WidgetService$KillBackg killBackg -> d
+    int memory -> e
+    int memory_kill -> f
+    android.widget.RemoteViews rv -> g
+    android.appwidget.AppWidgetManager manager -> h
+    android.content.ComponentName cn -> i
+    boolean isRuning -> j
+    android.content.res.ColorStateList green -> k
+    android.content.res.ColorStateList yellow -> l
+    android.content.res.ColorStateList red -> m
+    boolean isxiao -> a
+    java.lang.Runnable runnableT -> b
+    25:78:void <init>() -> <init>
+    37:37:android.os.IBinder onBind(android.content.Intent) -> onBind
+    42:55:android.content.Intent createAlarmIntent(android.content.Context) -> a
+    60:75:void onCreate() -> onCreate
+    117:120:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    124:132:void updata() -> a
+    135:149:void killAll(android.content.Context) -> b
+    152:155:long getAvailMemory(android.app.ActivityManager) -> a
+    160:161:void onDestroy() -> onDestroy
+    25:25:int access$002(com.supers.clean.junk.widget.WidgetService,int) -> a
+    25:25:boolean access$102(com.supers.clean.junk.widget.WidgetService,boolean) -> a
+    25:25:int access$200(com.supers.clean.junk.widget.WidgetService) -> a
+    25:25:int access$202(com.supers.clean.junk.widget.WidgetService,int) -> b
+    25:25:int access$000(com.supers.clean.junk.widget.WidgetService) -> b
+    25:25:android.widget.RemoteViews access$300(com.supers.clean.junk.widget.WidgetService) -> c
+    25:25:android.content.res.ColorStateList access$400(com.supers.clean.junk.widget.WidgetService) -> d
+    25:25:android.content.res.ColorStateList access$500(com.supers.clean.junk.widget.WidgetService) -> e
+    25:25:android.content.res.ColorStateList access$600(com.supers.clean.junk.widget.WidgetService) -> f
+    25:25:android.content.ComponentName access$700(com.supers.clean.junk.widget.WidgetService) -> g
+    25:25:android.appwidget.AppWidgetManager access$800(com.supers.clean.junk.widget.WidgetService) -> h
+    25:25:boolean access$100(com.supers.clean.junk.widget.WidgetService) -> i
+    25:25:android.os.Handler access$900(com.supers.clean.junk.widget.WidgetService) -> j
 com.supers.clean.junk.widget.WidgetService$1 -> com.supers.clean.junk.widget.WidgetService$1:
     com.supers.clean.junk.widget.WidgetService this$0 -> a
-    54:54:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
-    57:58:void killS(int,long) -> a
+    68:68:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
+    71:72:void killS(int,long) -> a
 com.supers.clean.junk.widget.WidgetService$2 -> com.supers.clean.junk.widget.WidgetService$2:
     com.supers.clean.junk.widget.WidgetService this$0 -> a
-    60:60:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
-    64:64:void run() -> run
+    78:78:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
+    81:112:void run() -> run
 com.supers.clean.junk.widget.WidgetService$3 -> com.supers.clean.junk.widget.WidgetService$3:
     com.supers.clean.junk.widget.WidgetService this$0 -> a
-    66:66:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
-    69:120:void run() -> run
-com.supers.clean.junk.widget.WidgetService$4 -> com.supers.clean.junk.widget.WidgetService$4:
-    com.supers.clean.junk.widget.WidgetService this$0 -> a
-    133:133:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
-    136:138:void run() -> run
-com.supers.clean.junk.widget.WidgetService$5 -> com.supers.clean.junk.widget.WidgetService$5:
-    com.supers.clean.junk.widget.WidgetService this$0 -> a
-    141:141:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
-    144:176:void run() -> run
-com.supers.clean.junk.widget.WidgetService$6 -> com.supers.clean.junk.widget.WidgetService$6:
-    com.supers.clean.junk.widget.WidgetService this$0 -> a
-    190:190:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
-    193:194:void run() -> run
+    125:125:void <init>(com.supers.clean.junk.widget.WidgetService) -> <init>
+    128:129:void run() -> run
 com.supers.clean.junk.widget.WidgetService$KillBackg -> com.supers.clean.junk.widget.WidgetService$a:
     void killS(int,long) -> a
 cz.msebera.android.httpclient.ConnectionClosedException -> cz.msebera.android.httpclient.a:
