@@ -3,20 +3,19 @@
     package="com.eos.module.charge.saver">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <application
-        android:allowBackup="true"
-        android:supportsRtl="true">
 
+    <application>
         <service
-            android:name="com.eos.module.charge.saver.service.BatteryService"
+            android:name=".service.BatteryService"
             android:permission="android.permission.BIND_JOB_SERVICE">
             <intent-filter>
                 <action android:name="com.eos.battery.service" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
 
-        <receiver android:name="com.eos.module.charge.saver.receiver.StartReceiver">
+        <receiver android:name=".receiver.StartReceiver">
             <intent-filter android:priority="2147483647">
 
                 <!-- 优先级加最高 -->
@@ -33,9 +32,14 @@
         </receiver>
 
         <activity
-            android:name="com.eos.module.charge.saver.ADActivity"
+            android:name=".ADActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" />
+        <activity android:name=".ChargeActivity"
+            android:screenOrientation="nosensor"
+            android:noHistory="true"
+            android:launchMode="singleInstance"
+            android:theme="@style/CustomTranslate"/>
     </application>
 
 </manifest>

@@ -12,12 +12,12 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 
 import com.android.client.AndroidSdk;
 import com.eos.eshop.ShopMaster;
+import com.eos.module.charge.saver.ChargeActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
@@ -30,7 +30,6 @@ import com.eos.module.charge.saver.view.DuckView;
  * Created by on 2016/10/20.
  */
 public class BatteryService extends Service {
-    private static final String TAG = "BatteryService";
     private boolean b = false;
 
 
@@ -41,8 +40,6 @@ public class BatteryService extends Service {
 
     private static final int MSG_SCREEN_ON_DELAYED = 100;
     private static final int MSG_BATTERY_CHANGE_DELAYED = 5000;
-
-    //    private BatteryDBHelper batteryDb = new BatteryDBHelper(this);
     private Handler mHandler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
@@ -67,70 +64,8 @@ public class BatteryService extends Service {
             if (batteryView != null) {
                 batteryView.bind(entry);
             }
-//            showNotification(entry);
-//            new Thread() {
-//                @Override
-//                public void run() {
-//                    saveDataToDataBase(entry);
-//                }
-//            }.start();
         }
     };
-
-//    private void dealWidthTable(BatteryDBHelper dbHelper, SQLiteDatabase database, String tableName, String pre){
-//        boolean isTableExists = false;
-//        ArrayList<String> tables = dbHelper.getAllTable(database);
-//        for (String table : tables) {
-//            if (table.startsWith(pre)) {
-//                if (TextUtils.equals(table, tableName)) {
-//                    isTableExists = true;
-//                } else {
-//                    dbHelper.deleteTable(database, table);
-//                }
-//            }
-//        }
-//
-//        if (!isTableExists) {
-//            if (TextUtils.equals(pre, BatteryDBHelper.TABLE_NAME_PREFIX_BATTERY_LEVEL)) {
-//                dbHelper.createTableBatteryLevel(database, tableName);
-//            } else if (TextUtils.equals(pre, BatteryDBHelper.TABLE_NAME_PREFIX_FULL_CHARGE)) {
-//                dbHelper.createFullChargeTable(database, tableName);
-//            } else if (TextUtils.equals(pre, BatteryDBHelper.TABLE_NAME_PREFIX_CHARGE_HISTROY)) {
-//                dbHelper.createChargeHistoryTable(database, tableName);
-//            }
-//        }
-//    }
-
-//    private void saveDataToDataBase(BatteryEntry entry) {
-//        String tableName = batteryDb.getBatteryLevelTableNameByTimeStamp(System.currentTimeMillis());
-//        SQLiteDatabase sqdb = batteryDb.getWritableDatabase();
-//        dealWidthTable(batteryDb, sqdb, tableName, BatteryDBHelper.TABLE_NAME_PREFIX_BATTERY_LEVEL);
-//        boolean state = batteryDb.insertDataToTableBatteryLevel(sqdb, tableName, new BatterySaveInfo(batteryDb.getCurrentHour() + "", entry.getLevel() + ""));
-//        if (state) {
-//            try {
-//                sendBroadcast(new Intent(Constants.ACTION_BATTERY_RECORD_HOUR_BATTERY));
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        if (entry.getLevel() == 100) {
-//            int day = batteryDb.getCurrentDate();
-//            int month = batteryDb.getCurrentMonth();
-//            int year = batteryDb.getCurrentYear();
-//            String curTableName = BatteryDBHelper.TABLE_NAME_PREFIX_FULL_CHARGE + year + month;
-//            SQLiteDatabase database = batteryDb.getWritableDatabase();
-//            dealWidthTable(batteryDb, database, curTableName, BatteryDBHelper.TABLE_NAME_PREFIX_FULL_CHARGE);
-//            boolean insertState = batteryDb.insertDataToTableFullCharge(sqdb, curTableName, year + ":" + month + ":" + day);
-//            if (insertState) {
-//                try {
-//                    sendBroadcast(new Intent(Constants.ACTION_BATTERY_RECORD_FULL));
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
-//    }
 
     @TargetApi(Build.VERSION_CODES.KITKAT_WATCH)
     private boolean isScreenOn() {
@@ -157,56 +92,18 @@ public class BatteryService extends Service {
             } else {
                 showChargeView();
             }
-
-//            if (TextUtils.equals("android.intent.action.ACTION_POWER_DISCONNECTED", action)) {
-//                if (startLevel != -1 && startTime != -1 && startDate != null && entry != null) {
-//                    final long endTime = System.currentTimeMillis();
-//                    recordBatteryChargingHistory(context, entry.getLevel(), endTime);
-//                }
-//            }
         }
     };
-
-//    private void recordBatteryChargingHistory(Context context, int endLevel, long endTime){
-//        String curDate = new SimpleDateFormat("MM/dd").format(System.currentTimeMillis());
-//        String resultDate;
-//        if (TextUtils.equals(curDate, startDate)) {
-//            resultDate = curDate;
-//        } else {
-//            resultDate = startDate + " ~ " + curDate;
-//        }
-//        SimpleDateFormat hm = new SimpleDateFormat("HH:mm");
-//        String startHM = hm.format(startTime);
-//        String endHM = hm.format(endTime);
-//        String interval = Utils.getDistanceTime(startTime, endTime);
-//        if (batteryDb == null) {
-//            batteryDb = new BatteryDBHelper(context);
-//        }
-//        SQLiteDatabase database = batteryDb.getWritableDatabase();
-//        int month = batteryDb.getCurrentMonth();
-//        int year = batteryDb.getCurrentYear();
-//        String curTableName = BatteryDBHelper.TABLE_NAME_PREFIX_CHARGE_HISTROY + year + month;
-//        dealWidthTable(batteryDb, database, curTableName, BatteryDBHelper.TABLE_NAME_PREFIX_CHARGE_HISTROY);
-//        batteryDb.insetDateToTableChargeHistory(database, curTableName, new ChargeHistoryInfo(resultDate, startHM + " ~ " + endHM, startLevel, endLevel, interval));
-//        startLevel = -1;
-//        startTime = -1;
-//        startDate = null;
-//    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null && intent.hasExtra("show") && intent.getBooleanExtra("show", false)) {
             b = true;
-            Log.e("battery", "1");
             showChargeView();
         }
         ShopMaster.onCreate(getApplicationContext());
         return START_STICKY_COMPATIBILITY;
     }
-
-//    private static int startLevel = -1;
-//    private static long startTime = -1;
-//    private static String startDate = null;
 
     public void batteryChange(Intent intent) {
         if (entry == null) {
@@ -249,15 +146,29 @@ public class BatteryService extends Service {
     }
 
     private void showChargeView() {
-        if (entry == null) {
-            return;
-        }
-        Log.e("battery_", "aaaa");
         boolean isChargeScreenSaver = (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true);
         if (!isChargeScreenSaver) {
             return;
         }
-        Log.e("battery_", "bbbb");
+        if ((Boolean) Utils.readData(this, Constants.IS_ACTIVITY, true)) {
+            if (entry == null || !entry.isCharging()) {
+                return;
+            }
+            Intent intent = new Intent().addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_HOR_BAR)) {
+                intent.putExtra("type", "bar");
+            } else {
+                intent.putExtra("type", "duck");
+            }
+            intent.setClass(this, ChargeActivity.class);
+            startActivity(intent);
+            AndroidSdk.track("充电屏保", "", "", 1);
+            return;
+        }
+
+        if (entry == null) {
+            return;
+        }
         boolean isCharging = entry.isCharging();
         if (!isCharging && !b) {
             if (batteryView != null) {
@@ -268,7 +179,6 @@ public class BatteryService extends Service {
             }
             return;
         }
-        Log.e("battery_", "cccc");
         try {
             if (container == null) {
                 container = new WidgetContainer.Builder()
@@ -277,7 +187,6 @@ public class BatteryService extends Service {
                         .setOrientation(WidgetContainer.PORTRAIT)
                         .build(this);
             }
-            Log.e("battery_", "dddd");
             if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_HOR_BAR)) {
                 if (batteryView == null) {
                     batteryView = (BatteryView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
@@ -289,7 +198,6 @@ public class BatteryService extends Service {
                         container.makeLayoutParams(
                                 WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
-                Log.e("battery_", "eeee");
             } else if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_DUCK)) {
                 if (duckView == null) {
                     duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
@@ -301,33 +209,11 @@ public class BatteryService extends Service {
                         container.makeLayoutParams(
                                 WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
-
             }
-            Log.e("battery_", "ffff");
+            AndroidSdk.track("充电屏保", "", "", 1);
         } catch (Exception e) {
-            Log.e(TAG, e.getMessage());
         }
     }
-
-//    private void showNotification(BatteryEntry entry) {
-//        if (entry == null) {
-//            return;
-//        }
-//        try {
-//            if (Build.VERSION.SDK_INT >= 16) {
-//                if ((Boolean) Utils.readData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, true)) {
-//                    ChargeOnNotification chargeOnNotification = new ChargeOnNotification(BatteryService.this, false, R.mipmap.ivy_battery_inner_icon);
-//                    chargeOnNotification.updateNotification(Constants.CHARGE_ON_NOTIFICATION_ID, R.mipmap.ivy_battery_icon, entry);
-//                }
-//                if ((Boolean) Utils.readData(this, Constants.CHARGE_STATE_NOTIFICATION_SWITCH, true) && (entry.getLevel() == 100 || entry.getLevel() == 70 || entry.getLevel() == 20)) {
-//                    ChargeFinishNotification chargeFinishNotification = new ChargeFinishNotification(BatteryService.this, true, R.mipmap.ivy_battery_inner_icon);
-//                    chargeFinishNotification.updateNotification(Constants.CHARGE_FINISH_NOTIFICATION_ID, entry);
-//                }
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     BatteryView.UnlockListener horUnlock = new BatteryView.UnlockListener() {
         @Override

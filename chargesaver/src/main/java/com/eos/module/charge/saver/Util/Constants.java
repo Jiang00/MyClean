@@ -9,6 +9,7 @@ public class Constants {
     public static final String CHARGE_SAVER_SWITCH = "_ChargeSaver_";
     public static final String CHARGE_SAVER_TITLE = "_charge_saver_title_";
     public static final String CHARGE_SAVER_ICON = "_charge_saver_icon_";
+    public static final String IS_ACTIVITY = "is_activity";
 
     public static final String ACTION_CHARGE_SAVER_SWITCH_STATE = "com.eos.module.charge.saver.switch";
 
