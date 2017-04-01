@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.ui.demo.cross.CrossManager;
+import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.fakeView.FlakeView;
@@ -135,34 +137,24 @@ public class CoolingActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
-        fl_lot_cooling.setVisibility(View.VISIBLE);
-        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_cooling.setImageAssetsFolder(null, "images/applocks/");
-            lot_cooling.setAnimation(null, "applocks.json");
-            lot_cooling.loop(true);
-            lot_cooling.playAnimation();
 
-        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_cooling.setImageAssetsFolder(null, "images/flashs/");
-            lot_cooling.setAnimation(null, "flashs.json");
-            lot_cooling.loop(true);
-            lot_cooling.playAnimation();
-
-        } else {
-            fl_lot_cooling.setVisibility(View.GONE);
-        }
-        lot_cooling.setOnClickListener(new View.OnClickListener() {
+        DialogManager.getCrossView(this, extraData, "list1", "cooling", true, new CrossManager.onCrossViewClickListener() {
             @Override
-            public void onClick(View v) {
-                if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-                    AndroidSdk.track("降温页面", "推广applock点击", "", 1);
-                    UtilGp.openPlayStore(CoolingActivity.this, tuiguang);
-                } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-                    AndroidSdk.track("降温页面", "推广手电筒点击", "", 1);
-                    UtilGp.openPlayStore(CoolingActivity.this, tuiguang1);
+            public void onClick(View view) {
+
+            }
+
+            @Override
+            public void onLoadView(View view) {
+                if (view != null) {
+                    fl_lot_cooling.setVisibility(View.VISIBLE);
+                    fl_lot_cooling.addView(view, 0);
+                } else {
+                    fl_lot_cooling.setVisibility(View.GONE);
                 }
             }
         });
+
     }
 
     private void startCoolingAni() {

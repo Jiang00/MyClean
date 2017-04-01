@@ -93,7 +93,7 @@ public class WidgetProvider extends AppWidgetProvider {
         if (memory <= 40) {
             rv.setProgressTintList(R.id.widget_progress, green);
         } else if (memory <= 80) {
-            rv.setProgressTintList(R.id.widget_progress, yellow);
+                rv.setProgressTintList(R.id.widget_progress, yellow);
         } else {
             rv.setProgressTintList(R.id.widget_progress, red);
         }

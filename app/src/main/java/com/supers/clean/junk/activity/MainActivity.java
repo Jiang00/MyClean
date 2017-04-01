@@ -39,6 +39,8 @@ import com.eos.manager.Tracker;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.ui.demo.cross.CrossManager;
+import com.eos.ui.demo.dialog.DialogManager;
+import com.eos.ui.demo.entries.CrossData;
 import com.eos.ui.demo.view.CrossView;
 import com.sample.lottie.LottieAnimationView;
 import com.eos.module.charge.saver.service.BatteryService;
@@ -119,7 +121,6 @@ public class MainActivity extends BaseActivity implements MainView {
     private PagerAdapter pagerAdapter;
     private View pageView;
     private PackageManager packageManager;
-    private String tuiguang_pkg;
 
     @Override
     protected void findId() {
@@ -307,27 +308,52 @@ public class MainActivity extends BaseActivity implements MainView {
 
     public void tuiGuang() {
         super.tuiGuang();
-        CrossManager cro = CrossManager.getInstance();
-        String data = AndroidSdk.getExtraData();
-        View view_side = cro.getCrossView(this, data, "list1", "side", true, null);
-        View view_main = CrossManager.getInstance().getCrossView(this, AndroidSdk.getExtraData(), "list1", "side", true, null);
-        tuiguang_pkg = CrossManager.getInstance().getCrossData(this, AndroidSdk.getExtraData(), "list1", "side").pkg;
-        if (view_side != null) {
-            fl_lot_side.addView(view_side,0);
-        } else {
-            fl_lot_side.setVisibility(View.GONE);
-            side_title.setVisibility(View.VISIBLE);
+        CrossData.CrossPromotionBean bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
+        if (bean != null) {
+            tuiguang = bean.pkg;
         }
-        if (view_main != null) {
-            if (TextUtils.equals(tuiguang_pkg, "com.eosmobi.applock")) {
-                main_msg_tuiguang.setText("EOS Applock");
-            } else if (TextUtils.equals(tuiguang_pkg, "com.eosmobi.flashlight.free")) {
-                main_msg_tuiguang.setText("EOS Flashlight");
+        DialogManager.getCrossView(this, extraData, "list1", "side", false, new CrossManager.onCrossViewClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
-            fl_lot_main.addView(view_main,0);
-        } else {
-            main_tuiguang_button.setVisibility(View.GONE);
-        }
+
+            @Override
+            public void onLoadView(View view) {
+                if (view != null) {
+                    fl_lot_side.setVisibility(View.VISIBLE);
+                    side_title.setVisibility(View.GONE);
+                    fl_lot_side.addView(view, 0);
+                } else {
+                    fl_lot_side.setVisibility(View.GONE);
+                    side_title.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        DialogManager.getCrossView(this, extraData, "list1", "main", false, new CrossManager.onCrossViewClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+
+            @Override
+            public void onLoadView(View view) {
+                if (view != null) {
+                    if (TextUtils.equals(tuiguang, "com.eosmobi.applock")) {
+                        main_msg_tuiguang.setText("EOS Applock");
+                    } else if (TextUtils.equals(tuiguang, "com.eosmobi.flashlight.free")) {
+                        main_msg_tuiguang.setText("EOS Flashlight");
+                    }
+                    Log.e("tuiguang", "main 不为空");
+                    main_tuiguang_button.setVisibility(View.VISIBLE);
+                    fl_lot_main.addView(view, 0);
+                } else {
+                    main_tuiguang_button.setVisibility(View.GONE);
+                    Log.e("tuiguang", "main 为空");
+                }
+            }
+        });
+
 //        if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
 //            lot_main.setImageAssetsFolder(null, "images/applocks/");
 //            lot_main.setAnimation(null, "applocks.json");
@@ -866,8 +892,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     break;
                 case R.id.main_tuiguang_button:
                 case R.id.lot_side:
-                    AndroidSdk.track("主页面", "推广" + tuiguang_pkg, "", 1);
-                    UtilGp.openPlayStore(MainActivity.this, tuiguang_pkg);
+                    UtilGp.openPlayStore(MainActivity.this, tuiguang);
                     break;
 
 

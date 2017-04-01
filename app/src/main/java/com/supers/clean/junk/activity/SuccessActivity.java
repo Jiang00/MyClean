@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,9 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.eos.manager.page.SecuritySharPFive;
+import com.eos.ui.demo.cross.CrossManager;
+import com.eos.ui.demo.dialog.DialogManager;
+import com.eos.ui.demo.entries.CrossData;
 import com.sample.lottie.LottieAnimationView;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
@@ -156,24 +160,33 @@ public class SuccessActivity extends BaseActivity {
     @Override
     public void tuiGuang() {
         super.tuiGuang();
-        main_tuiguang_button.setVisibility(View.VISIBLE);
-        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_success.setImageAssetsFolder(null, "images/applocks/");
-            lot_success.setAnimation(null, "applocks.json");
-            lot_success.loop(true);
-            main_msg_tuiguang.setText("EOS Applock");
-            lot_success.playAnimation();
-
-        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_success.setImageAssetsFolder(null, "images/flashs/");
-            lot_success.setAnimation(null, "flashs.json");
-            lot_success.loop(true);
-            main_msg_tuiguang.setText("EOS Flashlight");
-            lot_success.playAnimation();
-
-        } else {
-            main_tuiguang_button.setVisibility(View.GONE);
+        CrossData.CrossPromotionBean bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
+        if (bean != null) {
+            tuiguang = bean.pkg;
         }
+        DialogManager.getCrossView(this, extraData, "list1", "success", false, new CrossManager.onCrossViewClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+
+            @Override
+            public void onLoadView(View view) {
+                if (view != null) {
+                    if (TextUtils.equals(tuiguang, "com.eosmobi.applock")) {
+                        main_msg_tuiguang.setText("EOS Applock");
+                    } else if (TextUtils.equals(tuiguang, "com.eosmobi.flashlight.free")) {
+                        main_msg_tuiguang.setText("EOS Flashlight");
+                    }
+                    Log.e("tuiguang", "main 不为空");
+                    main_tuiguang_button.setVisibility(View.VISIBLE);
+                    fl_lot_success.addView(view, 0);
+                } else {
+                    main_tuiguang_button.setVisibility(View.GONE);
+                    Log.e("tuiguang", "main 为空");
+                }
+            }
+        });
     }
 
     private void initAnimation() {
@@ -411,13 +424,7 @@ public class SuccessActivity extends BaseActivity {
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.lot_success:
-                    if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-                        AndroidSdk.track("清理完成页面", "推广applock点击", "", 1);
-                        UtilGp.openPlayStore(SuccessActivity.this, tuiguang);
-                    } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-                        AndroidSdk.track("清理完成页面", "推广手电筒点击", "", 1);
-                        UtilGp.openPlayStore(SuccessActivity.this, tuiguang1);
-                    }
+                    UtilGp.openPlayStore(SuccessActivity.this, tuiguang);
                     break;
             }
         }

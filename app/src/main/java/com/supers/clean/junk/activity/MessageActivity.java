@@ -17,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.ui.demo.cross.CrossManager;
+import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CameraUtils;
@@ -139,31 +141,19 @@ public class MessageActivity extends BaseActivity {
     @Override
     public void tuiGuang() {
         super.tuiGuang();
-        fl_lot_message.setVisibility(View.VISIBLE);
-        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_message.setImageAssetsFolder(null, "images/applocks/");
-            lot_message.setAnimation(null, "applocks.json");
-            lot_message.loop(true);
-            lot_message.playAnimation();
-
-        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_message.setImageAssetsFolder(null, "images/flashs/");
-            lot_message.setAnimation(null, "flashs.json");
-            lot_message.loop(true);
-            lot_message.playAnimation();
-
-        } else {
-            fl_lot_message.setVisibility(View.GONE);
-        }
-        lot_message.setOnClickListener(new View.OnClickListener() {
+        DialogManager.getCrossView(this, extraData, "list1", "message", true, new CrossManager.onCrossViewClickListener() {
             @Override
-            public void onClick(View v) {
-                if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-                    AndroidSdk.track("硬件信息页面", "推广applock点击", "", 1);
-                    UtilGp.openPlayStore(MessageActivity.this, tuiguang);
-                } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-                    AndroidSdk.track("硬件信息页面", "推广手电筒点击", "", 1);
-                    UtilGp.openPlayStore(MessageActivity.this, tuiguang1);
+            public void onClick(View view) {
+
+            }
+
+            @Override
+            public void onLoadView(View view) {
+                if (view != null) {
+                    fl_lot_message.setVisibility(View.VISIBLE);
+                    fl_lot_message.addView(view, 0);
+                } else {
+                    fl_lot_message.setVisibility(View.GONE);
                 }
             }
         });

@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.ui.demo.cross.CrossManager;
+import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
@@ -119,31 +121,19 @@ public class ShortCutActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
-        fl_lot_short.setVisibility(View.VISIBLE);
-        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_short.setImageAssetsFolder(null, "images/applocks/");
-            lot_short.setAnimation(null, "applocks.json");
-            lot_short.loop(true);
-            lot_short.playAnimation();
-
-        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_short.setImageAssetsFolder(null, "images/flashs/");
-            lot_short.setAnimation(null, "flashs.json");
-            lot_short.loop(true);
-            lot_short.playAnimation();
-
-        } else {
-            fl_lot_short.setVisibility(View.GONE);
-        }
-        lot_short.setOnClickListener(new View.OnClickListener() {
+        DialogManager.getCrossView(this, extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
             @Override
-            public void onClick(View v) {
-                if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-                    AndroidSdk.track("桌面快捷方式", "推广applock点击", "", 1);
-                    UtilGp.openPlayStore(ShortCutActivity.this, tuiguang);
-                } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-                    AndroidSdk.track("桌面快捷方式", "推广手电筒点击", "", 1);
-                    UtilGp.openPlayStore(ShortCutActivity.this, tuiguang1);
+            public void onClick(View view) {
+
+            }
+
+            @Override
+            public void onLoadView(View view) {
+                if (view != null) {
+                    fl_lot_short.setVisibility(View.VISIBLE);
+                    fl_lot_short.addView(view, 0);
+                } else {
+                    fl_lot_short.setVisibility(View.GONE);
                 }
             }
         });

@@ -26,6 +26,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.eos.ui.demo.cross.CrossManager;
+import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.AppManagerView;
@@ -129,22 +131,24 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     @Override
     public void tuiGuang() {
         super.tuiGuang();
-        fl_lot_manager.setVisibility(View.VISIBLE);
-        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_manager.setImageAssetsFolder(null, "images/applocks/");
-            lot_manager.setAnimation(null, "applocks.json");
-            lot_manager.loop(true);
-            lot_manager.playAnimation();
+        DialogManager.getCrossView(this, extraData, "list1", "manager", true, new CrossManager.onCrossViewClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_manager.setImageAssetsFolder(null, "images/flashs/");
-            lot_manager.setAnimation(null, "flashs.json");
-            lot_manager.loop(true);
-            lot_manager.playAnimation();
+            }
 
-        } else {
-            fl_lot_manager.setVisibility(View.GONE);
-        }
+            @Override
+            public void onLoadView(View view) {
+                if (view != null) {
+                    fl_lot_manager.setVisibility(View.VISIBLE);
+                    fl_lot_manager.addView(view, 0);
+                } else {
+                    fl_lot_manager.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
     }
 
     @Override
@@ -248,15 +252,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                     break;
                 case R.id.junk_button_clean:
                     managerPresenter.bleachFile(adapterManager.getData());
-                    break;
-                case R.id.lot_manager:
-                    if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-                        AndroidSdk.track("应用管理页面", "推广applock点击", "", 1);
-                        UtilGp.openPlayStore(ManagerActivity.this, tuiguang);
-                    } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-                        AndroidSdk.track("应用管理页面", "推广手电筒点击", "", 1);
-                        UtilGp.openPlayStore(ManagerActivity.this, tuiguang1);
-                    }
                     break;
             }
 

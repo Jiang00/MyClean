@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -92,6 +93,7 @@ public class LoadingActivity extends BaseActivity {
             DisplayMetrics metrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
             int a = CommonUtil.dp2px(360);
+            Log.e("jfy", "px=" + a + "");
             jumpTo(MainActivity.class);
             finish();
         }

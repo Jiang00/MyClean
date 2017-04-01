@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
+import com.eos.ui.demo.cross.CrossManager;
+import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.CommonUtil;
@@ -92,22 +94,22 @@ public class SettingActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
-        fl_lot_setting.setVisibility(View.VISIBLE);
-        if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-            lot_setting.setImageAssetsFolder(null, "images/applocks/");
-            lot_setting.setAnimation(null, "applocks.json");
-            lot_setting.loop(true);
-            lot_setting.playAnimation();
+        DialogManager.getCrossView(this, extraData, "list1", "Setting", true, new CrossManager.onCrossViewClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-            lot_setting.setImageAssetsFolder(null, "images/flashs/");
-            lot_setting.setAnimation(null, "flashs.json");
-            lot_setting.loop(true);
-            lot_setting.playAnimation();
+            }
 
-        } else {
-            fl_lot_setting.setVisibility(View.GONE);
-        }
+            @Override
+            public void onLoadView(View view) {
+                if (view != null) {
+                    fl_lot_setting.setVisibility(View.VISIBLE);
+                    fl_lot_setting.addView(view, 0);
+                } else {
+                    fl_lot_setting.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     private void addAd() {
@@ -226,15 +228,6 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_rotate:
                     AndroidSdk.track("设置页面", "好评", "", 1);
                     UtilGp.rate(SettingActivity.this);
-                    break;
-                case R.id.lot_setting:
-                    if (!CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
-                        AndroidSdk.track("设置页面", "推广applock点击", "", 1);
-                        UtilGp.openPlayStore(SettingActivity.this, tuiguang);
-                    } else if (!CommonUtil.isPkgInstalled(tuiguang1, getPackageManager())) {
-                        AndroidSdk.track("设置页面", "推广手电筒点击", "", 1);
-                        UtilGp.openPlayStore(SettingActivity.this, tuiguang1);
-                    }
                     break;
             }
         }

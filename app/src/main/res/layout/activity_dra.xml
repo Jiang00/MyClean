@@ -36,13 +36,13 @@
                     android:id="@+id/side_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/side_title_1"
-                    android:visibility="gone" />
+                    android:background="@mipmap/side_title_1" />
 
                 <FrameLayout
                     android:id="@+id/fl_lot_side"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="@dimen/d154"
+                    android:visibility="gone">
 
                     <com.sample.lottie.LottieAnimationView
                         android:id="@+id/lot_side"

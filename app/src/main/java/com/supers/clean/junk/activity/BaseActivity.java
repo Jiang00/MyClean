@@ -20,6 +20,8 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
+import com.eos.ui.demo.dialog.DialogManager;
+import com.eos.ui.demo.entries.CrossData;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.JsonParser;
 import com.supers.clean.junk.modle.entity.Contents;
@@ -39,7 +41,7 @@ import java.util.Locale;
 public class BaseActivity extends FragmentActivity {
     private Toast toast;
     protected String tuiguang = "com.eosmobi.applock";
-    protected String tuiguang1 = "com.eosmobi.flashlight.free";
+    protected String extraData;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,17 +91,7 @@ public class BaseActivity extends FragmentActivity {
     }
 
     public void tuiGuang() {
-        String extraData = AndroidSdk.getExtraData();
-        try {
-            JSONObject json = new JSONObject(extraData);
-            if (json.has("tuiguang")) {
-                JSONArray array = json.getJSONArray("tuiguang");
-                tuiguang = array.getString(0);
-                tuiguang1 = array.getString(1);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        extraData = AndroidSdk.getExtraData();
     }
 
     public void jumpTo(Class<?> classs) {
