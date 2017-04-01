@@ -8,9 +8,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RemoteViews;
 
 import com.supers.clean.junk.R;
@@ -35,7 +40,6 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
     private AppWidgetManager manager;
     private ComponentName cn;
     private boolean isRuning;
-    private ColorStateList green, yellow, red;
 
     private Context mContext;
 
@@ -68,14 +72,35 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
                     isRuning = false;
                 }
             }
-            rv.setProgressBar(R.id.widget_progress, 100, internalMemory, false);
-            if (internalMemory <= 40) {
-                rv.setProgressTintList(R.id.widget_progress, green);
-            } else if (internalMemory <= 80) {
-                rv.setProgressTintList(R.id.widget_progress, yellow);
-            } else {
-                rv.setProgressTintList(R.id.widget_progress, red);
+
+            if (progressBar == null) {
+                progressBar = new ProgressBar(mContext, null, android.R.attr.progressBarStyleHorizontal);
+                progressBar.setIndeterminate(false);
+                progressBar.setMax(100);
             }
+            progressBar.setProgress(internalMemory);
+
+            if (bitmap != null) {
+                bitmap.recycle();
+            }
+
+            int progressColor;
+            if (memory <= 40) {
+                progressColor = R.drawable.green_progress;
+            } else if (memory <= 80) {
+                progressColor = R.drawable.huang_progress;
+            } else {
+                progressColor = R.drawable.hong_progress;
+            }
+
+            Drawable drawable = ContextCompat.getDrawable(mContext, progressColor);
+
+            progressBar.setProgressDrawable(drawable);
+
+            Bitmap bitmap = getViewBitmap(progressBar);
+
+            rv.setImageViewBitmap(R.id.widget_progress, bitmap);
+
             rv.setTextViewText(R.id.widget_text, internalMemory + "% ");
             manager.updateAppWidget(cn, rv);
 
@@ -86,6 +111,9 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         .putExtra("size", 0);
                 mContext.startActivity(intent);
+                Intent launcherService = launcherService(mContext);
+                launcherService.putExtra(AutoUpdateService.START_UPDATE_WIDGET, true);
+                mContext.startService(launcherService);
             }
         }
     }
@@ -127,17 +155,51 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
         }
     }
 
+    ProgressBar progressBar;
+    Bitmap bitmap;
+
     private void updateRemoteView() {
-        if (memory <= 40) {
-            rv.setProgressTintList(R.id.widget_progress, green);
-        } else if (memory <= 80) {
-            rv.setProgressTintList(R.id.widget_progress, yellow);
-        } else {
-            rv.setProgressTintList(R.id.widget_progress, red);
+        if (progressBar == null) {
+            progressBar = new ProgressBar(mContext, null, android.R.attr.progressBarStyleHorizontal);
+            progressBar.setIndeterminate(false);
+            progressBar.setMax(100);
         }
-        rv.setProgressBar(R.id.widget_progress, 100, memory, false);
+
+        if (bitmap != null) {
+            bitmap.recycle();
+        }
+
+        progressBar.setProgress(memory);
+        int progressColor;
+        if (memory <= 40) {
+            progressColor = R.drawable.green_progress;
+        } else if (memory <= 80) {
+            progressColor = R.drawable.huang_progress;
+        } else {
+            progressColor = R.drawable.hong_progress;
+        }
+
+        Drawable drawable = ContextCompat.getDrawable(mContext, progressColor);
+        progressBar.setProgressDrawable(drawable);
+
+        bitmap = getViewBitmap(progressBar);
+        //rv.setProgressBar(R.id.widget_progress, 100, memory, false);
+        //rv.setImageViewBitmap(R.id.widget_progress, bitmap);
+        rv.setImageViewBitmap(R.id.widget_progress, bitmap);
         rv.setTextViewText(R.id.widget_text, memory + "% ");
         manager.updateAppWidget(cn, rv);
+    }
+
+    public final Bitmap getViewBitmap(View view) {
+        if (null == view) {
+            throw new IllegalArgumentException("parameter can't be null.");
+        }
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        view.layout(0, 0, CommonUtil.dp2px(241), CommonUtil.dp2px(29));
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();
+        return bitmap;
     }
 
     private void init(Context context) {
@@ -146,9 +208,6 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
             rv = new RemoteViews(context.getPackageName(), R.layout.layout_widget_ram);
             manager = AppWidgetManager.getInstance(context.getApplicationContext());
             cn = new ComponentName(context, WidgetProvider.class);
-            green = context.getResources().getColorStateList(R.color.widget_green);
-            yellow = context.getResources().getColorStateList(R.color.widget_yellow);
-            red = context.getResources().getColorStateList(R.color.widget_red);
             memory = CommonUtil.getMemory(context);
         }
     }
@@ -163,7 +222,7 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
          */
         init(context);
 
-        Intent cleanIntent = new Intent("app.eosmobi.action.widget.update");
+        Intent cleanIntent = new Intent(WIDGET_PROVIDER_UPDATE);
         PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context, 0, cleanIntent, 0);
 
         Intent intent = new Intent(context, MainActivity.class);
@@ -175,11 +234,14 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
         rv.setOnClickPendingIntent(R.id.widget_clean, pendingIntent1);
         rv.setOnClickPendingIntent(R.id.widget_icon, pendingIntent);
 
-        Log.e("rqy", "onUpdate--memory=" + memory);
         updateRemoteView();
     }
 
     private void update() {
+        Intent launcherService = launcherService(mContext);
+        launcherService.putExtra(AutoUpdateService.STOP_UPDATE_WIDGET, true);
+        mContext.startService(launcherService);
+
         handler.post(new MyRunnable(memory));
         new Thread(new Runnable() {
             @Override
