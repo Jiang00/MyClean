@@ -18,26 +18,26 @@ import android.text.TextUtils;
 
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Sizesort;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /*
  * 设备上的程序包
  */
-public class AppManager extends SimpleTask {
-    public static final String TAG = "AppManager";
+public class AppManagerTask extends SimpleTask {
+    public static final String TAG = "AppManagerTask";
     private List<String> whiteList;
     private long allSize = 0;
     private ArrayList<JunkInfo> appList = new ArrayList<>();
     private List<UsageStats> usageStatsList;
     private List<ActivityManager.RecentTaskInfo> recentTasks;
 
-    public AppManager(Context context, SimpleTaskListener simpleTaskListener) {
+    public AppManagerTask(Context context, SimpleTaskListener simpleTaskListener) {
         super(context, simpleTaskListener, TAG);
         whiteList = PreData.getNameList(context);
 
@@ -174,10 +174,3 @@ public class AppManager extends SimpleTask {
     }
 }
 
-class Sizesort implements Comparator<UsageStats> {
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public int compare(UsageStats file1, UsageStats file2) {
-        //大的在上面
-        return file1.getLastTimeUsed() == file2.getLastTimeUsed() ? 0 : (file1.getLastTimeUsed() > file2.getLastTimeUsed() ? -1 : 1);
-    }
-}

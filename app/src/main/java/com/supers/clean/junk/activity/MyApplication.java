@@ -1,13 +1,9 @@
 package com.supers.clean.junk.activity;
 
 import android.app.ActivityManager;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.IPackageDataObserver;
-import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.RemoteException;
@@ -15,29 +11,26 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import android.util.Log;
 
-
 import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
-
 import com.ivy.kpa.DaemonClient;
-import com.ivy.kpa.DaemonConfigurations;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JsonData;
-import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.TopActivityPkg;
-import com.supers.clean.junk.service.ReStarService;
+import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.modle.entity.JsonData;
+import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.modle.task.ApkFileAndAppJunkTask;
 import com.supers.clean.junk.modle.task.AppCacheTask;
-import com.supers.clean.junk.modle.task.AppManager;
+import com.supers.clean.junk.modle.task.AppManagerTask;
 import com.supers.clean.junk.modle.task.FilesOfUninstalledAppTask;
 import com.supers.clean.junk.modle.task.RamTask;
 import com.supers.clean.junk.modle.task.SimpleTask;
 import com.supers.clean.junk.modle.task.SystemCacheTask;
+import com.supers.clean.junk.service.ReStarService;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -254,9 +247,6 @@ public class MyApplication extends App {
         initLists();
 
         myHandler = new Handler();
-        if (myHandler.hasCallbacks(runnable)) {
-            myHandler.removeCallbacks(runnable);
-        }
         myHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
         asyncInitData();
         saomiaoSuccess = false;
@@ -351,7 +341,7 @@ public class MyApplication extends App {
     }
 
     private void loadWhiteListAndAppManager() {
-        AppManager appManager = new AppManager(this, new SimpleTask.SimpleTaskListener() {
+        AppManagerTask appManagerTask = new AppManagerTask(this, new SimpleTask.SimpleTaskListener() {
             @Override
             public void startLoad() {
 
@@ -380,7 +370,7 @@ public class MyApplication extends App {
                 saoMiaoOver();
             }
         });
-        appManager.start();
+        appManagerTask.start();
     }
 
     private void loadAppRam() {

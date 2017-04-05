@@ -23,13 +23,13 @@ public class SystemCacheTask extends SimpleTask {
     private static final String TAG = "SystemCacheTask";
 
     public SystemCacheTask(Context context, SimpleTaskListener simpleTaskListener) {
-        super(context, simpleTaskListener,TAG);
+        super(context, simpleTaskListener, TAG);
     }
 
     @Override
     void loadData() {
         try {
-            List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+            List<ApplicationInfo> packages = getInstalledApplications(pm);
             Method mGetPackageSizeInfoMethod;
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 mGetPackageSizeInfoMethod = pm.getClass().getMethod(

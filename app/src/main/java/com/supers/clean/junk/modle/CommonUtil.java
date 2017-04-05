@@ -16,7 +16,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 
 import com.android.client.AndroidSdk;
 
@@ -30,7 +29,6 @@ import java.util.Date;
 import java.util.List;
 
 public class CommonUtil {
-
 
     public static String getStrTime(long time) {
         long a = System.currentTimeMillis();
