@@ -58,27 +58,34 @@ public class ChargeActivity extends Activity {
     }
 
     private void doBar (){
-        batteryView = (BatteryView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
-        setContentView(batteryView);
-        batteryView.setUnlockListener(new BatteryView.UnlockListener() {
-            @Override
-            public void onUnlock() {
-                ChargeActivity.this.finish();
-                overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
-            }
-        });
+        try {
+            batteryView = (BatteryView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
+            setContentView(batteryView);
+            batteryView.setUnlockListener(new BatteryView.UnlockListener() {
+                @Override
+                public void onUnlock() {
+                    ChargeActivity.this.finish();
+                    overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
+                }
+            });
+        } catch (Exception e) {
+        }
     }
 
     private void doDuck(){
-        duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
-        setContentView(duckView);
-        duckView.setUnlockListener(new DuckView.UnlockListener() {
-            @Override
-            public void onUnlock() {
-                ChargeActivity.this.finish();
-                overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
-            }
-        });
+        try {
+            duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
+            setContentView(duckView);
+            duckView.setUnlockListener(new DuckView.UnlockListener() {
+                @Override
+                public void onUnlock() {
+                    ChargeActivity.this.finish();
+                    overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
+                }
+            });
+        } catch (Exception e){
+
+        }
     }
 
     @Override
@@ -109,7 +116,11 @@ public class ChargeActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(mReceiver);
+        try {
+            unregisterReceiver(mReceiver);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

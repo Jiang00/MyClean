@@ -144,7 +144,7 @@ public class DuckView extends FrameLayout {
         final int level = entry.getLevel();
         currentLevel.setText(level + "%");
         final int le = level % 100;
-        if (!water.isAnimating()) {
+        if (water != null && !water.isAnimating()) {
             initWater();
             water.playAnimation();
             water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -343,6 +343,9 @@ public class DuckView extends FrameLayout {
         try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            if (themeContext == null) {
+                return;
+            }
             shell.setImageAssetsFolder(themeContext, "theme://images/shell");
             shell.setAnimation(themeContext, "theme://shell.json");
             shell.loop(true);
@@ -359,6 +362,9 @@ public class DuckView extends FrameLayout {
         try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            if (themeContext == null) {
+                return;
+            }
             water.setImageAssetsFolder(themeContext, "theme://images/water");
             water.setAnimation(themeContext, "theme://water.json");
         } catch (Exception e) {
@@ -375,6 +381,9 @@ public class DuckView extends FrameLayout {
         try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            if (themeContext == null) {
+                return;
+            }
             InputStream input = themeContext.getAssets().open("eos_back.png");
             BitmapFactory.Options opts = new BitmapFactory.Options();
             opts.inScaled = false;
@@ -486,12 +495,10 @@ public class DuckView extends FrameLayout {
         if (shell != null && shell.isAnimating()) {
             shell.cancelAnimation();
         }
-
         if (isBindView) {
             isBindView = false;
         }
     }
-
 
     public void registerTimeUpdateReceiver() {
         mContext.registerReceiver(timerUpdateReceiver, mIntentFilter);
