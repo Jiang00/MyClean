@@ -117,7 +117,7 @@ public class NotifactionService extends Service {
 
     private void onCancle() {
         if (mNotifyManager != null)
-            mNotifyManager.cancel(154);
+            mNotifyManager.cancel(102);
     }
 
     private void onstart() {
@@ -138,7 +138,7 @@ public class NotifactionService extends Service {
         } else {
             paint_1.setColor(this.getResources().getColor(R.color.white_100));
         }
-        canvas.drawArc(oval, 0, 270 * memory/ 100, false, paint_1);
+        canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
         remoteView_1.setTextViewText(R.id.norifi_memory_text, CommonUtil.getMemory(this) + "%");
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -169,7 +169,7 @@ public class NotifactionService extends Service {
         notification_1.flags |= Notification.FLAG_NO_CLEAR;
         notification_1.priority = Notification.PRIORITY_MAX;
         mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotifyManager.notify(154, notification_1);
+        mNotifyManager.notify(102, notification_1);
     }
 
     private Runnable runnable = new Runnable() {
@@ -196,7 +196,7 @@ public class NotifactionService extends Service {
                 remoteView_1.setImageViewResource(R.id.notifi_network_type, R.drawable.translate);
             }
             remoteView_1.setTextViewText(R.id.notifi_network_sudu, CommonUtil.getFileSizeWifi(speed));
-            mNotifyManager.notify(154, notification_1);
+            mNotifyManager.notify(102, notification_1);
             lastTimeStamp = nowTimeStamp;
             lastTotalRxBytes = nowTotalRxBytes;
             myHandler.postDelayed(this, 2000);
@@ -237,7 +237,7 @@ public class NotifactionService extends Service {
         canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
         remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
-        mNotifyManager.notify(154, notification_1);
+        mNotifyManager.notify(102, notification_1);
         long time = System.currentTimeMillis();
         if (PreData.getDB(this, Contents.TONGZHI_SWITCH, true)) {
             int hh = Integer.parseInt(CommonUtil.getStrTimeHH(time));
@@ -398,11 +398,10 @@ public class NotifactionService extends Service {
     public void onDestroy() {
         // TODO Auto-generated method stub
         if (!PreData.getDB(this, Contents.TONGZHILAN_SWITCH, true)) {
-            mNotifyManager.cancel(154);
+            mNotifyManager.cancel(102);
         }
         myHandler.removeCallbacks(runnable);
         myHandler.removeCallbacks(runnableW);
-        mNotifyManager.cancel(155);
         super.onDestroy();
     }
 }

@@ -30,25 +30,27 @@ public class RamTask extends SimpleTask {
         dataSize = 0;
         List ignoreApp = PreData.getNameList(mContext);
         List<AndroidAppProcess> listInfo = AndroidProcesses.getRunningAppProcesses();
-        for (AndroidAppProcess info : listInfo) {
-            int pid = info.pid;
-            String packageName = info.name;
-            if (packageName.equals(mContext.getPackageName()) || packageName.contains("com.eosmobi")) {
-                continue;
-            }
-            if (!ignoreApp.contains(packageName)) {
-                addApplica(false, packageName, pid);
-            } else {
-                addApplica(true, packageName, pid);
-            }
-            if (isCancelTask) {
-                if (mSimpleTaskListener != null) {
-                    mSimpleTaskListener.cancelLoading();
+        if (listInfo != null) {
+
+            for (AndroidAppProcess info : listInfo) {
+                int pid = info.pid;
+                String packageName = info.name;
+                if (packageName.equals(mContext.getPackageName()) || packageName.contains("com.eosmobi")) {
+                    continue;
                 }
-                break;
+                if (!ignoreApp.contains(packageName)) {
+                    addApplica(false, packageName, pid);
+                } else {
+                    addApplica(true, packageName, pid);
+                }
+                if (isCancelTask) {
+                    if (mSimpleTaskListener != null) {
+                        mSimpleTaskListener.cancelLoading();
+                    }
+                    break;
+                }
             }
         }
-
         if (mSimpleTaskListener != null) {
             mSimpleTaskListener.finishLoading(dataSize, dataList);
         }

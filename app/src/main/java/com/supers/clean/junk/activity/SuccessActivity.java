@@ -164,7 +164,7 @@ public class SuccessActivity extends BaseActivity {
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(this, extraData, "list1", "success", false, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(this, extraData, "list1", "success", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -205,7 +205,7 @@ public class SuccessActivity extends BaseActivity {
         main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         delete.setOnClickListener(onClickListener);
-        lot_success.setOnClickListener(onClickListener);
+        main_tuiguang_button.setOnClickListener(onClickListener);
 
     }
 
@@ -425,7 +425,7 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.delete:
                     main_rotate_all.setVisibility(View.GONE);
                     break;
-                case R.id.lot_success:
+                case R.id.main_tuiguang_button:
                     UtilGp.openPlayStore(SuccessActivity.this, tuiguang);
                     break;
             }

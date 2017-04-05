@@ -108,7 +108,7 @@ public class BubbleLayout extends View {
 							e.printStackTrace();
 						}
 					}
-				};
+				}
 			}.start();
 		}
 		Paint paint = new Paint();

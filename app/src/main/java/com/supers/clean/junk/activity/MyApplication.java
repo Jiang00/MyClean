@@ -43,7 +43,6 @@ public class MyApplication extends App {
 
     private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 2;
 
-    public static JsonData data;
 
     private ArrayList<JunkInfo> systemCache, filesOfUnintalledApk, apkFiles, appJunk, appCache, appRam, listMng;
 

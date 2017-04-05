@@ -320,7 +320,7 @@ public class MainActivity extends BaseActivity implements MainView {
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(this, extraData, "list1", "side", false, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(this, extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -340,7 +340,7 @@ public class MainActivity extends BaseActivity implements MainView {
                 }
             }
         });
-        DialogManager.getCrossView(this, extraData, "list1", "main", false, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(this, extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -481,7 +481,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_rotate_good.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
-        lot_side.setOnClickListener(onClickListener);
+        fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
 
     }
@@ -908,7 +908,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
                     break;
                 case R.id.main_tuiguang_button:
-                case R.id.lot_side:
+                case R.id.fl_lot_side:
                     UtilGp.openPlayStore(MainActivity.this, tuiguang);
                     break;
 
