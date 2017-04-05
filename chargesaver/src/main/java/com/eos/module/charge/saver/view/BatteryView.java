@@ -176,7 +176,7 @@ public class BatteryView extends FrameLayout {
         currentLevel.setText(curLevel + "%");
         final int le = curLevel % 100;
 
-        if (!water.isAnimating()) {
+        if (water != null && !water.isAnimating()) {
             initWater();
             water.playAnimation();
             water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -195,7 +195,7 @@ public class BatteryView extends FrameLayout {
             });
         }
 
-        if (entry.isCharging()) {
+        if (lighting != null && entry.isCharging()) {
             if (entry.getLevel() == 100) {
                 if (lighting.isAnimating()) {
                     lighting.cancelAnimation();
@@ -214,7 +214,7 @@ public class BatteryView extends FrameLayout {
                     }
                 }
             }
-        } else {
+        } else if (lighting != null){
             if (lighting.isAnimating()) {
                 lighting.pauseAnimation();
             }
@@ -244,6 +244,9 @@ public class BatteryView extends FrameLayout {
         try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            if (themeContext == null) {
+                return;
+            }
             InputStream input = themeContext.getAssets().open("eos_back.png");
             BitmapFactory.Options opts = new BitmapFactory.Options();
             opts.inScaled = false;
@@ -260,6 +263,9 @@ public class BatteryView extends FrameLayout {
         try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            if (themeContext == null) {
+                return;
+            }
             InputStream input = themeContext.getAssets().open("eos_shutter.png");
             BitmapFactory.Options opts = new BitmapFactory.Options();
             opts.inScaled = false;
@@ -276,6 +282,9 @@ public class BatteryView extends FrameLayout {
         try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            if (themeContext == null) {
+                return;
+            }
             InputStream input = themeContext.getAssets().open("eos_particle.png");
             BitmapFactory.Options opts = new BitmapFactory.Options();
             opts.inScaled = false;
@@ -292,6 +301,9 @@ public class BatteryView extends FrameLayout {
         try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            if (themeContext == null) {
+                return;
+            }
             shell.setImageAssetsFolder(themeContext, "theme://images/shell");
             shell.setAnimation(themeContext, "theme://shell.json");
             shell.loop(true);
@@ -308,6 +320,9 @@ public class BatteryView extends FrameLayout {
         try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            if (themeContext == null) {
+                return;
+            }
             water.setImageAssetsFolder(themeContext, "theme://images/water");
             water.setAnimation(themeContext, "theme://water.json");
         } catch (Exception e) {
@@ -324,6 +339,9 @@ public class BatteryView extends FrameLayout {
         try {
             String pkg = ThemeManager.currentTheme().getPackageName();
             Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+            if (themeContext == null) {
+                return;
+            }
             lighting.setImageAssetsFolder(themeContext, "theme://images/lighting");
             lighting.setAnimation(themeContext, "theme://lighting.json");
         } catch (Exception e) {
@@ -500,15 +518,12 @@ public class BatteryView extends FrameLayout {
         if (isRegisterTimeUpdate) {
             unregisterTimeUpdateReceiver();
         }
-
         if (water != null && water.isAnimating()) {
             water.cancelAnimation();
         }
-
         if (lighting != null && lighting.isAnimating()) {
             lighting.cancelAnimation();
         }
-
         if (shell != null && shell.isAnimating()) {
             shell.cancelAnimation();
         }
