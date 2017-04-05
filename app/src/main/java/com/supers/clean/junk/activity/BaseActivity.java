@@ -9,7 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -20,17 +20,11 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
-import com.eos.ui.demo.dialog.DialogManager;
-import com.eos.ui.demo.entries.CrossData;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.JsonParser;
-import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JsonData;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Locale;
 
@@ -38,7 +32,7 @@ import java.util.Locale;
  * Created by on 2017/2/28.
  */
 
-public class BaseActivity extends FragmentActivity {
+public class BaseActivity extends AppCompatActivity {
     private Toast toast;
     protected String tuiguang = "com.eosmobi.applock";
     protected String extraData;

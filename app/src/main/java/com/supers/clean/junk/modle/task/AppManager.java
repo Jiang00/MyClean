@@ -13,7 +13,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.RemoteException;
 import android.os.UserHandle;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 
 
@@ -44,6 +43,7 @@ public class AppManager extends SimpleTask {
 
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     void loadData() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

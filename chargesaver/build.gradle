@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         minSdkVersion 15
@@ -22,7 +22,7 @@ dependencies {
     //    compile 'com.core:themeshop:1.0.6'
     compile 'com.core:themeshop:1.1.6:eosshopRelease@aar'
 
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.core:empty:1.1.6'
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
@@ -30,6 +30,7 @@ dependencies {
     compile 'org.byteam.superadapter:superadapter:3.6.5'
     compile 'com.ivy.module:lottie:1.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
+    compile 'com.android.support:support-vector-drawable:23.4.0'
 }
 
 group 'com.eos.module'
