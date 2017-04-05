@@ -55,7 +55,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     LinearLayout manager_permision;
     TextView manager_shouquan;
     RelativeLayout manager_clean;
-    LottieAnimationView lot_manager;
     FrameLayout fl_lot_manager;
 
     private ManagerPresenter managerPresenter;
@@ -86,7 +85,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         manager_permision = $(R.id.manager_permision);
         manager_shouquan = $(R.id.manager_shouquan);
         manager_clean = $(R.id.manager_clean);
-        lot_manager = (LottieAnimationView) findViewById(R.id.lot_manager);
         fl_lot_manager = (FrameLayout) findViewById(R.id.fl_lot_manager);
     }
 
@@ -156,7 +154,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         manager_button_size.setOnClickListener(onClickListener);
         manager_button_time.setOnClickListener(onClickListener);
         manager_button_pinlv.setOnClickListener(onClickListener);
-        lot_manager.setOnClickListener(onClickListener);
     }
 
     @Override

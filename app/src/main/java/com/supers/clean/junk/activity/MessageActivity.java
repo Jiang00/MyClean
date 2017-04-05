@@ -42,7 +42,6 @@ public class MessageActivity extends BaseActivity {
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
-    LottieAnimationView lot_message;
     FrameLayout fl_lot_message;
 
     private TelephonyManager telManager;
@@ -66,7 +65,6 @@ public class MessageActivity extends BaseActivity {
         message_ram = (TextView) findViewById(R.id.message_ram);
         message_sd = (TextView) findViewById(R.id.message_sd);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-        lot_message = (LottieAnimationView) findViewById(R.id.lot_message);
         fl_lot_message = (FrameLayout) findViewById(R.id.fl_lot_message);
     }
 

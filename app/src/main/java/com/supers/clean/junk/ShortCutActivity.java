@@ -41,7 +41,6 @@ public class ShortCutActivity extends BaseActivity {
     LinearLayout short_text;
     TextView short_size;
     LinearLayout ll_ad;
-    LottieAnimationView lot_short;
     FrameLayout fl_lot_short;
     private Animation rotate;
     private Animation fang;
@@ -63,7 +62,6 @@ public class ShortCutActivity extends BaseActivity {
         short_text = (LinearLayout) findViewById(R.id.short_text);
         short_size = (TextView) findViewById(R.id.short_size);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-        lot_short = (LottieAnimationView) findViewById(R.id.lot_short);
         fl_lot_short = (FrameLayout) findViewById(R.id.fl_lot_short);
     }
 

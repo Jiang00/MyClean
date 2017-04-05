@@ -40,7 +40,6 @@ public class SettingActivity extends BaseActivity {
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
-    LottieAnimationView lot_setting;
     FrameLayout fl_lot_setting;
     private View nativeView;
 
@@ -64,7 +63,6 @@ public class SettingActivity extends BaseActivity {
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
-        lot_setting = (LottieAnimationView) findViewById(R.id.lot_setting);
         fl_lot_setting = (FrameLayout) findViewById(R.id.fl_lot_setting);
     }
 
@@ -161,7 +159,6 @@ public class SettingActivity extends BaseActivity {
         setting_battery.setOnClickListener(onClickListener);
         setting_white.setOnClickListener(onClickListener);
         setting_rotate.setOnClickListener(onClickListener);
-        lot_setting.setOnClickListener(onClickListener);
     }
 
 
