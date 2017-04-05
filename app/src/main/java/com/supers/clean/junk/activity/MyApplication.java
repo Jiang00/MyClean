@@ -21,7 +21,6 @@ import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.TopActivityPkg;
 import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JsonData;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.modle.task.ApkFileAndAppJunkTask;
 import com.supers.clean.junk.modle.task.AppCacheTask;
@@ -32,6 +31,7 @@ import com.supers.clean.junk.modle.task.SimpleTask;
 import com.supers.clean.junk.modle.task.SystemCacheTask;
 import com.supers.clean.junk.service.ReStarService;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +41,9 @@ import java.util.List;
  */
 public class MyApplication extends App {
 
-    private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 2;
+    private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 5;
 
+    private final static int CWJ_HEAP_SIZE = 6 * 1024 * 1024;
 
     private ArrayList<JunkInfo> systemCache, filesOfUnintalledApk, apkFiles, appJunk, appCache, appRam, listMng;
 
@@ -213,6 +214,9 @@ public class MyApplication extends App {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        setMinHeapSize(CWJ_HEAP_SIZE);
+
         ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);
@@ -256,6 +260,35 @@ public class MyApplication extends App {
             PreData.putDB(this, Contents.FIRST_INSTALL, false);
         }
 
+    }
+
+    public static void setMinHeapSize(long size) {
+        try {
+            Class<?> cls = Class.forName("dalvik.system.VMRuntime");
+            Method getRuntime = cls.getMethod("getRuntime");
+            Object obj = getRuntime.invoke(null);// obj就是Runtime
+            if (obj == null) {
+                System.err.println("obj is null");
+            } else {
+                System.out.println(obj.getClass().getName());
+                Class<?> runtimeClass = obj.getClass();
+                Method setMinimumHeapSize = runtimeClass.getMethod(
+                        "setMinimumHeapSize", long.class);
+
+                setMinimumHeapSize.invoke(obj, size);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
     private Runnable getScanIntervalRunnable() {
