@@ -110,7 +110,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private PackageManager packageManager;
 
     private boolean mDrawerOpened = false;
-    private boolean onPause = false;
 
     @Override
     protected void findId() {
@@ -920,7 +919,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onPause() {
         super.onPause();
-        onPause = true;
         if (lot_family != null) {
             lot_family.pauseAnimation();
         }
@@ -937,7 +935,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onResume() {
         super.onResume();
-        onPause = false;
         AndroidSdk.onResumeWithoutTransition(this);
         Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
         if (lot_family != null) {

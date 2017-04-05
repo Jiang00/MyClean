@@ -38,6 +38,8 @@ public class BaseActivity extends AppCompatActivity {
     protected String extraData;
     private JsonData data;
 
+    protected boolean onPause = false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +70,18 @@ public class BaseActivity extends AppCompatActivity {
 
             }
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onPause = false;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        onPause = true;
     }
 
     @Override

@@ -25,10 +25,6 @@ import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
  * Created by on 2017/3/2.
  */
@@ -45,6 +41,7 @@ public class SettingActivity extends BaseActivity {
 
     private String TAG_SETTING = "eos_setting";
     private Handler myHandler;
+    private LottieAnimationView lot_setting;
 
     @Override
     protected void findId() {
@@ -87,7 +84,22 @@ public class SettingActivity extends BaseActivity {
             addAd();
         }
 
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (lot_setting != null) {
+            lot_setting.playAnimation();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_setting != null) {
+            lot_setting.pauseAnimation();
+        }
     }
 
     public void tuiGuang() {
@@ -102,9 +114,13 @@ public class SettingActivity extends BaseActivity {
             public void onLoadView(View view) {
                 if (view != null) {
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_setting = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lot_setting.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_setting.setVisibility(View.VISIBLE);
                     fl_lot_setting.addView(view, 0);
+                    if (onPause) {
+                        lot_setting.pauseAnimation();
+                    }
                 } else {
                     fl_lot_setting.setVisibility(View.GONE);
                 }
