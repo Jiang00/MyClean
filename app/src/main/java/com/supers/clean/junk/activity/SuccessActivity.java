@@ -178,6 +178,8 @@ public class SuccessActivity extends BaseActivity {
                     } else if (TextUtils.equals(tuiguang, "com.eosmobi.flashlight.free")) {
                         main_msg_tuiguang.setText("EOS Flashlight");
                     }
+                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
                     Log.e("tuiguang", "main 不为空");
                     main_tuiguang_button.setVisibility(View.VISIBLE);
                     fl_lot_success.addView(view, 0);

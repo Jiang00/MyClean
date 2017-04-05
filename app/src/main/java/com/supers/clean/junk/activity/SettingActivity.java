@@ -103,6 +103,8 @@ public class SettingActivity extends BaseActivity {
             @Override
             public void onLoadView(View view) {
                 if (view != null) {
+                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_setting.setVisibility(View.VISIBLE);
                     fl_lot_setting.addView(view, 0);
                 } else {

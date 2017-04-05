@@ -1,6 +1,7 @@
 package com.supers.clean.junk.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -24,29 +25,9 @@ public class TranslateActivity extends Activity {
             CommonUtil.doStartApplicationWithPackageName(this, "com.eosmobi.flashlight.free");
             finish();
         } else {
-            DialogManager.showCrossDialog(this, AndroidSdk.getExtraData(), "list2", "flight", new CrossView.onCrossDialogClickListener() {
-                @Override
-                public void onCancel() {
-                    finish();
-                }
-
-                @Override
-                public void onInstall() {
-                    finish();
-                }
-
-                @Override
-                public void onDialogDismiss() {
-                    finish();
-                }
-
-                @Override
-                public void onIsShowDialog(boolean b) {
-                    if (!b) {
-                        finish();
-                    }
-                }
-            });
+            Intent intent = new Intent(this, TranslateActivity.class);
+            intent.putExtra("from", "notifi");
+            startActivity(intent);
         }
 
     }

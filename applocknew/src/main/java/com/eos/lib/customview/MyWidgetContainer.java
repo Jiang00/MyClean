@@ -167,7 +167,7 @@ public class MyWidgetContainer extends FrameLayout implements View.OnClickListen
         }
     }
 
-    public  Point getScreenSize(Context context) {
+    public Point getScreenSize(Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Point size = new Point();
         if (Build.VERSION.SDK_INT >= 13) {
