@@ -23,12 +23,11 @@ public class TranslateActivity extends Activity {
         setContentView(R.layout.layout_translate);
         if (CommonUtil.isPkgInstalled("com.eosmobi.flashlight.free", getPackageManager())) {
             CommonUtil.doStartApplicationWithPackageName(this, "com.eosmobi.flashlight.free");
-            finish();
         } else {
-            Intent intent = new Intent(this, TranslateActivity.class);
-            intent.putExtra("from", "notifi");
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("from", "translate");
             startActivity(intent);
         }
-
+        finish();
     }
 }

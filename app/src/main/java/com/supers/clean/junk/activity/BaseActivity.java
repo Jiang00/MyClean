@@ -36,6 +36,7 @@ public class BaseActivity extends AppCompatActivity {
     private Toast toast;
     protected String tuiguang = "com.eosmobi.applock";
     protected String extraData;
+    private JsonData data;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,19 +52,18 @@ public class BaseActivity extends AppCompatActivity {
             full();
         }
 
-        if (MyApplication.data == null) {
+        if (data == null) {
             try {
-                MyApplication.data = JsonParser.getInstance().fromJson(AndroidSdk.getExtraData(), JsonData.class);
-                PreData.putDB(this, Contents.FULL_MAIN, MyApplication.data.full_main);
-                PreData.putDB(this, Contents.FULL_MANAGER, MyApplication.data.full_manager);
-                PreData.putDB(this, Contents.FULL_MESSAGE, MyApplication.data.full_message);
-                PreData.putDB(this, Contents.FULL_SUCCESS, MyApplication.data.full_success);
-                PreData.putDB(this, Contents.FULL_SETTING, MyApplication.data.full_setting);
-                PreData.putDB(this, Contents.FULL_UNLOAD, MyApplication.data.full_unload);
-                PreData.putDB(this, Contents.FULL_FLOAT, MyApplication.data.full_float);
-                PreData.putDB(this, Contents.FULL_COOL, MyApplication.data.full_cool);
-                PreData.putDB(this, Contents.FULL_SHORTCUT, MyApplication.data.full_shortcut);
-
+                data = JsonParser.getInstance().fromJson(AndroidSdk.getExtraData(), JsonData.class);
+                PreData.putDB(this, Contents.FULL_MAIN, data.full_main);
+                PreData.putDB(this, Contents.FULL_MANAGER, data.full_manager);
+                PreData.putDB(this, Contents.FULL_MESSAGE, data.full_message);
+                PreData.putDB(this, Contents.FULL_SUCCESS, data.full_success);
+                PreData.putDB(this, Contents.FULL_SETTING, data.full_setting);
+                PreData.putDB(this, Contents.FULL_UNLOAD, data.full_unload);
+                PreData.putDB(this, Contents.FULL_FLOAT, data.full_float);
+                PreData.putDB(this, Contents.FULL_COOL, data.full_cool);
+                PreData.putDB(this, Contents.FULL_SHORTCUT, data.full_shortcut);
             } catch (Exception e) {
 
             }

@@ -168,7 +168,9 @@ public class UtilGp {
     public static void openPlayStore(Context context, String pkg) {
         Intent i = new Intent(Intent.ACTION_VIEW);
         String url = GOOGLE_PALY_URL;
-
+        if (pkg == null) {
+            return;
+        }
         if (pkg.startsWith("http")) {
             pkg = pkg.replace(url, "");
             if (pkg.startsWith("http")) {
