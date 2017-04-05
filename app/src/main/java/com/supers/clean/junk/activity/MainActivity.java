@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity implements MainView {
     public static final int DOWN = 1;
     public static final int NOMAL = 2;
 
-    public static MainActivity instance;
+//    public static MainActivity instance;
 
     //FrameLayout main_all_cercle;
     MainScrollView main_scroll_view;
@@ -167,7 +167,7 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        instance = this;
+//        instance = this;
         setContentView(R.layout.activity_dra);
 
         packageManager = getPackageManager();

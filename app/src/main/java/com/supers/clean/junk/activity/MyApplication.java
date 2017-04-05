@@ -263,18 +263,18 @@ public class MyApplication extends App {
             @Override
             public void run() {
                 String pkg = TopActivityPkg.getTopPackageName(MyApplication.this);
-                if (launcherPkg.contains(pkg)) {
-                    if (MainActivity.instance != null) {
-                        MainActivity.instance.finish();
-                    }
+                if (!TextUtils.equals(MyApplication.this.getPackageName(), pkg)) {
                     asyncInitData();
                     saomiaoSuccess = false;
-                } else {
-                    if (MainActivity.instance == null) {
-                        asyncInitData();
-                        saomiaoSuccess = false;
-                    }
                 }
+//                if (launcherPkg.contains(pkg)) {
+//                    asyncInitData();
+//                    saomiaoSuccess = false;
+//                } else {
+//                    if (MainActivity.instance == null) {
+//
+//                    }
+//                }
                 myHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
             }
         };

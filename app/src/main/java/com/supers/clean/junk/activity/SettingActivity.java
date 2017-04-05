@@ -94,7 +94,7 @@ public class SettingActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
-        DialogManager.getCrossView(this, extraData, "list1", "Setting", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(this.getApplicationContext(), extraData, "list1", "Setting", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
