@@ -2,16 +2,12 @@ package com.eos.manager;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
-import android.widget.EditText;
 
 /**
  * Created by wangqi on 17/3/9.
  */
 
-public class KeyPreImeEditText extends EditText {
-
-
+public class KeyPreImeEditText extends android.support.v7.widget.AppCompatEditText {
 
     public KeyPreImeEditText(Context context) {
         super(context);
@@ -25,11 +21,4 @@ public class KeyPreImeEditText extends EditText {
         super(context, attrs, defStyleAttr);
     }
 
-    @Override
-    public boolean onKeyPreIme(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            SearchView.clearValur();
-        }
-        return super.onKeyPreIme(keyCode, event);
-    }
 }

@@ -39,6 +39,7 @@ public class BaseActivity extends AppCompatActivity {
     private JsonData data;
 
     protected boolean onPause = false;
+    protected boolean onDestroyed = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +83,12 @@ public class BaseActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         onPause = true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        onDestroyed = true;
     }
 
     @Override

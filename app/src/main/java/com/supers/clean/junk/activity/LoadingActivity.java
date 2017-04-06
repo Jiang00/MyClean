@@ -30,7 +30,7 @@ public class LoadingActivity extends BaseActivity {
     Handler myHandler;
 
     TextView tv_tiaoguo;
-    LinearLayout ll_ad;
+//    LinearLayout ll_ad;
     private static final String TAG_LOADING = "junk_loading";
     int mimmi;
 
@@ -38,7 +38,7 @@ public class LoadingActivity extends BaseActivity {
     protected void findId() {
         super.findId();
         tv_tiaoguo = (TextView) findViewById(R.id.tv_tiaoguo);
-        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+       // ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class LoadingActivity extends BaseActivity {
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
         mimmi = 5;
-        int random = (int) (Math.random() * 100) + 1;
+        //int random = (int) (Math.random() * 100) + 1;
 //        if (random <= PreData.getDB(this, Constant.KEY_LOADING_GAI, 100)) {
 //            myHandler.postDelayed(new Runnable() {
 //                @Override
@@ -63,8 +63,6 @@ public class LoadingActivity extends BaseActivity {
         tv_tiaoguo.setVisibility(View.INVISIBLE);
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2000);
-//        }
-
 
         tv_tiaoguo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +83,6 @@ public class LoadingActivity extends BaseActivity {
         @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         @Override
         public void run() {
-            String resolution = "";
             DisplayMetrics metrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
             int a = CommonUtil.dp2px(360);
@@ -116,7 +113,7 @@ public class LoadingActivity extends BaseActivity {
             AndroidSdk.loadNativeAd(TAG_LOADING, R.layout.native_ad_loading, new ClientNativeAd.NativeAdLoadListener() {
                 @Override
                 public void onNativeAdLoadSuccess(View view) {
-                    if (ll_ad != null) {
+                    /*if (ll_ad != null) {
                         ll_ad.addView(view);
                         Animation animation = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.tran_left_in);
                         ll_ad.startAnimation(animation);
@@ -124,7 +121,7 @@ public class LoadingActivity extends BaseActivity {
                         ll_ad.setVisibility(View.VISIBLE);
                         myHandler.removeCallbacks(runnable);
                         myHandler.postDelayed(runnable, 1000);
-                    }
+                    }*/
                 }
 
                 @Override
@@ -161,15 +158,12 @@ public class LoadingActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-
     }
 
     @Override
     protected void onDestroy() {
-        myHandler.removeCallbacks(runnable);
-        myHandler.removeCallbacks(runnable1);
+        myHandler.removeCallbacksAndMessages(null);
         super.onDestroy();
-
     }
 
     @Override

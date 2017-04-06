@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -53,43 +52,29 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     public static final String PROFILE_ID_KEY = "profile_id";
     public static final String PROFILE_NAME_KEY = "profile_name";
     public static final String PROFILE_HIDE = "hide";
-    View scrollView;
+    private SearchView searchview;
 
+    private SwipeRefreshLayout refreshLayout;
+    private ListView listView;
 
-    SwipeRefreshLayout refreshLayout;
+    private CListViewScroller scroller;
+    private CListViewAdaptor adaptor;
+    private SecurityProfileHelper.ProfileEntry profileEntry;
+    private SQLiteDatabase db;
 
-    ListView listView;
+    private View headerView;
 
-    private boolean CloseSearch = true;
+    private SecuritySharPFive shareFive;
 
-
-    CListViewScroller scroller;
-    static CListViewAdaptor adaptor;
-
-    SecurityProfileHelper.ProfileEntry profileEntry;
-    SQLiteDatabase db;
-
-    static View headerView;
-
-    SecuritySharPFive shareFive;
-
-    boolean adShow = false;
-
-    MenuItem menuSearch;
-
-    View headPlan;
-
+    private View headPlan;
 
     public static String SearchText = "";
-
-
-    public static final Object searchLock = new Object();
 
     private static List<SearchThread.SearchData> apps;
     private List<SearchThread.SearchData> searchResult;
 
-    int count = 0;
-    boolean hide;
+    private int count = 0;
+    private boolean hide;
     protected String tuiguang = "com.eosmobi.applock";
     protected String tuiguang1 = "com.eosmobi.flashlight.free";
     private LottieAnimationView lot_applock;
@@ -205,29 +190,23 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
         }
         MApps.setWaiting(action);
         updateLocks();
+    }
 
-        AppLock.setOnbacListener(new AppLock.ForOnbackPress() {
-            @Override
-            public boolean forOnback() {
+    public boolean forOnback() {
 
-                if (SearchText.equals("")) {
-                    return false;
-
-                } else {
-                    SearchView.clearText();
-                    SearchText = "";
-                    searchResult = filter((ArrayList<SearchThread.SearchData>) MApps.getApps(locks), "");
-                    refreshUI(refreshSearchResult);
-                    if (!shareFive.getFiveRate()) {
-                        headPlan.setVisibility(View.VISIBLE);
-                    }
-                    return true;
-
-
-                }
-
+        if (SearchText.equals("")) {
+            return false;
+        } else {
+            searchview.clearText();
+            SearchText = "";
+            searchResult = filter((ArrayList<SearchThread.SearchData>) MApps.getApps(locks), "");
+            refreshUI(refreshSearchResult);
+            if (!shareFive.getFiveRate()) {
+                headPlan.setVisibility(View.VISIBLE);
             }
-        });
+            return true;
+        }
+
     }
 
     @Override
@@ -268,7 +247,6 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     @Override
     public void onDestroy() {
         db = null;
-        adShow = false;
         super.onDestroy();
     }
 
@@ -436,7 +414,7 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             }
         });
 
-        SearchView searchview = (SearchView) headerView.findViewById(R.id.search_id);
+        searchview = (SearchView) headerView.findViewById(R.id.search_id);
         lot_applock = (LottieAnimationView) headerView.findViewById(R.id.lot_applock);
         fl_lot_applock = (FrameLayout) headerView.findViewById(R.id.fl_lot_applock);
         tuiGuang();
@@ -456,15 +434,11 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
             @Override
             public boolean onStartSearch() {
                 headPlan.setVisibility(View.GONE);
-
-
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
-                CloseSearch = false;
                 searchResult = filter((ArrayList<SearchThread.SearchData>) MApps.getApps(locks), newText);
                 refreshUI(refreshSearchResult);
                 SearchText = newText;

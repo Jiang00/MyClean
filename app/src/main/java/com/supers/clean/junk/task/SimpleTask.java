@@ -43,7 +43,7 @@ public abstract class SimpleTask extends Thread {
 
     public SimpleTask(Context context, SimpleTaskListener simpleTaskListener, String threadName) {
         super(threadName);
-        mContext = context;
+        mContext = context.getApplicationContext();
         mSimpleTaskListener = simpleTaskListener;
         pm = context.getPackageManager();
         am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
@@ -62,7 +62,7 @@ public abstract class SimpleTask extends Thread {
     }
 
     public List<PackageInfo> getInstallPackage(PackageManager pm) {
-        if (pm == null){
+        if (pm == null) {
             return null;
         }
         List<PackageInfo> installPackage;
@@ -73,7 +73,7 @@ public abstract class SimpleTask extends Thread {
     }
 
     public List<ApplicationInfo> getInstalledApplications(PackageManager pm) {
-        if (pm == null){
+        if (pm == null) {
             return null;
         }
         List<ApplicationInfo> installPackage;

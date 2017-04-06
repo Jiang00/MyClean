@@ -43,18 +43,17 @@ import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.view.MainView;
 import com.supers.clean.junk.adapter.SideAdapter;
-import com.supers.clean.junk.util.CommonUtil;
-import com.supers.clean.junk.util.PreData;
-import com.supers.clean.junk.util.UtilGp;
-import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MainScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
+import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.view.MainView;
 
 import java.util.ArrayList;
 
@@ -426,17 +425,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
 
-    }
-
-    //初始化中间的高度
-    public void initCercleHight() {
-        //改变尺寸
-        /*dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(dm);*/
-        //cercle_linearParams = main_all_cercle.getLayoutParams();
-        //int ac = getStatusHeight(this);
-        //cercle_linearParams.height = dm.heightPixels - ac - dp2px(56) - dp2px(185) - dp2px(64);
-        //main_all_cercle.setLayoutParams(cercle_linearParams);
     }
 
     @Override
@@ -936,7 +924,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else if ((System.currentTimeMillis() - mExitTime) > 2000) {
-            Toast.makeText(this, getString(R.string.main_back_pressed), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.main_back_pressed), Toast.LENGTH_SHORT).show();
             mExitTime = System.currentTimeMillis();
 
         } else {

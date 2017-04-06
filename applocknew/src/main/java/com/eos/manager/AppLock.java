@@ -13,16 +13,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.android.client.AndroidSdk;
-import com.privacy.lock.R;
 import com.eos.manager.db.backgroundData;
-import com.eos.manager.meta.SecurityMyPref;
-import com.eos.manager.page.AppFragementSecurity;
-import com.eos.manager.page.SecurityThemeFragment;
-import com.eos.manager.page.SecurityMenu;
-import com.eos.manager.page.ShowDialogview;
 import com.eos.manager.lib.Utils;
 import com.eos.manager.lib.io.SafeDB;
 import com.eos.manager.meta.SecuritProfiles;
+import com.eos.manager.meta.SecurityMyPref;
+import com.eos.manager.page.AppFragementSecurity;
+import com.eos.manager.page.SecurityMenu;
+import com.eos.manager.page.ShowDialogview;
+import com.privacy.lock.R;
 
 
 /**
@@ -35,16 +34,13 @@ public class AppLock extends ClientActivitySecurity {
         super.onCreate(savedInstanceState);
     }
 
-
-    AppFragementSecurity fragment;
+    private AppFragementSecurity fragment;
 
     private String profileName;
 
     boolean hide;
 
-    public static ForOnbackPress onbakc;
-
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -184,10 +180,7 @@ public class AppLock extends ClientActivitySecurity {
         if (item.getItemId() == R.id.action_setting) {
             Intent intent = new Intent(this, AppLockSettings.class);
             startActivity(intent);
-
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -202,7 +195,7 @@ public class AppLock extends ClientActivitySecurity {
 
     @Override
     public void onBackPressed() {
-        boolean value = onbakc.forOnback();
+        boolean value = fragment.forOnback();
         if (!value) {
             super.onBackPressed();
             if (SecurityMyPref.getMainFirstFull()) {
@@ -212,18 +205,8 @@ public class AppLock extends ClientActivitySecurity {
 //                AndroidSdk.showFullAd(SecurityThemeFragment.TAG_MAIN_PAGE_FULL);
             }
         } else {
-            onbakc.forOnback();
+            fragment.forOnback();
         }
-    }
-
-    public interface ForOnbackPress {
-        public boolean forOnback();
-
-    }
-
-    public static void setOnbacListener(ForOnbackPress backpress) {
-        onbakc = backpress;
-
     }
 
 
