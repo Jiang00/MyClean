@@ -18,13 +18,10 @@ import com.eos.module.charge.saver.service.BatteryService;
 import com.ivy.kpa.DaemonClient;
 import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
-import com.supers.clean.junk.util.CommonUtil;
-import com.supers.clean.junk.util.PreData;
-import com.supers.clean.junk.util.TopActivityPkg;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.service.ReStarService;
 import com.supers.clean.junk.task.ApkFileAndAppJunkTask;
 import com.supers.clean.junk.task.AppCacheTask;
 import com.supers.clean.junk.task.AppManagerTask;
@@ -32,7 +29,10 @@ import com.supers.clean.junk.task.FilesOfUninstalledAppTask;
 import com.supers.clean.junk.task.RamTask;
 import com.supers.clean.junk.task.SimpleTask;
 import com.supers.clean.junk.task.SystemCacheTask;
-import com.supers.clean.junk.service.ReStarService;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.TopActivityPkg;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -60,7 +60,12 @@ public class MyApplication extends App {
     private int count;
 
     private Handler myHandler;
+
     private Runnable runnable;
+
+    private SimpleTask appManagerTask, ramTask, appCacheTask, filesOfUninstalledAppTask, cacheTask;
+
+    private ApkFileAndAppJunkTask fileTask;
 
     public boolean isSaomiaoSuccess() {
         return saomiaoSuccess;
@@ -376,7 +381,7 @@ public class MyApplication extends App {
     }
 
     private void loadWhiteListAndAppManager() {
-        AppManagerTask appManagerTask = new AppManagerTask(this, new SimpleTask.SimpleTaskListener() {
+        appManagerTask = new AppManagerTask(this, new SimpleTask.SimpleTaskListener() {
             @Override
             public void startLoad() {
 
@@ -409,7 +414,7 @@ public class MyApplication extends App {
     }
 
     private void loadAppRam() {
-        RamTask ramTask = new RamTask(this, new SimpleTask.SimpleTaskListener() {
+        ramTask = new RamTask(this, new SimpleTask.SimpleTaskListener() {
             @Override
             public void startLoad() {
 
@@ -441,7 +446,7 @@ public class MyApplication extends App {
     }
 
     public void loadAppCache() {
-        AppCacheTask appCacheTask = new AppCacheTask(this, new AppCacheTask.SimpleTaskListener() {
+        appCacheTask = new AppCacheTask(this, new AppCacheTask.SimpleTaskListener() {
             @Override
             public void startLoad() {
 
@@ -474,7 +479,7 @@ public class MyApplication extends App {
     }
 
     public void loadApkFileAndAppJunk() {
-        ApkFileAndAppJunkTask fileTask = new ApkFileAndAppJunkTask(this,
+        fileTask = new ApkFileAndAppJunkTask(this,
                 new ApkFileAndAppJunkTask.FileTaskListener() {
                     @Override
                     public void loadFinish(long apkSize, long logSize, ArrayList<JunkInfo> apkList, ArrayList<JunkInfo> logList) {
@@ -487,7 +492,7 @@ public class MyApplication extends App {
                                 appJunk.add(f);
                             }
                         }
-                        count += 2;
+                        count++;
                         saoMiaoOver();
                     }
                 });
@@ -495,7 +500,7 @@ public class MyApplication extends App {
     }
 
     public void loadSystemCache() {
-        SystemCacheTask cacheTask = new SystemCacheTask(this, new SimpleTask.SimpleTaskListener() {
+        cacheTask = new SystemCacheTask(this, new SimpleTask.SimpleTaskListener() {
             @Override
             public void startLoad() {
 
@@ -528,7 +533,7 @@ public class MyApplication extends App {
     }
 
     public void loadFilesOfUninstallApk() {
-        FilesOfUninstalledAppTask task = new FilesOfUninstalledAppTask(this, new SimpleTask.SimpleTaskListener() {
+        filesOfUninstalledAppTask = new FilesOfUninstalledAppTask(this, new SimpleTask.SimpleTaskListener() {
             @Override
             public void startLoad() {
 
@@ -557,12 +562,12 @@ public class MyApplication extends App {
                 saoMiaoOver();
             }
         });
-        task.start();
+        filesOfUninstalledAppTask.start();
     }
 
     public void saoMiaoOver() {
         Log.e("aaa", "=====" + count);
-        if (count >= 7) {
+        if (count >= 6) {
             saomiaoSuccess = true;
         }
     }

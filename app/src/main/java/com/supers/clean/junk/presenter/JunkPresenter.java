@@ -77,7 +77,6 @@ public class JunkPresenter extends BasePresenter<JunkView> {
     }
 
     public void addAdapterData() {
-
         addSystemAdapterData();
         addApkAdapterData();
         addUnloadAdapterData();

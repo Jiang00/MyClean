@@ -55,6 +55,7 @@ public class CoolingActivity extends BaseActivity {
     private Animation suo;
     private Animation fang;
     private int time;
+    private LottieAnimationView lottieAnimationView;
 
     @Override
     protected void findId() {
@@ -143,9 +144,13 @@ public class CoolingActivity extends BaseActivity {
             public void onLoadView(View view) {
                 if (view != null) {
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lottieAnimationView = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_cooling.setVisibility(View.VISIBLE);
                     fl_lot_cooling.addView(view, 0);
+                    if (onPause) {
+                        lottieAnimationView.pauseAnimation();
+                    }
                 } else {
                     fl_lot_cooling.setVisibility(View.GONE);
                 }
@@ -182,6 +187,9 @@ public class CoolingActivity extends BaseActivity {
         flakeView = new FlakeView(this);
         cooling_piao.addView(flakeView);
         mHandler.post(runnable);
+        if (lottieAnimationView != null) {
+            lottieAnimationView.playAnimation();
+        }
     }
 
     private void hideSnow() {
@@ -201,6 +209,9 @@ public class CoolingActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         hideSnow();
+        if (lottieAnimationView != null) {
+            lottieAnimationView.pauseAnimation();
+        }
     }
 
     @Override

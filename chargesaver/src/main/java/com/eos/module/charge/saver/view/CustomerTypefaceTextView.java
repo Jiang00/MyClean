@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import com.eos.module.charge.saver.R;
 
@@ -13,7 +12,7 @@ import com.eos.module.charge.saver.R;
  * Created by on 2016/10/27.
  */
 
-public class CustomerTypefaceTextView extends TextView {
+public class CustomerTypefaceTextView extends android.support.v7.widget.AppCompatTextView {
     String typeface = null;
 
     Context mContext;

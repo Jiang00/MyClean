@@ -7,8 +7,6 @@ import android.view.animation.TranslateAnimation;
  */
 
 public interface MainView extends IView {
-    void initCercleHight();
-
     void initCpu(int temp);
 
     void initSd(int perent, String size, long sd_kongxian);
