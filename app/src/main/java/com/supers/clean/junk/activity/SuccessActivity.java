@@ -57,6 +57,7 @@ public class SuccessActivity extends BaseActivity {
     FrameLayout fl_lot_success;
     LinearLayout main_tuiguang_button;
     TextView main_msg_tuiguang;
+    LottieAnimationView lot_success;
     private TextView tv_next;
     private ImageView iv_next;
     private View nativeView;
@@ -177,9 +178,13 @@ public class SuccessActivity extends BaseActivity {
                         main_msg_tuiguang.setText("EOS Flashlight");
                     }
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_success = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lot_success.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     Log.e("tuiguang", "main 不为空");
                     main_tuiguang_button.setVisibility(View.VISIBLE);
+                    if (onPause) {
+                        lot_success.pauseAnimation();
+                    }
                     fl_lot_success.addView(view, 0);
                 } else {
                     main_tuiguang_button.setVisibility(View.GONE);
@@ -429,6 +434,23 @@ public class SuccessActivity extends BaseActivity {
             }
         }
     };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
+        if (lot_success != null) {
+            lot_success.playAnimation();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_success != null) {
+            lot_success.pauseAnimation();
+        }
+    }
 
     @Override
     protected void onStop() {

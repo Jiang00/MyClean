@@ -56,6 +56,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     TextView manager_shouquan;
     RelativeLayout manager_clean;
     FrameLayout fl_lot_manager;
+    LottieAnimationView lot_manager;
 
     private ManagerPresenter managerPresenter;
     private ManagerAdapter adapterManager;
@@ -135,8 +136,12 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             public void onLoadView(View view) {
                 if (view != null) {
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_manager = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lot_manager.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_manager.setVisibility(View.VISIBLE);
+                    if (onPause) {
+                        lot_manager.pauseAnimation();
+                    }
                     fl_lot_manager.addView(view, 0);
                 } else {
                     fl_lot_manager.setVisibility(View.GONE);
@@ -320,7 +325,17 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        if (lot_manager != null) {
+            lot_manager.playAnimation();
+        }
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_manager != null) {
+            lot_manager.pauseAnimation();
+        }
     }
 
     @Override

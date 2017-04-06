@@ -155,7 +155,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        instance = this;
         setContentView(R.layout.activity_dra);
 
         packageManager = getPackageManager();
@@ -226,18 +225,19 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                     startActivity(intent);
                     AndroidSdk.track("主页面", "点击跳转进入辅助功能", "", 1);
-                    try {
-                        new Thread().sleep(1500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    Intent transintent = new Intent(MainActivity.this, AppLockPermissionActivity.class);
-                    startActivity(transintent);
-                    pageView.setVisibility(View.GONE);
-                    viewpager.setCurrentItem(0);
-                    viewpager.removeView(viewpager_3);
-                    arrayList.remove(viewpager_3);
-                    pagerAdapter.notifyDataSetChanged();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent transintent = new Intent(MainActivity.this, AppLockPermissionActivity.class);
+                            startActivity(transintent);
+                            pageView.setVisibility(View.GONE);
+                            viewpager.setCurrentItem(0);
+                            viewpager.removeView(viewpager_3);
+                            arrayList.remove(viewpager_3);
+                            pagerAdapter.notifyDataSetChanged();
+                        }
+                    }, 1500);
+
                 }
             });
             permiss_cancle.setOnClickListener(new View.OnClickListener() {
@@ -367,39 +367,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
         });
 
-    }
-
-    public static void showPermission(final Context c) {
-        final View alertDialogView = View.inflate(c, com.privacy.lock.R.layout.security_show_permission, null);
-        final android.support.v7.app.AlertDialog d = new android.support.v7.app.AlertDialog.Builder(c, com.privacy.lock.R.style.dialog).create();
-        d.setView(alertDialogView);
-        d.setCanceledOnTouchOutside(false);
-        d.show();
-        alertDialogView.findViewById(com.privacy.lock.R.id.ok).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d.cancel();
-                final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                c.startActivity(intent);
-                try {
-                    new Thread().sleep(1500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                Intent transintent = new Intent(c, AppLockPermissionActivity.class);
-                c.startActivity(transintent);
-                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
-            }
-        });
-
-        alertDialogView.findViewById(com.privacy.lock.R.id.cancle).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_CANCLE, 1L);
-                d.cancel();
-            }
-        });
     }
 
     // To check if service is enabled
@@ -950,6 +917,20 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         animation.start();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (lot_family != null) {
+            lot_family.clearAnimation();
+        }
+        if (lot_main != null) {
+            lot_main.clearAnimation();
+        }
+        if (lot_side != null) {
+            lot_side.clearAnimation();
+        }
+    }
+
     public void onBackPressed() {
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
@@ -982,7 +963,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         mDrawerOpened = false;
         Log.e(TAG, "onDrawerClosed");
         if (lot_side != null) {
-            lot_side.cancelAnimation();
+            lot_side.pauseAnimation();
         }
     }
 

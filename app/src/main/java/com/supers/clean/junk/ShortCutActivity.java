@@ -42,6 +42,7 @@ public class ShortCutActivity extends BaseActivity {
     TextView short_size;
     LinearLayout ll_ad;
     FrameLayout fl_lot_short;
+    LottieAnimationView lot_short;
     private Animation rotate;
     private Animation fang;
     private TweenManager tweenManager;
@@ -129,8 +130,12 @@ public class ShortCutActivity extends BaseActivity {
             public void onLoadView(View view) {
                 if (view != null) {
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_short = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lot_short.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_short.setVisibility(View.VISIBLE);
+                    if (onPause) {
+                        lot_short.pauseAnimation();
+                    }
                     fl_lot_short.addView(view, 0);
                 } else {
                     fl_lot_short.setVisibility(View.GONE);
@@ -275,8 +280,19 @@ public class ShortCutActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
+        if (lot_short != null) {
+            lot_short.playAnimation();
+        }
 
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_short != null) {
+            lot_short.pauseAnimation();
+        }
     }
 
     @Override

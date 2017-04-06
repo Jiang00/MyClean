@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
+import android.system.ErrnoException;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -175,7 +176,7 @@ public class NotifactionService extends Service {
     private Runnable runnable = new Runnable() {
         public void run() {
             update();
-            myHandler.postDelayed(this, 30000);
+            myHandler.postDelayed(this, 2000);
         }
     };
 
@@ -199,7 +200,7 @@ public class NotifactionService extends Service {
             mNotifyManager.notify(102, notification_1);
             lastTimeStamp = nowTimeStamp;
             lastTotalRxBytes = nowTotalRxBytes;
-            myHandler.postDelayed(this, 2000);
+            myHandler.postDelayed(this, 1000);
         }
     };
 
@@ -215,6 +216,8 @@ public class NotifactionService extends Service {
     }
 
     private void update() {
+
+        final int memory = CommonUtil.getMemory(this);
         //cpu温度
         CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
             @Override
@@ -226,18 +229,17 @@ public class NotifactionService extends Service {
                 }
                 Log.e("notifi", "cpuTemp=" + cpuTemp);
                 remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
+                if (memory > 70) {
+                    paint_1.setColor(NotifactionService.this.getResources().getColor(R.color.app_color_third));
+                } else {
+                    paint_1.setColor(NotifactionService.this.getResources().getColor(R.color.white_100));
+                }
+                canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
+                remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
+                remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
+                mNotifyManager.notify(102, notification_1);
             }
         });
-        int memory = CommonUtil.getMemory(this);
-        if (memory > 70) {
-            paint_1.setColor(this.getResources().getColor(R.color.app_color_third));
-        } else {
-            paint_1.setColor(this.getResources().getColor(R.color.white_100));
-        }
-        canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
-        remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
-        remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
-        mNotifyManager.notify(102, notification_1);
         long time = System.currentTimeMillis();
         if (PreData.getDB(this, Contents.TONGZHI_SWITCH, true)) {
             int hh = Integer.parseInt(CommonUtil.getStrTimeHH(time));

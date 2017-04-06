@@ -31411,6 +31411,7 @@ com.eos.manager.page.ListViewForScrollView
 com.eos.manager.page.ListViewForScrollView: ListViewForScrollView(android.content.Context)
 com.eos.manager.page.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
 com.eos.manager.page.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet,int)
+com.eos.manager.page.ListViewForScrollView: void setAdapter(android.widget.Adapter)
 com.eos.manager.page.MyFrameLayout
 com.eos.manager.page.MyFrameLayout: MyFrameLayout(android.content.Context)
 com.eos.manager.page.MyFrameLayout: MyFrameLayout(android.content.Context,android.util.AttributeSet)
@@ -44587,15 +44588,7 @@ com.supers.clean.junk.R$id: int load_text_3
 com.supers.clean.junk.R$id: int lock
 com.supers.clean.junk.R$id: int lot_applock
 com.supers.clean.junk.R$id: int lot_applock_setting
-com.supers.clean.junk.R$id: int lot_cooling
 com.supers.clean.junk.R$id: int lot_family
-com.supers.clean.junk.R$id: int lot_main
-com.supers.clean.junk.R$id: int lot_manager
-com.supers.clean.junk.R$id: int lot_message
-com.supers.clean.junk.R$id: int lot_setting
-com.supers.clean.junk.R$id: int lot_short
-com.supers.clean.junk.R$id: int lot_side
-com.supers.clean.junk.R$id: int lot_success
 com.supers.clean.junk.R$id: int lottie_layer_name
 com.supers.clean.junk.R$id: int lpv_lock
 com.supers.clean.junk.R$id: int main
@@ -46682,13 +46675,13 @@ com.supers.clean.junk.activity.LoadingActivity$1: void onClick(android.view.View
 com.supers.clean.junk.activity.MainActivity
 com.supers.clean.junk.activity.MainActivity: MainActivity()
 com.supers.clean.junk.activity.MainActivity: void onClick()
+com.supers.clean.junk.activity.MainActivity: void onDrawerOpened(android.view.View)
+com.supers.clean.junk.activity.MainActivity: void onDrawerClosed(android.view.View)
 com.supers.clean.junk.activity.MainActivity$1: void onClick(android.view.View)
-com.supers.clean.junk.activity.MainActivity$14: void onClick(android.view.View)
+com.supers.clean.junk.activity.MainActivity$12: void onClick(android.view.View)
 com.supers.clean.junk.activity.MainActivity$2: void onClick(android.view.View)
 com.supers.clean.junk.activity.MainActivity$5: void onClick(android.view.View)
 com.supers.clean.junk.activity.MainActivity$6: void onClick(android.view.View)
-com.supers.clean.junk.activity.MainActivity$7: void onClick(android.view.View)
-com.supers.clean.junk.activity.MainActivity$8: void onClick(android.view.View)
 com.supers.clean.junk.activity.ManagerActivity
 com.supers.clean.junk.activity.ManagerActivity: ManagerActivity()
 com.supers.clean.junk.activity.ManagerActivity: void onClick()
@@ -46807,6 +46800,10 @@ com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(android.graphics.drawable.
 com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long)
 com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String)
 com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long,long,boolean,long)
+com.supers.clean.junk.modle.entity.Sizesort
+com.supers.clean.junk.modle.entity.Sizesort: Sizesort()
+com.supers.clean.junk.modle.entity.Sizesort: int compare(android.app.usage.UsageStats,android.app.usage.UsageStats)
+com.supers.clean.junk.modle.entity.Sizesort: int compare(java.lang.Object,java.lang.Object)
 com.supers.clean.junk.myView.CustomRoundCpu
 com.supers.clean.junk.myView.CustomRoundCpu: CustomRoundCpu(android.content.Context)
 com.supers.clean.junk.myView.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet)
@@ -46857,6 +46854,7 @@ com.supers.clean.junk.myView.ListViewForScrollView
 com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context)
 com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.myView.ListViewForScrollView: void setAdapter(android.widget.Adapter)
 com.supers.clean.junk.myView.MainFrameLayout
 com.supers.clean.junk.myView.MainFrameLayout: MainFrameLayout(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.myView.MainScrollView

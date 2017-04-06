@@ -308,7 +308,17 @@ public class AppLockSettings extends ClientActivitySecurity {
     @Override
     protected void onResume() {
         super.onResume();
+        if (lot_applock_setting != null) {
+            lot_applock_setting.playAnimation();
+        }
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_applock_setting != null) {
+            lot_applock_setting.pauseAnimation();
+        }
     }
 
     public View.OnClickListener onClickListener = new View.OnClickListener() {

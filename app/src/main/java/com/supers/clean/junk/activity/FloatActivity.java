@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.adapter.HorizontalListViewAdapter;
 import com.supers.clean.junk.modle.CheckState;
