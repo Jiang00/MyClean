@@ -41,6 +41,7 @@ import com.eos.module.charge.saver.service.BatteryService;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
+import com.eos.ui.demo.utils.Util;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
@@ -167,7 +168,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
             String from = getIntent().getStringExtra("from");
             if (TextUtils.equals(from, "translate")) {
-                DialogManager.showCrossDialog(this, AndroidSdk.getExtraData(), "list2", "flight", null);
+                DialogManager.showCrossDialog(getApplicationContext(), AndroidSdk.getExtraData(), "list2", "flight", null);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -307,7 +308,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(this, extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -336,7 +337,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 }
             }
         });
-        DialogManager.getCrossView(this, extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -839,8 +840,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_tuiguang_button:
                 case R.id.fl_lot_side:
-                    SdkEnv.openPlayStore(tuiguang, "&referrer=utm_source%3Dcross_eosclean");
-//                    UtilGp.openPlayStore(MainActivity.this, tuiguang);
+                    if (CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
+                        CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
+                    } else {
+                        UtilGp.openPlayStore(getApplicationContext(), tuiguang);
+                    }
                     break;
 
 

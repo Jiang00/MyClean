@@ -134,7 +134,7 @@ public class CoolingActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
-        DialogManager.getCrossView(this, extraData, "list1", "cooling", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "cooling", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 

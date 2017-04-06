@@ -43831,6 +43831,7 @@ com.supers.clean.junk.R$dimen: int d30
 com.supers.clean.junk.R$dimen: int d301
 com.supers.clean.junk.R$dimen: int d33
 com.supers.clean.junk.R$dimen: int d333
+com.supers.clean.junk.R$dimen: int d36
 com.supers.clean.junk.R$dimen: int d37
 com.supers.clean.junk.R$dimen: int d39
 com.supers.clean.junk.R$dimen: int d4
@@ -45012,6 +45013,7 @@ com.supers.clean.junk.R$layout: int native_ad_5
 com.supers.clean.junk.R$layout: int native_ad_common_large
 com.supers.clean.junk.R$layout: int native_ad_full
 com.supers.clean.junk.R$layout: int native_ad_loading
+com.supers.clean.junk.R$layout: int native_ad_title
 com.supers.clean.junk.R$layout: int native_side
 com.supers.clean.junk.R$layout: int notification_media_action
 com.supers.clean.junk.R$layout: int notification_media_cancel_action
@@ -46630,26 +46632,12 @@ com.supers.clean.junk.R$xml: int acc
 com.supers.clean.junk.R$xml: int accessibility
 com.supers.clean.junk.R$xml: int ram
 com.supers.clean.junk.R$xml: int temp
-com.supers.clean.junk.ShortCutActivity
-com.supers.clean.junk.ShortCutActivity: ShortCutActivity()
-com.supers.clean.junk.ShortCutActivity$3: void onClick(android.view.View)
-com.supers.clean.junk.ShortCutActivity$4$1: void onClick(android.view.View)
-com.supers.clean.junk.View.IView: void onClick()
-com.supers.clean.junk.View.adapter.HorizontalListViewAdapter$1: void onClick(android.view.View)
-com.supers.clean.junk.View.adapter.JunkAdapter$1: void onClick(android.view.View)
-com.supers.clean.junk.View.adapter.JunkRamAdapter$1: void onClick(android.view.View)
-com.supers.clean.junk.View.adapter.ManagerAdapter$1: void onClick(android.view.View)
-com.supers.clean.junk.View.adapter.RamAdapter$1: void onClick(android.view.View)
-com.supers.clean.junk.View.adapter.SideAdapter$1: void onClick(android.view.View)
-com.supers.clean.junk.View.adapter.WhiteListAdapter$1: void onClick(android.view.View)
 com.supers.clean.junk.activity.ApplockActivity
 com.supers.clean.junk.activity.ApplockActivity: ApplockActivity()
 com.supers.clean.junk.activity.ApplockActivity$1: void onClick(android.view.View)
 com.supers.clean.junk.activity.ApplockActivity$2: void onClick(android.view.View)
 com.supers.clean.junk.activity.BaseActivity
 com.supers.clean.junk.activity.BaseActivity: BaseActivity()
-com.supers.clean.junk.activity.BootBroadcast
-com.supers.clean.junk.activity.BootBroadcast: BootBroadcast()
 com.supers.clean.junk.activity.CoolingActivity
 com.supers.clean.junk.activity.CoolingActivity: CoolingActivity()
 com.supers.clean.junk.activity.CoolingActivity$2: void onClick(android.view.View)
@@ -46657,8 +46645,6 @@ com.supers.clean.junk.activity.CoolingActivity$5: void onClick(android.view.View
 com.supers.clean.junk.activity.FloatActivity
 com.supers.clean.junk.activity.FloatActivity: FloatActivity()
 com.supers.clean.junk.activity.FloatActivity$3: void onClick(android.view.View)
-com.supers.clean.junk.activity.FloatService
-com.supers.clean.junk.activity.FloatService: FloatService()
 com.supers.clean.junk.activity.JunkActivity
 com.supers.clean.junk.activity.JunkActivity: JunkActivity()
 com.supers.clean.junk.activity.JunkActivity: void onClick()
@@ -46696,8 +46682,6 @@ com.supers.clean.junk.activity.MessageActivity$1: void onClick(android.view.View
 com.supers.clean.junk.activity.MessageActivity$3: void onClick(android.view.View)
 com.supers.clean.junk.activity.MyApplication
 com.supers.clean.junk.activity.MyApplication: MyApplication()
-com.supers.clean.junk.activity.NotifactionService
-com.supers.clean.junk.activity.NotifactionService: NotifactionService()
 com.supers.clean.junk.activity.RamAvtivity
 com.supers.clean.junk.activity.RamAvtivity: RamAvtivity()
 com.supers.clean.junk.activity.RamAvtivity: void onClick()
@@ -46706,6 +46690,10 @@ com.supers.clean.junk.activity.SettingActivity
 com.supers.clean.junk.activity.SettingActivity: SettingActivity()
 com.supers.clean.junk.activity.SettingActivity$2: void onClick(android.view.View)
 com.supers.clean.junk.activity.SettingActivity$3: void onClick(android.view.View)
+com.supers.clean.junk.activity.ShortCutActivity
+com.supers.clean.junk.activity.ShortCutActivity: ShortCutActivity()
+com.supers.clean.junk.activity.ShortCutActivity$3: void onClick(android.view.View)
+com.supers.clean.junk.activity.ShortCutActivity$4$1: void onClick(android.view.View)
 com.supers.clean.junk.activity.SuccessActivity
 com.supers.clean.junk.activity.SuccessActivity: SuccessActivity()
 com.supers.clean.junk.activity.SuccessActivity$4: void onClick(android.view.View)
@@ -46718,192 +46706,152 @@ com.supers.clean.junk.activity.TranslateActivity: TranslateActivity()
 com.supers.clean.junk.activity.UnloadActivity
 com.supers.clean.junk.activity.UnloadActivity: UnloadActivity()
 com.supers.clean.junk.activity.UnloadActivity$2: void onClick(android.view.View)
-com.supers.clean.junk.activity.UnloadBroadcast
-com.supers.clean.junk.activity.UnloadBroadcast: UnloadBroadcast()
 com.supers.clean.junk.activity.WhiteListAddActivity
 com.supers.clean.junk.activity.WhiteListAddActivity: WhiteListAddActivity()
 com.supers.clean.junk.activity.WhiteListAddActivity$1: void onClick(android.view.View)
 com.supers.clean.junk.activity.WhiteListAvtivity
 com.supers.clean.junk.activity.WhiteListAvtivity: WhiteListAvtivity()
 com.supers.clean.junk.activity.WhiteListAvtivity$1: void onClick(android.view.View)
-com.supers.clean.junk.fakeView.FlakeView
-com.supers.clean.junk.fakeView.FlakeView: int getNumFlakes()
-com.supers.clean.junk.fakeView.FlakeView: void setNumFlakes(int)
-com.supers.clean.junk.modle.entity.Contents
-com.supers.clean.junk.modle.entity.Contents: java.lang.String SHARED_FILE
-com.supers.clean.junk.modle.entity.Contents: java.lang.String WHILT_LIST
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FIRST_INSTALL
-com.supers.clean.junk.modle.entity.Contents: java.lang.String IS_ACTION_BAR
-com.supers.clean.junk.modle.entity.Contents: java.lang.String IS_ROTATE
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FlOAT_SWITCH
-com.supers.clean.junk.modle.entity.Contents: java.lang.String TONGZHI_SWITCH
-com.supers.clean.junk.modle.entity.Contents: java.lang.String TONGZHILAN_SWITCH
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_TONGZHI_ZAO_RAM
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_TONGZHI_ZHONG_RAM
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_TONGZHI_WAN_RAM
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_TONGZHI_ZAO_COOLING
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_TONGZHI_ZHONG_COOLING
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_TONGZHI_WAN_COOLING
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_TONGZHI_ZAO_JUNK
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_TONGZHI_ZHONG_JUNK
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_TONGZHI_WAN_JUNK
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_SHORTCUT
-com.supers.clean.junk.modle.entity.Contents: java.lang.String ROOT_TRAK
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_LOADING_GAI
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FIRST_APPLOCK
-com.supers.clean.junk.modle.entity.Contents: java.lang.String KEY_APPLOCK
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_MAIN
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_MANAGER
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_SUCCESS
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_MESSAGE
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_SETTING
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_UNLOAD
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_FLOAT
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_COOL
-com.supers.clean.junk.modle.entity.Contents: java.lang.String FULL_SHORTCUT
-com.supers.clean.junk.modle.entity.Contents: Contents()
-com.supers.clean.junk.modle.entity.JsonData
-com.supers.clean.junk.modle.entity.JsonData: int full_main
-com.supers.clean.junk.modle.entity.JsonData: int full_manager
-com.supers.clean.junk.modle.entity.JsonData: int full_message
-com.supers.clean.junk.modle.entity.JsonData: int full_success
-com.supers.clean.junk.modle.entity.JsonData: int full_setting
-com.supers.clean.junk.modle.entity.JsonData: int full_unload
-com.supers.clean.junk.modle.entity.JsonData: int full_float
-com.supers.clean.junk.modle.entity.JsonData: int full_cool
-com.supers.clean.junk.modle.entity.JsonData: int full_shortcut
-com.supers.clean.junk.modle.entity.JsonData: int charging
-com.supers.clean.junk.modle.entity.JsonData: java.util.List tuiguang
-com.supers.clean.junk.modle.entity.JsonData: java.util.List packageName
-com.supers.clean.junk.modle.entity.JsonData: JsonData()
-com.supers.clean.junk.modle.entity.JunkInfo
-com.supers.clean.junk.modle.entity.JunkInfo: long serialVersionUID
-com.supers.clean.junk.modle.entity.JunkInfo: java.lang.String path
-com.supers.clean.junk.modle.entity.JunkInfo: java.lang.String name
-com.supers.clean.junk.modle.entity.JunkInfo: long time
-com.supers.clean.junk.modle.entity.JunkInfo: long lastRunTime
-com.supers.clean.junk.modle.entity.JunkInfo: boolean isChecked
-com.supers.clean.junk.modle.entity.JunkInfo: android.graphics.drawable.Drawable icon
-com.supers.clean.junk.modle.entity.JunkInfo: long size
-com.supers.clean.junk.modle.entity.JunkInfo: java.lang.String packageName
-com.supers.clean.junk.modle.entity.JunkInfo: java.lang.String label
-com.supers.clean.junk.modle.entity.JunkInfo: boolean isWhiteList
-com.supers.clean.junk.modle.entity.JunkInfo: int drawableRid
-com.supers.clean.junk.modle.entity.JunkInfo: int textrid
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(int,int,boolean)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(int,int)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,boolean,android.graphics.drawable.Drawable,long)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,long,boolean,android.graphics.drawable.Drawable,long)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawable,java.lang.String,java.lang.String,java.lang.String,boolean,long)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,boolean,android.graphics.drawable.Drawable,java.lang.String,long,java.lang.String)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawable,java.lang.String,java.lang.String,boolean)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String)
-com.supers.clean.junk.modle.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long,long,boolean,long)
-com.supers.clean.junk.modle.entity.Sizesort
-com.supers.clean.junk.modle.entity.Sizesort: Sizesort()
-com.supers.clean.junk.modle.entity.Sizesort: int compare(android.app.usage.UsageStats,android.app.usage.UsageStats)
-com.supers.clean.junk.modle.entity.Sizesort: int compare(java.lang.Object,java.lang.Object)
-com.supers.clean.junk.myView.CustomRoundCpu
-com.supers.clean.junk.myView.CustomRoundCpu: CustomRoundCpu(android.content.Context)
-com.supers.clean.junk.myView.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.myView.CustomRoundCpu: void setProgress(int)
-com.supers.clean.junk.myView.CustomRoundCpu: void setCustomRoundListener(com.supers.clean.junk.myView.CustomRoundCpu$CustomRoundListener)
-com.supers.clean.junk.myView.DrawHookView
-com.supers.clean.junk.myView.DrawHookView: DrawHookView(android.content.Context)
-com.supers.clean.junk.myView.DrawHookView: DrawHookView(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.DrawHookView: DrawHookView(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.myView.DrawHookView: void setProgress(int)
-com.supers.clean.junk.myView.DrawHookView: void setListener(com.supers.clean.junk.myView.DrawHookView$DrawHookListener)
-com.supers.clean.junk.myView.FloatStateView
-com.supers.clean.junk.myView.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.myView.FloatStateView: void setDragState(int)
-com.supers.clean.junk.myView.HorizontalListView
-com.supers.clean.junk.myView.HorizontalListView: HorizontalListView(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.HorizontalListView: void setDivider(android.graphics.drawable.Drawable)
-com.supers.clean.junk.myView.HorizontalListView: void setDividerWidth(int)
-com.supers.clean.junk.myView.HorizontalListView: void setSelection(int)
-com.supers.clean.junk.myView.HorizontalListView: android.view.View getSelectedView()
-com.supers.clean.junk.myView.HorizontalListView: void setAdapter(android.widget.ListAdapter)
-com.supers.clean.junk.myView.HorizontalListView: android.widget.ListAdapter getAdapter()
-com.supers.clean.junk.myView.HorizontalListView: float getLeftFadingEdgeStrength()
-com.supers.clean.junk.myView.HorizontalListView: float getRightFadingEdgeStrength()
-com.supers.clean.junk.myView.HorizontalListView: android.view.View getLeftmostChild()
-com.supers.clean.junk.myView.HorizontalListView: android.view.View getRightmostChild()
-com.supers.clean.junk.myView.HorizontalListView: int getRenderHeight()
-com.supers.clean.junk.myView.HorizontalListView: int getRenderWidth()
-com.supers.clean.junk.myView.HorizontalListView: int getFirstVisiblePosition()
-com.supers.clean.junk.myView.HorizontalListView: int getLastVisiblePosition()
-com.supers.clean.junk.myView.HorizontalListView: void setOnClickListener(android.view.View$OnClickListener)
-com.supers.clean.junk.myView.HorizontalListView: void setOnScrollStateChangedListener(com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener)
-com.supers.clean.junk.myView.HorizontalListView: void setCurrentScrollState(com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState)
-com.supers.clean.junk.myView.HorizontalListView: void setAdapter(android.widget.Adapter)
-com.supers.clean.junk.myView.HorizontalListView: android.widget.Adapter getAdapter()
-com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState
-com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState SCROLL_STATE_IDLE
-com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState SCROLL_STATE_TOUCH_SCROLL
-com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState SCROLL_STATE_FLING
-com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState[] $VALUES
-com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState[] values()
-com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState valueOf(java.lang.String)
-com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: HorizontalListView$OnScrollStateChangedListener$ScrollState(java.lang.String,int)
-com.supers.clean.junk.myView.HorizontalListView$OnScrollStateChangedListener$ScrollState: void <clinit>()
-com.supers.clean.junk.myView.ListViewForScrollView
-com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context)
-com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.myView.ListViewForScrollView: void setAdapter(android.widget.Adapter)
-com.supers.clean.junk.myView.MainFrameLayout
-com.supers.clean.junk.myView.MainFrameLayout: MainFrameLayout(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.MainScrollView
-com.supers.clean.junk.myView.MainScrollView: MainScrollView(android.content.Context)
-com.supers.clean.junk.myView.MainScrollView: MainScrollView(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.MainScrollView: MainScrollView(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.myView.MyLinearLayout
-com.supers.clean.junk.myView.MyLinearLayout: MyLinearLayout(android.content.Context)
-com.supers.clean.junk.myView.MyLinearLayout: MyLinearLayout(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.MyLinearLayout: MyLinearLayout(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.myView.MyScrollView
-com.supers.clean.junk.myView.MyScrollView: MyScrollView(android.content.Context)
-com.supers.clean.junk.myView.MyScrollView: MyScrollView(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.MyScrollView: MyScrollView(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.myView.MyScrollView: void setScrollViewListener(com.supers.clean.junk.myView.MyScrollView$ScrollViewListener)
-com.supers.clean.junk.myView.NotifiArcView
-com.supers.clean.junk.myView.NotifiArcView: NotifiArcView(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.NotifiArcView: NotifiArcView(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.myView.NotifiArcView: void setProgress(int)
-com.supers.clean.junk.myView.NotifiArcView: void setPercent(int)
-com.supers.clean.junk.myView.NotifiArcView: void setListener(com.supers.clean.junk.myView.NotifiArcView$PercentViewListener)
-com.supers.clean.junk.myView.PersonalScrollView
-com.supers.clean.junk.myView.PersonalScrollView: void setImageHeader(android.widget.ImageView)
-com.supers.clean.junk.myView.PersonalScrollView: void setTurnListener(com.supers.clean.junk.myView.PersonalScrollView$onTurnListener)
-com.supers.clean.junk.myView.PersonalScrollView: void setLine_up(android.view.View)
-com.supers.clean.junk.myView.PersonalScrollView: void setImageView(android.widget.ImageView)
-com.supers.clean.junk.myView.PersonalScrollView: PersonalScrollView(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.PersonalScrollView$State
-com.supers.clean.junk.myView.PersonalScrollView$State: com.supers.clean.junk.myView.PersonalScrollView$State UP
-com.supers.clean.junk.myView.PersonalScrollView$State: com.supers.clean.junk.myView.PersonalScrollView$State DOWN
-com.supers.clean.junk.myView.PersonalScrollView$State: com.supers.clean.junk.myView.PersonalScrollView$State NOMAL
-com.supers.clean.junk.myView.PersonalScrollView$State: com.supers.clean.junk.myView.PersonalScrollView$State[] $VALUES
-com.supers.clean.junk.myView.PersonalScrollView$State: com.supers.clean.junk.myView.PersonalScrollView$State[] values()
-com.supers.clean.junk.myView.PersonalScrollView$State: com.supers.clean.junk.myView.PersonalScrollView$State valueOf(java.lang.String)
-com.supers.clean.junk.myView.PersonalScrollView$State: PersonalScrollView$State(java.lang.String,int)
-com.supers.clean.junk.myView.PersonalScrollView$State: void <clinit>()
-com.supers.clean.junk.myView.PullToRefreshLayout
-com.supers.clean.junk.myView.PullToRefreshLayout: void setOnRefreshListener(com.supers.clean.junk.myView.PullToRefreshLayout$OnRefreshListener)
-com.supers.clean.junk.myView.PullToRefreshLayout: PullToRefreshLayout(android.content.Context)
-com.supers.clean.junk.myView.PullToRefreshLayout: PullToRefreshLayout(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.PullToRefreshLayout: PullToRefreshLayout(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.myView.ResultAnimation
-com.supers.clean.junk.myView.ResultAnimation: ResultAnimation(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.SlowScrollView
-com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context)
-com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet)
-com.supers.clean.junk.myView.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.adapter.HorizontalListViewAdapter$1: void onClick(android.view.View)
+com.supers.clean.junk.adapter.JunkAdapter$1: void onClick(android.view.View)
+com.supers.clean.junk.adapter.JunkRamAdapter$1: void onClick(android.view.View)
+com.supers.clean.junk.adapter.ManagerAdapter$1: void onClick(android.view.View)
+com.supers.clean.junk.adapter.RamAdapter$1: void onClick(android.view.View)
+com.supers.clean.junk.adapter.SideAdapter$1: void onClick(android.view.View)
+com.supers.clean.junk.adapter.WhiteListAdapter$1: void onClick(android.view.View)
+com.supers.clean.junk.broadcast.BootBroadcast
+com.supers.clean.junk.broadcast.BootBroadcast: BootBroadcast()
+com.supers.clean.junk.broadcast.UnloadBroadcast
+com.supers.clean.junk.broadcast.UnloadBroadcast: UnloadBroadcast()
+com.supers.clean.junk.customeview.CustomRoundCpu
+com.supers.clean.junk.customeview.CustomRoundCpu: CustomRoundCpu(android.content.Context)
+com.supers.clean.junk.customeview.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.customeview.CustomRoundCpu: void setProgress(int)
+com.supers.clean.junk.customeview.CustomRoundCpu: void setCustomRoundListener(com.supers.clean.junk.customeview.CustomRoundCpu$CustomRoundListener)
+com.supers.clean.junk.customeview.DrawHookView
+com.supers.clean.junk.customeview.DrawHookView: DrawHookView(android.content.Context)
+com.supers.clean.junk.customeview.DrawHookView: DrawHookView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.DrawHookView: DrawHookView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.customeview.DrawHookView: void setProgress(int)
+com.supers.clean.junk.customeview.DrawHookView: void setListener(com.supers.clean.junk.customeview.DrawHookView$DrawHookListener)
+com.supers.clean.junk.customeview.FlakeView
+com.supers.clean.junk.customeview.FlakeView: int getNumFlakes()
+com.supers.clean.junk.customeview.FlakeView: void setNumFlakes(int)
+com.supers.clean.junk.customeview.FloatStateView
+com.supers.clean.junk.customeview.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.customeview.FloatStateView: void setDragState(int)
+com.supers.clean.junk.customeview.HorizontalListView
+com.supers.clean.junk.customeview.HorizontalListView: HorizontalListView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.HorizontalListView: void setDivider(android.graphics.drawable.Drawable)
+com.supers.clean.junk.customeview.HorizontalListView: void setDividerWidth(int)
+com.supers.clean.junk.customeview.HorizontalListView: void setSelection(int)
+com.supers.clean.junk.customeview.HorizontalListView: android.view.View getSelectedView()
+com.supers.clean.junk.customeview.HorizontalListView: void setAdapter(android.widget.ListAdapter)
+com.supers.clean.junk.customeview.HorizontalListView: android.widget.ListAdapter getAdapter()
+com.supers.clean.junk.customeview.HorizontalListView: float getLeftFadingEdgeStrength()
+com.supers.clean.junk.customeview.HorizontalListView: float getRightFadingEdgeStrength()
+com.supers.clean.junk.customeview.HorizontalListView: android.view.View getLeftmostChild()
+com.supers.clean.junk.customeview.HorizontalListView: android.view.View getRightmostChild()
+com.supers.clean.junk.customeview.HorizontalListView: int getRenderHeight()
+com.supers.clean.junk.customeview.HorizontalListView: int getRenderWidth()
+com.supers.clean.junk.customeview.HorizontalListView: int getFirstVisiblePosition()
+com.supers.clean.junk.customeview.HorizontalListView: int getLastVisiblePosition()
+com.supers.clean.junk.customeview.HorizontalListView: void setOnClickListener(android.view.View$OnClickListener)
+com.supers.clean.junk.customeview.HorizontalListView: void setOnScrollStateChangedListener(com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener)
+com.supers.clean.junk.customeview.HorizontalListView: void setCurrentScrollState(com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState)
+com.supers.clean.junk.customeview.HorizontalListView: void setAdapter(android.widget.Adapter)
+com.supers.clean.junk.customeview.HorizontalListView: android.widget.Adapter getAdapter()
+com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState
+com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState SCROLL_STATE_IDLE
+com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState SCROLL_STATE_TOUCH_SCROLL
+com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState SCROLL_STATE_FLING
+com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState[] $VALUES
+com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState[] values()
+com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState: com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState valueOf(java.lang.String)
+com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState: HorizontalListView$OnScrollStateChangedListener$ScrollState(java.lang.String,int)
+com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListener$ScrollState: void <clinit>()
+com.supers.clean.junk.customeview.ListViewForScrollView
+com.supers.clean.junk.customeview.ListViewForScrollView: ListViewForScrollView(android.content.Context)
+com.supers.clean.junk.customeview.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.customeview.ListViewForScrollView: void setAdapter(android.widget.Adapter)
+com.supers.clean.junk.customeview.MainFrameLayout
+com.supers.clean.junk.customeview.MainFrameLayout: MainFrameLayout(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.MainScrollView
+com.supers.clean.junk.customeview.MainScrollView: MainScrollView(android.content.Context)
+com.supers.clean.junk.customeview.MainScrollView: MainScrollView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.MainScrollView: MainScrollView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.customeview.MyLinearLayout
+com.supers.clean.junk.customeview.MyLinearLayout: MyLinearLayout(android.content.Context)
+com.supers.clean.junk.customeview.MyLinearLayout: MyLinearLayout(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.MyLinearLayout: MyLinearLayout(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.customeview.MyScrollView
+com.supers.clean.junk.customeview.MyScrollView: MyScrollView(android.content.Context)
+com.supers.clean.junk.customeview.MyScrollView: MyScrollView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.MyScrollView: MyScrollView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.customeview.MyScrollView: void setScrollViewListener(com.supers.clean.junk.customeview.MyScrollView$ScrollViewListener)
+com.supers.clean.junk.customeview.PullToRefreshLayout
+com.supers.clean.junk.customeview.PullToRefreshLayout: void setOnRefreshListener(com.supers.clean.junk.customeview.PullToRefreshLayout$OnRefreshListener)
+com.supers.clean.junk.customeview.PullToRefreshLayout: PullToRefreshLayout(android.content.Context)
+com.supers.clean.junk.customeview.PullToRefreshLayout: PullToRefreshLayout(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.PullToRefreshLayout: PullToRefreshLayout(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.customeview.ResultAnimation
+com.supers.clean.junk.customeview.ResultAnimation: ResultAnimation(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.SlowScrollView
+com.supers.clean.junk.customeview.SlowScrollView: SlowScrollView(android.content.Context)
+com.supers.clean.junk.customeview.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.entity.JsonData
+com.supers.clean.junk.entity.JsonData: int full_main
+com.supers.clean.junk.entity.JsonData: int full_manager
+com.supers.clean.junk.entity.JsonData: int full_message
+com.supers.clean.junk.entity.JsonData: int full_success
+com.supers.clean.junk.entity.JsonData: int full_setting
+com.supers.clean.junk.entity.JsonData: int full_unload
+com.supers.clean.junk.entity.JsonData: int full_float
+com.supers.clean.junk.entity.JsonData: int full_cool
+com.supers.clean.junk.entity.JsonData: int full_shortcut
+com.supers.clean.junk.entity.JsonData: int charging
+com.supers.clean.junk.entity.JsonData: java.util.List tuiguang
+com.supers.clean.junk.entity.JsonData: java.util.List packageName
+com.supers.clean.junk.entity.JsonData: JsonData()
+com.supers.clean.junk.entity.JunkInfo
+com.supers.clean.junk.entity.JunkInfo: long serialVersionUID
+com.supers.clean.junk.entity.JunkInfo: java.lang.String path
+com.supers.clean.junk.entity.JunkInfo: java.lang.String name
+com.supers.clean.junk.entity.JunkInfo: long time
+com.supers.clean.junk.entity.JunkInfo: long lastRunTime
+com.supers.clean.junk.entity.JunkInfo: boolean isChecked
+com.supers.clean.junk.entity.JunkInfo: android.graphics.drawable.Drawable icon
+com.supers.clean.junk.entity.JunkInfo: long size
+com.supers.clean.junk.entity.JunkInfo: java.lang.String packageName
+com.supers.clean.junk.entity.JunkInfo: java.lang.String label
+com.supers.clean.junk.entity.JunkInfo: boolean isWhiteList
+com.supers.clean.junk.entity.JunkInfo: int drawableRid
+com.supers.clean.junk.entity.JunkInfo: int textrid
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(int,int,boolean)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(int,int)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,boolean,android.graphics.drawable.Drawable,long)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,long,boolean,android.graphics.drawable.Drawable,long)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawable,java.lang.String,java.lang.String,java.lang.String,boolean,long)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,boolean,android.graphics.drawable.Drawable,java.lang.String,long,java.lang.String)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawable,java.lang.String,java.lang.String,boolean)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long,long,boolean,long)
+com.supers.clean.junk.entity.Sizesort
+com.supers.clean.junk.entity.Sizesort: Sizesort()
+com.supers.clean.junk.entity.Sizesort: int compare(android.app.usage.UsageStats,android.app.usage.UsageStats)
+com.supers.clean.junk.entity.Sizesort: int compare(java.lang.Object,java.lang.Object)
 com.supers.clean.junk.presenter.FloatStateManager$2: void onClick(android.view.View)
+com.supers.clean.junk.service.FloatService
+com.supers.clean.junk.service.FloatService: FloatService()
+com.supers.clean.junk.service.NotificationService
+com.supers.clean.junk.service.NotificationService: NotificationService()
 com.supers.clean.junk.service.ReStarService
+com.supers.clean.junk.view.IView: void onClick()
 com.supers.clean.junk.widget.AutoUpdateService
 com.supers.clean.junk.widget.AutoUpdateService: AutoUpdateService()
 com.supers.clean.junk.widget.AutoUpdateWidgetProvider

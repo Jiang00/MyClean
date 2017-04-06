@@ -185,7 +185,7 @@ public class BaseActivity extends AppCompatActivity {
 
     public void showToast(String text) {
         if (toast == null) {
-            toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
         } else {
             toast.setText(text);
         }
