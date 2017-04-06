@@ -126,7 +126,7 @@ public class NotificationService extends Service {
 
     private void onstart() {
         myHandler.removeCallbacks(runnable);
-        myHandler.postDelayed(runnable, 2000);
+        myHandler.postDelayed(runnable, 30000);
         myHandler.removeCallbacks(runnableW);
         myHandler.post(runnableW);
     }
@@ -179,7 +179,7 @@ public class NotificationService extends Service {
     private Runnable runnable = new Runnable() {
         public void run() {
             update();
-            myHandler.postDelayed(this, 2000);
+            myHandler.postDelayed(this, 30000);
         }
     };
 
@@ -203,7 +203,7 @@ public class NotificationService extends Service {
             mNotifyManager.notify(102, notification_1);
             lastTimeStamp = nowTimeStamp;
             lastTotalRxBytes = nowTotalRxBytes;
-            myHandler.postDelayed(this, 1000);
+            myHandler.postDelayed(this, 2000);
         }
     };
 

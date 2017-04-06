@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
+import com.android.common.SdkEnv;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;
@@ -167,7 +168,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
             String from = getIntent().getStringExtra("from");
             if (TextUtils.equals(from, "translate")) {
-                DialogManager.showCrossDialog(getApplicationContext(), AndroidSdk.getExtraData(), "list2", "flight", null);
+                DialogManager.showCrossDialog(this, AndroidSdk.getExtraData(), "list2", "flight", null);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -841,6 +842,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.fl_lot_side:
                     if (CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
                         CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
+                        AndroidSdk.track("主页面", "启动" + tuiguang, "", 1);
                     } else {
                         UtilGp.openPlayStore(getApplicationContext(), tuiguang);
                     }

@@ -105,6 +105,9 @@ public class RamAvtivity extends BaseActivity implements RamView {
                     if (time < 30) {
                         time = 30;
                     }
+                    if (onDestroyed) {
+                        break;
+                    }
                     try {
                         Thread.sleep(time);
                     } catch (InterruptedException e) {

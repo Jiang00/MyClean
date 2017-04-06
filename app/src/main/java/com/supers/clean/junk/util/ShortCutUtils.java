@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Parcelable;
 
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.activity.ShortCutActivity;
 
 
 /**
@@ -24,8 +23,7 @@ public class ShortCutUtils {
                 "com.android.launcher.action.INSTALL_SHORTCUT");
         Intent shortcutIntent = new Intent();
         shortcutIntent.setComponent(new ComponentName(cx.getPackageName(),
-                "com.supers.clean.junk" + "."
-                        + ShortCutActivity.class.getSimpleName()));
+                "com.supers.clean.junk.activity.ShortCutActivity"));
         //设置启动的模式
         shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
                 | Intent.FLAG_ACTIVITY_NEW_TASK);

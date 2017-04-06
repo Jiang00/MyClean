@@ -163,6 +163,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     if (time < 30) {
                         time = 30;
                     }
+                    if (onDestroyed) {
+                        break;
+                    }
                     try {
                         Thread.sleep(time);
                     } catch (InterruptedException e) {
@@ -218,6 +221,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     if (time < 30) {
                         time = 30;
                     }
+                    if (onDestroyed) {
+                        break;
+                    }
                     try {
                         Thread.sleep(time);
                     } catch (InterruptedException e) {
@@ -250,6 +256,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     time -= 5;
                     if (time < 30) {
                         time = 30;
+                    }
+                    if (onDestroyed) {
+                        break;
                     }
                     try {
                         Thread.sleep(time);
@@ -284,6 +293,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     if (time < 30) {
                         time = 30;
                     }
+                    if (onDestroyed) {
+                        break;
+                    }
                     try {
                         Thread.sleep(time);
                     } catch (InterruptedException e) {
@@ -316,6 +328,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     time -= 5;
                     if (time < 30) {
                         time = 30;
+                    }
+                    if (onDestroyed) {
+                        break;
                     }
                     try {
                         Thread.sleep(time);
@@ -350,6 +365,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     if (time < 30) {
                         time = 30;
                     }
+                    if (onDestroyed) {
+                        break;
+                    }
                     try {
                         Thread.sleep(time);
                     } catch (InterruptedException e) {
@@ -383,6 +401,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     time -= 5;
                     if (time < 30) {
                         time = 30;
+                    }
+                    if (onDestroyed) {
+                        break;
                     }
                     try {
                         Thread.sleep(time);
@@ -427,6 +448,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         if (time < 30) {
                             time = 30;
                         }
+                        if (onDestroyed) {
+                            break;
+                        }
                         try {
                             Thread.sleep(time);
                         } catch (InterruptedException e) {
@@ -468,6 +492,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     for (int i = 0; i < a; i++) {
                         if (i > 10) {
                             time = 30;
+                        }
+                        if (onDestroyed) {
+                            break;
                         }
                         try {
                             Thread.sleep(time--);
