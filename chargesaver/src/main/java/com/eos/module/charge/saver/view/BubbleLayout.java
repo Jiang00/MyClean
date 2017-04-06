@@ -62,7 +62,6 @@ public class BubbleLayout extends View {
 			new Thread() {
 				public void run() {
 					while (starting) {
-
 						Bubble bubble = new Bubble();
 						int radius = random.nextInt(30);
 						while (radius == 0) {
