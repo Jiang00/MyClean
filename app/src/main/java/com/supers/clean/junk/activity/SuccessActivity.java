@@ -54,6 +54,7 @@ public class SuccessActivity extends BaseActivity {
     ImageView delete;
     ImageView success_progress;
     LinearLayout ad_title;
+    LinearLayout ll_ad_xiao;
 
     LinearLayout ad_native_2;
     FrameLayout fl_lot_success;
@@ -61,6 +62,7 @@ public class SuccessActivity extends BaseActivity {
     TextView main_msg_tuiguang;
     LottieAnimationView lot_success;
     private View nativeView;
+    private View native_xiao;
     private View native_title;
 
     private boolean isdoudong;
@@ -68,6 +70,7 @@ public class SuccessActivity extends BaseActivity {
     private boolean istween;
     private Handler myHandler;
     private String TAG_CLEAN = "eos_success";
+    private String TAG_CLEAN_2 = "eos_success_2";
     private String TAG_TITLE = "eos_icon";
     private Animation rotate;
 
@@ -95,6 +98,7 @@ public class SuccessActivity extends BaseActivity {
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
+        ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
     }
 
     @Override
@@ -217,6 +221,7 @@ public class SuccessActivity extends BaseActivity {
 
     private void addAd() {
         nativeView = CommonUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
+        native_xiao = CommonUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
         native_title = CommonUtil.getNativeAdView(TAG_TITLE, R.layout.native_ad_title);
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
@@ -235,7 +240,10 @@ public class SuccessActivity extends BaseActivity {
             ad_title.addView(native_title);
             ad_title.setVisibility(View.VISIBLE);
         }
-
+        if (ll_ad_xiao != null && native_xiao != null) {
+            ll_ad_xiao.addView(native_xiao);
+            ll_ad_xiao.setVisibility(View.VISIBLE);
+        }
     }
 
 //    private void addAd() {

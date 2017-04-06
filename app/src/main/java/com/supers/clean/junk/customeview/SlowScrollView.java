@@ -32,7 +32,7 @@ public class SlowScrollView extends ScrollView {
     //调用此方法滚动到目标位置  duration滚动时间
     public void smoothScrollToSlow(int duration) {
         int dx = 0 - getScrollX();//mScroller.getFinalX();  普通view使用这种方法
-        int dy = getBottom() - getScrollY() + 500;  //mScroller.getFinalY();
+        int dy = getBottom() - getScrollY() + 500 + 500;  //mScroller.getFinalY();
         smoothScrollBySlow(dx, dy, duration);
     }
 
