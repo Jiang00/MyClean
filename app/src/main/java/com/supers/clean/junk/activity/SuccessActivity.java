@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -52,6 +53,7 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_rotate_good;
     ImageView delete;
     ImageView success_progress;
+    LinearLayout ad_title;
 
     LinearLayout ad_native_2;
     FrameLayout fl_lot_success;
@@ -59,12 +61,14 @@ public class SuccessActivity extends BaseActivity {
     TextView main_msg_tuiguang;
     LottieAnimationView lot_success;
     private View nativeView;
+    private View native_title;
 
     private boolean isdoudong;
     private TweenManager tweenManager;
     private boolean istween;
     private Handler myHandler;
     private String TAG_CLEAN = "eos_success";
+    private String TAG_TITLE = "eos_icon";
     private Animation rotate;
 
     private boolean haveAd;
@@ -90,6 +94,7 @@ public class SuccessActivity extends BaseActivity {
         fl_lot_success = (FrameLayout) findViewById(R.id.fl_lot_success);
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
+        ad_title = (LinearLayout) findViewById(R.id.ad_title);
     }
 
     @Override
@@ -161,7 +166,7 @@ public class SuccessActivity extends BaseActivity {
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(this, extraData, "list1", "success", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "success", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -212,11 +217,11 @@ public class SuccessActivity extends BaseActivity {
 
     private void addAd() {
         nativeView = CommonUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
+        native_title = CommonUtil.getNativeAdView(TAG_TITLE, R.layout.native_ad_title);
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight();
             Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
-            ad_native_2.setLayoutParams(layout_ad);
             ad_native_2.setLayoutParams(layout_ad);
             haveAd = true;
             ad_native_2.addView(nativeView);
@@ -225,6 +230,10 @@ public class SuccessActivity extends BaseActivity {
                 scrollView.isTouch = false;
                 scrollView.smoothScrollToSlow(2000);
             }
+        }
+        if (ad_title != null && native_title != null) {
+            ad_title.addView(native_title);
+            ad_title.setVisibility(View.VISIBLE);
         }
 
     }
@@ -427,7 +436,11 @@ public class SuccessActivity extends BaseActivity {
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_tuiguang_button:
-                    UtilGp.openPlayStore(SuccessActivity.this, tuiguang);
+                    if (CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                        CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
+                    } else {
+                        UtilGp.openPlayStore(getApplicationContext(), tuiguang);
+                    }
                     break;
             }
         }

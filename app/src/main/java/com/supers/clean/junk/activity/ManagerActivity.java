@@ -126,7 +126,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     @Override
     public void tuiGuang() {
         super.tuiGuang();
-        DialogManager.getCrossView(this, extraData, "list1", "manager", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "manager", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
