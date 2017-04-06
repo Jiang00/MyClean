@@ -18,24 +18,25 @@ import com.eos.module.charge.saver.service.BatteryService;
 import com.ivy.kpa.DaemonClient;
 import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.TopActivityPkg;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JunkInfo;
-import com.supers.clean.junk.modle.task.ApkFileAndAppJunkTask;
-import com.supers.clean.junk.modle.task.AppCacheTask;
-import com.supers.clean.junk.modle.task.AppManagerTask;
-import com.supers.clean.junk.modle.task.FilesOfUninstalledAppTask;
-import com.supers.clean.junk.modle.task.RamTask;
-import com.supers.clean.junk.modle.task.SimpleTask;
-import com.supers.clean.junk.modle.task.SystemCacheTask;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.service.FloatService;
+import com.supers.clean.junk.service.NotificationService;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.TopActivityPkg;
+import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.task.ApkFileAndAppJunkTask;
+import com.supers.clean.junk.task.AppCacheTask;
+import com.supers.clean.junk.task.AppManagerTask;
+import com.supers.clean.junk.task.FilesOfUninstalledAppTask;
+import com.supers.clean.junk.task.RamTask;
+import com.supers.clean.junk.task.SimpleTask;
+import com.supers.clean.junk.task.SystemCacheTask;
 import com.supers.clean.junk.service.ReStarService;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by on 2016/11/29.
@@ -57,7 +58,6 @@ public class MyApplication extends App {
     private ActivityManager am;
 
     private int count;
-    private List<String> launcherPkg;
 
     private Handler myHandler;
     private Runnable runnable;
@@ -228,12 +228,12 @@ public class MyApplication extends App {
         Utils.writeData(this, Constants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
         Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
 
-        if (PreData.getDB(this, Contents.TONGZHILAN_SWITCH, true)) {
-            Intent intent = new Intent(this, NotifactionService.class);
+        if (PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
+            Intent intent = new Intent(this, NotificationService.class);
             intent.setAction("notification");
             startService(intent);
         }
-        if (PreData.getDB(this, Contents.FlOAT_SWITCH, true)) {
+        if (PreData.getDB(this, Constant.FlOAT_SWITCH, true)) {
             Intent intent1 = new Intent(this, FloatService.class);
             startService(intent1);
         }
@@ -245,9 +245,6 @@ public class MyApplication extends App {
         am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         runnable = getScanIntervalRunnable();
 
-
-        launcherPkg = CommonUtil.getLauncherPkgs(this);
-
         initLists();
 
         myHandler = new Handler();
@@ -256,9 +253,9 @@ public class MyApplication extends App {
         saomiaoSuccess = false;
         saomiaoSuccess = true;
 
-        if (PreData.getDB(this, Contents.FIRST_INSTALL, true)) {
-            PreData.putDB(this, Contents.IS_ACTION_BAR, CommonUtil.checkDeviceHasNavigationBar(this));
-            PreData.putDB(this, Contents.FIRST_INSTALL, false);
+        if (PreData.getDB(this, Constant.FIRST_INSTALL, true)) {
+            PreData.putDB(this, Constant.IS_ACTION_BAR, CommonUtil.checkDeviceHasNavigationBar(this));
+            PreData.putDB(this, Constant.FIRST_INSTALL, false);
         }
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.

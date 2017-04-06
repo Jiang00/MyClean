@@ -4,11 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.TextView;
 
-import com.supers.clean.junk.View.JunkRamView;
-import com.supers.clean.junk.View.JunkView;
-import com.supers.clean.junk.activity.JunkAndRamActivity;
+import com.supers.clean.junk.view.JunkView;
 import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.modle.entity.JunkInfo;
+import com.supers.clean.junk.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;

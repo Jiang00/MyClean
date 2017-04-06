@@ -16,11 +16,11 @@ import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.eos.eshop.ShopMaster;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PhoneManager;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.ShortCutUtils;
-import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.PhoneManager;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.ShortCutUtils;
 
 /**
  * Created by on 2017/3/8.
@@ -31,7 +31,6 @@ public class LoadingActivity extends BaseActivity {
 
     TextView tv_tiaoguo;
     LinearLayout ll_ad;
-    private View nativeView;
     private static final String TAG_LOADING = "junk_loading";
     int mimmi;
 
@@ -53,7 +52,7 @@ public class LoadingActivity extends BaseActivity {
         myHandler = new Handler();
         mimmi = 5;
         int random = (int) (Math.random() * 100) + 1;
-//        if (random <= PreData.getDB(this, Contents.KEY_LOADING_GAI, 100)) {
+//        if (random <= PreData.getDB(this, Constant.KEY_LOADING_GAI, 100)) {
 //            myHandler.postDelayed(new Runnable() {
 //                @Override
 //                public void run() {
@@ -75,9 +74,9 @@ public class LoadingActivity extends BaseActivity {
                 finish();
             }
         });
-        if (PreData.getDB(this, Contents.ROOT_TRAK, true)) {
+        if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
             AndroidSdk.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
-            PreData.putDB(this, Contents.ROOT_TRAK, false);
+            PreData.putDB(this, Constant.ROOT_TRAK, false);
         }
 
     }

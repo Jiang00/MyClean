@@ -18,7 +18,7 @@ import android.widget.RemoteViews;
 
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.CoolingActivity;
-import com.supers.clean.junk.modle.CpuTempReader;
+import com.supers.clean.junk.util.CpuTempReader;
 
 /**
  * Created by Ivy on 2017/3/28.

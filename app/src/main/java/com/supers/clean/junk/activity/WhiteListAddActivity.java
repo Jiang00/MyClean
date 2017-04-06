@@ -16,8 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.View.adapter.WhiteListAdapter;
-import com.supers.clean.junk.modle.entity.JunkInfo;
+import com.supers.clean.junk.adapter.WhiteListAdapter;
+import com.supers.clean.junk.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;

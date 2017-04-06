@@ -18,11 +18,9 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.fakeView.FlakeView;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
-import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.customeview.FlakeView;
+import com.supers.clean.junk.util.PreData;
 
 import java.util.Random;
 
@@ -114,7 +112,7 @@ public class CoolingActivity extends BaseActivity {
         fang.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (PreData.getDB(CoolingActivity.this, Contents.FULL_COOL, 0) == 1) {
+                if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
                 tuiGuang();

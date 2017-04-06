@@ -21,10 +21,10 @@ import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.JsonParser;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JsonData;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.JsonParser;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.entity.JsonData;
 
 import java.util.Locale;
 
@@ -50,22 +50,22 @@ public class BaseActivity extends AppCompatActivity {
         } else {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
-        if (PreData.getDB(this, Contents.IS_ACTION_BAR, true)) {
+        if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
             full();
         }
 
         if (data == null) {
             try {
                 data = JsonParser.getInstance().fromJson(AndroidSdk.getExtraData(), JsonData.class);
-                PreData.putDB(this, Contents.FULL_MAIN, data.full_main);
-                PreData.putDB(this, Contents.FULL_MANAGER, data.full_manager);
-                PreData.putDB(this, Contents.FULL_MESSAGE, data.full_message);
-                PreData.putDB(this, Contents.FULL_SUCCESS, data.full_success);
-                PreData.putDB(this, Contents.FULL_SETTING, data.full_setting);
-                PreData.putDB(this, Contents.FULL_UNLOAD, data.full_unload);
-                PreData.putDB(this, Contents.FULL_FLOAT, data.full_float);
-                PreData.putDB(this, Contents.FULL_COOL, data.full_cool);
-                PreData.putDB(this, Contents.FULL_SHORTCUT, data.full_shortcut);
+                PreData.putDB(this, Constant.FULL_MAIN, data.full_main);
+                PreData.putDB(this, Constant.FULL_MANAGER, data.full_manager);
+                PreData.putDB(this, Constant.FULL_MESSAGE, data.full_message);
+                PreData.putDB(this, Constant.FULL_SUCCESS, data.full_success);
+                PreData.putDB(this, Constant.FULL_SETTING, data.full_setting);
+                PreData.putDB(this, Constant.FULL_UNLOAD, data.full_unload);
+                PreData.putDB(this, Constant.FULL_FLOAT, data.full_float);
+                PreData.putDB(this, Constant.FULL_COOL, data.full_cool);
+                PreData.putDB(this, Constant.FULL_SHORTCUT, data.full_shortcut);
             } catch (Exception e) {
 
             }

@@ -34,7 +34,6 @@ import com.eos.eshop.ShopMaster;
 import com.eos.manager.AccessibilityService;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.AppLockPermissionActivity;
-import com.eos.manager.Tracker;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
@@ -44,17 +43,17 @@ import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.View.MainView;
-import com.supers.clean.junk.View.adapter.SideAdapter;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JunkInfo;
-import com.supers.clean.junk.myView.CustomRoundCpu;
-import com.supers.clean.junk.myView.ListViewForScrollView;
-import com.supers.clean.junk.myView.MainScrollView;
-import com.supers.clean.junk.myView.PullToRefreshLayout;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.view.MainView;
+import com.supers.clean.junk.adapter.SideAdapter;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.UtilGp;
+import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.customeview.CustomRoundCpu;
+import com.supers.clean.junk.customeview.ListViewForScrollView;
+import com.supers.clean.junk.customeview.MainScrollView;
+import com.supers.clean.junk.customeview.PullToRefreshLayout;
 import com.supers.clean.junk.presenter.MainPresenter;
 
 import java.util.ArrayList;
@@ -526,7 +525,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
         adapter.clear();
         adapter.addData(new JunkInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
-        adapter.addData(new JunkInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Contents.FlOAT_SWITCH, true)));//桌面悬浮球
+        adapter.addData(new JunkInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new JunkInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new JunkInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new JunkInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
@@ -561,7 +560,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, Contents.FULL_MAIN, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
@@ -790,7 +789,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
-                    int type = PreData.getDB(MainActivity.this, Contents.FIRST_APPLOCK, 0);
+                    int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
                     if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
                         Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
                         intent.putExtra("is_main", true);
@@ -800,7 +799,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     if (type == 0) {
                         if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
                             CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-                            PreData.putDB(MainActivity.this, Contents.FIRST_APPLOCK, 1);
+                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
                         } else {
                             Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
                             startActivity(intent);

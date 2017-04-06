@@ -19,14 +19,12 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.View.JunkView;
-import com.supers.clean.junk.View.adapter.JunkAdapter;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JunkInfo;
-import com.supers.clean.junk.myView.ListViewForScrollView;
-import com.supers.clean.junk.myView.MyScrollView;
+import com.supers.clean.junk.view.JunkView;
+import com.supers.clean.junk.adapter.JunkAdapter;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.customeview.ListViewForScrollView;
+import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.presenter.JunkPresenter;
 
 import java.util.List;
