@@ -1,18 +1,16 @@
 package com.supers.clean.junk.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.eos.manager.AppLockPatternEosActivity;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
-import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.UtilGp;
 
 
 /**
@@ -52,7 +50,7 @@ public class ApplockActivity extends BaseActivity {
         bt_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PreData.putDB(ApplockActivity.this, Contents.FIRST_APPLOCK, 2);
+                PreData.putDB(ApplockActivity.this, Constant.FIRST_APPLOCK, 2);
                 Intent intent = new Intent(ApplockActivity.this, AppLockPatternEosActivity.class);
                 intent.putExtra("is_main", true);
                 startActivity(intent);

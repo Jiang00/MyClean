@@ -22,13 +22,12 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.CameraUtils;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.MemoryManager;
-import com.supers.clean.junk.modle.PhoneManager;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
-import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.CameraUtils;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.MemoryManager;
+import com.supers.clean.junk.util.PhoneManager;
+import com.supers.clean.junk.util.PreData;
 
 import java.util.Locale;
 
@@ -166,7 +165,7 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, Contents.FULL_MESSAGE, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_MESSAGE, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {

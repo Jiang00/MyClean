@@ -16,12 +16,10 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.View.RamView;
-import com.supers.clean.junk.View.adapter.RamAdapter;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JunkInfo;
+import com.supers.clean.junk.view.RamView;
+import com.supers.clean.junk.adapter.RamAdapter;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
 
 import java.util.List;

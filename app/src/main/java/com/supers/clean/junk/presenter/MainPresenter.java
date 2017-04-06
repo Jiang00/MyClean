@@ -2,23 +2,21 @@ package com.supers.clean.junk.presenter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
-import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
 import com.eos.manager.page.SecuritySharPFive;
-import com.supers.clean.junk.View.MainView;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.CpuTempReader;
-import com.supers.clean.junk.modle.MemoryManager;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.view.MainView;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.CpuTempReader;
+import com.supers.clean.junk.util.MemoryManager;
+import com.supers.clean.junk.util.PreData;
 
 import java.lang.reflect.Field;
 
@@ -103,12 +101,12 @@ public class MainPresenter extends BasePresenter<MainView> {
             goToGooglePlay();
         }
         shareFive.setFiveRate(true);
-        PreData.putDB(context, Contents.IS_ROTATE, true);
+        PreData.putDB(context, Constant.IS_ROTATE, true);
         setRotateGone();
     }
 
     public void setRotateGone() {
-        if (PreData.getDB(context, Contents.IS_ROTATE, false) || shareFive.getFiveRate()) {
+        if (PreData.getDB(context, Constant.IS_ROTATE, false) || shareFive.getFiveRate()) {
             iView.setRotateGone();
         }
     }

@@ -19,21 +19,21 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.eos.manager.page.SecuritySharPFive;
+import com.eos.module.tweenengine.Tween;
+import com.eos.module.tweenengine.TweenEquations;
+import com.eos.module.tweenengine.TweenManager;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
 import com.sample.lottie.LottieAnimationView;
-import com.eos.module.tweenengine.Tween;
-import com.eos.module.tweenengine.TweenEquations;
-import com.eos.module.tweenengine.TweenManager;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.myView.DrawHookView;
-import com.supers.clean.junk.myView.ImageAccessor;
-import com.supers.clean.junk.myView.SlowScrollView;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.UtilGp;
+import com.supers.clean.junk.customeview.DrawHookView;
+import com.supers.clean.junk.customeview.ImageAccessor;
+import com.supers.clean.junk.customeview.SlowScrollView;
 
 /**
  * Created by on 2017/3/6.
@@ -58,8 +58,6 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_tuiguang_button;
     TextView main_msg_tuiguang;
     LottieAnimationView lot_success;
-    private TextView tv_next;
-    private ImageView iv_next;
     private View nativeView;
 
     private boolean isdoudong;
@@ -125,10 +123,10 @@ public class SuccessActivity extends BaseActivity {
                 startSecondAnimation();
             }
         });
-        if (PreData.getDB(this, Contents.IS_ROTATE, false) || shareFive.getFiveRate()) {
+        if (PreData.getDB(this, Constant.IS_ROTATE, false) || shareFive.getFiveRate()) {
             main_rotate_all.setVisibility(View.GONE);
         }
-        if (PreData.getDB(this, Contents.FULL_SUCCESS, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -415,13 +413,13 @@ public class SuccessActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.main_rotate_bad:
-                    PreData.putDB(SuccessActivity.this, Contents.IS_ROTATE, true);
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     shareFive.setFiveRate(true);
                     break;
                 case R.id.main_rotate_good:
                     shareFive.setFiveRate(true);
-                    PreData.putDB(SuccessActivity.this, Contents.IS_ROTATE, true);
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessActivity.this);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
