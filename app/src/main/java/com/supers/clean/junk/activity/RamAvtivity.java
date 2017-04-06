@@ -86,7 +86,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
         if (allSize <= 0) {
             Bundle bundle = new Bundle();
             bundle.putString("name", (String) getText(R.string.jiasu_success));
-            ramPresenter.jumpToActivity(SuccessActivity.class,bundle, 1);
+            ramPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
             return;
         }
         adapterRam = new RamAdapter(this, ramPresenter);

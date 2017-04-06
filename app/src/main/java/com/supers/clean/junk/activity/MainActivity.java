@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
+import com.android.common.SdkEnv;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;
@@ -851,7 +852,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_tuiguang_button:
                 case R.id.fl_lot_side:
-                    UtilGp.openPlayStore(MainActivity.this, tuiguang);
+                    SdkEnv.openPlayStore(tuiguang, "&referrer=utm_source%3Dcross_eosclean");
+//                    UtilGp.openPlayStore(MainActivity.this, tuiguang);
                     break;
 
 

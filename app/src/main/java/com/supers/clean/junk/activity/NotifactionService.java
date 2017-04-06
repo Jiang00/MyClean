@@ -123,7 +123,7 @@ public class NotifactionService extends Service {
 
     private void onstart() {
         myHandler.removeCallbacks(runnable);
-        myHandler.postDelayed(runnable, 30000);
+        myHandler.postDelayed(runnable, 2000);
         myHandler.removeCallbacks(runnableW);
         myHandler.post(runnableW);
     }

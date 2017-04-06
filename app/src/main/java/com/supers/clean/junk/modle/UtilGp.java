@@ -38,7 +38,6 @@ import java.lang.reflect.Method;
 import java.util.UUID;
 
 /**
- * Created by SongHualin on 4/20/2015.
  */
 public class UtilGp {
 
