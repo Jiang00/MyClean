@@ -46,7 +46,7 @@ import java.util.concurrent.Executors;
  */
 public class MyApplication extends App {
 
-    private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 5;
+    private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 10;
 
     private final static int CWJ_HEAP_SIZE = 6 * 1024 * 1024;
 
