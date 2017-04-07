@@ -17,7 +17,7 @@ import java.util.List;
  * Created by renqingyou on 2017/2/22.
  */
 
-public abstract class SimpleTask extends Thread {
+public abstract class SimpleTask implements Runnable {
 
     protected Context mContext;
     protected SimpleTaskListener mSimpleTaskListener;
@@ -28,7 +28,6 @@ public abstract class SimpleTask extends Thread {
 
     @Override
     public void run() {
-        super.run();
         if (mSimpleTaskListener != null) {
             mSimpleTaskListener.startLoad();
         }
@@ -36,13 +35,12 @@ public abstract class SimpleTask extends Thread {
         loadData();
         long endTime = System.currentTimeMillis();
         long time = endTime - startTime;
-        Log.e("rqy", "线程" + Thread.currentThread().getName() + "--time=" + time);
+        Log.e("rqy", "线程" + Thread.currentThread().getId() + "--" + getClass().getSimpleName() + "--time=" + time);
     }
 
     abstract void loadData();
 
-    public SimpleTask(Context context, SimpleTaskListener simpleTaskListener, String threadName) {
-        super(threadName);
+    public SimpleTask(Context context, SimpleTaskListener simpleTaskListener) {
         mContext = context.getApplicationContext();
         mSimpleTaskListener = simpleTaskListener;
         pm = context.getPackageManager();

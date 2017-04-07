@@ -2,6 +2,7 @@ package com.supers.clean.junk.task;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 
 import com.supers.clean.junk.R;
@@ -12,7 +13,7 @@ import com.supers.clean.junk.util.MemoryManager;
 import java.io.File;
 import java.util.ArrayList;
 
-public class ApkFileAndAppJunkTask extends Thread {
+public class ApkFileAndAppJunkTask implements Runnable {
     private String path;
     private Context mContext;
     private FileTaskListener mFileTaskListener;
@@ -26,12 +27,12 @@ public class ApkFileAndAppJunkTask extends Thread {
 
     @Override
     public void run() {
-        super.run();
         loadData();
     }
 
 
     void loadData() {
+        long startTime = System.currentTimeMillis();
         path = MemoryManager.getPhoneInSDCardPath();
         if (path == null) {
             path = "/storage/";
@@ -39,6 +40,9 @@ public class ApkFileAndAppJunkTask extends Thread {
         File rootPath = new File(path);
         File[] dirs = rootPath.listFiles();
         searchDirs(dirs);
+        long endTime = System.currentTimeMillis();
+        long time = endTime - startTime;
+        Log.e("rqy", "线程" + Thread.currentThread().getId() + "--" + getClass().getSimpleName() + "--time=" + time);
     }
 
     private void searchDirs(final File[] file) {

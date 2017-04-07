@@ -27,7 +27,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
-import com.android.common.SdkEnv;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;

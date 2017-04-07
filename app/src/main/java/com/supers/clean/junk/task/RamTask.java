@@ -16,12 +16,11 @@ import java.util.List;
 
 
 public class RamTask extends SimpleTask {
-    private static final String TAG = "RamTask";
     private ArrayList<JunkInfo> dataList;
     private long dataSize;
 
     public RamTask(Context context, SimpleTaskListener simpleTaskListener) {
-        super(context, simpleTaskListener, TAG);
+        super(context, simpleTaskListener);
     }
 
     @Override

@@ -20,10 +20,8 @@ import java.util.List;
 
 public class AppCacheTask extends SimpleTask {
 
-    private static final String TAG = "AppCacheTask";
-
     public AppCacheTask(Context context, SimpleTaskListener simpleTaskListener) {
-        super(context, simpleTaskListener, TAG);
+        super(context, simpleTaskListener);
     }
 
     @Override

@@ -23,7 +23,7 @@ public class SystemCacheTask extends SimpleTask {
     private static final String TAG = "SystemCacheTask";
 
     public SystemCacheTask(Context context, SimpleTaskListener simpleTaskListener) {
-        super(context, simpleTaskListener, TAG);
+        super(context, simpleTaskListener);
     }
 
     @Override

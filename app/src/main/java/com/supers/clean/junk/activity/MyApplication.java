@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.IPackageDataObserver;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.RemoteException;
 import android.os.StatFs;
 import android.text.TextUtils;
@@ -36,6 +37,8 @@ import com.supers.clean.junk.util.TopActivityPkg;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by on 2016/11/29.
@@ -46,19 +49,18 @@ public class MyApplication extends App {
 
     private final static int CWJ_HEAP_SIZE = 6 * 1024 * 1024;
 
-    private ArrayList<JunkInfo> systemCache, filesOfUnintalledApk, apkFiles, appJunk, appCache, appRam, listMng;
+    private int THREAD_POOL_COUNT = 3;
+
+    private ArrayList<JunkInfo> systemCache, filesOfUnintallApk, apkFiles, appJunk, appCache, appRam, listMng;
 
     private ArrayList<JunkInfo> white_ram;
 
-    private long cacheSize, apkSize, unloadSize, logSize, dataSize, ramSize, appMngSize;
-
-    private boolean saomiaoSuccess;
+    private long cacheSize, apkSize, unloadSize, logSize, dataSize, ramSize;
 
     private ActivityManager am;
 
-    private int count;
-
-    private Handler myHandler;
+    private HandlerThread mThread;
+    private Handler threadHandler;
 
     private Runnable runnable;
 
@@ -66,9 +68,7 @@ public class MyApplication extends App {
 
     private ApkFileAndAppJunkTask fileTask;
 
-    public boolean isSaomiaoSuccess() {
-        return saomiaoSuccess;
-    }
+    private ExecutorService mThreadPool;
 
     public long getCacheSize() {
         return cacheSize;
@@ -92,10 +92,6 @@ public class MyApplication extends App {
 
     public long getRamSize() {
         return ramSize;
-    }
-
-    public long getAppMngSize() {
-        return appMngSize;
     }
 
     public ArrayList<JunkInfo> getListMng() {
@@ -123,7 +119,7 @@ public class MyApplication extends App {
     }
 
     public ArrayList<JunkInfo> getFilesOfUnintalledApk() {
-        return filesOfUnintalledApk;
+        return filesOfUnintallApk;
     }
 
     public ArrayList<JunkInfo> getApkFiles() {
@@ -156,7 +152,6 @@ public class MyApplication extends App {
     }
 
     public void removeAppManager(JunkInfo f) {
-        appMngSize -= f.size;
         if (listMng != null) {
             listMng.remove(f);
         }
@@ -196,8 +191,8 @@ public class MyApplication extends App {
     public void removeFilesOfUnintalledApk(JunkInfo fileListInfo) {
         CommonUtil.deleteFile(fileListInfo.path);
         unloadSize -= fileListInfo.size;
-        if (filesOfUnintalledApk != null) {
-            filesOfUnintalledApk.remove(fileListInfo);
+        if (filesOfUnintallApk != null) {
+            filesOfUnintallApk.remove(fileListInfo);
         }
     }
 
@@ -251,11 +246,13 @@ public class MyApplication extends App {
 
         initLists();
 
-        myHandler = new Handler();
-        myHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
+        mThreadPool = Executors.newFixedThreadPool(THREAD_POOL_COUNT);
+
+        mThread = new HandlerThread("scan");
+        mThread.start();
+        threadHandler = new Handler(mThread.getLooper());
+        threadHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
         asyncInitData();
-        saomiaoSuccess = false;
-        saomiaoSuccess = true;
 
         if (PreData.getDB(this, Constant.FIRST_INSTALL, true)) {
             PreData.putDB(this, Constant.IS_ACTION_BAR, CommonUtil.checkDeviceHasNavigationBar(this));
@@ -305,17 +302,8 @@ public class MyApplication extends App {
                 String pkg = TopActivityPkg.getTopPackageName(MyApplication.this);
                 if (!TextUtils.equals(MyApplication.this.getPackageName(), pkg)) {
                     asyncInitData();
-                    saomiaoSuccess = false;
                 }
-//                if (launcherPkg.contains(pkg)) {
-//                    asyncInitData();
-//                    saomiaoSuccess = false;
-//                } else {
-//                    if (MainActivity.instance == null) {
-//
-//                    }
-//                }
-                myHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
+                threadHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
             }
         };
     }
@@ -323,7 +311,7 @@ public class MyApplication extends App {
 
     @Override
     public void onTerminate() {
-        myHandler.removeCallbacks(runnable);
+        threadHandler.removeCallbacks(runnable);
         super.onTerminate();
     }
 
@@ -332,24 +320,24 @@ public class MyApplication extends App {
 
         resetSizes();
 
-        loadSystemCache();
+        mThreadPool.execute(loadSystemCache());
 
-        loadFilesOfUninstallApk();
+        mThreadPool.execute(loadFilesOfUninstallApk());
 
-        loadApkFileAndAppJunk();
+        mThreadPool.execute(loadApkFileAndAppJunk());
 
-        loadAppCache();
+        mThreadPool.execute(loadAppCache());
 
-        loadAppRam();
+        mThreadPool.execute(loadAppRam());
 
-        loadWhiteListAndAppManager();
+        mThreadPool.execute(loadWhiteListAndAppManager());
 
     }
 
     private void initLists() {
         systemCache = new ArrayList<>();
         apkFiles = new ArrayList<>();
-        filesOfUnintalledApk = new ArrayList<>();
+        filesOfUnintallApk = new ArrayList<>();
         appJunk = new ArrayList<>();
         appCache = new ArrayList<>();
         appRam = new ArrayList<>();
@@ -360,7 +348,7 @@ public class MyApplication extends App {
     private void resetLists() {
         systemCache.clear();
         apkFiles.clear();
-        filesOfUnintalledApk.clear();
+        filesOfUnintallApk.clear();
         appJunk.clear();
         appCache.clear();
         appRam.clear();
@@ -375,200 +363,191 @@ public class MyApplication extends App {
         logSize = 0;
         dataSize = 0;
         ramSize = 0;
-        appMngSize = 0;
-        count = 0;
     }
 
-    private void loadWhiteListAndAppManager() {
-        appManagerTask = new AppManagerTask(this, new SimpleTask.SimpleTaskListener() {
-            @Override
-            public void startLoad() {
+    private SimpleTask loadWhiteListAndAppManager() {
+        if (appManagerTask == null) {
+            appManagerTask = new AppManagerTask(this, new SimpleTask.SimpleTaskListener() {
+                @Override
+                public void startLoad() {
 
-            }
+                }
 
-            @Override
-            public void loading(JunkInfo JunkInfo, long size) {
+                @Override
+                public void loading(JunkInfo JunkInfo, long size) {
 
-            }
+                }
 
-            @Override
-            public void loadingW(JunkInfo fileInfo) {
+                @Override
+                public void loadingW(JunkInfo fileInfo) {
 
-            }
+                }
 
-            @Override
-            public void cancelLoading() {
+                @Override
+                public void cancelLoading() {
 
-            }
+                }
 
-            @Override
-            public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
-                appMngSize = dataSize;
-                listMng = dataList;
-                count++;
-                saoMiaoOver();
-            }
-        });
-        appManagerTask.start();
+                @Override
+                public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
+                    listMng = dataList;
+                }
+            });
+        }
+        return appManagerTask;
     }
 
-    private void loadAppRam() {
-        ramTask = new RamTask(this, new SimpleTask.SimpleTaskListener() {
-            @Override
-            public void startLoad() {
+    private SimpleTask loadAppRam() {
+        if (ramTask == null) {
+            ramTask = new RamTask(this, new SimpleTask.SimpleTaskListener() {
+                @Override
+                public void startLoad() {
 
-            }
+                }
 
-            @Override
-            public void loading(JunkInfo JunkInfo, long size) {
-                ramSize += size;
-                appRam.add(JunkInfo);
-            }
+                @Override
+                public void loading(JunkInfo JunkInfo, long size) {
+                    ramSize += size;
+                    appRam.add(JunkInfo);
+                }
 
-            @Override
-            public void loadingW(JunkInfo fileInfo) {
-                white_ram.add(fileInfo);
-            }
+                @Override
+                public void loadingW(JunkInfo fileInfo) {
+                    white_ram.add(fileInfo);
+                }
 
-            @Override
-            public void cancelLoading() {
+                @Override
+                public void cancelLoading() {
 
-            }
+                }
 
-            @Override
-            public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
-                count++;
-                saoMiaoOver();
-            }
-        });
-        ramTask.start();
+                @Override
+                public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
+                }
+            });
+        }
+        return ramTask;
     }
 
-    public void loadAppCache() {
-        appCacheTask = new AppCacheTask(this, new AppCacheTask.SimpleTaskListener() {
-            @Override
-            public void startLoad() {
+    public SimpleTask loadAppCache() {
+        if (appCacheTask == null) {
+            appCacheTask = new AppCacheTask(this, new AppCacheTask.SimpleTaskListener() {
+                @Override
+                public void startLoad() {
 
-            }
+                }
 
-            @Override
-            public void loading(JunkInfo JunkInfo, long size) {
+                @Override
+                public void loading(JunkInfo JunkInfo, long size) {
 
-            }
+                }
 
-            @Override
-            public void loadingW(JunkInfo fileInfo) {
+                @Override
+                public void loadingW(JunkInfo fileInfo) {
 
-            }
+                }
 
-            @Override
-            public void cancelLoading() {
+                @Override
+                public void cancelLoading() {
 
-            }
+                }
 
-            @Override
-            public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
-                MyApplication.this.dataSize = dataSize;
-                appCache = dataList;
-                count++;
-                saoMiaoOver();
-            }
-        });
-        appCacheTask.start();
+                @Override
+                public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
+                    MyApplication.this.dataSize = dataSize;
+                    appCache = dataList;
+                }
+            });
+        }
+        return appCacheTask;
     }
 
-    public void loadApkFileAndAppJunk() {
-        fileTask = new ApkFileAndAppJunkTask(this,
-                new ApkFileAndAppJunkTask.FileTaskListener() {
-                    @Override
-                    public void loadFinish(long apkSize, long logSize, ArrayList<JunkInfo> apkList, ArrayList<JunkInfo> logList) {
-                        MyApplication.this.apkSize = apkSize;
-                        MyApplication.this.logSize = logSize;
-                        apkFiles = apkList;
-                        int i = 0;
-                        for (JunkInfo f : logList) {
-                            if (++i <= 25) {
-                                appJunk.add(f);
+    public ApkFileAndAppJunkTask loadApkFileAndAppJunk() {
+        if (fileTask == null) {
+            fileTask = new ApkFileAndAppJunkTask(this,
+                    new ApkFileAndAppJunkTask.FileTaskListener() {
+                        @Override
+                        public void loadFinish(long apkSize, long logSize, ArrayList<JunkInfo> apkList, ArrayList<JunkInfo> logList) {
+                            MyApplication.this.apkSize = apkSize;
+                            MyApplication.this.logSize = logSize;
+                            apkFiles = apkList;
+                            int i = 0;
+                            for (JunkInfo f : logList) {
+                                if (++i <= 25) {
+                                    appJunk.add(f);
+                                }
                             }
                         }
-                        count++;
-                        saoMiaoOver();
-                    }
-                });
-        fileTask.start();
-    }
-
-    public void loadSystemCache() {
-        cacheTask = new SystemCacheTask(this, new SimpleTask.SimpleTaskListener() {
-            @Override
-            public void startLoad() {
-
-            }
-
-            @Override
-            public void loading(JunkInfo JunkInfo, long size) {
-                cacheSize += size;
-                systemCache.add(JunkInfo);
-            }
-
-            @Override
-            public void loadingW(JunkInfo fileInfo) {
-
-            }
-
-            @Override
-            public void cancelLoading() {
-
-            }
-
-            @Override
-            public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
-                Log.e("rqy", "finishLoading--" + "end threadName=" + Thread.currentThread().getName() + "");
-                count++;
-                saoMiaoOver();
-            }
-        });
-        cacheTask.start();
-    }
-
-    public void loadFilesOfUninstallApk() {
-        filesOfUninstalledAppTask = new FilesOfUninstalledAppTask(this, new SimpleTask.SimpleTaskListener() {
-            @Override
-            public void startLoad() {
-
-            }
-
-            @Override
-            public void loading(JunkInfo JunkInfo, long size) {
-
-            }
-
-            @Override
-            public void loadingW(JunkInfo fileInfo) {
-
-            }
-
-            @Override
-            public void cancelLoading() {
-
-            }
-
-            @Override
-            public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
-                unloadSize = dataSize;
-                filesOfUnintalledApk = dataList;
-                count++;
-                saoMiaoOver();
-            }
-        });
-        filesOfUninstalledAppTask.start();
-    }
-
-    public void saoMiaoOver() {
-        Log.e("aaa", "=====" + count);
-        if (count >= 6) {
-            saomiaoSuccess = true;
+                    });
         }
+        return fileTask;
+
+    }
+
+    public SimpleTask loadSystemCache() {
+        if (cacheTask == null) {
+            cacheTask = new SystemCacheTask(this, new SimpleTask.SimpleTaskListener() {
+                @Override
+                public void startLoad() {
+
+                }
+
+                @Override
+                public void loading(JunkInfo JunkInfo, long size) {
+                    cacheSize += size;
+                    systemCache.add(JunkInfo);
+                }
+
+                @Override
+                public void loadingW(JunkInfo fileInfo) {
+
+                }
+
+                @Override
+                public void cancelLoading() {
+
+                }
+
+                @Override
+                public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
+                    Log.e("rqy", "finishLoading--" + "end threadName=" + Thread.currentThread().getName() + "");
+                }
+            });
+        }
+        return cacheTask;
+    }
+
+    public SimpleTask loadFilesOfUninstallApk() {
+        if (filesOfUninstalledAppTask == null) {
+            filesOfUninstalledAppTask = new FilesOfUninstalledAppTask(this, new SimpleTask.SimpleTaskListener() {
+                @Override
+                public void startLoad() {
+
+                }
+
+                @Override
+                public void loading(JunkInfo JunkInfo, long size) {
+
+                }
+
+                @Override
+                public void loadingW(JunkInfo fileInfo) {
+
+                }
+
+                @Override
+                public void cancelLoading() {
+
+                }
+
+                @Override
+                public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
+                    unloadSize = dataSize;
+                    filesOfUnintallApk = dataList;
+                }
+            });
+        }
+        return filesOfUninstalledAppTask;
     }
 
 

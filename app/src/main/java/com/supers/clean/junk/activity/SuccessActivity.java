@@ -329,6 +329,9 @@ public class SuccessActivity extends BaseActivity {
                     @Override
                     public void run() {
                         while (isdoudong) {
+                            if (onDestroyed) {
+                                break;
+                            }
                             int x = (int) (Math.random() * (16)) - 8;
                             int y = (int) (Math.random() * (16)) - 8;
                             try {

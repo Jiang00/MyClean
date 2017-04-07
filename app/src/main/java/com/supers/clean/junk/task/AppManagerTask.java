@@ -30,7 +30,6 @@ import java.util.List;
  * 设备上的程序包
  */
 public class AppManagerTask extends SimpleTask {
-    public static final String TAG = "AppManagerTask";
     private List<String> whiteList;
     private long allSize = 0;
     private ArrayList<JunkInfo> appList = new ArrayList<>();
@@ -38,9 +37,8 @@ public class AppManagerTask extends SimpleTask {
     private List<ActivityManager.RecentTaskInfo> recentTasks;
 
     public AppManagerTask(Context context, SimpleTaskListener simpleTaskListener) {
-        super(context, simpleTaskListener, TAG);
+        super(context, simpleTaskListener);
         whiteList = PreData.getNameList(context);
-
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)

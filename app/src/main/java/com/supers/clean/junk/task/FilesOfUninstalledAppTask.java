@@ -20,11 +20,9 @@ import java.util.ArrayList;
 
 public class FilesOfUninstalledAppTask extends SimpleTask {
 
-    private static final String TAG = "FilesOfUninstalledAppTask";
-
     @SuppressWarnings("unchecked")
     public FilesOfUninstalledAppTask(Context context, SimpleTaskListener simpleTaskListener) {
-        super(context, simpleTaskListener, TAG);
+        super(context, simpleTaskListener);
     }
 
     @Override
@@ -92,8 +90,6 @@ public class FilesOfUninstalledAppTask extends SimpleTask {
         if (file.isDirectory()) {
             File fileList[] = file.listFiles();
             if (fileList != null) {
-
-
                 for (int i = 0; i < fileList.length; i++) {
                     if (fileList[i].isDirectory()) {
                         size = size + getFileSize(fileList[i]);

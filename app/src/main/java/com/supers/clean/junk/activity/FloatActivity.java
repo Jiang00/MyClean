@@ -163,7 +163,7 @@ public class FloatActivity extends BaseActivity {
                     });
                 }
             });
-            ramTask.start();
+            new Thread(ramTask).start();
 
         } else {
             listFloat_white = cleanApplication.getWhiteRam();
