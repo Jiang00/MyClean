@@ -9,6 +9,7 @@ import android.os.Debug.MemoryInfo;
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
 import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
@@ -62,13 +63,18 @@ public class RamTask extends SimpleTask {
             } else {
                 MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
                 int totalPrivateDirty = processMemoryInfo[0].getTotalPrivateDirty();
+                boolean isStartSelf = CommonUtil.isStartSelf(pm, packageName);
                 if (isWhite) {
-                    JunkInfo speedUpInfo = new JunkInfo(false, true, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName);
+                    if (isStartSelf) {
+                        JunkInfo speedUpInfo = new JunkInfo(false, true, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName,isStartSelf);
+
+                    }
+                    JunkInfo speedUpInfo = new JunkInfo(false, true, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName,isStartSelf);
                     if (mSimpleTaskListener != null) {
                         mSimpleTaskListener.loadingW(speedUpInfo);
                     }
                 } else {
-                    JunkInfo speedUpInfo = new JunkInfo(true, false, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName);
+                    JunkInfo speedUpInfo = new JunkInfo(true, false, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName,isStartSelf);
                     dataSize += speedUpInfo.size;
                     dataList.add(speedUpInfo);
                     if (mSimpleTaskListener != null) {

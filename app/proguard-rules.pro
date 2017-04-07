@@ -112,6 +112,6 @@
 
 -keep class com.eos.ui.demo.entries.** { *;}
 
-
+-dontwarn com.squareup.picasso.**
 
 

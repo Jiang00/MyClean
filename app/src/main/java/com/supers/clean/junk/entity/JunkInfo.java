@@ -21,6 +21,7 @@ public class JunkInfo implements Serializable {
     public boolean isWhiteList;
     public int drawableRid;
     public int textrid;
+    public boolean isStartSelf;
 
 
     public JunkInfo(int textrid, int drawableRid, boolean isChecked) {
@@ -68,8 +69,8 @@ public class JunkInfo implements Serializable {
         this.size = size;
     }
 
-    public JunkInfo(boolean isChecked,boolean isWhiteList, Drawable drawable, String name,
-                    long size, String packageName) {
+    public JunkInfo(boolean isChecked, boolean isWhiteList, Drawable drawable, String name,
+                    long size, String packageName, boolean isStartSelf) {
         super();
         this.isChecked = isChecked;
         this.isWhiteList = isWhiteList;
@@ -77,6 +78,7 @@ public class JunkInfo implements Serializable {
         this.name = name;
         this.size = size;
         this.packageName = packageName;
+        this.isStartSelf = isStartSelf;
     }
 
     public JunkInfo(Drawable drawable, String lable, String packagename, boolean isWhiteList) {
