@@ -276,6 +276,16 @@ public class CommonUtil {
         return packageNames;
     }
 
+    //判断应用是否自动重启(开机自启)
+    public static boolean isStartSelf(PackageManager pm, String packageName) {
+        final Intent intent = new Intent("android.intent.action.BOOT_COMPLETED");
+        intent.setPackage(packageName);
+        //检索所有可用于给定的意图进行的活动。如果没有匹配的活动，则返回一个空列表。
+        List<ResolveInfo> list = pm.queryBroadcastReceivers(intent,
+                PackageManager.MATCH_DEFAULT_ONLY);
+        return list.size() > 0;
+    }
+
     //根据包名启动程序
     public static void doStartApplicationWithPackageName(Context context, String packagename) {
 

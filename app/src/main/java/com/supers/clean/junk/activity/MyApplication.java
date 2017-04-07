@@ -16,6 +16,7 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.ivy.kpa.DaemonClient;
+import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.service.FloatService;
@@ -261,12 +262,12 @@ public class MyApplication extends App {
             PreData.putDB(this, Constant.IS_ACTION_BAR, CommonUtil.checkDeviceHasNavigationBar(this));
             PreData.putDB(this, Constant.FIRST_INSTALL, false);
         }
-//        if (LeakCanary.isInAnalyzerProcess(this)) {
-//            // This process is dedicated to LeakCanary for heap analysis.
-//            // You should not init your app in this process.
-//            return;
-//        }
-//        LeakCanary.install(this);
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
     }
 
     public static void setMinHeapSize(long size) {

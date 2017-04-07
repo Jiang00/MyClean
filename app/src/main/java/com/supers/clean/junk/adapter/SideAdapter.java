@@ -19,6 +19,7 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.activity.PowerActivity;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.activity.JunkActivity;
 import com.supers.clean.junk.activity.ManagerActivity;
@@ -59,7 +60,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.tv_name.setText(info.textrid);
-        if (position == 5) {
+        if (position == 6) {
             holder.lot_family.setImageAssetsFolder("images/box/");
             holder.lot_family.setAnimation("box.json");
             holder.lot_family.loop(true);
@@ -108,7 +109,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-        if (position == 2 || position == 5) {
+        if (position == 2 || position == 6) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);
@@ -156,23 +157,28 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
                 ((Activity) context).startActivityForResult(intent4, 1);
                 break;
             case 5:
+                AndroidSdk.track("侧边栏", "点击进入深度清理页面", "", 1);
+                Intent intent5 = new Intent(context, PowerActivity.class);
+                ((Activity) context).startActivityForResult(intent5, 1);
+                break;
+            case 6:
                 AndroidSdk.track("侧边栏", "点击进入family页面", "", 1);
                 ShopMaster.launch(context, "EOS_Family",
                         new Theme(R.raw.battery_0, context.getPackageName()));
                 break;
-            case 6:
+            case 7:
                 AndroidSdk.track("侧边栏", "点击进入主题页面", "", 1);
 //                Intent intent5 = new Intent(context, ThemeActivity.class);
 //                ((Activity) context).startActivityForResult(intent5, 1);
                 ShopMaster.launch(context,
                         new Theme(R.raw.battery_0, context.getPackageName()));
                 break;
-            case 7:
+            case 8:
                 AndroidSdk.track("侧边栏", "点击进入设置页面", "", 1);
                 Intent intent6 = new Intent(context, SettingActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
                 break;
-            case 8:
+            case 9:
                 AndroidSdk.track("侧边栏", "点击好评", "", 1);
                 UtilGp.rate(context);
                 break;

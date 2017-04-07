@@ -19,8 +19,9 @@ public class AppLockBootReceiver extends BroadcastReceiver {
             case Intent.ACTION_BOOT_COMPLETED:
                 context.startService(new Intent(context, AppLockEosService.class));
                 break;
-            case Intent.ACTION_PACKAGE_REMOVED:{
-                if (intent.getDataString() == null || intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) return;
+            case Intent.ACTION_PACKAGE_REMOVED: {
+                if (intent.getDataString() == null || intent.getBooleanExtra(Intent.EXTRA_REPLACING, false))
+                    return;
                 final String pkg = intent.getDataString().substring("package:".length());
                 if (pkg.startsWith(context.getPackageName())) {
                     //do nothing for our skins and ourselves
@@ -28,9 +29,10 @@ public class AppLockBootReceiver extends BroadcastReceiver {
                 }
                 MApps.removed(pkg);
             }
-                break;
-            case Intent.ACTION_PACKAGE_ADDED:{
-                if (intent.getDataString() == null || intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) return;
+            break;
+            case Intent.ACTION_PACKAGE_ADDED: {
+                if (intent.getDataString() == null || intent.getBooleanExtra(Intent.EXTRA_REPLACING, false))
+                    return;
                 final String pkg = intent.getDataString().substring("package:".length());
                 if (pkg.startsWith(context.getPackageName())) {
                     //do nothing for our skins and ourselves
@@ -38,11 +40,11 @@ public class AppLockBootReceiver extends BroadcastReceiver {
                 }
                 MApps.add(context, pkg);
                 SharedPreferences sp = App.getSharedPreferences();
-                if (sp.getBoolean(SecurityMyPref.LOCK_NEW, SecurityMyPref.LOCK_DEFAULT)){
+                if (sp.getBoolean(SecurityMyPref.LOCK_NEW, SecurityMyPref.LOCK_DEFAULT)) {
                     context.startService(new Intent(context, AppLockEosService.class).putExtra(AppLockEosService.WORK_EXTRA_KEY, AppLockEosService.WORK_LOCK_NEW).putExtra("pkg", pkg));
                 }
             }
-                break;
+            break;
             case Intent.ACTION_USER_PRESENT:
                 context.startService(new Intent(context, AppLockEosService.class).putExtra("on", true));
                 break;
