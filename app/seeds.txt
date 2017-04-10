@@ -31411,7 +31411,6 @@ com.eos.manager.page.ListViewForScrollView
 com.eos.manager.page.ListViewForScrollView: ListViewForScrollView(android.content.Context)
 com.eos.manager.page.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
 com.eos.manager.page.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet,int)
-com.eos.manager.page.ListViewForScrollView: void setAdapter(android.widget.Adapter)
 com.eos.manager.page.MyFrameLayout
 com.eos.manager.page.MyFrameLayout: MyFrameLayout(android.content.Context)
 com.eos.manager.page.MyFrameLayout: MyFrameLayout(android.content.Context,android.util.AttributeSet)
@@ -44716,6 +44715,8 @@ com.supers.clean.junk.R$id: int permission_ok
 com.supers.clean.junk.R$id: int permission_skip
 com.supers.clean.junk.R$id: int permission_title
 com.supers.clean.junk.R$id: int pin
+com.supers.clean.junk.R$id: int power_recycler
+com.supers.clean.junk.R$id: int power_size
 com.supers.clean.junk.R$id: int praise_cancel
 com.supers.clean.junk.R$id: int praise_like
 com.supers.clean.junk.R$id: int praise_lottie
@@ -44724,6 +44725,7 @@ com.supers.clean.junk.R$id: int progressBar
 com.supers.clean.junk.R$id: int progress_circular
 com.supers.clean.junk.R$id: int progress_horizontal
 com.supers.clean.junk.R$id: int radio
+com.supers.clean.junk.R$id: int recyc_item
 com.supers.clean.junk.R$id: int red
 com.supers.clean.junk.R$id: int reddot
 com.supers.clean.junk.R$id: int refresh
@@ -44874,6 +44876,7 @@ com.supers.clean.junk.R$id: int top
 com.supers.clean.junk.R$id: int topPanel
 com.supers.clean.junk.R$id: int touch_outside
 com.supers.clean.junk.R$id: int tutorial_slide_bg
+com.supers.clean.junk.R$id: int tv
 com.supers.clean.junk.R$id: int tv_1
 com.supers.clean.junk.R$id: int tv_2
 com.supers.clean.junk.R$id: int tv_3
@@ -44984,6 +44987,7 @@ com.supers.clean.junk.R$layout: int layout_manager_item
 com.supers.clean.junk.R$layout: int layout_message
 com.supers.clean.junk.R$layout: int layout_notification
 com.supers.clean.junk.R$layout: int layout_power
+com.supers.clean.junk.R$layout: int layout_power_item
 com.supers.clean.junk.R$layout: int layout_ram
 com.supers.clean.junk.R$layout: int layout_ram_item
 com.supers.clean.junk.R$layout: int layout_setting
@@ -45197,6 +45201,9 @@ com.supers.clean.junk.R$mipmap: int permission_switch_right
 com.supers.clean.junk.R$mipmap: int permission_unselect
 com.supers.clean.junk.R$mipmap: int power_1
 com.supers.clean.junk.R$mipmap: int power_2
+com.supers.clean.junk.R$mipmap: int power_3
+com.supers.clean.junk.R$mipmap: int power_4
+com.supers.clean.junk.R$mipmap: int power_5
 com.supers.clean.junk.R$mipmap: int pullup_icon_big
 com.supers.clean.junk.R$mipmap: int qing
 com.supers.clean.junk.R$mipmap: int ram_normal
@@ -45220,6 +45227,7 @@ com.supers.clean.junk.R$mipmap: int side_check_passed
 com.supers.clean.junk.R$mipmap: int side_float
 com.supers.clean.junk.R$mipmap: int side_junk
 com.supers.clean.junk.R$mipmap: int side_manager
+com.supers.clean.junk.R$mipmap: int side_power
 com.supers.clean.junk.R$mipmap: int side_ram
 com.supers.clean.junk.R$mipmap: int side_rotate
 com.supers.clean.junk.R$mipmap: int side_setting
@@ -45602,6 +45610,7 @@ com.supers.clean.junk.R$string: int side_family
 com.supers.clean.junk.R$string: int side_float
 com.supers.clean.junk.R$string: int side_junk
 com.supers.clean.junk.R$string: int side_manager
+com.supers.clean.junk.R$string: int side_power
 com.supers.clean.junk.R$string: int side_ram
 com.supers.clean.junk.R$string: int side_rotate
 com.supers.clean.junk.R$string: int side_setting
@@ -46689,6 +46698,8 @@ com.supers.clean.junk.activity.MessageActivity$3: void onClick(android.view.View
 com.supers.clean.junk.activity.MyApplication
 com.supers.clean.junk.activity.MyApplication: MyApplication()
 com.supers.clean.junk.activity.PowerActivity
+com.supers.clean.junk.activity.PowerActivity: PowerActivity()
+com.supers.clean.junk.activity.PowerActivity$1$1: void onClick(android.view.View)
 com.supers.clean.junk.activity.RamAvtivity
 com.supers.clean.junk.activity.RamAvtivity: RamAvtivity()
 com.supers.clean.junk.activity.RamAvtivity: void onClick()
@@ -46783,7 +46794,6 @@ com.supers.clean.junk.customeview.ListViewForScrollView
 com.supers.clean.junk.customeview.ListViewForScrollView: ListViewForScrollView(android.content.Context)
 com.supers.clean.junk.customeview.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.customeview.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet,int)
-com.supers.clean.junk.customeview.ListViewForScrollView: void setAdapter(android.widget.Adapter)
 com.supers.clean.junk.customeview.MainFrameLayout
 com.supers.clean.junk.customeview.MainFrameLayout: MainFrameLayout(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.customeview.MainScrollView
@@ -46838,12 +46848,13 @@ com.supers.clean.junk.entity.JunkInfo: java.lang.String label
 com.supers.clean.junk.entity.JunkInfo: boolean isWhiteList
 com.supers.clean.junk.entity.JunkInfo: int drawableRid
 com.supers.clean.junk.entity.JunkInfo: int textrid
+com.supers.clean.junk.entity.JunkInfo: boolean isStartSelf
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(int,int,boolean)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(int,int)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,boolean,android.graphics.drawable.Drawable,long)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,long,boolean,android.graphics.drawable.Drawable,long)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawable,java.lang.String,java.lang.String,java.lang.String,boolean,long)
-com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,boolean,android.graphics.drawable.Drawable,java.lang.String,long,java.lang.String)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,boolean,android.graphics.drawable.Drawable,java.lang.String,long,java.lang.String,boolean)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawable,java.lang.String,java.lang.String,boolean)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String)
