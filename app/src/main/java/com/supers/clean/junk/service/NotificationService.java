@@ -16,7 +16,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -46,7 +45,6 @@ public class NotificationService extends Service {
     private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam;
 
     private Bitmap bitmap_progress;
-    private Canvas canvas;
     private Paint paint_1;
     private int pointX = CommonUtil.dp2px(29) / 2;
     private RectF oval;
@@ -57,13 +55,11 @@ public class NotificationService extends Service {
 
     @Override
     public IBinder onBind(Intent arg0) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public void onCreate() {
-        // TODO Auto-generated method stub
         super.onCreate();
         if (myHandler == null)
             myHandler = new Handler();
@@ -71,7 +67,6 @@ public class NotificationService extends Service {
         phoneManager = PhoneManager.getPhoneManage(this);
         initIntent();
         bitmap_progress = Bitmap.createBitmap(CommonUtil.dp2px(29), CommonUtil.dp2px(29), Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap_progress);
         paint_1 = new Paint();
         paint_1.setAntiAlias(true);
         paint_1.setStrokeCap(Paint.Cap.ROUND);
@@ -80,13 +75,17 @@ public class NotificationService extends Service {
         paint_1.setColor(getResources().getColor(R.color.white_40));
         oval = new RectF(0 + CommonUtil.dp2px(2), -pointX + CommonUtil.dp2px(2), pointX
                 * 2 - CommonUtil.dp2px(2), pointX - CommonUtil.dp2px(2));
+        getCanvas().drawArc(oval, 0, 270, false, paint_1);
+        paint_1.setColor(this.getResources().getColor(R.color.white_100));
+        changZhuTongzhi();
+    }
+
+    public Canvas getCanvas() {
+        Canvas canvas = new Canvas(bitmap_progress);
         canvas.save();
         canvas.translate(0, pointX);
         canvas.rotate(135, pointX, 0);
-        canvas.drawArc(oval, 0, 270, false, paint_1);
-        paint_1.setColor(this.getResources().getColor(R.color.white_100));
-        changZhuTongzhi();
-
+        return canvas;
     }
 
     private void initIntent() {
@@ -134,7 +133,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void changZhuTongzhi() {
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        Notification.Builder mBuilder = new Notification.Builder(this);
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
         int memory = CommonUtil.getMemory(this);
@@ -143,7 +142,7 @@ public class NotificationService extends Service {
         } else {
             paint_1.setColor(this.getResources().getColor(R.color.white_100));
         }
-        canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
+        getCanvas().drawArc(oval, 0, 270 * memory / 100, false, paint_1);
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
         remoteView_1.setTextViewText(R.id.norifi_memory_text, CommonUtil.getMemory(this) + "%");
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -238,7 +237,7 @@ public class NotificationService extends Service {
                 } else {
                     paint_1.setColor(NotificationService.this.getResources().getColor(R.color.white_100));
                 }
-                canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
+                getCanvas().drawArc(oval, 0, 270 * memory / 100, false, paint_1);
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
                 remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
                 mNotifyManager.notify(102, notification_1);
@@ -344,7 +343,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_Ram() {
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        Notification.Builder mBuilder = new Notification.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_ram);
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -363,7 +362,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_cooling() {
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        Notification.Builder mBuilder = new Notification.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_cooling);
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -382,7 +381,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_junk() {
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        Notification.Builder mBuilder = new Notification.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_junk);
         int requestCode = (int) SystemClock.uptimeMillis();
