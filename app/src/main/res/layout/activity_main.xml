@@ -62,14 +62,14 @@
 
     </LinearLayout>
 
-    <com.supers.clean.junk.myView.PullToRefreshLayout
+    <com.supers.clean.junk.customeview.PullToRefreshLayout
         android:id="@+id/main_pull_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <include layout="@layout/layout_load_more" />
 
-        <com.supers.clean.junk.myView.MainScrollView
+        <com.supers.clean.junk.customeview.MainScrollView
             android:id="@+id/main_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -119,7 +119,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1">
 
-                        <com.supers.clean.junk.myView.MyLinearLayout
+                        <com.supers.clean.junk.customeview.MyLinearLayout
                             android:id="@+id/main_junk_button"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -140,14 +140,14 @@
                                 android:text="@string/main_junk_name"
                                 android:textColor="@color/black_87"
                                 android:textSize="@dimen/s12" />
-                        </com.supers.clean.junk.myView.MyLinearLayout>
+                        </com.supers.clean.junk.customeview.MyLinearLayout>
 
                         <View
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
                             android:background="#f1f1f1" />
 
-                        <com.supers.clean.junk.myView.MyLinearLayout
+                        <com.supers.clean.junk.customeview.MyLinearLayout
                             android:id="@+id/main_ram_button"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -168,14 +168,14 @@
                                 android:text="@string/main_ram_name"
                                 android:textColor="@color/black_87"
                                 android:textSize="@dimen/s12" />
-                        </com.supers.clean.junk.myView.MyLinearLayout>
+                        </com.supers.clean.junk.customeview.MyLinearLayout>
 
                         <View
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
                             android:background="#f1f1f1" />
 
-                        <com.supers.clean.junk.myView.MyLinearLayout
+                        <com.supers.clean.junk.customeview.MyLinearLayout
                             android:id="@+id/main_manager_button"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -196,7 +196,7 @@
                                 android:text="@string/main_manager_name"
                                 android:textColor="@color/black_87"
                                 android:textSize="@dimen/s12" />
-                        </com.supers.clean.junk.myView.MyLinearLayout>
+                        </com.supers.clean.junk.customeview.MyLinearLayout>
                     </LinearLayout>
 
                     <View
@@ -204,7 +204,7 @@
                         android:layout_height="1dp"
                         android:background="#f1f1f1" />
 
-                    <com.supers.clean.junk.myView.MyLinearLayout
+                    <com.supers.clean.junk.customeview.MyLinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1">
@@ -266,7 +266,7 @@
                             android:layout_height="match_parent"
                             android:background="#f1f1f1" />
 
-                        <com.supers.clean.junk.myView.MyLinearLayout
+                        <com.supers.clean.junk.customeview.MyLinearLayout
                             android:id="@+id/main_theme_button"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -287,8 +287,8 @@
                                 android:text="@string/main_theme_name"
                                 android:textColor="@color/black_87"
                                 android:textSize="@dimen/s12" />
-                        </com.supers.clean.junk.myView.MyLinearLayout>
-                    </com.supers.clean.junk.myView.MyLinearLayout>
+                        </com.supers.clean.junk.customeview.MyLinearLayout>
+                    </com.supers.clean.junk.customeview.MyLinearLayout>
 
                 </LinearLayout>
 
@@ -753,9 +753,9 @@
 
             </LinearLayout>
 
-        </com.supers.clean.junk.myView.MainScrollView>
+        </com.supers.clean.junk.customeview.MainScrollView>
 
         <include layout="@layout/layout_load_more" />
 
-    </com.supers.clean.junk.myView.PullToRefreshLayout>
+    </com.supers.clean.junk.customeview.PullToRefreshLayout>
 </LinearLayout>

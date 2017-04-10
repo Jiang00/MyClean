@@ -18,11 +18,9 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.fakeView.FlakeView;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
-import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.customeview.FlakeView;
+import com.supers.clean.junk.util.PreData;
 
 import java.util.Random;
 
@@ -57,6 +55,7 @@ public class CoolingActivity extends BaseActivity {
     private Animation suo;
     private Animation fang;
     private int time;
+    private LottieAnimationView lottieAnimationView;
 
     @Override
     protected void findId() {
@@ -114,7 +113,7 @@ public class CoolingActivity extends BaseActivity {
         fang.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (PreData.getDB(CoolingActivity.this, Contents.FULL_COOL, 0) == 1) {
+                if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
                 tuiGuang();
@@ -135,7 +134,7 @@ public class CoolingActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
-        DialogManager.getCrossView(this, extraData, "list1", "cooling", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "cooling", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -145,9 +144,13 @@ public class CoolingActivity extends BaseActivity {
             public void onLoadView(View view) {
                 if (view != null) {
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lottieAnimationView = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_cooling.setVisibility(View.VISIBLE);
                     fl_lot_cooling.addView(view, 0);
+                    if (onPause) {
+                        lottieAnimationView.pauseAnimation();
+                    }
                 } else {
                     fl_lot_cooling.setVisibility(View.GONE);
                 }
@@ -184,6 +187,9 @@ public class CoolingActivity extends BaseActivity {
         flakeView = new FlakeView(this);
         cooling_piao.addView(flakeView);
         mHandler.post(runnable);
+        if (lottieAnimationView != null) {
+            lottieAnimationView.playAnimation();
+        }
     }
 
     private void hideSnow() {
@@ -203,6 +209,9 @@ public class CoolingActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         hideSnow();
+        if (lottieAnimationView != null) {
+            lottieAnimationView.pauseAnimation();
+        }
     }
 
     @Override

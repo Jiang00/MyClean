@@ -8,7 +8,7 @@
 
     <include layout="@layout/activity_main" />
 
-    <com.supers.clean.junk.myView.MainFrameLayout
+    <com.supers.clean.junk.customeview.MainFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.supers.clean.junk.myView.ListViewForScrollView
+                    <com.supers.clean.junk.customeview.ListViewForScrollView
                         android:id="@+id/side_listView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -87,6 +87,6 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </com.supers.clean.junk.myView.MainFrameLayout>
+    </com.supers.clean.junk.customeview.MainFrameLayout>
 
 </android.support.v4.widget.DrawerLayout>

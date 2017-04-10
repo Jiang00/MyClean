@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,7 @@ public class SearchView extends LinearLayout implements TextWatcher, View.OnClic
     /**
      * 输入框
      */
-    public static KeyPreImeEditText et_search;
+    public KeyPreImeEditText et_search;
     /**
      * 输入框后面的那个清除按钮
      */
@@ -28,8 +29,7 @@ public class SearchView extends LinearLayout implements TextWatcher, View.OnClic
 
     private Button search_quan;
 
-    public static OnQueryTextListener mylistener;
-
+    private OnQueryTextListener mylistener;
 
     public SearchView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -38,17 +38,14 @@ public class SearchView extends LinearLayout implements TextWatcher, View.OnClic
         /***找出控件*/
         et_search = (KeyPreImeEditText) findViewById(R.id.app_search);
         bt_clear = (Button) findViewById(R.id.bt_clear);
-        search_quan=(Button) findViewById(R.id.search_quan);
+        search_quan = (Button) findViewById(R.id.search_quan);
         bt_clear.setVisibility(GONE);
         et_search.addTextChangedListener(this);
         bt_clear.setOnClickListener(this);
-
     }
-
 
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
 
     }
 
@@ -90,37 +87,35 @@ public class SearchView extends LinearLayout implements TextWatcher, View.OnClic
     }
 
 
-    public static void clearText(){
+    public void clearText() {
         et_search.setText("");
-
     }
 
     public interface OnQueryTextListener {
 
         boolean onStartSearch();
 
-
         boolean onQueryTextChange(String newText);
     }
-
 
     public void setQueryTextChange(OnQueryTextListener lintener) {
         this.mylistener = lintener;
     }
 
-
-    public static void clearValur() {
+    public void clearValur() {
         String input = et_search.getText().toString().trim();
         if (input == null) {
             mylistener.onQueryTextChange("");
-
         } else {
             mylistener.onQueryTextChange(input);
-
         }
-
-
     }
 
-
+    @Override
+    public boolean onKeyPreIme(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            clearValur();
+        }
+        return super.onKeyPreIme(keyCode, event);
+    }
 }

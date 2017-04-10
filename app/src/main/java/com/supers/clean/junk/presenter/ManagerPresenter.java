@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.supers.clean.junk.View.AppManagerView;
+import com.supers.clean.junk.view.AppManagerView;
 import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.modle.entity.JunkInfo;
+import com.supers.clean.junk.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -19,14 +19,12 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.View.JunkView;
-import com.supers.clean.junk.View.adapter.JunkAdapter;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JunkInfo;
-import com.supers.clean.junk.myView.ListViewForScrollView;
-import com.supers.clean.junk.myView.MyScrollView;
+import com.supers.clean.junk.view.JunkView;
+import com.supers.clean.junk.adapter.JunkAdapter;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.customeview.ListViewForScrollView;
+import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.presenter.JunkPresenter;
 
 import java.util.List;
@@ -61,40 +59,40 @@ public class JunkActivity extends BaseActivity implements JunkView {
     @Override
     protected void findId() {
         super.findId();
-        title_left = (FrameLayout) findViewById(R.id.title_left);
-        title_name = (TextView) findViewById(R.id.title_name);
-        junk_title_backg = (LinearLayout) findViewById(R.id.junk_title_backg);
-        junk_size_all = (TextView) findViewById(R.id.junk_size_all);
-        junk_unit = (TextView) findViewById(R.id.junk_unit);
-        junk_fangxin = (TextView) findViewById(R.id.junk_fangxin);
-        junk_button_system = (LinearLayout) findViewById(R.id.junk_button_system);
-        junk_button_apk = (LinearLayout) findViewById(R.id.junk_button_apk);
-        junk_button_unload = (LinearLayout) findViewById(R.id.junk_button_unload);
-        junk_button_log = (LinearLayout) findViewById(R.id.junk_button_log);
-        junk_button_user = (LinearLayout) findViewById(R.id.junk_button_user);
-        junk_system_size = (TextView) findViewById(R.id.junk_system_size);
-        junk_apk_size = (TextView) findViewById(R.id.junk_apk_size);
-        junk_unload_size = (TextView) findViewById(R.id.junk_unload_size);
-        junk_log_size = (TextView) findViewById(R.id.junk_log_size);
-        junk_user_size = (TextView) findViewById(R.id.junk_user_size);
-        junk_system_unit = (TextView) findViewById(R.id.junk_system_unit);
-        junk_apk_unit = (TextView) findViewById(R.id.junk_apk_unit);
-        junk_unload_unit = (TextView) findViewById(R.id.junk_unload_unit);
-        junk_log_unit = (TextView) findViewById(R.id.junk_log_unit);
-        junk_user_unit = (TextView) findViewById(R.id.junk_user_unit);
-        junk_system_jiantou = (ImageView) findViewById(R.id.junk_system_jiantou);
-        junk_apk_jiaotou = (ImageView) findViewById(R.id.junk_apk_jiaotou);
-        junk_unload_jiantou = (ImageView) findViewById(R.id.junk_unload_jiantou);
-        junk_log_jiantou = (ImageView) findViewById(R.id.junk_log_jiantou);
-        junk_user_jiantou = (ImageView) findViewById(R.id.junk_user_jiantou);
-        junk_system_list = (ListViewForScrollView) findViewById(R.id.junk_system_list);
-        junk_apk_list = (ListViewForScrollView) findViewById(R.id.junk_apk_list);
-        junk_unload_list = (ListViewForScrollView) findViewById(R.id.junk_unload_list);
-        junk_log_list = (ListViewForScrollView) findViewById(R.id.junk_log_list);
-        junk_user_list = (ListViewForScrollView) findViewById(R.id.junk_user_list);
-        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
-        junk_scroll = (MyScrollView) findViewById(R.id.junk_scroll);
-        junk_list_all = (ListView) findViewById(R.id.junk_list_all);
+        title_left = $(R.id.title_left);
+        title_name = $(R.id.title_name);
+        junk_title_backg = $(R.id.junk_title_backg);
+        junk_size_all = $(R.id.junk_size_all);
+        junk_unit = $(R.id.junk_unit);
+        junk_fangxin = $(R.id.junk_fangxin);
+        junk_button_system = $(R.id.junk_button_system);
+        junk_button_apk = $(R.id.junk_button_apk);
+        junk_button_unload = $(R.id.junk_button_unload);
+        junk_button_log = $(R.id.junk_button_log);
+        junk_button_user = $(R.id.junk_button_user);
+        junk_system_size = $(R.id.junk_system_size);
+        junk_apk_size = $(R.id.junk_apk_size);
+        junk_unload_size = $(R.id.junk_unload_size);
+        junk_log_size = $(R.id.junk_log_size);
+        junk_user_size = $(R.id.junk_user_size);
+        junk_system_unit = $(R.id.junk_system_unit);
+        junk_apk_unit = $(R.id.junk_apk_unit);
+        junk_unload_unit = $(R.id.junk_unload_unit);
+        junk_log_unit = $(R.id.junk_log_unit);
+        junk_user_unit = $(R.id.junk_user_unit);
+        junk_system_jiantou = $(R.id.junk_system_jiantou);
+        junk_apk_jiaotou = $(R.id.junk_apk_jiaotou);
+        junk_unload_jiantou = $(R.id.junk_unload_jiantou);
+        junk_log_jiantou = $(R.id.junk_log_jiantou);
+        junk_user_jiantou = $(R.id.junk_user_jiantou);
+        junk_system_list = $(R.id.junk_system_list);
+        junk_apk_list = $(R.id.junk_apk_list);
+        junk_unload_list = $(R.id.junk_unload_list);
+        junk_log_list = $(R.id.junk_log_list);
+        junk_user_list = $(R.id.junk_user_list);
+        junk_button_clean = $(R.id.junk_button_clean);
+        junk_scroll = $(R.id.junk_scroll);
+        junk_list_all = $(R.id.junk_list_all);
     }
 
     @Override
@@ -104,7 +102,6 @@ public class JunkActivity extends BaseActivity implements JunkView {
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);
         junkPresenter.init();
-
     }
 
     @Override
@@ -152,6 +149,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
             public void run() {
                 int time = 100;
                 for (long i = 0; i <= allSize; i += (allSize / 15)) {
+                    if (onDestroyed) {
+                        break;
+                    }
                     final long finalI = i;
                     time -= 5;
                     if (time < 30) {
@@ -208,6 +208,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
                 int time = 100;
 
                 for (long i = 0; i <= size; i += (size / 15)) {
+                    if (onDestroyed) {
+                        break;
+                    }
                     final long finalI = i;
                     time -= 5;
                     if (time < 30) {
@@ -241,6 +244,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
             public void run() {
                 int time = 100;
                 for (long i = 0; i <= size; i += (size / 15)) {
+                    if (onDestroyed) {
+                        break;
+                    }
                     final long finalI = i;
                     time -= 5;
                     if (time < 30) {
@@ -274,6 +280,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
             public void run() {
                 int time = 100;
                 for (long i = 0; i <= size; i += (size / 15)) {
+                    if (onDestroyed) {
+                        break;
+                    }
                     final long finalI = i;
                     time -= 5;
                     if (time < 30) {
@@ -307,6 +316,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
             public void run() {
                 int time = 100;
                 for (long i = 0; i <= size; i += (size / 15)) {
+                    if (onDestroyed) {
+                        break;
+                    }
                     final long finalI = i;
                     time -= 5;
                     if (time < 30) {
@@ -340,6 +352,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
             public void run() {
                 int time = 100;
                 for (long i = 0; i <= size; i += (size / 15)) {
+                    if (onDestroyed) {
+                        break;
+                    }
                     final long finalI = i;
                     time -= 5;
                     if (time < 30) {
@@ -384,6 +399,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
                 public void run() {
                     int time = 100;
                     for (long i = 0; i <= size; i += (size / 15)) {
+                        if (onDestroyed) {
+                            break;
+                        }
                         final long finalI = i;
                         time -= 5;
                         if (time < 30) {
@@ -428,6 +446,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     int a = adapterClear.getCount();
                     int time = 100;
                     for (int i = 0; i < a; i++) {
+                        if (onDestroyed) {
+                            break;
+                        }
                         if (i > 10) {
                             time = 30;
                         }
@@ -514,7 +535,6 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     onBackPressed();
                     break;
                 case R.id.junk_button_system:
-
                     if (adapterSystem.getCount() == 0) {
                         break;
                     }
@@ -595,6 +615,14 @@ public class JunkActivity extends BaseActivity implements JunkView {
 
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
+        }
+    }
 
     @Override
     protected void onResume() {

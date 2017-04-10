@@ -20,10 +20,12 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
-import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.service.FloatService;
+import com.supers.clean.junk.service.NotificationService;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.UtilGp;
 
 /**
  * Created by on 2017/3/2.
@@ -72,7 +74,7 @@ public class SettingActivity extends BaseActivity {
         title_left.setOnClickListener(onClickListener);
         initData();
         initListener();
-        if (PreData.getDB(this, Contents.FULL_SETTING, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_SETTING, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -146,17 +148,17 @@ public class SettingActivity extends BaseActivity {
     }
 
     private void initData() {
-        if (PreData.getDB(SettingActivity.this, Contents.TONGZHI_SWITCH, true)) {
+        if (PreData.getDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true)) {
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if (PreData.getDB(SettingActivity.this, Contents.TONGZHILAN_SWITCH, true)) {
+        if (PreData.getDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if (PreData.getDB(SettingActivity.this, Contents.FlOAT_SWITCH, true)) {
+        if (PreData.getDB(SettingActivity.this, Constant.FlOAT_SWITCH, true)) {
             setting_float_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
@@ -187,38 +189,38 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_tongzhi:
                     AndroidSdk.track("设置页面", "点击通知开关", "", 1);
-                    if (PreData.getDB(SettingActivity.this, Contents.TONGZHI_SWITCH, true)) {
-                        PreData.putDB(SettingActivity.this, Contents.TONGZHI_SWITCH, false);
+                    if (PreData.getDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true)) {
+                        PreData.putDB(SettingActivity.this, Constant.TONGZHI_SWITCH, false);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
-                        PreData.putDB(SettingActivity.this, Contents.TONGZHI_SWITCH, true);
+                        PreData.putDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
                 case R.id.setting_tongzhilan:
                     AndroidSdk.track("设置页面", "点击通知栏开关", "", 1);
-                    if (PreData.getDB(SettingActivity.this, Contents.TONGZHILAN_SWITCH, true)) {
-                        PreData.putDB(SettingActivity.this, Contents.TONGZHILAN_SWITCH, false);
+                    if (PreData.getDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
+                        PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, false);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
-                        Intent intent = new Intent(SettingActivity.this, NotifactionService.class);
+                        Intent intent = new Intent(SettingActivity.this, NotificationService.class);
                         stopService(intent);
                     } else {
-                        PreData.putDB(SettingActivity.this, Contents.TONGZHILAN_SWITCH, true);
+                        PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
-                        Intent intent = new Intent(SettingActivity.this, NotifactionService.class);
+                        Intent intent = new Intent(SettingActivity.this, NotificationService.class);
                         intent.setAction("notification");
                         startService(intent);
                     }
                     break;
                 case R.id.setting_float:
                     AndroidSdk.track("设置页面", "点击悬浮球开关", "", 1);
-                    if (PreData.getDB(SettingActivity.this, Contents.FlOAT_SWITCH, true)) {
-                        PreData.putDB(SettingActivity.this, Contents.FlOAT_SWITCH, false);
+                    if (PreData.getDB(SettingActivity.this, Constant.FlOAT_SWITCH, true)) {
+                        PreData.putDB(SettingActivity.this, Constant.FlOAT_SWITCH, false);
                         Intent intent1 = new Intent(SettingActivity.this, FloatService.class);
                         setting_float_check.setImageResource(R.mipmap.side_check_normal);
                         stopService(intent1);
                     } else {
-                        PreData.putDB(SettingActivity.this, Contents.FlOAT_SWITCH, true);
+                        PreData.putDB(SettingActivity.this, Constant.FlOAT_SWITCH, true);
                         Intent intent1 = new Intent(SettingActivity.this, FloatService.class);
                         setting_float_check.setImageResource(R.mipmap.side_check_passed);
                         startService(intent1);

@@ -13,8 +13,8 @@ import android.view.WindowManager;
 
 
 import com.supers.clean.junk.activity.FloatActivity;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.myView.FloatStateView;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.customeview.FloatStateView;
 
 import java.lang.reflect.Field;
 

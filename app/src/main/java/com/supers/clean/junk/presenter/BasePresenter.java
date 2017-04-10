@@ -6,8 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.supers.clean.junk.View.IView;
-import com.supers.clean.junk.modle.UtilGp;
+import com.supers.clean.junk.util.UtilGp;
 
 /**
  */

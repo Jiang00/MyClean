@@ -27,13 +27,13 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.View.AppManagerView;
-import com.supers.clean.junk.View.adapter.ManagerAdapter;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JunkInfo;
-import com.supers.clean.junk.myView.ListViewForScrollView;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.view.AppManagerView;
+import com.supers.clean.junk.adapter.ManagerAdapter;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.presenter.ManagerPresenter;
 
 import java.util.List;
@@ -104,7 +104,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
     @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, Contents.FULL_MANAGER, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_MANAGER, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
             tuiGuang();
         } else {
@@ -126,7 +126,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     @Override
     public void tuiGuang() {
         super.tuiGuang();
-        DialogManager.getCrossView(this, extraData, "list1", "manager", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "manager", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 

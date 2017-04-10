@@ -33,7 +33,6 @@ import com.eos.eshop.ShopMaster;
 import com.eos.manager.AccessibilityService;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.AppLockPermissionActivity;
-import com.eos.manager.Tracker;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
@@ -43,18 +42,18 @@ import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.View.MainView;
-import com.supers.clean.junk.View.adapter.SideAdapter;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JunkInfo;
-import com.supers.clean.junk.myView.CustomRoundCpu;
-import com.supers.clean.junk.myView.ListViewForScrollView;
-import com.supers.clean.junk.myView.MainScrollView;
-import com.supers.clean.junk.myView.PullToRefreshLayout;
+import com.supers.clean.junk.adapter.SideAdapter;
+import com.supers.clean.junk.customeview.CustomRoundCpu;
+import com.supers.clean.junk.customeview.ListViewForScrollView;
+import com.supers.clean.junk.customeview.MainScrollView;
+import com.supers.clean.junk.customeview.PullToRefreshLayout;
+import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.UtilGp;
+import com.supers.clean.junk.view.MainView;
 
 import java.util.ArrayList;
 
@@ -308,7 +307,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(this, extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -337,7 +336,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 }
             }
         });
-        DialogManager.getCrossView(this, extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -428,17 +427,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     }
 
-    //初始化中间的高度
-    public void initCercleHight() {
-        //改变尺寸
-        /*dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getRealMetrics(dm);*/
-        //cercle_linearParams = main_all_cercle.getLayoutParams();
-        //int ac = getStatusHeight(this);
-        //cercle_linearParams.height = dm.heightPixels - ac - dp2px(56) - dp2px(185) - dp2px(64);
-        //main_all_cercle.setLayoutParams(cercle_linearParams);
-    }
-
     @Override
     public void initCpu(final int temp) {
         this.temp = temp;
@@ -525,10 +513,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
         adapter.clear();
         adapter.addData(new JunkInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
-        adapter.addData(new JunkInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Contents.FlOAT_SWITCH, true)));//桌面悬浮球
+        adapter.addData(new JunkInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new JunkInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new JunkInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new JunkInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
+        adapter.addData(new JunkInfo(R.string.side_power, R.mipmap.side_power));//深度清理
         adapter.addData(new JunkInfo(R.string.side_family, R.mipmap.side_theme));//family
         adapter.addData(new JunkInfo(R.string.side_theme, R.mipmap.side_theme));//主题
         adapter.addData(new JunkInfo(R.string.side_setting, R.mipmap.side_setting));//设置
@@ -560,7 +549,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, Contents.FULL_MAIN, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
@@ -789,7 +778,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
-                    int type = PreData.getDB(MainActivity.this, Contents.FIRST_APPLOCK, 0);
+                    int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
                     if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
                         Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
                         intent.putExtra("is_main", true);
@@ -799,7 +788,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     if (type == 0) {
                         if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
                             CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-                            PreData.putDB(MainActivity.this, Contents.FIRST_APPLOCK, 1);
+                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
                         } else {
                             Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
                             startActivity(intent);
@@ -851,7 +840,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_tuiguang_button:
                 case R.id.fl_lot_side:
-                    UtilGp.openPlayStore(MainActivity.this, tuiguang);
+                    if (CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
+                        CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
+                        AndroidSdk.track("主页面", "启动" + tuiguang, "", 1);
+                    } else {
+                        UtilGp.openPlayStore(getApplicationContext(), tuiguang);
+                    }
                     break;
 
 
@@ -935,7 +929,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else if ((System.currentTimeMillis() - mExitTime) > 2000) {
-            Toast.makeText(this, getString(R.string.main_back_pressed), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.main_back_pressed), Toast.LENGTH_SHORT).show();
             mExitTime = System.currentTimeMillis();
 
         } else {

@@ -25,20 +25,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.android.client.ClientNativeAd;
-import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.View.adapter.HorizontalListViewAdapter;
-import com.supers.clean.junk.modle.CheckState;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.MemoryManager;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.SwitchControl;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JunkInfo;
-import com.supers.clean.junk.modle.task.RamTask;
-import com.supers.clean.junk.modle.task.SimpleTask;
-import com.supers.clean.junk.myView.HorizontalListView;
+import com.supers.clean.junk.adapter.HorizontalListViewAdapter;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.CheckState;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.MemoryManager;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.SwitchControl;
+import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.task.RamTask;
+import com.supers.clean.junk.task.SimpleTask;
+import com.supers.clean.junk.customeview.HorizontalListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,7 +98,7 @@ public class FloatActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, Contents.FULL_FLOAT, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_FLOAT, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -165,7 +163,7 @@ public class FloatActivity extends BaseActivity {
                     });
                 }
             });
-            ramTask.start();
+            new Thread(ramTask).start();
 
         } else {
             listFloat_white = cleanApplication.getWhiteRam();

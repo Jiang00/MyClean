@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -19,21 +20,21 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.eos.manager.page.SecuritySharPFive;
+import com.eos.module.tweenengine.Tween;
+import com.eos.module.tweenengine.TweenEquations;
+import com.eos.module.tweenengine.TweenManager;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
 import com.sample.lottie.LottieAnimationView;
-import com.eos.module.tweenengine.Tween;
-import com.eos.module.tweenengine.TweenEquations;
-import com.eos.module.tweenengine.TweenManager;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.CommonUtil;
-import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.myView.DrawHookView;
-import com.supers.clean.junk.myView.ImageAccessor;
-import com.supers.clean.junk.myView.SlowScrollView;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.UtilGp;
+import com.supers.clean.junk.customeview.DrawHookView;
+import com.supers.clean.junk.customeview.ImageAccessor;
+import com.supers.clean.junk.customeview.SlowScrollView;
 
 /**
  * Created by on 2017/3/6.
@@ -52,21 +53,25 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_rotate_good;
     ImageView delete;
     ImageView success_progress;
+    LinearLayout ad_title;
+    LinearLayout ll_ad_xiao;
 
     LinearLayout ad_native_2;
     FrameLayout fl_lot_success;
     LinearLayout main_tuiguang_button;
     TextView main_msg_tuiguang;
     LottieAnimationView lot_success;
-    private TextView tv_next;
-    private ImageView iv_next;
     private View nativeView;
+    private View native_xiao;
+    private View native_title;
 
     private boolean isdoudong;
     private TweenManager tweenManager;
     private boolean istween;
     private Handler myHandler;
     private String TAG_CLEAN = "eos_success";
+    private String TAG_CLEAN_2 = "eos_success_2";
+    private String TAG_TITLE = "eos_icon";
     private Animation rotate;
 
     private boolean haveAd;
@@ -92,6 +97,8 @@ public class SuccessActivity extends BaseActivity {
         fl_lot_success = (FrameLayout) findViewById(R.id.fl_lot_success);
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
+        ad_title = (LinearLayout) findViewById(R.id.ad_title);
+        ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
     }
 
     @Override
@@ -125,10 +132,10 @@ public class SuccessActivity extends BaseActivity {
                 startSecondAnimation();
             }
         });
-        if (PreData.getDB(this, Contents.IS_ROTATE, false) || shareFive.getFiveRate()) {
+        if (PreData.getDB(this, Constant.IS_ROTATE, false) || shareFive.getFiveRate()) {
             main_rotate_all.setVisibility(View.GONE);
         }
-        if (PreData.getDB(this, Contents.FULL_SUCCESS, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -163,7 +170,7 @@ public class SuccessActivity extends BaseActivity {
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(this, extraData, "list1", "success", true, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "success", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -214,11 +221,12 @@ public class SuccessActivity extends BaseActivity {
 
     private void addAd() {
         nativeView = CommonUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
+        native_xiao = CommonUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+        native_title = CommonUtil.getNativeAdView(TAG_TITLE, R.layout.native_ad_title);
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight();
             Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
-            ad_native_2.setLayoutParams(layout_ad);
             ad_native_2.setLayoutParams(layout_ad);
             haveAd = true;
             ad_native_2.addView(nativeView);
@@ -228,7 +236,14 @@ public class SuccessActivity extends BaseActivity {
                 scrollView.smoothScrollToSlow(2000);
             }
         }
-
+        if (ad_title != null && native_title != null) {
+            ad_title.addView(native_title);
+            ad_title.setVisibility(View.VISIBLE);
+        }
+        if (ll_ad_xiao != null && native_xiao != null) {
+            ll_ad_xiao.addView(native_xiao);
+            ll_ad_xiao.setVisibility(View.VISIBLE);
+        }
     }
 
 //    private void addAd() {
@@ -314,6 +329,9 @@ public class SuccessActivity extends BaseActivity {
                     @Override
                     public void run() {
                         while (isdoudong) {
+                            if (onDestroyed) {
+                                break;
+                            }
                             int x = (int) (Math.random() * (16)) - 8;
                             int y = (int) (Math.random() * (16)) - 8;
                             try {
@@ -415,13 +433,13 @@ public class SuccessActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.main_rotate_bad:
-                    PreData.putDB(SuccessActivity.this, Contents.IS_ROTATE, true);
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     shareFive.setFiveRate(true);
                     break;
                 case R.id.main_rotate_good:
                     shareFive.setFiveRate(true);
-                    PreData.putDB(SuccessActivity.this, Contents.IS_ROTATE, true);
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessActivity.this);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
@@ -429,7 +447,11 @@ public class SuccessActivity extends BaseActivity {
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_tuiguang_button:
-                    UtilGp.openPlayStore(SuccessActivity.this, tuiguang);
+                    if (CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                        CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
+                    } else {
+                        UtilGp.openPlayStore(getApplicationContext(), tuiguang);
+                    }
                     break;
             }
         }
