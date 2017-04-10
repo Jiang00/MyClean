@@ -31,8 +31,7 @@ public class AppCacheTask extends SimpleTask {
         long t1 = System.currentTimeMillis();
         ArrayList<JunkInfo> dataList = new ArrayList<>();
 
-        List<PackageInfo> packages;
-        packages = pm.getInstalledPackages(0);
+        List<PackageInfo> packages = getInstallPackage(pm);
         String sdPath = MemoryManager.getPhoneInSDCardPath();
         long dataSize = 0;
         for (final PackageInfo packageInfo : packages) {

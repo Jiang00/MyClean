@@ -1,6 +1,5 @@
 package com.supers.clean.junk.activity;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,12 +11,12 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
@@ -28,7 +27,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
-import com.android.common.SdkEnv;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;
@@ -39,12 +37,11 @@ import com.eos.manager.Tracker;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
+import com.eos.module.charge.saver.service.BatteryService;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
-import com.eos.ui.demo.view.CrossView;
 import com.sample.lottie.LottieAnimationView;
-import com.eos.module.charge.saver.service.BatteryService;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.View.MainView;
 import com.supers.clean.junk.View.adapter.SideAdapter;
@@ -61,15 +58,9 @@ import com.supers.clean.junk.presenter.MainPresenter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity implements MainView {
+public class MainActivity extends BaseActivity implements MainView, DrawerLayout.DrawerListener {
 
-    public static final int UP = 0;
-    public static final int DOWN = 1;
-    public static final int NOMAL = 2;
-
-    public static MainActivity instance;
-
-    //FrameLayout main_all_cercle;
+    public static final String TAG = "MainActivity";
     MainScrollView main_scroll_view;
     PullToRefreshLayout main_pull_refresh;
     FrameLayout main_scale_all;
@@ -95,25 +86,20 @@ public class MainActivity extends BaseActivity implements MainView {
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side;
 
-    LottieAnimationView lot_side;
+    // LottieAnimationView lot_side;
     FrameLayout fl_lot_side;
     ImageView side_title;
     LottieAnimationView lot_main;
     LottieAnimationView lot_family;
 
+    LottieAnimationView lot_side;
+
     private String TAG_MAIN = "eos_main";
     private String TAG_HUA = "eos_hua";
     private String TAG_SIDE = "eos_side";
 
-    private float firstY;
-    private DisplayMetrics dm;
-    private int cercleHeight;
-    private boolean first = true;
-    private int cercle_value;
-    private boolean isScroll;
+
     private Handler handler;
-    private ViewGroup.LayoutParams cercle_linearParams;
-    private ValueAnimator valueAnimator;
     private MainPresenter mainPresenter;
     private SideAdapter adapter;
     private long mExitTime;
@@ -123,10 +109,13 @@ public class MainActivity extends BaseActivity implements MainView {
     private View pageView;
     private PackageManager packageManager;
 
+    private boolean mDrawerOpened = false;
+
     @Override
     protected void findId() {
         super.findId();
         main_drawer = (DrawerLayout) findViewById(R.id.main_drawer);
+        main_drawer.addDrawerListener(this);
         //main_all_cercle = (FrameLayout) findViewById(R.id.main_all_cercle);
         main_scroll_view = (MainScrollView) findViewById(R.id.main_scroll_view);
         main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
@@ -157,17 +146,15 @@ public class MainActivity extends BaseActivity implements MainView {
         side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
-        lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
+        //lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         side_title = (ImageView) findViewById(R.id.side_title);
-        lot_main = (LottieAnimationView) findViewById(R.id.lot_main);
         lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        instance = this;
         setContentView(R.layout.activity_dra);
 
         packageManager = getPackageManager();
@@ -238,18 +225,19 @@ public class MainActivity extends BaseActivity implements MainView {
                     final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                     startActivity(intent);
                     AndroidSdk.track("主页面", "点击跳转进入辅助功能", "", 1);
-                    try {
-                        new Thread().sleep(1500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    Intent transintent = new Intent(MainActivity.this, AppLockPermissionActivity.class);
-                    startActivity(transintent);
-                    pageView.setVisibility(View.GONE);
-                    viewpager.setCurrentItem(0);
-                    viewpager.removeView(viewpager_3);
-                    arrayList.remove(viewpager_3);
-                    pagerAdapter.notifyDataSetChanged();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent transintent = new Intent(MainActivity.this, AppLockPermissionActivity.class);
+                            startActivity(transintent);
+                            pageView.setVisibility(View.GONE);
+                            viewpager.setCurrentItem(0);
+                            viewpager.removeView(viewpager_3);
+                            arrayList.remove(viewpager_3);
+                            pagerAdapter.notifyDataSetChanged();
+                        }
+                    }, 1500);
+
                 }
             });
             permiss_cancle.setOnClickListener(new View.OnClickListener() {
@@ -320,7 +308,7 @@ public class MainActivity extends BaseActivity implements MainView {
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(this, extraData, "list1", "side", false, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(this, extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -332,15 +320,24 @@ public class MainActivity extends BaseActivity implements MainView {
                     fl_lot_side.setVisibility(View.VISIBLE);
                     side_title.setVisibility(View.GONE);
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_side = (LottieAnimationView) view.findViewById(R.id.cross_default_lottie);
+                    if (lot_side == null) {
+                        return;
+                    }
+                    lot_side.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_side.addView(view, 0);
+                    if (mDrawerOpened) {
+                        lot_side.playAnimation();
+                    } else {
+                        lot_side.pauseAnimation();
+                    }
                 } else {
                     fl_lot_side.setVisibility(View.GONE);
                     side_title.setVisibility(View.VISIBLE);
                 }
             }
         });
-        DialogManager.getCrossView(this, extraData, "list1", "main", false, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(this, extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -355,9 +352,13 @@ public class MainActivity extends BaseActivity implements MainView {
                         main_msg_tuiguang.setText("EOS Flashlight");
                     }
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_main = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lot_main.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     Log.e("tuiguang", "main 不为空");
                     main_tuiguang_button.setVisibility(View.VISIBLE);
+                    if (onPause) {
+                        lot_main.pauseAnimation();
+                    }
                     fl_lot_main.addView(view, 0);
                 } else {
                     main_tuiguang_button.setVisibility(View.GONE);
@@ -366,65 +367,6 @@ public class MainActivity extends BaseActivity implements MainView {
             }
         });
 
-//        if (!CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
-//            lot_main.setImageAssetsFolder(null, "images/applocks/");
-//            lot_main.setAnimation(null, "applocks.json");
-//            lot_main.loop(true);
-//            lot_main.playAnimation();
-//            main_msg_tuiguang.setText("EOS Applock");
-//            lot_side.setImageAssetsFolder(null, "images/applocks/");
-//            lot_side.setAnimation(null, "applocks.json");
-//            lot_side.loop(true);
-//            lot_side.playAnimation();
-//        } else if (!CommonUtil.isPkgInstalled(tuiguang1, packageManager)) {
-//            lot_main.setImageAssetsFolder(null, "images/flashs/");
-//            lot_main.setAnimation(null, "flashs.json");
-//            lot_main.loop(true);
-//            lot_main.playAnimation();
-//            main_msg_tuiguang.setText("EOS Flashlight");
-//
-//            lot_side.setImageAssetsFolder(null, "images/flashs/");
-//            lot_side.setAnimation(null, "flashs.json");
-//            lot_side.loop(true);
-//            lot_side.playAnimation();
-//        } else {
-//            main_tuiguang_button.setVisibility(View.GONE);
-//            fl_lot_side.setVisibility(View.GONE);
-//            side_title.setVisibility(View.VISIBLE);
-//        }
-    }
-
-    public static void showPermission(final Context c) {
-        final View alertDialogView = View.inflate(c, com.privacy.lock.R.layout.security_show_permission, null);
-        final android.support.v7.app.AlertDialog d = new android.support.v7.app.AlertDialog.Builder(c, com.privacy.lock.R.style.dialog).create();
-        d.setView(alertDialogView);
-        d.setCanceledOnTouchOutside(false);
-        d.show();
-        alertDialogView.findViewById(com.privacy.lock.R.id.ok).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                d.cancel();
-                final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                c.startActivity(intent);
-                try {
-                    new Thread().sleep(1500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                Intent transintent = new Intent(c, AppLockPermissionActivity.class);
-                c.startActivity(transintent);
-                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_OK, 1L);
-            }
-        });
-
-        alertDialogView.findViewById(com.privacy.lock.R.id.cancle).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Tracker.sendEvent(Tracker.ACT_PERMISSION, Tracker.ACT_PERMISSION_OK, Tracker.ACT_PERMISSION_CANCLE, 1L);
-                d.cancel();
-            }
-        });
     }
 
     // To check if service is enabled
@@ -481,7 +423,7 @@ public class MainActivity extends BaseActivity implements MainView {
         main_rotate_good.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
-        lot_side.setOnClickListener(onClickListener);
+        fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
 
     }
@@ -908,7 +850,7 @@ public class MainActivity extends BaseActivity implements MainView {
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
                     break;
                 case R.id.main_tuiguang_button:
-                case R.id.lot_side:
+                case R.id.fl_lot_side:
                     UtilGp.openPlayStore(MainActivity.this, tuiguang);
                     break;
 
@@ -942,10 +884,51 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_family != null) {
+            lot_family.pauseAnimation();
+        }
+        if (lot_main != null) {
+            lot_main.pauseAnimation();
+        }
+        Animation animation = main_guard_rotate.getAnimation();
+        if (animation == null) {
+            return;
+        }
+        animation.cancel();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
         Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
+        if (lot_family != null) {
+            lot_family.playAnimation();
+        }
+        if (lot_main != null) {
+            lot_main.playAnimation();
+        }
+        Animation animation = main_guard_rotate.getAnimation();
+        if (animation == null) {
+            return;
+        }
+        animation.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (lot_family != null) {
+            lot_family.clearAnimation();
+        }
+        if (lot_main != null) {
+            lot_main.clearAnimation();
+        }
+        if (lot_side != null) {
+            lot_side.clearAnimation();
+        }
     }
 
     public void onBackPressed() {
@@ -961,4 +944,31 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
 
+    @Override
+    public void onDrawerSlide(View drawerView, float slideOffset) {
+
+    }
+
+    @Override
+    public void onDrawerOpened(View drawerView) {
+        mDrawerOpened = true;
+        Log.e(TAG, "onDrawerOpened");
+        if (lot_side != null) {
+            lot_side.playAnimation();
+        }
+    }
+
+    @Override
+    public void onDrawerClosed(View drawerView) {
+        mDrawerOpened = false;
+        Log.e(TAG, "onDrawerClosed");
+        if (lot_side != null) {
+            lot_side.pauseAnimation();
+        }
+    }
+
+    @Override
+    public void onDrawerStateChanged(int newState) {
+
+    }
 }

@@ -54,10 +54,10 @@ public class SuccessActivity extends BaseActivity {
     ImageView success_progress;
 
     LinearLayout ad_native_2;
-    LottieAnimationView lot_success;
     FrameLayout fl_lot_success;
     LinearLayout main_tuiguang_button;
     TextView main_msg_tuiguang;
+    LottieAnimationView lot_success;
     private TextView tv_next;
     private ImageView iv_next;
     private View nativeView;
@@ -89,7 +89,6 @@ public class SuccessActivity extends BaseActivity {
         delete = (ImageView) findViewById(R.id.delete);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         success_progress = (ImageView) findViewById(R.id.success_progress);
-        lot_success = (LottieAnimationView) findViewById(R.id.lot_success);
         fl_lot_success = (FrameLayout) findViewById(R.id.fl_lot_success);
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
@@ -164,7 +163,7 @@ public class SuccessActivity extends BaseActivity {
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(this, extraData, "list1", "success", false, new CrossManager.onCrossViewClickListener() {
+        DialogManager.getCrossView(this, extraData, "list1", "success", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -179,9 +178,13 @@ public class SuccessActivity extends BaseActivity {
                         main_msg_tuiguang.setText("EOS Flashlight");
                     }
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_success = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lot_success.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     Log.e("tuiguang", "main 不为空");
                     main_tuiguang_button.setVisibility(View.VISIBLE);
+                    if (onPause) {
+                        lot_success.pauseAnimation();
+                    }
                     fl_lot_success.addView(view, 0);
                 } else {
                     main_tuiguang_button.setVisibility(View.GONE);
@@ -205,7 +208,7 @@ public class SuccessActivity extends BaseActivity {
         main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         delete.setOnClickListener(onClickListener);
-        lot_success.setOnClickListener(onClickListener);
+        main_tuiguang_button.setOnClickListener(onClickListener);
 
     }
 
@@ -425,12 +428,29 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.delete:
                     main_rotate_all.setVisibility(View.GONE);
                     break;
-                case R.id.lot_success:
+                case R.id.main_tuiguang_button:
                     UtilGp.openPlayStore(SuccessActivity.this, tuiguang);
                     break;
             }
         }
     };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
+        if (lot_success != null) {
+            lot_success.playAnimation();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_success != null) {
+            lot_success.pauseAnimation();
+        }
+    }
 
     @Override
     protected void onStop() {

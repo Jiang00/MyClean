@@ -9,7 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -20,17 +20,11 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
-import com.eos.ui.demo.dialog.DialogManager;
-import com.eos.ui.demo.entries.CrossData;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.modle.JsonParser;
-import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.PreData;
+import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JsonData;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Locale;
 
@@ -38,10 +32,13 @@ import java.util.Locale;
  * Created by on 2017/2/28.
  */
 
-public class BaseActivity extends FragmentActivity {
+public class BaseActivity extends AppCompatActivity {
     private Toast toast;
     protected String tuiguang = "com.eosmobi.applock";
     protected String extraData;
+    private JsonData data;
+
+    protected boolean onPause = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,23 +54,34 @@ public class BaseActivity extends FragmentActivity {
             full();
         }
 
-        if (MyApplication.data == null) {
+        if (data == null) {
             try {
-                MyApplication.data = JsonParser.getInstance().fromJson(AndroidSdk.getExtraData(), JsonData.class);
-                PreData.putDB(this, Contents.FULL_MAIN, MyApplication.data.full_main);
-                PreData.putDB(this, Contents.FULL_MANAGER, MyApplication.data.full_manager);
-                PreData.putDB(this, Contents.FULL_MESSAGE, MyApplication.data.full_message);
-                PreData.putDB(this, Contents.FULL_SUCCESS, MyApplication.data.full_success);
-                PreData.putDB(this, Contents.FULL_SETTING, MyApplication.data.full_setting);
-                PreData.putDB(this, Contents.FULL_UNLOAD, MyApplication.data.full_unload);
-                PreData.putDB(this, Contents.FULL_FLOAT, MyApplication.data.full_float);
-                PreData.putDB(this, Contents.FULL_COOL, MyApplication.data.full_cool);
-                PreData.putDB(this, Contents.FULL_SHORTCUT, MyApplication.data.full_shortcut);
-
+                data = JsonParser.getInstance().fromJson(AndroidSdk.getExtraData(), JsonData.class);
+                PreData.putDB(this, Contents.FULL_MAIN, data.full_main);
+                PreData.putDB(this, Contents.FULL_MANAGER, data.full_manager);
+                PreData.putDB(this, Contents.FULL_MESSAGE, data.full_message);
+                PreData.putDB(this, Contents.FULL_SUCCESS, data.full_success);
+                PreData.putDB(this, Contents.FULL_SETTING, data.full_setting);
+                PreData.putDB(this, Contents.FULL_UNLOAD, data.full_unload);
+                PreData.putDB(this, Contents.FULL_FLOAT, data.full_float);
+                PreData.putDB(this, Contents.FULL_COOL, data.full_cool);
+                PreData.putDB(this, Contents.FULL_SHORTCUT, data.full_shortcut);
             } catch (Exception e) {
 
             }
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onPause = false;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        onPause = true;
     }
 
     @Override

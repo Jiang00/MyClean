@@ -16,41 +16,45 @@ import com.eos.module.charge.saver.R;
 
 public class BubbleLayout extends View {
 
-	private List<Bubble> bubbles = new ArrayList<Bubble>();
-	private Random random = new Random();//生成随机数
-	private int width, height;
-	private boolean starting = false;
-	private Bitmap bitmap = null;
+    private List<Bubble> bubbles = new ArrayList<Bubble>();
+    private Random random = new Random();//生成随机数
+    private int width, height;
+    private boolean starting = false;
+    private Bitmap bitmap = null;
+    private Bitmap dstBitmap;
 
-	public BubbleLayout(Context context) {
-		super(context);
-		init();
-	}
+    public BubbleLayout(Context context) {
+        super(context);
+        init();
+    }
 
-	public BubbleLayout(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		init();
-	}
+    public BubbleLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
 
-	public BubbleLayout(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		init();
-	}
+    public BubbleLayout(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init();
+    }
 
-	private void init(){
-		bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.eos_bubble);
-	}
+    private void init() {
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.eos_bubble);
+    }
 
-	public void destroy(){
-		starting = false;
-		if (bitmap != null) {
-			bitmap.recycle();
-		}
-	}
+    public void destroy() {
+        starting = false;
+        if (bitmap != null) {
+            bitmap.recycle();
+        }
+        if (dstBitmap != null) {
+            dstBitmap.recycle();
+        }
+    }
 
-	public void setParticleBitmap(Bitmap bitmap){
-		this.bitmap = bitmap;
-	}
+    public void setParticleBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
 
 	@Override
 	protected void onDraw(Canvas canvas) {
@@ -62,6 +66,7 @@ public class BubbleLayout extends View {
 			new Thread() {
 				public void run() {
 					while (starting) {
+
 						Bubble bubble = new Bubble();
 						int radius = random.nextInt(30);
 						while (radius == 0) {

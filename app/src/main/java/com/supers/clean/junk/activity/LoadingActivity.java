@@ -1,11 +1,9 @@
 package com.supers.clean.junk.activity;
 
-import android.app.usage.UsageStats;
-import android.app.usage.UsageStatsManager;
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -23,8 +21,6 @@ import com.supers.clean.junk.modle.PhoneManager;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.ShortCutUtils;
 import com.supers.clean.junk.modle.entity.Contents;
-
-import java.util.List;
 
 /**
  * Created by on 2017/3/8.
@@ -87,6 +83,7 @@ public class LoadingActivity extends BaseActivity {
     }
 
     Runnable runnable1 = new Runnable() {
+        @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         @Override
         public void run() {
             String resolution = "";

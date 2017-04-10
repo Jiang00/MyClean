@@ -41,8 +41,8 @@ public class ShortCutActivity extends BaseActivity {
     LinearLayout short_text;
     TextView short_size;
     LinearLayout ll_ad;
-    LottieAnimationView lot_short;
     FrameLayout fl_lot_short;
+    LottieAnimationView lot_short;
     private Animation rotate;
     private Animation fang;
     private TweenManager tweenManager;
@@ -63,7 +63,6 @@ public class ShortCutActivity extends BaseActivity {
         short_text = (LinearLayout) findViewById(R.id.short_text);
         short_size = (TextView) findViewById(R.id.short_size);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-        lot_short = (LottieAnimationView) findViewById(R.id.lot_short);
         fl_lot_short = (FrameLayout) findViewById(R.id.fl_lot_short);
     }
 
@@ -131,8 +130,12 @@ public class ShortCutActivity extends BaseActivity {
             public void onLoadView(View view) {
                 if (view != null) {
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_short = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lot_short.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_short.setVisibility(View.VISIBLE);
+                    if (onPause) {
+                        lot_short.pauseAnimation();
+                    }
                     fl_lot_short.addView(view, 0);
                 } else {
                     fl_lot_short.setVisibility(View.GONE);
@@ -277,8 +280,19 @@ public class ShortCutActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
+        if (lot_short != null) {
+            lot_short.playAnimation();
+        }
 
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_short != null) {
+            lot_short.pauseAnimation();
+        }
     }
 
     @Override

@@ -1,13 +1,9 @@
 package com.supers.clean.junk.activity;
 
 import android.app.ActivityManager;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.IPackageDataObserver;
-import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.RemoteException;
@@ -15,30 +11,28 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import android.util.Log;
 
-
 import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
-
 import com.ivy.kpa.DaemonClient;
-import com.ivy.kpa.DaemonConfigurations;
+import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.modle.entity.Contents;
-import com.supers.clean.junk.modle.entity.JsonData;
-import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
 import com.supers.clean.junk.modle.TopActivityPkg;
-import com.supers.clean.junk.service.ReStarService;
+import com.supers.clean.junk.modle.entity.Contents;
+import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.modle.task.ApkFileAndAppJunkTask;
 import com.supers.clean.junk.modle.task.AppCacheTask;
-import com.supers.clean.junk.modle.task.AppManager;
+import com.supers.clean.junk.modle.task.AppManagerTask;
 import com.supers.clean.junk.modle.task.FilesOfUninstalledAppTask;
 import com.supers.clean.junk.modle.task.RamTask;
 import com.supers.clean.junk.modle.task.SimpleTask;
 import com.supers.clean.junk.modle.task.SystemCacheTask;
+import com.supers.clean.junk.service.ReStarService;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,9 +42,9 @@ import java.util.List;
  */
 public class MyApplication extends App {
 
-    private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 2;
+    private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 5;
 
-    public static JsonData data;
+    private final static int CWJ_HEAP_SIZE = 6 * 1024 * 1024;
 
     private ArrayList<JunkInfo> systemCache, filesOfUnintalledApk, apkFiles, appJunk, appCache, appRam, listMng;
 
@@ -221,6 +215,9 @@ public class MyApplication extends App {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        setMinHeapSize(CWJ_HEAP_SIZE);
+
         ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);
@@ -254,9 +251,6 @@ public class MyApplication extends App {
         initLists();
 
         myHandler = new Handler();
-        if (myHandler.hasCallbacks(runnable)) {
-            myHandler.removeCallbacks(runnable);
-        }
         myHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
         asyncInitData();
         saomiaoSuccess = false;
@@ -266,7 +260,41 @@ public class MyApplication extends App {
             PreData.putDB(this, Contents.IS_ACTION_BAR, CommonUtil.checkDeviceHasNavigationBar(this));
             PreData.putDB(this, Contents.FIRST_INSTALL, false);
         }
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
+    }
 
+    public static void setMinHeapSize(long size) {
+        try {
+            Class<?> cls = Class.forName("dalvik.system.VMRuntime");
+            Method getRuntime = cls.getMethod("getRuntime");
+            Object obj = getRuntime.invoke(null);// obj就是Runtime
+            if (obj == null) {
+                System.err.println("obj is null");
+            } else {
+                System.out.println(obj.getClass().getName());
+                Class<?> runtimeClass = obj.getClass();
+                Method setMinimumHeapSize = runtimeClass.getMethod(
+                        "setMinimumHeapSize", long.class);
+
+                setMinimumHeapSize.invoke(obj, size);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
     private Runnable getScanIntervalRunnable() {
@@ -274,18 +302,18 @@ public class MyApplication extends App {
             @Override
             public void run() {
                 String pkg = TopActivityPkg.getTopPackageName(MyApplication.this);
-                if (launcherPkg.contains(pkg)) {
-                    if (MainActivity.instance != null) {
-                        MainActivity.instance.finish();
-                    }
+                if (!TextUtils.equals(MyApplication.this.getPackageName(), pkg)) {
                     asyncInitData();
                     saomiaoSuccess = false;
-                } else {
-                    if (MainActivity.instance == null) {
-                        asyncInitData();
-                        saomiaoSuccess = false;
-                    }
                 }
+//                if (launcherPkg.contains(pkg)) {
+//                    asyncInitData();
+//                    saomiaoSuccess = false;
+//                } else {
+//                    if (MainActivity.instance == null) {
+//
+//                    }
+//                }
                 myHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
             }
         };
@@ -351,7 +379,7 @@ public class MyApplication extends App {
     }
 
     private void loadWhiteListAndAppManager() {
-        AppManager appManager = new AppManager(this, new SimpleTask.SimpleTaskListener() {
+        AppManagerTask appManagerTask = new AppManagerTask(this, new SimpleTask.SimpleTaskListener() {
             @Override
             public void startLoad() {
 
@@ -380,7 +408,7 @@ public class MyApplication extends App {
                 saoMiaoOver();
             }
         });
-        appManager.start();
+        appManagerTask.start();
     }
 
     private void loadAppRam() {

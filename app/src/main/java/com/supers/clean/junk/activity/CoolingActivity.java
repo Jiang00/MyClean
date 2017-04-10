@@ -39,7 +39,6 @@ public class CoolingActivity extends BaseActivity {
     ImageView cooling_zhuan, cooling_xuehua;
     LinearLayout cooling_text;
     TextView cooling_wendu;
-    LottieAnimationView lot_cooling;
     FrameLayout fl_lot_cooling;
 
     private FlakeView flakeView;
@@ -69,7 +68,6 @@ public class CoolingActivity extends BaseActivity {
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
-        lot_cooling = (LottieAnimationView) findViewById(R.id.lot_cooling);
         fl_lot_cooling = (FrameLayout) findViewById(R.id.fl_lot_cooling);
     }
 
@@ -137,7 +135,6 @@ public class CoolingActivity extends BaseActivity {
 
     public void tuiGuang() {
         super.tuiGuang();
-
         DialogManager.getCrossView(this, extraData, "list1", "cooling", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {

@@ -2,12 +2,15 @@ package com.supers.clean.junk.modle.task;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
 import com.supers.clean.junk.modle.entity.JunkInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -21,6 +24,7 @@ public abstract class SimpleTask extends Thread {
     protected boolean isCancelTask;
     protected PackageManager pm;
     protected ActivityManager am;
+    static byte[] lock = new byte[0];
 
     @Override
     public void run() {
@@ -56,6 +60,29 @@ public abstract class SimpleTask extends Thread {
 
         void finishLoading(long dataSize, ArrayList<JunkInfo> dataList);
     }
+
+    public List<PackageInfo> getInstallPackage(PackageManager pm) {
+        if (pm == null){
+            return null;
+        }
+        List<PackageInfo> installPackage;
+        synchronized (lock) {
+            installPackage = pm.getInstalledPackages(0);
+        }
+        return installPackage;
+    }
+
+    public List<ApplicationInfo> getInstalledApplications(PackageManager pm) {
+        if (pm == null){
+            return null;
+        }
+        List<ApplicationInfo> installPackage;
+        synchronized (lock) {
+            installPackage = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+        }
+        return installPackage;
+    }
+
 
     public void cancelTask() {
         isCancelTask = true;

@@ -1,11 +1,10 @@
 package com.supers.clean.junk.activity;
 
-import android.app.AlertDialog;
+import android.annotation.TargetApi;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -13,7 +12,6 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +19,6 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -34,7 +31,6 @@ import com.supers.clean.junk.View.AppManagerView;
 import com.supers.clean.junk.View.adapter.ManagerAdapter;
 import com.supers.clean.junk.modle.CommonUtil;
 import com.supers.clean.junk.modle.PreData;
-import com.supers.clean.junk.modle.UtilGp;
 import com.supers.clean.junk.modle.entity.Contents;
 import com.supers.clean.junk.modle.entity.JunkInfo;
 import com.supers.clean.junk.myView.ListViewForScrollView;
@@ -59,8 +55,8 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     LinearLayout manager_permision;
     TextView manager_shouquan;
     RelativeLayout manager_clean;
-    LottieAnimationView lot_manager;
     FrameLayout fl_lot_manager;
+    LottieAnimationView lot_manager;
 
     private ManagerPresenter managerPresenter;
     private ManagerAdapter adapterManager;
@@ -90,7 +86,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         manager_permision = $(R.id.manager_permision);
         manager_shouquan = $(R.id.manager_shouquan);
         manager_clean = $(R.id.manager_clean);
-        lot_manager = (LottieAnimationView) findViewById(R.id.lot_manager);
         fl_lot_manager = (FrameLayout) findViewById(R.id.fl_lot_manager);
     }
 
@@ -141,8 +136,12 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             public void onLoadView(View view) {
                 if (view != null) {
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_manager = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lot_manager.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_manager.setVisibility(View.VISIBLE);
+                    if (onPause) {
+                        lot_manager.pauseAnimation();
+                    }
                     fl_lot_manager.addView(view, 0);
                 } else {
                     fl_lot_manager.setVisibility(View.GONE);
@@ -160,7 +159,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         manager_button_size.setOnClickListener(onClickListener);
         manager_button_time.setOnClickListener(onClickListener);
         manager_button_pinlv.setOnClickListener(onClickListener);
-        lot_manager.setOnClickListener(onClickListener);
     }
 
     @Override
@@ -275,7 +273,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     }
 
     //判断“有权查看使用权限的应用”这个选项的APP有没有打开
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private boolean isNoSwitch() {
         long ts = System.currentTimeMillis();
         UsageStatsManager usageStatsManager = (UsageStatsManager) getApplicationContext()
@@ -327,7 +325,17 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        if (lot_manager != null) {
+            lot_manager.playAnimation();
+        }
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_manager != null) {
+            lot_manager.pauseAnimation();
+        }
     }
 
     @Override

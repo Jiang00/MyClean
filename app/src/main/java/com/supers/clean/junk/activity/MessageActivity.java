@@ -42,8 +42,8 @@ public class MessageActivity extends BaseActivity {
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
-    LottieAnimationView lot_message;
     FrameLayout fl_lot_message;
+    LottieAnimationView lot_message;
 
     private TelephonyManager telManager;
     private String TAG_MESSAGE = "eos_message";
@@ -66,7 +66,6 @@ public class MessageActivity extends BaseActivity {
         message_ram = (TextView) findViewById(R.id.message_ram);
         message_sd = (TextView) findViewById(R.id.message_sd);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-        lot_message = (LottieAnimationView) findViewById(R.id.lot_message);
         fl_lot_message = (FrameLayout) findViewById(R.id.fl_lot_message);
     }
 
@@ -152,8 +151,12 @@ public class MessageActivity extends BaseActivity {
             public void onLoadView(View view) {
                 if (view != null) {
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    lot_message = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                    lot_message.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     fl_lot_message.setVisibility(View.VISIBLE);
+                    if (onPause) {
+                        lot_message.pauseAnimation();
+                    }
                     fl_lot_message.addView(view, 0);
                 } else {
                     fl_lot_message.setVisibility(View.GONE);
@@ -218,6 +221,23 @@ public class MessageActivity extends BaseActivity {
             return s;//getDeviceId
         } else {
             return null;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AndroidSdk.onResumeWithoutTransition(this);
+        if (lot_message != null) {
+            lot_message.playAnimation();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (lot_message != null) {
+            lot_message.pauseAnimation();
         }
     }
 }

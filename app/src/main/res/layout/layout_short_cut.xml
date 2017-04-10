@@ -88,16 +88,10 @@
 
         <FrameLayout
             android:id="@+id/fl_lot_short"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_gravity="center_horizontal">
-
-            <com.sample.lottie.LottieAnimationView
-                android:id="@+id/lot_short"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="fitEnd" />
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d135"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"

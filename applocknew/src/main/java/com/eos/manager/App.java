@@ -13,8 +13,6 @@ import com.eos.manager.asyncmanager.SecurityImgManager;
 import com.eos.manager.meta.MApps;
 import com.eos.manager.meta.SecuritProfiles;
 import com.eos.manager.meta.SecurityMyPref;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 //import com.squareup.leakcanary.LeakCanary;
 //import com.squareup.leakcanary.RefWatcher;
 
@@ -33,7 +31,6 @@ public class App extends BaseApp{
             return;
         }
 
-        watcher = LeakCanary.install(this);
         SDataType.init(this);
 
         if (SecurityMyPref.isEnglish()){
@@ -53,12 +50,6 @@ public class App extends BaseApp{
 
         MApps.init();
         SecuritProfiles.init();
-    }
-
-    static RefWatcher watcher;
-
-    public static RefWatcher getWatcher() {
-        return watcher;
     }
 
     public static SharedPreferences getSharedPreferences() {

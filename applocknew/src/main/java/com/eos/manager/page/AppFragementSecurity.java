@@ -200,6 +200,9 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
     @Override
     public void onResume() {
         super.onResume();
+        if (lot_applock != null) {
+            lot_applock.playAnimation();
+        }
         MApps.setWaiting(action);
         updateLocks();
 
@@ -225,8 +228,14 @@ public class AppFragementSecurity extends SecurityBaseFragment implements Refres
 
             }
         });
+    }
 
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (lot_applock != null) {
+            lot_applock.pauseAnimation();
+        }
     }
 
     void showAdOrFive() {
