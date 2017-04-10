@@ -16,6 +16,8 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -72,11 +74,11 @@ public class NotificationService extends Service {
         paint_1.setStrokeCap(Paint.Cap.ROUND);
         paint_1.setStrokeWidth(CommonUtil.dp2px(1));
         paint_1.setStyle(Paint.Style.STROKE);
-        paint_1.setColor(getResources().getColor(R.color.white_40));
+        paint_1.setColor(ContextCompat.getColor(this, R.color.white_40));
         oval = new RectF(0 + CommonUtil.dp2px(2), -pointX + CommonUtil.dp2px(2), pointX
                 * 2 - CommonUtil.dp2px(2), pointX - CommonUtil.dp2px(2));
         getCanvas().drawArc(oval, 0, 270, false, paint_1);
-        paint_1.setColor(this.getResources().getColor(R.color.white_100));
+        paint_1.setColor(ContextCompat.getColor(this, R.color.white_100));
         changZhuTongzhi();
     }
 
@@ -133,14 +135,14 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void changZhuTongzhi() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
         int memory = CommonUtil.getMemory(this);
         if (memory > 70) {
-            paint_1.setColor(this.getResources().getColor(R.color.app_color_third));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.app_color_third));
         } else {
-            paint_1.setColor(this.getResources().getColor(R.color.white_100));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.white_100));
         }
         getCanvas().drawArc(oval, 0, 270 * memory / 100, false, paint_1);
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
@@ -233,9 +235,9 @@ public class NotificationService extends Service {
                 Log.e("notifi", "cpuTemp=" + cpuTemp);
                 remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
                 if (memory > 70) {
-                    paint_1.setColor(NotificationService.this.getResources().getColor(R.color.app_color_third));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.app_color_third));
                 } else {
-                    paint_1.setColor(NotificationService.this.getResources().getColor(R.color.white_100));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_100));
                 }
                 getCanvas().drawArc(oval, 0, 270 * memory / 100, false, paint_1);
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
@@ -343,7 +345,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_Ram() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_ram);
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -362,7 +364,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_cooling() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_cooling);
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -381,7 +383,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_junk() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_junk);
         int requestCode = (int) SystemClock.uptimeMillis();
