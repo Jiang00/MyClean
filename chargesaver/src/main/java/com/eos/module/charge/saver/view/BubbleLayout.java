@@ -103,6 +103,8 @@ public class BubbleLayout extends View {
                                 bubble.setBitmap(dstBitmap);
                             } catch (RuntimeException e) {
                                 e.printStackTrace();
+                            } catch (OutOfMemoryError error) {
+                                bubble.setBitmap(null);
                             }
                         }
                         bubbles.add(bubble);

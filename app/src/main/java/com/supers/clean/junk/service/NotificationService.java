@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -133,7 +134,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void changZhuTongzhi() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
         int memory = CommonUtil.getMemory(this);
@@ -343,7 +344,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_Ram() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_ram);
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -362,7 +363,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_cooling() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_cooling);
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -381,7 +382,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_junk() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_junk);
         int requestCode = (int) SystemClock.uptimeMillis();

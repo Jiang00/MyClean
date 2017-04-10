@@ -278,11 +278,14 @@ public class CommonUtil {
 
     //判断应用是否自动重启(开机自启)
     public static boolean isStartSelf(PackageManager pm, String packageName) {
+        if (TextUtils.equals(packageName, "com.facebook.katana")) {
+            return false;
+        }
         final Intent intent = new Intent("android.intent.action.BOOT_COMPLETED");
         intent.setPackage(packageName);
         //检索所有可用于给定的意图进行的活动。如果没有匹配的活动，则返回一个空列表。
         List<ResolveInfo> list = pm.queryBroadcastReceivers(intent,
-                PackageManager.MATCH_DEFAULT_ONLY);
+                0);
         return list.size() > 0;
     }
 
