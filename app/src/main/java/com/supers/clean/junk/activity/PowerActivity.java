@@ -3,6 +3,7 @@ package com.supers.clean.junk.activity;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewCompat;
@@ -37,7 +38,7 @@ public class PowerActivity extends BaseActivity {
     Button junk_button_clean;
     Handler mHandler;
     private GridLayoutManager mLayoutManager;
-    private HomeAdapter homeAdapter;
+    private HomeAdapter homeAdapter, containerAdapter;
     private MyApplication cleanApplication;
     private ArrayList<JunkInfo> startList;
     private View containerView;
@@ -45,6 +46,7 @@ public class PowerActivity extends BaseActivity {
     private TextView containerView_power_size;
     private Button containerView_junk_button_clean;
     private WidgetContainer container;
+    private int count = 0;
 
 
     @Override
@@ -64,7 +66,7 @@ public class PowerActivity extends BaseActivity {
         power_size.setText(getString(R.string.power_1, startList.size() + ""));
         mLayoutManager = new GridLayoutManager(this, 4);//设置为一个4列的纵向网格布局
         power_recycler.setLayoutManager(mLayoutManager);
-        power_recycler.setAdapter(homeAdapter = new HomeAdapter());
+        power_recycler.setAdapter(homeAdapter = new HomeAdapter(false));
         // 设置item动画
         power_recycler.setItemAnimator(new DefaultItemAnimator());
         junk_button_clean.setOnClickListener(new View.OnClickListener() {
@@ -94,10 +96,10 @@ public class PowerActivity extends BaseActivity {
         containerView_junk_button_clean.setBackgroundResource(R.drawable.shape_ffffff_b);
         containerView_junk_button_clean.setTextColor(getResources().getColor(R.color.main_circle_backg));
         containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
-        containerView_recyclerView.setAdapter(homeAdapter);
+        containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
         // 设置item动画
         containerView_recyclerView.setItemAnimator(new DefaultItemAnimator());
-        mHandler.post(runnable);
+        mHandler.postDelayed(runnable, 100);
     }
 
     Runnable runnable = new Runnable() {
@@ -105,22 +107,28 @@ public class PowerActivity extends BaseActivity {
         public void run() {
             for (int i = 0; i < startList.size(); i++) {
                 if (startList.get(i).isChecked) {
+                    count++;
                     View view = containerView_recyclerView.getChildAt(i);
                     animatorView(view, i);
                     startList.remove(i);
                     return;
                 }
             }
+            Intent intent = new Intent(PowerActivity.this, SuccessActivity.class);
+            intent.putExtra("size", count);
+            startActivity(intent);
             container.removeFromWindow();
+            finish();
             Log.e("power", "ok");
         }
     };
 
     private void animatorView(final View view, final int i) {
         AnimatorSet set = new AnimatorSet();
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", 1f, 0f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", 1f, 0f);
-        ObjectAnimator rotate = ObjectAnimator.ofFloat(view, "rotation", 0f, 360f);
+        View icon = view.findViewById(R.id.recyc_icon);
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(icon, "scaleY", 1f, 0f);
+        ObjectAnimator rotate = ObjectAnimator.ofFloat(icon, "rotation", 0f, 360f);
         set.setDuration(2000)
                 .addListener(new Animator.AnimatorListener() {
                     @Override
@@ -130,8 +138,8 @@ public class PowerActivity extends BaseActivity {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        homeAdapter.notifyItemRemoved(i);
-                        homeAdapter.reChangesData(i);
+                        containerAdapter.notifyItemRemoved(i);
+                        containerAdapter.reChangesData(i);
                         mHandler.post(runnable);
                     }
 
@@ -159,8 +167,10 @@ public class PowerActivity extends BaseActivity {
     }
 
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
-        public HomeAdapter(boolean isWidget) {
+        boolean isWidget;
 
+        public HomeAdapter(boolean isWidget) {
+            this.isWidget = isWidget;
         }
 
         @Override
@@ -173,9 +183,12 @@ public class PowerActivity extends BaseActivity {
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, final int position) {
-
+            if (isWidget) {
+                holder.recyc_check.setVisibility(View.GONE);
+            } else {
+                holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.power_4 : R.mipmap.power_5);
+            }
             holder.recyc_icon.setImageDrawable(startList.get(position).icon);
-            holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.power_4 : R.mipmap.power_5);
             holder.recyc_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
