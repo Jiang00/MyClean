@@ -169,6 +169,14 @@ public class MyApplication extends App {
         }
     }
 
+    public void removeRamStartSelf(JunkInfo fileListInfo) {
+        am.killBackgroundProcesses(fileListInfo.packageName);
+        ramSize -= fileListInfo.size;
+        if (appRam != null) {
+            appRam.remove(fileListInfo);
+        }
+    }
+
     public void clearRam() {
         if (appRam != null) {
             appRam.clear();

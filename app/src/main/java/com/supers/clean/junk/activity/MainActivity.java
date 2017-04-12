@@ -77,6 +77,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     FrameLayout fl_lot_main;
     TextView main_msg_tuiguang;
     LinearLayout main_msg_button;
+    LinearLayout main_power_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_sd_unit, main_msg_cpu_percent;
     TextView main_gurad_num;
     ImageView main_guard_rotate;
@@ -135,6 +136,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         fl_lot_main = (FrameLayout) findViewById(R.id.fl_lot_main);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
+        main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
         main_msg_sd_unit = (TextView) findViewById(R.id.main_msg_sd_unit);
@@ -214,40 +216,27 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             view_ad.addView(adView);
             view_ad.setGravity(Gravity.CENTER);
             arrayList.add(viewpager_2);
-        } else if (!isAccessibilitySettingsOn(this)) {
+        } else {
             final View viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_permiss, null);
-            RelativeLayout permiss_ok = (RelativeLayout) viewpager_3.findViewById(R.id.permiss_ok);
+            TextView permiss_ok = (TextView) viewpager_3.findViewById(R.id.permiss_ok);
             TextView permiss_cancle = (TextView) viewpager_3.findViewById(R.id.permiss_cancle);
             permiss_ok.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                    startActivity(intent);
-                    AndroidSdk.track("主页面", "点击跳转进入辅助功能", "", 1);
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent transintent = new Intent(MainActivity.this, AppLockPermissionActivity.class);
-                            startActivity(transintent);
-                            pageView.setVisibility(View.GONE);
-                            viewpager.setCurrentItem(0);
-                            viewpager.removeView(viewpager_3);
-                            arrayList.remove(viewpager_3);
-                            pagerAdapter.notifyDataSetChanged();
-                        }
-                    }, 1500);
-
+                    AndroidSdk.track("主页面", "点击Tap进入深度清理", "", 1);
+                    mainPresenter.jumpToActivity(PowerActivity.class, 1);
                 }
             });
             permiss_cancle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AndroidSdk.track("主页面", "点击取消辅助功能", "", 1);
-                    pageView.setVisibility(View.GONE);
+                    AndroidSdk.track("主页面", "点击Tap不进入深度清理", "", 1);
                     viewpager.setCurrentItem(0);
-                    viewpager.removeView(viewpager_3);
-                    arrayList.remove(viewpager_3);
-                    pagerAdapter.notifyDataSetChanged();
+//                    pageView.setVisibility(View.GONE);
+//                    viewpager.setCurrentItem(0);
+//                    viewpager.removeView(viewpager_3);
+//                    arrayList.remove(viewpager_3);
+//                    pagerAdapter.notifyDataSetChanged();
                 }
             });
             arrayList.add(viewpager_3);
@@ -278,16 +267,16 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
         });
 
-        if (adView == null && isAccessibilitySettingsOn(this)) {
-            pageView.setVisibility(View.GONE);
-        } else {
-            view.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    viewpager.setCurrentItem(1);
-                }
-            }, 3000);
-        }
+//        if (adView == null && CommonUtil.isAccessibilitySettingsOn(this)) {
+//            pageView.setVisibility(View.GONE);
+//        } else {
+        view.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                viewpager.setCurrentItem(1);
+            }
+        }, 3000);
+//        }
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
@@ -368,35 +357,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     }
 
-    // To check if service is enabled
-    private boolean isAccessibilitySettingsOn(Context mContext) {
-        int accessibilityEnabled = 0;
-        final String service = getPackageName() + "/" + AccessibilityService.class.getCanonicalName();
-        try {
-            accessibilityEnabled = Settings.Secure.getInt(
-                    mContext.getApplicationContext().getContentResolver(),
-                    android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
-        } catch (Settings.SettingNotFoundException e) {
-        }
-        TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
-        if (accessibilityEnabled == 1) {
-            String settingValue = Settings.Secure.getString(
-                    mContext.getApplicationContext().getContentResolver(),
-                    Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
-            if (settingValue != null) {
-                mStringColonSplitter.setString(settingValue);
-                while (mStringColonSplitter.hasNext()) {
-                    String accessibilityService = mStringColonSplitter.next();
-                    if (accessibilityService.equalsIgnoreCase(service)) {
-                        return true;
-                    }
-                }
-            }
-        } else {
-        }
-        return false;
-    }
-
 
     private void initHandler() {
         handler = new Handler();
@@ -421,6 +381,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
+        main_power_button.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
         fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
@@ -837,6 +798,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_msg_button:
                     AndroidSdk.track("主页面", "点击进入硬件信息", "", 1);
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
+                    break;
+                case R.id.main_power_button:
+                    AndroidSdk.track("主页面", "点击进入深度清理", "", 1);
+                    mainPresenter.jumpToActivity(PowerActivity.class, 1);
                     break;
                 case R.id.main_tuiguang_button:
                 case R.id.fl_lot_side:

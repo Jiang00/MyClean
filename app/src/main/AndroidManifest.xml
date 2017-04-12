@@ -163,18 +163,24 @@
             android:name=".widget.WidgetService"
             android:enabled="true" />
 
-        <receiver android:name=".widget.WidgetProvider">
+        <receiver
+            android:name=".widget.WidgetProvider"
+            android:icon="@drawable/widget_4"
+            android:label="@string/app_name_4_4">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="app.eosmobi.action.widget.ram" />
                 <action android:name="app.eosmobi.action.widget.update" />
             </intent-filter>
             <meta-data
-            android:name="android.appwidget.provider"
-            android:resource="@xml/ram" />
+                android:name="android.appwidget.provider"
+                android:resource="@xml/ram" />
         </receiver>
 
-        <receiver android:name=".widget.TempProvider">
+        <receiver
+            android:name=".widget.TempProvider"
+            android:icon="@drawable/widget_temp_preview"
+            android:label="@string/app_name_4_1">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="app.eosmobi.action.widget.temp" />

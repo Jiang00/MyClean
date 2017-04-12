@@ -34,7 +34,7 @@ import com.supers.clean.junk.util.UtilGp;
 public class SettingActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_white, setting_rotate;
+    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_power, setting_white, setting_rotate;
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
@@ -55,6 +55,7 @@ public class SettingActivity extends BaseActivity {
         setting_float = (RelativeLayout) findViewById(R.id.setting_float);
         setting_battery = (RelativeLayout) findViewById(R.id.setting_battery);
         setting_white = (RelativeLayout) findViewById(R.id.setting_white);
+        setting_power = (RelativeLayout) findViewById(R.id.setting_power);
         setting_rotate = (RelativeLayout) findViewById(R.id.setting_rotate);
         setting_tongzhi_check = (ImageView) findViewById(R.id.setting_tongzhi_check);
         setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
@@ -176,6 +177,7 @@ public class SettingActivity extends BaseActivity {
         setting_float.setOnClickListener(onClickListener);
         setting_battery.setOnClickListener(onClickListener);
         setting_white.setOnClickListener(onClickListener);
+        setting_power.setOnClickListener(onClickListener);
         setting_rotate.setOnClickListener(onClickListener);
     }
 
@@ -241,6 +243,11 @@ public class SettingActivity extends BaseActivity {
                     AndroidSdk.track("设置页面", "进入白名单", "", 1);
                     Intent intent = new Intent(SettingActivity.this, WhiteListAvtivity.class);
                     startActivity(intent);
+                    break;
+                case R.id.setting_power:
+                    AndroidSdk.track("设置页面", "进入深度清理", "", 1);
+                    Intent intentP = new Intent(SettingActivity.this, PowerActivity.class);
+                    startActivity(intentP);
                     break;
                 case R.id.setting_rotate:
                     AndroidSdk.track("设置页面", "好评", "", 1);
