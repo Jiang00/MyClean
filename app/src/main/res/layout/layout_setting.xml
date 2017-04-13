@@ -207,6 +207,46 @@
                     android:scaleType="center" />
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f1f1f1" />
+
+            <RelativeLayout
+                android:id="@+id/setting_unload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_unload"
+                    android:layout_width="72dp"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/setting_unload" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/rl_unload"
+                    android:text="@string/setting_unload"
+                    android:textColor="@color/black_87"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/setting_unload_check"
+                    android:layout_width="72dp"
+                    android:layout_height="56dp"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="center" />
+            </RelativeLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
@@ -266,7 +306,10 @@
                     android:id="@+id/rl_white"
                     android:layout_width="72dp"
                     android:layout_height="56dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -281,6 +324,46 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_white"
                     android:text="@string/setting_white"
+                    android:textColor="@color/black_87"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="56dp"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="center"
+                    android:src="@mipmap/setting_rig" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f1f1f1" />
+
+            <RelativeLayout
+                android:id="@+id/setting_short"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_short"
+                    android:layout_width="72dp"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/setting_shortcut" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/rl_short"
+                    android:text="@string/setting_short"
                     android:textColor="@color/black_87"
                     android:textSize="14sp" />
 

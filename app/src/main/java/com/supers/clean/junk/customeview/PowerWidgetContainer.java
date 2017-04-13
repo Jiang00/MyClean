@@ -83,7 +83,7 @@ public class PowerWidgetContainer extends FrameLayout implements OnClickListener
         int height = MATCH_PARENT;
 
         int type = Build.VERSION.SDK_INT >= 19 ? (Build.VERSION.SDK_INT < 24 ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR)
-                : WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+                : WindowManager.LayoutParams.TYPE_TOAST;
         //        int flag = Build.VERSION.SDK_INT >= 19 ? (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS|WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
 //                : 512;
         int flag = Build.VERSION.SDK_INT >= 19 ? (WindowManager.LayoutParams.FLAG_FULLSCREEN

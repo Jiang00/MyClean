@@ -48,6 +48,8 @@ public class Constant {
 
     public static final String KEY_APPLOCK = "KEY_APPLOCK";//applock
 
+    public static final String KEY_UNLOAD = "KEY_UNLOAD";//unload
+
 
     /**
      * 广告控制

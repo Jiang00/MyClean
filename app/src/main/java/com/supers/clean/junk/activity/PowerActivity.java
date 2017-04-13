@@ -149,10 +149,10 @@ public class PowerActivity extends BaseActivity {
             junk_button_clean.setTextColor(ContextCompat.getColor(PowerActivity.this, R.color.main_circle_backg));
             power_size.setText(getString(R.string.power_1, 0 + ""));
             homeAdapter.notifyDataSetChanged();
-            container.removeFromWindow();
             Bundle bundle = new Bundle();
             bundle.putInt("count", count);
             jumpToActivity(SuccessActivity.class, bundle, 1);
+            container.removeFromWindow();
             Log.e("power", "ok");
         }
     };

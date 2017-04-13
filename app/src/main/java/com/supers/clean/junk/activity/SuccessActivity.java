@@ -161,7 +161,7 @@ public class SuccessActivity extends BaseActivity {
                     success_jiantou.setVisibility(View.INVISIBLE);
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
-            }, 4000);
+            }, 5500);
 
         } else {
             myHandler.postDelayed(new Runnable() {

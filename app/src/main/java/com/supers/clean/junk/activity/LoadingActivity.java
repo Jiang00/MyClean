@@ -30,7 +30,7 @@ public class LoadingActivity extends BaseActivity {
     Handler myHandler;
 
     TextView tv_tiaoguo;
-//    LinearLayout ll_ad;
+    //    LinearLayout ll_ad;
     private static final String TAG_LOADING = "junk_loading";
     int mimmi;
 
@@ -38,7 +38,7 @@ public class LoadingActivity extends BaseActivity {
     protected void findId() {
         super.findId();
         tv_tiaoguo = (TextView) findViewById(R.id.tv_tiaoguo);
-       // ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        // ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -74,6 +74,7 @@ public class LoadingActivity extends BaseActivity {
         });
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
             AndroidSdk.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
+            AndroidSdk.track("是否安装applock", CommonUtil.isPkgInstalled("com.eosmobi.applock", getPackageManager()) == true ? "是" : "否", "", 1);
             PreData.putDB(this, Constant.ROOT_TRAK, false);
         }
 

@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
+import android.os.TransactionTooLargeException;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
@@ -53,6 +54,7 @@ public class NotificationService extends Service {
     private int pointX = CommonUtil.dp2px(29) / 2;
     private RectF oval;
     private int cpuTemp;
+    private int num;
 
     private long lastTotalRxBytes = 0; // 最后缓存的字节数
     private long lastTimeStamp = 0; // 当前缓存时间
@@ -127,10 +129,8 @@ public class NotificationService extends Service {
     }
 
     private void onstart() {
-        myHandler.removeCallbacks(runnable);
-        myHandler.postDelayed(runnable, 1000);
         myHandler.removeCallbacks(runnableW);
-        myHandler.post(runnableW);
+        myHandler.postAtTime(runnableW, 2000);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -182,13 +182,6 @@ public class NotificationService extends Service {
         mNotifyManager.notify(102, notification_1);
     }
 
-    private Runnable runnable = new Runnable() {
-        public void run() {
-            update();
-            myHandler.postDelayed(this, 1000);
-        }
-    };
-
     private Runnable runnableW = new Runnable() {
         public void run() {
             long nowTotalRxBytes = getTotalRxBytes(); // 获取当前数据总量
@@ -206,7 +199,13 @@ public class NotificationService extends Service {
                 remoteView_1.setImageViewResource(R.id.notifi_network_type, R.drawable.translate);
             }
             remoteView_1.setTextViewText(R.id.notifi_network_sudu, CommonUtil.getFileSizeWifi(speed));
-            mNotifyManager.notify(102, notification_1);
+            num++;
+            if (num >= 10) {
+                num = 0;
+                update();
+            } else {
+                mNotifyManager.notify(102, notification_1);
+            }
             lastTimeStamp = nowTimeStamp;
             lastTotalRxBytes = nowTotalRxBytes;
             myHandler.postDelayed(this, 2000);
@@ -264,6 +263,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
                 }
+                return;
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_RAM, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, true);
@@ -272,6 +272,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
                 }
+                return;
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_RAM, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, true);
@@ -280,6 +281,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
                 }
+                return;
             }
             //cooling
             if (hh >= 6 && hh < 12 && PreData.getDB(this, Constant.KEY_TONGZHI_ZAO_COOLING, true)) {
@@ -290,6 +292,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, false);
                 }
+                return;
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_COOLING, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, true);
@@ -298,6 +301,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, false);
                 }
+                return;
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_COOLING, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, true);
@@ -306,6 +310,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, false);
                 }
+                return;
             }
             //junk
             long laji_size = cleanApplication.getCacheSize() + cleanApplication.getApkSize() + cleanApplication.getUnloadSize()
@@ -335,17 +340,6 @@ public class NotificationService extends Service {
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }
-//            int dd = Integer.parseInt(CommonUtil.getStrTimedd(time));
-//            if (dd % 3 == 0 && hh == 18 && PreData.getDB(this, Constant.KEY_FILE_SAN, true)) {
-//
-//                if (laji_size > 0 & cleanApplication.isSaomiaoSuccess()) {
-//                    tonghzi_junk();
-//                    mNotifyManager.notify(101, notification_ram);
-//                    PreData.putDB(NotificationService.this, Constant.KEY_FILE_SAN, false);
-//                }
-//            } else if (hh != 18) {
-//                PreData.putDB(NotificationService.this, Constant.KEY_FILE_SAN, true);
-//            }
         }
 
     }
@@ -414,7 +408,6 @@ public class NotificationService extends Service {
         if (!PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             mNotifyManager.cancel(102);
         }
-        myHandler.removeCallbacks(runnable);
         myHandler.removeCallbacks(runnableW);
         super.onDestroy();
     }

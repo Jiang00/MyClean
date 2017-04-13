@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
+import com.android.client.AndroidSdk;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -27,6 +29,7 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
     private boolean clickKillProcess = false;
 
     private static String model = Build.MODEL;
+    private Locale locale;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -34,10 +37,15 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
         if (null == event || null == event.getSource()) {
             return;
         }
+        Locale localeF = getResources().getConfiguration().locale;
+        String language = localeF.getLanguage();
+        if (language != locale.getLanguage()) {
+            locale = localeF;
+            languageYtpe(language);
+        }
         if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED &&
                 event.getPackageName().equals(PACKAGE)) {
             final CharSequence className = event.getClassName();
-            Log.e("rqy", "className=" + className);
 
             if ((className.toString().endsWith("InstalledAppDetailsTop")) || ("com.android.settings.applications.InstalledAppDetailsActivity".equals(className.toString()))) {
                 if (!clickKillProcess) {
@@ -70,15 +78,16 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
         List<AccessibilityNodeInfo> nodeInfoList = new ArrayList<>();
         for (int i = 0; i < text.length; i++) {
             nodeInfoList.addAll(event.getSource().findAccessibilityNodeInfosByText(text[i]));
+            Log.e("rqy", "--language--text=" + text[i]);
         }
-//        List<AccessibilityNodeInfo> nodeInfoList = event.getSource().findAccessibilityNodeInfosByText(text);
-        Log.e("rqy", "--simulationClick--text=" + text + "--nodeInfoList.size=" + nodeInfoList.size());
+        Log.e("rqy", "--language--text=" + text.toString() + "--nodeInfoList.size=" + nodeInfoList.size());
         for (AccessibilityNodeInfo node : nodeInfoList) {
             if (node.isClickable() && node.isEnabled()) {
-                Log.e("rqy", "--simulationClick--" + node.performAction(AccessibilityNodeInfo.ACTION_CLICK));
+                Log.e("rqy", "--simulationClick--" + node.getText() + node.performAction(AccessibilityNodeInfo.ACTION_CLICK));
                 return true;
             }
         }
+        AndroidSdk.track("强度清理", "清理失败:" + model, "", 1);
         return false;
     }
 
@@ -90,15 +99,14 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
     @Override
     public void onCreate() {
         super.onCreate();
-        Locale locale = getResources().getConfiguration().locale;
+        locale = getResources().getConfiguration().locale;
         String language = locale.getLanguage();
         languageYtpe(language);
-
     }
 
     private void languageYtpe(String language) {
         if (language.equals("en")) {
-            force_stop = new String[]{"FORCE STOP", "Force stop"};
+            force_stop = new String[]{"FORCE STOP", "STOP", "Force stop"};
             delete = new String[]{"OK", "ok", "yes", "ALLOW", "FORCE STOP"};
         } else if (language.equals("ar")) {
             force_stop = new String[]{"فرض الإيقاف", "إيقاف قسري", "إيقاف إجباري", "‏ايقاف اجباري"};

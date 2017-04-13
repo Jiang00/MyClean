@@ -694,7 +694,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
             setResult(1);
-            finish();
+            onBackPressed();
         }
     }
 

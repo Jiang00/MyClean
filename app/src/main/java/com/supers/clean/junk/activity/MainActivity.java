@@ -296,64 +296,65 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
+            Log.e("data", extraData.toString());
+            DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
+                @Override
+                public void onClick(View view) {
 
-            }
+                }
 
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    fl_lot_side.setVisibility(View.VISIBLE);
-                    side_title.setVisibility(View.GONE);
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_side = (LottieAnimationView) view.findViewById(R.id.cross_default_lottie);
-                    if (lot_side == null) {
-                        return;
-                    }
-                    lot_side.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    fl_lot_side.addView(view, 0);
-                    if (mDrawerOpened) {
-                        lot_side.playAnimation();
+                @Override
+                public void onLoadView(View view) {
+                    if (view != null) {
+                        fl_lot_side.setVisibility(View.VISIBLE);
+                        side_title.setVisibility(View.GONE);
+                        ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        lot_side = (LottieAnimationView) view.findViewById(R.id.cross_default_lottie);
+                        if (lot_side == null) {
+                            return;
+                        }
+                        lot_side.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        fl_lot_side.addView(view, 0);
+                        if (mDrawerOpened) {
+                            lot_side.playAnimation();
+                        } else {
+                            lot_side.pauseAnimation();
+                        }
                     } else {
-                        lot_side.pauseAnimation();
+                        fl_lot_side.setVisibility(View.GONE);
+                        side_title.setVisibility(View.VISIBLE);
                     }
-                } else {
-                    fl_lot_side.setVisibility(View.GONE);
-                    side_title.setVisibility(View.VISIBLE);
                 }
-            }
-        });
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
+            });
+            DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
+                @Override
+                public void onClick(View view) {
 
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    if (TextUtils.equals(tuiguang, "com.eosmobi.applock")) {
-                        main_msg_tuiguang.setText("EOS Applock");
-                    } else if (TextUtils.equals(tuiguang, "com.eosmobi.flashlight.free")) {
-                        main_msg_tuiguang.setText("EOS Flashlight");
-                    }
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_main = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                    lot_main.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    Log.e("tuiguang", "main 不为空");
-                    main_tuiguang_button.setVisibility(View.VISIBLE);
-                    if (onPause) {
-                        lot_main.pauseAnimation();
-                    }
-                    fl_lot_main.addView(view, 0);
-                } else {
-                    main_tuiguang_button.setVisibility(View.GONE);
-                    Log.e("tuiguang", "main 为空");
                 }
-            }
-        });
+
+                @Override
+                public void onLoadView(View view) {
+                    if (view != null) {
+                        if (TextUtils.equals(tuiguang, "com.eosmobi.applock")) {
+                            main_msg_tuiguang.setText("EOS Applock");
+                        } else if (TextUtils.equals(tuiguang, "com.eosmobi.flashlight.free")) {
+                            main_msg_tuiguang.setText("EOS Flashlight");
+                        }
+                        ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        lot_main = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                        lot_main.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        Log.e("tuiguang", "main 不为空");
+                        main_tuiguang_button.setVisibility(View.VISIBLE);
+                        if (onPause) {
+                            lot_main.pauseAnimation();
+                        }
+                        fl_lot_main.addView(view, 0);
+                    } else {
+                        main_tuiguang_button.setVisibility(View.GONE);
+                        Log.e("tuiguang", "main 为空");
+                    }
+                }
+            });
 
     }
 
@@ -739,6 +740,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
+                    AndroidSdk.track("applock", "主界面点击", "", 1);
                     int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
                     if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
                         Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
@@ -767,7 +769,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         startActivity(intent);
                     }
 
-//                    AndroidSdk.track("主页面", "点击applock按钮", "", 1);
+
 //                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
 //                    intent.putExtra("is_main", true);
 //                    startActivity(intent);

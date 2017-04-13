@@ -280,7 +280,9 @@ public class CommonUtil {
 
     //判断应用是否自动重启(开机自启)
     public static boolean isStartSelf(PackageManager pm, String packageName) {
-        if (TextUtils.equals(packageName, "com.facebook.katana")) {
+        if (TextUtils.equals(packageName, "com.facebook.katana") ||
+                TextUtils.equals(packageName, "com.android.vending") ||
+                packageName.contains("com.google.android")) {
             return false;
         }
         final Intent intent = new Intent("android.intent.action.BOOT_COMPLETED");
