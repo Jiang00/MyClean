@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.eos.module.charge.saver.R;
@@ -20,6 +21,7 @@ public class BubbleLayout extends View {
     private Random random = new Random();//生成随机数
     private int width, height;
     private boolean starting = false;
+    private boolean thread = true;
     private Bitmap bitmap = null;
     private Bitmap dstBitmap;
 
@@ -44,6 +46,7 @@ public class BubbleLayout extends View {
 
     public void destroy() {
         starting = false;
+        thread = false;
         if (bitmap != null) {
             bitmap.recycle();
         }
@@ -56,6 +59,19 @@ public class BubbleLayout extends View {
         this.bitmap = bitmap;
     }
 
+    public void pause(){
+        thread = false;
+        if (bubbles != null) {
+            bubbles.clear();
+        }
+    }
+
+    public void reStart(){
+        thread = true;
+        starting = false;
+        invalidate();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -65,8 +81,8 @@ public class BubbleLayout extends View {
             starting = true;
             new Thread() {
                 public void run() {
-                    while (starting) {
-
+                    while (starting && thread) {
+                        Log.d("MyTest", "bubble Thread");
                         Bubble bubble = new Bubble();
                         int radius = random.nextInt(30);
                         while (radius == 0) {
@@ -109,7 +125,7 @@ public class BubbleLayout extends View {
                         }
                         bubbles.add(bubble);
                         try {
-                            Thread.sleep(random.nextInt(5) * 300);
+                            Thread.sleep(random.nextInt(6) * 500);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
