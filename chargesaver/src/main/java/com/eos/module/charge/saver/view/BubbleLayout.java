@@ -99,10 +99,12 @@ public class BubbleLayout extends View {
 								if (width <= 0 || height <= 0) {
 									throw new RuntimeException();
 								}
-								Bitmap dstBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
+								dstBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
 								bubble.setBitmap(dstBitmap);
 							} catch (RuntimeException e) {
 								e.printStackTrace();
+							} catch (OutOfMemoryError error) {
+								bubble.setBitmap(null);
 							}
 						}
 						bubbles.add(bubble);
