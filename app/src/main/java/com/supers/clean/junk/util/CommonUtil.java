@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.provider.Settings;
 import android.support.annotation.LayoutRes;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.client.AndroidSdk;
+import com.eos.manager.AccessibilityService;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -278,11 +280,16 @@ public class CommonUtil {
 
     //判断应用是否自动重启(开机自启)
     public static boolean isStartSelf(PackageManager pm, String packageName) {
+        if (TextUtils.equals(packageName, "com.facebook.katana") ||
+                TextUtils.equals(packageName, "com.android.vending") ||
+                packageName.contains("com.google.android")) {
+            return false;
+        }
         final Intent intent = new Intent("android.intent.action.BOOT_COMPLETED");
         intent.setPackage(packageName);
         //检索所有可用于给定的意图进行的活动。如果没有匹配的活动，则返回一个空列表。
         List<ResolveInfo> list = pm.queryBroadcastReceivers(intent,
-                PackageManager.MATCH_DEFAULT_ONLY);
+                0);
         return list.size() > 0;
     }
 
@@ -392,6 +399,36 @@ public class CommonUtil {
             }
         }
         return null;
+    }
+
+
+    // To check if service is enabled是否获取无障碍权限
+    public static boolean isAccessibilitySettingsOn(Context mContext) {
+        int accessibilityEnabled = 0;
+        final String service = mContext.getPackageName() + "/" + AccessibilityService.class.getCanonicalName();
+        try {
+            accessibilityEnabled = Settings.Secure.getInt(
+                    mContext.getApplicationContext().getContentResolver(),
+                    android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
+        } catch (Settings.SettingNotFoundException e) {
+        }
+        TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
+        if (accessibilityEnabled == 1) {
+            String settingValue = Settings.Secure.getString(
+                    mContext.getApplicationContext().getContentResolver(),
+                    Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+            if (settingValue != null) {
+                mStringColonSplitter.setString(settingValue);
+                while (mStringColonSplitter.hasNext()) {
+                    String accessibilityService = mStringColonSplitter.next();
+                    if (accessibilityService.equalsIgnoreCase(service)) {
+                        return true;
+                    }
+                }
+            }
+        } else {
+        }
+        return false;
     }
 
     public static long getFileSize(File file) {

@@ -25,6 +25,7 @@ import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.ShortCutUtils;
 import com.supers.clean.junk.util.UtilGp;
 
 /**
@@ -34,8 +35,8 @@ import com.supers.clean.junk.util.UtilGp;
 public class SettingActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_white, setting_rotate;
-    ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check;
+    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_unload, setting_power, setting_white, setting_short, setting_rotate;
+    ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check, setting_unload_check;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
     FrameLayout fl_lot_setting;
@@ -54,12 +55,16 @@ public class SettingActivity extends BaseActivity {
         setting_tongzhilan = (RelativeLayout) findViewById(R.id.setting_tongzhilan);
         setting_float = (RelativeLayout) findViewById(R.id.setting_float);
         setting_battery = (RelativeLayout) findViewById(R.id.setting_battery);
+        setting_unload = (RelativeLayout) findViewById(R.id.setting_unload);
         setting_white = (RelativeLayout) findViewById(R.id.setting_white);
+        setting_short = (RelativeLayout) findViewById(R.id.setting_short);
+        setting_power = (RelativeLayout) findViewById(R.id.setting_power);
         setting_rotate = (RelativeLayout) findViewById(R.id.setting_rotate);
         setting_tongzhi_check = (ImageView) findViewById(R.id.setting_tongzhi_check);
         setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
         setting_float_check = (ImageView) findViewById(R.id.setting_float_check);
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
+        setting_unload_check = (ImageView) findViewById(R.id.setting_unload_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
         fl_lot_setting = (FrameLayout) findViewById(R.id.fl_lot_setting);
@@ -168,6 +173,11 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
         }
+        if (PreData.getDB(this, Constant.KEY_UNLOAD, true)) {
+            setting_unload_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            setting_unload_check.setImageResource(R.mipmap.side_check_normal);
+        }
     }
 
     private void initListener() {
@@ -175,7 +185,10 @@ public class SettingActivity extends BaseActivity {
         setting_tongzhilan.setOnClickListener(onClickListener);
         setting_float.setOnClickListener(onClickListener);
         setting_battery.setOnClickListener(onClickListener);
+        setting_unload.setOnClickListener(onClickListener);
         setting_white.setOnClickListener(onClickListener);
+        setting_short.setOnClickListener(onClickListener);
+        setting_power.setOnClickListener(onClickListener);
         setting_rotate.setOnClickListener(onClickListener);
     }
 
@@ -227,20 +240,44 @@ public class SettingActivity extends BaseActivity {
                     }
                     break;
                 case R.id.setting_battery:
-                    AndroidSdk.track("设置页面", "点击充电屏保开关", "", 1);
+
                     //chongdian
                     if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true)) {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
+                        AndroidSdk.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                        AndroidSdk.track("设置页面", "点击充电屏保开关", "开", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_passed);
+                    }
+                    break;
+                case R.id.setting_unload:
+                    //chongdian
+                    if (PreData.getDB(SettingActivity.this, Constant.KEY_UNLOAD, true)) {
+                        PreData.putDB(SettingActivity.this, Constant.KEY_UNLOAD, false);
+                        setting_unload_check.setImageResource(R.mipmap.side_check_normal);
+                        AndroidSdk.track("设置页面", "点击卸载残余开关", "关", 1);
+                    } else {
+                        PreData.putDB(SettingActivity.this, Constant.KEY_UNLOAD, true);
+                        AndroidSdk.track("设置页面", "点击卸载残余开关", "开", 1);
+                        setting_unload_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
                 case R.id.setting_white:
                     AndroidSdk.track("设置页面", "进入白名单", "", 1);
                     Intent intent = new Intent(SettingActivity.this, WhiteListAvtivity.class);
                     startActivity(intent);
+                    break;
+                case R.id.setting_short:
+                    AndroidSdk.track("设置页面", "添加桌面快捷方式", "", 1);
+                    PreData.putDB(SettingActivity.this, Constant.KEY_SHORTCUT, true);
+                    ShortCutUtils.addShortcut(SettingActivity.this);
+                    break;
+                case R.id.setting_power:
+                    AndroidSdk.track("设置页面", "进入深度清理", "", 1);
+                    Intent intentP = new Intent(SettingActivity.this, PowerActivity.class);
+                    startActivity(intentP);
                     break;
                 case R.id.setting_rotate:
                     AndroidSdk.track("设置页面", "好评", "", 1);

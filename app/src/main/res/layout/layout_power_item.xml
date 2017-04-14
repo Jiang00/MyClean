@@ -11,6 +11,7 @@
         android:layout_gravity="center">
 
         <ImageView
+            android:id="@+id/recyc_icon"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginRight="12dp"
@@ -18,16 +19,12 @@
             android:src="@mipmap/icon" />
 
         <ImageView
+            android:id="@+id/recyc_check"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="right"
             android:src="@mipmap/power_3" />
 
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000" />
     </FrameLayout>
 
 

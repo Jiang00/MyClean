@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_100"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,7 +14,7 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="24dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
@@ -29,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="#f5f7fd"
         android:orientation="vertical">
 
         <LinearLayout
@@ -36,7 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -59,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:singleLine="true"
                 android:text="@string/power_2"
                 android:textColor="#808ea4"
                 android:textSize="13sp" />
@@ -68,7 +74,9 @@
             android:id="@+id/power_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="9dp" />
+            android:layout_marginLeft="9dp"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
     </LinearLayout>
 
     <RelativeLayout
@@ -78,9 +86,11 @@
 
         <Button
             android:id="@+id/junk_button_clean"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:background="@mipmap/junk_button"
             android:text="@string/junk_button"
             android:textColor="#ffffff"

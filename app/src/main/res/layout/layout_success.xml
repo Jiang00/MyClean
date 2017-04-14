@@ -75,8 +75,9 @@
                 android:layout_height="match_parent"
                 android:fillViewport="true"
                 android:scrollbars="none"
-                android:visibility="invisible">
-
+                android:visibility="invisible"
+                >
+                <!--android:visibility="invisible"-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -217,6 +218,72 @@
                         android:background="@color/white_100"
                         android:orientation="vertical"
                         android:visibility="gone" />
+                    <!--深度清理-->
+                    <LinearLayout
+                        android:id="@+id/main_power_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="145dp"
+                        android:layout_marginTop="16dp"
+                        android:background="#ffffff"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:layout_width="96dp"
+                                android:layout_height="match_parent"
+                                android:background="#39a1fd">
+
+                                <ImageView
+                                    android:id="@+id/power_icon"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:src="@mipmap/icon" />
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="33dp"
+                                    android:text="@string/side_power"
+                                    android:textColor="#011c6d"
+                                    android:textSize="15sp" />
+
+
+                                <TextView
+                                    android:id="@+id/power_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="19dp"
+                                    android:layout_marginTop="13dp"
+                                    android:text="@string/power_3"
+                                    android:textColor="#808ea4"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
+                                    android:layout_marginTop="25dp"
+                                    android:gravity="right"
+                                    android:text="@string/notification_button"
+                                    android:textColor="#6082e6"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
                     <!--交叉推广-->
                     <LinearLayout
                         android:id="@+id/main_tuiguang_button"

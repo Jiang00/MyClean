@@ -2,9 +2,13 @@ package com.supers.clean.junk.activity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -28,6 +32,7 @@ import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.PreData;
@@ -35,6 +40,9 @@ import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.customeview.DrawHookView;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.customeview.SlowScrollView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by on 2017/3/6.
@@ -49,6 +57,9 @@ public class SuccessActivity extends BaseActivity {
     ImageView success_huojian;
     SlowScrollView scrollView;
     LinearLayout main_rotate_all;
+    LinearLayout main_power_button;
+    ImageView power_icon;
+    TextView power_text;
     TextView main_rotate_bad;
     LinearLayout main_rotate_good;
     ImageView delete;
@@ -77,6 +88,7 @@ public class SuccessActivity extends BaseActivity {
     private boolean haveAd;
     private boolean animationEnd;
     private SecuritySharPFive shareFive;
+    private MyApplication cleanApplication;
 
     @Override
     protected void findId() {
@@ -89,9 +101,12 @@ public class SuccessActivity extends BaseActivity {
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
+        main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
+        power_text = (TextView) findViewById(R.id.power_text);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
         delete = (ImageView) findViewById(R.id.delete);
+        power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         success_progress = (ImageView) findViewById(R.id.success_progress);
         fl_lot_success = (FrameLayout) findViewById(R.id.fl_lot_success);
@@ -119,8 +134,11 @@ public class SuccessActivity extends BaseActivity {
             title_name.setText(R.string.success_title);
         }
         long size = getIntent().getLongExtra("size", 0);
+        int count = getIntent().getIntExtra("count", 0);
         if (size > 0) {
             success_clean_size.setText(CommonUtil.getFileSize4(size) + " " + getText(R.string.success_cleaned));
+        } else if (count > 0) {
+            success_clean_size.setText(getString(R.string.power_1, String.valueOf(count)));
         } else {
             success_clean_size.setText(getText(R.string.success_normal));
         }
@@ -143,7 +161,7 @@ public class SuccessActivity extends BaseActivity {
                     success_jiantou.setVisibility(View.INVISIBLE);
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
-            }, 4000);
+            }, 5500);
 
         } else {
             myHandler.postDelayed(new Runnable() {
@@ -161,6 +179,26 @@ public class SuccessActivity extends BaseActivity {
         translate.setRepeatMode(Animation.REVERSE);
         success_jiantou.startAnimation(translate);
         tuiGuang();
+        shendu();
+    }
+
+    private void shendu() {
+        cleanApplication = (MyApplication) getApplication();
+        List<JunkInfo> startList = new ArrayList<>();
+        for (JunkInfo info : cleanApplication.getAppRam()) {
+            if (info.isStartSelf) {
+                startList.add(info);
+            }
+        }
+        if (startList.size() == 0) {
+            main_power_button.setVisibility(View.GONE);
+        } else {
+            power_icon.setImageDrawable(startList.get(0).icon);
+            String text1 = getString(R.string.power_1, String.valueOf(startList.size()));
+            SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
+            ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            power_text.setText(ss1);
+        }
     }
 
     @Override
@@ -216,6 +254,7 @@ public class SuccessActivity extends BaseActivity {
         main_rotate_good.setOnClickListener(onClickListener);
         delete.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
+        main_power_button.setOnClickListener(onClickListener);
 
     }
 
@@ -445,6 +484,11 @@ public class SuccessActivity extends BaseActivity {
                     break;
                 case R.id.delete:
                     main_rotate_all.setVisibility(View.GONE);
+                    break;
+                case R.id.main_power_button:
+                    AndroidSdk.track("完成页面", "点击进入深度清理", "", 1);
+                    jumpTo(PowerActivity.class);
+                    onBackPressed();
                     break;
                 case R.id.main_tuiguang_button:
                     if (CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {

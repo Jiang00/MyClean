@@ -42,7 +42,7 @@ public class FloatService extends Service {
             myHandler = new Handler();
         }
         if (manager == null) {
-            manager = FloatStateManager.getInstance(FloatService.this);
+            manager = FloatStateManager.getInstance(FloatService.this.getApplicationContext());
         }
         if (pm == null)
             pm = getPackageManager();

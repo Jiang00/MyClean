@@ -114,6 +114,12 @@ public class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void jumpToActivity(Class<?> classs, Bundle bundle, int requestCode) {
+        Intent intent = new Intent(this, classs);
+        intent.putExtras(bundle);
+        startActivityForResult(intent, requestCode);
+    }
+
     public int getStatusHeight(Activity activity) {
         int result = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");

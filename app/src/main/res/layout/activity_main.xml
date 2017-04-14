@@ -74,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:overScrollMode="never"
             android:scrollbars="none">
 
             <LinearLayout
@@ -398,7 +399,6 @@
                         android:background="#e8e8e8" />
                 </LinearLayout>
 
-
                 <!--交叉推广-->
                 <LinearLayout
                     android:id="@+id/main_tuiguang_button"
@@ -458,6 +458,90 @@
                             android:textSize="8sp" />
                     </FrameLayout>
 
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d16"
+                        android:background="#e8e8e8" />
+                </LinearLayout>
+
+                <!--深度清理-->
+                <LinearLayout
+                    android:id="@+id/main_power_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d15"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d19"
+                            android:src="@mipmap/main_rotate_1" />
+
+                        <TextView
+                            android:id="@+id/main_msg_power"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d5"
+                            android:text="@string/side_power"
+                            android:textColor="@color/black_87"
+                            android:textSize="@dimen/s16" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:layout_marginRight="@dimen/d16"
+                        android:layout_marginTop="@dimen/main_4"
+                        android:background="#f1f1f1" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d90"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d19"
+                            android:src="@mipmap/power_6" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d9"
+                            android:text="@string/power_3"
+                            android:textColor="#6a6a6a"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:layout_marginRight="@dimen/d16"
+                        android:background="#f1f1f1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/d39"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:text="@string/notification_button"
+                        android:textColor="#de42a5f5"
+                        android:textSize="@dimen/s17" />
 
                     <View
                         android:layout_width="match_parent"
@@ -673,6 +757,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <!--ad-->
                 <LinearLayout
                     android:id="@+id/ll_ad"
                     android:layout_width="match_parent"
@@ -682,6 +767,7 @@
                     android:layout_marginRight="@dimen/d6"
                     android:gravity="center_horizontal"
                     android:orientation="vertical" />
+
                 <!--守护信息-->
                 <FrameLayout
                     android:id="@+id/main_guard_all"

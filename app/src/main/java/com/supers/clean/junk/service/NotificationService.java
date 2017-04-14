@@ -9,13 +9,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.graphics.RectF;
 import android.net.TrafficStats;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
+import android.os.TransactionTooLargeException;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -45,24 +50,22 @@ public class NotificationService extends Service {
     private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam;
 
     private Bitmap bitmap_progress;
-    private Canvas canvas;
     private Paint paint_1;
     private int pointX = CommonUtil.dp2px(29) / 2;
     private RectF oval;
     private int cpuTemp;
+    private int num;
 
     private long lastTotalRxBytes = 0; // 最后缓存的字节数
     private long lastTimeStamp = 0; // 当前缓存时间
 
     @Override
     public IBinder onBind(Intent arg0) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public void onCreate() {
-        // TODO Auto-generated method stub
         super.onCreate();
         if (myHandler == null)
             myHandler = new Handler();
@@ -70,22 +73,23 @@ public class NotificationService extends Service {
         phoneManager = PhoneManager.getPhoneManage(this);
         initIntent();
         bitmap_progress = Bitmap.createBitmap(CommonUtil.dp2px(29), CommonUtil.dp2px(29), Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap_progress);
         paint_1 = new Paint();
         paint_1.setAntiAlias(true);
         paint_1.setStrokeCap(Paint.Cap.ROUND);
         paint_1.setStrokeWidth(CommonUtil.dp2px(1));
         paint_1.setStyle(Paint.Style.STROKE);
-        paint_1.setColor(getResources().getColor(R.color.white_40));
         oval = new RectF(0 + CommonUtil.dp2px(2), -pointX + CommonUtil.dp2px(2), pointX
                 * 2 - CommonUtil.dp2px(2), pointX - CommonUtil.dp2px(2));
+        changZhuTongzhi();
+    }
+
+    public Canvas getCanvas() {
+        Canvas canvas = new Canvas(bitmap_progress);
         canvas.save();
         canvas.translate(0, pointX);
         canvas.rotate(135, pointX, 0);
-        canvas.drawArc(oval, 0, 270, false, paint_1);
-        paint_1.setColor(this.getResources().getColor(R.color.white_100));
-        changZhuTongzhi();
-
+        canvas.drawColor(Color.BLACK, PorterDuff.Mode.CLEAR);
+        return canvas;
     }
 
     private void initIntent() {
@@ -125,24 +129,26 @@ public class NotificationService extends Service {
     }
 
     private void onstart() {
-        myHandler.removeCallbacks(runnable);
-        myHandler.postDelayed(runnable, 30000);
         myHandler.removeCallbacks(runnableW);
-        myHandler.post(runnableW);
+        myHandler.postAtTime(runnableW, 2000);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void changZhuTongzhi() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
         int memory = CommonUtil.getMemory(this);
+        paint_1.setColor(ContextCompat.getColor(this, R.color.white_40));
+        Canvas canvas = getCanvas();
+        canvas.drawArc(oval, 0, 270, false, paint_1);
         if (memory > 70) {
-            paint_1.setColor(this.getResources().getColor(R.color.app_color_third));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.app_color_third));
         } else {
-            paint_1.setColor(this.getResources().getColor(R.color.white_100));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.white_100));
         }
         canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
+
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
         remoteView_1.setTextViewText(R.id.norifi_memory_text, CommonUtil.getMemory(this) + "%");
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -176,13 +182,6 @@ public class NotificationService extends Service {
         mNotifyManager.notify(102, notification_1);
     }
 
-    private Runnable runnable = new Runnable() {
-        public void run() {
-            update();
-            myHandler.postDelayed(this, 30000);
-        }
-    };
-
     private Runnable runnableW = new Runnable() {
         public void run() {
             long nowTotalRxBytes = getTotalRxBytes(); // 获取当前数据总量
@@ -200,7 +199,13 @@ public class NotificationService extends Service {
                 remoteView_1.setImageViewResource(R.id.notifi_network_type, R.drawable.translate);
             }
             remoteView_1.setTextViewText(R.id.notifi_network_sudu, CommonUtil.getFileSizeWifi(speed));
-            mNotifyManager.notify(102, notification_1);
+            num++;
+            if (num >= 10) {
+                num = 0;
+                update();
+            } else {
+                mNotifyManager.notify(102, notification_1);
+            }
             lastTimeStamp = nowTimeStamp;
             lastTotalRxBytes = nowTotalRxBytes;
             myHandler.postDelayed(this, 2000);
@@ -232,10 +237,13 @@ public class NotificationService extends Service {
                 }
                 Log.e("notifi", "cpuTemp=" + cpuTemp);
                 remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
+                paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_40));
+                Canvas canvas = getCanvas();
+                canvas.drawArc(oval, 0, 270, false, paint_1);
                 if (memory > 70) {
-                    paint_1.setColor(NotificationService.this.getResources().getColor(R.color.app_color_third));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.app_color_third));
                 } else {
-                    paint_1.setColor(NotificationService.this.getResources().getColor(R.color.white_100));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_100));
                 }
                 canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
@@ -255,6 +263,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
                 }
+                return;
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_RAM, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, true);
@@ -263,6 +272,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
                 }
+                return;
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_RAM, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, true);
@@ -271,6 +281,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_ram);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
                 }
+                return;
             }
             //cooling
             if (hh >= 6 && hh < 12 && PreData.getDB(this, Constant.KEY_TONGZHI_ZAO_COOLING, true)) {
@@ -281,6 +292,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, false);
                 }
+                return;
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_COOLING, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, true);
@@ -289,6 +301,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, false);
                 }
+                return;
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_COOLING, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, true);
@@ -297,6 +310,7 @@ public class NotificationService extends Service {
                     mNotifyManager.notify(101, notification_cooling);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, false);
                 }
+                return;
             }
             //junk
             long laji_size = cleanApplication.getCacheSize() + cleanApplication.getApkSize() + cleanApplication.getUnloadSize()
@@ -326,24 +340,13 @@ public class NotificationService extends Service {
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }
-//            int dd = Integer.parseInt(CommonUtil.getStrTimedd(time));
-//            if (dd % 3 == 0 && hh == 18 && PreData.getDB(this, Constant.KEY_FILE_SAN, true)) {
-//
-//                if (laji_size > 0 & cleanApplication.isSaomiaoSuccess()) {
-//                    tonghzi_junk();
-//                    mNotifyManager.notify(101, notification_ram);
-//                    PreData.putDB(NotificationService.this, Constant.KEY_FILE_SAN, false);
-//                }
-//            } else if (hh != 18) {
-//                PreData.putDB(NotificationService.this, Constant.KEY_FILE_SAN, true);
-//            }
         }
 
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_Ram() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_ram);
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -362,7 +365,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_cooling() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_cooling);
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -381,7 +384,7 @@ public class NotificationService extends Service {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_junk() {
-        Notification.Builder mBuilder = new Notification.Builder(this);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         RemoteViews remoteView = new RemoteViews(getPackageName(),
                 R.layout.layout_tongzhi_junk);
         int requestCode = (int) SystemClock.uptimeMillis();
@@ -405,7 +408,6 @@ public class NotificationService extends Service {
         if (!PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             mNotifyManager.cancel(102);
         }
-        myHandler.removeCallbacks(runnable);
         myHandler.removeCallbacks(runnableW);
         super.onDestroy();
     }

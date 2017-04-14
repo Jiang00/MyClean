@@ -270,7 +270,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
             setResult(1);
-            finish();
+            onBackPressed();
         }
     }
 
