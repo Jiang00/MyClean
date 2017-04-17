@@ -8,6 +8,8 @@ public class Constant {
 
     public static final String WHILT_LIST = "whilt_list";//白名单
 
+    public static final String NOTIFI_WHILT_LIST = "NOTIFI_WHILT_LIST";//通知栏清理白名单
+
     public static final String FIRST_INSTALL = "FIRST_INSTALL";//首次安装
 
     public static final String IS_ACTION_BAR = "IS_ACTION_BAR";//是否含有导航栏
@@ -49,6 +51,8 @@ public class Constant {
     public static final String KEY_APPLOCK = "KEY_APPLOCK";//applock
 
     public static final String KEY_UNLOAD = "KEY_UNLOAD";//unload
+
+    public static final String KEY_NOTIFI = "KEY_NOTIFI";//notifi
 
 
     /**

@@ -32,11 +32,11 @@ import java.util.Locale;
  * Created by on 2017/2/28.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends Activity {
     private Toast toast;
     protected String tuiguang = "com.eosmobi.applock";
     protected String extraData;
-    private JsonData data;
+    protected JsonData data;
 
     protected boolean onPause = false;
     protected boolean onDestroyed = false;
@@ -117,6 +117,10 @@ public class BaseActivity extends AppCompatActivity {
     public void jumpToActivity(Class<?> classs, Bundle bundle, int requestCode) {
         Intent intent = new Intent(this, classs);
         intent.putExtras(bundle);
+        startActivityForResult(intent, requestCode);
+    }
+    public void jumpToActivity(Class<?> classs,  int requestCode) {
+        Intent intent = new Intent(this, classs);
         startActivityForResult(intent, requestCode);
     }
 

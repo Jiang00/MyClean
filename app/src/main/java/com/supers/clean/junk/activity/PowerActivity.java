@@ -71,9 +71,10 @@ public class PowerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
         mHandler = new Handler();
+        startService(new Intent(this, AccessibilityService.class).putExtra("isDis", false));
         initData();
         title_name.setText(R.string.side_power);
-        power_size.setText(getString(R.string.power_1, startList.size() + ""));
+        power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         mLayoutManager = new GridLayoutManager(this, 4);//设置为一个4列的纵向网格布局
         power_recycler.setLayoutManager(mLayoutManager);
         power_recycler.setAdapter(homeAdapter = new HomeAdapter(false));
@@ -122,7 +123,7 @@ public class PowerActivity extends BaseActivity {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
         containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
         containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
-        containerView_power_size.setText(getString(R.string.power_1, startList.size() + ""));
+        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         containerView_junk_button_clean.setBackgroundResource(R.drawable.shape_radio);
         containerView_junk_button_clean.setTextColor(ContextCompat.getColor(this, R.color.main_circle_backg));
         containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
@@ -147,7 +148,7 @@ public class PowerActivity extends BaseActivity {
             }
             junk_button_clean.setBackgroundResource(R.drawable.shape_radio);
             junk_button_clean.setTextColor(ContextCompat.getColor(PowerActivity.this, R.color.main_circle_backg));
-            power_size.setText(getString(R.string.power_1, 0 + ""));
+            power_size.setText(getString(R.string.power_1, 0 + "") + " ");
             homeAdapter.notifyDataSetChanged();
             Bundle bundle = new Bundle();
             bundle.putInt("count", count);
@@ -174,7 +175,7 @@ public class PowerActivity extends BaseActivity {
                     public void onAnimationEnd(Animator animation) {
                         cleanApplication.removeRamStartSelf(startList.get(i));
                         startList.remove(i);
-                        containerView_power_size.setText(getString(R.string.power_1, startList.size() + ""));
+                        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
                         containerAdapter.notifyItemRemoved(i);
                         containerAdapter.reChangesData(i);
                         mHandler.post(runnable);
@@ -266,6 +267,13 @@ public class PowerActivity extends BaseActivity {
                 recyc_check = (ImageView) view.findViewById(R.id.recyc_check);
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        startService(new Intent(this, AccessibilityService.class).putExtra("isDis", true));
+        super.onDestroy();
+
     }
 
     @Override

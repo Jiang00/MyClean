@@ -10,7 +10,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
 import android.provider.Settings;
 import android.support.annotation.LayoutRes;
 import android.text.TextUtils;
@@ -261,6 +266,27 @@ public class CommonUtil {
         return (int) (Resources.getSystem().getDisplayMetrics().density * dp);
     }
 
+    public static Bitmap getBitmap(Drawable drawable) {
+        // TODO Auto-generated method stub
+        if (drawable instanceof BitmapDrawable) {
+            return ((BitmapDrawable) drawable).getBitmap();
+        } else if (drawable instanceof NinePatchDrawable) {
+            Bitmap bitmap = Bitmap
+                    .createBitmap(
+                            drawable.getIntrinsicWidth(),
+                            drawable.getIntrinsicHeight(),
+                            drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+                                    : Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
+                    drawable.getIntrinsicHeight());
+            drawable.draw(canvas);
+            return bitmap;
+        } else {
+            return null;
+        }
+    }
+
     public static List<String> getLauncherPkgs(Context context) {
         List<String> packageNames = new ArrayList<>();
         PackageManager packageManager = context.getPackageManager();
@@ -401,6 +427,24 @@ public class CommonUtil {
         return null;
     }
 
+    //是否获取通知权限
+    public static boolean isNotificationListenEnabled(Context context) {
+        String pkgName = context.getPackageName();
+        final String flat = Settings.Secure.getString(context.getContentResolver(),
+                "enabled_notification_listeners");
+        if (!TextUtils.isEmpty(flat)) {
+            final String[] names = flat.split(":");
+            for (int i = 0; i < names.length; i++) {
+                final ComponentName cn = ComponentName.unflattenFromString(names[i]);
+                if (cn != null) {
+                    if (TextUtils.equals(pkgName, cn.getPackageName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     // To check if service is enabled是否获取无障碍权限
     public static boolean isAccessibilitySettingsOn(Context mContext) {

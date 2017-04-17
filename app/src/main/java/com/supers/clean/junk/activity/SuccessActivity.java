@@ -138,7 +138,7 @@ public class SuccessActivity extends BaseActivity {
         if (size > 0) {
             success_clean_size.setText(CommonUtil.getFileSize4(size) + " " + getText(R.string.success_cleaned));
         } else if (count > 0) {
-            success_clean_size.setText(getString(R.string.power_1, String.valueOf(count)));
+            success_clean_size.setText(getString(R.string.power_1, String.valueOf(count)) + " ");
         } else {
             success_clean_size.setText(getText(R.string.success_normal));
         }
@@ -161,7 +161,7 @@ public class SuccessActivity extends BaseActivity {
                     success_jiantou.setVisibility(View.INVISIBLE);
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
-            }, 5500);
+            }, data.inter_time * 1000);
 
         } else {
             myHandler.postDelayed(new Runnable() {
@@ -194,7 +194,7 @@ public class SuccessActivity extends BaseActivity {
             main_power_button.setVisibility(View.GONE);
         } else {
             power_icon.setImageDrawable(startList.get(0).icon);
-            String text1 = getString(R.string.power_1, String.valueOf(startList.size()));
+            String text1 = getString(R.string.power_1, String.valueOf(startList.size())) + " ";
             SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
             ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             power_text.setText(ss1);

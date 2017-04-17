@@ -17,6 +17,7 @@ import android.text.TextUtils;
 
 
 import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.entity.Sizesort;
 
@@ -31,6 +32,7 @@ import java.util.List;
  */
 public class AppManagerTask extends SimpleTask {
     private List<String> whiteList;
+    private List<String> notifi_whiteList;
     private long allSize = 0;
     private ArrayList<JunkInfo> appList = new ArrayList<>();
     private List<UsageStats> usageStatsList;
@@ -38,7 +40,8 @@ public class AppManagerTask extends SimpleTask {
 
     public AppManagerTask(Context context, SimpleTaskListener simpleTaskListener) {
         super(context, simpleTaskListener);
-        whiteList = PreData.getNameList(context);
+        whiteList = PreData.getNameList(context, Constant.WHILT_LIST);
+        notifi_whiteList = PreData.getNameList(context, Constant.NOTIFI_WHILT_LIST);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -145,7 +148,7 @@ public class AppManagerTask extends SimpleTask {
                 }
             }
         }
-        JunkInfo info = new JunkInfo(false, icon, label, packageName, time, size, whiteList.contains(packageName), lastRunTime);
+        JunkInfo info = new JunkInfo(false, icon, label, packageName, time, size, whiteList.contains(packageName), notifi_whiteList.contains(packageName), lastRunTime);
         allSize += size;
         appList.add(info);
         if (mSimpleTaskListener != null) {

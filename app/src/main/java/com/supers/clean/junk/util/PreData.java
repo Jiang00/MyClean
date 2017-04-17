@@ -150,8 +150,8 @@ public final class PreData {
     // ******************* SharedPreference End *******************//
 
     //    whiteList
-    public static void addName(Context context, String name) {
-        String nameList = getDB(context, Constant.WHILT_LIST, "");
+    public static void addName(Context context, String name, String key) {
+        String nameList = getDB(context, key, "");
         if (nameList != null) {
             String[] tmp = nameList.split(",");
             ArrayList<String> lst = new ArrayList<>();
@@ -172,8 +172,8 @@ public final class PreData {
         }
     }
 
-    public static ArrayList<String> getNameList(Context context) {
-        String nameList = getDB(context, Constant.WHILT_LIST, "");
+    public static ArrayList<String> getNameList(Context context, String key) {
+        String nameList = getDB(context, key, "");
         String[] tmp = nameList.split(",");
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < tmp.length; i++) {
@@ -182,8 +182,8 @@ public final class PreData {
         return list;
     }
 
-    public static void removeName(Context context, String name) {
-        String nameList = getDB(context, Constant.WHILT_LIST, "");
+    public static void removeName(Context context, String name, String key) {
+        String nameList = getDB(context, key, "");
         if (nameList != null) {
             String[] tmp = nameList.split(",");
             ArrayList<String> lst = new ArrayList<>();
@@ -197,7 +197,7 @@ public final class PreData {
                 while (it.hasNext()) {
                     nameList += it.next() + ",";
                 }
-                putDB(context, Constant.WHILT_LIST, nameList);
+                putDB(context, key, nameList);
             }
         }
     }

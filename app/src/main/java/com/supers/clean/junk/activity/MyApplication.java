@@ -20,6 +20,7 @@ import com.ivy.kpa.DaemonClient;
 import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.entity.NotifiInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.service.ReStarService;
@@ -38,6 +39,7 @@ import com.supers.clean.junk.util.TopActivityPkg;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -55,6 +57,8 @@ public class MyApplication extends App {
     private ArrayList<JunkInfo> systemCache, filesOfUnintallApk, apkFiles, appJunk, appCache, appRam, listMng;
 
     private ArrayList<JunkInfo> white_ram;
+
+    private static ArrayList<NotifiInfo> notifiList;
 
     private long cacheSize, apkSize, unloadSize, logSize, dataSize, ramSize;
 
@@ -119,6 +123,10 @@ public class MyApplication extends App {
         return systemCache;
     }
 
+    public ArrayList<NotifiInfo> getNotifiList() {
+        return notifiList;
+    }
+
     public ArrayList<JunkInfo> getFilesOfUnintalledApk() {
         return filesOfUnintallApk;
     }
@@ -158,6 +166,12 @@ public class MyApplication extends App {
         }
     }
 
+    public void removeNotifi(NotifiInfo f) {
+        if (notifiList != null) {
+            notifiList.remove(f);
+        }
+    }
+
     public void removeRam(JunkInfo fileListInfo) {
         am.killBackgroundProcesses(fileListInfo.packageName);
         if (fileListInfo.isStartSelf) {
@@ -181,6 +195,12 @@ public class MyApplication extends App {
         if (appRam != null) {
             appRam.clear();
             ramSize = 0;
+        }
+    }
+
+    public void clearNotifi() {
+        if (notifiList != null) {
+            notifiList.clear();
         }
     }
 
@@ -355,6 +375,7 @@ public class MyApplication extends App {
         appRam = new ArrayList<>();
         white_ram = new ArrayList<>();
         listMng = new ArrayList<>();
+        notifiList = new ArrayList<>();
     }
 
     private void resetLists() {

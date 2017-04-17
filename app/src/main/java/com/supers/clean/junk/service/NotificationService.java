@@ -5,8 +5,10 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -21,7 +23,15 @@ import android.os.SystemClock;
 import android.os.TransactionTooLargeException;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.LocalBroadcastManager;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
 import com.supers.clean.junk.R;
@@ -29,13 +39,19 @@ import com.supers.clean.junk.activity.CoolingActivity;
 import com.supers.clean.junk.activity.JunkAndRamActivity;
 import com.supers.clean.junk.activity.MainActivity;
 import com.supers.clean.junk.activity.MyApplication;
+import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.TranslateActivity;
+import com.supers.clean.junk.entity.NotifiInfo;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.CpuTempReader;
 import com.supers.clean.junk.util.PhoneManager;
 import com.supers.clean.junk.util.PreData;
+
+import java.util.ArrayList;
+
+import static com.supers.clean.junk.service.NotificationMonitor.NOTIFI_ACTION;
 
 
 public class NotificationService extends Service {
@@ -43,11 +59,13 @@ public class NotificationService extends Service {
     private PhoneManager phoneManager;
     private NotificationManager mNotifyManager;
     private Notification notification_ram, notification_cooling, notification_junk;
-    private RemoteViews remoteView_1;
+    private RemoteViews remoteView_1, remoteViewNotifi;
     private Notification notification_1;
+    private Notification notification_notifi;
+    private NotifiReceiver receiver;
 
     private MyApplication cleanApplication;
-    private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam;
+    private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam, notifyIntentNotifi;
 
     private Bitmap bitmap_progress;
     private Paint paint_1;
@@ -58,6 +76,7 @@ public class NotificationService extends Service {
 
     private long lastTotalRxBytes = 0; // 最后缓存的字节数
     private long lastTimeStamp = 0; // 当前缓存时间
+    private ArrayList<NotifiInfo> list;
 
     @Override
     public IBinder onBind(Intent arg0) {
@@ -81,6 +100,9 @@ public class NotificationService extends Service {
         oval = new RectF(0 + CommonUtil.dp2px(2), -pointX + CommonUtil.dp2px(2), pointX
                 * 2 - CommonUtil.dp2px(2), pointX - CommonUtil.dp2px(2));
         changZhuTongzhi();
+        tonghzi_notifi();
+        receiver = new NotifiReceiver();
+        LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter(NOTIFI_ACTION));
     }
 
     public Canvas getCanvas() {
@@ -111,6 +133,10 @@ public class NotificationService extends Service {
         notifyIntentJunkRam = new Intent(this, JunkAndRamActivity.class);
         notifyIntentJunkRam.putExtra("from", "notifi");
         notifyIntentJunkRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notifyIntentNotifi = new Intent(this, NotifiActivity.class);
+        notifyIntentNotifi.putExtra("from", "notifi");
+        notifyIntentNotifi.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
     }
 
@@ -401,6 +427,68 @@ public class NotificationService extends Service {
         notification_junk.flags = Notification.FLAG_AUTO_CANCEL;
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void tonghzi_notifi() {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        int requestCode = (int) SystemClock.uptimeMillis();
+        remoteViewNotifi = new RemoteViews(getPackageName(),
+                R.layout.layout_tongzhi_notifi);
+
+        PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
+                notifyIntentNotifi, PendingIntent.FLAG_CANCEL_CURRENT);
+        mBuilder.setContentIntent(pendIntent);
+        mBuilder.setContent(remoteViewNotifi);
+        mBuilder.setAutoCancel(false);
+        mBuilder.setOngoing(true);
+        mBuilder.setWhen(System.currentTimeMillis());
+        mBuilder.setSmallIcon(R.mipmap.notifi_small);
+        notification_notifi = mBuilder.build();
+        notification_notifi.flags = Notification.FLAG_INSISTENT;
+        notification_notifi.flags |= Notification.FLAG_ONGOING_EVENT;
+        // 表明在点击了通知栏中的"清除通知"后，此通知不清除， 经常与FLAG_ONGOING_EVENT一起使用
+        notification_notifi.flags |= Notification.FLAG_NO_CLEAR;
+//        notification_notifi.priority = Notification.PRIORITY_MAX;
+    }
+
+    public final Bitmap screenShot(View view) {
+        if (null == view) {
+            throw new IllegalArgumentException("parameter can't be null.");
+        }
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        view.layout(0, 0, CommonUtil.dp2px(16) * (list.size() > 8 ? 8 : list.size()), CommonUtil.dp2px(15));
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();
+        return bitmap;
+    }
+
+    class NotifiReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (TextUtils.equals(intent.getAction(), NOTIFI_ACTION)) {
+                list = cleanApplication.getNotifiList();
+                if (list != null && list.size() != 0) {
+                    tonghzi_notifi();
+                    LinearLayout view = (LinearLayout) LayoutInflater.from(NotificationService.this).inflate(R.layout.layout_linear, null);
+                    for (NotifiInfo info : list) {
+                        ImageView imageView = new ImageView(NotificationService.this);
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(CommonUtil.dp2px(15), CommonUtil.dp2px(15));
+                        layoutParams.rightMargin = CommonUtil.dp2px(1);
+                        imageView.setLayoutParams(layoutParams);
+                        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        imageView.setImageDrawable(info.icon);
+                        view.addView(imageView);
+                    }
+                    remoteViewNotifi.setTextViewText(R.id.num, list.size() + " ");
+                    remoteViewNotifi.setImageViewBitmap(R.id.ll_notifi, screenShot(view));
+                    mNotifyManager.notify(103, notification_notifi);
+                } else {
+                    mNotifyManager.cancel(103);
+                }
+
+            }
+        }
+    }
 
     @Override
     public void onDestroy() {
@@ -408,6 +496,7 @@ public class NotificationService extends Service {
         if (!PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             mNotifyManager.cancel(102);
         }
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
         myHandler.removeCallbacks(runnableW);
         super.onDestroy();
     }

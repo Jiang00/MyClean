@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.MyApplication;
+import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.entity.JunkInfo;
 
@@ -62,12 +63,12 @@ public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 info.isWhiteList = !info.isWhiteList;
                 if (info.isWhiteList) {
-                    PreData.addName(context, info.packageName);
+                    PreData.addName(context, info.packageName, Constant.WHILT_LIST);
                     showToast(info.label + context.getText(R.string.white_list_jiaru));
                     AndroidSdk.track("白名单页面", "选中" + info.label, "", 1);
                 } else {
                     showToast(info.label + context.getText(R.string.white_list_yichu));
-                    PreData.removeName(context, info.packageName);
+                    PreData.removeName(context, info.packageName, Constant.WHILT_LIST);
                 }
                 for (JunkInfo junkInfo : ((MyApplication) ((Activity) context).getApplication()).getListMng()) {
                     if (info.packageName.equals(junkInfo.packageName)) {
@@ -80,6 +81,7 @@ public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {
         });
         holder.iv_icon.setImageBitmap(getBitmap(info.icon));
         holder.tv_lable.setText(info.label);
+
         return convertView;
     }
 

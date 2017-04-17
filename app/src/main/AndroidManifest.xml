@@ -108,6 +108,15 @@
             android:name=".activity.PowerActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.NotifiInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.NotifiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.NotifiSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.FloatActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
@@ -193,6 +202,14 @@
         <service
             android:name=".widget.TempService"
             android:enabled="true" />
+
+        <service
+            android:name=".service.NotificationMonitor"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

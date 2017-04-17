@@ -1,8 +1,11 @@
 package com.eos.manager;
 
+import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.TargetApi;
+import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
+import android.support.annotation.IntDef;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -26,6 +29,7 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
     private String[] delete;
 
     private boolean isAppDetail;
+    private boolean isDis = true;
     private boolean clickKillProcess = false;
 
     private static String model = Build.MODEL;
@@ -35,6 +39,9 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         if (null == event || null == event.getSource()) {
+            return;
+        }
+        if (isDis) {
             return;
         }
         Locale localeF = getResources().getConfiguration().locale;
@@ -90,7 +97,6 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
         AndroidSdk.track("强度清理", "清理失败:" + model, "", 1);
         return false;
     }
-
 
     @Override
     public void onInterrupt() {
@@ -174,6 +180,14 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
                     "Այո", "Ja", "Ya", "Si", "Sim", "Bəli", "Da", "Bai", "Taip", "Igen", "Tak", "Onartu", "موافق", "‏بەڵێ",
                     "‏بله", "ОК"};
         }
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if (intent != null) {
+            isDis = intent.getBooleanExtra("isDis", true);
+        }
+        return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
