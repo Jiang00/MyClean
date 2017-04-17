@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -105,22 +106,25 @@ public class ChargeActivity extends Activity {
             isBar = false;
             doDuck();
         }
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_SCREEN_ON);
+        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+        registerReceiver(mReceiver, intentFilter);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        registerReceiver(mReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        try {
-            unregisterReceiver(mReceiver);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+
     }
 
     @Override
@@ -128,6 +132,11 @@ public class ChargeActivity extends Activity {
         batteryView = null;
         duckView = null;
         super.onDestroy();
+        try {
+            unregisterReceiver(mReceiver);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -135,6 +144,16 @@ public class ChargeActivity extends Activity {
         public void onReceive(Context context, Intent intent) {
             if (TextUtils.equals(Intent.ACTION_BATTERY_CHANGED, intent.getAction())) {
                 batteryChange(intent);
+            } else if (TextUtils.equals(Intent.ACTION_SCREEN_ON, intent.getAction())) {
+                Log.d("MyTest", "ON  batteryView = " + batteryView);
+                if (batteryView != null) {
+                    batteryView.reStartBubble();
+                }
+            } else if (TextUtils.equals(Intent.ACTION_SCREEN_OFF, intent.getAction())) {
+                Log.d("MyTest", "OFF  batteryView = " + batteryView);
+                if (batteryView != null) {
+                    batteryView.pauseBubble();
+                }
             }
         }
     };

@@ -35450,12 +35450,12 @@ com.eos.module.charge.saver.view.BatteryView -> com.eos.module.charge.saver.view
     338:350:void initLighting() -> j
     354:470:void onFinishInflate() -> onFinishInflate
     473:491:void initViews() -> k
-    495:502:void onAttachedToWindow() -> onAttachedToWindow
-    506:534:void onDetachedFromWindow() -> onDetachedFromWindow
-    537:541:int analysisJson(org.json.JSONObject) -> a
-    546:553:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    556:558:void registerTimeUpdateReceiver() -> b
-    561:563:void unregisterTimeUpdateReceiver() -> c
+    507:514:void onAttachedToWindow() -> onAttachedToWindow
+    518:546:void onDetachedFromWindow() -> onDetachedFromWindow
+    549:553:int analysisJson(org.json.JSONObject) -> a
+    558:565:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    568:570:void registerTimeUpdateReceiver() -> b
+    573:575:void unregisterTimeUpdateReceiver() -> c
     42:42:android.view.GestureDetector access$000(com.eos.module.charge.saver.view.BatteryView) -> a
     42:42:int access$100(com.eos.module.charge.saver.view.BatteryView) -> b
     42:42:com.eos.module.charge.saver.view.BatteryView$UnlockListener access$200(com.eos.module.charge.saver.view.BatteryView) -> c
@@ -35518,7 +35518,7 @@ com.eos.module.charge.saver.view.BubbleLayout -> com.eos.module.charge.saver.vie
     42:43:void init() -> b
     46:53:void destroy() -> a
     56:57:void setParticleBitmap(android.graphics.Bitmap) -> setParticleBitmap
-    61:158:void onDraw(android.graphics.Canvas) -> onDraw
+    73:169:void onDraw(android.graphics.Canvas) -> onDraw
     17:17:boolean access$000(com.eos.module.charge.saver.view.BubbleLayout) -> a
     17:17:java.util.Random access$200(com.eos.module.charge.saver.view.BubbleLayout) -> b
     17:17:int access$300(com.eos.module.charge.saver.view.BubbleLayout) -> c
@@ -35529,8 +35529,8 @@ com.eos.module.charge.saver.view.BubbleLayout -> com.eos.module.charge.saver.vie
     17:17:java.util.List access$700(com.eos.module.charge.saver.view.BubbleLayout) -> g
 com.eos.module.charge.saver.view.BubbleLayout$1 -> com.eos.module.charge.saver.view.BubbleLayout$1:
     com.eos.module.charge.saver.view.BubbleLayout this$0 -> a
-    66:66:void <init>(com.eos.module.charge.saver.view.BubbleLayout) -> <init>
-    68:117:void run() -> run
+    78:78:void <init>(com.eos.module.charge.saver.view.BubbleLayout) -> <init>
+    80:128:void run() -> run
 com.eos.module.charge.saver.view.BubbleLayout$Bubble -> com.eos.module.charge.saver.view.BubbleLayout$a:
     float radius -> b
     float speedY -> c
@@ -35540,22 +35540,22 @@ com.eos.module.charge.saver.view.BubbleLayout$Bubble -> com.eos.module.charge.sa
     float scale -> g
     android.graphics.Bitmap bitmap -> h
     com.eos.module.charge.saver.view.BubbleLayout this$0 -> a
-    161:175:void <init>(com.eos.module.charge.saver.view.BubbleLayout) -> <init>
-    178:178:android.graphics.Bitmap getBitmap() -> a
-    182:183:void setBitmap(android.graphics.Bitmap) -> a
-    186:186:float getRadius() -> b
-    190:191:void setRadius(float) -> a
-    194:195:void setScale(float) -> b
-    198:198:float getScale() -> c
-    202:202:float getX() -> d
-    206:207:void setX(float) -> c
-    210:210:float getY() -> e
-    214:215:void setY(float) -> d
-    218:218:float getSpeedY() -> f
-    222:223:void setSpeedY(float) -> e
-    226:226:float getSpeedX() -> g
-    230:231:void setSpeedX(float) -> f
-    161:161:void <init>(com.eos.module.charge.saver.view.BubbleLayout,com.eos.module.charge.saver.view.BubbleLayout$1) -> <init>
+    172:186:void <init>(com.eos.module.charge.saver.view.BubbleLayout) -> <init>
+    189:189:android.graphics.Bitmap getBitmap() -> a
+    193:194:void setBitmap(android.graphics.Bitmap) -> a
+    197:197:float getRadius() -> b
+    201:202:void setRadius(float) -> a
+    205:206:void setScale(float) -> b
+    209:209:float getScale() -> c
+    213:213:float getX() -> d
+    217:218:void setX(float) -> c
+    221:221:float getY() -> e
+    225:226:void setY(float) -> d
+    229:229:float getSpeedY() -> f
+    233:234:void setSpeedY(float) -> e
+    237:237:float getSpeedX() -> g
+    241:242:void setSpeedX(float) -> f
+    172:172:void <init>(com.eos.module.charge.saver.view.BubbleLayout,com.eos.module.charge.saver.view.BubbleLayout$1) -> <init>
 com.eos.module.charge.saver.view.CustomerTypefaceTextView -> com.eos.module.charge.saver.view.CustomerTypefaceTextView:
     java.lang.String typeface -> a
     android.content.Context mContext -> b
@@ -43613,7 +43613,11 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
+<<<<<<< HEAD
     5746:14667:void <clinit>() -> <clinit>
+=======
+    5730:14651:void <clinit>() -> <clinit>
+>>>>>>> b57b64659b8678b62bdb7f8ee27e5f0a64d9a139
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b

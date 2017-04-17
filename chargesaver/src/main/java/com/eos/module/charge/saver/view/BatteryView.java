@@ -490,6 +490,18 @@ public class BatteryView extends FrameLayout {
         lighting = (LottieAnimationView) findViewById(R.id.battery_lighting);
     }
 
+    public void pauseBubble(){
+        if (bubbleLayout != null){
+            bubbleLayout.pause();
+        }
+    }
+
+    public void reStartBubble(){
+        if (bubbleLayout != null){
+            bubbleLayout.reStart();
+        }
+    }
+
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
