@@ -46,16 +46,19 @@ public class NotificationMonitor extends NotificationListenerService {
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private void analysisSbn(StatusBarNotification sbn) {
-        if (!PreData.getDB(this, Constant.KEY_NOTIFI, true)) {
+        if (!PreData.getDB(this, Constant.KEY_NOTIFI, true) || !sbn.isClearable()) {
+            return;
+        }
+        String pkg = sbn.getPackageName();
+        if (null == pkg) {
+            return;
+        }
+        List<String> notifi_white = PreData.getNameList(this, Constant.NOTIFI_WHILT_LIST);
+        if (notifi_white.contains(pkg)) {
             return;
         }
         Notification notification = sbn.getNotification();
         RemoteViews re = notification.contentView;
-        String pkg = sbn.getPackageName();
-        List<String> notifi_white = PreData.getNameList(this, Constant.NOTIFI_WHILT_LIST);
-        if (!sbn.isClearable() || null == pkg || notifi_white.contains(pkg)) {
-            return;
-        }
         int id = sbn.getId();
         String tag = sbn.getTag();
         Bundle extras = sbn.getNotification().extras;

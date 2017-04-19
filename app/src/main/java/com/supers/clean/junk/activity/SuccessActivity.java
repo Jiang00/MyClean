@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -149,6 +150,9 @@ public class SuccessActivity extends BaseActivity {
         } else {
             success_clean_size.setText(getText(R.string.success_normal));
         }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            main_notifi_button.setVisibility(View.GONE);
+        }
         initAnimation();
         success_drawhook.setListener(new DrawHookView.DrawHookListener() {
 
@@ -160,6 +164,16 @@ public class SuccessActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.IS_ROTATE, false) || shareFive.getFiveRate()) {
             main_rotate_all.setVisibility(View.GONE);
         }
+
+        addListener();
+        TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
+        translate.setInterpolator(new AccelerateInterpolator());//OvershootInterpolator
+        translate.setDuration(400);
+        translate.setRepeatCount(-1);
+        translate.setRepeatMode(Animation.REVERSE);
+        success_jiantou.startAnimation(translate);
+        tuiGuang();
+        shendu();
         if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
@@ -178,15 +192,6 @@ public class SuccessActivity extends BaseActivity {
             }, 1000);
 
         }
-        addListener();
-        TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
-        translate.setInterpolator(new AccelerateInterpolator());//OvershootInterpolator
-        translate.setDuration(400);
-        translate.setRepeatCount(-1);
-        translate.setRepeatMode(Animation.REVERSE);
-        success_jiantou.startAnimation(translate);
-        tuiGuang();
-        shendu();
     }
 
     private void shendu() {

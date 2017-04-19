@@ -2,6 +2,7 @@ package com.supers.clean.junk.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -93,7 +94,9 @@ public class SettingActivity extends BaseActivity {
         } else {
             addAd();
         }
-
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            setting_notifi.setVisibility(View.GONE);
+        }
     }
 
     @Override

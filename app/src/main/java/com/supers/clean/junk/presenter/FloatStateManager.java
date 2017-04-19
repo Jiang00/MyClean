@@ -200,15 +200,14 @@ public class FloatStateManager {
                     public void run() {
                         if (context != null) {
                             wm.addView(circleView, params);
+                            params.alpha = 0.4f;
+                            added = true;
                         } else {
                             added = false;
                         }
                     }
                 });
-
                 Log.e("aaa", "=====adadasdafloat4");
-                params.alpha = 0.4f;
-                added = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -223,13 +222,13 @@ public class FloatStateManager {
                     public void run() {
                         if (context != null) {
                             wm.removeView(circleView);
+                            added = false;
                         } else {
                             added = true;
                         }
                     }
                 });
                 Log.e("aaa", "=====adadasdafloat5");
-                added = false;
             } catch (Exception e) {
                 e.printStackTrace();
             }

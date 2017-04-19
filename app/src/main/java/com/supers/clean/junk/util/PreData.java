@@ -165,10 +165,10 @@ public final class PreData {
                 while (it.hasNext()) {
                     nameList += it.next() + ",";
                 }
-                putDB(context, Constant.WHILT_LIST, nameList);
+                putDB(context, key, nameList);
             }
         } else {
-            putDB(context, Constant.WHILT_LIST, name);
+            putDB(context, key, name);
         }
     }
 
