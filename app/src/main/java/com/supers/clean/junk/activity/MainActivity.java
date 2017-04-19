@@ -2,6 +2,7 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -185,7 +186,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 }
             }
         }.start();*/
-
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            main_notifi_button.setVisibility(View.GONE);
+        }
         final ArrayList<View> arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
         main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
@@ -407,20 +410,24 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         });
     }
 
+    int sdProgress;
+
     @Override
     public void initSd(final int percent, final String size, final long sd_kongxian) {
         main_custom_sd.startProgress(true, percent);
+        final Runnable sdRunable = new Runnable() {
+            @Override
+            public void run() {
+                main_sd_per.setText(String.valueOf(sdProgress) + "%");
+            }
+        };
         main_custom_sd.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
             @Override
-            public void progressUpdate(final int progress) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        main_sd_per.setText(String.valueOf(progress) + "%");
-
-                    }
-                });
+            public void progressUpdate(int progress) {
+                MainActivity.this.sdProgress = progress;
+                handler.post(sdRunable);
             }
+
         });
         runOnUiThread(new Runnable() {
             @Override

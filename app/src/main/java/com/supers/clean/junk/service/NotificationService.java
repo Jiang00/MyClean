@@ -205,7 +205,7 @@ public class NotificationService extends Service {
         // 表明在点击了通知栏中的"清除通知"后，此通知不清除， 经常与FLAG_ONGOING_EVENT一起使用
         notification_1.flags |= Notification.FLAG_NO_CLEAR;
         mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotifyManager.notify(102, notification_1);
+//        mNotifyManager.notify(102, notification_1);
     }
 
     private Runnable runnableW = new Runnable() {
