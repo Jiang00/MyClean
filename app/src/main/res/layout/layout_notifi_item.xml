@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_item"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#ffffff">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/rl"
@@ -30,7 +29,6 @@
             android:id="@+id/notifi_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1111"
             android:textColor="#434C5F"
             android:textSize="15sp" />
 
@@ -39,7 +37,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="@string/white_list_tishi"
             android:textColor="@color/black_35"
             android:textSize="14sp"
 
@@ -62,4 +59,11 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
         android:scaleType="center" />
+
+    <FrameLayout
+        android:id="@+id/fl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:visibility="gone" />
 </RelativeLayout>

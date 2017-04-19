@@ -69,7 +69,6 @@ public class NotifiActivity extends BaseActivity {
         title_name.setText(R.string.side_notifi);
         title_right.setImageResource(R.mipmap.main_setting);
         title_right.setVisibility(View.VISIBLE);
-        startService(new Intent(this, NotificationMonitor.class));
         setListener();
         adapter = new NotifiAdapter(this);
         list_si.setAdapter(adapter);
@@ -89,13 +88,12 @@ public class NotifiActivity extends BaseActivity {
     private void setListener() {
         title_left.setOnClickListener(nOnClickListener);
         title_right.setOnClickListener(nOnClickListener);
-        notifi_button_rl.setOnClickListener(nOnClickListener);
+        notifi_button_clean.setOnClickListener(nOnClickListener);
         list_si.setRemoveListener(new DeleteListView.RemoveListener() {
             @Override
             public void removeItem(DeleteListView.RemoveDirection direction, int position) {
                 Log.e("list", "remove");
                 NotifiInfo info = adapter.getItem(position);
-                list.remove(info);
                 myApplication.removeNotifi(info);
                 LocalBroadcastManager.getInstance(NotifiActivity.this).sendBroadcast(new Intent(NOTIFI_ACTION));
             }
@@ -104,10 +102,9 @@ public class NotifiActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NotifiInfo info = adapter.getData(position);
-                CommonUtil.doStartApplicationWithPackageName(NotifiActivity.this, info.pkg);
-                list.remove(info);
                 myApplication.removeNotifi(info);
                 LocalBroadcastManager.getInstance(NotifiActivity.this).sendBroadcast(new Intent(NOTIFI_ACTION));
+                CommonUtil.doStartApplicationWithPackageName(NotifiActivity.this, info.pkg);
             }
         });
     }
@@ -122,8 +119,11 @@ public class NotifiActivity extends BaseActivity {
                 case R.id.title_right:
                     jumpToActivity(NotifiSettingActivity.class, 1);
                     break;
-                case R.id.notifi_button_rl:
+                case R.id.notifi_button_clean:
                     myApplication.clearNotifi();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("num", adapter.getCount());
+                    jumpToActivity(SuccessActivity.class, bundle, 1);
                     LocalBroadcastManager.getInstance(NotifiActivity.this).sendBroadcast(new Intent(NOTIFI_ACTION));
                     break;
             }
@@ -136,16 +136,16 @@ public class NotifiActivity extends BaseActivity {
         public void onReceive(Context context, Intent intent) {
             if (TextUtils.equals(intent.getAction(), NOTIFI_ACTION)) {
                 list = myApplication.getNotifiList();
+                adapter.upList(list);
+                adapter.notifyDataSetChanged();
                 if (list != null && list.size() != 0) {
-                    adapter.upList(list);
                     white_wu.setVisibility(View.INVISIBLE);
                     notifi_button_rl.setVisibility(View.VISIBLE);
-
                 } else {
                     white_wu.setVisibility(View.VISIBLE);
                     notifi_button_rl.setVisibility(View.GONE);
                 }
-                adapter.notifyDataSetChanged();
+
             }
 
         }
@@ -154,6 +154,9 @@ public class NotifiActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+        if ("notifi".equals(getIntent().getStringExtra("from"))) {
+            jumpTo(MainActivity.class);
+        }
         finish();
     }
 

@@ -212,7 +212,7 @@ public class BatteryView extends FrameLayout {
                     }
                 }
             }
-        } else if (lighting != null){
+        } else if (lighting != null) {
             if (lighting.isAnimating()) {
                 lighting.pauseAnimation();
             }
@@ -490,14 +490,14 @@ public class BatteryView extends FrameLayout {
         lighting = (LottieAnimationView) findViewById(R.id.battery_lighting);
     }
 
-    public void pauseBubble(){
-        if (bubbleLayout != null){
+    public void pauseBubble() {
+        if (bubbleLayout != null) {
             bubbleLayout.pause();
         }
     }
 
-    public void reStartBubble(){
-        if (bubbleLayout != null){
+    public void reStartBubble() {
+        if (bubbleLayout != null) {
             bubbleLayout.reStart();
         }
     }

@@ -154,7 +154,6 @@ public class PowerActivity extends BaseActivity {
             bundle.putInt("count", count);
             jumpToActivity(SuccessActivity.class, bundle, 1);
             container.removeFromWindow();
-            Log.e("power", "ok");
         }
     };
 

@@ -79,6 +79,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     TextView main_msg_tuiguang;
     LinearLayout main_msg_button;
     LinearLayout main_power_button;
+    LinearLayout main_notifi_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_sd_unit, main_msg_cpu_percent;
     TextView main_gurad_num;
     ImageView main_guard_rotate;
@@ -138,6 +139,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
+        main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
         main_msg_sd_unit = (TextView) findViewById(R.id.main_msg_sd_unit);
@@ -384,6 +386,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_rotate_good.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
+        main_notifi_button.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
         fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
@@ -807,6 +810,18 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     AndroidSdk.track("主页面", "点击进入深度清理", "", 1);
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                     break;
+                case R.id.main_notifi_button:
+                    AndroidSdk.track("主页面", "点击进入通知栏清理", "", 1);
+                    if (!CommonUtil.isNotificationListenEnabled(MainActivity.this)) {
+                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
+                    } else if (!PreData.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
+                        Intent intent6 = new Intent(MainActivity.this, NotifiInfoActivity.class);
+                        startActivityForResult(intent6, 1);
+                    } else {
+                        Intent intent6 = new Intent(MainActivity.this, NotifiActivity.class);
+                        startActivityForResult(intent6, 1);
+                    }
+                    break;
                 case R.id.main_tuiguang_button:
                 case R.id.fl_lot_side:
                     if (CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
@@ -845,7 +860,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 Intent intent = new Intent(MainActivity.this, NotifiInfoActivity.class);
                 startActivityForResult(intent, 1);
             }
-
         }
 
     }

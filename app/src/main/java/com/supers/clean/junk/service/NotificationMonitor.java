@@ -35,6 +35,7 @@ import java.util.List;
 public class NotificationMonitor extends NotificationListenerService {
     MyApplication myApplication;
     protected PackageManager pm;
+
     public static final String NOTIFI_ACTION = "action_notifi_postd";
 
     @Override
@@ -48,8 +49,11 @@ public class NotificationMonitor extends NotificationListenerService {
         if (!PreData.getDB(this, Constant.KEY_NOTIFI, true)) {
             return;
         }
+        Notification notification = sbn.getNotification();
+        RemoteViews re = notification.contentView;
         String pkg = sbn.getPackageName();
-        if (!sbn.isClearable() || null == pkg) {
+        List<String> notifi_white = PreData.getNameList(this, Constant.NOTIFI_WHILT_LIST);
+        if (!sbn.isClearable() || null == pkg || notifi_white.contains(pkg)) {
             return;
         }
         int id = sbn.getId();
@@ -65,7 +69,6 @@ public class NotificationMonitor extends NotificationListenerService {
                 e.printStackTrace();
             }
         }
-
         String notificationTitle = extras.getString(Notification.EXTRA_TITLE);
         String notificationText = (String) extras.getCharSequence(Notification.EXTRA_TEXT);
         String notificationSubText = (String) extras.getCharSequence(Notification.EXTRA_SUB_TEXT);
@@ -84,7 +87,7 @@ public class NotificationMonitor extends NotificationListenerService {
                 break;
             }
         }
-        list.add(new NotifiInfo(pkg, icon, notificationTitle, notificationText, time, id));
+        list.add(new NotifiInfo(pkg, icon, notificationTitle, notificationText, time, id, re));
         LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(NOTIFI_ACTION));
         Log.e("notifi", notificationTitle + "=" + notificationText + "=" + notificationSubText);
         if (Build.VERSION.SDK_INT > 21) {
@@ -94,6 +97,25 @@ public class NotificationMonitor extends NotificationListenerService {
         }
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.e("notifi", "nitifilistenerStartCommand");
+        try {
+            StatusBarNotification[] sbns = new StatusBarNotification[0];
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                sbns = getActiveNotifications();
+            }
+            if (sbns == null || sbns.length == 0 || PreData.getDB(this, Constant.KEY_NOTIFI, true)) {
+                return super.onStartCommand(intent, flags, startId);
+            }
+            for (StatusBarNotification sbn : sbns) {
+                analysisSbn(sbn);
+            }
+        } catch (Exception e) {
+
+        }
+        return super.onStartCommand(intent, flags, startId);
+    }
 
     @Override
     public void onCreate() {
@@ -101,13 +123,7 @@ public class NotificationMonitor extends NotificationListenerService {
         myApplication = (MyApplication) getApplication();
         Log.e("notifi", "nitifilistenerCreate");
         pm = getPackageManager();
-        StatusBarNotification[] sbns = getActiveNotifications();
-        if (sbns == null || sbns.length == 0 || PreData.getDB(this, Constant.KEY_NOTIFI, true)) {
-            return;
-        }
-        for (StatusBarNotification sbn : sbns) {
-            analysisSbn(sbn);
-        }
+
     }
 
     @Override

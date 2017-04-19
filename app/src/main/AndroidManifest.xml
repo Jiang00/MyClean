@@ -50,6 +50,7 @@
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
             android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>

@@ -2,8 +2,10 @@ package com.supers.clean.junk.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,6 +30,8 @@ public class NotifiAdapter extends MybaseAdapter<NotifiInfo> {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.layout_notifi_item, null);
             holder = new ViewHolder();
+            holder.frameLayout = (FrameLayout) convertView
+                    .findViewById(R.id.fl);
             holder.icon = (ImageView) convertView
                     .findViewById(R.id.iv_le);
             holder.notifi_title = (TextView) convertView
@@ -43,17 +47,24 @@ public class NotifiAdapter extends MybaseAdapter<NotifiInfo> {
         if (info.icon != null) {
             holder.icon.setImageDrawable(info.icon);
         }
-        if (!TextUtils.isEmpty(info.title)) {
+        if (!TextUtils.isEmpty(info.title) && !TextUtils.isEmpty(info.subTitle)) {
             holder.notifi_title.setText(info.title);
-        }
-        if (!TextUtils.isEmpty(info.subTitle)) {
             holder.notifi_text.setText(info.subTitle);
+            holder.time.setText(CommonUtil.getStrTime2(info.time));
+            holder.frameLayout.removeAllViews();
+            holder.frameLayout.setVisibility(View.GONE);
+        } else if (info.remoteViews != null) {
+            View view = info.remoteViews.apply(context, holder.frameLayout);
+            holder.frameLayout.addView(view);
+            holder.frameLayout.setVisibility(View.VISIBLE);
         }
-        holder.time.setText(CommonUtil.getStrTime2(info.time));
+        Log.e("adapter", info.pkg + "=" + info.title);
         return convertView;
+
     }
 
     public class ViewHolder {
+        FrameLayout frameLayout;
         ImageView icon;
         TextView notifi_title;
         TextView notifi_text;

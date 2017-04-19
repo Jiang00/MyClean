@@ -2,9 +2,11 @@ package com.supers.clean.junk.activity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -58,6 +60,7 @@ public class SuccessActivity extends BaseActivity {
     SlowScrollView scrollView;
     LinearLayout main_rotate_all;
     LinearLayout main_power_button;
+    LinearLayout main_notifi_button;
     ImageView power_icon;
     TextView power_text;
     TextView main_rotate_bad;
@@ -102,6 +105,7 @@ public class SuccessActivity extends BaseActivity {
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
+        main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
         power_text = (TextView) findViewById(R.id.power_text);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
@@ -135,10 +139,13 @@ public class SuccessActivity extends BaseActivity {
         }
         long size = getIntent().getLongExtra("size", 0);
         int count = getIntent().getIntExtra("count", 0);
+        int num = getIntent().getIntExtra("num", 0);
         if (size > 0) {
             success_clean_size.setText(CommonUtil.getFileSize4(size) + " " + getText(R.string.success_cleaned));
         } else if (count > 0) {
             success_clean_size.setText(getString(R.string.power_1, String.valueOf(count)) + " ");
+        } else if (num > 0) {
+            success_clean_size.setText(getString(R.string.notifi_clean_success, num + ""));
         } else {
             success_clean_size.setText(getText(R.string.success_normal));
         }
@@ -255,6 +262,7 @@ public class SuccessActivity extends BaseActivity {
         delete.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
+        main_notifi_button.setOnClickListener(onClickListener);
 
     }
 
@@ -490,6 +498,21 @@ public class SuccessActivity extends BaseActivity {
                     jumpTo(PowerActivity.class);
                     onBackPressed();
                     break;
+                case R.id.main_notifi_button:
+                    AndroidSdk.track("完成页面", "点击进入通知栏清理", "", 1);
+                    if (!CommonUtil.isNotificationListenEnabled(SuccessActivity.this)) {
+                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
+                    } else if (!PreData.getDB(SuccessActivity.this, Constant.KEY_NOTIFI, true)) {
+                        Intent intent6 = new Intent(SuccessActivity.this, NotifiInfoActivity.class);
+                        startActivity(intent6);
+                        onBackPressed();
+                    } else {
+                        Intent intent6 = new Intent(SuccessActivity.this, NotifiActivity.class);
+                        startActivity(intent6);
+                        onBackPressed();
+                    }
+
+                    break;
                 case R.id.main_tuiguang_button:
                     if (CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
                         CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
@@ -500,6 +523,21 @@ public class SuccessActivity extends BaseActivity {
             }
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100) {
+            if (CommonUtil.isNotificationListenEnabled(SuccessActivity.this)) {
+                PreData.putDB(SuccessActivity.this, Constant.KEY_NOTIFI, true);
+                Intent intent = new Intent(SuccessActivity.this, NotifiActivity.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(SuccessActivity.this, NotifiInfoActivity.class);
+                startActivity(intent);
+            }
+            onBackPressed();
+        }
+    }
 
     @Override
     protected void onResume() {

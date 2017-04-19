@@ -1,8 +1,10 @@
 package com.supers.clean.junk.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +37,7 @@ import com.supers.clean.junk.util.UtilGp;
 public class SettingActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_unload, setting_power, setting_white, setting_short, setting_rotate;
+    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_unload, setting_power, setting_notifi, setting_white, setting_short, setting_rotate;
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check, setting_unload_check;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
@@ -59,6 +61,7 @@ public class SettingActivity extends BaseActivity {
         setting_white = (RelativeLayout) findViewById(R.id.setting_white);
         setting_short = (RelativeLayout) findViewById(R.id.setting_short);
         setting_power = (RelativeLayout) findViewById(R.id.setting_power);
+        setting_notifi = (RelativeLayout) findViewById(R.id.setting_notifi);
         setting_rotate = (RelativeLayout) findViewById(R.id.setting_rotate);
         setting_tongzhi_check = (ImageView) findViewById(R.id.setting_tongzhi_check);
         setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
@@ -189,6 +192,7 @@ public class SettingActivity extends BaseActivity {
         setting_white.setOnClickListener(onClickListener);
         setting_short.setOnClickListener(onClickListener);
         setting_power.setOnClickListener(onClickListener);
+        setting_notifi.setOnClickListener(onClickListener);
         setting_rotate.setOnClickListener(onClickListener);
     }
 
@@ -279,6 +283,18 @@ public class SettingActivity extends BaseActivity {
                     Intent intentP = new Intent(SettingActivity.this, PowerActivity.class);
                     startActivity(intentP);
                     break;
+                case R.id.setting_notifi:
+                    AndroidSdk.track("设置页面", "进入通知栏清理", "", 1);
+                    if (!CommonUtil.isNotificationListenEnabled(SettingActivity.this)) {
+                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
+                    } else if (!PreData.getDB(SettingActivity.this, Constant.KEY_NOTIFI, true)) {
+                        Intent intent6 = new Intent(SettingActivity.this, NotifiInfoActivity.class);
+                        startActivity(intent6);
+                    } else {
+                        Intent intent6 = new Intent(SettingActivity.this, NotifiActivity.class);
+                        startActivity(intent6);
+                    }
+                    break;
                 case R.id.setting_rotate:
                     AndroidSdk.track("设置页面", "好评", "", 1);
                     UtilGp.rate(SettingActivity.this);
@@ -286,6 +302,20 @@ public class SettingActivity extends BaseActivity {
             }
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100) {
+            if (CommonUtil.isNotificationListenEnabled(this)) {
+                PreData.putDB(this, Constant.KEY_NOTIFI, true);
+                Intent intent = new Intent(this, NotifiActivity.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(this, NotifiInfoActivity.class);
+                startActivity(intent);
+            }
+        }
+    }
 
     @Override
     public void onBackPressed() {
