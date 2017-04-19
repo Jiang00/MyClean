@@ -220,8 +220,12 @@ public class FloatActivity extends BaseActivity {
                     break;
                 case R.id.ll_gps:
 //                    SwitchControl.toggleGPS(FloatActivity.this);
-                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivityForResult(intent, 0);
+                    try {
+                        Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                        startActivityForResult(intent, 0);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case R.id.float_rotate:
                     startCleanAnimation();
@@ -237,7 +241,7 @@ public class FloatActivity extends BaseActivity {
                 killAll(FloatActivity.this);
             }
         }).start();
-            cleanApplication.clearRam();
+        cleanApplication.clearRam();
 
         setListAnimation();
         float_cricle.setVisibility(View.INVISIBLE);

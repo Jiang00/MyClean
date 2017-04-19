@@ -1,5 +1,6 @@
 package com.eos.manager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -21,7 +22,7 @@ import java.util.Locale;
 /**
  * Created by SongHualin on 5/6/2015.
  */
-public class App extends BaseApp{
+public class App extends BaseApp {
 
     @Override
     public void onCreate() {
@@ -33,10 +34,10 @@ public class App extends BaseApp{
 
         SDataType.init(this);
 
-        if (SecurityMyPref.isEnglish()){
-            if (getResources().getConfiguration().locale != Locale.ENGLISH){
+        if (SecurityMyPref.isEnglish()) {
+            if (getResources().getConfiguration().locale != Locale.ENGLISH) {
                 Configuration cfg = getResources().getConfiguration();
-                    cfg.locale = Locale.ENGLISH;
+                cfg.locale = Locale.ENGLISH;
                 getResources().updateConfiguration(cfg, getResources().getDisplayMetrics());
             }
         }
@@ -53,6 +54,6 @@ public class App extends BaseApp{
     }
 
     public static SharedPreferences getSharedPreferences() {
-        return App.getContext().getSharedPreferences("cf", MODE_MULTI_PROCESS);
+        return App.getContext().getSharedPreferences("cf", Context.MODE_PRIVATE);
     }
 }

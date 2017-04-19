@@ -198,9 +198,10 @@ public class FloatStateManager {
                 myHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        try {
+                        if (context != null) {
                             wm.addView(circleView, params);
-                        } catch (Exception e) {
+                        } else {
+                            added = false;
                         }
                     }
                 });
@@ -220,9 +221,10 @@ public class FloatStateManager {
                 myHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        try {
+                        if (context != null) {
                             wm.removeView(circleView);
-                        } catch (Exception e) {
+                        } else {
+                            added = true;
                         }
                     }
                 });

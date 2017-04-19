@@ -6,6 +6,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.IntDef;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -50,8 +51,7 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
             locale = localeF;
             languageYtpe(language);
         }
-        if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED &&
-                event.getPackageName().equals(PACKAGE)) {
+        if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED && TextUtils.equals(PACKAGE, event.getPackageName())) {
             final CharSequence className = event.getClassName();
 
             if ((className.toString().endsWith("InstalledAppDetailsTop")) || ("com.android.settings.applications.InstalledAppDetailsActivity".equals(className.toString()))) {

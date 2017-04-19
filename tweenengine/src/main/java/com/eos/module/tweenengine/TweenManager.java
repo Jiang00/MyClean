@@ -168,7 +168,11 @@ public class TweenManager {
         if (!isPaused) {
             if (delta >= 0) {
                 for (int i = 0, n = objects.size(); i < n; i++) {
-                    objects.get(i).update(delta);
+                    try {
+                        objects.get(i).update(delta);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             } else {
                 for (int i = objects.size() - 1; i >= 0; i--) {

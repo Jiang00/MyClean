@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
@@ -83,10 +84,16 @@ public class PowerActivity extends BaseActivity {
         junk_button_clean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AndroidSdk.track("深度清理页面", "点击清理", "", 1);
                 if (!CommonUtil.isAccessibilitySettingsOn(PowerActivity.this)) {
-                    Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                    startActivity(intent);
-                    AndroidSdk.track("主页面", "点击跳转进入辅助功能", "", 1);
+                    try {
+                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        AndroidSdk.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
+                    }
+
                     mHandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -142,6 +149,9 @@ public class PowerActivity extends BaseActivity {
                     showPackageDetail(startList.get(i).packageName);
 
                     View view = containerView_recyclerView.getChildAt(i);
+                    if (view == null) {
+                        return;
+                    }
                     animatorView(view, i);
                     return;
                 }

@@ -196,6 +196,7 @@ public class NotificationService extends Service {
         mBuilder.setContent(remoteView_1);
         mBuilder.setAutoCancel(false);
         mBuilder.setOngoing(true);
+        mBuilder.setPriority(Notification.PRIORITY_MAX);
         mBuilder.setWhen(System.currentTimeMillis());
         mBuilder.setSmallIcon(R.mipmap.notification_title);
         notification_1 = mBuilder.build();
@@ -203,7 +204,6 @@ public class NotificationService extends Service {
         notification_1.flags |= Notification.FLAG_ONGOING_EVENT;
         // 表明在点击了通知栏中的"清除通知"后，此通知不清除， 经常与FLAG_ONGOING_EVENT一起使用
         notification_1.flags |= Notification.FLAG_NO_CLEAR;
-        notification_1.priority = Notification.PRIORITY_MAX;
         mNotifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotifyManager.notify(102, notification_1);
     }
