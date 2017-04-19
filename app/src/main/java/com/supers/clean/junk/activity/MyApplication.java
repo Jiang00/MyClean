@@ -246,10 +246,7 @@ public class MyApplication extends App {
     @Override
     public void onCreate() {
         super.onCreate();
-        String name = CommonUtil.getProcessName(this);
-        if (!TextUtils.equals(name, getPackageName())) {
-            return;
-        }
+
         setMinHeapSize(CWJ_HEAP_SIZE);
 
         ReStarService.start(this);
@@ -272,6 +269,10 @@ public class MyApplication extends App {
             startService(intent1);
         }
 
+        String name = CommonUtil.getProcessName(this);
+        if (!TextUtils.equals(name, getPackageName())) {
+            return;
+        }
         am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         runnable = getScanIntervalRunnable();
 

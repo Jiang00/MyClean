@@ -160,14 +160,7 @@ public class FloatStateManager {
     private static FloatStateManager instance;
 
     public static FloatStateManager getInstance(Context context) {
-        if (instance == null) {
-            synchronized (FloatStateManager.class) {
-                if (instance == null) {
-                    instance = new FloatStateManager(context);
-                }
-            }
-        }
-
+        instance = new FloatStateManager(context);
         return instance;
     }
 
