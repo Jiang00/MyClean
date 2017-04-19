@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.client.AndroidSdk;
 import com.android.theme.internal.data.Theme;
 import com.eos.eshop.ShopMaster;
 import com.eos.module.charge.saver.Util.Constants;
@@ -141,48 +140,48 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
         switch (position) {
             case 0:
                 if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, true)) {
-                    AndroidSdk.track("侧边栏", "点击关闭充电屏保", "", 1);
+                    CommonUtil.track("侧边栏", "点击关闭充电屏保", "", 1);
                     Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, false);
                 } else {
-                    AndroidSdk.track("侧边栏", "点击开启充电屏保", "", 1);
+                    CommonUtil.track("侧边栏", "点击开启充电屏保", "", 1);
                     Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, true);
                 }
                 break;
             case 1:
                 if (PreData.getDB(context, Constant.FlOAT_SWITCH, true)) {
-                    AndroidSdk.track("侧边栏", "点击关闭悬浮窗", "", 1);
+                    CommonUtil.track("侧边栏", "点击关闭悬浮窗", "", 1);
                     PreData.putDB(context, Constant.FlOAT_SWITCH, false);
                     Intent intent1 = new Intent(context, FloatService.class);
                     context.stopService(intent1);
                 } else {
-                    AndroidSdk.track("侧边栏", "点击开启悬浮窗", "", 1);
+                    CommonUtil.track("侧边栏", "点击开启悬浮窗", "", 1);
                     PreData.putDB(context, Constant.FlOAT_SWITCH, true);
                     Intent intent1 = new Intent(context, FloatService.class);
                     context.startService(intent1);
                 }
                 break;
             case 2:
-                AndroidSdk.track("侧边栏", "点击进入垃圾页面", "", 1);
+                CommonUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
                 Intent intent2 = new Intent(context, JunkActivity.class);
                 ((Activity) context).startActivityForResult(intent2, 1);
                 break;
             case 3:
-                AndroidSdk.track("侧边栏", "点击进入ram页面", "", 1);
+                CommonUtil.track("侧边栏", "点击进入ram页面", "", 1);
                 Intent intent3 = new Intent(context, RamAvtivity.class);
                 ((Activity) context).startActivityForResult(intent3, 1);
                 break;
             case 4:
-                AndroidSdk.track("侧边栏", "点击进入应用管理页面", "", 1);
+                CommonUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
                 Intent intent4 = new Intent(context, ManagerActivity.class);
                 ((Activity) context).startActivityForResult(intent4, 1);
                 break;
             case 5:
-                AndroidSdk.track("侧边栏", "点击进入深度清理页面", "", 1);
+                CommonUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
                 Intent intent5 = new Intent(context, PowerActivity.class);
                 ((Activity) context).startActivityForResult(intent5, 1);
                 break;
             case 6:
-                AndroidSdk.track("侧边栏", "点击进入通知栏清理页面", "", 1);
+                CommonUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
                 if (!CommonUtil.isNotificationListenEnabled(context)) {
                     ((Activity) context).startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
                 } else if (!PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
@@ -195,22 +194,22 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
 
                 break;
             case 7:
-                AndroidSdk.track("侧边栏", "点击进入family页面", "", 1);
+                CommonUtil.track("侧边栏", "点击进入family页面", "", 1);
                 ShopMaster.launch(context, "EOS_Family",
                         new Theme(R.raw.battery_0, context.getPackageName()));
                 break;
             case 8:
-                AndroidSdk.track("侧边栏", "点击进入主题页面", "", 1);
+                CommonUtil.track("侧边栏", "点击进入主题页面", "", 1);
                 ShopMaster.launch(context,
                         new Theme(R.raw.battery_0, context.getPackageName()));
                 break;
             case 9:
-                AndroidSdk.track("侧边栏", "点击进入设置页面", "", 1);
+                CommonUtil.track("侧边栏", "点击进入设置页面", "", 1);
                 Intent intent9 = new Intent(context, SettingActivity.class);
                 ((Activity) context).startActivityForResult(intent9, 1);
                 break;
             case 10:
-                AndroidSdk.track("侧边栏", "点击好评", "", 1);
+                CommonUtil.track("侧边栏", "点击好评", "", 1);
                 UtilGp.rate(context);
                 break;
         }

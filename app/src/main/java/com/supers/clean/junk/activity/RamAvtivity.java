@@ -16,11 +16,11 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.view.RamView;
 import com.supers.clean.junk.adapter.RamAdapter;
-import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.view.RamView;
 
 import java.util.List;
 
@@ -249,7 +249,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
                     break;
 
                 case R.id.junk_button_clean:
-                    AndroidSdk.track("ram页面", "点击清理", "", 1);
+                    CommonUtil.track("ram页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     Log.e("aaa", "===ram点击");
                     showToast((String) getText(R.string.toast_ing));

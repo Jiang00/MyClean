@@ -1,7 +1,5 @@
 package com.supers.clean.junk.activity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -31,9 +29,7 @@ import com.android.client.AndroidSdk;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;
-import com.eos.manager.AccessibilityService;
 import com.eos.manager.AppLockPatternEosActivity;
-import com.eos.manager.AppLockPermissionActivity;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
@@ -226,14 +222,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             permiss_ok.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AndroidSdk.track("主页面", "点击Tap进入深度清理", "", 1);
+                    CommonUtil.track("主页面", "点击Tap进入深度清理", "", 1);
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                 }
             });
             permiss_cancle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AndroidSdk.track("主页面", "点击Tap不进入深度清理", "", 1);
+                    CommonUtil.track("主页面", "点击Tap不进入深度清理", "", 1);
                     viewpager.setCurrentItem(0);
 //                    pageView.setVisibility(View.GONE);
 //                    viewpager.setCurrentItem(0);
@@ -285,7 +281,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
         initHandler();
 
-        AndroidSdk.track("主页面", "进入主页面", "", 1);
+        CommonUtil.track("主页面", "进入主页面", "", 1);
         lot_family.setImageAssetsFolder("images/box/");
         lot_family.setAnimation("box.json");
         lot_family.loop(true);
@@ -677,7 +673,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         //上拉加载操作
         @Override
         public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
-            AndroidSdk.track("主页面", "刷新成功", "", 1);
+            CommonUtil.track("主页面", "刷新成功", "", 1);
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -705,47 +701,47 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             switch (v.getId()) {
                 case R.id.iv_title_left:
                     mainPresenter.openDrawer();
-                    AndroidSdk.track("主页面", "点击进入侧边栏按钮", "", 1);
+                    CommonUtil.track("主页面", "点击进入侧边栏按钮", "", 1);
 
                     break;
                 case R.id.iv_title_right:
-                    AndroidSdk.track("主页面", "点击进入设置页面", "", 1);
+                    CommonUtil.track("主页面", "点击进入设置页面", "", 1);
                     mainPresenter.jumpToActivity(SettingActivity.class, 1);
                     break;
                 case R.id.main_cpu_air_button:
-                    AndroidSdk.track("主页面", "点击cpu球进入硬件信息页面", "", 1);
+                    CommonUtil.track("主页面", "点击cpu球进入硬件信息页面", "", 1);
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_sd_air_button:
-                    AndroidSdk.track("主页面", "点击sd球进入垃圾清理页面", "", 1);
+                    CommonUtil.track("主页面", "点击sd球进入垃圾清理页面", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
                     break;
                 case R.id.main_ram_air_button:
-                    AndroidSdk.track("主页面", "点击ram球进入内存加速页面", "", 1);
+                    CommonUtil.track("主页面", "点击ram球进入内存加速页面", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
                 case R.id.main_air_all:
-                    AndroidSdk.track("主页面", "点击火箭进入清理所有界面", "", 1);
+                    CommonUtil.track("主页面", "点击火箭进入清理所有界面", "", 1);
                     mainPresenter.jumpToActivity(JunkAndRamActivity.class, 1);
                     break;
                 case R.id.main_junk_button:
-                    AndroidSdk.track("主页面", "点击垃圾清理按钮", "", 1);
+                    CommonUtil.track("主页面", "点击垃圾清理按钮", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
                     break;
                 case R.id.main_ram_button:
-                    AndroidSdk.track("主页面", "点击ram清理按钮", "", 1);
+                    CommonUtil.track("主页面", "点击ram清理按钮", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
                 case R.id.main_manager_button:
-                    AndroidSdk.track("主页面", "点击应用管理按钮", "", 1);
+                    CommonUtil.track("主页面", "点击应用管理按钮", "", 1);
                     mainPresenter.jumpToActivity(ManagerActivity.class, 1);
                     break;
                 case R.id.main_cooling_button:
-                    AndroidSdk.track("主页面", "点击降温按钮", "", 1);
+                    CommonUtil.track("主页面", "点击降温按钮", "", 1);
                     mainPresenter.jumpToActivity(CoolingActivity.class, 1);
                     break;
                 case R.id.main_applock_button:
-                    AndroidSdk.track("applock", "主界面点击", "", 1);
+                    CommonUtil.track("applock", "主界面点击", "", 1);
                     int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
                     if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
                         Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
@@ -780,14 +776,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                    startActivity(intent);
                     break;
                 case R.id.main_theme_button:
-                    AndroidSdk.track("主页面", "点击主题按钮", "", 1);
+                    CommonUtil.track("主页面", "点击主题按钮", "", 1);
                     ShopMaster.launch(MainActivity.this,
                             new Theme(R.raw.battery_0, getPackageName())
                     );
 //                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
                     break;
                 case R.id.lot_family:
-                    AndroidSdk.track("主页面", "点击主题family按钮", "", 1);
+                    CommonUtil.track("主页面", "点击主题family按钮", "", 1);
                     ShopMaster.launch(MainActivity.this, "EOS_Family",
                             new Theme(R.raw.battery_0, getPackageName())
 //                            , new Theme(R.raw.battery_1, context.getPackageName())
@@ -795,23 +791,23 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
                     break;
                 case R.id.main_rotate_bad:
-                    AndroidSdk.track("主页面", "点击好评bad按钮", "", 1);
+                    CommonUtil.track("主页面", "点击好评bad按钮", "", 1);
                     mainPresenter.clickRotate(false);
                     break;
                 case R.id.main_rotate_good:
-                    AndroidSdk.track("主页面", "点击好评good按钮", "", 1);
+                    CommonUtil.track("主页面", "点击好评good按钮", "", 1);
                     mainPresenter.clickRotate(true);
                     break;
                 case R.id.main_msg_button:
-                    AndroidSdk.track("主页面", "点击进入硬件信息", "", 1);
+                    CommonUtil.track("主页面", "点击进入硬件信息", "", 1);
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
                     break;
                 case R.id.main_power_button:
-                    AndroidSdk.track("主页面", "点击进入深度清理", "", 1);
+                    CommonUtil.track("主页面", "点击进入深度清理", "", 1);
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                     break;
                 case R.id.main_notifi_button:
-                    AndroidSdk.track("主页面", "点击进入通知栏清理", "", 1);
+                    CommonUtil.track("主页面", "点击进入通知栏清理", "", 1);
                     if (!CommonUtil.isNotificationListenEnabled(MainActivity.this)) {
                         startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
                     } else if (!PreData.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
@@ -826,7 +822,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.fl_lot_side:
                     if (CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
                         CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
-                        AndroidSdk.track("主页面", "启动" + tuiguang, "", 1);
+                        CommonUtil.track("主页面", "启动" + tuiguang, "", 1);
                     } else {
                         UtilGp.openPlayStore(getApplicationContext(), tuiguang);
                     }

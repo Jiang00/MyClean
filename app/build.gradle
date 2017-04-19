@@ -10,6 +10,7 @@ android {
         versionCode VERSION_CODE as int
         versionName VERSION_NAME
         buildConfigField "boolean", "PRINT_LOG", "true"
+        buildConfigField "boolean", "TRACK", "false"
         ndk {
             moduleName "bindings"
         }
@@ -25,12 +26,14 @@ android {
     buildTypes {
         release_n {
             buildConfigField "boolean", "PRINT_LOG", "true"
+            buildConfigField "boolean", "TRACK", "true"
             jniDebuggable false
             minifyEnabled false
             signingConfig signingConfigs.release
         }
         release_test {
             buildConfigField "boolean", "PRINT_LOG", "true"
+            buildConfigField "boolean", "TRACK", "true"
             jniDebuggable false
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -44,6 +47,7 @@ android {
         release {
             //混淆
             buildConfigField "boolean", "PRINT_LOG", "false"
+            buildConfigField "boolean", "TRACK", "true"
             jniDebuggable false
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -56,6 +60,7 @@ android {
         }
         debug {
             buildConfigField "boolean", "PRINT_LOG", "true"
+            buildConfigField "boolean", "TRACK", "false"
             jniDebuggable true
             minifyEnabled false
             zipAlignEnabled false

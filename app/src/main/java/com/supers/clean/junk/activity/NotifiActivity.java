@@ -7,13 +7,11 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -92,7 +90,6 @@ public class NotifiActivity extends BaseActivity {
         list_si.setRemoveListener(new DeleteListView.RemoveListener() {
             @Override
             public void removeItem(DeleteListView.RemoveDirection direction, int position) {
-                Log.e("list", "remove");
                 NotifiInfo info = adapter.getItem(position);
                 myApplication.removeNotifi(info);
                 LocalBroadcastManager.getInstance(NotifiActivity.this).sendBroadcast(new Intent(NOTIFI_ACTION));

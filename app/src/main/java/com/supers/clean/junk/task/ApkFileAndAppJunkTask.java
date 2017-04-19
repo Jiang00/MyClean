@@ -1,6 +1,7 @@
 package com.supers.clean.junk.task;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -108,7 +109,7 @@ public class ApkFileAndAppJunkTask implements Runnable {
             if ("log".equals(end)) {
                 JunkInfo fileListInfo = new JunkInfo(file.getAbsolutePath(),
                         file.getName(), file.lastModified(),
-                        true, mContext.getResources().getDrawable(R.mipmap.log_file),
+                        true, ContextCompat.getDrawable(mContext, R.mipmap.log_file),
                         file.length());
                 logSize += file.length();
                 logList.add(fileListInfo);

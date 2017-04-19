@@ -531,7 +531,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.title_left:
-                    AndroidSdk.track("垃圾页面", "点击返回", "", 1);
+                    CommonUtil.track("垃圾页面", "点击返回", "", 1);
                     onBackPressed();
                     break;
                 case R.id.junk_button_system:
@@ -539,10 +539,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("垃圾页面", "点击收起系统缓存", "", 1);
+                        CommonUtil.track("垃圾页面", "点击收起系统缓存", "", 1);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("垃圾页面", "点击打开系统缓存", "", 1);
+                        CommonUtil.track("垃圾页面", "点击打开系统缓存", "", 1);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -551,10 +551,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("垃圾页面", "点击收起apk文件", "", 1);
+                        CommonUtil.track("垃圾页面", "点击收起apk文件", "", 1);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("垃圾页面", "点击打开apk文件", "", 1);
+                        CommonUtil.track("垃圾页面", "点击打开apk文件", "", 1);
                         junk_apk_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -563,10 +563,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("垃圾页面", "点击收起unload文件", "", 1);
+                        CommonUtil.track("垃圾页面", "点击收起unload文件", "", 1);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("垃圾页面", "点击打开apk文件", "", 1);
+                        CommonUtil.track("垃圾页面", "点击打开apk文件", "", 1);
                         junk_unload_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -575,10 +575,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("垃圾页面", "点击收起log文件", "", 1);
+                        CommonUtil.track("垃圾页面", "点击收起log文件", "", 1);
                         junk_log_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("垃圾页面", "点击打开log文件", "", 1);
+                        CommonUtil.track("垃圾页面", "点击打开log文件", "", 1);
                         junk_log_list.setVisibility(View.VISIBLE);
                     }
 
@@ -588,10 +588,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("垃圾页面", "点击收起user文件", "", 1);
+                        CommonUtil.track("垃圾页面", "点击收起user文件", "", 1);
                         junk_user_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("垃圾页面", "点击打开user文件", "", 1);
+                        CommonUtil.track("垃圾页面", "点击打开user文件", "", 1);
                         junk_user_list.setVisibility(View.VISIBLE);
                     }
 
@@ -600,7 +600,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
                     Log.e("aaa", "===junk点击");
-                    AndroidSdk.track("垃圾页面", "点击清理", "", 1);
+                    CommonUtil.track("垃圾页面", "点击清理", "", 1);
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
                             junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
                         junkPresenter.bleachFile(false, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());

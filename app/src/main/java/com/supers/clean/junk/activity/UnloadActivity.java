@@ -58,7 +58,7 @@ public class UnloadActivity extends BaseActivity {
             finish();
             return;
         }
-        AndroidSdk.track("卸载残余页面", "展示", "", 1);
+        CommonUtil.track("卸载残余页面", "展示", "", 1);
         for (JunkInfo info : cleanApplication.getAppCache()) {
             if (info.packageName.equals(packageName)) {
                 a = true;
@@ -125,7 +125,7 @@ public class UnloadActivity extends BaseActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.bt_queren:
-                    AndroidSdk.track("卸载残余页面", "点击清理", "", 1);
+                    CommonUtil.track("卸载残余页面", "点击清理", "", 1);
                     bt_queren.setOnClickListener(null);
                     Bundle bundle = new Bundle();
                     bundle.putLong("size", size);
@@ -137,7 +137,7 @@ public class UnloadActivity extends BaseActivity {
                     break;
                 case R.id.bt_quxiao:
                 case R.id.iv_cha:
-                    AndroidSdk.track("卸载残余页面", "点击取消", "", 1);
+                    CommonUtil.track("卸载残余页面", "点击取消", "", 1);
                     finish();
                     break;
             }

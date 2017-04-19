@@ -850,9 +850,7 @@ public class AppLockEosService extends Service {
         }
         Utils.init();
         handler = new Handler(getMainLooper());
-        ApplockNoti.liteA(this);
-        Intent intent = new Intent(this, ApplockNoti.class);
-        startService(intent);
+
         if (Build.VERSION.SDK_INT >= 21) {
             hasAccessUsagePermission = Utils.checkPermissionIsGrant(App.getContext(), Utils.OP_GET_USAGE_STATS) == AppOpsManager.MODE_ALLOWED;
         }

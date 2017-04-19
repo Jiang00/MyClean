@@ -1,6 +1,5 @@
 package com.supers.clean.junk.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,10 +21,10 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.ShortCutUtils;
 import com.supers.clean.junk.util.UtilGp;
@@ -205,7 +204,7 @@ public class SettingActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.setting_tongzhi:
-                    AndroidSdk.track("设置页面", "点击通知开关", "", 1);
+                    CommonUtil.track("设置页面", "点击通知开关", "", 1);
                     if (PreData.getDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true)) {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHI_SWITCH, false);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
@@ -215,7 +214,7 @@ public class SettingActivity extends BaseActivity {
                     }
                     break;
                 case R.id.setting_tongzhilan:
-                    AndroidSdk.track("设置页面", "点击通知栏开关", "", 1);
+                    CommonUtil.track("设置页面", "点击通知栏开关", "", 1);
                     if (PreData.getDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, false);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
@@ -230,7 +229,7 @@ public class SettingActivity extends BaseActivity {
                     }
                     break;
                 case R.id.setting_float:
-                    AndroidSdk.track("设置页面", "点击悬浮球开关", "", 1);
+                    CommonUtil.track("设置页面", "点击悬浮球开关", "", 1);
                     if (PreData.getDB(SettingActivity.this, Constant.FlOAT_SWITCH, true)) {
                         PreData.putDB(SettingActivity.this, Constant.FlOAT_SWITCH, false);
                         Intent intent1 = new Intent(SettingActivity.this, FloatService.class);
@@ -248,11 +247,11 @@ public class SettingActivity extends BaseActivity {
                     //chongdian
                     if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true)) {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
-                        AndroidSdk.track("设置页面", "点击充电屏保开关", "关", 1);
+                        CommonUtil.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
-                        AndroidSdk.track("设置页面", "点击充电屏保开关", "开", 1);
+                        CommonUtil.track("设置页面", "点击充电屏保开关", "开", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
@@ -261,30 +260,30 @@ public class SettingActivity extends BaseActivity {
                     if (PreData.getDB(SettingActivity.this, Constant.KEY_UNLOAD, true)) {
                         PreData.putDB(SettingActivity.this, Constant.KEY_UNLOAD, false);
                         setting_unload_check.setImageResource(R.mipmap.side_check_normal);
-                        AndroidSdk.track("设置页面", "点击卸载残余开关", "关", 1);
+                        CommonUtil.track("设置页面", "点击卸载残余开关", "关", 1);
                     } else {
                         PreData.putDB(SettingActivity.this, Constant.KEY_UNLOAD, true);
-                        AndroidSdk.track("设置页面", "点击卸载残余开关", "开", 1);
+                        CommonUtil.track("设置页面", "点击卸载残余开关", "开", 1);
                         setting_unload_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
                 case R.id.setting_white:
-                    AndroidSdk.track("设置页面", "进入白名单", "", 1);
+                    CommonUtil.track("设置页面", "进入白名单", "", 1);
                     Intent intent = new Intent(SettingActivity.this, WhiteListAvtivity.class);
                     startActivity(intent);
                     break;
                 case R.id.setting_short:
-                    AndroidSdk.track("设置页面", "添加桌面快捷方式", "", 1);
+                    CommonUtil.track("设置页面", "添加桌面快捷方式", "", 1);
                     PreData.putDB(SettingActivity.this, Constant.KEY_SHORTCUT, true);
                     ShortCutUtils.addShortcut(SettingActivity.this);
                     break;
                 case R.id.setting_power:
-                    AndroidSdk.track("设置页面", "进入深度清理", "", 1);
+                    CommonUtil.track("设置页面", "进入深度清理", "", 1);
                     Intent intentP = new Intent(SettingActivity.this, PowerActivity.class);
                     startActivity(intentP);
                     break;
                 case R.id.setting_notifi:
-                    AndroidSdk.track("设置页面", "进入通知栏清理", "", 1);
+                    CommonUtil.track("设置页面", "进入通知栏清理", "", 1);
                     if (!CommonUtil.isNotificationListenEnabled(SettingActivity.this)) {
                         startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
                     } else if (!PreData.getDB(SettingActivity.this, Constant.KEY_NOTIFI, true)) {
@@ -296,7 +295,7 @@ public class SettingActivity extends BaseActivity {
                     }
                     break;
                 case R.id.setting_rotate:
-                    AndroidSdk.track("设置页面", "好评", "", 1);
+                    CommonUtil.track("设置页面", "好评", "", 1);
                     UtilGp.rate(SettingActivity.this);
                     break;
             }

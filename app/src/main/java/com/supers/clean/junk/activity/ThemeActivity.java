@@ -8,11 +8,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.util.CommonUtil;
 
 /**
  * Created by on 2017/3/2.
@@ -57,11 +57,11 @@ public class ThemeActivity extends BaseActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.title_left:
-                    AndroidSdk.track("主题页面", "点击返回按钮", "", 1);
+                    CommonUtil.track("主题页面", "点击返回按钮", "", 1);
                     onBackPressed();
                     break;
                 case R.id.battery_theme_0:
-                    AndroidSdk.track("主题页面", "选择第一个主题", "", 1);
+                    CommonUtil.track("主题页面", "选择第一个主题", "", 1);
                     theme_0_check.setImageResource(R.mipmap.battery_passed);
                     theme_1_check.setImageResource(R.mipmap.battery_normal);
                     Utils.writeData(ThemeActivity.this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR);
@@ -69,7 +69,7 @@ public class ThemeActivity extends BaseActivity {
                     startService(new Intent(ThemeActivity.this, BatteryService.class).putExtra("show", true));
                     break;
                 case R.id.battery_theme_1:
-                    AndroidSdk.track("主题页面", "选择第二个主题", "", 1);
+                    CommonUtil.track("主题页面", "选择第二个主题", "", 1);
                     theme_0_check.setImageResource(R.mipmap.battery_normal);
                     theme_1_check.setImageResource(R.mipmap.battery_passed);
                     Utils.writeData(ThemeActivity.this, Constants.KEY_SAVER_TYPE, Constants.TYPE_DUCK);

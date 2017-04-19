@@ -12,7 +12,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -34,14 +33,14 @@ import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.CommonUtil;
-import com.supers.clean.junk.util.PreData;
-import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.customeview.DrawHookView;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.customeview.SlowScrollView;
+import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.UtilGp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -494,12 +493,12 @@ public class SuccessActivity extends BaseActivity {
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
-                    AndroidSdk.track("完成页面", "点击进入深度清理", "", 1);
+                    CommonUtil.track("完成页面", "点击进入深度清理", "", 1);
                     jumpTo(PowerActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_notifi_button:
-                    AndroidSdk.track("完成页面", "点击进入通知栏清理", "", 1);
+                    CommonUtil.track("完成页面", "点击进入通知栏清理", "", 1);
                     if (!CommonUtil.isNotificationListenEnabled(SuccessActivity.this)) {
                         startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
                     } else if (!PreData.getDB(SuccessActivity.this, Constant.KEY_NOTIFI, true)) {

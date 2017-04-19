@@ -37,6 +37,18 @@ import java.util.List;
 
 public class CommonUtil {
 
+    public static void track(String category, String action, String label, int value) {
+        if (com.supers.clean.junk.BuildConfig.TRACK) {
+            CommonUtil.track(category, action, label, value);
+        }
+    }
+
+    public static void log(String tag, String msg) {
+        if (com.supers.clean.junk.BuildConfig.DEBUG) {
+            Log.e(tag, msg);
+        }
+    }
+
     public static String getStrTime(long time) {
         long a = System.currentTimeMillis();
         SimpleDateFormat sf = new SimpleDateFormat("yy-MM-dd HH:mm:ss ");
