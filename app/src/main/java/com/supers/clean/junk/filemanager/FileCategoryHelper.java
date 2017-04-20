@@ -54,9 +54,9 @@ public class FileCategoryHelper {
             "zip", "rar"
     };
 
-    public static HashMap<FileCategory, FilenameExtFilter> filters = new HashMap<FileCategory, FilenameExtFilter>();
+    public HashMap<FileCategory, FilenameExtFilter> filters = new HashMap<FileCategory, FilenameExtFilter>();
 
-    public static HashMap<FileCategory, Integer> categoryNames = new HashMap<FileCategory, Integer>();
+    public HashMap<FileCategory, Integer> categoryNames = new HashMap<FileCategory, Integer>();
 
    /* static {
         categoryNames.put(FileCategory.All, R.string.category_all);
@@ -71,14 +71,14 @@ public class FileCategoryHelper {
         categoryNames.put(FileCategory.Favorite, R.string.category_favorite);
     }*/
 
-    public static FileCategory[] sCategories = new FileCategory[]{
+    public FileCategory[] sCategories = new FileCategory[]{
             FileCategory.Music, FileCategory.Video, FileCategory.Picture, FileCategory.Theme,
             FileCategory.Doc, FileCategory.Zip, FileCategory.Apk, FileCategory.Other
     };
 
     private FileCategory mCategory;
 
-    private static Context mContext;
+    private Context mContext;
 
     public FileCategoryHelper(Context context) {
         mContext = context;
@@ -111,9 +111,9 @@ public class FileCategoryHelper {
         return filters.get(mCategory);
     }
 
-    private static HashMap<FileCategory, CategoryInfo> mCategoryInfo = new HashMap<>();
+    private HashMap<FileCategory, CategoryInfo> mCategoryInfo = new HashMap<>();
 
-    public static HashMap<FileCategory, CategoryInfo> getCategoryInfos() {
+    public HashMap<FileCategory, CategoryInfo> getCategoryInfos() {
         return mCategoryInfo;
     }
 
@@ -133,7 +133,7 @@ public class FileCategoryHelper {
         public long size;
     }
 
-    private static void setCategoryInfo(FileCategory fc, long count, long size) {
+    private void setCategoryInfo(FileCategory fc, long count, long size) {
         CategoryInfo info = mCategoryInfo.get(fc);
         if (info == null) {
             info = new CategoryInfo();
@@ -218,7 +218,7 @@ public class FileCategoryHelper {
         return sortOrder;
     }
 
-    public static Cursor query(FileCategory fc, FileSortHelper.SortMethod sort) {
+    public Cursor query(FileCategory fc, FileSortHelper.SortMethod sort) {
         Uri uri = getContentUriByCategory(fc);
         String selection = buildSelectionByCategory(fc);
         String sortOrder = buildSortOrder(sort);
@@ -235,7 +235,7 @@ public class FileCategoryHelper {
         return mContext.getContentResolver().query(uri, columns, selection, null, sortOrder);
     }
 
-    public static void refreshCategoryInfo() {
+    public void refreshCategoryInfo() {
         // clear
         for (FileCategory fc : sCategories) {
             setCategoryInfo(fc, 0, 0);
@@ -260,7 +260,7 @@ public class FileCategoryHelper {
         refreshMediaCategory(FileCategory.Apk, uri);
     }
 
-    private static boolean refreshMediaCategory(FileCategory fc, Uri uri) {
+    private boolean refreshMediaCategory(FileCategory fc, Uri uri) {
         String[] columns = new String[]{
                 "COUNT(*)", "SUM(_size)"
         };
@@ -318,7 +318,7 @@ public class FileCategoryHelper {
     }
 
 
-    public static void refreshCategory() {
+    public void refreshCategory() {
         long startTime = System.currentTimeMillis();
         Log.e("rqy", "refreshCategory--startTime=" + startTime);
         Util.SDCardInfo sdCardInfo = Util.getSDCardInfo();
@@ -332,7 +332,7 @@ public class FileCategoryHelper {
 
         // the other category size should include those files didn't get scanned.
         long size = 0;
-        for (FileCategory fc : FileCategoryHelper.sCategories) {
+        for (FileCategory fc : sCategories) {
             CategoryInfo categoryInfo = getCategoryInfos().get(fc);
             Log.e("rqy", "fc=" + fc + ",categoryInfo.count=" + categoryInfo.count);
             // other category size should be set separately with calibration
