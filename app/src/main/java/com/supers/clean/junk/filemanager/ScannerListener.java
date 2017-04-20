@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.supers.clean.junk.mediascanner;
+package com.supers.clean.junk.filemanager;
 
 import android.net.Uri;
 

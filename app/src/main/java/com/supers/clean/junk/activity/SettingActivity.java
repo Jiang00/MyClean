@@ -1,6 +1,7 @@
 package com.supers.clean.junk.activity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,6 +23,9 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.filemanager.FileCategoryHelper;
+import com.supers.clean.junk.filemanager.FileSortHelper;
+import com.supers.clean.junk.filemanager.Util;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.CommonUtil;
@@ -77,6 +81,8 @@ public class SettingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_setting);
+        new FileCategoryHelper(this).refreshCategory();
+
         myHandler = new Handler();
         title_name.setText(R.string.setting_name);
         title_left.setOnClickListener(onClickListener);
