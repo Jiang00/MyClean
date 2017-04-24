@@ -231,11 +231,12 @@ public class DeleteListView extends ListView {
 
             // 滚动动画结束的时候调用回调接口
             if (scroller.isFinished()) {
-                if (mRemoveListener == null) {
-                    throw new NullPointerException("RemoveListener is null, we should called setRemoveListener()");
-                }
 
                 itemView.scrollTo(0, 0);
+                if (mRemoveListener == null) {
+                    android.util.Log.e("DeleteListView", "RemoveListener is null, we should called setRemoveListener()");
+                    return;
+                }
                 mRemoveListener.removeItem(removeDirection, slidePosition);
             }
         }
