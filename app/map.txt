@@ -32216,6 +32216,218 @@ com.eos.gallery.view.TouchImageView$TouchAnimation -> com.eos.gallery.view.Touch
     com.eos.gallery.view.TouchImageView this$0 -> a
     433:443:void <init>(com.eos.gallery.view.TouchImageView,float,float,float) -> <init>
     447:471:void applyTransformation(float,android.view.animation.Transformation) -> applyTransformation
+com.eos.kpa.DaemonApplication -> com.eos.kpa.DaemonApplication:
+    com.eos.kpa.IDaemonClient mDaemonClient -> a
+    boolean mHasAttachBaseContext -> b
+    com.eos.kpa.DaemonConfigurations getDaemonConfigurations() -> a
+    23:32:void <init>() -> <init>
+    36:43:void attachBaseContext(android.content.Context) -> attachBaseContext
+    51:51:void attachBaseContextByDaemon(android.content.Context) -> a
+com.eos.kpa.DaemonClient -> com.eos.kpa.a:
+    com.eos.kpa.DaemonConfigurations mConfigurations -> a
+    java.lang.String DAEMON_PERMITTING_SP_FILENAME -> b
+    java.lang.String DAEMON_PERMITTING_SP_KEY -> c
+    java.io.BufferedReader mBufferedReader -> d
+    27:54:void <init>(android.content.Context,com.eos.kpa.DaemonConfigurations$DaemonListener) -> <init>
+    40:54:void <init>(com.eos.kpa.DaemonConfigurations) -> <init>
+    46:50:void onAttachBaseContext(android.content.Context) -> a
+    61:63:com.eos.kpa.DaemonConfigurations createDaemonConfigurations(android.content.Context,com.eos.kpa.DaemonConfigurations$DaemonListener) -> a
+    73:95:void initDaemon(android.content.Context) -> b
+    115:120:java.lang.String getProcessName() -> a
+    128:136:void releaseIO() -> b
+    139:140:boolean isDaemonPermitting(android.content.Context) -> c
+com.eos.kpa.DaemonConfigurations -> com.eos.kpa.b:
+    com.eos.kpa.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
+    com.eos.kpa.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
+    com.eos.kpa.DaemonConfigurations$DaemonListener LISTENER -> c
+    14:34:void <init>(android.content.Context,com.eos.kpa.DaemonConfigurations$DaemonConfiguration,com.eos.kpa.DaemonConfigurations$DaemonListener) -> <init>
+com.eos.kpa.DaemonConfigurations$DaemonConfiguration -> com.eos.kpa.b$a:
+    java.lang.String PROCESS_NAME -> a
+    java.lang.String SERVICE_NAME -> b
+    java.lang.String RECEIVER_NAME -> c
+    48:52:void <init>(java.lang.String,java.lang.Class,java.lang.Class) -> <init>
+com.eos.kpa.DaemonConfigurations$DaemonListener -> com.eos.kpa.b$b:
+    void onPersistentStart(android.content.Context) -> a
+    void onDaemonAssistantStart(android.content.Context) -> b
+    void onWatchDaemonDead() -> a
+com.eos.kpa.DaemonReceiver -> com.eos.kpa.DaemonReceiver:
+    12:12:void <init>() -> <init>
+    15:15:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.eos.kpa.DaemonService -> com.eos.kpa.DaemonService:
+    12:12:void <init>() -> <init>
+    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
+    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+com.eos.kpa.IDaemonClient -> com.eos.kpa.c:
+    void onAttachBaseContext(android.content.Context) -> a
+com.eos.kpa.IDaemonStrategy -> com.eos.kpa.d:
+    boolean onInitialization(android.content.Context) -> a
+    void onPersistentCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> a
+    void onDaemonAssistantCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> b
+    void onDaemonDead() -> a
+com.eos.kpa.IDaemonStrategy$Fetcher -> com.eos.kpa.d$a:
+    com.eos.kpa.IDaemonStrategy mDaemonStrategy -> a
+    63:94:com.eos.kpa.IDaemonStrategy fetchStrategy() -> a
+com.eos.kpa.NativeDaemonBase -> com.eos.kpa.e:
+    android.content.Context mContext -> mContext
+    17:19:void <init>(android.content.Context) -> <init>
+    25:26:void onDaemonDead() -> onDaemonDead
+com.eos.kpa.PersistReceiver -> com.eos.kpa.PersistReceiver:
+    12:12:void <init>() -> <init>
+    16:16:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.eos.kpa.PersistService -> com.eos.kpa.PersistService:
+    12:12:void <init>() -> <init>
+    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
+    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+com.eos.kpa.R -> com.eos.kpa.f:
+com.eos.kpa.R$string -> com.eos.kpa.f$a:
+    int abc_action_bar_home_description -> abc_action_bar_home_description
+    int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
+    int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
+    int abc_action_bar_up_description -> abc_action_bar_up_description
+    int abc_action_menu_overflow_description -> abc_action_menu_overflow_description
+    int abc_action_mode_done -> abc_action_mode_done
+    int abc_activity_chooser_view_see_all -> abc_activity_chooser_view_see_all
+    int abc_activitychooserview_choose_application -> abc_activitychooserview_choose_application
+    int abc_capital_off -> abc_capital_off
+    int abc_capital_on -> abc_capital_on
+    int abc_search_hint -> abc_search_hint
+    int abc_searchview_description_clear -> abc_searchview_description_clear
+    int abc_searchview_description_query -> abc_searchview_description_query
+    int abc_searchview_description_search -> abc_searchview_description_search
+    int abc_searchview_description_submit -> abc_searchview_description_submit
+    int abc_searchview_description_voice -> abc_searchview_description_voice
+    int abc_shareactionprovider_share_with -> abc_shareactionprovider_share_with
+    int abc_shareactionprovider_share_with_application -> abc_shareactionprovider_share_with_application
+    int abc_toolbar_collapse_description -> abc_toolbar_collapse_description
+    int com_eos_kpa_nativ_process_name -> com_eos_kpa_nativ_process_name
+    int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
+com.eos.kpa.job.KeepJobService -> com.eos.kpa.job.KeepJobService:
+    13:13:void <init>() -> <init>
+    16:16:boolean onStartJob(android.app.job.JobParameters) -> onStartJob
+    21:21:boolean onStopJob(android.app.job.JobParameters) -> onStopJob
+com.eos.kpa.nativ.NativeDaemonAPIK -> com.eos.kpa.nativ.NativeDaemonAPIK:
+    15:16:void <init>(android.content.Context) -> <init>
+    void doDaemon(java.lang.String,java.lang.String,java.lang.String) -> doDaemon
+    20:24:void <clinit>() -> <clinit>
+com.eos.kpa.nativ.NativeDaemonAPIL -> com.eos.kpa.nativ.NativeDaemonAPIL:
+    15:16:void <init>(android.content.Context) -> <init>
+    void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> doDaemon
+    20:24:void <clinit>() -> <clinit>
+com.eos.kpa.strategy.DaemonStrategy21 -> com.eos.kpa.a.a:
+    android.app.AlarmManager mAlarmManager -> a
+    android.app.PendingIntent mPendingIntent -> b
+    com.eos.kpa.DaemonConfigurations mConfigs -> c
+    22:22:void <init>() -> <init>
+    35:35:boolean onInitialization(android.content.Context) -> a
+    40:65:void onPersistentCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> a
+    69:93:void onDaemonAssistantCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> b
+    97:103:void onDaemonDead() -> a
+    107:118:void initAlarm(android.content.Context,java.lang.String) -> a
+    122:132:boolean initIndicators(android.content.Context) -> b
+    138:142:void createNewFile(java.io.File,java.lang.String) -> a
+com.eos.kpa.strategy.DaemonStrategy21$1 -> com.eos.kpa.a.a$1:
+    android.content.Context val$context -> a
+    com.eos.kpa.strategy.DaemonStrategy21 this$0 -> b
+    47:47:void <init>(com.eos.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    50:56:void run() -> run
+com.eos.kpa.strategy.DaemonStrategy21$2 -> com.eos.kpa.a.a$2:
+    android.content.Context val$context -> a
+    com.eos.kpa.strategy.DaemonStrategy21 this$0 -> b
+    76:76:void <init>(com.eos.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
+    78:84:void run() -> run
+com.eos.kpa.strategy.DaemonStrategy22 -> com.eos.kpa.a.b:
+    android.os.IBinder mRemote -> a
+    android.os.Parcel mServiceData -> b
+    com.eos.kpa.DaemonConfigurations mConfigs -> c
+    26:26:void <init>() -> <init>
+    39:39:boolean onInitialization(android.content.Context) -> a
+    44:64:void onPersistentCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> a
+    68:89:void onDaemonAssistantCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> b
+    94:102:void onDaemonDead() -> a
+    108:126:void initAmsBinder() -> b
+    131:163:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    168:176:boolean startServiceByAmsBinder() -> c
+    184:194:boolean initIndicatorFiles(android.content.Context) -> b
+    199:203:void createNewFile(java.io.File,java.lang.String) -> a
+com.eos.kpa.strategy.DaemonStrategy22$1 -> com.eos.kpa.a.b$1:
+    android.content.Context val$context -> a
+    com.eos.kpa.strategy.DaemonStrategy22 this$0 -> b
+    48:48:void <init>(com.eos.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    50:56:void run() -> run
+com.eos.kpa.strategy.DaemonStrategy22$2 -> com.eos.kpa.a.b$2:
+    android.content.Context val$context -> a
+    com.eos.kpa.strategy.DaemonStrategy22 this$0 -> b
+    72:72:void <init>(com.eos.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
+    74:80:void run() -> run
+com.eos.kpa.strategy.DaemonStrategy23 -> com.eos.kpa.a.c:
+    android.os.IBinder mRemote -> a
+    android.os.Parcel mBroadcastData -> b
+    com.eos.kpa.DaemonConfigurations mConfigs -> c
+    27:27:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:72:void onPersistentCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> a
+    76:103:void onDaemonAssistantCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> b
+    108:114:void onDaemonDead() -> a
+    120:138:void initAmsBinder() -> b
+    144:180:void initBroadcastParcel(android.content.Context,java.lang.String) -> a
+    186:194:boolean sendBroadcastByAmsBinder() -> c
+    200:210:boolean initIndicatorFiles(android.content.Context) -> b
+    215:219:void createNewFile(java.io.File,java.lang.String) -> a
+com.eos.kpa.strategy.DaemonStrategy23$1 -> com.eos.kpa.a.c$1:
+    android.content.Context val$context -> a
+    com.eos.kpa.strategy.DaemonStrategy23 this$0 -> b
+    49:49:void <init>(com.eos.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    51:57:void run() -> run
+com.eos.kpa.strategy.DaemonStrategy23$2 -> com.eos.kpa.a.c$2:
+    android.content.Context val$context -> a
+    com.eos.kpa.strategy.DaemonStrategy23 this$0 -> b
+    80:80:void <init>(com.eos.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
+    82:88:void run() -> run
+com.eos.kpa.strategy.DaemonStrategyUnder21 -> com.eos.kpa.a.d:
+    java.lang.String BINARY_DEST_DIR_NAME -> a
+    java.lang.String BINARY_FILE_NAME -> b
+    android.app.AlarmManager mAlarmManager -> c
+    android.app.PendingIntent mPendingIntent -> d
+    28:30:void <init>() -> <init>
+    37:37:boolean onInitialization(android.content.Context) -> a
+    42:58:void onPersistentCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> a
+    62:70:void onDaemonAssistantCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> b
+    75:77:void onDaemonDead() -> a
+    81:92:void initAlarm(android.content.Context,java.lang.String) -> a
+    96:105:boolean installBinary(android.content.Context) -> b
+    110:118:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    123:126:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
+    129:142:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
+com.eos.kpa.strategy.DaemonStrategyUnder21$1 -> com.eos.kpa.a.d$1:
+    android.content.Context val$context -> a
+    com.eos.kpa.DaemonConfigurations val$configs -> b
+    com.eos.kpa.strategy.DaemonStrategyUnder21 this$0 -> c
+    43:43:void <init>(com.eos.kpa.strategy.DaemonStrategyUnder21,android.content.Context,com.eos.kpa.DaemonConfigurations) -> <init>
+    45:50:void run() -> run
+com.eos.kpa.strategy.DaemonStrategyXiaomi -> com.eos.kpa.a.e:
+    java.lang.String BINARY_DEST_DIR_NAME -> a
+    java.lang.String BINARY_FILE_NAME -> b
+    android.os.IBinder mRemote -> c
+    android.os.Parcel mServiceData -> d
+    com.eos.kpa.DaemonConfigurations mConfigs -> e
+    30:32:void <init>() -> <init>
+    40:40:boolean onInitialization(android.content.Context) -> a
+    45:64:void onPersistentCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> a
+    69:77:void onDaemonAssistantCreate(android.content.Context,com.eos.kpa.DaemonConfigurations) -> b
+    81:89:void onDaemonDead() -> a
+    94:112:void initAmsBinder() -> b
+    118:150:void initServiceParcel(android.content.Context,java.lang.String) -> a
+    154:162:boolean startServiceByAmsBinder() -> c
+    167:176:boolean installBinary(android.content.Context) -> b
+    181:189:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    194:197:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
+    200:213:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
+com.eos.kpa.strategy.DaemonStrategyXiaomi$1 -> com.eos.kpa.a.e$1:
+    android.content.Context val$context -> a
+    com.eos.kpa.DaemonConfigurations val$configs -> b
+    com.eos.kpa.strategy.DaemonStrategyXiaomi this$0 -> c
+    47:47:void <init>(com.eos.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.eos.kpa.DaemonConfigurations) -> <init>
+    49:54:void run() -> run
 com.eos.lib.customview.AnimationImageView -> com.eos.lib.customview.AnimationImageView:
     android.view.animation.Animation fadeIn -> a
     33:35:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
@@ -33752,7 +33964,6 @@ com.eos.manager.page.ListViewForScrollView -> com.eos.manager.page.ListViewForSc
     21:23:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     27:29:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     45:49:void onMeasure(int,int) -> onMeasure
-    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.eos.manager.page.LockPatternUtils -> com.eos.manager.page.b:
     52:62:java.lang.String patternToString(java.util.List) -> a
     84:84:boolean checkPattern(java.util.List,java.util.List) -> a
@@ -36716,14 +36927,14 @@ com.eos.ui.demo.cross.CrossDialog -> com.eos.ui.demo.a.a:
     14:18:android.app.Dialog showCrossDialog(android.content.Context) -> a
 com.eos.ui.demo.cross.CrossManager -> com.eos.ui.demo.a.b:
     boolean isShowClick -> a
-    35:35:void <init>() -> <init>
-    39:65:void showCrossDialog(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> a
-    72:205:void getCrossView(android.content.Context,java.lang.String,java.lang.String,java.lang.String,boolean,com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener) -> a
-    209:216:com.eos.ui.demo.entries.CrossData$CrossPromotionBean getCrossData(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
-    231:307:com.eos.ui.demo.entries.CrossData$CrossPromotionBean analysisJson(android.content.Context,java.util.List,java.util.List,int) -> a
-    311:341:com.eos.ui.demo.entries.CrossData$CrossPromotionBean getCurrentShowItem(android.content.Context,java.lang.String,java.lang.String) -> a
-    35:35:boolean access$000() -> a
-    219:219:void <clinit>() -> <clinit>
+    36:36:void <init>() -> <init>
+    40:66:void showCrossDialog(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.eos.ui.demo.view.CrossView$onCrossDialogClickListener,boolean) -> a
+    73:215:void getCrossView(android.content.Context,java.lang.String,java.lang.String,java.lang.String,boolean,com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener,boolean) -> a
+    219:226:com.eos.ui.demo.entries.CrossData$CrossPromotionBean getCrossData(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    241:317:com.eos.ui.demo.entries.CrossData$CrossPromotionBean analysisJson(android.content.Context,java.util.List,java.util.List,int) -> a
+    321:351:com.eos.ui.demo.entries.CrossData$CrossPromotionBean getCurrentShowItem(android.content.Context,java.lang.String,java.lang.String) -> a
+    36:36:boolean access$000() -> a
+    229:229:void <clinit>() -> <clinit>
 com.eos.ui.demo.cross.CrossManager$1 -> com.eos.ui.demo.a.b$1:
     android.content.Context val$context -> a
     boolean val$isJumpToGp -> b
@@ -36731,22 +36942,22 @@ com.eos.ui.demo.cross.CrossManager$1 -> com.eos.ui.demo.a.b$1:
     com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener val$listener -> d
     android.view.View val$view -> e
     java.lang.String val$position -> f
-    91:91:void <init>(android.content.Context,boolean,com.eos.ui.demo.entries.CrossData$CrossPromotionBean,com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener,android.view.View,java.lang.String) -> <init>
-    94:111:void onClick(android.view.View) -> onClick
+    92:92:void <init>(android.content.Context,boolean,com.eos.ui.demo.entries.CrossData$CrossPromotionBean,com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener,android.view.View,java.lang.String) -> <init>
+    95:112:void onClick(android.view.View) -> onClick
 com.eos.ui.demo.cross.CrossManager$2 -> com.eos.ui.demo.a.b$2:
     com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener val$listener -> a
     android.view.View val$view -> b
-    114:114:void <init>(com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener,android.view.View) -> <init>
-    117:120:void onSuccess() -> a
-    124:127:void onError() -> b
+    115:115:void <init>(com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener,android.view.View) -> <init>
+    118:121:void onSuccess() -> a
+    125:128:void onError() -> b
 com.eos.ui.demo.cross.CrossManager$3 -> com.eos.ui.demo.a.b$3:
     com.sample.lottie.LottieAnimationView val$lottie -> a
-    158:158:void <init>(com.sample.lottie.LottieAnimationView) -> <init>
-    161:162:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    159:159:void <init>(com.sample.lottie.LottieAnimationView) -> <init>
+    162:163:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
 com.eos.ui.demo.cross.CrossManager$4 -> com.eos.ui.demo.a.b$4:
     com.sample.lottie.LottieAnimationView val$lottie -> a
-    183:183:void <init>(com.sample.lottie.LottieAnimationView) -> <init>
-    186:187:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    188:188:void <init>(com.sample.lottie.LottieAnimationView) -> <init>
+    191:192:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
 com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener -> com.eos.ui.demo.a.b$a:
     void onClick(android.view.View) -> onClick
     void onLoadView(android.view.View) -> a
@@ -36781,9 +36992,10 @@ com.eos.ui.demo.cross.FileDownLoad$IOnFileDownLoadCallBack -> com.eos.ui.demo.a.
     void onLoadSuccess(java.lang.String) -> a
     void onLoadFailed() -> a
 com.eos.ui.demo.dialog.DialogManager -> com.eos.ui.demo.b.a:
-    26:26:com.eos.ui.demo.cross.CrossManager getCrossManager() -> a
-    30:31:void showCrossDialog(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> a
-    34:35:void getCrossView(android.content.Context,java.lang.String,java.lang.String,java.lang.String,boolean,com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener) -> a
+    23:51:boolean checkCrossVersion(android.content.Context,java.lang.String) -> a
+    63:63:com.eos.ui.demo.cross.CrossManager getCrossManager() -> a
+    67:71:void showCrossDialog(android.content.Context,java.lang.String,java.lang.String,java.lang.String,com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> a
+    74:75:void getCrossView(android.content.Context,java.lang.String,java.lang.String,java.lang.String,boolean,com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener) -> a
 com.eos.ui.demo.entries.CrossData -> com.eos.ui.demo.entries.CrossData:
     java.lang.String divide -> divide
     java.util.List cross -> cross
@@ -36906,12 +37118,64 @@ com.eos.ui.demo.permission.PermissionUtil -> com.eos.ui.demo.permission.b:
     176:186:boolean isGrantPermission(android.content.Context,java.lang.String) -> b
     190:197:java.lang.String[] getPermissionList(android.content.Context) -> e
     38:68:void <clinit>() -> <clinit>
-com.eos.ui.demo.utils.JsonParser -> com.eos.ui.demo.c.a:
+com.eos.ui.demo.utils.ACache -> com.eos.ui.demo.c.a:
+    java.util.Map mInstanceMap -> a
+    com.eos.ui.demo.utils.ACache$ACacheManager mCache -> b
+    44:44:com.eos.ui.demo.utils.ACache get(android.content.Context) -> a
+    48:49:com.eos.ui.demo.utils.ACache get(android.content.Context,java.lang.String) -> a
+    62:67:com.eos.ui.demo.utils.ACache get(java.io.File,long,int) -> a
+    71:71:java.lang.String myPid() -> a
+    74:80:void <init>(java.io.File,long,int) -> <init>
+    94:112:void put(java.lang.String,java.lang.String) -> a
+    135:165:java.lang.String getAsString(java.lang.String) -> a
+    535:535:boolean remove(java.lang.String) -> b
+    40:40:void <clinit>() -> <clinit>
+com.eos.ui.demo.utils.ACache$1 -> com.eos.ui.demo.c.a$1:
+com.eos.ui.demo.utils.ACache$ACacheManager -> com.eos.ui.demo.c.a$a:
+    java.util.concurrent.atomic.AtomicLong cacheSize -> c
+    java.util.concurrent.atomic.AtomicInteger cacheCount -> d
+    long sizeLimit -> e
+    int countLimit -> f
+    java.util.Map lastUsageDates -> g
+    java.io.File cacheDir -> a
+    com.eos.ui.demo.utils.ACache this$0 -> b
+    553:564:void <init>(com.eos.ui.demo.utils.ACache,java.io.File,long,int) -> <init>
+    570:588:void calculateCacheSizeAndCacheCount() -> a
+    591:611:void put(java.io.File) -> a
+    614:619:java.io.File get(java.lang.String) -> a
+    623:623:java.io.File newFile(java.lang.String) -> b
+    627:628:boolean remove(java.lang.String) -> c
+    647:673:long removeNext() -> b
+    677:677:long calculateSize(java.io.File) -> b
+    548:548:void <init>(com.eos.ui.demo.utils.ACache,java.io.File,long,int,com.eos.ui.demo.utils.ACache$1) -> <init>
+    548:548:java.io.File access$100(com.eos.ui.demo.utils.ACache$ACacheManager,java.lang.String) -> a
+    548:548:void access$200(com.eos.ui.demo.utils.ACache$ACacheManager,java.io.File) -> a
+    548:548:java.io.File access$400(com.eos.ui.demo.utils.ACache$ACacheManager,java.lang.String) -> b
+    548:548:boolean access$1400(com.eos.ui.demo.utils.ACache$ACacheManager,java.lang.String) -> c
+    548:548:long access$1600(com.eos.ui.demo.utils.ACache$ACacheManager,java.io.File) -> b
+    548:548:java.util.Map access$1700(com.eos.ui.demo.utils.ACache$ACacheManager) -> a
+    548:548:java.util.concurrent.atomic.AtomicLong access$1800(com.eos.ui.demo.utils.ACache$ACacheManager) -> b
+    548:548:java.util.concurrent.atomic.AtomicInteger access$1900(com.eos.ui.demo.utils.ACache$ACacheManager) -> c
+com.eos.ui.demo.utils.ACache$ACacheManager$1 -> com.eos.ui.demo.c.a$a$1:
+    com.eos.ui.demo.utils.ACache$ACacheManager this$1 -> a
+    570:570:void <init>(com.eos.ui.demo.utils.ACache$ACacheManager) -> <init>
+    573:586:void run() -> run
+com.eos.ui.demo.utils.ACache$Utils -> com.eos.ui.demo.c.a$b:
+    693:693:boolean isDue(java.lang.String) -> c
+    703:716:boolean isDue(byte[]) -> a
+    732:736:java.lang.String clearDateInfo(java.lang.String) -> d
+    748:749:boolean hasDateInfo(byte[]) -> b
+    753:759:java.lang.String[] getDateInfoFromDate(byte[]) -> c
+    763:768:int indexOf(byte[],char) -> a
+    772:778:byte[] copyOfRange(byte[],int,int) -> a
+    684:684:boolean access$500(java.lang.String) -> a
+    684:684:java.lang.String access$600(java.lang.String) -> b
+com.eos.ui.demo.utils.JsonParser -> com.eos.ui.demo.c.b:
     com.eos.ui.demo.utils.JsonParser jsonParser -> a
     10:10:void <init>() -> <init>
     14:17:com.eos.ui.demo.utils.JsonParser getInstance() -> a
     25:69:java.lang.Object fromJson(java.lang.String,java.lang.Class) -> a
-com.eos.ui.demo.utils.Util -> com.eos.ui.demo.c.b:
+com.eos.ui.demo.utils.Util -> com.eos.ui.demo.c.c:
     com.google.gson.Gson gson -> a
     31:41:void openApp(android.content.Context,java.lang.String) -> a
     44:50:boolean isInstallApp(android.content.Context,java.lang.String) -> b
@@ -36944,30 +37208,30 @@ com.eos.ui.demo.view.CrossView -> com.eos.ui.demo.view.CrossView:
     java.lang.String pkgPath -> m
     java.lang.String position -> n
     com.eos.ui.demo.entries.CrossData$CrossPromotionBean data -> o
-    38:120:void <init>(android.content.Context) -> <init>
-    43:120:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    48:120:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    54:79:void onClick(android.view.View) -> onClick
-    83:94:void setDialog(android.app.Dialog) -> setDialog
-    98:99:void setCrossDialogClickListener(com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> setCrossDialogClickListener
-    124:138:void onFinishInflate() -> onFinishInflate
-    142:143:void onAttachedToWindow() -> onAttachedToWindow
-    147:151:void onDetachedFromWindow() -> onDetachedFromWindow
-    154:155:void setPosition(java.lang.String) -> setPosition
-    158:254:void setData(com.eos.ui.demo.entries.CrossData$CrossPromotionBean) -> setData
-    35:35:com.sample.lottie.LottieAnimationView access$000(com.eos.ui.demo.view.CrossView) -> a
+    39:121:void <init>(android.content.Context) -> <init>
+    44:121:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    49:121:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    55:80:void onClick(android.view.View) -> onClick
+    84:95:void setDialog(android.app.Dialog) -> setDialog
+    99:100:void setCrossDialogClickListener(com.eos.ui.demo.view.CrossView$onCrossDialogClickListener) -> setCrossDialogClickListener
+    125:139:void onFinishInflate() -> onFinishInflate
+    143:144:void onAttachedToWindow() -> onAttachedToWindow
+    148:152:void onDetachedFromWindow() -> onDetachedFromWindow
+    155:156:void setPosition(java.lang.String) -> setPosition
+    159:267:void setData(com.eos.ui.demo.entries.CrossData$CrossPromotionBean,boolean) -> a
+    36:36:com.sample.lottie.LottieAnimationView access$000(com.eos.ui.demo.view.CrossView) -> a
 com.eos.ui.demo.view.CrossView$1 -> com.eos.ui.demo.view.CrossView$1:
     com.eos.ui.demo.view.CrossView this$0 -> a
-    85:85:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
-    88:91:void onDismiss(android.content.DialogInterface) -> onDismiss
+    86:86:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
+    89:92:void onDismiss(android.content.DialogInterface) -> onDismiss
 com.eos.ui.demo.view.CrossView$2 -> com.eos.ui.demo.view.CrossView$2:
     com.eos.ui.demo.view.CrossView this$0 -> a
-    179:179:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
-    182:183:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    181:181:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
+    184:185:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
 com.eos.ui.demo.view.CrossView$3 -> com.eos.ui.demo.view.CrossView$3:
     com.eos.ui.demo.view.CrossView this$0 -> a
-    200:200:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
-    203:204:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    209:209:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
+    212:213:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
 com.eos.ui.demo.view.CrossView$onCrossDialogClickListener -> com.eos.ui.demo.view.CrossView$a:
     void onCancel() -> a
     void onInstall() -> b
@@ -38361,219 +38625,6 @@ com.google.gson.stream.MalformedJsonException -> com.google.gson.stream.Malforme
     29:30:void <init>(java.lang.String) -> <init>
     33:37:void <init>(java.lang.String,java.lang.Throwable) -> <init>
     39:43:void <init>(java.lang.Throwable) -> <init>
-com.ivy.kpa.DaemonApplication -> com.ivy.kpa.DaemonApplication:
-    com.ivy.kpa.IDaemonClient mDaemonClient -> a
-    boolean mHasAttachBaseContext -> b
-    com.ivy.kpa.DaemonConfigurations getDaemonConfigurations() -> a
-    23:32:void <init>() -> <init>
-    36:43:void attachBaseContext(android.content.Context) -> attachBaseContext
-    51:51:void attachBaseContextByDaemon(android.content.Context) -> a
-com.ivy.kpa.DaemonClient -> com.ivy.kpa.a:
-    com.ivy.kpa.DaemonConfigurations mConfigurations -> a
-    java.lang.String DAEMON_PERMITTING_SP_FILENAME -> b
-    java.lang.String DAEMON_PERMITTING_SP_KEY -> c
-    java.io.BufferedReader mBufferedReader -> d
-    26:53:void <init>(android.content.Context,com.ivy.kpa.DaemonConfigurations$DaemonListener) -> <init>
-    39:53:void <init>(com.ivy.kpa.DaemonConfigurations) -> <init>
-    45:49:void onAttachBaseContext(android.content.Context) -> a
-    60:62:com.ivy.kpa.DaemonConfigurations createDaemonConfigurations(android.content.Context,com.ivy.kpa.DaemonConfigurations$DaemonListener) -> a
-    72:94:void initDaemon(android.content.Context) -> b
-    114:119:java.lang.String getProcessName() -> a
-    127:135:void releaseIO() -> b
-    138:139:boolean isDaemonPermitting(android.content.Context) -> c
-com.ivy.kpa.DaemonConfigurations -> com.ivy.kpa.b:
-    com.ivy.kpa.DaemonConfigurations$DaemonConfiguration PERSISTENT_CONFIG -> a
-    com.ivy.kpa.DaemonConfigurations$DaemonConfiguration DAEMON_ASSISTANT_CONFIG -> b
-    com.ivy.kpa.DaemonConfigurations$DaemonListener LISTENER -> c
-    14:34:void <init>(android.content.Context,com.ivy.kpa.DaemonConfigurations$DaemonConfiguration,com.ivy.kpa.DaemonConfigurations$DaemonListener) -> <init>
-com.ivy.kpa.DaemonConfigurations$DaemonConfiguration -> com.ivy.kpa.b$a:
-    java.lang.String PROCESS_NAME -> a
-    java.lang.String SERVICE_NAME -> b
-    java.lang.String RECEIVER_NAME -> c
-    48:52:void <init>(java.lang.String,java.lang.Class,java.lang.Class) -> <init>
-com.ivy.kpa.DaemonConfigurations$DaemonListener -> com.ivy.kpa.b$b:
-    void onPersistentStart(android.content.Context) -> a
-    void onDaemonAssistantStart(android.content.Context) -> b
-    void onWatchDaemonDead() -> a
-com.ivy.kpa.DaemonReceiver -> com.ivy.kpa.DaemonReceiver:
-    12:12:void <init>() -> <init>
-    15:15:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.ivy.kpa.DaemonService -> com.ivy.kpa.DaemonService:
-    12:12:void <init>() -> <init>
-    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
-    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-com.ivy.kpa.IDaemonClient -> com.ivy.kpa.c:
-    void onAttachBaseContext(android.content.Context) -> a
-com.ivy.kpa.IDaemonStrategy -> com.ivy.kpa.d:
-    boolean onInitialization(android.content.Context) -> a
-    void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
-    void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
-    void onDaemonDead() -> a
-com.ivy.kpa.IDaemonStrategy$Fetcher -> com.ivy.kpa.d$a:
-    com.ivy.kpa.IDaemonStrategy mDaemonStrategy -> a
-    63:94:com.ivy.kpa.IDaemonStrategy fetchStrategy() -> a
-com.ivy.kpa.NativeDaemonBase -> com.ivy.kpa.e:
-    android.content.Context mContext -> mContext
-    17:19:void <init>(android.content.Context) -> <init>
-    25:26:void onDaemonDead() -> onDaemonDead
-com.ivy.kpa.PersistReceiver -> com.ivy.kpa.PersistReceiver:
-    12:12:void <init>() -> <init>
-    16:16:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-com.ivy.kpa.PersistService -> com.ivy.kpa.PersistService:
-    12:12:void <init>() -> <init>
-    16:16:android.os.IBinder onBind(android.content.Intent) -> onBind
-    21:21:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-com.ivy.kpa.R -> com.ivy.kpa.f:
-com.ivy.kpa.R$string -> com.ivy.kpa.f$a:
-    int abc_action_bar_home_description -> abc_action_bar_home_description
-    int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
-    int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
-    int abc_action_bar_up_description -> abc_action_bar_up_description
-    int abc_action_menu_overflow_description -> abc_action_menu_overflow_description
-    int abc_action_mode_done -> abc_action_mode_done
-    int abc_activity_chooser_view_see_all -> abc_activity_chooser_view_see_all
-    int abc_activitychooserview_choose_application -> abc_activitychooserview_choose_application
-    int abc_capital_off -> abc_capital_off
-    int abc_capital_on -> abc_capital_on
-    int abc_search_hint -> abc_search_hint
-    int abc_searchview_description_clear -> abc_searchview_description_clear
-    int abc_searchview_description_query -> abc_searchview_description_query
-    int abc_searchview_description_search -> abc_searchview_description_search
-    int abc_searchview_description_submit -> abc_searchview_description_submit
-    int abc_searchview_description_voice -> abc_searchview_description_voice
-    int abc_shareactionprovider_share_with -> abc_shareactionprovider_share_with
-    int abc_shareactionprovider_share_with_application -> abc_shareactionprovider_share_with_application
-    int abc_toolbar_collapse_description -> abc_toolbar_collapse_description
-    int app_name -> app_name
-    int com_ivy_kpa_nativ_process_name -> com_ivy_kpa_nativ_process_name
-    int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
-com.ivy.kpa.job.KeepJobService -> com.ivy.kpa.job.KeepJobService:
-    13:13:void <init>() -> <init>
-    16:16:boolean onStartJob(android.app.job.JobParameters) -> onStartJob
-    21:21:boolean onStopJob(android.app.job.JobParameters) -> onStopJob
-com.ivy.kpa.nativ.NativeDaemonAPIK -> com.ivy.kpa.nativ.NativeDaemonAPIK:
-    15:16:void <init>(android.content.Context) -> <init>
-    void doDaemon(java.lang.String,java.lang.String,java.lang.String) -> doDaemon
-    20:24:void <clinit>() -> <clinit>
-com.ivy.kpa.nativ.NativeDaemonAPIL -> com.ivy.kpa.nativ.NativeDaemonAPIL:
-    15:16:void <init>(android.content.Context) -> <init>
-    void doDaemon(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> doDaemon
-    20:24:void <clinit>() -> <clinit>
-com.ivy.kpa.strategy.DaemonStrategy21 -> com.ivy.kpa.a.a:
-    android.app.AlarmManager mAlarmManager -> a
-    android.app.PendingIntent mPendingIntent -> b
-    com.ivy.kpa.DaemonConfigurations mConfigs -> c
-    22:22:void <init>() -> <init>
-    35:35:boolean onInitialization(android.content.Context) -> a
-    40:65:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
-    69:93:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
-    97:103:void onDaemonDead() -> a
-    107:118:void initAlarm(android.content.Context,java.lang.String) -> a
-    122:132:boolean initIndicators(android.content.Context) -> b
-    138:142:void createNewFile(java.io.File,java.lang.String) -> a
-com.ivy.kpa.strategy.DaemonStrategy21$1 -> com.ivy.kpa.a.a$1:
-    android.content.Context val$context -> a
-    com.ivy.kpa.strategy.DaemonStrategy21 this$0 -> b
-    47:47:void <init>(com.ivy.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
-    50:56:void run() -> run
-com.ivy.kpa.strategy.DaemonStrategy21$2 -> com.ivy.kpa.a.a$2:
-    android.content.Context val$context -> a
-    com.ivy.kpa.strategy.DaemonStrategy21 this$0 -> b
-    76:76:void <init>(com.ivy.kpa.strategy.DaemonStrategy21,android.content.Context) -> <init>
-    78:84:void run() -> run
-com.ivy.kpa.strategy.DaemonStrategy22 -> com.ivy.kpa.a.b:
-    android.os.IBinder mRemote -> a
-    android.os.Parcel mServiceData -> b
-    com.ivy.kpa.DaemonConfigurations mConfigs -> c
-    26:26:void <init>() -> <init>
-    39:39:boolean onInitialization(android.content.Context) -> a
-    44:64:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
-    68:89:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
-    94:102:void onDaemonDead() -> a
-    108:126:void initAmsBinder() -> b
-    131:163:void initServiceParcel(android.content.Context,java.lang.String) -> a
-    168:176:boolean startServiceByAmsBinder() -> c
-    184:194:boolean initIndicatorFiles(android.content.Context) -> b
-    199:203:void createNewFile(java.io.File,java.lang.String) -> a
-com.ivy.kpa.strategy.DaemonStrategy22$1 -> com.ivy.kpa.a.b$1:
-    android.content.Context val$context -> a
-    com.ivy.kpa.strategy.DaemonStrategy22 this$0 -> b
-    48:48:void <init>(com.ivy.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
-    50:56:void run() -> run
-com.ivy.kpa.strategy.DaemonStrategy22$2 -> com.ivy.kpa.a.b$2:
-    android.content.Context val$context -> a
-    com.ivy.kpa.strategy.DaemonStrategy22 this$0 -> b
-    72:72:void <init>(com.ivy.kpa.strategy.DaemonStrategy22,android.content.Context) -> <init>
-    74:80:void run() -> run
-com.ivy.kpa.strategy.DaemonStrategy23 -> com.ivy.kpa.a.c:
-    android.os.IBinder mRemote -> a
-    android.os.Parcel mBroadcastData -> b
-    com.ivy.kpa.DaemonConfigurations mConfigs -> c
-    27:27:void <init>() -> <init>
-    40:40:boolean onInitialization(android.content.Context) -> a
-    45:72:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
-    76:103:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
-    108:114:void onDaemonDead() -> a
-    120:138:void initAmsBinder() -> b
-    144:180:void initBroadcastParcel(android.content.Context,java.lang.String) -> a
-    186:194:boolean sendBroadcastByAmsBinder() -> c
-    200:210:boolean initIndicatorFiles(android.content.Context) -> b
-    215:219:void createNewFile(java.io.File,java.lang.String) -> a
-com.ivy.kpa.strategy.DaemonStrategy23$1 -> com.ivy.kpa.a.c$1:
-    android.content.Context val$context -> a
-    com.ivy.kpa.strategy.DaemonStrategy23 this$0 -> b
-    49:49:void <init>(com.ivy.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
-    51:57:void run() -> run
-com.ivy.kpa.strategy.DaemonStrategy23$2 -> com.ivy.kpa.a.c$2:
-    android.content.Context val$context -> a
-    com.ivy.kpa.strategy.DaemonStrategy23 this$0 -> b
-    80:80:void <init>(com.ivy.kpa.strategy.DaemonStrategy23,android.content.Context) -> <init>
-    82:88:void run() -> run
-com.ivy.kpa.strategy.DaemonStrategyUnder21 -> com.ivy.kpa.a.d:
-    java.lang.String BINARY_DEST_DIR_NAME -> a
-    java.lang.String BINARY_FILE_NAME -> b
-    android.app.AlarmManager mAlarmManager -> c
-    android.app.PendingIntent mPendingIntent -> d
-    28:30:void <init>() -> <init>
-    37:37:boolean onInitialization(android.content.Context) -> a
-    42:58:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
-    62:70:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
-    75:77:void onDaemonDead() -> a
-    81:92:void initAlarm(android.content.Context,java.lang.String) -> a
-    96:105:boolean installBinary(android.content.Context) -> b
-    110:118:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
-    123:126:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
-    129:142:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
-com.ivy.kpa.strategy.DaemonStrategyUnder21$1 -> com.ivy.kpa.a.d$1:
-    android.content.Context val$context -> a
-    com.ivy.kpa.DaemonConfigurations val$configs -> b
-    com.ivy.kpa.strategy.DaemonStrategyUnder21 this$0 -> c
-    43:43:void <init>(com.ivy.kpa.strategy.DaemonStrategyUnder21,android.content.Context,com.ivy.kpa.DaemonConfigurations) -> <init>
-    45:50:void run() -> run
-com.ivy.kpa.strategy.DaemonStrategyXiaomi -> com.ivy.kpa.a.e:
-    java.lang.String BINARY_DEST_DIR_NAME -> a
-    java.lang.String BINARY_FILE_NAME -> b
-    android.os.IBinder mRemote -> c
-    android.os.Parcel mServiceData -> d
-    com.ivy.kpa.DaemonConfigurations mConfigs -> e
-    30:32:void <init>() -> <init>
-    40:40:boolean onInitialization(android.content.Context) -> a
-    45:64:void onPersistentCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> a
-    69:77:void onDaemonAssistantCreate(android.content.Context,com.ivy.kpa.DaemonConfigurations) -> b
-    81:89:void onDaemonDead() -> a
-    94:112:void initAmsBinder() -> b
-    118:150:void initServiceParcel(android.content.Context,java.lang.String) -> a
-    154:162:boolean startServiceByAmsBinder() -> c
-    167:176:boolean installBinary(android.content.Context) -> b
-    181:189:boolean install(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
-    194:197:void copyAssets(android.content.Context,java.lang.String,java.io.File,java.lang.String) -> a
-    200:213:void copyFile(java.io.File,java.io.InputStream,java.lang.String) -> a
-com.ivy.kpa.strategy.DaemonStrategyXiaomi$1 -> com.ivy.kpa.a.e$1:
-    android.content.Context val$context -> a
-    com.ivy.kpa.DaemonConfigurations val$configs -> b
-    com.ivy.kpa.strategy.DaemonStrategyXiaomi this$0 -> c
-    47:47:void <init>(com.ivy.kpa.strategy.DaemonStrategyXiaomi,android.content.Context,com.ivy.kpa.DaemonConfigurations) -> <init>
-    49:54:void run() -> run
 com.jaredrummler.android.processes.AndroidProcesses -> com.jaredrummler.android.processes.a:
     boolean loggingEnabled -> a
     128:131:void log(java.lang.String,java.lang.Object[]) -> a
@@ -43620,7 +43671,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5759:14680:void <clinit>() -> <clinit>
+    5763:14684:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -44582,119 +44633,119 @@ com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.M
     com.supers.clean.junk.task.SimpleTask cacheTask -> y
     com.supers.clean.junk.task.ApkFileAndAppJunkTask fileTask -> z
     java.util.concurrent.ExecutorService mThreadPool -> A
-    49:55:void <init>() -> <init>
-    79:79:long getCacheSize() -> d
-    83:83:long getApkSize() -> e
-    87:87:long getUnloadSize() -> f
-    91:91:long getLogSize() -> g
-    95:95:long getDataSize() -> h
-    99:99:long getRamSize() -> i
-    103:103:java.util.ArrayList getListMng() -> j
-    107:107:java.util.ArrayList getAppRam() -> k
-    111:111:java.util.ArrayList getWhiteRam() -> l
-    115:115:java.util.ArrayList getAppJunk() -> m
-    119:119:java.util.ArrayList getAppCache() -> n
-    123:123:java.util.ArrayList getSystemCache() -> o
-    127:127:java.util.ArrayList getNotifiList() -> p
-    131:131:java.util.ArrayList getFilesOfUnintalledApk() -> q
-    135:135:java.util.ArrayList getApkFiles() -> r
-    139:161:void clearSystemCache() -> s
-    164:167:void removeAppManager(com.supers.clean.junk.entity.JunkInfo) -> a
-    170:173:void removeNotifi(com.supers.clean.junk.entity.NotifiInfo) -> a
-    176:184:void removeRam(com.supers.clean.junk.entity.JunkInfo) -> b
-    187:192:void removeRamStartSelf(com.supers.clean.junk.entity.JunkInfo) -> c
-    195:199:void clearRam() -> t
-    202:205:void clearNotifi() -> u
-    208:213:void removeAppCache(com.supers.clean.junk.entity.JunkInfo) -> d
-    216:221:void removeAppJunk(com.supers.clean.junk.entity.JunkInfo) -> e
-    224:229:void removeFilesOfUnintalledApk(com.supers.clean.junk.entity.JunkInfo) -> f
-    232:237:void removeApkFiles(com.supers.clean.junk.entity.JunkInfo) -> g
-    241:244:void attachBaseContext(android.content.Context) -> attachBaseContext
-    248:299:void onCreate() -> onCreate
-    303:328:void setMinHeapSize(long) -> a
-    331:331:java.lang.Runnable getScanIntervalRunnable() -> z
-    346:348:void onTerminate() -> onTerminate
-    351:367:void asyncInitData() -> A
-    370:379:void initLists() -> B
-    382:390:void resetLists() -> C
-    393:399:void resetSizes() -> D
-    402:430:com.supers.clean.junk.task.SimpleTask loadWhiteListAndAppManager() -> E
-    434:462:com.supers.clean.junk.task.SimpleTask loadAppRam() -> F
-    466:495:com.supers.clean.junk.task.SimpleTask loadAppCache() -> v
-    499:516:com.supers.clean.junk.task.ApkFileAndAppJunkTask loadApkFileAndAppJunk() -> w
-    521:550:com.supers.clean.junk.task.SimpleTask loadSystemCache() -> x
-    554:583:com.supers.clean.junk.task.SimpleTask loadFilesOfUninstallApk() -> y
-    49:49:void access$000(com.supers.clean.junk.activity.MyApplication) -> a
-    49:49:java.lang.Runnable access$100(com.supers.clean.junk.activity.MyApplication) -> b
-    49:49:android.os.Handler access$200(com.supers.clean.junk.activity.MyApplication) -> c
-    49:49:java.util.ArrayList access$302(com.supers.clean.junk.activity.MyApplication,java.util.ArrayList) -> a
-    49:49:long access$400(com.supers.clean.junk.activity.MyApplication) -> d
-    49:49:long access$402(com.supers.clean.junk.activity.MyApplication,long) -> a
-    49:49:java.util.ArrayList access$500(com.supers.clean.junk.activity.MyApplication) -> e
-    49:49:java.util.ArrayList access$600(com.supers.clean.junk.activity.MyApplication) -> f
-    49:49:long access$702(com.supers.clean.junk.activity.MyApplication,long) -> b
-    49:49:java.util.ArrayList access$802(com.supers.clean.junk.activity.MyApplication,java.util.ArrayList) -> b
-    49:49:long access$902(com.supers.clean.junk.activity.MyApplication,long) -> c
-    49:49:long access$1002(com.supers.clean.junk.activity.MyApplication,long) -> d
-    49:49:java.util.ArrayList access$1102(com.supers.clean.junk.activity.MyApplication,java.util.ArrayList) -> c
-    49:49:java.util.ArrayList access$1200(com.supers.clean.junk.activity.MyApplication) -> g
-    49:49:long access$1300(com.supers.clean.junk.activity.MyApplication) -> h
-    49:49:long access$1302(com.supers.clean.junk.activity.MyApplication,long) -> e
-    49:49:java.util.ArrayList access$1400(com.supers.clean.junk.activity.MyApplication) -> i
-    49:49:long access$1502(com.supers.clean.junk.activity.MyApplication,long) -> f
-    49:49:java.util.ArrayList access$1602(com.supers.clean.junk.activity.MyApplication,java.util.ArrayList) -> d
+    48:54:void <init>() -> <init>
+    78:78:long getCacheSize() -> d
+    82:82:long getApkSize() -> e
+    86:86:long getUnloadSize() -> f
+    90:90:long getLogSize() -> g
+    94:94:long getDataSize() -> h
+    98:98:long getRamSize() -> i
+    102:102:java.util.ArrayList getListMng() -> j
+    106:106:java.util.ArrayList getAppRam() -> k
+    110:110:java.util.ArrayList getWhiteRam() -> l
+    114:114:java.util.ArrayList getAppJunk() -> m
+    118:118:java.util.ArrayList getAppCache() -> n
+    122:122:java.util.ArrayList getSystemCache() -> o
+    126:126:java.util.ArrayList getNotifiList() -> p
+    130:130:java.util.ArrayList getFilesOfUnintalledApk() -> q
+    134:134:java.util.ArrayList getApkFiles() -> r
+    138:160:void clearSystemCache() -> s
+    163:166:void removeAppManager(com.supers.clean.junk.entity.JunkInfo) -> a
+    169:172:void removeNotifi(com.supers.clean.junk.entity.NotifiInfo) -> a
+    175:183:void removeRam(com.supers.clean.junk.entity.JunkInfo) -> b
+    186:191:void removeRamStartSelf(com.supers.clean.junk.entity.JunkInfo) -> c
+    194:198:void clearRam() -> t
+    201:204:void clearNotifi() -> u
+    207:212:void removeAppCache(com.supers.clean.junk.entity.JunkInfo) -> d
+    215:220:void removeAppJunk(com.supers.clean.junk.entity.JunkInfo) -> e
+    223:228:void removeFilesOfUnintalledApk(com.supers.clean.junk.entity.JunkInfo) -> f
+    231:236:void removeApkFiles(com.supers.clean.junk.entity.JunkInfo) -> g
+    240:243:void attachBaseContext(android.content.Context) -> attachBaseContext
+    247:298:void onCreate() -> onCreate
+    302:327:void setMinHeapSize(long) -> a
+    330:330:java.lang.Runnable getScanIntervalRunnable() -> z
+    345:347:void onTerminate() -> onTerminate
+    350:366:void asyncInitData() -> A
+    369:378:void initLists() -> B
+    381:389:void resetLists() -> C
+    392:398:void resetSizes() -> D
+    401:429:com.supers.clean.junk.task.SimpleTask loadWhiteListAndAppManager() -> E
+    433:461:com.supers.clean.junk.task.SimpleTask loadAppRam() -> F
+    465:494:com.supers.clean.junk.task.SimpleTask loadAppCache() -> v
+    498:515:com.supers.clean.junk.task.ApkFileAndAppJunkTask loadApkFileAndAppJunk() -> w
+    520:549:com.supers.clean.junk.task.SimpleTask loadSystemCache() -> x
+    553:582:com.supers.clean.junk.task.SimpleTask loadFilesOfUninstallApk() -> y
+    48:48:void access$000(com.supers.clean.junk.activity.MyApplication) -> a
+    48:48:java.lang.Runnable access$100(com.supers.clean.junk.activity.MyApplication) -> b
+    48:48:android.os.Handler access$200(com.supers.clean.junk.activity.MyApplication) -> c
+    48:48:java.util.ArrayList access$302(com.supers.clean.junk.activity.MyApplication,java.util.ArrayList) -> a
+    48:48:long access$400(com.supers.clean.junk.activity.MyApplication) -> d
+    48:48:long access$402(com.supers.clean.junk.activity.MyApplication,long) -> a
+    48:48:java.util.ArrayList access$500(com.supers.clean.junk.activity.MyApplication) -> e
+    48:48:java.util.ArrayList access$600(com.supers.clean.junk.activity.MyApplication) -> f
+    48:48:long access$702(com.supers.clean.junk.activity.MyApplication,long) -> b
+    48:48:java.util.ArrayList access$802(com.supers.clean.junk.activity.MyApplication,java.util.ArrayList) -> b
+    48:48:long access$902(com.supers.clean.junk.activity.MyApplication,long) -> c
+    48:48:long access$1002(com.supers.clean.junk.activity.MyApplication,long) -> d
+    48:48:java.util.ArrayList access$1102(com.supers.clean.junk.activity.MyApplication,java.util.ArrayList) -> c
+    48:48:java.util.ArrayList access$1200(com.supers.clean.junk.activity.MyApplication) -> g
+    48:48:long access$1300(com.supers.clean.junk.activity.MyApplication) -> h
+    48:48:long access$1302(com.supers.clean.junk.activity.MyApplication,long) -> e
+    48:48:java.util.ArrayList access$1400(com.supers.clean.junk.activity.MyApplication) -> i
+    48:48:long access$1502(com.supers.clean.junk.activity.MyApplication,long) -> f
+    48:48:java.util.ArrayList access$1602(com.supers.clean.junk.activity.MyApplication,java.util.ArrayList) -> d
 com.supers.clean.junk.activity.MyApplication$1 -> com.supers.clean.junk.activity.MyApplication$1:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    145:145:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    149:150:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
+    144:144:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    148:149:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
 com.supers.clean.junk.activity.MyApplication$2 -> com.supers.clean.junk.activity.MyApplication$2:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    331:331:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    334:339:void run() -> run
+    330:330:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    333:338:void run() -> run
 com.supers.clean.junk.activity.MyApplication$3 -> com.supers.clean.junk.activity.MyApplication$3:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    403:403:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    407:407:void startLoad() -> a
-    412:412:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
-    417:417:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
-    422:422:void cancelLoading() -> b
-    426:427:void finishLoading(long,java.util.ArrayList) -> a
+    402:402:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    406:406:void startLoad() -> a
+    411:411:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
+    416:416:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
+    421:421:void cancelLoading() -> b
+    425:426:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$4 -> com.supers.clean.junk.activity.MyApplication$4:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    435:435:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    439:439:void startLoad() -> a
-    443:445:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
-    449:450:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
-    455:455:void cancelLoading() -> b
-    459:459:void finishLoading(long,java.util.ArrayList) -> a
+    434:434:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    438:438:void startLoad() -> a
+    442:444:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
+    448:449:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
+    454:454:void cancelLoading() -> b
+    458:458:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$5 -> com.supers.clean.junk.activity.MyApplication$5:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    467:467:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    471:471:void startLoad() -> a
-    476:476:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
-    481:481:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
-    486:486:void cancelLoading() -> b
-    490:492:void finishLoading(long,java.util.ArrayList) -> a
+    466:466:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    470:470:void startLoad() -> a
+    475:475:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
+    480:480:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
+    485:485:void cancelLoading() -> b
+    489:491:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$6 -> com.supers.clean.junk.activity.MyApplication$6:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    501:501:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    504:513:void loadFinish(long,long,java.util.ArrayList,java.util.ArrayList) -> a
+    500:500:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    503:512:void loadFinish(long,long,java.util.ArrayList,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$7 -> com.supers.clean.junk.activity.MyApplication$7:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    522:522:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    526:526:void startLoad() -> a
-    530:532:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
-    537:537:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
-    542:542:void cancelLoading() -> b
-    546:547:void finishLoading(long,java.util.ArrayList) -> a
+    521:521:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    525:525:void startLoad() -> a
+    529:531:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
+    536:536:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
+    541:541:void cancelLoading() -> b
+    545:546:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.MyApplication$8 -> com.supers.clean.junk.activity.MyApplication$8:
     com.supers.clean.junk.activity.MyApplication this$0 -> a
-    555:555:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
-    559:559:void startLoad() -> a
-    564:564:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
-    569:569:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
-    574:574:void cancelLoading() -> b
-    578:580:void finishLoading(long,java.util.ArrayList) -> a
+    554:554:void <init>(com.supers.clean.junk.activity.MyApplication) -> <init>
+    558:558:void startLoad() -> a
+    563:563:void loading(com.supers.clean.junk.entity.JunkInfo,long) -> a
+    568:568:void loadingW(com.supers.clean.junk.entity.JunkInfo) -> a
+    573:573:void cancelLoading() -> b
+    577:579:void finishLoading(long,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.NotifiActivity -> com.supers.clean.junk.activity.NotifiActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -45557,7 +45608,6 @@ com.supers.clean.junk.customeview.DeleteListView -> com.supers.clean.junk.custom
     250:255:void addVelocityTracker(android.view.MotionEvent) -> a
     261:265:void recycleVelocityTracker() -> d
     273:275:int getScrollVelocity() -> getScrollVelocity
-    14:14:void setAdapter(android.widget.Adapter) -> setAdapter
 com.supers.clean.junk.customeview.DeleteListView$RemoveDirection -> com.supers.clean.junk.customeview.DeleteListView$RemoveDirection:
     com.supers.clean.junk.customeview.DeleteListView$RemoveDirection RIGHT -> RIGHT
     com.supers.clean.junk.customeview.DeleteListView$RemoveDirection LEFT -> LEFT
@@ -45818,7 +45868,6 @@ com.supers.clean.junk.customeview.ListViewForScrollView -> com.supers.clean.junk
     17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     22:24:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     31:34:void onMeasure(int,int) -> onMeasure
-    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.supers.clean.junk.customeview.MainFrameLayout -> com.supers.clean.junk.customeview.MainFrameLayout:
     13:14:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     18:18:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
