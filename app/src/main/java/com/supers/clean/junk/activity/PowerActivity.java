@@ -128,7 +128,7 @@ public class PowerActivity extends BaseActivity {
         containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
         containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
         containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
-        containerView_junk_button_clean.setBackgroundResource(R.drawable.shape_radio);
+        containerView_junk_button_clean.setBackgroundResource(R.drawable.shape_button_ffffff);
         containerView_junk_button_clean.setTextColor(ContextCompat.getColor(this, R.color.main_circle_backg));
         containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
@@ -153,7 +153,7 @@ public class PowerActivity extends BaseActivity {
                     return;
                 }
             }
-            junk_button_clean.setBackgroundResource(R.drawable.shape_radio);
+            junk_button_clean.setBackgroundResource(R.drawable.shape_button_ffffff);
             junk_button_clean.setTextColor(ContextCompat.getColor(PowerActivity.this, R.color.main_circle_backg));
             power_size.setText(getString(R.string.power_1, 0 + "") + " ");
             homeAdapter.notifyDataSetChanged();

@@ -246,11 +246,9 @@ public class Util {
     }
 
     // does not include sd card folder
-    private static String[] SysFileDirs = new String[] {
-        "miren_browser/imagecaches"
+    private static String[] SysFileDirs = new String[]{
+            "miren_browser/imagecaches"
     };
-
-
 
 
     public static boolean setText(View view, int id, String text) {
@@ -356,10 +354,31 @@ public class Util {
             add("application/msword");
             add("application/vnd.ms-excel");
             add("application/vnd.ms-excel");
+            add("application/vnd.ms-powerpoint");
         }
     };
+    public static HashSet<String> sWordMimeTypesSet = new HashSet<String>() {
+        {
+            add("application/msword");
+            add("application/ppt");
+            add("application/xlsx");
+            add("application/vnd.ms-excel");
+            add("application/vnd.ms-powerpoint");
+            add("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+            add("application/vnd.openxmlformats-officedocument.presentationml.presentation");
+            add("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        }
+    };
+    public static String sTxtMimeTypesSet = "text/plain";
+    public static String sPdfMimeTypesSet = "application/pdf";
 
-    public static String sZipFileMimeType = "application/zip";
+    public static HashSet<String> sZipFileMimeType = new HashSet<String>() {
+        {
+            add("application/zip");
+            add("application/rar");
+        }
+
+    };
 
     public static int CATEGORY_TAB_INDEX = 0;
     public static int SDCARD_TAB_INDEX = 1;

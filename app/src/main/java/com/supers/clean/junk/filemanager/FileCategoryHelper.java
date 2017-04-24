@@ -45,7 +45,7 @@ public class FileCategoryHelper {
     private static final String LOG_TAG = "FileCategoryHelper";
 
     public enum FileCategory {
-        All, Music, Video, Picture, Theme, Doc, Zip, Apk, Custom, Other, Favorite
+        All, Music, Video, Picture, Doc, Zip, Apk, Other, Word, Txt, Pdf
     }
 
     private static String APK_EXT = "apk";
@@ -72,7 +72,7 @@ public class FileCategoryHelper {
     }*/
 
     public FileCategory[] sCategories = new FileCategory[]{
-            FileCategory.Music, FileCategory.Video, FileCategory.Picture, FileCategory.Theme,
+            FileCategory.Music, FileCategory.Video, FileCategory.Picture,
             FileCategory.Doc, FileCategory.Zip, FileCategory.Apk, FileCategory.Other
     };
 
@@ -81,7 +81,7 @@ public class FileCategoryHelper {
     private Context mContext;
 
     public FileCategoryHelper(Context context) {
-        mContext = context;
+        mContext = context.getApplicationContext();
 
         mCategory = FileCategory.All;
     }
@@ -98,14 +98,6 @@ public class FileCategoryHelper {
         return categoryNames.get(mCategory);
     }
 
-    public void setCustomCategory(String[] exts) {
-        mCategory = FileCategory.Custom;
-        if (filters.containsKey(FileCategory.Custom)) {
-            filters.remove(FileCategory.Custom);
-        }
-
-        filters.put(FileCategory.Custom, new FilenameExtFilter(exts));
-    }
 
     public FilenameFilter getFilter() {
         return filters.get(mCategory);
@@ -153,17 +145,42 @@ public class FileCategoryHelper {
         return selection.substring(0, selection.lastIndexOf(")") + 1);
     }
 
+    private static String buildWordSelection() {
+        StringBuilder selection = new StringBuilder();
+        Iterator<String> iter = Util.sWordMimeTypesSet.iterator();
+        while (iter.hasNext()) {
+            selection.append("(" + FileColumns.MIME_TYPE + "=='" + iter.next() + "') OR ");
+        }
+        return selection.substring(0, selection.lastIndexOf(")") + 1);
+    }
+
+    private static String buildZipSelection() {
+        StringBuilder selection = new StringBuilder();
+        Iterator<String> iter = Util.sZipFileMimeType.iterator();
+        while (iter.hasNext()) {
+            selection.append("(" + FileColumns.MIME_TYPE + "=='" + iter.next() + "') OR ");
+        }
+        return selection.substring(0, selection.lastIndexOf(")") + 1);
+    }
+
     private static String buildSelectionByCategory(FileCategory cat) {
         String selection = null;
         switch (cat) {
-            case Theme:
-                selection = FileColumns.DATA + " LIKE '%.mtz'";
-                break;
             case Doc:
                 selection = buildDocSelection();
                 break;
+            case Word:
+                selection = buildWordSelection();
+                break;
+            case Txt:
+                selection = "(" + FileColumns.MIME_TYPE + " == '" + Util.sTxtMimeTypesSet + "')";
+                break;
+            case Pdf:
+                selection = "(" + FileColumns.MIME_TYPE + " == '" + Util.sPdfMimeTypesSet + "')";
+                break;
             case Zip:
-                selection = "(" + FileColumns.MIME_TYPE + " == '" + Util.sZipFileMimeType + "')";
+//                selection = "(" + FileColumns.MIME_TYPE + " == '" + Util.sZipFileMimeType + "')";
+                selection = buildZipSelection();
                 break;
             case Apk:
                 selection = FileColumns.DATA + " LIKE '%.apk'";
@@ -178,10 +195,12 @@ public class FileCategoryHelper {
         Uri uri;
         String volumeName = "external";
         switch (cat) {
-            case Theme:
             case Doc:
             case Zip:
             case Apk:
+            case Word:
+            case Txt:
+            case Pdf:
                 uri = Files.getContentUri(volumeName);
                 break;
             case Music:
@@ -250,11 +269,11 @@ public class FileCategoryHelper {
         uri = Video.Media.getContentUri(volumeName);
         refreshMediaCategory(FileCategory.Video, uri);
 
-        uri = Images.Media.getContentUri(volumeName);
-        refreshMediaCategory(FileCategory.Picture, uri);
+        //uri = Images.Media.getContentUri(volumeName);
+        // refreshMediaCategory(FileCategory.Picture, uri);
 
-        uri = Files.getContentUri(volumeName);
-        refreshMediaCategory(FileCategory.Theme, uri);
+        uri = Files.getContentUri(volumeName);//
+        // refreshMediaCategory(FileCategory.Theme, uri);
         refreshMediaCategory(FileCategory.Doc, uri);
         refreshMediaCategory(FileCategory.Zip, uri);
         refreshMediaCategory(FileCategory.Apk, uri);
@@ -297,9 +316,6 @@ public class FileCategoryHelper {
         String ext = path.substring(dotPosition + 1);
         if (ext.equalsIgnoreCase(APK_EXT)) {
             return FileCategory.Apk;
-        }
-        if (ext.equalsIgnoreCase(THEME_EXT)) {
-            return FileCategory.Theme;
         }
 
         if (matchExts(ext, ZIP_EXTS)) {

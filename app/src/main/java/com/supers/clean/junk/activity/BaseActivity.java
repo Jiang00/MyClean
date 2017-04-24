@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -25,7 +26,7 @@ import com.supers.clean.junk.util.PreData;
  * Created by on 2017/2/28.
  */
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
     private Toast toast;
     protected String tuiguang = "com.eosmobi.applock";
     protected String extraData;
@@ -60,6 +61,7 @@ public class BaseActivity extends Activity {
                 PreData.putDB(this, Constant.FULL_FLOAT, data.full_float);
                 PreData.putDB(this, Constant.FULL_COOL, data.full_cool);
                 PreData.putDB(this, Constant.FULL_SHORTCUT, data.full_shortcut);
+                PreData.putDB(this, Constant.FULL_FILE, data.full_file);
             } catch (Exception e) {
 
             }
@@ -112,7 +114,8 @@ public class BaseActivity extends Activity {
         intent.putExtras(bundle);
         startActivityForResult(intent, requestCode);
     }
-    public void jumpToActivity(Class<?> classs,  int requestCode) {
+
+    public void jumpToActivity(Class<?> classs, int requestCode) {
         Intent intent = new Intent(this, classs);
         startActivityForResult(intent, requestCode);
     }

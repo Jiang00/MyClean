@@ -83,8 +83,9 @@ public class LoadingActivity extends BaseActivity {
         public void run() {
             DisplayMetrics metrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+
             int a = CommonUtil.dp2px(360);
-            Log.e("jfy", "px=" + a + "");
+            Log.e("jfy", "px=" + a + "" + "=" + metrics.density + "=" + metrics.widthPixels);
             jumpTo(MainActivity.class);
             finish();
         }

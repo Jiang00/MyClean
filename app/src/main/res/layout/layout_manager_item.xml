@@ -9,12 +9,12 @@
     <RelativeLayout
         android:id="@+id/junk_item_rl"
         android:layout_width="72dp"
-        android:layout_height="72dp">
+        android:layout_height="56dp">
 
         <ImageView
             android:id="@+id/junk_item_icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
             android:layout_centerInParent="true"
             android:src="@mipmap/icon" />
     </RelativeLayout>
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="app标题"
             android:textColor="@color/black_87"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/item_time"
@@ -41,7 +41,7 @@
             android:layout_marginTop="5dp"
             android:text="app标题"
             android:textColor="@color/black_54"
-            android:textSize="15sp" />
+            android:textSize="11sp" />
     </LinearLayout>
 
     <ImageView
@@ -51,7 +51,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="7dp"
+        android:layout_marginRight="16dp"
         android:src="@mipmap/ram_passed" />
 
     <TextView
@@ -62,5 +62,5 @@
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
         android:textColor="@color/black_54"
-        android:textSize="14sp" />
+        android:textSize="11sp" />
 </RelativeLayout>

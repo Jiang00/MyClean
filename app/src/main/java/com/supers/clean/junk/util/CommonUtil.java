@@ -18,6 +18,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.provider.Settings;
 import android.support.annotation.LayoutRes;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ import android.view.ViewGroup;
 
 import com.android.client.AndroidSdk;
 import com.eos.manager.AccessibilityService;
+import com.supers.clean.junk.R;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -39,7 +41,7 @@ public class CommonUtil {
 
     public static void track(String category, String action, String label, int value) {
         if (com.supers.clean.junk.BuildConfig.TRACK) {
-            CommonUtil.track(category, action, label, value);
+            AndroidSdk.track(category, action, label, value);
         }
     }
 
@@ -520,7 +522,6 @@ public class CommonUtil {
         } catch (Exception e) {
 
         }
-
         if (info != null) {
             ApplicationInfo appInfo = info.applicationInfo;
             appInfo.sourceDir = apkPath;
@@ -531,7 +532,7 @@ public class CommonUtil {
                 Log.e("ApkIconLoader", e.toString());
             }
         }
-        return null;
+        return ContextCompat.getDrawable(context, R.mipmap.file_apk_icon);
     }
 
     //是否安装该应用

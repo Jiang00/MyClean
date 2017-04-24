@@ -76,5 +76,7 @@ public class Constant {
 
     public static final String FULL_SHORTCUT = "FULL_SHORTCUT";
 
+    public static final String FULL_FILE = "FULL_FILE";
+
 
 }

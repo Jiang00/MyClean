@@ -81,17 +81,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/junk_button_backg">
+        android:layout_height="@dimen/d72"
+        >
 
         <Button
             android:id="@+id/junk_button_clean"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/d168"
+            android:layout_height="@dimen/d40"
             android:layout_centerInParent="true"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="@mipmap/junk_button"
+            android:background="@drawable/shape_button"
             android:text="@string/junk_button"
             android:textColor="#ffffff"
             android:textSize="20sp" />

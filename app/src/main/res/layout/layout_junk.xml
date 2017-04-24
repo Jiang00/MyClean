@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -526,18 +527,20 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/junk_button_backg">
+        android:layout_height="@dimen/d72"
 
-        <Button
-            android:id="@+id/junk_button_clean"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@mipmap/junk_button"
-            android:text="@string/junk_button"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
+        >
+
+
+            <Button
+                android:id="@+id/junk_button_clean"
+                android:layout_width="@dimen/d168"
+                android:layout_height="@dimen/d40"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_button"
+                android:text="@string/junk_button"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/s15" />
     </RelativeLayout>
 
 </LinearLayout>

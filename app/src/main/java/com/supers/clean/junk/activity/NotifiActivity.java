@@ -1,5 +1,6 @@
 package com.supers.clean.junk.activity;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -32,7 +34,7 @@ import static com.supers.clean.junk.service.NotificationMonitor.NOTIFI_ACTION;
  * Created by Ivy on 2017/4/13.
  */
 
-public class NotifiActivity extends BaseActivity {
+public class NotifiActivity extends Activity {
     FrameLayout title_left;
     TextView title_name;
     ImageView title_right;
@@ -46,9 +48,20 @@ public class NotifiActivity extends BaseActivity {
     private ArrayList<NotifiInfo> list;
     private NotifiReceiver receiver;
 
-    @Override
+    public int getStatusHeight(Activity activity) {
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
     protected void findId() {
-        super.findId();
+        View view_title_bar = findViewById(R.id.view_title_bar);
+        ViewGroup.LayoutParams linearParams = view_title_bar.getLayoutParams();
+        linearParams.height = getStatusHeight(this);
+        view_title_bar.setLayoutParams(linearParams);
         title_left = (FrameLayout) findViewById(R.id.title_left);
         list_si = (DeleteListView) findViewById(R.id.list_si);
         title_name = (TextView) findViewById(R.id.title_name);
@@ -127,6 +140,17 @@ public class NotifiActivity extends BaseActivity {
         }
     };
 
+    public void jumpToActivity(Class<?> classs, Bundle bundle, int requestCode) {
+        Intent intent = new Intent(this, classs);
+        intent.putExtras(bundle);
+        startActivityForResult(intent, requestCode);
+    }
+
+    public void jumpToActivity(Class<?> classs, int requestCode) {
+        Intent intent = new Intent(this, classs);
+        startActivityForResult(intent, requestCode);
+    }
+
     public class NotifiReceiver extends BroadcastReceiver {
 
         @Override
@@ -152,7 +176,7 @@ public class NotifiActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
-            jumpTo(MainActivity.class);
+            startActivity(new Intent(this, MainActivity.class));
         }
         finish();
     }
