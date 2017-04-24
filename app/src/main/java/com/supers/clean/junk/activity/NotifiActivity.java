@@ -75,6 +75,7 @@ public class NotifiActivity extends Activity {
         notifi_button_rl = (RelativeLayout) findViewById(R.id.notifi_button_rl);
         notifi_button_clean = (Button) findViewById(R.id.notifi_button_clean);
     }
+
     private void setTranslucentStatus(boolean on) {
         Window win = getWindow();
         WindowManager.LayoutParams winParams = win.getAttributes();
@@ -86,6 +87,7 @@ public class NotifiActivity extends Activity {
         }
         win.setAttributes(winParams);
     }
+
     public void setHideVirtualKey(Window window) {
         //保持布局状态
         int uiOptions =
@@ -102,6 +104,7 @@ public class NotifiActivity extends Activity {
         }
         window.getDecorView().setSystemUiVisibility(uiOptions);
     }
+
     private void full() {
         setHideVirtualKey(getWindow());
         getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
@@ -111,6 +114,7 @@ public class NotifiActivity extends Activity {
             }
         });
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
