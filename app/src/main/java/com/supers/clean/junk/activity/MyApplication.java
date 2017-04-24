@@ -12,11 +12,11 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.eos.kpa.DaemonClient;
 import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
-import com.eos.kpa.DaemonClient;
 import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
