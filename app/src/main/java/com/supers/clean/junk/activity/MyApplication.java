@@ -16,7 +16,7 @@ import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
-import com.ivy.kpa.DaemonClient;
+import com.eos.kpa.DaemonClient;
 import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
@@ -39,7 +39,6 @@ import com.supers.clean.junk.util.TopActivityPkg;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
