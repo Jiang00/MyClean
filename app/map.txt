@@ -35389,14 +35389,26 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$f:
     int View_theme -> View_theme
     1486:2067:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
-    12:12:void <init>() -> <init>
-    15:16:void showFullAD() -> a
-    19:32:android.view.View showCustomNativeAD(java.lang.String,int,com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked) -> a
+    15:15:void <init>() -> <init>
+    18:19:void showFullAD() -> a
+    22:62:android.view.View showCustomNativeAD(java.lang.String,int,com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked) -> a
 com.eos.module.charge.saver.Util.ADRequest$1 -> com.eos.module.charge.saver.Util.a$1:
     com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked val$adClick -> a
     com.eos.module.charge.saver.Util.ADRequest this$0 -> b
-    23:23:void <init>(com.eos.module.charge.saver.Util.ADRequest,com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked) -> <init>
-    26:29:void onNativeAdClicked(com.android.client.ClientNativeAd) -> onNativeAdClicked
+    26:26:void <init>(com.eos.module.charge.saver.Util.ADRequest,com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked) -> <init>
+    30:33:void onNativeAdClicked(com.android.client.ClientNativeAd) -> onNativeAdClicked
+com.eos.module.charge.saver.Util.ADRequest$2 -> com.eos.module.charge.saver.Util.a$2:
+    com.eos.module.charge.saver.Util.ADRequest this$0 -> a
+    38:38:void <init>(com.eos.module.charge.saver.Util.ADRequest) -> <init>
+    42:42:void onClick(android.view.View) -> onClick
+com.eos.module.charge.saver.Util.ADRequest$3 -> com.eos.module.charge.saver.Util.a$3:
+    com.eos.module.charge.saver.Util.ADRequest this$0 -> a
+    46:46:void <init>(com.eos.module.charge.saver.Util.ADRequest) -> <init>
+    50:50:void onClick(android.view.View) -> onClick
+com.eos.module.charge.saver.Util.ADRequest$4 -> com.eos.module.charge.saver.Util.a$4:
+    com.eos.module.charge.saver.Util.ADRequest this$0 -> a
+    54:54:void <init>(com.eos.module.charge.saver.Util.ADRequest) -> <init>
+    58:58:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked -> com.eos.module.charge.saver.Util.a$a:
     void onNativeADClicked(com.android.client.ClientNativeAd) -> a
 com.eos.module.charge.saver.Util.MyWidgetContainer -> com.eos.module.charge.saver.Util.MyWidgetContainer:
@@ -44756,44 +44768,44 @@ com.supers.clean.junk.activity.NotifiActivity -> com.supers.clean.junk.activity.
     java.util.ArrayList list -> k
     com.supers.clean.junk.activity.NotifiActivity$NotifiReceiver receiver -> l
     android.view.View$OnClickListener nOnClickListener -> h
-    42:174:void <init>() -> <init>
+    42:178:void <init>() -> <init>
     57:62:int getStatusHeight(android.app.Activity) -> a
     66:77:void findId() -> a
-    79:88:void setTranslucentStatus(boolean) -> a
-    91:104:void setHideVirtualKey(android.view.Window) -> a
-    106:113:void full() -> b
-    116:148:void onCreate(android.os.Bundle) -> onCreate
-    151:172:void setListener() -> c
-    197:199:void jumpTo(java.lang.Class) -> a
-    202:205:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    208:210:void jumpToActivity(java.lang.Class,int) -> a
-    237:241:void onBackPressed() -> onBackPressed
-    245:247:void onDestroy() -> onDestroy
-    251:256:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    80:89:void setTranslucentStatus(boolean) -> a
+    93:106:void setHideVirtualKey(android.view.Window) -> a
+    109:116:void full() -> b
+    120:152:void onCreate(android.os.Bundle) -> onCreate
+    155:176:void setListener() -> c
+    201:203:void jumpTo(java.lang.Class) -> a
+    206:209:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
+    212:214:void jumpToActivity(java.lang.Class,int) -> a
+    241:245:void onBackPressed() -> onBackPressed
+    249:251:void onDestroy() -> onDestroy
+    255:260:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     42:42:com.supers.clean.junk.adapter.NotifiAdapter access$000(com.supers.clean.junk.activity.NotifiActivity) -> a
     42:42:com.supers.clean.junk.activity.MyApplication access$100(com.supers.clean.junk.activity.NotifiActivity) -> b
     42:42:java.util.ArrayList access$202(com.supers.clean.junk.activity.NotifiActivity,java.util.ArrayList) -> a
     42:42:java.util.ArrayList access$200(com.supers.clean.junk.activity.NotifiActivity) -> c
 com.supers.clean.junk.activity.NotifiActivity$1 -> com.supers.clean.junk.activity.NotifiActivity$1:
     com.supers.clean.junk.activity.NotifiActivity this$0 -> a
-    107:107:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
-    110:111:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    110:110:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
+    113:114:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.supers.clean.junk.activity.NotifiActivity$2 -> com.supers.clean.junk.activity.NotifiActivity$2:
     com.supers.clean.junk.activity.NotifiActivity this$0 -> a
-    154:154:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
-    157:161:void removeItem(com.supers.clean.junk.customeview.DeleteListView$RemoveDirection,int) -> a
+    158:158:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
+    161:165:void removeItem(com.supers.clean.junk.customeview.DeleteListView$RemoveDirection,int) -> a
 com.supers.clean.junk.activity.NotifiActivity$3 -> com.supers.clean.junk.activity.NotifiActivity$3:
     com.supers.clean.junk.activity.NotifiActivity this$0 -> a
-    163:163:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
-    166:170:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    167:167:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
+    170:174:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.supers.clean.junk.activity.NotifiActivity$4 -> com.supers.clean.junk.activity.NotifiActivity$4:
     com.supers.clean.junk.activity.NotifiActivity this$0 -> a
-    174:174:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
-    177:192:void onClick(android.view.View) -> onClick
+    178:178:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
+    181:196:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.NotifiActivity$NotifiReceiver -> com.supers.clean.junk.activity.NotifiActivity$NotifiReceiver:
     com.supers.clean.junk.activity.NotifiActivity this$0 -> a
-    213:213:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
-    217:231:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    217:217:void <init>(com.supers.clean.junk.activity.NotifiActivity) -> <init>
+    221:235:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.supers.clean.junk.activity.NotifiInfoActivity -> com.supers.clean.junk.activity.NotifiInfoActivity:
     com.sample.lottie.LottieAnimationView notifi_info_lot -> a
     android.widget.TextView notifi_info_text -> b
