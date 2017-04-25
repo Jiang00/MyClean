@@ -125,9 +125,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                             lot_manager_size = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
                             lot_manager_size.setScaleType(ImageView.ScaleType.CENTER_CROP);
                             fl_lot_manager_size.setVisibility(View.VISIBLE);
-                            if (onPause) {
-                                lot_manager_size.pauseAnimation();
-                            }
+                            lot_manager_size.pauseAnimation();
                             fl_lot_manager_size.addView(view, 0);
                         } else {
                             fl_lot_manager_size.setVisibility(View.GONE);
@@ -154,9 +152,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                             lot_manager_time = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
                             lot_manager_time.setScaleType(ImageView.ScaleType.CENTER_CROP);
                             fl_lot_manager_time.setVisibility(View.VISIBLE);
-                            if (onPause) {
-                                lot_manager_time.pauseAnimation();
-                            }
+                            lot_manager_time.pauseAnimation();
                             fl_lot_manager_time.addView(view, 0);
                         } else {
                             fl_lot_manager_time.setVisibility(View.GONE);
@@ -183,9 +179,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                             lot_manager_pinlv = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
                             lot_manager_pinlv.setScaleType(ImageView.ScaleType.CENTER_CROP);
                             fl_lot_manager_pinlv.setVisibility(View.VISIBLE);
-                            if (onPause) {
-                                lot_manager_pinlv.pauseAnimation();
-                            }
+                            lot_manager_pinlv.pauseAnimation();
                             fl_lot_manager_pinlv.addView(view, 0);
                         } else {
                             fl_lot_manager_pinlv.setVisibility(View.GONE);
@@ -237,38 +231,43 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         doc_view_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
             public void onPageSelected(int position) {
                 if (position == 0) {
-                    adapter_size.notifyDataSetChanged();
+//                    adapter_size.notifyDataSetChanged();
                     if (lot_manager_time != null) {
                         lot_manager_time.pauseAnimation();
                     }
                     if (lot_manager_pinlv != null) {
                         lot_manager_pinlv.pauseAnimation();
                     }
-                    lot_manager_size.playAnimation();
+                    if (lot_manager_size != null) {
+                        lot_manager_size.playAnimation();
+                    }
                 } else if (position == 1) {
-                    adapter_time.notifyDataSetChanged();
+//                    adapter_time.notifyDataSetChanged();
                     if (lot_manager_size != null) {
                         lot_manager_size.pauseAnimation();
                     }
                     if (lot_manager_pinlv != null) {
                         lot_manager_pinlv.pauseAnimation();
                     }
-                    lot_manager_time.playAnimation();
+                    if (lot_manager_time != null) {
+                        lot_manager_time.playAnimation();
+                    }
                 } else {
-                    adapter_pinlv.notifyDataSetChanged();
+//                    adapter_pinlv.notifyDataSetChanged();
                     if (lot_manager_size != null) {
                         lot_manager_size.pauseAnimation();
                     }
                     if (lot_manager_time != null) {
                         lot_manager_time.pauseAnimation();
                     }
-                    lot_manager_pinlv.playAnimation();
+                    if (lot_manager_pinlv != null) {
+                        lot_manager_pinlv.playAnimation();
+                    }
 
                 }
             }
@@ -375,6 +374,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
             manager_clean.setVisibility(View.VISIBLE);
         }
+        adapter_size.notifyDataSetChanged();
+        adapter_time.notifyDataSetChanged();
+        adapter_pinlv.notifyDataSetChanged();
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
