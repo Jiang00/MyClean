@@ -25,7 +25,7 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     private long allSize;
     private long cleanSize = 0;
     private ArrayList<JunkInfo> clearList;
-    private ArrayList<JunkInfo> list;
+    private ArrayList<JunkInfo> list_size, list_time, list_pinlv;
     private int type;
 
     public ManagerPresenter(AppManagerView iView, Context context) {
@@ -36,18 +36,20 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     @Override
     public void init() {
         super.init();
-        iView.loadFullAd();
+
         allSize = cleanApplication.getRamSize();
-        list = cleanApplication.getListMng();
-        Collections.sort(list, new Sizesort());
-        for (JunkInfo info : list) {
-            info.isChecked = false;
-//            if (info.isChecked) {
-//                cleanSize += info.size;
-//            }
-        }
+        list_size = new ArrayList<>();
+        list_time = new ArrayList<>();
+        list_pinlv = new ArrayList<>();
+        list_size.addAll(cleanApplication.getListMng());
+        list_time.addAll(cleanApplication.getListMng());
+        list_pinlv.addAll(cleanApplication.getListMng());
+        Collections.sort(list_size, new Sizesort());
+        Collections.sort(list_time, new Timesort());
+        Collections.sort(list_pinlv, new LastRunsort());
         iView.initData(cleanSize);
         iView.onClick();
+        iView.loadFullAd();
     }
 
     public void addCleandata(boolean isAdd, long size) {
@@ -61,34 +63,9 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     }
 
     public void addAdapterData() {
-        addAppAdapterData();
+        iView.updateAdapter(list_size, list_time, list_pinlv);
     }
 
-    public void sortList(int type) {
-        this.type = type;
-        switch (type) {
-            case SIZE_TYPE:
-                Collections.sort(list, new Sizesort());
-                break;
-            case TIME_TYPE:
-                Collections.sort(list, new Timesort());
-                break;
-            case PINLV_TYPE:
-                Collections.sort(list, new LastRunsort());
-                break;
-        }
-        iView.addAppManagerdata(list);
-    }
-
-    public void addAppAdapterData() {
-        iView.addAppManagerdata(list);
-    }
-
-    public void restart() {
-        if (type == PINLV_TYPE) {
-            iView.reStart();
-        }
-    }
 
     public void bleachFile(List<JunkInfo> appManager) {
         clearList = new ArrayList<>();
@@ -110,9 +87,11 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         for (JunkInfo softinfo : clearList) {
             if (softinfo.packageName.equals(packageName)) {
                 cleanApplication.removeAppManager(softinfo);
-                list.remove(softinfo);
+                list_size.remove(softinfo);
+                list_time.remove(softinfo);
+                list_pinlv.remove(softinfo);
                 addCleandata(false, softinfo.size);
-                iView.addAppManagerdata(list);
+                iView.updateAdapter(list_size, list_time, list_pinlv);
             }
         }
     }

@@ -10,9 +10,8 @@ import java.util.List;
 public interface AppManagerView extends IView {
     void initData(long allSize);
 
-    void addAppManagerdata(List<JunkInfo> list);
+    void updateAdapter(List<JunkInfo> listsize, List<JunkInfo> listtime, List<JunkInfo> listpinlv);
 
     void setCleanDAta(long size);
 
-    void reStart();
 }

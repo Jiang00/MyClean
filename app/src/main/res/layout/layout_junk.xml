@@ -523,14 +523,11 @@
             </LinearLayout>
         </com.supers.clean.junk.customeview.MyScrollView>
 
-    </FrameLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d72"
-
-        >
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d72"
+            android:layout_gravity="bottom"
+            >
 
             <Button
                 android:id="@+id/junk_button_clean"
@@ -541,6 +538,8 @@
                 android:text="@string/junk_button"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/s15" />
-    </RelativeLayout>
+        </RelativeLayout>
+    </FrameLayout>
+
 
 </LinearLayout>

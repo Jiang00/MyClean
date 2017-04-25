@@ -57,22 +57,23 @@
 
         </LinearLayout>
 
+        <RelativeLayout
+            android:id="@+id/file_clean_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d72"
+            android:layout_gravity="bottom">
 
+            <Button
+                android:id="@+id/file_button_clean"
+                android:layout_width="@dimen/d168"
+                android:layout_height="@dimen/d40"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_button"
+                android:text="@string/junk_button"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/s15" />
+        </RelativeLayout>
     </FrameLayout>
 
-    <RelativeLayout
-        android:id="@+id/file_clean_rl"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d72">
 
-        <Button
-            android:id="@+id/file_button_clean"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d40"
-            android:layout_centerInParent="true"
-            android:background="@drawable/shape_button"
-            android:text="@string/junk_button"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/s15" />
-    </RelativeLayout>
 </LinearLayout>
