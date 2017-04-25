@@ -1,6 +1,9 @@
 package com.eos.module.charge.saver.Util;
 
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
@@ -23,11 +26,22 @@ public class ADRequest {
                     new ClientNativeAd.NativeAdClickListener() {
                         @Override
                         public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
+
                             if (adClick != null) {
                                 adClick.onNativeADClicked(clientNativeAd);
                             }
                         }
                     });
+            if (adView != null) {
+                FrameLayout ad_image = (FrameLayout) adView.findViewWithTag("ad_image");
+                ad_image.setClickable(false);
+                LinearLayout ad_choices = (LinearLayout) adView.findViewWithTag("ad_choices");
+                ad_choices.setClickable(false);
+                TextView ad_title = (TextView) adView.findViewWithTag("ad_title");
+                ad_title.setClickable(false);
+                TextView ad_subtitle = (TextView) adView.findViewWithTag("ad_subtitle");
+                ad_subtitle.setClickable(false);
+            }
         }
         return adView;
     }
