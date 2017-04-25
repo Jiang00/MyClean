@@ -34,12 +34,28 @@ public class ADRequest {
             if (adView != null) {
                 FrameLayout ad_image = (FrameLayout) adView.findViewWithTag("ad_image");
                 ad_image.setClickable(false);
-                LinearLayout ad_choices = (LinearLayout) adView.findViewWithTag("ad_choices");
-                ad_choices.setClickable(false);
+                ad_image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
                 TextView ad_title = (TextView) adView.findViewWithTag("ad_title");
                 ad_title.setClickable(false);
+                ad_title.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
                 TextView ad_subtitle = (TextView) adView.findViewWithTag("ad_subtitle");
                 ad_subtitle.setClickable(false);
+                ad_subtitle.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
             }
         }
         return adView;
