@@ -26,7 +26,6 @@ public class ADRequest {
                     new ClientNativeAd.NativeAdClickListener() {
                         @Override
                         public void onNativeAdClicked(ClientNativeAd clientNativeAd) {
-
                             if (adClick != null) {
                                 adClick.onNativeADClicked(clientNativeAd);
                             }
