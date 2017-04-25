@@ -62,6 +62,8 @@ public class BaseActivity extends AppCompatActivity {
                 PreData.putDB(this, Constant.FULL_COOL, data.full_cool);
                 PreData.putDB(this, Constant.FULL_SHORTCUT, data.full_shortcut);
                 PreData.putDB(this, Constant.FULL_FILE, data.full_file);
+                PreData.putDB(this, Constant.FULL_FILE_1, data.full_file_1);
+                PreData.putDB(this, Constant.FULL_FILE_2, data.full_file_2);
             } catch (Exception e) {
 
             }

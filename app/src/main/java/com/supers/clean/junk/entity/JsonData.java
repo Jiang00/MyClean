@@ -19,6 +19,8 @@ public class JsonData {
     public int full_cool;
     public int full_shortcut;
     public int full_file;
+    public int full_file_1;
+    public int full_file_2;
     public int inter_time;
     public int charging;
     public List<Integer> tuiguang;
