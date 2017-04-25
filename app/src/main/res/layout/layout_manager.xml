@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white_100"
@@ -34,85 +35,89 @@
             android:background="#ffffff"
             android:orientation="horizontal">
 
-            <FrameLayout
-                android:id="@+id/manager_button_size"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground">
+            <!--<FrameLayout-->
+            <!--android:id="@+id/manager_button_size"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="?attr/selectableItemBackground">-->
 
-                <ImageView
-                    android:id="@+id/manager_sort_size_backg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/manager_soft" />
+            <!--<ImageView-->
+            <!--android:id="@+id/manager_sort_size_backg"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:src="@mipmap/manager_soft" />-->
 
-                <TextView
-                    android:id="@+id/manager_sort_size_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/manager_sort_size"
-                    android:textColor="@color/white_100"
-                    android:textSize="12sp" />
-            </FrameLayout>
+            <!--<TextView-->
+            <!--android:id="@+id/manager_sort_size_name"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:text="@string/manager_sort_size"-->
+            <!--android:textColor="@color/white_100"-->
+            <!--android:textSize="12sp" />-->
+            <!--</FrameLayout>-->
 
-            <FrameLayout
-                android:id="@+id/manager_button_time"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground">
+            <!--<FrameLayout-->
+            <!--android:id="@+id/manager_button_time"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="?attr/selectableItemBackground">-->
 
-                <ImageView
-                    android:id="@+id/manager_sort_time_backg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/manager_soft"
-                    android:visibility="invisible" />
+            <!--<ImageView-->
+            <!--android:id="@+id/manager_sort_time_backg"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:src="@mipmap/manager_soft"-->
+            <!--android:visibility="invisible" />-->
 
-                <TextView
-                    android:id="@+id/manager_sort_time_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/manager_sort_time"
-                    android:textColor="@color/manager_sort_text"
-                    android:textSize="12sp" />
-            </FrameLayout>
+            <!--<TextView-->
+            <!--android:id="@+id/manager_sort_time_name"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:text="@string/manager_sort_time"-->
+            <!--android:textColor="@color/manager_sort_text"-->
+            <!--android:textSize="12sp" />-->
+            <!--</FrameLayout>-->
 
-            <FrameLayout
-                android:id="@+id/manager_button_pinlv"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground">
+            <!--<FrameLayout-->
+            <!--android:id="@+id/manager_button_pinlv"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="?attr/selectableItemBackground">-->
 
-                <ImageView
-                    android:id="@+id/manager_sort_pinlv_backg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/manager_soft"
-                    android:visibility="invisible" />
+            <!--<ImageView-->
+            <!--android:id="@+id/manager_sort_pinlv_backg"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:src="@mipmap/manager_soft"-->
+            <!--android:visibility="invisible" />-->
 
-                <TextView
-                    android:id="@+id/manager_sort_pinlv_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/manager_sort_pinlv"
-                    android:textColor="@color/manager_sort_text"
-                    android:textSize="12sp" />
-            </FrameLayout>
+            <!--<TextView-->
+            <!--android:id="@+id/manager_sort_pinlv_name"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:text="@string/manager_sort_pinlv"-->
+            <!--android:textColor="@color/manager_sort_text"-->
+            <!--android:textSize="12sp" />-->
+            <!--</FrameLayout>-->
+            <android.support.design.widget.TabLayout
+                android:id="@+id/view_pager_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_color_first"
+                app:tabIndicatorColor="#ffca28"
+                app:tabSelectedTextColor="@color/white_100"
+                app:tabTextAppearance="@style/tablayout_textSize"
+                app:tabTextColor="@color/white_54" />
         </LinearLayout>
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:background="#f1f1f1" />
 
         <LinearLayout
             android:id="@+id/ll_ad"
@@ -134,7 +139,8 @@
                     android:id="@+id/fl_lot_manager"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d135"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -152,6 +158,10 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/doc_view_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
                     <com.supers.clean.junk.customeview.ListViewForScrollView
                         android:id="@+id/junk_list_all"

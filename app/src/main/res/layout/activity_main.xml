@@ -296,7 +296,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/main_4"
-                    android:background="#e8e8e8" />
+                    android:background="#f1f1f1" />
                 <!--好评-->
                 <LinearLayout
                     android:id="@+id/main_rotate_all"
@@ -396,7 +396,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/d16"
-                        android:background="#e8e8e8" />
+                        android:background="#f1f1f1" />
                 </LinearLayout>
 
                 <!--交叉推广-->
@@ -462,161 +462,169 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/d16"
-                        android:background="#e8e8e8" />
+                        android:background="#f1f1f1" />
                 </LinearLayout>
 
+                <!--文件管理-->
+                <LinearLayout
+                    android:id="@+id/main_file_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d40"
+                        android:layout_height="@dimen/d40"
+                        android:layout_marginLeft="@dimen/d20"
+                        android:layout_marginTop="@dimen/d16"
+                        android:src="@mipmap/file_main" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/d15"
+                        android:layout_marginLeft="@dimen/d12"
+                        android:layout_marginTop="@dimen/d16"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/main_msg_file"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/side_file"
+                            android:textColor="#45527a"
+                            android:textSize="@dimen/s16" />
+
+                        <TextView
+                            android:layout_width="@dimen/d225"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d4"
+                            android:text="@string/file_main"
+                            android:textColor="#828791"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/d16"
+                        android:layout_marginTop="@dimen/d29"
+                        android:src="@mipmap/right" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f1f1f1" />
                 <!--通知栏清理-->
                 <LinearLayout
                     android:id="@+id/main_notifi_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d40"
+                        android:layout_height="@dimen/d40"
+                        android:layout_marginLeft="@dimen/d20"
+                        android:layout_marginTop="@dimen/d16"
+                        android:src="@mipmap/notifi_6" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d15"
-                        android:orientation="horizontal">
+                        android:layout_marginBottom="@dimen/d15"
+                        android:layout_marginLeft="@dimen/d12"
+                        android:layout_marginTop="@dimen/d16"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/main_msg_notifi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d5"
                             android:text="@string/side_notifi"
-                            android:textColor="@color/black_87"
+                            android:textColor="#45527a"
                             android:textSize="@dimen/s16" />
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d90"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d19"
-                            android:src="@mipmap/notifi_6" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/d225"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d9"
+                            android:layout_marginTop="@dimen/d4"
                             android:text="@string/notifi_msg_main"
-                            android:textColor="#6a6a6a"
+                            android:textColor="#828791"
                             android:textSize="@dimen/s14" />
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d16"
-                        android:background="#f1f1f1" />
-
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/d39"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:text="@string/notification_button"
-                        android:textColor="#de42a5f5"
-                        android:textSize="@dimen/s17" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d16"
-                        android:background="#e8e8e8" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/d16"
+                        android:layout_marginTop="@dimen/d29"
+                        android:src="@mipmap/right" />
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f1f1f1" />
+
                 <!--深度清理-->
                 <LinearLayout
                     android:id="@+id/main_power_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?attr/selectableItemBackground"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d40"
+                        android:layout_height="@dimen/d40"
+                        android:layout_marginLeft="@dimen/d20"
+                        android:layout_marginTop="@dimen/d16"
+                        android:src="@mipmap/power_6" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d15"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d19"
-                            android:src="@mipmap/main_rotate_1" />
+                        android:layout_marginBottom="@dimen/d15"
+                        android:layout_marginLeft="@dimen/d12"
+                        android:layout_marginTop="@dimen/d16"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/main_msg_power"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d5"
                             android:text="@string/side_power"
-                            android:textColor="@color/black_87"
+                            android:textColor="#45527a"
                             android:textSize="@dimen/s16" />
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d16"
-                        android:layout_marginTop="@dimen/main_4"
-                        android:background="#f1f1f1" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d90"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d19"
-                            android:src="@mipmap/power_6" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/d225"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d9"
+                            android:layout_marginTop="@dimen/d4"
                             android:text="@string/power_3"
-                            android:textColor="#6a6a6a"
+                            android:textColor="#828791"
                             android:textSize="@dimen/s14" />
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d16"
-                        android:background="#f1f1f1" />
-
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/d39"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:text="@string/notification_button"
-                        android:textColor="#de42a5f5"
-                        android:textSize="@dimen/s17" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d16"
-                        android:background="#e8e8e8" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/d16"
+                        android:layout_marginTop="@dimen/d29"
+                        android:src="@mipmap/right" />
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d16"
+                    android:background="#f1f1f1" />
 
                 <!--硬件信息-->
                 <LinearLayout
@@ -842,7 +850,7 @@
                     android:id="@+id/main_guard_all"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/main_guard"
-                    android:background="#e8e8e8">
+                    android:background="#f1f1f1">
 
                     <ImageView
                         android:layout_width="wrap_content"
