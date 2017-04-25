@@ -119,6 +119,7 @@ public class DuckView extends FrameLayout {
                 ViewGroup viewGroup = (ViewGroup) adView.getParent();
                 viewGroup.removeAllViews();
             }
+            adLayout.removeAllViews();
             adLayout.addView(adView);
         }
     }
