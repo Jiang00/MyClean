@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.view.JunkRamView;
 import com.supers.clean.junk.adapter.JunkRamAdapter;
 import com.supers.clean.junk.util.CommonUtil;
@@ -664,6 +666,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     }
                     break;
                 case R.id.junk_button_clean:
+                    PreData.putDB(JunkAndRamActivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
                     CommonUtil.track("所有垃圾页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));

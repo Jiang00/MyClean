@@ -173,7 +173,7 @@ public class FileActivity extends BaseActivity {
                     jumpToActivity(FileListActivity.class, bundle, 1);
                     break;
                 case R.id.file_txt_button:
-                    jumpTo(FileDocActivity.class);
+                    jumpToActivity(FileDocActivity.class, 1);
                     break;
                 case R.id.file_music_button:
                     bundle.putString("name", "music");

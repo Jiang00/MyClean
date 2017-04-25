@@ -45269,6 +45269,7 @@ com.supers.clean.junk.R$id: int reset_pattern_text
 com.supers.clean.junk.R$id: int right
 com.supers.clean.junk.R$id: int rl
 com.supers.clean.junk.R$id: int rl_battery
+com.supers.clean.junk.R$id: int rl_file
 com.supers.clean.junk.R$id: int rl_float
 com.supers.clean.junk.R$id: int rl_item
 com.supers.clean.junk.R$id: int rl_notifi
@@ -45318,6 +45319,7 @@ com.supers.clean.junk.R$id: int setting
 com.supers.clean.junk.R$id: int setting_advance
 com.supers.clean.junk.R$id: int setting_battery
 com.supers.clean.junk.R$id: int setting_battery_check
+com.supers.clean.junk.R$id: int setting_file
 com.supers.clean.junk.R$id: int setting_float
 com.supers.clean.junk.R$id: int setting_float_check
 com.supers.clean.junk.R$id: int setting_notifi
@@ -45556,6 +45558,7 @@ com.supers.clean.junk.R$layout: int layout_tongzhi_junk
 com.supers.clean.junk.R$layout: int layout_tongzhi_notifi
 com.supers.clean.junk.R$layout: int layout_tongzhi_ram
 com.supers.clean.junk.R$layout: int layout_translate
+com.supers.clean.junk.R$layout: int layout_two_day
 com.supers.clean.junk.R$layout: int layout_unload
 com.supers.clean.junk.R$layout: int layout_white_list_add
 com.supers.clean.junk.R$layout: int layout_white_list_item
@@ -45787,6 +45790,7 @@ com.supers.clean.junk.R$mipmap: int qing
 com.supers.clean.junk.R$mipmap: int ram_normal
 com.supers.clean.junk.R$mipmap: int ram_passed
 com.supers.clean.junk.R$mipmap: int setting_battery
+com.supers.clean.junk.R$mipmap: int setting_file
 com.supers.clean.junk.R$mipmap: int setting_float
 com.supers.clean.junk.R$mipmap: int setting_notifi
 com.supers.clean.junk.R$mipmap: int setting_power
@@ -45806,6 +45810,7 @@ com.supers.clean.junk.R$mipmap: int short_cut_icon
 com.supers.clean.junk.R$mipmap: int side_charging
 com.supers.clean.junk.R$mipmap: int side_check_normal
 com.supers.clean.junk.R$mipmap: int side_check_passed
+com.supers.clean.junk.R$mipmap: int side_file
 com.supers.clean.junk.R$mipmap: int side_float
 com.supers.clean.junk.R$mipmap: int side_junk
 com.supers.clean.junk.R$mipmap: int side_manager
@@ -45979,6 +45984,8 @@ com.supers.clean.junk.R$string: int notifi_msg_main
 com.supers.clean.junk.R$string: int notifi_nor
 com.supers.clean.junk.R$string: int notifi_ram
 com.supers.clean.junk.R$string: int notifi_ram_msg
+com.supers.clean.junk.R$string: int notifi_two_day
+com.supers.clean.junk.R$string: int notifi_two_day_2
 com.supers.clean.junk.R$string: int notifi_wendu
 com.supers.clean.junk.R$string: int notification_1
 com.supers.clean.junk.R$string: int notification_2
@@ -47273,6 +47280,8 @@ com.supers.clean.junk.activity.FileActivity$2: void onClick(android.view.View)
 com.supers.clean.junk.activity.FileDocActivity
 com.supers.clean.junk.activity.FileDocActivity: FileDocActivity()
 com.supers.clean.junk.activity.FileDocActivity$3: void onClick(android.view.View)
+com.supers.clean.junk.activity.FileDocActivity$4: void onClick(android.view.View)
+com.supers.clean.junk.activity.FileDocActivity$5: void onClick(android.view.View)
 com.supers.clean.junk.activity.FileListActivity
 com.supers.clean.junk.activity.FileListActivity: FileListActivity()
 com.supers.clean.junk.activity.FileListActivity$2: void onClick(android.view.View)
@@ -47488,6 +47497,8 @@ com.supers.clean.junk.entity.JsonData: int full_float
 com.supers.clean.junk.entity.JsonData: int full_cool
 com.supers.clean.junk.entity.JsonData: int full_shortcut
 com.supers.clean.junk.entity.JsonData: int full_file
+com.supers.clean.junk.entity.JsonData: int full_file_1
+com.supers.clean.junk.entity.JsonData: int full_file_2
 com.supers.clean.junk.entity.JsonData: int inter_time
 com.supers.clean.junk.entity.JsonData: int charging
 com.supers.clean.junk.entity.JsonData: java.util.List tuiguang
@@ -47509,8 +47520,9 @@ com.supers.clean.junk.entity.JunkInfo: boolean isnotifiWhiteList
 com.supers.clean.junk.entity.JunkInfo: int drawableRid
 com.supers.clean.junk.entity.JunkInfo: int textrid
 com.supers.clean.junk.entity.JunkInfo: boolean isStartSelf
+com.supers.clean.junk.entity.JunkInfo: long _id
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(int,int,boolean)
-com.supers.clean.junk.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long,boolean)
+com.supers.clean.junk.entity.JunkInfo: JunkInfo(long,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long,boolean)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(int,int)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,boolean,android.graphics.drawable.Drawable,long)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(java.lang.String,java.lang.String,long,boolean,android.graphics.drawable.Drawable,long)

@@ -82,6 +82,7 @@ public class CommonUtil {
         return times;
     }
 
+    //多少天
     public static int millTransFate(long millisecond) {
         String str = "";
         long day = millisecond / 86400000;

@@ -2,6 +2,7 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,7 +11,10 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -54,6 +58,7 @@ import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity implements MainView, DrawerLayout.DrawerListener {
 

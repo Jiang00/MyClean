@@ -73,6 +73,7 @@ public class LoadingActivity extends BaseActivity {
             CommonUtil.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
             CommonUtil.track("是否安装applock", CommonUtil.isPkgInstalled("com.eosmobi.applock", getPackageManager()) == true ? "是" : "否", "", 1);
             PreData.putDB(this, Constant.ROOT_TRAK, false);
+            PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
 
     }

@@ -54,6 +54,8 @@ public class Constant {
 
     public static final String KEY_NOTIFI = "KEY_NOTIFI";//notifi
 
+    public static final String KEY_CLEAN_TIME = "KEY_CLEAN_TIME";//两天
+
 
     /**
      * 广告控制

@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.view.JunkView;
 import com.supers.clean.junk.adapter.JunkAdapter;
 import com.supers.clean.junk.util.CommonUtil;
@@ -599,7 +601,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                 case R.id.junk_button_clean:
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
-                    Log.e("aaa", "===junk点击");
+                    PreData.putDB(JunkActivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
                     CommonUtil.track("垃圾页面", "点击清理", "", 1);
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
                             junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
