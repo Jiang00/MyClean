@@ -184,6 +184,8 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
             Intent intent4 = new Intent(context, ManagerActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
+//            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+//            ((Activity) context).startActivityForResult(intent, 1);
             CommonUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
             Intent intent5 = new Intent(context, FileActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);

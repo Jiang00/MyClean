@@ -78,5 +78,9 @@ public class Constant {
 
     public static final String FULL_FILE = "FULL_FILE";
 
+    public static final String FULL_FILE_1 = "FULL_FILE_1";
+
+    public static final String FULL_FILE_2 = "FULL_FILE_2";
+
 
 }

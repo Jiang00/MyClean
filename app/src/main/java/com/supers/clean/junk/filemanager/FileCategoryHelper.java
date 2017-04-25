@@ -21,6 +21,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.media.MediaFile;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Files;
 import android.provider.MediaStore.Files.FileColumns;
@@ -191,7 +192,7 @@ public class FileCategoryHelper {
         return selection;
     }
 
-    private static Uri getContentUriByCategory(FileCategory cat) {
+    public static Uri getContentUriByCategory(FileCategory cat) {
         Uri uri;
         String volumeName = "external";
         switch (cat) {
@@ -250,7 +251,6 @@ public class FileCategoryHelper {
         String[] columns = new String[]{
                 FileColumns._ID, FileColumns.DATA, FileColumns.SIZE, FileColumns.DATE_MODIFIED
         };
-
         return mContext.getContentResolver().query(uri, columns, selection, null, sortOrder);
     }
 

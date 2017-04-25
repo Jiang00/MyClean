@@ -1,7 +1,9 @@
 package com.supers.clean.junk.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.supers.clean.junk.filemanager.Util;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
+
+import java.io.File;
 
 /**
  * Created by Ivy on 2017/4/20.
@@ -128,6 +132,7 @@ public class FileActivity extends BaseActivity {
     }
 
     private void initAd() {
+
         if (PreData.getDB(this, Constant.FULL_FILE, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {

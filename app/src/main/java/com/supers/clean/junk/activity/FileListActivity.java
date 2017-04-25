@@ -50,6 +50,7 @@ public class FileListActivity extends BaseActivity {
     private String name;
     private int nameId;
     private AlertDialog dialog;
+    private FileCategoryHelper.FileCategory fc;
 
     @Override
     protected void findId() {
@@ -89,23 +90,25 @@ public class FileListActivity extends BaseActivity {
             public void run() {
                 Cursor cursor = null;
                 if (TextUtils.equals("apk", name)) {
-                    cursor = fileHelper.query(FileCategoryHelper.FileCategory.Apk, FileSortHelper.SortMethod.size);
+                    fc = FileCategoryHelper.FileCategory.Apk;
                 } else if (TextUtils.equals("zip", name)) {
-                    cursor = fileHelper.query(FileCategoryHelper.FileCategory.Zip, FileSortHelper.SortMethod.size);
+                    fc = FileCategoryHelper.FileCategory.Zip;
                 } else if (TextUtils.equals("music", name)) {
-                    cursor = fileHelper.query(FileCategoryHelper.FileCategory.Music, FileSortHelper.SortMethod.size);
+                    fc = FileCategoryHelper.FileCategory.Music;
                 } else if (TextUtils.equals("video", name)) {
-                    cursor = fileHelper.query(FileCategoryHelper.FileCategory.Video, FileSortHelper.SortMethod.size);
+                    fc = FileCategoryHelper.FileCategory.Video;
                 } else if (TextUtils.equals("other", name)) {
-                    cursor = fileHelper.query(FileCategoryHelper.FileCategory.Other, FileSortHelper.SortMethod.size);
+                    fc = FileCategoryHelper.FileCategory.Other;
                 }
+                cursor = fileHelper.query(fc, FileSortHelper.SortMethod.size);
                 if (cursor != null && cursor.moveToFirst()) {
                     do {
                         if (onDestroyed) {
                             return;
                         }
+                        long _id = cursor.getLong(FileCategoryHelper.COLUMN_ID);
                         long size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
-                        fileList.add(new JunkInfo(null, Util.getNameFromFilepath(cursor.getString(FileCategoryHelper.COLUMN_PATH)),
+                        fileList.add(new JunkInfo(_id, null, Util.getNameFromFilepath(cursor.getString(FileCategoryHelper.COLUMN_PATH)),
                                 cursor.getString(FileCategoryHelper.COLUMN_PATH), size, false));
                     } while (cursor.moveToNext());
                     cursor.close();
@@ -150,37 +153,6 @@ public class FileListActivity extends BaseActivity {
         }
     };
 
-    private void notifyFileSystemChanged(String path) {
-        if (path == null)
-            return;
-        final File f = new File(path);
-        final Intent intent;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Intent mediaScanIntent = new Intent(
-                    Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-            Uri contentUri = Uri.fromFile(f.getParentFile()); //out is your output file
-            mediaScanIntent.setData(contentUri);
-            sendBroadcast(mediaScanIntent);
-        } else {
-            sendBroadcast(new Intent(
-                    Intent.ACTION_MEDIA_MOUNTED,
-                    Uri.parse("file://"
-                            + Environment.getExternalStorageDirectory() + f.getParentFile())));
-        }
-//        if (f.isDirectory()) {
-//        if (f.getParentFile().isDirectory()) {
-//            intent = new Intent(Intent.ACTION_MEDIA_MOUNTED);
-////            intent.setClassName("com.android.providers.media", "com.android.providers.media.MediaScannerReceiver");
-//            intent.setData(Uri.fromFile(f.getParentFile()));
-//            Log.e("delete", "isDirectory");
-//        } else {
-//            intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-//            intent.setData(Uri.fromFile(f.getParentFile()));
-//            Log.e("delete", "ontisDirectory");
-//        }
-//        sendBroadcast(intent);
-    }
-
     private void showDia(final ArrayList<JunkInfo> deleteList) {
         if (deleteList.size() == 0) {
             showToast(getString(R.string.delete));
@@ -207,8 +179,7 @@ public class FileListActivity extends BaseActivity {
             public void onClick(View v) {
                 dialog.dismiss();
                 for (JunkInfo info : deleteList) {
-                    FileUtils.deleteFile(info.path);
-                    notifyFileSystemChanged(info.path);
+                    FileUtils.deleteCo(FileListActivity.this, fc, info._id);
                 }
                 fileList.removeAll(deleteList);
                 adapter.notifyDataSetChanged();

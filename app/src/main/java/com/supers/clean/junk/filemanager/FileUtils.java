@@ -1,8 +1,13 @@
 package com.supers.clean.junk.filemanager;
 
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -33,6 +38,12 @@ public class FileUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void deleteCo(Activity activity, FileCategoryHelper.FileCategory fc, long _id) {
+
+        activity.getContentResolver().delete(FileCategoryHelper.getContentUriByCategory(fc),
+                "_id" + "=" + _id, null);
     }
 
     public static void openFile(Context context, String path) {

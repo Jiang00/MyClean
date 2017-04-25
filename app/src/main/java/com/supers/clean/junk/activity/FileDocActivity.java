@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import com.supers.clean.junk.adapter.FileAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.filemanager.FileCategoryHelper;
 import com.supers.clean.junk.filemanager.FileSortHelper;
+import com.supers.clean.junk.filemanager.FileUtils;
 import com.supers.clean.junk.filemanager.Util;
 
 import java.util.ArrayList;
@@ -51,6 +53,8 @@ public class FileDocActivity extends BaseActivity {
     private View view_txt;
     private View view_pdf;
     FileAdapter adapter_doc, adapter_txt, adapter_pdf;
+    private AlertDialog dialog;
+    private FileCategoryHelper.FileCategory fc_clean;
 
     @Override
     protected void findId() {
@@ -93,11 +97,11 @@ public class FileDocActivity extends BaseActivity {
                 mHandler.post(new Runnable() {
                     public void run() {
                         file_progressbar.setVisibility(View.GONE);
-                        adapter_doc.addDataList(docList);
+                        adapter_doc.upList(docList);
                         adapter_doc.notifyDataSetChanged();
-                        adapter_txt.addDataList(txtList);
+                        adapter_txt.upList(txtList);
                         adapter_txt.notifyDataSetChanged();
-                        adapter_pdf.addDataList(pdfList);
+                        adapter_pdf.upList(pdfList);
                         adapter_pdf.notifyDataSetChanged();
                     }
                 });
@@ -113,6 +117,7 @@ public class FileDocActivity extends BaseActivity {
                 if (onDestroyed) {
                     return;
                 }
+                long _id = cursorDoc.getLong(FileCategoryHelper.COLUMN_ID);
                 long size = Long.parseLong(cursorDoc.getString(FileCategoryHelper.COLUMN_SIZE));
                 Drawable icon = null;
                 if (fc == FileCategoryHelper.FileCategory.Word) {
@@ -122,7 +127,7 @@ public class FileDocActivity extends BaseActivity {
                 } else if (fc == FileCategoryHelper.FileCategory.Pdf) {
                     icon = ContextCompat.getDrawable(FileDocActivity.this, R.mipmap.file_pd_icon);
                 }
-                list.add(new JunkInfo(icon, Util.getNameFromFilepath(cursorDoc.getString(FileCategoryHelper.COLUMN_PATH)),
+                list.add(new JunkInfo(_id, icon, Util.getNameFromFilepath(cursorDoc.getString(FileCategoryHelper.COLUMN_PATH)),
                         cursorDoc.getString(FileCategoryHelper.COLUMN_PATH), size, false));
             } while (cursorDoc.moveToNext());
             cursorDoc.close();
@@ -207,13 +212,86 @@ public class FileDocActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.file_button_clean:
-//                    for (JunkInfo info : fileList) {
-//                        if (info.isChecked) {
-//                            FileUtils.deleteFile(info.path);
-//                        }
-//                    }
+                    ArrayList<JunkInfo> deleteList = new ArrayList<>();
+                    if (doc_view_pager.getCurrentItem() == 0) {
+                        fc_clean = FileCategoryHelper.FileCategory.Word;
+                        for (JunkInfo info : docList) {
+                            if (info.isChecked) {
+                                deleteList.add(info);
+                            }
+                        }
+                    } else if (doc_view_pager.getCurrentItem() == 1) {
+                        fc_clean = FileCategoryHelper.FileCategory.Txt;
+                        for (JunkInfo info : txtList) {
+                            if (info.isChecked) {
+                                deleteList.add(info);
+                            }
+                        }
+                    } else {
+                        fc_clean = FileCategoryHelper.FileCategory.Pdf;
+                        for (JunkInfo info : pdfList) {
+                            if (info.isChecked) {
+                                deleteList.add(info);
+                            }
+                        }
+                    }
+                    showDia(deleteList);
                     break;
             }
         }
     };
+
+    private void showDia(final ArrayList<JunkInfo> deleteList) {
+        if (deleteList.size() == 0) {
+            showToast(getString(R.string.delete));
+            return;
+        }
+        View view = View.inflate(this, R.layout.dialog_file, null);
+        TextView title = (TextView) view.findViewById(R.id.title);
+        TextView message = (TextView) view.findViewById(R.id.message);
+        TextView ok = (TextView) view.findViewById(R.id.ok);
+        TextView cancle = (TextView) view.findViewById(R.id.cancle);
+
+        if (deleteList.size() == 1) {
+            title.setText(deleteList.get(0).name);
+        } else {
+            title.setText(R.string.delete_queren);
+        }
+        message.setText(getString(R.string.delete_2, deleteList.size()));
+        dialog = new AlertDialog.Builder(FileDocActivity.this).create();
+        dialog.setView(view);
+        dialog.show();
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                for (JunkInfo info : deleteList) {
+                    FileUtils.deleteCo(FileDocActivity.this, fc_clean, info._id);
+                }
+                if (doc_view_pager.getCurrentItem() == 0) {
+                    docList.removeAll(deleteList);
+                    adapter_doc.notifyDataSetChanged();
+                } else if (doc_view_pager.getCurrentItem() == 1) {
+                    txtList.removeAll(deleteList);
+                    adapter_txt.notifyDataSetChanged();
+                } else {
+                    pdfList.removeAll(deleteList);
+                    adapter_pdf.notifyDataSetChanged();
+                }
+            }
+        });
+        cancle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(1);
+        finish();
+    }
 }
