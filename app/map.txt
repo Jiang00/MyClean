@@ -35382,26 +35382,14 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$f:
     int View_theme -> View_theme
     1486:2067:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
-    15:15:void <init>() -> <init>
-    18:19:void showFullAD() -> a
-    22:62:android.view.View showCustomNativeAD(java.lang.String,int,com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked) -> a
+    16:16:void <init>() -> <init>
+    19:20:void showFullAD() -> a
+    23:65:android.view.View showCustomNativeAD(java.lang.String,int,com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked) -> a
 com.eos.module.charge.saver.Util.ADRequest$1 -> com.eos.module.charge.saver.Util.a$1:
     com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked val$adClick -> a
     com.eos.module.charge.saver.Util.ADRequest this$0 -> b
-    26:26:void <init>(com.eos.module.charge.saver.Util.ADRequest,com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked) -> <init>
+    27:27:void <init>(com.eos.module.charge.saver.Util.ADRequest,com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked) -> <init>
     30:33:void onNativeAdClicked(com.android.client.ClientNativeAd) -> onNativeAdClicked
-com.eos.module.charge.saver.Util.ADRequest$2 -> com.eos.module.charge.saver.Util.a$2:
-    com.eos.module.charge.saver.Util.ADRequest this$0 -> a
-    38:38:void <init>(com.eos.module.charge.saver.Util.ADRequest) -> <init>
-    42:42:void onClick(android.view.View) -> onClick
-com.eos.module.charge.saver.Util.ADRequest$3 -> com.eos.module.charge.saver.Util.a$3:
-    com.eos.module.charge.saver.Util.ADRequest this$0 -> a
-    46:46:void <init>(com.eos.module.charge.saver.Util.ADRequest) -> <init>
-    50:50:void onClick(android.view.View) -> onClick
-com.eos.module.charge.saver.Util.ADRequest$4 -> com.eos.module.charge.saver.Util.a$4:
-    com.eos.module.charge.saver.Util.ADRequest this$0 -> a
-    54:54:void <init>(com.eos.module.charge.saver.Util.ADRequest) -> <init>
-    58:58:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked -> com.eos.module.charge.saver.Util.a$a:
     void onNativeADClicked(com.android.client.ClientNativeAd) -> a
 com.eos.module.charge.saver.Util.MyWidgetContainer -> com.eos.module.charge.saver.Util.MyWidgetContainer:
@@ -35653,29 +35641,29 @@ com.eos.module.charge.saver.view.BatteryView -> com.eos.module.charge.saver.view
     android.content.BroadcastReceiver timerUpdateReceiver -> A
     android.content.IntentFilter mIntentFilter -> B
     int progress -> C
-    47:167:void <init>(android.content.Context) -> <init>
-    47:167:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    47:167:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    47:162:void <init>(android.content.Context) -> <init>
+    47:162:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    47:162:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     92:93:void setUnlockListener(com.eos.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
-    105:148:void showNativeAD() -> f
-    151:165:void updateTime() -> a
-    170:234:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
-    243:258:void initBack() -> g
-    262:277:void initShutter() -> h
-    281:296:void initParticle() -> i
-    300:315:void initShell() -> j
-    319:334:void initWater() -> k
-    338:350:void initLighting() -> l
-    354:470:void onFinishInflate() -> onFinishInflate
-    473:491:void initViews() -> m
-    494:497:void pauseBubble() -> b
-    500:503:void reStartBubble() -> c
-    507:514:void onAttachedToWindow() -> onAttachedToWindow
-    518:546:void onDetachedFromWindow() -> onDetachedFromWindow
-    549:553:int analysisJson(org.json.JSONObject) -> a
-    558:565:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    568:570:void registerTimeUpdateReceiver() -> d
-    573:575:void unregisterTimeUpdateReceiver() -> e
+    105:143:void showNativeAD() -> f
+    146:160:void updateTime() -> a
+    165:229:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
+    238:253:void initBack() -> g
+    257:272:void initShutter() -> h
+    276:291:void initParticle() -> i
+    295:310:void initShell() -> j
+    314:329:void initWater() -> k
+    333:345:void initLighting() -> l
+    349:465:void onFinishInflate() -> onFinishInflate
+    468:486:void initViews() -> m
+    489:492:void pauseBubble() -> b
+    495:498:void reStartBubble() -> c
+    502:509:void onAttachedToWindow() -> onAttachedToWindow
+    513:541:void onDetachedFromWindow() -> onDetachedFromWindow
+    544:548:int analysisJson(org.json.JSONObject) -> a
+    553:560:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    563:565:void registerTimeUpdateReceiver() -> d
+    568:570:void unregisterTimeUpdateReceiver() -> e
     42:42:android.view.GestureDetector access$000(com.eos.module.charge.saver.view.BatteryView) -> a
     42:42:int access$100(com.eos.module.charge.saver.view.BatteryView) -> b
     42:42:com.eos.module.charge.saver.view.BatteryView$UnlockListener access$200(com.eos.module.charge.saver.view.BatteryView) -> c
@@ -35694,34 +35682,30 @@ com.eos.module.charge.saver.view.BatteryView$1 -> com.eos.module.charge.saver.vi
     98:99:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.eos.module.charge.saver.view.BatteryView$2 -> com.eos.module.charge.saver.view.BatteryView$2:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    105:105:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    109:109:void onNativeADClicked(com.android.client.ClientNativeAd) -> a
+    117:117:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    120:140:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.eos.module.charge.saver.view.BatteryView$3 -> com.eos.module.charge.saver.view.BatteryView$3:
-    com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    122:122:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    125:145:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
-com.eos.module.charge.saver.view.BatteryView$4 -> com.eos.module.charge.saver.view.BatteryView$4:
     int val$le -> a
     com.eos.module.charge.saver.view.BatteryView this$0 -> b
-    180:180:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
-    183:192:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    175:175:void <init>(com.eos.module.charge.saver.view.BatteryView,int) -> <init>
+    178:187:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+com.eos.module.charge.saver.view.BatteryView$4 -> com.eos.module.charge.saver.view.BatteryView$4:
+    com.eos.module.charge.saver.view.BatteryView this$0 -> a
+    374:374:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    377:393:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.eos.module.charge.saver.view.BatteryView$5 -> com.eos.module.charge.saver.view.BatteryView$5:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    379:379:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    382:398:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    396:396:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    399:403:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    408:416:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.eos.module.charge.saver.view.BatteryView$6 -> com.eos.module.charge.saver.view.BatteryView$6:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    401:401:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    404:408:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    413:421:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    427:427:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    430:433:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$7 -> com.eos.module.charge.saver.view.BatteryView$7:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    432:432:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    435:438:void onClick(android.view.View) -> onClick
-com.eos.module.charge.saver.view.BatteryView$8 -> com.eos.module.charge.saver.view.BatteryView$8:
-    com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    450:450:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    453:467:void onClick(android.view.View) -> onClick
+    445:445:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    448:462:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$UnlockListener -> com.eos.module.charge.saver.view.BatteryView$a:
     void onUnlock() -> a
 com.eos.module.charge.saver.view.BubbleLayout -> com.eos.module.charge.saver.view.BubbleLayout:
@@ -35823,25 +35807,25 @@ com.eos.module.charge.saver.view.DuckView -> com.eos.module.charge.saver.view.Du
     int progress -> G
     com.eos.module.charge.saver.view.DuckView duckView -> H
     android.os.Handler mHandler -> I
-    61:300:void <init>(android.content.Context) -> <init>
-    61:300:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    61:300:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    61:301:void <init>(android.content.Context) -> <init>
+    61:301:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    61:301:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     100:101:void setUnlockListener(com.eos.module.charge.saver.view.DuckView$UnlockListener) -> setUnlockListener
-    113:124:void showNativeAD(java.lang.String) -> a
-    127:138:void updateTime() -> a
-    141:211:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
-    224:282:void initViews() -> d
-    285:298:void initViewPager() -> e
-    344:359:void initShell() -> f
-    363:378:void initWater() -> g
-    382:397:void initBack() -> h
-    401:459:void onFinishInflate() -> onFinishInflate
-    463:467:void onAttachedToWindow() -> onAttachedToWindow
-    470:474:int analysisJson(org.json.JSONObject) -> a
-    479:501:void onDetachedFromWindow() -> onDetachedFromWindow
-    504:506:void registerTimeUpdateReceiver() -> b
-    510:517:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    520:522:void unregisterTimeUpdateReceiver() -> c
+    113:125:void showNativeAD(java.lang.String) -> a
+    128:139:void updateTime() -> a
+    142:212:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
+    225:283:void initViews() -> d
+    286:299:void initViewPager() -> e
+    345:360:void initShell() -> f
+    364:379:void initWater() -> g
+    383:398:void initBack() -> h
+    402:460:void onFinishInflate() -> onFinishInflate
+    464:468:void onAttachedToWindow() -> onAttachedToWindow
+    471:475:int analysisJson(org.json.JSONObject) -> a
+    480:502:void onDetachedFromWindow() -> onDetachedFromWindow
+    505:507:void registerTimeUpdateReceiver() -> b
+    511:518:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    521:523:void unregisterTimeUpdateReceiver() -> c
     55:55:int access$002(com.eos.module.charge.saver.view.DuckView,int) -> a
     55:55:int access$000(com.eos.module.charge.saver.view.DuckView) -> a
     55:55:com.sample.lottie.LottieAnimationView access$100(com.eos.module.charge.saver.view.DuckView) -> b
@@ -35861,43 +35845,43 @@ com.eos.module.charge.saver.view.DuckView$1 -> com.eos.module.charge.saver.view.
 com.eos.module.charge.saver.view.DuckView$2 -> com.eos.module.charge.saver.view.DuckView$2:
     int val$le -> a
     com.eos.module.charge.saver.view.DuckView this$0 -> b
-    150:150:void <init>(com.eos.module.charge.saver.view.DuckView,int) -> <init>
-    153:162:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    151:151:void <init>(com.eos.module.charge.saver.view.DuckView,int) -> <init>
+    154:163:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.eos.module.charge.saver.view.DuckView$3 -> com.eos.module.charge.saver.view.DuckView$3:
     com.eos.module.charge.saver.view.DuckView this$0 -> a
-    180:180:void <init>(com.eos.module.charge.saver.view.DuckView) -> <init>
-    183:186:void callbackResult(com.eos.module.charge.saver.cpuutils.CpuTempReader$ResultCpuTemperature) -> a
+    181:181:void <init>(com.eos.module.charge.saver.view.DuckView) -> <init>
+    184:187:void callbackResult(com.eos.module.charge.saver.cpuutils.CpuTempReader$ResultCpuTemperature) -> a
 com.eos.module.charge.saver.view.DuckView$4 -> com.eos.module.charge.saver.view.DuckView$4:
     com.eos.module.charge.saver.view.DuckView this$0 -> a
-    258:258:void <init>(com.eos.module.charge.saver.view.DuckView) -> <init>
-    261:267:void onClick(android.view.View) -> onClick
+    259:259:void <init>(com.eos.module.charge.saver.view.DuckView) -> <init>
+    262:268:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.DuckView$5 -> com.eos.module.charge.saver.view.DuckView$5:
     com.eos.module.charge.saver.view.DuckView this$0 -> a
-    269:269:void <init>(com.eos.module.charge.saver.view.DuckView) -> <init>
-    272:279:void onClick(android.view.View) -> onClick
+    270:270:void <init>(com.eos.module.charge.saver.view.DuckView) -> <init>
+    273:280:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.DuckView$6 -> com.eos.module.charge.saver.view.DuckView$6:
     com.eos.module.charge.saver.view.DuckView this$0 -> a
-    300:300:void <init>(com.eos.module.charge.saver.view.DuckView) -> <init>
-    303:309:void handleMessage(android.os.Message) -> handleMessage
+    301:301:void <init>(com.eos.module.charge.saver.view.DuckView) -> <init>
+    304:310:void handleMessage(android.os.Message) -> handleMessage
 com.eos.module.charge.saver.view.DuckView$7 -> com.eos.module.charge.saver.view.DuckView$7:
     int val$halfWidth -> a
     com.eos.module.charge.saver.view.DuckView this$0 -> b
-    412:412:void <init>(com.eos.module.charge.saver.view.DuckView,int) -> <init>
-    415:433:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    413:413:void <init>(com.eos.module.charge.saver.view.DuckView,int) -> <init>
+    416:434:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.eos.module.charge.saver.view.DuckView$8 -> com.eos.module.charge.saver.view.DuckView$8:
     int val$halfWidth -> a
     com.eos.module.charge.saver.view.DuckView this$0 -> b
-    436:436:void <init>(com.eos.module.charge.saver.view.DuckView,int) -> <init>
-    439:444:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    449:454:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    437:437:void <init>(com.eos.module.charge.saver.view.DuckView,int) -> <init>
+    440:445:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    450:455:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.eos.module.charge.saver.view.DuckView$Adapter -> com.eos.module.charge.saver.view.DuckView$a:
     java.util.List list -> b
     com.eos.module.charge.saver.view.DuckView this$0 -> a
-    316:318:void <init>(com.eos.module.charge.saver.view.DuckView,java.util.List) -> <init>
-    322:322:int getCount() -> getCount
-    327:327:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-    332:333:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    337:338:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    317:319:void <init>(com.eos.module.charge.saver.view.DuckView,java.util.List) -> <init>
+    323:323:int getCount() -> getCount
+    328:328:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    333:334:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    338:339:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
 com.eos.module.charge.saver.view.DuckView$UnlockListener -> com.eos.module.charge.saver.view.DuckView$b:
     void onUnlock() -> a
 com.eos.module.charge.saver.view.IndicatorView -> com.eos.module.charge.saver.view.IndicatorView:
