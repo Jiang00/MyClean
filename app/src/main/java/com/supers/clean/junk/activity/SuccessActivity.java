@@ -159,7 +159,11 @@ public class SuccessActivity extends BaseActivity {
 
             @Override
             public void duogouSc() {
+                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
                 startSecondAnimation();
+                success_drawhook.setListener(null);
             }
         });
         if (PreData.getDB(this, Constant.IS_ROTATE, false) || shareFive.getFiveRate()) {
@@ -181,7 +185,7 @@ public class SuccessActivity extends BaseActivity {
                 public void run() {
                     success_jiantou.clearAnimation();
                     success_jiantou.setVisibility(View.INVISIBLE);
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, data.inter_time * 1000);
 
