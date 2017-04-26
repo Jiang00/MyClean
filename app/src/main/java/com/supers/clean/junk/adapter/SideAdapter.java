@@ -143,7 +143,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
                 convertView.setLayoutParams(param);
             }
         }
-        if (position == FLOAT || position == FAMILY) {
+        if (position == JUNK || position == FAMILY) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);

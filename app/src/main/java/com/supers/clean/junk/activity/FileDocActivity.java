@@ -169,7 +169,7 @@ public class FileDocActivity extends BaseActivity {
 
     private void initData() {
         initCur();
-        titleList = new ArrayList<String>();
+        titleList = new ArrayList<>();
         titleList.add("DOC");
         titleList.add("TXT");
         titleList.add("PDF");
