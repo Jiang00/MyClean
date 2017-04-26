@@ -20,13 +20,13 @@ public class CopyDbManager {
 //		String path = context.getFilesDir()
 //				+ fileName;
         try {
-//			InputStream is = context.getAssets().open(fileName);
-            InputStream is = context.getClass().getClassLoader().getResourceAsStream("assets/" + fileName);
-            BufferedInputStream bis = new BufferedInputStream(is);
             File file = new File(path);
             if (file.exists()) {
                 return;
             }
+//			InputStream is = context.getAssets().open(fileName);
+            InputStream is = context.getClass().getClassLoader().getResourceAsStream("assets/" + fileName);
+            BufferedInputStream bis = new BufferedInputStream(is);
 
             OutputStream os = new FileOutputStream(file);
             BufferedOutputStream bos = new BufferedOutputStream(os);

@@ -13,18 +13,15 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.client.AndroidSdk;
 import com.eos.manager.AccessibilityService;
 import com.eos.manager.AppLockPermissionActivity;
 import com.supers.clean.junk.R;
@@ -84,14 +81,14 @@ public class PowerActivity extends BaseActivity {
         junk_button_clean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AndroidSdk.track("深度清理页面", "点击清理", "", 1);
+                CommonUtil.track("深度清理页面", "点击清理", "", 1);
                 if (!CommonUtil.isAccessibilitySettingsOn(PowerActivity.this)) {
                     try {
                         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                         startActivity(intent);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        AndroidSdk.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
+                        CommonUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
                     }
 
                     mHandler.postDelayed(new Runnable() {
@@ -131,7 +128,7 @@ public class PowerActivity extends BaseActivity {
         containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
         containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
         containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
-        containerView_junk_button_clean.setBackgroundResource(R.drawable.shape_radio);
+        containerView_junk_button_clean.setBackgroundResource(R.drawable.shape_button_ffffff);
         containerView_junk_button_clean.setTextColor(ContextCompat.getColor(this, R.color.main_circle_backg));
         containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
@@ -156,7 +153,7 @@ public class PowerActivity extends BaseActivity {
                     return;
                 }
             }
-            junk_button_clean.setBackgroundResource(R.drawable.shape_radio);
+            junk_button_clean.setBackgroundResource(R.drawable.shape_button_ffffff);
             junk_button_clean.setTextColor(ContextCompat.getColor(PowerActivity.this, R.color.main_circle_backg));
             power_size.setText(getString(R.string.power_1, 0 + "") + " ");
             homeAdapter.notifyDataSetChanged();

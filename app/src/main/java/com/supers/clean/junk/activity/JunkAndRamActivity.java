@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.view.JunkRamView;
 import com.supers.clean.junk.adapter.JunkRamAdapter;
 import com.supers.clean.junk.util.CommonUtil;
@@ -106,8 +108,6 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         myHandler = new Handler();
         junkPresenter = new JunkRamPresenter(this, this);
         junkPresenter.init();
-
-
     }
 
     @Override
@@ -583,7 +583,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.title_left:
-                    AndroidSdk.track("所有垃圾页面", "点击返回", "", 1);
+                    CommonUtil.track("所有垃圾页面", "点击返回", "", 1);
                     onBackPressed();
                     break;
                 case R.id.junk_button_system:
@@ -591,10 +591,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("所有垃圾页面", "点击收起系统缓存", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击收起系统缓存", "", 1);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("所有垃圾页面", "点击打开系统缓存", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击打开系统缓存", "", 1);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -603,10 +603,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("所有垃圾页面", "点击收起apk文件", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击收起apk文件", "", 1);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("所有垃圾页面", "点击打开apk文件", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击打开apk文件", "", 1);
                         junk_apk_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -615,10 +615,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("所有垃圾页面", "点击收起unload文件", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击收起unload文件", "", 1);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("所有垃圾页面", "点击打开apk文件", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击打开apk文件", "", 1);
                         junk_unload_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -627,11 +627,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("所有垃圾页面", "点击收起log文件", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击收起log文件", "", 1);
 
                         junk_log_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("所有垃圾页面", "点击打开log文件", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击打开log文件", "", 1);
 
                         junk_log_list.setVisibility(View.VISIBLE);
                     }
@@ -642,11 +642,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("所有垃圾页面", "点击收起user文件", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击收起user文件", "", 1);
 
                         junk_user_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("所有垃圾页面", "点击打开user文件", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击打开user文件", "", 1);
 
                         junk_user_list.setVisibility(View.VISIBLE);
                     }
@@ -658,15 +658,16 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     }
 
                     if (junk_ram_list.getVisibility() == View.VISIBLE) {
-                        AndroidSdk.track("所有垃圾页面", "点击收缩ram", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击收缩ram", "", 1);
                         junk_ram_list.setVisibility(View.GONE);
                     } else {
-                        AndroidSdk.track("所有垃圾页面", "点击展开ram", "", 1);
+                        CommonUtil.track("所有垃圾页面", "点击展开ram", "", 1);
                         junk_ram_list.setVisibility(View.VISIBLE);
                     }
                     break;
                 case R.id.junk_button_clean:
-                    AndroidSdk.track("所有垃圾页面", "点击清理", "", 1);
+                    PreData.putDB(JunkAndRamActivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
+                    CommonUtil.track("所有垃圾页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&

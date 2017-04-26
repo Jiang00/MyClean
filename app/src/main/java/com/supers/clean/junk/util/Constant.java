@@ -54,6 +54,8 @@ public class Constant {
 
     public static final String KEY_NOTIFI = "KEY_NOTIFI";//notifi
 
+    public static final String KEY_CLEAN_TIME = "KEY_CLEAN_TIME";//两天
+
 
     /**
      * 广告控制
@@ -75,6 +77,12 @@ public class Constant {
     public static final String FULL_COOL = "FULL_COOL";
 
     public static final String FULL_SHORTCUT = "FULL_SHORTCUT";
+
+    public static final String FULL_FILE = "FULL_FILE";
+
+    public static final String FULL_FILE_1 = "FULL_FILE_1";
+
+    public static final String FULL_FILE_2 = "FULL_FILE_2";
 
 
 }

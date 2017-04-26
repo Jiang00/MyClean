@@ -3,16 +3,12 @@ package com.supers.clean.junk.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -21,18 +17,16 @@ import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.entity.JsonData;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.JsonParser;
 import com.supers.clean.junk.util.PreData;
-import com.supers.clean.junk.entity.JsonData;
-
-import java.util.Locale;
 
 /**
  * Created by on 2017/2/28.
  */
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
     private Toast toast;
     protected String tuiguang = "com.eosmobi.applock";
     protected String extraData;
@@ -67,6 +61,9 @@ public class BaseActivity extends Activity {
                 PreData.putDB(this, Constant.FULL_FLOAT, data.full_float);
                 PreData.putDB(this, Constant.FULL_COOL, data.full_cool);
                 PreData.putDB(this, Constant.FULL_SHORTCUT, data.full_shortcut);
+                PreData.putDB(this, Constant.FULL_FILE, data.full_file);
+                PreData.putDB(this, Constant.FULL_FILE_1, data.full_file_1);
+                PreData.putDB(this, Constant.FULL_FILE_2, data.full_file_2);
             } catch (Exception e) {
 
             }
@@ -119,7 +116,8 @@ public class BaseActivity extends Activity {
         intent.putExtras(bundle);
         startActivityForResult(intent, requestCode);
     }
-    public void jumpToActivity(Class<?> classs,  int requestCode) {
+
+    public void jumpToActivity(Class<?> classs, int requestCode) {
         Intent intent = new Intent(this, classs);
         startActivityForResult(intent, requestCode);
     }
@@ -210,18 +208,4 @@ public class BaseActivity extends Activity {
         return (T) view.findViewById(id);
     }
 
-    public void changeAppLanguage() {
-        Locale locale = getResources().getConfiguration().locale;
-        String language = locale.getLanguage();
-        if (TextUtils.equals(language, "ar")) {
-            Locale myLocale = new Locale("en");
-            Resources res = getResources();
-            DisplayMetrics dm = res.getDisplayMetrics();
-            Configuration conf = res.getConfiguration();
-            conf.locale = myLocale;
-            res.updateConfiguration(conf, dm);
-        }
-        Log.e("rqy", "--language--" + language);
-        // 本地语言设置
-    }
 }

@@ -7,17 +7,14 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.eos.eshop.ShopMaster;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PhoneManager;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.ShortCutUtils;
@@ -73,9 +70,10 @@ public class LoadingActivity extends BaseActivity {
             }
         });
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
-            AndroidSdk.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
-            AndroidSdk.track("是否安装applock", CommonUtil.isPkgInstalled("com.eosmobi.applock", getPackageManager()) == true ? "是" : "否", "", 1);
+            CommonUtil.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
+            CommonUtil.track("是否安装applock", CommonUtil.isPkgInstalled("com.eosmobi.applock", getPackageManager()) == true ? "是" : "否", "", 1);
             PreData.putDB(this, Constant.ROOT_TRAK, false);
+            PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
 
     }
@@ -86,8 +84,9 @@ public class LoadingActivity extends BaseActivity {
         public void run() {
             DisplayMetrics metrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+
             int a = CommonUtil.dp2px(360);
-            Log.e("jfy", "px=" + a + "");
+            Log.e("jfy", "px=" + a + "" + "=" + metrics.density + "=" + metrics.widthPixels);
             jumpTo(MainActivity.class);
             finish();
         }

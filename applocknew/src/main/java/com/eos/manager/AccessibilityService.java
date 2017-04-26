@@ -94,7 +94,7 @@ public class AccessibilityService extends android.accessibilityservice.Accessibi
                 return true;
             }
         }
-        AndroidSdk.track("强度清理", "清理失败:" + model, "", 1);
+        AndroidSdk.track("强力清理", "清理失败:" + model, "", 1);
         return false;
     }
 

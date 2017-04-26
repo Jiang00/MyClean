@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.supers.clean.junk.presenter;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
@@ -6,6 +6,7 @@ import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,7 +33,16 @@ public class GetTopApp {
         String packageName = null;
         if (Build.VERSION.SDK_INT > 19) {
             try {
-                packageName = getActivePackages();
+                if (packageName == null) {
+                    packageName = getForegroundApp();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (packageName == null) {
+                    packageName = getActivePackages();
+                }
             } catch (Exception | Error e) {
                 e.printStackTrace();
             }
@@ -43,6 +53,7 @@ public class GetTopApp {
             } catch (Exception | Error e) {
                 e.printStackTrace();
             }
+
             if (packageName == null) {
                 List<ActivityManager.RunningTaskInfo> lst = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
                 if (lst != null && lst.size() > 0) {
@@ -52,13 +63,7 @@ public class GetTopApp {
                     }
                 }
             }
-            try {
-                if (packageName == null) {
-                    packageName = getForegroundApp();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
 
         } else {
             List<ActivityManager.RunningTaskInfo> lst = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
@@ -66,6 +71,7 @@ public class GetTopApp {
                 ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
                 if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
                     packageName = runningTaskInfo.topActivity.getPackageName();
+                    Log.e("aaa", "float5=" + packageName);
                 }
             }
         }

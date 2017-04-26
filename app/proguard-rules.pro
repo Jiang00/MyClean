@@ -108,6 +108,7 @@
 -keep class com.core.** { *;}
 
 -keep class com.supers.clean.junk.entity.** { *; }
+-keep class com.supers.clean.junk.presenter.** { *; }
 -keep class com.eos.kpa.nativ.** { *; }
 
 -keep class com.eos.ui.demo.entries.** { *;}

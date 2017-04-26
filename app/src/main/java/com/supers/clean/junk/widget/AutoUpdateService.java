@@ -12,6 +12,8 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.supers.clean.junk.util.CommonUtil;
+
 /**
  * Created by renqingyou on 2017/3/30.
  */
@@ -45,7 +47,7 @@ public abstract class AutoUpdateService extends Service {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case SERVICE_UPDATE_MESSAGE:
-                    Log.e("rqy", "update widget--broadcast action=" + update_widget_action);
+                    CommonUtil.log("rqy", "update widget--broadcast action=" + update_widget_action);
                     if (isStopUpdateWidget) {
                         removeMessages(SERVICE_UPDATE_MESSAGE);
                         stopSelf();

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_first"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/view_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <include layout="@layout/layout_title" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ProgressBar
+            android:id="@+id/file_progressbar"
+            style="?android:attr/progressBarStyleInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:indeterminateTint="@color/app_color_first"
+            android:indeterminateTintMode="src_atop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <ListView
+                android:id="@+id/file_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/list_divider"
+                android:dividerHeight="1dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/file_clean_rl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d72"
+            android:layout_gravity="bottom">
+
+            <Button
+                android:id="@+id/file_button_clean"
+                android:layout_width="@dimen/d168"
+                android:layout_height="@dimen/d40"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_button"
+                android:text="@string/junk_button"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/s15" />
+        </RelativeLayout>
+    </FrameLayout>
+
+
+</LinearLayout>

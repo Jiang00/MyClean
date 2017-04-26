@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -18,7 +17,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -158,7 +156,6 @@ public class NotifiActivity extends Activity {
         list_si.setRemoveListener(new DeleteListView.RemoveListener() {
             @Override
             public void removeItem(DeleteListView.RemoveDirection direction, int position) {
-                Log.e("list", "remove");
                 NotifiInfo info = adapter.getItem(position);
                 myApplication.removeNotifi(info);
                 LocalBroadcastManager.getInstance(NotifiActivity.this).sendBroadcast(new Intent(NOTIFI_ACTION));
@@ -213,7 +210,6 @@ public class NotifiActivity extends Activity {
         startActivityForResult(intent, requestCode);
     }
 
-
     public class NotifiReceiver extends BroadcastReceiver {
 
         @Override
@@ -239,7 +235,7 @@ public class NotifiActivity extends Activity {
     @Override
     public void onBackPressed() {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
-            jumpTo(MainActivity.class);
+            startActivity(new Intent(this, MainActivity.class));
         }
         finish();
     }

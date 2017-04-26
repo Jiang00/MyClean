@@ -55,7 +55,7 @@ public class NotificationService extends Service {
     Handler myHandler;
     private PhoneManager phoneManager;
     private NotificationManager mNotifyManager;
-    private Notification notification_ram, notification_cooling, notification_junk;
+    private Notification notification_ram, notification_cooling, notification_junk, notification_two_day;
     private RemoteViews remoteView_1, remoteViewNotifi;
     private Notification notification_1;
     private Notification notification_notifi;
@@ -363,6 +363,12 @@ public class NotificationService extends Service {
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }
+            long clean_two_day = PreData.getDB(NotificationService.this, Constant.KEY_CLEAN_TIME, 0l);
+            if (CommonUtil.millTransFate(time - clean_two_day) > 2) {
+                tonghzi_two_day();
+                mNotifyManager.notify(101, notification_two_day);
+                PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
+            }
         }
 
     }
@@ -422,6 +428,25 @@ public class NotificationService extends Service {
         notification_junk = mBuilder.build();
         notification_junk.defaults = Notification.DEFAULT_SOUND;
         notification_junk.flags = Notification.FLAG_AUTO_CANCEL;
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void tonghzi_two_day() {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        RemoteViews remoteView = new RemoteViews(getPackageName(),
+                R.layout.layout_two_day);
+        int requestCode = (int) SystemClock.uptimeMillis();
+        PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
+                notifyIntentJunkRam, PendingIntent.FLAG_CANCEL_CURRENT);
+        mBuilder.setContent(remoteView);
+        mBuilder.setContentIntent(pendIntent);
+        mBuilder.setAutoCancel(true);
+        mBuilder.setOngoing(false);
+        mBuilder.setWhen(System.currentTimeMillis());
+        mBuilder.setSmallIcon(R.mipmap.notification_title);
+        notification_two_day = mBuilder.build();
+        notification_two_day.defaults = Notification.DEFAULT_SOUND;
+        notification_two_day.flags = Notification.FLAG_AUTO_CANCEL;
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)

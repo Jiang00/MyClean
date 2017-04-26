@@ -23,11 +23,21 @@ public class JunkInfo implements Serializable {
     public int drawableRid;
     public int textrid;
     public boolean isStartSelf;
+    public long _id;
 
 
     public JunkInfo(int textrid, int drawableRid, boolean isChecked) {
         this.textrid = textrid;
         this.drawableRid = drawableRid;
+        this.isChecked = isChecked;
+    }
+
+    public JunkInfo(long _id, Drawable icon, String name, String path, long size, boolean isChecked) {
+        this._id = _id;
+        this.icon = icon;
+        this.name = name;
+        this.path = path;
+        this.size = size;
         this.isChecked = isChecked;
     }
 

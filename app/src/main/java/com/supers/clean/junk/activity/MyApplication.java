@@ -23,7 +23,6 @@ import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.entity.NotifiInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
-import com.supers.clean.junk.service.ReStarService;
 import com.supers.clean.junk.task.ApkFileAndAppJunkTask;
 import com.supers.clean.junk.task.AppCacheTask;
 import com.supers.clean.junk.task.AppManagerTask;
@@ -248,9 +247,9 @@ public class MyApplication extends App {
 
         setMinHeapSize(CWJ_HEAP_SIZE);
 
-        ReStarService.start(this);
+       /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
-        startService(serviceIntent);
+        startService(serviceIntent);*/
         //charging
         startService(new Intent(this, BatteryService.class));
 //        Utils.writeData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, false);//
