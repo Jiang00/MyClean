@@ -27,6 +27,7 @@ import com.supers.clean.junk.activity.JunkActivity;
 import com.supers.clean.junk.activity.ManagerActivity;
 import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.NotifiInfoActivity;
+import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.activity.PowerActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SettingActivity;
