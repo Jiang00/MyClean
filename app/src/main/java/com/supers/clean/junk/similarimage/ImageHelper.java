@@ -114,7 +114,7 @@ public class ImageHelper {
         return hashCode.toString();
     }*/
 
-    private void recyclebitmap(Bitmap thumb) {
+    public void recyclebitmap(Bitmap thumb) {
         if (thumb != null && !thumb.isRecycled()) {
             // 回收并且置为null
             thumb.recycle();
@@ -342,7 +342,7 @@ public class ImageHelper {
         return localImage;
     }
 
-    private Bitmap loadBitmapFromFile(String path, int screenWidth, int screenHeight) {
+    public Bitmap loadBitmapFromFile(String path, int screenWidth, int screenHeight) {
         // 不能超过最大高与最大宽，避免尺寸太大而OOM
 
         final int width = Math.min(screenWidth, MAX_WIDTH);

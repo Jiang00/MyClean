@@ -1,6 +1,9 @@
 package com.supers.clean.junk.activity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutCompat;
@@ -16,6 +19,11 @@ import android.widget.TextView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.MyGridLayoutManager;
 import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.similarimage.ImageHelper;
+import com.supers.clean.junk.similarimage.ImageInfo;
+import com.supers.clean.junk.similarimage.SimilarImageActivity;
+import com.supers.clean.junk.similarimage.SimilarPictureAdapter;
+import com.supers.clean.junk.util.CommonUtil;
 
 import java.util.ArrayList;
 
@@ -24,13 +32,19 @@ import java.util.ArrayList;
  */
 
 public class PictureActivity extends BaseActivity {
+    private static final int PICTHRE_PATH = 0;
+    private static final int PICTHRE_SIZE = 1;
+
     FrameLayout title_left;
     TextView title_name;
     ImageView title_right;
     LinearLayout picture_item;
+    TextView picture_path;
+    TextView picture_danwei;
+    TextView picture_size;
 
     private MyGridLayoutManager gridLayoutManager;
-    private ArrayList<JunkInfo> datalist;
+    private ImageHelper imageHelper;
 
 
     @Override
@@ -40,8 +54,30 @@ public class PictureActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         title_right = (ImageView) findViewById(R.id.title_right);
         picture_item = (LinearLayout) findViewById(R.id.picture_item);
+        picture_path = (TextView) findViewById(R.id.picture_path);
+        picture_size = (TextView) findViewById(R.id.picture_size);
+        picture_danwei = (TextView) findViewById(R.id.picture_danwei);
 
     }
+
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case PICTHRE_PATH:
+                    picture_path.setText((String) msg.obj);
+                    break;
+                case PICTHRE_SIZE:
+                    picture_size.setText((String) msg.obj);
+                    picture_danwei.setText((String) msg.obj);
+                    break;
+                default:
+                    break;
+            }
+
+            super.handleMessage(msg);
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,6 +86,7 @@ public class PictureActivity extends BaseActivity {
         title_name.setText(R.string.side_picture);
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
+        imageHelper = new ImageHelper();
         initData();
 
     }
@@ -58,12 +95,40 @@ public class PictureActivity extends BaseActivity {
         int dp4 = (int) getResources().getDimension(R.dimen.d4);
         int dp6 = (int) getResources().getDimension(R.dimen.d6);
         int dp8 = (int) getResources().getDimension(R.dimen.d8);
-        datalist = new ArrayList<>();
-//        datalist.add("aaa");
-//        datalist.add("aaa");
-//        datalist.add("aaa");
-//        datalist.add("aaa");
-//        datalist.add("aaa");
+
+        imageHelper.querySimilarImage(this, new ImageHelper.OnQuerySimilarPicCallBack() {
+            @Override
+            public void startAsync(ArrayList<ImageInfo> localImageList) {
+
+            }
+
+            @Override
+            public void endAsync(ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages) {
+
+            }
+
+            @Override
+            public void startAsyncPic(int i, ArrayList<ImageInfo> localImageList) {
+                Message msg = mHandler.obtainMessage();//同 new Message();
+                msg.what = PICTHRE_PATH;
+                msg.obj = localImageList.get(i).path;
+                mHandler.sendMessage(msg);
+            }
+
+            @Override
+            public void endAsyncPic(int i, ArrayList<ImageInfo> localImageList) {
+
+            }
+
+            @Override
+            public void haveQuerySimilarPic(int i, ArrayList<ImageInfo> similarImage, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, int bestImageIndex, long totalSize) {
+                Message msg = mHandler.obtainMessage();//同 new Message();
+                msg.what = PICTHRE_SIZE;
+                msg.obj = localImageList.get(i).path;
+                mHandler.sendMessage(msg);
+            }
+        });
+
         addItemView(datalist, dp4, dp6, dp8);
         RecyclerView recycle_1 = new RecyclerView(this);
         recycle_1.setOverScrollMode(View.OVER_SCROLL_NEVER);
@@ -117,7 +182,7 @@ public class PictureActivity extends BaseActivity {
 
     }
 
-    private void addItemView(ArrayList<JunkInfo> list, int dp4, int dp6, int dp8) {
+    private void addItemView(ArrayList<ImageInfo> list, int dp4, int dp6, int dp8) {
         RecyclerView recycleView = new RecyclerView(this);
         recycleView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         recycleView.setPadding(dp6, dp4, dp6, dp4);
@@ -148,19 +213,20 @@ public class PictureActivity extends BaseActivity {
     };
 
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
-        ArrayList<JunkInfo> list;
+        ArrayList<ImageInfo> list;
+        int bastPosition;
 
-        public HomeAdapter(ArrayList<JunkInfo> list) {
+        public HomeAdapter(ArrayList<ImageInfo> list) {
             this.list = list;
-
+            bastPosition = imageHelper.getBestImageIndex(list);
+            this.list.get(bastPosition).isNormal = true;
         }
 
         public HomeAdapter() {
-            this.list = list;
 
         }
 
-        public void upList(ArrayList<JunkInfo> list) {
+        public void upList(ArrayList<ImageInfo> list) {
             this.list = list;
         }
 
@@ -174,19 +240,30 @@ public class PictureActivity extends BaseActivity {
 
         @Override
         public void onBindViewHolder(PictureActivity.HomeAdapter.MyViewHolder holder, final int position) {
-            holder.recyc_check.setImageResource(list.get(position).isChecked ? R.mipmap.power_4 : R.mipmap.power_5);
-            holder.recyc_icon.setImageDrawable(list.get(position).icon);
-            holder.recyc_item.setOnClickListener(new View.OnClickListener() {
+            final ImageInfo info = list.get(position);
+            if (bastPosition == position) {
+                holder.picture_best.setVisibility(View.VISIBLE);
+            } else {
+                holder.picture_best.setVisibility(View.INVISIBLE);
+            }
+            if (info.isNormal) {
+                holder.picture_check.setImageResource(R.mipmap.picture_normal);
+            } else {
+                holder.picture_check.setImageResource(R.mipmap.picture_passed);
+            }
+            Bitmap bitmap = imageHelper.loadBitmapFromFile(info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
+            holder.picture_icon.setImageBitmap(bitmap);
+            holder.picture_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    list.get(position).isChecked = !list.get(position).isChecked;
+                    info.isNormal = !info.isNormal;
                     notifyDataSetChanged();
                 }
             });
         }
 
         public void reChangesData(int position) {
-
+            bastPosition = imageHelper.getBestImageIndex(list);
             notifyItemRangeChanged(position, this.list.size() - position); //mList是数据
 
         }
@@ -197,15 +274,15 @@ public class PictureActivity extends BaseActivity {
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {
-            FrameLayout recyc_item;
-            ImageView recyc_icon;
-            ImageView recyc_check;
+            ImageView picture_icon;
+            ImageView picture_check;
+            ImageView picture_best;
 
             public MyViewHolder(View view) {
                 super(view);
-                recyc_item = (FrameLayout) view.findViewById(R.id.recyc_item);
-                recyc_icon = (ImageView) view.findViewById(R.id.recyc_icon);
-                recyc_check = (ImageView) view.findViewById(R.id.recyc_check);
+                picture_icon = (ImageView) view.findViewById(R.id.picture_icon);
+                picture_check = (ImageView) view.findViewById(R.id.picture_check);
+                picture_best = (ImageView) view.findViewById(R.id.picture_best);
             }
         }
     }
