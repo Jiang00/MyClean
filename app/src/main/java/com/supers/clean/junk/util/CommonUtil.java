@@ -149,6 +149,38 @@ public class CommonUtil {
         return mstrbuf.toString();
     }
 
+    public static String convertStorage(long size) {
+        long kb = 1024;
+        long mb = kb * 1024;
+        long gb = mb * 1024;
+
+        if (size >= gb) {
+            return String.format("%.1f", (float) size / gb);
+        } else if (size >= mb) {
+            float f = (float) size / mb;
+            return String.format(f > 100 ? "%.0f" : "%.1f", f);
+        } else if (size >= kb) {
+            float f = (float) size / kb;
+            return String.format(f > 100 ? "%.0f" : "%.1f", f);
+        } else
+            return String.format("%d", size);
+    }
+
+    public static String convertStorageDanwei(long size) {
+        long kb = 1024;
+        long mb = kb * 1024;
+        long gb = mb * 1024;
+        if (size >= gb) {
+            return "GB";
+        } else if (size >= mb) {
+            return "MB";
+        } else if (size >= kb) {
+            float f = (float) size / kb;
+            return "KB";
+        } else
+            return "B";
+    }
+
     public static String getFileSize1(long filesize) {
         StringBuffer mstrbuf = new StringBuffer();
         if (filesize <= 0) {

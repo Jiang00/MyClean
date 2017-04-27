@@ -1,105 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/app_color_first"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <View
-            android:id="@+id/view_title_bar"
-            android:layout_width="match_parent"
-            android:layout_height="24dp" />
-
-        <include layout="@layout/layout_title" />
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d95">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d95"
+            android:layout_height="wrap_content"
             android:background="@color/app_color_first"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/picture_size"
-                android:layout_width="@dimen/d141"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d82"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s63" />
+            <View
+                android:id="@+id/view_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/picture_danwei"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="MB"
-                    android:textColor="@color/white_70"
-                    android:textSize="@dimen/s21" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d14"
-                    android:text="@string/picture_jianyi"
-                    android:textColor="@color/white_70"
-                    android:textSize="@dimen/s10" />
-            </LinearLayout>
+            <include layout="@layout/layout_title" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/picture_path"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="@dimen/d8"
-            android:textColor="@color/white_70"
-            android:textSize="@dimen/s9" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#f1f1f1">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="@dimen/d95">
 
             <LinearLayout
-                android:id="@+id/picture_item"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" />
+                android:layout_height="@dimen/d95"
+                android:background="@color/app_color_first"
+                android:orientation="horizontal">
 
-        </ScrollView>
+                <TextView
+                    android:id="@+id/picture_size"
+                    android:layout_width="@dimen/d141"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d82"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s63" />
 
-    </FrameLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
 
-    <Button
+                    <TextView
+                        android:id="@+id/picture_danwei"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MB"
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/s21" />
+
+                    <TextView
+                        android:id="@+id/picture_scan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d12"
+                        android:text="@string/picture_scan"
+                        android:textColor="@color/white_70"
+                        android:textSize="@dimen/s12" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/picture_path"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="@dimen/d8"
+                android:singleLine="true"
+                android:textColor="@color/white_70"
+                android:textSize="@dimen/s10" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#f1f1f1">
+
+            <ProgressBar
+                android:id="@+id/picture_progressbar"
+                style="?android:attr/progressBarStyleInverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:indeterminateTint="@color/app_color_first"
+                android:indeterminateTintMode="src_atop" />
+
+            <ScrollView
+                android:id="@+id/picture_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/picture_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
+
+            </ScrollView>
+
+        </FrameLayout>
+
+        <com.supers.clean.junk.customeview.LineProgressView
+            android:id="@+id/picture_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d50"
+            android:background="@color/app_pro" />
+
+        <Button
+            android:id="@+id/picture_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d50"
+            android:background="@color/app_color_first"
+            android:text="@string/picture_button"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/d17"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/picture_pager"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d50"
-        android:layout_marginTop="@dimen/d20"
-        android:background="@color/app_color_first"
-        android:text="@string/picture_button"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/d17" />
-
-</LinearLayout>
+        android:layout_height="match_parent" />
+</FrameLayout>
