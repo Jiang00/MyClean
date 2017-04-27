@@ -185,65 +185,7 @@ public class Util {
         return "";
     }
 
-    // return new file path if successful, or return null
-    public static String copyFile(String src, String dest) {
-        File file = new File(src);
-        if (!file.exists() || file.isDirectory()) {
-            Log.v(LOG_TAG, "copyFile: file not exist or is directory, " + src);
-            return null;
-        }
-        FileInputStream fi = null;
-        FileOutputStream fo = null;
-        try {
-            fi = new FileInputStream(file);
-            File destPlace = new File(dest);
-            if (!destPlace.exists()) {
-                if (!destPlace.mkdirs())
-                    return null;
-            }
 
-            String destPath = Util.makePath(dest, file.getName());
-            File destFile = new File(destPath);
-            int i = 1;
-            while (destFile.exists()) {
-                String destName = Util.getNameFromFilename(file.getName()) + " " + i++ + "."
-                        + Util.getExtFromFilename(file.getName());
-                destPath = Util.makePath(dest, destName);
-                destFile = new File(destPath);
-            }
-
-            if (!destFile.createNewFile())
-                return null;
-
-            fo = new FileOutputStream(destFile);
-            int count = 102400;
-            byte[] buffer = new byte[count];
-            int read = 0;
-            while ((read = fi.read(buffer, 0, count)) != -1) {
-                fo.write(buffer, 0, read);
-            }
-
-            // TODO: set access privilege
-
-            return destPath;
-        } catch (FileNotFoundException e) {
-            Log.e(LOG_TAG, "copyFile: file not found, " + src);
-            e.printStackTrace();
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "copyFile: " + e.toString());
-        } finally {
-            try {
-                if (fi != null)
-                    fi.close();
-                if (fo != null)
-                    fo.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return null;
-    }
 
     // does not include sd card folder
     private static String[] SysFileDirs = new String[]{
