@@ -1,23 +1,85 @@
 package com.supers.clean.junk.filemanager;
 
 import android.app.Activity;
-import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Created by Ivy on 2017/4/21.
  */
 
 public class FileUtils {
+
+    // return new file path if successful, or return null
+    public static String copyFile(String src, String dest) {
+        File file = new File(src);
+        if (!file.exists() || file.isDirectory()) {
+            Log.v("rqy", "copyFile: file not exist or is directory, " + src);
+            return null;
+        }
+        FileInputStream fi = null;
+        FileOutputStream fo = null;
+        try {
+            fi = new FileInputStream(file);
+            File destPlace = new File(dest);
+            if (!destPlace.exists()) {
+                if (!destPlace.mkdirs())
+                    return null;
+            }
+
+            String destPath = Util.makePath(dest, file.getName());
+            File destFile = new File(destPath);
+            int i = 1;
+            while (destFile.exists()) {
+                String destName = Util.getNameFromFilename(file.getName()) + " " + i++ + "."
+                        + Util.getExtFromFilename(file.getName());
+                destPath = Util.makePath(dest, destName);
+                destFile = new File(destPath);
+            }
+
+            if (!destFile.createNewFile())
+                return null;
+
+            fo = new FileOutputStream(destFile);
+            int count = 102400;
+            byte[] buffer = new byte[count];
+            int read = 0;
+            while ((read = fi.read(buffer, 0, count)) != -1) {
+                fo.write(buffer, 0, read);
+            }
+
+            // TODO: set access privilege
+
+            return destPath;
+        } catch (FileNotFoundException e) {
+            Log.e("rqy", "copyFile: file not found, " + src);
+            e.printStackTrace();
+        } catch (IOException e) {
+            Log.e("rqy", "copyFile: " + e.toString());
+        } finally {
+            try {
+                if (fi != null)
+                    fi.close();
+                if (fo != null)
+                    fo.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
     public static void deleteFile(String filePath) {
         if (TextUtils.isEmpty(filePath)) {
             return;

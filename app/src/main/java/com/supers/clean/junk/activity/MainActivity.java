@@ -51,6 +51,8 @@ import com.supers.clean.junk.customeview.MainScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
+import com.supers.clean.junk.similarimage.ImageHelper;
+import com.supers.clean.junk.similarimage.SimilarImageActivity;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
@@ -722,7 +724,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.iv_title_right:
                     CommonUtil.track("主页面", "点击进入设置页面", "", 1);
-                    mainPresenter.jumpToActivity(SettingActivity.class, 1);
+                    //new ImageHelper().getCameraImageList();
+                    mainPresenter.jumpToActivity(SimilarImageActivity.class, 1);
                     break;
                 case R.id.main_cpu_air_button:
                     CommonUtil.track("主页面", "点击cpu球进入硬件信息页面", "", 1);

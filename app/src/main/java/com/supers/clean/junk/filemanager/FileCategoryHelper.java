@@ -21,14 +21,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.media.MediaFile;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.provider.MediaStore.Audio;
 import android.provider.MediaStore.Files;
 import android.provider.MediaStore.Files.FileColumns;
 import android.provider.MediaStore.Images;
 import android.provider.MediaStore.Video;
 import android.util.Log;
-
 
 import java.io.FilenameFilter;
 import java.util.HashMap;

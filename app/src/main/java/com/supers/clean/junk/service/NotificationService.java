@@ -366,7 +366,7 @@ public class NotificationService extends Service {
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }
-            long clean_two_day = PreData.getDB(NotificationService.this, Constant.KEY_CLEAN_TIME, 0);
+            long clean_two_day = PreData.getDB(NotificationService.this, Constant.KEY_CLEAN_TIME, 0l);
             if (CommonUtil.millTransFate(time - clean_two_day) > 2) {
                 tonghzi_two_day();
                 mNotifyManager.notify(101, notification_two_day);
