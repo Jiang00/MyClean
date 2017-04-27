@@ -9,9 +9,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.supers.clean.junk.util.CommonUtil;
-import com.supers.clean.junk.util.GetTopApp;
+import com.supers.clean.junk.presenter.GetTopApp;
 import com.supers.clean.junk.presenter.FloatStateManager;
 
 import java.util.ArrayList;
@@ -76,11 +77,14 @@ public class FloatService extends Service {
 //                startActivity(intent);
 //                String pkg = TopActivityPkg.getTopPackageName(FloatService.this);
                 String pkg = topApp.execute();
+
                 if (hmoes.contains(pkg)) {
                     manager.upDate(CommonUtil.getMemory(FloatService.this));
                     manager.addWindowsView();
+                    Log.e("aaa", "float2");
                 } else {
                     manager.removeWindowsView();
+                    Log.e("aaa", "float3");
                 }
             }
         }).start();

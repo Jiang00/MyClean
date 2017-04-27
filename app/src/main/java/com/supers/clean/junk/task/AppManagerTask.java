@@ -54,12 +54,16 @@ public class AppManagerTask extends SimpleTask {
         } else {
             recentTasks = am.getRecentTasks(10, ActivityManager.RECENT_IGNORE_UNAVAILABLE);
         }
-        if (pm == null) {
-            pm = mContext.getPackageManager();
-        }
+
+        List<PackageInfo> packages;
         // 获取所有package,
-        List<PackageInfo> packages = pm
-                .getInstalledPackages(0);
+        synchronized (lock) {
+            packages = pm
+                    .getInstalledPackages(0);
+        }
+        if (packages == null || packages.isEmpty()) {
+            return;
+        }
         Method mGetPackageSizeInfoMethod = null;
         boolean version = Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR1 && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M;
         try {
@@ -118,9 +122,7 @@ public class AppManagerTask extends SimpleTask {
             }
         }
 
-        if (mSimpleTaskListener != null)
-
-        {
+        if (mSimpleTaskListener != null) {
             mSimpleTaskListener.finishLoading(allSize, appList);
         }
     }

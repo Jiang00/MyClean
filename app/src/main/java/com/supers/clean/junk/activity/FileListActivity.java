@@ -13,13 +13,16 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.FileAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
@@ -27,6 +30,9 @@ import com.supers.clean.junk.filemanager.FileCategoryHelper;
 import com.supers.clean.junk.filemanager.FileSortHelper;
 import com.supers.clean.junk.filemanager.FileUtils;
 import com.supers.clean.junk.filemanager.Util;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -42,6 +48,7 @@ public class FileListActivity extends BaseActivity {
     Button file_button_clean;
     RelativeLayout file_clean_rl;
     ProgressBar file_progressbar;
+    LinearLayout ll_ad;
 
     private FileCategoryHelper fileHelper;
     private FileAdapter adapter;
@@ -51,6 +58,8 @@ public class FileListActivity extends BaseActivity {
     private int nameId;
     private AlertDialog dialog;
     private FileCategoryHelper.FileCategory fc;
+    private String Tag_file_1 = "eos_file_1";
+    private View nativeView;
 
     @Override
     protected void findId() {
@@ -61,6 +70,7 @@ public class FileListActivity extends BaseActivity {
         file_button_clean = (Button) findViewById(R.id.file_button_clean);
         file_clean_rl = (RelativeLayout) findViewById(R.id.file_clean_rl);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
 
     }
 
@@ -72,6 +82,7 @@ public class FileListActivity extends BaseActivity {
         if (name == null) {
             name = "apk";
         }
+
         setContentView(R.layout.layout_file_second);
         title_name.setText(nameId);
         mHandler = new Handler();
@@ -82,6 +93,30 @@ public class FileListActivity extends BaseActivity {
         file_list.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         setListenet();
+        loadAd();
+    }
+
+    private void loadAd() {
+        if (PreData.getDB(this, Constant.FULL_FILE_1, 0) == 1) {
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+            tuiGuang();
+        } else {
+            addAd();
+        }
+    }
+
+    private void addAd() {
+        nativeView = CommonUtil.getNativeAdView(Tag_file_1, R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+            ll_ad.setLayoutParams(layout_ad);
+            ll_ad.addView(nativeView);
+        }
     }
 
     private void initData() {
@@ -121,7 +156,13 @@ public class FileListActivity extends BaseActivity {
                         }
                     });
                 } else {
-                    file_progressbar.setVisibility(View.GONE);
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            file_progressbar.setVisibility(View.GONE);
+
+                        }
+                    });
                 }
             }
         }).start();
@@ -178,11 +219,18 @@ public class FileListActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                long size = 0;
                 for (JunkInfo info : deleteList) {
+                    size += info.size;
                     FileUtils.deleteCo(FileListActivity.this, fc, info._id);
                 }
+
                 fileList.removeAll(deleteList);
                 adapter.notifyDataSetChanged();
+                Intent intent = new Intent(FileListActivity.this, SuccessActivity.class);
+                intent.putExtra("size", size);
+                intent.putExtra("from", "file");
+                startActivity(intent);
             }
         });
         cancle.setOnClickListener(new View.OnClickListener() {

@@ -46,7 +46,6 @@
                     android:id="@+id/battery_icon"
                     android:layout_width="15dp"
                     android:layout_height="15dp" />
-
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/battery_icon"
@@ -84,13 +83,11 @@
                 android:textSize="@dimen/time_txt"
                 android:layout_marginTop="@dimen/time_top"
                 android:textColor="@color/white_100"/>
-
             <LinearLayout
                 android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/battery_now_date"
                     app:typeface="Roboto-Light.ttf"
@@ -99,7 +96,6 @@
                     android:text="09/03"
                     android:textSize="@dimen/txt_common"
                     android:textColor="@color/white_100"/>
-
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/battery_now_week"
                     app:typeface="Roboto-Light.ttf"
@@ -109,27 +105,22 @@
                     android:text="Fri"
                     android:textSize="@dimen/txt_common"
                     android:textColor="@color/white_100"/>
-
             </LinearLayout>
-
             <FrameLayout
                 android:layout_marginTop="@dimen/battery_p"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="@dimen/battery_w"
                 android:layout_height="@dimen/battery_h">
-
                 <com.sample.lottie.LottieAnimationView
                     android:id="@+id/battery_electricity"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:lottie_autoPlay="false"/>
-
                 <com.sample.lottie.LottieAnimationView
                     android:id="@+id/battery_shell"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:lottie_autoPlay="false"/>
-
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:gravity="center"
                     android:id="@+id/battery_level"
@@ -139,9 +130,7 @@
                     android:layout_height="match_parent"
                     android:textSize="@dimen/txt_common"
                     android:textColor="@color/white_100"/>
-
             </FrameLayout>
-
             <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/battery_now_battery_left"
                 android:layout_gravity="center_horizontal"
@@ -152,14 +141,13 @@
                 android:textSize="@dimen/txt_common"
                 android:paddingTop="@dimen/txt_top_4"
                 android:textColor="@color/white_100"/>
-
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/battery_ad_layout"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="175dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:orientation="vertical"/>
@@ -227,6 +215,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
 
 </com.eos.module.charge.saver.view.BatteryView>

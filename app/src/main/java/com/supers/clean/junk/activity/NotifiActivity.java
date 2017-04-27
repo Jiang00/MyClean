@@ -5,11 +5,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -71,10 +74,60 @@ public class NotifiActivity extends Activity {
         notifi_button_clean = (Button) findViewById(R.id.notifi_button_clean);
     }
 
+    private void setTranslucentStatus(boolean on) {
+        Window win = getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if (on) {
+            winParams.flags |= bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+        win.setAttributes(winParams);
+    }
+
+    public void setHideVirtualKey(Window window) {
+        //保持布局状态
+        int uiOptions =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                        //布局位于状态栏下方
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        //隐藏导航栏
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+        if (Build.VERSION.SDK_INT >= 19) {
+            uiOptions |= 0x00001000;
+        } else {
+            uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+        }
+        window.getDecorView().setSystemUiVisibility(uiOptions);
+    }
+
+    private void full() {
+        setHideVirtualKey(getWindow());
+        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int visibility) {
+                setHideVirtualKey(getWindow());
+            }
+        });
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            setTranslucentStatus(true);
+
+        } else {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+        if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
+            full();
+        }
+
         setContentView(R.layout.layout_notifi);
+        findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, NotificationMonitor.class));
         title_name.setText(R.string.side_notifi);
@@ -139,6 +192,12 @@ public class NotifiActivity extends Activity {
             }
         }
     };
+
+
+    public void jumpTo(Class<?> classs) {
+        Intent intent = new Intent(this, classs);
+        startActivity(intent);
+    }
 
     public void jumpToActivity(Class<?> classs, Bundle bundle, int requestCode) {
         Intent intent = new Intent(this, classs);

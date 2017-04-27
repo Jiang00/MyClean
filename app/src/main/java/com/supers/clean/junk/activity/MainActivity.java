@@ -106,14 +106,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_SIDE = "eos_side";
 
 
-    private Handler handler;
+    private Handler handler = new Handler();
     private MainPresenter mainPresenter;
     private SideAdapter adapter;
     private long mExitTime;
     private int temp;
     private ViewPager viewpager;
-    private PagerAdapter pagerAdapter;
-    private View pageView;
+    /* private PagerAdapter pagerAdapter;
+     private View pageView;*/
     private PackageManager packageManager;
 
     private boolean mDrawerOpened = false;
@@ -212,7 +212,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_ram_per = (TextView) view.findViewById(R.id.main_ram_per);
         main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
         main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
-        pageView = findViewById(R.id.pageindicatorview);
+        /*pageView = findViewById(R.id.pageindicatorview);*/
 
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
@@ -254,7 +254,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
         viewpager = (ViewPager) findViewById(R.id.viewpager);
 
-        viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
+        viewpager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
                 return arrayList.size();
@@ -291,7 +291,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
-        initHandler();
 
         CommonUtil.track("主页面", "进入主页面", "", 1);
         lot_family.setImageAssetsFolder("images/box/");
@@ -367,11 +366,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
         });
 
-    }
-
-
-    private void initHandler() {
-        handler = new Handler();
     }
 
     //初始化监听
@@ -499,6 +493,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new JunkInfo(R.string.side_file, R.mipmap.side_file));//文件管理
         adapter.addData(new JunkInfo(R.string.side_power, R.mipmap.side_power));//深度清理
         adapter.addData(new JunkInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
+        adapter.addData(new JunkInfo(R.string.side_picture, R.mipmap.side_nitifi));//通知栏清理
         adapter.addData(new JunkInfo(R.string.side_family, R.mipmap.side_theme));//family
         adapter.addData(new JunkInfo(R.string.side_theme, R.mipmap.side_theme));//主题
         adapter.addData(new JunkInfo(R.string.side_setting, R.mipmap.side_setting));//设置

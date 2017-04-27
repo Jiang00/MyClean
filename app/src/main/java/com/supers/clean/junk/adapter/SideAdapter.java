@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import com.supers.clean.junk.activity.JunkActivity;
 import com.supers.clean.junk.activity.ManagerActivity;
 import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.NotifiInfoActivity;
+import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.activity.PowerActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SettingActivity;
@@ -48,6 +50,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
     private static final int FILE = idx++;
     private static final int POWER = idx++;
     private static final int NOTIFI = idx++;
+    private static final int PICTURE = idx++;
     private static final int FAMILY = idx++;
     private static final int THEME = idx++;
     private static final int SETTING = idx++;
@@ -142,7 +145,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
                 convertView.setLayoutParams(param);
             }
         }
-        if (position == FLOAT || position == FAMILY) {
+        if (position == JUNK || position == FAMILY) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);
@@ -204,6 +207,10 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
                 Intent intent6 = new Intent(context, NotifiActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
             }
+        } else if (position == PICTURE) {
+            CommonUtil.track("侧边栏", "点击进入相似图片", "", 1);
+            Intent intent = new Intent(context, PictureActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == FAMILY) {
             CommonUtil.track("侧边栏", "点击进入family页面", "", 1);
             ShopMaster.launch(context, "EOS_Family",

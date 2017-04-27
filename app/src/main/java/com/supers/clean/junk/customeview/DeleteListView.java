@@ -234,7 +234,6 @@ public class DeleteListView extends ListView {
                 if (mRemoveListener == null) {
                     throw new NullPointerException("RemoveListener is null, we should called setRemoveListener()");
                 }
-
                 itemView.scrollTo(0, 0);
                 mRemoveListener.removeItem(removeDirection, slidePosition);
             }

@@ -27,6 +27,8 @@ public class ImageInfo {
 
     public String sourceHashCode;
 
+    public boolean isNormal;
+
     public int avgPixel;
 
     public long fileSize;

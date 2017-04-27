@@ -1,5 +1,6 @@
 package com.supers.clean.junk.activity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -14,11 +15,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.FileAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
@@ -26,6 +29,9 @@ import com.supers.clean.junk.filemanager.FileCategoryHelper;
 import com.supers.clean.junk.filemanager.FileSortHelper;
 import com.supers.clean.junk.filemanager.FileUtils;
 import com.supers.clean.junk.filemanager.Util;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
 
@@ -55,6 +61,9 @@ public class FileDocActivity extends BaseActivity {
     FileAdapter adapter_doc, adapter_txt, adapter_pdf;
     private AlertDialog dialog;
     private FileCategoryHelper.FileCategory fc_clean;
+    private String TAG_FILE_2 = "eos_file_2";
+    private View nativeView;
+    private LinearLayout ll_ad;
 
     @Override
     protected void findId() {
@@ -85,6 +94,30 @@ public class FileDocActivity extends BaseActivity {
         viewList = new ArrayList<>();
         initData();
         setListenet();
+        loadAd();
+    }
+
+    private void loadAd() {
+        if (PreData.getDB(this, Constant.FULL_FILE_2, 0) == 1) {
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+            tuiGuang();
+        } else {
+            addAd();
+        }
+    }
+
+    private void addAd() {
+        nativeView = CommonUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+            ll_ad.setLayoutParams(layout_ad);
+            ll_ad.addView(nativeView);
+        }
     }
 
     private void initCur() {
@@ -136,7 +169,7 @@ public class FileDocActivity extends BaseActivity {
 
     private void initData() {
         initCur();
-        titleList = new ArrayList<String>();
+        titleList = new ArrayList<>();
         titleList.add("DOC");
         titleList.add("TXT");
         titleList.add("PDF");
@@ -147,6 +180,7 @@ public class FileDocActivity extends BaseActivity {
         view_doc = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         view_txt = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
         view_pdf = LayoutInflater.from(this).inflate(R.layout.layout_listview, null);
+        ll_ad = (LinearLayout) view_doc.findViewById(R.id.ll_ad);
         initDoc();
         initTxt();
         initPdf();
@@ -266,7 +300,9 @@ public class FileDocActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                long size = 0;
                 for (JunkInfo info : deleteList) {
+                    size += info.size;
                     FileUtils.deleteCo(FileDocActivity.this, fc_clean, info._id);
                 }
                 if (doc_view_pager.getCurrentItem() == 0) {
@@ -279,6 +315,10 @@ public class FileDocActivity extends BaseActivity {
                     pdfList.removeAll(deleteList);
                     adapter_pdf.notifyDataSetChanged();
                 }
+                Intent intent = new Intent(FileDocActivity.this, SuccessActivity.class);
+                intent.putExtra("size", size);
+                intent.putExtra("from", "file");
+                startActivity(intent);
             }
         });
         cancle.setOnClickListener(new View.OnClickListener() {

@@ -2,24 +2,19 @@ package com.supers.clean.junk.service;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
-import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
-import android.support.annotation.IntDef;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.entity.NotifiInfo;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
@@ -42,6 +37,14 @@ public class NotificationMonitor extends NotificationListenerService {
     public void onNotificationPosted(StatusBarNotification sbn) {
         Log.e("notifi", "nitifilistenerPosted");
         analysisSbn(sbn);
+    }
+
+    public void onNotificationRemoved(StatusBarNotification sbn) {
+        super.onNotificationRemoved(sbn);
+    }
+
+    public void onNotificationRemoved(StatusBarNotification sbn, RankingMap rankingMap) {
+        super.onNotificationRemoved(sbn, rankingMap);
     }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
@@ -73,8 +76,21 @@ public class NotificationMonitor extends NotificationListenerService {
             }
         }
         String notificationTitle = extras.getString(Notification.EXTRA_TITLE);
-        String notificationText = (String) extras.getCharSequence(Notification.EXTRA_TEXT);
-        String notificationSubText = (String) extras.getCharSequence(Notification.EXTRA_SUB_TEXT);
+
+        CharSequence text = extras.getCharSequence(Notification.EXTRA_TEXT);
+        CharSequence subText = extras.getCharSequence(Notification.EXTRA_SUB_TEXT);
+
+        String notificationText = null;
+        String notificationSubText = null;
+
+        if (text != null) {
+            notificationText = text.toString();
+        }
+
+        if (subText != null) {
+            notificationSubText = subText.toString();
+        }
+
         if (TextUtils.isEmpty(notificationTitle)) {
             try {
                 notificationTitle = (String) pm.getApplicationLabel(pm.getApplicationInfo(pkg, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES));
