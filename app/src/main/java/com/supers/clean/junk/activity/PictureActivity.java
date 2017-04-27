@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ import java.util.ArrayList;
 public class PictureActivity extends BaseActivity {
     private static final int PICTHRE_PATH = 0;
     private static final int PICTHRE_SUCC = 1;
+    private static final int ADAPTER_NOTIFI = 2;
 
     FrameLayout title_left;
     TextView title_name;
@@ -84,6 +86,10 @@ public class PictureActivity extends BaseActivity {
                     picture_line.setVisibility(View.GONE);
                     picture_path.setVisibility(View.GONE);
                     picture_scan.setText(R.string.picture_jianyi);
+                    break;
+                case ADAPTER_NOTIFI:
+                    HomeAdapter adapter = (HomeAdapter) msg.obj;
+                    adapter.notifyDataSetChanged();
                     break;
                 default:
                     break;
@@ -193,15 +199,28 @@ public class PictureActivity extends BaseActivity {
 
                     break;
                 case R.id.picture_button:
-                    int size = picture_item.getChildCount();
-                    if (size == 0) {
-                        return;
-                    }
-                    for (int i = 0; i < size; i++) {
-                        RecyclerView recye = (RecyclerView) picture_item.getChildAt(i);
-                        HomeAdapter adapter = (HomeAdapter) recye.getAdapter();
-                        adapter.cleanData();
-                    }
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            int size = picture_item.getChildCount();
+                            if (size == 0) {
+                                return;
+                            }
+                            Log.e("picture", System.currentTimeMillis() + "");
+                            for (int i = 0; i < size; i++) {
+                                RecyclerView recye = (RecyclerView) picture_item.getChildAt(i);
+                                final HomeAdapter adapter = (HomeAdapter) recye.getAdapter();
+                                adapter.cleanData();
+                                try {
+                                    Thread.sleep(10);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            Log.e("picture", System.currentTimeMillis() + "");
+                        }
+                    }).start();
 
                     break;
             }
@@ -227,7 +246,18 @@ public class PictureActivity extends BaseActivity {
                 }
             }
             list.removeAll(listdata);
-            notifyDataSetChanged();
+            bastPosition = imageHelper.getBestImageIndex(list);
+            Message msg = new Message();
+            msg.obj = this;
+            msg.what = ADAPTER_NOTIFI;
+            mHandler.sendMessage(msg);
+//            mHandler.post(new Runnable() {
+//                @Override
+//                public void run() {
+////                    notifyItemRangeChanged(0, list.size()); //mList是数据
+//                    notifyDataSetChanged();
+//                }
+//            });
         }
 
         public void upList(ArrayList<ImageInfo> list) {
@@ -244,6 +274,7 @@ public class PictureActivity extends BaseActivity {
 
         @Override
         public void onBindViewHolder(final PictureActivity.HomeAdapter.MyViewHolder holder, final int position) {
+            Log.e("picture", "onBindViewHolder");
             final ImageInfo info = list.get(position);
             if (bastPosition == position) {
                 holder.picture_best.setVisibility(View.VISIBLE);
