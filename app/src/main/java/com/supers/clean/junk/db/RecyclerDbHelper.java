@@ -83,7 +83,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean addItemToFavor(ImageInfo circleItem) {
+    public boolean addItem(ImageInfo circleItem) {
         createFavorTable();
         String sql = "insert into " + FAVOR_TABLE_NAME + "(" + COLUMN_INDEX + "," + COLUMN_PKG + ")" +
                 "values(?,?)";

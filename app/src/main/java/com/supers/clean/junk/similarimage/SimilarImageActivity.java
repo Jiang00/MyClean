@@ -156,8 +156,8 @@ public class SimilarImageActivity extends AppCompatActivity {
 
             @Override
             public void haveQuerySimilarPic(int i, ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages,
-                                            int bestImageIndex, long totalSize) {
-                Log.e("rqy", "haveQuerySimilarPic--i=" + i + "--bestImageIndex=" + bestImageIndex + "--totalSize=" + totalSize);
+                                            long totalSize) {
+                Log.e("rqy", "haveQuerySimilarPic--i=" + i + "--totalSize=" + totalSize);
             }
         });
         if (similarItems.isEmpty()) {

@@ -415,7 +415,7 @@ public class ImageHelper {
 
         void endAsyncPic(int i, ArrayList<ImageInfo> localImageList);
 
-        void haveQuerySimilarPic(int i, ArrayList<ImageInfo> similarImage, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, int bestImageIndex, long totalSize);
+        void haveQuerySimilarPic(int i, ArrayList<ImageInfo> similarImage, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, long totalSize);
     }
 
     public ArrayList<ArrayList<ImageInfo>> querySimilarImage(Context context, OnQuerySimilarPicCallBack onQueryCallBack) {
@@ -455,10 +455,9 @@ public class ImageHelper {
                 if (similarItem.size() > 1) {
                     long groupSize = getImageGroupSize(similarItem);
                     totalSize += groupSize;
-                    int bestImageIndex = getBestImageIndex(similarItem);
                     similarItems.add(similarItem);
                     if (onQueryCallBack != null) {
-                        onQueryCallBack.haveQuerySimilarPic(i, localImageList, similarItems, bestImageIndex, totalSize);
+                        onQueryCallBack.haveQuerySimilarPic(i, localImageList, similarItems, totalSize);
                     }
                 }
                 similarItem = new ArrayList<>();
