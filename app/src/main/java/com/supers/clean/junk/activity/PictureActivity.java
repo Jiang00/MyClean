@@ -24,12 +24,8 @@ import android.widget.TextView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.LineProgressView;
 import com.supers.clean.junk.customeview.MyGridLayoutManager;
-import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.filemanager.FileUtils;
 import com.supers.clean.junk.similarimage.ImageHelper;
 import com.supers.clean.junk.similarimage.ImageInfo;
-import com.supers.clean.junk.similarimage.SimilarImageActivity;
-import com.supers.clean.junk.similarimage.SimilarPictureAdapter;
 import com.supers.clean.junk.util.CommonUtil;
 
 import java.util.ArrayList;
@@ -112,7 +108,7 @@ public class PictureActivity extends BaseActivity {
                 initData();
             }
         }).start();
-        picture_scroll.setClickable(false);
+        picture_scroll.setEnabled(false);
         clickListen();
 
     }
@@ -207,7 +203,7 @@ public class PictureActivity extends BaseActivity {
                     for (int i = 0; i < size; i++) {
                         RecyclerView recye = (RecyclerView) picture_item.getChildAt(i);
                         HomeAdapter adapter = (HomeAdapter) recye.getAdapter();
-
+                        adapter.cleanData();
                     }
 
                     break;
@@ -227,11 +223,14 @@ public class PictureActivity extends BaseActivity {
         }
 
         public void cleanData() {
+            ArrayList<ImageInfo> listdata = new ArrayList<>();
             for (ImageInfo info : list) {
-                if (info.isNormal) {
-
+                if (!info.isNormal) {
+                    listdata.add(info);
                 }
             }
+            list.removeAll(listdata);
+            notifyDataSetChanged();
         }
 
         public void upList(ArrayList<ImageInfo> list) {
