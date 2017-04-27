@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.ThumbnailUtils;
 import android.os.Environment;
+
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -283,9 +284,21 @@ public class ImageHelper {
         li.setAvgPixel(avgPixel);
         return li;
     }*/
+    public Bitmap pathWithScaledBitmap(Context context, String path, int screenWidth, int screenHeight) {
+        DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
+        Bitmap bitmap = loadBitmapFromFile(path, dm.widthPixels,
+                dm.heightPixels);
+        if (bitmap == null) {
+            return null;
+        }
+        Bitmap thumb = Bitmap.createScaledBitmap(bitmap, screenWidth, screenHeight, false);
+        recyclebitmap(bitmap);
+        System.gc();
+        return thumb;
+    }
 
 
-    public Bitmap loadBitmapFromFile(String path, int screenWidth, int screenHeight) {
+    private Bitmap loadBitmapFromFile(String path, int screenWidth, int screenHeight) {
         // 不能超过最大高与最大宽，避免尺寸太大而OOM
 
         final int width = Math.min(screenWidth, MAX_WIDTH);
