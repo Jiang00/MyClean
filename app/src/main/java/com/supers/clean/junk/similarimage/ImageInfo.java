@@ -2,8 +2,6 @@ package com.supers.clean.junk.similarimage;
 
 import android.media.ExifInterface;
 
-import com.supers.clean.junk.db.RecyclerDbHelper;
-
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;

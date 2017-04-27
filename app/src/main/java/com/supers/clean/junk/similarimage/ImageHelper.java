@@ -20,7 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.TimeZone;
 
 /**
  * @Description:
@@ -36,19 +35,6 @@ public class ImageHelper {
     private static final int HAMM_INSTANCE = 10;
     private static final long NEED_COMPARE_IMAGE_INTERVAL = 15 * 1000;
 
-    public boolean isSameDayOfMills(long ms1, long ms2) {
-        long MILLIS_IN_DAY = 1000L * 60 * 60 * 24;
-        final long interval = ms1 - ms2;
-
-        return interval < MILLIS_IN_DAY
-                && interval > -1L * MILLIS_IN_DAY
-                && toDay(ms1) == toDay(ms2);
-    }
-
-    private long toDay(long millis) {
-        long MILLIS_IN_DAY = 1000L * 60 * 60 * 24;
-        return (millis + TimeZone.getDefault().getOffset(millis)) / MILLIS_IN_DAY;
-    }
 
     /**
      * 保存Bitmap到文件

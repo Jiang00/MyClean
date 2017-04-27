@@ -32,6 +32,8 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "RecyclerDbHelper";
 
+    private static final long RECYCLER_AUTO_DELETE_INTERVAL = 7 * 24 * 60 * 60 * 1000;
+
     private static RecyclerDbHelper recyclerDBHelper;
 
     private Context mContext;
@@ -67,7 +69,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void createRecyclerTable() {
+    private void createRecyclerTable() {
         getWritableDatabase().execSQL("CREATE TABLE IF NOT EXISTS " + RECYCLER_TABLE_NAME + " (" +
                 BACKUP_FILE_DIRECTORY + " TEXT NOT NULL, " +
                 RESTORE_FILE_PATH + " TEXT NOT NULL, " +
@@ -75,20 +77,21 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
                 ");");
     }
 
-    public void deleteTable(SQLiteDatabase db, String tableName) {
+    private void deleteTable(SQLiteDatabase db, String tableName) {
         db.execSQL("DROP TABLE IF EXISTS " + tableName);
     }
 
-    public void deleteItem(ImageInfo imageInfo) {
+    private int deleteItem(ImageInfo imageInfo) {
         String sql = "delete from " + RECYCLER_TABLE_NAME + "  where rowid=" + imageInfo.rowId;
         try {
-            getWritableDatabase().compileStatement(sql).execute();
+            return getWritableDatabase().compileStatement(sql).executeUpdateDelete();
         } catch (Exception e) {
             Log.e(TAG, "deleteItemFromFavor Error tableName=" + RECYCLER_TABLE_NAME + imageInfo);
         }
+        return -1;
     }
 
-    public long addItem(String path, String recyclerTime) {
+    private long addItem(String path, String recyclerTime) {
         createRecyclerTable();
         String sql = "insert into " + RECYCLER_TABLE_NAME + "(" + RESTORE_FILE_PATH + "," + BACKUP_FILE_DIRECTORY + ")" +
                 "values(?,?)";
@@ -107,21 +110,42 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         return -1;
     }
 
+    private String getRecyclerTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-DD");
+        String date = simpleDateFormat.format(new Date());
+        return date;
+    }
+
+    private String getRecyclerDirectory(String recyclerTime) {
+        return Environment.getExternalStorageDirectory() + "/eosbackup/" + recyclerTime + "/";
+    }
+
     public ArrayList<ImageInfo> getRecyclerImageList() {
         ArrayList<ImageInfo> imageInfos = new ArrayList<>();
+        Cursor cursor = null;
         try {
-            Cursor cursor = getWritableDatabase().rawQuery("select rowid," + RESTORE_FILE_PATH + "," + BACKUP_FILE_DIRECTORY + " from " + RECYCLER_TABLE_NAME + " order by rowid", null);
+            cursor = getWritableDatabase().rawQuery("select rowid," + RESTORE_FILE_PATH + "," + BACKUP_FILE_DIRECTORY + " from " + RECYCLER_TABLE_NAME + " order by rowid", null);
             if (cursor == null) {
                 return imageInfos;
             }
             while (cursor.moveToNext()) {
                 //遍历出表名
+                String fileDic = cursor.getString(2);
                 long rowId = cursor.getLong(0);
                 String restorePath = cursor.getString(1);
-                String fileDic = cursor.getString(2);
                 String backFilePath = getRecyclerDirectory(fileDic) + "img_" + rowId;
 
                 ImageInfo imageInfo = new ImageInfo(rowId, restorePath, backFilePath);
+                try {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-DD");
+                    Date date = simpleDateFormat.parse(fileDic);
+                    if (System.currentTimeMillis() > date.getTime() + RECYCLER_AUTO_DELETE_INTERVAL) {
+                        deleteItem(imageInfo);
+                        return imageInfos;
+                    }
+                } catch (Exception e) {
+
+                }
                 File file = new File(backFilePath);
                 if (!file.exists() || file.isDirectory()) {
                     deleteItem(imageInfo);
@@ -129,21 +153,14 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
                     imageInfos.add(imageInfo);
                 }
             }
-            cursor.close();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
         return imageInfos;
-    }
-
-    private String getRecyclerTime() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:DD");
-        String date = simpleDateFormat.format(new Date());
-        return date;
-    }
-
-    private String getRecyclerDirectory(String recyclerTime) {
-        return Environment.getExternalStorageDirectory() + "/eosbackup/" + recyclerTime + "/";
     }
 
     public boolean putImageToRecycler(Context context, ImageInfo imageInfo) {
@@ -180,5 +197,21 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         }
         return false;
     }
+
+    public boolean deleteImageFromRecyler(ImageInfo imageInfo) {
+        if (imageInfo == null || imageInfo.backFilePath == null) {
+            return false;
+        }
+        File file = new File(imageInfo.backFilePath);
+        if (!file.exists() || file.isDirectory()) {
+            return false;
+        }
+        boolean success = file.delete();
+        if (success) {
+            return (deleteItem(imageInfo)) >= 0;
+        }
+        return false;
+    }
+
 
 }
