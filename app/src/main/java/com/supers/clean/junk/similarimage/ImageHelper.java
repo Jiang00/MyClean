@@ -11,9 +11,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
-import com.supers.clean.junk.db.RecyclerDbHelper;
-import com.supers.clean.junk.filemanager.FileUtils;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

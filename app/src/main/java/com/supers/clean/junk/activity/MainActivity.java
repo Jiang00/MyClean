@@ -2,7 +2,6 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,10 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -51,8 +47,6 @@ import com.supers.clean.junk.customeview.MainScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
-import com.supers.clean.junk.similarimage.ImageHelper;
-import com.supers.clean.junk.similarimage.SimilarImageActivity;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
@@ -60,7 +54,6 @@ import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends BaseActivity implements MainView, DrawerLayout.DrawerListener {
 
@@ -719,8 +712,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.iv_title_right:
                     CommonUtil.track("主页面", "点击进入设置页面", "", 1);
-                    //new ImageHelper().getCameraImageList();
-                    mainPresenter.jumpToActivity(SimilarImageActivity.class, 1);
+                    mainPresenter.jumpToActivity(SettingActivity.class, 1);
                     break;
                 case R.id.main_cpu_air_button:
                     CommonUtil.track("主页面", "点击cpu球进入硬件信息页面", "", 1);

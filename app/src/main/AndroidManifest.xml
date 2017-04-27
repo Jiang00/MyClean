@@ -134,9 +134,6 @@
             android:name=".activity.NotifiSettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PictureActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.FloatActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
@@ -196,8 +193,6 @@
         <service
             android:name=".widget.WidgetService"
             android:enabled="true" />
-
-        <activity android:name=".similarimage.SimilarImageActivity" android:screenOrientation="portrait"/>
 
         <receiver
             android:name=".widget.WidgetProvider"
