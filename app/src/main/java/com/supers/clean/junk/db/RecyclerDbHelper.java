@@ -5,12 +5,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
-import android.text.TextUtils;
+import android.os.Environment;
 import android.util.Log;
 
+import com.supers.clean.junk.filemanager.FileUtils;
 import com.supers.clean.junk.similarimage.ImageInfo;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by qingyou.ren on 2016/10/24.
@@ -18,16 +22,17 @@ import java.util.ArrayList;
 
 public class RecyclerDbHelper extends SQLiteOpenHelper {
 
-    public static final String BATTERY_DB = "favor.db";
+    public static final String BATTERY_DB = "recycler.db";
     public static final int DB_VERSION = 1;
-    public static final String COLUMN_INDEX = "favor_index";
-    public static final String COLUMN_PKG = "pkg";
+    public static final String BACKUP_FILE_DIRECTORY = "backup_dic";
 
-    public static final String FAVOR_TABLE_NAME = "favor_table";
+    public static final String RESTORE_FILE_PATH = "file_path";
 
-    private static final String TAG = "FavorDBHelper";
+    public static final String RECYCLER_TABLE_NAME = "recycler";
 
-    private static RecyclerDbHelper favorDBHelper;
+    private static final String TAG = "RecyclerDbHelper";
+
+    private static RecyclerDbHelper recyclerDBHelper;
 
     private Context mContext;
 
@@ -37,10 +42,10 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
     }
 
     public synchronized static RecyclerDbHelper getInstance(Context context) {
-        if (favorDBHelper == null) {
-            favorDBHelper = new RecyclerDbHelper(context);
+        if (recyclerDBHelper == null) {
+            recyclerDBHelper = new RecyclerDbHelper(context);
         }
-        return favorDBHelper;
+        return recyclerDBHelper;
     }
 
     @Override
@@ -62,11 +67,11 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void createFavorTable() {
-        getWritableDatabase().execSQL("CREATE TABLE IF NOT EXISTS " + FAVOR_TABLE_NAME + " (" +
-                COLUMN_INDEX + " INTEGER NOT NULL, " +
-                COLUMN_PKG + " TEXT NOT NULL, " +
-                "PRIMARY KEY (" + COLUMN_INDEX + ") " +
+    public void createRecyclerTable() {
+        getWritableDatabase().execSQL("CREATE TABLE IF NOT EXISTS " + RECYCLER_TABLE_NAME + " (" +
+                BACKUP_FILE_DIRECTORY + " TEXT NOT NULL, " +
+                RESTORE_FILE_PATH + " TEXT NOT NULL, " +
+                "PRIMARY KEY (" + RESTORE_FILE_PATH + ") " +
                 ");");
     }
 
@@ -74,58 +79,106 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + tableName);
     }
 
-    public void deleteItemFromFavor(ImageInfo circleItem) {
-        String sql = "delete from " + FAVOR_TABLE_NAME + "  where " + COLUMN_INDEX + " = " + circleItem.path;
+    public void deleteItem(ImageInfo imageInfo) {
+        String sql = "delete from " + RECYCLER_TABLE_NAME + "  where rowid=" + imageInfo.rowId;
         try {
             getWritableDatabase().compileStatement(sql).execute();
         } catch (Exception e) {
-            Log.e(TAG, "deleteItemFromFavor Error tableName=" + FAVOR_TABLE_NAME + "-index=" + circleItem.path + ",pkg=" + circleItem.path);
+            Log.e(TAG, "deleteItemFromFavor Error tableName=" + RECYCLER_TABLE_NAME + imageInfo);
         }
     }
 
-    public boolean addItem(ImageInfo circleItem) {
-        createFavorTable();
-        String sql = "insert into " + FAVOR_TABLE_NAME + "(" + COLUMN_INDEX + "," + COLUMN_PKG + ")" +
+    public long addItem(String path, String recyclerTime) {
+        createRecyclerTable();
+        String sql = "insert into " + RECYCLER_TABLE_NAME + "(" + RESTORE_FILE_PATH + "," + BACKUP_FILE_DIRECTORY + ")" +
                 "values(?,?)";
         //db.beginTransaction();
         try {
             SQLiteStatement stat = getWritableDatabase().compileStatement(sql);
-            stat.bindLong(1, circleItem.fileSize);
-            stat.bindString(2, circleItem.path);
-            stat.execute();
+            stat.bindString(1, path);
+            stat.bindString(2, getRecyclerDirectory(recyclerTime));
+            return stat.executeInsert();
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, "addItemToFavor Error tableName=" + FAVOR_TABLE_NAME + "-index=" + circleItem.path + ",pkg=" + circleItem.path);
-            return false;
+            Log.e(TAG, "addItemToFavor Error tableName=" + RECYCLER_TABLE_NAME + path);
         }
 //        db.setTransactionSuccessful();
 //        db.endTransaction();
-        return true;
+        return -1;
     }
 
-    public ArrayList<ImageInfo> getFavorList() {
-        ArrayList<ImageInfo> circleItems = new ArrayList<>();
+    public ArrayList<ImageInfo> getRecyclerImageList() {
+        ArrayList<ImageInfo> imageInfos = new ArrayList<>();
         try {
-            Cursor cursor = getWritableDatabase().rawQuery("select " + COLUMN_INDEX + "," + COLUMN_PKG + " from " + FAVOR_TABLE_NAME + " order by " + COLUMN_INDEX, null);
+            Cursor cursor = getWritableDatabase().rawQuery("select rowid," + RESTORE_FILE_PATH + "," + BACKUP_FILE_DIRECTORY + " from " + RECYCLER_TABLE_NAME + " order by rowid", null);
             if (cursor == null) {
-                return circleItems;
+                return imageInfos;
             }
             while (cursor.moveToNext()) {
                 //遍历出表名
-                int index = cursor.getInt(0);
-                String pkg = cursor.getString(1);
-                if (!TextUtils.isEmpty(pkg)) {
-                    ImageInfo circleItem = new ImageInfo();
-                    circleItems.add(circleItem);
-                }
+                long rowId = cursor.getLong(0);
+                String restorePath = cursor.getString(1);
+                String fileDic = cursor.getString(2);
+                String backFilePath = getRecyclerDirectory(fileDic) + "img_" + rowId;
 
+                ImageInfo imageInfo = new ImageInfo(rowId, restorePath, backFilePath);
+                File file = new File(backFilePath);
+                if (!file.exists() || file.isDirectory()) {
+                    deleteItem(imageInfo);
+                } else {
+                    imageInfos.add(imageInfo);
+                }
             }
             cursor.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return circleItems;
+        return imageInfos;
     }
 
+    private String getRecyclerTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:DD");
+        String date = simpleDateFormat.format(new Date());
+        return date;
+    }
+
+    private String getRecyclerDirectory(String recyclerTime) {
+        return Environment.getExternalStorageDirectory() + "/eosbackup/" + recyclerTime + "/";
+    }
+
+    public boolean putImageToRecycler(Context context, ImageInfo imageInfo) {
+        if (imageInfo == null) {
+            return false;
+        }
+        File file = new File(imageInfo.path);
+        if (!file.exists() || file.isDirectory()) {
+            Log.v("rqy", "putImageToRecycler: file not exist or is directory, " + imageInfo.path);
+            return false;
+        }
+        String recyclerTime = RecyclerDbHelper.getInstance(context).getRecyclerTime();
+        long rowId = RecyclerDbHelper.getInstance(context).addItem(imageInfo.path, recyclerTime);
+        if (rowId < 0) {
+            return false;
+        }
+        String dest = RecyclerDbHelper.getInstance(context).getRecyclerDirectory(recyclerTime) + "img_" + rowId;
+        String result = FileUtils.copyFile(imageInfo.path, dest);
+        if (result == null) {
+            RecyclerDbHelper.getInstance(context).deleteItem(imageInfo);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean restoreImageFromRecycler(Context context, ImageInfo imageInfo) {
+        if (imageInfo == null || imageInfo.backFilePath == null || imageInfo.restoreFilePath == null) {
+            return false;
+        }
+        String result = FileUtils.copyFile(imageInfo.backFilePath, imageInfo.restoreFilePath);
+        if (result != null) {
+            deleteItem(imageInfo);
+            return true;
+        }
+        return false;
+    }
 
 }

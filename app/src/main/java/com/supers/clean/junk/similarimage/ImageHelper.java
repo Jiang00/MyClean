@@ -2,17 +2,17 @@ package com.supers.clean.junk.similarimage;
 
 
 import android.content.Context;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.ThumbnailUtils;
-import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
+
+import com.supers.clean.junk.db.RecyclerDbHelper;
+import com.supers.clean.junk.filemanager.FileUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -287,60 +287,6 @@ public class ImageHelper {
         return li;
     }*/
 
-    public LocalImage getImageWithHashCode(Context context, LocalImage localImage) {
-        DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
-        Bitmap bitmap = loadBitmapFromFile(localImage.filePath, dm.widthPixels,
-                dm.heightPixels);
-        if (bitmap == null) {
-            return localImage;
-        }
-        // 第一步，缩小尺寸。
-        // 将图片缩小到8x8的尺寸，总共64个像素。这一步的作用是去除图片的细节，只保留结构、明暗等基本信息，摒弃不同尺寸、比例带来的图片差异。
-        int width = 8;
-        int height = 8;
-        Bitmap thumb = createThumbnail(bitmap, width, height);
-        //Bitmap thumb = Bitmap.createScaledBitmap(source, width, height, false);
-        // 第二步，简化色彩。
-        // 将缩小后的图片，转为64级灰度。也就是说，所有像素点总共只有64种颜色。
-        int[] pixels = new int[width * height];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                pixels[i * height + j] = ImageHelper.rgbToGray(thumb.getPixel(i, j));
-            }
-        }
-
-        // 第三步，计算平均值。
-        // 计算所有64个像素的灰度平均值。
-        int avgPixel = ImageHelper.average(pixels);
-        Log.i(TAG, "平均灰度值为:" + String.valueOf(avgPixel));
-        // 第四步，比较像素的灰度。
-        // 将每个像素的灰度，与平均值进行比较。大于或等于平均值，记为1；小于平均值，记为0。
-        int[] comps = new int[width * height];
-        for (int i = 0; i < comps.length; i++) {
-            if (pixels[i] >= avgPixel) {
-                comps[i] = 1;
-            } else {
-                comps[i] = 0;
-            }
-        }
-
-        // 第五步，计算哈希值。
-        // 将上一步的比较结果，组合在一起，就构成了一个64位的整数，这就是这张图片的指纹。组合的次序并不重要，只要保证所有图片都采用同样次序就行了。
-        StringBuffer hashCode = new StringBuffer();
-        for (int i = 0; i < comps.length; i += 4) {
-            int result = comps[i] * (int) Math.pow(2, 3) + comps[i + 1]
-                    * (int) Math.pow(2, 2) + comps[i + 2]
-                    * (int) Math.pow(2, 1) + comps[i + 3];
-            hashCode.append(binaryToHex(result));
-        }
-        recyclebitmap(thumb);
-        recyclebitmap(bitmap);
-        System.gc();
-        localImage.setSourceHashCode(hashCode.toString());
-        localImage.setAvgPixel(avgPixel);
-
-        return localImage;
-    }
 
     private Bitmap loadBitmapFromFile(String path, int screenWidth, int screenHeight) {
         // 不能超过最大高与最大宽，避免尺寸太大而OOM
@@ -474,14 +420,14 @@ public class ImageHelper {
 
     }
 
-    public boolean similarCondition(LocalImage first, LocalImage second) {
+   /* public boolean similarCondition(LocalImage first, LocalImage second) {
         int hammingDistance = hammingDistance(first.getSourceHashCode(), second.getSourceHashCode());
         // double avgPixsProportion = ((double) first.getAvgPixel()) / second.getAvgPixel();
         // boolean avgPixCondition = avgPixsProportion < 1.2 && avgPixsProportion > 0.8;
         // avgPixCondition = true;
         //Log.e("rqy", "hammingDistance=" + hammingDistance + ",avgPixsProportion=" + avgPixsProportion);
-        return hammingDistance < 10/* && avgPixCondition*/;
-    }
+        return hammingDistance < 10*//* && avgPixCondition*//*;
+    }*/
 
     public ArrayList<ImageInfo> getCameraImageList() {
         ArrayList<ImageInfo> mList = new ArrayList<>();
@@ -628,17 +574,6 @@ public class ImageHelper {
             size += imageInfos.get(i).fileSize;
         }
         return size;
-    }
-
-    public void putImageToRecycler(ImageInfo imageInfo) {
-        if (imageInfo == null) {
-            return;
-        }
-        File file = new File(imageInfo.path);
-        if (!file.exists() || file.isDirectory()) {
-            Log.v("rqy", "copyFile: file not exist or is directory, " + imageInfo.path);
-            return;
-        }
     }
 
 

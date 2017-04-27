@@ -2,6 +2,8 @@ package com.supers.clean.junk.similarimage;
 
 import android.media.ExifInterface;
 
+import com.supers.clean.junk.db.RecyclerDbHelper;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -29,7 +31,17 @@ public class ImageInfo {
 
     public long fileSize;
 
+    public long rowId;
+    public String restoreFilePath;  //从回收站恢复文件的路径
+    public String backFilePath;     //备份的文件路径
+
     public ImageInfo() {
+    }
+
+    public ImageInfo(long rowId, String restoreFilePath, String backFilePath) {
+        this.rowId = rowId;
+        this.restoreFilePath = restoreFilePath;
+        this.backFilePath = backFilePath;
     }
 
     public ImageInfo(String path, String name, long fileSize) {
