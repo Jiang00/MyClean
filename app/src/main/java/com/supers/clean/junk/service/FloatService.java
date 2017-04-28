@@ -77,7 +77,6 @@ public class FloatService extends Service {
 //                startActivity(intent);
 //                String pkg = TopActivityPkg.getTopPackageName(FloatService.this);
                 String pkg = topApp.execute();
-
                 if (hmoes.contains(pkg)) {
                     manager.upDate(CommonUtil.getMemory(FloatService.this));
                     manager.addWindowsView();

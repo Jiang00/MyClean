@@ -39,6 +39,13 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     int dp4, dp6, dp8;
     private ImageHelper imageHelper;
     private MyGridLayoutManager gridLayoutManager;
+    private RecycleViewCallBack deleteCallBack;
+
+    public interface RecycleViewCallBack {
+        void deleteItemCallback(long filesize);
+
+        void deleteSuccCallback(ArrayList<ArrayList<ImageInfo>> list);
+    }
 
     public RecycleViewAdapter(Context context) {
         list = new ArrayList<>();
@@ -62,25 +69,42 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         this.list.add(location, list);
     }
 
-    public void upData() {
-        ArrayList<ArrayList<ImageInfo>> deleteList = new ArrayList<>();
+    public ArrayList<Bitmap> checkDate() {
+        ArrayList<Bitmap> check = new ArrayList<>();
         for (ArrayList<ImageInfo> info : list) {
-            ArrayList<ImageInfo> delete = new ArrayList<>();
             for (ImageInfo i : info) {
-                int count = 0;
                 if (!i.isNormal) {
-                    count++;
-                    delete.add(i);
-                    RecyclerDbHelper.getInstance(context).putImageToRecycler(i);
+                    check.add((Bitmap) lruCache.get(i.name));
                 }
             }
-            info.removeAll(delete);
-            if (info.size() <= 1) {
-                deleteList.add(info);
-            }
         }
+        return check;
+    }
 
-        list.removeAll(deleteList);
+    public void upData(final RecycleViewCallBack callBack) {
+        deleteCallBack = callBack;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ArrayList<ArrayList<ImageInfo>> deleteList = new ArrayList<>();
+                for (ArrayList<ImageInfo> info : list) {
+                    ArrayList<ImageInfo> delete = new ArrayList<>();
+                    for (ImageInfo i : info) {
+                        if (!i.isNormal) {
+                            delete.add(i);
+                            RecyclerDbHelper.getInstance(context).putImageToRecycler(i);
+                            deleteCallBack.deleteItemCallback(i.fileSize);
+                        }
+                    }
+                    info.removeAll(delete);
+                    if (info.size() <= 1) {
+                        deleteList.add(info);
+                    }
+                }
+                list.removeAll(deleteList);
+                deleteCallBack.deleteSuccCallback(list);
+            }
+        }).start();
     }
 
     @Override
@@ -146,32 +170,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
             int cacheSize = maxMemory / 4;
 
-        }
-
-//        public void cleanData() {
-//            ArrayList<ImageInfo> listdata = new ArrayList<>();
-//            for (ImageInfo info : list) {
-//                if (!info.isNormal) {
-//                    listdata.add(info);
-//                }
-//            }
-//            list.removeAll(listdata);
-//            bastPosition = imageHelper.getBestImageIndex(list);
-//            Message msg = new Message();
-//            msg.obj = this;
-//            msg.what = ADAPTER_NOTIFI;
-//            mHandler.sendMessage(msg);
-////            mHandler.post(new Runnable() {
-////                @Override
-////                public void run() {
-//////                    notifyItemRangeChanged(0, list.size()); //mList是数据
-////                    notifyDataSetChanged();
-////                }
-////            });
-//        }
-
-        public void upList(ArrayList<ImageInfo> list) {
-            this.list = list;
         }
 
         @Override

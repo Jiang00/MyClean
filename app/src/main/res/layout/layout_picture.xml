@@ -92,27 +92,42 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:indeterminateTint="@color/app_color_first"
+                android:indeterminateDrawable="@anim/progress_rotate"
                 android:indeterminateTintMode="src_atop" />
-
-            <!--<ScrollView-->
-            <!--android:id="@+id/picture_scroll"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-            <!--<LinearLayout-->
-            <!--android:id="@+id/picture_item"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:orientation="vertical" />-->
-
-            <!--</ScrollView>-->
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/picture_recycle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="none" />
+
+            <LinearLayout
+                android:id="@+id/picture_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@string/picture_3"
+                    android:textColor="#bfbfbf"
+                    android:textSize="@dimen/s21" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/d10"
+                    android:gravity="center"
+                    android:text="@string/picture_4"
+                    android:textColor="#1e88e5"
+                    android:textSize="@dimen/s16" />
+            </LinearLayout>
 
         </FrameLayout>
 
