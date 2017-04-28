@@ -1,10 +1,15 @@
 package com.supers.clean.junk.activity;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.util.LruCache;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,6 +24,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.bumptech.glide.disklrucache.DiskLruCache;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.LineProgressView;
 import com.supers.clean.junk.customeview.MyGridLayoutManager;
@@ -26,6 +32,15 @@ import com.supers.clean.junk.similarimage.ImageHelper;
 import com.supers.clean.junk.similarimage.ImageInfo;
 import com.supers.clean.junk.util.CommonUtil;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -231,11 +246,19 @@ public class PictureActivity extends BaseActivity {
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
         ArrayList<ImageInfo> list;
         int bastPosition;
+        LruCache lruCache;
 
         public HomeAdapter(ArrayList<ImageInfo> list) {
             this.list = list;
             bastPosition = imageHelper.getBestImageIndex(list);
             this.list.get(bastPosition).isNormal = true;
+            lruCache = new LruCache<String, Bitmap>(500) {
+                @Override
+                protected int sizeOf(String key, Bitmap bitmap) {
+                    // 返回用户定义的item的大小，默认返回1代表item的数量.重写此方法来衡量每张图片的大小。
+                    return bitmap.getByteCount() / 1024;
+                }
+            };
         }
 
         public void cleanData() {
@@ -286,8 +309,11 @@ public class PictureActivity extends BaseActivity {
             } else {
                 holder.picture_check.setImageResource(R.mipmap.picture_passed);
             }
-            Bitmap bitmap = imageHelper.pathWithScaledBitmap(PictureActivity.this, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
-            holder.picture_icon.setImageBitmap(bitmap);
+//            Bitmap bitmap = imageHelper.pathWithScaledBitmap(PictureActivity.this, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
+            LoadImage imageLoad = new LoadImage(holder);
+            imageLoad.execute(info.path);
+            holder.picture_icon.setTag(info.path);
+//            holder.picture_icon.setImageBitmap(bitmap);
             holder.picture_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -324,5 +350,69 @@ public class PictureActivity extends BaseActivity {
                 picture_best = (ImageView) view.findViewById(R.id.picture_best);
             }
         }
+
+        /**
+         * @param key    传入图片的key值，一般用图片url代替
+         * @param bitmap 要缓存的图片对象
+         */
+        public void addBitmapToCache(String key, Bitmap bitmap) {
+            if (getBitmapFromCache(key) == null) {
+                if (bitmap == null) {
+                    return;
+                } else {
+                    lruCache.put(key, bitmap);
+                }
+            }
+        }
+
+        /**
+         * @param key 要取出的bitmap的key值
+         * @return 返回取出的bitmap
+         */
+        public Bitmap getBitmapFromCache(String key) {
+
+            return (Bitmap) lruCache.get(key);
+        }
+
+        class LoadImage extends AsyncTask<String, Integer, Bitmap> {
+            String url = null;
+            MyViewHolder myViewHolder = null;
+
+            public LoadImage(MyViewHolder myViewHolder) {
+                this.myViewHolder = myViewHolder;
+            }
+
+            @Override
+            protected Bitmap doInBackground(String... strings) {
+                url = strings[0];
+                Bitmap cachebitmap = getBitmapFromCache(url);
+                //先从缓存中取，如果缓存不为空，则返回图片
+                if (cachebitmap != null) {
+                    Log.e(url, "存在于内存中,直接返回");
+                    return cachebitmap;
+                } else {
+                    Bitmap bitma = imageHelper.pathWithScaledBitmap(PictureActivity.this, url, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
+                    if (bitma == null) {
+                        return null;
+                    } else {
+                        Log.e(url, "重新加入到内存缓存中");
+                        addBitmapToCache(url, bitma);
+                        return bitma;
+                    }
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap bitmap) {
+                ImageView image = myViewHolder.picture_icon;
+                if (image.getTag().equals(url)) {
+                    image.setVisibility(View.VISIBLE);
+                    image.setImageBitmap(bitmap);
+                }
+                super.onPostExecute(bitmap);
+
+            }
+        }
+
     }
 }
