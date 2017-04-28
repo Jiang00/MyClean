@@ -142,6 +142,9 @@ public class FileUtils {
         }
         try {
             File file = new File(filePath);
+            if (!file.exists()) {
+                return;
+            }
             if (file.isDirectory()) {
                 File files[] = file.listFiles();
                 for (int i = 0; i < files.length; i++) {

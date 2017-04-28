@@ -137,11 +137,11 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
 
                 ImageInfo imageInfo = new ImageInfo(rowId, restorePath, backFilePath);
                 try {
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-DD");
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     Date date = simpleDateFormat.parse(fileDic);
                     if (System.currentTimeMillis() > date.getTime() + RECYCLER_AUTO_DELETE_INTERVAL) {
                         deleteItem(imageInfo);
-                        return imageInfos;
+                        continue;
                     }
                 } catch (Exception e) {
 
@@ -159,8 +159,34 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
             if (cursor != null) {
                 cursor.close();
             }
+            new Thread() {
+                @Override
+                public void run() {
+                    deleteOverDateRecyclerFile();
+                }
+            }.start();
+
         }
         return imageInfos;
+    }
+
+    private void deleteOverDateRecyclerFile() {
+        File file = new File(Environment.getExternalStorageDirectory() + "/eosbackup/");
+        if (file != null && file.exists()) {
+            File[] files = file.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                String name = files[i].getName();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date date = simpleDateFormat.parse(name);
+                    if (System.currentTimeMillis() > date.getTime() + RECYCLER_AUTO_DELETE_INTERVAL) {
+                        FileUtils.deleteFile(name);
+                    }
+                } catch (Exception e) {
+                    continue;
+                }
+            }
+        }
     }
 
     public boolean putImageToRecycler(ImageInfo imageInfo) {
