@@ -66,6 +66,13 @@ public class ImageInfo {
                 ", tag_datetime='" + tag_datetime + '\'' +
                 ", width='" + width + '\'' +
                 ", height='" + height + '\'' +
+                ", sourceHashCode='" + sourceHashCode + '\'' +
+                ", isNormal=" + isNormal +
+                ", avgPixel=" + avgPixel +
+                ", fileSize=" + fileSize +
+                ", rowId=" + rowId +
+                ", restoreFilePath='" + restoreFilePath + '\'' +
+                ", backFilePath='" + backFilePath + '\'' +
                 '}';
     }
 

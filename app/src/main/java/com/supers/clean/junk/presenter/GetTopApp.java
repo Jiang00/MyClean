@@ -2,18 +2,19 @@ package com.supers.clean.junk.presenter;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
-import android.app.usage.UsageStats;
+import android.app.usage.UsageEvents;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.os.Build;
 import android.util.Log;
+
+import com.supers.clean.junk.util.CommonUtil;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -33,38 +34,18 @@ public class GetTopApp {
         String packageName = null;
         if (Build.VERSION.SDK_INT > 19) {
             try {
-                if (packageName == null) {
-                    packageName = getForegroundApp();
+                packageName = getTopPackage();
+                if (packageName != null) {
+                    return packageName;
                 }
+                packageName = getActivePackages();
+                if (packageName != null) {
+                    return packageName;
+                }
+                packageName = getForegroundApp();
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e("rqy", "exception--" + e.getMessage());
             }
-            try {
-                if (packageName == null) {
-                    packageName = getActivePackages();
-                }
-            } catch (Exception | Error e) {
-                e.printStackTrace();
-            }
-            try {
-                if (packageName == null) {
-                    packageName = getTopPackage();
-                }
-            } catch (Exception | Error e) {
-                e.printStackTrace();
-            }
-
-            if (packageName == null) {
-                List<ActivityManager.RunningTaskInfo> lst = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
-                if (lst != null && lst.size() > 0) {
-                    ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
-                    if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
-                        packageName = runningTaskInfo.topActivity.getPackageName();
-                    }
-                }
-            }
-
-
         } else {
             List<ActivityManager.RunningTaskInfo> lst = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
             if (lst != null && lst.size() > 0) {
@@ -74,6 +55,7 @@ public class GetTopApp {
                     Log.e("aaa", "float5=" + packageName);
                 }
             }
+            CommonUtil.log("rqy", "packageName=" + packageName);
         }
         return packageName;
     }
@@ -100,26 +82,19 @@ public class GetTopApp {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private String getTopPackage() {
-        if (mUsageStatsManager == null) {
-            mUsageStatsManager = (UsageStatsManager) context.getSystemService("usagestats");
-            mRecentComp = new Comparator<UsageStats>() {
-
-                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-                @Override
-                public int compare(UsageStats lhs, UsageStats rhs) {
-                    return (lhs.getLastTimeUsed() > rhs.getLastTimeUsed()) ? -1 : ((lhs.getLastTimeUsed() == rhs.getLastTimeUsed()) ? 0 : 1);
-                }
-            };
+        String packageName = null;
+        UsageStatsManager sUsageStatsManager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
+        long endTime = System.currentTimeMillis();
+        long beginTime = endTime - 10000;
+        UsageEvents.Event event = new UsageEvents.Event();
+        UsageEvents usageEvents = sUsageStatsManager.queryEvents(beginTime, endTime);
+        while (usageEvents.hasNextEvent()) {
+            usageEvents.getNextEvent(event);
+            if (event.getEventType() == UsageEvents.Event.MOVE_TO_FOREGROUND) {
+                packageName = event.getPackageName();
+            }
         }
-
-        long ts = System.currentTimeMillis();
-        List<UsageStats> usageStats = mUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, ts - 10000, ts);
-        if (usageStats == null || usageStats.size() == 0) {
-            return null;
-        } else {
-            Collections.sort(usageStats, mRecentComp);
-            return usageStats.get(0).getPackageName();
-        }
+        return packageName;
     }
 
     private UsageStatsManager mUsageStatsManager;

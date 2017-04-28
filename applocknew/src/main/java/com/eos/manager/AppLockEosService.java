@@ -29,6 +29,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.NotificationCompat;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -131,7 +132,6 @@ public class AppLockEosService extends Service {
                     packageName = event.getPackageName();
                 }
             }
-
             return packageName;
         }
     }

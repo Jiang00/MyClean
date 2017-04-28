@@ -464,7 +464,6 @@ public class ImageHelper {
             Date data1 = formatter.parse(imageInfo1.tag_datetime);
             Date date2 = formatter.parse(imageInfo2.tag_datetime);
             long interval = data1.getTime() - date2.getTime();
-            Log.e("rqy", "tag_datetime--interval:" + interval);
             if (interval > NEED_COMPARE_IMAGE_INTERVAL || interval < -1 * NEED_COMPARE_IMAGE_INTERVAL) {
                 return false;
             }

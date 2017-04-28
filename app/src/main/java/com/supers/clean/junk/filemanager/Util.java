@@ -186,7 +186,6 @@ public class Util {
     }
 
 
-
     // does not include sd card folder
     private static String[] SysFileDirs = new String[]{
             "miren_browser/imagecaches"

@@ -121,51 +121,42 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<ImageInfo> getRecyclerImageList() {
+        Log.e("rqy", "getRecyclerImageList");
+        //先删除过期文件
+        deleteOverDateRecyclerFile();
+
         ArrayList<ImageInfo> imageInfos = new ArrayList<>();
         Cursor cursor = null;
         try {
-            cursor = getWritableDatabase().rawQuery("select rowid," + RESTORE_FILE_PATH + "," + BACKUP_FILE_DIRECTORY + " from " + RECYCLER_TABLE_NAME + " order by rowid", null);
-            if (cursor == null) {
+            cursor = getWritableDatabase().rawQuery("select rowid," + RESTORE_FILE_PATH + "," + BACKUP_FILE_DIRECTORY + " from " + RECYCLER_TABLE_NAME, null);
+            if (cursor == null || cursor.getCount() == 0) {
                 return imageInfos;
             }
-            while (cursor.moveToNext()) {
+            Log.e("rqy", "cursor coucnt = " + cursor.getCount());
+            cursor.moveToFirst();
+            do {
                 //遍历出表名
-                String fileDic = cursor.getString(2);
                 long rowId = cursor.getLong(0);
                 String restorePath = cursor.getString(1);
-                String backFilePath = getRecyclerDirectory(fileDic) + "img_" + rowId;
+                String fileDic = cursor.getString(2);
+                String backFilePath = fileDic + "img_" + rowId;
 
                 ImageInfo imageInfo = new ImageInfo(rowId, restorePath, backFilePath);
-                try {
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    Date date = simpleDateFormat.parse(fileDic);
-                    if (System.currentTimeMillis() > date.getTime() + RECYCLER_AUTO_DELETE_INTERVAL) {
-                        deleteItem(imageInfo);
-                        continue;
-                    }
-                } catch (Exception e) {
-
-                }
+                Log.e("rqy", "getRecyclerImageList " + imageInfo);
                 File file = new File(backFilePath);
                 if (!file.exists() || file.isDirectory()) {
                     deleteItem(imageInfo);
                 } else {
                     imageInfos.add(imageInfo);
                 }
-            }
+            } while (cursor.moveToNext());
         } catch (Exception e) {
             e.printStackTrace();
+            Log.e("rqy", "e.message=" + e.getMessage());
         } finally {
             if (cursor != null) {
                 cursor.close();
             }
-            new Thread() {
-                @Override
-                public void run() {
-                    deleteOverDateRecyclerFile();
-                }
-            }.start();
-
         }
         return imageInfos;
     }
@@ -190,21 +181,24 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
     }
 
     public boolean putImageToRecycler(ImageInfo imageInfo) {
+        Log.e("rqy", "putImageToRecycler--" + imageInfo);
         if (imageInfo == null) {
             return false;
         }
         File file = new File(imageInfo.path);
         if (!file.exists() || file.isDirectory()) {
-            Log.v("rqy", "putImageToRecycler: file not exist or is directory, " + imageInfo.path);
+            Log.e("rqy", "putImageToRecycler: file not exist or is directory, " + imageInfo.path);
             return false;
         }
         String recyclerTime = RecyclerDbHelper.getInstance(mContext).getRecyclerTime();
         long rowId = RecyclerDbHelper.getInstance(mContext).addItem(imageInfo.path, recyclerTime);
+        Log.e("rqy", "putImageToRecycler: rowId= " + rowId);
         if (rowId < 0) {
             return false;
         }
         String result = FileUtils.copyFileToRecycler(imageInfo.path, RecyclerDbHelper.getInstance(mContext).getRecyclerDirectory(recyclerTime), "img_" + rowId);
         if (result == null) {
+            Log.e("rqy", "copyFileToRecycler:error");
             RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
             return false;
         } else {
@@ -217,9 +211,22 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         if (imageInfo == null || imageInfo.backFilePath == null || imageInfo.restoreFilePath == null) {
             return false;
         }
-        String result = FileUtils.copyFile(imageInfo.backFilePath, imageInfo.restoreFilePath);
+
+        int index = imageInfo.restoreFilePath.lastIndexOf("/");
+        if (index == -1) {
+            return false;
+        }
+        String directory = imageInfo.restoreFilePath.substring(0, index);
+        String name = imageInfo.restoreFilePath.substring(index + 1, imageInfo.restoreFilePath.length());
+        String result = FileUtils.copyFileToRecycler(imageInfo.backFilePath, directory, name);
+
+        Log.e("rqy", "result=" + result);
         if (result != null) {
-            deleteItem(imageInfo);
+            int success = deleteItem(imageInfo);
+
+            FileUtils.deleteFile(imageInfo.backFilePath);
+
+            Log.e("rqy", "success=" + success);
             return true;
         }
         return false;
