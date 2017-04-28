@@ -40,7 +40,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
 
     private RecyclerDbHelper(Context context) {
         super(context.getApplicationContext(), BATTERY_DB, null, DB_VERSION);
-        mContext = context;
+        mContext = context.getApplicationContext();
     }
 
     public synchronized static RecyclerDbHelper getInstance(Context context) {
@@ -111,7 +111,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
     }
 
     private String getRecyclerTime() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-DD");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String date = simpleDateFormat.format(new Date());
         return date;
     }
@@ -163,7 +163,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         return imageInfos;
     }
 
-    public boolean putImageToRecycler(Context context, ImageInfo imageInfo) {
+    public boolean putImageToRecycler(ImageInfo imageInfo) {
         if (imageInfo == null) {
             return false;
         }
@@ -172,21 +172,21 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
             Log.v("rqy", "putImageToRecycler: file not exist or is directory, " + imageInfo.path);
             return false;
         }
-        String recyclerTime = RecyclerDbHelper.getInstance(context).getRecyclerTime();
-        long rowId = RecyclerDbHelper.getInstance(context).addItem(imageInfo.path, recyclerTime);
+        String recyclerTime = RecyclerDbHelper.getInstance(mContext).getRecyclerTime();
+        long rowId = RecyclerDbHelper.getInstance(mContext).addItem(imageInfo.path, recyclerTime);
         if (rowId < 0) {
             return false;
         }
-        String dest = RecyclerDbHelper.getInstance(context).getRecyclerDirectory(recyclerTime) + "img_" + rowId;
+        String dest = RecyclerDbHelper.getInstance(mContext).getRecyclerDirectory(recyclerTime) + "img_" + rowId;
         String result = FileUtils.copyFile(imageInfo.path, dest);
         if (result == null) {
-            RecyclerDbHelper.getInstance(context).deleteItem(imageInfo);
+            RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
             return false;
         }
         return true;
     }
 
-    public boolean restoreImageFromRecycler(Context context, ImageInfo imageInfo) {
+    public boolean restoreImageFromRecycler( ImageInfo imageInfo) {
         if (imageInfo == null || imageInfo.backFilePath == null || imageInfo.restoreFilePath == null) {
             return false;
         }

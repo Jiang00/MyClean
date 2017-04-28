@@ -95,18 +95,24 @@
                 android:indeterminateTint="@color/app_color_first"
                 android:indeterminateTintMode="src_atop" />
 
-            <ScrollView
-                android:id="@+id/picture_scroll"
+            <!--<ScrollView-->
+            <!--android:id="@+id/picture_scroll"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/picture_item"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical" />-->
+
+            <!--</ScrollView>-->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/picture_recycle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:id="@+id/picture_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" />
-
-            </ScrollView>
+                android:layout_height="match_parent"
+                android:scrollbars="none" />
 
         </FrameLayout>
 
