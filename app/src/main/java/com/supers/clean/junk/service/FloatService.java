@@ -81,10 +81,8 @@ public class FloatService extends Service {
                 if (hmoes.contains(pkg)) {
                     manager.upDate(CommonUtil.getMemory(FloatService.this));
                     manager.addWindowsView();
-                    Log.e("aaa", "float2");
                 } else {
                     manager.removeWindowsView();
-                    Log.e("aaa", "float3");
                 }
             }
         }).start();
