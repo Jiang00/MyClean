@@ -80,6 +80,62 @@ public class FileUtils {
         return null;
     }
 
+    public static String copyFileToRecycler(String src, String destDic, String destFileName) {
+        File file = new File(src);
+        if (!file.exists() || file.isDirectory()) {
+            Log.v("rqy", "copyFile: file not exist or is directory, " + src);
+            return null;
+        }
+        FileInputStream fi = null;
+        FileOutputStream fo = null;
+        try {
+            fi = new FileInputStream(file);
+            File destPlace = new File(destDic);
+            if (!destPlace.exists()) {
+                if (!destPlace.mkdirs())
+                    return null;
+            }
+
+            String destPath = Util.makePath(destDic, destFileName);
+            File destFile = new File(destPath);
+
+            if (destFile.exists()) {
+                destFile.delete();
+            }
+
+            if (!destFile.createNewFile())
+                return null;
+
+            fo = new FileOutputStream(destFile);
+            int count = 102400;
+            byte[] buffer = new byte[count];
+            int read = 0;
+            while ((read = fi.read(buffer, 0, count)) != -1) {
+                fo.write(buffer, 0, read);
+            }
+
+            // TODO: set access privilege
+
+            return destPath;
+        } catch (FileNotFoundException e) {
+            Log.e("rqy", "copyFile: file not found, " + src);
+            e.printStackTrace();
+        } catch (IOException e) {
+            Log.e("rqy", "copyFile: " + e.toString());
+        } finally {
+            try {
+                if (fi != null)
+                    fi.close();
+                if (fo != null)
+                    fo.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
     public static void deleteFile(String filePath) {
         if (TextUtils.isEmpty(filePath)) {
             return;

@@ -177,8 +177,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         if (rowId < 0) {
             return false;
         }
-        String dest = RecyclerDbHelper.getInstance(mContext).getRecyclerDirectory(recyclerTime) + "img_" + rowId;
-        String result = FileUtils.copyFile(imageInfo.path, dest);
+        String result = FileUtils.copyFileToRecycler(imageInfo.path, RecyclerDbHelper.getInstance(mContext).getRecyclerDirectory(recyclerTime), "img_" + rowId);
         if (result == null) {
             RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
             return false;
@@ -188,7 +187,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean restoreImageFromRecycler( ImageInfo imageInfo) {
+    public boolean restoreImageFromRecycler(ImageInfo imageInfo) {
         if (imageInfo == null || imageInfo.backFilePath == null || imageInfo.restoreFilePath == null) {
             return false;
         }
