@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -138,12 +139,12 @@ public class FloatStateManager {
     }
 
     private FloatStateManager(final Context context) {
-        this.context = context;
+        this.context = context.getApplicationContext();
         wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         circleView = new FloatStateView(context);
         circleView.setOnTouchListener(circleViewTouchListener);
         if (myHandler == null) {
-            myHandler = new Handler();
+            myHandler = new Handler(Looper.getMainLooper());
         }
         circleView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,44 +190,34 @@ public class FloatStateManager {
 
     public void addWindowsView() {
         if (!added && wm != null) {
-            try {
-                myHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (context != null) {
-                            wm.addView(circleView, params);
-                            params.alpha = 0.4f;
-                            added = true;
-                        } else {
-                            added = false;
-                        }
+            myHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        wm.addView(circleView, params);
+                        params.alpha = 0.4f;
+                        added = true;
+                    } catch (Exception e) {
+                        Log.e("rqy", "exception " + e.getMessage());
                     }
-                });
-                Log.e("aaa", "=====adadasdafloat4");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+                }
+            });
         }
     }
 
     public void removeWindowsView() {
         if (added && wm != null) {
-            try {
-                myHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (context != null) {
-                            wm.removeView(circleView);
-                            added = false;
-                        } else {
-                            added = true;
-                        }
+            myHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        wm.removeView(circleView);
+                        added = false;
+                    } catch (Exception e) {
+                        Log.e("rqy", "exception" + e.getMessage());
                     }
-                });
-                Log.e("aaa", "=====adadasdafloat5");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+                }
+            });
         }
     }
 
