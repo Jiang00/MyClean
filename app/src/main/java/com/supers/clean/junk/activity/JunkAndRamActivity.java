@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -702,6 +703,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     @Override
     public void onBackPressed() {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
+            if (TextUtils.equals("twoday", getIntent().getStringExtra("from2"))) {
+                CommonUtil.track("通知栏", "两天唤醒", "点击", 1);
+            } else {
+                CommonUtil.track("通知栏", "垃圾通知", "点击", 1);
+            }
             jumpTo(MainActivity.class);
         }
         finish();

@@ -2,30 +2,22 @@ package com.supers.clean.junk.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
-import android.os.Message;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.util.LruCache;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
-import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.customeview.MyGridLayoutManager;
 import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.similarimage.ImageHelper;
 import com.supers.clean.junk.similarimage.ImageInfo;
 import com.supers.clean.junk.util.CommonUtil;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -36,10 +28,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     ArrayList<ArrayList<ImageInfo>> list;
     int bastPosition;
     Context context;
-    int dp4, dp6, dp8;
     private ImageHelper imageHelper;
     private MyGridLayoutManager gridLayoutManager;
     private RecycleViewCallBack deleteCallBack;
+    private ItemCallBack itemCallBack;
 
     public interface RecycleViewCallBack {
         void deleteItemCallback(long filesize);
@@ -47,12 +39,17 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         void deleteSuccCallback(ArrayList<ArrayList<ImageInfo>> list);
     }
 
+    public interface ItemCallBack {
+        void clickItem(ArrayList<ImageInfo> list);
+    }
+
+    public void setitemClickListener(ItemCallBack itemCallBack) {
+        this.itemCallBack = itemCallBack;
+    }
+
     public RecycleViewAdapter(Context context) {
         list = new ArrayList<>();
-        this.context = context;
-        dp4 = (int) context.getResources().getDimension(R.dimen.d4);
-        dp6 = (int) context.getResources().getDimension(R.dimen.d6);
-        dp8 = (int) context.getResources().getDimension(R.dimen.d8);
+        this.context = context.getApplicationContext();
 
         imageHelper = new ImageHelper();
     }
@@ -107,6 +104,17 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         }).start();
     }
 
+    public void deleteItem() {
+        ArrayList<ArrayList<ImageInfo>> deleteList = new ArrayList<>();
+        for (ArrayList<ImageInfo> info : list) {
+            if (info.size() <= 1) {
+                deleteList.add(info);
+            }
+        }
+        list.removeAll(deleteList);
+        notifyDataSetChanged();
+    }
+
     @Override
     public RecycleViewAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         MyViewHolder holder = new MyViewHolder(LayoutInflater.from(
@@ -119,10 +127,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Log.e("picture", "onBindViewHolder");
         final ArrayList<ImageInfo> info = list.get(position);
-        addItemView(holder, info, dp4, dp6, dp8);
+        addItemView(holder, info);
     }
 
-    private void addItemView(MyViewHolder holder, ArrayList<ImageInfo> list, int dp4, int dp6, int dp8) {
+    private void addItemView(MyViewHolder holder, ArrayList<ImageInfo> list) {
         holder.recyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         gridLayoutManager = new MyGridLayoutManager(context, 3);
         holder.recyclerView.setLayoutManager(gridLayoutManager);
@@ -166,10 +174,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         public HomeAdapter(ArrayList<ImageInfo> list) {
             this.list = list;
             bastPosition = imageHelper.getBestImageIndex(list);
-            this.list.get(bastPosition).isNormal = true;
-            int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-            int cacheSize = maxMemory / 4;
-
         }
 
         @Override
@@ -217,6 +221,13 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                     } else {
                         holder.picture_check.setImageResource(R.mipmap.picture_passed);
                     }
+                }
+
+            });
+            holder.picture_icon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemCallBack.clickItem(list);
                 }
             });
         }

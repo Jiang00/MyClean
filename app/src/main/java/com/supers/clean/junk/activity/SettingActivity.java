@@ -37,7 +37,8 @@ import com.supers.clean.junk.util.UtilGp;
 public class SettingActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_unload, setting_power, setting_file, setting_notifi, setting_white, setting_short, setting_rotate;
+    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_unload, setting_power, setting_file,
+            setting_picture, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check, setting_unload_check;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
@@ -63,6 +64,8 @@ public class SettingActivity extends BaseActivity {
         setting_power = (RelativeLayout) findViewById(R.id.setting_power);
         setting_notifi = (RelativeLayout) findViewById(R.id.setting_notifi);
         setting_file = (RelativeLayout) findViewById(R.id.setting_file);
+        setting_picture = (RelativeLayout) findViewById(R.id.setting_picture);
+        setting_hui = (RelativeLayout) findViewById(R.id.setting_hui);
         setting_rotate = (RelativeLayout) findViewById(R.id.setting_rotate);
         setting_tongzhi_check = (ImageView) findViewById(R.id.setting_tongzhi_check);
         setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
@@ -198,6 +201,8 @@ public class SettingActivity extends BaseActivity {
         setting_power.setOnClickListener(onClickListener);
         setting_notifi.setOnClickListener(onClickListener);
         setting_file.setOnClickListener(onClickListener);
+        setting_picture.setOnClickListener(onClickListener);
+        setting_hui.setOnClickListener(onClickListener);
         setting_rotate.setOnClickListener(onClickListener);
     }
 
@@ -292,6 +297,16 @@ public class SettingActivity extends BaseActivity {
                     CommonUtil.track("设置页面", "进入文件管理", "", 1);
                     Intent intentF = new Intent(SettingActivity.this, FileActivity.class);
                     startActivity(intentF);
+                    break;
+                case R.id.setting_picture:
+                    CommonUtil.track("设置页面", "进入相似图片", "", 1);
+                    Intent intentPic = new Intent(SettingActivity.this, PictureActivity.class);
+                    startActivity(intentPic);
+                    break;
+                case R.id.setting_hui:
+                    CommonUtil.track("设置页面", "进入回收站", "", 1);
+                    Intent intenth = new Intent(SettingActivity.this, PictureHuiActivity.class);
+                    startActivity(intenth);
                     break;
                 case R.id.setting_notifi:
                     CommonUtil.track("设置页面", "进入通知栏清理", "", 1);

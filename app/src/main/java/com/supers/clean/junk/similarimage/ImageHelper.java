@@ -270,6 +270,16 @@ public class ImageHelper {
         li.setAvgPixel(avgPixel);
         return li;
     }*/
+    public Bitmap pathWithScaledBitmap(Context context, String path) {
+        DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
+        Bitmap bitmap = loadBitmapFromFile(path, dm.widthPixels,
+                dm.heightPixels);
+        if (bitmap == null) {
+            return null;
+        }
+        return bitmap;
+    }
+
     public Bitmap pathWithScaledBitmap(Context context, String path, int screenWidth, int screenHeight) {
         DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
         Bitmap bitmap = loadBitmapFromFile(path, dm.widthPixels,

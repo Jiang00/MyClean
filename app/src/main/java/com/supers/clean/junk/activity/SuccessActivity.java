@@ -62,6 +62,7 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_power_button;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
+    LinearLayout main_picture_button;
     ImageView power_icon;
     TextView power_text;
     TextView main_rotate_bad;
@@ -108,6 +109,7 @@ public class SuccessActivity extends BaseActivity {
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
         main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
+        main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         power_text = (TextView) findViewById(R.id.power_text);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
@@ -274,6 +276,7 @@ public class SuccessActivity extends BaseActivity {
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
+        main_picture_button.setOnClickListener(onClickListener);
 
     }
 
@@ -516,6 +519,15 @@ public class SuccessActivity extends BaseActivity {
                     }
                     CommonUtil.track("完成页面", "点击进入文件管理", "", 1);
                     jumpTo(FileActivity.class);
+                    onBackPressed();
+                    break;
+                case R.id.main_picture_button:
+                    if (TextUtils.equals("picture", getIntent().getStringExtra("from"))) {
+                        finish();
+                        return;
+                    }
+                    CommonUtil.track("完成页面", "点击进入相似图片", "", 1);
+                    jumpTo(PictureActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_notifi_button:

@@ -22,7 +22,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/hui_never"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:gravity="center"
+            android:text="@string/picture_8"
+            android:textColor="#bfbfbf"
+            android:textSize="@dimen/d20" />
+
         <LinearLayout
+            android:id="@+id/ll_picture"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#f1f1f1"
@@ -44,6 +57,7 @@
                 android:id="@+id/picture_hui_recyc"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_margin="@dimen/d3"
                 android:layout_weight="1"
                 android:scrollbars="none" />
 
@@ -54,6 +68,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/picture_restore"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -63,6 +78,7 @@
                     android:textSize="@dimen/d17" />
 
                 <TextView
+                    android:id="@+id/picture_delete"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

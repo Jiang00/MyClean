@@ -280,6 +280,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     @Override
     public void onBackPressed() {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
+            CommonUtil.track("通知栏", "跳转垃圾清页面", "", 1);
             jumpTo(MainActivity.class);
         }
         finish();

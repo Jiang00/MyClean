@@ -1,16 +1,22 @@
 package com.supers.clean.junk.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -22,6 +28,7 @@ import android.widget.TextView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
 import com.supers.clean.junk.customeview.LineProgressView;
+import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.similarimage.ImageHelper;
 import com.supers.clean.junk.similarimage.ImageInfo;
 import com.supers.clean.junk.util.CommonUtil;
@@ -48,9 +55,18 @@ public class PictureActivity extends BaseActivity {
     LinearLayout picture_other;
     LineProgressView picture_line;
     RecyclerView picture_recycle;
+    ViewPager picture_pager;
+    FrameLayout pager_fl;
+    ImageView pic_pager_left;
+    TextView pic_pager_title;
+    LinearLayout pic_pager_delete;
+    LinearLayout pic_pager_check;
+    ImageView pic_pager_check_iv;
 
     private RecycleViewAdapter adapter;
+    private PagerAdapter pagerAdapter;
     private ImageHelper imageHelper;
+    private ArrayList<View> pagerView;
     AlertDialog dialog;
     private long allSize;
     private long delete;
@@ -71,6 +87,13 @@ public class PictureActivity extends BaseActivity {
         picture_other = (LinearLayout) findViewById(R.id.picture_other);
         picture_line = (LineProgressView) findViewById(R.id.picture_line);
         picture_recycle = (RecyclerView) findViewById(R.id.picture_recycle);
+        picture_pager = (ViewPager) findViewById(R.id.picture_pager);
+        pager_fl = (FrameLayout) findViewById(R.id.pager_fl);
+        pic_pager_left = (ImageView) findViewById(R.id.pic_pager_left);
+        pic_pager_title = (TextView) findViewById(R.id.pic_pager_title);
+        pic_pager_delete = (LinearLayout) findViewById(R.id.pic_pager_delete);
+        pic_pager_check = (LinearLayout) findViewById(R.id.pic_pager_check);
+        pic_pager_check_iv = (ImageView) findViewById(R.id.pic_pager_check_iv);
 
     }
 
@@ -109,6 +132,7 @@ public class PictureActivity extends BaseActivity {
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);
         imageHelper = new ImageHelper();
+        pagerView = new ArrayList<>();
         picture_recycle.setLayoutManager(new LinearLayoutManager(this));
         adapter = new RecycleViewAdapter(this);
         picture_recycle.setAdapter(adapter);
@@ -128,6 +152,114 @@ public class PictureActivity extends BaseActivity {
         title_right.setOnClickListener(clickListener);
         picture_button.setOnClickListener(clickListener);
         picture_other.setOnClickListener(clickListener);
+        pic_pager_left.setOnClickListener(clickListener);
+        adapter.setitemClickListener(new RecycleViewAdapter.ItemCallBack() {
+            @Override
+            public void clickItem(ArrayList<ImageInfo> list) {
+                pager_fl.setVisibility(View.VISIBLE);
+                bigPicture(list);
+
+            }
+        });
+    }
+
+    public void bigPicture(final ArrayList<ImageInfo> list) {
+        pic_pager_title.setText("1/" + list.size());
+        if (list.get(0).isNormal) {
+            pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+        } else {
+            pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+        }
+        pic_pager_check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = picture_pager.getCurrentItem();
+                list.get(position).isNormal = !list.get(position).isNormal;
+                if (list.get(position).isNormal) {
+                    pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+                } else {
+                    pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+                }
+            }
+        });
+
+        pic_pager_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = picture_pager.getCurrentItem();
+                RecyclerDbHelper.getInstance(PictureActivity.this).putImageToRecycler(list.get(position));
+                View view = pagerView.get(position);
+                pagerView.remove(position);
+                picture_pager.removeView(view);
+                pagerAdapter.notifyDataSetChanged();
+                list.remove(position);
+                if (pagerView.size() <= 1) {
+                    pager_fl.setVisibility(View.GONE);
+                    adapter.deleteItem();
+                }
+                pic_pager_title.setText((picture_pager.getCurrentItem() + 1) + "/" + list.size());
+            }
+        });
+        pagerView.clear();
+        for (int i = 0; i < list.size(); i++) {
+            View view = LayoutInflater.from(this).inflate(R.layout.layout_picture_pager, null);
+            ImageView icon = (ImageView) view.findViewById(R.id.pic_pager_icon);
+            Bitmap bitma = imageHelper.pathWithScaledBitmap(this, list.get(i).path);
+            icon.setImageBitmap(bitma);
+            pagerView.add(view);
+        }
+        picture_pager.setAdapter(pagerAdapter = new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return pagerView.size();
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                container.addView(pagerView.get(position), 0);
+                return pagerView.get(position);
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                View view = (View) object;
+                container.removeView(view);
+                view = null;
+            }
+
+            @Override
+            public int getItemPosition(Object object) {
+                return POSITION_NONE;
+            }
+
+            @Override
+            public boolean isViewFromObject(View arg0, Object arg1) {
+                return arg0 == arg1;
+            }
+        });
+        picture_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                pic_pager_title.setText((position + 1) + "/" + list.size());
+                Log.e("pager", position + "=2");
+                if (position > list.size() - 1) {
+                    return;
+                }
+                if (list.get(position).isNormal) {
+                    pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+                } else {
+                    pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
 
     private void initData() {
@@ -167,6 +299,7 @@ public class PictureActivity extends BaseActivity {
             public void haveQuerySimilarPic(int i, ArrayList<ImageInfo> similarImage, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, final long totalSize) {
                 final ArrayList<ImageInfo> list_item = totalSimilarImage.get(totalSimilarImage.size() - 1);
                 allSize = totalSize;
+                list_item.get(imageHelper.getBestImageIndex(list_item)).isNormal = true;
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -197,7 +330,6 @@ public class PictureActivity extends BaseActivity {
                     break;
                 case R.id.picture_button:
                     CommonUtil.track("相似图片页面", "点击清理按钮,弹出确认弹窗", "", 1);
-                    jumpToActivity(PictureHuiActivity.class, 1);
                     ArrayList<Bitmap> bitmaps = adapter.checkDate();
                     int num = bitmaps.size();
                     if (num == 0) {
@@ -211,6 +343,11 @@ public class PictureActivity extends BaseActivity {
                     jumpTo(JunkActivity.class);
                     onBackPressed();
                     break;
+                case R.id.pic_pager_left:
+                    pager_fl.setVisibility(View.GONE);
+                    picture_pager.setAdapter(null);
+                    adapter.notifyDataSetChanged();
+                    break;
             }
 
         }
@@ -221,7 +358,7 @@ public class PictureActivity extends BaseActivity {
         View view = View.inflate(this, R.layout.dialog_picture, null);
         TextView message = (TextView) view.findViewById(R.id.message);
         final TextView ok = (TextView) view.findViewById(R.id.ok);
-        TextView cancle = (TextView) view.findViewById(R.id.cancle);
+        final TextView cancle = (TextView) view.findViewById(R.id.cancle);
         final TextView count = (TextView) view.findViewById(R.id.count);
         final LinearLayout image_list = (LinearLayout) view.findViewById(R.id.image_list);
         final ProgressBar delete_progress = (ProgressBar) view.findViewById(R.id.delete_progress);
@@ -252,6 +389,7 @@ public class PictureActivity extends BaseActivity {
             public void onClick(View v) {
                 CommonUtil.track("相似图片页面", "点击确认弹窗ok按钮", "", 1);
                 ok.setOnClickListener(null);
+                cancle.setOnClickListener(null);
                 image_list.setVisibility(View.GONE);
                 delete_progress.setVisibility(View.VISIBLE);
                 adapter.upData(new RecycleViewAdapter.RecycleViewCallBack() {
@@ -320,8 +458,23 @@ public class PictureActivity extends BaseActivity {
         dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
         dialog.getWindow().setAttributes(lp);
         dialog.getWindow().setContentView(view);
-
-
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == 5) {
+            finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (pager_fl.getVisibility() == (View.VISIBLE)) {
+            pager_fl.setVisibility(View.GONE);
+            picture_pager.setAdapter(null);
+            adapter.notifyDataSetChanged();
+            return;
+        }
+        finish();
+    }
 }

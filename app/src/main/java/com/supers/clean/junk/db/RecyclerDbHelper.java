@@ -32,7 +32,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "RecyclerDbHelper";
 
-    private static final long RECYCLER_AUTO_DELETE_INTERVAL = 7 * 24 * 60 * 60 * 1000;
+    public static final long RECYCLER_AUTO_DELETE_INTERVAL = 7 * 24 * 60 * 60 * 1000;
 
     private static RecyclerDbHelper recyclerDBHelper;
 
@@ -162,7 +162,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
     }
 
     private void deleteOverDateRecyclerFile() {
-        File file = new File(Environment.getExternalStorageDirectory() + "/eosbackup/");
+        File file = new File(Environment.getExternalStorageDirectory() + "/eosbackup");
         if (file != null && file.exists()) {
             File[] files = file.listFiles();
             for (int i = 0; i < files.length; i++) {
@@ -171,7 +171,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
                 try {
                     Date date = simpleDateFormat.parse(name);
                     if (System.currentTimeMillis() > date.getTime() + RECYCLER_AUTO_DELETE_INTERVAL) {
-                        FileUtils.deleteFile(name);
+                        FileUtils.deleteFile(files[i].getAbsolutePath());
                     }
                 } catch (Exception e) {
                     continue;

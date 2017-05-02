@@ -2,53 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_100"
     android:orientation="vertical">
 
-    <View
+    <ImageView
+        android:id="@+id/pic_pager_icon"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d24" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/icon" />
-
-        <RelativeLayout
-            android:id="@+id/pager_title"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d56"
-            android:background="@color/black_50">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:padding="@dimen/d15"
-                android:src="@mipmap/tilte_left" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="1/2"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/d20" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d50"
-            android:layout_gravity="bottom"
-            android:background="@color/black_50">
-
-        </RelativeLayout>
-    </FrameLayout>
-
+        android:layout_height="match_parent"
+        android:src="@mipmap/icon" />
 
 </LinearLayout>

@@ -224,7 +224,7 @@ public class FileCategoryHelper {
                 sortOrder = FileColumns.TITLE + " asc";
                 break;
             case size:
-                sortOrder = FileColumns.SIZE + " asc";
+                sortOrder = FileColumns.SIZE + " desc";
                 break;
             case date:
                 sortOrder = FileColumns.DATE_MODIFIED + " desc";

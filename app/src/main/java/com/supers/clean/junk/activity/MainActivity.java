@@ -78,6 +78,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LinearLayout main_power_button;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
+    LinearLayout main_picture_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_sd_unit, main_msg_cpu_percent;
     TextView main_gurad_num;
     ImageView main_guard_rotate;
@@ -139,6 +140,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
         main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
+        main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
         main_msg_sd_unit = (TextView) findViewById(R.id.main_msg_sd_unit);
@@ -383,6 +385,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
+        main_picture_button.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
         fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
@@ -486,7 +489,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new JunkInfo(R.string.side_file, R.mipmap.side_file));//文件管理
         adapter.addData(new JunkInfo(R.string.side_power, R.mipmap.side_power));//深度清理
         adapter.addData(new JunkInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
-        adapter.addData(new JunkInfo(R.string.side_picture, R.mipmap.side_nitifi));//通知栏清理
+        adapter.addData(new JunkInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
         adapter.addData(new JunkInfo(R.string.side_family, R.mipmap.side_theme));//family
         adapter.addData(new JunkInfo(R.string.side_theme, R.mipmap.side_theme));//主题
         adapter.addData(new JunkInfo(R.string.side_setting, R.mipmap.side_setting));//设置
@@ -815,6 +818,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_file_button:
                     CommonUtil.track("主页面", "点击进入文件管理", "", 1);
                     mainPresenter.jumpToActivity(FileActivity.class, 1);
+                    break;
+                case R.id.main_picture_button:
+                    CommonUtil.track("主页面", "点击进入相似图片", "", 1);
+                    mainPresenter.jumpToActivity(PictureActivity.class, 1);
                     break;
                 case R.id.main_notifi_button:
                     CommonUtil.track("主页面", "点击进入通知栏清理", "", 1);

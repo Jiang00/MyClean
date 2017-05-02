@@ -148,8 +148,92 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/picture_pager"
+    <FrameLayout
+        android:id="@+id/pager_fl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@color/black_100"
+        android:visibility="gone">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/picture_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/pager_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
+            android:background="@color/black_50">
+
+            <ImageView
+                android:id="@+id/pic_pager_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/d15"
+                android:src="@mipmap/tilte_left" />
+
+            <TextView
+                android:id="@+id/pic_pager_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="1/2"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/d20" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/pager_buttom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d50"
+            android:layout_gravity="bottom"
+            android:background="@color/black_50">
+
+            <LinearLayout
+                android:id="@+id/pic_pager_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginRight="@dimen/d16"
+                    android:text="@string/picture_14"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/d20" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pic_pager_check"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/pic_pager_check_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/picture_normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d10"
+                    android:layout_marginRight="@dimen/d16"
+                    android:text="@string/picture_13"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/d20" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
 </FrameLayout>
