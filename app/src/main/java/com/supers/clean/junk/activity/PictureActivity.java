@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
 import com.supers.clean.junk.customeview.LineProgressView;
@@ -34,6 +35,8 @@ import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.similarimage.ImageHelper;
 import com.supers.clean.junk.similarimage.ImageInfo;
 import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
 
@@ -144,7 +147,13 @@ public class PictureActivity extends BaseActivity {
             }
         }).start();
         clickListen();
+        loadAd();
+    }
 
+    private void loadAd() {
+        if (PreData.getDB(this, Constant.PICTURE, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        }
     }
 
     private void clickListen() {
@@ -274,7 +283,7 @@ public class PictureActivity extends BaseActivity {
             }
 
             @Override
-            public void endQuery(ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages) {
+            public void endQuery(ArrayList<ImageInfo> localImageList, final ArrayList<ArrayList<ImageInfo>> localImages) {
                 Message msg = mHandler.obtainMessage();//同 new Message();
                 msg.what = PICTHRE_SUCC;
                 mHandler.sendMessage(msg);
@@ -418,6 +427,7 @@ public class PictureActivity extends BaseActivity {
                                 for (ArrayList<ImageInfo> info : list) {
                                     for (ImageInfo i : info) {
                                         allSize += i.fileSize;
+
                                     }
                                 }
                                 picture_size.setText(CommonUtil.convertStorage(allSize));

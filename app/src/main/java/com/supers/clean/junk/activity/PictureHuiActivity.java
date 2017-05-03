@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
@@ -28,6 +29,8 @@ import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.similarimage.ImageHelper;
 import com.supers.clean.junk.similarimage.ImageInfo;
 import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 
 import java.io.File;
 import java.text.ParseException;
@@ -58,6 +61,9 @@ public class PictureHuiActivity extends BaseActivity {
     private AlertDialog dialog;
     private boolean isRestore;
     private Handler mHandler;
+    private String TAG_RECYCLE = "recyclebin";
+    private View nativeView;
+    private LinearLayout ll_ad;
 
     @Override
     protected void findId() {
@@ -70,6 +76,7 @@ public class PictureHuiActivity extends BaseActivity {
         ll_picture = (LinearLayout) findViewById(R.id.ll_picture);
         picture_restore = (TextView) findViewById(R.id.picture_restore);
         picture_delete = (TextView) findViewById(R.id.picture_delete);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
     @Override
@@ -97,6 +104,24 @@ public class PictureHuiActivity extends BaseActivity {
             picture_hui_recyc.setItemAnimator(new DefaultItemAnimator());
         }
         addListener();
+        loadAd();
+    }
+
+    private void loadAd() {
+        if (PreData.getDB(this, Constant.RECYCLEBIN, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        } else {
+            addAd();
+        }
+    }
+
+    private void addAd() {
+        nativeView = CommonUtil.getNativeAdView(TAG_RECYCLE, R.layout.native_ad_3);
+        if (ll_ad != null && nativeView != null) {
+            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+            ll_ad.setLayoutParams(layout_ad);
+            ll_ad.addView(nativeView);
+        }
     }
 
     private void addListener() {
