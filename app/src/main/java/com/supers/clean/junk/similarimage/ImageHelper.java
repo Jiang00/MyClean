@@ -414,7 +414,7 @@ public class ImageHelper {
                     totalSize += groupSize;
                     totalCount += similarItem.size();
                     similarItem.get(getBestImageIndex(similarItem)).isNormal = true;
-                    similarItems.add(similarItem);
+                    similarItems.add(0, similarItem);
                     if (onQueryCallBack != null) {
                         onQueryCallBack.haveQuerySimilarPic(i, localImageList, similarItems, totalSize);
                     }
@@ -450,9 +450,6 @@ public class ImageHelper {
 
         Collections.sort(mList, new ImageInfo.ImageComparator());
 
-        for (ImageInfo imageInfo : mList) {
-            Log.e("rqy", imageInfo.toString());
-        }
         return mList;
     }
 

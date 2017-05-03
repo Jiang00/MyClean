@@ -174,7 +174,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
         @Override
         public void onBindViewHolder(final HomeAdapter.HomeViewHolder holder, final int position) {
-            Log.e("picture", "onBindViewHolder");
             final ImageInfo info = list.get(position);
             if (bastPosition == position) {
                 holder.picture_best.setVisibility(View.VISIBLE);

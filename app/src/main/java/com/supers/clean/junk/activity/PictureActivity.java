@@ -110,7 +110,7 @@ public class PictureActivity extends BaseActivity {
                     break;
                 case PICTHRE_SUCC:
                     picture_path.setVisibility(View.GONE);
-                    if (adapter.getItemCount() == 0) {
+                    if (adapter == null || adapter.getItemCount() == 0) {
                         picture_progressbar.setVisibility(View.GONE);
                         picture_other.setVisibility(View.VISIBLE);
                         picture_scan.setText("");

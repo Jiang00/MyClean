@@ -103,7 +103,7 @@ public class ImageInfo {
     static class ImageComparator implements Comparator<ImageInfo> {
         @Override
         public int compare(ImageInfo lhs, ImageInfo rhs) {
-            return rhs.tag_datetime.compareToIgnoreCase(lhs.tag_datetime);
+            return lhs.tag_datetime.compareToIgnoreCase(rhs.tag_datetime);
         }
     }
 
