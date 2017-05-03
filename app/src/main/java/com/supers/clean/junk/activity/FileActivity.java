@@ -1,11 +1,8 @@
 package com.supers.clean.junk.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -19,8 +16,6 @@ import com.supers.clean.junk.filemanager.Util;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
-
-import java.io.File;
 
 /**
  * Created by Ivy on 2017/4/20.

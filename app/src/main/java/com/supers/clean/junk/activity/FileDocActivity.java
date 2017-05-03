@@ -41,6 +41,7 @@ import java.util.ArrayList;
 
 public class FileDocActivity extends BaseActivity {
 
+    private static final String TAG = "FileDocActivity";
     FrameLayout title_left;
     TextView title_name;
     Button file_button_clean;
@@ -305,6 +306,18 @@ public class FileDocActivity extends BaseActivity {
                     size += info.size;
                     FileUtils.deleteCo(FileDocActivity.this, fc_clean, info._id);
                 }
+                new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+                        for (JunkInfo info : deleteList) {
+                            boolean deleteSuce = FileUtils.deleteFile(info.path);
+                            if (!deleteSuce) {
+                                android.util.Log.e(TAG, "delete fail --" + info.path);
+                            }
+                        }
+                    }
+                }.start();
                 if (doc_view_pager.getCurrentItem() == 0) {
                     docList.removeAll(deleteList);
                     adapter_doc.notifyDataSetChanged();

@@ -2,16 +2,11 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.media.midi.MidiDeviceStatus;
-import android.media.midi.MidiSender;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
+import android.telecom.Log;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,7 +29,6 @@ import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -42,6 +36,8 @@ import java.util.ArrayList;
  */
 
 public class FileListActivity extends BaseActivity {
+
+    public static final String TAG = "FileListActivity";
     FrameLayout title_left;
     TextView title_name;
     ListView file_list;
@@ -188,7 +184,6 @@ public class FileListActivity extends BaseActivity {
                         }
                     }
                     showDia(deleteList);
-
                     break;
             }
         }
@@ -224,6 +219,18 @@ public class FileListActivity extends BaseActivity {
                     size += info.size;
                     FileUtils.deleteCo(FileListActivity.this, fc, info._id);
                 }
+                new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+                        for (JunkInfo info : deleteList) {
+                            boolean deleteSuce = FileUtils.deleteFile(info.path);
+                            if (!deleteSuce) {
+                                android.util.Log.e(TAG, "delete fail --" + info.path);
+                            }
+                        }
+                    }
+                }.start();
 
                 fileList.removeAll(deleteList);
                 adapter.notifyDataSetChanged();

@@ -136,14 +136,16 @@ public class FileUtils {
         return null;
     }
 
-    public static void deleteFile(String filePath) {
+    public static boolean deleteFile(String filePath) {
         if (TextUtils.isEmpty(filePath)) {
-            return;
+            Log.e("rqy", "filePath is null");
+            return false;
         }
         try {
             File file = new File(filePath);
             if (!file.exists()) {
-                return;
+                Log.e("rqy", "file  not exists");
+                return false;
             }
             if (file.isDirectory()) {
                 File files[] = file.listFiles();
@@ -151,14 +153,16 @@ public class FileUtils {
                     deleteFile(files[i].getAbsolutePath());
                 }
                 if (file.listFiles().length == 0) {
-                    file.delete();
+                    return file.delete();
                 }
             } else {
-                file.delete();
+                return file.delete();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return false;
     }
 
     public static void deleteCo(Activity activity, FileCategoryHelper.FileCategory fc, long _id) {
