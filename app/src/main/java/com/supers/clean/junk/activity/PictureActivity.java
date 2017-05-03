@@ -269,12 +269,12 @@ public class PictureActivity extends BaseActivity {
 
         imageHelper.querySimilarImage(this, new ImageHelper.OnQuerySimilarPicCallBack() {
             @Override
-            public void startAsync(ArrayList<ImageInfo> localImageList) {
+            public void startQuery(ArrayList<ImageInfo> localImageList) {
 
             }
 
             @Override
-            public void endAsync(ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages) {
+            public void endQuery(ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages) {
                 Message msg = mHandler.obtainMessage();//同 new Message();
                 msg.what = PICTHRE_SUCC;
                 mHandler.sendMessage(msg);
