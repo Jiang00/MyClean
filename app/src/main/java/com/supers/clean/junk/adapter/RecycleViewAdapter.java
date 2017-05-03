@@ -25,11 +25,12 @@ import java.util.ArrayList;
  */
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.MyViewHolder> {
-    private ArrayList<ArrayList<ImageInfo>> groupList;
+    public ArrayList<ArrayList<ImageInfo>> groupList;
     private PictureActivity pictureActivity;
     private ImageHelper imageHelper;
     private MyGridLayoutManager gridLayoutManager;
     private RecycleViewCallBack deleteCallBack;
+
 
     public interface RecycleViewCallBack {
         void deleteItemCallback(long fileSize);
@@ -37,15 +38,19 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         void deleteSuccessCallback(ArrayList<ArrayList<ImageInfo>> list);
     }
 
-    public RecycleViewAdapter(PictureActivity pictureActivity) {
-        groupList = new ArrayList<>();
+    public RecycleViewAdapter(PictureActivity pictureActivity, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, ImageHelper imageHelper) {
         this.pictureActivity = pictureActivity;
-
-        imageHelper = new ImageHelper();
+        this.imageHelper = imageHelper;
+        groupList = totalSimilarImage;
     }
 
+
     public void addData(ArrayList<ImageInfo> list, int location) {
-        this.groupList.add(location, list);
+        groupList.add(location, list);
+    }
+
+    public void upData(ArrayList<ArrayList<ImageInfo>> list) {
+        groupList = list;
     }
 
     public ArrayList<Bitmap> checkDate() {
@@ -202,7 +207,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                         return;
                     }
                     info.isNormal = !info.isNormal;
-                    pictureActivity.updateUi(groupList);
+                    pictureActivity.updateUi();
                     if (info.isNormal) {
                         holder.picture_check.setImageResource(R.mipmap.picture_normal);
                     } else {

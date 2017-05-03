@@ -70,6 +70,7 @@ public class PictureActivity extends BaseActivity {
     private PagerAdapter pagerAdapter;
     private ImageHelper imageHelper;
     private ArrayList<View> pagerView;
+    public ArrayList<ArrayList<ImageInfo>> allList;
     AlertDialog dialog;
     public long allSize = 0;
 
@@ -139,8 +140,7 @@ public class PictureActivity extends BaseActivity {
         imageHelper = new ImageHelper();
         pagerView = new ArrayList<>();
         picture_recycle.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecycleViewAdapter(this);
-        picture_recycle.setAdapter(adapter);
+
         picture_recycle.setItemAnimator(new DefaultItemAnimator());
         new Thread(new Runnable() {
             @Override
@@ -183,6 +183,7 @@ public class PictureActivity extends BaseActivity {
                 } else {
                     pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
                 }
+                updateUi();
             }
         });
 
@@ -201,6 +202,7 @@ public class PictureActivity extends BaseActivity {
                     adapter.deleteItem();
                 }
                 pic_pager_title.setText((picture_pager.getCurrentItem() + 1) + "/" + list.size());
+                updateUi();
             }
         });
         pagerView.clear();
@@ -322,7 +324,6 @@ public class PictureActivity extends BaseActivity {
 
             @Override
             public void haveQuerySimilarPic(int i, ArrayList<ImageInfo> similarImage, final ArrayList<ArrayList<ImageInfo>> totalSimilarImage, final long totalSize) {
-                final ArrayList<ImageInfo> list_item = totalSimilarImage.get(totalSimilarImage.size() - 1);
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -338,8 +339,15 @@ public class PictureActivity extends BaseActivity {
                         picture_progressbar.setVisibility(View.GONE);
                         picture_size.setText(CommonUtil.convertStorage(size));
                         picture_danwei.setText(CommonUtil.convertStorageDanwei(size));
-                        adapter.addData(list_item, 0);
-                        adapter.notifyDataSetChanged();
+//                        adapter.addData(list_item, 0);
+                        allList = totalSimilarImage;
+                        if (adapter == null) {
+                            adapter = new RecycleViewAdapter(PictureActivity.this, totalSimilarImage, imageHelper);
+                            picture_recycle.setAdapter(adapter);
+                        } else {
+                            adapter.upData(totalSimilarImage);
+                            adapter.notifyDataSetChanged();
+                        }
 //                        addItemView(list_item, dp4, dp6, dp8);
                     }
                 });
@@ -452,7 +460,7 @@ public class PictureActivity extends BaseActivity {
 
                                     }
                                 }
-                                updateUi(list);
+                                updateUi();
                                 adapter.notifyDataSetChanged();
                                 if (adapter.getItemCount() == 0) {
                                     picture_progressbar.setVisibility(View.GONE);
@@ -515,11 +523,11 @@ public class PictureActivity extends BaseActivity {
     }
 
 
-    public void updateUi(ArrayList<ArrayList<ImageInfo>> groupList) {
+    public void updateUi() {
         long size = 0;
         long count = 0;
-        for (int i = 0; i < groupList.size(); i++) {
-            ArrayList<ImageInfo> arrayList = groupList.get(i);
+        for (int i = 0; i < allList.size(); i++) {
+            ArrayList<ImageInfo> arrayList = allList.get(i);
             for (ImageInfo imageInfo : arrayList) {
                 if (!imageInfo.isNormal) {
                     size += imageInfo.fileSize;
