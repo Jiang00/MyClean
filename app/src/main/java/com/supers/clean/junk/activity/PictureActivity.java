@@ -18,6 +18,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -25,13 +27,15 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
-import com.supers.clean.junk.customeview.LineProgressView;
 import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.similarimage.ImageHelper;
 import com.supers.clean.junk.similarimage.ImageInfo;
 import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
 
@@ -53,7 +57,6 @@ public class PictureActivity extends BaseActivity {
     TextView picture_scan;
     ProgressBar picture_progressbar;
     LinearLayout picture_other;
-    LineProgressView picture_line;
     RecyclerView picture_recycle;
     ViewPager picture_pager;
     FrameLayout pager_fl;
@@ -86,7 +89,6 @@ public class PictureActivity extends BaseActivity {
         picture_scan = (TextView) findViewById(R.id.picture_scan);
         picture_progressbar = (ProgressBar) findViewById(R.id.picture_progressbar);
         picture_other = (LinearLayout) findViewById(R.id.picture_other);
-        picture_line = (LineProgressView) findViewById(R.id.picture_line);
         picture_recycle = (RecyclerView) findViewById(R.id.picture_recycle);
         picture_pager = (ViewPager) findViewById(R.id.picture_pager);
         pager_fl = (FrameLayout) findViewById(R.id.pager_fl);
@@ -104,17 +106,19 @@ public class PictureActivity extends BaseActivity {
             switch (msg.what) {
                 case PICTHRE_PATH:
                     picture_path.setText((String) msg.obj);
-                    picture_line.setProgress(msg.arg1 * 100 / msg.arg2);
                     break;
                 case PICTHRE_SUCC:
-                    picture_line.setVisibility(View.GONE);
                     picture_path.setVisibility(View.GONE);
                     if (adapter.getItemCount() == 0) {
                         picture_progressbar.setVisibility(View.GONE);
                         picture_other.setVisibility(View.VISIBLE);
+                        picture_scan.setText("");
                     } else {
                         picture_scan.setText(R.string.picture_jianyi);
+                        Animation animation1 = AnimationUtils.loadAnimation(PictureActivity.this, R.anim.translate_notifi);
+                        picture_button.startAnimation(animation1);
                         picture_button.setVisibility(View.VISIBLE);
+                        picture_button.setText(getString(R.string.picture_14) + "( " + msg.arg1 + " )");
                     }
                     break;
                 default:
@@ -145,7 +149,13 @@ public class PictureActivity extends BaseActivity {
             }
         }).start();
         clickListen();
+        loadAd();
+    }
 
+    private void loadAd() {
+        if (PreData.getDB(this, Constant.PICTURE, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        }
     }
 
     private void clickListen() {
@@ -264,11 +274,12 @@ public class PictureActivity extends BaseActivity {
             }
 
             @Override
-            public void endQuery(ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages, long totalSize) {
+            public void endQuery(ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages, long totalSize, long totalCount) {
                 allSize = totalSize;
                 mIsQuerying = false;
                 Message msg = mHandler.obtainMessage();//同 new Message();
                 msg.what = PICTHRE_SUCC;
+                msg.arg1 = (int) totalCount;
                 mHandler.sendMessage(msg);
             }
 
@@ -408,10 +419,10 @@ public class PictureActivity extends BaseActivity {
                                 for (ArrayList<ImageInfo> info : list) {
                                     for (ImageInfo i : info) {
                                         allSize += i.fileSize;
+
                                     }
                                 }
-                                picture_size.setText(CommonUtil.convertStorage(0));
-                                picture_danwei.setText(CommonUtil.convertStorageDanwei(0));
+                                onPicItemChecked(list);
                                 adapter.notifyDataSetChanged();
                                 if (adapter.getItemCount() == 0) {
                                     picture_progressbar.setVisibility(View.GONE);
@@ -474,16 +485,6 @@ public class PictureActivity extends BaseActivity {
     }
 
 
-    public void onPicItemChecked(boolean isNormal, long fileSize) {
-        if (isNormal) {
-            allSize -= fileSize;
-        } else {
-            allSize += fileSize;
-        }
-        picture_size.setText(CommonUtil.convertStorage(allSize));
-        picture_danwei.setText(CommonUtil.convertStorageDanwei(allSize));
-    }
-
     public void onPicItemChecked(ArrayList<ArrayList<ImageInfo>> groupList) {
         long size = 0;
         long count = 0;
@@ -496,7 +497,7 @@ public class PictureActivity extends BaseActivity {
                 }
             }
         }
-
+        picture_button.setText(getString(R.string.picture_14) + "( " + count + " )");
         picture_size.setText(CommonUtil.convertStorage(size));
         picture_danwei.setText(CommonUtil.convertStorageDanwei(size));
 

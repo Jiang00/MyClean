@@ -84,5 +84,9 @@ public class Constant {
 
     public static final String FULL_FILE_2 = "FULL_FILE_2";
 
+    public static final String PICTURE = "PICTURE";
+
+    public static final String RECYCLEBIN = "RECYCLEBIN";
+
 
 }
