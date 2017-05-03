@@ -1,6 +1,5 @@
 package com.supers.clean.junk.adapter;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.customeview.MyGridLayoutManager;
 import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.similarimage.ImageHelper;
@@ -25,50 +25,32 @@ import java.util.ArrayList;
  */
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.MyViewHolder> {
-    ArrayList<ArrayList<ImageInfo>> list;
-    int bastPosition;
-    Context context;
+    private ArrayList<ArrayList<ImageInfo>> groupList;
+    private PictureActivity pictureActivity;
     private ImageHelper imageHelper;
     private MyGridLayoutManager gridLayoutManager;
     private RecycleViewCallBack deleteCallBack;
-    private ItemCallBack itemCallBack;
 
     public interface RecycleViewCallBack {
-        void deleteItemCallback(long filesize);
+        void deleteItemCallback(long fileSize);
 
-        void deleteSuccCallback(ArrayList<ArrayList<ImageInfo>> list);
+        void deleteSuccessCallback(ArrayList<ArrayList<ImageInfo>> list);
     }
 
-    public interface ItemCallBack {
-        void clickItem(ArrayList<ImageInfo> list);
-    }
-
-    public void setitemClickListener(ItemCallBack itemCallBack) {
-        this.itemCallBack = itemCallBack;
-    }
-
-    public RecycleViewAdapter(Context context) {
-        list = new ArrayList<>();
-        this.context = context.getApplicationContext();
+    public RecycleViewAdapter(PictureActivity pictureActivity) {
+        groupList = new ArrayList<>();
+        this.pictureActivity = pictureActivity;
 
         imageHelper = new ImageHelper();
     }
 
-    public void upList(ArrayList<ArrayList<ImageInfo>> list) {
-        this.list = list;
-    }
-
-    public void addData(ArrayList<ImageInfo> list) {
-        this.list.add(list);
-    }
-
     public void addData(ArrayList<ImageInfo> list, int location) {
-        this.list.add(location, list);
+        this.groupList.add(location, list);
     }
 
     public ArrayList<Bitmap> checkDate() {
         ArrayList<Bitmap> check = new ArrayList<>();
-        for (ArrayList<ImageInfo> info : list) {
+        for (ArrayList<ImageInfo> info : groupList) {
             for (ImageInfo i : info) {
                 if (!i.isNormal) {
                     check.add((Bitmap) lruCache.get(i.name));
@@ -78,18 +60,18 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         return check;
     }
 
-    public void upData(final RecycleViewCallBack callBack) {
+    public void delete(final RecycleViewCallBack callBack) {
         deleteCallBack = callBack;
         new Thread(new Runnable() {
             @Override
             public void run() {
                 ArrayList<ArrayList<ImageInfo>> deleteList = new ArrayList<>();
-                for (ArrayList<ImageInfo> info : list) {
+                for (ArrayList<ImageInfo> info : groupList) {
                     ArrayList<ImageInfo> delete = new ArrayList<>();
                     for (ImageInfo i : info) {
                         if (!i.isNormal) {
                             delete.add(i);
-                            RecyclerDbHelper.getInstance(context).putImageToRecycler(i);
+                            RecyclerDbHelper.getInstance(pictureActivity).putImageToRecycler(i);
                             deleteCallBack.deleteItemCallback(i.fileSize);
                         }
                     }
@@ -98,27 +80,28 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                         deleteList.add(info);
                     }
                 }
-                list.removeAll(deleteList);
-                deleteCallBack.deleteSuccCallback(list);
+                groupList.removeAll(deleteList);
+                deleteCallBack.deleteSuccessCallback(groupList);
+
             }
         }).start();
     }
 
     public void deleteItem() {
         ArrayList<ArrayList<ImageInfo>> deleteList = new ArrayList<>();
-        for (ArrayList<ImageInfo> info : list) {
+        for (ArrayList<ImageInfo> info : groupList) {
             if (info.size() <= 1) {
                 deleteList.add(info);
             }
         }
-        list.removeAll(deleteList);
+        groupList.removeAll(deleteList);
         notifyDataSetChanged();
     }
 
     @Override
     public RecycleViewAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         MyViewHolder holder = new MyViewHolder(LayoutInflater.from(
-                context).inflate(R.layout.layout_recycle, parent,
+                pictureActivity).inflate(R.layout.layout_recycle, parent,
                 false));
         return holder;
     }
@@ -126,25 +109,25 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Log.e("picture", "onBindViewHolder");
-        final ArrayList<ImageInfo> info = list.get(position);
+        final ArrayList<ImageInfo> info = groupList.get(position);
         addItemView(holder, info);
     }
 
     private void addItemView(MyViewHolder holder, ArrayList<ImageInfo> list) {
         holder.recyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        gridLayoutManager = new MyGridLayoutManager(context, 3);
+        gridLayoutManager = new MyGridLayoutManager(pictureActivity, 3);
         holder.recyclerView.setLayoutManager(gridLayoutManager);
         holder.recyclerView.setAdapter(new HomeAdapter(list));
         holder.recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
     public void reChangesData(int position) {
-        notifyItemRangeChanged(position, this.list.size() - position); //mList是数据
+        notifyItemRangeChanged(position, this.groupList.size() - position); //mList是数据
     }
 
     @Override
     public int getItemCount() {
-        return this.list.size();
+        return this.groupList.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
@@ -179,7 +162,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         @Override
         public HomeAdapter.HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             HomeAdapter.HomeViewHolder holder = new HomeViewHolder(LayoutInflater.from(
-                    context).inflate(R.layout.layout_picture_item, parent,
+                    pictureActivity).inflate(R.layout.layout_picture_item, parent,
                     false));
             return holder;
         }
@@ -204,7 +187,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             if (cachebitmap != null) {
                 holder.picture_icon.setImageBitmap(cachebitmap);
             } else {
-                Bitmap bitma = imageHelper.pathWithScaledBitmap(context, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
+                Bitmap bitma = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
                 if (bitma == null) {
                 } else {
                     addBitmapToCache(info.name, bitma);
@@ -215,27 +198,29 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             holder.picture_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (pictureActivity.mIsQuerying) {
+                        return;
+                    }
                     info.isNormal = !info.isNormal;
+                    pictureActivity.onPicItemChecked(groupList);
                     if (info.isNormal) {
                         holder.picture_check.setImageResource(R.mipmap.picture_normal);
                     } else {
                         holder.picture_check.setImageResource(R.mipmap.picture_passed);
                     }
+
                 }
 
             });
             holder.picture_icon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    itemCallBack.clickItem(list);
+                    if (pictureActivity.mIsQuerying) {
+                        return;
+                    }
+                    pictureActivity.showBigPic(list);
                 }
             });
-        }
-
-        public void reChangesData(int position) {
-            bastPosition = imageHelper.getBestImageIndex(list);
-            notifyItemRangeChanged(position, this.list.size() - position); //mList是数据
-
         }
 
         @Override
@@ -279,48 +264,5 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
             return (Bitmap) lruCache.get(key);
         }
-/**
- *
- class LoadImage extends AsyncTask<String, Integer, Bitmap> {
- String key = null;
- String path = null;
- HomeAdapter.HomeViewHolder myViewHolder = null;
-
- public LoadImage(HomeAdapter.HomeViewHolder myViewHolder) {
- this.myViewHolder = myViewHolder;
- }
-
- @Override protected Bitmap doInBackground(String... strings) {
- path = strings[0];
- key = strings[1];
- Bitmap cachebitmap = getBitmapFromCache(key);
- //先从缓存中取，如果缓存不为空，则返回图片
- if (cachebitmap != null) {
- Log.e(key, "存在于内存中,直接返回");
- return cachebitmap;
- } else {
- Bitmap bitma = imageHelper.pathWithScaledBitmap(context, path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
- if (bitma == null) {
- return null;
- } else {
- Log.e(key, "重新加入到内存缓存中");
- addBitmapToCache(key, bitma);
- return bitma;
- }
- }
- }
-
- @Override protected void onPostExecute(Bitmap bitmap) {
- ImageView image = myViewHolder.picture_icon;
- if (image.getTag().equals(key)) {
- image.setVisibility(View.VISIBLE);
- image.setImageBitmap(bitmap);
- }
- super.onPostExecute(bitmap);
-
- }
-
- }
- */
     }
 }

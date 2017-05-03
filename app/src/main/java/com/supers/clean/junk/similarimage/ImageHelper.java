@@ -359,9 +359,9 @@ public class ImageHelper {
     }*/
 
     public interface OnQuerySimilarPicCallBack {
-        void startQuery(ArrayList<ImageInfo> localImageList);
+        void startQuery();
 
-        void endQuery(ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages);
+        void endQuery(ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages, long totalSize);
 
         void startAsyncPic(int i, ArrayList<ImageInfo> localImageList);
 
@@ -371,20 +371,21 @@ public class ImageHelper {
     }
 
     public ArrayList<ArrayList<ImageInfo>> querySimilarImage(Context context, OnQuerySimilarPicCallBack onQueryCallBack) {
+        if (onQueryCallBack != null) {
+            onQueryCallBack.startQuery();
+        }
         ArrayList<ArrayList<ImageInfo>> similarItems = new ArrayList<>();
         ArrayList<ImageInfo> localImageList = getCameraImageList();
+
         int size = localImageList.size();
+
         if (size == 0) {
             if (onQueryCallBack != null) {
-                onQueryCallBack.endQuery(localImageList, similarItems);
+                onQueryCallBack.endQuery(localImageList, similarItems, 0);
             }
             return similarItems;
         }
         ArrayList<ImageInfo> similarItem = new ArrayList<>();
-
-        if (onQueryCallBack != null) {
-            onQueryCallBack.startQuery(localImageList);
-        }
 
         long totalSize = 0;
 
@@ -423,7 +424,7 @@ public class ImageHelper {
             }
         }
         if (onQueryCallBack != null) {
-            onQueryCallBack.endQuery(localImageList, similarItems);
+            onQueryCallBack.endQuery(localImageList, similarItems, totalSize);
         }
         return similarItems;
 
