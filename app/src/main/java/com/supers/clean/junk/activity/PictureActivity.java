@@ -18,6 +18,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -53,7 +55,6 @@ public class PictureActivity extends BaseActivity {
     TextView picture_scan;
     ProgressBar picture_progressbar;
     LinearLayout picture_other;
-    LineProgressView picture_line;
     RecyclerView picture_recycle;
     ViewPager picture_pager;
     FrameLayout pager_fl;
@@ -85,7 +86,6 @@ public class PictureActivity extends BaseActivity {
         picture_scan = (TextView) findViewById(R.id.picture_scan);
         picture_progressbar = (ProgressBar) findViewById(R.id.picture_progressbar);
         picture_other = (LinearLayout) findViewById(R.id.picture_other);
-        picture_line = (LineProgressView) findViewById(R.id.picture_line);
         picture_recycle = (RecyclerView) findViewById(R.id.picture_recycle);
         picture_pager = (ViewPager) findViewById(R.id.picture_pager);
         pager_fl = (FrameLayout) findViewById(R.id.pager_fl);
@@ -103,16 +103,16 @@ public class PictureActivity extends BaseActivity {
             switch (msg.what) {
                 case PICTHRE_PATH:
                     picture_path.setText((String) msg.obj);
-                    picture_line.setProgress(msg.arg1 * 100 / msg.arg2);
                     break;
                 case PICTHRE_SUCC:
-                    picture_line.setVisibility(View.GONE);
                     picture_path.setVisibility(View.GONE);
                     if (adapter.getItemCount() == 0) {
                         picture_progressbar.setVisibility(View.GONE);
                         picture_other.setVisibility(View.VISIBLE);
                     } else {
                         picture_scan.setText(R.string.picture_jianyi);
+                        Animation animation1 = AnimationUtils.loadAnimation(PictureActivity.this, R.anim.translate_notifi);
+                        picture_button.startAnimation(animation1);
                         picture_button.setVisibility(View.VISIBLE);
                     }
                     break;
