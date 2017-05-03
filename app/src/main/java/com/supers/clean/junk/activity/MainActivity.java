@@ -301,7 +301,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (bean != null) {
             tuiguang = bean.pkg;
         }
-        Log.e("data", extraData.toString());
         DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
             @Override
             public void onClick(View view) {

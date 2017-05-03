@@ -113,7 +113,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        Log.e("picture", "onBindViewHolder");
         final ArrayList<ImageInfo> info = groupList.get(position);
         addItemView(holder, info);
     }

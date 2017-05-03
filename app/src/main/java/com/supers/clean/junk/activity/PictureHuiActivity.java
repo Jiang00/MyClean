@@ -22,9 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.adapter.RecycleViewAdapter;
 import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.similarimage.ImageHelper;
 import com.supers.clean.junk.similarimage.ImageInfo;
@@ -32,7 +30,6 @@ import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
-import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -87,11 +84,6 @@ public class PictureHuiActivity extends BaseActivity {
         imageHelper = new ImageHelper();
         mHandler = new Handler();
         ArrayList<ImageInfo> imageInfos = RecyclerDbHelper.getInstance(this).getRecyclerImageList();
-        for (ImageInfo imageInfo : imageInfos) {
-            Log.e("rqy", "imageInfos=" + imageInfo.restoreFilePath + "--" + imageInfo.backFilePath + "--" + imageInfo.rowId);
-
-//            RecyclerDbHelper.getInstance(this).restoreImageFromRecycler(imageInfo);
-        }
         if (imageInfos.size() == 0) {
             hui_never.setVisibility(View.VISIBLE);
             ll_picture.setVisibility(View.INVISIBLE);
@@ -393,7 +385,6 @@ public class PictureHuiActivity extends BaseActivity {
 
         @Override
         public void onBindViewHolder(final HuiAdapter.HomeViewHolder holder, final int position) {
-            Log.e("picture", "onBindViewHolder");
             final ImageInfo info = list.get(position);
             if (info.isNormal) {
                 holder.picture_check.setImageResource(R.mipmap.picture_normal);

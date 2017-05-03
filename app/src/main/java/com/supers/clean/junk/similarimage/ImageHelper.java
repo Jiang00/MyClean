@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.media.ThumbnailUtils;
 import android.os.Environment;
 
+import android.support.constraint.BuildConfig;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -376,7 +377,11 @@ public class ImageHelper {
         }
         ArrayList<ArrayList<ImageInfo>> similarItems = new ArrayList<>();
         ArrayList<ImageInfo> localImageList = getCameraImageList();
-
+//        if (BuildConfig.DEBUG) {
+//            for (ImageInfo info : localImageList) {
+//                Log.e(TAG, "querySimilarImage--"+info.path);
+//            }
+//        }
         int size = localImageList.size();
 
         if (size == 0) {
@@ -407,6 +412,16 @@ public class ImageHelper {
                 }
                 if (similarItem.indexOf(second) < 0) {
                     similarItem.add(second);
+                }
+                if (i == size - 1) {
+                    long groupSize = getImageGroupSize(similarItem);
+                    totalSize += groupSize;
+                    totalCount += similarItem.size();
+                    similarItem.get(getBestImageIndex(similarItem)).isNormal = true;
+                    similarItems.add(0, similarItem);
+                    if (onQueryCallBack != null) {
+                        onQueryCallBack.haveQuerySimilarPic(i, localImageList, similarItems, totalSize);
+                    }
                 }
             } else {
                 if (similarItem.size() > 1) {
