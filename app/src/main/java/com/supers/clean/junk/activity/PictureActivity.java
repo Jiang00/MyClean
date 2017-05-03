@@ -206,9 +206,22 @@ public class PictureActivity extends BaseActivity {
         pagerView.clear();
         for (int i = 0; i < list.size(); i++) {
             View view = LayoutInflater.from(this).inflate(R.layout.layout_picture_pager, null);
-            ImageView icon = (ImageView) view.findViewById(R.id.pic_pager_icon);
-            Bitmap bitma = imageHelper.pathWithScaledBitmap(this, list.get(i).path);
-            icon.setImageBitmap(bitma);
+            final ImageView icon = (ImageView) view.findViewById(R.id.pic_pager_icon);
+            final int finalI = i;
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    final Bitmap bitma = imageHelper.pathWithScaledBitmap(PictureActivity.this, list.get(finalI).path);
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            icon.setImageBitmap(bitma);
+                        }
+                    });
+                }
+            }).start();
+
+
             pagerView.add(view);
         }
         picture_pager.setAdapter(pagerAdapter = new PagerAdapter() {
