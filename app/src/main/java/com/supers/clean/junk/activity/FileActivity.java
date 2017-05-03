@@ -158,17 +158,18 @@ public class FileActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.file_apk_button:
-                    if (apkInfo.count == 0) {
-                        return;
-                    }
+
                     CommonUtil.track("文件管理页面", "点击进入安装包页面", "", 1);
                     bundle.putString("name", "apk");
                     bundle.putInt("nameId", R.string.file_apk);
+                    if (apkInfo.count == 0) {
+                        bundle.putInt("count", 0);
+                    }
                     jumpToActivity(FileListActivity.class, bundle, 1);
                     break;
                 case R.id.file_zip_button:
                     if (zipInfo.count == 0) {
-                        return;
+                        bundle.putInt("count", 0);
                     }
                     CommonUtil.track("文件管理页面", "点击进入压缩包页面", "", 1);
                     bundle.putString("name", "zip");
@@ -177,14 +178,14 @@ public class FileActivity extends BaseActivity {
                     break;
                 case R.id.file_txt_button:
                     if (docInfo.count == 0) {
-                        return;
+                        bundle.putInt("count", 0);
                     }
                     CommonUtil.track("文件管理页面", "点击进入文档页面", "", 1);
                     jumpToActivity(FileDocActivity.class, 1);
                     break;
                 case R.id.file_music_button:
                     if (musicInfo.count == 0) {
-                        return;
+                        bundle.putInt("count", 0);
                     }
                     CommonUtil.track("文件管理页面", "点击进入音乐页面", "", 1);
                     bundle.putString("name", "music");
@@ -193,7 +194,7 @@ public class FileActivity extends BaseActivity {
                     break;
                 case R.id.file_video_button:
                     if (videoInfo.count == 0) {
-                        return;
+                        bundle.putInt("count", 0);
                     }
                     CommonUtil.track("文件管理页面", "点击进入视频页面", "", 1);
                     bundle.putString("name", "video");
@@ -203,7 +204,7 @@ public class FileActivity extends BaseActivity {
                 case R.id.file_other_button:
                     CommonUtil.track("文件管理页面", "点击进入其他页面", "", 1);
                     if (otherInfo.count == 0) {
-                        return;
+                        bundle.putInt("count", 0);
                     }
                     bundle.putString("name", "other");
                     bundle.putInt("nameId", R.string.file_pther);

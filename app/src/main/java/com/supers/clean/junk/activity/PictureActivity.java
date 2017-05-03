@@ -2,8 +2,11 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.MediaScanner;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
@@ -37,7 +40,9 @@ import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Created by Ivy on 2017/4/27.
@@ -470,6 +475,18 @@ public class PictureActivity extends BaseActivity {
                                 bundle.putLong("size", oldSize - allSize);
                                 bundle.putString("from", "picture");
                                 jumpToActivity(SuccessActivity.class, bundle, 1);
+
+
+                                Intent scanIntent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_DIR");
+                                scanIntent.setData(Uri.fromFile(new File(Environment.getExternalStorageDirectory().toString() + "/DCIM")));
+                                sendBroadcast(scanIntent);
+
+
+//                                MediaScanner scanner = new MediaScanner(PictureActivity.this);
+//                                Locale locale = PictureActivity.this.getResources().getConfiguration().locale;
+//                                String language = locale.getLanguage();
+//                                String country = locale.getCountry();
+//                                scanner.setLocale(language + "_" + country);
                             }
                         });
                     }

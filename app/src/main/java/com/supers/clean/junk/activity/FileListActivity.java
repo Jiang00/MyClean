@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -45,6 +46,9 @@ public class FileListActivity extends BaseActivity {
     RelativeLayout file_clean_rl;
     ProgressBar file_progressbar;
     LinearLayout ll_ad;
+    ImageView null_icon;
+    LinearLayout null_ll;
+    FrameLayout file_fl;
 
     private FileCategoryHelper fileHelper;
     private FileAdapter adapter;
@@ -67,6 +71,9 @@ public class FileListActivity extends BaseActivity {
         file_clean_rl = (RelativeLayout) findViewById(R.id.file_clean_rl);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        null_icon = (ImageView) findViewById(R.id.null_icon);
+        null_ll = (LinearLayout) findViewById(R.id.null_ll);
+        file_fl = (FrameLayout) findViewById(R.id.file_fl);
 
     }
 
@@ -78,18 +85,34 @@ public class FileListActivity extends BaseActivity {
         if (name == null) {
             name = "apk";
         }
-
         setContentView(R.layout.layout_file_second);
         title_name.setText(nameId);
         mHandler = new Handler();
+        loadAd();
+        setListenet();
+        if (0 == getIntent().getIntExtra("count", 1)) {
+            file_fl.setVisibility(View.GONE);
+            null_ll.setVisibility(View.VISIBLE);
+            if (TextUtils.equals("apk", name)) {
+                null_icon.setImageResource(R.mipmap.null_apk);
+            } else if (TextUtils.equals("zip", name)) {
+                null_icon.setImageResource(R.mipmap.null_zip);
+            } else if (TextUtils.equals("music", name)) {
+                null_icon.setImageResource(R.mipmap.null_music);
+            } else if (TextUtils.equals("video", name)) {
+                null_icon.setImageResource(R.mipmap.null_video);
+            } else if (TextUtils.equals("other", name)) {
+                null_icon.setImageResource(R.mipmap.null_other);
+            }
+            return;
+        }
         fileHelper = new FileCategoryHelper(this);
         fileList = new ArrayList<>();
         initData();
         adapter = new FileAdapter(this, name);
         file_list.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        setListenet();
-        loadAd();
+
     }
 
     private void loadAd() {

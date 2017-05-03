@@ -35,7 +35,6 @@ public class NotificationMonitor extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        Log.e("notifi", "nitifilistenerPosted");
         analysisSbn(sbn);
     }
 

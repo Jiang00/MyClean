@@ -45641,7 +45641,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5960:14881:void <clinit>() -> <clinit>
+    5970:14891:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -45796,7 +45796,7 @@ com.supers.clean.junk.activity.FileActivity -> com.supers.clean.junk.activity.Fi
     92:127:void initData() -> c
     131:140:void initAd() -> d
     143:150:void setListener() -> e
-    218:221:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    219:222:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     24:24:com.supers.clean.junk.filemanager.FileCategoryHelper access$000(com.supers.clean.junk.activity.FileActivity) -> a
     24:24:com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo access$102(com.supers.clean.junk.activity.FileActivity,com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo) -> a
     24:24:com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo access$202(com.supers.clean.junk.activity.FileActivity,com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo) -> b
@@ -45822,7 +45822,7 @@ com.supers.clean.junk.activity.FileActivity$1$1 -> com.supers.clean.junk.activit
 com.supers.clean.junk.activity.FileActivity$2 -> com.supers.clean.junk.activity.FileActivity$2:
     com.supers.clean.junk.activity.FileActivity this$0 -> a
     152:152:void <init>(com.supers.clean.junk.activity.FileActivity) -> <init>
-    155:213:void onClick(android.view.View) -> onClick
+    155:214:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FileDocActivity -> com.supers.clean.junk.activity.FileDocActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -45831,83 +45831,85 @@ com.supers.clean.junk.activity.FileDocActivity -> com.supers.clean.junk.activity
     android.widget.ProgressBar file_progressbar -> e
     android.support.v4.view.ViewPager doc_view_pager -> f
     android.support.design.widget.TabLayout view_pager_tab -> l
-    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> q
-    java.util.ArrayList docList -> r
-    java.util.ArrayList txtList -> s
-    java.util.ArrayList pdfList -> t
-    android.os.Handler mHandler -> u
-    java.util.ArrayList titleList -> v
-    java.util.ArrayList viewList -> w
-    android.view.View view_doc -> x
-    android.view.View view_txt -> y
-    android.view.View view_pdf -> z
-    com.supers.clean.junk.adapter.FileAdapter adapter_doc -> m
-    com.supers.clean.junk.adapter.FileAdapter adapter_txt -> n
-    com.supers.clean.junk.adapter.FileAdapter adapter_pdf -> o
-    android.support.v7.app.AlertDialog dialog -> A
-    com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory fc_clean -> B
-    java.lang.String TAG_FILE_2 -> C
-    android.view.View nativeView -> D
-    android.widget.LinearLayout ll_ad -> E
-    android.view.View$OnClickListener clickListener -> p
-    42:237:void <init>() -> <init>
-    71:80:void findId() -> a
-    84:99:void onCreate(android.os.Bundle) -> onCreate
-    102:108:void loadAd() -> c
-    111:117:void addAd() -> d
-    120:140:void initCur() -> e
-    143:164:void queryData(com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
-    167:214:void initData() -> f
-    217:223:void initDoc() -> g
-    226:226:void initTxt() -> h
-    229:229:void initPdf() -> i
-    233:235:void setListenet() -> j
-    275:338:void showDia(java.util.ArrayList) -> a
-    342:344:void onBackPressed() -> onBackPressed
-    42:42:java.util.ArrayList access$000(com.supers.clean.junk.activity.FileDocActivity) -> a
-    42:42:void access$100(com.supers.clean.junk.activity.FileDocActivity,com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
-    42:42:java.util.ArrayList access$200(com.supers.clean.junk.activity.FileDocActivity) -> b
-    42:42:java.util.ArrayList access$300(com.supers.clean.junk.activity.FileDocActivity) -> c
-    42:42:android.os.Handler access$400(com.supers.clean.junk.activity.FileDocActivity) -> d
-    42:42:java.util.ArrayList access$500(com.supers.clean.junk.activity.FileDocActivity) -> e
-    42:42:java.util.ArrayList access$600(com.supers.clean.junk.activity.FileDocActivity) -> f
-    42:42:com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory access$702(com.supers.clean.junk.activity.FileDocActivity,com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory) -> a
-    42:42:void access$800(com.supers.clean.junk.activity.FileDocActivity,java.util.ArrayList) -> a
-    42:42:android.support.v7.app.AlertDialog access$900(com.supers.clean.junk.activity.FileDocActivity) -> g
-    42:42:com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory access$700(com.supers.clean.junk.activity.FileDocActivity) -> h
+    android.widget.LinearLayout null_ll -> m
+    android.widget.FrameLayout file_fl -> n
+    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> s
+    java.util.ArrayList docList -> t
+    java.util.ArrayList txtList -> u
+    java.util.ArrayList pdfList -> v
+    android.os.Handler mHandler -> w
+    java.util.ArrayList titleList -> x
+    java.util.ArrayList viewList -> y
+    android.view.View view_doc -> z
+    android.view.View view_txt -> A
+    android.view.View view_pdf -> B
+    com.supers.clean.junk.adapter.FileAdapter adapter_doc -> o
+    com.supers.clean.junk.adapter.FileAdapter adapter_txt -> p
+    com.supers.clean.junk.adapter.FileAdapter adapter_pdf -> q
+    android.support.v7.app.AlertDialog dialog -> C
+    com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory fc_clean -> D
+    java.lang.String TAG_FILE_2 -> E
+    android.view.View nativeView -> F
+    android.widget.LinearLayout ll_ad -> G
+    android.view.View$OnClickListener clickListener -> r
+    43:246:void <init>() -> <init>
+    73:83:void findId() -> a
+    87:108:void onCreate(android.os.Bundle) -> onCreate
+    111:117:void loadAd() -> c
+    120:126:void addAd() -> d
+    129:149:void initCur() -> e
+    152:173:void queryData(com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
+    176:223:void initData() -> f
+    226:232:void initDoc() -> g
+    235:235:void initTxt() -> h
+    238:238:void initPdf() -> i
+    242:244:void setListenet() -> j
+    284:347:void showDia(java.util.ArrayList) -> a
+    351:353:void onBackPressed() -> onBackPressed
+    43:43:java.util.ArrayList access$000(com.supers.clean.junk.activity.FileDocActivity) -> a
+    43:43:void access$100(com.supers.clean.junk.activity.FileDocActivity,com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
+    43:43:java.util.ArrayList access$200(com.supers.clean.junk.activity.FileDocActivity) -> b
+    43:43:java.util.ArrayList access$300(com.supers.clean.junk.activity.FileDocActivity) -> c
+    43:43:android.os.Handler access$400(com.supers.clean.junk.activity.FileDocActivity) -> d
+    43:43:java.util.ArrayList access$500(com.supers.clean.junk.activity.FileDocActivity) -> e
+    43:43:java.util.ArrayList access$600(com.supers.clean.junk.activity.FileDocActivity) -> f
+    43:43:com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory access$702(com.supers.clean.junk.activity.FileDocActivity,com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory) -> a
+    43:43:void access$800(com.supers.clean.junk.activity.FileDocActivity,java.util.ArrayList) -> a
+    43:43:android.support.v7.app.AlertDialog access$900(com.supers.clean.junk.activity.FileDocActivity) -> g
+    43:43:com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory access$700(com.supers.clean.junk.activity.FileDocActivity) -> h
 com.supers.clean.junk.activity.FileDocActivity$1 -> com.supers.clean.junk.activity.FileDocActivity$1:
     com.supers.clean.junk.activity.FileDocActivity this$0 -> a
-    120:120:void <init>(com.supers.clean.junk.activity.FileDocActivity) -> <init>
-    123:137:void run() -> run
+    129:129:void <init>(com.supers.clean.junk.activity.FileDocActivity) -> <init>
+    132:146:void run() -> run
 com.supers.clean.junk.activity.FileDocActivity$1$1 -> com.supers.clean.junk.activity.FileDocActivity$1$1:
     com.supers.clean.junk.activity.FileDocActivity$1 this$1 -> a
-    126:126:void <init>(com.supers.clean.junk.activity.FileDocActivity$1) -> <init>
-    128:135:void run() -> run
+    135:135:void <init>(com.supers.clean.junk.activity.FileDocActivity$1) -> <init>
+    137:144:void run() -> run
 com.supers.clean.junk.activity.FileDocActivity$2 -> com.supers.clean.junk.activity.FileDocActivity$2:
     com.supers.clean.junk.activity.FileDocActivity this$0 -> a
-    186:186:void <init>(com.supers.clean.junk.activity.FileDocActivity) -> <init>
-    189:189:int getCount() -> getCount
-    194:195:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    200:200:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    205:206:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    210:210:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    195:195:void <init>(com.supers.clean.junk.activity.FileDocActivity) -> <init>
+    198:198:int getCount() -> getCount
+    203:204:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    209:209:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    214:215:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    219:219:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.supers.clean.junk.activity.FileDocActivity$3 -> com.supers.clean.junk.activity.FileDocActivity$3:
     com.supers.clean.junk.activity.FileDocActivity this$0 -> a
-    237:237:void <init>(com.supers.clean.junk.activity.FileDocActivity) -> <init>
-    240:271:void onClick(android.view.View) -> onClick
+    246:246:void <init>(com.supers.clean.junk.activity.FileDocActivity) -> <init>
+    249:280:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FileDocActivity$4 -> com.supers.clean.junk.activity.FileDocActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.supers.clean.junk.activity.FileDocActivity this$0 -> b
-    295:295:void <init>(com.supers.clean.junk.activity.FileDocActivity,java.util.ArrayList) -> <init>
-    298:330:void onClick(android.view.View) -> onClick
+    304:304:void <init>(com.supers.clean.junk.activity.FileDocActivity,java.util.ArrayList) -> <init>
+    307:339:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FileDocActivity$4$1 -> com.supers.clean.junk.activity.FileDocActivity$4$1:
     com.supers.clean.junk.activity.FileDocActivity$4 this$1 -> a
-    304:304:void <init>(com.supers.clean.junk.activity.FileDocActivity$4) -> <init>
-    307:314:void run() -> run
+    313:313:void <init>(com.supers.clean.junk.activity.FileDocActivity$4) -> <init>
+    316:323:void run() -> run
 com.supers.clean.junk.activity.FileDocActivity$5 -> com.supers.clean.junk.activity.FileDocActivity$5:
     com.supers.clean.junk.activity.FileDocActivity this$0 -> a
-    332:332:void <init>(com.supers.clean.junk.activity.FileDocActivity) -> <init>
-    335:336:void onClick(android.view.View) -> onClick
+    341:341:void <init>(com.supers.clean.junk.activity.FileDocActivity) -> <init>
+    344:345:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FileListActivity -> com.supers.clean.junk.activity.FileListActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -45916,68 +45918,71 @@ com.supers.clean.junk.activity.FileListActivity -> com.supers.clean.junk.activit
     android.widget.RelativeLayout file_clean_rl -> e
     android.widget.ProgressBar file_progressbar -> f
     android.widget.LinearLayout ll_ad -> l
-    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> n
-    com.supers.clean.junk.adapter.FileAdapter adapter -> o
-    java.util.ArrayList fileList -> p
-    android.os.Handler mHandler -> q
-    java.lang.String name -> r
-    int nameId -> s
-    android.support.v7.app.AlertDialog dialog -> t
-    com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory fc -> u
-    java.lang.String Tag_file_1 -> v
-    android.view.View nativeView -> w
-    android.view.View$OnClickListener clickListener -> m
-    38:172:void <init>() -> <init>
-    62:71:void findId() -> a
-    75:93:void onCreate(android.os.Bundle) -> onCreate
-    96:107:void loadAd() -> c
-    110:116:void addAd() -> d
-    119:165:void initData() -> e
-    168:170:void setListenet() -> f
-    193:249:void showDia(java.util.ArrayList) -> a
-    253:255:void onBackPressed() -> onBackPressed
-    38:38:java.lang.String access$000(com.supers.clean.junk.activity.FileListActivity) -> a
-    38:38:com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory access$102(com.supers.clean.junk.activity.FileListActivity,com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory) -> a
-    38:38:com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory access$100(com.supers.clean.junk.activity.FileListActivity) -> b
-    38:38:com.supers.clean.junk.filemanager.FileCategoryHelper access$200(com.supers.clean.junk.activity.FileListActivity) -> c
-    38:38:java.util.ArrayList access$300(com.supers.clean.junk.activity.FileListActivity) -> d
-    38:38:com.supers.clean.junk.adapter.FileAdapter access$400(com.supers.clean.junk.activity.FileListActivity) -> e
-    38:38:android.os.Handler access$500(com.supers.clean.junk.activity.FileListActivity) -> f
-    38:38:void access$600(com.supers.clean.junk.activity.FileListActivity,java.util.ArrayList) -> a
-    38:38:android.support.v7.app.AlertDialog access$700(com.supers.clean.junk.activity.FileListActivity) -> g
+    android.widget.ImageView null_icon -> m
+    android.widget.LinearLayout null_ll -> n
+    android.widget.FrameLayout file_fl -> o
+    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> q
+    com.supers.clean.junk.adapter.FileAdapter adapter -> r
+    java.util.ArrayList fileList -> s
+    android.os.Handler mHandler -> t
+    java.lang.String name -> u
+    int nameId -> v
+    android.support.v7.app.AlertDialog dialog -> w
+    com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory fc -> x
+    java.lang.String Tag_file_1 -> y
+    android.view.View nativeView -> z
+    android.view.View$OnClickListener clickListener -> p
+    39:195:void <init>() -> <init>
+    66:78:void findId() -> a
+    82:116:void onCreate(android.os.Bundle) -> onCreate
+    119:130:void loadAd() -> c
+    133:139:void addAd() -> d
+    142:188:void initData() -> e
+    191:193:void setListenet() -> f
+    216:272:void showDia(java.util.ArrayList) -> a
+    276:278:void onBackPressed() -> onBackPressed
+    39:39:java.lang.String access$000(com.supers.clean.junk.activity.FileListActivity) -> a
+    39:39:com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory access$102(com.supers.clean.junk.activity.FileListActivity,com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory) -> a
+    39:39:com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory access$100(com.supers.clean.junk.activity.FileListActivity) -> b
+    39:39:com.supers.clean.junk.filemanager.FileCategoryHelper access$200(com.supers.clean.junk.activity.FileListActivity) -> c
+    39:39:java.util.ArrayList access$300(com.supers.clean.junk.activity.FileListActivity) -> d
+    39:39:com.supers.clean.junk.adapter.FileAdapter access$400(com.supers.clean.junk.activity.FileListActivity) -> e
+    39:39:android.os.Handler access$500(com.supers.clean.junk.activity.FileListActivity) -> f
+    39:39:void access$600(com.supers.clean.junk.activity.FileListActivity,java.util.ArrayList) -> a
+    39:39:android.support.v7.app.AlertDialog access$700(com.supers.clean.junk.activity.FileListActivity) -> g
 com.supers.clean.junk.activity.FileListActivity$1 -> com.supers.clean.junk.activity.FileListActivity$1:
     com.supers.clean.junk.activity.FileListActivity this$0 -> a
-    97:97:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
-    100:101:void run() -> run
+    120:120:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
+    123:124:void run() -> run
 com.supers.clean.junk.activity.FileListActivity$2 -> com.supers.clean.junk.activity.FileListActivity$2:
     com.supers.clean.junk.activity.FileListActivity this$0 -> a
-    119:119:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
-    122:163:void run() -> run
+    142:142:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
+    145:186:void run() -> run
 com.supers.clean.junk.activity.FileListActivity$2$1 -> com.supers.clean.junk.activity.FileListActivity$2$1:
     com.supers.clean.junk.activity.FileListActivity$2 this$1 -> a
-    146:146:void <init>(com.supers.clean.junk.activity.FileListActivity$2) -> <init>
-    149:152:void run() -> run
+    169:169:void <init>(com.supers.clean.junk.activity.FileListActivity$2) -> <init>
+    172:175:void run() -> run
 com.supers.clean.junk.activity.FileListActivity$2$2 -> com.supers.clean.junk.activity.FileListActivity$2$2:
     com.supers.clean.junk.activity.FileListActivity$2 this$1 -> a
-    155:155:void <init>(com.supers.clean.junk.activity.FileListActivity$2) -> <init>
-    158:160:void run() -> run
+    178:178:void <init>(com.supers.clean.junk.activity.FileListActivity$2) -> <init>
+    181:183:void run() -> run
 com.supers.clean.junk.activity.FileListActivity$3 -> com.supers.clean.junk.activity.FileListActivity$3:
     com.supers.clean.junk.activity.FileListActivity this$0 -> a
-    172:172:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
-    175:189:void onClick(android.view.View) -> onClick
+    195:195:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
+    198:212:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FileListActivity$4 -> com.supers.clean.junk.activity.FileListActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.supers.clean.junk.activity.FileListActivity this$0 -> b
-    213:213:void <init>(com.supers.clean.junk.activity.FileListActivity,java.util.ArrayList) -> <init>
-    216:241:void onClick(android.view.View) -> onClick
+    236:236:void <init>(com.supers.clean.junk.activity.FileListActivity,java.util.ArrayList) -> <init>
+    239:264:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FileListActivity$4$1 -> com.supers.clean.junk.activity.FileListActivity$4$1:
     com.supers.clean.junk.activity.FileListActivity$4 this$1 -> a
-    222:222:void <init>(com.supers.clean.junk.activity.FileListActivity$4) -> <init>
-    225:232:void run() -> run
+    245:245:void <init>(com.supers.clean.junk.activity.FileListActivity$4) -> <init>
+    248:255:void run() -> run
 com.supers.clean.junk.activity.FileListActivity$5 -> com.supers.clean.junk.activity.FileListActivity$5:
     com.supers.clean.junk.activity.FileListActivity this$0 -> a
-    243:243:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
-    246:247:void onClick(android.view.View) -> onClick
+    266:266:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
+    269:270:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FloatActivity -> com.supers.clean.junk.activity.FloatActivity:
     com.supers.clean.junk.customeview.HorizontalListView horizontal_listview -> a
     android.widget.LinearLayout ll_ad -> b

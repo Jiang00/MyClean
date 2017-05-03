@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -49,7 +50,8 @@ public class FileDocActivity extends BaseActivity {
     ProgressBar file_progressbar;
     ViewPager doc_view_pager;
     TabLayout view_pager_tab;
-
+    LinearLayout null_ll;
+    FrameLayout file_fl;
 
     private FileCategoryHelper fileHelper;
     private ArrayList<JunkInfo> docList, txtList, pdfList;
@@ -76,7 +78,8 @@ public class FileDocActivity extends BaseActivity {
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         doc_view_pager = (ViewPager) findViewById(R.id.doc_view_pager);
         view_pager_tab = (TabLayout) findViewById(R.id.view_pager_tab);
-
+        null_ll = (LinearLayout) findViewById(R.id.null_ll);
+        file_fl = (FrameLayout) findViewById(R.id.file_fl);
     }
 
     @Override
@@ -84,6 +87,13 @@ public class FileDocActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file_doc);
         title_name.setText(R.string.file_txt);
+        loadAd();
+        setListenet();
+        if (0 == getIntent().getIntExtra("count", 1)) {
+            null_ll.setVisibility(View.VISIBLE);
+            file_fl.setVisibility(View.GONE);
+            return;
+        }
         mHandler = new Handler();
         fileHelper = new FileCategoryHelper(this);
         adapter_doc = new FileAdapter(this);
@@ -94,13 +104,12 @@ public class FileDocActivity extends BaseActivity {
         pdfList = new ArrayList<>();
         viewList = new ArrayList<>();
         initData();
-        setListenet();
-        loadAd();
+
     }
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FILE_2, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
             tuiGuang();
         } else {
             addAd();

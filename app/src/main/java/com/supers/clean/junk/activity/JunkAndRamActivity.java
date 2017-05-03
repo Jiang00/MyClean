@@ -425,11 +425,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     @Override
     public void setUnit(long size, TextView textView) {
-        if (size < 1024) {
+        if (size < 1000) {
             textView.setText("B");
-        } else if (size < 1048576) {
+        } else if (size < 1000 * 1000) {
             textView.setText("KB");
-        } else if (size < 1073741824) {
+        } else if (size < 1000 * 1000 * 1000) {
             textView.setText("MB");
         } else {
             textView.setText("GB");

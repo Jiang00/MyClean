@@ -202,6 +202,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
             RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
             return false;
         } else {
+            RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
             FileUtils.deleteFile(imageInfo.path);
         }
         return true;
