@@ -288,11 +288,20 @@ public class PictureActivity extends BaseActivity {
 
             @Override
             public void endQuery(ArrayList<ImageInfo> localImageList, ArrayList<ArrayList<ImageInfo>> localImages, long totalSize, long totalCount) {
-                allSize = totalSize;
+                long count = 0;
+                for (int i = 0; i < localImages.size(); i++) {
+                    ArrayList<ImageInfo> arrayList = localImages.get(i);
+                    for (ImageInfo imageInfo : arrayList) {
+                        if (!imageInfo.isNormal) {
+                            allSize += imageInfo.fileSize;
+                            count++;
+                        }
+                    }
+                }
                 mIsQuerying = false;
                 Message msg = mHandler.obtainMessage();//同 new Message();
                 msg.what = PICTHRE_SUCC;
-                msg.arg1 = (int) totalCount;
+                msg.arg1 = (int) count;
                 mHandler.sendMessage(msg);
             }
 
@@ -312,15 +321,23 @@ public class PictureActivity extends BaseActivity {
             }
 
             @Override
-            public void haveQuerySimilarPic(int i, ArrayList<ImageInfo> similarImage, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, final long totalSize) {
+            public void haveQuerySimilarPic(int i, ArrayList<ImageInfo> similarImage, final ArrayList<ArrayList<ImageInfo>> totalSimilarImage, final long totalSize) {
                 final ArrayList<ImageInfo> list_item = totalSimilarImage.get(totalSimilarImage.size() - 1);
-                list_item.get(imageHelper.getBestImageIndex(list_item)).isNormal = true;
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
+                        long size = 0;
+                        for (int i = 0; i < totalSimilarImage.size(); i++) {
+                            ArrayList<ImageInfo> arrayList = totalSimilarImage.get(i);
+                            for (ImageInfo imageInfo : arrayList) {
+                                if (!imageInfo.isNormal) {
+                                    size += imageInfo.fileSize;
+                                }
+                            }
+                        }
                         picture_progressbar.setVisibility(View.GONE);
-                        picture_size.setText(CommonUtil.convertStorage(totalSize));
-                        picture_danwei.setText(CommonUtil.convertStorageDanwei(totalSize));
+                        picture_size.setText(CommonUtil.convertStorage(size));
+                        picture_danwei.setText(CommonUtil.convertStorageDanwei(size));
                         adapter.addData(list_item, 0);
                         adapter.notifyDataSetChanged();
 //                        addItemView(list_item, dp4, dp6, dp8);
@@ -435,7 +452,7 @@ public class PictureActivity extends BaseActivity {
 
                                     }
                                 }
-                                onPicItemChecked(list);
+                                updateUi(list);
                                 adapter.notifyDataSetChanged();
                                 if (adapter.getItemCount() == 0) {
                                     picture_progressbar.setVisibility(View.GONE);
@@ -498,7 +515,7 @@ public class PictureActivity extends BaseActivity {
     }
 
 
-    public void onPicItemChecked(ArrayList<ArrayList<ImageInfo>> groupList) {
+    public void updateUi(ArrayList<ArrayList<ImageInfo>> groupList) {
         long size = 0;
         long count = 0;
         for (int i = 0; i < groupList.size(); i++) {

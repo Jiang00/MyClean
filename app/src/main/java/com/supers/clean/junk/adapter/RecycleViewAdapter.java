@@ -202,7 +202,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                         return;
                     }
                     info.isNormal = !info.isNormal;
-                    pictureActivity.onPicItemChecked(groupList);
+                    pictureActivity.updateUi(groupList);
                     if (info.isNormal) {
                         holder.picture_check.setImageResource(R.mipmap.picture_normal);
                     } else {

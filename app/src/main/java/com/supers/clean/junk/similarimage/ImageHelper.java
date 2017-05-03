@@ -413,6 +413,7 @@ public class ImageHelper {
                     long groupSize = getImageGroupSize(similarItem);
                     totalSize += groupSize;
                     totalCount += similarItem.size();
+                    similarItem.get(getBestImageIndex(similarItem)).isNormal = true;
                     similarItems.add(similarItem);
                     if (onQueryCallBack != null) {
                         onQueryCallBack.haveQuerySimilarPic(i, localImageList, similarItems, totalSize);
