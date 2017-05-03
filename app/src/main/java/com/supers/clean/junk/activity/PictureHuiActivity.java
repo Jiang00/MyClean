@@ -485,7 +485,6 @@ public class PictureHuiActivity extends BaseActivity {
                 if (bitmap == null) {
                     return;
                 } else {
-                    Log.e(key, "保存在缓存中,");
                     lruCache.put(key, bitmap);
                 }
             }

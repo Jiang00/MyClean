@@ -15,7 +15,7 @@ import com.supers.clean.junk.util.UtilGp;
 
 
 /**
- * Created by Ivy on 2017/3/29.
+ * Created by  on 2017/3/29.
  */
 
 public class ApplockActivity extends BaseActivity {

@@ -195,7 +195,7 @@ public class ShortCutActivity extends BaseActivity {
         int count = 0;
         final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
         for (PackageInfo packageInfo : installedPackages) {
-            if (packageInfo.packageName.equals(context.getPackageName())) {
+            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.eosmobi")) {
                 continue;
             }
             am.killBackgroundProcesses(packageInfo.packageName);

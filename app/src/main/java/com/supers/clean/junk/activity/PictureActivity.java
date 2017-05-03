@@ -112,6 +112,7 @@ public class PictureActivity extends BaseActivity {
                     if (adapter.getItemCount() == 0) {
                         picture_progressbar.setVisibility(View.GONE);
                         picture_other.setVisibility(View.VISIBLE);
+                        picture_scan.setText("");
                     } else {
                         picture_scan.setText(R.string.picture_jianyi);
                         Animation animation1 = AnimationUtils.loadAnimation(PictureActivity.this, R.anim.translate_notifi);

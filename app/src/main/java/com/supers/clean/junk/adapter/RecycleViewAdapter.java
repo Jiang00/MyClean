@@ -265,7 +265,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 if (bitmap == null) {
                     return;
                 } else {
-                    Log.e(key, "保存在缓存中,");
                     lruCache.put(key, bitmap);
                 }
             }
