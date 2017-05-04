@@ -475,18 +475,6 @@ public class PictureActivity extends BaseActivity {
                                 bundle.putLong("size", oldSize - allSize);
                                 bundle.putString("from", "picture");
                                 jumpToActivity(SuccessActivity.class, bundle, 1);
-
-
-                                Intent scanIntent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_DIR");
-                                scanIntent.setData(Uri.fromFile(new File(Environment.getExternalStorageDirectory().toString() + "/DCIM")));
-                                sendBroadcast(scanIntent);
-
-
-//                                MediaScanner scanner = new MediaScanner(PictureActivity.this);
-//                                Locale locale = PictureActivity.this.getResources().getConfiguration().locale;
-//                                String language = locale.getLanguage();
-//                                String country = locale.getCountry();
-//                                scanner.setLocale(language + "_" + country);
                             }
                         });
                     }

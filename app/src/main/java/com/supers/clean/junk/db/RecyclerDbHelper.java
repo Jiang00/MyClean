@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 
 import com.supers.clean.junk.filemanager.FileUtils;
@@ -197,12 +198,23 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
             return false;
         }
         String result = FileUtils.copyFileToRecycler(imageInfo.path, RecyclerDbHelper.getInstance(mContext).getRecyclerDirectory(recyclerTime), "img_" + rowId);
+        if (imageInfo.path.endsWith(".jpg") || imageInfo.path.endsWith(".png") || imageInfo.path.endsWith(".bmp")) {
+            int res = mContext.getContentResolver().delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                    MediaStore.Audio.Media.DATA + "= \"" + imageInfo.path + "\"",
+                    null);
+            if (res > 0) {
+                file.delete();
+            } else {
+                Log.e(TAG, "删除文件失败");
+            }
+        } else {
+            file.delete();
+        }
         if (result == null) {
             Log.e("rqy", "copyFileToRecycler:error");
             RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
             return false;
         } else {
-            RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
             FileUtils.deleteFile(imageInfo.path);
         }
         return true;
@@ -223,10 +235,9 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
 
         Log.e("rqy", "result=" + result);
         if (result != null) {
+            new MediaScanner(mContext).scanFile(imageInfo.restoreFilePath, imageInfo.restoreFilePath.substring(imageInfo.restoreFilePath.lastIndexOf(".")));
             int success = deleteItem(imageInfo);
-
             FileUtils.deleteFile(imageInfo.backFilePath);
-
             Log.e("rqy", "success=" + success);
             return true;
         }
