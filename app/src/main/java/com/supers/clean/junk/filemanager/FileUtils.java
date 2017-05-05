@@ -156,7 +156,12 @@ public class FileUtils {
                     return file.delete();
                 }
             } else {
-                return file.delete();
+                boolean deleteSuc = false;
+                if (file.canWrite()) {
+                    deleteSuc = file.delete();
+                }
+                return deleteSuc;
+
             }
         } catch (Exception e) {
             e.printStackTrace();
