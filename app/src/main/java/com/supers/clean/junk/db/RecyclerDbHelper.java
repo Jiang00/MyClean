@@ -13,6 +13,7 @@ import com.supers.clean.junk.filemanager.FileUtils;
 import com.supers.clean.junk.similarimage.ImageInfo;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -198,23 +199,14 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
             return false;
         }
         String result = FileUtils.copyFileToRecycler(imageInfo.path, RecyclerDbHelper.getInstance(mContext).getRecyclerDirectory(recyclerTime), "img_" + rowId);
-        if (imageInfo.path.endsWith(".jpg") || imageInfo.path.endsWith(".png") || imageInfo.path.endsWith(".bmp")) {
-            int res = mContext.getContentResolver().delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                    MediaStore.Audio.Media.DATA + "= \"" + imageInfo.path + "\"",
-                    null);
-            if (res > 0) {
-                file.delete();
-            } else {
-                Log.e(TAG, "删除文件失败");
-            }
-        } else {
-            file.delete();
-        }
         if (result == null) {
             Log.e("rqy", "copyFileToRecycler:error");
             RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
             return false;
         } else {
+            mContext.getContentResolver().delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                    MediaStore.Audio.Media.DATA + "= \"" + imageInfo.path + "\"",
+                    null);
             FileUtils.deleteFile(imageInfo.path);
         }
         return true;
@@ -233,9 +225,14 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         String name = imageInfo.restoreFilePath.substring(index + 1, imageInfo.restoreFilePath.length());
         String result = FileUtils.copyFileToRecycler(imageInfo.backFilePath, directory, name);
 
-        Log.e("rqy", "result=" + result);
+
         if (result != null) {
-            new MediaScanner(mContext).scanFile(imageInfo.restoreFilePath, imageInfo.restoreFilePath.substring(imageInfo.restoreFilePath.lastIndexOf(".")));
+            try {
+                MediaStore.Images.Media.insertImage(mContext.getContentResolver(), imageInfo.restoreFilePath, name, "");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            new MediaScanner(mContext).scanFile(imageInfo.restoreFilePath, "image/jpeg");
             int success = deleteItem(imageInfo);
             FileUtils.deleteFile(imageInfo.backFilePath);
             Log.e("rqy", "success=" + success);

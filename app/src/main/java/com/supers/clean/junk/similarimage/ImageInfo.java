@@ -31,6 +31,8 @@ public class ImageInfo {
 
     public long fileSize;
 
+    public long originId;
+
     public long rowId;
     public String restoreFilePath;  //从回收站恢复文件的路径
     public String backFilePath;     //备份的文件路径
@@ -44,10 +46,11 @@ public class ImageInfo {
         this.backFilePath = backFilePath;
     }
 
-    public ImageInfo(String path, String name, long fileSize) {
+    public ImageInfo(String path, long originId, String name, long fileSize) {
         this.path = path;
         this.name = name;
         this.fileSize = fileSize;
+        this.originId = originId;
         try {
             ExifInterface exif = new ExifInterface(path);
             width = exif.getAttribute(ExifInterface.TAG_IMAGE_WIDTH);

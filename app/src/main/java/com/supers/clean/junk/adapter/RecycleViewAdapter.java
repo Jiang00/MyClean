@@ -2,10 +2,10 @@ package com.supers.clean.junk.adapter;
 
 import android.graphics.Bitmap;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v4.util.LruCache;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,6 @@ import com.supers.clean.junk.customeview.MyGridLayoutManager;
 import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.similarimage.ImageHelper;
 import com.supers.clean.junk.similarimage.ImageInfo;
-import com.supers.clean.junk.util.CommonUtil;
 
 import java.util.ArrayList;
 
@@ -201,8 +200,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                             }
                         });
                     } else {
-                       final Bitmap bitmap  = imageHelper.getImageThumbnail(pictureActivity,info.path);
-                       // final Bitmap bitmap = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
+                        final Bitmap bitmap = imageHelper.getImageThumbnail(pictureActivity, info.originId, MediaStore.Images.Thumbnails.MINI_KIND);
+                        //final Bitmap bitmap = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
                         if (bitmap == null) {
                         } else {
                             handler.post(new Runnable() {

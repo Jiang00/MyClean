@@ -39,7 +39,7 @@ public class ImageHelper {
     static final int MAX_HEIGHT = 1280;//最大高
 
 
-    private static final int HAMM_INSTANCE = 10;
+    private static final int HAMM_INSTANCE = 12;
     private static final long NEED_COMPARE_IMAGE_INTERVAL = 15 * 1000;
 
 
@@ -338,16 +338,14 @@ public class ImageHelper {
         return BitmapFactory.decodeFile(path, options);
     }
 
-
-    public Bitmap getImageThumbnail(Context context, String imagePath) {
-        long startTime = System.currentTimeMillis();
+    public long getThumbnailId(Context context, String imagePath) {
         ContentResolver contentResolver = context.getContentResolver();
         String[] projection = {MediaStore.Images.Media._ID};
         String whereClause = MediaStore.Images.Media.DATA + " = '" + imagePath + "'";
         Cursor cursor = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection, whereClause, null, null);
         int _id = 0;
         if (cursor == null || cursor.getCount() == 0) {
-            return null;
+            return -1;
         } else if (cursor.moveToFirst()) {
             int _idColumn = cursor.getColumnIndex(MediaStore.Images.Media._ID);
             do {
@@ -355,12 +353,25 @@ public class ImageHelper {
             } while (cursor.moveToNext());
         }
         cursor.close();
+        return _id;
+    }
+
+
+    public Bitmap getImageThumbnail(Context context, String imagePath, int kind) {
+        long id = getThumbnailId(context, imagePath);
+        if (id == -1) {
+            return null;
+        }
+        return getImageThumbnail(context, id, kind);
+    }
+
+    public Bitmap getImageThumbnail(Context context, long thumbnailId, int kind) {
+
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inDither = false;
         options.inPreferredConfig = Bitmap.Config.RGB_565;
-        Bitmap bitmap = MediaStore.Images.Thumbnails.getThumbnail(contentResolver, _id, MediaStore.Images.Thumbnails.MINI_KIND, options);
-        long endTime = System.currentTimeMillis();
-        Log.e("rqy", "getImageThumbnail--time:" + (endTime - startTime));
+        Bitmap bitmap = MediaStore.Images.Thumbnails.getThumbnail(context.getContentResolver(), thumbnailId, kind, options);
+
         return bitmap;
     }
 
@@ -476,8 +487,10 @@ public class ImageHelper {
                 String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
                 Log.e(TAG, "路径:" + path);
                 long size = cursor.getLong(cursor.getColumnIndex(MediaStore.MediaColumns.SIZE));
+                int _idColumn = cursor.getColumnIndex(MediaStore.Images.Media._ID);
+                long id = cursor.getInt(_idColumn);
                 String name = new File(path).getName();
-                ImageInfo imageInfo = new ImageInfo(path, name, size);
+                ImageInfo imageInfo = new ImageInfo(path, id, name, size);
                 if (imageInfo.tag_datetime != null) {
                     localImages.add(imageInfo);
                 }
@@ -514,7 +527,7 @@ public class ImageHelper {
             //文件名
             String fileName = file.getName();
             //添加
-            imageInfos.add(new ImageInfo(filePath, fileName, file.length()));
+            // imageInfos.add(new ImageInfo(filePath, fileName, file.length()));
         }
     }
 
@@ -543,7 +556,6 @@ public class ImageHelper {
         }
 
         return false;
-
     }
 
 
@@ -554,7 +566,7 @@ public class ImageHelper {
         /*DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
         Bitmap bitmap = loadBitmapFromFile(imageInfo.path, dm.widthPixels,
                 dm.heightPixels);*/
-        Bitmap bitmap = getImageThumbnail(context, imageInfo.path);
+        Bitmap bitmap = getImageThumbnail(context, imageInfo.originId, MediaStore.Images.Thumbnails.MINI_KIND);
         if (bitmap == null) {
             return;
         }
