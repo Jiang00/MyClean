@@ -2,10 +2,12 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.ThumbnailUtils;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -214,6 +216,7 @@ public class PictureActivity extends BaseActivity {
                 @Override
                 public void run() {
                     final Bitmap bitma = imageHelper.pathWithScaledBitmap(PictureActivity.this, list.get(finalI).path);
+                    //final Bitmap bitma = imageHelper.getImageThumbnail(PictureActivity.this, list.get(finalI).originId, MediaStore.Images.Thumbnails.FULL_SCREEN_KIND);
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {

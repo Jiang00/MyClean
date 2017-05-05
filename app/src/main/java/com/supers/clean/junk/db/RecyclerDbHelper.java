@@ -11,8 +11,10 @@ import android.util.Log;
 
 import com.supers.clean.junk.filemanager.FileUtils;
 import com.supers.clean.junk.similarimage.ImageInfo;
+import com.supers.clean.junk.util.CommonUtil;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -122,7 +124,6 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<ImageInfo> getRecyclerImageList() {
-        Log.e("rqy", "getRecyclerImageList");
         //先删除过期文件
         deleteOverDateRecyclerFile();
 
@@ -133,7 +134,6 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
             if (cursor == null || cursor.getCount() == 0) {
                 return imageInfos;
             }
-            Log.e("rqy", "cursor coucnt = " + cursor.getCount());
             cursor.moveToFirst();
             do {
                 //遍历出表名
@@ -143,7 +143,6 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
                 String backFilePath = fileDic + "img_" + rowId;
 
                 ImageInfo imageInfo = new ImageInfo(rowId, restorePath, backFilePath);
-                Log.e("rqy", "getRecyclerImageList " + imageInfo);
                 File file = new File(backFilePath);
                 if (!file.exists() || file.isDirectory()) {
                     deleteItem(imageInfo);
@@ -182,42 +181,43 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
     }
 
     public boolean putImageToRecycler(ImageInfo imageInfo) {
-        Log.e("rqy", "putImageToRecycler--" + imageInfo);
+        boolean isSuccess = false;
         if (imageInfo == null) {
-            return false;
+            return isSuccess;
         }
         File file = new File(imageInfo.path);
         if (!file.exists() || file.isDirectory()) {
-            Log.e("rqy", "putImageToRecycler: file not exist or is directory, " + imageInfo.path);
-            return false;
+            CommonUtil.log("rqy", "putImageToRecycler: file not exist or is directory, " + imageInfo.path);
+            return isSuccess;
         }
         String recyclerTime = RecyclerDbHelper.getInstance(mContext).getRecyclerTime();
         long rowId = RecyclerDbHelper.getInstance(mContext).addItem(imageInfo.path, recyclerTime);
-        Log.e("rqy", "putImageToRecycler: rowId= " + rowId);
+
         if (rowId < 0) {
-            return false;
+            CommonUtil.log("rqy", "putImageToRecycler: rowId= " + rowId);
+            return isSuccess;
         }
-        String result = FileUtils.copyFileToRecycler(imageInfo.path, RecyclerDbHelper.getInstance(mContext).getRecyclerDirectory(recyclerTime), "img_" + rowId);
-        if (imageInfo.path.endsWith(".jpg") || imageInfo.path.endsWith(".png") || imageInfo.path.endsWith(".bmp")) {
-            int res = mContext.getContentResolver().delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+        imageInfo.rowId = rowId;
+        String destDic = RecyclerDbHelper.getInstance(mContext).getRecyclerDirectory(recyclerTime);
+        String result = FileUtils.copyFileToRecycler(imageInfo.path, destDic, "img_" + rowId);
+        if (result == null) {
+            CommonUtil.log("rqy", "copyFileToRecycler:error");
+            int deleteRowId = RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
+            CommonUtil.log("rqy", "deleteRowId--" + deleteRowId);
+            return isSuccess;
+        }
+        boolean deleteSuc = FileUtils.deleteFile(imageInfo.path);
+        if (deleteSuc) {
+            mContext.getContentResolver().delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                     MediaStore.Audio.Media.DATA + "= \"" + imageInfo.path + "\"",
                     null);
-            if (res > 0) {
-                file.delete();
-            } else {
-                Log.e(TAG, "删除文件失败");
-            }
+            isSuccess = true;
         } else {
-            file.delete();
+            int deleteRowId = RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
+            CommonUtil.log("rqy", "deleteRowId--" + deleteRowId);
         }
-        if (result == null) {
-            Log.e("rqy", "copyFileToRecycler:error");
-            RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
-            return false;
-        } else {
-            FileUtils.deleteFile(imageInfo.path);
-        }
-        return true;
+
+        return isSuccess;
     }
 
     public boolean restoreImageFromRecycler(ImageInfo imageInfo) {
@@ -233,9 +233,8 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         String name = imageInfo.restoreFilePath.substring(index + 1, imageInfo.restoreFilePath.length());
         String result = FileUtils.copyFileToRecycler(imageInfo.backFilePath, directory, name);
 
-        Log.e("rqy", "result=" + result);
         if (result != null) {
-            new MediaScanner(mContext).scanFile(imageInfo.restoreFilePath, imageInfo.restoreFilePath.substring(imageInfo.restoreFilePath.lastIndexOf(".")));
+            new MediaScanner(mContext).scanFile(imageInfo.restoreFilePath, "image/jpeg");
             int success = deleteItem(imageInfo);
             FileUtils.deleteFile(imageInfo.backFilePath);
             Log.e("rqy", "success=" + success);
