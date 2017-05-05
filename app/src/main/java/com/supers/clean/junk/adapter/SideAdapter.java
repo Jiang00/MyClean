@@ -23,6 +23,7 @@ import com.eos.module.charge.saver.Util.Utils;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.FileActivity;
+import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.activity.JunkActivity;
 import com.supers.clean.junk.activity.ManagerActivity;
 import com.supers.clean.junk.activity.NotifiActivity;
@@ -50,6 +51,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
     private static final int POWER = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
+    private static final int GBOOST = idx++;
     private static final int FAMILY = idx++;
     private static final int THEME = idx++;
     private static final int SETTING = idx++;
@@ -209,6 +211,10 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
         } else if (position == PICTURE) {
             CommonUtil.track("侧边栏", "点击进入相似图片", "", 1);
             Intent intent = new Intent(context, PictureActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
+        } else if (position == GBOOST) {
+            CommonUtil.track("侧边栏", "点击进入游戏加速", "", 1);
+            Intent intent = new Intent(context, GBoostActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == FAMILY) {
             CommonUtil.track("侧边栏", "点击进入family页面", "", 1);

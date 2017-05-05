@@ -166,6 +166,23 @@ public class CommonUtil {
             return String.format("%d", size);
     }
 
+    public static String convertStorageWifi(long size) {
+        long kb = 1024;
+        long mb = kb * 1024;
+        long gb = mb * 1024;
+
+        if (size >= gb) {
+            return String.format("%.1f", (float) size / gb) + "GB/s";
+        } else if (size >= mb) {
+            float f = (float) size / mb;
+            return String.format(f > 100 ? "%.0f" : "%.1f", f) + "MB/s";
+        } else if (size >= kb) {
+            float f = (float) size / kb;
+            return String.format(f > 100 ? "%.0f" : "%.1f", f) + "KB/s";
+        } else
+            return String.format("%d", size) + "B/s";
+    }
+
     public static String convertStorageDanwei(long size) {
         long kb = 1024;
         long mb = kb * 1024;

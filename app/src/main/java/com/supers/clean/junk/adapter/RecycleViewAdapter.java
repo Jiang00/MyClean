@@ -189,22 +189,17 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             }
 //            HomeAdapter.LoadImage imageLoad = new HomeAdapter.LoadImage(holder);
 //            imageLoad.execute(info.path, info.name);
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    final Bitmap cachebitmap = getBitmapFromCache(info.name);
-                    if (cachebitmap != null) {
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                holder.picture_icon.setImageBitmap(cachebitmap);
-                            }
-                        });
-                    } else {
-                       final Bitmap bitmap  = imageHelper.getImageThumbnail(pictureActivity,info.path);
-                       // final Bitmap bitmap = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
-                        if (bitmap == null) {
-                        } else {
+
+            Bitmap cachebitmap = getBitmapFromCache(info.name);
+            if (cachebitmap != null) {
+                holder.picture_icon.setImageBitmap(cachebitmap);
+            } else {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        final Bitmap bitmap = imageHelper.getImageThumbnail(pictureActivity, info.path);
+                        // final Bitmap bitmap = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
+                        if (bitmap != null) {
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {
@@ -214,8 +209,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                             });
                         }
                     }
-                }
-            }).start();
+                }).start();
+
+            }
+
             holder.picture_icon.setTag(info.name);
             holder.picture_check.setOnClickListener(new View.OnClickListener() {
                 @Override

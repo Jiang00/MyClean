@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f7fe"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_color_first"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/view_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
+
+            <include layout="@layout/layout_title" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d9"
+            android:background="@drawable/shape_ad"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d43"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d17"
+                    android:src="@mipmap/gboost_1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:text="@string/gboost_1"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/s14" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/gboost_recyc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d280"
+                android:layout_marginBottom="@dimen/d6"
+                android:layout_marginLeft="@dimen/d15"
+                android:layout_marginRight="@dimen/d15"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d9"
+            android:layout_marginRight="@dimen/d9"
+            android:background="@drawable/shape_ad"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d43"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d17"
+                    android:src="@mipmap/gboost_2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:text="@string/gboost_2"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/s14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d72"
+                android:layout_marginLeft="@dimen/d17"
+                android:layout_marginRight="@dimen/d17"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gboost_3"
+                        android:textColor="#8041434a"
+                        android:textSize="@dimen/s14" />
+
+                    <TextView
+                        android:id="@+id/gboost_cpu_szie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="50%"
+                        android:textColor="#19e624"
+                        android:textSize="@dimen/s14" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gboost_4"
+                        android:textColor="#8041434a"
+                        android:textSize="@dimen/s14" />
+
+                    <TextView
+                        android:id="@+id/gboost_ram_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="1.2G"
+                        android:textColor="#f84a4a"
+                        android:textSize="@dimen/s14" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gboost_5"
+                        android:textColor="#8041434a"
+                        android:textSize="@dimen/s14" />
+
+                    <TextView
+                        android:id="@+id/gboost_network_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="100kb/s"
+                        android:textColor="#f9c100"
+                        android:textSize="@dimen/s14" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d33"
+                android:layout_marginLeft="@dimen/d17"
+                android:layout_marginRight="@dimen/d17">
+
+                <TextView
+                    android:id="@+id/tv_s"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/gboost_6"
+                    android:textColor="#8041434a"
+                    android:textSize="@dimen/s12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_s"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_s"
+                    android:text="30%"
+                    android:textColor="#801e88e5"
+                    android:textSize="@dimen/s14" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/side_check_passed" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d72"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/junk_button_clean"
+            android:layout_width="@dimen/d168"
+            android:layout_height="@dimen/d40"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_button"
+            android:text="@string/short_cut"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/s15" />
+    </RelativeLayout>
+
+</FrameLayout>
