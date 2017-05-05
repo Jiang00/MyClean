@@ -1,17 +1,21 @@
 package com.supers.clean.junk.similarimage;
 
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.ThumbnailUtils;
+import android.net.Uri;
 import android.os.Environment;
-
-import android.support.constraint.BuildConfig;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
+
+import com.supers.clean.junk.util.CommonUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,6 +25,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+
+import static android.media.ThumbnailUtils.OPTIONS_RECYCLE_INPUT;
 
 /**
  * @Description:
@@ -49,7 +55,7 @@ public class ImageHelper {
      * 创建缩略图
      */
     public Bitmap createThumbnail(Bitmap source, int width, int height) {
-        return ThumbnailUtils.extractThumbnail(source, width, height);
+        return ThumbnailUtils.extractThumbnail(source, width, height, OPTIONS_RECYCLE_INPUT);
     }
 
     /*public static String produceFingerPrint(Bitmap source) {
@@ -211,6 +217,9 @@ public class ImageHelper {
      * @param hashCode       与之比较的hashCode
      */
     public int hammingDistance(String sourceHashCode, String hashCode) {
+        if (TextUtils.isEmpty(sourceHashCode) || TextUtils.isEmpty(hashCode)) {
+            return 100;
+        }
         int difference = 0;
         int len = sourceHashCode.length();
 
@@ -329,35 +338,31 @@ public class ImageHelper {
         return BitmapFactory.decodeFile(path, options);
     }
 
-    /*public ArrayList<LocalImage> queryCameraPhoto(Context context) {
-        ArrayList<LocalImage> localImages = new ArrayList<>();
-        Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        String[] columns = new String[]{
-                MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME,
-                MediaStore.MediaColumns._ID, MediaStore.MediaColumns.DATA, MediaStore.MediaColumns.SIZE, MediaStore.MediaColumns.DATE_MODIFIED
-        };
-        Log.e("rqy", "Environment.getExternalStorageDirectory().getPath()=" + Environment.getExternalStorageDirectory().getPath());
-        Cursor cursor = context.getApplicationContext().getContentResolver().query(uri, columns,
 
-                MediaStore.Images.Media.DATA + " like ? and " + MediaStore.Images.Media.MIME_TYPE + "=?",
-
-                new String[]{"%" + Environment.getExternalStorageDirectory().getPath() + "/DCIM" + "%", "image/jpeg"},
-
-                MediaStore.MediaColumns.DATE_MODIFIED + " asc");
-        if (cursor != null) {
-            cursor.moveToFirst();
-            while (cursor.moveToNext()) {
-                String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
-                Log.e(TAG, "路径:" + path);
-                long size = cursor.getLong(cursor.getColumnIndex(MediaStore.MediaColumns.SIZE));
-
-                int ringtoneID = cursor.getInt(cursor
-                        .getColumnIndex(MediaStore.MediaColumns._ID));
-                localImages.add(new LocalImage(null, path, size, uri.toString() + "/" + ringtoneID));
-            }
+    public static Bitmap getImageThumbnail(Context context, String imagePath) {
+        long startTime = System.currentTimeMillis();
+        ContentResolver contentResolver = context.getContentResolver();
+        String[] projection = {MediaStore.Images.Media._ID};
+        String whereClause = MediaStore.Images.Media.DATA + " = '" + imagePath + "'";
+        Cursor cursor = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection, whereClause, null, null);
+        int _id = 0;
+        if (cursor == null || cursor.getCount() == 0) {
+            return null;
+        } else if (cursor.moveToFirst()) {
+            int _idColumn = cursor.getColumnIndex(MediaStore.Images.Media._ID);
+            do {
+                _id = cursor.getInt(_idColumn);
+            } while (cursor.moveToNext());
         }
-        return localImages;
-    }*/
+        cursor.close();
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inDither = false;
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        Bitmap bitmap = MediaStore.Images.Thumbnails.getThumbnail(contentResolver, _id, MediaStore.Images.Thumbnails.MICRO_KIND, options);
+        long endTime = System.currentTimeMillis();
+        Log.e("rqy", "getImageThumbnail--time:" + (endTime - startTime));
+        return bitmap;
+    }
 
     public interface OnQuerySimilarPicCallBack {
         void startQuery();
@@ -376,66 +381,61 @@ public class ImageHelper {
             onQueryCallBack.startQuery();
         }
         ArrayList<ArrayList<ImageInfo>> similarItems = new ArrayList<>();
-        ArrayList<ImageInfo> localImageList = getCameraImageList();
-//        if (BuildConfig.DEBUG) {
-//            for (ImageInfo info : localImageList) {
-//                Log.e(TAG, "querySimilarImage--"+info.path);
-//            }
-//        }
+
+        //ArrayList<ImageInfo> localImageList = getCameraImageList();
+
+        ArrayList<ImageInfo> localImageList = queryCameraPhoto(context);
+
         int size = localImageList.size();
 
-        if (size == 0) {
+        if (size < 2) {
             if (onQueryCallBack != null) {
                 onQueryCallBack.endQuery(localImageList, similarItems, 0, 0);
             }
             return similarItems;
         }
-        ArrayList<ImageInfo> similarItem = new ArrayList<>();
 
         long totalSize = 0;
         long totalCount = 0;
 
-        for (int i = 1; i < size; i++) {
+        ArrayList<ImageInfo> similarItem = new ArrayList<>();
+
+        for (int i = 0; i < size - 1; i++) {
             if (onQueryCallBack != null) {
                 onQueryCallBack.startAsyncPic(i, localImageList);
             }
-            //getImageWithHashCode(context, localImage);
-            /*if (onQueryCallBack != null) {
-                onQueryCallBack.endAsyncPic(i, size, localImageList, localImage);
-            }*/
 
-            ImageInfo first = localImageList.get(i - 1);
-            ImageInfo second = localImageList.get(i);
+            ImageInfo first = localImageList.get(i);
+            ImageInfo second = localImageList.get(i + 1);
+
             if (isSimilarImage(context, first, second)) {
-                if (similarItem.indexOf(first) < 0) {
+                if (!similarItem.contains(first)) {
                     similarItem.add(first);
+                    totalSize += first.fileSize;
+                    totalCount++;
                 }
-                if (similarItem.indexOf(second) < 0) {
+                if (!similarItem.contains(second)) {
                     similarItem.add(second);
+                    totalSize += second.fileSize;
+                    totalCount++;
                 }
-                if (i == size - 1) {
-                    long groupSize = getImageGroupSize(similarItem);
-                    totalSize += groupSize;
-                    totalCount += similarItem.size();
-                    similarItem.get(getBestImageIndex(similarItem)).isNormal = true;
+
+                if (!similarItems.contains(similarItem)) {
                     similarItems.add(0, similarItem);
-                    if (onQueryCallBack != null) {
-                        onQueryCallBack.haveQuerySimilarPic(i, localImageList, similarItems, totalSize);
-                    }
                 }
+
+                if (onQueryCallBack != null) {
+                    onQueryCallBack.haveQuerySimilarPic(i, localImageList, similarItems, totalSize);
+                }
+
             } else {
                 if (similarItem.size() > 1) {
-                    long groupSize = getImageGroupSize(similarItem);
-                    totalSize += groupSize;
-                    totalCount += similarItem.size();
                     similarItem.get(getBestImageIndex(similarItem)).isNormal = true;
-                    similarItems.add(0, similarItem);
-                    if (onQueryCallBack != null) {
-                        onQueryCallBack.haveQuerySimilarPic(i, localImageList, similarItems, totalSize);
-                    }
                 }
                 similarItem = new ArrayList<>();
             }
+
+            System.gc();
 
             if (onQueryCallBack != null) {
                 onQueryCallBack.endAsyncPic(i, localImageList);
@@ -457,14 +457,49 @@ public class ImageHelper {
         return hammingDistance < 10*//* && avgPixCondition*//*;
     }*/
 
+    public ArrayList<ImageInfo> queryCameraPhoto(Context context) {
+        long startTime = System.currentTimeMillis();
+        ArrayList<ImageInfo> localImages = new ArrayList<>();
+        Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+        String[] columns = new String[]{
+                MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME,
+                MediaStore.MediaColumns._ID, MediaStore.MediaColumns.DATA, MediaStore.MediaColumns.SIZE, MediaStore.MediaColumns.DATE_MODIFIED
+        };
+
+        Cursor cursor = context.getContentResolver().query(uri, columns,
+                MediaStore.Images.Media.MIME_TYPE + "=? or "
+                        + MediaStore.Images.Media.MIME_TYPE + "=?",
+                new String[]{"image/jpeg", "image/jpg"}, MediaStore.Images.Media.DATE_MODIFIED);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            while (cursor.moveToNext()) {
+                String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
+                Log.e(TAG, "路径:" + path);
+                long size = cursor.getLong(cursor.getColumnIndex(MediaStore.MediaColumns.SIZE));
+                String name = new File(path).getName();
+                ImageInfo imageInfo = new ImageInfo(path, name, size);
+                if (imageInfo.tag_datetime != null) {
+                    localImages.add(imageInfo);
+                }
+            }
+        }
+        Collections.sort(localImages, new ImageInfo.ImageComparator());
+        long endTime = System.currentTimeMillis();
+        Log.e("rqy", "queryCameraPhoto time:" + (endTime - startTime));
+        return localImages;
+    }
+
     public ArrayList<ImageInfo> getCameraImageList() {
+        long startTime = System.currentTimeMillis();
         ArrayList<ImageInfo> mList = new ArrayList<>();
         String url = Environment.getExternalStorageDirectory().toString() + "/DCIM";
-        File dcimFile = new File(url);
-        getFileList(dcimFile, mList);
+        File file = new File(url);
+        getFileList(file, mList);
 
         Collections.sort(mList, new ImageInfo.ImageComparator());
+        long endTime = System.currentTimeMillis();
 
+        CommonUtil.log("rqy", "getCameraImageList--time:" + (endTime - startTime));
         return mList;
     }
 
@@ -516,9 +551,10 @@ public class ImageHelper {
         if (imageInfo.sourceHashCode != null) {
             return;
         }
-        DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
+        /*DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
         Bitmap bitmap = loadBitmapFromFile(imageInfo.path, dm.widthPixels,
-                dm.heightPixels);
+                dm.heightPixels);*/
+        Bitmap bitmap = getImageThumbnail(context, imageInfo.path);
         if (bitmap == null) {
             return;
         }
