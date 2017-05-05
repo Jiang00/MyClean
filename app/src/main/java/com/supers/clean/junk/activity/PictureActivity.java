@@ -342,7 +342,7 @@ public class PictureActivity extends BaseActivity {
 //                        adapter.addData(list_item, 0);
                         allList = totalSimilarImage;
                         if (adapter == null) {
-                            adapter = new RecycleViewAdapter(PictureActivity.this, totalSimilarImage, imageHelper);
+                            adapter = new RecycleViewAdapter(PictureActivity.this, totalSimilarImage, imageHelper, mHandler);
                             picture_recycle.setAdapter(adapter);
                         } else {
                             adapter.upData(totalSimilarImage);

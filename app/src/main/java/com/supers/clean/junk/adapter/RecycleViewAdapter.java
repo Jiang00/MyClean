@@ -1,6 +1,7 @@
 package com.supers.clean.junk.adapter;
 
 import android.graphics.Bitmap;
+import android.os.Handler;
 import android.support.v4.util.LruCache;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +31,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     private ImageHelper imageHelper;
     private MyGridLayoutManager gridLayoutManager;
     private RecycleViewCallBack deleteCallBack;
+    private Handler handler;
 
 
     public interface RecycleViewCallBack {
@@ -38,7 +40,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         void deleteSuccessCallback(ArrayList<ArrayList<ImageInfo>> list);
     }
 
-    public RecycleViewAdapter(PictureActivity pictureActivity, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, ImageHelper imageHelper) {
+    public RecycleViewAdapter(PictureActivity pictureActivity, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, ImageHelper imageHelper, Handler handler) {
+        this.handler = handler;
         this.pictureActivity = pictureActivity;
         this.imageHelper = imageHelper;
         groupList = totalSimilarImage;
@@ -186,17 +189,33 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             }
 //            HomeAdapter.LoadImage imageLoad = new HomeAdapter.LoadImage(holder);
 //            imageLoad.execute(info.path, info.name);
-            Bitmap cachebitmap = getBitmapFromCache(info.name);
-            if (cachebitmap != null) {
-                holder.picture_icon.setImageBitmap(cachebitmap);
-            } else {
-                Bitmap bitma = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
-                if (bitma == null) {
-                } else {
-                    addBitmapToCache(info.name, bitma);
-                    holder.picture_icon.setImageBitmap(bitma);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    final Bitmap cachebitmap = getBitmapFromCache(info.name);
+                    if (cachebitmap != null) {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                holder.picture_icon.setImageBitmap(cachebitmap);
+                            }
+                        });
+                    } else {
+                       final Bitmap bitmap  = imageHelper.getImageThumbnail(pictureActivity,info.path);
+                       // final Bitmap bitmap = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
+                        if (bitmap == null) {
+                        } else {
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    addBitmapToCache(info.name, bitmap);
+                                    holder.picture_icon.setImageBitmap(bitmap);
+                                }
+                            });
+                        }
+                    }
                 }
-            }
+            }).start();
             holder.picture_icon.setTag(info.name);
             holder.picture_check.setOnClickListener(new View.OnClickListener() {
                 @Override

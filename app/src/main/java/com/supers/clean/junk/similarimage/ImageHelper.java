@@ -339,7 +339,7 @@ public class ImageHelper {
     }
 
 
-    public static Bitmap getImageThumbnail(Context context, String imagePath) {
+    public Bitmap getImageThumbnail(Context context, String imagePath) {
         long startTime = System.currentTimeMillis();
         ContentResolver contentResolver = context.getContentResolver();
         String[] projection = {MediaStore.Images.Media._ID};
@@ -358,7 +358,7 @@ public class ImageHelper {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inDither = false;
         options.inPreferredConfig = Bitmap.Config.RGB_565;
-        Bitmap bitmap = MediaStore.Images.Thumbnails.getThumbnail(contentResolver, _id, MediaStore.Images.Thumbnails.MICRO_KIND, options);
+        Bitmap bitmap = MediaStore.Images.Thumbnails.getThumbnail(contentResolver, _id, MediaStore.Images.Thumbnails.MINI_KIND, options);
         long endTime = System.currentTimeMillis();
         Log.e("rqy", "getImageThumbnail--time:" + (endTime - startTime));
         return bitmap;
