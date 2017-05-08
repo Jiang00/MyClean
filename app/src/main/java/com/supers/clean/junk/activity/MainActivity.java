@@ -46,6 +46,7 @@ import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MainScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
 import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.gboost.GameBooster;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
@@ -115,6 +116,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void findId() {
         super.findId();
+        GameBooster.getInstalledGameList(this);
         main_drawer = (DrawerLayout) findViewById(R.id.main_drawer);
         main_drawer.addDrawerListener(this);
         //main_all_cercle = (FrameLayout) findViewById(R.id.main_all_cercle);
