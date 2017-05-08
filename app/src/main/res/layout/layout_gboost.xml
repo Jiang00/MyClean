@@ -210,6 +210,7 @@
                     android:textSize="@dimen/s14" />
 
                 <ImageView
+                    android:id="@+id/gboost_power_check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -226,7 +227,7 @@
         android:layout_gravity="bottom">
 
         <Button
-            android:id="@+id/junk_button_clean"
+            android:id="@+id/gboost_clean_button"
             android:layout_width="@dimen/d168"
             android:layout_height="@dimen/d40"
             android:layout_centerInParent="true"
@@ -236,4 +237,56 @@
             android:textSize="@dimen/s15" />
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_add_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_color_first"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d24" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:id="@+id/add_left"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/tilte_left" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/gboost_7"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/list_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_100"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="1dp" />
+    </LinearLayout>
 </FrameLayout>

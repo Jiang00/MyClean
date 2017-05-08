@@ -119,6 +119,12 @@ public class BaseActivity extends AppCompatActivity {
         startActivityForResult(intent, requestCode);
     }
 
+    public void jumpToActivity(Class<?> classs, Bundle bundle) {
+        Intent intent = new Intent(this, classs);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
     public void jumpToActivity(Class<?> classs, int requestCode) {
         Intent intent = new Intent(this, classs);
         startActivityForResult(intent, requestCode);

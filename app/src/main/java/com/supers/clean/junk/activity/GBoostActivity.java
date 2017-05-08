@@ -1,9 +1,12 @@
 package com.supers.clean.junk.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.TrafficStats;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.LruCache;
 import android.support.v7.widget.RecyclerView;
@@ -11,12 +14,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.eos.manager.AppLockPermissionActivity;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.adapter.AddGameAdapter;
+import com.supers.clean.junk.adapter.WhiteListAdapter;
 import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.gboost.HorizontalPageLayoutManager;
@@ -40,11 +48,17 @@ import java.util.regex.Pattern;
 
 public class GBoostActivity extends BaseActivity {
 
-
+    FrameLayout title_left;
+    TextView title_name;
     RecyclerView gboost_recyc;
     TextView gboost_ram_size;
     TextView gboost_network_size;
     TextView gboost_cpu_szie;
+    ImageView gboost_power_check;
+    Button gboost_clean_button;
+    LinearLayout ll_add_game;
+    FrameLayout add_left;
+    ListView list_game;
 
 
     private HorizontalPageLayoutManager pageLayoutManager;
@@ -52,16 +66,23 @@ public class GBoostActivity extends BaseActivity {
     private MyAdapter adapter;
     private ArrayList<JunkInfo> list;
     private Handler mHandler;
-    private long lastTotalRxBytes;
-    private long lastTimeStamp;
+    private AddGameAdapter whiteListAdapter;
+    private MyApplication cleanApplication;
 
     @Override
     protected void findId() {
         super.findId();
+        title_left = (FrameLayout) findViewById(R.id.title_left);
+        title_name = (TextView) findViewById(R.id.title_name);
         gboost_recyc = (RecyclerView) findViewById(R.id.gboost_recyc);
         gboost_ram_size = (TextView) findViewById(R.id.gboost_ram_size);
         gboost_network_size = (TextView) findViewById(R.id.gboost_network_size);
         gboost_cpu_szie = (TextView) findViewById(R.id.gboost_cpu_szie);
+        gboost_power_check = (ImageView) findViewById(R.id.gboost_power_check);
+        gboost_clean_button = (Button) findViewById(R.id.gboost_clean_button);
+        ll_add_game = (LinearLayout) findViewById(R.id.ll_add_game);
+        add_left = (FrameLayout) findViewById(R.id.add_left);
+        list_game = (ListView) findViewById(R.id.list_game);
     }
 
     @Override
@@ -69,29 +90,42 @@ public class GBoostActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_gboost);
         mHandler = new Handler();
+        cleanApplication = (MyApplication) getApplication();
+
+        title_left.setOnClickListener(clickListener);
+        add_left.setOnClickListener(clickListener);
+        title_name.setText(R.string.gboost_0);
 
         Sampler.getInstance().init(getApplicationContext(), 1000);
         Sampler.getInstance().start();
         Sampler.getInstance().setOnCpuUpdateListener(new Sampler.OnCpuUpdateListener() {
             @Override
-            public void cupUpdate(final double cpu) {
+            public void cupUpdate(final int cpu, final long speed) {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-
                         gboost_cpu_szie.setText(cpu + "%");
+                        gboost_network_size.setText(CommonUtil.convertStorageWifi(speed));
                     }
                 });
             }
         });
 
-        mHandler.removeCallbacks(runnableW);
-        mHandler.post(runnableW);
 
         long size = MemoryManager.getPhoneFreeRamMemory(this);
         gboost_ram_size.setText(CommonUtil.convertStorage(size) + CommonUtil.convertStorageDanwei(size));
 
+        if (CommonUtil.isAccessibilitySettingsOn(this)) {
+            gboost_power_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            gboost_power_check.setImageResource(R.mipmap.side_check_normal);
+        }
+        gboost_power_check.setOnClickListener(clickListener);
+        gboost_clean_button.setOnClickListener(clickListener);
+
         initList();
+
+        whiteListAdapter = new AddGameAdapter(this, list);
 
     }
 
@@ -155,38 +189,60 @@ public class GBoostActivity extends BaseActivity {
         list.add(new JunkInfo(ContextCompat.getDrawable(this, R.mipmap.icon), ++index + "", "a"));
     }
 
-
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.add_left:
+                    ll_add_game.setVisibility(View.GONE);
+                    gboost_recyc.scrollBy(2000, 0);
+                    break;
+                case R.id.title_left:
+                    onBackPressed();
+                    break;
 
+                case R.id.gboost_power_check:
+                    try {
+                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                        startActivityForResult(intent, 100);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent transintent = new Intent(GBoostActivity.this, AppLockPermissionActivity.class);
+                            startActivity(transintent);
+                        }
+                    }, 1500);
+                    break;
+                case R.id.gboost_clean_button:
+                    Bundle bundle = new Bundle();
+                    bundle.putString("from", "GBoost");
+                    jumpToActivity(PowerActivity.class, bundle);
+                    break;
+            }
         }
     };
 
-    private Runnable runnableW = new Runnable() {
-        public void run() {
-            long nowTotalRxBytes = getTotalRxBytes(); // 获取当前数据总量
-            long nowTimeStamp = System.currentTimeMillis(); // 当前时间
-            long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
-                    - lastTimeStamp));// 毫秒转换
-            gboost_network_size.setText(CommonUtil.convertStorageWifi(speed));
-            lastTimeStamp = nowTimeStamp;
-            lastTotalRxBytes = nowTotalRxBytes;
-            mHandler.postDelayed(this, 2000);
-        }
-    };
-
-    private long getTotalRxBytes() {
-        // 得到整个手机的流量值
-        return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
-                : (TrafficStats.getTotalRxBytes());//
-    }
 
     @Override
     protected void onDestroy() {
-        mHandler.removeCallbacks(runnableW);
         super.onDestroy();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100) {
+            if (CommonUtil.isAccessibilitySettingsOn(this)) {
+                gboost_power_check.setImageResource(R.mipmap.side_check_passed);
+            } else {
+                gboost_power_check.setImageResource(R.mipmap.side_check_normal);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyAdapter.HomeViewHolder> {
@@ -221,6 +277,10 @@ public class GBoostActivity extends BaseActivity {
                 public void onClick(View v) {
                     if (position == 0) {
                         gboost_recyc.scrollBy(2000, 0);
+                        ll_add_game.setVisibility(View.VISIBLE);
+                        list_game.setAdapter(whiteListAdapter);
+                        whiteListAdapter.upList(cleanApplication.getListMng());
+                        whiteListAdapter.notifyDataSetChanged();
                         showToast("点击添加");
                     } else {
                         showToast(position + "");

@@ -13,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -121,6 +122,9 @@ public class PowerActivity extends BaseActivity {
                 finish();
             }
         });
+        if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
+            junk_button_clean.callOnClick();
+        }
     }
 
     private void setContainer() {

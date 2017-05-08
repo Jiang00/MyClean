@@ -46894,7 +46894,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6250:15620:void <clinit>() -> <clinit>
+    6252:15622:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -46930,17 +46930,18 @@ com.supers.clean.junk.activity.BaseActivity -> com.supers.clean.junk.activity.Ba
     108:109:void tuiGuang() -> b
     112:114:void jumpTo(java.lang.Class) -> a
     117:120:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    123:125:void jumpToActivity(java.lang.Class,int) -> a
-    128:133:int getStatusHeight(android.app.Activity) -> a
-    154:163:void setTranslucentStatus(boolean) -> a
-    166:173:void full() -> c
-    177:190:void setHideVirtualKey(android.view.Window) -> a
-    197:203:void showToast(java.lang.String) -> a
-    206:206:android.view.View $(int) -> a
+    123:126:void jumpToActivity(java.lang.Class,android.os.Bundle) -> a
+    129:131:void jumpToActivity(java.lang.Class,int) -> a
+    134:139:int getStatusHeight(android.app.Activity) -> a
+    160:169:void setTranslucentStatus(boolean) -> a
+    172:179:void full() -> c
+    183:196:void setHideVirtualKey(android.view.Window) -> a
+    203:209:void showToast(java.lang.String) -> a
+    212:212:android.view.View $(int) -> a
 com.supers.clean.junk.activity.BaseActivity$1 -> com.supers.clean.junk.activity.BaseActivity$1:
     com.supers.clean.junk.activity.BaseActivity this$0 -> a
-    167:167:void <init>(com.supers.clean.junk.activity.BaseActivity) -> <init>
-    170:171:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    173:173:void <init>(com.supers.clean.junk.activity.BaseActivity) -> <init>
+    176:177:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.supers.clean.junk.activity.CoolingActivity -> com.supers.clean.junk.activity.CoolingActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -47347,75 +47348,82 @@ com.supers.clean.junk.activity.GBoostActivity -> com.supers.clean.junk.activity.
     android.widget.TextView gboost_ram_size -> b
     android.widget.TextView gboost_network_size -> c
     android.widget.TextView gboost_cpu_szie -> d
-    com.supers.clean.junk.gboost.HorizontalPageLayoutManager pageLayoutManager -> f
-    com.supers.clean.junk.gboost.PagingScrollHelper pagingScrollHelper -> l
-    com.supers.clean.junk.activity.GBoostActivity$MyAdapter adapter -> m
-    java.util.ArrayList list -> n
-    android.os.Handler mHandler -> o
-    long lastTotalRxBytes -> p
-    long lastTimeStamp -> q
-    android.view.View$OnClickListener clickListener -> e
-    java.lang.Runnable runnableW -> r
-    41:165:void <init>() -> <init>
-    60:65:void findId() -> a
-    69:95:void onCreate(android.os.Bundle) -> onCreate
-    98:113:void initList() -> c
-    116:155:void addData() -> d
-    180:181:long getTotalRxBytes() -> e
-    186:189:void onDestroy() -> onDestroy
-    41:41:android.os.Handler access$000(com.supers.clean.junk.activity.GBoostActivity) -> a
-    41:41:long access$100(com.supers.clean.junk.activity.GBoostActivity) -> b
-    41:41:long access$200(com.supers.clean.junk.activity.GBoostActivity) -> c
-    41:41:long access$300(com.supers.clean.junk.activity.GBoostActivity) -> d
-    41:41:long access$302(com.supers.clean.junk.activity.GBoostActivity,long) -> a
-    41:41:long access$202(com.supers.clean.junk.activity.GBoostActivity,long) -> b
+    android.widget.ImageView gboost_power_check -> e
+    android.widget.Button gboost_clean_button -> f
+    com.supers.clean.junk.gboost.HorizontalPageLayoutManager pageLayoutManager -> m
+    com.supers.clean.junk.gboost.PagingScrollHelper pagingScrollHelper -> n
+    com.supers.clean.junk.activity.GBoostActivity$MyAdapter adapter -> o
+    java.util.ArrayList list -> p
+    android.os.Handler mHandler -> q
+    long lastTotalRxBytes -> r
+    long lastTimeStamp -> s
+    android.view.View$OnClickListener clickListener -> l
+    java.lang.Runnable runnableW -> t
+    46:204:void <init>() -> <init>
+    67:74:void findId() -> a
+    78:113:void onCreate(android.os.Bundle) -> onCreate
+    116:131:void initList() -> c
+    134:173:void addData() -> d
+    219:220:long getTotalRxBytes() -> e
+    225:228:void onDestroy() -> onDestroy
+    232:240:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    46:46:android.os.Handler access$000(com.supers.clean.junk.activity.GBoostActivity) -> a
+    46:46:long access$100(com.supers.clean.junk.activity.GBoostActivity) -> b
+    46:46:long access$200(com.supers.clean.junk.activity.GBoostActivity) -> c
+    46:46:long access$300(com.supers.clean.junk.activity.GBoostActivity) -> d
+    46:46:long access$302(com.supers.clean.junk.activity.GBoostActivity,long) -> a
+    46:46:long access$202(com.supers.clean.junk.activity.GBoostActivity,long) -> b
 com.supers.clean.junk.activity.GBoostActivity$1 -> com.supers.clean.junk.activity.GBoostActivity$1:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
-    75:75:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
-    78:84:void cupUpdate(double) -> a
+    84:84:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
+    87:94:void cupUpdate(double) -> a
 com.supers.clean.junk.activity.GBoostActivity$1$1 -> com.supers.clean.junk.activity.GBoostActivity$1$1:
     double val$cpu -> a
     com.supers.clean.junk.activity.GBoostActivity$1 this$1 -> b
-    78:78:void <init>(com.supers.clean.junk.activity.GBoostActivity$1,double) -> <init>
-    81:82:void run() -> run
+    87:87:void <init>(com.supers.clean.junk.activity.GBoostActivity$1,double) -> <init>
+    91:92:void run() -> run
 com.supers.clean.junk.activity.GBoostActivity$2 -> com.supers.clean.junk.activity.GBoostActivity$2:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
-    107:107:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
-    110:111:void onPageChange(int) -> a
+    125:125:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
+    128:129:void onPageChange(int) -> a
 com.supers.clean.junk.activity.GBoostActivity$3 -> com.supers.clean.junk.activity.GBoostActivity$3:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
-    158:158:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
-    162:162:void onClick(android.view.View) -> onClick
+    175:175:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
+    178:201:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.GBoostActivity$3$1 -> com.supers.clean.junk.activity.GBoostActivity$3$1:
+    com.supers.clean.junk.activity.GBoostActivity$3 this$1 -> a
+    187:187:void <init>(com.supers.clean.junk.activity.GBoostActivity$3) -> <init>
+    190:192:void run() -> run
 com.supers.clean.junk.activity.GBoostActivity$4 -> com.supers.clean.junk.activity.GBoostActivity$4:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
-    165:165:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
-    167:175:void run() -> run
+    204:204:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
+    206:214:void run() -> run
 com.supers.clean.junk.activity.GBoostActivity$MyAdapter -> com.supers.clean.junk.activity.GBoostActivity$a:
     java.util.ArrayList list -> a
     android.support.v4.util.LruCache lruCache -> b
     com.supers.clean.junk.activity.GBoostActivity this$0 -> c
-    193:204:void <init>(com.supers.clean.junk.activity.GBoostActivity,java.util.ArrayList) -> <init>
-    207:210:com.supers.clean.junk.activity.GBoostActivity$MyAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    215:229:void onBindViewHolder(com.supers.clean.junk.activity.GBoostActivity$MyAdapter$HomeViewHolder,int) -> a
-    238:238:int getItemCount() -> getItemCount
-    191:191:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    191:191:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    244:255:void <init>(com.supers.clean.junk.activity.GBoostActivity,java.util.ArrayList) -> <init>
+    258:261:com.supers.clean.junk.activity.GBoostActivity$MyAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    266:280:void onBindViewHolder(com.supers.clean.junk.activity.GBoostActivity$MyAdapter$HomeViewHolder,int) -> a
+    289:289:int getItemCount() -> getItemCount
+    242:242:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    242:242:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.supers.clean.junk.activity.GBoostActivity$MyAdapter$1 -> com.supers.clean.junk.activity.GBoostActivity$a$1:
     com.supers.clean.junk.activity.GBoostActivity$MyAdapter this$1 -> a
-    193:193:void <init>(com.supers.clean.junk.activity.GBoostActivity$MyAdapter,int) -> <init>
-    197:197:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
-    193:193:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+    244:244:void <init>(com.supers.clean.junk.activity.GBoostActivity$MyAdapter,int) -> <init>
+    248:248:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    244:244:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
 com.supers.clean.junk.activity.GBoostActivity$MyAdapter$2 -> com.supers.clean.junk.activity.GBoostActivity$a$2:
     int val$position -> a
     com.supers.clean.junk.activity.GBoostActivity$MyAdapter this$1 -> b
-    218:218:void <init>(com.supers.clean.junk.activity.GBoostActivity$MyAdapter,int) -> <init>
-    221:227:void onClick(android.view.View) -> onClick
+    269:269:void <init>(com.supers.clean.junk.activity.GBoostActivity$MyAdapter,int) -> <init>
+    272:278:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.GBoostActivity$MyAdapter$HomeViewHolder -> com.supers.clean.junk.activity.GBoostActivity$a$a:
     android.widget.ImageView gboost_item_icon -> a
     android.widget.TextView gboost_item_name -> b
     android.widget.FrameLayout gboost_item_c -> c
     com.supers.clean.junk.activity.GBoostActivity$MyAdapter this$1 -> d
-    246:251:void <init>(com.supers.clean.junk.activity.GBoostActivity$MyAdapter,android.view.View) -> <init>
+    297:302:void <init>(com.supers.clean.junk.activity.GBoostActivity$MyAdapter,android.view.View) -> <init>
 com.supers.clean.junk.activity.JunkActivity -> com.supers.clean.junk.activity.JunkActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -48417,33 +48425,33 @@ com.supers.clean.junk.activity.PictureActivity -> com.supers.clean.junk.activity
     boolean mIsQuerying -> A
     android.os.Handler mHandler -> B
     android.view.View$OnClickListener clickListener -> C
-    46:360:void <init>() -> <init>
-    82:102:void findId() -> a
-    135:153:void onCreate(android.os.Bundle) -> onCreate
-    156:159:void loadAd() -> d
-    162:167:void clickListen() -> e
-    170:281:void bigPicture(java.util.ArrayList) -> a
-    285:358:void initData() -> f
-    397:500:void deleteDialog(java.util.ArrayList) -> c
-    504:507:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    511:518:void onBackPressed() -> onBackPressed
-    521:523:void showBigPic(java.util.ArrayList) -> b
-    527:542:void updateUi() -> c
-    46:46:com.supers.clean.junk.adapter.RecycleViewAdapter access$000(com.supers.clean.junk.activity.PictureActivity) -> a
-    46:46:void access$100(com.supers.clean.junk.activity.PictureActivity) -> b
-    46:46:java.util.ArrayList access$200(com.supers.clean.junk.activity.PictureActivity) -> c
-    46:46:android.support.v4.view.PagerAdapter access$300(com.supers.clean.junk.activity.PictureActivity) -> d
-    46:46:com.supers.clean.junk.similarimage.ImageHelper access$400(com.supers.clean.junk.activity.PictureActivity) -> e
-    46:46:com.supers.clean.junk.adapter.RecycleViewAdapter access$002(com.supers.clean.junk.activity.PictureActivity,com.supers.clean.junk.adapter.RecycleViewAdapter) -> a
-    46:46:void access$500(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList) -> a
+    48:363:void <init>() -> <init>
+    84:104:void findId() -> a
+    137:155:void onCreate(android.os.Bundle) -> onCreate
+    158:161:void loadAd() -> d
+    164:169:void clickListen() -> e
+    172:284:void bigPicture(java.util.ArrayList) -> a
+    288:361:void initData() -> f
+    400:503:void deleteDialog(java.util.ArrayList) -> c
+    507:510:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    514:521:void onBackPressed() -> onBackPressed
+    524:526:void showBigPic(java.util.ArrayList) -> b
+    530:545:void updateUi() -> c
+    48:48:com.supers.clean.junk.adapter.RecycleViewAdapter access$000(com.supers.clean.junk.activity.PictureActivity) -> a
+    48:48:void access$100(com.supers.clean.junk.activity.PictureActivity) -> b
+    48:48:java.util.ArrayList access$200(com.supers.clean.junk.activity.PictureActivity) -> c
+    48:48:android.support.v4.view.PagerAdapter access$300(com.supers.clean.junk.activity.PictureActivity) -> d
+    48:48:com.supers.clean.junk.similarimage.ImageHelper access$400(com.supers.clean.junk.activity.PictureActivity) -> e
+    48:48:com.supers.clean.junk.adapter.RecycleViewAdapter access$002(com.supers.clean.junk.activity.PictureActivity,com.supers.clean.junk.adapter.RecycleViewAdapter) -> a
+    48:48:void access$500(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList) -> a
 com.supers.clean.junk.activity.PictureActivity$1 -> com.supers.clean.junk.activity.PictureActivity$1:
     com.supers.clean.junk.activity.PictureActivity this$0 -> a
-    104:104:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
-    107:130:void handleMessage(android.os.Message) -> handleMessage
+    106:106:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
+    109:132:void handleMessage(android.os.Message) -> handleMessage
 com.supers.clean.junk.activity.PictureActivity$10 -> com.supers.clean.junk.activity.PictureActivity$2:
     com.supers.clean.junk.activity.PictureActivity this$0 -> a
-    420:420:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
-    423:425:void onClick(android.view.View) -> onClick
+    423:423:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
+    426:428:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.PictureActivity$11 -> com.supers.clean.junk.activity.PictureActivity$3:
     android.widget.TextView val$ok -> a
     android.widget.TextView val$cancle -> b
@@ -48452,81 +48460,81 @@ com.supers.clean.junk.activity.PictureActivity$11 -> com.supers.clean.junk.activ
     int val$deleteSize -> e
     android.widget.TextView val$count -> f
     com.supers.clean.junk.activity.PictureActivity this$0 -> g
-    427:427:void <init>(com.supers.clean.junk.activity.PictureActivity,android.widget.TextView,android.widget.TextView,android.widget.LinearLayout,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
-    430:477:void onClick(android.view.View) -> onClick
+    430:430:void <init>(com.supers.clean.junk.activity.PictureActivity,android.widget.TextView,android.widget.TextView,android.widget.LinearLayout,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
+    433:480:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.PictureActivity$11$1 -> com.supers.clean.junk.activity.PictureActivity$3$1:
     int num -> a
     com.supers.clean.junk.activity.PictureActivity$11 this$1 -> b
-    435:436:void <init>(com.supers.clean.junk.activity.PictureActivity$11) -> <init>
-    440:447:void deleteItemCallback(long) -> a
-    451:475:void deleteSuccessCallback(java.util.ArrayList) -> a
+    438:439:void <init>(com.supers.clean.junk.activity.PictureActivity$11) -> <init>
+    443:450:void deleteItemCallback(long) -> a
+    454:478:void deleteSuccessCallback(java.util.ArrayList) -> a
 com.supers.clean.junk.activity.PictureActivity$11$1$1 -> com.supers.clean.junk.activity.PictureActivity$3$1$1:
     com.supers.clean.junk.activity.PictureActivity$11$1 this$2 -> a
-    440:440:void <init>(com.supers.clean.junk.activity.PictureActivity$11$1) -> <init>
-    443:445:void run() -> run
+    443:443:void <init>(com.supers.clean.junk.activity.PictureActivity$11$1) -> <init>
+    446:448:void run() -> run
 com.supers.clean.junk.activity.PictureActivity$11$1$2 -> com.supers.clean.junk.activity.PictureActivity$3$1$2:
     java.util.ArrayList val$list -> a
     com.supers.clean.junk.activity.PictureActivity$11$1 this$2 -> b
-    452:452:void <init>(com.supers.clean.junk.activity.PictureActivity$11$1,java.util.ArrayList) -> <init>
-    455:473:void run() -> run
+    455:455:void <init>(com.supers.clean.junk.activity.PictureActivity$11$1,java.util.ArrayList) -> <init>
+    458:476:void run() -> run
 com.supers.clean.junk.activity.PictureActivity$2 -> com.supers.clean.junk.activity.PictureActivity$4:
     com.supers.clean.junk.activity.PictureActivity this$0 -> a
-    145:145:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
-    148:149:void run() -> run
+    147:147:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
+    150:151:void run() -> run
 com.supers.clean.junk.activity.PictureActivity$3 -> com.supers.clean.junk.activity.PictureActivity$5:
     java.util.ArrayList val$list -> a
     com.supers.clean.junk.activity.PictureActivity this$0 -> b
-    176:176:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList) -> <init>
-    179:187:void onClick(android.view.View) -> onClick
+    178:178:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList) -> <init>
+    181:189:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.PictureActivity$4 -> com.supers.clean.junk.activity.PictureActivity$6:
     java.util.ArrayList val$list -> a
     com.supers.clean.junk.activity.PictureActivity this$0 -> b
-    190:190:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList) -> <init>
-    193:206:void onClick(android.view.View) -> onClick
+    192:192:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList) -> <init>
+    195:208:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.PictureActivity$5 -> com.supers.clean.junk.activity.PictureActivity$7:
     java.util.ArrayList val$list -> a
     int val$finalI -> b
     android.widget.ImageView val$icon -> c
     com.supers.clean.junk.activity.PictureActivity this$0 -> d
-    213:213:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList,int,android.widget.ImageView) -> <init>
-    216:223:void run() -> run
+    215:215:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList,int,android.widget.ImageView) -> <init>
+    218:226:void run() -> run
 com.supers.clean.junk.activity.PictureActivity$5$1 -> com.supers.clean.junk.activity.PictureActivity$7$1:
     android.graphics.Bitmap val$bitma -> a
     com.supers.clean.junk.activity.PictureActivity$5 this$1 -> b
-    217:217:void <init>(com.supers.clean.junk.activity.PictureActivity$5,android.graphics.Bitmap) -> <init>
-    220:221:void run() -> run
+    220:220:void <init>(com.supers.clean.junk.activity.PictureActivity$5,android.graphics.Bitmap) -> <init>
+    223:224:void run() -> run
 com.supers.clean.junk.activity.PictureActivity$6 -> com.supers.clean.junk.activity.PictureActivity$8:
     com.supers.clean.junk.activity.PictureActivity this$0 -> a
-    229:229:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
-    232:232:int getCount() -> getCount
-    237:238:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    243:246:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    250:250:int getItemPosition(java.lang.Object) -> getItemPosition
-    255:255:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    232:232:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
+    235:235:int getCount() -> getCount
+    240:241:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    246:249:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    253:253:int getItemPosition(java.lang.Object) -> getItemPosition
+    258:258:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.supers.clean.junk.activity.PictureActivity$7 -> com.supers.clean.junk.activity.PictureActivity$9:
     java.util.ArrayList val$list -> a
     com.supers.clean.junk.activity.PictureActivity this$0 -> b
-    258:258:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList) -> <init>
-    261:261:void onPageScrolled(int,float,int) -> onPageScrolled
-    265:275:void onPageSelected(int) -> onPageSelected
-    279:279:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    261:261:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList) -> <init>
+    264:264:void onPageScrolled(int,float,int) -> onPageScrolled
+    268:278:void onPageSelected(int) -> onPageSelected
+    282:282:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.supers.clean.junk.activity.PictureActivity$8 -> com.supers.clean.junk.activity.PictureActivity$10:
     com.supers.clean.junk.activity.PictureActivity this$0 -> a
-    285:285:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
-    288:289:void startQuery() -> a
-    293:308:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
-    312:318:void startAsyncPic(int,java.util.ArrayList) -> a
-    323:323:void endAsyncPic(int,java.util.ArrayList) -> b
-    327:354:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
+    288:288:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
+    291:292:void startQuery() -> a
+    296:311:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
+    315:321:void startAsyncPic(int,java.util.ArrayList) -> a
+    326:326:void endAsyncPic(int,java.util.ArrayList) -> b
+    330:357:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
 com.supers.clean.junk.activity.PictureActivity$8$1 -> com.supers.clean.junk.activity.PictureActivity$10$1:
     java.util.ArrayList val$totalSimilarImage -> a
     com.supers.clean.junk.activity.PictureActivity$8 this$1 -> b
-    327:327:void <init>(com.supers.clean.junk.activity.PictureActivity$8,java.util.ArrayList) -> <init>
-    330:352:void run() -> run
+    330:330:void <init>(com.supers.clean.junk.activity.PictureActivity$8,java.util.ArrayList) -> <init>
+    333:355:void run() -> run
 com.supers.clean.junk.activity.PictureActivity$9 -> com.supers.clean.junk.activity.PictureActivity$11:
     com.supers.clean.junk.activity.PictureActivity this$0 -> a
-    360:360:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
-    363:393:void onClick(android.view.View) -> onClick
+    363:363:void <init>(com.supers.clean.junk.activity.PictureActivity) -> <init>
+    366:396:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.PictureHuiActivity -> com.supers.clean.junk.activity.PictureHuiActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -48683,75 +48691,75 @@ com.supers.clean.junk.activity.PowerActivity -> com.supers.clean.junk.activity.P
     com.supers.clean.junk.customeview.PowerWidgetContainer container -> v
     int count -> w
     java.lang.Runnable runnable -> l
-    38:140:void <init>() -> <init>
-    59:65:void findId() -> a
-    69:124:void onCreate(android.os.Bundle) -> onCreate
-    127:138:void setContainer() -> c
-    168:201:void animatorView(android.view.View,int) -> a
-    204:209:void showPackageDetail(java.lang.String) -> b
-    212:219:void initData() -> d
-    280:283:void onDestroy() -> onDestroy
-    287:291:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    38:38:android.view.View access$002(com.supers.clean.junk.activity.PowerActivity,android.view.View) -> a
-    38:38:com.supers.clean.junk.customeview.PowerWidgetContainer access$102(com.supers.clean.junk.activity.PowerActivity,com.supers.clean.junk.customeview.PowerWidgetContainer) -> a
-    38:38:android.view.View access$000(com.supers.clean.junk.activity.PowerActivity) -> a
-    38:38:com.supers.clean.junk.customeview.PowerWidgetContainer access$100(com.supers.clean.junk.activity.PowerActivity) -> b
-    38:38:void access$200(com.supers.clean.junk.activity.PowerActivity) -> c
-    38:38:java.util.ArrayList access$300(com.supers.clean.junk.activity.PowerActivity) -> d
-    38:38:int access$408(com.supers.clean.junk.activity.PowerActivity) -> e
-    38:38:void access$500(com.supers.clean.junk.activity.PowerActivity,java.lang.String) -> a
-    38:38:android.support.v7.widget.RecyclerView access$600(com.supers.clean.junk.activity.PowerActivity) -> f
-    38:38:void access$700(com.supers.clean.junk.activity.PowerActivity,android.view.View,int) -> a
-    38:38:com.supers.clean.junk.activity.PowerActivity$HomeAdapter access$800(com.supers.clean.junk.activity.PowerActivity) -> g
-    38:38:int access$400(com.supers.clean.junk.activity.PowerActivity) -> h
-    38:38:com.supers.clean.junk.activity.MyApplication access$900(com.supers.clean.junk.activity.PowerActivity) -> i
-    38:38:android.widget.TextView access$1000(com.supers.clean.junk.activity.PowerActivity) -> j
-    38:38:com.supers.clean.junk.activity.PowerActivity$HomeAdapter access$1100(com.supers.clean.junk.activity.PowerActivity) -> k
+    39:144:void <init>() -> <init>
+    60:66:void findId() -> a
+    70:128:void onCreate(android.os.Bundle) -> onCreate
+    131:142:void setContainer() -> c
+    172:205:void animatorView(android.view.View,int) -> a
+    208:213:void showPackageDetail(java.lang.String) -> b
+    216:223:void initData() -> d
+    284:287:void onDestroy() -> onDestroy
+    291:295:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    39:39:android.view.View access$002(com.supers.clean.junk.activity.PowerActivity,android.view.View) -> a
+    39:39:com.supers.clean.junk.customeview.PowerWidgetContainer access$102(com.supers.clean.junk.activity.PowerActivity,com.supers.clean.junk.customeview.PowerWidgetContainer) -> a
+    39:39:android.view.View access$000(com.supers.clean.junk.activity.PowerActivity) -> a
+    39:39:com.supers.clean.junk.customeview.PowerWidgetContainer access$100(com.supers.clean.junk.activity.PowerActivity) -> b
+    39:39:void access$200(com.supers.clean.junk.activity.PowerActivity) -> c
+    39:39:java.util.ArrayList access$300(com.supers.clean.junk.activity.PowerActivity) -> d
+    39:39:int access$408(com.supers.clean.junk.activity.PowerActivity) -> e
+    39:39:void access$500(com.supers.clean.junk.activity.PowerActivity,java.lang.String) -> a
+    39:39:android.support.v7.widget.RecyclerView access$600(com.supers.clean.junk.activity.PowerActivity) -> f
+    39:39:void access$700(com.supers.clean.junk.activity.PowerActivity,android.view.View,int) -> a
+    39:39:com.supers.clean.junk.activity.PowerActivity$HomeAdapter access$800(com.supers.clean.junk.activity.PowerActivity) -> g
+    39:39:int access$400(com.supers.clean.junk.activity.PowerActivity) -> h
+    39:39:com.supers.clean.junk.activity.MyApplication access$900(com.supers.clean.junk.activity.PowerActivity) -> i
+    39:39:android.widget.TextView access$1000(com.supers.clean.junk.activity.PowerActivity) -> j
+    39:39:com.supers.clean.junk.activity.PowerActivity$HomeAdapter access$1100(com.supers.clean.junk.activity.PowerActivity) -> k
 com.supers.clean.junk.activity.PowerActivity$1 -> com.supers.clean.junk.activity.PowerActivity$1:
     com.supers.clean.junk.activity.PowerActivity this$0 -> a
-    81:81:void <init>(com.supers.clean.junk.activity.PowerActivity) -> <init>
-    84:116:void onClick(android.view.View) -> onClick
+    82:82:void <init>(com.supers.clean.junk.activity.PowerActivity) -> <init>
+    85:117:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.PowerActivity$1$1 -> com.supers.clean.junk.activity.PowerActivity$1$1:
     com.supers.clean.junk.activity.PowerActivity$1 this$1 -> a
-    94:94:void <init>(com.supers.clean.junk.activity.PowerActivity$1) -> <init>
-    97:99:void run() -> run
+    95:95:void <init>(com.supers.clean.junk.activity.PowerActivity$1) -> <init>
+    98:100:void run() -> run
 com.supers.clean.junk.activity.PowerActivity$2 -> com.supers.clean.junk.activity.PowerActivity$2:
     com.supers.clean.junk.activity.PowerActivity this$0 -> a
-    118:118:void <init>(com.supers.clean.junk.activity.PowerActivity) -> <init>
-    121:122:void onClick(android.view.View) -> onClick
+    119:119:void <init>(com.supers.clean.junk.activity.PowerActivity) -> <init>
+    122:123:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.PowerActivity$3 -> com.supers.clean.junk.activity.PowerActivity$3:
     com.supers.clean.junk.activity.PowerActivity this$0 -> a
-    140:140:void <init>(com.supers.clean.junk.activity.PowerActivity) -> <init>
-    143:164:void run() -> run
+    144:144:void <init>(com.supers.clean.junk.activity.PowerActivity) -> <init>
+    147:168:void run() -> run
 com.supers.clean.junk.activity.PowerActivity$4 -> com.supers.clean.junk.activity.PowerActivity$4:
     int val$i -> a
     com.supers.clean.junk.activity.PowerActivity this$0 -> b
-    174:174:void <init>(com.supers.clean.junk.activity.PowerActivity,int) -> <init>
-    178:178:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    182:188:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    193:193:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    197:197:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    178:178:void <init>(com.supers.clean.junk.activity.PowerActivity,int) -> <init>
+    182:182:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    186:192:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    197:197:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    201:201:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.supers.clean.junk.activity.PowerActivity$HomeAdapter -> com.supers.clean.junk.activity.PowerActivity$a:
     boolean isWidget -> a
     com.supers.clean.junk.activity.PowerActivity this$0 -> b
-    224:226:void <init>(com.supers.clean.junk.activity.PowerActivity,boolean) -> <init>
-    230:233:com.supers.clean.junk.activity.PowerActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    238:251:void onBindViewHolder(com.supers.clean.junk.activity.PowerActivity$HomeAdapter$MyViewHolder,int) -> a
-    255:257:void reChangesData(int) -> a
-    261:261:int getItemCount() -> getItemCount
-    221:221:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    221:221:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    228:230:void <init>(com.supers.clean.junk.activity.PowerActivity,boolean) -> <init>
+    234:237:com.supers.clean.junk.activity.PowerActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    242:255:void onBindViewHolder(com.supers.clean.junk.activity.PowerActivity$HomeAdapter$MyViewHolder,int) -> a
+    259:261:void reChangesData(int) -> a
+    265:265:int getItemCount() -> getItemCount
+    225:225:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    225:225:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.supers.clean.junk.activity.PowerActivity$HomeAdapter$1 -> com.supers.clean.junk.activity.PowerActivity$a$1:
     int val$position -> a
     com.supers.clean.junk.activity.PowerActivity$HomeAdapter this$1 -> b
-    244:244:void <init>(com.supers.clean.junk.activity.PowerActivity$HomeAdapter,int) -> <init>
-    247:249:void onClick(android.view.View) -> onClick
+    248:248:void <init>(com.supers.clean.junk.activity.PowerActivity$HomeAdapter,int) -> <init>
+    251:253:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.PowerActivity$HomeAdapter$MyViewHolder -> com.supers.clean.junk.activity.PowerActivity$a$a:
     android.widget.FrameLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     com.supers.clean.junk.activity.PowerActivity$HomeAdapter this$1 -> d
-    269:274:void <init>(com.supers.clean.junk.activity.PowerActivity$HomeAdapter,android.view.View) -> <init>
+    273:278:void <init>(com.supers.clean.junk.activity.PowerActivity$HomeAdapter,android.view.View) -> <init>
 com.supers.clean.junk.activity.RamAvtivity -> com.supers.clean.junk.activity.RamAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -49385,73 +49393,73 @@ com.supers.clean.junk.adapter.RecycleViewAdapter -> com.supers.clean.junk.a.j:
     com.supers.clean.junk.adapter.RecycleViewAdapter$RecycleViewCallBack deleteCallBack -> f
     android.os.Handler handler -> g
     android.support.v4.util.LruCache lruCache -> b
-    43:151:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList,com.supers.clean.junk.similarimage.ImageHelper,android.os.Handler) -> <init>
-    56:57:void upData(java.util.ArrayList) -> a
-    60:68:java.util.ArrayList checkDate() -> a
-    72:96:void delete(com.supers.clean.junk.adapter.RecycleViewAdapter$RecycleViewCallBack) -> a
-    99:107:void deleteItem() -> b
-    111:114:com.supers.clean.junk.adapter.RecycleViewAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    119:121:void onBindViewHolder(com.supers.clean.junk.adapter.RecycleViewAdapter$MyViewHolder,int) -> a
-    124:129:void addItemView(com.supers.clean.junk.adapter.RecycleViewAdapter$MyViewHolder,java.util.ArrayList) -> a
-    137:137:int getItemCount() -> getItemCount
-    28:28:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    28:28:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
-    28:28:com.supers.clean.junk.activity.PictureActivity access$000(com.supers.clean.junk.adapter.RecycleViewAdapter) -> a
-    28:28:com.supers.clean.junk.adapter.RecycleViewAdapter$RecycleViewCallBack access$100(com.supers.clean.junk.adapter.RecycleViewAdapter) -> b
-    28:28:com.supers.clean.junk.similarimage.ImageHelper access$200(com.supers.clean.junk.adapter.RecycleViewAdapter) -> c
-    28:28:android.os.Handler access$300(com.supers.clean.junk.adapter.RecycleViewAdapter) -> d
+    42:150:void <init>(com.supers.clean.junk.activity.PictureActivity,java.util.ArrayList,com.supers.clean.junk.similarimage.ImageHelper,android.os.Handler) -> <init>
+    55:56:void upData(java.util.ArrayList) -> a
+    59:67:java.util.ArrayList checkDate() -> a
+    71:95:void delete(com.supers.clean.junk.adapter.RecycleViewAdapter$RecycleViewCallBack) -> a
+    98:106:void deleteItem() -> b
+    110:113:com.supers.clean.junk.adapter.RecycleViewAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    118:120:void onBindViewHolder(com.supers.clean.junk.adapter.RecycleViewAdapter$MyViewHolder,int) -> a
+    123:128:void addItemView(com.supers.clean.junk.adapter.RecycleViewAdapter$MyViewHolder,java.util.ArrayList) -> a
+    136:136:int getItemCount() -> getItemCount
+    27:27:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    27:27:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    27:27:com.supers.clean.junk.activity.PictureActivity access$000(com.supers.clean.junk.adapter.RecycleViewAdapter) -> a
+    27:27:com.supers.clean.junk.adapter.RecycleViewAdapter$RecycleViewCallBack access$100(com.supers.clean.junk.adapter.RecycleViewAdapter) -> b
+    27:27:com.supers.clean.junk.similarimage.ImageHelper access$200(com.supers.clean.junk.adapter.RecycleViewAdapter) -> c
+    27:27:android.os.Handler access$300(com.supers.clean.junk.adapter.RecycleViewAdapter) -> d
 com.supers.clean.junk.adapter.RecycleViewAdapter$1 -> com.supers.clean.junk.a.j$1:
     com.supers.clean.junk.adapter.RecycleViewAdapter this$0 -> a
-    73:73:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter) -> <init>
-    76:94:void run() -> run
+    72:72:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter) -> <init>
+    75:93:void run() -> run
 com.supers.clean.junk.adapter.RecycleViewAdapter$2 -> com.supers.clean.junk.a.j$2:
     com.supers.clean.junk.adapter.RecycleViewAdapter this$0 -> a
-    151:151:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter,int) -> <init>
-    155:155:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
-    151:151:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+    150:150:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter,int) -> <init>
+    154:154:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    150:150:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter -> com.supers.clean.junk.a.j$a:
     java.util.ArrayList list -> a
     int bastPosition -> b
     com.supers.clean.junk.adapter.RecycleViewAdapter this$0 -> c
-    164:167:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter,java.util.ArrayList) -> <init>
-    171:174:com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    179:243:void onBindViewHolder(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder,int) -> a
-    247:247:int getItemCount() -> getItemCount
-    268:275:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
-    283:283:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
-    159:159:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    159:159:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    163:166:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter,java.util.ArrayList) -> <init>
+    170:173:com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    178:242:void onBindViewHolder(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder,int) -> a
+    246:246:int getItemCount() -> getItemCount
+    267:274:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
+    282:282:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
+    158:158:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    158:158:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1 -> com.supers.clean.junk.a.j$a$1:
     com.supers.clean.junk.similarimage.ImageInfo val$info -> a
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder val$holder -> b
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter this$1 -> c
-    197:197:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
-    200:211:void run() -> run
+    196:196:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
+    199:210:void run() -> run
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1$1 -> com.supers.clean.junk.a.j$a$1$1:
     android.graphics.Bitmap val$bitmap -> a
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1 this$2 -> b
-    203:203:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1,android.graphics.Bitmap) -> <init>
-    206:208:void run() -> run
+    202:202:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1,android.graphics.Bitmap) -> <init>
+    205:207:void run() -> run
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$2 -> com.supers.clean.junk.a.j$a$2:
     com.supers.clean.junk.similarimage.ImageInfo val$info -> a
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder val$holder -> b
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter this$1 -> c
-    217:217:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
-    220:231:void onClick(android.view.View) -> onClick
+    216:216:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
+    219:230:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$3 -> com.supers.clean.junk.a.j$a$3:
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter this$1 -> a
-    234:234:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter) -> <init>
-    237:241:void onClick(android.view.View) -> onClick
+    233:233:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter) -> <init>
+    236:240:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder -> com.supers.clean.junk.a.j$a$a:
     android.widget.ImageView picture_icon -> a
     android.widget.ImageView picture_check -> b
     android.widget.ImageView picture_best -> c
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter this$1 -> d
-    255:260:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,android.view.View) -> <init>
+    254:259:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,android.view.View) -> <init>
 com.supers.clean.junk.adapter.RecycleViewAdapter$MyViewHolder -> com.supers.clean.junk.a.j$b:
     android.support.v7.widget.RecyclerView recyclerView -> a
     com.supers.clean.junk.adapter.RecycleViewAdapter this$0 -> b
-    144:147:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter,android.view.View) -> <init>
+    143:146:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter,android.view.View) -> <init>
 com.supers.clean.junk.adapter.RecycleViewAdapter$RecycleViewCallBack -> com.supers.clean.junk.a.j$c:
     void deleteItemCallback(long) -> a
     void deleteSuccessCallback(java.util.ArrayList) -> a
@@ -50107,21 +50115,21 @@ com.supers.clean.junk.db.MediaScanner$PhotoSannerClient -> com.supers.clean.junk
 com.supers.clean.junk.db.RecyclerDbHelper -> com.supers.clean.junk.b.b:
     com.supers.clean.junk.db.RecyclerDbHelper recyclerDBHelper -> a
     android.content.Context mContext -> b
-    43:45:void <init>(android.content.Context) -> <init>
-    48:51:com.supers.clean.junk.db.RecyclerDbHelper getInstance(android.content.Context) -> a
-    56:56:void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
-    61:64:void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
-    68:71:void onDowngrade(android.database.sqlite.SQLiteDatabase,int,int) -> onDowngrade
-    74:79:void createRecyclerTable() -> b
-    86:92:int deleteItem(com.supers.clean.junk.similarimage.ImageInfo) -> d
-    96:111:long addItem(java.lang.String,java.lang.String) -> a
-    115:117:java.lang.String getRecyclerTime() -> c
-    121:121:java.lang.String getRecyclerDirectory(java.lang.String) -> a
-    125:162:java.util.ArrayList getRecyclerImageList() -> a
-    166:182:void deleteOverDateRecyclerFile() -> d
-    185:220:boolean putImageToRecycler(com.supers.clean.junk.similarimage.ImageInfo) -> a
-    224:244:boolean restoreImageFromRecycler(com.supers.clean.junk.similarimage.ImageInfo) -> b
-    248:259:boolean deleteImageFromRecyler(com.supers.clean.junk.similarimage.ImageInfo) -> c
+    45:47:void <init>(android.content.Context) -> <init>
+    50:53:com.supers.clean.junk.db.RecyclerDbHelper getInstance(android.content.Context) -> a
+    58:58:void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    63:66:void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+    70:73:void onDowngrade(android.database.sqlite.SQLiteDatabase,int,int) -> onDowngrade
+    76:81:void createRecyclerTable() -> b
+    88:94:int deleteItem(com.supers.clean.junk.similarimage.ImageInfo) -> d
+    98:113:long addItem(java.lang.String,java.lang.String) -> a
+    117:119:java.lang.String getRecyclerTime() -> c
+    123:123:java.lang.String getRecyclerDirectory(java.lang.String) -> a
+    128:161:java.util.ArrayList getRecyclerImageList() -> a
+    165:181:void deleteOverDateRecyclerFile() -> d
+    184:220:boolean putImageToRecycler(com.supers.clean.junk.similarimage.ImageInfo) -> a
+    224:243:boolean restoreImageFromRecycler(com.supers.clean.junk.similarimage.ImageInfo) -> b
+    247:258:boolean deleteImageFromRecyler(com.supers.clean.junk.similarimage.ImageInfo) -> c
 com.supers.clean.junk.entity.JsonData -> com.supers.clean.junk.entity.JsonData:
     int full_main -> full_main
     int full_manager -> full_manager
@@ -50247,11 +50255,11 @@ com.supers.clean.junk.filemanager.FileSortHelper$SortMethod -> com.supers.clean.
 com.supers.clean.junk.filemanager.FileUtils -> com.supers.clean.junk.filemanager.a:
     java.lang.String[][] MIME_MapTable -> a
     84:136:java.lang.String copyFileToRecycler(java.lang.String,java.lang.String,java.lang.String) -> a
-    140:165:boolean deleteFile(java.lang.String) -> a
-    170:172:void deleteCo(android.app.Activity,com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory,long) -> a
-    175:192:void openFile(android.content.Context,java.lang.String) -> a
-    201:216:java.lang.String getMIMEType(java.io.File) -> a
-    219:219:void <clinit>() -> <clinit>
+    140:170:boolean deleteFile(java.lang.String) -> a
+    175:177:void deleteCo(android.app.Activity,com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory,long) -> a
+    180:197:void openFile(android.content.Context,java.lang.String) -> a
+    206:221:java.lang.String getMIMEType(java.io.File) -> a
+    224:224:void <clinit>() -> <clinit>
 com.supers.clean.junk.filemanager.Util -> com.supers.clean.junk.filemanager.b:
     java.lang.String ANDROID_SECURE -> h
     java.lang.String[] SysFileDirs -> i
@@ -50362,20 +50370,18 @@ com.supers.clean.junk.gboost.Sampler -> com.supers.clean.junk.gboost.a:
     java.util.concurrent.ScheduledExecutorService scheduler -> c
     android.app.ActivityManager activityManager -> d
     long freq -> e
-    java.lang.Long lastCpuTime -> f
-    java.lang.Long lastAppCpuTime -> g
-    java.io.RandomAccessFile procStatFile -> h
-    java.io.RandomAccessFile appStatFile -> i
+    long total -> f
+    long idle -> g
+    double usage -> h
     com.supers.clean.junk.gboost.Sampler$OnCpuUpdateListener onCpuUpdateListener -> a
-    31:33:void <init>() -> <init>
-    36:43:com.supers.clean.junk.gboost.Sampler getInstance() -> a
-    48:50:void init(android.content.Context,long) -> a
-    53:54:void start() -> b
-    59:60:void setOnCpuUpdateListener(com.supers.clean.junk.gboost.Sampler$OnCpuUpdateListener) -> a
-    68:74:void run() -> run
-    79:108:double sampleCPU() -> c
-    112:127:double sampleMemory() -> d
-    22:22:void <clinit>() -> <clinit>
+    34:40:void <init>() -> <init>
+    43:50:com.supers.clean.junk.gboost.Sampler getInstance() -> a
+    55:57:void init(android.content.Context,long) -> a
+    60:61:void start() -> b
+    66:67:void setOnCpuUpdateListener(com.supers.clean.junk.gboost.Sampler$OnCpuUpdateListener) -> a
+    75:81:void run() -> run
+    85:100:void getCup() -> c
+    26:26:void <clinit>() -> <clinit>
 com.supers.clean.junk.gboost.Sampler$OnCpuUpdateListener -> com.supers.clean.junk.gboost.a$a:
     void cupUpdate(double) -> a
 com.supers.clean.junk.presenter.BasePresenter -> com.supers.clean.junk.presenter.BasePresenter:
@@ -50672,22 +50678,22 @@ com.supers.clean.junk.service.NotificationService$NotifiReceiver -> com.supers.c
     500:500:void <init>(com.supers.clean.junk.service.NotificationService) -> <init>
     503:525:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.supers.clean.junk.similarimage.ImageHelper -> com.supers.clean.junk.c.a:
-    35:35:void <init>() -> <init>
-    58:58:android.graphics.Bitmap createThumbnail(android.graphics.Bitmap,int,int) -> a
-    109:115:void recyclebitmap(android.graphics.Bitmap) -> a
-    125:131:int rgbToGray(int) -> a
-    141:146:int average(int[]) -> a
-    156:209:char binaryToHex(int) -> b
-    220:232:int hammingDistance(java.lang.String,java.lang.String) -> a
-    284:290:android.graphics.Bitmap pathWithScaledBitmap(android.content.Context,java.lang.String) -> a
-    294:303:android.graphics.Bitmap pathWithScaledBitmap(android.content.Context,java.lang.String,int,int) -> a
-    310:338:android.graphics.Bitmap loadBitmapFromFile(java.lang.String,int,int) -> a
-    343:364:android.graphics.Bitmap getImageThumbnail(android.content.Context,java.lang.String) -> b
-    380:447:java.util.ArrayList querySimilarImage(android.content.Context,com.supers.clean.junk.similarimage.ImageHelper$OnQuerySimilarPicCallBack) -> a
-    461:489:java.util.ArrayList queryCameraPhoto(android.content.Context) -> a
-    522:545:boolean isSimilarImage(android.content.Context,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.similarimage.ImageInfo) -> a
-    551:604:void setImageHashCode(android.content.Context,com.supers.clean.junk.similarimage.ImageInfo) -> a
-    611:624:int getBestImageIndex(java.util.ArrayList) -> a
+    32:32:void <init>() -> <init>
+    55:55:android.graphics.Bitmap createThumbnail(android.graphics.Bitmap,int,int) -> a
+    60:66:void recyclebitmap(android.graphics.Bitmap) -> a
+    76:82:int rgbToGray(int) -> a
+    92:97:int average(int[]) -> a
+    107:160:char binaryToHex(int) -> b
+    171:183:int hammingDistance(java.lang.String,java.lang.String) -> a
+    235:241:android.graphics.Bitmap pathWithScaledBitmap(android.content.Context,java.lang.String) -> a
+    245:254:android.graphics.Bitmap pathWithScaledBitmap(android.content.Context,java.lang.String,int,int) -> a
+    261:289:android.graphics.Bitmap loadBitmapFromFile(java.lang.String,int,int) -> a
+    321:326:android.graphics.Bitmap getImageThumbnail(android.content.Context,long,int) -> a
+    342:409:java.util.ArrayList querySimilarImage(android.content.Context,com.supers.clean.junk.similarimage.ImageHelper$OnQuerySimilarPicCallBack) -> a
+    423:453:java.util.ArrayList queryCameraPhoto(android.content.Context) -> a
+    486:509:boolean isSimilarImage(android.content.Context,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.similarimage.ImageInfo) -> a
+    514:567:void setImageHashCode(android.content.Context,com.supers.clean.junk.similarimage.ImageInfo) -> a
+    574:587:int getBestImageIndex(java.util.ArrayList) -> a
 com.supers.clean.junk.similarimage.ImageHelper$OnQuerySimilarPicCallBack -> com.supers.clean.junk.c.a$a:
     void startQuery() -> a
     void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
@@ -50704,17 +50710,18 @@ com.supers.clean.junk.similarimage.ImageInfo -> com.supers.clean.junk.c.b:
     boolean isNormal -> g
     int avgPixel -> h
     long fileSize -> i
-    long rowId -> j
-    java.lang.String restoreFilePath -> k
-    java.lang.String backFilePath -> l
-    38:39:void <init>() -> <init>
-    41:45:void <init>(long,java.lang.String,java.lang.String) -> <init>
-    47:59:void <init>(java.lang.String,java.lang.String,long) -> <init>
-    63:63:java.lang.String toString() -> toString
+    long originId -> j
+    long rowId -> k
+    java.lang.String restoreFilePath -> l
+    java.lang.String backFilePath -> m
+    40:41:void <init>() -> <init>
+    43:47:void <init>(long,java.lang.String,java.lang.String) -> <init>
+    49:62:void <init>(java.lang.String,long,java.lang.String,long) -> <init>
+    66:66:java.lang.String toString() -> toString
 com.supers.clean.junk.similarimage.ImageInfo$ImageComparator -> com.supers.clean.junk.c.b$a:
-    103:103:void <init>() -> <init>
-    106:106:int compare(com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.similarimage.ImageInfo) -> a
-    103:103:int compare(java.lang.Object,java.lang.Object) -> compare
+    106:106:void <init>() -> <init>
+    109:109:int compare(com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.similarimage.ImageInfo) -> a
+    106:106:int compare(java.lang.Object,java.lang.Object) -> compare
 com.supers.clean.junk.task.ApkFileAndAppJunkTask -> com.supers.clean.junk.d.a:
     java.lang.String path -> a
     android.content.Context mContext -> b
