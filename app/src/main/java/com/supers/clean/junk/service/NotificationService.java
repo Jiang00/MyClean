@@ -38,6 +38,7 @@ import com.supers.clean.junk.activity.MainActivity;
 import com.supers.clean.junk.activity.MyApplication;
 import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
+import com.supers.clean.junk.activity.SuccessActivity;
 import com.supers.clean.junk.activity.TranslateActivity;
 import com.supers.clean.junk.entity.NotifiInfo;
 import com.supers.clean.junk.util.CommonUtil;
@@ -55,14 +56,14 @@ public class NotificationService extends Service {
     Handler myHandler;
     private PhoneManager phoneManager;
     private NotificationManager mNotifyManager;
-    private Notification notification_ram, notification_cooling, notification_junk, notification_two_day;
+    private Notification notification_ram, notification_cooling, notification_junk, notification_two_day, notification_gboost;
     private RemoteViews remoteView_1, remoteViewNotifi;
     private Notification notification_1;
     private Notification notification_notifi;
     private NotifiReceiver receiver;
 
     private MyApplication cleanApplication;
-    private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam, notifyIntentNotifi;
+    private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
 
     private Bitmap bitmap_progress;
     private Paint paint_1;
@@ -135,6 +136,10 @@ public class NotificationService extends Service {
         notifyIntentNotifi.putExtra("from", "notifi");
         notifyIntentNotifi.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notifyIntentGBoost = new Intent(this, SuccessActivity.class);
+        notifyIntentGBoost.putExtra("from", "gboost");
+        notifyIntentGBoost.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
     }
 
 
@@ -142,6 +147,10 @@ public class NotificationService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null && intent.getAction().equals("notification")) {
             onstart();
+        }
+        if (intent != null && intent.getAction().equals("gboost")) {
+            tonghzi_gboost();
+            mNotifyManager.notify(101, notification_gboost);
         }
         return super.onStartCommand(intent, flags, startId);
     }
@@ -460,6 +469,26 @@ public class NotificationService extends Service {
         notification_two_day = mBuilder.build();
         notification_two_day.defaults = Notification.DEFAULT_SOUND;
         notification_two_day.flags = Notification.FLAG_AUTO_CANCEL;
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void tonghzi_gboost() {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        RemoteViews remoteView = new RemoteViews(getPackageName(),
+                R.layout.layout_tongzhi_gboost);
+        int requestCode = (int) SystemClock.uptimeMillis();
+        PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
+                notifyIntentGBoost, PendingIntent.FLAG_CANCEL_CURRENT);
+        notifyIntentGBoost.putExtra("from", "gboost");
+        mBuilder.setContent(remoteView);
+        mBuilder.setContentIntent(pendIntent);
+        mBuilder.setAutoCancel(true);
+        mBuilder.setOngoing(false);
+        mBuilder.setWhen(System.currentTimeMillis());
+        mBuilder.setSmallIcon(R.mipmap.notification_title);
+        notification_gboost = mBuilder.build();
+        notification_gboost.defaults = Notification.DEFAULT_SOUND;
+        notification_gboost.flags = Notification.FLAG_AUTO_CANCEL;
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)

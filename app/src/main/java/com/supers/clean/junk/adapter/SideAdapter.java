@@ -30,6 +30,7 @@ import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.NotifiInfoActivity;
 import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.activity.PowerActivity;
+import com.supers.clean.junk.activity.PrivacyActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SettingActivity;
 import com.supers.clean.junk.entity.JunkInfo;
@@ -49,6 +50,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
     private static final int MANAGER = idx++;
     private static final int FILE = idx++;
     private static final int POWER = idx++;
+    private static final int PRIVARY = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
     private static final int GBOOST = idx++;
@@ -197,6 +199,10 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
             CommonUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, PowerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
+        } else if (position == PRIVARY) {
+            CommonUtil.track("侧边栏", "点击进入隐私清理页面", "", 1);
+            Intent intent = new Intent(context, PrivacyActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == NOTIFI) {
             CommonUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             if (!CommonUtil.isNotificationListenEnabled(context)) {

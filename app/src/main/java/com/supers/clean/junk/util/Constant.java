@@ -10,6 +10,12 @@ public class Constant {
 
     public static final String NOTIFI_WHILT_LIST = "NOTIFI_WHILT_LIST";//通知栏清理白名单
 
+    public static final String GBOOST_LUN = "GBOOST_LUN";//第一次開啟游戏加速
+
+    public static final String GBOOST_SI = "GBOOST_SI";//游戏加速快捷方式
+
+    public static final String GBOOST_LIST = "GBOOST_LIST";//游戏加速
+
     public static final String FIRST_INSTALL = "FIRST_INSTALL";//首次安装
 
     public static final String IS_ACTION_BAR = "IS_ACTION_BAR";//是否含有导航栏

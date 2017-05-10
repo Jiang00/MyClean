@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -150,6 +151,7 @@ public class PagingScrollHelper {
 
             return true;
         }
+
     }
 
     public class MyOnScrollListener extends RecyclerView.OnScrollListener {
@@ -172,6 +174,7 @@ public class PagingScrollHelper {
                 } else {
                     int absX = Math.abs(offsetX - startX);
                     move = absX > recyclerView.getWidth() / 2;
+                    vX = 0;
                     if (move) {
                         vX = offsetX - startX < 0 ? -1000 : 1000;
                     }

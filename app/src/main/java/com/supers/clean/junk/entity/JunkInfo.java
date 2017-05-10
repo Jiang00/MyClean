@@ -32,9 +32,9 @@ public class JunkInfo implements Serializable {
         this.isChecked = isChecked;
     }
 
-    public JunkInfo(Drawable icon, String name, String packageName) {
+    public JunkInfo(Drawable icon, String label, String packageName) {
         this.icon = icon;
-        this.name = name;
+        this.label = label;
         this.packageName = packageName;
     }
 

@@ -9,11 +9,14 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Handler;
 import android.os.IBinder;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.presenter.GetTopApp;
 import com.supers.clean.junk.presenter.FloatStateManager;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +65,7 @@ public class FloatService extends Service {
             myHandler.postDelayed(runnable, 2000);
         }
     };
+    String runingGboost;
 
     private void updata() {
         if (count == 0) {
@@ -82,6 +86,17 @@ public class FloatService extends Service {
                     manager.addWindowsView();
                 } else {
                     manager.removeWindowsView();
+                }
+                if (!TextUtils.equals(pkg, runingGboost)) {
+                    runingGboost = pkg;
+                    if (PreData.getDB(FloatService.this, Constant.TONGZHILAN_SWITCH, true)) {
+                        ArrayList<String> gboost_names = PreData.getNameList(FloatService.this, Constant.GBOOST_LIST);
+                        if (gboost_names.contains(pkg)) {
+                            Intent intent = new Intent(FloatService.this, NotificationService.class);
+                            intent.setAction("gboost");
+                            startService(intent);
+                        }
+                    }
                 }
             }
         }).start();

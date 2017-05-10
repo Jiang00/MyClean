@@ -2,6 +2,7 @@ package com.supers.clean.junk.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PixelFormat;
@@ -16,11 +17,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.activity.MyApplication;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.ShortcutSuperUtils;
 
 import java.util.ArrayList;
 
@@ -60,7 +63,20 @@ public class AddGameAdapter extends MybaseAdapter<JunkInfo> {
         holder.rl_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                game_list.add(info);
+                boolean isContains = false;
+                for (JunkInfo gameInfo : game_list) {
+                    if (gameInfo.label.equals(info.label)) {
+                        isContains = true;
+                    }
+                }
+                if (!isContains) {
+                    PreData.addName(context, info.packageName, Constant.GBOOST_LIST);
+                    game_list.add(info);
+                    Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
+                    shortcutIntent.setClass(context, GBoostActivity.class);
+                    shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+                }
                 list.remove(info);
                 notifyDataSetChanged();
             }

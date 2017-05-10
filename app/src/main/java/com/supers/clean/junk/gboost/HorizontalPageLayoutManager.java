@@ -172,6 +172,12 @@ public class HorizontalPageLayoutManager extends RecyclerView.LayoutManager impl
 
     }
 
+    @Override
+    public boolean canScrollVertically() {
+        //isScrollEnabled：recyclerview是否支持滑动
+        //super.canScrollVertically()：是否为竖直方向滚动
+        return false && super.canScrollVertically();
+    }
 
     @Override
     public boolean isLastRow(int index) {

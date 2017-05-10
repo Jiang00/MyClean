@@ -77,7 +77,7 @@ public class FileActivity extends BaseActivity {
         mHandler = new Handler();
         initAd();
         initData();
-        setListener();
+
 
     }
 
@@ -120,6 +120,7 @@ public class FileActivity extends BaseActivity {
                         file_video_num.setText(getString(R.string.file_num, videoInfo.count));
                         file_qita_num.setText(getString(R.string.file_num, otherInfo.count));
                         file_piechart.setProgress(mHandler, apkInfo.size, zipInfo.size, docInfo.size, musicInfo.size, videoInfo.size, otherInfo.size);
+                        setListener();
                     }
                 });
             }

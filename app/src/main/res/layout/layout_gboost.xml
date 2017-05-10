@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f4f7fe"
@@ -32,7 +33,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/d43"
                 android:orientation="horizontal">
 
@@ -49,19 +50,50 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d8"
                     android:text="@string/gboost_1"
-                    android:textColor="#000000"
+                    android:textColor="#b341434a"
                     android:textSize="@dimen/s14" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/add_short"
+                        android:layout_width="@dimen/d37"
+                        android:layout_height="@dimen/d20"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="@dimen/d12"
+                        android:background="@drawable/shape_button"
+                        android:gravity="center"
+                        android:text="@string/gboost_12"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/d9" />
+                </FrameLayout>
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/gboost_recyc"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d280"
-                android:layout_marginBottom="@dimen/d6"
-                android:layout_marginLeft="@dimen/d15"
-                android:layout_marginRight="@dimen/d15"
-                android:overScrollMode="never"
-                android:scrollbars="none" />
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/gboost_recyc"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d280"
+                    android:layout_marginBottom="@dimen/d6"
+                    android:layout_marginLeft="@dimen/d15"
+                    android:layout_marginRight="@dimen/d15"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+
+                <com.supers.clean.junk.customeview.PageIndicatorView
+                    android:id="@+id/pageindicatorview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="@dimen/d6" />
+            </FrameLayout>
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -90,7 +122,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d8"
                     android:text="@string/gboost_2"
-                    android:textColor="#000000"
+                    android:textColor="#b341434a"
                     android:textSize="@dimen/s14" />
             </LinearLayout>
 
@@ -121,13 +153,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d10"
                         android:text="50%"
-                        android:textColor="#19e624"
+                        android:textColor="@color/gboost_1"
                         android:textSize="@dimen/s14" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="1px"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/d48"
+                    android:layout_gravity="center_vertical"
                     android:background="#f1f1f1" />
 
                 <LinearLayout
@@ -150,13 +183,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d10"
                         android:text="1.2G"
-                        android:textColor="#f84a4a"
+                        android:textColor="@color/gboost_1"
                         android:textSize="@dimen/s14" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="1px"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/d48"
+                    android:layout_gravity="center_vertical"
                     android:background="#f1f1f1" />
 
                 <LinearLayout
@@ -179,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d10"
                         android:text="100kb/s"
-                        android:textColor="#f9c100"
+                        android:textColor="@color/gboost_1"
                         android:textSize="@dimen/s14" />
                 </LinearLayout>
             </LinearLayout>
@@ -207,7 +241,7 @@
                     android:layout_toRightOf="@id/tv_s"
                     android:text="30%"
                     android:textColor="#801e88e5"
-                    android:textSize="@dimen/s14" />
+                    android:textSize="@dimen/s16" />
 
                 <ImageView
                     android:id="@+id/gboost_power_check"
@@ -241,7 +275,9 @@
         android:id="@+id/ll_add_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@color/white_100"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -253,32 +289,92 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d24" />
 
-            <RelativeLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <RelativeLayout
+                    android:id="@+id/normal_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/add_left"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerVertical="true"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@mipmap/tilte_left" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/gboost_7"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/add_right"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="center"
+                        android:src="@mipmap/white_add_right" />
+                </RelativeLayout>
+
                 <FrameLayout
-                    android:id="@+id/add_left"
-                    android:layout_width="56dp"
+                    android:id="@+id/goost_container"
+                    android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:layout_centerVertical="true"
-                    android:background="?attr/selectableItemBackground">
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/shape_radio" />
+
+                    <EditText
+                        android:id="@+id/search_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="30dp"
+                        android:background="@null"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/edit_hint"
+                        android:singleLine="true"
+                        android:textColor="#8a000000"
+                        android:textColorHint="#59000000" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@mipmap/tilte_left" />
-                </FrameLayout>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/edit_left_drawable" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/gboost_7"
-                    android:textColor="#ffffff"
-                    android:textSize="20sp" />
-            </RelativeLayout>
+                    <ImageButton
+                        android:id="@+id/clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_marginRight="5dp"
+                        android:background="@mipmap/eidt_cha"
+                        android:padding="5dp" />
+                </FrameLayout>
+            </FrameLayout>
+
         </LinearLayout>
 
         <ListView

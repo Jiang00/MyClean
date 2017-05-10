@@ -62,6 +62,7 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_power_button;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
+    LinearLayout main_gboost_button;
     LinearLayout main_picture_button;
     ImageView power_icon;
     TextView power_text;
@@ -109,6 +110,7 @@ public class SuccessActivity extends BaseActivity {
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
         main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
+        main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
         main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         power_text = (TextView) findViewById(R.id.power_text);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
@@ -144,12 +146,15 @@ public class SuccessActivity extends BaseActivity {
         long size = getIntent().getLongExtra("size", 0);
         int count = getIntent().getIntExtra("count", 0);
         int num = getIntent().getIntExtra("num", 0);
+        int wendu = getIntent().getIntExtra("wendu", 0);
         if (size > 0) {
             success_clean_size.setText(CommonUtil.getFileSize4(size) + " " + getText(R.string.success_cleaned));
         } else if (count > 0) {
             success_clean_size.setText(getString(R.string.power_1, String.valueOf(count)) + " ");
         } else if (num > 0) {
             success_clean_size.setText(getString(R.string.notifi_clean_success, num + ""));
+        } else if (wendu > 0) {
+            success_clean_size.setText(wendu + "℃" + getString(R.string.cooling_succ));
         } else {
             success_clean_size.setText(getText(R.string.success_normal));
         }
@@ -276,6 +281,7 @@ public class SuccessActivity extends BaseActivity {
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
+        main_gboost_button.setOnClickListener(onClickListener);
         main_picture_button.setOnClickListener(onClickListener);
 
     }
@@ -508,6 +514,10 @@ public class SuccessActivity extends BaseActivity {
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
+                    if (TextUtils.equals("power", getIntent().getStringExtra("from"))) {
+                        finish();
+                        return;
+                    }
                     CommonUtil.track("完成页面", "点击进入深度清理", "", 1);
                     jumpTo(PowerActivity.class);
                     onBackPressed();
@@ -519,6 +529,16 @@ public class SuccessActivity extends BaseActivity {
                     }
                     CommonUtil.track("完成页面", "点击进入文件管理", "", 1);
                     jumpTo(FileActivity.class);
+                    onBackPressed();
+                    break;
+                case R.id.main_gboost_button:
+                    if (TextUtils.equals("power", getIntent().getStringExtra("from"))) {
+                        setResult(1);
+                        finish();
+                        return;
+                    }
+                    CommonUtil.track("完成页面", "点击进入游戏加速", "", 1);
+                    jumpTo(GBoostActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_picture_button:

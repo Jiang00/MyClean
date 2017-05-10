@@ -298,6 +298,46 @@
                 android:background="#f1f1f1" />
 
             <RelativeLayout
+                android:id="@+id/setting_gboost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_gboost"
+                    android:layout_width="72dp"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/gboost_setting" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/rl_gboost"
+                    android:text="@string/gboost_0"
+                    android:textColor="@color/black_87"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="56dp"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="center"
+                    android:src="@mipmap/setting_rig" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f1f1f1" />
+
+            <RelativeLayout
                 android:id="@+id/setting_hui"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

@@ -473,6 +473,19 @@ public class CommonUtil {
         return firstInstallTime;
     }
 
+    //布局转bitmap
+    public static Bitmap getViewBitmap(View view) {
+        if (null == view) {
+            throw new IllegalArgumentException("parameter can't be null.");
+        }
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        view.layout(0, 0, CommonUtil.dp2px(60), CommonUtil.dp2px(60));
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();
+        return bitmap;
+    }
+
 
     //获取进程name
     public static String getProcessName(Context context) {
@@ -487,6 +500,30 @@ public class CommonUtil {
                     return proInfo.processName;
                 }
             }
+        }
+        return null;
+    }
+
+    //获取程序 图标
+    public static Drawable getAppIcon(String packname, PackageManager pm) {
+        try {
+            ApplicationInfo info = pm.getApplicationInfo(packname, 0);
+            return info.loadIcon(pm);
+        } catch (PackageManager.NameNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //获取程序 label
+    public static String getAppLabel(String packname, PackageManager pm) {
+        try {
+            ApplicationInfo info = pm.getApplicationInfo(packname, 0);
+            return info.loadLabel(pm).toString();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
         return null;
     }

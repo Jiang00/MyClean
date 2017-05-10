@@ -95,8 +95,16 @@ public class CoolingActivity extends BaseActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 cooling_xuehua.setVisibility(View.INVISIBLE);
-                cooling_text.startAnimation(fang);
-                cooling_text.setVisibility(View.VISIBLE);
+//                cooling_text.startAnimation(fang);
+//                cooling_text.setVisibility(View.VISIBLE);
+                if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+//                tuiGuang();
+                Bundle bundle = new Bundle();
+                bundle.putInt("wendu", time);
+                bundle.putString("from", "cooling");
+                jumpToActivity(SuccessActivity.class, bundle, 1);
 
             }
 
@@ -116,7 +124,11 @@ public class CoolingActivity extends BaseActivity {
                 if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
-                tuiGuang();
+//                tuiGuang();
+                Bundle bundle = new Bundle();
+                bundle.putInt("wendu", time);
+                bundle.putString("from", "cooling");
+                jumpToActivity(SuccessActivity.class, bundle, 1);
             }
 
             @Override
@@ -230,5 +242,12 @@ public class CoolingActivity extends BaseActivity {
             mHandler.removeCallbacks(runnable);
         }
         super.onDestroy();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == 1) {
+            onBackPressed();
+        }
     }
 }

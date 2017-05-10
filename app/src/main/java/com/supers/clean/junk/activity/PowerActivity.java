@@ -28,7 +28,10 @@ import com.eos.manager.AppLockPermissionActivity;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.PowerWidgetContainer;
 import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
 
@@ -86,7 +89,7 @@ public class PowerActivity extends BaseActivity {
                 if (!CommonUtil.isAccessibilitySettingsOn(PowerActivity.this)) {
                     try {
                         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                        startActivity(intent);
+                        startActivityForResult(intent, 100);
                     } catch (Exception e) {
                         e.printStackTrace();
                         CommonUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
@@ -123,6 +126,17 @@ public class PowerActivity extends BaseActivity {
             }
         });
         if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
+            title_name.setText(R.string.gboost_11);
+            if (startList.size() == 0) {
+                CommonUtil.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
+                if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
+                    Intent intent = new Intent(PowerActivity.this, NotificationService.class);
+                    intent.setAction("gboost");
+                    startService(intent);
+                }
+                finish();
+                return;
+            }
             junk_button_clean.callOnClick();
         }
     }
@@ -161,9 +175,20 @@ public class PowerActivity extends BaseActivity {
             junk_button_clean.setTextColor(ContextCompat.getColor(PowerActivity.this, R.color.main_circle_backg));
             power_size.setText(getString(R.string.power_1, 0 + "") + " ");
             homeAdapter.notifyDataSetChanged();
-            Bundle bundle = new Bundle();
-            bundle.putInt("count", count);
-            jumpToActivity(SuccessActivity.class, bundle, 1);
+            if (TextUtils.equals("GBoost", getIntent().getStringExtra("from")) && !TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
+                CommonUtil.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
+                if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
+                    Intent intent = new Intent(PowerActivity.this, NotificationService.class);
+                    intent.setAction("gboost");
+                    startService(intent);
+                }
+                finish();
+            } else {
+                Bundle bundle = new Bundle();
+                bundle.putInt("count", count);
+                bundle.putString("from", "power");
+                jumpToActivity(SuccessActivity.class, bundle, 1);
+            }
             container.removeFromWindow();
         }
     };
@@ -291,6 +316,11 @@ public class PowerActivity extends BaseActivity {
         if (resultCode == 1) {
             setResult(1);
             finish();
+        }
+        if (requestCode == 100) {
+            if (CommonUtil.isAccessibilitySettingsOn(PowerActivity.this)) {
+                junk_button_clean.callOnClick();
+            }
         }
     }
 }
