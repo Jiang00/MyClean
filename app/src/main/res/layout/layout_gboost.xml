@@ -75,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <android.support.v7.widget.RecyclerView
+                <com.supers.clean.junk.gboost.PageGridView
                     android:id="@+id/gboost_recyc"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d280"
@@ -83,9 +83,11 @@
                     android:layout_marginLeft="@dimen/d15"
                     android:layout_marginRight="@dimen/d15"
                     android:overScrollMode="never"
-                    android:scrollbars="none" />
+                    android:scrollbars="none"
+                    app:PagingColums="4"
+                    app:PagingRows="3" />
 
-                <com.supers.clean.junk.customeview.PageIndicatorView
+                <com.supers.clean.junk.gboost.MyPageIndicator
                     android:id="@+id/pageindicatorview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

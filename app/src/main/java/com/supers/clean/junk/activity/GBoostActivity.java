@@ -6,7 +6,6 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.TrafficStats;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +14,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.util.LruCache;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,40 +29,30 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.eos.manager.AppLockPermissionActivity;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.AddGameAdapter;
-import com.supers.clean.junk.adapter.WhiteListAdapter;
 import com.supers.clean.junk.customeview.PageIndicatorView;
-import com.supers.clean.junk.db.RecyclerDbHelper;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.gboost.GameBooster;
 import com.supers.clean.junk.gboost.HorizontalPageLayoutManager;
-import com.supers.clean.junk.gboost.JackSnapHelper;
-import com.supers.clean.junk.gboost.PagingItemDecoration;
+import com.supers.clean.junk.gboost.MyPageIndicator;
+import com.supers.clean.junk.gboost.PageGridView;
 import com.supers.clean.junk.gboost.PagingScrollHelper;
-import com.supers.clean.junk.gboost.Sampler;
-import com.supers.clean.junk.similarimage.ImageInfo;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.MemoryManager;
-import com.supers.clean.junk.util.PhoneManager;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.ShortCutUtils;
-import com.supers.clean.junk.util.ShortcutSuperUtils;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by Ivy on 2017/5/5.
@@ -76,8 +66,8 @@ public class GBoostActivity extends BaseActivity {
     ImageView add_right;
     ImageButton clear;
     EditText search_edit_text;
-    RecyclerView gboost_recyc;
-    PageIndicatorView pageindicatorview;
+    PageGridView gboost_recyc;
+    MyPageIndicator pageindicatorview;
     TextView gboost_ram_size;
     TextView gboost_network_size;
     TextView gboost_cpu_szie;
@@ -91,7 +81,6 @@ public class GBoostActivity extends BaseActivity {
 
     private HorizontalPageLayoutManager pageLayoutManager;
     private PagingScrollHelper pagingScrollHelper;
-    private PagingItemDecoration itemDecoration;
     private MyAdapter adapter;
     private ArrayList<JunkInfo> list;
     private Handler mHandler = new Handler() {
@@ -115,6 +104,8 @@ public class GBoostActivity extends BaseActivity {
     private long lastTimeStamp;
     private boolean search;
     private List<JunkInfo> gboost_add, listEdit;
+    private int screenWidth;
+    private int width;
 
     @Override
     protected void findId() {
@@ -125,8 +116,8 @@ public class GBoostActivity extends BaseActivity {
         clear = (ImageButton) findViewById(R.id.clear);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
 
-        gboost_recyc = (RecyclerView) findViewById(R.id.gboost_recyc);
-        pageindicatorview = (PageIndicatorView) findViewById(R.id.pageindicatorview);
+        gboost_recyc = (PageGridView) findViewById(R.id.gboost_recyc);
+        pageindicatorview = (MyPageIndicator) findViewById(R.id.pageindicatorview);
         gboost_ram_size = (TextView) findViewById(R.id.gboost_ram_size);
         gboost_network_size = (TextView) findViewById(R.id.gboost_network_size);
         gboost_cpu_szie = (TextView) findViewById(R.id.gboost_cpu_szie);
@@ -142,6 +133,7 @@ public class GBoostActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_gboost);
+        screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
         cleanApplication = (MyApplication) getApplication();
 
@@ -169,9 +161,8 @@ public class GBoostActivity extends BaseActivity {
 
     private void initList() {
         pageLayoutManager = new HorizontalPageLayoutManager(3, 4);
-        itemDecoration = new PagingItemDecoration(this, pageLayoutManager);
-        gboost_recyc.setLayoutManager(pageLayoutManager);
-        gboost_recyc.addItemDecoration(itemDecoration);
+//        gboost_recyc.setLayoutManager(pageLayoutManager);
+//        gboost_recyc.addItemDecoration(itemDecoration);
         pagingScrollHelper = new PagingScrollHelper();
         list = new ArrayList<>();
         addData();
@@ -189,30 +180,12 @@ public class GBoostActivity extends BaseActivity {
                     @Override
                     public void run() {
                         list.add(0, new JunkInfo(ContextCompat.getDrawable(GBoostActivity.this, R.mipmap.gboost_add), getString(R.string.gboost_7), "a"));
+                        Log.e("jfy", list.size() + "==");
                         adapter = new MyAdapter(list);
                         gboost_recyc.setAdapter(adapter);
-                        pagingScrollHelper.setUpRecycleView(gboost_recyc);
-                        pagingScrollHelper.updateLayoutManger();
-                        pagingScrollHelper.setOnPageChangeListener(new PagingScrollHelper.onPageChangeListener() {
-                            @Override
-                            public void onPageChange(int index) {
-
-                                pageindicatorview.setSelectedPage(index);
-                            }
-                        });
+                        gboost_recyc.setOnItemClickListener(adapter);
+                        gboost_recyc.setPageIndicator(pageindicatorview);
                         adapter.notifyDataSetChanged();
-                        if (list.size() <= 12) {
-                            pageindicatorview.initIndicator(1);
-                            pageindicatorview.setVisibility(View.INVISIBLE);
-                        } else if (list.size() <= 24) {
-                            pageindicatorview.initIndicator(2);
-                            pageindicatorview.setVisibility(View.VISIBLE);
-                        } else if (list.size() <= 36) {
-                            pageindicatorview.initIndicator(3);
-                            pageindicatorview.setVisibility(View.VISIBLE);
-                        } else {
-                            pageindicatorview.initIndicator(4);
-                        }
 
                     }
                 });
@@ -227,24 +200,11 @@ public class GBoostActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.add_left:
                     ll_add_game.setVisibility(View.GONE);
+                    adapter.upData(list);
+                    gboost_recyc.upData(adapter);
                     adapter.notifyDataSetChanged();
-                    gboost_recyc.scrollBy(2000, 0);
+//                    gboost_recyc.scrollBy(2000, 0);
                     shortGame(false);
-                    if (list.size() <= 12) {
-                        pageindicatorview.initIndicator(1);
-                        pageindicatorview.setVisibility(View.INVISIBLE);
-                    } else if (list.size() <= 24) {
-                        pageindicatorview.initIndicator(2);
-                        pageindicatorview.setVisibility(View.VISIBLE);
-                        pageindicatorview.setSelectedPage(1);
-                    } else if (list.size() <= 36) {
-                        pageindicatorview.initIndicator(3);
-                        pageindicatorview.setVisibility(View.VISIBLE);
-                        pageindicatorview.setSelectedPage(2);
-                    } else {
-                        pageindicatorview.initIndicator(4);
-                        pageindicatorview.setSelectedPage(3);
-                    }
                     break;
                 case R.id.title_left:
                     onBackPressed();
@@ -426,6 +386,8 @@ public class GBoostActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         if (ll_add_game.getVisibility() == View.VISIBLE) {
+            adapter.upData(list);
+            gboost_recyc.upData(adapter);
             adapter.notifyDataSetChanged();
             ll_add_game.setVisibility(View.GONE);
             shortGame(false);
@@ -517,111 +479,236 @@ public class GBoostActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    class MyAdapter extends RecyclerView.Adapter<MyAdapter.HomeViewHolder> {
-        ArrayList<JunkInfo> list;
-        LruCache lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {
-            @Override
-            protected int sizeOf(String key, Bitmap bitmap) {
-                // 返回用户定义的item的大小，默认返回1代表item的数量.重写此方法来衡量每张图片的大小。
-                return bitmap.getByteCount() / 1024;
-            }
-        };
 
+    public class MyAdapter extends PageGridView.PagingAdapter<MyVH> implements PageGridView.OnItemClickListener {
+        ArrayList<JunkInfo> list1 = new ArrayList<>();
 
         public MyAdapter(ArrayList<JunkInfo> list) {
-            this.list = list;
+            this.list1.addAll(list);
+            Log.e("jfy2", list1.size() + "==" + list.size());
         }
 
-        public MyAdapter.HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            MyAdapter.HomeViewHolder holder = new MyAdapter.HomeViewHolder(LayoutInflater.from(
-                    GBoostActivity.this).inflate(R.layout.layout_gboost_item, parent,
-                    false));
-            return holder;
+        public void upData(ArrayList<JunkInfo> list) {
+            this.list1.clear();
+            this.list1.addAll(list);
         }
 
         @Override
-        public void onBindViewHolder(final MyAdapter.HomeViewHolder holder, final int position) {
-            final JunkInfo info = list.get(position);
-            holder.gboost_item_icon.setImageDrawable(info.icon);
-            holder.gboost_item_name.setText(info.label);
-            holder.gboost_item_c.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (position == 0) {
-                        if (list.size() <= 12) {
-                            pageindicatorview.initIndicator(1);
-                            pageindicatorview.setVisibility(View.INVISIBLE);
-                        } else if (list.size() <= 24) {
-                            pageindicatorview.initIndicator(2);
-                            pageindicatorview.setVisibility(View.VISIBLE);
-                            pageindicatorview.setSelectedPage(1);
-                        } else if (list.size() <= 36) {
-                            pageindicatorview.initIndicator(3);
-                            pageindicatorview.setVisibility(View.VISIBLE);
-                            pageindicatorview.setSelectedPage(2);
-                        } else {
-                            pageindicatorview.initIndicator(4);
-                            pageindicatorview.setSelectedPage(3);
-                        }
-                        ll_add_game.setVisibility(View.VISIBLE);
-                        whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
-                        list_game.setAdapter(whiteListAdapter);
-                        initData();
-                    } else {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("from", "GBoost");
-                        bundle.putString("packageName", info.packageName);
-                        jumpToActivity(PowerActivity.class, bundle);
-//                        CommonUtil.doStartApplicationWithPackageName(GBoostActivity.this, info.packageName);
-                    }
-                }
-            });
+        public MyVH onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(GBoostActivity.this).inflate(R.layout.layout_gboost_item, parent, false);
+            ViewGroup.LayoutParams params = view.getLayoutParams();
+            width = gboost_recyc.getWidth() / 4;
+            params.height = width;
+            params.width = width;
+            view.setLayoutParams(params);
+            return new MyVH(view);
         }
 
-        public void reChangesData(int position) {
-            notifyItemRangeChanged(position, this.list.size() - position); //mList是数据
+        @Override
+        public void onBindViewHolder(MyVH holder, int position) {
+            try {
+                final JunkInfo info = list1.get(position);
+                holder.gboost_item_icon.setImageDrawable(info.icon);
+                holder.gboost_item_name.setText(info.label);
+                Log.e("holery1", position + "==" + list1.size() + "==" + getItemCount());
+            } catch (Exception e) {
+                holder.gboost_item_icon.setImageDrawable(null);
+                holder.gboost_item_name.setText(null);
+                Log.e("holery2", position + "==");
+
+            }
 
         }
 
         @Override
         public int getItemCount() {
-            return this.list.size();
+            return list1.size();
         }
 
-        class HomeViewHolder extends RecyclerView.ViewHolder {
-            ImageView gboost_item_icon;
-            TextView gboost_item_name;
-            FrameLayout gboost_item_c;
-
-            public HomeViewHolder(View view) {
-                super(view);
-                gboost_item_icon = (ImageView) view.findViewById(R.id.gboost_item_icon);
-                gboost_item_name = (TextView) view.findViewById(R.id.gboost_item_name);
-                gboost_item_c = (FrameLayout) view.findViewById(R.id.gboost_item_c);
-            }
+        @Override
+        public ArrayList<JunkInfo> getData() {
+            return list1;
         }
 
-        /**
-         * @param key    传入图片的key值，一般用图片url代替
-         * @param bitmap 要缓存的图片对象
-         */
-        public void addBitmapToCache(String key, Bitmap bitmap) {
-            if (getBitmapFromCache(key) == null) {
-                if (bitmap == null) {
-                    return;
-                } else {
-                    lruCache.put(key, bitmap);
+        @Override
+        public JunkInfo getEmpty() {
+            return new JunkInfo(null, "", "");
+        }
+
+        @Override
+        public void onItemClick(PageGridView pageGridView, int position) {
+            if (position == 0) {
+                ll_add_game.setVisibility(View.VISIBLE);
+                whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
+                list_game.setAdapter(whiteListAdapter);
+                initData();
+            } else {
+                try {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("from", "GBoost");
+                    bundle.putString("packageName", list1.get(position).packageName);
+                    jumpToActivity(PowerActivity.class, bundle);
+                } catch (Exception e) {
                 }
             }
         }
+    }
 
-        /**
-         * @param key 要取出的bitmap的key值
-         * @return 返回取出的bitmap
-         */
-        public Bitmap getBitmapFromCache(String key) {
+    public static class MyVH extends RecyclerView.ViewHolder {
+        ImageView gboost_item_icon;
+        TextView gboost_item_name;
+        FrameLayout gboost_item_c;
 
-            return (Bitmap) lruCache.get(key);
+        public MyVH(View itemView) {
+            super(itemView);
+            gboost_item_icon = (ImageView) itemView.findViewById(R.id.gboost_item_icon);
+            gboost_item_name = (TextView) itemView.findViewById(R.id.gboost_item_name);
+            gboost_item_c = (FrameLayout) itemView.findViewById(R.id.gboost_item_c);
+
         }
     }
+
+    int scrollX = 0;
+    boolean isAuto = false;
+    int Target = 0;
+
+    public class MyScrollListener extends RecyclerView.OnScrollListener {
+
+
+        @Override
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            // recyclerView.smoothScrollBy(10,0);
+            if (newState == 0) {
+                if (!isAuto) {
+                    int p = scrollX / screenWidth;
+                    int offset = scrollX % screenWidth;
+                    if (offset > screenWidth / 2) {
+                        p++;
+                    }
+                    Target = p * screenWidth;
+                    isAuto = true;
+                    recyclerView.smoothScrollBy(Target - scrollX, 0);
+                }
+            } else if (newState == 2) {
+                isAuto = false;
+            }
+
+        }
+
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            scrollX += dx;
+        }
+
+    }
+
+//    class MyAdapter extends RecyclerView.Adapter<MyAdapter.HomeViewHolder> {
+//        ArrayList<JunkInfo> list;
+//        LruCache lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {
+//            @Override
+//            protected int sizeOf(String key, Bitmap bitmap) {
+//                // 返回用户定义的item的大小，默认返回1代表item的数量.重写此方法来衡量每张图片的大小。
+//                return bitmap.getByteCount() / 1024;
+//            }
+//        };
+//
+//
+//        public MyAdapter(ArrayList<JunkInfo> list) {
+//            this.list = list;
+//        }
+//
+//        public MyAdapter.HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//            MyAdapter.HomeViewHolder holder = new MyAdapter.HomeViewHolder(LayoutInflater.from(
+//                    GBoostActivity.this).inflate(R.layout.layout_gboost_item, parent,
+//                    false));
+//            return holder;
+//        }
+//
+//        @Override
+//        public void onBindViewHolder(final MyAdapter.HomeViewHolder holder, final int position) {
+//            final JunkInfo info = list.get(position);
+//            holder.gboost_item_icon.setImageDrawable(info.icon);
+//            holder.gboost_item_name.setText(info.label);
+//            holder.gboost_item_c.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (position == 0) {
+//                        if (list.size() <= 12) {
+//                            pageindicatorview.initIndicator(1);
+//                            pageindicatorview.setVisibility(View.INVISIBLE);
+//                        } else if (list.size() <= 24) {
+//                            pageindicatorview.initIndicator(2);
+//                            pageindicatorview.setVisibility(View.VISIBLE);
+//                            pageindicatorview.setSelectedPage(1);
+//                        } else if (list.size() <= 36) {
+//                            pageindicatorview.initIndicator(3);
+//                            pageindicatorview.setVisibility(View.VISIBLE);
+//                            pageindicatorview.setSelectedPage(2);
+//                        } else {
+//                            pageindicatorview.initIndicator(4);
+//                            pageindicatorview.setSelectedPage(3);
+//                        }
+//                        ll_add_game.setVisibility(View.VISIBLE);
+//                        whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
+//                        list_game.setAdapter(whiteListAdapter);
+//                        initData();
+//                    } else {
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("from", "GBoost");
+//                        bundle.putString("packageName", info.packageName);
+//                        jumpToActivity(PowerActivity.class, bundle);
+////                        CommonUtil.doStartApplicationWithPackageName(GBoostActivity.this, info.packageName);
+//                    }
+//                }
+//            });
+//        }
+//
+//        public void reChangesData(int position) {
+//            notifyItemRangeChanged(position, this.list.size() - position); //mList是数据
+//
+//        }
+//
+//        @Override
+//        public int getItemCount() {
+//            return this.list.size();
+//        }
+//
+//        class HomeViewHolder extends RecyclerView.ViewHolder {
+//            ImageView gboost_item_icon;
+//            TextView gboost_item_name;
+//            FrameLayout gboost_item_c;
+//
+//            public HomeViewHolder(View view) {
+//                super(view);
+//                gboost_item_icon = (ImageView) view.findViewById(R.id.gboost_item_icon);
+//                gboost_item_name = (TextView) view.findViewById(R.id.gboost_item_name);
+//                gboost_item_c = (FrameLayout) view.findViewById(R.id.gboost_item_c);
+//            }
+//        }
+//
+//        /**
+//         * @param key    传入图片的key值，一般用图片url代替
+//         * @param bitmap 要缓存的图片对象
+//         */
+//        public void addBitmapToCache(String key, Bitmap bitmap) {
+//            if (getBitmapFromCache(key) == null) {
+//                if (bitmap == null) {
+//                    return;
+//                } else {
+//                    lruCache.put(key, bitmap);
+//                }
+//            }
+//        }
+//
+//        /**
+//         * @param key 要取出的bitmap的key值
+//         * @return 返回取出的bitmap
+//         */
+//        public Bitmap getBitmapFromCache(String key) {
+//
+//            return (Bitmap) lruCache.get(key);
+//        }
+//    }
+
+
 }
