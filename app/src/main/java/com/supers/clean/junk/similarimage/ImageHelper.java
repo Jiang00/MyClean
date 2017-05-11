@@ -167,9 +167,9 @@ public class ImageHelper {
      * @param sourceHashCode 源hashCode
      * @param hashCode       与之比较的hashCode
      */
-    public int hammingDistance(String sourceHashCode, String hashCode) {
+    public boolean hammingDistance(String sourceHashCode, String hashCode) {
         if (TextUtils.isEmpty(sourceHashCode) || TextUtils.isEmpty(hashCode)) {
-            return 100;
+            return false;
         }
         int difference = 0;
         int len = sourceHashCode.length();
@@ -177,10 +177,13 @@ public class ImageHelper {
         for (int i = 0; i < len; i++) {
             if (sourceHashCode.charAt(i) != hashCode.charAt(i)) {
                 difference++;
+                if (difference > HAMM_INSTANCE) {
+                    return false;
+                }
             }
         }
 
-        return difference;
+        return difference <= HAMM_INSTANCE;
     }
 
     /*public static LocalImage CreateLocalImage(Bitmap source, String path, long size, String uri) {
@@ -502,7 +505,10 @@ public class ImageHelper {
         setImageHashCode(context, imageInfo1);
         setImageHashCode(context, imageInfo2);
 
-        if (hammingDistance(imageInfo1.sourceHashCode, imageInfo2.sourceHashCode) <= HAMM_INSTANCE) {
+//        double avgPixsProportion = ((double) imageInfo1.avgPixel) / imageInfo2.avgPixel;
+//        boolean avgPixCondition = avgPixsProportion < 1.2 && avgPixsProportion > 0.8;
+
+        if (hammingDistance(imageInfo1.sourceHashCode, imageInfo2.sourceHashCode)) {
             return true;
         }
 
