@@ -127,6 +127,12 @@ public class PowerActivity extends BaseActivity {
         });
         if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
             title_name.setText(R.string.gboost_11);
+            for (JunkInfo info : startList) {
+                if (TextUtils.equals(info.packageName, getIntent().getStringExtra("packageName"))) {
+                    startList.remove(info);
+                    break;
+                }
+            }
             if (startList.size() == 0) {
                 CommonUtil.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
                 if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {

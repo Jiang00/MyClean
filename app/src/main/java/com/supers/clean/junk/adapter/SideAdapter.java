@@ -50,7 +50,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
     private static final int MANAGER = idx++;
     private static final int FILE = idx++;
     private static final int POWER = idx++;
-    private static final int PRIVARY = idx++;
+//    private static final int PRIVARY = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
     private static final int GBOOST = idx++;
@@ -199,11 +199,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
             CommonUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, PowerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
-        } else if (position == PRIVARY) {
-            CommonUtil.track("侧边栏", "点击进入隐私清理页面", "", 1);
-            Intent intent = new Intent(context, PrivacyActivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
-        } else if (position == NOTIFI) {
+        }  else if (position == NOTIFI) {
             CommonUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             if (!CommonUtil.isNotificationListenEnabled(context)) {
                 ((Activity) context).startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);

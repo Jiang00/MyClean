@@ -75,24 +75,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.supers.clean.junk.gboost.PageGridView
+                <com.supers.clean.junk.customeview.PagerView
                     android:id="@+id/gboost_recyc"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d280"
                     android:layout_marginBottom="@dimen/d6"
                     android:layout_marginLeft="@dimen/d15"
-                    android:layout_marginRight="@dimen/d15"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
-                    app:PagingColums="4"
-                    app:PagingRows="3" />
+                    android:layout_marginRight="@dimen/d15" />
 
-                <com.supers.clean.junk.gboost.MyPageIndicator
+                <com.rd.PageIndicatorView
                     android:id="@+id/pageindicatorview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|bottom"
-                    android:layout_marginBottom="@dimen/d6" />
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/d5"
+                    app:piv_animationType="drop"
+                    app:piv_interactiveAnimation="true"
+                    app:piv_radius="@dimen/d3"
+                    app:piv_count="0"
+                    app:piv_selectedColor="@color/app_color_first"
+                    app:piv_unselectedColor="@color/black_35" />
             </FrameLayout>
 
 
