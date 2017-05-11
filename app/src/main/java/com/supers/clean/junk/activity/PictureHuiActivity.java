@@ -125,6 +125,7 @@ public class PictureHuiActivity extends BaseActivity {
 
     }
 
+    boolean isfalse = false;
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -134,7 +135,11 @@ public class PictureHuiActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.title_check:
-                    adapter.allPassed();
+                    if (isfalse) {
+                        adapter.allPassed(false);
+                    } else {
+                        adapter.allPassed(true);
+                    }
                     break;
                 case R.id.picture_restore:
 //                    dialog(adapter.checkNum());
@@ -369,9 +374,9 @@ public class PictureHuiActivity extends BaseActivity {
 
         }
 
-        public void allPassed() {
+        public void allPassed(boolean check) {
             for (ImageInfo info : list) {
-                info.isNormal = false;
+                info.isNormal = check;
             }
             notifyDataSetChanged();
         }

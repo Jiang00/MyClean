@@ -11,14 +11,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +24,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.eos.manager.AppLockPermissionActivity;
 import com.rd.PageIndicatorView;
@@ -38,9 +33,6 @@ import com.supers.clean.junk.customeview.LaunchpadAdapter;
 import com.supers.clean.junk.customeview.PagerView;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.gboost.GameBooster;
-import com.supers.clean.junk.gboost.HorizontalPageLayoutManager;
-import com.supers.clean.junk.gboost.PageGridView;
-import com.supers.clean.junk.gboost.PagingScrollHelper;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.MemoryManager;
@@ -526,128 +518,6 @@ public class GBoostActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
-    public class MyAdapter extends PageGridView.PagingAdapter<MyVH> implements PageGridView.OnItemClickListener {
-        ArrayList<JunkInfo> list1 = new ArrayList<>();
-
-        public MyAdapter(ArrayList<JunkInfo> list) {
-            this.list1.addAll(list);
-            Log.e("jfy2", list1.size() + "==" + list.size());
-        }
-
-        public void upData(ArrayList<JunkInfo> list) {
-            this.list1.clear();
-            this.list1.addAll(list);
-        }
-
-        @Override
-        public MyVH onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(GBoostActivity.this).inflate(R.layout.layout_gboost_item, parent, false);
-            ViewGroup.LayoutParams params = view.getLayoutParams();
-            width = gboost_recyc.getWidth() / 4;
-            params.height = width;
-            params.width = width;
-            view.setLayoutParams(params);
-            return new MyVH(view);
-        }
-
-        @Override
-        public void onBindViewHolder(MyVH holder, int position) {
-            try {
-                final JunkInfo info = list1.get(position);
-                holder.gboost_item_icon.setImageDrawable(info.icon);
-                holder.gboost_item_name.setText(info.label);
-                Log.e("holery1", position + "==" + list1.size() + "==" + getItemCount());
-            } catch (Exception e) {
-                holder.gboost_item_icon.setImageDrawable(null);
-                holder.gboost_item_name.setText(null);
-                Log.e("holery2", position + "==");
-
-            }
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return list1.size();
-        }
-
-        @Override
-        public ArrayList<JunkInfo> getData() {
-            return list1;
-        }
-
-        @Override
-        public JunkInfo getEmpty() {
-            return new JunkInfo(null, "", "");
-        }
-
-        @Override
-        public void onItemClick(PageGridView pageGridView, int position) {
-            if (position == 0) {
-                ll_add_game.setVisibility(View.VISIBLE);
-                whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
-                list_game.setAdapter(whiteListAdapter);
-                initData();
-            } else {
-                try {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("from", "GBoost");
-                    bundle.putString("packageName", list1.get(position).packageName);
-                    jumpToActivity(PowerActivity.class, bundle);
-                } catch (Exception e) {
-                }
-            }
-        }
-    }
-
-    public static class MyVH extends RecyclerView.ViewHolder {
-        ImageView gboost_item_icon;
-        TextView gboost_item_name;
-        FrameLayout gboost_item_c;
-
-        public MyVH(View itemView) {
-            super(itemView);
-            gboost_item_icon = (ImageView) itemView.findViewById(R.id.gboost_item_icon);
-            gboost_item_name = (TextView) itemView.findViewById(R.id.gboost_item_name);
-            gboost_item_c = (FrameLayout) itemView.findViewById(R.id.gboost_item_c);
-
-        }
-    }
-
-    int scrollX = 0;
-    boolean isAuto = false;
-    int Target = 0;
-
-    public class MyScrollListener extends RecyclerView.OnScrollListener {
-
-
-        @Override
-        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-            // recyclerView.smoothScrollBy(10,0);
-            if (newState == 0) {
-                if (!isAuto) {
-                    int p = scrollX / screenWidth;
-                    int offset = scrollX % screenWidth;
-                    if (offset > screenWidth / 2) {
-                        p++;
-                    }
-                    Target = p * screenWidth;
-                    isAuto = true;
-                    recyclerView.smoothScrollBy(Target - scrollX, 0);
-                }
-            } else if (newState == 2) {
-                isAuto = false;
-            }
-
-        }
-
-        @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-            scrollX += dx;
-        }
-
-    }
 
 
 }
