@@ -36,7 +36,7 @@ public class ImageHelper {
     static final int MAX_HEIGHT = 1280;//最大高
 
 
-    private static final int HAMM_INSTANCE = 11;
+    private static final int HAMM_INSTANCE = 10;
     private static final long NEED_COMPARE_IMAGE_INTERVAL = 15 * 1000;
 
 

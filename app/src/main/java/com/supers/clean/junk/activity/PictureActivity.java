@@ -215,6 +215,7 @@ public class PictureActivity extends BaseActivity {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
+//                    final Bitmap bitma = imageHelper.getImageThumbnail(PictureActivity.this, list.get(finalI).originId, MediaStore.Images.Thumbnails.FULL_SCREEN_KIND);
                     final Bitmap bitma = imageHelper.pathWithScaledBitmap(PictureActivity.this, list.get(finalI).path);
                     //final Bitmap bitma = imageHelper.getImageThumbnail(PictureActivity.this, list.get(finalI).originId, MediaStore.Images.Thumbnails.FULL_SCREEN_KIND);
                     mHandler.post(new Runnable() {

@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v4.util.LruCache;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -124,6 +125,7 @@ public class PictureHuiActivity extends BaseActivity {
 
     }
 
+    boolean isfalse = false;
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -133,7 +135,11 @@ public class PictureHuiActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.title_check:
-                    adapter.allPassed();
+                    if (isfalse) {
+                        adapter.allPassed(false);
+                    } else {
+                        adapter.allPassed(true);
+                    }
                     break;
                 case R.id.picture_restore:
 //                    dialog(adapter.checkNum());
@@ -368,9 +374,9 @@ public class PictureHuiActivity extends BaseActivity {
 
         }
 
-        public void allPassed() {
+        public void allPassed(boolean check) {
             for (ImageInfo info : list) {
-                info.isNormal = false;
+                info.isNormal = check;
             }
             notifyDataSetChanged();
         }
