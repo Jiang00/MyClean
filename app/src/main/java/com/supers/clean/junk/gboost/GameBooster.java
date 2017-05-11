@@ -2,15 +2,20 @@ package com.supers.clean.junk.gboost;
 
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.supers.clean.junk.BuildConfig;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.activity.MyApplication;
@@ -56,34 +61,41 @@ public class GameBooster {
                         list.add(info);
                     }
                 }
-                if (list.size() != 0 && !PreData.getDB(context, Constant.GBOOST_SI, false)) {
-                    View shortcut_view = View.inflate(context, R.layout.layout_gboost_short, null);
-                    if (list.size() > 0) {
-                        ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
-                        iv_1.setImageDrawable(list.get(0).icon);
-                    }
-                    if (list.size() > 1) {
-                        ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
-                        iv_2.setImageDrawable(list.get(1).icon);
-                    }
-                    if (list.size() > 2) {
-                        ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
-                        iv_3.setImageDrawable(list.get(2).icon);
-                    }
-                    if (list.size() > 3) {
-                        ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
-                        iv_4.setImageDrawable(list.get(3).icon);
-                        PreData.putDB(context, Constant.GBOOST_SI, true);
-                    }
+                Intent shortcutIntent = new Intent();
+                shortcutIntent.setAction(Intent.ACTION_VIEW);
+                shortcutIntent.setComponent(new ComponentName(context.getPackageName(),
+                        "com.supers.clean.junk.activity.GBoostActivity"));
+                String title = context.getString(R.string.gboost_0);
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+                    Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.mipmap.short_7);
+                    ShortCutUtils.addShortcut(context, shortcutIntent, title, false, bitmap);
+                } else {
+                    if (list.size() != 0 && !PreData.getDB(context, Constant.GBOOST_SI, false)) {
+                        View shortcut_view = View.inflate(context, R.layout.layout_gboost_short, null);
+                        if (list.size() > 0) {
+                            ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
+                            iv_1.setImageDrawable(list.get(0).icon);
+                        }
+                        if (list.size() > 1) {
+                            ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
+                            iv_2.setImageDrawable(list.get(1).icon);
+                        }
+                        if (list.size() > 2) {
+                            ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
+                            iv_3.setImageDrawable(list.get(2).icon);
+                        }
+                        if (list.size() > 3) {
+                            ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
+                            iv_4.setImageDrawable(list.get(3).icon);
+                            PreData.putDB(context, Constant.GBOOST_SI, true);
+                        }
 
-                    Bitmap bitmap = CommonUtil.getViewBitmap(shortcut_view);
-                    if (bitmap != null) {
-                        Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
-                        shortcutIntent.setClass(context, GBoostActivity.class);
-                        shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-                        String title = context.getString(R.string.gboost_0);
-                        ShortCutUtils.removeShortcut(context, shortcutIntent, title);
-                        ShortCutUtils.addShortcut(context, shortcutIntent, title, false, bitmap);
+                        Bitmap bitmap = CommonUtil.getViewBitmap(shortcut_view);
+                        if (bitmap != null) {
+                            ShortCutUtils.removeShortcut(context, shortcutIntent, title);
+                            ShortCutUtils.addShortcut(context, shortcutIntent, title, false, bitmap);
+
+                        }
                     }
                 }
 

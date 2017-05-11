@@ -28,7 +28,6 @@ public class ShortCutUtils {
     // Action 移除Shortcut
     public static final String ACTION_REMOVE_SHORTCUT = "com.android.launcher.action.UNINSTALL_SHORTCUT";
 
-
     /**
      * 添加当前应用的桌面快捷方式
      *
@@ -98,18 +97,18 @@ public class ShortCutUtils {
         cx.sendBroadcast(shortcut);
     }
 
-    public static void addShortcut(Context context, Intent actionIntent, String name,
+    public static void addShortcut(Activity context, Intent actionIntent, String name,
                                    boolean allowRepeat, Bitmap iconBitmap) {
         Intent addShortcutIntent = new Intent(ACTION_ADD_SHORTCUT);
         // 是否允许重复创建
-        addShortcutIntent.putExtra("duplicate", allowRepeat);
+        addShortcutIntent.putExtra("duplicate", false);
         // 快捷方式的标题
         addShortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, name);
         // 快捷方式的图标
         addShortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON, iconBitmap);
         // 快捷方式的动作
         addShortcutIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, actionIntent);
-        context.sendBroadcast(addShortcutIntent);
+        context.getApplicationContext().sendBroadcast(addShortcutIntent);
     }
 
     public static void removeShortcut(Context context, Intent actionIntent, String name) {
@@ -118,23 +117,7 @@ public class ShortCutUtils {
 //        intent.addCategory(Intent.CATEGORY_LAUNCHER);
         intent.putExtra("duplicate", false);
         intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, actionIntent);
-        context.sendBroadcast(intent);
-    }
-
-    public static void deleteGBoost(Context context) {
-        Intent shortcut = new Intent("com.android.launcher.action.UNINSTALL_SHORTCUT");
-        Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
-//        shortcutIntent.setComponent(new ComponentName(cx.getPackageName(),
-//                "com.supers.clean.junk.activity.GBoostActivity"));
-        shortcutIntent.setClass(context, GBoostActivity.class);
-        shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        //设置启动的模式
-        shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
-                | Intent.FLAG_ACTIVITY_NEW_TASK);
-        shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-        String title = context.getResources().getString(R.string.gboost_0);
-        shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, title);
-        context.sendBroadcast(shortcut);
+        context.getApplicationContext().sendBroadcast(intent);
     }
 
 

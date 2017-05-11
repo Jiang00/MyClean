@@ -72,6 +72,7 @@ public class AddGameAdapter extends MybaseAdapter<JunkInfo> {
                 if (!isContains) {
                     PreData.addName(context, info.packageName, Constant.GBOOST_LIST);
                     game_list.add(info);
+                    CommonUtil.track("游戏加速页面", "添加游戏到列表", info.label, 1);
                     Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
                     shortcutIntent.setClass(context, GBoostActivity.class);
                     shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);

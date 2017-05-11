@@ -3,9 +3,12 @@ package com.supers.clean.junk.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.TrafficStats;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -191,12 +194,14 @@ public class GBoostActivity extends BaseActivity {
                             @Override
                             public void onClick(Object o, int pos) {
                                 if (pos == 0) {
+                                    CommonUtil.track("游戏加速页面", "点击添加游戏", "", 1);
                                     ll_add_game.setVisibility(View.VISIBLE);
                                     whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
                                     list_game.setAdapter(whiteListAdapter);
                                     initData();
                                 } else {
                                     try {
+                                        CommonUtil.track("游戏加速页面", "点击启动游戏", list.get(pos).label, 1);
                                         Bundle bundle = new Bundle();
                                         bundle.putString("from", "GBoost");
                                         bundle.putString("packageName", list.get(pos).packageName);
@@ -248,6 +253,7 @@ public class GBoostActivity extends BaseActivity {
                     break;
 
                 case R.id.gboost_power_check:
+                    CommonUtil.track("游戏加速页面", "开启辅助功能", "", 1);
                     try {
                         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                         startActivityForResult(intent, 100);
@@ -264,6 +270,7 @@ public class GBoostActivity extends BaseActivity {
                     }, 1500);
                     break;
                 case R.id.gboost_clean_button:
+                    CommonUtil.track("游戏加速页面", "点击一键加速", "", 1);
                     Bundle bundle = new Bundle();
                     bundle.putString("from", "GBoost");
                     jumpToActivity(PowerActivity.class, bundle, 1);
@@ -438,7 +445,18 @@ public class GBoostActivity extends BaseActivity {
 
     private void shortGame(boolean isChuangjian) {
         search_edit_text.setText("");
-        if ((list.size() != 1 && !PreData.getDB(GBoostActivity.this, Constant.GBOOST_SI, false)) || isChuangjian) {
+        Log.e("short", "chuangjian1 ");
+        Intent shortcutIntent = new Intent();
+        shortcutIntent.setAction(Intent.ACTION_VIEW);
+        shortcutIntent.setComponent(new ComponentName(getPackageName(),
+                "com.supers.clean.junk.activity.GBoostActivity"));
+        String title = GBoostActivity.this.getString(R.string.gboost_0);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
+            ShortCutUtils.addShortcut(GBoostActivity.this, shortcutIntent, title, false, bitmap);
+            return;
+        }
+        if (list.size() > 1 && (!PreData.getDB(GBoostActivity.this, Constant.GBOOST_SI, false) || isChuangjian)) {
             View shortcut_view = View.inflate(GBoostActivity.this, R.layout.layout_gboost_short, null);
             if (list.size() > 1) {
                 ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
@@ -460,10 +478,10 @@ public class GBoostActivity extends BaseActivity {
 
             Bitmap bitmap = CommonUtil.getViewBitmap(shortcut_view);
             if (bitmap != null) {
-                Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
-                shortcutIntent.setClass(GBoostActivity.this, GBoostActivity.class);
-                shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-                String title = GBoostActivity.this.getString(R.string.gboost_0);
+                Log.e("short", "chuangjian ");
+//                Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
+//                shortcutIntent.setClass(GBoostActivity.this, GBoostActivity.class);
+//                shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
                 ShortCutUtils.removeShortcut(GBoostActivity.this, shortcutIntent, title);
                 ShortCutUtils.addShortcut(GBoostActivity.this, shortcutIntent, title, false, bitmap);
             }
@@ -517,7 +535,6 @@ public class GBoostActivity extends BaseActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
 
 
 }

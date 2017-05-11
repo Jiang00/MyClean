@@ -48,7 +48,6 @@ public class MyApplication extends App {
 
     private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 5;
 
-    private final static int CWJ_HEAP_SIZE = 6 * 1024 * 1024;
 
     private int THREAD_POOL_COUNT = 3;
 
@@ -245,7 +244,6 @@ public class MyApplication extends App {
     public void onCreate() {
         super.onCreate();
 
-        setMinHeapSize(CWJ_HEAP_SIZE);
 
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
@@ -296,34 +294,6 @@ public class MyApplication extends App {
         LeakCanary.install(this);
     }
 
-    public static void setMinHeapSize(long size) {
-        try {
-            Class<?> cls = Class.forName("dalvik.system.VMRuntime");
-            Method getRuntime = cls.getMethod("getRuntime");
-            Object obj = getRuntime.invoke(null);// obj就是Runtime
-            if (obj == null) {
-                System.err.println("obj is null");
-            } else {
-                System.out.println(obj.getClass().getName());
-                Class<?> runtimeClass = obj.getClass();
-                Method setMinimumHeapSize = runtimeClass.getMethod(
-                        "setMinimumHeapSize", long.class);
-
-                setMinimumHeapSize.invoke(obj, size);
-            }
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
 
     private Runnable getScanIntervalRunnable() {
         return new Runnable() {

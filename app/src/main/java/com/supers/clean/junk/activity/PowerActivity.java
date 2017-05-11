@@ -134,11 +134,18 @@ public class PowerActivity extends BaseActivity {
                 }
             }
             if (startList.size() == 0) {
-                CommonUtil.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
-                if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
-                    Intent intent = new Intent(PowerActivity.this, NotificationService.class);
-                    intent.setAction("gboost");
-                    startService(intent);
+                if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
+                    CommonUtil.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
+                    if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
+                        Intent intent = new Intent(PowerActivity.this, NotificationService.class);
+                        intent.setAction("gboost");
+                        startService(intent);
+                    }
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("count", count);
+                    bundle.putString("from", "GBoost");
+                    jumpToActivity(SuccessActivity.class, bundle, 1);
                 }
                 finish();
                 return;
@@ -181,12 +188,20 @@ public class PowerActivity extends BaseActivity {
             junk_button_clean.setTextColor(ContextCompat.getColor(PowerActivity.this, R.color.main_circle_backg));
             power_size.setText(getString(R.string.power_1, 0 + "") + " ");
             homeAdapter.notifyDataSetChanged();
-            if (TextUtils.equals("GBoost", getIntent().getStringExtra("from")) && !TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
-                CommonUtil.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
-                if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
-                    Intent intent = new Intent(PowerActivity.this, NotificationService.class);
-                    intent.setAction("gboost");
-                    startService(intent);
+            if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
+                if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
+                    CommonUtil.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
+                    if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
+                        Intent intent = new Intent(PowerActivity.this, NotificationService.class);
+                        intent.setAction("gboost");
+                        startService(intent);
+                    }
+
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("count", count);
+                    bundle.putString("from", "GBoost");
+                    jumpToActivity(SuccessActivity.class, bundle, 1);
                 }
                 finish();
             } else {

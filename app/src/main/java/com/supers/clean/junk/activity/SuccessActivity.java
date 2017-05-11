@@ -532,8 +532,7 @@ public class SuccessActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.main_gboost_button:
-                    if (TextUtils.equals("power", getIntent().getStringExtra("from"))) {
-                        setResult(1);
+                    if (TextUtils.equals("Gboost", getIntent().getStringExtra("from"))) {
                         finish();
                         return;
                     }
