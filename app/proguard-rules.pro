@@ -113,6 +113,8 @@
 
 -keep class com.eos.ui.demo.entries.** { *;}
 
+-keep class com.sample.lottie.** { *;}
+
 -dontwarn com.squareup.picasso.**
 
 

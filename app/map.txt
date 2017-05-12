@@ -36943,11 +36943,11 @@ com.eos.ui.demo.cross.CrossManager$2 -> com.eos.ui.demo.a.b$2:
 com.eos.ui.demo.cross.CrossManager$3 -> com.eos.ui.demo.a.b$3:
     com.sample.lottie.LottieAnimationView val$lottie -> a
     159:159:void <init>(com.sample.lottie.LottieAnimationView) -> <init>
-    162:163:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    162:163:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> onCompositionLoaded
 com.eos.ui.demo.cross.CrossManager$4 -> com.eos.ui.demo.a.b$4:
     com.sample.lottie.LottieAnimationView val$lottie -> a
     188:188:void <init>(com.sample.lottie.LottieAnimationView) -> <init>
-    191:192:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    191:192:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> onCompositionLoaded
 com.eos.ui.demo.cross.CrossManager$onCrossViewClickListener -> com.eos.ui.demo.a.b$a:
     void onClick(android.view.View) -> onClick
     void onLoadView(android.view.View) -> a
@@ -37217,11 +37217,11 @@ com.eos.ui.demo.view.CrossView$1 -> com.eos.ui.demo.view.CrossView$1:
 com.eos.ui.demo.view.CrossView$2 -> com.eos.ui.demo.view.CrossView$2:
     com.eos.ui.demo.view.CrossView this$0 -> a
     181:181:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
-    184:185:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    184:185:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> onCompositionLoaded
 com.eos.ui.demo.view.CrossView$3 -> com.eos.ui.demo.view.CrossView$3:
     com.eos.ui.demo.view.CrossView this$0 -> a
     209:209:void <init>(com.eos.ui.demo.view.CrossView) -> <init>
-    212:213:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    212:213:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> onCompositionLoaded
 com.eos.ui.demo.view.CrossView$onCrossDialogClickListener -> com.eos.ui.demo.view.CrossView$a:
     void onCancel() -> a
     void onInstall() -> b
@@ -43207,409 +43207,447 @@ com.rd.utils.IdUtils -> com.rd.b.b:
     13:16:int generateViewId() -> a
     28:35:int generateId() -> b
     10:10:void <clinit>() -> <clinit>
-com.sample.lottie.AnimatableColorValue -> com.sample.lottie.a:
+com.sample.lottie.AnimatableColorValue -> com.sample.lottie.AnimatableColorValue:
     11:12:void <init>(java.util.List,com.sample.lottie.LottieComposition,java.lang.Integer) -> <init>
-    15:18:com.sample.lottie.KeyframeAnimation createAnimation() -> a
+    15:18:com.sample.lottie.KeyframeAnimation createAnimation() -> createAnimation
     22:22:java.lang.String toString() -> toString
-    8:8:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> b
+    8:8:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> createAnimation
     8:8:void <init>(java.util.List,com.sample.lottie.LottieComposition,java.lang.Integer,com.sample.lottie.AnimatableColorValue$1) -> <init>
-com.sample.lottie.AnimatableColorValue$1 -> com.sample.lottie.a$1:
-com.sample.lottie.AnimatableColorValue$Factory -> com.sample.lottie.a$a:
-    30:33:com.sample.lottie.AnimatableColorValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.AnimatableFloatValue -> com.sample.lottie.b:
+com.sample.lottie.AnimatableColorValue$1 -> com.sample.lottie.AnimatableColorValue$1:
+com.sample.lottie.AnimatableColorValue$Factory -> com.sample.lottie.AnimatableColorValue$Factory:
+    26:27:void <init>() -> <init>
+    30:33:com.sample.lottie.AnimatableColorValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+com.sample.lottie.AnimatableFloatValue -> com.sample.lottie.AnimatableFloatValue:
     9:10:void <init>(com.sample.lottie.LottieComposition,java.lang.Float) -> <init>
     14:15:void <init>(java.util.List,com.sample.lottie.LottieComposition,java.lang.Float) -> <init>
-    18:22:com.sample.lottie.KeyframeAnimation createAnimation() -> a
-    26:26:java.lang.Float getInitialValue() -> c
-    7:7:java.lang.Object getInitialValue() -> d
-    7:7:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> b
+    18:22:com.sample.lottie.KeyframeAnimation createAnimation() -> createAnimation
+    26:26:java.lang.Float getInitialValue() -> getInitialValue
+    7:7:java.lang.Object getInitialValue() -> getInitialValue
+    7:7:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> createAnimation
     7:7:void <init>(com.sample.lottie.LottieComposition,java.lang.Float,com.sample.lottie.AnimatableFloatValue$1) -> <init>
     7:7:void <init>(java.util.List,com.sample.lottie.LottieComposition,java.lang.Float,com.sample.lottie.AnimatableFloatValue$1) -> <init>
-com.sample.lottie.AnimatableFloatValue$1 -> com.sample.lottie.b$1:
-com.sample.lottie.AnimatableFloatValue$Factory -> com.sample.lottie.b$a:
-    45:45:com.sample.lottie.AnimatableFloatValue newInstance(com.sample.lottie.LottieComposition,java.lang.Float) -> a
-    49:49:com.sample.lottie.AnimatableFloatValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-    54:58:com.sample.lottie.AnimatableFloatValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,boolean) -> a
-com.sample.lottie.AnimatableFloatValue$ValueFactory -> com.sample.lottie.b$b:
-    com.sample.lottie.AnimatableFloatValue$ValueFactory INSTANCE -> a
+com.sample.lottie.AnimatableFloatValue$1 -> com.sample.lottie.AnimatableFloatValue$1:
+com.sample.lottie.AnimatableFloatValue$Factory -> com.sample.lottie.AnimatableFloatValue$Factory:
+    41:42:void <init>() -> <init>
+    45:45:com.sample.lottie.AnimatableFloatValue newInstance(com.sample.lottie.LottieComposition,java.lang.Float) -> newInstance
+    49:49:com.sample.lottie.AnimatableFloatValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+    54:58:com.sample.lottie.AnimatableFloatValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,boolean) -> newInstance
+com.sample.lottie.AnimatableFloatValue$ValueFactory -> com.sample.lottie.AnimatableFloatValue$ValueFactory:
+    com.sample.lottie.AnimatableFloatValue$ValueFactory INSTANCE -> INSTANCE
     32:33:void <init>() -> <init>
-    36:36:java.lang.Float valueFromObject(java.lang.Object,float) -> a
-    29:29:java.lang.Object valueFromObject(java.lang.Object,float) -> b
+    36:36:java.lang.Float valueFromObject(java.lang.Object,float) -> valueFromObject
+    29:29:java.lang.Object valueFromObject(java.lang.Object,float) -> valueFromObject
     30:30:void <clinit>() -> <clinit>
-com.sample.lottie.AnimatableIntegerValue -> com.sample.lottie.c:
+com.sample.lottie.AnimatableIntegerValue -> com.sample.lottie.AnimatableIntegerValue:
     9:10:void <init>(com.sample.lottie.LottieComposition,java.lang.Integer) -> <init>
     14:15:void <init>(java.util.List,com.sample.lottie.LottieComposition,java.lang.Integer) -> <init>
-    18:22:com.sample.lottie.KeyframeAnimation createAnimation() -> a
-    26:26:java.lang.Integer getInitialValue() -> c
-    7:7:java.lang.Object getInitialValue() -> d
-    7:7:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> b
+    18:22:com.sample.lottie.KeyframeAnimation createAnimation() -> createAnimation
+    26:26:java.lang.Integer getInitialValue() -> getInitialValue
+    7:7:java.lang.Object getInitialValue() -> getInitialValue
+    7:7:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> createAnimation
     7:7:void <init>(com.sample.lottie.LottieComposition,java.lang.Integer,com.sample.lottie.AnimatableIntegerValue$1) -> <init>
     7:7:void <init>(java.util.List,com.sample.lottie.LottieComposition,java.lang.Integer,com.sample.lottie.AnimatableIntegerValue$1) -> <init>
-com.sample.lottie.AnimatableIntegerValue$1 -> com.sample.lottie.c$1:
-com.sample.lottie.AnimatableIntegerValue$Factory -> com.sample.lottie.c$a:
-    34:34:com.sample.lottie.AnimatableIntegerValue newInstance(com.sample.lottie.LottieComposition,java.lang.Integer) -> a
-    39:53:com.sample.lottie.AnimatableIntegerValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,boolean,boolean) -> a
-com.sample.lottie.AnimatableIntegerValue$ValueFactory -> com.sample.lottie.c$b:
-    com.sample.lottie.AnimatableIntegerValue$ValueFactory INSTANCE -> a
+com.sample.lottie.AnimatableIntegerValue$1 -> com.sample.lottie.AnimatableIntegerValue$1:
+com.sample.lottie.AnimatableIntegerValue$Factory -> com.sample.lottie.AnimatableIntegerValue$Factory:
+    30:31:void <init>() -> <init>
+    34:34:com.sample.lottie.AnimatableIntegerValue newInstance(com.sample.lottie.LottieComposition,java.lang.Integer) -> newInstance
+    39:53:com.sample.lottie.AnimatableIntegerValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,boolean,boolean) -> newInstance
+com.sample.lottie.AnimatableIntegerValue$ValueFactory -> com.sample.lottie.AnimatableIntegerValue$ValueFactory:
+    com.sample.lottie.AnimatableIntegerValue$ValueFactory INSTANCE -> INSTANCE
     60:61:void <init>() -> <init>
-    64:64:java.lang.Integer valueFromObject(java.lang.Object,float) -> a
-    57:57:java.lang.Object valueFromObject(java.lang.Object,float) -> b
-    57:57:com.sample.lottie.AnimatableIntegerValue$ValueFactory access$100() -> a
+    64:64:java.lang.Integer valueFromObject(java.lang.Object,float) -> valueFromObject
+    57:57:java.lang.Object valueFromObject(java.lang.Object,float) -> valueFromObject
+    57:57:com.sample.lottie.AnimatableIntegerValue$ValueFactory access$100() -> access$100
     58:58:void <clinit>() -> <clinit>
-com.sample.lottie.AnimatableLayer -> com.sample.lottie.d:
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener integerChangedListener -> c
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener floatChangedListener -> d
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener scaleChangedListener -> e
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener pointChangedListener -> f
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener pathChangedListener -> a
-    java.util.List layers -> b
-    com.sample.lottie.AnimatableLayer parentLayer -> g
-    android.graphics.Paint solidBackgroundPaint -> h
-    int backgroundColor -> i
-    java.util.List animations -> j
-    float progress -> k
-    com.sample.lottie.TransformKeyframeAnimation transform -> l
+com.sample.lottie.AnimatableLayer -> com.sample.lottie.AnimatableLayer:
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener integerChangedListener -> integerChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener floatChangedListener -> floatChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener scaleChangedListener -> scaleChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener pointChangedListener -> pointChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener pathChangedListener -> pathChangedListener
+    java.util.List layers -> layers
+    com.sample.lottie.AnimatableLayer parentLayer -> parentLayer
+    android.graphics.Paint solidBackgroundPaint -> solidBackgroundPaint
+    int backgroundColor -> backgroundColor
+    java.util.List animations -> animations
+    float progress -> progress
+    com.sample.lottie.TransformKeyframeAnimation transform -> transform
     20:71:void <init>(android.graphics.drawable.Drawable$Callback) -> <init>
-    74:77:void setBackgroundColor(int) -> a
-    80:81:void addAnimation(com.sample.lottie.BaseKeyframeAnimation) -> a
-    84:85:void removeAnimation(com.sample.lottie.BaseKeyframeAnimation) -> b
+    74:77:void setBackgroundColor(int) -> setBackgroundColor
+    80:81:void addAnimation(com.sample.lottie.BaseKeyframeAnimation) -> addAnimation
+    84:85:void removeAnimation(com.sample.lottie.BaseKeyframeAnimation) -> removeAnimation
     89:113:void draw(android.graphics.Canvas) -> draw
-    116:119:int saveCanvas(android.graphics.Canvas) -> a
-    123:148:void applyTransformForLayer(android.graphics.Canvas,com.sample.lottie.AnimatableLayer) -> a
+    116:119:int saveCanvas(android.graphics.Canvas) -> saveCanvas
+    123:148:void applyTransformForLayer(android.graphics.Canvas,com.sample.lottie.AnimatableLayer) -> applyTransformForLayer
     152:152:void setAlpha(int) -> setAlpha
     158:158:int getAlpha() -> getAlpha
-    166:168:int getAlphaInternal() -> a
+    166:168:int getAlphaInternal() -> getAlphaInternal
     174:174:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
-    177:196:void setTransform(com.sample.lottie.TransformKeyframeAnimation) -> a
+    177:196:void setTransform(com.sample.lottie.TransformKeyframeAnimation) -> setTransform
     200:200:int getOpacity() -> getOpacity
-    204:208:void addLayer(com.sample.lottie.AnimatableLayer) -> a
-    211:213:void clearLayers() -> b
-    216:224:void setProgress(float) -> a
-    227:227:float getProgress() -> c
-    231:234:com.sample.lottie.LottieDrawable getLottieDrawable() -> d
-com.sample.lottie.AnimatableLayer$1 -> com.sample.lottie.d$1:
-    com.sample.lottie.AnimatableLayer this$0 -> a
+    204:208:void addLayer(com.sample.lottie.AnimatableLayer) -> addLayer
+    211:213:void clearLayers() -> clearLayers
+    216:224:void setProgress(float) -> setProgress
+    227:227:float getProgress() -> getProgress
+    231:234:com.sample.lottie.LottieDrawable getLottieDrawable() -> getLottieDrawable
+com.sample.lottie.AnimatableLayer$1 -> com.sample.lottie.AnimatableLayer$1:
+    com.sample.lottie.AnimatableLayer this$0 -> this$0
     21:21:void <init>(com.sample.lottie.AnimatableLayer) -> <init>
-    24:25:void onValueChanged(java.lang.Integer) -> a
-    21:21:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.AnimatableLayer$2 -> com.sample.lottie.d$2:
-    com.sample.lottie.AnimatableLayer this$0 -> a
+    24:25:void onValueChanged(java.lang.Integer) -> onValueChanged
+    21:21:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.AnimatableLayer$2 -> com.sample.lottie.AnimatableLayer$2:
+    com.sample.lottie.AnimatableLayer this$0 -> this$0
     28:28:void <init>(com.sample.lottie.AnimatableLayer) -> <init>
-    31:32:void onValueChanged(java.lang.Float) -> a
-    28:28:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.AnimatableLayer$3 -> com.sample.lottie.d$3:
-    com.sample.lottie.AnimatableLayer this$0 -> a
+    31:32:void onValueChanged(java.lang.Float) -> onValueChanged
+    28:28:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.AnimatableLayer$3 -> com.sample.lottie.AnimatableLayer$3:
+    com.sample.lottie.AnimatableLayer this$0 -> this$0
     35:35:void <init>(com.sample.lottie.AnimatableLayer) -> <init>
-    38:39:void onValueChanged(com.sample.lottie.ScaleXY) -> a
-    35:35:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.AnimatableLayer$4 -> com.sample.lottie.d$4:
-    com.sample.lottie.AnimatableLayer this$0 -> a
+    38:39:void onValueChanged(com.sample.lottie.ScaleXY) -> onValueChanged
+    35:35:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.AnimatableLayer$4 -> com.sample.lottie.AnimatableLayer$4:
+    com.sample.lottie.AnimatableLayer this$0 -> this$0
     42:42:void <init>(com.sample.lottie.AnimatableLayer) -> <init>
-    45:46:void onValueChanged(android.graphics.PointF) -> a
-    42:42:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.AnimatableLayer$5 -> com.sample.lottie.d$5:
-    com.sample.lottie.AnimatableLayer this$0 -> a
+    45:46:void onValueChanged(android.graphics.PointF) -> onValueChanged
+    42:42:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.AnimatableLayer$5 -> com.sample.lottie.AnimatableLayer$5:
+    com.sample.lottie.AnimatableLayer this$0 -> this$0
     50:50:void <init>(com.sample.lottie.AnimatableLayer) -> <init>
-    53:54:void onValueChanged(android.graphics.Path) -> a
-    50:50:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.AnimatablePathValue -> com.sample.lottie.e:
-    java.util.List keyframes -> a
-    android.graphics.PointF initialPoint -> b
-    14:19:com.sample.lottie.IAnimatablePathValue createAnimatablePathOrSplitDimensionPath(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
+    53:54:void onValueChanged(android.graphics.Path) -> onValueChanged
+    50:50:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.AnimatablePathValue -> com.sample.lottie.AnimatablePathValue:
+    java.util.List keyframes -> keyframes
+    android.graphics.PointF initialPoint -> initialPoint
+    14:19:com.sample.lottie.IAnimatablePathValue createAnimatablePathOrSplitDimensionPath(org.json.JSONObject,com.sample.lottie.LottieComposition) -> createAnimatablePathOrSplitDimensionPath
     23:31:void <init>() -> <init>
     23:46:void <init>(java.lang.Object,com.sample.lottie.LottieComposition) -> <init>
-    49:54:boolean hasKeyframes(java.lang.Object) -> a
-    59:63:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> b
-    68:68:boolean hasAnimation() -> a
+    49:54:boolean hasKeyframes(java.lang.Object) -> hasKeyframes
+    59:63:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> createAnimation
+    68:68:boolean hasAnimation() -> hasAnimation
+    73:73:android.graphics.PointF getInitialPoint() -> getInitialPoint
     78:78:java.lang.String toString() -> toString
-com.sample.lottie.AnimatablePathValue$ValueFactory -> com.sample.lottie.e$a:
-    com.sample.lottie.AnimatableValue$Factory INSTANCE -> a
+com.sample.lottie.AnimatablePathValue$ValueFactory -> com.sample.lottie.AnimatablePathValue$ValueFactory:
+    com.sample.lottie.AnimatableValue$Factory INSTANCE -> INSTANCE
     84:85:void <init>() -> <init>
-    88:88:android.graphics.PointF valueFromObject(java.lang.Object,float) -> a
-    81:81:java.lang.Object valueFromObject(java.lang.Object,float) -> b
-    81:81:com.sample.lottie.AnimatableValue$Factory access$000() -> a
+    88:88:android.graphics.PointF valueFromObject(java.lang.Object,float) -> valueFromObject
+    81:81:java.lang.Object valueFromObject(java.lang.Object,float) -> valueFromObject
+    81:81:com.sample.lottie.AnimatableValue$Factory access$000() -> access$000
     82:82:void <clinit>() -> <clinit>
-com.sample.lottie.AnimatablePointValue -> com.sample.lottie.f:
+com.sample.lottie.AnimatablePointValue -> com.sample.lottie.AnimatablePointValue:
     12:13:void <init>(java.util.List,com.sample.lottie.LottieComposition,android.graphics.PointF) -> <init>
-    16:19:com.sample.lottie.KeyframeAnimation createAnimation() -> a
-    9:9:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> b
+    16:19:com.sample.lottie.KeyframeAnimation createAnimation() -> createAnimation
+    9:9:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> createAnimation
     9:9:void <init>(java.util.List,com.sample.lottie.LottieComposition,android.graphics.PointF,com.sample.lottie.AnimatablePointValue$1) -> <init>
-com.sample.lottie.AnimatablePointValue$1 -> com.sample.lottie.f$1:
-com.sample.lottie.AnimatablePointValue$Factory -> com.sample.lottie.f$a:
-    28:31:com.sample.lottie.AnimatablePointValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.AnimatableScaleValue -> com.sample.lottie.g:
+com.sample.lottie.AnimatablePointValue$1 -> com.sample.lottie.AnimatablePointValue$1:
+com.sample.lottie.AnimatablePointValue$Factory -> com.sample.lottie.AnimatablePointValue$Factory:
+    24:25:void <init>() -> <init>
+    28:31:com.sample.lottie.AnimatablePointValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+com.sample.lottie.AnimatableScaleValue -> com.sample.lottie.AnimatableScaleValue:
     9:10:void <init>(com.sample.lottie.LottieComposition) -> <init>
     14:15:void <init>(java.util.List,com.sample.lottie.LottieComposition,com.sample.lottie.ScaleXY) -> <init>
-    18:21:com.sample.lottie.KeyframeAnimation createAnimation() -> a
-    7:7:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> b
+    18:21:com.sample.lottie.KeyframeAnimation createAnimation() -> createAnimation
+    7:7:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> createAnimation
     7:7:void <init>(java.util.List,com.sample.lottie.LottieComposition,com.sample.lottie.ScaleXY,com.sample.lottie.AnimatableScaleValue$1) -> <init>
     7:7:void <init>(com.sample.lottie.LottieComposition,com.sample.lottie.AnimatableScaleValue$1) -> <init>
-com.sample.lottie.AnimatableScaleValue$1 -> com.sample.lottie.g$1:
-com.sample.lottie.AnimatableScaleValue$Factory -> com.sample.lottie.g$a:
-    31:35:com.sample.lottie.AnimatableScaleValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,boolean) -> a
-    39:39:com.sample.lottie.AnimatableScaleValue newInstance(com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.AnimatableShapeValue -> com.sample.lottie.h:
-    android.graphics.Path convertTypePath -> d
+com.sample.lottie.AnimatableScaleValue$1 -> com.sample.lottie.AnimatableScaleValue$1:
+com.sample.lottie.AnimatableScaleValue$Factory -> com.sample.lottie.AnimatableScaleValue$Factory:
+    26:27:void <init>() -> <init>
+    31:35:com.sample.lottie.AnimatableScaleValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,boolean) -> newInstance
+    39:39:com.sample.lottie.AnimatableScaleValue newInstance(com.sample.lottie.LottieComposition) -> newInstance
+com.sample.lottie.AnimatableShapeValue -> com.sample.lottie.AnimatableShapeValue:
+    android.graphics.Path convertTypePath -> convertTypePath
     10:15:void <init>(java.util.List,com.sample.lottie.LottieComposition,com.sample.lottie.ShapeData) -> <init>
-    18:21:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> b
-    26:28:android.graphics.Path convertType(com.sample.lottie.ShapeData) -> a
-    9:9:java.lang.Object convertType(java.lang.Object) -> a
+    18:21:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> createAnimation
+    26:28:android.graphics.Path convertType(com.sample.lottie.ShapeData) -> convertType
+    9:9:java.lang.Object convertType(java.lang.Object) -> convertType
     9:9:void <init>(java.util.List,com.sample.lottie.LottieComposition,com.sample.lottie.ShapeData,com.sample.lottie.AnimatableShapeValue$1) -> <init>
-com.sample.lottie.AnimatableShapeValue$1 -> com.sample.lottie.h$1:
-com.sample.lottie.AnimatableShapeValue$Factory -> com.sample.lottie.h$a:
-    36:39:com.sample.lottie.AnimatableShapeValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.AnimatableSplitDimensionPathValue -> com.sample.lottie.i:
-    android.graphics.PointF point -> a
-    com.sample.lottie.AnimatableFloatValue animatableXDimension -> b
-    com.sample.lottie.AnimatableFloatValue animatableYDimension -> c
+com.sample.lottie.AnimatableShapeValue$1 -> com.sample.lottie.AnimatableShapeValue$1:
+com.sample.lottie.AnimatableShapeValue$Factory -> com.sample.lottie.AnimatableShapeValue$Factory:
+    32:33:void <init>() -> <init>
+    36:39:com.sample.lottie.AnimatableShapeValue newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+com.sample.lottie.AnimatableSplitDimensionPathValue -> com.sample.lottie.AnimatableSplitDimensionPathValue:
+    android.graphics.PointF point -> point
+    com.sample.lottie.AnimatableFloatValue animatableXDimension -> animatableXDimension
+    com.sample.lottie.AnimatableFloatValue animatableYDimension -> animatableYDimension
     6:15:void <init>(com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue) -> <init>
-    18:19:com.sample.lottie.KeyframeAnimation createAnimation() -> a
-    5:5:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> b
-com.sample.lottie.AnimatableTransform -> com.sample.lottie.j:
-    com.sample.lottie.AnimatablePathValue anchorPoint -> a
-    com.sample.lottie.IAnimatablePathValue position -> b
-    com.sample.lottie.AnimatableScaleValue scale -> c
-    com.sample.lottie.AnimatableFloatValue rotation -> d
-    com.sample.lottie.AnimatableIntegerValue opacity -> e
+    18:19:com.sample.lottie.KeyframeAnimation createAnimation() -> createAnimation
+    23:23:boolean hasAnimation() -> hasAnimation
+    27:28:android.graphics.PointF getInitialPoint() -> getInitialPoint
+    5:5:com.sample.lottie.BaseKeyframeAnimation createAnimation() -> createAnimation
+com.sample.lottie.AnimatableTransform -> com.sample.lottie.AnimatableTransform:
+    com.sample.lottie.AnimatablePathValue anchorPoint -> anchorPoint
+    com.sample.lottie.IAnimatablePathValue position -> position
+    com.sample.lottie.AnimatableScaleValue scale -> scale
+    com.sample.lottie.AnimatableFloatValue rotation -> rotation
+    com.sample.lottie.AnimatableIntegerValue opacity -> opacity
     14:20:void <init>(com.sample.lottie.AnimatablePathValue,com.sample.lottie.IAnimatablePathValue,com.sample.lottie.AnimatableScaleValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableIntegerValue) -> <init>
-    88:88:com.sample.lottie.AnimatablePathValue getAnchorPoint() -> a
-    92:92:com.sample.lottie.IAnimatablePathValue getPosition() -> b
-    96:96:com.sample.lottie.AnimatableScaleValue getScale() -> c
-    100:100:com.sample.lottie.AnimatableFloatValue getRotation() -> d
-    104:104:com.sample.lottie.AnimatableIntegerValue getOpacity() -> e
-    108:108:com.sample.lottie.TransformKeyframeAnimation createAnimation() -> f
-com.sample.lottie.AnimatableTransform$Factory -> com.sample.lottie.j$a:
-    27:32:com.sample.lottie.AnimatableTransform newInstance(com.sample.lottie.LottieComposition) -> a
-    36:79:com.sample.lottie.AnimatableTransform newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-    83:83:void throwMissingTransform(java.lang.String) -> a
-com.sample.lottie.AnimatableValue -> com.sample.lottie.k:
-    com.sample.lottie.BaseKeyframeAnimation createAnimation() -> b
-com.sample.lottie.AnimatableValue$Factory -> com.sample.lottie.k$a:
-    java.lang.Object valueFromObject(java.lang.Object,float) -> b
-com.sample.lottie.AnimatableValueParser -> com.sample.lottie.l:
-    org.json.JSONObject json -> a
-    float scale -> b
-    com.sample.lottie.LottieComposition composition -> c
-    com.sample.lottie.AnimatableValue$Factory valueFactory -> d
+    88:88:com.sample.lottie.AnimatablePathValue getAnchorPoint() -> getAnchorPoint
+    92:92:com.sample.lottie.IAnimatablePathValue getPosition() -> getPosition
+    96:96:com.sample.lottie.AnimatableScaleValue getScale() -> getScale
+    100:100:com.sample.lottie.AnimatableFloatValue getRotation() -> getRotation
+    104:104:com.sample.lottie.AnimatableIntegerValue getOpacity() -> getOpacity
+    108:108:com.sample.lottie.TransformKeyframeAnimation createAnimation() -> createAnimation
+com.sample.lottie.AnimatableTransform$Factory -> com.sample.lottie.AnimatableTransform$Factory:
+    23:24:void <init>() -> <init>
+    27:32:com.sample.lottie.AnimatableTransform newInstance(com.sample.lottie.LottieComposition) -> newInstance
+    36:79:com.sample.lottie.AnimatableTransform newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+    83:83:void throwMissingTransform(java.lang.String) -> throwMissingTransform
+com.sample.lottie.AnimatableValue -> com.sample.lottie.AnimatableValue:
+    com.sample.lottie.BaseKeyframeAnimation createAnimation() -> createAnimation
+    boolean hasAnimation() -> hasAnimation
+com.sample.lottie.AnimatableValue$Factory -> com.sample.lottie.AnimatableValue$Factory:
+    java.lang.Object valueFromObject(java.lang.Object,float) -> valueFromObject
+com.sample.lottie.AnimatableValueParser -> com.sample.lottie.AnimatableValueParser:
+    org.json.JSONObject json -> json
+    float scale -> scale
+    com.sample.lottie.LottieComposition composition -> composition
+    com.sample.lottie.AnimatableValue$Factory valueFactory -> valueFactory
     18:23:void <init>(org.json.JSONObject,float,com.sample.lottie.LottieComposition,com.sample.lottie.AnimatableValue$Factory) -> <init>
-    27:27:com.sample.lottie.AnimatableValueParser newInstance(org.json.JSONObject,float,com.sample.lottie.LottieComposition,com.sample.lottie.AnimatableValue$Factory) -> a
-    31:33:com.sample.lottie.AnimatableValueParser$Result parseJson() -> a
-    37:45:java.util.List parseKeyframes() -> b
-    50:57:java.lang.Object parseInitialValue(java.util.List) -> a
-    62:66:boolean hasKeyframes(java.lang.Object) -> a
-com.sample.lottie.AnimatableValueParser$Result -> com.sample.lottie.l$a:
-    java.util.List keyframes -> a
-    java.lang.Object initialValue -> b
+    27:27:com.sample.lottie.AnimatableValueParser newInstance(org.json.JSONObject,float,com.sample.lottie.LottieComposition,com.sample.lottie.AnimatableValue$Factory) -> newInstance
+    31:33:com.sample.lottie.AnimatableValueParser$Result parseJson() -> parseJson
+    37:45:java.util.List parseKeyframes() -> parseKeyframes
+    50:57:java.lang.Object parseInitialValue(java.util.List) -> parseInitialValue
+    62:66:boolean hasKeyframes(java.lang.Object) -> hasKeyframes
+com.sample.lottie.AnimatableValueParser$Result -> com.sample.lottie.AnimatableValueParser$Result:
+    java.util.List keyframes -> keyframes
+    java.lang.Object initialValue -> initialValue
     74:77:void <init>(java.util.List,java.lang.Object) -> <init>
-com.sample.lottie.BaseAnimatableValue -> com.sample.lottie.m:
-    java.util.List keyframes -> a
-    com.sample.lottie.LottieComposition composition -> b
-    java.lang.Object initialValue -> c
+com.sample.lottie.BaseAnimatableValue -> com.sample.lottie.BaseAnimatableValue:
+    java.util.List keyframes -> keyframes
+    com.sample.lottie.LottieComposition composition -> composition
+    java.lang.Object initialValue -> initialValue
     16:17:void <init>(com.sample.lottie.LottieComposition,java.lang.Object) -> <init>
     19:23:void <init>(java.util.List,com.sample.lottie.LottieComposition,java.lang.Object) -> <init>
-    31:31:java.lang.Object convertType(java.lang.Object) -> a
-    35:35:boolean hasAnimation() -> e
-    39:39:java.lang.Object getInitialValue() -> d
+    31:31:java.lang.Object convertType(java.lang.Object) -> convertType
+    35:35:boolean hasAnimation() -> hasAnimation
+    39:39:java.lang.Object getInitialValue() -> getInitialValue
     43:48:java.lang.String toString() -> toString
-com.sample.lottie.BaseKeyframeAnimation -> com.sample.lottie.n:
-    java.util.List listeners -> a
-    boolean isDiscrete -> c
-    java.util.List keyframes -> b
-    float progress -> d
-    com.sample.lottie.Keyframe cachedKeyframe -> e
+com.sample.lottie.BaseKeyframeAnimation -> com.sample.lottie.BaseKeyframeAnimation:
+    java.util.List listeners -> listeners
+    boolean isDiscrete -> isDiscrete
+    java.util.List keyframes -> keyframes
+    float progress -> progress
+    com.sample.lottie.Keyframe cachedKeyframe -> cachedKeyframe
     18:28:void <init>(java.util.List) -> <init>
-    31:32:void setIsDiscrete() -> a
-    35:36:void addUpdateListener(com.sample.lottie.BaseKeyframeAnimation$AnimationListener) -> a
-    39:40:void removeUpdateListener(com.sample.lottie.BaseKeyframeAnimation$AnimationListener) -> b
-    43:58:void setProgress(float) -> a
-    61:81:com.sample.lottie.Keyframe getCurrentKeyframe() -> c
-    89:99:float getCurrentKeyframeProgress() -> d
-    104:104:float getStartDelayProgress() -> e
-    109:109:float getEndProgress() -> f
-    113:113:java.lang.Object getValue() -> b
-    java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-com.sample.lottie.BaseKeyframeAnimation$AnimationListener -> com.sample.lottie.n$a:
-    void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.Cancellable -> com.sample.lottie.o:
-    void cancel() -> a
-com.sample.lottie.CircleShape -> com.sample.lottie.p:
-    com.sample.lottie.IAnimatablePathValue position -> a
-    com.sample.lottie.AnimatablePointValue size -> b
+    31:32:void setIsDiscrete() -> setIsDiscrete
+    35:36:void addUpdateListener(com.sample.lottie.BaseKeyframeAnimation$AnimationListener) -> addUpdateListener
+    39:40:void removeUpdateListener(com.sample.lottie.BaseKeyframeAnimation$AnimationListener) -> removeUpdateListener
+    43:58:void setProgress(float) -> setProgress
+    61:81:com.sample.lottie.Keyframe getCurrentKeyframe() -> getCurrentKeyframe
+    89:99:float getCurrentKeyframeProgress() -> getCurrentKeyframeProgress
+    104:104:float getStartDelayProgress() -> getStartDelayProgress
+    109:109:float getEndProgress() -> getEndProgress
+    113:113:java.lang.Object getValue() -> getValue
+    java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.BaseKeyframeAnimation$AnimationListener -> com.sample.lottie.BaseKeyframeAnimation$AnimationListener:
+    void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.BitmapCanvas -> com.sample.lottie.BitmapCanvas:
+    android.graphics.Bitmap bitmap -> bitmap
+    11:13:void <init>(android.graphics.Bitmap) -> <init>
+    16:16:android.graphics.Bitmap getBitmap() -> getBitmap
+com.sample.lottie.Cancellable -> com.sample.lottie.Cancellable:
+    void cancel() -> cancel
+com.sample.lottie.CanvasPool -> com.sample.lottie.CanvasPool:
+    android.support.v4.util.LongSparseArray availableBitmaps -> availableBitmaps
+    java.util.Map canvasBitmapMap -> canvasBitmapMap
+    java.util.Map bitmapCanvasMap -> bitmapCanvasMap
+    15:18:void <init>() -> <init>
+    21:40:com.sample.lottie.BitmapCanvas acquire(int,int,android.graphics.Bitmap$Config) -> acquire
+    44:54:void release(com.sample.lottie.BitmapCanvas) -> release
+    57:72:void recycleBitmaps() -> recycleBitmaps
+    75:75:int getKey(android.graphics.Bitmap) -> getKey
+    79:79:int getKey(int,int,android.graphics.Bitmap$Config) -> getKey
+com.sample.lottie.CircleShape -> com.sample.lottie.CircleShape:
+    com.sample.lottie.IAnimatablePathValue position -> position
+    com.sample.lottie.AnimatablePointValue size -> size
     9:12:void <init>(com.sample.lottie.IAnimatablePathValue,com.sample.lottie.AnimatablePointValue) -> <init>
-    26:26:com.sample.lottie.IAnimatablePathValue getPosition() -> a
-    30:30:com.sample.lottie.AnimatablePointValue getSize() -> b
+    26:26:com.sample.lottie.IAnimatablePathValue getPosition() -> getPosition
+    30:30:com.sample.lottie.AnimatablePointValue getSize() -> getSize
     5:5:void <init>(com.sample.lottie.IAnimatablePathValue,com.sample.lottie.AnimatablePointValue,com.sample.lottie.CircleShape$1) -> <init>
-com.sample.lottie.CircleShape$1 -> com.sample.lottie.p$1:
-com.sample.lottie.CircleShape$Factory -> com.sample.lottie.p$a:
-    19:21:com.sample.lottie.CircleShape newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.ColorFactory -> com.sample.lottie.q:
-    com.sample.lottie.ColorFactory INSTANCE -> a
+com.sample.lottie.CircleShape$1 -> com.sample.lottie.CircleShape$1:
+com.sample.lottie.CircleShape$Factory -> com.sample.lottie.CircleShape$Factory:
+    15:16:void <init>() -> <init>
+    19:21:com.sample.lottie.CircleShape newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+com.sample.lottie.ColorFactory -> com.sample.lottie.ColorFactory:
+    com.sample.lottie.ColorFactory INSTANCE -> INSTANCE
     7:7:void <init>() -> <init>
-    11:28:java.lang.Integer valueFromObject(java.lang.Object,float) -> a
-    7:7:java.lang.Object valueFromObject(java.lang.Object,float) -> b
+    11:28:java.lang.Integer valueFromObject(java.lang.Object,float) -> valueFromObject
+    7:7:java.lang.Object valueFromObject(java.lang.Object,float) -> valueFromObject
     8:8:void <clinit>() -> <clinit>
-com.sample.lottie.ColorKeyframeAnimation -> com.sample.lottie.r:
+com.sample.lottie.ColorKeyframeAnimation -> com.sample.lottie.ColorKeyframeAnimation:
     9:10:void <init>(java.util.List) -> <init>
-    14:17:java.lang.Integer getValue(com.sample.lottie.Keyframe,float) -> b
-    6:6:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-com.sample.lottie.CompositionLoader -> com.sample.lottie.s:
+    14:17:java.lang.Integer getValue(com.sample.lottie.Keyframe,float) -> getValue
+    6:6:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.CompositionLoader -> com.sample.lottie.CompositionLoader:
     6:6:void <init>() -> <init>
-    9:10:void cancel() -> a
-com.sample.lottie.CubicCurveData -> com.sample.lottie.t:
-    android.graphics.PointF controlPoint1 -> a
-    android.graphics.PointF controlPoint2 -> b
-    android.graphics.PointF vertex -> c
+    9:10:void cancel() -> cancel
+com.sample.lottie.CubicCurveData -> com.sample.lottie.CubicCurveData:
+    android.graphics.PointF controlPoint1 -> controlPoint1
+    android.graphics.PointF controlPoint2 -> controlPoint2
+    android.graphics.PointF vertex -> vertex
     10:14:void <init>() -> <init>
     16:20:void <init>(android.graphics.PointF,android.graphics.PointF,android.graphics.PointF) -> <init>
-    23:24:void setControlPoint1(float,float) -> a
-    27:27:android.graphics.PointF getControlPoint1() -> a
-    31:32:void setControlPoint2(float,float) -> b
-    35:35:android.graphics.PointF getControlPoint2() -> b
-    39:40:void setVertex(float,float) -> c
-    43:43:android.graphics.PointF getVertex() -> c
-com.sample.lottie.EllipseLayer -> com.sample.lottie.u:
+    23:24:void setControlPoint1(float,float) -> setControlPoint1
+    27:27:android.graphics.PointF getControlPoint1() -> getControlPoint1
+    31:32:void setControlPoint2(float,float) -> setControlPoint2
+    35:35:android.graphics.PointF getControlPoint2() -> getControlPoint2
+    39:40:void setVertex(float,float) -> setVertex
+    43:43:android.graphics.PointF getVertex() -> getVertex
+com.sample.lottie.EllipseLayer -> com.sample.lottie.EllipseLayer:
     13:60:void <init>(com.sample.lottie.CircleShape,com.sample.lottie.ShapeFill,com.sample.lottie.ShapeStroke,com.sample.lottie.ShapeTrimPath,com.sample.lottie.AnimatableTransform,android.graphics.drawable.Drawable$Callback) -> <init>
-com.sample.lottie.EllipseLayer$EllipseShapeLayer -> com.sample.lottie.u$a:
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener circleSizeChangedListener -> c
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener circlePositionChangedListener -> d
-    android.graphics.Path path -> e
-    com.sample.lottie.BaseKeyframeAnimation circleSize -> f
-    com.sample.lottie.BaseKeyframeAnimation circlePosition -> g
+com.sample.lottie.EllipseLayer$EllipseShapeLayer -> com.sample.lottie.EllipseLayer$EllipseShapeLayer:
+    float ELLIPSE_CONTROL_POINT_PERCENTAGE -> ELLIPSE_CONTROL_POINT_PERCENTAGE
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener circleSizeChangedListener -> circleSizeChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener circlePositionChangedListener -> circlePositionChangedListener
+    android.graphics.Path path -> path
+    com.sample.lottie.BaseKeyframeAnimation circleSize -> circleSize
+    com.sample.lottie.BaseKeyframeAnimation circlePosition -> circlePosition
     65:89:void <init>(android.graphics.drawable.Drawable$Callback) -> <init>
-    93:108:void updateCircle(com.sample.lottie.BaseKeyframeAnimation,com.sample.lottie.BaseKeyframeAnimation) -> a
-    111:130:void onCircleSizeChanged() -> g
-    62:62:void access$000(com.sample.lottie.EllipseLayer$EllipseShapeLayer) -> a
-com.sample.lottie.EllipseLayer$EllipseShapeLayer$1 -> com.sample.lottie.u$a$1:
-    com.sample.lottie.EllipseLayer$EllipseShapeLayer this$0 -> a
+    93:108:void updateCircle(com.sample.lottie.BaseKeyframeAnimation,com.sample.lottie.BaseKeyframeAnimation) -> updateCircle
+    111:130:void onCircleSizeChanged() -> onCircleSizeChanged
+    62:62:void access$000(com.sample.lottie.EllipseLayer$EllipseShapeLayer) -> access$000
+com.sample.lottie.EllipseLayer$EllipseShapeLayer$1 -> com.sample.lottie.EllipseLayer$EllipseShapeLayer$1:
+    com.sample.lottie.EllipseLayer$EllipseShapeLayer this$0 -> this$0
     66:66:void <init>(com.sample.lottie.EllipseLayer$EllipseShapeLayer) -> <init>
-    69:70:void onValueChanged(android.graphics.PointF) -> a
-    66:66:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.EllipseLayer$EllipseShapeLayer$2 -> com.sample.lottie.u$a$2:
-    com.sample.lottie.EllipseLayer$EllipseShapeLayer this$0 -> a
+    69:70:void onValueChanged(android.graphics.PointF) -> onValueChanged
+    66:66:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.EllipseLayer$EllipseShapeLayer$2 -> com.sample.lottie.EllipseLayer$EllipseShapeLayer$2:
+    com.sample.lottie.EllipseLayer$EllipseShapeLayer this$0 -> this$0
     74:74:void <init>(com.sample.lottie.EllipseLayer$EllipseShapeLayer) -> <init>
-    77:78:void onValueChanged(android.graphics.PointF) -> a
-    74:74:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.FileCompositionLoader -> com.sample.lottie.v:
-    android.content.res.Resources res -> a
-    com.sample.lottie.OnCompositionLoadedListener loadedListener -> b
+    77:78:void onValueChanged(android.graphics.PointF) -> onValueChanged
+    74:74:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.FileCompositionLoader -> com.sample.lottie.FileCompositionLoader:
+    android.content.res.Resources res -> res
+    com.sample.lottie.OnCompositionLoadedListener loadedListener -> loadedListener
     11:14:void <init>(android.content.res.Resources,com.sample.lottie.OnCompositionLoadedListener) -> <init>
-    17:23:com.sample.lottie.LottieComposition doInBackground(java.io.InputStream[]) -> a
-    27:28:void onPostExecute(com.sample.lottie.LottieComposition) -> a
+    17:23:com.sample.lottie.LottieComposition doInBackground(java.io.InputStream[]) -> doInBackground
+    27:28:void onPostExecute(com.sample.lottie.LottieComposition) -> onPostExecute
     7:7:void onPostExecute(java.lang.Object) -> onPostExecute
     7:7:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.sample.lottie.FloatKeyframeAnimation -> com.sample.lottie.w:
+com.sample.lottie.FloatKeyframeAnimation -> com.sample.lottie.FloatKeyframeAnimation:
     10:11:void <init>(java.util.List) -> <init>
-    14:14:java.lang.Float getValue(com.sample.lottie.Keyframe,float) -> b
-    7:7:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-com.sample.lottie.GammaEvaluator -> com.sample.lottie.x:
-    16:17:float OECF_sRGB(float) -> a
-    24:24:float EOCF_sRGB(float) -> b
-    28:59:int evaluate(float,int,int) -> a
-com.sample.lottie.GroupLayerView -> com.sample.lottie.y:
-    com.sample.lottie.ShapeGroup shapeGroup -> c
-    com.sample.lottie.AnimatableTransform transform -> d
+    14:14:java.lang.Float getValue(com.sample.lottie.Keyframe,float) -> getValue
+    7:7:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.GammaEvaluator -> com.sample.lottie.GammaEvaluator:
+    10:10:void <init>() -> <init>
+    16:17:float OECF_sRGB(float) -> OECF_sRGB
+    24:24:float EOCF_sRGB(float) -> EOCF_sRGB
+    28:59:int evaluate(float,int,int) -> evaluate
+com.sample.lottie.GroupLayerView -> com.sample.lottie.GroupLayerView:
+    com.sample.lottie.ShapeGroup shapeGroup -> shapeGroup
+    com.sample.lottie.AnimatableTransform transform -> transform
     17:21:void <init>(com.sample.lottie.ShapeGroup,com.sample.lottie.ShapeFill,com.sample.lottie.ShapeStroke,com.sample.lottie.ShapeTrimPath,com.sample.lottie.AnimatableTransform,android.graphics.drawable.Drawable$Callback) -> <init>
-    25:79:void setupShapeGroupWithFill(com.sample.lottie.ShapeFill,com.sample.lottie.ShapeStroke,com.sample.lottie.ShapeTrimPath) -> a
-com.sample.lottie.IAnimatablePathValue -> com.sample.lottie.z:
-com.sample.lottie.ImageAssetBitmapManager -> com.sample.lottie.aa:
-    android.content.Context context -> a
-    java.lang.String imagesFolder -> b
-    com.sample.lottie.ImageAssetDelegate assetDelegate -> c
-    java.util.Map imageAssets -> d
-    java.util.Map bitmaps -> e
-    boolean isTheme -> f
-    boolean isSdCard -> g
-    android.content.Context themeContext -> h
+    25:79:void setupShapeGroupWithFill(com.sample.lottie.ShapeFill,com.sample.lottie.ShapeStroke,com.sample.lottie.ShapeTrimPath) -> setupShapeGroupWithFill
+com.sample.lottie.IAnimatablePathValue -> com.sample.lottie.IAnimatablePathValue:
+    android.graphics.PointF getInitialPoint() -> getInitialPoint
+com.sample.lottie.ImageAssetBitmapManager -> com.sample.lottie.ImageAssetBitmapManager:
+    android.content.Context context -> context
+    java.lang.String imagesFolder -> imagesFolder
+    com.sample.lottie.ImageAssetDelegate assetDelegate -> assetDelegate
+    java.util.Map imageAssets -> imageAssets
+    java.util.Map bitmaps -> bitmaps
+    boolean isTheme -> isTheme
+    boolean isSdCard -> isSdCard
+    android.content.Context themeContext -> themeContext
     28:69:void <init>(android.content.Context,android.graphics.drawable.Drawable$Callback,java.lang.String,com.sample.lottie.ImageAssetDelegate,java.util.Map) -> <init>
-    72:73:void setAssetDelegate(com.sample.lottie.ImageAssetDelegate) -> a
-    76:165:android.graphics.Bitmap bitmapForId(java.lang.String) -> a
-    169:175:void recycleBitmaps() -> a
-    178:179:boolean hasSameContext(android.content.Context) -> a
-com.sample.lottie.ImageAssetDelegate -> com.sample.lottie.ab:
-    android.graphics.Bitmap fetchBitmap(com.sample.lottie.LottieImageAsset) -> a
-com.sample.lottie.IntegerKeyframeAnimation -> com.sample.lottie.ac:
+    72:73:void setAssetDelegate(com.sample.lottie.ImageAssetDelegate) -> setAssetDelegate
+    76:165:android.graphics.Bitmap bitmapForId(java.lang.String) -> bitmapForId
+    169:175:void recycleBitmaps() -> recycleBitmaps
+    178:179:boolean hasSameContext(android.content.Context) -> hasSameContext
+com.sample.lottie.ImageAssetDelegate -> com.sample.lottie.ImageAssetDelegate:
+    android.graphics.Bitmap fetchBitmap(com.sample.lottie.LottieImageAsset) -> fetchBitmap
+com.sample.lottie.IntegerKeyframeAnimation -> com.sample.lottie.IntegerKeyframeAnimation:
     13:14:void <init>(java.util.List) -> <init>
-    17:17:java.lang.Integer getValue(com.sample.lottie.Keyframe,float) -> b
-    10:10:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-com.sample.lottie.JsonCompositionLoader -> com.sample.lottie.ad:
-    android.content.res.Resources res -> a
-    com.sample.lottie.OnCompositionLoadedListener loadedListener -> b
+    17:17:java.lang.Integer getValue(com.sample.lottie.Keyframe,float) -> getValue
+    10:10:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.JsonCompositionLoader -> com.sample.lottie.JsonCompositionLoader:
+    android.content.res.Resources res -> res
+    com.sample.lottie.OnCompositionLoadedListener loadedListener -> loadedListener
     11:14:void <init>(android.content.res.Resources,com.sample.lottie.OnCompositionLoadedListener) -> <init>
-    17:17:com.sample.lottie.LottieComposition doInBackground(org.json.JSONObject[]) -> a
-    21:22:void onPostExecute(com.sample.lottie.LottieComposition) -> a
+    17:17:com.sample.lottie.LottieComposition doInBackground(org.json.JSONObject[]) -> doInBackground
+    21:22:void onPostExecute(com.sample.lottie.LottieComposition) -> onPostExecute
     7:7:void onPostExecute(java.lang.Object) -> onPostExecute
     7:7:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.sample.lottie.JsonUtils -> com.sample.lottie.ae:
-    13:15:android.graphics.PointF pointFromJsonObject(org.json.JSONObject,float) -> a
-    19:24:android.graphics.PointF pointFromJsonArray(org.json.JSONArray,float) -> a
-    28:37:float valueFromObject(java.lang.Object) -> a
-com.sample.lottie.Keyframe -> com.sample.lottie.af:
-    android.view.animation.Interpolator LINEAR_INTERPOLATOR -> f
-    com.sample.lottie.LottieComposition composition -> g
-    java.lang.Object startValue -> a
-    java.lang.Object endValue -> b
-    android.view.animation.Interpolator interpolator -> c
-    float startFrame -> d
-    java.lang.Float endFrame -> e
-    25:37:void setEndFrames(java.util.List) -> a
+com.sample.lottie.JsonUtils -> com.sample.lottie.JsonUtils:
+    9:10:void <init>() -> <init>
+    13:15:android.graphics.PointF pointFromJsonObject(org.json.JSONObject,float) -> pointFromJsonObject
+    19:24:android.graphics.PointF pointFromJsonArray(org.json.JSONArray,float) -> pointFromJsonArray
+    28:37:float valueFromObject(java.lang.Object) -> valueFromObject
+com.sample.lottie.Keyframe -> com.sample.lottie.Keyframe:
+    android.view.animation.Interpolator LINEAR_INTERPOLATOR -> LINEAR_INTERPOLATOR
+    com.sample.lottie.LottieComposition composition -> composition
+    java.lang.Object startValue -> startValue
+    java.lang.Object endValue -> endValue
+    android.view.animation.Interpolator interpolator -> interpolator
+    float startFrame -> startFrame
+    java.lang.Float endFrame -> endFrame
+    25:37:void setEndFrames(java.util.List) -> setEndFrames
     48:55:void <init>(com.sample.lottie.LottieComposition,java.lang.Object,java.lang.Object,android.view.animation.Interpolator,float,java.lang.Float) -> <init>
-    59:59:float getStartProgress() -> a
-    65:65:float getEndProgress() -> b
-    69:69:boolean isStatic() -> c
-    73:73:boolean containsProgress(float) -> a
+    59:59:float getStartProgress() -> getStartProgress
+    65:65:float getEndProgress() -> getEndProgress
+    69:69:boolean isStatic() -> isStatic
+    73:73:boolean containsProgress(float) -> containsProgress
     77:77:java.lang.String toString() -> toString
-    17:17:android.view.animation.Interpolator access$000() -> d
+    17:17:android.view.animation.Interpolator access$000() -> access$000
     18:18:void <clinit>() -> <clinit>
-com.sample.lottie.Keyframe$Factory -> com.sample.lottie.af$a:
-    91:133:com.sample.lottie.Keyframe newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,float,com.sample.lottie.AnimatableValue$Factory) -> a
-    138:149:java.util.List parseKeyframes(org.json.JSONArray,com.sample.lottie.LottieComposition,float,com.sample.lottie.AnimatableValue$Factory) -> a
-com.sample.lottie.KeyframeAnimation -> com.sample.lottie.ag:
+com.sample.lottie.Keyframe$Factory -> com.sample.lottie.Keyframe$Factory:
+    86:87:void <init>() -> <init>
+    91:133:com.sample.lottie.Keyframe newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,float,com.sample.lottie.AnimatableValue$Factory) -> newInstance
+    138:149:java.util.List parseKeyframes(org.json.JSONArray,com.sample.lottie.LottieComposition,float,com.sample.lottie.AnimatableValue$Factory) -> parseKeyframes
+com.sample.lottie.KeyframeAnimation -> com.sample.lottie.KeyframeAnimation:
     7:8:void <init>(java.util.List) -> <init>
-    5:5:java.lang.Object getValue() -> b
+    5:5:java.lang.Object getValue() -> getValue
+com.sample.lottie.L -> com.sample.lottie.L:
+    java.lang.String TAG -> TAG
+    boolean DBG -> DBG
+    3:3:void <init>() -> <init>
 com.sample.lottie.Layer -> com.sample.lottie.Layer:
-    java.lang.String TAG -> a
-    java.util.List shapes -> b
-    com.sample.lottie.LottieComposition composition -> c
-    java.lang.String layerName -> d
-    long layerId -> e
-    com.sample.lottie.Layer$LayerType layerType -> f
-    long parentId -> g
-    java.lang.String refId -> h
-    java.util.List masks -> i
-    com.sample.lottie.AnimatableTransform transform -> j
-    int solidWidth -> k
-    int solidHeight -> l
-    int solidColor -> m
-    float timeStretch -> n
-    float startProgress -> o
-    int preCompWidth -> p
-    int preCompHeight -> q
-    java.util.List inOutKeyframes -> r
-    com.sample.lottie.Layer$MatteType matteType -> s
+    java.lang.String TAG -> TAG
+    java.util.List shapes -> shapes
+    com.sample.lottie.LottieComposition composition -> composition
+    java.lang.String layerName -> layerName
+    long layerId -> layerId
+    com.sample.lottie.Layer$LayerType layerType -> layerType
+    long parentId -> parentId
+    java.lang.String refId -> refId
+    java.util.List masks -> masks
+    com.sample.lottie.AnimatableTransform transform -> transform
+    int solidWidth -> solidWidth
+    int solidHeight -> solidHeight
+    int solidColor -> solidColor
+    float timeStretch -> timeStretch
+    float startProgress -> startProgress
+    int preCompWidth -> preCompWidth
+    int preCompHeight -> preCompHeight
+    java.util.List inOutKeyframes -> inOutKeyframes
+    com.sample.lottie.Layer$MatteType matteType -> matteType
     57:76:void <init>(java.util.List,com.sample.lottie.LottieComposition,java.lang.String,long,com.sample.lottie.Layer$LayerType,long,java.lang.String,java.util.List,com.sample.lottie.AnimatableTransform,int,int,int,float,float,int,int,java.util.List,com.sample.lottie.Layer$MatteType) -> <init>
-    83:83:float getTimeStretch() -> a
-    91:91:java.util.List getInOutKeyframes() -> b
-    95:95:long getId() -> c
-    99:99:java.lang.String getName() -> d
-    103:103:java.lang.String getRefId() -> e
-    107:107:int getPreCompWidth() -> f
-    111:111:int getPreCompHeight() -> g
-    115:115:java.util.List getMasks() -> h
-    119:119:com.sample.lottie.Layer$LayerType getLayerType() -> i
-    123:123:com.sample.lottie.Layer$MatteType getMatteType() -> j
-    127:127:long getParentId() -> k
-    131:131:java.util.List getShapes() -> l
-    135:135:com.sample.lottie.AnimatableTransform getTransform() -> m
-    139:139:int getSolidColor() -> n
-    143:143:int getSolidHeight() -> o
-    147:147:int getSolidWidth() -> p
+    79:79:com.sample.lottie.LottieComposition getComposition() -> getComposition
+    83:83:float getTimeStretch() -> getTimeStretch
+    87:87:float getStartProgress() -> getStartProgress
+    91:91:java.util.List getInOutKeyframes() -> getInOutKeyframes
+    95:95:long getId() -> getId
+    99:99:java.lang.String getName() -> getName
+    103:103:java.lang.String getRefId() -> getRefId
+    107:107:int getPreCompWidth() -> getPreCompWidth
+    111:111:int getPreCompHeight() -> getPreCompHeight
+    115:115:java.util.List getMasks() -> getMasks
+    119:119:com.sample.lottie.Layer$LayerType getLayerType() -> getLayerType
+    123:123:com.sample.lottie.Layer$MatteType getMatteType() -> getMatteType
+    127:127:long getParentId() -> getParentId
+    131:131:java.util.List getShapes() -> getShapes
+    135:135:com.sample.lottie.AnimatableTransform getTransform() -> getTransform
+    139:139:int getSolidColor() -> getSolidColor
+    143:143:int getSolidHeight() -> getSolidHeight
+    147:147:int getSolidWidth() -> getSolidWidth
     151:151:java.lang.String toString() -> toString
-    155:180:java.lang.String toString(java.lang.String) -> a
+    155:180:java.lang.String toString(java.lang.String) -> toString
     14:14:void <init>(java.util.List,com.sample.lottie.LottieComposition,java.lang.String,long,com.sample.lottie.Layer$LayerType,long,java.lang.String,java.util.List,com.sample.lottie.AnimatableTransform,int,int,int,float,float,int,int,java.util.List,com.sample.lottie.Layer$MatteType,com.sample.lottie.Layer$1) -> <init>
     15:15:void <clinit>() -> <clinit>
 com.sample.lottie.Layer$1 -> com.sample.lottie.Layer$1:
-com.sample.lottie.Layer$Factory -> com.sample.lottie.Layer$a:
-    188:271:com.sample.lottie.Layer newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
+com.sample.lottie.Layer$Factory -> com.sample.lottie.Layer$Factory:
+    184:185:void <init>() -> <init>
+    188:271:com.sample.lottie.Layer newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
 com.sample.lottie.Layer$LayerType -> com.sample.lottie.Layer$LayerType:
     com.sample.lottie.Layer$LayerType PreComp -> PreComp
     com.sample.lottie.Layer$LayerType Solid -> Solid
@@ -43633,107 +43671,115 @@ com.sample.lottie.Layer$MatteType -> com.sample.lottie.Layer$MatteType:
     27:27:com.sample.lottie.Layer$MatteType valueOf(java.lang.String) -> valueOf
     27:27:void <init>(java.lang.String,int) -> <init>
     27:31:void <clinit>() -> <clinit>
-com.sample.lottie.LayerView -> com.sample.lottie.ah:
-    com.sample.lottie.MaskKeyframeAnimation mask -> c
-    com.sample.lottie.LayerView matteLayer -> d
-    android.graphics.RectF rect -> e
-    java.util.List transformLayers -> f
-    android.graphics.Paint mainCanvasPaint -> g
-    android.graphics.Paint mattePaint -> h
-    android.graphics.Paint maskPaint -> i
-    android.graphics.Paint clearPaint -> j
-    android.graphics.Paint imagePaint -> k
-    com.sample.lottie.Layer layerModel -> l
-    com.sample.lottie.LottieComposition composition -> m
-    com.sample.lottie.LayerView parentLayer -> n
-    int precompWidth -> o
-    int precompHeight -> p
+com.sample.lottie.LayerView -> com.sample.lottie.LayerView:
+    int SAVE_FLAGS -> SAVE_FLAGS
+    com.sample.lottie.MaskKeyframeAnimation mask -> mask
+    com.sample.lottie.LayerView matteLayer -> matteLayer
+    android.graphics.RectF rect -> rect
+    java.util.List transformLayers -> transformLayers
+    android.graphics.Paint mainCanvasPaint -> mainCanvasPaint
+    android.graphics.Paint mattePaint -> mattePaint
+    android.graphics.Paint maskPaint -> maskPaint
+    android.graphics.Paint clearPaint -> clearPaint
+    android.graphics.Paint imagePaint -> imagePaint
+    com.sample.lottie.Layer layerModel -> layerModel
+    com.sample.lottie.LottieComposition composition -> composition
+    com.sample.lottie.LayerView parentLayer -> parentLayer
+    int precompWidth -> precompWidth
+    int precompHeight -> precompHeight
     26:62:void <init>(com.sample.lottie.Layer,com.sample.lottie.LottieComposition,android.graphics.drawable.Drawable$Callback) -> <init>
-    65:115:void setupForModel() -> i
-    118:164:void setupShapeLayer() -> j
-    167:189:void setupPreCompLayer() -> k
-    192:206:void setupInOutAnimations() -> l
-    209:209:com.sample.lottie.Layer getLayerModel() -> e
-    213:214:void setParentLayer(com.sample.lottie.LayerView) -> a
-    218:218:com.sample.lottie.LayerView getParentLayer() -> m
-    222:224:void setPrecompSize(int,int) -> a
-    227:232:void setMask(com.sample.lottie.MaskKeyframeAnimation) -> a
-    235:236:void setMatteLayer(com.sample.lottie.LayerView) -> b
+    65:115:void setupForModel() -> setupForModel
+    118:164:void setupShapeLayer() -> setupShapeLayer
+    167:189:void setupPreCompLayer() -> setupPreCompLayer
+    192:206:void setupInOutAnimations() -> setupInOutAnimations
+    209:209:com.sample.lottie.Layer getLayerModel() -> getLayerModel
+    213:214:void setParentLayer(com.sample.lottie.LayerView) -> setParentLayer
+    218:218:com.sample.lottie.LayerView getParentLayer() -> getParentLayer
+    222:224:void setPrecompSize(int,int) -> setPrecompSize
+    227:232:void setMask(com.sample.lottie.MaskKeyframeAnimation) -> setMask
+    235:236:void setMatteLayer(com.sample.lottie.LayerView) -> setMatteLayer
     239:298:void draw(android.graphics.Canvas) -> draw
-    301:329:void applyMasks(android.graphics.Canvas) -> b
-    332:347:void drawImageIfNeeded(android.graphics.Canvas) -> c
-    350:350:boolean hasMatte() -> f
-    354:354:boolean hasMasks() -> g
-    360:367:void setProgress(float) -> a
-    370:370:long getId() -> h
+    301:329:void applyMasks(android.graphics.Canvas) -> applyMasks
+    332:347:void drawImageIfNeeded(android.graphics.Canvas) -> drawImageIfNeeded
+    350:350:boolean hasMatte() -> hasMatte
+    354:354:boolean hasMasks() -> hasMasks
+    360:367:void setProgress(float) -> setProgress
+    370:370:long getId() -> getId
     374:374:java.lang.String toString() -> toString
-com.sample.lottie.LayerView$1 -> com.sample.lottie.ah$1:
-    com.sample.lottie.LayerView this$0 -> a
+com.sample.lottie.LayerView$1 -> com.sample.lottie.LayerView$1:
+    com.sample.lottie.LayerView this$0 -> this$0
     196:196:void <init>(com.sample.lottie.LayerView) -> <init>
-    198:199:void onValueChanged(java.lang.Float) -> a
-    196:196:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.LayerView$2 -> com.sample.lottie.ah$2:
-    int[] $SwitchMap$com$sample$lottie$Layer$LayerType -> a
-    int[] $SwitchMap$com$sample$lottie$Mask$MaskMode -> b
+    198:199:void onValueChanged(java.lang.Float) -> onValueChanged
+    196:196:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.LayerView$2 -> com.sample.lottie.LayerView$2:
+    int[] $SwitchMap$com$sample$lottie$Layer$LayerType -> $SwitchMap$com$sample$lottie$Layer$LayerType
+    int[] $SwitchMap$com$sample$lottie$Mask$MaskMode -> $SwitchMap$com$sample$lottie$Mask$MaskMode
     71:318:void <clinit>() -> <clinit>
 com.sample.lottie.LottieAnimationView -> com.sample.lottie.LottieAnimationView:
-    java.lang.String TAG -> a
-    java.util.Map strongRefCache -> b
-    java.util.Map weakRefCache -> c
-    com.sample.lottie.OnCompositionLoadedListener loadedListener -> d
-    com.sample.lottie.LottieDrawable lottieDrawable -> e
-    com.sample.lottie.LottieAnimationView$CacheStrategy defaultCacheStrategy -> f
-    java.lang.String animationName -> g
-    com.sample.lottie.Cancellable compositionLoader -> h
-    com.sample.lottie.LottieComposition composition -> i
-    android.content.Context themeContext -> j
-    java.lang.String curAniName -> k
+    java.lang.String TAG -> TAG
+    java.util.Map strongRefCache -> strongRefCache
+    java.util.Map weakRefCache -> weakRefCache
+    com.sample.lottie.OnCompositionLoadedListener loadedListener -> loadedListener
+    com.sample.lottie.LottieDrawable lottieDrawable -> lottieDrawable
+    com.sample.lottie.LottieAnimationView$CacheStrategy defaultCacheStrategy -> defaultCacheStrategy
+    java.lang.String animationName -> animationName
+    com.sample.lottie.Cancellable compositionLoader -> compositionLoader
+    com.sample.lottie.LottieComposition composition -> composition
+    android.content.Context themeContext -> themeContext
+    java.lang.String curAniName -> curAniName
     61:210:void <init>(android.content.Context) -> <init>
     61:210:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     61:210:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    96:121:void init(android.util.AttributeSet) -> a
+    96:121:void init(android.util.AttributeSet) -> init
     124:126:void setImageResource(int) -> setImageResource
     129:133:void setImageDrawable(android.graphics.drawable.Drawable) -> setImageDrawable
     136:144:void invalidateDrawable(android.graphics.drawable.Drawable) -> invalidateDrawable
     147:153:android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
     157:173:void onRestoreInstanceState(android.os.Parcelable) -> onRestoreInstanceState
     177:179:void onDetachedFromWindow() -> onDetachedFromWindow
-    182:183:void recycleBitmaps() -> a
+    182:183:void recycleBitmaps() -> recycleBitmaps
     192:193:void setAnimation(java.lang.String) -> setAnimation
-    198:200:void setAnimation(android.content.Context,java.lang.String) -> a
-    214:258:void setAnimation(java.lang.String,com.sample.lottie.LottieAnimationView$CacheStrategy) -> a
+    198:200:void setAnimation(android.content.Context,java.lang.String) -> setAnimation
+    214:258:void setAnimation(java.lang.String,com.sample.lottie.LottieAnimationView$CacheStrategy) -> setAnimation
     268:270:void setAnimation(org.json.JSONObject) -> setAnimation
-    273:277:void cancelLoaderTask() -> i
+    273:277:void cancelLoaderTask() -> cancelLoaderTask
     288:320:void setComposition(com.sample.lottie.LottieComposition) -> setComposition
+    326:326:boolean hasMasks() -> hasMasks
+    333:333:boolean hasMatte() -> hasMatte
     345:346:void setImageAssetsFolder(java.lang.String) -> setImageAssetsFolder
-    351:352:void setImageAssetsFolder(android.content.Context,java.lang.String) -> b
-    355:356:void addAnimatorUpdateListener(android.animation.ValueAnimator$AnimatorUpdateListener) -> a
-    373:374:void loop(boolean) -> a
-    377:377:boolean isAnimating() -> b
-    381:382:void playAnimation() -> c
-    385:386:void resumeAnimation() -> d
+    351:352:void setImageAssetsFolder(android.content.Context,java.lang.String) -> setImageAssetsFolder
+    355:356:void addAnimatorUpdateListener(android.animation.ValueAnimator$AnimatorUpdateListener) -> addAnimatorUpdateListener
+    360:361:void removeUpdateListener(android.animation.ValueAnimator$AnimatorUpdateListener) -> removeUpdateListener
+    364:365:void addAnimatorListener(android.animation.Animator$AnimatorListener) -> addAnimatorListener
+    369:370:void removeAnimatorListener(android.animation.Animator$AnimatorListener) -> removeAnimatorListener
+    373:374:void loop(boolean) -> loop
+    377:377:boolean isAnimating() -> isAnimating
+    381:382:void playAnimation() -> playAnimation
+    385:386:void resumeAnimation() -> resumeAnimation
+    389:390:void reverseAnimation() -> reverseAnimation
+    393:394:void resumeReverseAnimation() -> resumeReverseAnimation
     397:398:void setSpeed(float) -> setSpeed
     406:407:void setImageAssetDelegate(com.sample.lottie.ImageAssetDelegate) -> setImageAssetDelegate
     410:413:void setScale(float) -> setScale
-    416:417:void cancelAnimation() -> e
-    420:423:void pauseAnimation() -> f
+    416:417:void cancelAnimation() -> cancelAnimation
+    420:423:void pauseAnimation() -> pauseAnimation
     426:427:void setProgress(float) -> setProgress
     431:431:float getProgress() -> getProgress
     435:435:long getDuration() -> getDuration
-    44:44:com.sample.lottie.Cancellable access$002(com.sample.lottie.LottieAnimationView,com.sample.lottie.Cancellable) -> a
-    44:44:java.lang.String access$100(com.sample.lottie.LottieAnimationView) -> a
-    44:44:java.util.Map access$200() -> g
-    44:44:java.util.Map access$300() -> h
+    44:44:com.sample.lottie.Cancellable access$002(com.sample.lottie.LottieAnimationView,com.sample.lottie.Cancellable) -> access$002
+    44:44:java.lang.String access$100(com.sample.lottie.LottieAnimationView) -> access$100
+    44:44:java.util.Map access$200() -> access$200
+    44:44:java.util.Map access$300() -> access$300
     45:58:void <clinit>() -> <clinit>
 com.sample.lottie.LottieAnimationView$1 -> com.sample.lottie.LottieAnimationView$1:
-    com.sample.lottie.LottieAnimationView this$0 -> a
+    com.sample.lottie.LottieAnimationView this$0 -> this$0
     62:62:void <init>(com.sample.lottie.LottieAnimationView) -> <init>
-    65:67:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    65:67:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> onCompositionLoaded
 com.sample.lottie.LottieAnimationView$2 -> com.sample.lottie.LottieAnimationView$2:
-    com.sample.lottie.LottieAnimationView$CacheStrategy val$cacheStrategy -> a
-    com.sample.lottie.LottieAnimationView this$0 -> b
+    com.sample.lottie.LottieAnimationView$CacheStrategy val$cacheStrategy -> val$cacheStrategy
+    com.sample.lottie.LottieAnimationView this$0 -> this$0
     241:241:void <init>(com.sample.lottie.LottieAnimationView,com.sample.lottie.LottieAnimationView$CacheStrategy) -> <init>
-    244:253:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
+    244:253:void onCompositionLoaded(com.sample.lottie.LottieComposition) -> onCompositionLoaded
 com.sample.lottie.LottieAnimationView$CacheStrategy -> com.sample.lottie.LottieAnimationView$CacheStrategy:
     com.sample.lottie.LottieAnimationView$CacheStrategy None -> None
     com.sample.lottie.LottieAnimationView$CacheStrategy Weak -> Weak
@@ -43744,10 +43790,10 @@ com.sample.lottie.LottieAnimationView$CacheStrategy -> com.sample.lottie.LottieA
     51:51:void <init>(java.lang.String,int) -> <init>
     51:54:void <clinit>() -> <clinit>
 com.sample.lottie.LottieAnimationView$SavedState -> com.sample.lottie.LottieAnimationView$SavedState:
-    java.lang.String animationName -> a
-    float progress -> b
-    boolean isAnimating -> c
-    boolean isLooping -> d
+    java.lang.String animationName -> animationName
+    float progress -> progress
+    boolean isAnimating -> isAnimating
+    boolean isLooping -> isLooping
     android.os.Parcelable$Creator CREATOR -> CREATOR
     445:446:void <init>(android.os.Parcelable) -> <init>
     449:454:void <init>(android.os.Parcel) -> <init>
@@ -43756,127 +43802,139 @@ com.sample.lottie.LottieAnimationView$SavedState -> com.sample.lottie.LottieAnim
     466:466:void <clinit>() -> <clinit>
 com.sample.lottie.LottieAnimationView$SavedState$1 -> com.sample.lottie.LottieAnimationView$SavedState$1:
     467:467:void <init>() -> <init>
-    469:469:com.sample.lottie.LottieAnimationView$SavedState createFromParcel(android.os.Parcel) -> a
-    473:473:com.sample.lottie.LottieAnimationView$SavedState[] newArray(int) -> a
+    469:469:com.sample.lottie.LottieAnimationView$SavedState createFromParcel(android.os.Parcel) -> createFromParcel
+    473:473:com.sample.lottie.LottieAnimationView$SavedState[] newArray(int) -> newArray
     467:467:java.lang.Object[] newArray(int) -> newArray
     467:467:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
-com.sample.lottie.LottieComposition -> com.sample.lottie.ai:
-    java.util.Map precomps -> a
-    java.util.Map images -> b
-    android.support.v4.util.LongSparseArray layerMap -> c
-    java.util.List layers -> d
-    android.graphics.Rect bounds -> e
-    long startFrame -> f
-    long endFrame -> g
-    int frameRate -> h
-    float dpScale -> i
+com.sample.lottie.LottieComposition -> com.sample.lottie.LottieComposition:
+    java.util.Map precomps -> precomps
+    java.util.Map images -> images
+    android.support.v4.util.LongSparseArray layerMap -> layerMap
+    java.util.List layers -> layers
+    android.graphics.Rect bounds -> bounds
+    long startFrame -> startFrame
+    long endFrame -> endFrame
+    int frameRate -> frameRate
+    float dpScale -> dpScale
     29:46:void <init>(android.graphics.Rect,long,long,int,float) -> <init>
-    49:49:com.sample.lottie.Layer layerModelForId(long) -> a
-    53:53:android.graphics.Rect getBounds() -> a
-    57:58:long getDuration() -> b
-    62:62:long getEndFrame() -> c
-    66:66:java.util.List getLayers() -> d
-    71:71:java.util.List getPrecomps(java.lang.String) -> a
-    75:75:boolean hasImages() -> e
-    79:79:java.util.Map getImages() -> f
-    83:83:float getDurationFrames() -> g
-    88:88:float getDpScale() -> h
+    49:49:com.sample.lottie.Layer layerModelForId(long) -> layerModelForId
+    53:53:android.graphics.Rect getBounds() -> getBounds
+    57:58:long getDuration() -> getDuration
+    62:62:long getEndFrame() -> getEndFrame
+    66:66:java.util.List getLayers() -> getLayers
+    71:71:java.util.List getPrecomps(java.lang.String) -> getPrecomps
+    75:75:boolean hasImages() -> hasImages
+    79:79:java.util.Map getImages() -> getImages
+    83:83:float getDurationFrames() -> getDurationFrames
+    88:88:float getDpScale() -> getDpScale
     92:96:java.lang.String toString() -> toString
     27:27:void <init>(android.graphics.Rect,long,long,int,float,com.sample.lottie.LottieComposition$1) -> <init>
-    27:27:java.util.List access$100(com.sample.lottie.LottieComposition) -> a
-    27:27:android.support.v4.util.LongSparseArray access$200(com.sample.lottie.LottieComposition) -> b
-    27:27:java.util.Map access$300(com.sample.lottie.LottieComposition) -> c
-    27:27:java.util.Map access$400(com.sample.lottie.LottieComposition) -> d
-com.sample.lottie.LottieComposition$1 -> com.sample.lottie.ai$1:
-com.sample.lottie.LottieComposition$Factory -> com.sample.lottie.ai$a:
-    110:114:com.sample.lottie.Cancellable fromAssetFileName(android.content.Context,java.lang.String,com.sample.lottie.OnCompositionLoadedListener) -> a
-    124:127:com.sample.lottie.Cancellable fromInputStream(android.content.Context,java.io.InputStream,com.sample.lottie.OnCompositionLoadedListener) -> a
-    146:148:com.sample.lottie.Cancellable fromJson(android.content.res.Resources,org.json.JSONObject,com.sample.lottie.OnCompositionLoadedListener) -> a
-    155:167:com.sample.lottie.LottieComposition fromInputStream(android.content.res.Resources,java.io.InputStream) -> a
-    173:193:com.sample.lottie.LottieComposition fromJsonSync(android.content.res.Resources,org.json.JSONObject) -> a
-    197:203:void parseLayers(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-    207:227:void parsePrecomps(org.json.JSONArray,com.sample.lottie.LottieComposition) -> a
-    231:243:void parseImages(org.json.JSONArray,com.sample.lottie.LottieComposition) -> b
-    246:248:void addLayer(java.util.List,android.support.v4.util.LongSparseArray,com.sample.lottie.Layer) -> a
-com.sample.lottie.LottieDrawable -> com.sample.lottie.aj:
-    com.sample.lottie.LottieComposition composition -> c
-    android.animation.ValueAnimator animator -> d
-    float speed -> e
-    float scale -> f
-    com.sample.lottie.ImageAssetBitmapManager imageAssetBitmapManager -> g
-    java.lang.String imageAssetsFolder -> h
-    com.sample.lottie.ImageAssetDelegate imageAssetDelegate -> i
-    boolean playAnimationWhenLayerAdded -> j
-    boolean reverseAnimationWhenLayerAdded -> k
-    boolean systemAnimationsAreDisabled -> l
-    android.content.Context themeContext -> m
+    27:27:java.util.List access$100(com.sample.lottie.LottieComposition) -> access$100
+    27:27:android.support.v4.util.LongSparseArray access$200(com.sample.lottie.LottieComposition) -> access$200
+    27:27:java.util.Map access$300(com.sample.lottie.LottieComposition) -> access$300
+    27:27:java.util.Map access$400(com.sample.lottie.LottieComposition) -> access$400
+com.sample.lottie.LottieComposition$1 -> com.sample.lottie.LottieComposition$1:
+com.sample.lottie.LottieComposition$Factory -> com.sample.lottie.LottieComposition$Factory:
+    100:101:void <init>() -> <init>
+    110:114:com.sample.lottie.Cancellable fromAssetFileName(android.content.Context,java.lang.String,com.sample.lottie.OnCompositionLoadedListener) -> fromAssetFileName
+    124:127:com.sample.lottie.Cancellable fromInputStream(android.content.Context,java.io.InputStream,com.sample.lottie.OnCompositionLoadedListener) -> fromInputStream
+    133:137:com.sample.lottie.LottieComposition fromFileSync(android.content.Context,java.lang.String) -> fromFileSync
+    146:148:com.sample.lottie.Cancellable fromJson(android.content.res.Resources,org.json.JSONObject,com.sample.lottie.OnCompositionLoadedListener) -> fromJson
+    155:167:com.sample.lottie.LottieComposition fromInputStream(android.content.res.Resources,java.io.InputStream) -> fromInputStream
+    173:193:com.sample.lottie.LottieComposition fromJsonSync(android.content.res.Resources,org.json.JSONObject) -> fromJsonSync
+    197:203:void parseLayers(org.json.JSONObject,com.sample.lottie.LottieComposition) -> parseLayers
+    207:227:void parsePrecomps(org.json.JSONArray,com.sample.lottie.LottieComposition) -> parsePrecomps
+    231:243:void parseImages(org.json.JSONArray,com.sample.lottie.LottieComposition) -> parseImages
+    246:248:void addLayer(java.util.List,android.support.v4.util.LongSparseArray,com.sample.lottie.Layer) -> addLayer
+com.sample.lottie.LottieDrawable -> com.sample.lottie.LottieDrawable:
+    com.sample.lottie.LottieComposition composition -> composition
+    android.animation.ValueAnimator animator -> animator
+    float speed -> speed
+    float scale -> scale
+    com.sample.lottie.ImageAssetBitmapManager imageAssetBitmapManager -> imageAssetBitmapManager
+    java.lang.String imageAssetsFolder -> imageAssetsFolder
+    com.sample.lottie.ImageAssetDelegate imageAssetDelegate -> imageAssetDelegate
+    boolean playAnimationWhenLayerAdded -> playAnimationWhenLayerAdded
+    boolean reverseAnimationWhenLayerAdded -> reverseAnimationWhenLayerAdded
+    boolean systemAnimationsAreDisabled -> systemAnimationsAreDisabled
+    android.content.Context themeContext -> themeContext
     29:105:void <init>() -> <init>
-    101:102:void setImagesAssetsFolder(java.lang.String) -> a
-    107:109:void setImagesAssetsFolder(android.content.Context,java.lang.String) -> a
-    119:122:void recycleBitmaps() -> e
-    128:148:boolean setComposition(com.sample.lottie.LottieComposition) -> a
-    152:155:void clearComposition() -> n
-    158:195:void buildLayersForComposition(com.sample.lottie.LottieComposition) -> b
+    61:69:boolean hasMasks() -> hasMasks
+    76:84:boolean hasMatte() -> hasMatte
+    101:102:void setImagesAssetsFolder(java.lang.String) -> setImagesAssetsFolder
+    107:109:void setImagesAssetsFolder(android.content.Context,java.lang.String) -> setImagesAssetsFolder
+    119:122:void recycleBitmaps() -> recycleBitmaps
+    128:148:boolean setComposition(com.sample.lottie.LottieComposition) -> setComposition
+    152:155:void clearComposition() -> clearComposition
+    158:195:void buildLayersForComposition(com.sample.lottie.LottieComposition) -> buildLayersForComposition
     198:202:void invalidateSelf() -> invalidateSelf
     205:213:void draw(android.graphics.Canvas) -> draw
-    216:217:void systemAnimationsAreDisabled() -> f
-    220:221:void loop(boolean) -> a
-    224:224:boolean isLooping() -> g
-    228:228:boolean isAnimating() -> h
-    232:233:void playAnimation() -> i
-    236:237:void resumeAnimation() -> j
-    240:249:void playAnimation(boolean) -> b
-    256:257:void reverseAnimation() -> k
-    260:269:void reverseAnimation(boolean) -> c
-    272:282:void setSpeed(float) -> b
-    285:287:void setScale(float) -> c
-    296:300:void setImageAssetDelegate(com.sample.lottie.ImageAssetDelegate) -> a
-    303:303:float getScale() -> l
-    307:312:void updateBounds() -> o
-    315:318:void cancelAnimation() -> m
-    322:331:void addLayer(com.sample.lottie.AnimatableLayer) -> a
-    334:335:void addAnimatorUpdateListener(android.animation.ValueAnimator$AnimatorUpdateListener) -> a
+    216:217:void systemAnimationsAreDisabled() -> systemAnimationsAreDisabled
+    220:221:void loop(boolean) -> loop
+    224:224:boolean isLooping() -> isLooping
+    228:228:boolean isAnimating() -> isAnimating
+    232:233:void playAnimation() -> playAnimation
+    236:237:void resumeAnimation() -> resumeAnimation
+    240:249:void playAnimation(boolean) -> playAnimation
+    252:253:void resumeReverseAnimation() -> resumeReverseAnimation
+    256:257:void reverseAnimation() -> reverseAnimation
+    260:269:void reverseAnimation(boolean) -> reverseAnimation
+    272:282:void setSpeed(float) -> setSpeed
+    285:287:void setScale(float) -> setScale
+    296:300:void setImageAssetDelegate(com.sample.lottie.ImageAssetDelegate) -> setImageAssetDelegate
+    303:303:float getScale() -> getScale
+    307:312:void updateBounds() -> updateBounds
+    315:318:void cancelAnimation() -> cancelAnimation
+    322:331:void addLayer(com.sample.lottie.AnimatableLayer) -> addLayer
+    334:335:void addAnimatorUpdateListener(android.animation.ValueAnimator$AnimatorUpdateListener) -> addAnimatorUpdateListener
+    338:339:void removeAnimatorUpdateListener(android.animation.ValueAnimator$AnimatorUpdateListener) -> removeAnimatorUpdateListener
+    342:343:void addAnimatorListener(android.animation.Animator$AnimatorListener) -> addAnimatorListener
+    346:347:void removeAnimatorListener(android.animation.Animator$AnimatorListener) -> removeAnimatorListener
     350:350:int getIntrinsicWidth() -> getIntrinsicWidth
     354:354:int getIntrinsicHeight() -> getIntrinsicHeight
-    358:358:android.graphics.Bitmap getImageAsset(java.lang.String) -> b
-    362:372:com.sample.lottie.ImageAssetBitmapManager getImageAssetBitmapManager() -> p
-    376:384:android.content.Context getContext() -> q
+    358:358:android.graphics.Bitmap getImageAsset(java.lang.String) -> getImageAsset
+    362:372:com.sample.lottie.ImageAssetBitmapManager getImageAssetBitmapManager() -> getImageAssetBitmapManager
+    376:384:android.content.Context getContext() -> getContext
     392:397:void invalidateDrawable(android.graphics.drawable.Drawable) -> invalidateDrawable
     400:405:void scheduleDrawable(android.graphics.drawable.Drawable,java.lang.Runnable,long) -> scheduleDrawable
     408:413:void unscheduleDrawable(android.graphics.drawable.Drawable,java.lang.Runnable) -> unscheduleDrawable
-    27:27:void setProgress(float) -> a
+    27:27:void setProgress(float) -> setProgress
     27:27:int getOpacity() -> getOpacity
     27:27:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
     27:27:int getAlpha() -> getAlpha
     27:27:void setAlpha(int) -> setAlpha
-    27:27:boolean access$000(com.sample.lottie.LottieDrawable) -> a
-    27:27:android.animation.ValueAnimator access$100(com.sample.lottie.LottieDrawable) -> b
-com.sample.lottie.LottieDrawable$1 -> com.sample.lottie.aj$1:
-    com.sample.lottie.LottieDrawable this$0 -> a
+    27:27:boolean access$000(com.sample.lottie.LottieDrawable) -> access$000
+    27:27:android.animation.ValueAnimator access$100(com.sample.lottie.LottieDrawable) -> access$100
+com.sample.lottie.LottieDrawable$1 -> com.sample.lottie.LottieDrawable$1:
+    com.sample.lottie.LottieDrawable this$0 -> this$0
     45:45:void <init>(com.sample.lottie.LottieDrawable) -> <init>
     47:53:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
-com.sample.lottie.LottieImageAsset -> com.sample.lottie.ak:
-    int width -> a
-    int height -> b
-    java.lang.String id -> c
-    java.lang.String fileName -> d
+com.sample.lottie.LottieImageAsset -> com.sample.lottie.LottieImageAsset:
+    int width -> width
+    int height -> height
+    java.lang.String id -> id
+    java.lang.String fileName -> fileName
     14:19:void <init>(int,int,java.lang.String,java.lang.String) -> <init>
-    40:40:java.lang.String getId() -> a
-    44:44:java.lang.String getFileName() -> b
+    32:32:int getWidth() -> getWidth
+    36:36:int getHeight() -> getHeight
+    40:40:java.lang.String getId() -> getId
+    44:44:java.lang.String getFileName() -> getFileName
     8:8:void <init>(int,int,java.lang.String,java.lang.String,com.sample.lottie.LottieImageAsset$1) -> <init>
-com.sample.lottie.LottieImageAsset$1 -> com.sample.lottie.ak$1:
-com.sample.lottie.LottieImageAsset$Factory -> com.sample.lottie.ak$a:
-    26:27:com.sample.lottie.LottieImageAsset newInstance(org.json.JSONObject) -> a
+com.sample.lottie.LottieImageAsset$1 -> com.sample.lottie.LottieImageAsset$1:
+com.sample.lottie.LottieImageAsset$Factory -> com.sample.lottie.LottieImageAsset$Factory:
+    22:23:void <init>() -> <init>
+    26:27:com.sample.lottie.LottieImageAsset newInstance(org.json.JSONObject) -> newInstance
 com.sample.lottie.Mask -> com.sample.lottie.Mask:
-    com.sample.lottie.Mask$MaskMode maskMode -> a
-    com.sample.lottie.AnimatableShapeValue maskPath -> b
+    com.sample.lottie.Mask$MaskMode maskMode -> maskMode
+    com.sample.lottie.AnimatableShapeValue maskPath -> maskPath
     16:19:void <init>(com.sample.lottie.Mask$MaskMode,com.sample.lottie.AnimatableShapeValue) -> <init>
-    55:55:com.sample.lottie.Mask$MaskMode getMaskMode() -> a
-    59:59:com.sample.lottie.AnimatableShapeValue getMaskPath() -> b
+    55:55:com.sample.lottie.Mask$MaskMode getMaskMode() -> getMaskMode
+    59:59:com.sample.lottie.AnimatableShapeValue getMaskPath() -> getMaskPath
     5:5:void <init>(com.sample.lottie.Mask$MaskMode,com.sample.lottie.AnimatableShapeValue,com.sample.lottie.Mask$1) -> <init>
 com.sample.lottie.Mask$1 -> com.sample.lottie.Mask$1:
-com.sample.lottie.Mask$Factory -> com.sample.lottie.Mask$a:
-    27:50:com.sample.lottie.Mask newMask(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
+com.sample.lottie.Mask$Factory -> com.sample.lottie.Mask$Factory:
+    22:23:void <init>() -> <init>
+    27:50:com.sample.lottie.Mask newMask(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newMask
 com.sample.lottie.Mask$MaskMode -> com.sample.lottie.Mask$MaskMode:
     com.sample.lottie.Mask$MaskMode MaskModeAdd -> MaskModeAdd
     com.sample.lottie.Mask$MaskMode MaskModeSubtract -> MaskModeSubtract
@@ -43887,102 +43945,112 @@ com.sample.lottie.Mask$MaskMode -> com.sample.lottie.Mask$MaskMode:
     6:6:com.sample.lottie.Mask$MaskMode valueOf(java.lang.String) -> valueOf
     6:6:void <init>(java.lang.String,int) -> <init>
     6:10:void <clinit>() -> <clinit>
-com.sample.lottie.MaskKeyframeAnimation -> com.sample.lottie.al:
-    java.util.List maskAnimations -> a
-    java.util.List masks -> b
+com.sample.lottie.MaskKeyframeAnimation -> com.sample.lottie.MaskKeyframeAnimation:
+    java.util.List maskAnimations -> maskAnimations
+    java.util.List masks -> masks
     12:18:void <init>(java.util.List) -> <init>
-    21:21:java.util.List getMasks() -> a
-    25:25:java.util.List getMaskAnimations() -> b
-com.sample.lottie.MiscUtils -> com.sample.lottie.am:
-    9:9:android.graphics.PointF addPoints(android.graphics.PointF,android.graphics.PointF) -> a
-    13:25:void getPathFromData(com.sample.lottie.ShapeData,android.graphics.Path) -> a
-    28:28:float lerp(float,float,float) -> a
-    32:32:int lerp(int,int,float) -> a
-com.sample.lottie.OnCompositionLoadedListener -> com.sample.lottie.an:
-    void onCompositionLoaded(com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.PathKeyframe -> com.sample.lottie.ao:
-    android.graphics.Path path -> f
+    21:21:java.util.List getMasks() -> getMasks
+    25:25:java.util.List getMaskAnimations() -> getMaskAnimations
+com.sample.lottie.MiscUtils -> com.sample.lottie.MiscUtils:
+    7:7:void <init>() -> <init>
+    9:9:android.graphics.PointF addPoints(android.graphics.PointF,android.graphics.PointF) -> addPoints
+    13:25:void getPathFromData(com.sample.lottie.ShapeData,android.graphics.Path) -> getPathFromData
+    28:28:float lerp(float,float,float) -> lerp
+    32:32:int lerp(int,int,float) -> lerp
+com.sample.lottie.NumberKeyframeAnimation -> com.sample.lottie.NumberKeyframeAnimation:
+    java.lang.Class klass -> klass
+    12:14:void <init>(java.util.List,java.lang.Class) -> <init>
+    17:23:java.lang.Number getValue(com.sample.lottie.Keyframe,float) -> getValue
+    8:8:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.OnCompositionLoadedListener -> com.sample.lottie.OnCompositionLoadedListener:
+    void onCompositionLoaded(com.sample.lottie.LottieComposition) -> onCompositionLoaded
+com.sample.lottie.PathKeyframe -> com.sample.lottie.PathKeyframe:
+    android.graphics.Path path -> path
     17:18:void <init>(com.sample.lottie.LottieComposition,android.graphics.PointF,android.graphics.PointF,android.view.animation.Interpolator,float,java.lang.Float) -> <init>
-    50:50:android.graphics.Path getPath() -> e
+    50:50:android.graphics.Path getPath() -> getPath
     11:11:void <init>(com.sample.lottie.LottieComposition,android.graphics.PointF,android.graphics.PointF,android.view.animation.Interpolator,float,java.lang.Float,com.sample.lottie.PathKeyframe$1) -> <init>
-    11:11:android.graphics.Path access$102(com.sample.lottie.PathKeyframe,android.graphics.Path) -> a
-com.sample.lottie.PathKeyframe$1 -> com.sample.lottie.ao$1:
-com.sample.lottie.PathKeyframe$Factory -> com.sample.lottie.ao$a:
-    26:44:com.sample.lottie.PathKeyframe newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,com.sample.lottie.AnimatableValue$Factory) -> a
-com.sample.lottie.PathKeyframeAnimation -> com.sample.lottie.ap:
-    android.graphics.PointF point -> c
-    float[] pos -> d
-    com.sample.lottie.PathKeyframe pathMeasureKeyframe -> e
-    android.graphics.PathMeasure pathMeasure -> f
+    11:11:android.graphics.Path access$102(com.sample.lottie.PathKeyframe,android.graphics.Path) -> access$102
+com.sample.lottie.PathKeyframe$1 -> com.sample.lottie.PathKeyframe$1:
+com.sample.lottie.PathKeyframe$Factory -> com.sample.lottie.PathKeyframe$Factory:
+    21:22:void <init>() -> <init>
+    26:44:com.sample.lottie.PathKeyframe newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition,com.sample.lottie.AnimatableValue$Factory) -> newInstance
+com.sample.lottie.PathKeyframeAnimation -> com.sample.lottie.PathKeyframeAnimation:
+    android.graphics.PointF point -> point
+    float[] pos -> pos
+    com.sample.lottie.PathKeyframe pathMeasureKeyframe -> pathMeasureKeyframe
+    android.graphics.PathMeasure pathMeasure -> pathMeasure
     10:17:void <init>(java.util.List) -> <init>
-    20:33:android.graphics.PointF getValue(com.sample.lottie.Keyframe,float) -> b
-    9:9:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-com.sample.lottie.PointFFactory -> com.sample.lottie.aq:
-    com.sample.lottie.PointFFactory INSTANCE -> a
+    20:33:android.graphics.PointF getValue(com.sample.lottie.Keyframe,float) -> getValue
+    9:9:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.PointFFactory -> com.sample.lottie.PointFFactory:
+    com.sample.lottie.PointFFactory INSTANCE -> INSTANCE
     11:12:void <init>() -> <init>
-    15:20:android.graphics.PointF valueFromObject(java.lang.Object,float) -> a
-    8:8:java.lang.Object valueFromObject(java.lang.Object,float) -> b
+    15:20:android.graphics.PointF valueFromObject(java.lang.Object,float) -> valueFromObject
+    8:8:java.lang.Object valueFromObject(java.lang.Object,float) -> valueFromObject
     9:9:void <clinit>() -> <clinit>
-com.sample.lottie.PointKeyframeAnimation -> com.sample.lottie.ar:
-    android.graphics.PointF point -> c
+com.sample.lottie.PointKeyframeAnimation -> com.sample.lottie.PointKeyframeAnimation:
+    android.graphics.PointF point -> point
     8:12:void <init>(java.util.List) -> <init>
-    15:20:android.graphics.PointF getValue(com.sample.lottie.Keyframe,float) -> b
-    7:7:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-com.sample.lottie.PolystarLayer -> com.sample.lottie.as:
+    15:20:android.graphics.PointF getValue(com.sample.lottie.Keyframe,float) -> getValue
+    7:7:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.PolystarLayer -> com.sample.lottie.PolystarLayer:
     13:54:void <init>(com.sample.lottie.PolystarShape,com.sample.lottie.ShapeFill,com.sample.lottie.ShapeStroke,com.sample.lottie.ShapeTrimPath,com.sample.lottie.AnimatableTransform,android.graphics.drawable.Drawable$Callback) -> <init>
-com.sample.lottie.PolystarLayer$1 -> com.sample.lottie.as$1:
-    int[] $SwitchMap$com$sample$lottie$PolystarShape$Type -> a
+com.sample.lottie.PolystarLayer$1 -> com.sample.lottie.PolystarLayer$1:
+    int[] $SwitchMap$com$sample$lottie$PolystarShape$Type -> $SwitchMap$com$sample$lottie$PolystarShape$Type
     168:168:void <clinit>() -> <clinit>
-com.sample.lottie.PolystarLayer$PolystarShapeLayer -> com.sample.lottie.as$a:
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener pointChangedListener -> c
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener floatChangedListener -> d
-    android.graphics.Path path -> e
-    com.sample.lottie.PolystarShape$Type type -> f
-    com.sample.lottie.BaseKeyframeAnimation pointsAnimation -> g
-    com.sample.lottie.BaseKeyframeAnimation positionAnimation -> h
-    com.sample.lottie.BaseKeyframeAnimation rotationAnimation -> i
-    com.sample.lottie.BaseKeyframeAnimation outerRadiusAnimation -> j
-    com.sample.lottie.BaseKeyframeAnimation outerRoundednessAnimation -> k
-    com.sample.lottie.BaseKeyframeAnimation innerRadiusAnimation -> l
-    com.sample.lottie.BaseKeyframeAnimation innerRoundednessAnimation -> m
+com.sample.lottie.PolystarLayer$PolystarShapeLayer -> com.sample.lottie.PolystarLayer$PolystarShapeLayer:
+    float POLYSTAR_MAGIC_NUMBER -> POLYSTAR_MAGIC_NUMBER
+    float POLYGON_MAGIC_NUMBER -> POLYGON_MAGIC_NUMBER
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener pointChangedListener -> pointChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener floatChangedListener -> floatChangedListener
+    android.graphics.Path path -> path
+    com.sample.lottie.PolystarShape$Type type -> type
+    com.sample.lottie.BaseKeyframeAnimation pointsAnimation -> pointsAnimation
+    com.sample.lottie.BaseKeyframeAnimation positionAnimation -> positionAnimation
+    com.sample.lottie.BaseKeyframeAnimation rotationAnimation -> rotationAnimation
+    com.sample.lottie.BaseKeyframeAnimation outerRadiusAnimation -> outerRadiusAnimation
+    com.sample.lottie.BaseKeyframeAnimation outerRoundednessAnimation -> outerRoundednessAnimation
+    com.sample.lottie.BaseKeyframeAnimation innerRadiusAnimation -> innerRadiusAnimation
+    com.sample.lottie.BaseKeyframeAnimation innerRoundednessAnimation -> innerRoundednessAnimation
     66:96:void <init>(android.graphics.drawable.Drawable$Callback) -> <init>
-    99:165:void setShape(com.sample.lottie.PolystarShape) -> a
-    168:177:void onPolystarChanged() -> g
-    180:285:void createStarPath() -> h
-    288:342:void createPolygonPath() -> i
-    56:56:void access$000(com.sample.lottie.PolystarLayer$PolystarShapeLayer) -> a
-com.sample.lottie.PolystarLayer$PolystarShapeLayer$1 -> com.sample.lottie.as$a$1:
-    com.sample.lottie.PolystarLayer$PolystarShapeLayer this$0 -> a
+    99:165:void setShape(com.sample.lottie.PolystarShape) -> setShape
+    168:177:void onPolystarChanged() -> onPolystarChanged
+    180:285:void createStarPath() -> createStarPath
+    288:342:void createPolygonPath() -> createPolygonPath
+    56:56:void access$000(com.sample.lottie.PolystarLayer$PolystarShapeLayer) -> access$000
+com.sample.lottie.PolystarLayer$PolystarShapeLayer$1 -> com.sample.lottie.PolystarLayer$PolystarShapeLayer$1:
+    com.sample.lottie.PolystarLayer$PolystarShapeLayer this$0 -> this$0
     67:67:void <init>(com.sample.lottie.PolystarLayer$PolystarShapeLayer) -> <init>
-    70:71:void onValueChanged(android.graphics.PointF) -> a
-    67:67:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.PolystarLayer$PolystarShapeLayer$2 -> com.sample.lottie.as$a$2:
-    com.sample.lottie.PolystarLayer$PolystarShapeLayer this$0 -> a
+    70:71:void onValueChanged(android.graphics.PointF) -> onValueChanged
+    67:67:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.PolystarLayer$PolystarShapeLayer$2 -> com.sample.lottie.PolystarLayer$PolystarShapeLayer$2:
+    com.sample.lottie.PolystarLayer$PolystarShapeLayer this$0 -> this$0
     75:75:void <init>(com.sample.lottie.PolystarLayer$PolystarShapeLayer) -> <init>
-    78:79:void onValueChanged(java.lang.Float) -> a
-    75:75:void onValueChanged(java.lang.Object) -> a
+    78:79:void onValueChanged(java.lang.Float) -> onValueChanged
+    75:75:void onValueChanged(java.lang.Object) -> onValueChanged
 com.sample.lottie.PolystarShape -> com.sample.lottie.PolystarShape:
-    com.sample.lottie.PolystarShape$Type type -> a
-    com.sample.lottie.AnimatableFloatValue points -> b
-    com.sample.lottie.IAnimatablePathValue position -> c
-    com.sample.lottie.AnimatableFloatValue rotation -> d
-    com.sample.lottie.AnimatableFloatValue innerRadius -> e
-    com.sample.lottie.AnimatableFloatValue outerRadius -> f
-    com.sample.lottie.AnimatableFloatValue innerRoundedness -> g
-    com.sample.lottie.AnimatableFloatValue outerRoundedness -> h
+    com.sample.lottie.PolystarShape$Type type -> type
+    com.sample.lottie.AnimatableFloatValue points -> points
+    com.sample.lottie.IAnimatablePathValue position -> position
+    com.sample.lottie.AnimatableFloatValue rotation -> rotation
+    com.sample.lottie.AnimatableFloatValue innerRadius -> innerRadius
+    com.sample.lottie.AnimatableFloatValue outerRadius -> outerRadius
+    com.sample.lottie.AnimatableFloatValue innerRoundedness -> innerRoundedness
+    com.sample.lottie.AnimatableFloatValue outerRoundedness -> outerRoundedness
     38:47:void <init>(com.sample.lottie.PolystarShape$Type,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.IAnimatablePathValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue) -> <init>
-    83:83:com.sample.lottie.PolystarShape$Type getType() -> a
-    87:87:com.sample.lottie.AnimatableFloatValue getPoints() -> b
-    91:91:com.sample.lottie.IAnimatablePathValue getPosition() -> c
-    95:95:com.sample.lottie.AnimatableFloatValue getRotation() -> d
-    99:99:com.sample.lottie.AnimatableFloatValue getInnerRadius() -> e
-    103:103:com.sample.lottie.AnimatableFloatValue getOuterRadius() -> f
-    107:107:com.sample.lottie.AnimatableFloatValue getInnerRoundedness() -> g
-    111:111:com.sample.lottie.AnimatableFloatValue getOuterRoundedness() -> h
+    83:83:com.sample.lottie.PolystarShape$Type getType() -> getType
+    87:87:com.sample.lottie.AnimatableFloatValue getPoints() -> getPoints
+    91:91:com.sample.lottie.IAnimatablePathValue getPosition() -> getPosition
+    95:95:com.sample.lottie.AnimatableFloatValue getRotation() -> getRotation
+    99:99:com.sample.lottie.AnimatableFloatValue getInnerRadius() -> getInnerRadius
+    103:103:com.sample.lottie.AnimatableFloatValue getOuterRadius() -> getOuterRadius
+    107:107:com.sample.lottie.AnimatableFloatValue getInnerRoundedness() -> getInnerRoundedness
+    111:111:com.sample.lottie.AnimatableFloatValue getOuterRoundedness() -> getOuterRoundedness
     5:5:void <init>(com.sample.lottie.PolystarShape$Type,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.IAnimatablePathValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.PolystarShape$1) -> <init>
 com.sample.lottie.PolystarShape$1 -> com.sample.lottie.PolystarShape$1:
-com.sample.lottie.PolystarShape$Factory -> com.sample.lottie.PolystarShape$a:
-    54:77:com.sample.lottie.PolystarShape newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
+com.sample.lottie.PolystarShape$Factory -> com.sample.lottie.PolystarShape$Factory:
+    50:51:void <init>() -> <init>
+    54:77:com.sample.lottie.PolystarShape newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
 com.sample.lottie.PolystarShape$Type -> com.sample.lottie.PolystarShape$Type:
     com.sample.lottie.PolystarShape$Type Star -> Star
     com.sample.lottie.PolystarShape$Type Polygon -> Polygon
@@ -43993,264 +44061,269 @@ com.sample.lottie.PolystarShape$Type -> com.sample.lottie.PolystarShape$Type:
     12:14:void <init>(java.lang.String,int,int) -> <init>
     17:22:com.sample.lottie.PolystarShape$Type forValue(int) -> forValue
     6:8:void <clinit>() -> <clinit>
-com.sample.lottie.RectLayer -> com.sample.lottie.at:
-    com.sample.lottie.RectLayer$RectShapeLayer fillLayer -> c
-    com.sample.lottie.RectLayer$RectShapeLayer strokeLayer -> d
+com.sample.lottie.RectLayer -> com.sample.lottie.RectLayer:
+    com.sample.lottie.RectLayer$RectShapeLayer fillLayer -> fillLayer
+    com.sample.lottie.RectLayer$RectShapeLayer strokeLayer -> strokeLayer
     20:67:void <init>(com.sample.lottie.RectangleShape,com.sample.lottie.ShapeFill,com.sample.lottie.ShapeStroke,com.sample.lottie.ShapeTrimPath,com.sample.lottie.AnimatableTransform,android.graphics.drawable.Drawable$Callback) -> <init>
     71:78:void setAlpha(int) -> setAlpha
-com.sample.lottie.RectLayer$RectShapeLayer -> com.sample.lottie.at$a:
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener sizeChangedListener -> c
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener cornerRadiusChangedListener -> d
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener positionChangedListener -> e
-    android.graphics.Path path -> f
-    android.graphics.RectF rect -> g
-    com.sample.lottie.BaseKeyframeAnimation rectCornerRadius -> h
-    com.sample.lottie.BaseKeyframeAnimation rectPosition -> i
-    com.sample.lottie.BaseKeyframeAnimation rectSize -> j
-    boolean updateRectOnNextDraw -> k
+com.sample.lottie.RectLayer$RectShapeLayer -> com.sample.lottie.RectLayer$RectShapeLayer:
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener sizeChangedListener -> sizeChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener cornerRadiusChangedListener -> cornerRadiusChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener positionChangedListener -> positionChangedListener
+    android.graphics.Path path -> path
+    android.graphics.RectF rect -> rect
+    com.sample.lottie.BaseKeyframeAnimation rectCornerRadius -> rectCornerRadius
+    com.sample.lottie.BaseKeyframeAnimation rectPosition -> rectPosition
+    com.sample.lottie.BaseKeyframeAnimation rectSize -> rectSize
+    boolean updateRectOnNextDraw -> updateRectOnNextDraw
     82:117:void <init>(android.graphics.drawable.Drawable$Callback) -> <init>
-    120:128:void setRectCornerRadius(com.sample.lottie.KeyframeAnimation) -> a
-    131:139:void setRectSize(com.sample.lottie.KeyframeAnimation) -> b
-    142:150:void setRectPosition(com.sample.lottie.BaseKeyframeAnimation) -> c
-    153:155:void onRectChanged() -> g
-    158:220:void updateRect() -> h
+    120:128:void setRectCornerRadius(com.sample.lottie.KeyframeAnimation) -> setRectCornerRadius
+    131:139:void setRectSize(com.sample.lottie.KeyframeAnimation) -> setRectSize
+    142:150:void setRectPosition(com.sample.lottie.BaseKeyframeAnimation) -> setRectPosition
+    153:155:void onRectChanged() -> onRectChanged
+    158:220:void updateRect() -> updateRect
     223:228:void draw(android.graphics.Canvas) -> draw
-    80:80:void access$000(com.sample.lottie.RectLayer$RectShapeLayer) -> a
-com.sample.lottie.RectLayer$RectShapeLayer$1 -> com.sample.lottie.at$a$1:
-    com.sample.lottie.RectLayer$RectShapeLayer this$0 -> a
+    80:80:void access$000(com.sample.lottie.RectLayer$RectShapeLayer) -> access$000
+com.sample.lottie.RectLayer$RectShapeLayer$1 -> com.sample.lottie.RectLayer$RectShapeLayer$1:
+    com.sample.lottie.RectLayer$RectShapeLayer this$0 -> this$0
     83:83:void <init>(com.sample.lottie.RectLayer$RectShapeLayer) -> <init>
-    86:87:void onValueChanged(android.graphics.PointF) -> a
-    83:83:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.RectLayer$RectShapeLayer$2 -> com.sample.lottie.at$a$2:
-    com.sample.lottie.RectLayer$RectShapeLayer this$0 -> a
+    86:87:void onValueChanged(android.graphics.PointF) -> onValueChanged
+    83:83:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.RectLayer$RectShapeLayer$2 -> com.sample.lottie.RectLayer$RectShapeLayer$2:
+    com.sample.lottie.RectLayer$RectShapeLayer this$0 -> this$0
     91:91:void <init>(com.sample.lottie.RectLayer$RectShapeLayer) -> <init>
-    94:95:void onValueChanged(java.lang.Float) -> a
-    91:91:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.RectLayer$RectShapeLayer$3 -> com.sample.lottie.at$a$3:
-    com.sample.lottie.RectLayer$RectShapeLayer this$0 -> a
+    94:95:void onValueChanged(java.lang.Float) -> onValueChanged
+    91:91:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.RectLayer$RectShapeLayer$3 -> com.sample.lottie.RectLayer$RectShapeLayer$3:
+    com.sample.lottie.RectLayer$RectShapeLayer this$0 -> this$0
     99:99:void <init>(com.sample.lottie.RectLayer$RectShapeLayer) -> <init>
-    102:103:void onValueChanged(android.graphics.PointF) -> a
-    99:99:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.RectangleShape -> com.sample.lottie.au:
-    com.sample.lottie.IAnimatablePathValue position -> a
-    com.sample.lottie.AnimatablePointValue size -> b
-    com.sample.lottie.AnimatableFloatValue cornerRadius -> c
+    102:103:void onValueChanged(android.graphics.PointF) -> onValueChanged
+    99:99:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.RectangleShape -> com.sample.lottie.RectangleShape:
+    com.sample.lottie.IAnimatablePathValue position -> position
+    com.sample.lottie.AnimatablePointValue size -> size
+    com.sample.lottie.AnimatableFloatValue cornerRadius -> cornerRadius
     11:15:void <init>(com.sample.lottie.IAnimatablePathValue,com.sample.lottie.AnimatablePointValue,com.sample.lottie.AnimatableFloatValue) -> <init>
-    31:31:com.sample.lottie.AnimatableFloatValue getCornerRadius() -> a
-    35:35:com.sample.lottie.AnimatablePointValue getSize() -> b
-    39:39:com.sample.lottie.IAnimatablePathValue getPosition() -> c
+    31:31:com.sample.lottie.AnimatableFloatValue getCornerRadius() -> getCornerRadius
+    35:35:com.sample.lottie.AnimatablePointValue getSize() -> getSize
+    39:39:com.sample.lottie.IAnimatablePathValue getPosition() -> getPosition
     43:43:java.lang.String toString() -> toString
     5:5:void <init>(com.sample.lottie.IAnimatablePathValue,com.sample.lottie.AnimatablePointValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.RectangleShape$1) -> <init>
-com.sample.lottie.RectangleShape$1 -> com.sample.lottie.au$1:
-com.sample.lottie.RectangleShape$Factory -> com.sample.lottie.au$a:
-    22:26:com.sample.lottie.RectangleShape newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.ScaleKeyframeAnimation -> com.sample.lottie.av:
+com.sample.lottie.RectangleShape$1 -> com.sample.lottie.RectangleShape$1:
+com.sample.lottie.RectangleShape$Factory -> com.sample.lottie.RectangleShape$Factory:
+    18:19:void <init>() -> <init>
+    22:26:com.sample.lottie.RectangleShape newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+com.sample.lottie.ScaleKeyframeAnimation -> com.sample.lottie.ScaleKeyframeAnimation:
     10:11:void <init>(java.util.List) -> <init>
-    14:18:com.sample.lottie.ScaleXY getValue(com.sample.lottie.Keyframe,float) -> b
-    8:8:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-com.sample.lottie.ScaleXY -> com.sample.lottie.aw:
-    float scaleX -> a
-    float scaleY -> b
+    14:18:com.sample.lottie.ScaleXY getValue(com.sample.lottie.Keyframe,float) -> getValue
+    8:8:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.ScaleXY -> com.sample.lottie.ScaleXY:
+    float scaleX -> scaleX
+    float scaleY -> scaleY
     9:12:void <init>(float,float) -> <init>
     15:16:void <init>() -> <init>
-    19:19:float getScaleX() -> a
-    23:23:float getScaleY() -> b
+    19:19:float getScaleX() -> getScaleX
+    23:23:float getScaleY() -> getScaleY
     27:27:java.lang.String toString() -> toString
-com.sample.lottie.ScaleXY$Factory -> com.sample.lottie.aw$a:
-    com.sample.lottie.ScaleXY$Factory INSTANCE -> a
+com.sample.lottie.ScaleXY$Factory -> com.sample.lottie.ScaleXY$Factory:
+    com.sample.lottie.ScaleXY$Factory INSTANCE -> INSTANCE
     33:34:void <init>() -> <init>
-    37:40:com.sample.lottie.ScaleXY valueFromObject(java.lang.Object,float) -> a
-    30:30:java.lang.Object valueFromObject(java.lang.Object,float) -> b
+    37:40:com.sample.lottie.ScaleXY valueFromObject(java.lang.Object,float) -> valueFromObject
+    30:30:java.lang.Object valueFromObject(java.lang.Object,float) -> valueFromObject
     31:31:void <clinit>() -> <clinit>
-com.sample.lottie.ShapeData -> com.sample.lottie.ax:
-    java.util.List curves -> a
-    android.graphics.PointF initialPoint -> b
-    boolean closed -> c
+com.sample.lottie.ShapeData -> com.sample.lottie.ShapeData:
+    java.util.List curves -> curves
+    android.graphics.PointF initialPoint -> initialPoint
+    boolean closed -> closed
     14:22:void <init>(android.graphics.PointF,boolean,java.util.List) -> <init>
     14:25:void <init>() -> <init>
-    28:32:void setInitialPoint(float,float) -> a
-    35:35:android.graphics.PointF getInitialPoint() -> a
-    39:39:boolean isClosed() -> b
-    43:43:java.util.List getCurves() -> c
-    48:93:void interpolateBetween(com.sample.lottie.ShapeData,com.sample.lottie.ShapeData,float) -> a
+    28:32:void setInitialPoint(float,float) -> setInitialPoint
+    35:35:android.graphics.PointF getInitialPoint() -> getInitialPoint
+    39:39:boolean isClosed() -> isClosed
+    43:43:java.util.List getCurves() -> getCurves
+    48:93:void interpolateBetween(com.sample.lottie.ShapeData,com.sample.lottie.ShapeData,float) -> interpolateBetween
     96:96:java.lang.String toString() -> toString
     13:13:void <init>(android.graphics.PointF,boolean,java.util.List,com.sample.lottie.ShapeData$1) -> <init>
-com.sample.lottie.ShapeData$1 -> com.sample.lottie.ax$1:
-com.sample.lottie.ShapeData$Factory -> com.sample.lottie.ax$a:
-    com.sample.lottie.ShapeData$Factory INSTANCE -> a
+com.sample.lottie.ShapeData$1 -> com.sample.lottie.ShapeData$1:
+com.sample.lottie.ShapeData$Factory -> com.sample.lottie.ShapeData$Factory:
+    com.sample.lottie.ShapeData$Factory INSTANCE -> INSTANCE
     104:105:void <init>() -> <init>
-    108:181:com.sample.lottie.ShapeData valueFromObject(java.lang.Object,float) -> a
-    185:195:android.graphics.PointF vertexAtIndex(int,org.json.JSONArray) -> a
-    101:101:java.lang.Object valueFromObject(java.lang.Object,float) -> b
+    108:181:com.sample.lottie.ShapeData valueFromObject(java.lang.Object,float) -> valueFromObject
+    185:195:android.graphics.PointF vertexAtIndex(int,org.json.JSONArray) -> vertexAtIndex
+    101:101:java.lang.Object valueFromObject(java.lang.Object,float) -> valueFromObject
     102:102:void <clinit>() -> <clinit>
-com.sample.lottie.ShapeFill -> com.sample.lottie.ay:
-    boolean fillEnabled -> a
-    com.sample.lottie.AnimatableColorValue color -> b
-    com.sample.lottie.AnimatableIntegerValue opacity -> c
+com.sample.lottie.ShapeFill -> com.sample.lottie.ShapeFill:
+    boolean fillEnabled -> fillEnabled
+    com.sample.lottie.AnimatableColorValue color -> color
+    com.sample.lottie.AnimatableIntegerValue opacity -> opacity
     13:17:void <init>(boolean,com.sample.lottie.AnimatableColorValue,com.sample.lottie.AnimatableIntegerValue) -> <init>
-    43:43:com.sample.lottie.AnimatableColorValue getColor() -> a
-    47:47:com.sample.lottie.AnimatableIntegerValue getOpacity() -> b
+    43:43:com.sample.lottie.AnimatableColorValue getColor() -> getColor
+    47:47:com.sample.lottie.AnimatableIntegerValue getOpacity() -> getOpacity
     52:54:java.lang.String toString() -> toString
     7:7:void <init>(boolean,com.sample.lottie.AnimatableColorValue,com.sample.lottie.AnimatableIntegerValue,com.sample.lottie.ShapeFill$1) -> <init>
-com.sample.lottie.ShapeFill$1 -> com.sample.lottie.ay$1:
-com.sample.lottie.ShapeFill$Factory -> com.sample.lottie.ay$a:
-    24:38:com.sample.lottie.ShapeFill newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.ShapeGroup -> com.sample.lottie.az:
-    java.lang.String name -> a
-    java.util.List items -> b
-    15:39:java.lang.Object shapeItemWithJson(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
+com.sample.lottie.ShapeFill$1 -> com.sample.lottie.ShapeFill$1:
+com.sample.lottie.ShapeFill$Factory -> com.sample.lottie.ShapeFill$Factory:
+    20:21:void <init>() -> <init>
+    24:38:com.sample.lottie.ShapeFill newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+com.sample.lottie.ShapeGroup -> com.sample.lottie.ShapeGroup:
+    java.lang.String name -> name
+    java.util.List items -> items
+    15:39:java.lang.Object shapeItemWithJson(org.json.JSONObject,com.sample.lottie.LottieComposition) -> shapeItemWithJson
     45:48:void <init>(java.lang.String,java.util.List) -> <init>
-    70:70:java.util.List getItems() -> a
+    70:70:java.util.List getItems() -> getItems
     74:74:java.lang.String toString() -> toString
     13:13:void <init>(java.lang.String,java.util.List,com.sample.lottie.ShapeGroup$1) -> <init>
-com.sample.lottie.ShapeGroup$1 -> com.sample.lottie.az$1:
-com.sample.lottie.ShapeGroup$Factory -> com.sample.lottie.az$a:
-    55:65:com.sample.lottie.ShapeGroup newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> b
-    50:50:com.sample.lottie.ShapeGroup access$000(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.ShapeKeyframeAnimation -> com.sample.lottie.ba:
-    com.sample.lottie.ShapeData tempShapeData -> c
-    android.graphics.Path tempPath -> d
+com.sample.lottie.ShapeGroup$1 -> com.sample.lottie.ShapeGroup$1:
+com.sample.lottie.ShapeGroup$Factory -> com.sample.lottie.ShapeGroup$Factory:
+    51:52:void <init>() -> <init>
+    55:65:com.sample.lottie.ShapeGroup newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+    50:50:com.sample.lottie.ShapeGroup access$000(org.json.JSONObject,com.sample.lottie.LottieComposition) -> access$000
+com.sample.lottie.ShapeKeyframeAnimation -> com.sample.lottie.ShapeKeyframeAnimation:
+    com.sample.lottie.ShapeData tempShapeData -> tempShapeData
+    android.graphics.Path tempPath -> tempPath
     8:13:void <init>(java.util.List) -> <init>
-    16:21:android.graphics.Path getValue(com.sample.lottie.Keyframe,float) -> b
-    7:7:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-com.sample.lottie.ShapeLayer -> com.sample.lottie.bb:
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener pathChangedListener -> c
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener alphaChangedListener -> d
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener colorChangedListener -> e
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener lineWidthChangedListener -> f
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener dashPatternChangedListener -> g
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener strokeChangedListener -> h
-    com.sample.lottie.BaseKeyframeAnimation$AnimationListener scaleChangedListener -> i
-    android.graphics.Paint paint -> j
-    android.graphics.Path tempPath -> k
-    android.graphics.Path currentPath -> l
-    android.graphics.Path extraTrimPath -> m
-    android.graphics.PathMeasure pathMeasure -> n
-    float currentPathScaleX -> o
-    float currentPathScaleY -> p
-    float currentDrawableScale -> q
-    float currentPathStrokeStart -> r
-    float currentPathStrokeEnd -> s
-    float currentPathStrokeOffset -> t
-    com.sample.lottie.KeyframeAnimation scale -> u
-    android.graphics.RectF tempRect -> v
-    android.graphics.Matrix scaleMatrix -> w
-    com.sample.lottie.BaseKeyframeAnimation path -> x
-    com.sample.lottie.BaseKeyframeAnimation color -> y
-    com.sample.lottie.BaseKeyframeAnimation lineWidth -> z
-    com.sample.lottie.BaseKeyframeAnimation strokeStart -> A
-    com.sample.lottie.BaseKeyframeAnimation strokeEnd -> B
-    com.sample.lottie.BaseKeyframeAnimation strokeOffset -> C
-    com.sample.lottie.BaseKeyframeAnimation shapeOpacity -> D
-    com.sample.lottie.BaseKeyframeAnimation transformOpacity -> E
-    java.util.List lineDashPattern -> F
-    com.sample.lottie.BaseKeyframeAnimation lineDashPatternOffset -> G
-    boolean pathPropertiesChanged -> H
-    boolean dashPatternChanged -> I
+    16:21:android.graphics.Path getValue(com.sample.lottie.Keyframe,float) -> getValue
+    7:7:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.ShapeLayer -> com.sample.lottie.ShapeLayer:
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener pathChangedListener -> pathChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener alphaChangedListener -> alphaChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener colorChangedListener -> colorChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener lineWidthChangedListener -> lineWidthChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener dashPatternChangedListener -> dashPatternChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener strokeChangedListener -> strokeChangedListener
+    com.sample.lottie.BaseKeyframeAnimation$AnimationListener scaleChangedListener -> scaleChangedListener
+    android.graphics.Paint paint -> paint
+    android.graphics.Path tempPath -> tempPath
+    android.graphics.Path currentPath -> currentPath
+    android.graphics.Path extraTrimPath -> extraTrimPath
+    android.graphics.PathMeasure pathMeasure -> pathMeasure
+    float currentPathScaleX -> currentPathScaleX
+    float currentPathScaleY -> currentPathScaleY
+    float currentDrawableScale -> currentDrawableScale
+    float currentPathStrokeStart -> currentPathStrokeStart
+    float currentPathStrokeEnd -> currentPathStrokeEnd
+    float currentPathStrokeOffset -> currentPathStrokeOffset
+    com.sample.lottie.KeyframeAnimation scale -> scale
+    android.graphics.RectF tempRect -> tempRect
+    android.graphics.Matrix scaleMatrix -> scaleMatrix
+    com.sample.lottie.BaseKeyframeAnimation path -> path
+    com.sample.lottie.BaseKeyframeAnimation color -> color
+    com.sample.lottie.BaseKeyframeAnimation lineWidth -> lineWidth
+    com.sample.lottie.BaseKeyframeAnimation strokeStart -> strokeStart
+    com.sample.lottie.BaseKeyframeAnimation strokeEnd -> strokeEnd
+    com.sample.lottie.BaseKeyframeAnimation strokeOffset -> strokeOffset
+    com.sample.lottie.BaseKeyframeAnimation shapeOpacity -> shapeOpacity
+    com.sample.lottie.BaseKeyframeAnimation transformOpacity -> transformOpacity
+    java.util.List lineDashPattern -> lineDashPattern
+    com.sample.lottie.BaseKeyframeAnimation lineDashPatternOffset -> lineDashPatternOffset
+    boolean pathPropertiesChanged -> pathPropertiesChanged
+    boolean dashPatternChanged -> dashPatternChanged
     21:116:void <init>(android.graphics.drawable.Drawable$Callback) -> <init>
-    119:121:void setIsStroke() -> e
-    124:132:void setColor(com.sample.lottie.KeyframeAnimation) -> c
-    135:137:void onColorChanged() -> g
-    140:150:void setPath(com.sample.lottie.BaseKeyframeAnimation) -> d
-    153:162:void onPathChanged() -> f
-    165:167:void onPathPropertiesChanged() -> h
+    119:121:void setIsStroke() -> setIsStroke
+    124:132:void setColor(com.sample.lottie.KeyframeAnimation) -> setColor
+    135:137:void onColorChanged() -> onColorChanged
+    140:150:void setPath(com.sample.lottie.BaseKeyframeAnimation) -> setPath
+    153:162:void onPathChanged() -> onPathChanged
+    165:167:void onPathPropertiesChanged() -> onPathPropertiesChanged
     172:194:void draw(android.graphics.Canvas) -> draw
-    197:276:void updateShape() -> i
-    279:299:void updateDashPattern() -> j
+    197:276:void updateShape() -> updateShape
+    279:299:void updateDashPattern() -> updateDashPattern
     302:305:int getAlpha() -> getAlpha
-    309:317:void setShapeOpacity(com.sample.lottie.KeyframeAnimation) -> d
-    320:324:void setTransformOpacity(com.sample.lottie.KeyframeAnimation) -> e
+    309:317:void setShapeOpacity(com.sample.lottie.KeyframeAnimation) -> setShapeOpacity
+    320:324:void setTransformOpacity(com.sample.lottie.KeyframeAnimation) -> setTransformOpacity
     327:329:void setAlpha(int) -> setAlpha
     333:333:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
     336:336:int getOpacity() -> getOpacity
-    340:348:void setLineWidth(com.sample.lottie.KeyframeAnimation) -> f
-    352:375:void setDashPattern(java.util.List,com.sample.lottie.BaseKeyframeAnimation) -> a
-    378:380:void onDashPatternChanged() -> k
-    383:392:void setLineCapType(com.sample.lottie.ShapeStroke$LineCapType) -> a
-    395:406:void setLineJoinType(com.sample.lottie.ShapeStroke$LineJoinType) -> a
-    410:432:void setTrimPath(com.sample.lottie.KeyframeAnimation,com.sample.lottie.KeyframeAnimation,com.sample.lottie.KeyframeAnimation) -> a
-    435:443:void setScale(com.sample.lottie.KeyframeAnimation) -> g
-    20:20:void access$000(com.sample.lottie.ShapeLayer) -> a
-    20:20:void access$100(com.sample.lottie.ShapeLayer) -> b
-    20:20:void access$200(com.sample.lottie.ShapeLayer) -> c
-com.sample.lottie.ShapeLayer$1 -> com.sample.lottie.bb$1:
-    com.sample.lottie.ShapeLayer this$0 -> a
+    340:348:void setLineWidth(com.sample.lottie.KeyframeAnimation) -> setLineWidth
+    352:375:void setDashPattern(java.util.List,com.sample.lottie.BaseKeyframeAnimation) -> setDashPattern
+    378:380:void onDashPatternChanged() -> onDashPatternChanged
+    383:392:void setLineCapType(com.sample.lottie.ShapeStroke$LineCapType) -> setLineCapType
+    395:406:void setLineJoinType(com.sample.lottie.ShapeStroke$LineJoinType) -> setLineJoinType
+    410:432:void setTrimPath(com.sample.lottie.KeyframeAnimation,com.sample.lottie.KeyframeAnimation,com.sample.lottie.KeyframeAnimation) -> setTrimPath
+    435:443:void setScale(com.sample.lottie.KeyframeAnimation) -> setScale
+    20:20:void access$000(com.sample.lottie.ShapeLayer) -> access$000
+    20:20:void access$100(com.sample.lottie.ShapeLayer) -> access$100
+    20:20:void access$200(com.sample.lottie.ShapeLayer) -> access$200
+com.sample.lottie.ShapeLayer$1 -> com.sample.lottie.ShapeLayer$1:
+    com.sample.lottie.ShapeLayer this$0 -> this$0
     22:22:void <init>(com.sample.lottie.ShapeLayer) -> <init>
-    25:26:void onValueChanged(android.graphics.Path) -> a
-    22:22:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.ShapeLayer$2 -> com.sample.lottie.bb$2:
-    com.sample.lottie.ShapeLayer this$0 -> a
+    25:26:void onValueChanged(android.graphics.Path) -> onValueChanged
+    22:22:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.ShapeLayer$2 -> com.sample.lottie.ShapeLayer$2:
+    com.sample.lottie.ShapeLayer this$0 -> this$0
     30:30:void <init>(com.sample.lottie.ShapeLayer) -> <init>
-    33:34:void onValueChanged(java.lang.Integer) -> a
-    30:30:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.ShapeLayer$3 -> com.sample.lottie.bb$3:
-    com.sample.lottie.ShapeLayer this$0 -> a
+    33:34:void onValueChanged(java.lang.Integer) -> onValueChanged
+    30:30:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.ShapeLayer$3 -> com.sample.lottie.ShapeLayer$3:
+    com.sample.lottie.ShapeLayer this$0 -> this$0
     38:38:void <init>(com.sample.lottie.ShapeLayer) -> <init>
-    41:42:void onValueChanged(java.lang.Integer) -> a
-    38:38:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.ShapeLayer$4 -> com.sample.lottie.bb$4:
-    com.sample.lottie.ShapeLayer this$0 -> a
+    41:42:void onValueChanged(java.lang.Integer) -> onValueChanged
+    38:38:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.ShapeLayer$4 -> com.sample.lottie.ShapeLayer$4:
+    com.sample.lottie.ShapeLayer this$0 -> this$0
     46:46:void <init>(com.sample.lottie.ShapeLayer) -> <init>
-    49:50:void onValueChanged(java.lang.Float) -> a
-    46:46:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.ShapeLayer$5 -> com.sample.lottie.bb$5:
-    com.sample.lottie.ShapeLayer this$0 -> a
+    49:50:void onValueChanged(java.lang.Float) -> onValueChanged
+    46:46:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.ShapeLayer$5 -> com.sample.lottie.ShapeLayer$5:
+    com.sample.lottie.ShapeLayer this$0 -> this$0
     54:54:void <init>(com.sample.lottie.ShapeLayer) -> <init>
-    57:58:void onValueChanged(java.lang.Float) -> a
-    54:54:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.ShapeLayer$6 -> com.sample.lottie.bb$6:
-    com.sample.lottie.ShapeLayer this$0 -> a
+    57:58:void onValueChanged(java.lang.Float) -> onValueChanged
+    54:54:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.ShapeLayer$6 -> com.sample.lottie.ShapeLayer$6:
+    com.sample.lottie.ShapeLayer this$0 -> this$0
     62:62:void <init>(com.sample.lottie.ShapeLayer) -> <init>
-    65:66:void onValueChanged(java.lang.Float) -> a
-    62:62:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.ShapeLayer$7 -> com.sample.lottie.bb$7:
-    com.sample.lottie.ShapeLayer this$0 -> a
+    65:66:void onValueChanged(java.lang.Float) -> onValueChanged
+    62:62:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.ShapeLayer$7 -> com.sample.lottie.ShapeLayer$7:
+    com.sample.lottie.ShapeLayer this$0 -> this$0
     70:70:void <init>(com.sample.lottie.ShapeLayer) -> <init>
-    73:74:void onValueChanged(com.sample.lottie.ScaleXY) -> a
-    70:70:void onValueChanged(java.lang.Object) -> a
-com.sample.lottie.ShapeLayer$8 -> com.sample.lottie.bb$8:
-    com.sample.lottie.ShapeLayer this$0 -> a
+    73:74:void onValueChanged(com.sample.lottie.ScaleXY) -> onValueChanged
+    70:70:void onValueChanged(java.lang.Object) -> onValueChanged
+com.sample.lottie.ShapeLayer$8 -> com.sample.lottie.ShapeLayer$8:
+    com.sample.lottie.ShapeLayer this$0 -> this$0
     78:80:void <init>(com.sample.lottie.ShapeLayer,int) -> <init>
-com.sample.lottie.ShapeLayer$9 -> com.sample.lottie.bb$9:
-    int[] $SwitchMap$com$sample$lottie$ShapeStroke$LineCapType -> a
-    int[] $SwitchMap$com$sample$lottie$ShapeStroke$LineJoinType -> b
+com.sample.lottie.ShapeLayer$9 -> com.sample.lottie.ShapeLayer$9:
+    int[] $SwitchMap$com$sample$lottie$ShapeStroke$LineCapType -> $SwitchMap$com$sample$lottie$ShapeStroke$LineCapType
+    int[] $SwitchMap$com$sample$lottie$ShapeStroke$LineJoinType -> $SwitchMap$com$sample$lottie$ShapeStroke$LineJoinType
     383:395:void <clinit>() -> <clinit>
-com.sample.lottie.ShapeLayerView -> com.sample.lottie.bc:
-    com.sample.lottie.ShapeLayer fillLayer -> c
-    com.sample.lottie.ShapeLayer strokeLayer -> d
+com.sample.lottie.ShapeLayerView -> com.sample.lottie.ShapeLayerView:
+    com.sample.lottie.ShapeLayer fillLayer -> fillLayer
+    com.sample.lottie.ShapeLayer strokeLayer -> strokeLayer
     16:57:void <init>(com.sample.lottie.ShapePath,com.sample.lottie.ShapeFill,com.sample.lottie.ShapeStroke,com.sample.lottie.ShapeTrimPath,com.sample.lottie.AnimatableTransform,android.graphics.drawable.Drawable$Callback) -> <init>
     60:67:void setAlpha(int) -> setAlpha
-com.sample.lottie.ShapePath -> com.sample.lottie.bd:
-    java.lang.String name -> a
-    int index -> b
-    com.sample.lottie.AnimatableShapeValue shapePath -> c
+com.sample.lottie.ShapePath -> com.sample.lottie.ShapePath:
+    java.lang.String name -> name
+    int index -> index
+    com.sample.lottie.AnimatableShapeValue shapePath -> shapePath
     10:14:void <init>(java.lang.String,int,com.sample.lottie.AnimatableShapeValue) -> <init>
-    28:28:com.sample.lottie.AnimatableShapeValue getShapePath() -> a
+    28:28:com.sample.lottie.AnimatableShapeValue getShapePath() -> getShapePath
     32:34:java.lang.String toString() -> toString
     5:5:void <init>(java.lang.String,int,com.sample.lottie.AnimatableShapeValue,com.sample.lottie.ShapePath$1) -> <init>
-com.sample.lottie.ShapePath$1 -> com.sample.lottie.bd$1:
-com.sample.lottie.ShapePath$Factory -> com.sample.lottie.bd$a:
-    21:23:com.sample.lottie.ShapePath newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
+com.sample.lottie.ShapePath$1 -> com.sample.lottie.ShapePath$1:
+com.sample.lottie.ShapePath$Factory -> com.sample.lottie.ShapePath$Factory:
+    17:18:void <init>() -> <init>
+    21:23:com.sample.lottie.ShapePath newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
 com.sample.lottie.ShapeStroke -> com.sample.lottie.ShapeStroke:
-    com.sample.lottie.AnimatableFloatValue offset -> a
-    java.util.List lineDashPattern -> b
-    com.sample.lottie.AnimatableColorValue color -> c
-    com.sample.lottie.AnimatableIntegerValue opacity -> d
-    com.sample.lottie.AnimatableFloatValue width -> e
-    com.sample.lottie.ShapeStroke$LineCapType capType -> f
-    com.sample.lottie.ShapeStroke$LineJoinType joinType -> g
+    com.sample.lottie.AnimatableFloatValue offset -> offset
+    java.util.List lineDashPattern -> lineDashPattern
+    com.sample.lottie.AnimatableColorValue color -> color
+    com.sample.lottie.AnimatableIntegerValue opacity -> opacity
+    com.sample.lottie.AnimatableFloatValue width -> width
+    com.sample.lottie.ShapeStroke$LineCapType capType -> capType
+    com.sample.lottie.ShapeStroke$LineJoinType joinType -> joinType
     35:43:void <init>(com.sample.lottie.AnimatableFloatValue,java.util.List,com.sample.lottie.AnimatableColorValue,com.sample.lottie.AnimatableIntegerValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.ShapeStroke$LineCapType,com.sample.lottie.ShapeStroke$LineJoinType) -> <init>
-    84:84:com.sample.lottie.AnimatableColorValue getColor() -> a
-    88:88:com.sample.lottie.AnimatableIntegerValue getOpacity() -> b
-    92:92:com.sample.lottie.AnimatableFloatValue getWidth() -> c
-    96:96:java.util.List getLineDashPattern() -> d
-    100:100:com.sample.lottie.AnimatableFloatValue getDashOffset() -> e
-    104:104:com.sample.lottie.ShapeStroke$LineCapType getCapType() -> f
-    108:108:com.sample.lottie.ShapeStroke$LineJoinType getJoinType() -> g
+    84:84:com.sample.lottie.AnimatableColorValue getColor() -> getColor
+    88:88:com.sample.lottie.AnimatableIntegerValue getOpacity() -> getOpacity
+    92:92:com.sample.lottie.AnimatableFloatValue getWidth() -> getWidth
+    96:96:java.util.List getLineDashPattern() -> getLineDashPattern
+    100:100:com.sample.lottie.AnimatableFloatValue getDashOffset() -> getDashOffset
+    104:104:com.sample.lottie.ShapeStroke$LineCapType getCapType() -> getCapType
+    108:108:com.sample.lottie.ShapeStroke$LineJoinType getJoinType() -> getJoinType
     11:11:void <init>(com.sample.lottie.AnimatableFloatValue,java.util.List,com.sample.lottie.AnimatableColorValue,com.sample.lottie.AnimatableIntegerValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.ShapeStroke$LineCapType,com.sample.lottie.ShapeStroke$LineJoinType,com.sample.lottie.ShapeStroke$1) -> <init>
 com.sample.lottie.ShapeStroke$1 -> com.sample.lottie.ShapeStroke$1:
-com.sample.lottie.ShapeStroke$Factory -> com.sample.lottie.ShapeStroke$a:
-    50:79:com.sample.lottie.ShapeStroke newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
+com.sample.lottie.ShapeStroke$Factory -> com.sample.lottie.ShapeStroke$Factory:
+    46:47:void <init>() -> <init>
+    50:79:com.sample.lottie.ShapeStroke newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
 com.sample.lottie.ShapeStroke$LineCapType -> com.sample.lottie.ShapeStroke$LineCapType:
     com.sample.lottie.ShapeStroke$LineCapType Butt -> Butt
     com.sample.lottie.ShapeStroke$LineCapType Round -> Round
@@ -44269,55 +44342,57 @@ com.sample.lottie.ShapeStroke$LineJoinType -> com.sample.lottie.ShapeStroke$Line
     18:18:com.sample.lottie.ShapeStroke$LineJoinType valueOf(java.lang.String) -> valueOf
     18:18:void <init>(java.lang.String,int) -> <init>
     18:21:void <clinit>() -> <clinit>
-com.sample.lottie.ShapeTrimPath -> com.sample.lottie.be:
-    com.sample.lottie.AnimatableFloatValue start -> a
-    com.sample.lottie.AnimatableFloatValue end -> b
-    com.sample.lottie.AnimatableFloatValue offset -> c
+com.sample.lottie.ShapeTrimPath -> com.sample.lottie.ShapeTrimPath:
+    com.sample.lottie.AnimatableFloatValue start -> start
+    com.sample.lottie.AnimatableFloatValue end -> end
+    com.sample.lottie.AnimatableFloatValue offset -> offset
     11:15:void <init>(com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue) -> <init>
-    30:30:com.sample.lottie.AnimatableFloatValue getEnd() -> a
-    34:34:com.sample.lottie.AnimatableFloatValue getStart() -> b
-    38:38:com.sample.lottie.AnimatableFloatValue getOffset() -> c
+    30:30:com.sample.lottie.AnimatableFloatValue getEnd() -> getEnd
+    34:34:com.sample.lottie.AnimatableFloatValue getStart() -> getStart
+    38:38:com.sample.lottie.AnimatableFloatValue getOffset() -> getOffset
     42:42:java.lang.String toString() -> toString
     5:5:void <init>(com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.AnimatableFloatValue,com.sample.lottie.ShapeTrimPath$1) -> <init>
-com.sample.lottie.ShapeTrimPath$1 -> com.sample.lottie.be$1:
-com.sample.lottie.ShapeTrimPath$Factory -> com.sample.lottie.be$a:
-    22:25:com.sample.lottie.ShapeTrimPath newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> a
-com.sample.lottie.SplitDimensionPathKeyframeAnimation -> com.sample.lottie.bf:
-    android.graphics.PointF point -> c
-    com.sample.lottie.KeyframeAnimation xAnimation -> d
-    com.sample.lottie.KeyframeAnimation yAnimation -> e
+com.sample.lottie.ShapeTrimPath$1 -> com.sample.lottie.ShapeTrimPath$1:
+com.sample.lottie.ShapeTrimPath$Factory -> com.sample.lottie.ShapeTrimPath$Factory:
+    18:19:void <init>() -> <init>
+    22:25:com.sample.lottie.ShapeTrimPath newInstance(org.json.JSONObject,com.sample.lottie.LottieComposition) -> newInstance
+com.sample.lottie.SplitDimensionPathKeyframeAnimation -> com.sample.lottie.SplitDimensionPathKeyframeAnimation:
+    android.graphics.PointF point -> point
+    com.sample.lottie.KeyframeAnimation xAnimation -> xAnimation
+    com.sample.lottie.KeyframeAnimation yAnimation -> yAnimation
     8:18:void <init>(com.sample.lottie.KeyframeAnimation,com.sample.lottie.KeyframeAnimation) -> <init>
-    21:27:void setProgress(float) -> a
-    30:30:android.graphics.PointF getValue() -> c
-    34:34:android.graphics.PointF getValue(com.sample.lottie.Keyframe,float) -> b
-    7:7:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-    7:7:java.lang.Object getValue() -> b
-com.sample.lottie.StaticKeyframeAnimation -> com.sample.lottie.bg:
-    java.lang.Object initialValue -> c
+    21:27:void setProgress(float) -> setProgress
+    30:30:android.graphics.PointF getValue() -> getValue
+    34:34:android.graphics.PointF getValue(com.sample.lottie.Keyframe,float) -> getValue
+    7:7:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+    7:7:java.lang.Object getValue() -> getValue
+com.sample.lottie.StaticKeyframeAnimation -> com.sample.lottie.StaticKeyframeAnimation:
+    java.lang.Object initialValue -> initialValue
     11:13:void <init>(java.lang.Object) -> <init>
-    17:17:void setProgress(float) -> a
-    20:20:java.lang.Object getValue() -> b
-    24:24:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> a
-com.sample.lottie.TransformKeyframeAnimation -> com.sample.lottie.bh:
-    com.sample.lottie.BaseKeyframeAnimation anchorPoint -> a
-    com.sample.lottie.BaseKeyframeAnimation position -> b
-    com.sample.lottie.BaseKeyframeAnimation scale -> c
-    com.sample.lottie.BaseKeyframeAnimation rotation -> d
-    com.sample.lottie.BaseKeyframeAnimation opacity -> e
+    17:17:void setProgress(float) -> setProgress
+    20:20:java.lang.Object getValue() -> getValue
+    24:24:java.lang.Object getValue(com.sample.lottie.Keyframe,float) -> getValue
+com.sample.lottie.TransformKeyframeAnimation -> com.sample.lottie.TransformKeyframeAnimation:
+    com.sample.lottie.BaseKeyframeAnimation anchorPoint -> anchorPoint
+    com.sample.lottie.BaseKeyframeAnimation position -> position
+    com.sample.lottie.BaseKeyframeAnimation scale -> scale
+    com.sample.lottie.BaseKeyframeAnimation rotation -> rotation
+    com.sample.lottie.BaseKeyframeAnimation opacity -> opacity
     13:19:void <init>(com.sample.lottie.AnimatableTransform) -> <init>
-    22:22:com.sample.lottie.BaseKeyframeAnimation getAnchorPoint() -> a
-    26:26:com.sample.lottie.BaseKeyframeAnimation getPosition() -> b
-    30:30:com.sample.lottie.BaseKeyframeAnimation getScale() -> c
-    34:34:com.sample.lottie.BaseKeyframeAnimation getRotation() -> d
-    38:38:com.sample.lottie.BaseKeyframeAnimation getOpacity() -> e
-com.sample.lottie.Utils -> com.sample.lottie.bi:
-    android.graphics.PointF emptyPoint -> a
-    android.util.DisplayMetrics displayMetrics -> b
-    16:19:android.graphics.PointF emptyPoint() -> a
-    23:34:android.graphics.Path createPath(android.graphics.PointF,android.graphics.PointF,android.graphics.PointF,android.graphics.PointF) -> a
-    38:46:void closeQuietly(java.io.Closeable) -> a
-    49:54:int getScreenWidth(android.content.Context) -> a
-    58:63:int getScreenHeight(android.content.Context) -> b
+    22:22:com.sample.lottie.BaseKeyframeAnimation getAnchorPoint() -> getAnchorPoint
+    26:26:com.sample.lottie.BaseKeyframeAnimation getPosition() -> getPosition
+    30:30:com.sample.lottie.BaseKeyframeAnimation getScale() -> getScale
+    34:34:com.sample.lottie.BaseKeyframeAnimation getRotation() -> getRotation
+    38:38:com.sample.lottie.BaseKeyframeAnimation getOpacity() -> getOpacity
+com.sample.lottie.Utils -> com.sample.lottie.Utils:
+    android.graphics.PointF emptyPoint -> emptyPoint
+    android.util.DisplayMetrics displayMetrics -> displayMetrics
+    11:11:void <init>() -> <init>
+    16:19:android.graphics.PointF emptyPoint() -> emptyPoint
+    23:34:android.graphics.Path createPath(android.graphics.PointF,android.graphics.PointF,android.graphics.PointF,android.graphics.PointF) -> createPath
+    38:46:void closeQuietly(java.io.Closeable) -> closeQuietly
+    49:54:int getScreenWidth(android.content.Context) -> getScreenWidth
+    58:63:int getScreenHeight(android.content.Context) -> getScreenHeight
 com.squareup.leakcanary.LeakCanary -> com.squareup.a.a:
     12:12:com.squareup.leakcanary.RefWatcher install(android.app.Application) -> a
     16:16:boolean isInAnalyzerProcess(android.content.Context) -> a
@@ -48267,41 +48342,41 @@ com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter -> com.supers.clean
     java.util.ArrayList list -> a
     int bastPosition -> b
     com.supers.clean.junk.adapter.RecycleViewAdapter this$0 -> c
-    163:166:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter,java.util.ArrayList) -> <init>
-    170:173:com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    178:242:void onBindViewHolder(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder,int) -> a
-    246:246:int getItemCount() -> getItemCount
-    267:274:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
-    282:282:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
+    163:171:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter,java.util.ArrayList) -> <init>
+    175:178:com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    183:247:void onBindViewHolder(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder,int) -> a
+    251:251:int getItemCount() -> getItemCount
+    272:279:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
+    287:287:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
     158:158:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
     158:158:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1 -> com.supers.clean.junk.a.k$a$1:
     com.supers.clean.junk.similarimage.ImageInfo val$info -> a
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder val$holder -> b
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter this$1 -> c
-    196:196:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
-    199:210:void run() -> run
+    201:201:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
+    204:215:void run() -> run
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1$1 -> com.supers.clean.junk.a.k$a$1$1:
     android.graphics.Bitmap val$bitmap -> a
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1 this$2 -> b
-    202:202:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1,android.graphics.Bitmap) -> <init>
-    205:207:void run() -> run
+    207:207:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$1,android.graphics.Bitmap) -> <init>
+    210:212:void run() -> run
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$2 -> com.supers.clean.junk.a.k$a$2:
     com.supers.clean.junk.similarimage.ImageInfo val$info -> a
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder val$holder -> b
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter this$1 -> c
-    216:216:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
-    219:230:void onClick(android.view.View) -> onClick
+    221:221:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,com.supers.clean.junk.similarimage.ImageInfo,com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
+    224:235:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$3 -> com.supers.clean.junk.a.k$a$3:
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter this$1 -> a
-    233:233:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter) -> <init>
-    236:240:void onClick(android.view.View) -> onClick
+    238:238:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter) -> <init>
+    241:245:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder -> com.supers.clean.junk.a.k$a$a:
     android.widget.ImageView picture_icon -> a
     android.widget.ImageView picture_check -> b
     android.widget.ImageView picture_best -> c
     com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter this$1 -> d
-    254:259:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,android.view.View) -> <init>
+    259:264:void <init>(com.supers.clean.junk.adapter.RecycleViewAdapter$HomeAdapter,android.view.View) -> <init>
 com.supers.clean.junk.adapter.RecycleViewAdapter$MyViewHolder -> com.supers.clean.junk.a.k$b:
     android.support.v7.widget.RecyclerView recyclerView -> a
     com.supers.clean.junk.adapter.RecycleViewAdapter this$0 -> b
@@ -49350,12 +49425,12 @@ com.supers.clean.junk.presenter.GetTopApp -> com.supers.clean.junk.presenter.Get
     int AID_USER -> AID_USER
     java.util.HashMap excludes -> excludes
     27:31:void <init>(android.content.Context) -> <init>
-    34:58:java.lang.String execute() -> execute
-    62:78:java.lang.String getActivePackages() -> getActivePackages
-    83:95:java.lang.String getTopPackage() -> getTopPackage
-    120:187:java.lang.String getForegroundApp() -> getForegroundApp
-    191:201:java.lang.String read(java.lang.String) -> read
-    111:117:void <clinit>() -> <clinit>
+    34:57:java.lang.String execute() -> execute
+    61:77:java.lang.String getActivePackages() -> getActivePackages
+    82:94:java.lang.String getTopPackage() -> getTopPackage
+    119:186:java.lang.String getForegroundApp() -> getForegroundApp
+    190:200:java.lang.String read(java.lang.String) -> read
+    110:116:void <clinit>() -> <clinit>
 com.supers.clean.junk.presenter.IPresenter -> com.supers.clean.junk.presenter.IPresenter:
     void init() -> init
 com.supers.clean.junk.presenter.JunkPresenter -> com.supers.clean.junk.presenter.JunkPresenter:
@@ -49394,9 +49469,9 @@ com.supers.clean.junk.presenter.JunkRamPresenter -> com.supers.clean.junk.presen
     119:121:void setUnit(long,android.widget.TextView) -> setUnit
     125:179:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> bleachFile
 com.supers.clean.junk.presenter.LastRunsort -> com.supers.clean.junk.presenter.LastRunsort:
-    114:114:void <init>() -> <init>
-    117:117:int compare(com.supers.clean.junk.entity.JunkInfo,com.supers.clean.junk.entity.JunkInfo) -> compare
-    114:114:int compare(java.lang.Object,java.lang.Object) -> compare
+    118:118:void <init>() -> <init>
+    121:121:int compare(com.supers.clean.junk.entity.JunkInfo,com.supers.clean.junk.entity.JunkInfo) -> compare
+    118:118:int compare(java.lang.Object,java.lang.Object) -> compare
 com.supers.clean.junk.presenter.MainPresenter -> com.supers.clean.junk.presenter.MainPresenter:
     int cpuTemp -> cpuTemp
     com.eos.manager.page.SecuritySharPFive shareFive -> shareFive
@@ -49431,11 +49506,11 @@ com.supers.clean.junk.presenter.ManagerPresenter -> com.supers.clean.junk.presen
     java.util.ArrayList list_pinlv -> list_pinlv
     int type -> type
     26:34:void <init>(com.supers.clean.junk.view.AppManagerView,android.content.Context) -> <init>
-    38:53:void init() -> init
-    56:63:void addCleandata(boolean,long) -> addCleandata
-    66:67:void addAdapterData() -> addAdapterData
-    71:81:void bleachFile(java.util.List) -> bleachFile
-    84:97:void unloadSuccess(java.lang.String) -> unloadSuccess
+    38:57:void init() -> init
+    60:67:void addCleandata(boolean,long) -> addCleandata
+    70:71:void addAdapterData() -> addAdapterData
+    75:85:void bleachFile(java.util.List) -> bleachFile
+    88:101:void unloadSuccess(java.lang.String) -> unloadSuccess
 com.supers.clean.junk.presenter.RamPresenter -> com.supers.clean.junk.presenter.RamPresenter:
     com.supers.clean.junk.activity.MyApplication cleanApplication -> cleanApplication
     long allSize -> allSize
@@ -49449,13 +49524,13 @@ com.supers.clean.junk.presenter.RamPresenter -> com.supers.clean.junk.presenter.
     69:70:void addRamAdapterData() -> addRamAdapterData
     73:82:void bleachFile(java.util.List) -> bleachFile
 com.supers.clean.junk.presenter.Sizesort -> com.supers.clean.junk.presenter.Sizesort:
-    101:101:void <init>() -> <init>
-    104:104:int compare(com.supers.clean.junk.entity.JunkInfo,com.supers.clean.junk.entity.JunkInfo) -> compare
-    101:101:int compare(java.lang.Object,java.lang.Object) -> compare
+    105:105:void <init>() -> <init>
+    108:108:int compare(com.supers.clean.junk.entity.JunkInfo,com.supers.clean.junk.entity.JunkInfo) -> compare
+    105:105:int compare(java.lang.Object,java.lang.Object) -> compare
 com.supers.clean.junk.presenter.Timesort -> com.supers.clean.junk.presenter.Timesort:
-    108:108:void <init>() -> <init>
-    110:110:int compare(com.supers.clean.junk.entity.JunkInfo,com.supers.clean.junk.entity.JunkInfo) -> compare
-    108:108:int compare(java.lang.Object,java.lang.Object) -> compare
+    112:112:void <init>() -> <init>
+    114:114:int compare(com.supers.clean.junk.entity.JunkInfo,com.supers.clean.junk.entity.JunkInfo) -> compare
+    112:112:int compare(java.lang.Object,java.lang.Object) -> compare
 com.supers.clean.junk.service.FloatService -> com.supers.clean.junk.service.FloatService:
     android.content.pm.PackageManager pm -> e
     android.app.ActivityManager am -> f

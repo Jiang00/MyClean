@@ -41,9 +41,13 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         list_size = new ArrayList<>();
         list_time = new ArrayList<>();
         list_pinlv = new ArrayList<>();
-        list_size.addAll(cleanApplication.getListMng());
-        list_time.addAll(cleanApplication.getListMng());
-        list_pinlv.addAll(cleanApplication.getListMng());
+        ArrayList<JunkInfo> list = cleanApplication.getListMng();
+        for (JunkInfo info : list) {
+            info.isChecked=false;
+        }
+        list_size.addAll(list);
+        list_time.addAll(list);
+        list_pinlv.addAll(list);
         Collections.sort(list_size, new Sizesort());
         Collections.sort(list_time, new Timesort());
         Collections.sort(list_pinlv, new LastRunsort());

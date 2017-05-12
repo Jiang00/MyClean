@@ -162,7 +162,12 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
         public HomeAdapter(ArrayList<ImageInfo> list) {
             this.list = list;
-            bastPosition = imageHelper.getBestImageIndex(list);
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).isNormal) {
+                    bastPosition = i;
+                    return;
+                }
+            }
         }
 
         @Override

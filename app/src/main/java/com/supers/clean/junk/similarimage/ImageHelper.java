@@ -386,6 +386,9 @@ public class ImageHelper {
                 }
 
                 if (!similarItems.contains(similarItem)) {
+                    if (similarItem.size() > 1) {
+                        similarItem.get(getBestImageIndex(similarItem)).isNormal = true;
+                    }
                     similarItems.add(0, similarItem);
                 }
 
@@ -394,9 +397,6 @@ public class ImageHelper {
                 }
 
             } else {
-                if (similarItem.size() > 1) {
-                    similarItem.get(getBestImageIndex(similarItem)).isNormal = true;
-                }
                 similarItem = new ArrayList<>();
             }
 
