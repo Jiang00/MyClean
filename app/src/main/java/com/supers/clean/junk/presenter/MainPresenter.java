@@ -82,14 +82,14 @@ public class MainPresenter extends BasePresenter<MainView> {
         long sd_kongxian = MemoryManager.getPhoneAllFreeSize();
         long sd_shiyong = sd_all - sd_kongxian;
         int sd_me = (int) (sd_shiyong * 100 / sd_all);
-        String sd_size = CommonUtil.getFileSize1(sd_shiyong) + "/" + CommonUtil.getFileSize1(sd_all);
+        String sd_size = CommonUtil.convertStorage(sd_shiyong,true) + "/" + CommonUtil.convertStorage(sd_all,true);
         iView.initSd(sd_me, sd_size, sd_kongxian);
         //ram使用
         long ram_kongxian = MemoryManager.getPhoneFreeRamMemory(context);
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
         long ram_shiyong = ram_all - ram_kongxian;
         int memo = (int) (ram_shiyong * 100 / ram_all);
-        String ram_size = CommonUtil.getFileSize1(ram_shiyong) + "/" + CommonUtil.getFileSize1(ram_all);
+        String ram_size = CommonUtil.convertStorage(ram_shiyong,true) + "/" + CommonUtil.convertStorage(ram_all,true);
         iView.initRam(memo, ram_size);
         setRotateGone();
     }

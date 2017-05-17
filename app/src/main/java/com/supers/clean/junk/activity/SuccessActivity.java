@@ -55,6 +55,7 @@ public class SuccessActivity extends BaseActivity {
     TextView title_name;
     ImageView success_jiantou;
     TextView success_clean_size;
+    TextView success_clean_2;
     DrawHookView success_drawhook;
     ImageView success_huojian;
     SlowScrollView scrollView;
@@ -62,13 +63,15 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_power_button;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
+    LinearLayout main_cooling_button;
+    LinearLayout main_ram_button;
+    LinearLayout main_junk_button;
     LinearLayout main_gboost_button;
     LinearLayout main_picture_button;
     ImageView power_icon;
     TextView power_text;
-    TextView main_rotate_bad;
-    LinearLayout main_rotate_good;
-    ImageView delete;
+    ImageView main_rotate_good;
+    //    ImageView delete;
     ImageView success_progress;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
@@ -103,6 +106,7 @@ public class SuccessActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
+        success_clean_2 = (TextView) findViewById(R.id.success_clean_2);
         success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
@@ -110,12 +114,14 @@ public class SuccessActivity extends BaseActivity {
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
         main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
+        main_cooling_button = (LinearLayout) findViewById(R.id.main_cooling_button);
+        main_ram_button = (LinearLayout) findViewById(R.id.main_ram_button);
+        main_junk_button = (LinearLayout) findViewById(R.id.main_junk_button);
         main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
         main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         power_text = (TextView) findViewById(R.id.power_text);
-        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
-        main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
-        delete = (ImageView) findViewById(R.id.delete);
+        main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
+//        delete = (ImageView) findViewById(R.id.delete);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         success_progress = (ImageView) findViewById(R.id.success_progress);
@@ -143,20 +149,82 @@ public class SuccessActivity extends BaseActivity {
         } else {
             title_name.setText(R.string.success_title);
         }
-        long size = getIntent().getLongExtra("size", 0);
+
+        if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
+            main_notifi_button.setVisibility(View.GONE);
+            main_file_button.setVisibility(View.GONE);
+            main_ram_button.setVisibility(View.GONE);
+            main_gboost_button.setVisibility(View.GONE);
+            main_picture_button.setVisibility(View.GONE);
+        } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
+            main_notifi_button.setVisibility(View.GONE);
+            main_file_button.setVisibility(View.GONE);
+            main_junk_button.setVisibility(View.GONE);
+            main_gboost_button.setVisibility(View.GONE);
+            main_picture_button.setVisibility(View.GONE);
+        } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
+            main_power_button.setVisibility(View.GONE);
+            main_notifi_button.setVisibility(View.GONE);
+            main_ram_button.setVisibility(View.GONE);
+            main_junk_button.setVisibility(View.GONE);
+            main_gboost_button.setVisibility(View.GONE);
+        } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+            main_file_button.setVisibility(View.GONE);
+            main_notifi_button.setVisibility(View.GONE);
+            main_ram_button.setVisibility(View.GONE);
+            main_cooling_button.setVisibility(View.GONE);
+            main_gboost_button.setVisibility(View.GONE);
+            main_picture_button.setVisibility(View.GONE);
+        } else if (TextUtils.equals("power", getIntent().getStringExtra("from")) || TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
+            main_power_button.setVisibility(View.GONE);
+            main_notifi_button.setVisibility(View.GONE);
+            main_ram_button.setVisibility(View.GONE);
+            main_cooling_button.setVisibility(View.GONE);
+            main_gboost_button.setVisibility(View.GONE);
+        } else if (TextUtils.equals("file", getIntent().getStringExtra("from"))) {
+            main_file_button.setVisibility(View.GONE);
+            main_notifi_button.setVisibility(View.GONE);
+            main_ram_button.setVisibility(View.GONE);
+            main_cooling_button.setVisibility(View.GONE);
+            main_gboost_button.setVisibility(View.GONE);
+        } else if (TextUtils.equals("picture", getIntent().getStringExtra("from"))) {
+            main_picture_button.setVisibility(View.GONE);
+            main_notifi_button.setVisibility(View.GONE);
+            main_cooling_button.setVisibility(View.GONE);
+        }
+
+
+        //ram加速
+        long sizeR = getIntent().getLongExtra("sizeR", 0);
+        //垃圾清理
+        long sizeJ = getIntent().getLongExtra("sizeJ", 0);
+        //文件清理
+        long sizeF = getIntent().getLongExtra("sizeF", 0);
+        //相似图片清理
+        int sizePic = getIntent().getIntExtra("sizePic", 0);
+        //强力清理
         int count = getIntent().getIntExtra("count", 0);
+        //通知栏
         int num = getIntent().getIntExtra("num", 0);
+        //降温
         int wendu = getIntent().getIntExtra("wendu", 0);
-        if (size > 0) {
-            success_clean_size.setText(CommonUtil.getFileSize4(size) + " " + getText(R.string.success_cleaned));
+        if (sizeR > 0) {
+            success_clean_size.setText(getString(R.string.success_3, CommonUtil.convertStorage(sizeR, true)));
+        } else if (sizeJ > 0) {
+            success_clean_size.setText(getString(R.string.success_2, CommonUtil.convertStorage(sizeJ, true)));
         } else if (count > 0) {
             success_clean_size.setText(getString(R.string.power_1, String.valueOf(count)) + " ");
+        } else if (sizeF > 0) {
+            success_clean_size.setText(getString(R.string.success_7, CommonUtil.convertStorage(sizeF, true)));
         } else if (num > 0) {
-            success_clean_size.setText(getString(R.string.notifi_clean_success, num + ""));
+            success_clean_size.setText(getString(R.string.success_6, num + ""));
         } else if (wendu > 0) {
-            success_clean_size.setText(wendu + "℃" + getString(R.string.cooling_succ));
+            success_clean_size.setText(getString(R.string.success_5, wendu + "℃"));
+        } else if (sizePic > 0) {
+            success_clean_size.setText(getString(R.string.success_4, sizePic + ""));
         } else {
             success_clean_size.setText(getText(R.string.success_normal));
+            success_clean_2.setVisibility(View.GONE);
         }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
@@ -274,13 +342,15 @@ public class SuccessActivity extends BaseActivity {
 
     private void addListener() {
         title_left.setOnClickListener(onClickListener);
-        main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
-        delete.setOnClickListener(onClickListener);
+//        delete.setOnClickListener(onClickListener);
         main_tuiguang_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
+        main_cooling_button.setOnClickListener(onClickListener);
+        main_ram_button.setOnClickListener(onClickListener);
+        main_junk_button.setOnClickListener(onClickListener);
         main_gboost_button.setOnClickListener(onClickListener);
         main_picture_button.setOnClickListener(onClickListener);
 
@@ -499,18 +569,10 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.title_left:
                     onBackPressed();
                     break;
-                case R.id.main_rotate_bad:
-                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
-                    main_rotate_all.setVisibility(View.GONE);
-                    shareFive.setFiveRate(true);
-                    break;
                 case R.id.main_rotate_good:
                     shareFive.setFiveRate(true);
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessActivity.this);
-                    main_rotate_all.setVisibility(View.GONE);
-                    break;
-                case R.id.delete:
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
@@ -519,7 +581,23 @@ public class SuccessActivity extends BaseActivity {
                         return;
                     }
                     CommonUtil.track("完成页面", "点击进入深度清理", "", 1);
+                    PreData.putDB(SuccessActivity.this, Constant.DEEP_CLEAN, true);
                     jumpTo(PowerActivity.class);
+                    onBackPressed();
+                    break;
+                case R.id.main_junk_button:
+                    CommonUtil.track("完成页面", "点击进入垃圾清理", "", 1);
+                    jumpTo(JunkActivity.class);
+                    onBackPressed();
+                    break;
+                case R.id.main_ram_button:
+                    CommonUtil.track("完成页面", "点击进入内存加速", "", 1);
+                    jumpTo(RamAvtivity.class);
+                    onBackPressed();
+                    break;
+                case R.id.main_cooling_button:
+                    CommonUtil.track("完成页面", "点击进入降温页面", "", 1);
+                    jumpTo(CoolingActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_file_button:
@@ -528,6 +606,7 @@ public class SuccessActivity extends BaseActivity {
                         return;
                     }
                     CommonUtil.track("完成页面", "点击进入文件管理", "", 1);
+                    PreData.putDB(SuccessActivity.this, Constant.FILE_CLEAN, true);
                     jumpTo(FileActivity.class);
                     onBackPressed();
                     break;
@@ -537,6 +616,7 @@ public class SuccessActivity extends BaseActivity {
                         return;
                     }
                     CommonUtil.track("完成页面", "点击进入游戏加速", "", 1);
+                    PreData.putDB(SuccessActivity.this, Constant.GBOOST_CLEAN, true);
                     jumpTo(GBoostActivity.class);
                     onBackPressed();
                     break;
@@ -546,11 +626,13 @@ public class SuccessActivity extends BaseActivity {
                         return;
                     }
                     CommonUtil.track("完成页面", "点击进入相似图片", "", 1);
+                    PreData.putDB(SuccessActivity.this, Constant.PHOTO_CLEAN, true);
                     jumpTo(PictureActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_notifi_button:
                     CommonUtil.track("完成页面", "点击进入通知栏清理", "", 1);
+                    PreData.putDB(SuccessActivity.this, Constant.NOTIFI_CLEAN, true);
                     if (!CommonUtil.isNotificationListenEnabled(SuccessActivity.this)) {
                         startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
                     } else if (!PreData.getDB(SuccessActivity.this, Constant.KEY_NOTIFI, true)) {

@@ -64,14 +64,14 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
                     holder.checkBox.setImageResource(R.mipmap.junk_passed);
-                    junkPresenter.addCleandata(true,info.size);
+                    junkPresenter.addCleandata(true, info.size);
                 } else {
                     holder.checkBox.setImageResource(R.mipmap.junk_normal);
-                    junkPresenter.addCleandata(false,info.size);
+                    junkPresenter.addCleandata(false, info.size);
                 }
             }
         });
-        holder.size.setText(CommonUtil.getFileSize(info.size));
+        holder.size.setText(CommonUtil.convertStorage(info.size,true) );
 
         return convertView;
     }

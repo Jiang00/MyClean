@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.eos.manager.AppLockPatternEosActivity;
@@ -20,16 +23,21 @@ import com.supers.clean.junk.util.UtilGp;
 
 public class ApplockActivity extends BaseActivity {
     TextView tv_2, tv_3, tv_4, tv_5;
-    TextView bt_1, bt_2;
+    RelativeLayout bt_1rl;
+    TextView bt_2;
+    FrameLayout title_left;
+    TextView title_name;
 
     @Override
     protected void findId() {
         super.findId();
+        title_left = $(R.id.title_left);
+        title_name = $(R.id.title_name);
         tv_2 = (TextView) findViewById(R.id.tv_2);
         tv_3 = (TextView) findViewById(R.id.tv_3);
         tv_4 = (TextView) findViewById(R.id.tv_4);
         tv_5 = (TextView) findViewById(R.id.tv_5);
-        bt_1 = (TextView) findViewById(R.id.bt_1);
+        bt_1rl = (RelativeLayout) findViewById(R.id.bt_1rl);
         bt_2 = (TextView) findViewById(R.id.bt_2);
     }
 
@@ -37,11 +45,21 @@ public class ApplockActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_applock);
+
+        title_left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        title_name.setText(R.string.applock_9);
+
         tv_2.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         tv_3.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         tv_4.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         tv_5.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-        bt_1.setOnClickListener(new View.OnClickListener() {
+        bt_1rl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CommonUtil.track("applock", "跳转GP下载pro版", "", 1);

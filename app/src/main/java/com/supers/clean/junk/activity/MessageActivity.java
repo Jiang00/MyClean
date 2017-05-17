@@ -131,9 +131,9 @@ public class MessageActivity extends BaseActivity {
         message_imei.setText(getPhoneIMEI());
 
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
-        message_ram.setText(CommonUtil.getFileSize1(ram_all));
+        message_ram.setText(CommonUtil.convertStorage(ram_all,true));
         long sd_all = MemoryManager.getPhoneAllSize();
-        message_sd.setText(CommonUtil.getFileSize1(sd_all));
+        message_sd.setText(CommonUtil.convertStorage(sd_all,true));
 
     }
 

@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,6 @@ import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.NotifiInfoActivity;
 import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.activity.PowerActivity;
-import com.supers.clean.junk.activity.PrivacyActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SettingActivity;
 import com.supers.clean.junk.entity.JunkInfo;
@@ -50,7 +50,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
     private static final int MANAGER = idx++;
     private static final int FILE = idx++;
     private static final int POWER = idx++;
-//    private static final int PRIVARY = idx++;
+    //    private static final int PRIVARY = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
     private static final int GBOOST = idx++;
@@ -114,24 +114,24 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
                 onC(position);
             }
         });
-        convertView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        holder.iv_le.setColorFilter(0xff2475ff);
-                        holder.tv_name.setTextColor(0xff2475ff);
-                        break;
-                    case MotionEvent.ACTION_CANCEL:
-                    case MotionEvent.ACTION_UP:
-                        holder.iv_le.setColorFilter(0);
-                        holder.tv_name.setTextColor(0xff5d6780);
-                        break;
-                }
-                return false;
-            }
-        });
+//        convertView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                int action = event.getAction();
+//                switch (action) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        holder.iv_le.setColorFilter(ContextCompat.getColor(context, R.color.A1));
+//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.A1));
+//                        break;
+//                    case MotionEvent.ACTION_CANCEL:
+//                    case MotionEvent.ACTION_UP:
+//                        holder.iv_le.setColorFilter(0);
+//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.B2));
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
         if (position == BATTERY || position == FLOAT) {
             holder.checkBox.setVisibility(View.VISIBLE);
         } else {
@@ -193,14 +193,17 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
 //            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
 //            ((Activity) context).startActivityForResult(intent, 1);
             CommonUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
+            PreData.putDB(context, Constant.FILE_CLEAN, true);
             Intent intent5 = new Intent(context, FileActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == POWER) {
+            PreData.putDB(context, Constant.DEEP_CLEAN, true);
             CommonUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, PowerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
-        }  else if (position == NOTIFI) {
+        } else if (position == NOTIFI) {
             CommonUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
+            PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
             if (!CommonUtil.isNotificationListenEnabled(context)) {
                 ((Activity) context).startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
             } else if (!PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
@@ -212,10 +215,12 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
             }
         } else if (position == PICTURE) {
             CommonUtil.track("侧边栏", "点击进入相似图片", "", 1);
+            PreData.putDB(context, Constant.PHOTO_CLEAN, true);
             Intent intent = new Intent(context, PictureActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == GBOOST) {
             CommonUtil.track("侧边栏", "点击进入游戏加速", "", 1);
+            PreData.putDB(context, Constant.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, GBoostActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == FAMILY) {

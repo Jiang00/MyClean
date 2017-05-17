@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/app_color_first"
+            android:background="@color/A1"
             android:orientation="vertical">
 
             <View
@@ -44,20 +44,21 @@
                     android:layout_marginLeft="@dimen/d17"
                     android:src="@mipmap/gboost_1" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d8"
                     android:text="@string/gboost_1"
                     android:textColor="#b341434a"
-                    android:textSize="@dimen/s14" />
+                    android:textSize="@dimen/s14"
+                    app:typeface="eos_clean.otf" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/add_short"
                         android:layout_width="@dimen/d37"
                         android:layout_height="@dimen/d20"
@@ -66,8 +67,10 @@
                         android:background="@drawable/shape_button"
                         android:gravity="center"
                         android:text="@string/gboost_12"
+                        android:visibility="gone"
                         android:textColor="@color/white_100"
-                        android:textSize="@dimen/d9" />
+                        android:textSize="@dimen/d9"
+                        app:typeface="eos_clean.otf" />
                 </FrameLayout>
             </LinearLayout>
 
@@ -90,10 +93,10 @@
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="@dimen/d5"
                     app:piv_animationType="drop"
+                    app:piv_count="0"
                     app:piv_interactiveAnimation="true"
                     app:piv_radius="@dimen/d3"
-                    app:piv_count="0"
-                    app:piv_selectedColor="@color/app_color_first"
+                    app:piv_selectedColor="@color/A1"
                     app:piv_unselectedColor="@color/black_35" />
             </FrameLayout>
 
@@ -120,14 +123,15 @@
                     android:layout_marginLeft="@dimen/d17"
                     android:src="@mipmap/gboost_2" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d8"
                     android:text="@string/gboost_2"
                     android:textColor="#b341434a"
-                    android:textSize="@dimen/s14" />
+                    android:textSize="@dimen/s14"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -144,21 +148,23 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/gboost_3"
                         android:textColor="#8041434a"
-                        android:textSize="@dimen/s14" />
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/gboost_cpu_szie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d10"
                         android:text="50%"
                         android:textColor="@color/gboost_1"
-                        android:textSize="@dimen/s14" />
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
                 </LinearLayout>
 
                 <View
@@ -174,21 +180,23 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/gboost_4"
                         android:textColor="#8041434a"
-                        android:textSize="@dimen/s14" />
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/gboost_ram_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d10"
                         android:text="1.2G"
                         android:textColor="@color/gboost_1"
-                        android:textSize="@dimen/s14" />
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
                 </LinearLayout>
 
                 <View
@@ -204,21 +212,23 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/gboost_5"
                         android:textColor="#8041434a"
-                        android:textSize="@dimen/s14" />
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/gboost_network_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d10"
                         android:text="100kb/s"
                         android:textColor="@color/gboost_1"
-                        android:textSize="@dimen/s14" />
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -228,24 +238,26 @@
                 android:layout_marginLeft="@dimen/d17"
                 android:layout_marginRight="@dimen/d17">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/tv_s"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/gboost_6"
                     android:textColor="#8041434a"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/tv_s"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/tv_s"
-                    android:text="30%"
+                    android:text=" 30%"
                     android:textColor="#801e88e5"
-                    android:textSize="@dimen/s16" />
+                    android:textSize="@dimen/s16"
+                    app:typeface="eos_clean.otf" />
 
                 <ImageView
                     android:id="@+id/gboost_power_check"
@@ -286,7 +298,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/app_color_first"
+            android:background="@color/A1"
             android:orientation="vertical">
 
             <View
@@ -316,13 +328,14 @@
                             android:src="@mipmap/tilte_left" />
                     </FrameLayout>
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/gboost_7"
                         android:textColor="#ffffff"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        app:typeface="eos_clean.otf" />
 
                     <ImageView
                         android:id="@+id/add_right"

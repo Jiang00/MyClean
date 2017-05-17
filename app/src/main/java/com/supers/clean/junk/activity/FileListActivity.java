@@ -258,7 +258,7 @@ public class FileListActivity extends BaseActivity {
                 fileList.removeAll(deleteList);
                 adapter.notifyDataSetChanged();
                 Intent intent = new Intent(FileListActivity.this, SuccessActivity.class);
-                intent.putExtra("size", size);
+                intent.putExtra("sizeF", size);
                 intent.putExtra("from", "file");
                 startActivity(intent);
             }

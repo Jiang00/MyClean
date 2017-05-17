@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#b2000000">
+    android:background="@color/B2">
 
     <View
         android:id="@+id/view_title_bar"
@@ -14,78 +15,81 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
         android:orientation="vertical"
-        android:paddingBottom="92dp">
+        android:paddingBottom="@dimen/d90">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@drawable/shape_517eff_r">
+            android:layout_height="@dimen/d120"
+            android:background="@drawable/shape_a1">
 
             <ImageView
                 android:id="@+id/iv_cha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/d8"
+                android:layout_marginTop="@dimen/d8"
                 android:src="@mipmap/unload_delete" />
 
             <ImageView
                 android:id="@+id/zhuangshi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginLeft="@dimen/d24"
+                android:layout_marginTop="@dimen/d23"
                 android:src="@mipmap/unload_tong" />
 
             <ImageView
                 android:id="@+id/iv_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/d30"
+                android:layout_height="@dimen/d30"
                 android:layout_alignRight="@id/zhuangshi"
                 android:layout_alignTop="@id/zhuangshi"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginRight="@dimen/d20"
+                android:layout_marginTop="@dimen/d2"
                 android:src="@mipmap/icon" />
 
-            <TextView
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginTop="@dimen/d50"
                 android:layout_toRightOf="@id/zhuangshi"
                 android:text="158"
-                android:textColor="#ffeb42"
-                android:textSize="30sp" />
+                android:textColor="@color/B9"
+                android:textSize="@dimen/s30"
+                app:typeface="eos_clean.otf" />
 
-            <TextView
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/tv_danwei"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
-                android:layout_marginLeft="6dp"
+                android:layout_marginLeft="@dimen/d6"
                 android:layout_toRightOf="@id/tv_size"
                 android:text="KB "
                 android:textColor="#ffffff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/s15"
+                app:typeface="eos_clean.otf" />
 
-            <TextView
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
                 android:layout_toRightOf="@id/tv_danwei"
                 android:text="@string/unload_canyu"
-                android:textColor="#ffffff"
-                android:textSize="15sp" />
+                android:textColor="@color/A8"
+                android:textSize="@dimen/s15"
+                app:typeface="eos_clean.otf" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="@dimen/d44"
             android:background="@drawable/shape_ffffff_b"
             android:orientation="horizontal">
 
@@ -101,8 +105,8 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:text="@string/quxiao"
-                    android:textColor="#8f000000"
-                    android:textSize="17sp" />
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s17" />
             </LinearLayout>
 
             <LinearLayout
@@ -117,8 +121,8 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:text="@string/qingli"
-                    android:textColor="#7092ff"
-                    android:textSize="17sp" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s17" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -128,7 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ll"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
         android:orientation="vertical" />
 </RelativeLayout>

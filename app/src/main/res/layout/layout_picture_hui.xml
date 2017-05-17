@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_color_first"
+        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -28,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/hui_never"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +39,8 @@
             android:gravity="center"
             android:text="@string/picture_8"
             android:textColor="#bfbfbf"
-            android:textSize="@dimen/d20" />
+            android:textSize="@dimen/d20"
+            app:typeface="eos_clean.otf" />
 
         <LinearLayout
             android:id="@+id/ll_picture"
@@ -47,7 +49,7 @@
             android:background="#f1f1f1"
             android:orientation="vertical">
 
-            <TextView
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/d10"
@@ -57,7 +59,8 @@
                 android:gravity="center"
                 android:text="@string/picture_5"
                 android:textColor="@color/black_54"
-                android:textSize="@dimen/d10" />
+                android:textSize="@dimen/d10"
+                app:typeface="eos_clean.otf" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/picture_hui_recyc"
@@ -73,7 +76,7 @@
                 android:background="@color/white_100"
                 android:orientation="horizontal">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/picture_restore"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -81,9 +84,10 @@
                     android:gravity="center"
                     android:text="@string/picture_6"
                     android:textColor="@color/black_54"
-                    android:textSize="@dimen/d17" />
+                    android:textSize="@dimen/d17"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/picture_delete"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -92,7 +96,8 @@
                     android:gravity="center"
                     android:text="@string/picture_7"
                     android:textColor="@color/black_54"
-                    android:textSize="@dimen/d17" />
+                    android:textSize="@dimen/d17"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_all_cercle"
     android:layout_width="match_parent"
     android:layout_height="@dimen/main_t"
-    android:background="@color/app_color_first">
+    android:background="@color/A1">
 
     <FrameLayout
         android:id="@+id/main_scale_all"
@@ -14,16 +15,17 @@
 
         <RelativeLayout
             android:id="@+id/main_cpu_air_button"
-            android:layout_width="@dimen/circle_yuan1"
-            android:layout_height="@dimen/circle_yuan1"
+            android:layout_width="@dimen/d90"
+            android:layout_height="@dimen/d90"
             android:layout_gravity="right"
-            android:layout_marginRight="@dimen/circle_1"
-            android:layout_marginTop="@dimen/d4">
+            android:layout_marginRight="@dimen/d82"
+            android:layout_marginTop="@dimen/d24">
 
             <com.supers.clean.junk.customeview.CustomRoundCpu
                 android:id="@+id/main_custom_cpu"
-                android:layout_width="@dimen/circle_yuan1"
-                android:layout_height="@dimen/circle_yuan1"
+                android:layout_width="@dimen/d90"
+                android:layout_height="@dimen/d90"
+
                 android:layout_centerInParent="true" />
 
             <LinearLayout
@@ -32,23 +34,25 @@
                 android:layout_centerInParent="true"
                 android:orientation="vertical">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_cpu_temp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/d4"
                     android:text="33℃"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/A6"
                     android:textSize="@dimen/s21"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/main_arc_cpu"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/A6"
                     android:textSize="@dimen/s12" />
             </LinearLayout>
 
@@ -56,15 +60,15 @@
 
         <RelativeLayout
             android:id="@+id/main_sd_air_button"
-            android:layout_width="@dimen/circle_yuan2"
-            android:layout_height="@dimen/circle_yuan2"
-            android:layout_marginLeft="@dimen/circle_yuan2_left"
-            android:layout_marginTop="@dimen/circle_yuan2_top">
+            android:layout_width="@dimen/d141"
+            android:layout_height="@dimen/d141"
+            android:layout_marginLeft="@dimen/d40"
+            android:layout_marginTop="@dimen/d56">
 
             <com.supers.clean.junk.customeview.CustomRoundCpu
                 android:id="@+id/main_custom_sd"
-                android:layout_width="@dimen/circle_yuan2"
-                android:layout_height="@dimen/circle_yuan2"
+                android:layout_width="@dimen/d141"
+                android:layout_height="@dimen/d141"
                 android:layout_centerInParent="true" />
 
             <LinearLayout
@@ -73,7 +77,8 @@
                 android:layout_centerInParent="true"
                 android:orientation="vertical">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_sd_per"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,41 +86,43 @@
                     android:layout_marginBottom="@dimen/d4"
                     android:layout_marginTop="@dimen/d10"
                     android:text="78%"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/A6"
                     android:textSize="@dimen/s38"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_sd_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/d4"
                     android:text="1.3/1.7GB"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/A7"
                     android:textSize="@dimen/s12" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/main_arc_sd"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/A6"
                     android:textSize="@dimen/s11" />
             </LinearLayout>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/main_ram_air_button"
-            android:layout_width="@dimen/circle_yuan3"
-            android:layout_height="@dimen/circle_yuan3"
-            android:layout_marginLeft="@dimen/circle_yuan3_left"
-            android:layout_marginTop="@dimen/circle_yuan3_top">
+            android:layout_width="@dimen/d160"
+            android:layout_height="@dimen/d160"
+            android:layout_marginLeft="@dimen/d141"
+            android:layout_marginTop="@dimen/d127">
 
             <com.supers.clean.junk.customeview.CustomRoundCpu
                 android:id="@+id/main_custom_ram"
-                android:layout_width="@dimen/circle_yuan3"
-                android:layout_height="@dimen/circle_yuan3"
+                android:layout_width="@dimen/d160"
+                android:layout_height="@dimen/d160"
                 android:layout_centerInParent="true" />
 
             <LinearLayout
@@ -124,7 +131,8 @@
                 android:layout_centerInParent="true"
                 android:orientation="vertical">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_ram_per"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -132,26 +140,28 @@
                     android:layout_marginBottom="@dimen/d4"
                     android:layout_marginTop="@dimen/d10"
                     android:text="78%"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/A6"
                     android:textSize="@dimen/s48"
                     android:textStyle="bold" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_ram_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/d4"
                     android:text="1.3/1.7GB"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/A7"
                     android:textSize="@dimen/s12" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/main_arc_ram"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/A6"
                     android:textSize="@dimen/s11" />
             </LinearLayout>
         </RelativeLayout>

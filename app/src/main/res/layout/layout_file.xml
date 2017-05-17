@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_color_first"
+        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -59,19 +59,21 @@
                     android:layout_height="wrap_content"
                     android:src="@mipmap/file_sd" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/file_sd_shengyu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#8ecaff"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/file_sd_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#c1e2ff"
-                    android:textSize="@dimen/s10" />
+                    android:textSize="@dimen/s10"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
 
         </FrameLayout>
@@ -103,22 +105,24 @@
                         android:layout_marginLeft="@dimen/d5"
                         android:src="@mipmap/file_apk" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="@string/file_apk"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/file_apk_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="0B"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
                 </LinearLayout>
 
@@ -135,22 +139,24 @@
                         android:layout_marginLeft="@dimen/d5"
                         android:src="@mipmap/file_zip" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="@string/file_zip"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/file_zip_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="0B"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
                 </LinearLayout>
 
@@ -167,22 +173,24 @@
                         android:layout_marginLeft="@dimen/d5"
                         android:src="@mipmap/file_txt" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="@string/file_txt"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/file_txt_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="0B"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
                 </LinearLayout>
 
@@ -199,23 +207,25 @@
                         android:layout_marginLeft="@dimen/d5"
                         android:src="@mipmap/file_music" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="@string/file_music"
-
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
 
-                    <TextView
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
+
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/file_music_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="0B"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
                 </LinearLayout>
 
@@ -232,22 +242,24 @@
                         android:layout_marginLeft="@dimen/d5"
                         android:src="@mipmap/file_video" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="@string/file_video"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/file_video_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="0B"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
                 </LinearLayout>
 
@@ -264,22 +276,24 @@
                         android:layout_marginLeft="@dimen/d5"
                         android:src="@mipmap/file_other" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="@string/file_pther"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/file_qita_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d4"
                         android:text="0B"
                         android:textColor="#818181"
-                        android:textSize="@dimen/s11" />
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
                 </LinearLayout>
 
@@ -330,21 +344,23 @@
                     android:background="@drawable/shape_apk"
                     android:src="@mipmap/file_apk_button" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
                     android:text="@string/file_apk"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/file_apk_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d5"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s9" />
+                    android:textSize="@dimen/s9"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
 
             <View
@@ -367,21 +383,23 @@
                     android:background="@drawable/shape_zip"
                     android:src="@mipmap/file_zip_button" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
                     android:text="@string/file_zip"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/file_zip_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d5"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s9" />
+                    android:textSize="@dimen/s9"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
 
             <View
@@ -404,21 +422,23 @@
                     android:background="@drawable/shape_txt"
                     android:src="@mipmap/file_txt_button" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
                     android:text="@string/file_txt"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/file_txt_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d5"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s9" />
+                    android:textSize="@dimen/s9"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
         </LinearLayout>
 
@@ -448,21 +468,23 @@
                     android:background="@drawable/shape_music"
                     android:src="@mipmap/file_music_button" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
                     android:text="@string/file_music"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/file_music_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d5"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s9" />
+                    android:textSize="@dimen/s9"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
 
             <View
@@ -485,21 +507,23 @@
                     android:background="@drawable/shape_video"
                     android:src="@mipmap/file_video_button" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
                     android:text="@string/file_video"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/file_video_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d5"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s9" />
+                    android:textSize="@dimen/s9"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
 
             <View
@@ -522,21 +546,23 @@
                     android:background="@drawable/shape_qita"
                     android:src="@mipmap/file_other_button" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
                     android:text="@string/file_pther"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/file_qita_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d5"
                     android:textColor="#555555"
-                    android:textSize="@dimen/s9" />
+                    android:textSize="@dimen/s9"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
         </LinearLayout>
 

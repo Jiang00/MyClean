@@ -46,7 +46,7 @@ public class CustomRoundCpu extends View {
         backgPoint = new Paint();
         backgPoint.setAntiAlias(true);
         backgPoint.setStrokeWidth(lineWidth);
-        backgPoint.setColor(context.getResources().getColor(R.color.app_color_first));
+        backgPoint.setColor(context.getResources().getColor(R.color.A8));
     }
 
     @Override
@@ -63,25 +63,30 @@ public class CustomRoundCpu extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        circlePoint.setColor(context.getResources().getColor(R.color.main_circle_backg));
+        circlePoint.setColor(context.getResources().getColor(R.color.B4));
         RectF rect = new RectF();
         rect.left = 0 + lineWidth / 2;
         rect.right = size - lineWidth / 2;
         rect.top = 0 + lineWidth / 2;
         rect.bottom = size - lineWidth / 2;
-        canvas.drawArc(rect, 0, 360, false, backgPoint);
+        RectF rectBack = new RectF();
+        rectBack.left = 0 + 1;
+        rectBack.right = size - 1;
+        rectBack.top = 0 + 1;
+        rectBack.bottom = size - 1;
+        canvas.drawArc(rectBack, 0, 360, false, backgPoint);
         canvas.drawArc(rect, 0, 360, false, circlePoint);
         canvas.save();
         if (progress >= 0 && progress < 40) {
-            circlePoint.setColor(context.getResources().getColor(R.color.main_circle_first));
+            circlePoint.setColor(context.getResources().getColor(R.color.A3));
         } else if (progress >= 40 && progress < 80) {
-            circlePoint.setColor(context.getResources().getColor(R.color.main_circle_second));
+            circlePoint.setColor(context.getResources().getColor(R.color.A4));
         } else {
-            circlePoint.setColor(context.getResources().getColor(R.color.main_circle_tired));
+            circlePoint.setColor(context.getResources().getColor(R.color.A2));
         }
         if (isRotate) {
-            canvas.rotate(65, size / 2, size / 2);
-            canvas.drawArc(rect, 0, progress * 3, false, circlePoint);
+            canvas.rotate(61, size / 2, size / 2);
+            canvas.drawArc(rect, 0, progress * 310 / 100, false, circlePoint);
         } else {
             canvas.rotate(90, size / 2, size / 2);
             canvas.drawArc(rect, 0, progress * 360 / 100, false, circlePoint);
@@ -95,7 +100,7 @@ public class CustomRoundCpu extends View {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = st; i < progress; i++) {
+                for (int i = 0; i <= progress; i++) {
                     try {
                         Thread.sleep(20);
                     } catch (InterruptedException e) {

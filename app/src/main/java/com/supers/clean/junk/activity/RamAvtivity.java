@@ -8,8 +8,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,6 +37,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
     FrameLayout title_left;
     TextView title_name;
+    ImageView title_right;
     LinearLayout junk_title_backg;
     TextView junk_size_all;
     TextView junk_unit;
@@ -52,6 +56,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
+        title_right = (ImageView) findViewById(R.id.title_right);
         junk_title_backg = (LinearLayout) findViewById(R.id.junk_title_backg);
         junk_size_all = (TextView) findViewById(R.id.junk_size_all);
         junk_unit = (TextView) findViewById(R.id.junk_unit);
@@ -67,6 +72,8 @@ public class RamAvtivity extends BaseActivity implements RamView {
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
         ramPresenter.init();
+        title_right.setImageResource(R.mipmap.ram_white);
+        title_right.setVisibility(View.VISIBLE);
 
     }
 
@@ -78,6 +85,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     public void onClick() {
         title_left.setOnClickListener(onClickListener);
         junk_button_clean.setOnClickListener(onClickListener);
+        title_right.setOnClickListener(onClickListener);
     }
 
     @Override
@@ -86,6 +94,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
         if (allSize <= 0) {
             Bundle bundle = new Bundle();
             bundle.putString("name", (String) getText(R.string.jiasu_success));
+            bundle.putString("from", "ramSpeed");
             ramPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
             return;
         }
@@ -118,18 +127,26 @@ public class RamAvtivity extends BaseActivity implements RamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_size_all.setText(CommonUtil.getFileSize2(finalI));
+                            junk_size_all.setText(CommonUtil.convertStorage(finalI, false));
                             setUnit(allSize, junk_fangxin);
                         }
                     });
                 }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Animation animation = AnimationUtils.loadAnimation(RamAvtivity.this, R.anim.translate_notifi);
+                        junk_button_clean.startAnimation(animation);
+                        junk_button_clean.setVisibility(View.VISIBLE);
+                    }
+                });
             }
         }).start();
 //        junk_size_all.setText(String.valueOf(memory));
         if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.app_color_first), getResources().getColor(R.color.app_color_second));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
@@ -138,7 +155,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
         } else if (allSize > 1024 * 1024 * 200) {
             if (color2) {
                 color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.app_color_second), getResources().getColor(R.color.app_color_third));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
@@ -161,7 +178,8 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
     @Override
     public void addRamdata(long size, List<JunkInfo> list) {
-        adapterRam.addDataList(list);
+        adapterRam.upList(list);
+        adapterRam.notifyDataSetChanged();
     }
 
     @Override
@@ -186,7 +204,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
                             @Override
                             public void run() {
                                 if (finalI != 0) {
-                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.getFileSize4(finalI) + ")");
+                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.convertStorage(finalI, true) + ")");
                                 }
                             }
                         });
@@ -195,7 +213,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
             }).start();
         } else {
             if (size != 0) {
-                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.getFileSize4(size) + ")");
+                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.convertStorage(size, true) + ")");
             }
         }
 
@@ -233,8 +251,9 @@ public class RamAvtivity extends BaseActivity implements RamView {
                     @Override
                     public void run() {
                         Bundle bundle = new Bundle();
-                        bundle.putLong("size", cleanSize);
+                        bundle.putLong("sizeR", cleanSize);
                         bundle.putString("name", (String) getText(R.string.jiasu_success));
+                        bundle.putString("from", "ramSpeed");
                         ramPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
                     }
                 });
@@ -248,6 +267,11 @@ public class RamAvtivity extends BaseActivity implements RamView {
             switch (v.getId()) {
                 case R.id.title_left:
                     onBackPressed();
+                    break;
+                case R.id.title_right:
+
+                    jumpToActivity(WhiteListAvtivity.class, 1);
+
                     break;
 
                 case R.id.junk_button_clean:
@@ -272,8 +296,10 @@ public class RamAvtivity extends BaseActivity implements RamView {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(1);
+            setResult(Constant.RAM_RESUIL);
             onBackPressed();
+        } else if (resultCode == Constant.WHITE_RESUIL) {
+            ramPresenter.addAdapterData();
         }
     }
 
@@ -282,6 +308,8 @@ public class RamAvtivity extends BaseActivity implements RamView {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
             CommonUtil.track("通知栏", "跳转垃圾清页面", "", 1);
             jumpTo(MainActivity.class);
+        } else {
+            setResult(Constant.RAM_RESUIL);
         }
         finish();
     }

@@ -60,13 +60,14 @@ public class FlakeView extends View {
      * Constructor. Create objects used throughout the life of the View: the Paint and
      * the animator
      */
+
     public FlakeView(Context context) {
         super(context);
-        droid = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_4);
-        droid2 = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_4);
-        droid3 = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_4);
-        droid4 = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_4);
-        droid5 = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_4);
+        droid = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_0);
+        droid2 = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_0);
+        droid3 = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_0);
+        droid4 = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_0);
+        droid5 = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_0);
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setColor(Color.WHITE);
         textPaint.setTextSize(24);

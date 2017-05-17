@@ -2,14 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/A8"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_color_first"
+        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -24,26 +25,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/white_wu"
+            app:typeface="eos_clean.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
             android:gravity="center"
             android:text="@string/white_wu"
             android:textColor="#bfbfbf"
-            android:textSize="22sp"
+            android:textSize="@dimen/s21"
             android:visibility="invisible" />
 
         <ListView
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_100"
+            android:background="@color/A8"
             android:divider="@drawable/list_divider"
-            android:dividerHeight="1dp" />
+            android:dividerHeight="1px" />
     </FrameLayout>
 
 </LinearLayout>

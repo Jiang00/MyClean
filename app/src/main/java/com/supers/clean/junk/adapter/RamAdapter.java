@@ -11,10 +11,15 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
+
+import java.util.List;
 
 public class RamAdapter extends MybaseAdapter<JunkInfo> {
     AllListener listener;
     RamPresenter ramPresenter;
+    private List<String> white_list;
 
     public RamAdapter(Context context) {
         super(context);
@@ -23,10 +28,17 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
     public RamAdapter(Context context, RamPresenter ramPresenter) {
         super(context);
         this.ramPresenter = ramPresenter;
+        white_list = PreData.getNameList(context, Constant.WHILT_LIST);
     }
 
     public void setOnlistener(AllListener listener) {
         this.listener = listener;
+    }
+
+    @Override
+    public void upList(List<JunkInfo> list) {
+        super.upList(list);
+        white_list = PreData.getNameList(context, Constant.WHILT_LIST);
     }
 
     @Override
@@ -53,6 +65,9 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
         holder.name.setText(info.name);
         Drawable icon = info.icon;
         holder.icon.setImageDrawable(icon);
+        if (white_list.contains(info.packageName)) {
+            info.isChecked = false;
+        }
         if (info.isChecked) {
             holder.checkBox.setImageResource(R.mipmap.ram_passed);
         } else {
@@ -71,7 +86,7 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
                 }
             }
         });
-        holder.size.setText(CommonUtil.getFileSize(info.size));
+        holder.size.setText(CommonUtil.convertStorage(info.size, true));
 
         return convertView;
     }

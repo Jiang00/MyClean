@@ -94,5 +94,20 @@ public class Constant {
 
     public static final String RECYCLEBIN = "RECYCLEBIN";
 
+//    跳转
+
+    public static final int RAM_RESUIL = 20;
+    public static final int JUNK_RESUIL = 21;
+    public static final int SETTING_RESUIL = 22;
+    public static final int COOLING_RESUIL = 23;
+    public static final int WHITE_RESUIL = 24;
+
+    //内部功能
+
+    public static final String NOTIFI_CLEAN = "NOTIFI_CLEAN";
+    public static final String DEEP_CLEAN = "DEEP_CLEAN";
+    public static final String FILE_CLEAN = "FILE_CLEAN";
+    public static final String GBOOST_CLEAN = "GBOOST_CLEAN";
+    public static final String PHOTO_CLEAN = "PHOTO_CLEAN";
 
 }

@@ -8,18 +8,18 @@
 
     <RelativeLayout
         android:id="@+id/junk_item_rl"
-        android:layout_width="72dp"
-        android:layout_height="56dp">
+        android:layout_width="@dimen/d72"
+        android:layout_height="@dimen/d56">
 
         <ImageView
             android:id="@+id/junk_item_icon"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
+            android:layout_width="@dimen/d33"
+            android:layout_height="@dimen/d33"
             android:layout_centerInParent="true"
             android:src="@mipmap/icon" />
     </RelativeLayout>
 
-    <TextView
+    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
         android:id="@+id/junk_item_lable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,8 +27,9 @@
         android:layout_toRightOf="@id/junk_item_rl"
         android:maxLength="15"
         android:text="app标题"
-        android:textColor="@color/black_87"
-        android:textSize="14sp" />
+        android:textColor="@color/B2"
+        android:textSize="@dimen/s14"
+        app:typeface="eos_clean.otf" />
 
     <ImageView
         android:id="@+id/check_iv"
@@ -36,17 +37,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
         android:src="@mipmap/ram_passed" />
 
-    <TextView
+    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
         android:id="@+id/size_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="@color/black_54"
-        android:textSize="11sp" />
+        android:textColor="@color/B3"
+        android:textSize="@dimen/s11"
+        app:typeface="eos_clean.otf" />
 </RelativeLayout>

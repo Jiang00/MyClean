@@ -28,7 +28,7 @@
             android:layout_marginRight="13dp"
             android:src="@mipmap/qing" />
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/text_list_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,8 @@
             android:singleLine="true"
             android:text="aaa"
             android:textColor="#acadaf"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            app:typeface="eos_clean.otf" />
     </RelativeLayout>
 
 

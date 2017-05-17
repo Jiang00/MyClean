@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.WhiteListAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
+import com.supers.clean.junk.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +74,7 @@ public class WhiteListAvtivity extends BaseActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.title_left:
-                    finish();
+                    onBackPressed();
                     break;
                 case R.id.title_right:
                     Intent intent = new Intent(WhiteListAvtivity.this, WhiteListAddActivity.class);
@@ -82,6 +83,12 @@ public class WhiteListAvtivity extends BaseActivity {
             }
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        setResult(Constant.WHITE_RESUIL);
+        finish();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

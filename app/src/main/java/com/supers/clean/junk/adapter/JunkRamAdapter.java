@@ -71,7 +71,7 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
                 }
             }
         });
-        holder.size.setText(CommonUtil.getFileSize(info.size));
+        holder.size.setText(CommonUtil.convertStorage(info.size,true));
 
         return convertView;
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_color_first"
+        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -39,14 +40,15 @@
                 android:layout_gravity="center"
                 android:src="@mipmap/null_apk" />
 
-            <TextView
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/d16"
                 android:text="@string/file_null"
                 android:textColor="@color/black_50"
-                android:textSize="@dimen/d16" />
+                android:textSize="@dimen/d16"
+                app:typeface="eos_clean.otf" />
         </LinearLayout>
 
 
@@ -63,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:indeterminateTint="@color/app_color_first"
+                android:indeterminateTint="@color/A1"
                 android:indeterminateTintMode="src_atop" />
 
             <LinearLayout

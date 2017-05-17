@@ -22,6 +22,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -49,6 +50,7 @@ public class FloatActivity extends BaseActivity {
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
     ImageView float_cricle, float_rotate;
     TextView float_memory, float_tishi;
+    RelativeLayout rl_memory;
 
     private View nativeView;
     private HorizontalListViewAdapter adapter;
@@ -76,6 +78,7 @@ public class FloatActivity extends BaseActivity {
         float_cricle = (ImageView) findViewById(R.id.float_cricle);
         float_rotate = (ImageView) findViewById(R.id.float_rotate);
         float_memory = (TextView) findViewById(R.id.float_memory);
+        rl_memory = (RelativeLayout) findViewById(R.id.rl_memory);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
     }
 
@@ -173,7 +176,7 @@ public class FloatActivity extends BaseActivity {
 //            waterView.setOnClickListener(WaterViewOnclick);
         }
         horizontal_listview.setAdapter(adapter);
-        float_memory.setText(CommonUtil.getMemory(this) + "%");
+        float_memory.setText(CommonUtil.getMemory(this) + "");
 
     }
 
@@ -246,15 +249,15 @@ public class FloatActivity extends BaseActivity {
         setListAnimation();
         float_cricle.setVisibility(View.INVISIBLE);
         float_tishi.setVisibility(View.INVISIBLE);
-        float_memory.startAnimation(suo);
+        rl_memory.startAnimation(suo);
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
-                float_memory.setText(CommonUtil.getMemory(FloatActivity.this) + "%");
+                float_memory.setText(CommonUtil.getMemory(FloatActivity.this) + "");
                 float_tishi.setText(R.string.float_yijiasu);
                 float_tishi.setVisibility(View.VISIBLE);
 
-                float_memory.startAnimation(fang);
+                rl_memory.startAnimation(fang);
             }
 
             @Override

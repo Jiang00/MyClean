@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/d3"
@@ -18,7 +19,13 @@
         android:scaleType="centerCrop"
         android:src="@mipmap/picture_normal" />
 
-    <TextView
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:src="@mipmap/hui_num" />
+
+    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
         android:id="@+id/picture_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,5 +33,6 @@
         android:layout_marginBottom="@dimen/d2"
         android:text="000"
         android:textColor="@color/white_100"
-        android:textSize="@dimen/d12" />
+        android:textSize="@dimen/d12"
+        app:typeface="eos_clean.otf" />
 </FrameLayout>

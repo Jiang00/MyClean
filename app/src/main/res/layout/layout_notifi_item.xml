@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -25,20 +26,22 @@
         android:gravity="clip_vertical"
         android:orientation="vertical">
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/notifi_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black_87"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            app:typeface="eos_clean.otf" />
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/notifi_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:textColor="@color/black_54"
-            android:textSize="11sp" />
+            android:textSize="11sp"
+            app:typeface="eos_clean.otf" />
     </LinearLayout>
 
     <ImageView
@@ -49,14 +52,15 @@
         android:layout_marginRight="16dp"
         android:scaleType="center" />
 
-    <TextView
+    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
         android:id="@+id/notifi_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
-        android:scaleType="center" />
+        android:scaleType="center"
+        app:typeface="eos_clean.otf" />
 
     <FrameLayout
         android:id="@+id/fl"

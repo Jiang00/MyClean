@@ -63,6 +63,7 @@ public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 info.isWhiteList = !info.isWhiteList;
                 if (info.isWhiteList) {
+
                     PreData.addName(context, info.packageName, Constant.WHILT_LIST);
                     showToast(info.label + context.getText(R.string.white_list_jiaru));
                     CommonUtil.track("白名单页面", "选中" + info.label, "", 1);

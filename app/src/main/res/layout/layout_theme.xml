@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_color_first"
+        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -47,7 +48,8 @@
                 android:layout_height="32dp"
                 android:background="@color/white_100">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -90,7 +92,8 @@
                 android:layout_height="32dp"
                 android:background="@color/white_100">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    app:typeface="eos_clean.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

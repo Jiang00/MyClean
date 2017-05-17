@@ -175,7 +175,7 @@ public class NotificationService extends Service {
         Canvas canvas = getCanvas();
         canvas.drawArc(oval, 0, 270, false, paint_1);
         if (memory > 70) {
-            paint_1.setColor(ContextCompat.getColor(this, R.color.app_color_third));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.A2));
         } else {
             paint_1.setColor(ContextCompat.getColor(this, R.color.white_100));
         }
@@ -231,7 +231,7 @@ public class NotificationService extends Service {
             } else {
                 remoteView_1.setImageViewResource(R.id.notifi_network_type, R.drawable.translate);
             }
-            remoteView_1.setTextViewText(R.id.notifi_network_sudu, CommonUtil.getFileSizeWifi(speed));
+            remoteView_1.setTextViewText(R.id.notifi_network_sudu, CommonUtil.convertStorageWifi(speed));
             num++;
             if (num >= 10) {
                 num = 0;
@@ -274,7 +274,7 @@ public class NotificationService extends Service {
                 Canvas canvas = getCanvas();
                 canvas.drawArc(oval, 0, 270, false, paint_1);
                 if (memory > 70) {
-                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.app_color_third));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A2));
                 } else {
                     paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_100));
                 }

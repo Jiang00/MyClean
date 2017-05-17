@@ -11,7 +11,7 @@
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_color_first"
+        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -31,9 +31,9 @@
             android:id="@+id/view_pager_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/app_color_first"
-            app:tabIndicatorColor="#ffca28"
-            app:tabSelectedTextColor="@color/white_100"
+            android:background="@color/A1"
+            app:tabIndicatorColor="@color/B5"
+            app:tabSelectedTextColor="@color/A8"
             app:tabTextAppearance="@style/tablayout_textSize"
             app:tabTextColor="@color/white_54" />
 
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/view_pager_tab"
-            android:background="@color/white_100" />
+            android:background="@color/A8" />
 
         <RelativeLayout
             android:id="@+id/manager_clean"
@@ -55,6 +55,7 @@
                 android:id="@+id/junk_button_clean"
                 android:layout_width="@dimen/d168"
                 android:layout_height="@dimen/d40"
+                android:textAllCaps="false"
                 android:layout_centerInParent="true"
                 android:background="@drawable/shape_button"
                 android:text="@string/ram_button"

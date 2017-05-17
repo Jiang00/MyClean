@@ -51,7 +51,7 @@ public class LineProgressView extends View {
         paint.setStrokeCap(Paint.Cap.SQUARE);
         paint.setStyle(Paint.Style.STROKE);
         paint.setAntiAlias(true);
-        paint.setColor(ContextCompat.getColor(context, R.color.app_color_first));
+        paint.setColor(ContextCompat.getColor(context, R.color.A1));
     }
 
     @Override

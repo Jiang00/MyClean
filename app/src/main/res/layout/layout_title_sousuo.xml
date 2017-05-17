@@ -11,8 +11,8 @@
 
         <FrameLayout
             android:id="@+id/title_left"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="@dimen/d56"
+            android:layout_height="@dimen/d56"
             android:layout_centerVertical="true"
             android:background="?attr/selectableItemBackground">
 
@@ -23,19 +23,20 @@
                 android:src="@mipmap/tilte_left" />
         </FrameLayout>
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/app_name"
             android:textColor="#ffffff"
-            android:textSize="20sp" />
+            android:textSize="@dimen/s20"
+            app:typeface="eos_clean.otf" />
 
         <ImageView
             android:id="@+id/title_right"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="@dimen/d56"
+            android:layout_height="@dimen/d56"
             android:layout_alignParentRight="true"
             android:scaleType="center"
             android:src="@mipmap/white_add_right" />
@@ -44,23 +45,23 @@
     <FrameLayout
         android:id="@+id/search_container"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_height="@dimen/d56"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
         android:visibility="gone">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="@dimen/d43"
             android:layout_gravity="center"
             android:background="@drawable/shape_radio" />
 
         <EditText
             android:id="@+id/search_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="@dimen/d43"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="@dimen/d30"
             android:background="@null"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -73,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/d10"
             android:src="@mipmap/edit_left_drawable" />
 
         <ImageButton
@@ -81,8 +82,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|end"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="@dimen/d5"
             android:background="@mipmap/eidt_cha"
-            android:padding="5dp" />
+            android:padding="@dimen/d5" />
     </FrameLayout>
 </FrameLayout>

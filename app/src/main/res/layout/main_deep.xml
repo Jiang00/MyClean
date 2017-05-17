@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_t"
+    android:background="@color/A1">
+
+    <LinearLayout
+        android:id="@+id/deep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/d29"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tap_iv_1"
+                    android:layout_width="@dimen/d53"
+                    android:layout_height="@dimen/d53"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_marginRight="@dimen/d20" />
+
+                <ImageView
+                    android:id="@+id/tap_iv_2"
+                    android:layout_width="@dimen/d53"
+                    android:layout_height="@dimen/d53"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_marginRight="@dimen/d20"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/tap_iv_3"
+                    android:layout_width="@dimen/d53"
+                    android:layout_height="@dimen/d53"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_marginRight="@dimen/d20"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tap_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/d16"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tap_iv_4"
+                    android:layout_width="@dimen/d53"
+                    android:layout_height="@dimen/d53"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_marginRight="@dimen/d20" />
+
+                <ImageView
+                    android:id="@+id/tap_iv_5"
+                    android:layout_width="@dimen/d53"
+                    android:layout_height="@dimen/d53"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_marginRight="@dimen/d20" />
+
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/tap_iv_6"
+                    android:layout_width="@dimen/d53"
+                    android:layout_height="@dimen/d53"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_marginRight="@dimen/d20"
+                    android:gravity="top|center_horizontal"
+                    android:text="..."
+                    android:textColor="@color/A8"
+                    android:textSize="@dimen/s30"
+                    android:visibility="invisible"
+                    app:typeface="eos_clean.otf" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+            android:id="@+id/tap_deep_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/d24"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:gravity="center"
+            android:text="@string/tap_deep"
+            android:textColor="@color/A8"
+            android:textSize="@dimen/s13"
+            app:typeface="eos_clean.otf" />
+
+        <Button
+            android:id="@+id/deep_ok"
+            android:layout_width="@dimen/d168"
+            android:layout_height="@dimen/d40"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/d8"
+            android:background="@drawable/shape_tap_deep"
+            android:text="@string/ram_button"
+            android:textColor="@color/A1"
+            android:textSize="@dimen/s17" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/lot_tap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
+        android:visibility="gone">
+
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:background="@color/black_35"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="AD"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            app:typeface="eos_clean.otf" />
+    </FrameLayout>
+
+</FrameLayout>

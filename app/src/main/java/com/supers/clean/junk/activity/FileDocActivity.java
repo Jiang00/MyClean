@@ -333,7 +333,7 @@ public class FileDocActivity extends BaseActivity {
                     adapter_pdf.notifyDataSetChanged();
                 }
                 Intent intent = new Intent(FileDocActivity.this, SuccessActivity.class);
-                intent.putExtra("size", size);
+                intent.putExtra("sizeF", size);
                 intent.putExtra("from", "file");
                 startActivity(intent);
             }

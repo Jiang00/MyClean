@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -130,9 +131,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     @Override
     public void initData(long allSize) {
-        title_name.setText(R.string.junk_ram_title_clean);
+        title_name.setText(R.string.all_junk_title);
         if (allSize <= 0) {
-            junkPresenter.jumpToActivity(SuccessActivity.class, 1);
+            Bundle bundle = new Bundle();
+            bundle.putString("from", "allJunk");
+            junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
             return;
         }
         adapterSystem = new JunkRamAdapter(this, junkPresenter);
@@ -175,11 +178,19 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_size_all.setText(CommonUtil.getFileSize2(finalI));
+                            junk_size_all.setText(CommonUtil.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_unit);
                         }
                     });
                 }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Animation animation = AnimationUtils.loadAnimation(JunkAndRamActivity.this, R.anim.translate_notifi);
+                        junk_button_clean.startAnimation(animation);
+                        junk_button_clean.setVisibility(View.VISIBLE);
+                    }
+                });
             }
         }).start();
 //        junk_size_all.setText(CommonUtil.getFileSize2(size));
@@ -187,7 +198,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         if (size > 1024 * 1024 * 100 && size <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.app_color_first), getResources().getColor(R.color.app_color_second));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
@@ -196,7 +207,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         } else if (size > 1024 * 1024 * 200) {
             if (color2) {
                 color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.app_color_second), getResources().getColor(R.color.app_color_third));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
@@ -233,7 +244,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_system_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junk_system_size.setText(CommonUtil.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_system_unit);
                         }
                     });
@@ -269,7 +280,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_apk_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junk_apk_size.setText(CommonUtil.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_apk_unit);
                         }
                     });
@@ -305,7 +316,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_unload_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junk_unload_size.setText(CommonUtil.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_unload_unit);
                         }
                     });
@@ -341,7 +352,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_log_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junk_log_size.setText(CommonUtil.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_log_unit);
                         }
                     });
@@ -377,7 +388,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_user_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junk_user_size.setText(CommonUtil.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_user_unit);
                         }
                     });
@@ -414,7 +425,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_ram_size.setText(CommonUtil.getFileSizeKongge(finalI));
+                            junk_ram_size.setText(CommonUtil.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_ram_unit);
                         }
                     });
@@ -425,15 +436,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     @Override
     public void setUnit(long size, TextView textView) {
-        if (size < 1000) {
-            textView.setText("B");
-        } else if (size < 1000 * 1000) {
-            textView.setText("KB");
-        } else if (size < 1000 * 1000 * 1000) {
-            textView.setText("MB");
-        } else {
-            textView.setText("GB");
-        }
+        textView.setText(CommonUtil.convertStorageDanwei(size));
     }
 
     @Override
@@ -461,7 +464,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                             @Override
                             public void run() {
                                 if (finalI != 0) {
-                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(finalI) + ")");
+                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.convertStorage(finalI, true) + ")");
                                 }
                             }
                         });
@@ -470,7 +473,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
             }).start();
         } else {
             if (cleanSize != 0) {
-                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.getFileSize4(cleanSize) + ")");
+                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.convertStorage(cleanSize, true) + ")");
             }
         }
 
@@ -480,6 +483,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void cleanAnimation(boolean isZhankai, final List<JunkInfo> cleanList, final long cleanSize) {
         final Bundle bundle = new Bundle();
         bundle.putLong("size", cleanSize);
+        bundle.putString("from", "allJunk");
         if (isZhankai) {
             adapterClear.addDataList(cleanList);
             junk_list_all.setAdapter(adapterClear);

@@ -117,53 +117,25 @@ public class CommonUtil {
         return str;
     }
 
-    /**
-     * 得到字符串方式的文件大小
-     *
-     * @param filesize
-     * ,单位b
-     * @return
-     */
-    private static DecimalFormat df = new DecimalFormat("#.00");
-    private static DecimalFormat df1 = new DecimalFormat("#.0");
-    private static DecimalFormat df2 = new DecimalFormat("#");
 
-    public static String getFileSize(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0.00B";
-        }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-            mstrbuf.append(" B");
-        } else if (filesize < 1048576) {
-            mstrbuf.append(df.format((double) filesize / 1024));
-            mstrbuf.append(" K");
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(df.format((double) filesize / 1048576));
-            mstrbuf.append(" M");
-        } else {
-            mstrbuf.append(df.format((double) filesize / 1073741824));
-            mstrbuf.append(" G");
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String convertStorage(long size) {
+    public static String convertStorage(long size, boolean danwei) {
         long kb = 1024;
         long mb = kb * 1024;
         long gb = mb * 1024;
 
         if (size >= gb) {
-            return String.format("%.1f", (float) size / gb);
+            return danwei ? String.format("%.1f", (float) size / gb) + "GB" : String.format("%.1f", (float) size / gb);
         } else if (size >= mb) {
             float f = (float) size / mb;
-            return String.format(f > 100 ? "%.0f" : "%.1f", f);
-        } else if (size >= kb) {
+            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "MB" : String.format(f > 100 ? "%.0f" : "%.1f", f);
+        } else {
             float f = (float) size / kb;
-            return String.format(f > 100 ? "%.0f" : "%.1f", f);
-        } else
-            return String.format("%d", size);
+            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "KB" : String.format(f > 100 ? "%.0f" : "%.1f", f);
+        }
+//        else {
+//            float f = (float) size;
+//            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "B" : String.format(f > 100 ? "%.0f" : "%.1f", f);
+//        }
     }
 
     public static String convertStorageWifi(long size) {
@@ -179,8 +151,9 @@ public class CommonUtil {
         } else if (size >= kb) {
             float f = (float) size / kb;
             return String.format(f > 100 ? "%.0f" : "%.1f", f) + "KB/s";
-        } else
+        } else {
             return String.format("%d", size) + "B/s";
+        }
     }
 
     public static String convertStorageDanwei(long size) {
@@ -191,139 +164,12 @@ public class CommonUtil {
             return "GB";
         } else if (size >= mb) {
             return "MB";
-        } else if (size >= kb) {
+        } else {
             float f = (float) size / kb;
             return "KB";
-        } else
-            return "B";
-    }
-
-    public static String getFileSize1(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0.0B";
         }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-            mstrbuf.append("B");
-        } else if (filesize < 1048576) {
-            mstrbuf.append(df1.format((double) filesize / 1024));
-            mstrbuf.append("K");
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(df1.format((double) filesize / 1048576));
-            mstrbuf.append("M");
-        } else {
-            mstrbuf.append(df1.format((double) filesize / 1073741824));
-            mstrbuf.append("G");
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSizeKongge(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return " 0 ";
-        }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-        } else if (filesize < 1048576) {
-            mstrbuf.append(" " + df2.format((double) filesize / 1024) + " ");
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(" " + df2.format((double) filesize / 1048576) + " ");
-        } else {
-            mstrbuf.append(" " + df.format((double) filesize / 1073741824) + " ");
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSize2(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0";
-        }
-        if (filesize < 1000) {
-            mstrbuf.append(filesize);
-        } else if (filesize < 1000 * 1000) {
-            if (filesize < 1024 * 1024 * 100) {
-                mstrbuf.append(df1.format((double) filesize / 1024));
-            } else {
-                mstrbuf.append(df2.format((double) filesize / 1024));
-            }
-
-        } else if (filesize < 1000 * 1000 * 1000) {
-            if (filesize < 1024 * 1024 * 1024 * 100) {
-                mstrbuf.append(df1.format((double) filesize / 1048576));
-            } else {
-                mstrbuf.append(df2.format((double) filesize / 1048576));
-            }
-        } else {
-            mstrbuf.append(df.format((double) filesize / 1073741824));
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSizeWifi(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0 B/s";
-        }
-        if (filesize < 1000) {
-            mstrbuf.append(filesize + " B/s");
-        } else if (filesize < 1000 * 1000) {
-            if (filesize < 1024 * 1024 * 100) {
-                mstrbuf.append(df1.format((double) filesize / 1024) + " KB/s");
-            } else {
-                mstrbuf.append(df2.format((double) filesize / 1024) + " KB/s");
-            }
-
-        } else if (filesize < 1000 * 1000 * 1000) {
-            if (filesize < 1024 * 1024 * 1024 * 100) {
-                mstrbuf.append(df1.format((double) filesize / 1048576) + " MB/s");
-            } else {
-                mstrbuf.append(df2.format((double) filesize / 1048576) + " MB/s");
-            }
-        } else {
-            mstrbuf.append(df.format((double) filesize / 1073741824));
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSize3(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0.0";
-        }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-        } else if (filesize < 1048576) {
-            mstrbuf.append(df1.format((double) filesize / 1024));
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(df1.format((double) filesize / 1048576));
-        } else {
-            mstrbuf.append(df1.format((double) filesize / 1073741824));
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSize4(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "";
-        }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-            mstrbuf.append("B");
-        } else if (filesize < 1048576) {
-            mstrbuf.append(df2.format((double) filesize / 1024));
-            mstrbuf.append("K");
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(df2.format((double) filesize / 1048576));
-            mstrbuf.append("M");
-        } else {
-            mstrbuf.append(df2.format((double) filesize / 1073741824));
-            mstrbuf.append("G");
-        }
-        return mstrbuf.toString();
+//        else
+//            return "B";
     }
 
     public static int dp2px(int dp) {

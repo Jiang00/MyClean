@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transparent">
@@ -7,14 +8,14 @@
         android:id="@+id/success"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/app_color_first"
+        android:background="@color/A1"
         android:orientation="vertical">
         <!--android:visibility="invisible"-->
         <LinearLayout
             android:id="@+id/rl_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/app_color_first"
+            android:background="@color/A1"
             android:orientation="vertical">
 
             <View
@@ -30,40 +31,40 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="208dp"
-                android:layout_height="208dp"
+                android:layout_width="@dimen/d208"
+                android:layout_height="@dimen/d208"
                 android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="250dp"
+                android:layout_marginBottom="@dimen/d250"
                 android:src="@mipmap/success_1" />
 
             <ImageView
-                android:layout_width="208dp"
-                android:layout_height="208dp"
+                android:layout_width="@dimen/d208"
+                android:layout_height="@dimen/d208"
                 android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="250dp"
+                android:layout_marginBottom="@dimen/d250"
                 android:src="@mipmap/success_2" />
 
             <ImageView
                 android:id="@+id/success_progress"
-                android:layout_width="208dp"
-                android:layout_height="208dp"
+                android:layout_width="@dimen/d208"
+                android:layout_height="@dimen/d208"
                 android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="250dp"
+                android:layout_marginBottom="@dimen/d250"
                 android:src="@mipmap/success_3" />
 
             <com.supers.clean.junk.customeview.DrawHookView
                 android:id="@+id/success_drawhook"
-                android:layout_width="208dp"
-                android:layout_height="208dp"
+                android:layout_width="@dimen/d208"
+                android:layout_height="@dimen/d208"
                 android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="250dp" />
+                android:layout_marginBottom="@dimen/d250" />
 
             <ImageView
                 android:id="@+id/success_huojian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="250dp"
+                android:layout_marginBottom="@dimen/d250"
                 android:src="@mipmap/success_huojian"
                 android:visibility="invisible" />
 
@@ -78,356 +79,586 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#e8e8e8"
+                    android:background="@color/A10"
                     android:orientation="vertical">
                     <!--tou-->
-                    <LinearLayout
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="117dp"
-                        android:background="@mipmap/success_title_backg"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="17dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="40dp"
-                                android:src="@mipmap/success_duigou" />
-
-                            <TextView
-                                android:id="@+id/success_clean_size"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="13dp"
-                                android:text="@string/success_cleaned"
-                                android:textColor="@color/white_100"
-                                android:textSize="16sp" />
-
-                        </LinearLayout>
+                        android:layout_height="@dimen/d121"
+                        android:background="@color/A1">
 
                         <ImageView
-                            android:id="@+id/success_jiantou"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="11dp"
-                            android:src="@mipmap/success_tt" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/main_rotate_all"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d16"
-                        android:layout_marginTop="@dimen/d16"
-                        android:background="@color/white_100"
-                        android:orientation="vertical">
-
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:scaleType="centerCrop"
-                                android:src="@mipmap/main_rotate_2" />
-
-                            <ImageView
-                                android:id="@+id/delete"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right"
-                                android:layout_marginRight="5dp"
-                                android:layout_marginTop="5dp"
-                                android:src="@mipmap/delete" />
-                        </FrameLayout>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="53dp"
-                            android:layout_marginRight="53dp"
-                            android:layout_marginTop="18dp"
-                            android:gravity="center"
-                            android:text="@string/main_rotate_msg"
-                            android:textColor="#1e88e5"
-                            android:textSize="17sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="30dp"
-                            android:background="#e5e5e5" />
+                            android:layout_height="@dimen/d121"
+                            android:layout_gravity="right|center_vertical"
+                            android:src="@mipmap/success_title_backg" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/main_rotate_bad"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:background="?attr/selectableItemBackground"
-                                android:gravity="center"
-                                android:text="@string/main_rotate_bad"
-                                android:textColor="@color/black_54"
-                                android:textSize="17sp" />
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
                             <LinearLayout
-                                android:id="@+id/main_rotate_good"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:background="?attr/selectableItemBackground"
-                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d17"
+                                android:gravity="center_vertical"
                                 android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/main_rotate_good"
-                                    android:textColor="@color/black_54"
-                                    android:textSize="17sp" />
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="3dp"
-                                    android:src="@mipmap/main_rotate_3" />
+                                    android:layout_marginLeft="40dp"
+                                    android:src="@mipmap/success_duigou" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="13dp"
+                                    android:orientation="vertical">
+
+                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:id="@+id/success_clean_size"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/success_cleaned"
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16"
+                                        app:typeface="eos_clean.otf" />
+
+                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:id="@+id/success_clean_2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d4"
+                                        android:text="@string/success_1"
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16"
+                                        app:typeface="eos_clean.otf" />
+                                </LinearLayout>
+
+
                             </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/success_jiantou"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/d20"
+                                android:src="@mipmap/success_tt" />
+
                         </LinearLayout>
+                    </FrameLayout>
+
+                    <!--好评-->
+                    <LinearLayout
+                        android:id="@+id/main_rotate_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d9"
+                        android:background="@color/A8"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d40"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d19"
+                                android:src="@mipmap/main_rotate_1" />
+
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d6"
+                                android:text="@string/main_rotate_title"
+                                android:textColor="@color/A9"
+                                android:textSize="@dimen/s14"
+                                app:typeface="eos_clean.otf" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="@dimen/d16"
+                            android:layout_marginRight="@dimen/d16"
+                            android:background="@color/B1" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d16">
+
+                            <ImageView
+                                android:id="@+id/main_rotate_good"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d141"
+                                android:layout_marginBottom="@dimen/d16"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginRight="@dimen/d16"
+                                android:scaleType="centerCrop"
+                                android:src="@mipmap/main_rotate_2" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|right"
+                                android:src="@mipmap/main_rotate_4" />
+
+                        </FrameLayout>
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_ad_xiao"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:background="@color/white_100"
+                        android:layout_marginTop="@dimen/d9"
+                        android:background="@color/A8"
                         android:orientation="vertical"
                         android:visibility="gone" />
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d9" />
                     <!--文件管理-->
                     <LinearLayout
                         android:id="@+id/main_file_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ffffff"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="@dimen/d40"
-                            android:layout_height="@dimen/d40"
-                            android:layout_marginLeft="@dimen/d20"
-                            android:layout_marginTop="@dimen/d16"
-                            android:src="@mipmap/file_main" />
+                        android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/d15"
-                            android:layout_marginLeft="@dimen/d12"
-                            android:layout_marginTop="@dimen/d16"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:background="@color/A8"
+                            android:orientation="horizontal">
 
-                            <TextView
+                            <ImageView
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/file_main" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d16"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/side_file"
+                                    android:textColor="@color/B2"
+                                    android:textSize="@dimen/s16"
+                                    app:typeface="eos_clean.otf" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="@dimen/d225"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d4"
+                                    android:text="@string/file_main"
+                                    android:textColor="@color/B3"
+                                    android:textSize="@dimen/s14"
+                                    app:typeface="eos_clean.otf" />
+                            </LinearLayout>
+
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/side_file"
-                                android:textColor="#45527a"
-                                android:textSize="@dimen/s16" />
-
-                            <TextView
-                                android:layout_width="@dimen/d225"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/d4"
-                                android:text="@string/file_main"
-                                android:textColor="#828791"
-                                android:textSize="@dimen/s14" />
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d29"
+                                android:src="@mipmap/right" />
                         </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/d16"
-                            android:layout_marginTop="@dimen/d29"
-                            android:src="@mipmap/right" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B1" />
                     </LinearLayout>
 
-                    <View
+                    <!--垃圾清理-->
+                    <LinearLayout
+                        android:id="@+id/main_junk_button"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f1f1f1" />
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                    <!--文件管理-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/A8"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/junk_card" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d16"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/side_junk"
+                                    android:textColor="@color/B2"
+                                    android:textSize="@dimen/s16"
+                                    app:typeface="eos_clean.otf" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="@dimen/d225"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d4"
+                                    android:text="@string/success_8"
+                                    android:textColor="@color/B3"
+                                    android:textSize="@dimen/s14"
+                                    app:typeface="eos_clean.otf" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d29"
+                                android:src="@mipmap/right" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B1" />
+                    </LinearLayout>
+
+                    <!--内存加速-->
+                    <LinearLayout
+                        android:id="@+id/main_ram_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/A8"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/ram_card" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d16"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/side_ram"
+                                    android:textColor="@color/B2"
+                                    android:textSize="@dimen/s16"
+                                    app:typeface="eos_clean.otf" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="@dimen/d225"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d4"
+                                    android:text="@string/success_9"
+                                    android:textColor="@color/B3"
+                                    android:textSize="@dimen/s14"
+                                    app:typeface="eos_clean.otf" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d29"
+                                android:src="@mipmap/right" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B1" />
+                    </LinearLayout>
+
+                    <!--手机降温-->
+                    <LinearLayout
+                        android:id="@+id/main_cooling_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/A8"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/cpu_card" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d16"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/main_cooling_name"
+                                    android:textColor="@color/B2"
+                                    android:textSize="@dimen/s16"
+                                    app:typeface="eos_clean.otf" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="@dimen/d225"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d4"
+                                    android:text="@string/success_10"
+                                    android:textColor="@color/B3"
+                                    android:textSize="@dimen/s14"
+                                    app:typeface="eos_clean.otf" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d29"
+                                android:src="@mipmap/right" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B1" />
+                    </LinearLayout>
+
+
+                    <!--游戏加速-->
                     <LinearLayout
                         android:id="@+id/main_gboost_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ffffff"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="@dimen/d40"
-                            android:layout_height="@dimen/d40"
-                            android:layout_marginLeft="@dimen/d20"
-                            android:layout_marginTop="@dimen/d16"
-                            android:src="@mipmap/gboost_main" />
+                        android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/d15"
-                            android:layout_marginLeft="@dimen/d12"
-                            android:layout_marginTop="@dimen/d16"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
 
-                            <TextView
+                            <ImageView
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/gboost_main" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d16"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/gboost_0"
+                                    android:textColor="@color/B2"
+                                    android:textSize="@dimen/s16"
+                                    app:typeface="eos_clean.otf" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="@dimen/d225"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d4"
+                                    android:text="@string/gboost_10"
+                                    android:textColor="@color/B3"
+                                    android:textSize="@dimen/s14"
+                                    app:typeface="eos_clean.otf" />
+                            </LinearLayout>
+
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/gboost_0"
-                                android:textColor="#45527a"
-                                android:textSize="@dimen/s16" />
-
-                            <TextView
-                                android:layout_width="@dimen/d225"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/d4"
-                                android:text="@string/gboost_10"
-                                android:textColor="#828791"
-                                android:textSize="@dimen/s14" />
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d29"
+                                android:src="@mipmap/right" />
                         </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/d16"
-                            android:layout_marginTop="@dimen/d29"
-                            android:src="@mipmap/right" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B1" />
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f1f1f1" />
                     <!--相似图片-->
                     <LinearLayout
                         android:id="@+id/main_picture_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ffffff"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="@dimen/d40"
-                            android:layout_height="@dimen/d40"
-                            android:layout_marginLeft="@dimen/d20"
-                            android:layout_marginTop="@dimen/d16"
-                            android:src="@mipmap/main_picture" />
+                        android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/d15"
-                            android:layout_marginLeft="@dimen/d12"
-                            android:layout_marginTop="@dimen/d16"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
 
-                            <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/main_picture" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d16"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/side_picture"
+                                    android:textColor="@color/B2"
+                                    android:textSize="@dimen/s16"
+                                    app:typeface="eos_clean.otf" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="@dimen/d225"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d4"
+                                    android:text="@string/picture_delete"
+                                    android:textColor="@color/B3"
+                                    android:textSize="@dimen/s14"
+                                    app:typeface="eos_clean.otf" />
+                            </LinearLayout>
+
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/side_picture"
-                                android:textColor="#45527a"
-                                android:textSize="@dimen/s16" />
-
-                            <TextView
-                                android:layout_width="@dimen/d225"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/d4"
-                                android:text="@string/picture_delete"
-                                android:textColor="#828791"
-                                android:textSize="@dimen/s14" />
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d29"
+                                android:src="@mipmap/right" />
                         </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/d16"
-                            android:layout_marginTop="@dimen/d29"
-                            android:src="@mipmap/right" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B1" />
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f1f1f1" />
+
                     <!--清理通知栏-->
                     <LinearLayout
                         android:id="@+id/main_notifi_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#ffffff"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/notifi_icon"
-                            android:layout_width="@dimen/d40"
-                            android:layout_height="@dimen/d40"
-                            android:layout_marginLeft="@dimen/d20"
-                            android:layout_marginTop="@dimen/d16"
-                            android:src="@mipmap/notifi_6" />
+                        android:orientation="vertical">
 
                         <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/d15"
-                            android:layout_marginLeft="@dimen/d12"
-                            android:layout_marginTop="@dimen/d16"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
 
-                            <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/notifi_icon"
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/notifi_6" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d16"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/side_notifi"
+                                    android:textColor="@color/B2"
+                                    android:textSize="@dimen/s16"
+                                    app:typeface="eos_clean.otf" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/notifi_text"
+                                    android:layout_width="@dimen/d225"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d4"
+                                    android:text="@string/notifi_msg_main"
+                                    android:textColor="@color/B3"
+                                    android:textSize="@dimen/s14"
+                                    app:typeface="eos_clean.otf" />
+                            </LinearLayout>
+
+                            <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/side_notifi"
-                                android:textColor="#45527a"
-                                android:textSize="@dimen/s16" />
-
-                            <TextView
-                                android:id="@+id/notifi_text"
-                                android:layout_width="@dimen/d225"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/d4"
-                                android:text="@string/notifi_msg_main"
-                                android:textColor="#828791"
-                                android:textSize="@dimen/s14" />
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d29"
+                                android:src="@mipmap/right" />
                         </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/d16"
-                            android:layout_marginTop="@dimen/d29"
-                            android:src="@mipmap/right" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="@color/B1" />
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f1f1f1" />
 
                     <!--深度清理-->
                     <LinearLayout
@@ -454,20 +685,22 @@
                             android:layout_weight="1"
                             android:orientation="vertical">
 
-                            <TextView
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/side_power"
-                                android:textColor="#45527a"
-                                android:textSize="@dimen/s16" />
+                                android:textColor="@color/B2"
+                                android:textSize="@dimen/s16"
+                                app:typeface="eos_clean.otf" />
 
-                            <TextView
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                 android:id="@+id/power_text"
                                 android:layout_width="@dimen/d225"
                                 android:layout_height="wrap_content"
                                 android:text="@string/power_3"
-                                android:textColor="#828791"
-                                android:textSize="@dimen/s14" />
+                                android:textColor="@color/B3"
+                                android:textSize="@dimen/s14"
+                                app:typeface="eos_clean.otf" />
                         </LinearLayout>
 
                         <ImageView
@@ -478,25 +711,20 @@
                             android:src="@mipmap/right" />
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f1f1f1" />
 
                     <!--交叉推广-->
                     <LinearLayout
                         android:id="@+id/main_tuiguang_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:background="#ffffff"
+                        android:layout_marginTop="@dimen/d9"
+                        android:background="@color/A8"
                         android:orientation="vertical"
                         android:visibility="gone">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d15"
+                            android:layout_height="@dimen/d40"
                             android:orientation="horizontal">
 
                             <ImageView
@@ -506,14 +734,15 @@
                                 android:layout_marginLeft="@dimen/d19"
                                 android:src="@mipmap/main_rotate_1" />
 
-                            <TextView
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                 android:id="@+id/main_msg_tuiguang"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d5"
-                                android:textColor="@color/black_87"
-                                android:textSize="@dimen/s16" />
+                                android:layout_marginLeft="@dimen/d6"
+                                android:textColor="@color/A9"
+                                android:textSize="@dimen/s14"
+                                app:typeface="eos_clean.otf" />
                         </LinearLayout>
 
                         <View
@@ -521,15 +750,18 @@
                             android:layout_height="1dp"
                             android:layout_marginLeft="@dimen/d16"
                             android:layout_marginRight="@dimen/d16"
-                            android:layout_marginTop="@dimen/main_4"
-                            android:background="#f1f1f1" />
+                            android:background="@color/B1" />
 
                         <FrameLayout
                             android:id="@+id/fl_lot_success"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d135">
+                            android:layout_height="@dimen/d135"
+                            android:layout_marginBottom="@dimen/d16"
+                            android:layout_marginLeft="@dimen/d16"
+                            android:layout_marginRight="@dimen/d16"
+                            android:layout_marginTop="@dimen/d16">
 
-                            <TextView
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom|right"
@@ -538,14 +770,14 @@
                                 android:gravity="center"
                                 android:text="AD"
                                 android:textColor="@android:color/white"
-                                android:textSize="8sp" />
+                                android:textSize="@dimen/s8"
+                                app:typeface="eos_clean.otf" />
                         </FrameLayout>
 
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d16"
-                            android:background="#e8e8e8" />
+                            android:layout_height="@dimen/d9" />
                     </LinearLayout>
 
 
@@ -553,13 +785,12 @@
                         android:id="@+id/ad_native_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:background="@color/app_color_first"
+                        android:layout_marginTop="@dimen/d9"
+                        android:background="@color/A1"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
-                        android:visibility="invisible">
+                        android:visibility="invisible" />
 
-                    </LinearLayout>
 
                 </LinearLayout>
             </com.supers.clean.junk.customeview.SlowScrollView>

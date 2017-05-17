@@ -2,14 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="@dimen/d56">
 
     <FrameLayout
         android:id="@+id/title_left"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:background="?attr/selectableItemBackground">
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/d8">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -18,14 +21,17 @@
             android:src="@mipmap/tilte_left" />
     </FrameLayout>
 
-    <TextView
+    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
         android:id="@+id/title_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_toRightOf="@id/title_left"
         android:text="@string/app_name"
-        android:textColor="#ffffff"
-        android:textSize="20sp" />
+        android:textColor="@color/A8"
+        android:textSize="@dimen/s17"
+        app:typeface="eos_clean.otf" />
 
     <ImageView
         android:id="@+id/title_right"
@@ -36,7 +42,7 @@
         android:src="@mipmap/white_list_right"
         android:visibility="invisible" />
 
-    <TextView
+    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
         android:id="@+id/title_check"
         android:layout_width="56dp"
         android:layout_height="56dp"
@@ -45,7 +51,8 @@
         android:text="@string/picture_9"
         android:textColor="@color/white_54"
         android:textSize="@dimen/d16"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        app:typeface="eos_clean.otf" />
 
     <LinearLayout
         android:id="@+id/ad_title"

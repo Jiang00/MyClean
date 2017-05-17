@@ -1,7 +1,9 @@
 package com.supers.clean.junk.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,7 +12,10 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -19,6 +24,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,16 +44,14 @@ import com.eos.module.charge.saver.service.BatteryService;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
-import com.rd.PageIndicatorView;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
-import com.supers.clean.junk.customeview.MainScrollView;
+import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.gboost.GameBooster;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
@@ -56,11 +60,12 @@ import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity implements MainView, DrawerLayout.DrawerListener {
 
     public static final String TAG = "MainActivity";
-    MainScrollView main_scroll_view;
+    MyScrollView main_scroll_view;
     PullToRefreshLayout main_pull_refresh;
     FrameLayout main_scale_all;
     ImageView iv_title_right;
@@ -69,10 +74,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     CustomRoundCpu main_custom_cpu, main_custom_sd, main_custom_ram;
     TextView main_cpu_temp, main_sd_per, main_sd_size, main_ram_per, main_ram_size;
     LinearLayout main_air_all;
-    LinearLayout main_junk_button, main_ram_button, main_manager_button, main_cooling_button, main_applock_button, main_theme_button;
+    RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
+    LinearLayout main_manager_button, main_applock_button, main_theme_button;
+    TextView main_junk_h, main_ram_h, main_cooling_h;
     LinearLayout main_rotate_all;
-    TextView main_rotate_bad;
-    LinearLayout main_rotate_good;
+    ImageView main_rotate_good;
     LinearLayout main_tuiguang_button;
     FrameLayout fl_lot_main;
     TextView main_msg_tuiguang;
@@ -94,6 +100,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     FrameLayout fl_lot_side;
     ImageView side_title;
     LottieAnimationView lot_main;
+    LottieAnimationView lot_main_tap;
     LottieAnimationView lot_family;
 
     LottieAnimationView lot_side;
@@ -102,7 +109,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_HUA = "eos_hua";
     private String TAG_SIDE = "eos_side";
 
-
+    private MyApplication cleanApplication;
     private Handler handler = new Handler();
     private MainPresenter mainPresenter;
     private SideAdapter adapter;
@@ -121,21 +128,23 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_drawer = (DrawerLayout) findViewById(R.id.main_drawer);
         main_drawer.addDrawerListener(this);
         //main_all_cercle = (FrameLayout) findViewById(R.id.main_all_cercle);
-        main_scroll_view = (MainScrollView) findViewById(R.id.main_scroll_view);
+        main_scroll_view = (MyScrollView) findViewById(R.id.main_scroll_view);
         main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
         main_scale_all = (FrameLayout) findViewById(R.id.main_scale_all);
         iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
 
-        main_junk_button = (LinearLayout) findViewById(R.id.main_junk_button);
-        main_ram_button = (LinearLayout) findViewById(R.id.main_ram_button);
+        main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
+        main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
         main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
-        main_cooling_button = (LinearLayout) findViewById(R.id.main_cooling_button);
+        main_cooling_button = (RelativeLayout) findViewById(R.id.main_cooling_button);
         main_applock_button = (LinearLayout) findViewById(R.id.main_applock_button);
         main_theme_button = (LinearLayout) findViewById(R.id.main_theme_button);
+        main_junk_h = (TextView) findViewById(R.id.main_junk_h);
+        main_ram_h = (TextView) findViewById(R.id.main_ram_h);
+        main_cooling_h = (TextView) findViewById(R.id.main_cooling_h);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
-        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
-        main_rotate_good = (LinearLayout) findViewById(R.id.main_rotate_good);
+        main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
         fl_lot_main = (FrameLayout) findViewById(R.id.fl_lot_main);
         main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
@@ -165,9 +174,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
-
-
         packageManager = getPackageManager();
+        cleanApplication = (MyApplication) getApplication();
         try {
             String pkg = getIntent().getStringExtra("theme_package_name");
             if (pkg != null) {
@@ -198,6 +206,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
+        tuiGuang();
+
         final ArrayList<View> arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
         main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
@@ -212,12 +222,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_ram_per = (TextView) view.findViewById(R.id.main_ram_per);
         main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
         main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
-        /*pageView = findViewById(R.id.pageindicatorview);*/
+        arrayList.add(view);
 
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
         View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
-        arrayList.add(view);
         if (adView != null) {
             ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
             if (adView.getHeight() == CommonUtil.dp2px(250)) {
@@ -227,31 +236,113 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             view_ad.addView(adView);
             view_ad.setGravity(Gravity.CENTER);
             arrayList.add(viewpager_2);
-        } else {
-            final View viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_permiss, null);
-            TextView permiss_ok = (TextView) viewpager_3.findViewById(R.id.permiss_ok);
-            TextView permiss_cancle = (TextView) viewpager_3.findViewById(R.id.permiss_cancle);
-            permiss_ok.setOnClickListener(new View.OnClickListener() {
+        }
+
+        final View viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_deep, null);
+        Button deep_ok = (Button) viewpager_3.findViewById(R.id.deep_ok);
+        LinearLayout deep = (LinearLayout) viewpager_3.findViewById(R.id.deep);
+        LinearLayout tap_ll = (LinearLayout) viewpager_3.findViewById(R.id.tap_ll);
+        ImageView tap_iv_1 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_1);
+        ImageView tap_iv_2 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_2);
+        ImageView tap_iv_3 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_3);
+        ImageView tap_iv_4 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_4);
+        ImageView tap_iv_5 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_5);
+        TextView tap_iv_6 = (TextView) viewpager_3.findViewById(R.id.tap_iv_6);
+        TextView tap_deep_text = (TextView) viewpager_3.findViewById(R.id.tap_deep_text);
+        final FrameLayout lot_tap = (FrameLayout) viewpager_3.findViewById(R.id.lot_tap);
+        if (!PreData.getDB(this, Constant.DEEP_CLEAN, false)) {
+            List<JunkInfo> startList = new ArrayList<>();
+            for (JunkInfo info : cleanApplication.getAppRam()) {
+                if (info.isStartSelf) {
+                    startList.add(info);
+                }
+            }
+            deep_ok.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     CommonUtil.track("主页面", "点击Tap进入深度清理", "", 1);
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                 }
             });
-            permiss_cancle.setOnClickListener(new View.OnClickListener() {
+            if (startList.size() == 0) {
+                deep.setVisibility(View.INVISIBLE);
+                lot_tap.setVisibility(View.VISIBLE);
+                DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+
+                    @Override
+                    public void onLoadView(View view) {
+                        if (view != null) {
+                            ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                            lot_main_tap = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                            lot_main_tap.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                            if (onPause) {
+                                lot_main_tap.pauseAnimation();
+                            }
+                            lot_tap.addView(view, 0);
+                        } else {
+                            lot_tap.setVisibility(View.GONE);
+                        }
+                    }
+                });
+            } else {
+                if (startList.size() > 0) {
+                    tap_iv_1.setImageDrawable(startList.get(0).icon);
+                }
+                if (startList.size() > 1) {
+                    tap_iv_2.setImageDrawable(startList.get(1).icon);
+                    tap_iv_2.setVisibility(View.VISIBLE);
+                }
+                if (startList.size() > 2) {
+                    tap_iv_3.setImageDrawable(startList.get(2).icon);
+                    tap_iv_3.setVisibility(View.VISIBLE);
+                }
+                if (startList.size() <= 3) {
+                    tap_ll.setVisibility(View.GONE);
+                } else {
+                    if (startList.size() > 3) {
+                        tap_iv_4.setImageDrawable(startList.get(3).icon);
+                    }
+                    if (startList.size() > 4) {
+                        tap_iv_5.setImageDrawable(startList.get(4).icon);
+                    }
+                    if (startList.size() > 5) {
+                        tap_iv_6.setVisibility(View.VISIBLE);
+                    }
+                }
+                tap_deep_text.setText(getString(R.string.tap_deep, startList.size()));
+            }
+            arrayList.add(viewpager_3);
+        } else {
+            deep.setVisibility(View.INVISIBLE);
+            lot_tap.setVisibility(View.VISIBLE);
+            DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
                 @Override
-                public void onClick(View v) {
-                    CommonUtil.track("主页面", "点击Tap不进入深度清理", "", 1);
-                    viewpager.setCurrentItem(0);
-//                    pageView.setVisibility(View.GONE);
-//                    viewpager.setCurrentItem(0);
-//                    viewpager.removeView(viewpager_3);
-//                    arrayList.remove(viewpager_3);
-//                    pagerAdapter.notifyDataSetChanged();
+                public void onClick(View view) {
+
+                }
+
+                @Override
+                public void onLoadView(View view) {
+                    if (view != null) {
+                        ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        lot_main_tap = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
+                        lot_main_tap.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        if (onPause) {
+                            lot_main_tap.pauseAnimation();
+                        }
+                        lot_tap.addView(view, 0);
+                    } else {
+                        lot_tap.setVisibility(View.GONE);
+                    }
                 }
             });
             arrayList.add(viewpager_3);
         }
+
         viewpager = (ViewPager) findViewById(R.id.viewpager);
 
         viewpager.setAdapter(new PagerAdapter() {
@@ -297,11 +388,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         lot_family.setAnimation("box.json");
         lot_family.loop(true);
         lot_family.playAnimation();
-        tuiGuang();
+
+
     }
 
     public void tuiGuang() {
         super.tuiGuang();
+//        if (true) {
+//            return;
+//        }
         CrossData.CrossPromotionBean bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
         if (bean != null) {
             tuiguang = bean.pkg;
@@ -383,7 +478,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_cooling_button.setOnClickListener(onClickListener);
         main_applock_button.setOnClickListener(onClickListener);
         main_theme_button.setOnClickListener(onClickListener);
-        main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
@@ -394,6 +488,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_tuiguang_button.setOnClickListener(onClickListener);
         fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
+
+        main_scroll_view.setScrollViewListener(new MyScrollView.ScrollViewListener() {
+            @Override
+            public void onScrollChanged(MyScrollView scrollView, int x, int y, int oldx, int oldy) {
+                if (y == 0 && oldy != 0) {
+                    viewpager.setCurrentItem(0);
+                }
+            }
+        });
 
     }
 
@@ -409,10 +512,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     public void run() {
                         main_cpu_temp.setText(String.valueOf(progress) + "℃");
                         main_msg_cpu_percent.setText(String.valueOf(progress) + "℃");
+                        if (main_cooling_h.getVisibility() == View.INVISIBLE) {
+                            main_cooling_h.setText(String.valueOf(temp) + "℃");
+                            main_cooling_h.setVisibility(View.VISIBLE);
+                        }
                     }
                 });
             }
         });
+
     }
 
     int sdProgress;
@@ -438,7 +546,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             @Override
             public void run() {
                 main_sd_size.setText(size);
-                main_msg_sd_percent.setText(CommonUtil.getFileSize2(sd_kongxian));
+                main_msg_sd_percent.setText(CommonUtil.convertStorage(sd_kongxian, false));
                 if (sd_kongxian < 1024) {
                     main_msg_sd_unit.setText("B");
                 } else if (sd_kongxian < 1048576) {
@@ -448,8 +556,16 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 } else {
                     main_msg_sd_unit.setText("GB");
                 }
+                if (main_junk_h.getVisibility() == View.INVISIBLE) {
+                    long junk_size = cleanApplication.getApkSize() + cleanApplication.getCacheSize() + cleanApplication.getUnloadSize() + cleanApplication.getLogSize() + cleanApplication.getDataSize();
+                    if (junk_size > 0) {
+                        main_junk_h.setText(CommonUtil.convertStorage(junk_size, true));
+                        main_junk_h.setVisibility(View.VISIBLE);
+                    }
+                }
             }
         });
+
     }
 
     @Override
@@ -464,6 +580,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         main_ram_per.setText(String.valueOf(progress) + "%");
                         main_ram_size.setText(size);
                         main_msg_ram_percent.setText(String.valueOf(progress) + "%");
+                        if (main_ram_h.getVisibility() == View.INVISIBLE) {
+                            long ram_size = cleanApplication.getRamSize();
+                            if (ram_size > 0) {
+                                main_ram_h.setText(CommonUtil.convertStorage(ram_size, true));
+                                main_ram_h.setVisibility(View.VISIBLE);
+                            }
+                        }
                     }
                 });
             }
@@ -559,125 +682,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
     }
 
-    //scrollView 监听
-   /* View.OnTouchListener scrollViewTouchListener = new View.OnTouchListener() {
-        int state = NOMAL;
-
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            Log.e("rqy", "scrollViewTouchListener,v=" + v);
-            if (first) {
-                cercle_value = cercle_linearParams.height;
-                first = false;
-            }
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    Log.e("rqy", "scrollViewTouchListener,ACTION_DOWN");
-                    cercleHeight = cercle_linearParams.height;
-                    isScroll = main_scroll_view.getScrollY() > 0;
-                    firstY = event.getY();
-                    Log.e("rqy", "firstY=" + firstY);
-                    break;
-                case MotionEvent.ACTION_MOVE:
-                    Log.e("rqy", "scrollViewTouchListener,ACTION_MOVE--isScroll=" + isScroll);
-                    if (isScroll) {
-                        break;
-                    }
-                    float y = event.getY();
-
-                    Log.e("rqy", "firstY=" + firstY + "--y=" + y);
-                    float deltaY = firstY - y;// 滑动距离
-
-                    Log.e("rqy", "deltaY=" + deltaY + "--state=" + state);
-                    */
-    /**
-     * 对于初次Touch操作要判断方位：UP OR DOWN
-     **//*
-                    if (deltaY > 10 && state == NOMAL) {
-                        state = UP;
-                    } else if (deltaY < -10 && state == NOMAL) {
-                        state = DOWN;
-                    } else if (deltaY >= -10 && deltaY <= 10 && state == NOMAL) {
-                        break;
-                    }
-                    main_drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                    if (state == UP) {
-                        Log.e("rqy", "scrollViewTouchListener,UP");
-                        if (cercleHeight == cercle_value) {
-                            if ((int) (cercleHeight - deltaY) > cercle_value) {
-                                cercle_linearParams.height = cercle_value;
-                            } else if ((int) (cercleHeight - deltaY) < 0) {
-                                cercle_linearParams.height = 0;
-                            } else {
-                                cercle_linearParams.height = (int) (cercleHeight - deltaY);
-                            }
-                            main_scale_all.setScaleY((float) cercle_linearParams.height / cercle_value);
-                            main_scale_all.setScaleX((float) cercle_linearParams.height / cercle_value);
-                            main_all_cercle.setLayoutParams(cercle_linearParams);
-                            main_scroll_view.setShutTouch(true);
-                        } else if (cercleHeight == 0) {
-                            main_scroll_view.setShutTouch(false);
-                        }
-                    } else if (state == DOWN) {
-                        Log.e("rqy", "scrollViewTouchListener,DOWN");
-                        if (cercleHeight == cercle_value) {
-                            main_scroll_view.setShutTouch(true);
-                        } else if (cercleHeight == 0) {
-                            if (main_scroll_view.getScrollY() > 0) {
-                                main_scroll_view.setShutTouch(false);
-                                break;
-                            }
-                            main_scroll_view.setShutTouch(true);
-                            if ((int) (cercleHeight - deltaY) > cercle_value) {
-                                cercle_linearParams.height = cercle_value;
-                            } else if ((int) (cercleHeight - deltaY) < 0) {
-                                cercle_linearParams.height = 0;
-                            } else {
-                                cercle_linearParams.height = (int) (cercleHeight - deltaY);
-                            }
-                            main_scale_all.setScaleY((float) cercle_linearParams.height / cercle_value);
-                            main_scale_all.setScaleX((float) cercle_linearParams.height / cercle_value);
-                            main_all_cercle.setLayoutParams(cercle_linearParams);
-                        }
-                        Log.e("move", "===" + cercleHeight + "===" + cercle_linearParams.height);
-                    }
-                    break;
-                case MotionEvent.ACTION_UP:
-                    Log.e("rqy", "scrollViewTouchListener,ACTION_UP");
-                    if (isScroll) {
-                        state = NOMAL;
-                        break;
-                    }
-                    if (state == NOMAL) {
-                        break;
-                    }
-                    Log.e("up", "===" + cercleHeight + "===" + cercle_linearParams.height);
-                    if (state == UP) {
-                        if (cercleHeight == cercle_value && cercle_linearParams.height != cercleHeight) {
-                            if (cercle_linearParams.height < (cercle_value / 2)) {
-                                valueAnimator = ValueAnimator.ofInt(cercle_linearParams.height, 0);
-                            } else {
-                                valueAnimator = ValueAnimator.ofInt(cercle_linearParams.height, cercle_value);
-                            }
-                            startValueAnimator();
-                        }
-                    } else {
-                        if (cercleHeight == 0 && cercle_linearParams.height != cercleHeight) {
-                            if (cercle_linearParams.height < (cercle_value / 2)) {
-                                valueAnimator = ValueAnimator.ofInt(cercle_linearParams.height, 0);
-                            } else {
-                                valueAnimator = ValueAnimator.ofInt(cercle_linearParams.height, cercle_value);
-                            }
-                            startValueAnimator();
-                        }
-                    }
-                    state = NOMAL;
-                    break;
-            }
-            return false;
-        }
-    };*/
-
 
     //上拉刷新监听
     PullToRefreshLayout.OnRefreshListener refreshListener = new PullToRefreshLayout.OnRefreshListener() {
@@ -714,6 +718,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             switch (v.getId()) {
                 case R.id.iv_title_left:
                     mainPresenter.openDrawer();
@@ -725,8 +730,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(SettingActivity.class, 1);
                     break;
                 case R.id.main_cpu_air_button:
-                    CommonUtil.track("主页面", "点击cpu球进入硬件信息页面", "", 1);
-                    mainPresenter.jumpToActivity(CoolingActivity.class, 1);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("from", "main");
+                    bundle.putInt("wendu", temp);
+                    CommonUtil.track("主页面", "点击cpu球进入降温页面", "", 1);
+                    mainPresenter.jumpToActivity(CoolingActivity.class, bundle, 1);
                     break;
                 case R.id.main_sd_air_button:
                     CommonUtil.track("主页面", "点击sd球进入垃圾清理页面", "", 1);
@@ -754,7 +762,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_cooling_button:
                     CommonUtil.track("主页面", "点击降温按钮", "", 1);
-                    mainPresenter.jumpToActivity(CoolingActivity.class, 1);
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString("from", "main");
+                    bundle1.putInt("wendu", temp);
+                    mainPresenter.jumpToActivity(CoolingActivity.class, bundle1, 1);
                     break;
                 case R.id.main_applock_button:
                     CommonUtil.track("applock", "主界面点击", "", 1);
@@ -786,17 +797,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         startActivity(intent);
                     }
 
-
 //                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
 //                    intent.putExtra("is_main", true);
 //                    startActivity(intent);
                     break;
                 case R.id.main_theme_button:
-                    CommonUtil.track("主页面", "点击主题按钮", "", 1);
-                    ShopMaster.launch(MainActivity.this,
-                            new Theme(R.raw.battery_0, getPackageName())
-                    );
-//                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
+                    CommonUtil.track("主页面", "点击进入buton游戏加速", "", 1);
+                    mainPresenter.jumpToActivity(GBoostActivity.class, 1);
                     break;
                 case R.id.lot_family:
                     CommonUtil.track("主页面", "点击主题family按钮", "", 1);
@@ -806,10 +813,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     );
 //                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
                     break;
-                case R.id.main_rotate_bad:
-                    CommonUtil.track("主页面", "点击好评bad按钮", "", 1);
-                    mainPresenter.clickRotate(false);
-                    break;
+
                 case R.id.main_rotate_good:
                     CommonUtil.track("主页面", "点击好评good按钮", "", 1);
                     mainPresenter.clickRotate(true);
@@ -820,22 +824,27 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_power_button:
                     CommonUtil.track("主页面", "点击进入深度清理", "", 1);
+                    PreData.putDB(MainActivity.this, Constant.DEEP_CLEAN, true);
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                     break;
                 case R.id.main_file_button:
                     CommonUtil.track("主页面", "点击进入文件管理", "", 1);
+                    PreData.putDB(MainActivity.this, Constant.FILE_CLEAN, true);
                     mainPresenter.jumpToActivity(FileActivity.class, 1);
                     break;
                 case R.id.main_gboost_button:
                     CommonUtil.track("主页面", "点击进入游戏加速", "", 1);
+                    PreData.putDB(MainActivity.this, Constant.GBOOST_CLEAN, true);
                     mainPresenter.jumpToActivity(GBoostActivity.class, 1);
                     break;
                 case R.id.main_picture_button:
                     CommonUtil.track("主页面", "点击进入相似图片", "", 1);
+                    PreData.putDB(MainActivity.this, Constant.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(PictureActivity.class, 1);
                     break;
                 case R.id.main_notifi_button:
                     CommonUtil.track("主页面", "点击进入通知栏清理", "", 1);
+                    PreData.putDB(MainActivity.this, Constant.NOTIFI_CLEAN, true);
                     if (!CommonUtil.isNotificationListenEnabled(MainActivity.this)) {
                         startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
                     } else if (!PreData.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
@@ -863,19 +872,18 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == 50) {
+        if (resultCode == Constant.SETTING_RESUIL) {
             initSideData();
             adapter.notifyDataSetChanged();
-        }
-        if (resultCode == 2) {
+        } else if (resultCode == Constant.COOLING_RESUIL) {
             int wendu = data.getIntExtra("wendu", 0);
             temp -= wendu;
             if (temp == 0) {
                 temp = 40;
             }
-            initCpu(temp);
-        }
-        if (requestCode == 100) {
+
+            main_cooling_h.setVisibility(View.GONE);
+        } else if (requestCode == 100) {
             if (CommonUtil.isNotificationListenEnabled(MainActivity.this)) {
                 PreData.putDB(MainActivity.this, Constant.KEY_NOTIFI, true);
                 Intent intent = new Intent(MainActivity.this, NotifiActivity.class);
@@ -884,6 +892,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 Intent intent = new Intent(MainActivity.this, NotifiInfoActivity.class);
                 startActivityForResult(intent, 1);
             }
+        } else if (resultCode == Constant.RAM_RESUIL) {
+            main_ram_h.setVisibility(View.GONE);
+        } else if (resultCode == Constant.JUNK_RESUIL) {
+            main_junk_h.setVisibility(View.GONE);
         }
 
     }
@@ -892,7 +904,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     protected void onRestart() {
         super.onRestart();
         mainPresenter.reStart();
-
+        initCpu(temp);
     }
 
     @Override
@@ -922,11 +934,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (lot_main != null) {
             lot_main.playAnimation();
         }
-        Animation animation = main_guard_rotate.getAnimation();
-        if (animation == null) {
-            return;
-        }
-        animation.start();
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, CommonUtil.dp2px(115), CommonUtil.dp2px(130));
+        rotateAnimation.setDuration(2000);
+        rotateAnimation.setRepeatCount(-1);
+        main_guard_rotate.startAnimation(rotateAnimation);
     }
 
     @Override

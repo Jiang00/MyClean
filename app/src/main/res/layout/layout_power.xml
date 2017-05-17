@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    android:background="@color/A10"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_color_first"
+        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -22,7 +23,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="224dp"
-        android:background="@color/app_color_first"
+        android:background="@color/A1"
         android:scaleType="fitXY"
         android:src="@mipmap/power_1" />
 
@@ -30,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#f5f7fd"
+        android:background="@color/A10"
         android:orientation="vertical">
 
         <LinearLayout
@@ -51,23 +52,25 @@
                 android:layout_marginRight="15dp"
                 android:src="@mipmap/power_2" />
 
-            <TextView
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/power_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/power_1"
                 android:textColor="#ff3131"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                app:typeface="eos_clean.otf" />
 
-            <TextView
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:singleLine="true"
                 android:text="@string/power_2"
                 android:textColor="#808ea4"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                app:typeface="eos_clean.otf" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
@@ -81,8 +84,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d72"
-        >
+        android:layout_height="@dimen/d72">
 
         <Button
             android:id="@+id/junk_button_clean"
@@ -93,7 +95,8 @@
             android:layout_marginRight="16dp"
             android:background="@drawable/shape_button"
             android:text="@string/junk_button"
+            android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:textSize="20sp" />
+            android:textSize="@dimen/s15" />
     </RelativeLayout>
 </LinearLayout>

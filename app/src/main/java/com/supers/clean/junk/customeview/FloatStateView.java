@@ -69,7 +69,7 @@ public class FloatStateView extends View {
      */
     private void initPaints() {
         firstPaint = new Paint();
-        firstPaint.setColor(getResources().getColor(R.color.app_color_first));
+        firstPaint.setColor(getResources().getColor(R.color.A1));
         firstPaint.setAntiAlias(true);
         firstPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
 
@@ -103,11 +103,11 @@ public class FloatStateView extends View {
             }
 
             if (pratent > 40 && pratent <= 80) {
-                firstPaint.setColor(getResources().getColor(R.color.app_color_second));
+                firstPaint.setColor(getResources().getColor(R.color.A4));
             } else if (pratent > 80) {
-                firstPaint.setColor(getResources().getColor(R.color.app_color_third));
+                firstPaint.setColor(getResources().getColor(R.color.A2));
             } else {
-                firstPaint.setColor(getResources().getColor(R.color.app_color_first));
+                firstPaint.setColor(getResources().getColor(R.color.A1));
             }
             float textWidth = textPaint.measureText(text);
             float x = width / 2 - textWidth / 2;

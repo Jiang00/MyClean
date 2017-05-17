@@ -4,11 +4,12 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.support.v4.widget.NestedScrollView;
+import android.view.MotionEvent;
 
 /**
  */
 
-public class MyScrollView extends NestedScrollView {
+public class MyScrollView extends NestedScrollView implements Pullable {
     public MyScrollView(Context context) {
         super(context);
     }
@@ -44,5 +45,24 @@ public class MyScrollView extends NestedScrollView {
 
         void onScrollChanged(MyScrollView scrollView, int x, int y, int oldx, int oldy);
 
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
+    }
+
+    public boolean canPullDown() {
+//        if (getScrollY() == 0)
+//            return true;
+//        else
+        return false;
+    }
+
+    public boolean canPullUp() {
+        if (getScrollY() >= (getChildAt(0).getHeight() - getMeasuredHeight()))
+            return true;
+        else
+            return false;
     }
 }

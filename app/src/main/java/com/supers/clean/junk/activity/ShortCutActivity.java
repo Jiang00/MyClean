@@ -1,13 +1,21 @@
 package com.supers.clean.junk.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.ActivityManager;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.CardView;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
@@ -19,14 +27,12 @@ import com.android.client.AndroidSdk;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
 import com.eos.module.tweenengine.TweenManager;
-import com.eos.ui.demo.cross.CrossManager;
-import com.eos.ui.demo.dialog.DialogManager;
-import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.CommonUtil;
-import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.customeview.FlakeViewOnShort;
 import com.supers.clean.junk.customeview.ImageAccessor;
+import com.supers.clean.junk.util.CommonUtil;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.PreData;
 
 import java.util.List;
 
@@ -35,13 +41,14 @@ import java.util.List;
  */
 
 public class ShortCutActivity extends BaseActivity {
+
+    private static final int FLAKE_NUM = 3;
+
     FrameLayout short_backg;
-    ImageView short_zhuan, short_huojian;
-    LinearLayout short_text;
-    TextView short_size;
+    ImageView short_huojian;
     LinearLayout ll_ad;
-    FrameLayout fl_lot_short;
-    LottieAnimationView lot_short;
+    LinearLayout short_xian;
+    FrameLayout short_fl;
     private Animation rotate;
     private Animation fang;
     private TweenManager tweenManager;
@@ -52,17 +59,17 @@ public class ShortCutActivity extends BaseActivity {
     private Handler myHandler;
     private View nativeView;
     private String TAG_SHORTCUT = "eos_shortcut";
+    private FlakeViewOnShort flakeView;
+    private Animation suo;
+    private Dialog dialog;
 
     @Override
     protected void findId() {
         super.findId();
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
-        short_zhuan = (ImageView) findViewById(R.id.short_zhuan);
+        short_fl = (FrameLayout) findViewById(R.id.short_fl);
         short_huojian = (ImageView) findViewById(R.id.short_huojian);
-        short_text = (LinearLayout) findViewById(R.id.short_text);
-        short_size = (TextView) findViewById(R.id.short_size);
-        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-        fl_lot_short = (FrameLayout) findViewById(R.id.fl_lot_short);
+        short_xian = (LinearLayout) findViewById(R.id.short_xian);
     }
 
     @Override
@@ -71,12 +78,13 @@ public class ShortCutActivity extends BaseActivity {
         setContentView(R.layout.layout_short_cut);
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
-        short_zhuan.startAnimation(rotate);
         tweenManager = new TweenManager();
         myHandler = new Handler();
         Tween.registerAccessor(ImageView.class, new ImageAccessor());
         istween = true;
         setAnimationThread();
+        suo = AnimationUtils.loadAnimation(this, R.anim.suo_short);
+
         myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -96,12 +104,10 @@ public class ShortCutActivity extends BaseActivity {
                 });
             }
         }).start();
-        loadAd();
     }
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) == 1) {
-            tuiGuang();
         } else {
             nativeView = CommonUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
             if (ll_ad != null && nativeView != null) {
@@ -112,74 +118,34 @@ public class ShortCutActivity extends BaseActivity {
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
             } else {
-                tuiGuang();
             }
         }
     }
 
-    public void tuiGuang() {
-        super.tuiGuang();
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_short = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                    lot_short.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    fl_lot_short.setVisibility(View.VISIBLE);
-                    if (onPause) {
-                        lot_short.pauseAnimation();
-                    }
-                    fl_lot_short.addView(view, 0);
-                } else {
-                    fl_lot_short.setVisibility(View.GONE);
-                }
-            }
-        });
-    }
 
     private void show_text() {
         if (count == 2) {
-            short_zhuan.clearAnimation();
-            short_zhuan.setVisibility(View.INVISIBLE);
-            isdoudong = false;
-            short_huojian.setScaleX(1);
-            short_huojian.setScaleY(1);
-            short_size.setText(CommonUtil.getFileSize4(size));
-            ObjectAnimator a = ObjectAnimator.ofFloat(short_huojian, View.TRANSLATION_Y, 0, -2000);
-            a.setDuration(400);
-            a.start();
-            short_text.startAnimation(fang);
-            short_text.setVisibility(View.VISIBLE);
-            fang.setAnimationListener(new Animation.AnimationListener() {
+            count = 0;
+            View view = getLayoutInflater().inflate(R.layout.layout_short_dialog, null);
+            ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
+            loadAd();
+            TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
+            short_clean_szie.setText(CommonUtil.convertStorage(size, true));
+            dialog = new Dialog(ShortCutActivity.this, R.style.add_dialog);
+            dialog.show();
+            Window window = dialog.getWindow();
+            window.setWindowAnimations(R.style.dialog_anim);
+//		dialog.setCanceledOnTouchOutside(false);
+            DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+            WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+            lp.width = dm.widthPixels; //设置宽度
+            lp.height = dm.heightPixels; //设置高度
+            window.setAttributes(lp);
+            window.setContentView(view);
+            dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @Override
-                public void onAnimationEnd(Animation animation) {
-                    if (PreData.getDB(ShortCutActivity.this, Constant.FULL_SHORTCUT, 0) == 1) {
-                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                    } else {
-                        ll_ad.setVisibility(View.VISIBLE);
-                    }
-                    short_backg.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            finish();
-                        }
-                    });
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-
-                }
-
-                @Override
-                public void onAnimationStart(Animation animation) {
-
+                public void onDismiss(DialogInterface dialog) {
+                    ShortCutActivity.this.finish();
                 }
             });
         }
@@ -221,22 +187,15 @@ public class ShortCutActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                myHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        count++;
-                        show_text();
-                    }
-                }, 2000);
                 while (isdoudong) {
-                    int x = (int) (Math.random() * (16)) - 8;
-                    int y = (int) (Math.random() * (16)) - 8;
+                    int x = (int) (Math.random() * (10)) - 5;
+                    int y = (int) (Math.random() * (10)) - 5;
                     try {
                         Thread.sleep(80);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Tween.to(short_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 0.8f, 1)
+                    Tween.to(short_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
                             .ease(TweenEquations.easeInQuad).delay(0)
                             .start(tweenManager);
                 }
@@ -280,17 +239,78 @@ public class ShortCutActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        if (lot_short != null) {
-            lot_short.playAnimation();
-        }
+        flakeView = new FlakeViewOnShort(this);
+        short_xian.addView(flakeView);
+        flakeView.setRotation(35);
+        myHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                flakeView.addFlakes(FLAKE_NUM);
+            }
+        });
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                AnimatorSet set = new AnimatorSet();
+                ObjectAnimator translationY = ObjectAnimator.ofFloat(short_huojian, "translationY", 0, -CommonUtil.dp2px(90));
+                ObjectAnimator translationX = ObjectAnimator.ofFloat(short_huojian, "translationX", 0, CommonUtil.dp2px(90));
+                set.setDuration(100);
+                set.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        short_fl.startAnimation(suo);
+                        short_huojian.setVisibility(View.GONE);
+                        short_xian.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+                });
+                set.play(translationX).with(translationY);
+                set.start();
+                suo.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        short_fl.setVisibility(View.GONE);
+                        count++;
+                        isdoudong = false;
+                        show_text();
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+                });
+            }
+        }, 4000);
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (lot_short != null) {
-            lot_short.pauseAnimation();
+        if (flakeView != null) {
+            flakeView.subtractFlakes(FLAKE_NUM);
+            flakeView.pause();
+            flakeView = null;
         }
     }
 

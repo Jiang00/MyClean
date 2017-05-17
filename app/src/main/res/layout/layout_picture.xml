@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,7 +12,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/app_color_first"
+            android:background="@color/A1"
             android:orientation="vertical">
 
             <View
@@ -29,19 +30,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d95"
-                android:background="@color/app_color_first"
+                android:background="@color/A1"
                 android:orientation="horizontal">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/picture_size"
-                    android:layout_width="@dimen/d141"
+                    android:layout_width="@dimen/d146"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d82"
                     android:gravity="center"
+                    android:lines="1"
                     android:text="0"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/s63" />
+                    android:textSize="@dimen/s63"
+                    app:typeface="eos_clean.otf" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -49,26 +52,28 @@
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical">
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/picture_danwei"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="MB"
                         android:textColor="@color/white_70"
-                        android:textSize="@dimen/s21" />
+                        android:textSize="@dimen/s21"
+                        app:typeface="eos_clean.otf" />
 
-                    <TextView
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/picture_scan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d12"
                         android:text="@string/picture_scan"
                         android:textColor="@color/white_70"
-                        android:textSize="@dimen/s12" />
+                        android:textSize="@dimen/s12"
+                        app:typeface="eos_clean.otf" />
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/picture_path"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +81,8 @@
                 android:layout_marginLeft="@dimen/d8"
                 android:singleLine="true"
                 android:textColor="@color/white_70"
-                android:textSize="@dimen/s10" />
+                android:textSize="@dimen/s10"
+                app:typeface="eos_clean.otf" />
         </FrameLayout>
 
         <FrameLayout
@@ -109,16 +115,17 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
                     android:text="@string/picture_3"
                     android:textColor="#bfbfbf"
-                    android:textSize="@dimen/s21" />
+                    android:textSize="@dimen/s21"
+                    app:typeface="eos_clean.otf" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -126,20 +133,30 @@
                     android:gravity="center"
                     android:text="@string/picture_4"
                     android:textColor="#1e88e5"
-                    android:textSize="@dimen/s16" />
+                    android:textSize="@dimen/s16"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d72"
+                android:layout_gravity="bottom">
+
+                <Button
+                    android:id="@+id/picture_button"
+                    android:layout_width="@dimen/d168"
+                    android:layout_height="@dimen/d40"
+                    android:textAllCaps="false"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/shape_button"
+                    android:text="@string/picture_14"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/s15"
+                    android:visibility="invisible" />
+            </RelativeLayout>
 
         </FrameLayout>
 
-        <Button
-            android:id="@+id/picture_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d50"
-            android:background="@color/app_color_first"
-            android:text="@string/picture_14"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/d17"
-            android:visibility="gone" />
     </LinearLayout>
 
     <FrameLayout
@@ -169,14 +186,15 @@
                 android:padding="@dimen/d15"
                 android:src="@mipmap/tilte_left" />
 
-            <TextView
+            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/pic_pager_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="1/2"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/d20" />
+                android:textSize="@dimen/d20"
+                app:typeface="eos_clean.otf" />
 
         </RelativeLayout>
 
@@ -193,7 +211,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -201,7 +219,8 @@
                     android:layout_marginRight="@dimen/d16"
                     android:text="@string/picture_14"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/d20" />
+                    android:textSize="@dimen/d20"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
 
             <LinearLayout
@@ -219,7 +238,7 @@
                     android:layout_marginLeft="10dp"
                     android:src="@mipmap/picture_normal" />
 
-                <TextView
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -227,7 +246,8 @@
                     android:layout_marginRight="@dimen/d16"
                     android:text="@string/picture_13"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/d20" />
+                    android:textSize="@dimen/d20"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
         </RelativeLayout>
     </FrameLayout>

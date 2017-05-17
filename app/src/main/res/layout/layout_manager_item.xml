@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
-    >
+    android:background="?attr/selectableItemBackground">
 
     <RelativeLayout
         android:id="@+id/junk_item_rl"
@@ -26,22 +25,24 @@
         android:layout_toRightOf="@id/junk_item_rl"
         android:orientation="vertical">
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/junk_item_lable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="app标题"
             android:textColor="@color/black_87"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            app:typeface="eos_clean.otf" />
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="app标题"
             android:textColor="@color/black_54"
-            android:textSize="11sp" />
+            android:textSize="11sp"
+            app:typeface="eos_clean.otf" />
     </LinearLayout>
 
     <ImageView
@@ -54,7 +55,7 @@
         android:layout_marginRight="16dp"
         android:src="@mipmap/ram_passed" />
 
-    <TextView
+    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
         android:id="@+id/size_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,5 +63,6 @@
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
         android:textColor="@color/black_54"
-        android:textSize="11sp" />
+        android:textSize="11sp"
+        app:typeface="eos_clean.otf" />
 </RelativeLayout>

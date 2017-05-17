@@ -1,9 +1,12 @@
 package com.supers.clean.junk.activity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
@@ -34,10 +37,12 @@ public class CoolingActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
     LinearLayout cooling_piao;
-    ImageView cooling_zhuan, cooling_xuehua;
+    ImageView cooling_xuehua;
+    ImageView cooling_kuo;
     LinearLayout cooling_text;
     TextView cooling_wendu;
     FrameLayout fl_lot_cooling;
+    FrameLayout cooling_fl;
 
     private FlakeView flakeView;
     private Handler mHandler = new Handler();
@@ -53,9 +58,9 @@ public class CoolingActivity extends BaseActivity {
     private Animation rotate_zheng;
     private Animation rotate_ni;
     private Animation suo;
-    private Animation fang;
     private int time;
     private LottieAnimationView lottieAnimationView;
+    private AnimatorSet animationLine_1;
 
     @Override
     protected void findId() {
@@ -63,8 +68,9 @@ public class CoolingActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
-        cooling_zhuan = (ImageView) findViewById(R.id.cooling_zhuan);
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
+        cooling_kuo = (ImageView) findViewById(R.id.cooling_kuo);
+        cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
         fl_lot_cooling = (FrameLayout) findViewById(R.id.fl_lot_cooling);
@@ -86,21 +92,30 @@ public class CoolingActivity extends BaseActivity {
         rotate_zheng = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
         rotate_ni = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
-        fang = AnimationUtils.loadAnimation(this, R.anim.fang);
         mHandler = new Handler();
-        cooling_zhuan.startAnimation(rotate_ni);
         cooling_xuehua.startAnimation(rotate_zheng);
         startCoolingAni();
+
+        animationLine_1 = new AnimatorSet();
+        ObjectAnimator animator_ine_1_x = ObjectAnimator.ofFloat(cooling_kuo, "scaleX", 0, 2f);
+        animator_ine_1_x.setRepeatCount(-1);
+        ObjectAnimator animator_ine_1_y = ObjectAnimator.ofFloat(cooling_kuo, "scaleY", 0, 2f);
+        ObjectAnimator animator_ine_1_r = ObjectAnimator.ofFloat(cooling_kuo, "alpha", 1, 0f);
+        animator_ine_1_y.setRepeatCount(-1);
+        animator_ine_1_r.setRepeatCount(-1);
+        animationLine_1.setDuration(1000);
+        animationLine_1.setInterpolator(new AccelerateDecelerateInterpolator());
+        animationLine_1.playTogether(animator_ine_1_x, animator_ine_1_y,animator_ine_1_r);
+        animationLine_1.start();
+
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
-                cooling_xuehua.setVisibility(View.INVISIBLE);
-//                cooling_text.startAnimation(fang);
-//                cooling_text.setVisibility(View.VISIBLE);
+                cooling_fl.setVisibility(View.INVISIBLE);
+                cooling_xuehua.clearAnimation();
                 if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
-//                tuiGuang();
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);
                 bundle.putString("from", "cooling");
@@ -118,30 +133,38 @@ public class CoolingActivity extends BaseActivity {
 
             }
         });
-        fang.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                if (PreData.getDB(CoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        if (TextUtils.equals("main", getIntent().getStringExtra("from"))) {
+            cooling_text.setVisibility(View.VISIBLE);
+            final int wendu = getIntent().getIntExtra("wendu", 40);
+            cooling_wendu.setText(wendu + "℃");
+            for (int i = 0; i <= time; i++) {
+                cooling_wendu.setText((wendu - i) + "℃");
+            }
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    for (int i = 0; i <= time; i++) {
+                        if (onPause) {
+                            return;
+                        }
+                        final int finalI = i;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                cooling_wendu.setText((wendu - finalI) + "℃");
+                            }
+                        });
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
                 }
-//                tuiGuang();
-                Bundle bundle = new Bundle();
-                bundle.putInt("wendu", time);
-                bundle.putString("from", "cooling");
-                jumpToActivity(SuccessActivity.class, bundle, 1);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-        });
-
+            }).start();
+        }
     }
 
     public void tuiGuang() {
@@ -174,16 +197,15 @@ public class CoolingActivity extends BaseActivity {
     private void startCoolingAni() {
         random = new Random();
         time = random.nextInt(5) + 1;
-        cooling_wendu.setText(time + "℃");
+//        cooling_wendu.setText(time + "℃");
         final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 int value = (int) animation.getAnimatedValue();
                 if (value == 20) {
-                    cooling_zhuan.clearAnimation();
-                    cooling_zhuan.setVisibility(View.INVISIBLE);
-                    cooling_xuehua.startAnimation(suo);
+                    animationLine_1.cancel();
+                    cooling_fl.startAnimation(suo);
                     hideSnow();
                 }
             }
@@ -191,6 +213,7 @@ public class CoolingActivity extends BaseActivity {
         valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
         valueAnimator.setDuration(3000);
         valueAnimator.start();
+
     }
 
     @Override
@@ -231,7 +254,7 @@ public class CoolingActivity extends BaseActivity {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
             jumpTo(MainActivity.class);
         } else {
-            setResult(2, new Intent().putExtra("wendu", time));
+            setResult(Constant.COOLING_RESUIL, new Intent().putExtra("wendu", time));
         }
         finish();
     }

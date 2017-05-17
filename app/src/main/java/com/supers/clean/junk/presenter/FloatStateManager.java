@@ -1,19 +1,23 @@
 package com.supers.clean.junk.presenter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 
 
 import com.supers.clean.junk.activity.FloatActivity;
+import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.customeview.FloatStateView;
 
@@ -152,7 +156,7 @@ public class FloatStateManager {
                 Intent intent = new Intent(context, FloatActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
-                removeWindowsView();
+//                removeWindowsView();
             }
         });
 

@@ -28,7 +28,7 @@
         android:gravity="clip_vertical"
         android:orientation="vertical">
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/file_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,17 +36,19 @@
             android:text="1111"
             android:textColor="@color/black_87"
             android:textSize="@dimen/s14"
+            app:typeface="eos_clean.otf"
 
             />
 
-        <TextView
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/file_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:text="@string/white_list_tishi"
             android:textColor="@color/black_54"
-            android:textSize="@dimen/s11" />
+            android:textSize="@dimen/s11"
+            app:typeface="eos_clean.otf" />
     </LinearLayout>
 
     <ImageView

@@ -3,9 +3,11 @@ package com.supers.clean.junk.presenter;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.usage.UsageEvents;
+import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.supers.clean.junk.util.CommonUtil;
@@ -15,6 +17,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -38,19 +41,34 @@ public class GetTopApp {
                 ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
                 if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
                     packageName = runningTaskInfo.topActivity.getPackageName();
+                    Log.e("float", "1==" + packageName);
                 }
             }
         } else {
             try {
+
                 packageName = getTopPackage();
+                Log.e("float", "2==" + packageName);
                 if (packageName != null) {
                     return packageName;
                 }
                 packageName = getActivePackages();
                 if (packageName != null) {
+                    Log.e("float", "3==" + packageName);
                     return packageName;
                 }
+
+                List<ActivityManager.RunningTaskInfo> lst = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
+                if (lst != null && lst.size() > 0) {
+                    ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
+                    if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
+                        packageName = runningTaskInfo.topActivity.getPackageName();
+                        Log.e("float", "1==" + packageName);
+                    }
+                }
+
                 packageName = getForegroundApp();
+                Log.e("float", "4==" + packageName);
             } catch (Exception e) {
             }
         }
@@ -93,6 +111,7 @@ public class GetTopApp {
         }
         return packageName;
     }
+
 
     private UsageStatsManager mUsageStatsManager;
     private Comparator mRecentComp;

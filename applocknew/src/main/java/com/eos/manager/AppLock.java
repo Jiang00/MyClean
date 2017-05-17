@@ -9,6 +9,7 @@ import android.os.IBinder;
 import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -165,6 +166,10 @@ public class AppLock extends ClientActivitySecurity {
 
     @Override
     public boolean onSupportNavigateUp() {
+//        if (TextUtils.equals("loading", getIntent().getStringExtra("from"))) {
+//            Intent intent = new Intent("com.eos.clean.main");
+//            startActivity(intent);
+//        }
         finish();
         return super.onSupportNavigateUp();
     }
@@ -204,6 +209,10 @@ public class AppLock extends ClientActivitySecurity {
             } else {
 //                AndroidSdk.showFullAd(SecurityThemeFragment.TAG_MAIN_PAGE_FULL);
             }
+//            if (TextUtils.equals("loading", getIntent().getStringExtra("from"))) {
+//                Intent intent = new Intent("com.eos.clean.main");
+//                startActivity(intent);
+//            }
         } else {
             fragment.forOnback();
         }

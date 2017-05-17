@@ -45,17 +45,48 @@ public class Flake {
     static Flake createFlake(float xRange, Bitmap originalBitmap) {
         Flake flake = new Flake();
         // Size each flake with a width between 5 and 55 and a proportional height
-        flake.width = (int)(40 + (float)Math.random() * 50);
+        flake.width = (int) (40 + (float) Math.random() * 50);
         float hwRatio = originalBitmap.getHeight() / originalBitmap.getWidth();
-        flake.height = (int)(flake.width * hwRatio);
+        flake.height = (int) (flake.width * hwRatio);
 
         // Position the flake horizontally between the left and right of the range
-        flake.x = (float)Math.random() * (xRange - flake.width);
+        flake.x = (float) Math.random() * (xRange - flake.width);
         // Position the flake vertically slightly off the top of the display
-        flake.y = 0 - (flake.height + (float)Math.random() * flake.height) - 72;
+        flake.y = 0 - (flake.height + (float) Math.random() * flake.height) - 72;
 
         // Each flake travels at 50-200 pixels per second
         flake.speed = 50 + (float) Math.random() * 250;
+
+        // Flakes start at -90 to 90 degrees rotation, and rotate between -45 and 45
+        // degrees per second
+        flake.rotation = (float) Math.random() * 180 - 90;
+        flake.rotationSpeed = (float) Math.random() * 90 - 45;
+
+        // Get the cached bitmap for this size if it exists, otherwise create and cache one
+        flake.bitmap = bitmapMap.get(flake.width);
+        if (flake.bitmap == null) {
+            flake.bitmap = Bitmap.createScaledBitmap(originalBitmap,
+                    flake.width, flake.height, true);
+            bitmapMap.put(flake.width, flake.bitmap);
+        }
+        return flake;
+    }
+
+    static Flake createFlake(float xRange, Bitmap originalBitmap, int from) {
+        Flake flake = new Flake();
+        // Size each flake with a width between 5 and 55 and a proportional height
+//        flake.width = (int)(2 + (float)Math.random() * 5);
+        flake.width = 2;
+        float hwRatio = originalBitmap.getHeight() / originalBitmap.getWidth();
+        flake.height = (int) (flake.width * hwRatio);
+
+        // Position the flake horizontally between the left and right of the range
+        flake.x = (float) Math.random() * (xRange - flake.width);
+        // Position the flake vertically slightly off the top of the display
+        flake.y = 0 - (flake.height + (float) Math.random() * flake.height) - 72;
+
+        // Each flake travels at 50-200 pixels per second
+        flake.speed = 5 + (float) Math.random() * 250;
 
         // Flakes start at -90 to 90 degrees rotation, and rotate between -45 and 45
         // degrees per second

@@ -341,7 +341,7 @@ public class PictureActivity extends BaseActivity {
                             }
                         }
                         picture_progressbar.setVisibility(View.GONE);
-                        picture_size.setText(CommonUtil.convertStorage(size));
+                        picture_size.setText(CommonUtil.convertStorage(size, false));
                         picture_danwei.setText(CommonUtil.convertStorageDanwei(size));
 //                        adapter.addData(list_item, 0);
                         allList = totalSimilarImage;
@@ -471,7 +471,8 @@ public class PictureActivity extends BaseActivity {
                                     picture_other.setVisibility(View.VISIBLE);
                                 }
                                 Bundle bundle = new Bundle();
-                                bundle.putLong("size", oldSize - allSize);
+                                bundle.putLong("sizeP", oldSize - allSize);
+                                bundle.putInt("sizePic", deleteSize);
                                 bundle.putString("from", "picture");
                                 jumpToActivity(SuccessActivity.class, bundle, 1);
                             }
@@ -540,7 +541,7 @@ public class PictureActivity extends BaseActivity {
             }
         }
         picture_button.setText(getString(R.string.picture_14) + "( " + count + " )");
-        picture_size.setText(CommonUtil.convertStorage(size));
+        picture_size.setText(CommonUtil.convertStorage(size, false));
         picture_danwei.setText(CommonUtil.convertStorageDanwei(size));
 
     }

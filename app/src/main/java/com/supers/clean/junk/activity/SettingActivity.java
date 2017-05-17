@@ -292,21 +292,25 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_power:
                     CommonUtil.track("设置页面", "进入深度清理", "", 1);
+                    PreData.putDB(SettingActivity.this, Constant.DEEP_CLEAN, true);
                     Intent intentP = new Intent(SettingActivity.this, PowerActivity.class);
                     startActivity(intentP);
                     break;
                 case R.id.setting_file:
                     CommonUtil.track("设置页面", "进入文件管理", "", 1);
+                    PreData.putDB(SettingActivity.this, Constant.FILE_CLEAN, true);
                     Intent intentF = new Intent(SettingActivity.this, FileActivity.class);
                     startActivity(intentF);
                     break;
                 case R.id.setting_picture:
                     CommonUtil.track("设置页面", "进入相似图片", "", 1);
+                    PreData.putDB(SettingActivity.this, Constant.PHOTO_CLEAN, true);
                     Intent intentPic = new Intent(SettingActivity.this, PictureActivity.class);
                     startActivity(intentPic);
                     break;
                 case R.id.setting_gboost:
                     CommonUtil.track("设置页面", "进入游戏加速", "", 1);
+                    PreData.putDB(SettingActivity.this, Constant.GBOOST_CLEAN, true);
                     Intent intentGB = new Intent(SettingActivity.this, GBoostActivity.class);
                     startActivity(intentGB);
                     break;
@@ -317,6 +321,7 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_notifi:
                     CommonUtil.track("设置页面", "进入通知栏清理", "", 1);
+                    PreData.putDB(SettingActivity.this, Constant.NOTIFI_CLEAN, true);
                     if (!CommonUtil.isNotificationListenEnabled(SettingActivity.this)) {
                         startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
                     } else if (!PreData.getDB(SettingActivity.this, Constant.KEY_NOTIFI, true)) {
@@ -351,7 +356,7 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        setResult(50);
+        setResult(Constant.SETTING_RESUIL);
         finish();
     }
 }

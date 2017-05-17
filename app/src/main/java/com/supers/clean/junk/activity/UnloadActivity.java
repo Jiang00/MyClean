@@ -66,7 +66,7 @@ public class UnloadActivity extends BaseActivity {
                 iv_icon.setImageDrawable(info.icon);
                 size = info.size;
                 path = info.path;
-                tv_size.setText(CommonUtil.getFileSize2(size));
+                tv_size.setText(CommonUtil.convertStorage(size,false));
                 bt_queren.setOnClickListener(BtClickListener);
                 bt_quxiao.setOnClickListener(BtClickListener);
                 iv_cha.setOnClickListener(BtClickListener);
@@ -84,7 +84,7 @@ public class UnloadActivity extends BaseActivity {
                     iv_icon.setImageDrawable(info.icon);
                     size = (long) ((Math.random() * 1024 * 100) + 1024 * 10);
                     path = MemoryManager.getPhoneInSDCardPath() + "/Android/data/" + packageName;
-                    tv_size.setText(CommonUtil.getFileSize2(size));
+                    tv_size.setText(CommonUtil.convertStorage(size,false));
                     bt_queren.setOnClickListener(BtClickListener);
                     bt_quxiao.setOnClickListener(BtClickListener);
                     iv_cha.setOnClickListener(BtClickListener);

@@ -37,10 +37,11 @@ public class RamPresenter extends BasePresenter<RamView> {
             }
         }
         iView.initData(allSize);
-        iView.setCleanDAta(true,cleanSize);
+        iView.setCleanDAta(true, cleanSize);
         changeColor(allSize);
         iView.onClick();
     }
+
     public void changeColor(long size) {
         //ram使用
         long ram_kongxian = MemoryManager.getPhoneFreeRamMemory(context);
@@ -56,7 +57,7 @@ public class RamPresenter extends BasePresenter<RamView> {
         } else {
             cleanSize -= size;
         }
-        iView.setCleanDAta(false,cleanSize);
+        iView.setCleanDAta(false, cleanSize);
     }
 
     public void addAdapterData() {
@@ -73,9 +74,11 @@ public class RamPresenter extends BasePresenter<RamView> {
         clearList = new ArrayList<>();
         for (JunkInfo speedUpInfo : appRam) {
             if (speedUpInfo.isChecked) {
-                cleanApplication.removeRam(speedUpInfo);
                 clearList.add(speedUpInfo);
             }
+        }
+        for (JunkInfo info : clearList) {
+            cleanApplication.removeRam(info);
         }
         changeColor(allSize - cleanSize);
         iView.cleanAnimation(clearList, cleanSize);

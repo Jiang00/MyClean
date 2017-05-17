@@ -442,61 +442,16 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
 
             }
 
-//            new Thread() {
-//                @Override
-//                public void run() {
-//                    PackageManager packageManager = getPackageManager();
-//                    final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-//                    mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-//                    List<ResolveInfo> pkgs = packageManager.queryIntentActivities(mainIntent, 0);
-//
-//                    String pkgname = getPackageName();
-//
-//                    HashMap<String, String> labels = new HashMap<>();
-//                    ArrayList<String> apps = new ArrayList<>();
-//                    for (int i = 0; i < pkgs.size(); ++i) {
-//                        ResolveInfo pkg = pkgs.get(i);
-//                        String pkgName = pkg.activityInfo.packageName;
-//                        if (pkgName.equals(pkgname)) {
-//                            pkgs.remove(i);
-//                            --i;
-//                            continue;
-//                        }
-//                        String pn = pkgName.toLowerCase();
-//                        if ((pkg.activityInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-//                            pkgs.remove(i);
-//                            --i;
-//                        } else if (firstLaunchFilter.containsKey(pn)) {
-//                            pkgs.remove(i);
-//                            --i;
-//                        } else {
-//                            labels.put(pkgName, pkg.loadLabel(packageManager).toString());
-//                            apps.add(pkgName);
-//                            if (labels.size() == 10 || i == pkgs.size() - 1) {
-//                                final HashMap<String, String> labels_ = (HashMap<String, String>) labels.clone();
-//                                final ArrayList<String> apps_ = (ArrayList<String>) apps.clone();
-//                                labels.clear();
-//                                apps.clear();
-//                                AppLockPatternEosActivity.this.runOnUiThread(new Runnable() {
-//                                    @Override
-//                                    public void run() {
-//                                        firstLaunchList.addAll(apps_);
-//                                        apps_.clear();
-//                                        firstLaunchLabels.putAll(labels_);
-//                                        labels_.clear();
-//                                        ((BaseAdapter) ((WrapperListAdapter) lv.getAdapter()).getWrappedAdapter()).notifyDataSetChanged();
-//                                    }
-//                                });
-//                            }
-//                        }
-//                    }
-//                }
-//            }.start();
         } else {
 
             lv.setVisibility(View.GONE);
             this.finish();
             Intent intent = new Intent(AppLockPatternEosActivity.this, AppLock.class);
+//            String from = getIntent().getStringExtra("from");
+//            if (from != null) {
+//                intent.putExtra("from", from);
+//            }
+//            Intent intent = new Intent("com.eos.clean.main");
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             firstLaunchList.clear();

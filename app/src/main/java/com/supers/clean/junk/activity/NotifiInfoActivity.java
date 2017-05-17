@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateYAnimation;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.sample.lottie.LottieAnimationView;
@@ -25,13 +26,13 @@ import com.supers.clean.junk.util.PreData;
 public class NotifiInfoActivity extends BaseActivity {
     private static final int REQUSETSET = 110;
     LottieAnimationView notifi_info_lot;
-    TextView notifi_info_text;
+    Button notifi_info_text;
 
     @Override
     protected void findId() {
         super.findId();
         notifi_info_lot = (LottieAnimationView) findViewById(R.id.notifi_info_lot);
-        notifi_info_text = (TextView) findViewById(R.id.notifi_info_text);
+        notifi_info_text = (Button) findViewById(R.id.notifi_info_text);
     }
 
     @Override
