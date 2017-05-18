@@ -166,10 +166,10 @@ public class AppLock extends ClientActivitySecurity {
 
     @Override
     public boolean onSupportNavigateUp() {
-//        if (TextUtils.equals("loading", getIntent().getStringExtra("from"))) {
-//            Intent intent = new Intent("com.eos.clean.main");
-//            startActivity(intent);
-//        }
+        if (TextUtils.equals("loading", getIntent().getStringExtra("from"))) {
+            Intent intent = new Intent("com.eos.clean.main");
+            startActivity(intent);
+        }
         finish();
         return super.onSupportNavigateUp();
     }
@@ -209,10 +209,10 @@ public class AppLock extends ClientActivitySecurity {
             } else {
 //                AndroidSdk.showFullAd(SecurityThemeFragment.TAG_MAIN_PAGE_FULL);
             }
-//            if (TextUtils.equals("loading", getIntent().getStringExtra("from"))) {
-//                Intent intent = new Intent("com.eos.clean.main");
-//                startActivity(intent);
-//            }
+            if (TextUtils.equals("loading", getIntent().getStringExtra("from"))) {
+                Intent intent = new Intent("com.eos.clean.main");
+                startActivity(intent);
+            }
         } else {
             fragment.forOnback();
         }

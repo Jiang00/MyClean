@@ -54,14 +54,15 @@ public class LoadingActivity extends BaseActivity {
             PreData.putDB(this, Constant.ROOT_TRAK, false);
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
-//        if (TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
-//            Bundle bundle = new Bundle();
-//            bundle.putString("from", "loading");
-//            jumpToActivity(AppLockPatternEosActivity.class, bundle);
-//            finish();
-//        }
-        myHandler.removeCallbacks(runnable1);
-        myHandler.postDelayed(runnable1, 2000);
+        if (TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
+            Bundle bundle = new Bundle();
+            bundle.putString("from", "loading");
+            jumpToActivity(AppLockPatternEosActivity.class, bundle);
+            finish();
+        } else {
+            myHandler.removeCallbacks(runnable1);
+            myHandler.postDelayed(runnable1, 2000);
+        }
     }
 
     Runnable runnable1 = new Runnable() {
