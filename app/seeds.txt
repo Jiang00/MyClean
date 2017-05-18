@@ -45546,6 +45546,7 @@ com.supers.clean.junk.R$dimen: int d154
 com.supers.clean.junk.R$dimen: int d155
 com.supers.clean.junk.R$dimen: int d16
 com.supers.clean.junk.R$dimen: int d160
+com.supers.clean.junk.R$dimen: int d161
 com.supers.clean.junk.R$dimen: int d167
 com.supers.clean.junk.R$dimen: int d168
 com.supers.clean.junk.R$dimen: int d17
@@ -46080,6 +46081,7 @@ com.supers.clean.junk.R$id: int action_mode_close_button
 com.supers.clean.junk.R$id: int action_setting
 com.supers.clean.junk.R$id: int activity_chooser_view_content
 com.supers.clean.junk.R$id: int activity_main
+com.supers.clean.junk.R$id: int ad_action
 com.supers.clean.junk.R$id: int ad_icon
 com.supers.clean.junk.R$id: int ad_image
 com.supers.clean.junk.R$id: int ad_native_2
@@ -48814,8 +48816,7 @@ com.supers.clean.junk.activity.MainActivity: void onDrawerOpened(android.view.Vi
 com.supers.clean.junk.activity.MainActivity: void onDrawerClosed(android.view.View)
 com.supers.clean.junk.activity.MainActivity$1: void onClick(android.view.View)
 com.supers.clean.junk.activity.MainActivity$15: void onClick(android.view.View)
-com.supers.clean.junk.activity.MainActivity$2: void onClick(android.view.View)
-com.supers.clean.junk.activity.MainActivity$3: void onClick(android.view.View)
+com.supers.clean.junk.activity.MainActivity$5: void onClick(android.view.View)
 com.supers.clean.junk.activity.MainActivity$6: void onClick(android.view.View)
 com.supers.clean.junk.activity.MainActivity$7: void onClick(android.view.View)
 com.supers.clean.junk.activity.ManagerActivity
@@ -49056,11 +49057,40 @@ com.supers.clean.junk.entity.JsonData: int full_file_1
 com.supers.clean.junk.entity.JsonData: int full_file_2
 com.supers.clean.junk.entity.JsonData: int full_similar_photo
 com.supers.clean.junk.entity.JsonData: int full_recyclebin
-com.supers.clean.junk.entity.JsonData: int inter_time
 com.supers.clean.junk.entity.JsonData: int charging
-com.supers.clean.junk.entity.JsonData: java.util.List tuiguang
+com.supers.clean.junk.entity.JsonData: int inter_time
+com.supers.clean.junk.entity.JsonData: int crossVersion
+com.supers.clean.junk.entity.JsonData: java.lang.String divide
 com.supers.clean.junk.entity.JsonData: java.util.List packageName
+com.supers.clean.junk.entity.JsonData: java.util.List cross
+com.supers.clean.junk.entity.JsonData: java.util.List crossPromotion
 com.supers.clean.junk.entity.JsonData: JsonData()
+com.supers.clean.junk.entity.JsonData$CrossBean
+com.supers.clean.junk.entity.JsonData$CrossBean: java.lang.String crossMark
+com.supers.clean.junk.entity.JsonData$CrossBean: java.util.List sequence
+com.supers.clean.junk.entity.JsonData$CrossBean: JsonData$CrossBean()
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: int mark
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.lang.String crossType
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.lang.String periodStart
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.lang.String periodEnd
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.lang.String click
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.lang.String pkg
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.lang.String label
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.lang.String url
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.lang.String iconUrl
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.lang.String topPicUrl
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.util.List appName
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: java.util.List content
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean: JsonData$CrossPromotionBean()
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean$AppNameBean
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean$AppNameBean: java.lang.String lag
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean$AppNameBean: java.lang.String content
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean$AppNameBean: JsonData$CrossPromotionBean$AppNameBean()
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean$ContentBean
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean$ContentBean: java.lang.String lag
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean$ContentBean: java.util.List content
+com.supers.clean.junk.entity.JsonData$CrossPromotionBean$ContentBean: JsonData$CrossPromotionBean$ContentBean()
 com.supers.clean.junk.entity.JunkInfo
 com.supers.clean.junk.entity.JunkInfo: long serialVersionUID
 com.supers.clean.junk.entity.JunkInfo: java.lang.String path

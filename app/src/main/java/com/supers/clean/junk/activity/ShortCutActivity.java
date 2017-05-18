@@ -117,6 +117,7 @@ public class ShortCutActivity extends BaseActivity {
                 }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
+                ll_ad.setVisibility(View.VISIBLE);
             } else {
             }
         }
@@ -191,7 +192,7 @@ public class ShortCutActivity extends BaseActivity {
                     int x = (int) (Math.random() * (10)) - 5;
                     int y = (int) (Math.random() * (10)) - 5;
                     try {
-                        Thread.sleep(80);
+                        Thread.sleep(50);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

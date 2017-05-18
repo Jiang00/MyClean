@@ -445,7 +445,6 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
         } else {
 
             lv.setVisibility(View.GONE);
-            this.finish();
             Intent intent = new Intent(AppLockPatternEosActivity.this, AppLock.class);
 //            String from = getIntent().getStringExtra("from");
 //            if (from != null) {
@@ -457,7 +456,7 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
             firstLaunchList.clear();
             firstLaunchList.addAll(firstLaunchLocked.keySet());
             next.setEnabled(true);
-
+            this.finish();
         }
         if (firstLaunchShowResult) {
             Log.e("tag", "tag2");

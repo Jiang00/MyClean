@@ -44,7 +44,9 @@ import com.eos.module.charge.saver.service.BatteryService;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
+import com.eos.ui.demo.view.CrossView;
 import com.sample.lottie.LottieAnimationView;
+import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
@@ -121,6 +123,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private PackageManager packageManager;
 
     private boolean mDrawerOpened = false;
+    private CrossData.CrossPromotionBean bean;
+    private View viewpager_3;
 
     @Override
     protected void findId() {
@@ -237,8 +241,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             view_ad.setGravity(Gravity.CENTER);
             arrayList.add(viewpager_2);
         }
-
-        final View viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_deep, null);
+        viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_deep, null);
         Button deep_ok = (Button) viewpager_3.findViewById(R.id.deep_ok);
         LinearLayout deep = (LinearLayout) viewpager_3.findViewById(R.id.deep);
         LinearLayout tap_ll = (LinearLayout) viewpager_3.findViewById(R.id.tap_ll);
@@ -265,29 +268,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 }
             });
             if (startList.size() == 0) {
-                deep.setVisibility(View.INVISIBLE);
-                lot_tap.setVisibility(View.VISIBLE);
-                DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                    }
-
-                    @Override
-                    public void onLoadView(View view) {
-                        if (view != null) {
-                            ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                            lot_main_tap = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                            lot_main_tap.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                            if (onPause) {
-                                lot_main_tap.pauseAnimation();
-                            }
-                            lot_tap.addView(view, 0);
-                        } else {
-                            lot_tap.setVisibility(View.GONE);
-                        }
-                    }
-                });
+                if (addTapTuiguang()) {
+                    deep.setVisibility(View.INVISIBLE);
+                    lot_tap.setVisibility(View.VISIBLE);
+                    arrayList.add(viewpager_3);
+                }
             } else {
                 if (startList.size() > 0) {
                     tap_iv_1.setImageDrawable(startList.get(0).icon);
@@ -314,33 +299,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     }
                 }
                 tap_deep_text.setText(getString(R.string.tap_deep, startList.size()));
+                arrayList.add(viewpager_3);
             }
-            arrayList.add(viewpager_3);
+
         } else {
-            deep.setVisibility(View.INVISIBLE);
-            lot_tap.setVisibility(View.VISIBLE);
-            DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-
-                @Override
-                public void onLoadView(View view) {
-                    if (view != null) {
-                        ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                        lot_main_tap = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                        lot_main_tap.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                        if (onPause) {
-                            lot_main_tap.pauseAnimation();
-                        }
-                        lot_tap.addView(view, 0);
-                    } else {
-                        lot_tap.setVisibility(View.GONE);
-                    }
-                }
-            });
-            arrayList.add(viewpager_3);
+            if (addTapTuiguang()) {
+                deep.setVisibility(View.INVISIBLE);
+                lot_tap.setVisibility(View.VISIBLE);
+                arrayList.add(viewpager_3);
+            }
         }
 
         viewpager = (ViewPager) findViewById(R.id.viewpager);
@@ -375,9 +342,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         view.postDelayed(new Runnable() {
             @Override
             public void run() {
-                viewpager.setCurrentItem(1);
+                viewpager.setCurrentItem(2);
             }
         }, 3000);
+        view.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                viewpager.setCurrentItem(1);
+            }
+        }, 4000);
 //        }
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
@@ -392,12 +365,33 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     }
 
+    private boolean addTapTuiguang() {
+        if (bean == null || bean.pkg == null) {
+            return false;
+        }
+        Picasso.with(this).load(bean.iconUrl).into((ImageView) viewpager_3.findViewById(R.id.ad_icon));
+        Picasso.with(this).load(bean.topPicUrl).into((ImageView) viewpager_3.findViewById(R.id.ad_image));
+        ((TextView) viewpager_3.findViewById(R.id.ad_title)).setText(bean.appName.get(0).content);
+        ((TextView) viewpager_3.findViewById(R.id.ad_subtitle)).setText(bean.content.get(0).content.get(0));
+        ((TextView) viewpager_3.findViewById(R.id.ad_action)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CommonUtil.isPkgInstalled(bean.pkg, packageManager)) {
+                    CommonUtil.doStartApplicationWithPackageName(MainActivity.this, bean.pkg);
+                } else {
+                    UtilGp.openPlayStore(getApplicationContext(), bean.pkg);
+                }
+            }
+        });
+        return true;
+    }
+
     public void tuiGuang() {
         super.tuiGuang();
 //        if (true) {
 //            return;
 //        }
-        CrossData.CrossPromotionBean bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
+        bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
         if (bean != null) {
             tuiguang = bean.pkg;
         }

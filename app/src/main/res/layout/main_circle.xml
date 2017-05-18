@@ -15,11 +15,11 @@
 
         <RelativeLayout
             android:id="@+id/main_cpu_air_button"
-            android:layout_width="@dimen/d90"
-            android:layout_height="@dimen/d90"
+            android:layout_width="@dimen/d95"
+            android:layout_height="@dimen/d95"
             android:layout_gravity="right"
             android:layout_marginRight="@dimen/d82"
-            android:layout_marginTop="@dimen/d24">
+            android:layout_marginTop="@dimen/d23">
 
             <com.supers.clean.junk.customeview.CustomRoundCpu
                 android:id="@+id/main_custom_cpu"
@@ -35,7 +35,6 @@
                 android:orientation="vertical">
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_cpu_temp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,26 +43,27 @@
                     android:text="33℃"
                     android:textColor="@color/A6"
                     android:textSize="@dimen/s21"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:typeface="eos_clean.otf" />
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                    app:typeface="eos_clean.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/main_arc_cpu"
                     android:textColor="@color/A6"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/main_sd_air_button"
-            android:layout_width="@dimen/d141"
-            android:layout_height="@dimen/d141"
-            android:layout_marginLeft="@dimen/d40"
-            android:layout_marginTop="@dimen/d56">
+            android:layout_width="@dimen/d146"
+            android:layout_height="@dimen/d146"
+            android:layout_marginLeft="@dimen/d37"
+            android:layout_marginTop="@dimen/d53">
 
             <com.supers.clean.junk.customeview.CustomRoundCpu
                 android:id="@+id/main_custom_sd"
@@ -78,7 +78,6 @@
                 android:orientation="vertical">
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_sd_per"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -88,10 +87,10 @@
                     android:text="78%"
                     android:textColor="@color/A6"
                     android:textSize="@dimen/s38"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:typeface="eos_clean.otf" />
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_sd_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,23 +98,24 @@
                     android:layout_marginBottom="@dimen/d4"
                     android:text="1.3/1.7GB"
                     android:textColor="@color/A7"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                    app:typeface="eos_clean.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/main_arc_sd"
                     android:textColor="@color/A6"
-                    android:textSize="@dimen/s11" />
+                    android:textSize="@dimen/s11"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/main_ram_air_button"
-            android:layout_width="@dimen/d160"
-            android:layout_height="@dimen/d160"
+            android:layout_width="@dimen/d161"
+            android:layout_height="@dimen/d161"
             android:layout_marginLeft="@dimen/d141"
             android:layout_marginTop="@dimen/d127">
 
@@ -132,7 +132,6 @@
                 android:orientation="vertical">
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_ram_per"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -142,10 +141,10 @@
                     android:text="78%"
                     android:textColor="@color/A6"
                     android:textSize="@dimen/s48"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:typeface="eos_clean.otf" />
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                    app:typeface="eos_clean.otf"
                     android:id="@+id/main_ram_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -153,16 +152,17 @@
                     android:layout_marginBottom="@dimen/d4"
                     android:text="1.3/1.7GB"
                     android:textColor="@color/A7"
-                    android:textSize="@dimen/s12" />
+                    android:textSize="@dimen/s12"
+                    app:typeface="eos_clean.otf" />
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                    app:typeface="eos_clean.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/main_arc_ram"
                     android:textColor="@color/A6"
-                    android:textSize="@dimen/s11" />
+                    android:textSize="@dimen/s11"
+                    app:typeface="eos_clean.otf" />
             </LinearLayout>
         </RelativeLayout>
 

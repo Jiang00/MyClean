@@ -258,8 +258,8 @@ public class SuccessActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    success_jiantou.clearAnimation();
-                    success_jiantou.setVisibility(View.INVISIBLE);
+//                    success_jiantou.clearAnimation();
+//                    success_jiantou.setVisibility(View.INVISIBLE);
 //                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, data.inter_time * 1000);

@@ -65,10 +65,10 @@ public class CustomRoundCpu extends View {
         super.onDraw(canvas);
         circlePoint.setColor(context.getResources().getColor(R.color.B4));
         RectF rect = new RectF();
-        rect.left = 0 + lineWidth / 2;
-        rect.right = size - lineWidth / 2;
-        rect.top = 0 + lineWidth / 2;
-        rect.bottom = size - lineWidth / 2;
+        rect.left = 0 + lineWidth / 2+1;
+        rect.right = size - lineWidth / 2-1;
+        rect.top = 0 + lineWidth / 2+1;
+        rect.bottom = size - lineWidth / 2-1;
         RectF rectBack = new RectF();
         rectBack.left = 0 + 1;
         rectBack.right = size - 1;

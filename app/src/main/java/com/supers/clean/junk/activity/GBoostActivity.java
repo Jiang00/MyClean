@@ -135,7 +135,7 @@ public class GBoostActivity extends BaseActivity {
         title_name.setText(R.string.gboost_0);
 
         long size = MemoryManager.getPhoneFreeRamMemory(this);
-        gboost_ram_size.setText(CommonUtil.convertStorage(size,true) );
+        gboost_ram_size.setText(CommonUtil.convertStorage(size, true));
 
         if (CommonUtil.isAccessibilitySettingsOn(this)) {
             gboost_power_check.setImageResource(R.mipmap.side_check_passed);
@@ -408,7 +408,7 @@ public class GBoostActivity extends BaseActivity {
                             }
                             gboost_cpu_szie.setText(cup + "%");
                             gboost_network_size.setText(CommonUtil.convertStorageWifi(speed));
-                            gboost_ram_size.setText(CommonUtil.convertStorage(size,true) );
+                            gboost_ram_size.setText(CommonUtil.convertStorage(size, true));
                         }
                     });
                     try {
