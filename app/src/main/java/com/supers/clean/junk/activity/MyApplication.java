@@ -12,6 +12,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.clean.core.CleanManager;
 import com.eos.kpa.DaemonClient;
 import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
@@ -35,7 +36,6 @@ import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.TopActivityPkg;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
@@ -255,6 +255,7 @@ public class MyApplication extends App {
         Utils.writeData(this, Constants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
         Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
 
+        CleanManager.getInstance(this).startWorkLoad();
         if (PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationService.class);
             intent.setAction("notification");

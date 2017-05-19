@@ -55,6 +55,9 @@ import java.util.Vector;
  * @see android.os.AsyncTask
  */
 public class CleanService extends Service {
+    private static final int MSG_LOOP_LOAD = 100;
+    private static final int MSG__LOAD = 101;
+
     private static final int LOAD_TIME_INTERVAL = 1000 * 60 * 5;
     private volatile Looper mServiceLooper;
     private volatile ServiceHandler mServiceHandler;
@@ -70,6 +73,20 @@ public class CleanService extends Service {
         @Override
         public void handleMessage(Message msg) {
             onHandleIntent((Intent) msg.obj);
+            if (msg.what == MSG__LOAD) {
+                cleanManager.load();
+                Message msg1 = mServiceHandler.obtainMessage();
+                msg1.what = MSG_LOOP_LOAD;
+                mServiceHandler.sendMessageDelayed(msg1, LOAD_TIME_INTERVAL);
+            } else if (msg.what == MSG_LOOP_LOAD) {
+                String pkg = TopActivityPkg.getTopPackageName(getApplicationContext());
+                if (!TextUtils.equals(getPackageName(), pkg)) {
+                    cleanManager.load();
+                }
+                Message msg1 = mServiceHandler.obtainMessage();
+                msg1.what = MSG_LOOP_LOAD;
+                mServiceHandler.sendMessageDelayed(msg1, LOAD_TIME_INTERVAL);
+            }
         }
     }
 
@@ -121,7 +138,7 @@ public class CleanService extends Service {
         mServiceHandler = new ServiceHandler(mServiceLooper);
 
         Message msg = mServiceHandler.obtainMessage();
-
+        msg.what = MSG__LOAD;
         mServiceHandler.sendMessage(msg);
     }
 
@@ -134,6 +151,7 @@ public class CleanService extends Service {
      */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         return mRedelivery ? START_REDELIVER_INTENT : START_NOT_STICKY;
     }
 
@@ -167,12 +185,7 @@ public class CleanService extends Service {
      */
     @WorkerThread
     protected void onHandleIntent(Intent intent) {
-        String pkg = TopActivityPkg.getTopPackageName(getApplicationContext());
-        if (!TextUtils.equals(getPackageName(), pkg)) {
-            cleanManager.load();
-        }
-        Message msg1 = mServiceHandler.obtainMessage();
-        mServiceHandler.sendMessageDelayed(msg1, LOAD_TIME_INTERVAL);
+
     }
 
 
