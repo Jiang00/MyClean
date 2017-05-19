@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.clean.util.PreData;
+import com.android.clean.whitelist.WhiteListHelper;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
@@ -53,11 +54,11 @@ public class NotifiSettingAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 if (!info.isnotifiWhiteList) {
                     info.isnotifiWhiteList = true;
-                    PreData.addName(context, info.packageName, Constant.NOTIFI_WHILT_LIST);
+                    WhiteListHelper.getInstance(context).addItem(WhiteListHelper.TableType.Notification, info.packageName);
                     holder.checkBox.setImageResource(R.mipmap.side_check_normal);
                 } else {
                     info.isnotifiWhiteList = false;
-                    PreData.removeName(context, info.packageName, Constant.NOTIFI_WHILT_LIST);
+                    WhiteListHelper.getInstance(context).deleteItem(WhiteListHelper.TableType.Notification, info.packageName);
                     holder.checkBox.setImageResource(R.mipmap.side_check_passed);
                 }
             }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
+import com.android.clean.whitelist.WhiteListHelper;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
@@ -30,7 +31,7 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
     public RamAdapter(Context context, RamPresenter ramPresenter) {
         super(context);
         this.ramPresenter = ramPresenter;
-        white_list = PreData.getNameList(context, Constant.WHILT_LIST);
+        white_list = WhiteListHelper.getInstance(context).getWhiteList(WhiteListHelper.TableType.Ram);
 
     }
 
@@ -41,7 +42,7 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
     @Override
     public void upList(List<JunkInfo> list) {
         super.upList(list);
-        white_list = PreData.getNameList(context, Constant.WHILT_LIST);
+        white_list = WhiteListHelper.getInstance(context).getWhiteList(WhiteListHelper.TableType.Ram);
     }
 
     @Override
@@ -119,7 +120,7 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 dialog.dismiss();
                 ramPresenter.addWhiteList(pkg);
-                PreData.addName(context, pkg, Constant.WHILT_LIST);
+                WhiteListHelper.getInstance(context).addItem(WhiteListHelper.TableType.Ram, pkg);
             }
         });
         cancle.setOnClickListener(new View.OnClickListener() {

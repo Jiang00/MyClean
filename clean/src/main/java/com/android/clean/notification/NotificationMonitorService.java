@@ -15,6 +15,7 @@ import android.widget.RemoteViews;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.util.PreData;
+import com.android.clean.whitelist.WhiteListHelper;
 
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class NotificationMonitorService extends NotificationListenerService {
         if (null == pkg) {
             return;
         }
-        List<String> notifi_white = PreData.getNameList(this, NOTIFI_WHILT_LIST);
+        List<String> notifi_white = WhiteListHelper.getInstance(this).getWhiteList(WhiteListHelper.TableType.Notification);
         if (notifi_white.contains(pkg)) {
             return;
         }

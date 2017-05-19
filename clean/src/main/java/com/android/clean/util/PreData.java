@@ -146,58 +146,5 @@ public final class PreData {
         return defValue;
     }
 
-    // ******************* SharedPreference End *******************//
 
-    //    whiteList
-    public static void addName(Context context, String name, String key) {
-        String nameList = getDB(context, key, "");
-        if (nameList != null) {
-            String[] tmp = nameList.split(",");
-            ArrayList<String> lst = new ArrayList<>();
-            for (int i = 0; i < tmp.length; i++) {
-                lst.add(tmp[i]);
-            }
-            if (!lst.contains(name)) {
-                lst.add(name);
-                nameList = "";
-                Iterator<String> it = lst.iterator();
-                while (it.hasNext()) {
-                    nameList += it.next() + ",";
-                }
-                putDB(context, key, nameList);
-            }
-        } else {
-            putDB(context, key, name);
-        }
-    }
-
-    public static ArrayList<String> getNameList(Context context, String key) {
-        String nameList = getDB(context, key, "");
-        String[] tmp = nameList.split(",");
-        ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < tmp.length; i++) {
-            list.add(tmp[i]);
-        }
-        return list;
-    }
-
-    public static void removeName(Context context, String name, String key) {
-        String nameList = getDB(context, key, "");
-        if (nameList != null) {
-            String[] tmp = nameList.split(",");
-            ArrayList<String> lst = new ArrayList<>();
-            for (int i = 0; i < tmp.length; i++) {
-                lst.add(tmp[i]);
-            }
-            if (lst.contains(name)) {
-                lst.remove(name);
-                nameList = "";
-                Iterator<String> it = lst.iterator();
-                while (it.hasNext()) {
-                    nameList += it.next() + ",";
-                }
-                putDB(context, key, nameList);
-            }
-        }
-    }
 }

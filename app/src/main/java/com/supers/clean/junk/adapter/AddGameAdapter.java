@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.clean.util.Util;
+import com.android.clean.whitelist.WhiteListHelper;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.entity.JunkInfo;
@@ -67,7 +68,7 @@ public class AddGameAdapter extends MybaseAdapter<JunkInfo> {
                     }
                 }
                 if (!isContains) {
-                    PreData.addName(context, info.packageName, Constant.GBOOST_LIST);
+                    WhiteListHelper.getInstance(context).addItem(WhiteListHelper.TableType.GameBoost,info.packageName);
                     game_list.add(info.packageName);
                     Util.track("游戏加速页面", "添加游戏到列表", info.label, 1);
                     Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);

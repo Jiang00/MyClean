@@ -16,6 +16,7 @@ import android.os.UserHandle;
 import android.text.TextUtils;
 
 
+import com.android.clean.whitelist.WhiteListHelper;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
 import com.android.clean.util.PreData;
@@ -40,8 +41,8 @@ public class AppManagerTask extends SimpleTask {
 
     public AppManagerTask(Context context, SimpleTaskListener simpleTaskListener) {
         super(context, simpleTaskListener);
-        whiteList = PreData.getNameList(context, Constant.WHILT_LIST);
-        notifi_whiteList = PreData.getNameList(context, Constant.NOTIFI_WHILT_LIST);
+        whiteList = WhiteListHelper.getInstance(context).getWhiteList(WhiteListHelper.TableType.Ram);
+        notifi_whiteList = WhiteListHelper.getInstance(context).getWhiteList(WhiteListHelper.TableType.Notification);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)

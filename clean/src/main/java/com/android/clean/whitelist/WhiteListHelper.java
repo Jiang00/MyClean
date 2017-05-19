@@ -92,7 +92,8 @@ public class WhiteListHelper extends SQLiteOpenHelper {
         getWritableDatabase().execSQL("DROP TABLE IF EXISTS " + tableName);
     }
 
-    private boolean deleteItem(TableType tableType, String pkgName) {
+    public boolean deleteItem(TableType tableType, String pkgName) {
+
         String table_name = getTableName(tableType);
         String sql = "delete from " + table_name + "  where " + PKG_NAME + "=" + pkgName;
         try {
@@ -103,7 +104,7 @@ public class WhiteListHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    private boolean addItem(TableType tableType, String pkgName) {
+    public boolean addItem(TableType tableType, String pkgName) {
         createTable(tableType);
         String table_name = getTableName(tableType);
         String sql = "insert into " + table_name + "(" + PKG_NAME + ")" +

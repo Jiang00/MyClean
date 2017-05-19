@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
+import com.android.clean.whitelist.WhiteListHelper;
 import com.supers.clean.junk.activity.UnloadActivity;
 import com.supers.clean.junk.util.Constant;
 
@@ -34,7 +35,7 @@ public class UnloadBroadcast extends BroadcastReceiver {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    ArrayList<String> gboost_names = PreData.getNameList(context, Constant.GBOOST_LIST);
+                    ArrayList<String> gboost_names = WhiteListHelper.getInstance(context).getWhiteList(WhiteListHelper.TableType.GameBoost);
                     try {
                         String data = Util.readFileFromAssets(context, "raw/gboost.json");
                         JSONObject jsonObject = new JSONObject(data);
@@ -42,7 +43,7 @@ public class UnloadBroadcast extends BroadcastReceiver {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             String pkg = (String) jsonArray.get(i);
                             if (!gboost_names.contains(pkg)) {
-                                PreData.addName(context, pkg, Constant.GBOOST_LIST);
+                                WhiteListHelper.getInstance(context).addItem(WhiteListHelper.TableType.Ram, pkg);
                             }
                         }
                     } catch (Exception e) {
