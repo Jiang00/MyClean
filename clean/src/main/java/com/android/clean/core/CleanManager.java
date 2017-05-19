@@ -37,7 +37,7 @@ import com.android.clean.notification.NotificationInfo;
 import com.android.clean.notification.NotificationMonitorService;
 import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
-import com.android.clean.whitelist.WhiteListHelper;
+import com.android.clean.db.CleanDBHelper;
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
 
@@ -169,7 +169,7 @@ public class CleanManager {
     }
 
     public void loadAppRam(AppRamCallBack appRamCallBack) {
-        List<String> ignoreApp = WhiteListHelper.getInstance(mContext).getWhiteList(WhiteListHelper.TableType.Ram);
+        List<String> ignoreApp = CleanDBHelper.getInstance(mContext).getWhiteList(CleanDBHelper.TableType.Ram);
         List<String> whiteList = new ArrayList<>();
         List<AndroidAppProcess> listInfo = AndroidProcesses.getRunningAppProcesses();
         ramSize = 0;

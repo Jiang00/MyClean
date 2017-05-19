@@ -22,7 +22,7 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
-import com.android.clean.whitelist.WhiteListHelper;
+import com.android.clean.db.CleanDBHelper;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.presenter.GetTopApp;
@@ -104,7 +104,7 @@ public class FloatService extends Service {
                 if (!TextUtils.equals(pkg, runingGboost)) {
                     runingGboost = pkg;
                     if (PreData.getDB(FloatService.this, Constant.TONGZHILAN_SWITCH, true)) {
-                        ArrayList<String> gboost_names = WhiteListHelper.getInstance(FloatService.this).getWhiteList(WhiteListHelper.TableType.GameBoost);
+                        ArrayList<String> gboost_names = CleanDBHelper.getInstance(FloatService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(FloatService.this, NotificationService.class);
                             intent.setAction("gboost");

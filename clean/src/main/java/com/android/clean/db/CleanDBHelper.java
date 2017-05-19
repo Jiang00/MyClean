@@ -1,4 +1,4 @@
-package com.android.clean.whitelist;
+package com.android.clean.db;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Created by renqingyou on 2017/5/19.
  */
 
-public class WhiteListHelper extends SQLiteOpenHelper {
+public class CleanDBHelper extends SQLiteOpenHelper {
     public static final String CLEAN_DB = "clean.db";
     public static final int DB_VERSION = 1;
 
@@ -27,9 +27,9 @@ public class WhiteListHelper extends SQLiteOpenHelper {
 
     public static final String GAME_BOOST_TABLE_NAME = "game_boost";
 
-    private static final String TAG = "WhiteListHelper";
+    private static final String TAG = "CleanDBHelper";
 
-    private static WhiteListHelper whiteListHelper;
+    private static CleanDBHelper cleanDBHelper;
 
     private Context mContext;
 
@@ -37,16 +37,16 @@ public class WhiteListHelper extends SQLiteOpenHelper {
         Ram, Notification, GameBoost
     }
 
-    private WhiteListHelper(Context context) {
+    private CleanDBHelper(Context context) {
         super(context.getApplicationContext(), CLEAN_DB, null, DB_VERSION);
         mContext = context.getApplicationContext();
     }
 
-    public synchronized static WhiteListHelper getInstance(Context context) {
-        if (whiteListHelper == null) {
-            whiteListHelper = new WhiteListHelper(context);
+    public synchronized static CleanDBHelper getInstance(Context context) {
+        if (cleanDBHelper == null) {
+            cleanDBHelper = new CleanDBHelper(context);
         }
-        return whiteListHelper;
+        return cleanDBHelper;
     }
 
     @Override

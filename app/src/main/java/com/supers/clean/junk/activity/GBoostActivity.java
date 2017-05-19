@@ -28,11 +28,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.clean.db.CleanDBHelper;
 import com.android.clean.gboost.GameBooster;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.clean.util.LoadManager;
-import com.android.clean.whitelist.WhiteListHelper;
 import com.rd.PageIndicatorView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.AddGameAdapter;
@@ -168,7 +168,7 @@ public class GBoostActivity extends BaseActivity {
                     list.addAll(GameBooster.getInstalledGameList(GBoostActivity.this));
                     shortGame(false);
                 }
-                ArrayList<String> gboost_names = WhiteListHelper.getInstance(GBoostActivity.this).getWhiteList(WhiteListHelper.TableType.GameBoost);
+                ArrayList<String> gboost_names = CleanDBHelper.getInstance(GBoostActivity.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                 for (String pkg : gboost_names) {
                     if (LoadManager.getInstance(GBoostActivity.this).isPkgInstalled(pkg)) {
                         list.add(pkg);
@@ -500,7 +500,7 @@ public class GBoostActivity extends BaseActivity {
     }
 
     private void initData() {
-        ArrayList<String> gboost_names = WhiteListHelper.getInstance(this).getWhiteList(WhiteListHelper.TableType.GameBoost);
+        ArrayList<String> gboost_names = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.GameBoost);
         gboost_add.clear();
         for (JunkInfo info : ((MyApplication) getApplication()).getListMng()) {
             boolean isA = false;

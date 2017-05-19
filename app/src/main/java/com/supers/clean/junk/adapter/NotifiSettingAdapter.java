@@ -7,11 +7,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.clean.util.PreData;
-import com.android.clean.whitelist.WhiteListHelper;
+import com.android.clean.db.CleanDBHelper;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.util.Constant;
 
 /**
  * Created by Ivy on 2017/4/17.
@@ -54,11 +52,11 @@ public class NotifiSettingAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 if (!info.isnotifiWhiteList) {
                     info.isnotifiWhiteList = true;
-                    WhiteListHelper.getInstance(context).addItem(WhiteListHelper.TableType.Notification, info.packageName);
+                    CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.Notification, info.packageName);
                     holder.checkBox.setImageResource(R.mipmap.side_check_normal);
                 } else {
                     info.isnotifiWhiteList = false;
-                    WhiteListHelper.getInstance(context).deleteItem(WhiteListHelper.TableType.Notification, info.packageName);
+                    CleanDBHelper.getInstance(context).deleteItem(CleanDBHelper.TableType.Notification, info.packageName);
                     holder.checkBox.setImageResource(R.mipmap.side_check_passed);
                 }
             }

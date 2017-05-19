@@ -6,13 +6,11 @@ import android.content.pm.PackageManager;
 import android.os.Debug.MemoryInfo;
 
 
-import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
-import com.android.clean.whitelist.WhiteListHelper;
+import com.android.clean.db.CleanDBHelper;
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +28,7 @@ public class RamTask extends SimpleTask {
     void loadData() {
         dataList = new ArrayList<>();
         dataSize = 0;
-        List ignoreApp = WhiteListHelper.getInstance(mContext).getWhiteList(WhiteListHelper.TableType.Ram);
+        List ignoreApp = CleanDBHelper.getInstance(mContext).getWhiteList(CleanDBHelper.TableType.Ram);
         List<AndroidAppProcess> listInfo = AndroidProcesses.getRunningAppProcesses();
         if (listInfo != null) {
 

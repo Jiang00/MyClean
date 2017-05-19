@@ -14,13 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.clean.util.PreData;
+import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.Util;
-import com.android.clean.whitelist.WhiteListHelper;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.MyApplication;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.util.Constant;
 
 /**
  */
@@ -64,12 +62,12 @@ public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 info.isWhiteList = !info.isWhiteList;
                 if (info.isWhiteList) {
-                    WhiteListHelper.getInstance(context).addItem(WhiteListHelper.TableType.Ram, info.packageName);
+                    CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.Ram, info.packageName);
                     showToast(info.label + context.getText(R.string.white_list_jiaru));
                     Util.track("白名单页面", "选中" + info.label, "", 1);
                 } else {
                     showToast(info.label + context.getText(R.string.white_list_yichu));
-                    WhiteListHelper.getInstance(context).deleteItem(WhiteListHelper.TableType.Ram, info.packageName);
+                    CleanDBHelper.getInstance(context).deleteItem(CleanDBHelper.TableType.Ram, info.packageName);
                 }
                 for (JunkInfo junkInfo : ((MyApplication) ((Activity) context).getApplication()).getListMng()) {
                     if (info.packageName.equals(junkInfo.packageName)) {
