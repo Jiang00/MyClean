@@ -15,6 +15,7 @@ import android.util.Log;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.notification.NotificationMonitorService;
+import com.android.clean.util.Util;
 import com.eos.kpa.DaemonClient;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
@@ -31,7 +32,6 @@ import com.supers.clean.junk.task.FilesOfUninstalledAppTask;
 import com.supers.clean.junk.task.RamTask;
 import com.supers.clean.junk.task.SimpleTask;
 import com.supers.clean.junk.task.SystemCacheTask;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.TopActivityPkg;
@@ -188,7 +188,7 @@ public class MyApplication extends Application {
 
 
     public void removeAppCache(JunkInfo fileListInfo) {
-        CommonUtil.deleteFile(fileListInfo.path);
+        Util.deleteFile(fileListInfo.path);
         dataSize -= fileListInfo.size;
         if (appCache != null) {
             appCache.remove(fileListInfo);
@@ -196,7 +196,7 @@ public class MyApplication extends Application {
     }
 
     public void removeAppJunk(JunkInfo fileListInfo) {
-        CommonUtil.deleteFile(fileListInfo.path);
+        Util.deleteFile(fileListInfo.path);
         logSize -= fileListInfo.size;
         if (appJunk != null) {
             appJunk.remove(fileListInfo);
@@ -204,7 +204,7 @@ public class MyApplication extends Application {
     }
 
     public void removeFilesOfUnintalledApk(JunkInfo fileListInfo) {
-        CommonUtil.deleteFile(fileListInfo.path);
+        Util.deleteFile(fileListInfo.path);
         unloadSize -= fileListInfo.size;
         if (filesOfUnintallApk != null) {
             filesOfUnintallApk.remove(fileListInfo);
@@ -212,7 +212,7 @@ public class MyApplication extends Application {
     }
 
     public void removeApkFiles(JunkInfo fileListInfo) {
-        CommonUtil.deleteFile(fileListInfo.path);
+        Util.deleteFile(fileListInfo.path);
         apkSize -= fileListInfo.size;
         if (apkFiles != null) {
             apkFiles.remove(fileListInfo);
@@ -254,11 +254,11 @@ public class MyApplication extends Application {
         }
 
         //启动通知兰清理
-        if (CommonUtil.isNotificationListenEnabled(this) && PreData.getDB(this, Constant.KEY_NOTIFI, false)) {
+        if (Util.isNotificationListenEnabled(this) && PreData.getDB(this, Constant.KEY_NOTIFI, false)) {
             startService(new Intent(this, NotificationMonitorService.class));
         }
 
-        String name = CommonUtil.getProcessName(this);
+        String name = Util.getProcessName(this);
         if (!TextUtils.equals(name, getPackageName())) {
             return;
         }
@@ -276,7 +276,7 @@ public class MyApplication extends Application {
         asyncInitData();
 
         if (PreData.getDB(this, Constant.FIRST_INSTALL, true)) {
-            PreData.putDB(this, Constant.IS_ACTION_BAR, CommonUtil.checkDeviceHasNavigationBar(this));
+            PreData.putDB(this, Constant.IS_ACTION_BAR, Util.checkDeviceHasNavigationBar(this));
             PreData.putDB(this, Constant.FIRST_INSTALL, false);
         }
         if (LeakCanary.isInAnalyzerProcess(this)) {

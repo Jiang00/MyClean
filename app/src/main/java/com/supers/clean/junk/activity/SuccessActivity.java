@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.clean.util.LoadManager;
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
@@ -38,7 +39,6 @@ import com.supers.clean.junk.customeview.DrawHookView;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.customeview.SlowScrollView;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.UtilGp;
@@ -207,13 +207,13 @@ public class SuccessActivity extends BaseActivity {
         //降温
         int wendu = getIntent().getIntExtra("wendu", 0);
         if (sizeR > 0) {
-            success_clean_size.setText(getString(R.string.success_3, CommonUtil.convertStorage(sizeR, true)));
+            success_clean_size.setText(getString(R.string.success_3, Util.convertStorage(sizeR, true)));
         } else if (sizeJ > 0) {
-            success_clean_size.setText(getString(R.string.success_2, CommonUtil.convertStorage(sizeJ, true)));
+            success_clean_size.setText(getString(R.string.success_2, Util.convertStorage(sizeJ, true)));
         } else if (count > 0) {
             success_clean_size.setText(getString(R.string.power_1, String.valueOf(count)) + " ");
         } else if (sizeF > 0) {
-            success_clean_size.setText(getString(R.string.success_7, CommonUtil.convertStorage(sizeF, true)));
+            success_clean_size.setText(getString(R.string.success_7, Util.convertStorage(sizeF, true)));
         } else if (num > 0) {
             success_clean_size.setText(getString(R.string.success_6, num + ""));
         } else if (wendu > 0) {
@@ -351,9 +351,9 @@ public class SuccessActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = CommonUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = CommonUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
-        native_title = CommonUtil.getNativeAdView(TAG_TITLE, R.layout.native_ad_title);
+        nativeView = Util.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
+        native_xiao = Util.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+        native_title = Util.getNativeAdView(TAG_TITLE, R.layout.native_ad_title);
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight();
@@ -573,23 +573,23 @@ public class SuccessActivity extends BaseActivity {
                         finish();
                         return;
                     }
-                    CommonUtil.track("完成页面", "点击进入深度清理", "", 1);
+                    Util.track("完成页面", "点击进入深度清理", "", 1);
                     PreData.putDB(SuccessActivity.this, Constant.DEEP_CLEAN, true);
                     jumpTo(PowerActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_junk_button:
-                    CommonUtil.track("完成页面", "点击进入垃圾清理", "", 1);
+                    Util.track("完成页面", "点击进入垃圾清理", "", 1);
                     jumpTo(JunkActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_ram_button:
-                    CommonUtil.track("完成页面", "点击进入内存加速", "", 1);
+                    Util.track("完成页面", "点击进入内存加速", "", 1);
                     jumpTo(RamAvtivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_cooling_button:
-                    CommonUtil.track("完成页面", "点击进入降温页面", "", 1);
+                    Util.track("完成页面", "点击进入降温页面", "", 1);
                     jumpTo(CoolingActivity.class);
                     onBackPressed();
                     break;
@@ -598,7 +598,7 @@ public class SuccessActivity extends BaseActivity {
                         finish();
                         return;
                     }
-                    CommonUtil.track("完成页面", "点击进入文件管理", "", 1);
+                    Util.track("完成页面", "点击进入文件管理", "", 1);
                     PreData.putDB(SuccessActivity.this, Constant.FILE_CLEAN, true);
                     jumpTo(FileActivity.class);
                     onBackPressed();
@@ -608,7 +608,7 @@ public class SuccessActivity extends BaseActivity {
                         finish();
                         return;
                     }
-                    CommonUtil.track("完成页面", "点击进入游戏加速", "", 1);
+                    Util.track("完成页面", "点击进入游戏加速", "", 1);
                     PreData.putDB(SuccessActivity.this, Constant.GBOOST_CLEAN, true);
                     jumpTo(GBoostActivity.class);
                     onBackPressed();
@@ -618,15 +618,15 @@ public class SuccessActivity extends BaseActivity {
                         finish();
                         return;
                     }
-                    CommonUtil.track("完成页面", "点击进入相似图片", "", 1);
+                    Util.track("完成页面", "点击进入相似图片", "", 1);
                     PreData.putDB(SuccessActivity.this, Constant.PHOTO_CLEAN, true);
                     jumpTo(PictureActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_notifi_button:
-                    CommonUtil.track("完成页面", "点击进入通知栏清理", "", 1);
+                    Util.track("完成页面", "点击进入通知栏清理", "", 1);
                     PreData.putDB(SuccessActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!CommonUtil.isNotificationListenEnabled(SuccessActivity.this)) {
+                    if (!Util.isNotificationListenEnabled(SuccessActivity.this)) {
                         startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
                     } else if (!PreData.getDB(SuccessActivity.this, Constant.KEY_NOTIFI, true)) {
                         Intent intent6 = new Intent(SuccessActivity.this, NotifiInfoActivity.class);
@@ -641,7 +641,7 @@ public class SuccessActivity extends BaseActivity {
                     break;
                 case R.id.main_tuiguang_button:
                     if (LoadManager.getInstance(SuccessActivity.this).isPkgInstalled(tuiguang)) {
-                        CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
+                        Util.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
                     } else {
                         UtilGp.openPlayStore(getApplicationContext(), tuiguang);
                     }
@@ -653,7 +653,7 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100) {
-            if (CommonUtil.isNotificationListenEnabled(SuccessActivity.this)) {
+            if (Util.isNotificationListenEnabled(SuccessActivity.this)) {
                 PreData.putDB(SuccessActivity.this, Constant.KEY_NOTIFI, true);
                 Intent intent = new Intent(SuccessActivity.this, NotifiActivity.class);
                 startActivity(intent);

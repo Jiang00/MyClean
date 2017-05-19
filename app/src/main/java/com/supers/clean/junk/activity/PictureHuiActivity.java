@@ -25,7 +25,7 @@ import com.android.clean.similarimage.ImageInfo;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.android.clean.similarimage.RecyclerDbHelper;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -107,7 +107,7 @@ public class PictureHuiActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = CommonUtil.getNativeAdView(TAG_RECYCLE, R.layout.native_ad_3);
+        nativeView = Util.getNativeAdView(TAG_RECYCLE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);
@@ -403,7 +403,7 @@ public class PictureHuiActivity extends BaseActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        final Bitmap bitma = imageHelper.pathWithScaledBitmap(PictureHuiActivity.this, info.backFilePath, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
+                        final Bitmap bitma = imageHelper.pathWithScaledBitmap(PictureHuiActivity.this, info.backFilePath, Util.dp2px(112), Util.dp2px(112));
                         if (bitma == null) {
                         } else {
                             runOnUiThread(new Runnable() {
@@ -434,7 +434,7 @@ public class PictureHuiActivity extends BaseActivity {
                 last = calendar.getTimeInMillis();
             }
 
-            holder.picture_time.setText((CommonUtil.millTransFate(RecyclerDbHelper.RECYCLER_AUTO_DELETE_INTERVAL - (time - last)) + 1) + " " + getText(R.string.picture_11));
+            holder.picture_time.setText((Util.millTransFate(RecyclerDbHelper.RECYCLER_AUTO_DELETE_INTERVAL - (time - last)) + 1) + " " + getText(R.string.picture_11));
             holder.picture_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

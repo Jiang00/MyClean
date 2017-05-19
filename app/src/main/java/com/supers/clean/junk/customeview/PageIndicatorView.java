@@ -6,8 +6,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
-import com.android.clean.util.CommonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +44,8 @@ public class PageIndicatorView extends LinearLayout {
         setGravity(Gravity.CENTER);
         setOrientation(HORIZONTAL);
 
-        dotSize = CommonUtil.dp2px(dotSize);
-        margins = CommonUtil.dp2px(margins);
+        dotSize = Util.dp2px(dotSize);
+        margins = Util.dp2px(margins);
     }
 
     /**

@@ -3,7 +3,7 @@ package com.android.clean.gboost;
 
 import android.app.Activity;
 
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.android.clean.util.Constant;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
@@ -25,7 +25,7 @@ public class GameBooster {
         try {
             if (PreData.getDB(context, Constant.GBOOST_LUN, true)) {
                 PreData.putDB(context, Constant.GBOOST_LUN, false);
-                String data = CommonUtil.readFileFromAssets(context, "raw/gboost.json");
+                String data = Util.readFileFromAssets(context, "raw/gboost.json");
                 JSONObject jsonObject = new JSONObject(data);
                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                 for (int i = 0; i < jsonArray.length(); i++) {

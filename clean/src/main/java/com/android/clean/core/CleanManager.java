@@ -32,11 +32,10 @@ import com.android.clean.entity.UninstallResidual;
 import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.filemanager.FileInfo;
 import com.android.clean.filemanager.FileSortHelper;
-import com.android.clean.filemanager.Util;
 import com.android.clean.notification.NotificationCallBack;
 import com.android.clean.notification.NotificationInfo;
 import com.android.clean.notification.NotificationMonitorService;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
 import com.android.clean.whitelist.WhiteListHelper;
 import com.jaredrummler.android.processes.AndroidProcesses;
@@ -181,7 +180,7 @@ public class CleanManager {
                 String packageName = info.name;
                 try {
                     ApplicationInfo otherInfo = mContext.getPackageManager().getApplicationInfo(packageName, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES);
-                    if (!CommonUtil.isThirdApp(otherInfo) || packageName.equals(mContext.getPackageName()) || packageName.contains("com.eosmobi")) {
+                    if (!Util.isThirdApp(otherInfo) || packageName.equals(mContext.getPackageName()) || packageName.contains("com.eosmobi")) {
                         continue;
                     }
                     if (ignoreApp.contains(packageName)) {
@@ -190,7 +189,7 @@ public class CleanManager {
                         AppRam appRam = new AppRam();
                         Debug.MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
                         appRam.size = (long) processMemoryInfo[0].getTotalPrivateDirty() * 1024;
-                        appRam.isSelfBoot = CommonUtil.isStartSelf(mContext.getPackageManager(), packageName);
+                        appRam.isSelfBoot = Util.isStartSelf(mContext.getPackageManager(), packageName);
                         appRam.pkg = packageName;
                         appRamList.add(appRam);
                         ramSize += appRam.size;
@@ -204,7 +203,7 @@ public class CleanManager {
     }
 
     public void loadUninstallResidual(UninstallResidualCallback uninstallResidualCallback) {
-        String data = CommonUtil.readFileFromAssets(mContext, "/raw/");
+        String data = Util.readFileFromAssets(mContext, "/raw/");
         uninstallSize = 0;
         uninstallResiduals.clear();
         if (!TextUtils.isEmpty(data)) {
@@ -219,7 +218,7 @@ public class CleanManager {
                     if (!file.exists()) {
                         continue;
                     }
-                    long size = CommonUtil.getFileSize(file);
+                    long size = Util.getFileSize(file);
                     String pkg = object.getString("pkg");
                     String name = object.getString("name");
                     uninstallResiduals.add(new UninstallResidual(pkg, name, path, size));
@@ -252,7 +251,7 @@ public class CleanManager {
             if (!file.exists()) {
                 continue;
             }
-            long size = CommonUtil.getFileSize(file);
+            long size = Util.getFileSize(file);
             if (size > 0) {
                 AppCache appCache = new AppCache(path, packageName, size);
                 appCacheSize += size;
@@ -275,7 +274,7 @@ public class CleanManager {
             do {
                 long size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
                 String path = cursor.getString(FileCategoryHelper.COLUMN_PATH);
-                String name = Util.getNameFromFilepath(path);
+                String name = com.android.clean.filemanager.Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
                 apkSize += size;
                 apkFiles.add(new FileInfo(path, name, date, size));
@@ -297,7 +296,7 @@ public class CleanManager {
             do {
                 long size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
                 String path = cursor.getString(FileCategoryHelper.COLUMN_PATH);
-                String name = Util.getNameFromFilepath(path);
+                String name = com.android.clean.filemanager.Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
                 logSize += size;
                 logFiles.add(new FileInfo(path, name, date, size));
@@ -330,7 +329,7 @@ public class CleanManager {
         ArrayList<PackageInfo> ignoreApps = new ArrayList<>();
         for (int i = 0; i < packages.size(); i++) {
             PackageInfo packageInfo = packages.get(i);
-            if (!CommonUtil.isThirdApp(packageInfo.applicationInfo) || TextUtils.equals(packageInfo.packageName, mContext.getPackageName())) {
+            if (!Util.isThirdApp(packageInfo.applicationInfo) || TextUtils.equals(packageInfo.packageName, mContext.getPackageName())) {
                 ignoreApps.add(packageInfo);
             }
         }
@@ -443,7 +442,7 @@ public class CleanManager {
             }
 
         } catch (Exception e) {
-            CommonUtil.log(TAG, "loadSystemCache error mGetPackageSizeInfoMethod=null");
+            Util.log(TAG, "loadSystemCache error mGetPackageSizeInfoMethod=null");
             e.printStackTrace();
         }
         return packageSizeInfoMethod;
@@ -569,7 +568,7 @@ public class CleanManager {
     }
 
     public void removeAppCache(AppCache appCache) {
-        CommonUtil.deleteFile(appCache.filePath);
+        Util.deleteFile(appCache.filePath);
         appCacheSize -= appCache.size;
         if (appCaches != null) {
             appCaches.remove(appCache);
@@ -577,7 +576,7 @@ public class CleanManager {
     }
 
     public void removeFilesOfUnintalledApk(UninstallResidual uninstallResidual) {
-        CommonUtil.deleteFile(uninstallResidual.path);
+        Util.deleteFile(uninstallResidual.path);
         uninstallSize -= uninstallResidual.size;
         if (uninstallResiduals != null) {
             uninstallResiduals.remove(uninstallResidual);
@@ -585,7 +584,7 @@ public class CleanManager {
     }
 
     public void removeApkFiles(FileInfo fileInfo) {
-        CommonUtil.deleteFile(fileInfo.filePath);
+        Util.deleteFile(fileInfo.filePath);
         apkSize -= fileInfo.fileSize;
         if (apkFiles != null) {
             apkFiles.remove(fileInfo);

@@ -29,11 +29,11 @@ import android.widget.TextView;
 
 import com.android.clean.similarimage.ImageHelper;
 import com.android.clean.similarimage.ImageInfo;
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
 import com.android.clean.similarimage.RecyclerDbHelper;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -339,8 +339,8 @@ public class PictureActivity extends BaseActivity {
                             }
                         }
                         picture_progressbar.setVisibility(View.GONE);
-                        picture_size.setText(CommonUtil.convertStorage(size, false));
-                        picture_danwei.setText(CommonUtil.convertStorageDanwei(size));
+                        picture_size.setText(Util.convertStorage(size, false));
+                        picture_danwei.setText(Util.convertStorageDanwei(size));
 //                        adapter.addData(list_item, 0);
                         allList = totalSimilarImage;
                         if (adapter == null) {
@@ -367,11 +367,11 @@ public class PictureActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.title_right:
-                    CommonUtil.track("相似图片页面", "点击进入回收站", "", 1);
+                    Util.track("相似图片页面", "点击进入回收站", "", 1);
                     jumpToActivity(PictureHuiActivity.class, 1);
                     break;
                 case R.id.picture_button:
-                    CommonUtil.track("相似图片页面", "点击清理按钮,弹出确认弹窗", "", 1);
+                    Util.track("相似图片页面", "点击清理按钮,弹出确认弹窗", "", 1);
                     ArrayList<Bitmap> bitmaps = adapter.checkDate();
                     int num = bitmaps.size();
                     if (num == 0) {
@@ -381,7 +381,7 @@ public class PictureActivity extends BaseActivity {
                     deleteDialog(bitmaps);
                     break;
                 case R.id.picture_other:
-                    CommonUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
+                    Util.track("相似图片页面", "点击检测其他垃圾", "", 1);
                     jumpTo(JunkActivity.class);
                     onBackPressed();
                     break;
@@ -422,14 +422,14 @@ public class PictureActivity extends BaseActivity {
         cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtil.track("相似图片页面", "点击确认弹窗关闭按钮", "", 1);
+                Util.track("相似图片页面", "点击确认弹窗关闭按钮", "", 1);
                 dialog.dismiss();
             }
         });
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtil.track("相似图片页面", "点击确认弹窗ok按钮", "", 1);
+                Util.track("相似图片页面", "点击确认弹窗ok按钮", "", 1);
                 ok.setOnClickListener(null);
                 cancle.setOnClickListener(null);
                 image_list.setVisibility(View.GONE);
@@ -539,8 +539,8 @@ public class PictureActivity extends BaseActivity {
             }
         }
         picture_button.setText(getString(R.string.picture_14) + "( " + count + " )");
-        picture_size.setText(CommonUtil.convertStorage(size, false));
-        picture_danwei.setText(CommonUtil.convertStorageDanwei(size));
+        picture_size.setText(Util.convertStorage(size, false));
+        picture_danwei.setText(Util.convertStorageDanwei(size));
 
     }
 }

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.supers.clean.junk.R;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.ManagerPresenter;
 
@@ -53,8 +53,8 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.name.setText(info.label);
-        holder.time.setText(CommonUtil.getStrTime(info.time));
-        holder.size.setText(CommonUtil.convertStorage(info.size,true));
+        holder.time.setText(Util.getStrTime(info.time));
+        holder.size.setText(Util.convertStorage(info.size,true));
         Drawable icon = info.icon;
         holder.icon.setImageDrawable(icon);
         if (info.isChecked) {

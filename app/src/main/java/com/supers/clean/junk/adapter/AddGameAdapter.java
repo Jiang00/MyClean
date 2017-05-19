@@ -1,6 +1,5 @@
 package com.supers.clean.junk.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,14 +15,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.GBoostActivity;
-import com.supers.clean.junk.activity.MyApplication;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
-import com.supers.clean.junk.util.ShortcutSuperUtils;
 
 import java.util.ArrayList;
 
@@ -72,7 +69,7 @@ public class AddGameAdapter extends MybaseAdapter<JunkInfo> {
                 if (!isContains) {
                     PreData.addName(context, info.packageName, Constant.GBOOST_LIST);
                     game_list.add(info.packageName);
-                    CommonUtil.track("游戏加速页面", "添加游戏到列表", info.label, 1);
+                    Util.track("游戏加速页面", "添加游戏到列表", info.label, 1);
                     Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
                     shortcutIntent.setClass(context, GBoostActivity.class);
                     shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);

@@ -17,12 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RamAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.view.RamView;
@@ -127,7 +127,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_size_all.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_size_all.setText(Util.convertStorage(finalI, false));
                             setUnit(allSize, junk_fangxin);
                         }
                     });
@@ -204,7 +204,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
                             @Override
                             public void run() {
                                 if (finalI != 0) {
-                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.convertStorage(finalI, true) + ")");
+                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(finalI, true) + ")");
                                 }
                             }
                         });
@@ -213,7 +213,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
             }).start();
         } else {
             if (size != 0) {
-                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + CommonUtil.convertStorage(size, true) + ")");
+                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(size, true) + ")");
             }
         }
 
@@ -276,7 +276,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
                 case R.id.junk_button_clean:
                     PreData.putDB(RamAvtivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
-                    CommonUtil.track("ram页面", "点击清理", "", 1);
+                    Util.track("ram页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     Log.e("aaa", "===ram点击");
                     showToast((String) getText(R.string.toast_ing));
@@ -306,7 +306,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     @Override
     public void onBackPressed() {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
-            CommonUtil.track("通知栏", "跳转垃圾清页面", "", 1);
+            Util.track("通知栏", "跳转垃圾清页面", "", 1);
             jumpTo(MainActivity.class);
         } else {
             setResult(Constant.RAM_RESUIL);

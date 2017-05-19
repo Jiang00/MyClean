@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
@@ -24,7 +25,6 @@ import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CameraUtils;
-import com.android.clean.util.CommonUtil;
 import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.PhoneManager;
 import com.supers.clean.junk.util.PreData;
@@ -87,9 +87,9 @@ public class MessageActivity extends BaseActivity {
 
         long time = System.currentTimeMillis() - SystemClock.elapsedRealtime();
 
-        message_system_start_time.setText(CommonUtil.getStrTime(time));
+        message_system_start_time.setText(Util.getStrTime(time));
 
-        message_system_start_time2.setText(CommonUtil.millTransFate2(SystemClock.elapsedRealtime()));
+        message_system_start_time2.setText(Util.millTransFate2(SystemClock.elapsedRealtime()));
 
         message_isRoot.setText(PhoneManager.isRoot() == true ? R.string.message_root : R.string.message_not_root);
 
@@ -131,9 +131,9 @@ public class MessageActivity extends BaseActivity {
         message_imei.setText(getPhoneIMEI());
 
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
-        message_ram.setText(CommonUtil.convertStorage(ram_all,true));
+        message_ram.setText(Util.convertStorage(ram_all,true));
         long sd_all = MemoryManager.getPhoneAllSize();
-        message_sd.setText(CommonUtil.convertStorage(sd_all,true));
+        message_sd.setText(Util.convertStorage(sd_all,true));
 
     }
 
@@ -179,11 +179,11 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void addAd() {
-        View nativeView = CommonUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_3);
+        View nativeView = Util.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
-                layout_ad.height = CommonUtil.dp2px(250);
+            if (nativeView.getHeight() == Util.dp2px(250)) {
+                layout_ad.height = Util.dp2px(250);
             }
             ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);

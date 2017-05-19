@@ -18,13 +18,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.view.JunkRamView;
 import com.supers.clean.junk.adapter.JunkRamAdapter;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
@@ -178,7 +178,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_size_all.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_size_all.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_unit);
                         }
                     });
@@ -193,7 +193,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                 });
             }
         }).start();
-//        junk_size_all.setText(CommonUtil.getFileSize2(size));
+//        junk_size_all.setText(Util.getFileSize2(size));
 
         if (size > 1024 * 1024 * 100 && size <= 1024 * 1024 * 200) {
             if (color1) {
@@ -220,7 +220,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void addSystemdata(final long size, List<JunkInfo> list) {
         adapterSystem.addDataList(list);
         junk_system_list.setVisibility(View.GONE);
-//        junk_system_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_system_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_system_unit);
 
         new Thread(new Runnable() {
@@ -244,7 +244,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_system_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_system_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_system_unit);
                         }
                     });
@@ -257,7 +257,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void addApkdata(final long size, List<JunkInfo> list) {
         adapterApk.addDataList(list);
         junk_apk_list.setVisibility(View.GONE);
-//        junk_apk_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_apk_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_apk_unit);
         new Thread(new Runnable() {
             @Override
@@ -280,7 +280,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_apk_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_apk_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_apk_unit);
                         }
                     });
@@ -293,7 +293,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void addUnloaddata(final long size, List<JunkInfo> list) {
         adapterUnload.addDataList(list);
         junk_unload_list.setVisibility(View.GONE);
-//        junk_unload_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_unload_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_unload_unit);
         new Thread(new Runnable() {
             @Override
@@ -316,7 +316,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_unload_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_unload_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_unload_unit);
                         }
                     });
@@ -329,7 +329,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void addLogdata(final long size, List<JunkInfo> list) {
         adapterLog.addDataList(list);
         junk_log_list.setVisibility(View.GONE);
-//        junk_log_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_log_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_log_unit);
         new Thread(new Runnable() {
             @Override
@@ -352,7 +352,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_log_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_log_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_log_unit);
                         }
                     });
@@ -365,7 +365,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void addUserdata(final long size, List<JunkInfo> list) {
         adapterUser.addDataList(list);
         junk_user_list.setVisibility(View.GONE);
-//        junk_user_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_user_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_user_unit);
         new Thread(new Runnable() {
             @Override
@@ -388,7 +388,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_user_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_user_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_user_unit);
                         }
                     });
@@ -402,7 +402,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void addRamdata(final long size, List<JunkInfo> list) {
         adapterRam.addDataList(list);
         junk_ram_list.setVisibility(View.GONE);
-//        junk_ram_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_ram_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_ram_unit);
         new Thread(new Runnable() {
             @Override
@@ -425,7 +425,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_ram_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_ram_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_ram_unit);
                         }
                     });
@@ -436,7 +436,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     @Override
     public void setUnit(long size, TextView textView) {
-        textView.setText(CommonUtil.convertStorageDanwei(size));
+        textView.setText(Util.convertStorageDanwei(size));
     }
 
     @Override
@@ -464,7 +464,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                             @Override
                             public void run() {
                                 if (finalI != 0) {
-                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.convertStorage(finalI, true) + ")");
+                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(finalI, true) + ")");
                                 }
                             }
                         });
@@ -473,7 +473,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
             }).start();
         } else {
             if (cleanSize != 0) {
-                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.convertStorage(cleanSize, true) + ")");
+                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(cleanSize, true) + ")");
             }
         }
 
@@ -588,7 +588,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.title_left:
-                    CommonUtil.track("所有垃圾页面", "点击返回", "", 1);
+                    Util.track("所有垃圾页面", "点击返回", "", 1);
                     onBackPressed();
                     break;
                 case R.id.junk_button_system:
@@ -596,10 +596,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("所有垃圾页面", "点击收起系统缓存", "", 1);
+                        Util.track("所有垃圾页面", "点击收起系统缓存", "", 1);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("所有垃圾页面", "点击打开系统缓存", "", 1);
+                        Util.track("所有垃圾页面", "点击打开系统缓存", "", 1);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -608,10 +608,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("所有垃圾页面", "点击收起apk文件", "", 1);
+                        Util.track("所有垃圾页面", "点击收起apk文件", "", 1);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("所有垃圾页面", "点击打开apk文件", "", 1);
+                        Util.track("所有垃圾页面", "点击打开apk文件", "", 1);
                         junk_apk_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -620,10 +620,10 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("所有垃圾页面", "点击收起unload文件", "", 1);
+                        Util.track("所有垃圾页面", "点击收起unload文件", "", 1);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("所有垃圾页面", "点击打开apk文件", "", 1);
+                        Util.track("所有垃圾页面", "点击打开apk文件", "", 1);
                         junk_unload_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -632,11 +632,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("所有垃圾页面", "点击收起log文件", "", 1);
+                        Util.track("所有垃圾页面", "点击收起log文件", "", 1);
 
                         junk_log_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("所有垃圾页面", "点击打开log文件", "", 1);
+                        Util.track("所有垃圾页面", "点击打开log文件", "", 1);
 
                         junk_log_list.setVisibility(View.VISIBLE);
                     }
@@ -647,11 +647,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         break;
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("所有垃圾页面", "点击收起user文件", "", 1);
+                        Util.track("所有垃圾页面", "点击收起user文件", "", 1);
 
                         junk_user_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("所有垃圾页面", "点击打开user文件", "", 1);
+                        Util.track("所有垃圾页面", "点击打开user文件", "", 1);
 
                         junk_user_list.setVisibility(View.VISIBLE);
                     }
@@ -663,16 +663,16 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     }
 
                     if (junk_ram_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("所有垃圾页面", "点击收缩ram", "", 1);
+                        Util.track("所有垃圾页面", "点击收缩ram", "", 1);
                         junk_ram_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("所有垃圾页面", "点击展开ram", "", 1);
+                        Util.track("所有垃圾页面", "点击展开ram", "", 1);
                         junk_ram_list.setVisibility(View.VISIBLE);
                     }
                     break;
                 case R.id.junk_button_clean:
                     PreData.putDB(JunkAndRamActivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
-                    CommonUtil.track("所有垃圾页面", "点击清理", "", 1);
+                    Util.track("所有垃圾页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
@@ -708,9 +708,9 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void onBackPressed() {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
             if (TextUtils.equals("twoday", getIntent().getStringExtra("from2"))) {
-                CommonUtil.track("通知栏", "两天唤醒", "点击", 1);
+                Util.track("通知栏", "两天唤醒", "点击", 1);
             } else {
-                CommonUtil.track("通知栏", "垃圾通知", "点击", 1);
+                Util.track("通知栏", "垃圾通知", "点击", 1);
             }
             jumpTo(MainActivity.class);
         }

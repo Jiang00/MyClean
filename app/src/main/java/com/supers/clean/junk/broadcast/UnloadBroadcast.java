@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.activity.UnloadActivity;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
@@ -36,7 +36,7 @@ public class UnloadBroadcast extends BroadcastReceiver {
                 public void run() {
                     ArrayList<String> gboost_names = PreData.getNameList(context, Constant.GBOOST_LIST);
                     try {
-                        String data = CommonUtil.readFileFromAssets(context, "raw/gboost.json");
+                        String data = Util.readFileFromAssets(context, "raw/gboost.json");
                         JSONObject jsonObject = new JSONObject(data);
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
                         for (int i = 0; i < jsonArray.length(); i++) {

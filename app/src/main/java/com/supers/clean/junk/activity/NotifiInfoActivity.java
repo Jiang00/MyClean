@@ -8,7 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
@@ -53,7 +53,7 @@ public class NotifiInfoActivity extends BaseActivity {
         notifi_info_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!CommonUtil.isNotificationListenEnabled(NotifiInfoActivity.this)) {
+                if (!Util.isNotificationListenEnabled(NotifiInfoActivity.this)) {
                     startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), REQUSETSET);
                 } else {
                     PreData.putDB(NotifiInfoActivity.this, Constant.KEY_NOTIFI, true);
@@ -74,7 +74,7 @@ public class NotifiInfoActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUSETSET) {
-            if (CommonUtil.isNotificationListenEnabled(NotifiInfoActivity.this)) {
+            if (Util.isNotificationListenEnabled(NotifiInfoActivity.this)) {
                 PreData.putDB(NotifiInfoActivity.this, Constant.KEY_NOTIFI, true);
                 startActivity(new Intent(NotifiInfoActivity.this, NotifiActivity.class));
                 onBackPressed();

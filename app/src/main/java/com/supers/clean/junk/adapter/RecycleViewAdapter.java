@@ -202,7 +202,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                     @Override
                     public void run() {
                         final Bitmap bitmap = imageHelper.getImageThumbnail(pictureActivity, info.originId, MediaStore.Images.Thumbnails.MINI_KIND);
-                        // final Bitmap bitmap = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, CommonUtil.dp2px(112), CommonUtil.dp2px(112));
+                        // final Bitmap bitmap = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, Util.dp2px(112), Util.dp2px(112));
                         if (bitmap != null) {
                             handler.post(new Runnable() {
                                 @Override

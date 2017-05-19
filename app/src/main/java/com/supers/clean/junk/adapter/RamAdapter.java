@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -95,7 +95,7 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
                 }
             }
         });
-        holder.size.setText(CommonUtil.convertStorage(info.size, true));
+        holder.size.setText(Util.convertStorage(info.size, true));
 
         return convertView;
     }

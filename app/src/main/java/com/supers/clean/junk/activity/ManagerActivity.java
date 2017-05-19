@@ -23,10 +23,10 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
@@ -36,7 +36,6 @@ import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.AppManagerView;
 import com.supers.clean.junk.adapter.ManagerAdapter;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.ManagerPresenter;
@@ -103,9 +102,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
             tuiGuang();
         } else {
-            nativeView1 = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
-            nativeView2 = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
-            nativeView3 = CommonUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+            nativeView1 = Util.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+            nativeView2 = Util.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+            nativeView3 = Util.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             if (ll_ad_size != null && nativeView1 != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_size.getLayoutParams();
                 ll_ad_size.setLayoutParams(layout_ad);
@@ -279,7 +278,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         });
 
         managerPresenter.addAdapterData();
-        String fileSize = CommonUtil.convertStorage(cleanSize, true);
+        String fileSize = Util.convertStorage(cleanSize, true);
         if (TextUtils.isEmpty(fileSize)) {
             junk_button_clean.setText(getResources().getText(R.string.manager_button));
         } else {
@@ -366,7 +365,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
     @Override
     public void setCleanDAta(long size) {
-        String fileSize = CommonUtil.convertStorage(size, true);
+        String fileSize = Util.convertStorage(size, true);
         if (TextUtils.isEmpty(fileSize)) {
             junk_button_clean.setText(getResources().getText(R.string.manager_button));
             manager_clean.setVisibility(View.GONE);

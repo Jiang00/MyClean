@@ -20,12 +20,11 @@ import android.widget.TextView;
 import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.filemanager.FileSortHelper;
 import com.android.clean.filemanager.FileUtils;
-import com.android.clean.filemanager.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.FileAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -129,7 +128,7 @@ public class FileListActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = CommonUtil.getNativeAdView(Tag_file_1, R.layout.native_ad_3);
+        nativeView = Util.getNativeAdView(Tag_file_1, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);
@@ -161,7 +160,7 @@ public class FileListActivity extends BaseActivity {
                         }
                         long _id = cursor.getLong(FileCategoryHelper.COLUMN_ID);
                         long size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
-                        fileList.add(new JunkInfo(_id, null, Util.getNameFromFilepath(cursor.getString(FileCategoryHelper.COLUMN_PATH)),
+                        fileList.add(new JunkInfo(_id, null, com.android.clean.filemanager.Util.getNameFromFilepath(cursor.getString(FileCategoryHelper.COLUMN_PATH)),
                                 cursor.getString(FileCategoryHelper.COLUMN_PATH), size, false));
                     } while (cursor.moveToNext());
                     cursor.close();

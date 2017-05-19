@@ -19,7 +19,7 @@ import android.widget.RemoteViews;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.MainActivity;
 import com.supers.clean.junk.activity.SuccessActivity;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 
 import java.util.List;
 
@@ -193,7 +193,7 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
             throw new IllegalArgumentException("parameter can't be null.");
         }
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        view.layout(0, 0, CommonUtil.dp2px(241), CommonUtil.dp2px(29));
+        view.layout(0, 0, Util.dp2px(241), Util.dp2px(29));
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap bitmap = view.getDrawingCache();
@@ -206,7 +206,7 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
             rv = new RemoteViews(context.getPackageName(), R.layout.layout_widget_ram);
             manager = AppWidgetManager.getInstance(context.getApplicationContext());
             cn = new ComponentName(context, WidgetProvider.class);
-            memory = CommonUtil.getMemory(context);
+            memory = Util.getMemory(context);
         }
     }
 

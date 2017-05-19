@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.entity.JunkInfo;
@@ -58,7 +58,7 @@ public class UnloadActivity extends BaseActivity {
             finish();
             return;
         }
-        CommonUtil.track("卸载残余页面", "展示", "", 1);
+        Util.track("卸载残余页面", "展示", "", 1);
         for (JunkInfo info : cleanApplication.getAppCache()) {
             if (info.packageName.equals(packageName)) {
                 a = true;
@@ -66,7 +66,7 @@ public class UnloadActivity extends BaseActivity {
                 iv_icon.setImageDrawable(info.icon);
                 size = info.size;
                 path = info.path;
-                tv_size.setText(CommonUtil.convertStorage(size,false));
+                tv_size.setText(Util.convertStorage(size,false));
                 bt_queren.setOnClickListener(BtClickListener);
                 bt_quxiao.setOnClickListener(BtClickListener);
                 iv_cha.setOnClickListener(BtClickListener);
@@ -84,7 +84,7 @@ public class UnloadActivity extends BaseActivity {
                     iv_icon.setImageDrawable(info.icon);
                     size = (long) ((Math.random() * 1024 * 100) + 1024 * 10);
                     path = MemoryManager.getPhoneInSDCardPath() + "/Android/data/" + packageName;
-                    tv_size.setText(CommonUtil.convertStorage(size,false));
+                    tv_size.setText(Util.convertStorage(size,false));
                     bt_queren.setOnClickListener(BtClickListener);
                     bt_quxiao.setOnClickListener(BtClickListener);
                     iv_cha.setOnClickListener(BtClickListener);
@@ -108,11 +108,11 @@ public class UnloadActivity extends BaseActivity {
             }, 1000);
 
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_4);
+            nativeView = Util.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
-                    layout_ad.height = CommonUtil.dp2px(250);
+                if (nativeView.getHeight() == Util.dp2px(250)) {
+                    layout_ad.height = Util.dp2px(250);
                 }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
@@ -125,7 +125,7 @@ public class UnloadActivity extends BaseActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.bt_queren:
-                    CommonUtil.track("卸载残余页面", "点击清理", "", 1);
+                    Util.track("卸载残余页面", "点击清理", "", 1);
                     bt_queren.setOnClickListener(null);
                     Bundle bundle = new Bundle();
                     bundle.putLong("size", size);
@@ -137,7 +137,7 @@ public class UnloadActivity extends BaseActivity {
                     break;
                 case R.id.bt_quxiao:
                 case R.id.iv_cha:
-                    CommonUtil.track("卸载残余页面", "点击取消", "", 1);
+                    Util.track("卸载残余页面", "点击取消", "", 1);
                     finish();
                     break;
             }

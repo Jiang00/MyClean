@@ -10,7 +10,6 @@ import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
@@ -30,7 +30,6 @@ import com.eos.module.tweenengine.TweenManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FlakeViewOnShort;
 import com.supers.clean.junk.customeview.ImageAccessor;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -109,11 +108,11 @@ public class ShortCutActivity extends BaseActivity {
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) == 1) {
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+            nativeView = Util.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
-                    layout_ad.height = CommonUtil.dp2px(250);
+                if (nativeView.getHeight() == Util.dp2px(250)) {
+                    layout_ad.height = Util.dp2px(250);
                 }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
@@ -131,7 +130,7 @@ public class ShortCutActivity extends BaseActivity {
             ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
             loadAd();
             TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
-            short_clean_szie.setText(CommonUtil.convertStorage(size, true));
+            short_clean_szie.setText(Util.convertStorage(size, true));
             dialog = new Dialog(ShortCutActivity.this, R.style.add_dialog);
             dialog.show();
             Window window = dialog.getWindow();
@@ -253,8 +252,8 @@ public class ShortCutActivity extends BaseActivity {
             @Override
             public void run() {
                 AnimatorSet set = new AnimatorSet();
-                ObjectAnimator translationY = ObjectAnimator.ofFloat(short_huojian, "translationY", 0, -CommonUtil.dp2px(90));
-                ObjectAnimator translationX = ObjectAnimator.ofFloat(short_huojian, "translationX", 0, CommonUtil.dp2px(90));
+                ObjectAnimator translationY = ObjectAnimator.ofFloat(short_huojian, "translationY", 0, -Util.dp2px(90));
+                ObjectAnimator translationX = ObjectAnimator.ofFloat(short_huojian, "translationX", 0, Util.dp2px(90));
                 set.setDuration(100);
                 set.addListener(new Animator.AnimatorListener() {
                     @Override

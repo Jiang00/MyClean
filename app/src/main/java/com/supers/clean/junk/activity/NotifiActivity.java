@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -23,7 +22,7 @@ import com.android.clean.notification.NotificationMonitorService;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.NotifiAdapter;
 import com.supers.clean.junk.customeview.DeleteListView;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -170,7 +169,7 @@ public class NotifiActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 NotificationInfo info = adapter.getData(position);
                 CleanManager.getInstance(NotifiActivity.this).notificationChanged(info, false);
-                CommonUtil.doStartApplicationWithPackageName(NotifiActivity.this, info.pkg);
+                Util.doStartApplicationWithPackageName(NotifiActivity.this, info.pkg);
             }
         });
     }

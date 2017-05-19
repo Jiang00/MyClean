@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.clean.notification.NotificationInfo;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
-import com.android.clean.util.CommonUtil;
 
 /**
  * Created by Ivy on 2017/4/17.
@@ -50,7 +50,7 @@ public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
         if (!TextUtils.isEmpty(info.title) && !TextUtils.isEmpty(info.subTitle)) {
             holder.notifi_title.setText(info.title);
             holder.notifi_text.setText(info.subTitle);
-            holder.time.setText(CommonUtil.getStrTime2(info.time));
+            holder.time.setText(Util.getStrTime2(info.time));
             holder.frameLayout.removeAllViews();
             holder.frameLayout.setVisibility(View.GONE);
         } else if (info.remoteViews != null) {

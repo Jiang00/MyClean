@@ -10,9 +10,9 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
+import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.MainView;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.CpuTempReader;
 import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.PreData;
@@ -64,7 +64,7 @@ public class MainPresenter extends BasePresenter<MainView> {
         translate.setRepeatCount(-1);
         translate.setRepeatMode(Animation.REVERSE);
         iView.loadAirAnimator(translate);
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, CommonUtil.dp2px(115), CommonUtil.dp2px(115));
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(115));
         rotateAnimation.setDuration(2000);
         rotateAnimation.setRepeatCount(-1);
         iView.initGuard(MemoryManager.getInstallNum(context), rotateAnimation);
@@ -79,14 +79,14 @@ public class MainPresenter extends BasePresenter<MainView> {
         long sd_kongxian = MemoryManager.getPhoneAllFreeSize();
         long sd_shiyong = sd_all - sd_kongxian;
         int sd_me = (int) (sd_shiyong * 100 / sd_all);
-        String sd_size = CommonUtil.convertStorage(sd_shiyong,true) + "/" + CommonUtil.convertStorage(sd_all,true);
+        String sd_size = Util.convertStorage(sd_shiyong,true) + "/" + Util.convertStorage(sd_all,true);
         iView.initSd(sd_me, sd_size, sd_kongxian);
         //ram使用
         long ram_kongxian = MemoryManager.getPhoneFreeRamMemory(context);
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
         long ram_shiyong = ram_all - ram_kongxian;
         int memo = (int) (ram_shiyong * 100 / ram_all);
-        String ram_size = CommonUtil.convertStorage(ram_shiyong,true) + "/" + CommonUtil.convertStorage(ram_all,true);
+        String ram_size = Util.convertStorage(ram_shiyong,true) + "/" + Util.convertStorage(ram_all,true);
         iView.initRam(memo, ram_size);
         setRotateGone();
     }

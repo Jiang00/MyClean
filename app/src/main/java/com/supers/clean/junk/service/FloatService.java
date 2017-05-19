@@ -23,7 +23,7 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
 import com.supers.clean.junk.R;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.presenter.GetTopApp;
 import com.supers.clean.junk.presenter.FloatStateManager;
 import com.supers.clean.junk.util.Constant;
@@ -85,17 +85,17 @@ public class FloatService extends Service {
     private void updata() {
         if (count == 0) {
             count = 30;
-            int memory = CommonUtil.getMemory(this);
+            int memory = Util.getMemory(this);
             manager.upDate(memory);
         }
         count--;
-        manager.upDate(CommonUtil.getMemory(FloatService.this));
+        manager.upDate(Util.getMemory(FloatService.this));
         new Thread(new Runnable() {
             @Override
             public void run() {
                 String pkg = topApp.execute();
 //                if (hmoes.contains(pkg)) {
-//                    manager.upDate(CommonUtil.getMemory(FloatService.this));
+//                    manager.upDate(Util.getMemory(FloatService.this));
 //                    manager.addWindowsView();
 //                } else {
 //                    manager.removeWindowsView();

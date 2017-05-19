@@ -6,10 +6,10 @@ import android.content.pm.PackageManager;
 import android.os.Debug.MemoryInfo;
 
 
+import com.android.clean.util.Util;
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -64,7 +64,7 @@ public class RamTask extends SimpleTask {
             } else {
                 MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
                 int totalPrivateDirty = processMemoryInfo[0].getTotalPrivateDirty();
-                boolean isStartSelf = CommonUtil.isStartSelf(pm, packageName);
+                boolean isStartSelf = Util.isStartSelf(pm, packageName);
                 if (isWhite) {
                     JunkInfo speedUpInfo = new JunkInfo(false, true, pm.getApplicationIcon(applicationInfo), (String) pm.getApplicationLabel(applicationInfo), totalPrivateDirty * 1024, packageName, isStartSelf);
                     if (mSimpleTaskListener != null) {

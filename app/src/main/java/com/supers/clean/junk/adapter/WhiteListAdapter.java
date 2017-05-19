@@ -14,10 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.MyApplication;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -66,7 +66,7 @@ public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {
 
                     PreData.addName(context, info.packageName, Constant.WHILT_LIST);
                     showToast(info.label + context.getText(R.string.white_list_jiaru));
-                    CommonUtil.track("白名单页面", "选中" + info.label, "", 1);
+                    Util.track("白名单页面", "选中" + info.label, "", 1);
                 } else {
                     showToast(info.label + context.getText(R.string.white_list_yichu));
                     PreData.removeName(context, info.packageName, Constant.WHILT_LIST);

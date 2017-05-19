@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.supers.clean.junk.R;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 
 /**
  * Created by 98614 on 2017/4/20.
@@ -27,7 +27,7 @@ public class FileRoundView extends View {
     private long video_size;
     private long other_size;
     private long all_size;
-    private float lint_whith = CommonUtil.dp2px(29);
+    private float lint_whith = Util.dp2px(29);
     private RectF rectF;
     private Paint paint_apk;
     private Paint paint_zip;

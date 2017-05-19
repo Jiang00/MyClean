@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
@@ -59,7 +59,7 @@ public class ApplockActivity extends BaseActivity {
         bt_1rl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtil.track("applock", "跳转GP下载pro版", "", 1);
+                Util.track("applock", "跳转GP下载pro版", "", 1);
                 UtilGp.openPlayStore(ApplockActivity.this, "com.eosmobi.applock");
                 finish();
             }
@@ -68,7 +68,7 @@ public class ApplockActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 PreData.putDB(ApplockActivity.this, Constant.FIRST_APPLOCK, 2);
-//                CommonUtil.track("applock", "选择简版", "", 1);
+//                Util.track("applock", "选择简版", "", 1);
 //                Intent intent = new Intent(ApplockActivity.this, AppLockPatternEosActivity.class);
 //                intent.putExtra("is_main", true);
 //                startActivity(intent);

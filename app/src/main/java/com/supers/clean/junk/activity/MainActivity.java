@@ -26,7 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.android.clean.util.LoadManager;
 import com.android.client.AndroidSdk;
 import com.android.theme.internal.data.Theme;
@@ -192,9 +192,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             public void run() {
                 super.run();
                 // 返回系统包名
-                if (CommonUtil.isRoot()) {
+                if (Util.isRoot()) {
                     String apkRoot = "chmod 777 " + getPackageCodePath();
-                    CommonUtil.RootCommand(apkRoot);
+                    Util.RootCommand(apkRoot);
                 }
             }
         }.start();*/
@@ -221,11 +221,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
-        View adView = CommonUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
+        View adView = Util.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
         if (adView != null) {
             ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
-            if (adView.getHeight() == CommonUtil.dp2px(250)) {
-                layout_ad.height = CommonUtil.dp2px(250);
+            if (adView.getHeight() == Util.dp2px(250)) {
+                layout_ad.height = Util.dp2px(250);
             }
             view_ad.setLayoutParams(layout_ad);
             view_ad.addView(adView);
@@ -254,7 +254,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             deep_ok.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CommonUtil.track("主页面", "点击Tap进入深度清理", "", 1);
+                    Util.track("主页面", "点击Tap进入深度清理", "", 1);
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                 }
             });
@@ -327,7 +327,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
         });
 
-//        if (adView == null && CommonUtil.isAccessibilitySettingsOn(this)) {
+//        if (adView == null && Util.isAccessibilitySettingsOn(this)) {
 //            pageView.setVisibility(View.GONE);
 //        } else {
         view.postDelayed(new Runnable() {
@@ -347,7 +347,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
 
-        CommonUtil.track("主页面", "进入主页面", "", 1);
+        Util.track("主页面", "进入主页面", "", 1);
         lot_family.setImageAssetsFolder("images/box/");
         lot_family.setAnimation("box.json");
         lot_family.loop(true);
@@ -368,7 +368,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             @Override
             public void onClick(View v) {
                 if (LoadManager.getInstance(MainActivity.this).isPkgInstalled(bean.pkg)) {
-                    CommonUtil.doStartApplicationWithPackageName(MainActivity.this, bean.pkg);
+                    Util.doStartApplicationWithPackageName(MainActivity.this, bean.pkg);
                 } else {
                     UtilGp.openPlayStore(getApplicationContext(), bean.pkg);
                 }
@@ -527,7 +527,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             @Override
             public void run() {
                 main_sd_size.setText(size);
-                main_msg_sd_percent.setText(CommonUtil.convertStorage(sd_kongxian, false));
+                main_msg_sd_percent.setText(Util.convertStorage(sd_kongxian, false));
                 if (sd_kongxian < 1024) {
                     main_msg_sd_unit.setText("B");
                 } else if (sd_kongxian < 1048576) {
@@ -540,7 +540,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 if (main_junk_h.getVisibility() == View.INVISIBLE) {
                     long junk_size = cleanApplication.getApkSize() + cleanApplication.getCacheSize() + cleanApplication.getUnloadSize() + cleanApplication.getLogSize() + cleanApplication.getDataSize();
                     if (junk_size > 0) {
-                        main_junk_h.setText(CommonUtil.convertStorage(junk_size, true));
+                        main_junk_h.setText(Util.convertStorage(junk_size, true));
                         main_junk_h.setVisibility(View.VISIBLE);
                     }
                 }
@@ -564,7 +564,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         if (main_ram_h.getVisibility() == View.INVISIBLE) {
                             long ram_size = cleanApplication.getRamSize();
                             if (ram_size > 0) {
-                                main_ram_h.setText(CommonUtil.convertStorage(ram_size, true));
+                                main_ram_h.setText(Util.convertStorage(ram_size, true));
                                 main_ram_h.setVisibility(View.VISIBLE);
                             }
                         }
@@ -635,12 +635,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
+            View nativeView = Util.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 Log.e("aaa", "=====" + layout_ad.height);
-                if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
-                    layout_ad.height = CommonUtil.dp2px(250);
+                if (nativeView.getHeight() == Util.dp2px(250)) {
+                    layout_ad.height = Util.dp2px(250);
                 }
                 Log.e("ad_mob", "h=" + nativeView.getHeight() + "w=" + nativeView.getWidth());
                 ll_ad.setLayoutParams(layout_ad);
@@ -652,7 +652,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             } else {
                 ll_ad.setVisibility(View.GONE);
             }
-            View nativeView_side = CommonUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
+            View nativeView_side = Util.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
             if (ll_ad_side != null && nativeView_side != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_side.getLayoutParams();
                 layout_ad.height = nativeView_side.getMeasuredHeight();
@@ -674,7 +674,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         //上拉加载操作
         @Override
         public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
-            CommonUtil.track("主页面", "刷新成功", "", 1);
+            Util.track("主页面", "刷新成功", "", 1);
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -703,53 +703,53 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             switch (v.getId()) {
                 case R.id.iv_title_left:
                     mainPresenter.openDrawer();
-                    CommonUtil.track("主页面", "点击进入侧边栏按钮", "", 1);
+                    Util.track("主页面", "点击进入侧边栏按钮", "", 1);
 
                     break;
                 case R.id.iv_title_right:
-                    CommonUtil.track("主页面", "点击进入设置页面", "", 1);
+                    Util.track("主页面", "点击进入设置页面", "", 1);
                     mainPresenter.jumpToActivity(SettingActivity.class, 1);
                     break;
                 case R.id.main_cpu_air_button:
                     Bundle bundle = new Bundle();
                     bundle.putString("from", "main");
                     bundle.putInt("wendu", temp);
-                    CommonUtil.track("主页面", "点击cpu球进入降温页面", "", 1);
+                    Util.track("主页面", "点击cpu球进入降温页面", "", 1);
                     mainPresenter.jumpToActivity(CoolingActivity.class, bundle, 1);
                     break;
                 case R.id.main_sd_air_button:
-                    CommonUtil.track("主页面", "点击sd球进入垃圾清理页面", "", 1);
+                    Util.track("主页面", "点击sd球进入垃圾清理页面", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
                     break;
                 case R.id.main_ram_air_button:
-                    CommonUtil.track("主页面", "点击ram球进入内存加速页面", "", 1);
+                    Util.track("主页面", "点击ram球进入内存加速页面", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
                 case R.id.main_air_all:
-                    CommonUtil.track("主页面", "点击火箭进入清理所有界面", "", 1);
+                    Util.track("主页面", "点击火箭进入清理所有界面", "", 1);
                     mainPresenter.jumpToActivity(JunkAndRamActivity.class, 1);
                     break;
                 case R.id.main_junk_button:
-                    CommonUtil.track("主页面", "点击垃圾清理按钮", "", 1);
+                    Util.track("主页面", "点击垃圾清理按钮", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
                     break;
                 case R.id.main_ram_button:
-                    CommonUtil.track("主页面", "点击ram清理按钮", "", 1);
+                    Util.track("主页面", "点击ram清理按钮", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
                 case R.id.main_manager_button:
-                    CommonUtil.track("主页面", "点击应用管理按钮", "", 1);
+                    Util.track("主页面", "点击应用管理按钮", "", 1);
                     mainPresenter.jumpToActivity(ManagerActivity.class, 1);
                     break;
                 case R.id.main_cooling_button:
-                    CommonUtil.track("主页面", "点击降温按钮", "", 1);
+                    Util.track("主页面", "点击降温按钮", "", 1);
                     Bundle bundle1 = new Bundle();
                     bundle1.putString("from", "main");
                     bundle1.putInt("wendu", temp);
                     mainPresenter.jumpToActivity(CoolingActivity.class, bundle1, 1);
                     break;
                 case R.id.main_applock_button:
-                    CommonUtil.track("applock", "主界面点击", "", 1);
+                    Util.track("applock", "主界面点击", "", 1);
 //                    int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
 //                    if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
 //                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
@@ -758,16 +758,16 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                        break;
 //                    }
 //                    if (type == 0) {
-//                        if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
-//                            CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
+//                        if (Util.isPkgInstalled("com.eosmobi.applock", packageManager)) {
+//                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
 //                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
 //                        } else {
 //                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
 //                            startActivity(intent);
 //                        }
 //                    } else if (type == 1) {
-//                        if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
-//                            CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
+//                        if (Util.isPkgInstalled("com.eosmobi.applock", packageManager)) {
+//                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
 //                        } else {
 //                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
 //                            startActivity(intent);
@@ -783,11 +783,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                    startActivity(intent);
                     break;
                 case R.id.main_theme_button:
-                    CommonUtil.track("主页面", "点击进入buton游戏加速", "", 1);
+                    Util.track("主页面", "点击进入buton游戏加速", "", 1);
                     mainPresenter.jumpToActivity(GBoostActivity.class, 1);
                     break;
                 case R.id.lot_family:
-                    CommonUtil.track("主页面", "点击主题family按钮", "", 1);
+                    Util.track("主页面", "点击主题family按钮", "", 1);
                     ShopMaster.launch(MainActivity.this, "EOS_Family",
                             new Theme(R.raw.battery_0, getPackageName())
 //                            , new Theme(R.raw.battery_1, context.getPackageName())
@@ -796,37 +796,37 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
 
                 case R.id.main_rotate_good:
-                    CommonUtil.track("主页面", "点击好评good按钮", "", 1);
+                    Util.track("主页面", "点击好评good按钮", "", 1);
                     mainPresenter.clickRotate(true);
                     break;
                 case R.id.main_msg_button:
-                    CommonUtil.track("主页面", "点击进入硬件信息", "", 1);
+                    Util.track("主页面", "点击进入硬件信息", "", 1);
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
                     break;
                 case R.id.main_power_button:
-                    CommonUtil.track("主页面", "点击进入深度清理", "", 1);
+                    Util.track("主页面", "点击进入深度清理", "", 1);
                     PreData.putDB(MainActivity.this, Constant.DEEP_CLEAN, true);
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                     break;
                 case R.id.main_file_button:
-                    CommonUtil.track("主页面", "点击进入文件管理", "", 1);
+                    Util.track("主页面", "点击进入文件管理", "", 1);
                     PreData.putDB(MainActivity.this, Constant.FILE_CLEAN, true);
                     mainPresenter.jumpToActivity(FileActivity.class, 1);
                     break;
                 case R.id.main_gboost_button:
-                    CommonUtil.track("主页面", "点击进入游戏加速", "", 1);
+                    Util.track("主页面", "点击进入游戏加速", "", 1);
                     PreData.putDB(MainActivity.this, Constant.GBOOST_CLEAN, true);
                     mainPresenter.jumpToActivity(GBoostActivity.class, 1);
                     break;
                 case R.id.main_picture_button:
-                    CommonUtil.track("主页面", "点击进入相似图片", "", 1);
+                    Util.track("主页面", "点击进入相似图片", "", 1);
                     PreData.putDB(MainActivity.this, Constant.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(PictureActivity.class, 1);
                     break;
                 case R.id.main_notifi_button:
-                    CommonUtil.track("主页面", "点击进入通知栏清理", "", 1);
+                    Util.track("主页面", "点击进入通知栏清理", "", 1);
                     PreData.putDB(MainActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!CommonUtil.isNotificationListenEnabled(MainActivity.this)) {
+                    if (!Util.isNotificationListenEnabled(MainActivity.this)) {
                         startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
                     } else if (!PreData.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
                         Intent intent6 = new Intent(MainActivity.this, NotifiInfoActivity.class);
@@ -839,8 +839,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_tuiguang_button:
                 case R.id.fl_lot_side:
                     if (LoadManager.getInstance(MainActivity.this).isPkgInstalled(tuiguang)) {
-                        CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
-                        CommonUtil.track("主页面", "启动" + tuiguang, "", 1);
+                        Util.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
+                        Util.track("主页面", "启动" + tuiguang, "", 1);
                     } else {
                         UtilGp.openPlayStore(getApplicationContext(), tuiguang);
                     }
@@ -865,7 +865,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
             main_cooling_h.setVisibility(View.GONE);
         } else if (requestCode == 100) {
-            if (CommonUtil.isNotificationListenEnabled(MainActivity.this)) {
+            if (Util.isNotificationListenEnabled(MainActivity.this)) {
                 PreData.putDB(MainActivity.this, Constant.KEY_NOTIFI, true);
                 Intent intent = new Intent(MainActivity.this, NotifiActivity.class);
                 startActivityForResult(intent, 1);
@@ -915,7 +915,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (lot_main != null) {
             lot_main.playAnimation();
         }
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, CommonUtil.dp2px(115), CommonUtil.dp2px(130));
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
         rotateAnimation.setDuration(2000);
         rotateAnimation.setRepeatCount(-1);
         main_guard_rotate.startAnimation(rotateAnimation);

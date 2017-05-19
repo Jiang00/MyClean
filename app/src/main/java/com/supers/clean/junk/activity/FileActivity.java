@@ -9,11 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.clean.filemanager.FileCategoryHelper;
-import com.android.clean.filemanager.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FileRoundView;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -36,7 +35,7 @@ public class FileActivity extends BaseActivity {
     private String TAG_FILE = "eos_file";
     private FileCategoryHelper fileHelper;
     private FileCategoryHelper.CategoryInfo apkInfo, zipInfo, docInfo, musicInfo, videoInfo, otherInfo;
-    private Util.SDCardInfo sdCardInfo;
+    private com.android.clean.filemanager.Util.SDCardInfo sdCardInfo;
     private Handler mHandler;
 
     @Override
@@ -89,10 +88,10 @@ public class FileActivity extends BaseActivity {
     }
 
     private void initData() {
-        sdCardInfo = Util.getSDCardInfo();
+        sdCardInfo = com.android.clean.filemanager.Util.getSDCardInfo();
         if (sdCardInfo != null) {
-            file_sd_all.setText(Util.convertStorage(sdCardInfo.total));
-            file_sd_shengyu.setText(Util.convertStorage(sdCardInfo.free));
+            file_sd_all.setText(com.android.clean.filemanager.Util.convertStorage(sdCardInfo.total));
+            file_sd_shengyu.setText(com.android.clean.filemanager.Util.convertStorage(sdCardInfo.free));
         }
         new Thread(new Runnable() {
             @Override
@@ -107,12 +106,12 @@ public class FileActivity extends BaseActivity {
                         musicInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Music);
                         videoInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Video);
                         otherInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Other);
-                        file_apk_size.setText(Util.convertStorage(apkInfo.size));
-                        file_zip_size.setText(Util.convertStorage(zipInfo.size));
-                        file_txt_size.setText(Util.convertStorage(docInfo.size));
-                        file_music_size.setText(Util.convertStorage(musicInfo.size));
-                        file_video_size.setText(Util.convertStorage(videoInfo.size));
-                        file_other_size.setText(Util.convertStorage(otherInfo.size));
+                        file_apk_size.setText(com.android.clean.filemanager.Util.convertStorage(apkInfo.size));
+                        file_zip_size.setText(com.android.clean.filemanager.Util.convertStorage(zipInfo.size));
+                        file_txt_size.setText(com.android.clean.filemanager.Util.convertStorage(docInfo.size));
+                        file_music_size.setText(com.android.clean.filemanager.Util.convertStorage(musicInfo.size));
+                        file_video_size.setText(com.android.clean.filemanager.Util.convertStorage(videoInfo.size));
+                        file_other_size.setText(com.android.clean.filemanager.Util.convertStorage(otherInfo.size));
                         file_apk_num.setText(getString(R.string.file_num, apkInfo.count));
                         file_zip_num.setText(getString(R.string.file_num, zipInfo.count));
                         file_txt_num.setText(getString(R.string.file_num, docInfo.count));
@@ -132,7 +131,7 @@ public class FileActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.FULL_FILE, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
+            nativeView = Util.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
             }
@@ -160,7 +159,7 @@ public class FileActivity extends BaseActivity {
                     break;
                 case R.id.file_apk_button:
 
-                    CommonUtil.track("文件管理页面", "点击进入安装包页面", "", 1);
+                    Util.track("文件管理页面", "点击进入安装包页面", "", 1);
                     bundle.putString("name", "apk");
                     bundle.putInt("nameId", R.string.file_apk);
                     if (apkInfo.count == 0) {
@@ -172,7 +171,7 @@ public class FileActivity extends BaseActivity {
                     if (zipInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
-                    CommonUtil.track("文件管理页面", "点击进入压缩包页面", "", 1);
+                    Util.track("文件管理页面", "点击进入压缩包页面", "", 1);
                     bundle.putString("name", "zip");
                     bundle.putInt("nameId", R.string.file_zip);
                     jumpToActivity(FileListActivity.class, bundle, 1);
@@ -181,14 +180,14 @@ public class FileActivity extends BaseActivity {
                     if (docInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
-                    CommonUtil.track("文件管理页面", "点击进入文档页面", "", 1);
+                    Util.track("文件管理页面", "点击进入文档页面", "", 1);
                     jumpToActivity(FileDocActivity.class, 1);
                     break;
                 case R.id.file_music_button:
                     if (musicInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
-                    CommonUtil.track("文件管理页面", "点击进入音乐页面", "", 1);
+                    Util.track("文件管理页面", "点击进入音乐页面", "", 1);
                     bundle.putString("name", "music");
                     bundle.putInt("nameId", R.string.file_music);
                     jumpToActivity(FileListActivity.class, bundle, 1);
@@ -197,13 +196,13 @@ public class FileActivity extends BaseActivity {
                     if (videoInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
-                    CommonUtil.track("文件管理页面", "点击进入视频页面", "", 1);
+                    Util.track("文件管理页面", "点击进入视频页面", "", 1);
                     bundle.putString("name", "video");
                     bundle.putInt("nameId", R.string.file_video);
                     jumpToActivity(FileListActivity.class, bundle, 1);
                     break;
                 case R.id.file_other_button:
-                    CommonUtil.track("文件管理页面", "点击进入其他页面", "", 1);
+                    Util.track("文件管理页面", "点击进入其他页面", "", 1);
                     if (otherInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
@@ -257,7 +256,7 @@ public class FileActivity extends BaseActivity {
 //            mLegend.setEnabled(false);//比例块是否显示
 //            file_piechart.setRotationAngle(70); // 初始旋转角度
 //    //        file_piechart.setDrawHoleEnabled(false);//实心
-//            file_piechart.setHoleRadius(CommonUtil.dp2px(30));  //内空心洞半径
+//            file_piechart.setHoleRadius(Util.dp2px(30));  //内空心洞半径
 //            file_piechart.setTransparentCircleRadius(0); // 半透明圈
 //    //        file_piechart.setHoleRadius(0)  //内空心洞半径为零==实心圆
 //            file_piechart.setRotationEnabled(false); // 手动旋转开关

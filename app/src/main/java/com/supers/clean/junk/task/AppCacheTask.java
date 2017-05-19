@@ -8,7 +8,7 @@ import android.util.Log;
 
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
 
 import java.io.File;
@@ -40,7 +40,7 @@ public class AppCacheTask extends SimpleTask {
             String path = sdPath + "/Android/data/" + packageName + "cache/";
             long size = 0;
             try {
-                size = CommonUtil.getFileSize(new File(path));
+                size = Util.getFileSize(new File(path));
             } catch (Exception e) {
 
             }

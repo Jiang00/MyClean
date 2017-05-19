@@ -24,11 +24,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.clean.powerclean.CustomerAccessibilityService;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.PowerWidgetContainer;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.service.NotificationService;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -84,14 +84,14 @@ public class PowerActivity extends BaseActivity {
         junk_button_clean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommonUtil.track("深度清理页面", "点击清理", "", 1);
-                if (!CommonUtil.isAccessibilitySettingsOn(PowerActivity.this)) {
+                Util.track("深度清理页面", "点击清理", "", 1);
+                if (!Util.isAccessibilitySettingsOn(PowerActivity.this)) {
                     try {
                         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                         startActivityForResult(intent, 100);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        CommonUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
+                        Util.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
                     }
 
                     mHandler.postDelayed(new Runnable() {
@@ -134,7 +134,7 @@ public class PowerActivity extends BaseActivity {
             }
             if (startList.size() == 0) {
                 if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
-                    CommonUtil.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
+                    Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PowerActivity.this, NotificationService.class);
                         intent.setAction("gboost");
@@ -188,7 +188,7 @@ public class PowerActivity extends BaseActivity {
             homeAdapter.notifyDataSetChanged();
             if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
                 if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
-                    CommonUtil.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
+                    Util.doStartApplicationWithPackageName(PowerActivity.this, getIntent().getStringExtra("packageName"));
                     if (PreData.getDB(PowerActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PowerActivity.this, NotificationService.class);
                         intent.setAction("gboost");
@@ -337,7 +337,7 @@ public class PowerActivity extends BaseActivity {
             finish();
         }
         if (requestCode == 100) {
-            if (CommonUtil.isAccessibilitySettingsOn(PowerActivity.this)) {
+            if (Util.isAccessibilitySettingsOn(PowerActivity.this)) {
                 junk_button_clean.callOnClick();
             }
         }

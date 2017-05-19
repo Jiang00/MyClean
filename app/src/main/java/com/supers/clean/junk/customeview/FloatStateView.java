@@ -12,8 +12,8 @@ import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
-import com.android.clean.util.CommonUtil;
 
 /**
  * Created by chengyuan on 16/8/12.
@@ -24,8 +24,8 @@ public class FloatStateView extends View {
     public static final int STATE_LEFT = 1;
     public static final int STATE_RIGHT = 2;
 
-    public int width = CommonUtil.dp2px(30);
-    public int height = CommonUtil.dp2px(30);
+    public int width = Util.dp2px(30);
+    public int height = Util.dp2px(30);
     private Paint textPaint;
     private Paint firstPaint;
     private String text = "50%";
@@ -75,7 +75,7 @@ public class FloatStateView extends View {
 
         // 文字
         textPaint = new Paint();
-        textPaint.setTextSize(CommonUtil.dp2px(12));
+        textPaint.setTextSize(Util.dp2px(12));
         textPaint.setColor(Color.WHITE);
         textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(true);

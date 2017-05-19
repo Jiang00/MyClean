@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.supers.clean.junk.R;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.JunkRamPresenter;
 
@@ -71,7 +71,7 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
                 }
             }
         });
-        holder.size.setText(CommonUtil.convertStorage(info.size,true));
+        holder.size.setText(Util.convertStorage(info.size,true));
 
         return convertView;
     }

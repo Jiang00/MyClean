@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CommonUtil {
+public class Util {
 
     public static void track(String category, String action, String label, int value) {
 //        if (com.supers.clean.junk.BuildConfig.TRACK) {
@@ -319,7 +319,7 @@ public class CommonUtil {
             firstInstallTime = packageInfo.firstInstallTime;
             //应用最后一次更新时间
             long lastUpdateTime = packageInfo.lastUpdateTime;
-//            Log.e("aaa", "===first install time : " + CommonUtil.getStrTime(firstInstallTime) + " last update time :" + CommonUtil.getStrTime(lastUpdateTime));
+//            Log.e("aaa", "===first install time : " + Util.getStrTime(firstInstallTime) + " last update time :" + Util.getStrTime(lastUpdateTime));
 
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -333,7 +333,7 @@ public class CommonUtil {
             throw new IllegalArgumentException("parameter can't be null.");
         }
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        view.layout(0, 0, CommonUtil.dp2px(60), CommonUtil.dp2px(60));
+        view.layout(0, 0, Util.dp2px(60), Util.dp2px(60));
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap bitmap = view.getDrawingCache();

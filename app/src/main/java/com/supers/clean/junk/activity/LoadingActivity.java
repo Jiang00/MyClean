@@ -13,7 +13,7 @@ import com.android.clean.util.LoadManager;
 import com.android.client.AndroidSdk;
 import com.eos.eshop.ShopMaster;
 import com.supers.clean.junk.R;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PhoneManager;
 import com.supers.clean.junk.util.PreData;
@@ -46,8 +46,8 @@ public class LoadingActivity extends BaseActivity {
         myHandler = new Handler();
         tv_tiaoguo.setVisibility(View.INVISIBLE);
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
-            CommonUtil.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
-            CommonUtil.track("是否安装applock", (LoadManager.getInstance(this).isPkgInstalled("com.eosmobi.applock")) == true ? "是" : "否", "", 1)
+            Util.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
+            Util.track("是否安装applock", (LoadManager.getInstance(this).isPkgInstalled("com.eosmobi.applock")) == true ? "是" : "否", "", 1)
             ;
             PreData.putDB(this, Constant.ROOT_TRAK, false);
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
@@ -62,7 +62,7 @@ public class LoadingActivity extends BaseActivity {
         public void run() {
             DisplayMetrics metrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-            int a = CommonUtil.dp2px(360);
+            int a = Util.dp2px(360);
             Log.e("jfy", "px=" + a + "" + "=" + metrics.density + "=" + metrics.widthPixels);
             jumpTo(MainActivity.class);
             finish();

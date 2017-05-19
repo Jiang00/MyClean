@@ -39,7 +39,7 @@ import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SuccessActivity;
 import com.supers.clean.junk.activity.TranslateActivity;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CpuTempReader;
 import com.supers.clean.junk.util.PhoneManager;
@@ -62,7 +62,7 @@ public class NotificationService extends Service {
 
     private Bitmap bitmap_progress;
     private Paint paint_1;
-    private int pointX = CommonUtil.dp2px(29) / 2;
+    private int pointX = Util.dp2px(29) / 2;
     private RectF oval;
     private int cpuTemp;
     private int num;
@@ -83,14 +83,14 @@ public class NotificationService extends Service {
         cleanApplication = (MyApplication) getApplication();
         phoneManager = PhoneManager.getPhoneManage(this);
         initIntent();
-        bitmap_progress = Bitmap.createBitmap(CommonUtil.dp2px(29), CommonUtil.dp2px(29), Bitmap.Config.ARGB_8888);
+        bitmap_progress = Bitmap.createBitmap(Util.dp2px(29), Util.dp2px(29), Bitmap.Config.ARGB_8888);
         paint_1 = new Paint();
         paint_1.setAntiAlias(true);
         paint_1.setStrokeCap(Paint.Cap.ROUND);
-        paint_1.setStrokeWidth(CommonUtil.dp2px(1));
+        paint_1.setStrokeWidth(Util.dp2px(1));
         paint_1.setStyle(Paint.Style.STROKE);
-        oval = new RectF(0 + CommonUtil.dp2px(2), -pointX + CommonUtil.dp2px(2), pointX
-                * 2 - CommonUtil.dp2px(2), pointX - CommonUtil.dp2px(2));
+        oval = new RectF(0 + Util.dp2px(2), -pointX + Util.dp2px(2), pointX
+                * 2 - Util.dp2px(2), pointX - Util.dp2px(2));
         changZhuTongzhi();
         tonghzi_notifi();
         CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
@@ -104,8 +104,8 @@ public class NotificationService extends Service {
                 LinearLayout view = (LinearLayout) LayoutInflater.from(NotificationService.this).inflate(R.layout.layout_linear, null);
                 for (NotificationInfo info : notificationList) {
                     ImageView imageView = new ImageView(NotificationService.this);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(CommonUtil.dp2px(15), CommonUtil.dp2px(15));
-                    layoutParams.rightMargin = CommonUtil.dp2px(1);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Util.dp2px(15), Util.dp2px(15));
+                    layoutParams.rightMargin = Util.dp2px(1);
                     imageView.setLayoutParams(layoutParams);
                     imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     imageView.setImageDrawable(info.icon);
@@ -188,7 +188,7 @@ public class NotificationService extends Service {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         remoteView_1 = new RemoteViews(getPackageName(),
                 R.layout.layout_notification);
-        int memory = CommonUtil.getMemory(this);
+        int memory = Util.getMemory(this);
         paint_1.setColor(ContextCompat.getColor(this, R.color.white_40));
         Canvas canvas = getCanvas();
         canvas.drawArc(oval, 0, 270, false, paint_1);
@@ -200,7 +200,7 @@ public class NotificationService extends Service {
         canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
 
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
-        remoteView_1.setTextViewText(R.id.norifi_memory_text, CommonUtil.getMemory(this) + "%");
+        remoteView_1.setTextViewText(R.id.norifi_memory_text, Util.getMemory(this) + "%");
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntentMain = PendingIntent.getActivity(this, requestCode,
                 notifyIntentMain, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -249,7 +249,7 @@ public class NotificationService extends Service {
             } else {
                 remoteView_1.setImageViewResource(R.id.notifi_network_type, R.drawable.translate);
             }
-            remoteView_1.setTextViewText(R.id.notifi_network_sudu, CommonUtil.convertStorageWifi(speed));
+            remoteView_1.setTextViewText(R.id.notifi_network_sudu, Util.convertStorageWifi(speed));
             num++;
             if (num >= 10) {
                 num = 0;
@@ -276,7 +276,7 @@ public class NotificationService extends Service {
 
     private void update() {
 
-        final int memory = CommonUtil.getMemory(this);
+        final int memory = Util.getMemory(this);
         //cpu温度
         CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
             @Override
@@ -304,7 +304,7 @@ public class NotificationService extends Service {
         });
         long time = System.currentTimeMillis();
         if (PreData.getDB(this, Constant.TONGZHI_SWITCH, true)) {
-            int hh = Integer.parseInt(CommonUtil.getStrTimeHH(time));
+            int hh = Integer.parseInt(Util.getStrTimeHH(time));
             //ram
             if (hh >= 6 && hh < 12 && PreData.getDB(this, Constant.KEY_TONGZHI_ZAO_RAM, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, true);
@@ -312,7 +312,7 @@ public class NotificationService extends Service {
                 if (memory > 80) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
-                    CommonUtil.track("通知栏", "内存通知", "展示", 1);
+                    Util.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
                 }
                 return;
@@ -322,7 +322,7 @@ public class NotificationService extends Service {
                 if (memory > 80) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
-                    CommonUtil.track("通知栏", "内存通知", "展示", 1);
+                    Util.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
                 }
                 return;
@@ -332,7 +332,7 @@ public class NotificationService extends Service {
                 if (memory > 80) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
-                    CommonUtil.track("通知栏", "内存通知", "展示", 1);
+                    Util.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
                 }
                 return;
@@ -344,7 +344,7 @@ public class NotificationService extends Service {
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
-                    CommonUtil.track("通知栏", "降温通知", "展示", 1);
+                    Util.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, false);
                 }
                 return;
@@ -354,7 +354,7 @@ public class NotificationService extends Service {
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
-                    CommonUtil.track("通知栏", "降温通知", "展示", 1);
+                    Util.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, false);
                 }
                 return;
@@ -364,7 +364,7 @@ public class NotificationService extends Service {
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
-                    CommonUtil.track("通知栏", "降温通知", "展示", 1);
+                    Util.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, false);
                 }
                 return;
@@ -378,7 +378,7 @@ public class NotificationService extends Service {
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
-                    CommonUtil.track("通知栏", "垃圾通知", "展示", 1);
+                    Util.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_JUNK, false);
                 }
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_JUNK, true)) {
@@ -387,7 +387,7 @@ public class NotificationService extends Service {
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
-                    CommonUtil.track("通知栏", "垃圾通知", "展示", 1);
+                    Util.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_JUNK, false);
                 }
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_JUNK, true)) {
@@ -396,15 +396,15 @@ public class NotificationService extends Service {
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
-                    CommonUtil.track("通知栏", "垃圾通知", "展示", 1);
+                    Util.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }
             long clean_two_day = PreData.getDB(NotificationService.this, Constant.KEY_CLEAN_TIME, 0l);
-            if (CommonUtil.millTransFate(time - clean_two_day) > 2) {
+            if (Util.millTransFate(time - clean_two_day) > 2) {
                 tonghzi_two_day();
                 mNotifyManager.notify(101, notification_two_day);
-                CommonUtil.track("通知栏", "两天唤醒", "展示", 1);
+                Util.track("通知栏", "两天唤醒", "展示", 1);
                 PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
             }
         }
@@ -537,7 +537,7 @@ public class NotificationService extends Service {
             throw new IllegalArgumentException("parameter can't be null.");
         }
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        view.layout(0, 0, CommonUtil.dp2px(16) * (size > 8 ? 8 : size), CommonUtil.dp2px(15));
+        view.layout(0, 0, Util.dp2px(16) * (size > 8 ? 8 : size), Util.dp2px(15));
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap bitmap = view.getDrawingCache();

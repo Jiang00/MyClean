@@ -24,12 +24,11 @@ import android.widget.TextView;
 import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.filemanager.FileSortHelper;
 import com.android.clean.filemanager.FileUtils;
-import com.android.clean.filemanager.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.FileAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -116,7 +115,7 @@ public class FileDocActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = CommonUtil.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
+        nativeView = Util.getNativeAdView(TAG_FILE_2, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);
@@ -164,7 +163,7 @@ public class FileDocActivity extends BaseActivity {
                 } else if (fc == FileCategoryHelper.FileCategory.Pdf) {
                     icon = ContextCompat.getDrawable(FileDocActivity.this, R.mipmap.file_pd_icon);
                 }
-                list.add(new JunkInfo(_id, icon, Util.getNameFromFilepath(cursorDoc.getString(FileCategoryHelper.COLUMN_PATH)),
+                list.add(new JunkInfo(_id, icon, com.android.clean.filemanager.Util.getNameFromFilepath(cursorDoc.getString(FileCategoryHelper.COLUMN_PATH)),
                         cursorDoc.getString(FileCategoryHelper.COLUMN_PATH), size, false));
             } while (cursorDoc.moveToNext());
             cursorDoc.close();

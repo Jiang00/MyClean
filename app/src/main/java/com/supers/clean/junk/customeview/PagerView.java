@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.Scroller;
 import android.widget.TextView;
 
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -154,13 +154,13 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
     private void init(Context context) {
         this.mContext = context;
         this.mScroller = new Scroller(context);
-        this.rightPadding = CommonUtil.dp2px(0);
-        this.leftPadding = CommonUtil.dp2px(0);
-        this.topPadding = CommonUtil.dp2px(0);
-        this.bottomPadding = CommonUtil.dp2px(0);
+        this.rightPadding = Util.dp2px(0);
+        this.leftPadding = Util.dp2px(0);
+        this.topPadding = Util.dp2px(0);
+        this.bottomPadding = Util.dp2px(0);
 
-        this.colSpace = CommonUtil.dp2px(1);
-        this.rowSpace = CommonUtil.dp2px(1);
+        this.colSpace = Util.dp2px(1);
+        this.rowSpace = Util.dp2px(1);
 
         if (mAdapter != null)
             refreshView();
@@ -241,7 +241,7 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
     public void removeView(View view) {
         super.removeView(view);
         int pages = (int) Math.ceil(getChildCount() * 1.0 / itemPerPage);
-        CommonUtil.log("rqy", "removeView--pages=" + pages + "--totalPage=" + totalPage);
+        Util.log("rqy", "removeView--pages=" + pages + "--totalPage=" + totalPage);
         if (pages < totalPage) {
             if (this.onAddPageListener != null) {
                 onAddPageListener.onAddOrDeletePage(totalPage, false);
@@ -258,7 +258,7 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
         }
         super.removeViewAt(index);
         int pages = (int) Math.ceil(getChildCount() * 1.0 / itemPerPage);
-        CommonUtil.log("rqy", "removeViewAt--pages=" + pages + "--totalPage=" + totalPage);
+        Util.log("rqy", "removeViewAt--pages=" + pages + "--totalPage=" + totalPage);
         if (pages < totalPage) {
             totalPage = pages;
             if (this.onAddPageListener != null)
@@ -279,7 +279,7 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
         final int action = ev.getAction();
         final float x = ev.getX();
         final float y = ev.getY();
-        int thresholdX = CommonUtil.dp2px(8);
+        int thresholdX = Util.dp2px(8);
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 startX = (int) x;
@@ -414,13 +414,13 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
         // when moving forward across pages,the first item of the new page moves
         // backward
         if (oldP != 0 && (oldP + 1) % itemPerPage == 0 && isForward) {
-            animation = new TranslateAnimation(screenWidth - oldPF.x, 0, CommonUtil.dp2px(25) - screenHeight, 0);
+            animation = new TranslateAnimation(screenWidth - oldPF.x, 0, Util.dp2px(25) - screenHeight, 0);
             animation.setDuration(500);
         }
         // when moving backward across pages,the last item of the new page moves
         // forward
         else if (oldP != 0 && oldP % itemPerPage == 0 && isCrossScreen && !isForward) {
-            animation = new TranslateAnimation(newPF.x - screenWidth, 0, screenHeight - CommonUtil.dp2px(25), 0);
+            animation = new TranslateAnimation(newPF.x - screenWidth, 0, screenHeight - Util.dp2px(25), 0);
             animation.setDuration(500);
         }
         // regular animation between two neighbor items
@@ -719,10 +719,10 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
 //            this.getAdapter().exchange(temChangPosition, dragPosition);
 //            temChangPosition = dragPosition;
 //        }
-//        if (x > getRight() - CommonUtil.dp2px(25) && mCurScreen < totalPage - 1 && mScroller.isFinished()
+//        if (x > getRight() - Util.dp2px(25) && mCurScreen < totalPage - 1 && mScroller.isFinished()
 //                && x - startX > 10) {
 //            snapToScreen(mCurScreen + 1, false);
-//        } else if (x - getLeft() < CommonUtil.dp2px(35) && mCurScreen > 0 && mScroller.isFinished()
+//        } else if (x - getLeft() < Util.dp2px(35) && mCurScreen > 0 && mScroller.isFinished()
 //                && x - startX < -10) {
 //            snapToScreen(mCurScreen - 1, false);
 //        }

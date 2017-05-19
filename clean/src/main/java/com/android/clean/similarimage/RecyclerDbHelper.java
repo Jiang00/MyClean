@@ -10,7 +10,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 
 import com.android.clean.filemanager.FileUtils;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -185,23 +185,23 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         }
         File file = new File(imageInfo.path);
         if (!file.exists() || file.isDirectory()) {
-            CommonUtil.log("rqy", "putImageToRecycler: file not exist or is directory, " + imageInfo.path);
+            Util.log("rqy", "putImageToRecycler: file not exist or is directory, " + imageInfo.path);
             return isSuccess;
         }
         String recyclerTime = RecyclerDbHelper.getInstance(mContext).getRecyclerTime();
         long rowId = RecyclerDbHelper.getInstance(mContext).addItem(imageInfo.path, recyclerTime);
 
         if (rowId < 0) {
-            CommonUtil.log("rqy", "putImageToRecycler: rowId= " + rowId);
+            Util.log("rqy", "putImageToRecycler: rowId= " + rowId);
             return isSuccess;
         }
         imageInfo.rowId = rowId;
         String destDic = RecyclerDbHelper.getInstance(mContext).getRecyclerDirectory(recyclerTime);
         String result = FileUtils.copyFileToRecycler(imageInfo.path, destDic, "img_" + rowId);
         if (result == null) {
-            CommonUtil.log("rqy", "copyFileToRecycler:error");
+            Util.log("rqy", "copyFileToRecycler:error");
             int deleteRowId = RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
-            CommonUtil.log("rqy", "deleteRowId--" + deleteRowId);
+            Util.log("rqy", "deleteRowId--" + deleteRowId);
             return isSuccess;
         }
         boolean deleteSuc = FileUtils.deleteFile(mContext, imageInfo.path);
@@ -212,7 +212,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
             isSuccess = true;
         } else {
             int deleteRowId = RecyclerDbHelper.getInstance(mContext).deleteItem(imageInfo);
-            CommonUtil.log("rqy", "deleteRowId--" + deleteRowId);
+            Util.log("rqy", "deleteRowId--" + deleteRowId);
         }
 
         return isSuccess;

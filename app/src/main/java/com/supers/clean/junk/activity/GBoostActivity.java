@@ -29,7 +29,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.clean.gboost.GameBooster;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.android.clean.util.LoadManager;
 import com.rd.PageIndicatorView;
 import com.supers.clean.junk.R;
@@ -135,9 +135,9 @@ public class GBoostActivity extends BaseActivity {
         title_name.setText(R.string.gboost_0);
 
         long size = MemoryManager.getPhoneFreeRamMemory(this);
-        gboost_ram_size.setText(CommonUtil.convertStorage(size, true));
+        gboost_ram_size.setText(Util.convertStorage(size, true));
 
-        if (CommonUtil.isAccessibilitySettingsOn(this)) {
+        if (Util.isAccessibilitySettingsOn(this)) {
             gboost_power_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             gboost_power_check.setImageResource(R.mipmap.side_check_normal);
@@ -204,14 +204,14 @@ public class GBoostActivity extends BaseActivity {
                             @Override
                             public void onClick(Object o, int pos) {
                                 if (pos == 0) {
-                                    CommonUtil.track("游戏加速页面", "点击添加游戏", "", 1);
+                                    Util.track("游戏加速页面", "点击添加游戏", "", 1);
                                     ll_add_game.setVisibility(View.VISIBLE);
                                     whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
                                     list_game.setAdapter(whiteListAdapter);
                                     initData();
                                 } else {
                                     try {
-                                        CommonUtil.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
+                                        Util.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
                                         Bundle bundle = new Bundle();
                                         bundle.putString("from", "GBoost");
                                         bundle.putString("packageName", list.get(pos));
@@ -263,7 +263,7 @@ public class GBoostActivity extends BaseActivity {
                     break;
 
                 case R.id.gboost_power_check:
-                    CommonUtil.track("游戏加速页面", "开启辅助功能", "", 1);
+                    Util.track("游戏加速页面", "开启辅助功能", "", 1);
                     try {
                         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                         startActivityForResult(intent, 100);
@@ -280,7 +280,7 @@ public class GBoostActivity extends BaseActivity {
                     }, 1500);
                     break;
                 case R.id.gboost_clean_button:
-                    CommonUtil.track("游戏加速页面", "点击一键加速", "", 1);
+                    Util.track("游戏加速页面", "点击一键加速", "", 1);
                     Bundle bundle = new Bundle();
                     bundle.putString("from", "GBoost");
                     jumpToActivity(PowerActivity.class, bundle, 1);
@@ -375,7 +375,7 @@ public class GBoostActivity extends BaseActivity {
         long nowTimeStamp = System.currentTimeMillis(); // 当前时间
         long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
                 - lastTimeStamp));// 毫秒转换
-//        gboost_network_size.setText(CommonUtil.convertStorageWifi(speed));
+//        gboost_network_size.setText(Util.convertStorageWifi(speed));
         lastTimeStamp = nowTimeStamp;
         lastTotalRxBytes = nowTotalRxBytes;
         return speed;
@@ -417,8 +417,8 @@ public class GBoostActivity extends BaseActivity {
                                 gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_1));
                             }
                             gboost_cpu_szie.setText(cup + "%");
-                            gboost_network_size.setText(CommonUtil.convertStorageWifi(speed));
-                            gboost_ram_size.setText(CommonUtil.convertStorage(size, true));
+                            gboost_network_size.setText(Util.convertStorageWifi(speed));
+                            gboost_ram_size.setText(Util.convertStorage(size, true));
                         }
                     });
                     try {
@@ -486,7 +486,7 @@ public class GBoostActivity extends BaseActivity {
                 PreData.putDB(GBoostActivity.this, Constant.GBOOST_SI, true);
             }
 
-            Bitmap bitmap = CommonUtil.getViewBitmap(shortcut_view);
+            Bitmap bitmap = Util.getViewBitmap(shortcut_view);
             if (bitmap != null) {
                 Log.e("short", "chuangjian ");
 //                Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
@@ -537,7 +537,7 @@ public class GBoostActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100 || requestCode == 1) {
-            if (CommonUtil.isAccessibilitySettingsOn(this)) {
+            if (Util.isAccessibilitySettingsOn(this)) {
                 gboost_power_check.setImageResource(R.mipmap.side_check_passed);
             } else {
                 gboost_power_check.setImageResource(R.mipmap.side_check_normal);

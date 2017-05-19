@@ -6,8 +6,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
-import com.android.clean.util.CommonUtil;
 
 /**
  */
@@ -26,7 +26,7 @@ public class DrawHookView extends View {
     private int size;
     private boolean stop;
 
-    private int move_distance = CommonUtil.dp2px(2);
+    private int move_distance = Util.dp2px(2);
 
     DrawHookListener drawHookListener;
     private Paint paint;
@@ -54,7 +54,7 @@ public class DrawHookView extends View {
         //设置画笔颜色
 //        paint.setColor(getResources().getColor(R.color.white_40));
         //设置圆弧的宽度
-        paint.setStrokeWidth(CommonUtil.dp2px(10));
+        paint.setStrokeWidth(Util.dp2px(10));
         //设置圆弧为空心
         paint.setStyle(Paint.Style.STROKE);
         //消除锯齿
@@ -85,7 +85,7 @@ public class DrawHookView extends View {
         int radius = size / 2;
 
         //定义的圆弧的形状和大小的界限
-//        RectF rectF = new RectF(0 + CommonUtil.dp2px(5), 0 + CommonUtil.dp2px(5), size - CommonUtil.dp2px(5), size - CommonUtil.dp2px(5));
+//        RectF rectF = new RectF(0 + Util.dp2px(5), 0 + Util.dp2px(5), size - Util.dp2px(5), size - Util.dp2px(5));
 
         //根据进度画圆弧
 //        canvas.drawArc(rectF, 235, -360 * progress / 100, false, paint);
@@ -109,7 +109,7 @@ public class DrawHookView extends View {
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
             //画第二根线
-            canvas.drawLine(center1 + line1_x - CommonUtil.dp2px(6), center + line1_y, center1 + line2_x, center + line2_y, paint);
+            canvas.drawLine(center1 + line1_x - Util.dp2px(6), center + line1_y, center1 + line2_x, center + line2_y, paint);
         } else {
             if (drawHookListener != null) {
                 drawHookListener.duogouSc();
@@ -117,7 +117,7 @@ public class DrawHookView extends View {
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
             //画第二根线
-            canvas.drawLine(center1 + line1_x - CommonUtil.dp2px(6), center + line1_y, center1 + line2_x, center + line2_y, paint);
+            canvas.drawLine(center1 + line1_x - Util.dp2px(6), center + line1_y, center1 + line2_x, center + line2_y, paint);
             stop = true;
         }
     }

@@ -6,7 +6,6 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -18,13 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.view.JunkView;
 import com.supers.clean.junk.adapter.JunkAdapter;
-import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
@@ -170,7 +169,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_size_all.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_size_all.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(allSize, junk_unit);
                         }
                     });
@@ -186,7 +185,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
             }
         }).start();
 
-//        junk_size_all.setText(CommonUtil.getFileSize2(allSize));
+//        junk_size_all.setText(Util.getFileSize2(allSize));
 
         if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
             if (color1) {
@@ -213,7 +212,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
     public void addSystemdata(final long size, List<JunkInfo> list) {
         adapterSystem.addDataList(list);
         junk_system_list.setVisibility(View.GONE);
-//        junk_system_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_system_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_system_unit);
         new Thread(new Runnable() {
             @Override
@@ -237,7 +236,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_system_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_system_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_system_unit);
                         }
                     });
@@ -250,7 +249,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
     public void addApkdata(final long size, List<JunkInfo> list) {
         adapterApk.addDataList(list);
         junk_apk_list.setVisibility(View.GONE);
-//        junk_apk_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_apk_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_apk_unit);
         new Thread(new Runnable() {
             @Override
@@ -273,7 +272,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_apk_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_apk_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_apk_unit);
                         }
                     });
@@ -286,7 +285,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
     public void addUnloaddata(final long size, List<JunkInfo> list) {
         adapterUnload.addDataList(list);
         junk_unload_list.setVisibility(View.GONE);
-//        junk_unload_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_unload_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_unload_unit);
         new Thread(new Runnable() {
             @Override
@@ -309,7 +308,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_unload_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_unload_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_unload_unit);
                         }
                     });
@@ -322,7 +321,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
     public void addLogdata(final long size, List<JunkInfo> list) {
         adapterLog.addDataList(list);
         junk_log_list.setVisibility(View.GONE);
-//        junk_log_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_log_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_log_unit);
         new Thread(new Runnable() {
             @Override
@@ -345,7 +344,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_log_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_log_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_log_unit);
                         }
                     });
@@ -358,7 +357,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
     public void addUserdata(final long size, List<JunkInfo> list) {
         adapterUser.addDataList(list);
         junk_user_list.setVisibility(View.GONE);
-//        junk_user_size.setText(CommonUtil.getFileSizeKongge(size));
+//        junk_user_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_user_unit);
         new Thread(new Runnable() {
             @Override
@@ -381,7 +380,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_user_size.setText(CommonUtil.convertStorage(finalI, false));
+                            junk_user_size.setText(Util.convertStorage(finalI, false));
                             junkPresenter.setUnit(size, junk_user_unit);
                         }
                     });
@@ -393,7 +392,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
 
     @Override
     public void setUnit(long size, TextView textView) {
-        textView.setText(CommonUtil.convertStorageDanwei(size));
+        textView.setText(Util.convertStorageDanwei(size));
     }
 
     @Override
@@ -421,7 +420,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                             @Override
                             public void run() {
                                 if (finalI != 0) {
-                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.convertStorage(finalI, true) + ")");
+                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(finalI, true) + ")");
                                 }
                             }
                         });
@@ -430,7 +429,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
             }).start();
         } else {
             if (size != 0) {
-                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + CommonUtil.convertStorage(size, true) + ")");
+                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(size, true) + ")");
             }
         }
 
@@ -537,7 +536,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.title_left:
-                    CommonUtil.track("垃圾页面", "点击返回", "", 1);
+                    Util.track("垃圾页面", "点击返回", "", 1);
                     onBackPressed();
                     break;
                 case R.id.junk_button_system:
@@ -545,10 +544,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("垃圾页面", "点击收起系统缓存", "", 1);
+                        Util.track("垃圾页面", "点击收起系统缓存", "", 1);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("垃圾页面", "点击打开系统缓存", "", 1);
+                        Util.track("垃圾页面", "点击打开系统缓存", "", 1);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -557,10 +556,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("垃圾页面", "点击收起apk文件", "", 1);
+                        Util.track("垃圾页面", "点击收起apk文件", "", 1);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("垃圾页面", "点击打开apk文件", "", 1);
+                        Util.track("垃圾页面", "点击打开apk文件", "", 1);
                         junk_apk_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -569,10 +568,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("垃圾页面", "点击收起unload文件", "", 1);
+                        Util.track("垃圾页面", "点击收起unload文件", "", 1);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("垃圾页面", "点击打开apk文件", "", 1);
+                        Util.track("垃圾页面", "点击打开apk文件", "", 1);
                         junk_unload_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -581,10 +580,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("垃圾页面", "点击收起log文件", "", 1);
+                        Util.track("垃圾页面", "点击收起log文件", "", 1);
                         junk_log_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("垃圾页面", "点击打开log文件", "", 1);
+                        Util.track("垃圾页面", "点击打开log文件", "", 1);
                         junk_log_list.setVisibility(View.VISIBLE);
                     }
 
@@ -594,10 +593,10 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         break;
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
-                        CommonUtil.track("垃圾页面", "点击收起user文件", "", 1);
+                        Util.track("垃圾页面", "点击收起user文件", "", 1);
                         junk_user_list.setVisibility(View.GONE);
                     } else {
-                        CommonUtil.track("垃圾页面", "点击打开user文件", "", 1);
+                        Util.track("垃圾页面", "点击打开user文件", "", 1);
                         junk_user_list.setVisibility(View.VISIBLE);
                     }
 
@@ -606,7 +605,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
                     PreData.putDB(JunkActivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
-                    CommonUtil.track("垃圾页面", "点击清理", "", 1);
+                    Util.track("垃圾页面", "点击清理", "", 1);
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
                             junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
                         junkPresenter.bleachFile(false, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());

@@ -30,7 +30,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.HorizontalListViewAdapter;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CheckState;
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.SwitchControl;
@@ -109,11 +109,11 @@ public class FloatActivity extends BaseActivity {
                 }
             }, 1000);
         } else {
-            nativeView = CommonUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
+            nativeView = Util.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
-                    layout_ad.height = CommonUtil.dp2px(250);
+                if (nativeView.getHeight() == Util.dp2px(250)) {
+                    layout_ad.height = Util.dp2px(250);
                 }
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
@@ -176,7 +176,7 @@ public class FloatActivity extends BaseActivity {
 //            waterView.setOnClickListener(WaterViewOnclick);
         }
         horizontal_listview.setAdapter(adapter);
-        float_memory.setText(CommonUtil.getMemory(this) + "");
+        float_memory.setText(Util.getMemory(this) + "");
 
     }
 
@@ -253,7 +253,7 @@ public class FloatActivity extends BaseActivity {
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
-                float_memory.setText(CommonUtil.getMemory(FloatActivity.this) + "");
+                float_memory.setText(Util.getMemory(FloatActivity.this) + "");
                 float_tishi.setText(R.string.float_yijiasu);
                 float_tishi.setVisibility(View.VISIBLE);
 
