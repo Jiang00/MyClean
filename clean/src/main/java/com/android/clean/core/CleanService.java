@@ -8,24 +8,9 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import android.text.TextUtils;
 
-import com.android.clean.callback.AppCacheCallBack;
-import com.android.clean.callback.AppRamCallBack;
-import com.android.clean.callback.FileInfoCallBack;
-import com.android.clean.callback.SystemCacheCallBack;
-import com.android.clean.callback.UninstallResidualCallback;
-import com.android.clean.entity.AppCache;
-import com.android.clean.entity.AppInfo;
-import com.android.clean.entity.AppRam;
-import com.android.clean.entity.UninstallResidual;
-import com.android.clean.filemanager.FileInfo;
 import com.android.clean.util.TopActivityPkg;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
 
 
 /**

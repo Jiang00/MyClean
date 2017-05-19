@@ -38,7 +38,7 @@ import com.android.clean.notification.NotificationInfo;
 import com.android.clean.notification.NotificationMonitorService;
 import com.android.clean.util.CommonUtil;
 import com.android.clean.util.MemoryManager;
-import com.android.clean.util.PreData;
+import com.android.clean.whitelist.WhiteListHelper;
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
 
@@ -51,6 +51,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by renqingyou on 2017/5/12.
@@ -62,7 +63,9 @@ public class CleanManager {
     private static CleanManager mInstance;
     private Context mContext;
     private ActivityManager am;
-    private long totalSystemCacheSize = 0;
+    private PackageManager pm;
+
+    private long systemCacheSize, apkSize, uninstallSize, logSize, appCacheSize, ramSize;
 
     private ArrayList<NotificationInfo> notificationList;
     private ArrayList<NotificationCallBack> notificationCallBackList;
@@ -76,11 +79,12 @@ public class CleanManager {
 
     private ArrayList<FileInfo> logFiles = new ArrayList<>();
 
-    private final Vector<AppInfo> systemCaches = new Vector<>();
+    private final ArrayList<AppInfo> systemCaches = new ArrayList<>();
 
     private CleanManager(Context context) {
         mContext = context.getApplicationContext();
         am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        pm = context.getPackageManager();
     }
 
     public static CleanManager getInstance(Context context) {
@@ -88,30 +92,6 @@ public class CleanManager {
             mInstance = new CleanManager(context);
         }
         return mInstance;
-    }
-
-    private ArrayList<AppRam> getAppRamList() {
-        return (ArrayList<AppRam>) appRamList.clone();
-    }
-
-    private ArrayList<UninstallResidual> getUninstallResiduals() {
-        return (ArrayList<UninstallResidual>) uninstallResiduals.clone();
-    }
-
-    private ArrayList<AppCache> getAppCaches() {
-        return (ArrayList<AppCache>) appCaches.clone();
-    }
-
-    private Vector<AppInfo> getSystemCaches() {
-        return (Vector<AppInfo>) systemCaches.clone();
-    }
-
-    public ArrayList<FileInfo> getApkFiles() {
-        return (ArrayList<FileInfo>) apkFiles.clone();
-    }
-
-    public ArrayList<FileInfo> getLogFiles() {
-        return (ArrayList<FileInfo>) apkFiles.clone();
     }
 
     public void startNotificationCleanService() {
@@ -122,26 +102,13 @@ public class CleanManager {
         mContext.stopService(new Intent(mContext, NotificationMonitorService.class));
     }
 
-    public void startWorkLoad() {
+    public void startLoad() {
         Intent intent = new Intent(mContext, CleanService.class);
         mContext.startService(intent);
     }
 
-    public void startLoad() {
-        load();
-    }
-
-    public void load() {
+    void load() {
         long startTime = System.currentTimeMillis();
-        loadSystemCache(new SystemCacheCallBack() {
-            @Override
-            public void loadFinished(Vector<AppInfo> appInfoList, long totalSize) {
-                Log.e("rqy", "loadSystemCache--" + totalSize);
-                for (AppInfo appInfo : appInfoList) {
-                    Log.e("rqy", appInfo + "");
-                }
-            }
-        });
         loadAppCache(new AppCacheCallBack() {
             @Override
             public void loadFinished(ArrayList<AppCache> appCaches, long totalSize) {
@@ -153,7 +120,7 @@ public class CleanManager {
         });
         loadAppRam(new AppRamCallBack() {
             @Override
-            public void loadFinished(List<AppRam> appRamList, List<String> whiteList, int totalSize) {
+            public void loadFinished(List<AppRam> appRamList, List<String> whiteList, long totalSize) {
                 Log.e("rqy", "loadAppRam--" + totalSize);
                 for (AppRam appRam : appRamList) {
                     Log.e("rqy", appRam + "");
@@ -187,15 +154,27 @@ public class CleanManager {
                 }
             }
         });
+        //注意，这个要放在最后执行
+        loadSystemCache(new SystemCacheCallBack() {
+            @Override
+            public void loadFinished(ArrayList<AppInfo> appInfoList, long totalSize) {
+                Log.e("rqy", "loadSystemCache--" + totalSize);
+                systemCacheSize = totalSize;
+                for (AppInfo appInfo : appInfoList) {
+                    Log.e("rqy", appInfo + "");
+                }
+            }
+        });
         long endTime = System.currentTimeMillis();
         Log.e("rqy", "time=" + (endTime - startTime));
     }
 
     public void loadAppRam(AppRamCallBack appRamCallBack) {
-        List<String> ignoreApp = PreData.getWhiteList(mContext, PreData.WHILT_LIST);
+        List<String> ignoreApp = WhiteListHelper.getInstance(mContext).getWhiteList();
         List<String> whiteList = new ArrayList<>();
         List<AndroidAppProcess> listInfo = AndroidProcesses.getRunningAppProcesses();
-        int totalSize = 0;
+        ramSize = 0;
+        appRamList.clear();
         if (listInfo != null) {
             for (AndroidAppProcess info : listInfo) {
                 int pid = info.pid;
@@ -214,19 +193,20 @@ public class CleanManager {
                         appRam.isSelfBoot = CommonUtil.isStartSelf(mContext.getPackageManager(), packageName);
                         appRam.pkg = packageName;
                         appRamList.add(appRam);
-                        totalSize += appRam.size;
+                        ramSize += appRam.size;
                     }
                 } catch (Exception e) {
                     continue;
                 }
             }
         }
-        appRamCallBack.loadFinished(appRamList, whiteList, totalSize);
+        appRamCallBack.loadFinished(appRamList, whiteList, ramSize);
     }
 
     public void loadUninstallResidual(UninstallResidualCallback uninstallResidualCallback) {
         String data = CommonUtil.readFileFromAssets(mContext, "/raw/");
-        long totalSize = 0;
+        uninstallSize = 0;
+        uninstallResiduals.clear();
         if (!TextUtils.isEmpty(data)) {
             try {
                 JSONObject jsonObject = new JSONObject(data);
@@ -242,15 +222,15 @@ public class CleanManager {
                     long size = CommonUtil.getFileSize(file);
                     String pkg = object.getString("pkg");
                     String name = object.getString("name");
-                    uninstallResiduals.add(new UninstallResidual(pkg, name, path));
-                    totalSize += size;
+                    uninstallResiduals.add(new UninstallResidual(pkg, name, path, size));
+                    uninstallSize += size;
                 }
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        uninstallResidualCallback.loadFinished(uninstallResiduals, totalSize);
+        uninstallResidualCallback.loadFinished(uninstallResiduals, uninstallSize);
     }
 
     public void loadAppCache(AppCacheCallBack appCacheCallBack) {
@@ -258,9 +238,10 @@ public class CleanManager {
         List<PackageInfo> packages = mContext.getPackageManager().getInstalledPackages(0);
 
         String cacheFilePath = mContext.getExternalCacheDir().getAbsolutePath();
-        Log.e("rqy", "cacheFile path=" + cacheFilePath);
 
-        long totalSize = 0;
+        appCacheSize = 0;
+        appCaches.clear();
+
         for (final PackageInfo packageInfo : packages) {
             final String packageName = packageInfo.packageName;
             if (packageName.equals(mContext.getPackageName())) {
@@ -274,12 +255,12 @@ public class CleanManager {
             long size = CommonUtil.getFileSize(file);
             if (size > 0) {
                 AppCache appCache = new AppCache(path, packageName, size);
-                totalSize += totalSize;
+                appCacheSize += size;
                 appCaches.add(appCache);
             }
         }
         if (appCacheCallBack != null) {
-            appCacheCallBack.loadFinished(appCaches, totalSize);
+            appCacheCallBack.loadFinished(appCaches, appCacheSize);
         }
 
     }
@@ -287,7 +268,8 @@ public class CleanManager {
     public void loadApkFile(FileInfoCallBack fileInfoCallBack) {
         FileCategoryHelper fileCategoryHelper = new FileCategoryHelper(mContext);
         Cursor cursor = fileCategoryHelper.query(FileCategoryHelper.FileCategory.Apk, FileSortHelper.SortMethod.size);
-        long totalSize = 0;
+        apkSize = 0;
+        apkFiles.clear();
         if (cursor != null && cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
@@ -295,20 +277,21 @@ public class CleanManager {
                 String path = cursor.getString(FileCategoryHelper.COLUMN_PATH);
                 String name = Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
-                totalSize += size;
+                apkSize += size;
                 apkFiles.add(new FileInfo(path, name, date, size));
             } while (cursor.moveToNext());
             cursor.close();
         }
         if (fileInfoCallBack != null) {
-            fileInfoCallBack.loadFinished(apkFiles, totalSize);
+            fileInfoCallBack.loadFinished(apkFiles, apkSize);
         }
     }
 
     public void loadLogFile(FileInfoCallBack fileInfoCallBack) {
         FileCategoryHelper fileCategoryHelper = new FileCategoryHelper(mContext);
         Cursor cursor = fileCategoryHelper.query(FileCategoryHelper.FileCategory.Log, FileSortHelper.SortMethod.size);
-        long totalSize = 0;
+        logSize = 0;
+        logFiles.clear();
         if (cursor != null && cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
@@ -316,29 +299,30 @@ public class CleanManager {
                 String path = cursor.getString(FileCategoryHelper.COLUMN_PATH);
                 String name = Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
-                totalSize += size;
+                logSize += size;
                 logFiles.add(new FileInfo(path, name, date, size));
             } while (cursor.moveToNext());
             cursor.close();
         }
         if (fileInfoCallBack != null) {
-            fileInfoCallBack.loadFinished(logFiles, totalSize);
+            fileInfoCallBack.loadFinished(logFiles, logSize);
         }
     }
 
+    //SystemCache和应用管理用的同一个
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void loadSystemCache(final SystemCacheCallBack systemCacheCallBack) {
-        totalSystemCacheSize = 0;
+        systemCacheSize = 0;
+        systemCaches.clear();
         if (systemCacheCallBack == null) {
             throw new Error("systemCacheCallBack can not be null");
         }
 
-        PackageManager pm = mContext.getPackageManager();
         List<PackageInfo> packages = pm.getInstalledPackages(0);
 
         if (packages == null || packages.isEmpty()) {
             if (systemCacheCallBack != null) {
-                systemCacheCallBack.loadFinished(systemCaches, totalSystemCacheSize);
+                systemCacheCallBack.loadFinished(systemCaches, systemCacheSize);
             }
             return;
         }
@@ -368,7 +352,7 @@ public class CleanManager {
             }
             return;
         }
-
+        final CountDownLatch countDownLatch = new CountDownLatch(size);
         for (final PackageInfo packageInfo : packages) {
             final String packageName = packageInfo.packageName;
             boolean version = Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR1 && Build.VERSION.SDK_INT <= Build.VERSION_CODES.M;
@@ -380,19 +364,7 @@ public class CleanManager {
                                 @Override
                                 public void onGetStatsCompleted(PackageStats pStats, boolean succeeded) throws RemoteException {
                                     //loadAppSizeCompleted(true, pStats, packageInfo);
-                                    if (succeeded) {
-                                        AppInfo appInfo = new AppInfo();
-                                        appInfo.pkgCacheSize = pStats.dataSize + pStats.codeSize;
-                                        appInfo.pkgName = packageName;
-                                        systemCaches.add(appInfo);
-                                        totalSystemCacheSize += appInfo.pkgCacheSize;
-                                        if (systemCaches.size() == size) {
-                                            if (systemCacheCallBack != null) {
-                                                systemCacheCallBack.loadFinished(systemCaches, totalSystemCacheSize);
-                                            }
-                                        }
-                                    }
-
+                                    getStatsCompleted(packageInfo, pStats, countDownLatch);
                                 }
                             }
                     );
@@ -401,32 +373,38 @@ public class CleanManager {
                                 @Override
                                 public void onGetStatsCompleted(PackageStats pStats, boolean succeeded)
                                         throws RemoteException {
-                                    if (succeeded) {
-                                        AppInfo appInfo = new AppInfo();
-                                        appInfo.pkgCacheSize = pStats.dataSize + pStats.codeSize;
-                                        appInfo.pkgName = packageName;
-                                        systemCaches.add(appInfo);
-                                        totalSystemCacheSize += appInfo.pkgCacheSize;
-                                        if (systemCaches.size() == size) {
-                                            if (systemCacheCallBack != null) {
-                                                systemCacheCallBack.loadFinished(systemCaches, totalSystemCacheSize);
-                                            }
-                                        }
-                                    }
+                                    getStatsCompleted(packageInfo, pStats, countDownLatch);
                                 }
                             }
                     );
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (systemCacheCallBack != null) {
-                    systemCacheCallBack.loadFinished(systemCaches, totalSystemCacheSize);
-                }
-                break;
+                getStatsCompleted(packageInfo, null, countDownLatch);
             }
         }
+        try {
+            countDownLatch.await();
+        } catch (Exception e) {
 
+        }
+        systemCacheCallBack.loadFinished(systemCaches, systemCacheSize);
     }
+
+    private void getStatsCompleted(PackageInfo packageInfo, PackageStats pStats, CountDownLatch countDownLatch) {
+        synchronized (countDownLatch) {
+            AppInfo appInfo = new AppInfo();
+            appInfo.pkgName = packageInfo.packageName;
+            appInfo.label = packageInfo.applicationInfo.loadLabel(pm).toString();
+            if (pStats != null) {
+                appInfo.pkgCacheSize = pStats.cacheSize;
+                systemCacheSize += appInfo.pkgCacheSize;
+            }
+            systemCaches.add(appInfo);
+            countDownLatch.countDown();
+        }
+    }
+
 
     public void clearSystemCache() {
         StatFs stat = new StatFs(Environment.getDataDirectory().getAbsolutePath());
@@ -507,6 +485,98 @@ public class CleanManager {
         }
         if (notificationCallBackList.contains(notificationCallBack)) {
             notificationCallBackList.remove(notificationCallBack);
+        }
+    }
+
+
+    public long getCacheSize() {
+        return systemCacheSize;
+    }
+
+    public long getApkSize() {
+        return apkSize;
+    }
+
+    public long getUnloadSize() {
+        return uninstallSize;
+    }
+
+    public long getLogSize() {
+        return logSize;
+    }
+
+    public long getDataSize() {
+        return appCacheSize;
+    }
+
+    public long getRamSize() {
+        return ramSize;
+    }
+
+    private ArrayList<AppRam> getAppRamList() {
+        return (ArrayList<AppRam>) appRamList.clone();
+    }
+
+    private ArrayList<UninstallResidual> getUninstallResiduals() {
+        return (ArrayList<UninstallResidual>) uninstallResiduals.clone();
+    }
+
+    private ArrayList<AppCache> getAppCaches() {
+        return (ArrayList<AppCache>) appCaches.clone();
+    }
+
+    private Vector<AppInfo> getSystemCaches() {
+        return (Vector<AppInfo>) systemCaches.clone();
+    }
+
+    public ArrayList<FileInfo> getApkFiles() {
+        return (ArrayList<FileInfo>) apkFiles.clone();
+    }
+
+    public ArrayList<FileInfo> getLogFiles() {
+        return (ArrayList<FileInfo>) apkFiles.clone();
+    }
+
+
+    public void removeRam(AppRam appRam) {
+        am.killBackgroundProcesses(appRam.pkg);
+        if (appRam.isSelfBoot) {
+            return;
+        }
+        ramSize -= appRam.size;
+        if (appRamList != null) {
+            appRamList.remove(appRam);
+        }
+    }
+
+    public void clearRam() {
+        if (appRamList != null) {
+            appRamList.clear();
+            ramSize = 0;
+        }
+    }
+
+    public void removeAppCache(AppCache appCache) {
+        CommonUtil.deleteFile(appCache.filePath);
+        appCacheSize -= appCache.size;
+        if (appCaches != null) {
+            appCaches.remove(appCache);
+        }
+    }
+
+    public void removeFilesOfUnintalledApk(UninstallResidual uninstallResidual) {
+        CommonUtil.deleteFile(uninstallResidual.path);
+        uninstallSize -= uninstallResidual.size;
+        if (uninstallResiduals != null) {
+            uninstallResiduals.remove(uninstallResidual);
+        }
+    }
+
+    public void removeApkFiles(FileInfo fileInfo) {
+        CommonUtil.deleteFile(fileInfo.filePath);
+        apkSize -= fileInfo.fileSize;
+        if (apkFiles != null) {
+            apkFiles.remove(fileInfo);
         }
     }
 }

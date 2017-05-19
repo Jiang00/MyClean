@@ -503,6 +503,13 @@ public class CommonUtil {
         return null;
     }
 
+
+    //获取程序 图标
+    public static Drawable getAppIcon(Context context, String pkgName) {
+        PackageManager packageManager = context.getPackageManager();
+        return getAppIcon(pkgName, packageManager);
+    }
+
     //获取程序 图标
     public static Drawable getAppIcon(String packname, PackageManager pm) {
         try {

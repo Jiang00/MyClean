@@ -257,5 +257,4 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         return false;
     }
 
-
 }

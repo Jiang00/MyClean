@@ -244,7 +244,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/
@@ -255,7 +254,8 @@ public class MyApplication extends Application {
         Utils.writeData(this, Constants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
         Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
 
-        CleanManager.getInstance(this).startWorkLoad();
+        CleanManager.getInstance(this).startLoad();
+
         if (PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationService.class);
             intent.setAction("notification");

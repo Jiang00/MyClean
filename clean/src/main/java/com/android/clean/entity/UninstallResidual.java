@@ -8,14 +8,16 @@ public class UninstallResidual {
     public String pkg;
     public String name;
     public String path;
+    public long size;
 
     public UninstallResidual() {
     }
 
-    public UninstallResidual(String pkg, String name, String path) {
+    public UninstallResidual(String pkg, String name, String path,long size) {
         this.pkg = pkg;
         this.name = name;
         this.path = path;
+        this.size = size;
     }
 
     @Override

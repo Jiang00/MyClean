@@ -9,5 +9,5 @@ import java.util.List;
  */
 
 public abstract class AppRamCallBack {
-    public abstract void loadFinished(List<AppRam> appRamList, List<String> whiteList, int totalSize);
+    public abstract void loadFinished(List<AppRam> appRamList, List<String> whiteList, long totalSize);
 }
