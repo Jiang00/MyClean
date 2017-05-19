@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -24,7 +24,7 @@ import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.view.JunkView;
 import com.supers.clean.junk.adapter.JunkAdapter;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;

@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.android.clean.similarimage.ImageHelper;
+import com.android.clean.similarimage.ImageInfo;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.customeview.MyGridLayoutManager;
-import com.supers.clean.junk.db.RecyclerDbHelper;
-import com.supers.clean.junk.similarimage.ImageHelper;
-import com.supers.clean.junk.similarimage.ImageInfo;
+import com.android.clean.similarimage.RecyclerDbHelper;
 
 import java.util.ArrayList;
 

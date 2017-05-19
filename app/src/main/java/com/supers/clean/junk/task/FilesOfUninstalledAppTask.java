@@ -8,11 +8,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Environment;
 
 
+import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.CopyDbManager;
-import com.supers.clean.junk.util.MemoryManager;
+import com.android.clean.util.MemoryManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class FilesOfUninstalledAppTask extends SimpleTask {
             String sdpath = MemoryManager.getPhoneInSDCardPath();
             while (c.moveToNext()) {
                 String apkname = c.getString(c.getColumnIndex("apkname"));
-                if (CommonUtil.isPkgInstalled(apkname, pm)) {
+                if (LoadManager.getInstance(mContext).isPkgInstalled(apkname)) {
                     continue;
                 }
                 String filepath = c.getString(c.getColumnIndex("filepath"));

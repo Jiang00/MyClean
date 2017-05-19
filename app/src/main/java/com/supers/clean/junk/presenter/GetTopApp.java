@@ -3,21 +3,16 @@ package com.supers.clean.junk.presenter;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.usage.UsageEvents;
-import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.os.Build;
-import android.text.TextUtils;
 import android.util.Log;
-
-import com.supers.clean.junk.util.CommonUtil;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;

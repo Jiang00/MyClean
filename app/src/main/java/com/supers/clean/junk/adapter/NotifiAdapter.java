@@ -9,15 +9,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.clean.notification.NotificationInfo;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.entity.NotifiInfo;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 
 /**
  * Created by Ivy on 2017/4/17.
  */
 
-public class NotifiAdapter extends MybaseAdapter<NotifiInfo> {
+public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
     public NotifiAdapter(Context context) {
         super(context);
 
@@ -25,7 +25,7 @@ public class NotifiAdapter extends MybaseAdapter<NotifiInfo> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final NotifiInfo info = getItem(position);
+        final NotificationInfo info = getItem(position);
         final ViewHolder holder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.layout_notifi_item, null);

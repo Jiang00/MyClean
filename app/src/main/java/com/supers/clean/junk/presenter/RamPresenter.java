@@ -5,7 +5,7 @@ import android.content.Context;
 
 import com.supers.clean.junk.view.RamView;
 import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.util.MemoryManager;
+import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.entity.JunkInfo;
 
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
 package com.supers.clean.junk.activity;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,6 +26,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.clean.util.CommonUtil;
+import com.android.clean.util.LoadManager;
 import com.android.client.AndroidSdk;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
@@ -47,7 +48,6 @@ import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
-import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.UtilGp;
@@ -112,7 +112,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private ViewPager viewpager;
     /* private PagerAdapter pagerAdapter;
      private View pageView;*/
-    private PackageManager packageManager;
 
     private boolean mDrawerOpened = false;
     private CrossData.CrossPromotionBean bean;
@@ -171,7 +170,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
-        packageManager = getPackageManager();
         cleanApplication = (MyApplication) getApplication();
         try {
             String pkg = getIntent().getStringExtra("theme_package_name");
@@ -369,7 +367,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         ((TextView) viewpager_3.findViewById(R.id.ad_action)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (CommonUtil.isPkgInstalled(bean.pkg, packageManager)) {
+                if (LoadManager.getInstance(MainActivity.this).isPkgInstalled(bean.pkg)) {
                     CommonUtil.doStartApplicationWithPackageName(MainActivity.this, bean.pkg);
                 } else {
                     UtilGp.openPlayStore(getApplicationContext(), bean.pkg);
@@ -840,7 +838,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_tuiguang_button:
                 case R.id.fl_lot_side:
-                    if (CommonUtil.isPkgInstalled(tuiguang, packageManager)) {
+                    if (LoadManager.getInstance(MainActivity.this).isPkgInstalled(tuiguang)) {
                         CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
                         CommonUtil.track("主页面", "启动" + tuiguang, "", 1);
                     } else {

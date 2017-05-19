@@ -5,10 +5,8 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -22,8 +20,6 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +27,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
+import com.android.clean.core.CleanManager;
+import com.android.clean.notification.NotificationCallBack;
+import com.android.clean.notification.NotificationInfo;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.CoolingActivity;
 import com.supers.clean.junk.activity.JunkAndRamActivity;
@@ -40,16 +39,13 @@ import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SuccessActivity;
 import com.supers.clean.junk.activity.TranslateActivity;
-import com.supers.clean.junk.entity.NotifiInfo;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CpuTempReader;
 import com.supers.clean.junk.util.PhoneManager;
 import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
-
-import static com.supers.clean.junk.service.NotificationMonitor.NOTIFI_ACTION;
 
 
 public class NotificationService extends Service {
@@ -60,7 +56,6 @@ public class NotificationService extends Service {
     private RemoteViews remoteView_1, remoteViewNotifi;
     private Notification notification_1;
     private Notification notification_notifi;
-    private NotifiReceiver receiver;
 
     private MyApplication cleanApplication;
     private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
@@ -74,7 +69,6 @@ public class NotificationService extends Service {
 
     private long lastTotalRxBytes = 0; // 最后缓存的字节数
     private long lastTimeStamp = 0; // 当前缓存时间
-    private ArrayList<NotifiInfo> list;
 
     @Override
     public IBinder onBind(Intent arg0) {
@@ -99,9 +93,33 @@ public class NotificationService extends Service {
                 * 2 - CommonUtil.dp2px(2), pointX - CommonUtil.dp2px(2));
         changZhuTongzhi();
         tonghzi_notifi();
-        receiver = new NotifiReceiver();
-        LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter(NOTIFI_ACTION));
+        CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
     }
+
+    NotificationCallBack notificationCallBack = new NotificationCallBack() {
+        @Override
+        public void notificationChanged(ArrayList<NotificationInfo> notificationList) {
+            if (notificationList != null && notificationList.size() != 0) {
+                tonghzi_notifi();
+                LinearLayout view = (LinearLayout) LayoutInflater.from(NotificationService.this).inflate(R.layout.layout_linear, null);
+                for (NotificationInfo info : notificationList) {
+                    ImageView imageView = new ImageView(NotificationService.this);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(CommonUtil.dp2px(15), CommonUtil.dp2px(15));
+                    layoutParams.rightMargin = CommonUtil.dp2px(1);
+                    imageView.setLayoutParams(layoutParams);
+                    imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    imageView.setImageDrawable(info.icon);
+                    view.addView(imageView);
+                }
+                remoteViewNotifi.setTextViewText(R.id.num, notificationList.size() + " ");
+                remoteViewNotifi.setImageViewBitmap(R.id.ll_notifi, screenShot(view, notificationList.size()));
+                mNotifyManager.notify(103, notification_notifi);
+            } else {
+                mNotifyManager.cancel(103);
+            }
+        }
+    };
+
 
     public Canvas getCanvas() {
         Canvas canvas = new Canvas(bitmap_progress);
@@ -514,45 +532,18 @@ public class NotificationService extends Service {
 //        notification_notifi.priority = Notification.PRIORITY_MAX;
     }
 
-    public final Bitmap screenShot(View view) {
+    public Bitmap screenShot(View view, int size) {
         if (null == view) {
             throw new IllegalArgumentException("parameter can't be null.");
         }
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        view.layout(0, 0, CommonUtil.dp2px(16) * (list.size() > 8 ? 8 : list.size()), CommonUtil.dp2px(15));
+        view.layout(0, 0, CommonUtil.dp2px(16) * (size > 8 ? 8 : size), CommonUtil.dp2px(15));
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap bitmap = view.getDrawingCache();
         return bitmap;
     }
 
-    class NotifiReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (TextUtils.equals(intent.getAction(), NOTIFI_ACTION)) {
-                list = cleanApplication.getNotifiList();
-                if (list != null && list.size() != 0) {
-                    tonghzi_notifi();
-                    LinearLayout view = (LinearLayout) LayoutInflater.from(NotificationService.this).inflate(R.layout.layout_linear, null);
-                    for (NotifiInfo info : list) {
-                        ImageView imageView = new ImageView(NotificationService.this);
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(CommonUtil.dp2px(15), CommonUtil.dp2px(15));
-                        layoutParams.rightMargin = CommonUtil.dp2px(1);
-                        imageView.setLayoutParams(layoutParams);
-                        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                        imageView.setImageDrawable(info.icon);
-                        view.addView(imageView);
-                    }
-                    remoteViewNotifi.setTextViewText(R.id.num, list.size() + " ");
-                    remoteViewNotifi.setImageViewBitmap(R.id.ll_notifi, screenShot(view));
-                    mNotifyManager.notify(103, notification_notifi);
-                } else {
-                    mNotifyManager.cancel(103);
-                }
-
-            }
-        }
-    }
 
     @Override
     public void onDestroy() {
@@ -560,8 +551,8 @@ public class NotificationService extends Service {
         if (!PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             mNotifyManager.cancel(102);
         }
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
         myHandler.removeCallbacks(runnableW);
+        CleanManager.getInstance(this).removeNotificatioCallBack(notificationCallBack);
         super.onDestroy();
     }
 }

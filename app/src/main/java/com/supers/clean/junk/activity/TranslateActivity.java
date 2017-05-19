@@ -5,8 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 
 /**
  * Created by Ivy on 2017/3/27.
@@ -18,7 +19,8 @@ public class TranslateActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_translate);
-        if (CommonUtil.isPkgInstalled("com.eosmobi.flashlight.free", getPackageManager())) {
+
+        if (LoadManager.getInstance(this).isPkgInstalled("com.eosmobi.flashlight.free")) {
             CommonUtil.doStartApplicationWithPackageName(this, "com.eosmobi.flashlight.free");
         } else {
             Intent intent = new Intent(this, MainActivity.class);

@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
-import com.android.clean.util.CommonUtil;
+import com.android.clean.util.LoadManager;
 
 import java.util.ArrayList;
 
@@ -15,14 +15,17 @@ import java.util.ArrayList;
  * Created by renqingyou on 2017/5/19.
  */
 
-
 public class WhiteListHelper extends SQLiteOpenHelper {
-    public static final String BATTERY_DB = "whitelist.db";
+    public static final String CLEAN_DB = "clean.db";
     public static final int DB_VERSION = 1;
 
     public static final String PKG_NAME = "pkg_name";
 
-    public static final String WHITELIST_TABLE_NAME = "whitelist";
+    public static final String RAM_CLEAR_TABLE_NAME = "ram";
+
+    public static final String NOTIFICATION_CLEAR_TABLE_NAME = "notification";
+
+    public static final String GAME_BOOST_TABLE_NAME = "game_boost";
 
     private static final String TAG = "WhiteListHelper";
 
@@ -30,8 +33,12 @@ public class WhiteListHelper extends SQLiteOpenHelper {
 
     private Context mContext;
 
+    public enum TableType {
+        Ram, Notification, GameBoost
+    }
+
     private WhiteListHelper(Context context) {
-        super(context.getApplicationContext(), BATTERY_DB, null, DB_VERSION);
+        super(context.getApplicationContext(), CLEAN_DB, null, DB_VERSION);
         mContext = context.getApplicationContext();
     }
 
@@ -61,19 +68,33 @@ public class WhiteListHelper extends SQLiteOpenHelper {
         }
     }
 
-    private void createRecyclerTable() {
-        getWritableDatabase().execSQL("CREATE TABLE IF NOT EXISTS " + WHITELIST_TABLE_NAME + " (" +
+    private void createTable(TableType tableType) {
+        String table_name = getTableName(tableType);
+        getWritableDatabase().execSQL("CREATE TABLE IF NOT EXISTS " + table_name + " (" +
                 PKG_NAME + " TEXT NOT NULL, " +
                 "PRIMARY KEY (" + PKG_NAME + ") " +
                 ");");
     }
 
-    private void deleteTable(SQLiteDatabase db, String tableName) {
-        db.execSQL("DROP TABLE IF EXISTS " + tableName);
+    public String getTableName(TableType tableType) {
+        String table_name = RAM_CLEAR_TABLE_NAME;
+        if (tableType == TableType.Notification) {
+            table_name = NOTIFICATION_CLEAR_TABLE_NAME;
+        } else if (tableType == TableType.GameBoost) {
+            table_name = GAME_BOOST_TABLE_NAME;
+        }
+        return table_name;
     }
 
-    private boolean deleteItem(String pkgName) {
-        String sql = "delete from " + WHITELIST_TABLE_NAME + "  where " + PKG_NAME + "=" + pkgName;
+
+    private void deleteTable(TableType tableType) {
+        String tableName = getTableName(tableType);
+        getWritableDatabase().execSQL("DROP TABLE IF EXISTS " + tableName);
+    }
+
+    private boolean deleteItem(TableType tableType, String pkgName) {
+        String table_name = getTableName(tableType);
+        String sql = "delete from " + table_name + "  where " + PKG_NAME + "=" + pkgName;
         try {
             return getWritableDatabase().compileStatement(sql).executeUpdateDelete() != -1;
         } catch (Exception e) {
@@ -82,9 +103,10 @@ public class WhiteListHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    private boolean addItem(String pkgName) {
-        createRecyclerTable();
-        String sql = "insert into " + WHITELIST_TABLE_NAME + "(" + PKG_NAME + ")" +
+    private boolean addItem(TableType tableType, String pkgName) {
+        createTable(tableType);
+        String table_name = getTableName(tableType);
+        String sql = "insert into " + table_name + "(" + PKG_NAME + ")" +
                 "values(?)";
         //db.beginTransaction();
         try {
@@ -93,7 +115,7 @@ public class WhiteListHelper extends SQLiteOpenHelper {
             return stat.executeInsert() != -1;
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, "addItemToFavor Error tableName=" + WHITELIST_TABLE_NAME + pkgName);
+            Log.e(TAG, "addItemToFavor Error tableName=" + table_name + pkgName);
         }
 //        db.setTransactionSuccessful();
 //        db.endTransaction();
@@ -101,13 +123,14 @@ public class WhiteListHelper extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<String> getWhiteList() {
+    public ArrayList<String> getWhiteList(TableType tableType) {
+        String table_name = getTableName(tableType);
         //先删除过期文件
 
         ArrayList<String> whiteList = new ArrayList<>();
         Cursor cursor = null;
         try {
-            cursor = getWritableDatabase().rawQuery("select " + PKG_NAME + " from " + WHITELIST_TABLE_NAME, null);
+            cursor = getWritableDatabase().rawQuery("select " + PKG_NAME + " from " + table_name, null);
             if (cursor == null || cursor.getCount() == 0) {
                 return whiteList;
             }
@@ -115,8 +138,8 @@ public class WhiteListHelper extends SQLiteOpenHelper {
             do {
                 //遍历出表名
                 String pkgName = cursor.getString(0);
-                if (!CommonUtil.isPkgInstalled(pkgName, mContext.getPackageManager())) {
-                    deleteItem(pkgName);
+                if (!LoadManager.getInstance(mContext).isPkgInstalled(pkgName)) {
+                    deleteItem(tableType, pkgName);
                     continue;
                 }
                 whiteList.add(pkgName);

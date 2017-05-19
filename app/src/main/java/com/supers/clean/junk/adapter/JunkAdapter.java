@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.JunkPresenter;
 

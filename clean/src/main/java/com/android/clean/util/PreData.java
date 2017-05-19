@@ -9,8 +9,6 @@ import java.util.Iterator;
 
 
 public final class PreData {
-    public static final String SHARED_FILE = "SHARED_FILE";
-    public static final String WHILT_LIST = "whilt_list";//白名单
 
     private PreData() {
     }
@@ -21,7 +19,7 @@ public final class PreData {
 
     private static SharedPreferences getDB(Context context) {
         if (db == null && context != null)
-            db = context.getSharedPreferences(SHARED_FILE, 0);
+            db = context.getSharedPreferences(Constant.SHARED_FILE, 0);
         return db;
     }
 
@@ -173,7 +171,7 @@ public final class PreData {
         }
     }
 
-    public static ArrayList<String> getWhiteList(Context context, String key) {
+    public static ArrayList<String> getNameList(Context context, String key) {
         String nameList = getDB(context, key, "");
         String[] tmp = nameList.split(",");
         ArrayList<String> list = new ArrayList<>();

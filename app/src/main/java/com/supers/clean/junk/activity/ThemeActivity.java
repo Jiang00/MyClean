@@ -12,7 +12,7 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 
 /**
  * Created by on 2017/3/2.

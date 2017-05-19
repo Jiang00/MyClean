@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
-import android.telecom.Log;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +17,15 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.filemanager.FileCategoryHelper;
+import com.android.clean.filemanager.FileSortHelper;
+import com.android.clean.filemanager.FileUtils;
+import com.android.clean.filemanager.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.FileAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.filemanager.FileCategoryHelper;
-import com.supers.clean.junk.filemanager.FileSortHelper;
-import com.supers.clean.junk.filemanager.FileUtils;
-import com.supers.clean.junk.filemanager.Util;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
@@ -247,7 +246,7 @@ public class FileListActivity extends BaseActivity {
                     public void run() {
                         super.run();
                         for (JunkInfo info : deleteList) {
-                            boolean deleteSuce = FileUtils.deleteFile(info.path);
+                            boolean deleteSuce = FileUtils.deleteFile(FileListActivity.this, info.path);
                             if (!deleteSuce) {
                                 android.util.Log.e(TAG, "delete fail --" + info.path);
                             }

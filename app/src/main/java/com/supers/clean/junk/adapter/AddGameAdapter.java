@@ -16,11 +16,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.activity.MyApplication;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.ShortcutSuperUtils;
@@ -32,9 +32,9 @@ import java.util.ArrayList;
 
 public class AddGameAdapter extends MybaseAdapter<JunkInfo> {
     private Toast toast;
-    private ArrayList<JunkInfo> game_list;
+    private ArrayList<String> game_list;
 
-    public AddGameAdapter(Context context, ArrayList<JunkInfo> game_list) {
+    public AddGameAdapter(Context context, ArrayList<String> game_list) {
         super(context);
         this.game_list = game_list;
     }
@@ -64,14 +64,14 @@ public class AddGameAdapter extends MybaseAdapter<JunkInfo> {
             @Override
             public void onClick(View v) {
                 boolean isContains = false;
-                for (JunkInfo gameInfo : game_list) {
-                    if (gameInfo.label.equals(info.label)) {
+                for (String gameInfo : game_list) {
+                    if (gameInfo.equals(info.packageName)) {
                         isContains = true;
                     }
                 }
                 if (!isContains) {
                     PreData.addName(context, info.packageName, Constant.GBOOST_LIST);
-                    game_list.add(info);
+                    game_list.add(info.packageName);
                     CommonUtil.track("游戏加速页面", "添加游戏到列表", info.label, 1);
                     Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
                     shortcutIntent.setClass(context, GBoostActivity.class);

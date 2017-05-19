@@ -22,7 +22,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RamAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.view.RamView;

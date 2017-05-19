@@ -12,7 +12,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 
 /**
  * Created by renqingyou on 2017/3/30.

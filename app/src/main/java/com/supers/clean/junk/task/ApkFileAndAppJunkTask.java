@@ -1,15 +1,16 @@
 package com.supers.clean.junk.task;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 
 
+import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.util.CommonUtil;
-import com.supers.clean.junk.util.MemoryManager;
+import com.android.clean.util.MemoryManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -99,9 +100,13 @@ public class ApkFileAndAppJunkTask implements Runnable {
                 return;
             }
             if ("apk".equals(end)) {
+                Drawable drawable = LoadManager.getInstance(mContext).getApkIconforPath(file.getAbsolutePath());
+                if (drawable == null) {
+                    drawable = ContextCompat.getDrawable(mContext, R.mipmap.file_apk_icon);
+                }
                 JunkInfo fileListInfo = new JunkInfo(file.getAbsolutePath(),
                         file.getName(), file.lastModified(),
-                        true, CommonUtil.getApkIcon(mContext, file.getAbsolutePath()),
+                        true, drawable,
                         file.length());
                 apkSize += file.length();
                 list.add(fileListInfo);

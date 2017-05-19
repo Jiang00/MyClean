@@ -2,9 +2,12 @@ package com.supers.clean.junk.customeview;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +30,7 @@ import java.util.List;
 /**
  * @author Lody
  */
-public class LaunchpadAdapter extends PagerAdapter<JunkInfo> {
+public class LaunchpadAdapter extends PagerAdapter<String> {
 
     private static final int LOADING_ANIMAL_TIME = 5000;
 
@@ -53,6 +56,7 @@ public class LaunchpadAdapter extends PagerAdapter<JunkInfo> {
     public int interval_time = DEFAULT_INTERVAL_TIME;
 
     public HashMap<Integer, View> nativeAdMap;
+    private PackageManager pm;
 
     public void addNativeAdToMap(Integer key, View view) {
         if (nativeAdMap == null) {
@@ -61,26 +65,38 @@ public class LaunchpadAdapter extends PagerAdapter<JunkInfo> {
         nativeAdMap.put(key, view);
     }
 
-    public LaunchpadAdapter(Context context, ArrayList<JunkInfo> list) {
+    public LaunchpadAdapter(Context context, ArrayList<String> list) {
         // noinspection unchecked
         super(context, list);
         this.context = context;
-
+        pm = context.getPackageManager();
 
     }
 
 
     @Override
-    public int getItemLayoutId(int position, JunkInfo appModel) {
+    public int getItemLayoutId(int position, String appModel) {
         return R.layout.layout_gboost_item;
     }
 
     @Override
-    public void onBindView(View view, JunkInfo junkInfo) {
+    public void onBindView(View view, String junkInfo) {
         ImageView gboost_item_icon = (ImageView) view.findViewById(R.id.gboost_item_icon);
         TextView gboost_item_name = (TextView) view.findViewById(R.id.gboost_item_name);
-        gboost_item_icon.setImageDrawable(junkInfo.icon);
-        gboost_item_name.setText(junkInfo.label);
+        if (TextUtils.equals(context.getString(R.string.gboost_7), junkInfo)) {
+            gboost_item_icon.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.gboost_add));
+            gboost_item_name.setText(junkInfo);
+        } else {
+            try {
+                ApplicationInfo info = pm.getApplicationInfo(junkInfo, 0);
+                gboost_item_icon.setImageDrawable(info.loadIcon(pm));
+                gboost_item_name.setText(info.loadLabel(pm));
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 
     public void onPause() {

@@ -1,7 +1,6 @@
 package com.supers.clean.junk.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
@@ -10,13 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.activity.FileListActivity;
-import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.activity.SuccessActivity;
-import com.supers.clean.junk.filemanager.FileUtils;
-import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 

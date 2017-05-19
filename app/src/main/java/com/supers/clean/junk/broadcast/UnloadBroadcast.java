@@ -3,20 +3,15 @@ package com.supers.clean.junk.broadcast;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.activity.UnloadActivity;
-import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.gboost.GameBooster;
-import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -41,7 +36,7 @@ public class UnloadBroadcast extends BroadcastReceiver {
                 public void run() {
                     ArrayList<String> gboost_names = PreData.getNameList(context, Constant.GBOOST_LIST);
                     try {
-                        String data = GameBooster.readFileFromAssets(context, "raw/gboost.json");
+                        String data = CommonUtil.readFileFromAssets(context, "raw/gboost.json");
                         JSONObject jsonObject = new JSONObject(data);
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
                         for (int i = 0; i < jsonArray.length(); i++) {
