@@ -24,14 +24,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.clean.powerclean.CustomerAccessibilityService;
 import com.android.client.AndroidSdk;
-import com.eos.manager.AccessibilityService;
 import com.supers.clean.junk.R;
 
 import java.io.DataOutputStream;
 import java.io.File;
 import java.lang.reflect.Method;
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -396,7 +395,7 @@ public class CommonUtil {
     // To check if service is enabled是否获取无障碍权限
     public static boolean isAccessibilitySettingsOn(Context mContext) {
         int accessibilityEnabled = 0;
-        final String service = mContext.getPackageName() + "/" + AccessibilityService.class.getCanonicalName();
+        final String service = mContext.getPackageName() + "/" + CustomerAccessibilityService.class.getCanonicalName();
         try {
             accessibilityEnabled = Settings.Secure.getInt(
                     mContext.getApplicationContext().getContentResolver(),

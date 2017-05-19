@@ -1,22 +1,16 @@
 package com.supers.clean.junk.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -37,15 +31,12 @@ import com.android.client.AndroidSdk;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;
-import com.eos.manager.AppLockPatternEosActivity;
-import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
-import com.eos.ui.demo.view.CrossView;
 import com.sample.lottie.LottieAnimationView;
 import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
@@ -761,33 +752,33 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_applock_button:
                     CommonUtil.track("applock", "主界面点击", "", 1);
-                    int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
-                    if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
-                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-                        intent.putExtra("is_main", true);
-                        startActivity(intent);
-                        break;
-                    }
-                    if (type == 0) {
-                        if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
-                            CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
-                            startActivity(intent);
-                        }
-                    } else if (type == 1) {
-                        if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
-                            CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
-                            startActivity(intent);
-                        }
-                    } else {
-                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-                        intent.putExtra("is_main", true);
-                        startActivity(intent);
-                    }
+//                    int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
+//                    if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
+//                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
+//                        intent.putExtra("is_main", true);
+//                        startActivity(intent);
+//                        break;
+//                    }
+//                    if (type == 0) {
+//                        if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
+//                            CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
+//                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
+//                        } else {
+//                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
+//                            startActivity(intent);
+//                        }
+//                    } else if (type == 1) {
+//                        if (CommonUtil.isPkgInstalled("com.eosmobi.applock", packageManager)) {
+//                            CommonUtil.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
+//                        } else {
+//                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
+//                            startActivity(intent);
+//                        }
+//                    } else {
+//                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
+//                        intent.putExtra("is_main", true);
+//                        startActivity(intent);
+//                    }
 
 //                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
 //                    intent.putExtra("is_main", true);

@@ -29,8 +29,8 @@ import android.widget.BaseAdapter;
 import android.widget.HeaderViewListAdapter;
 import android.widget.Toast;
 
-import com.eos.manager.lib.BuildProperties;
-import com.privacy.api.BuildConfig;
+
+import com.supers.clean.junk.BuildConfig;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -84,37 +84,6 @@ public class UtilGp {
     }
 
 
-    /**
-     * 华为rom
-     *
-     * @return
-     */
-    public static boolean isEMUI() {
-        try {
-            final BuildProperties prop = BuildProperties.newInstance();
-            return prop.getProperty(KEY_EMUI_VERSION_CODE, null) != null;
-        } catch (final IOException e) {
-            return false;
-        }
-    }
-
-    /**
-     * 小米rom
-     *
-     * @return
-     */
-    public static boolean isMIUI() {
-        try {
-            final BuildProperties prop = BuildProperties.newInstance();
-            /*String rom = "" + prop.getProperty(KEY_MIUI_VERSION_CODE, null) + prop.getProperty(KEY_MIUI_VERSION_NAME, null)+prop.getProperty(KEY_MIUI_INTERNAL_STORAGE, null);
-            Log.d("Android_Rom", rom);*/
-            return prop.getProperty(KEY_MIUI_VERSION_CODE, null) != null
-                    || prop.getProperty(KEY_MIUI_VERSION_NAME, null) != null
-                    || prop.getProperty(KEY_MIUI_INTERNAL_STORAGE, null) != null;
-        } catch (final IOException e) {
-            return false;
-        }
-    }
 
     /**
      * 魅族rom
@@ -585,45 +554,7 @@ public class UtilGp {
         dialog.show();
     }
 
-    public static void LOGE(String TAG, String msg) {
-        if (BuildConfig.DEBUG) {
-            Log.e(TAG, msg);
-        }
-    }
 
-    public static void LOGW(String TAG, String msg) {
-        if (BuildConfig.DEBUG) {
-            Log.w(TAG, msg);
-        }
-    }
-
-    public static void LOGI(String TAG, String msg) {
-        if (BuildConfig.DEBUG) {
-            Log.i(TAG, msg);
-        }
-    }
-
-    public static void LOGE(String msg) {
-        if (BuildConfig.DEBUG) {
-            Log.e(TAG, msg);
-        }
-    }
-
-    public static void LOGER(String msg) {
-        Log.e(TAG, msg);
-    }
-
-    public static void LOGW(String msg) {
-        if (BuildConfig.DEBUG) {
-            Log.w(TAG, msg);
-        }
-    }
-
-    public static void LOGI(String msg) {
-        if (BuildConfig.DEBUG) {
-            Log.i(TAG, msg);
-        }
-    }
 
     public static void printStackTrace() {
         if (BuildConfig.DEBUG) {

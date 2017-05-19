@@ -28,7 +28,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.eos.manager.AppLockPermissionActivity;
 import com.rd.PageIndicatorView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.AddGameAdapter;
@@ -264,7 +263,7 @@ public class GBoostActivity extends BaseActivity {
                     mHandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Intent transintent = new Intent(GBoostActivity.this, AppLockPermissionActivity.class);
+                            Intent transintent = new Intent(GBoostActivity.this, PermissionActivity.class);
                             startActivity(transintent);
                         }
                     }, 1500);

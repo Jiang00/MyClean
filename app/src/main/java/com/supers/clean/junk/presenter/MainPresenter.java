@@ -10,7 +10,6 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
-import com.eos.manager.page.SecuritySharPFive;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.MainView;
 import com.supers.clean.junk.util.CommonUtil;
@@ -26,13 +25,11 @@ import java.lang.reflect.Field;
 
 public class MainPresenter extends BasePresenter<MainView> {
     private int cpuTemp = 40;
-    private SecuritySharPFive shareFive;
 
     public MainPresenter(MainView iView, Context context) {
         super(iView, context);
         this.iView = iView;
         this.context = context;
-        shareFive = new SecuritySharPFive(context);
     }
 
     public void init() {
@@ -99,13 +96,12 @@ public class MainPresenter extends BasePresenter<MainView> {
         if (isGood) {
             goToGooglePlay();
         }
-        shareFive.setFiveRate(true);
         PreData.putDB(context, Constant.IS_ROTATE, true);
         setRotateGone();
     }
 
     public void setRotateGone() {
-        if (PreData.getDB(context, Constant.IS_ROTATE, false) || shareFive.getFiveRate()) {
+        if (PreData.getDB(context, Constant.IS_ROTATE, false) ) {
             iView.setRotateGone();
         }
     }

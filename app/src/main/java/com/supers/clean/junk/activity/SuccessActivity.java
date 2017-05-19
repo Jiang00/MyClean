@@ -25,7 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.eos.manager.page.SecuritySharPFive;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
 import com.eos.module.tweenengine.TweenManager;
@@ -96,7 +95,6 @@ public class SuccessActivity extends BaseActivity {
 
     private boolean haveAd;
     private boolean animationEnd;
-    private SecuritySharPFive shareFive;
     private MyApplication cleanApplication;
 
     @Override
@@ -141,7 +139,6 @@ public class SuccessActivity extends BaseActivity {
         istween = true;
         setAnimationThread();
         myHandler = new Handler();
-        shareFive = new SecuritySharPFive(this);
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
         success_progress.startAnimation(rotate);
         if (getIntent().getStringExtra("name") != null) {
@@ -241,7 +238,7 @@ public class SuccessActivity extends BaseActivity {
                 success_drawhook.setListener(null);
             }
         });
-        if (PreData.getDB(this, Constant.IS_ROTATE, false) || shareFive.getFiveRate()) {
+        if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
 
@@ -566,7 +563,6 @@ public class SuccessActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.main_rotate_good:
-                    shareFive.setFiveRate(true);
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessActivity.this);
                     main_rotate_all.setVisibility(View.GONE);

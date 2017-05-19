@@ -4,23 +4,18 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.android.client.ClientNativeAd;
 import com.eos.eshop.ShopMaster;
-import com.eos.manager.AppLockPatternEosActivity;
-import com.eos.manager.meta.SecurityMyPref;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PhoneManager;
 import com.supers.clean.junk.util.PreData;
-import com.supers.clean.junk.util.ShortCutUtils;
 
 /**
  * Created by on 2017/3/8.

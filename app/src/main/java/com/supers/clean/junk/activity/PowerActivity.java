@@ -23,8 +23,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.eos.manager.AccessibilityService;
-import com.eos.manager.AppLockPermissionActivity;
+import com.android.clean.powerclean.CustomerAccessibilityService;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.PowerWidgetContainer;
 import com.supers.clean.junk.entity.JunkInfo;
@@ -73,7 +72,7 @@ public class PowerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
         mHandler = new Handler();
-        startService(new Intent(this, AccessibilityService.class).putExtra("isDis", false));
+        startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));
         initData();
         title_name.setText(R.string.side_power);
         power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
@@ -98,7 +97,7 @@ public class PowerActivity extends BaseActivity {
                     mHandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Intent transintent = new Intent(PowerActivity.this, AppLockPermissionActivity.class);
+                            Intent transintent = new Intent(PowerActivity.this, PermissionActivity.class);
                             startActivity(transintent);
                         }
                     }, 1500);
@@ -326,7 +325,7 @@ public class PowerActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        startService(new Intent(this, AccessibilityService.class).putExtra("isDis", true));
+        startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", true));
         super.onDestroy();
 
     }
