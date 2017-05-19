@@ -28,7 +28,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.CommonUtil;
 
 import java.util.ArrayList;
 

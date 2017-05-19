@@ -2,12 +2,10 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.ThumbnailUtils;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.MediaStore;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -29,13 +27,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.clean.similarimage.ImageHelper;
+import com.android.clean.similarimage.ImageInfo;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
-import com.supers.clean.junk.db.RecyclerDbHelper;
-import com.supers.clean.junk.similarimage.ImageHelper;
-import com.supers.clean.junk.similarimage.ImageInfo;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.similarimage.RecyclerDbHelper;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 

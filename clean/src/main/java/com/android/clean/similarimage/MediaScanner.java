@@ -1,4 +1,4 @@
-package com.supers.clean.junk.db;
+package com.android.clean.similarimage;
 
 import android.content.Context;
 import android.media.MediaScannerConnection;

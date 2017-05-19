@@ -19,7 +19,7 @@ import android.widget.RemoteViews;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.MainActivity;
 import com.supers.clean.junk.activity.SuccessActivity;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 
 import java.util.List;
 

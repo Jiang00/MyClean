@@ -9,13 +9,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.clean.util.LoadManager;
 import com.android.client.AndroidSdk;
 import com.eos.eshop.ShopMaster;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PhoneManager;
 import com.supers.clean.junk.util.PreData;
+import com.supers.clean.junk.util.ShortCutUtils;
 
 /**
  * Created by on 2017/3/8.
@@ -40,12 +42,13 @@ public class LoadingActivity extends BaseActivity {
         ShopMaster.onCreate(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
-//        ShortCutUtils.addShortcut(this);
+        ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
         tv_tiaoguo.setVisibility(View.INVISIBLE);
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
             CommonUtil.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
-            CommonUtil.track("是否安装applock", CommonUtil.isPkgInstalled("com.eosmobi.applock", getPackageManager()) == true ? "是" : "否", "", 1);
+            CommonUtil.track("是否安装applock", (LoadManager.getInstance(this).isPkgInstalled("com.eosmobi.applock")) == true ? "是" : "否", "", 1)
+            ;
             PreData.putDB(this, Constant.ROOT_TRAK, false);
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }

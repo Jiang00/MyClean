@@ -1,4 +1,4 @@
-package com.supers.clean.junk.db;
+package com.android.clean.similarimage;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -9,9 +9,8 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 
-import com.supers.clean.junk.filemanager.FileUtils;
-import com.supers.clean.junk.similarimage.ImageInfo;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.filemanager.FileUtils;
+import com.android.clean.util.CommonUtil;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -170,7 +169,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
                 try {
                     Date date = simpleDateFormat.parse(name);
                     if (System.currentTimeMillis() > date.getTime() + RECYCLER_AUTO_DELETE_INTERVAL) {
-                        FileUtils.deleteFile(files[i].getAbsolutePath());
+                        FileUtils.deleteFile(mContext, files[i].getAbsolutePath());
                     }
                 } catch (Exception e) {
                     continue;
@@ -205,7 +204,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
             CommonUtil.log("rqy", "deleteRowId--" + deleteRowId);
             return isSuccess;
         }
-        boolean deleteSuc = FileUtils.deleteFile(imageInfo.path);
+        boolean deleteSuc = FileUtils.deleteFile(mContext, imageInfo.path);
         if (deleteSuc) {
             mContext.getContentResolver().delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                     MediaStore.Audio.Media.DATA + "= \"" + imageInfo.path + "\"",
@@ -235,7 +234,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
         if (result != null) {
             new MediaScanner(mContext).scanFile(imageInfo.restoreFilePath, "image/jpeg");
             int success = deleteItem(imageInfo);
-            FileUtils.deleteFile(imageInfo.backFilePath);
+            FileUtils.deleteFile(mContext, imageInfo.backFilePath);
             Log.e("rqy", "success=" + success);
             return true;
         }

@@ -20,12 +20,10 @@ import android.widget.ImageView;
 import android.widget.Scroller;
 import android.widget.TextView;
 
-import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 
 public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeListener {
@@ -523,7 +521,7 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
         if (mAdapter != null) {
             view = mAdapter.getView(position);
             //2016/9/14 renqingyou add for advice start
-            JunkInfo item = (JunkInfo) mAdapter.getItem(position);
+            String item = (String) mAdapter.getItem(position);
             view.setTag(item);
             view.setOnClickListener(new OnClickListener() {
                 @Override

@@ -53,7 +53,7 @@ public class NotificationMonitorService extends NotificationListenerService {
         if (null == pkg) {
             return;
         }
-        List<String> notifi_white = PreData.getWhiteList(this, NOTIFI_WHILT_LIST);
+        List<String> notifi_white = PreData.getNameList(this, NOTIFI_WHILT_LIST);
         if (notifi_white.contains(pkg)) {
             return;
         }
@@ -107,7 +107,7 @@ public class NotificationMonitorService extends NotificationListenerService {
         LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(NOTIFI_ACTION));*/
 
         NotificationInfo notifiInfo = new NotificationInfo(pkg, icon, notificationTitle, notificationText, time, id, re);
-        CleanManager.getInstance(this).notificationChanged(notifiInfo);
+        CleanManager.getInstance(this).notificationChanged(notifiInfo, true);
 
         Log.e("notifi", notificationTitle + "=" + notificationText + "=" + notificationSubText);
         if (Build.VERSION.SDK_INT > 21) {

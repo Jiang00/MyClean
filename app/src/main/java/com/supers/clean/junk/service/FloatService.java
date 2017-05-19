@@ -23,7 +23,7 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.presenter.GetTopApp;
 import com.supers.clean.junk.presenter.FloatStateManager;
 import com.supers.clean.junk.util.Constant;

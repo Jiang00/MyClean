@@ -1,6 +1,8 @@
 package com.supers.clean.junk.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.filemanager.FileUtils;
+import com.android.clean.filemanager.Util;
+import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.filemanager.FileUtils;
-import com.supers.clean.junk.filemanager.Util;
-import com.supers.clean.junk.util.CommonUtil;
 
 /**
  * Created by Ivy on 2017/4/21.
@@ -47,7 +49,11 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         if (TextUtils.equals("apk", name)) {
-            viewHolder.file_icon.setImageDrawable(CommonUtil.getApkIcon(context, info.path));
+            Drawable drawable = LoadManager.getInstance(context).getApkIconforPath(info.path);
+            if (drawable == null) {
+                drawable = ContextCompat.getDrawable(context, R.mipmap.file_apk_icon);
+            }
+            viewHolder.file_icon.setImageDrawable(drawable);
         } else if (TextUtils.equals("zip", name)) {
             viewHolder.file_icon.setImageResource(R.mipmap.file_zip_icon);
         } else if (TextUtils.equals("music", name)) {

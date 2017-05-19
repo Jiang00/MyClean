@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.clean.core.CleanManager;
+import com.android.clean.notification.NotificationMonitorService;
 import com.eos.kpa.DaemonClient;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
@@ -21,7 +22,6 @@ import com.eos.module.charge.saver.service.BatteryService;
 import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.entity.NotifiInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.task.ApkFileAndAppJunkTask;
@@ -31,7 +31,7 @@ import com.supers.clean.junk.task.FilesOfUninstalledAppTask;
 import com.supers.clean.junk.task.RamTask;
 import com.supers.clean.junk.task.SimpleTask;
 import com.supers.clean.junk.task.SystemCacheTask;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.TopActivityPkg;
@@ -55,7 +55,6 @@ public class MyApplication extends Application {
 
     private ArrayList<JunkInfo> white_ram;
 
-    private static ArrayList<NotifiInfo> notifiList;
 
     private long cacheSize, apkSize, unloadSize, logSize, dataSize, ramSize;
 
@@ -120,9 +119,6 @@ public class MyApplication extends Application {
         return systemCache;
     }
 
-    public ArrayList<NotifiInfo> getNotifiList() {
-        return notifiList;
-    }
 
     public ArrayList<JunkInfo> getFilesOfUnintalledApk() {
         return filesOfUnintallApk;
@@ -163,11 +159,6 @@ public class MyApplication extends Application {
         }
     }
 
-    public void removeNotifi(NotifiInfo f) {
-        if (notifiList != null) {
-            notifiList.remove(f);
-        }
-    }
 
     public void removeRam(JunkInfo fileListInfo) {
         am.killBackgroundProcesses(fileListInfo.packageName);
@@ -195,11 +186,6 @@ public class MyApplication extends Application {
         }
     }
 
-    public void clearNotifi() {
-        if (notifiList != null) {
-            notifiList.clear();
-        }
-    }
 
     public void removeAppCache(JunkInfo fileListInfo) {
         CommonUtil.deleteFile(fileListInfo.path);
@@ -261,9 +247,15 @@ public class MyApplication extends Application {
             intent.setAction("notification");
             startService(intent);
         }
+
         if (PreData.getDB(this, Constant.FlOAT_SWITCH, true)) {
             Intent intent1 = new Intent(this, FloatService.class);
             startService(intent1);
+        }
+
+        //启动通知兰清理
+        if (CommonUtil.isNotificationListenEnabled(this) && PreData.getDB(this, Constant.KEY_NOTIFI, false)) {
+            startService(new Intent(this, NotificationMonitorService.class));
         }
 
         String name = CommonUtil.getProcessName(this);
@@ -344,7 +336,6 @@ public class MyApplication extends Application {
         appRam = new ArrayList<>();
         white_ram = new ArrayList<>();
         listMng = new ArrayList<>();
-        notifiList = new ArrayList<>();
     }
 
     private void resetLists() {

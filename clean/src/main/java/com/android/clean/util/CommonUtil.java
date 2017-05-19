@@ -18,19 +18,19 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
+import android.support.annotation.LayoutRes;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
 import com.android.clean.BuildConfig;
+import com.android.clean.powerclean.CustomerAccessibilityService;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,9 +39,9 @@ import java.util.List;
 public class CommonUtil {
 
     public static void track(String category, String action, String label, int value) {
-       /* if (com.supers.clean.junk.BuildConfig.TRACK) {
-            AndroidSdk.track(category, action, label, value);
-        }*/
+//        if (com.supers.clean.junk.BuildConfig.TRACK) {
+//            AndroidSdk.track(category, action, label, value);
+//        }
     }
 
     public static void log(String tag, String msg) {
@@ -116,53 +116,25 @@ public class CommonUtil {
         return str;
     }
 
-    /**
-     * 得到字符串方式的文件大小
-     *
-     * @param filesize
-     * ,单位b
-     * @return
-     */
-    private static DecimalFormat df = new DecimalFormat("#.00");
-    private static DecimalFormat df1 = new DecimalFormat("#.0");
-    private static DecimalFormat df2 = new DecimalFormat("#");
 
-    public static String getFileSize(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0.00B";
-        }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-            mstrbuf.append(" B");
-        } else if (filesize < 1048576) {
-            mstrbuf.append(df.format((double) filesize / 1024));
-            mstrbuf.append(" K");
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(df.format((double) filesize / 1048576));
-            mstrbuf.append(" M");
-        } else {
-            mstrbuf.append(df.format((double) filesize / 1073741824));
-            mstrbuf.append(" G");
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String convertStorage(long size) {
+    public static String convertStorage(long size, boolean danwei) {
         long kb = 1024;
         long mb = kb * 1024;
         long gb = mb * 1024;
 
         if (size >= gb) {
-            return String.format("%.1f", (float) size / gb);
+            return danwei ? String.format("%.1f", (float) size / gb) + "GB" : String.format("%.1f", (float) size / gb);
         } else if (size >= mb) {
             float f = (float) size / mb;
-            return String.format(f > 100 ? "%.0f" : "%.1f", f);
-        } else if (size >= kb) {
+            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "MB" : String.format(f > 100 ? "%.0f" : "%.1f", f);
+        } else {
             float f = (float) size / kb;
-            return String.format(f > 100 ? "%.0f" : "%.1f", f);
-        } else
-            return String.format("%d", size);
+            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "KB" : String.format(f > 100 ? "%.0f" : "%.1f", f);
+        }
+//        else {
+//            float f = (float) size;
+//            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "B" : String.format(f > 100 ? "%.0f" : "%.1f", f);
+//        }
     }
 
     public static String convertStorageWifi(long size) {
@@ -178,8 +150,9 @@ public class CommonUtil {
         } else if (size >= kb) {
             float f = (float) size / kb;
             return String.format(f > 100 ? "%.0f" : "%.1f", f) + "KB/s";
-        } else
+        } else {
             return String.format("%d", size) + "B/s";
+        }
     }
 
     public static String convertStorageDanwei(long size) {
@@ -190,139 +163,12 @@ public class CommonUtil {
             return "GB";
         } else if (size >= mb) {
             return "MB";
-        } else if (size >= kb) {
+        } else {
             float f = (float) size / kb;
             return "KB";
-        } else
-            return "B";
-    }
-
-    public static String getFileSize1(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0.0B";
         }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-            mstrbuf.append("B");
-        } else if (filesize < 1048576) {
-            mstrbuf.append(df1.format((double) filesize / 1024));
-            mstrbuf.append("K");
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(df1.format((double) filesize / 1048576));
-            mstrbuf.append("M");
-        } else {
-            mstrbuf.append(df1.format((double) filesize / 1073741824));
-            mstrbuf.append("G");
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSizeKongge(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return " 0 ";
-        }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-        } else if (filesize < 1048576) {
-            mstrbuf.append(" " + df2.format((double) filesize / 1024) + " ");
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(" " + df2.format((double) filesize / 1048576) + " ");
-        } else {
-            mstrbuf.append(" " + df.format((double) filesize / 1073741824) + " ");
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSize2(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0";
-        }
-        if (filesize < 1000) {
-            mstrbuf.append(filesize);
-        } else if (filesize < 1000 * 1000) {
-            if (filesize < 1024 * 1024 * 100) {
-                mstrbuf.append(df1.format((double) filesize / 1024));
-            } else {
-                mstrbuf.append(df2.format((double) filesize / 1024));
-            }
-
-        } else if (filesize < 1000 * 1000 * 1000) {
-            if (filesize < 1024 * 1024 * 1024 * 100) {
-                mstrbuf.append(df1.format((double) filesize / 1048576));
-            } else {
-                mstrbuf.append(df2.format((double) filesize / 1048576));
-            }
-        } else {
-            mstrbuf.append(df.format((double) filesize / 1073741824));
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSizeWifi(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0 B/s";
-        }
-        if (filesize < 1000) {
-            mstrbuf.append(filesize + " B/s");
-        } else if (filesize < 1000 * 1000) {
-            if (filesize < 1024 * 1024 * 100) {
-                mstrbuf.append(df1.format((double) filesize / 1024) + " KB/s");
-            } else {
-                mstrbuf.append(df2.format((double) filesize / 1024) + " KB/s");
-            }
-
-        } else if (filesize < 1000 * 1000 * 1000) {
-            if (filesize < 1024 * 1024 * 1024 * 100) {
-                mstrbuf.append(df1.format((double) filesize / 1048576) + " MB/s");
-            } else {
-                mstrbuf.append(df2.format((double) filesize / 1048576) + " MB/s");
-            }
-        } else {
-            mstrbuf.append(df.format((double) filesize / 1073741824));
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSize3(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "0.0";
-        }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-        } else if (filesize < 1048576) {
-            mstrbuf.append(df1.format((double) filesize / 1024));
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(df1.format((double) filesize / 1048576));
-        } else {
-            mstrbuf.append(df1.format((double) filesize / 1073741824));
-        }
-        return mstrbuf.toString();
-    }
-
-    public static String getFileSize4(long filesize) {
-        StringBuffer mstrbuf = new StringBuffer();
-        if (filesize <= 0) {
-            return "";
-        }
-        if (filesize < 1024) {
-            mstrbuf.append(filesize);
-            mstrbuf.append("B");
-        } else if (filesize < 1048576) {
-            mstrbuf.append(df2.format((double) filesize / 1024));
-            mstrbuf.append("K");
-        } else if (filesize < 1073741824) {
-            mstrbuf.append(df2.format((double) filesize / 1048576));
-            mstrbuf.append("M");
-        } else {
-            mstrbuf.append(df2.format((double) filesize / 1073741824));
-            mstrbuf.append("G");
-        }
-        return mstrbuf.toString();
+//        else
+//            return "B";
     }
 
     public static int dp2px(int dp) {
@@ -348,6 +194,15 @@ public class CommonUtil {
         } else {
             return null;
         }
+    }
+
+    public static boolean isThirdApp(ApplicationInfo info) {
+        if ((info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
+            return true;
+        } else if ((info.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+            return true;
+        }
+        return false;
     }
 
     public static List<String> getLauncherPkgs(Context context) {
@@ -503,29 +358,6 @@ public class CommonUtil {
         return null;
     }
 
-    //获取程序 图标
-    public static Drawable getAppIcon(String packname, PackageManager pm) {
-        try {
-            ApplicationInfo info = pm.getApplicationInfo(packname, 0);
-            return info.loadIcon(pm);
-        } catch (PackageManager.NameNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    //获取程序 label
-    public static String getAppLabel(String packname, PackageManager pm) {
-        try {
-            ApplicationInfo info = pm.getApplicationInfo(packname, 0);
-            return info.loadLabel(pm).toString();
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     //是否获取通知权限
     public static boolean isNotificationListenEnabled(Context context) {
@@ -547,13 +379,13 @@ public class CommonUtil {
     }
 
     // To check if service is enabled是否获取无障碍权限
-    public static boolean isAccessibilitySettingsOn(Context mContext, Class<?> accessibilityServiceClass) {
+    public static boolean isAccessibilitySettingsOn(Context mContext) {
         int accessibilityEnabled = 0;
-        final String service = mContext.getPackageName() + "/" + accessibilityServiceClass.getCanonicalName();
+        final String service = mContext.getPackageName() + "/" + CustomerAccessibilityService.class.getCanonicalName();
         try {
             accessibilityEnabled = Settings.Secure.getInt(
                     mContext.getApplicationContext().getContentResolver(),
-                    Settings.Secure.ACCESSIBILITY_ENABLED);
+                    android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
         } catch (Settings.SettingNotFoundException e) {
         }
         TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
@@ -599,43 +431,6 @@ public class CommonUtil {
         return size;
     }
 
-    public static Drawable getApkIcon(Context context, String apkPath, int defaultResIcon) {
-        PackageManager pm = context.getPackageManager();
-        PackageInfo info = null;
-        try {
-            info = pm.getPackageArchiveInfo(apkPath,
-                    PackageManager.GET_ACTIVITIES);
-        } catch (Exception e) {
-
-        }
-        if (info != null) {
-            ApplicationInfo appInfo = info.applicationInfo;
-            appInfo.sourceDir = apkPath;
-            appInfo.publicSourceDir = apkPath;
-            try {
-                return appInfo.loadIcon(pm);
-            } catch (OutOfMemoryError e) {
-                Log.e("ApkIconLoader", e.toString());
-            }
-        }
-        return ContextCompat.getDrawable(context, defaultResIcon);
-    }
-
-    //是否安装该应用
-    public static boolean isPkgInstalled(String pkgName, PackageManager pm) {
-        PackageInfo packageInfo = null;
-        try {
-            packageInfo = pm.getPackageInfo(pkgName, 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            packageInfo = null;
-            e.printStackTrace();
-        }
-        if (packageInfo == null) {
-            return false;
-        } else {
-            return true;
-        }
-    }
 
     //判断是否有虚拟按键
     public static boolean checkDeviceHasNavigationBar(Context context) {
@@ -659,29 +454,30 @@ public class CommonUtil {
         return hasNavigationBar;
     }
 
- /*   public static View getNativeAdView(String tag, @LayoutRes int layout) {
-        if (!AndroidSdk.hasNativeAd(tag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
-            Log.e("rqy", "getAdView null,because not configuration tag =" + tag);
-            return null;
-        }
-        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
-        if (nativeView == null) {
-            Log.e("rqy", "getAdView null,because peek native ad = null");
-            return null;
-        }
-
-        if (nativeView != null) {
-//            ViewParent viewParent = nativeView.getParent();
-//            if (viewParent != null && viewParent instanceof ViewGroup) {
-//                ((ViewGroup) viewParent).removeAllViews();
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+//        if (!AndroidSdk.hasNativeAd(tag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+//            Log.e("rqy", "getAdView null,because not configuration tag =" + tag);
+//            return null;
+//        }
+//        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
+//        if (nativeView == null) {
+//            Log.e("rqy", "getAdView null,because peek native ad = null");
+//            return null;
+//        }
+//
+//        if (nativeView != null) {
+////            ViewParent viewParent = nativeView.getParent();
+////            if (viewParent != null && viewParent instanceof ViewGroup) {
+////                ((ViewGroup) viewParent).removeAllViews();
+////            }
+//            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+//            if (viewParent != null) {
+//                viewParent.removeAllViews();
 //            }
-            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
-            if (viewParent != null) {
-                viewParent.removeAllViews();
-            }
-        }
-        return nativeView;
-    }*/
+//        }
+//        return nativeView;
+        return null;
+    }
 
     /**
      * 判断手机是否ROOT
@@ -742,14 +538,6 @@ public class CommonUtil {
 
     }
 
-    public static boolean isThirdApp(ApplicationInfo info) {
-        if ((info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
-            return true;
-        } else if ((info.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
-            return true;
-        }
-        return false;
-    }
 
     public static String readFileFromAssets(Context context, String fileName) {
         if (null == context || TextUtils.isEmpty(fileName)) {
@@ -774,5 +562,5 @@ public class CommonUtil {
 
     }
 
-
 }
+

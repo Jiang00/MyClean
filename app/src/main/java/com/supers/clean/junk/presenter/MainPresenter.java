@@ -12,9 +12,9 @@ import android.view.animation.TranslateAnimation;
 
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.MainView;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.CpuTempReader;
-import com.supers.clean.junk.util.MemoryManager;
+import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.PreData;
 
 import java.lang.reflect.Field;

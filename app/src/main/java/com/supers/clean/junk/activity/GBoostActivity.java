@@ -28,16 +28,17 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.clean.gboost.GameBooster;
+import com.android.clean.util.CommonUtil;
+import com.android.clean.util.LoadManager;
 import com.rd.PageIndicatorView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.AddGameAdapter;
 import com.supers.clean.junk.customeview.LaunchpadAdapter;
 import com.supers.clean.junk.customeview.PagerView;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.gboost.GameBooster;
-import com.supers.clean.junk.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.MemoryManager;
+import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.ShortCutUtils;
 
@@ -74,7 +75,7 @@ public class GBoostActivity extends BaseActivity {
 
 
     private LaunchpadAdapter adapter;
-    private ArrayList<JunkInfo> list;
+    private ArrayList<String> list;
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -161,13 +162,23 @@ public class GBoostActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                list.addAll(GameBooster.getInstalledGameList(GBoostActivity.this));
+                if (PreData.getDB(GBoostActivity.this, Constant.GBOOST_LUN, true)) {
+                    PreData.putDB(GBoostActivity.this, Constant.GBOOST_LUN, false);
+                    list.addAll(GameBooster.getInstalledGameList(GBoostActivity.this));
+                    shortGame(false);
+                }
+                ArrayList<String> gboost_names = PreData.getNameList(GBoostActivity.this, com.android.clean.util.Constant.GBOOST_LIST);
+                for (String pkg : gboost_names) {
+                    if (LoadManager.getInstance(GBoostActivity.this).isPkgInstalled(pkg)) {
+                        list.add(pkg);
+                    }
+                }
                 Message msg = mHandler.obtainMessage();
                 msg.what = ADD_DATA;
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        list.add(0, new JunkInfo(ContextCompat.getDrawable(GBoostActivity.this, R.mipmap.gboost_add), getString(R.string.gboost_7), "a"));
+                        list.add(0, getString(R.string.gboost_7));
                         Log.e("jfy", list.size() + "==");
                         adapter = new LaunchpadAdapter(GBoostActivity.this, list);
                         gboost_recyc.setAdapter(adapter);
@@ -200,10 +211,10 @@ public class GBoostActivity extends BaseActivity {
                                     initData();
                                 } else {
                                     try {
-                                        CommonUtil.track("游戏加速页面", "点击启动游戏", list.get(pos).label, 1);
+                                        CommonUtil.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
                                         Bundle bundle = new Bundle();
                                         bundle.putString("from", "GBoost");
-                                        bundle.putString("packageName", list.get(pos).packageName);
+                                        bundle.putString("packageName", list.get(pos));
                                         jumpToActivity(PowerActivity.class, bundle);
                                     } catch (Exception e) {
                                     }
@@ -459,19 +470,19 @@ public class GBoostActivity extends BaseActivity {
             View shortcut_view = View.inflate(GBoostActivity.this, R.layout.layout_gboost_short, null);
             if (list.size() > 1) {
                 ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
-                iv_1.setImageDrawable(list.get(1).icon);
+                iv_1.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(1)));
             }
             if (list.size() > 2) {
                 ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
-                iv_2.setImageDrawable(list.get(2).icon);
+                iv_2.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(2)));
             }
             if (list.size() > 3) {
                 ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
-                iv_3.setImageDrawable(list.get(3).icon);
+                iv_3.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(3)));
             }
             if (list.size() > 4) {
                 ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
-                iv_4.setImageDrawable(list.get(4).icon);
+                iv_4.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(4)));
                 PreData.putDB(GBoostActivity.this, Constant.GBOOST_SI, true);
             }
 

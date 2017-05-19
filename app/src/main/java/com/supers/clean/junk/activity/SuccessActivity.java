@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.LoadManager;
 import com.android.client.AndroidSdk;
 import com.eos.module.tweenengine.Tween;
 import com.eos.module.tweenengine.TweenEquations;
@@ -37,7 +38,7 @@ import com.supers.clean.junk.customeview.DrawHookView;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.customeview.SlowScrollView;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.util.CommonUtil;
+import com.android.clean.util.CommonUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.UtilGp;
@@ -639,7 +640,7 @@ public class SuccessActivity extends BaseActivity {
 
                     break;
                 case R.id.main_tuiguang_button:
-                    if (CommonUtil.isPkgInstalled(tuiguang, getPackageManager())) {
+                    if (LoadManager.getInstance(SuccessActivity.this).isPkgInstalled(tuiguang)) {
                         CommonUtil.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
                     } else {
                         UtilGp.openPlayStore(getApplicationContext(), tuiguang);

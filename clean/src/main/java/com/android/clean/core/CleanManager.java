@@ -37,6 +37,7 @@ import com.android.clean.notification.NotificationCallBack;
 import com.android.clean.notification.NotificationInfo;
 import com.android.clean.notification.NotificationMonitorService;
 import com.android.clean.util.CommonUtil;
+import com.android.clean.util.Constant;
 import com.android.clean.util.MemoryManager;
 import com.android.clean.util.PreData;
 import com.jaredrummler.android.processes.AndroidProcesses;
@@ -192,7 +193,7 @@ public class CleanManager {
     }
 
     public void loadAppRam(AppRamCallBack appRamCallBack) {
-        List<String> ignoreApp = PreData.getWhiteList(mContext, PreData.WHILT_LIST);
+        List<String> ignoreApp = PreData.getNameList(mContext, Constant.WHILT_LIST);
         List<String> whiteList = new ArrayList<>();
         List<AndroidAppProcess> listInfo = AndroidProcesses.getRunningAppProcesses();
         int totalSize = 0;
@@ -472,7 +473,7 @@ public class CleanManager {
     }
 
 
-    public void notificationChanged(NotificationInfo notifiInfo) {
+    public void notificationChanged(NotificationInfo notifiInfo, boolean isAdd) {
         if (notificationList == null) {
             notificationList = new ArrayList<>();
         }
@@ -482,7 +483,19 @@ public class CleanManager {
                 break;
             }
         }
-        notificationList.add(notifiInfo);
+        if (isAdd) {
+            notificationList.add(notifiInfo);
+        }
+        for (NotificationCallBack callBack : notificationCallBackList) {
+            callBack.notificationChanged(notificationList);
+        }
+    }
+
+    public void clearNotificationInfo() {
+        if (notificationList == null) {
+            notificationList = new ArrayList<>();
+        }
+        notificationList.clear();
         for (NotificationCallBack callBack : notificationCallBackList) {
             callBack.notificationChanged(notificationList);
         }
