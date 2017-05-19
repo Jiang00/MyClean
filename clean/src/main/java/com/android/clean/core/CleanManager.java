@@ -3,7 +3,9 @@ package com.android.clean.core;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageDataObserver;
 import android.content.pm.IPackageStatsObserver;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -11,27 +13,29 @@ import android.content.pm.PackageStats;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Debug;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.os.Environment;
 import android.os.RemoteException;
+import android.os.StatFs;
 import android.os.UserHandle;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.clean.entity.AppInfo;
 import com.android.clean.callback.AppCacheCallBack;
 import com.android.clean.callback.AppRamCallBack;
 import com.android.clean.callback.FileInfoCallBack;
 import com.android.clean.callback.SystemCacheCallBack;
 import com.android.clean.callback.UninstallResidualCallback;
 import com.android.clean.entity.AppCache;
+import com.android.clean.entity.AppInfo;
 import com.android.clean.entity.AppRam;
 import com.android.clean.entity.UninstallResidual;
 import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.filemanager.FileInfo;
 import com.android.clean.filemanager.FileSortHelper;
 import com.android.clean.filemanager.Util;
+import com.android.clean.notification.NotificationCallBack;
+import com.android.clean.notification.NotificationInfo;
+import com.android.clean.notification.NotificationMonitorService;
 import com.android.clean.util.CommonUtil;
 import com.android.clean.util.MemoryManager;
 import com.android.clean.util.PreData;
@@ -46,6 +50,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * Created by renqingyou on 2017/5/12.
@@ -55,8 +60,23 @@ public class CleanManager {
 
     public static final String TAG = "CleanManager";
     private static CleanManager mInstance;
-    private static Context mContext;
-    private static ActivityManager am;
+    private Context mContext;
+    private ActivityManager am;
+    private long totalSystemCacheSize = 0;
+
+    private ArrayList<NotificationInfo> notificationList;
+    private ArrayList<NotificationCallBack> notificationCallBackList;
+
+    private final ArrayList<AppRam> appRamList = new ArrayList<>();
+    private final ArrayList<UninstallResidual> uninstallResiduals = new ArrayList<>();
+    private final ArrayList<AppCache> appCaches = new ArrayList<>();
+
+
+    private ArrayList<FileInfo> apkFiles = new ArrayList<>();
+
+    private ArrayList<FileInfo> logFiles = new ArrayList<>();
+
+    private final Vector<AppInfo> systemCaches = new Vector<>();
 
     private CleanManager(Context context) {
         mContext = context.getApplicationContext();
@@ -70,10 +90,110 @@ public class CleanManager {
         return mInstance;
     }
 
+    private ArrayList<AppRam> getAppRamList() {
+        return (ArrayList<AppRam>) appRamList.clone();
+    }
+
+    private ArrayList<UninstallResidual> getUninstallResiduals() {
+        return (ArrayList<UninstallResidual>) uninstallResiduals.clone();
+    }
+
+    private ArrayList<AppCache> getAppCaches() {
+        return (ArrayList<AppCache>) appCaches.clone();
+    }
+
+    private Vector<AppInfo> getSystemCaches() {
+        return (Vector<AppInfo>) systemCaches.clone();
+    }
+
+    public ArrayList<FileInfo> getApkFiles() {
+        return (ArrayList<FileInfo>) apkFiles.clone();
+    }
+
+    public ArrayList<FileInfo> getLogFiles() {
+        return (ArrayList<FileInfo>) apkFiles.clone();
+    }
+
+    public void startNotificationCleanService() {
+        mContext.startService(new Intent(mContext, NotificationMonitorService.class));
+    }
+
+    public void closeNotificationCleanService() {
+        mContext.stopService(new Intent(mContext, NotificationMonitorService.class));
+    }
+
+    public void startWorkLoad() {
+        Intent intent = new Intent(mContext, CleanService.class);
+        mContext.startService(intent);
+    }
+
+    public void startLoad() {
+        load();
+    }
+
+    public void load() {
+        long startTime = System.currentTimeMillis();
+        loadSystemCache(new SystemCacheCallBack() {
+            @Override
+            public void loadFinished(Vector<AppInfo> appInfoList, long totalSize) {
+                Log.e("rqy", "loadSystemCache--" + totalSize);
+                for (AppInfo appInfo : appInfoList) {
+                    Log.e("rqy", appInfo + "");
+                }
+            }
+        });
+        loadAppCache(new AppCacheCallBack() {
+            @Override
+            public void loadFinished(ArrayList<AppCache> appCaches, long totalSize) {
+                Log.e("rqy", "loadAppCache--" + totalSize);
+                for (AppCache appCache : appCaches) {
+                    Log.e("rqy", appCache + "");
+                }
+            }
+        });
+        loadAppRam(new AppRamCallBack() {
+            @Override
+            public void loadFinished(List<AppRam> appRamList, List<String> whiteList, int totalSize) {
+                Log.e("rqy", "loadAppRam--" + totalSize);
+                for (AppRam appRam : appRamList) {
+                    Log.e("rqy", appRam + "");
+                }
+            }
+        });
+        loadApkFile(new FileInfoCallBack() {
+            @Override
+            public void loadFinished(ArrayList<FileInfo> fileInfos, long totalSize) {
+                Log.e("rqy", "loadApkFile--" + totalSize);
+                for (FileInfo fileInfo : fileInfos) {
+                    Log.e("rqy", fileInfo + "");
+                }
+            }
+        });
+        loadLogFile(new FileInfoCallBack() {
+            @Override
+            public void loadFinished(ArrayList<FileInfo> fileInfos, long totalSize) {
+                Log.e("rqy", "loadLogFile--" + totalSize);
+                for (FileInfo fileInfo : fileInfos) {
+                    Log.e("rqy", fileInfo + "");
+                }
+            }
+        });
+        loadUninstallResidual(new UninstallResidualCallback() {
+            @Override
+            public void loadFinished(ArrayList<UninstallResidual> uninstallResiduals, long totalSize) {
+                Log.e("rqy", "loadUninstallResidual--" + totalSize);
+                for (UninstallResidual uninstallResidual : uninstallResiduals) {
+                    Log.e("rqy", uninstallResidual + "");
+                }
+            }
+        });
+        long endTime = System.currentTimeMillis();
+        Log.e("rqy", "time=" + (endTime - startTime));
+    }
+
     public void loadAppRam(AppRamCallBack appRamCallBack) {
         List<String> ignoreApp = PreData.getWhiteList(mContext, PreData.WHILT_LIST);
         List<String> whiteList = new ArrayList<>();
-        List<AppRam> appRamList = new ArrayList<>();
         List<AndroidAppProcess> listInfo = AndroidProcesses.getRunningAppProcesses();
         int totalSize = 0;
         if (listInfo != null) {
@@ -106,7 +226,6 @@ public class CleanManager {
 
     public void loadUninstallResidual(UninstallResidualCallback uninstallResidualCallback) {
         String data = CommonUtil.readFileFromAssets(mContext, "/raw/");
-        final ArrayList<UninstallResidual> uninstallResiduals = new ArrayList<>();
         long totalSize = 0;
         if (!TextUtils.isEmpty(data)) {
             try {
@@ -136,8 +255,6 @@ public class CleanManager {
 
     public void loadAppCache(AppCacheCallBack appCacheCallBack) {
 
-        ArrayList<AppCache> appCaches = new ArrayList<>();
-
         List<PackageInfo> packages = mContext.getPackageManager().getInstalledPackages(0);
 
         String cacheFilePath = mContext.getExternalCacheDir().getAbsolutePath();
@@ -161,14 +278,15 @@ public class CleanManager {
                 appCaches.add(appCache);
             }
         }
-        appCacheCallBack.loadFinished(appCaches,totalSize);
+        if (appCacheCallBack != null) {
+            appCacheCallBack.loadFinished(appCaches, totalSize);
+        }
 
     }
 
-    public void loadFile(FileCategoryHelper.FileCategory fileCategory, FileSortHelper.SortMethod sortMethod, FileInfoCallBack fileInfoCallBack) {
-        ArrayList<FileInfo> fileInfos = new ArrayList<>();
+    public void loadApkFile(FileInfoCallBack fileInfoCallBack) {
         FileCategoryHelper fileCategoryHelper = new FileCategoryHelper(mContext);
-        Cursor cursor = fileCategoryHelper.query(fileCategory, sortMethod);
+        Cursor cursor = fileCategoryHelper.query(FileCategoryHelper.FileCategory.Apk, FileSortHelper.SortMethod.size);
         long totalSize = 0;
         if (cursor != null && cursor.getCount() != 0) {
             cursor.moveToFirst();
@@ -178,38 +296,66 @@ public class CleanManager {
                 String name = Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
                 totalSize += size;
-                fileInfos.add(new FileInfo(path, name, date, size));
+                apkFiles.add(new FileInfo(path, name, date, size));
             } while (cursor.moveToNext());
             cursor.close();
         }
-
-        fileInfoCallBack.loadFinished(fileInfos, totalSize);
+        if (fileInfoCallBack != null) {
+            fileInfoCallBack.loadFinished(apkFiles, totalSize);
+        }
     }
 
+    public void loadLogFile(FileInfoCallBack fileInfoCallBack) {
+        FileCategoryHelper fileCategoryHelper = new FileCategoryHelper(mContext);
+        Cursor cursor = fileCategoryHelper.query(FileCategoryHelper.FileCategory.Log, FileSortHelper.SortMethod.size);
+        long totalSize = 0;
+        if (cursor != null && cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            do {
+                long size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
+                String path = cursor.getString(FileCategoryHelper.COLUMN_PATH);
+                String name = Util.getNameFromFilepath(path);
+                long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
+                totalSize += size;
+                logFiles.add(new FileInfo(path, name, date, size));
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        if (fileInfoCallBack != null) {
+            fileInfoCallBack.loadFinished(logFiles, totalSize);
+        }
+    }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void loadSystemCache(final SystemCacheCallBack systemCacheCallBack) {
+        totalSystemCacheSize = 0;
         if (systemCacheCallBack == null) {
             throw new Error("systemCacheCallBack can not be null");
         }
-        final ArrayList<AppInfo> appInfoList = new ArrayList<>();
 
         PackageManager pm = mContext.getPackageManager();
         List<PackageInfo> packages = pm.getInstalledPackages(0);
 
         if (packages == null || packages.isEmpty()) {
-            systemCacheCallBack.loadFinished(appInfoList, 0);
+            if (systemCacheCallBack != null) {
+                systemCacheCallBack.loadFinished(systemCaches, totalSystemCacheSize);
+            }
             return;
         }
 
-        for (final PackageInfo packageInfo : packages) {
+        ArrayList<PackageInfo> ignoreApps = new ArrayList<>();
+        for (int i = 0; i < packages.size(); i++) {
+            PackageInfo packageInfo = packages.get(i);
             if (!CommonUtil.isThirdApp(packageInfo.applicationInfo) || TextUtils.equals(packageInfo.packageName, mContext.getPackageName())) {
-                packages.remove(packageInfo);
+                ignoreApps.add(packageInfo);
             }
         }
+        packages.removeAll(ignoreApps);
         final int size = packages.size();
         if (size == 0) {
-            systemCacheCallBack.loadFinished(appInfoList, 0);
+            if (systemCacheCallBack != null) {
+                systemCacheCallBack.loadFinished(systemCaches, 0);
+            }
             return;
         }
 
@@ -217,33 +363,11 @@ public class CleanManager {
 
         if (mGetPackageSizeInfoMethod == null) {
             Log.e("rqy", "mGetPackageSizeInfoMethod is null");
-            systemCacheCallBack.loadFinished(appInfoList, 0);
+            if (systemCacheCallBack != null) {
+                systemCacheCallBack.loadFinished(systemCaches, 0);
+            }
             return;
         }
-
-        final int MSG_GET_STATS = 0;
-        final int MSG_GET_STATS_EXCEPTION = 1;
-
-
-        final Handler handler = new Handler(Looper.getMainLooper()) {
-            int i = 0;
-            long totalSize = 0;
-
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                if (msg.what == MSG_GET_STATS) {
-                    i++;
-                    int size = msg.arg1;
-                    totalSize += size;
-                } else if (msg.what == MSG_GET_STATS_EXCEPTION) {
-                    i++;
-                }
-                if (i == size - 1) {
-                    systemCacheCallBack.loadFinished(appInfoList, totalSize);
-                }
-            }
-        };
 
         for (final PackageInfo packageInfo : packages) {
             final String packageName = packageInfo.packageName;
@@ -256,16 +380,19 @@ public class CleanManager {
                                 @Override
                                 public void onGetStatsCompleted(PackageStats pStats, boolean succeeded) throws RemoteException {
                                     //loadAppSizeCompleted(true, pStats, packageInfo);
-                                    Message msg = new Message();
                                     if (succeeded) {
                                         AppInfo appInfo = new AppInfo();
                                         appInfo.pkgCacheSize = pStats.dataSize + pStats.codeSize;
                                         appInfo.pkgName = packageName;
-                                        msg.arg1 = (int) appInfo.pkgCacheSize;
-                                        appInfoList.add(appInfo);
+                                        systemCaches.add(appInfo);
+                                        totalSystemCacheSize += appInfo.pkgCacheSize;
+                                        if (systemCaches.size() == size) {
+                                            if (systemCacheCallBack != null) {
+                                                systemCacheCallBack.loadFinished(systemCaches, totalSystemCacheSize);
+                                            }
+                                        }
                                     }
-                                    msg.what = MSG_GET_STATS;
-                                    handler.sendMessage(msg);
+
                                 }
                             }
                     );
@@ -274,29 +401,52 @@ public class CleanManager {
                                 @Override
                                 public void onGetStatsCompleted(PackageStats pStats, boolean succeeded)
                                         throws RemoteException {
-                                    Message msg = new Message();
                                     if (succeeded) {
                                         AppInfo appInfo = new AppInfo();
                                         appInfo.pkgCacheSize = pStats.dataSize + pStats.codeSize;
                                         appInfo.pkgName = packageName;
-                                        msg.arg1 = (int) appInfo.pkgCacheSize;
-                                        appInfoList.add(appInfo);
+                                        systemCaches.add(appInfo);
+                                        totalSystemCacheSize += appInfo.pkgCacheSize;
+                                        if (systemCaches.size() == size) {
+                                            if (systemCacheCallBack != null) {
+                                                systemCacheCallBack.loadFinished(systemCaches, totalSystemCacheSize);
+                                            }
+                                        }
                                     }
-                                    msg.what = MSG_GET_STATS;
-                                    handler.sendMessage(msg);
                                 }
                             }
                     );
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                Message msg = new Message();
-                msg.what = MSG_GET_STATS_EXCEPTION;
-                msg.obj = packageName;
-                handler.sendMessage(msg);
+                if (systemCacheCallBack != null) {
+                    systemCacheCallBack.loadFinished(systemCaches, totalSystemCacheSize);
+                }
+                break;
             }
         }
 
+    }
+
+    public void clearSystemCache() {
+        StatFs stat = new StatFs(Environment.getDataDirectory().getAbsolutePath());
+        try {
+            Method mFreeStorageAndNotifyMethod = mContext.getPackageManager().getClass().getMethod(
+                    "freeStorageAndNotify", Long.TYPE, IPackageDataObserver.class);
+            mFreeStorageAndNotifyMethod.invoke(mContext.getPackageManager(),
+                    (long) stat.getBlockCount() * (long) stat.getBlockSize(),
+                    new IPackageDataObserver.Stub() {
+                        @Override
+                        public void onRemoveCompleted(String packageName, boolean succeeded)
+                                throws RemoteException {
+                            Log.e("rqy", "clearsystemCache");
+                        }
+                    }
+            );
+        } catch (Exception e) {
+            Log.e("rqy", "clearsystemCache has exception=" + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
 
@@ -322,4 +472,41 @@ public class CleanManager {
     }
 
 
+    public void notificationChanged(NotificationInfo notifiInfo) {
+        if (notificationList == null) {
+            notificationList = new ArrayList<>();
+        }
+        for (NotificationInfo info : notificationList) {
+            if (TextUtils.equals(info.pkg, notifiInfo.pkg) && info.id == notifiInfo.id) {
+                notificationList.remove(info);
+                break;
+            }
+        }
+        notificationList.add(notifiInfo);
+        for (NotificationCallBack callBack : notificationCallBackList) {
+            callBack.notificationChanged(notificationList);
+        }
+    }
+
+    public void addNotificationCallBack(NotificationCallBack notificationCallBack) {
+        if (notificationCallBack == null) {
+            return;
+        }
+        if (notificationCallBackList == null) {
+            notificationCallBackList = new ArrayList<>();
+        }
+        if (!notificationCallBackList.contains(notificationCallBack)) {
+            notificationCallBackList.add(notificationCallBack);
+        }
+        notificationCallBack.notificationChanged(notificationList);
+    }
+
+    public void removeNotificatioCallBack(NotificationCallBack notificationCallBack) {
+        if (notificationCallBack == null) {
+            return;
+        }
+        if (notificationCallBackList.contains(notificationCallBack)) {
+            notificationCallBackList.remove(notificationCallBack);
+        }
+    }
 }

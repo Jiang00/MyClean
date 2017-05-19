@@ -2,9 +2,6 @@ package com.android.clean.gboost;
 
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.text.TextUtils;
 
 import com.android.clean.util.CommonUtil;
 

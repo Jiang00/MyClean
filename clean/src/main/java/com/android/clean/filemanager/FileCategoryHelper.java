@@ -44,18 +44,19 @@ public class FileCategoryHelper {
     private static final String LOG_TAG = "FileCategoryHelper";
 
     public enum FileCategory {
-        All, Music, Video, Picture, Doc, Zip, Apk, Other, Word, Txt, Pdf
+        All, Music, Video, Picture, Doc, Zip, Apk, Other, Word, Txt, Pdf, Log
     }
 
     private static String APK_EXT = "apk";
     private static String THEME_EXT = "mtz";
+    private static String LOG_EXT = "log";
     private static String[] ZIP_EXTS = new String[]{
             "zip", "rar"
     };
 
-    public HashMap<FileCategory, FilenameExtFilter> filters = new HashMap<FileCategory, FilenameExtFilter>();
+    public HashMap<FileCategory, FilenameExtFilter> filters = new HashMap<>();
 
-    public HashMap<FileCategory, Integer> categoryNames = new HashMap<FileCategory, Integer>();
+    public HashMap<FileCategory, Integer> categoryNames = new HashMap<>();
 
    /* static {
         categoryNames.put(FileCategory.All, R.string.category_all);
@@ -72,7 +73,7 @@ public class FileCategoryHelper {
 
     public FileCategory[] sCategories = new FileCategory[]{
             FileCategory.Music, FileCategory.Video, FileCategory.Picture,
-            FileCategory.Doc, FileCategory.Zip, FileCategory.Apk, FileCategory.Other
+            FileCategory.Doc, FileCategory.Zip, FileCategory.Apk, FileCategory.Other, FileCategory.Log
     };
 
     private FileCategory mCategory;
@@ -184,6 +185,9 @@ public class FileCategoryHelper {
             case Apk:
                 selection = FileColumns.DATA + " LIKE '%.apk'";
                 break;
+            case Log:
+                selection = FileColumns.DATA + " LIKE '%.log'";
+                break;
             default:
                 selection = null;
         }
@@ -199,6 +203,7 @@ public class FileCategoryHelper {
             case Apk:
             case Word:
             case Txt:
+            case Log:
             case Pdf:
                 uri = Files.getContentUri(volumeName);
                 break;
@@ -275,6 +280,7 @@ public class FileCategoryHelper {
         refreshMediaCategory(FileCategory.Doc, uri);
         refreshMediaCategory(FileCategory.Zip, uri);
         refreshMediaCategory(FileCategory.Apk, uri);
+        refreshMediaCategory(FileCategory.Zip, uri);
     }
 
     private boolean refreshMediaCategory(FileCategory fc, Uri uri) {
@@ -314,6 +320,10 @@ public class FileCategoryHelper {
         String ext = path.substring(dotPosition + 1);
         if (ext.equalsIgnoreCase(APK_EXT)) {
             return FileCategory.Apk;
+        }
+
+        if (ext.equalsIgnoreCase(LOG_EXT)) {
+            return FileCategory.Log;
         }
 
         if (matchExts(ext, ZIP_EXTS)) {

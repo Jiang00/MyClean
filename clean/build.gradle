@@ -12,13 +12,9 @@ android {
         buildConfigField "boolean", "PRINT_LOG", "true"
         buildConfigField "boolean", "TRACK", "false"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "boolean", "PRINT_LOG", "false"
-            buildConfigField "boolean", "TRACK", "true"
-        }
+
+    lintOptions {
+        abortOnError false
     }
 }
 

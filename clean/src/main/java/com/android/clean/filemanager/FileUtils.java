@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -136,7 +137,7 @@ public class FileUtils {
         return null;
     }
 
-    public static boolean deleteFile(String filePath) {
+    public static boolean deleteFile(Context context, String filePath) {
         if (TextUtils.isEmpty(filePath)) {
             Log.e("rqy", "filePath is null");
             return false;
@@ -150,7 +151,7 @@ public class FileUtils {
             if (file.isDirectory()) {
                 File files[] = file.listFiles();
                 for (int i = 0; i < files.length; i++) {
-                    deleteFile(files[i].getAbsolutePath());
+                    deleteFile(context, files[i].getAbsolutePath());
                 }
                 if (file.listFiles().length == 0) {
                     return file.delete();
@@ -159,6 +160,10 @@ public class FileUtils {
                 boolean deleteSuc = false;
                 if (file.canWrite()) {
                     deleteSuc = file.delete();
+                    Uri baseUri = FileCategoryHelper.getContentUriByCategory(FileCategoryHelper.getCategoryFromPath(filePath));
+                    String where = MediaStore.MediaColumns.DATA + "='" + filePath + "'";
+                    int deleteRow = context.getContentResolver().delete(baseUri, where, null);
+                    Log.e("rqy", "deleteSuc=" + deleteSuc + "--deleteRow=" + deleteRow);
                 }
                 return deleteSuc;
 

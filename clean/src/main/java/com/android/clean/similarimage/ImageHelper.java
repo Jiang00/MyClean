@@ -15,8 +15,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
-import com.android.clean.util.CommonUtil;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -457,16 +455,13 @@ public class ImageHelper {
     }
 
     public ArrayList<ImageInfo> getCameraImageList() {
-        long startTime = System.currentTimeMillis();
         ArrayList<ImageInfo> mList = new ArrayList<>();
         String url = Environment.getExternalStorageDirectory().toString() + "/DCIM";
         File file = new File(url);
         getFileList(file, mList);
 
         Collections.sort(mList, new ImageInfo.ImageComparator());
-        long endTime = System.currentTimeMillis();
 
-        CommonUtil.log("rqy", "getCameraImageList--time:" + (endTime - startTime));
         return mList;
     }
 

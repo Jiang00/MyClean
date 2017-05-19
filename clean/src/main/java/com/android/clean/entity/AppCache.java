@@ -17,4 +17,13 @@ public class AppCache {
         this.pkg = packageName;
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return "AppCache{" +
+                "filePath='" + filePath + '\'' +
+                ", pkg='" + pkg + '\'' +
+                ", size=" + size +
+                '}';
+    }
 }

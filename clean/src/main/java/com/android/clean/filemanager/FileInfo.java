@@ -41,7 +41,7 @@ public class FileInfo {
 
     public boolean isHidden;
 
-    public long dbId; // id in the database, if is from database
+    public long _id; // id in the database, if is from database
 
     public FileInfo() {
     }
@@ -55,4 +55,20 @@ public class FileInfo {
         this.fileSize = size;
     }
 
+    @Override
+    public String toString() {
+        return "FileInfo{" +
+                "fileName='" + fileName + '\'' +
+                ", filePath='" + filePath + '\'' +
+                ", fileSize=" + fileSize +
+                ", isDir=" + isDir +
+                ", count=" + count +
+                ", modifiedDate=" + modifiedDate +
+                ", isSelected=" + isSelected +
+                ", canRead=" + canRead +
+                ", canWrite=" + canWrite +
+                ", isHidden=" + isHidden +
+                ", _id=" + _id +
+                '}';
+    }
 }

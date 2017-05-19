@@ -7,4 +7,12 @@ package com.android.clean.entity;
 public class AppInfo {
     public String pkgName;
     public long pkgCacheSize;
+
+    @Override
+    public String toString() {
+        return "AppInfo{" +
+                "pkgName='" + pkgName + '\'' +
+                ", pkgCacheSize=" + pkgCacheSize +
+                '}';
+    }
 }

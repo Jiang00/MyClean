@@ -17,4 +17,13 @@ public class UninstallResidual {
         this.name = name;
         this.path = path;
     }
+
+    @Override
+    public String toString() {
+        return "UninstallResidual{" +
+                "pkg='" + pkg + '\'' +
+                ", name='" + name + '\'' +
+                ", path='" + path + '\'' +
+                '}';
+    }
 }

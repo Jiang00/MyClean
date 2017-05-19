@@ -8,4 +8,13 @@ public class AppRam {
     public String pkg;
     public long size;
     public boolean isSelfBoot;
+
+    @Override
+    public String toString() {
+        return "AppRam{" +
+                "pkg='" + pkg + '\'' +
+                ", size=" + size +
+                ", isSelfBoot=" + isSelfBoot +
+                '}';
+    }
 }

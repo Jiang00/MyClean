@@ -2,14 +2,12 @@ package com.android.clean.callback;
 
 import com.android.clean.entity.AppInfo;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * Created by renqingyou on 2017/5/12.
  */
 
-public class SystemCacheCallBack {
-
-    public void loadFinished(ArrayList<AppInfo> appInfoList, long totalSize) {
-    }
+public abstract class SystemCacheCallBack {
+    public abstract void loadFinished(Vector<AppInfo> appInfoList, long totalSize);
 }
