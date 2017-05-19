@@ -446,10 +446,10 @@ public class AppLockPatternEosActivity extends AppLockSetPattern {
 
             lv.setVisibility(View.GONE);
             Intent intent = new Intent(AppLockPatternEosActivity.this, AppLock.class);
-            String from = getIntent().getStringExtra("from");
-            if (from != null) {
-                intent.putExtra("from", from);
-            }
+//            String from = getIntent().getStringExtra("from");
+//            if (from != null) {
+//                intent.putExtra("from", from);
+//            }
 //            Intent intent = new Intent("com.eos.clean.main");
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);

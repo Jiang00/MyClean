@@ -76,8 +76,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     RelativeLayout main_cpu_air_button, main_sd_air_button, main_ram_air_button;
     CustomRoundCpu main_custom_cpu, main_custom_sd, main_custom_ram;
     TextView main_cpu_temp, main_sd_per, main_sd_size, main_ram_per, main_ram_size;
-    ImageView main_air_all;
-//    ImageView main_air, main_air_smoke;
+    LinearLayout main_air_all;
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
     LinearLayout main_manager_button, main_applock_button, main_theme_button;
     TextView main_junk_h, main_ram_h, main_cooling_h;
@@ -228,9 +227,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_custom_ram = (CustomRoundCpu) view.findViewById(R.id.main_custom_ram);
         main_ram_per = (TextView) view.findViewById(R.id.main_ram_per);
         main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
-        main_air_all = (ImageView) view.findViewById(R.id.main_air_all);
-//        main_air = (ImageView) view.findViewById(R.id.main_air);
-//        main_air_smoke = (ImageView) view.findViewById(R.id.main_air_smoke);
+        main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
         arrayList.add(view);
 
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
@@ -624,9 +621,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void loadAirAnimator(TranslateAnimation translate) {
-//        main_air.setColorFilter(ContextCompat.getColor(this, R.color.A2));
-//        main_air_smoke.setColorFilter(ContextCompat.getColor(this, R.color.A2));
-//        main_air_all.startAnimation(translate);
+        main_air_all.startAnimation(translate);
     }
 
     @Override
