@@ -24,13 +24,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.clean.powerclean.CustomerAccessibilityService;
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.PowerWidgetContainer;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
 

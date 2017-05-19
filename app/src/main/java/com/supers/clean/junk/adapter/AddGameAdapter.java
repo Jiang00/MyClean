@@ -20,7 +20,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
+import com.android.clean.util.PreData;
 
 import java.util.ArrayList;
 

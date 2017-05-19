@@ -10,13 +10,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.clean.util.LoadManager;
+import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.eos.eshop.ShopMaster;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PhoneManager;
-import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.ShortCutUtils;
 
 /**

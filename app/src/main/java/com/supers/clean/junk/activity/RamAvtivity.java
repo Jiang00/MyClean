@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
@@ -24,7 +25,6 @@ import com.supers.clean.junk.adapter.RamAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.view.RamView;
 
 import java.util.List;

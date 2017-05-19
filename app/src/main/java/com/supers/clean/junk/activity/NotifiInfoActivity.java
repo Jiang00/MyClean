@@ -8,11 +8,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 
 /**
  * Created by Ivy on 2017/4/13.

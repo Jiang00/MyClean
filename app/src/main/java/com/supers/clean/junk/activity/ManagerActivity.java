@@ -36,7 +36,7 @@ import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.AppManagerView;
 import com.supers.clean.junk.adapter.ManagerAdapter;
-import com.supers.clean.junk.util.PreData;
+import com.android.clean.util.PreData;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.ManagerPresenter;
 

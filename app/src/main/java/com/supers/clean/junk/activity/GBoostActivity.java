@@ -29,6 +29,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.clean.gboost.GameBooster;
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.clean.util.LoadManager;
 import com.rd.PageIndicatorView;
@@ -39,7 +40,6 @@ import com.supers.clean.junk.customeview.PagerView;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
 import com.android.clean.util.MemoryManager;
-import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.ShortCutUtils;
 
 import java.io.BufferedReader;

@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.eos.module.tweenengine.Tween;
@@ -31,7 +32,6 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FlakeViewOnShort;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 
 import java.util.List;
 

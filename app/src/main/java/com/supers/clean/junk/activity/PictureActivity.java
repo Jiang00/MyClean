@@ -29,13 +29,13 @@ import android.widget.TextView;
 
 import com.android.clean.similarimage.ImageHelper;
 import com.android.clean.similarimage.ImageInfo;
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
 import com.android.clean.similarimage.RecyclerDbHelper;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
 

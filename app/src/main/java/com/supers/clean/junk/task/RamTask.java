@@ -6,12 +6,12 @@ import android.content.pm.PackageManager;
 import android.os.Debug.MemoryInfo;
 
 
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
 import java.util.List;

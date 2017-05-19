@@ -7,10 +7,10 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.UtilGp;
 
 

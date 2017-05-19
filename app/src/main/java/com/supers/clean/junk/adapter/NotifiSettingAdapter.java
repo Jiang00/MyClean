@@ -1,22 +1,16 @@
 package com.supers.clean.junk.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.NinePatchDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.PreData;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 
 /**
  * Created by Ivy on 2017/4/17.

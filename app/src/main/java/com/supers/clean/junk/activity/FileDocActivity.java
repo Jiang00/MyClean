@@ -24,13 +24,13 @@ import android.widget.TextView;
 import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.filemanager.FileSortHelper;
 import com.android.clean.filemanager.FileUtils;
+import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.FileAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 
 import java.util.ArrayList;
 

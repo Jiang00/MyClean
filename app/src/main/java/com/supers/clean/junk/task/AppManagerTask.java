@@ -18,7 +18,7 @@ import android.text.TextUtils;
 
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
+import com.android.clean.util.PreData;
 import com.supers.clean.junk.entity.Sizesort;
 
 import java.lang.reflect.Method;

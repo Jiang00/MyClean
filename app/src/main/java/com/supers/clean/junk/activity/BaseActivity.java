@@ -15,12 +15,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JsonData;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.JsonParser;
-import com.supers.clean.junk.util.PreData;
 
 /**
  * Created by on 2017/2/28.

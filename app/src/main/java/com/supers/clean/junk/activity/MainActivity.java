@@ -49,7 +49,7 @@ import com.supers.clean.junk.customeview.PullToRefreshLayout;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
+import com.android.clean.util.PreData;
 import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 

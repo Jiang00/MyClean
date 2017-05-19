@@ -15,7 +15,7 @@ import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.MainView;
 import com.supers.clean.junk.util.CpuTempReader;
 import com.android.clean.util.MemoryManager;
-import com.supers.clean.junk.util.PreData;
+import com.android.clean.util.PreData;
 
 import java.lang.reflect.Field;
 

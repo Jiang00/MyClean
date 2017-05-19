@@ -33,7 +33,7 @@ import com.supers.clean.junk.task.RamTask;
 import com.supers.clean.junk.task.SimpleTask;
 import com.supers.clean.junk.task.SystemCacheTask;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
+import com.android.clean.util.PreData;
 import com.supers.clean.junk.util.TopActivityPkg;
 
 import java.lang.reflect.Method;

@@ -43,7 +43,7 @@ import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CpuTempReader;
 import com.supers.clean.junk.util.PhoneManager;
-import com.supers.clean.junk.util.PreData;
+import com.android.clean.util.PreData;
 
 import java.util.ArrayList;
 

@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
@@ -26,7 +27,6 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 import com.supers.clean.junk.util.ShortCutUtils;
 import com.supers.clean.junk.util.UtilGp;
 

@@ -22,12 +22,12 @@ import android.widget.TextView;
 
 import com.android.clean.similarimage.ImageHelper;
 import com.android.clean.similarimage.ImageInfo;
+import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.android.clean.similarimage.RecyclerDbHelper;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

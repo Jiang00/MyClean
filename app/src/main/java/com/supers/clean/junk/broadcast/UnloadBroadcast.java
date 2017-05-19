@@ -4,10 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.activity.UnloadActivity;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PreData;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
