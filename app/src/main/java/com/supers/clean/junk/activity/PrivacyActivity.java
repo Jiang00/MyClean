@@ -71,7 +71,6 @@ public class PrivacyActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_privary);
         mHandler = new Handler();
-        title_name.setText(R.string.privary_0);
         title_left.setOnClickListener(clickListener);
         animationSmall();
         animationLine();

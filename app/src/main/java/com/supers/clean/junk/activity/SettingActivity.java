@@ -286,9 +286,9 @@ public class SettingActivity extends BaseActivity {
                     startActivity(intent);
                     break;
                 case R.id.setting_short:
-                    CommonUtil.track("设置页面", "添加桌面快捷方式", "", 1);
-                    PreData.putDB(SettingActivity.this, Constant.KEY_SHORTCUT, true);
-                    ShortCutUtils.addShortcut(SettingActivity.this);
+//                    CommonUtil.track("设置页面", "添加桌面快捷方式", "", 1);
+//                    PreData.putDB(SettingActivity.this, Constant.KEY_SHORTCUT, true);
+//                    ShortCutUtils.addShortcut(SettingActivity.this);
                     break;
                 case R.id.setting_power:
                     CommonUtil.track("设置页面", "进入深度清理", "", 1);

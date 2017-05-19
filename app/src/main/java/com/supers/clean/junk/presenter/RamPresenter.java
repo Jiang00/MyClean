@@ -60,6 +60,14 @@ public class RamPresenter extends BasePresenter<RamView> {
         iView.setCleanDAta(false, cleanSize);
     }
 
+    public void addWhiteList(String pkg) {
+        for (JunkInfo junkInfo : cleanApplication.getListMng()) {
+            if (pkg.equals(junkInfo.packageName)) {
+                junkInfo.isWhiteList = true;
+            }
+        }
+    }
+
     public void addAdapterData() {
 
         addRamAdapterData();

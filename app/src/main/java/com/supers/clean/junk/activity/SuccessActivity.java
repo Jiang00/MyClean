@@ -296,7 +296,7 @@ public class SuccessActivity extends BaseActivity {
     @Override
     public void tuiGuang() {
         super.tuiGuang();
-        CrossData.CrossPromotionBean bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
+        final CrossData.CrossPromotionBean bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
         if (bean != null) {
             tuiguang = bean.pkg;
         }
@@ -309,11 +309,7 @@ public class SuccessActivity extends BaseActivity {
             @Override
             public void onLoadView(View view) {
                 if (view != null) {
-                    if (TextUtils.equals(tuiguang, "com.eosmobi.applock")) {
-                        main_msg_tuiguang.setText("EOS Applock");
-                    } else if (TextUtils.equals(tuiguang, "com.eosmobi.flashlight.free")) {
-                        main_msg_tuiguang.setText("EOS Flashlight");
-                    }
+                    main_msg_tuiguang.setText(bean.appName.get(0).content);
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
                     lot_success = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
                     lot_success.setScaleType(ImageView.ScaleType.CENTER_CROP);
