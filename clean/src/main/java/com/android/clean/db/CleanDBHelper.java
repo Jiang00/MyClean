@@ -95,11 +95,11 @@ public class CleanDBHelper extends SQLiteOpenHelper {
     public boolean deleteItem(TableType tableType, String pkgName) {
 
         String table_name = getTableName(tableType);
-        String sql = "delete from " + table_name + "  where " + PKG_NAME + "=" + pkgName;
+        String sql = "delete from " + table_name + " where " + PKG_NAME + "='" + pkgName+"'";
         try {
             return getWritableDatabase().compileStatement(sql).executeUpdateDelete() != -1;
         } catch (Exception e) {
-            Log.e(TAG, "deleteItemFromFavor Error pkgName=" + pkgName);
+            Log.e(TAG, "deleteItem Error sql=" + sql + "--" + e.getMessage());
         }
         return false;
     }
@@ -110,13 +110,14 @@ public class CleanDBHelper extends SQLiteOpenHelper {
         String sql = "insert into " + table_name + "(" + PKG_NAME + ")" +
                 "values(?)";
         //db.beginTransaction();
+        Log.e("rqy", "--addItem--sql=" + sql);
         try {
             SQLiteStatement stat = getWritableDatabase().compileStatement(sql);
             stat.bindString(1, pkgName);
             return stat.executeInsert() != -1;
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e(TAG, "addItemToFavor Error tableName=" + table_name + pkgName);
+            Log.e(TAG, "addItem Error sql=" + sql + "--" + e.getMessage());
         }
 //        db.setTransactionSuccessful();
 //        db.endTransaction();
