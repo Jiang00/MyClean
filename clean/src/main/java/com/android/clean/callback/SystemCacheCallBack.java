@@ -1,6 +1,6 @@
 package com.android.clean.callback;
 
-import com.android.clean.entity.AppInfo;
+import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 
@@ -9,5 +9,5 @@ import java.util.ArrayList;
  */
 
 public abstract class SystemCacheCallBack {
-    public abstract void loadFinished(ArrayList<AppInfo> appInfoList, long totalSize);
+    public abstract void loadFinished(ArrayList<JunkInfo> appInfoList, long totalSize);
 }

@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
 import com.android.clean.db.CleanDBHelper;
 import com.android.clean.gboost.GameBooster;
 import com.android.clean.util.PreData;
@@ -38,7 +39,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.AddGameAdapter;
 import com.supers.clean.junk.customeview.LaunchpadAdapter;
 import com.supers.clean.junk.customeview.PagerView;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
 import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.ShortCutUtils;
@@ -502,10 +503,10 @@ public class GBoostActivity extends BaseActivity {
     private void initData() {
         ArrayList<String> gboost_names = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.GameBoost);
         gboost_add.clear();
-        for (JunkInfo info : ((MyApplication) getApplication()).getListMng()) {
+        for (JunkInfo info : CleanManager.getInstance(this).getAppList()) {
             boolean isA = false;
             for (String packagename : gboost_names) {
-                if (packagename.equals(info.packageName)) {
+                if (packagename.equals(info.pkg)) {
                     isA = true;
                 }
             }

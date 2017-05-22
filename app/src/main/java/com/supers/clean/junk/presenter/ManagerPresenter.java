@@ -4,9 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+import com.android.clean.core.CleanManager;
 import com.supers.clean.junk.view.AppManagerView;
 import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,13 +38,13 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     public void init() {
         super.init();
 
-        allSize = cleanApplication.getRamSize();
+        allSize = CleanManager.getInstance(context).getRamSize();
         list_size = new ArrayList<>();
         list_time = new ArrayList<>();
         list_pinlv = new ArrayList<>();
-        ArrayList<JunkInfo> list = cleanApplication.getListMng();
+        ArrayList<JunkInfo> list = CleanManager.getInstance(context).getAppList();
         for (JunkInfo info : list) {
-            info.isChecked=false;
+            info.isChecked = false;
         }
         list_size.addAll(list);
         list_time.addAll(list);
@@ -77,7 +78,7 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
             if (softInfo.isChecked) {
                 clearList.add(softInfo);
                 Intent intent = new Intent(Intent.ACTION_DELETE);
-                intent.setData(Uri.parse("package:" + softInfo.packageName));
+                intent.setData(Uri.parse("package:" + softInfo.pkg));
                 context.startActivity(intent);
             }
         }
@@ -89,8 +90,8 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
             return;
         }
         for (JunkInfo softinfo : clearList) {
-            if (softinfo.packageName.equals(packageName)) {
-                cleanApplication.removeAppManager(softinfo);
+            if (softinfo.pkg.equals(packageName)) {
+                CleanManager.getInstance(context).removeAppList(softinfo);
                 list_size.remove(softinfo);
                 list_time.remove(softinfo);
                 list_pinlv.remove(softinfo);
@@ -111,7 +112,7 @@ class Sizesort implements Comparator<JunkInfo> {
 
 class Timesort implements Comparator<JunkInfo> {
     public int compare(JunkInfo file1, JunkInfo file2) {
-        return file1.time == file2.time ? 0 : (file1.time > file2.time ? -1 : 1);
+        return file1.date == file2.date ? 0 : (file1.date > file2.date ? -1 : 1);
     }
 }
 

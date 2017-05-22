@@ -9,9 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.clean.db.CleanDBHelper;
+import com.android.clean.util.LoadManager;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
 
 import java.util.List;
@@ -64,10 +65,11 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.name.setText(info.name);
-        Drawable icon = info.icon;
+        info.label = LoadManager.getInstance(context).getAppLabel(info.pkg);
+        holder.name.setText(info.label);
+        final Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
         holder.icon.setImageDrawable(icon);
-        if (white_list.contains(info.packageName)) {
+        if (white_list.contains(info.pkg)) {
             info.isChecked = false;
         }
         if (info.isChecked) {
@@ -87,7 +89,7 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
                     ramPresenter.addCleandata(true, info.size);
                 } else {
                     if (!isAdd) {
-                        showDialog(info.icon, info.name, info.packageName);
+                        showDialog(icon, info.label, info.pkg);
                     }
                     holder.checkBox.setImageResource(R.mipmap.ram_normal);
                     ramPresenter.addCleandata(false, info.size);

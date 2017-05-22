@@ -8,13 +8,18 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
+import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.PreData;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.NotifiSettingAdapter;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static com.android.clean.db.CleanDBHelper.TableType.Notification;
 
 /**
  * Created by Ivy on 2017/4/13.
@@ -31,6 +36,7 @@ public class NotifiSettingActivity extends BaseActivity {
     NotifiSettingAdapter adapter;
     MyApplication myApplication;
     ArrayList<JunkInfo> list;
+    List<String> isnotifiWhiteList = CleanDBHelper.getInstance(this).getWhiteList(Notification);
 
     @Override
     protected void findId() {
@@ -60,11 +66,13 @@ public class NotifiSettingActivity extends BaseActivity {
             view_set.setVisibility(View.VISIBLE);
         }
         adapter = new NotifiSettingAdapter(this);
-        list = myApplication.getListMng();
+        list = CleanManager.getInstance(this).getAppList();
         ArrayList<JunkInfo> listSoft = new ArrayList<>();
         for (JunkInfo info : list) {
-            if (!info.isnotifiWhiteList) {
+            if (!isnotifiWhiteList.contains(info.pkg)) {
                 listSoft.add(info);
+            } else {
+                info.isnotifiWhiteList = true;
             }
         }
         list.removeAll(listSoft);

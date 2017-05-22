@@ -2,7 +2,8 @@ package com.supers.clean.junk.view;
 
 import android.widget.TextView;
 
-import com.supers.clean.junk.entity.JunkInfo;
+
+import com.android.clean.entity.JunkInfo;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public interface JunkView extends IView {
 
     void setUnit(long size, TextView textView);
 
-    void setCleanDAta(boolean isFirst,long size);
+    void setCleanDAta(boolean isFirst, long size);
 
     void cleanAnimation(boolean isZhankai, List<JunkInfo> cleanList, long cleanSize);
 

@@ -23,12 +23,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
 import com.android.clean.powerclean.CustomerAccessibilityService;
+import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.PowerWidgetContainer;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.Constant;
 
@@ -127,7 +129,7 @@ public class PowerActivity extends BaseActivity {
         if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
             title_name.setText(R.string.gboost_11);
             for (JunkInfo info : startList) {
-                if (TextUtils.equals(info.packageName, getIntent().getStringExtra("packageName"))) {
+                if (TextUtils.equals(info.pkg, getIntent().getStringExtra("packageName"))) {
                     startList.remove(info);
                     break;
                 }
@@ -172,7 +174,7 @@ public class PowerActivity extends BaseActivity {
             for (int i = 0; i < startList.size(); i++) {
                 if (startList.get(i).isChecked) {
                     count++;
-                    showPackageDetail(startList.get(i).packageName);
+                    showPackageDetail(startList.get(i).pkg);
 
                     View view = containerView_recyclerView.getChildAt(i);
                     if (view == null) {
@@ -227,7 +229,7 @@ public class PowerActivity extends BaseActivity {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        cleanApplication.removeRamStartSelf(startList.get(i));
+                        CleanManager.getInstance(PowerActivity.this).removeRamSelfBoot(startList.get(i));
                         startList.remove(i);
                         containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
                         containerAdapter.notifyItemRemoved(i);
@@ -259,8 +261,8 @@ public class PowerActivity extends BaseActivity {
     private void initData() {
         cleanApplication = (MyApplication) getApplication();
         startList = new ArrayList<>();
-        for (JunkInfo info : cleanApplication.getAppRam()) {
-            if (info.isStartSelf) {
+        for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
+            if (info.isSelfBoot) {
                 startList.add(info);
             }
         }
@@ -288,7 +290,8 @@ public class PowerActivity extends BaseActivity {
             } else {
                 holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.power_4 : R.mipmap.power_5);
             }
-            holder.recyc_icon.setImageDrawable(startList.get(position).icon);
+
+            holder.recyc_icon.setImageDrawable(LoadManager.getInstance(PowerActivity.this).getAppIcon(startList.get(position).pkg));
             holder.recyc_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

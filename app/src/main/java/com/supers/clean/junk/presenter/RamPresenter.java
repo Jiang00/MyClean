@@ -3,13 +3,17 @@ package com.supers.clean.junk.presenter;
 import android.app.Activity;
 import android.content.Context;
 
+import com.android.clean.core.CleanManager;
+import com.android.clean.db.CleanDBHelper;
 import com.supers.clean.junk.view.RamView;
 import com.supers.clean.junk.activity.MyApplication;
 import com.android.clean.util.MemoryManager;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.android.clean.db.CleanDBHelper.TableType.Ram;
 
 /**
  * Created by on 2017/3/2.
@@ -30,8 +34,8 @@ public class RamPresenter extends BasePresenter<RamView> {
     public void init() {
         super.init();
         iView.loadFullAd();
-        allSize = cleanApplication.getRamSize();
-        for (JunkInfo info : cleanApplication.getAppRam()) {
+        allSize = CleanManager.getInstance(context).getRamSize();
+        for (JunkInfo info : CleanManager.getInstance(context).getAppRamList()) {
             if (info.isChecked) {
                 cleanSize += info.size;
             }
@@ -61,8 +65,8 @@ public class RamPresenter extends BasePresenter<RamView> {
     }
 
     public void addWhiteList(String pkg) {
-        for (JunkInfo junkInfo : cleanApplication.getListMng()) {
-            if (pkg.equals(junkInfo.packageName)) {
+        for (JunkInfo junkInfo : CleanManager.getInstance(context).getAppList()) {
+            if (pkg.equals(junkInfo.pkg)) {
                 junkInfo.isWhiteList = true;
             }
         }
@@ -75,7 +79,7 @@ public class RamPresenter extends BasePresenter<RamView> {
 
 
     public void addRamAdapterData() {
-        iView.addRamdata(cleanApplication.getRamSize(), cleanApplication.getAppRam());
+        iView.addRamdata(CleanManager.getInstance(context).getRamSize(), CleanManager.getInstance(context).getAppRamList());
     }
 
     public void bleachFile(List<JunkInfo> appRam) {

@@ -25,6 +25,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.callback.AppRamCallBack;
+import com.android.clean.core.CleanManager;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.HorizontalListViewAdapter;
@@ -34,7 +36,7 @@ import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
 import com.android.clean.util.PreData;
 import com.supers.clean.junk.util.SwitchControl;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.task.RamTask;
 import com.supers.clean.junk.task.SimpleTask;
 import com.supers.clean.junk.customeview.HorizontalListView;
@@ -124,55 +126,28 @@ public class FloatActivity extends BaseActivity {
     private void initList() {
         listFloat = new ArrayList<>();
         listFloat_white = new ArrayList<>();
-        listFloat = cleanApplication.getAppRam();
+        listFloat = CleanManager.getInstance(this).getAppRamList();
         adapter = new HorizontalListViewAdapter(this);
         adapter.clear();
         if (listFloat.size() == 0) {
-            RamTask ramTask = new RamTask(this, new SimpleTask.SimpleTaskListener() {
+            CleanManager.getInstance(this).loadAppRam(new AppRamCallBack() {
                 @Override
-                public void startLoad() {
-
-                }
-
-                @Override
-                public void loading(final JunkInfo fileInfo, long size) {
+                public void loadFinished(final List<JunkInfo> appRamList, List<String> whiteList, long totalSize) {
                     myHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            adapter.addData(fileInfo);
-                            adapter.notifyDataSetChanged();
-                        }
-                    });
-
-                }
-
-                @Override
-                public void loadingW(JunkInfo fileInfo) {
-                    listFloat_white.add(fileInfo);
-                }
-
-                @Override
-                public void cancelLoading() {
-                }
-
-                @Override
-                public void finishLoading(final long dataSize, final ArrayList<JunkInfo> dataList) {
-                    myHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            adapter.addDataListLocation(0, listFloat_white);
+                            adapter.addDataListLocation(0, appRamList);
                             adapter.notifyDataSetChanged();
                         }
                     });
                 }
             });
-            new Thread(ramTask).start();
 
         } else {
-            listFloat_white = cleanApplication.getWhiteRam();
-            adapter.addDataList(listFloat);
-            adapter.addDataListLocation(0, listFloat_white);
-            adapter.notifyDataSetChanged();
+//            listFloat_white = cleanApplication.getWhiteRam();
+//            adapter.addDataList(listFloat);
+//            adapter.addDataListLocation(0, listFloat_white);
+//            adapter.notifyDataSetChanged();.
 //            waterView.setOnClickListener(WaterViewOnclick);
         }
         horizontal_listview.setAdapter(adapter);

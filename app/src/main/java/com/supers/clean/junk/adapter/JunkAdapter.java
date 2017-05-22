@@ -2,14 +2,17 @@ package com.supers.clean.junk.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.clean.filemanager.FileUtils;
+import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.presenter.JunkPresenter;
 
 public class JunkAdapter extends MybaseAdapter<JunkInfo> {
@@ -50,9 +53,22 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.name.setText(info.name);
-        Drawable icon = info.icon;
-        holder.icon.setImageDrawable(icon);
+        if (info.type == JunkInfo.TableType.APKFILE) {
+            holder.name.setText(info.label);
+            Drawable icon = LoadManager.getInstance(context).getApkIconforPath(info.path);
+            holder.icon.setImageDrawable(icon);
+        } else if (info.type == JunkInfo.TableType.APP) {
+            Log.e("time", System.currentTimeMillis() + "=");
+            holder.name.setText(LoadManager.getInstance(context).getAppLabel(info.pkg));
+            Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
+            Log.e("time", System.currentTimeMillis() + "=");
+            holder.icon.setImageDrawable(icon);
+        } else {
+            holder.name.setText(info.label);
+            Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
+            holder.icon.setImageResource(R.mipmap.log_file);
+        }
+
         if (info.isChecked) {
             holder.checkBox.setImageResource(R.mipmap.junk_passed);
         } else {
@@ -71,7 +87,7 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
                 }
             }
         });
-        holder.size.setText(Util.convertStorage(info.size,true) );
+        holder.size.setText(Util.convertStorage(info.size, true));
 
         return convertView;
     }

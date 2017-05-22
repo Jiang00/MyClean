@@ -2,15 +2,18 @@ package com.supers.clean.junk.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
+import com.android.clean.db.CleanDBHelper;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.WhiteListAdapter;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
 
 import java.util.ArrayList;
@@ -28,6 +31,7 @@ public class WhiteListAvtivity extends BaseActivity {
     ListView listView;
     TextView white_wu;
     List<JunkInfo> white_list;
+    private List<String> whiteList;
 
     @Override
     protected void findId() {
@@ -47,6 +51,12 @@ public class WhiteListAvtivity extends BaseActivity {
         title_right.setVisibility(View.VISIBLE);
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
+        whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
+        for (String info : whiteList) {
+            Log.e("whitelist", info);
+        }
+
+
         white_list = new ArrayList<>();
         adapter = new WhiteListAdapter(this);
         listView.setAdapter(adapter);
@@ -55,8 +65,9 @@ public class WhiteListAvtivity extends BaseActivity {
 
     private void initDAta() {
         white_list.clear();
-        for (JunkInfo info : ((MyApplication) getApplication()).getListMng()) {
-            if (info.isWhiteList) {
+        for (JunkInfo info : CleanManager.getInstance(this).getAppList()) {
+            if (whiteList.contains(info.pkg)) {
+                info.isWhiteList = true;
                 white_list.add(info);
             }
         }

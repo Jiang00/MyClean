@@ -1,6 +1,6 @@
 package com.android.clean.callback;
 
-import com.android.clean.entity.AppRam;
+import com.android.clean.entity.JunkInfo;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  */
 
 public abstract class AppRamCallBack {
-    public abstract void loadFinished(List<AppRam> appRamList, List<String> whiteList, long totalSize);
+    public abstract void loadFinished(List<JunkInfo> appRamList, List<String> whiteList, long totalSize);
 }

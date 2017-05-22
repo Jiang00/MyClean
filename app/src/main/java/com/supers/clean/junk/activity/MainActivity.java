@@ -26,6 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.clean.core.CleanManager;
 import com.android.clean.util.Util;
 import com.android.clean.util.LoadManager;
 import com.android.client.AndroidSdk;
@@ -46,7 +47,8 @@ import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.Constant;
 import com.android.clean.util.PreData;
@@ -246,8 +248,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         final FrameLayout lot_tap = (FrameLayout) viewpager_3.findViewById(R.id.lot_tap);
         if (!PreData.getDB(this, Constant.DEEP_CLEAN, false)) {
             List<JunkInfo> startList = new ArrayList<>();
-            for (JunkInfo info : cleanApplication.getAppRam()) {
-                if (info.isStartSelf) {
+            for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
+                if (info.isSelfBoot) {
                     startList.add(info);
                 }
             }
@@ -266,24 +268,25 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 }
             } else {
                 if (startList.size() > 0) {
-                    tap_iv_1.setImageDrawable(startList.get(0).icon);
+
+                    tap_iv_1.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
                 }
                 if (startList.size() > 1) {
-                    tap_iv_2.setImageDrawable(startList.get(1).icon);
+                    tap_iv_2.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(1).pkg));
                     tap_iv_2.setVisibility(View.VISIBLE);
                 }
                 if (startList.size() > 2) {
-                    tap_iv_3.setImageDrawable(startList.get(2).icon);
+                    tap_iv_3.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(2).pkg));
                     tap_iv_3.setVisibility(View.VISIBLE);
                 }
                 if (startList.size() <= 3) {
                     tap_ll.setVisibility(View.GONE);
                 } else {
                     if (startList.size() > 3) {
-                        tap_iv_4.setImageDrawable(startList.get(3).icon);
+                        tap_iv_4.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(3).pkg));
                     }
                     if (startList.size() > 4) {
-                        tap_iv_5.setImageDrawable(startList.get(4).icon);
+                        tap_iv_5.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(4).pkg));
                     }
                     if (startList.size() > 5) {
                         tap_iv_6.setVisibility(View.VISIBLE);
@@ -538,7 +541,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     main_msg_sd_unit.setText("GB");
                 }
                 if (main_junk_h.getVisibility() == View.INVISIBLE) {
-                    long junk_size = cleanApplication.getApkSize() + cleanApplication.getCacheSize() + cleanApplication.getUnloadSize() + cleanApplication.getLogSize() + cleanApplication.getDataSize();
+                    long junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
+                            CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
                     if (junk_size > 0) {
                         main_junk_h.setText(Util.convertStorage(junk_size, true));
                         main_junk_h.setVisibility(View.VISIBLE);
@@ -562,7 +566,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         main_ram_size.setText(size);
                         main_msg_ram_percent.setText(String.valueOf(progress) + "%");
                         if (main_ram_h.getVisibility() == View.INVISIBLE) {
-                            long ram_size = cleanApplication.getRamSize();
+                            long ram_size = CleanManager.getInstance(MainActivity.this).getRamSize();
                             if (ram_size > 0) {
                                 main_ram_h.setText(Util.convertStorage(ram_size, true));
                                 main_ram_h.setVisibility(View.VISIBLE);
@@ -590,21 +594,21 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             side_listView.setAdapter(adapter);
         }
         adapter.clear();
-        adapter.addData(new JunkInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
-        adapter.addData(new JunkInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
-        adapter.addData(new JunkInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
-        adapter.addData(new JunkInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
-        adapter.addData(new JunkInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-        adapter.addData(new JunkInfo(R.string.side_file, R.mipmap.side_file));//文件管理
-        adapter.addData(new JunkInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-//        adapter.addData(new JunkInfo(R.string.privary_0, R.mipmap.side_power));//隐私清理
-        adapter.addData(new JunkInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
-        adapter.addData(new JunkInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
-        adapter.addData(new JunkInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
-        adapter.addData(new JunkInfo(R.string.side_family, R.mipmap.side_theme));//family
-        adapter.addData(new JunkInfo(R.string.side_theme, R.mipmap.side_theme));//主题
-        adapter.addData(new JunkInfo(R.string.side_setting, R.mipmap.side_setting));//设置
-        adapter.addData(new JunkInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
+        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
+        adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
+        adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
+        adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
+        adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
+        adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+        adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
+//        adapter.addData(new SideInfo(R.string.privary_0, R.mipmap.side_power));//隐私清理
+        adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
+        adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
+        adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
+        adapter.addData(new SideInfo(R.string.side_family, R.mipmap.side_theme));//family
+        adapter.addData(new SideInfo(R.string.side_theme, R.mipmap.side_theme));//主题
+        adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
+        adapter.addData(new SideInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
 
     }
 

@@ -7,9 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.presenter.JunkRamPresenter;
 
 public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
@@ -50,9 +51,18 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.name.setText(info.name);
-        Drawable icon = info.icon;
-        holder.icon.setImageDrawable(icon);
+        if (info.type == JunkInfo.TableType.APKFILE) {
+            holder.name.setText(info.label);
+            Drawable icon = LoadManager.getInstance(context).getApkIconforPath(info.path);
+            holder.icon.setImageDrawable(icon);
+        } else if (info.type == JunkInfo.TableType.APP) {
+            holder.name.setText(LoadManager.getInstance(context).getAppLabel(info.pkg));
+            Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
+            holder.icon.setImageDrawable(icon);
+        } else {
+            holder.name.setText(info.label);
+            holder.icon.setImageResource(R.mipmap.log_file);
+        }
         if (info.isChecked) {
             holder.checkBox.setImageResource(R.mipmap.junk_passed);
         } else {
@@ -64,14 +74,14 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
                     holder.checkBox.setImageResource(R.mipmap.junk_passed);
-                    junkPresenter.addCleandata(true,info.size);
+                    junkPresenter.addCleandata(true, info.size);
                 } else {
                     holder.checkBox.setImageResource(R.mipmap.junk_normal);
-                    junkPresenter.addCleandata(false,info.size);
+                    junkPresenter.addCleandata(false, info.size);
                 }
             }
         });
-        holder.size.setText(Util.convertStorage(info.size,true));
+        holder.size.setText(Util.convertStorage(info.size, true));
 
         return convertView;
     }

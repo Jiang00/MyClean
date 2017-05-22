@@ -33,13 +33,14 @@ import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.activity.PowerActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SettingActivity;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
 
 
-public class SideAdapter extends MybaseAdapter<JunkInfo> {
+public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static int idx = 0;
     private static final int BATTERY = idx++;
     private static final int FLOAT = idx++;
@@ -64,7 +65,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final JunkInfo info = getItem(position);
+        final SideInfo info = getItem(position);
         final ViewHolder holder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.layout_side_item, null);
@@ -85,7 +86,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tv_name.setText(info.textrid);
+        holder.tv_name.setText(info.textId);
         if (position == FAMILY) {
             holder.lot_family.setImageAssetsFolder("images/box/");
             holder.lot_family.setAnimation("box.json");
@@ -93,9 +94,9 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
             holder.lot_family.playAnimation();
         } else {
             holder.lot_family.setVisibility(View.GONE);
-            holder.iv_le.setImageResource(info.drawableRid);
+            holder.iv_le.setImageResource(info.drawableId);
         }
-        if (info.isChecked) {
+        if (info.isCheck) {
             holder.checkBox.setImageResource(R.mipmap.side_check_passed);
         } else {
             holder.checkBox.setImageResource(R.mipmap.side_check_normal);
@@ -103,8 +104,8 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                info.isChecked = !info.isChecked;
-                if (info.isChecked) {
+                info.isCheck = !info.isCheck;
+                if (info.isCheck) {
                     holder.checkBox.setImageResource(R.mipmap.side_check_passed);
                 } else {
                     holder.checkBox.setImageResource(R.mipmap.side_check_normal);

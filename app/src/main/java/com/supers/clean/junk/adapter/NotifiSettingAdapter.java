@@ -8,8 +8,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.clean.db.CleanDBHelper;
+import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 
 /**
  * Created by Ivy on 2017/4/17.
@@ -39,7 +40,8 @@ public class NotifiSettingAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.iv_icon.setImageDrawable(info.icon);
+
+        holder.iv_icon.setImageDrawable(LoadManager.getInstance(context).getAppIcon(info.pkg));
         holder.tv_lable.setText(info.label);
         holder.checkBox.setClickable(false);
         if (!info.isnotifiWhiteList) {
@@ -52,11 +54,11 @@ public class NotifiSettingAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 if (!info.isnotifiWhiteList) {
                     info.isnotifiWhiteList = true;
-                    CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.Notification, info.packageName);
+                    CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.Notification, info.pkg);
                     holder.checkBox.setImageResource(R.mipmap.side_check_normal);
                 } else {
                     info.isnotifiWhiteList = false;
-                    CleanDBHelper.getInstance(context).deleteItem(CleanDBHelper.TableType.Notification, info.packageName);
+                    CleanDBHelper.getInstance(context).deleteItem(CleanDBHelper.TableType.Notification, info.pkg);
                     holder.checkBox.setImageResource(R.mipmap.side_check_passed);
                 }
             }

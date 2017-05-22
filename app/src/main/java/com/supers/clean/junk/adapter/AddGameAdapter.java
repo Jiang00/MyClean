@@ -16,10 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.clean.db.CleanDBHelper;
+import com.android.clean.util.LoadManager;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.GBoostActivity;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 
@@ -61,13 +62,13 @@ public class AddGameAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 boolean isContains = false;
                 for (String gameInfo : game_list) {
-                    if (gameInfo.equals(info.packageName)) {
+                    if (gameInfo.equals(info.pkg)) {
                         isContains = true;
                     }
                 }
                 if (!isContains) {
-                    CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.GameBoost,info.packageName);
-                    game_list.add(info.packageName);
+                    CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.GameBoost, info.pkg);
+                    game_list.add(info.pkg);
                     Util.track("游戏加速页面", "添加游戏到列表", info.label, 1);
                     Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
                     shortcutIntent.setClass(context, GBoostActivity.class);
@@ -78,7 +79,7 @@ public class AddGameAdapter extends MybaseAdapter<JunkInfo> {
                 notifyDataSetChanged();
             }
         });
-        holder.iv_icon.setImageBitmap(getBitmap(info.icon));
+        holder.iv_icon.setImageDrawable(LoadManager.getInstance(context).getAppIcon(info.pkg));
         holder.tv_lable.setText(info.label);
 
         return convertView;

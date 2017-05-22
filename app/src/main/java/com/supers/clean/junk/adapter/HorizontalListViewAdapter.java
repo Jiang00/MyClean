@@ -13,9 +13,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,10 +90,9 @@ public class HorizontalListViewAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.mTitle.setText(info.name);
-        iconBitmap = getPropThumnail(info.icon);
+        holder.mTitle.setText(info.label);
+        LoadManager.getInstance(mContext).getAppIcon(info.pkg);
         holder.mImage.setImageBitmap(iconBitmap);
-        if (!info.isWhiteList) {
             holder.delete_app.setImageResource(R.mipmap.qing);
             holder.delete_app.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -103,9 +103,6 @@ public class HorizontalListViewAdapter extends BaseAdapter {
                     Log.e("aaa", "delete_app======");
                 }
             });
-        } else {
-            holder.delete_app.setImageResource(R.mipmap.float_white);
-        }
         return convertView;
     }
 

@@ -18,7 +18,7 @@ import android.text.TextUtils;
 
 import com.android.clean.db.CleanDBHelper;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.entity.Sizesort;
+import com.android.clean.entity.Sizesort;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

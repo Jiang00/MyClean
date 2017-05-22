@@ -15,9 +15,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
+import com.android.clean.db.CleanDBHelper;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.WhiteListAdapter;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,7 @@ public class WhiteListAddActivity extends BaseActivity {
     WhiteListAdapter adapter;
     private boolean search;
     private List<JunkInfo> white_list, listEdit;
+    private List<String> whiteList;
 
 
     @Override
@@ -60,6 +63,7 @@ public class WhiteListAddActivity extends BaseActivity {
         clear.setOnClickListener(clickListener);
         white_list = new ArrayList<>();
         listEdit = new ArrayList<>();
+        whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
         adapter = new WhiteListAdapter(this);
         list_si.setAdapter(adapter);
         initData();
@@ -67,8 +71,8 @@ public class WhiteListAddActivity extends BaseActivity {
 
     private void initData() {
         white_list.clear();
-        for (JunkInfo info : ((MyApplication) getApplication()).getListMng()) {
-            if (!info.isWhiteList) {
+        for (JunkInfo info : CleanManager.getInstance(this).getAppList()) {
+            if (!whiteList.contains(info.pkg)) {
                 white_list.add(info);
             }
         }

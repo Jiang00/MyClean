@@ -7,9 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.presenter.ManagerPresenter;
 
 public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
@@ -53,9 +54,10 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.name.setText(info.label);
-        holder.time.setText(Util.getStrTime(info.time));
-        holder.size.setText(Util.convertStorage(info.size,true));
-        Drawable icon = info.icon;
+        holder.time.setText(Util.getStrTime(info.date));
+        holder.size.setText(Util.convertStorage(info.size, true));
+
+        Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
         holder.icon.setImageDrawable(icon);
         if (info.isChecked) {
             holder.checkBox.setImageResource(R.mipmap.ram_passed);

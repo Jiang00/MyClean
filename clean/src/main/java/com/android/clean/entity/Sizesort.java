@@ -1,4 +1,4 @@
-package com.supers.clean.junk.entity;
+package com.android.clean.entity;
 
 import android.annotation.TargetApi;
 import android.app.usage.UsageStats;

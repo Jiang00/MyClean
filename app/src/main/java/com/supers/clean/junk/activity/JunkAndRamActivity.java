@@ -25,7 +25,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.JunkRamView;
 import com.supers.clean.junk.adapter.JunkRamAdapter;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.presenter.JunkRamPresenter;

@@ -37,7 +37,7 @@ import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.AppManagerView;
 import com.supers.clean.junk.adapter.ManagerAdapter;
 import com.android.clean.util.PreData;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.presenter.ManagerPresenter;
 
 import java.util.ArrayList;

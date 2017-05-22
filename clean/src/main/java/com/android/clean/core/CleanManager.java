@@ -2,6 +2,8 @@ package com.android.clean.core;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -25,10 +27,8 @@ import com.android.clean.callback.AppRamCallBack;
 import com.android.clean.callback.FileInfoCallBack;
 import com.android.clean.callback.SystemCacheCallBack;
 import com.android.clean.callback.UninstallResidualCallback;
-import com.android.clean.entity.AppCache;
-import com.android.clean.entity.AppInfo;
-import com.android.clean.entity.AppRam;
-import com.android.clean.entity.UninstallResidual;
+import com.android.clean.entity.JunkInfo;
+import com.android.clean.entity.Sizesort;
 import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.filemanager.FileInfo;
 import com.android.clean.filemanager.FileSortHelper;
@@ -48,8 +48,9 @@ import org.json.JSONObject;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
-import java.util.Vector;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -63,22 +64,26 @@ public class CleanManager {
     private Context mContext;
     private ActivityManager am;
     private PackageManager pm;
+    private List<UsageStats> usageStatsList;
+    private List<ActivityManager.RecentTaskInfo> recentTasks;
 
-    private long systemCacheSize, apkSize, uninstallSize, logSize, appCacheSize, ramSize;
+    private long systemCacheSize, apkSize, uninstallSize, logSize, appCacheSize, ramSize, appListSize;
 
     private ArrayList<NotificationInfo> notificationList;
     private ArrayList<NotificationCallBack> notificationCallBackList;
 
-    private final ArrayList<AppRam> appRamList = new ArrayList<>();
-    private final ArrayList<UninstallResidual> uninstallResiduals = new ArrayList<>();
-    private final ArrayList<AppCache> appCaches = new ArrayList<>();
+    private final ArrayList<JunkInfo> appRamList = new ArrayList<>();
+    private final ArrayList<JunkInfo> uninstallResiduals = new ArrayList<>();
+    private final ArrayList<JunkInfo> appCaches = new ArrayList<>();
+
+    private ArrayList<JunkInfo> appList = new ArrayList<>();
 
 
-    private ArrayList<FileInfo> apkFiles = new ArrayList<>();
+    private ArrayList<JunkInfo> apkFiles = new ArrayList<>();
 
-    private ArrayList<FileInfo> logFiles = new ArrayList<>();
+    private ArrayList<JunkInfo> logFiles = new ArrayList<>();
 
-    private final ArrayList<AppInfo> systemCaches = new ArrayList<>();
+    private final ArrayList<JunkInfo> systemCaches = new ArrayList<>();
 
     private CleanManager(Context context) {
         mContext = context.getApplicationContext();
@@ -110,45 +115,45 @@ public class CleanManager {
         long startTime = System.currentTimeMillis();
         loadAppCache(new AppCacheCallBack() {
             @Override
-            public void loadFinished(ArrayList<AppCache> appCaches, long totalSize) {
+            public void loadFinished(ArrayList<JunkInfo> appCaches, long totalSize) {
                 Log.e("rqy", "loadAppCache--" + totalSize);
-                for (AppCache appCache : appCaches) {
+                for (JunkInfo appCache : appCaches) {
                     Log.e("rqy", appCache + "");
                 }
             }
         });
         loadAppRam(new AppRamCallBack() {
             @Override
-            public void loadFinished(List<AppRam> appRamList, List<String> whiteList, long totalSize) {
+            public void loadFinished(List<JunkInfo> appRamList, List<String> whiteList, long totalSize) {
                 Log.e("rqy", "loadAppRam--" + totalSize);
-                for (AppRam appRam : appRamList) {
+                for (JunkInfo appRam : appRamList) {
                     Log.e("rqy", appRam + "");
                 }
             }
         });
         loadApkFile(new FileInfoCallBack() {
             @Override
-            public void loadFinished(ArrayList<FileInfo> fileInfos, long totalSize) {
+            public void loadFinished(ArrayList<JunkInfo> fileInfos, long totalSize) {
                 Log.e("rqy", "loadApkFile--" + totalSize);
-                for (FileInfo fileInfo : fileInfos) {
+                for (JunkInfo fileInfo : fileInfos) {
                     Log.e("rqy", fileInfo + "");
                 }
             }
         });
         loadLogFile(new FileInfoCallBack() {
             @Override
-            public void loadFinished(ArrayList<FileInfo> fileInfos, long totalSize) {
+            public void loadFinished(ArrayList<JunkInfo> fileInfos, long totalSize) {
                 Log.e("rqy", "loadLogFile--" + totalSize);
-                for (FileInfo fileInfo : fileInfos) {
+                for (JunkInfo fileInfo : fileInfos) {
                     Log.e("rqy", fileInfo + "");
                 }
             }
         });
         loadUninstallResidual(new UninstallResidualCallback() {
             @Override
-            public void loadFinished(ArrayList<UninstallResidual> uninstallResiduals, long totalSize) {
+            public void loadFinished(ArrayList<JunkInfo> uninstallResiduals, long totalSize) {
                 Log.e("rqy", "loadUninstallResidual--" + totalSize);
-                for (UninstallResidual uninstallResidual : uninstallResiduals) {
+                for (JunkInfo uninstallResidual : uninstallResiduals) {
                     Log.e("rqy", uninstallResidual + "");
                 }
             }
@@ -156,10 +161,10 @@ public class CleanManager {
         //注意，这个要放在最后执行
         loadSystemCache(new SystemCacheCallBack() {
             @Override
-            public void loadFinished(ArrayList<AppInfo> appInfoList, long totalSize) {
+            public void loadFinished(ArrayList<JunkInfo> appInfoList, long totalSize) {
                 Log.e("rqy", "loadSystemCache--" + totalSize);
                 systemCacheSize = totalSize;
-                for (AppInfo appInfo : appInfoList) {
+                for (JunkInfo appInfo : appInfoList) {
                     Log.e("rqy", appInfo + "");
                 }
             }
@@ -186,11 +191,12 @@ public class CleanManager {
                     if (ignoreApp.contains(packageName)) {
                         whiteList.add(packageName);
                     } else {
-                        AppRam appRam = new AppRam();
+                        JunkInfo appRam = new JunkInfo();
                         Debug.MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
                         appRam.size = (long) processMemoryInfo[0].getTotalPrivateDirty() * 1024;
                         appRam.isSelfBoot = Util.isStartSelf(mContext.getPackageManager(), packageName);
                         appRam.pkg = packageName;
+                        appRam.type = JunkInfo.TableType.APP;
                         appRamList.add(appRam);
                         ramSize += appRam.size;
                     }
@@ -221,7 +227,9 @@ public class CleanManager {
                     long size = Util.getFileSize(file);
                     String pkg = object.getString("pkg");
                     String name = object.getString("name");
-                    uninstallResiduals.add(new UninstallResidual(pkg, name, path, size));
+                    JunkInfo info = new JunkInfo(pkg, name, path, size);
+                    info.type = JunkInfo.TableType.APP;
+                    uninstallResiduals.add(info);
                     uninstallSize += size;
                 }
 
@@ -253,7 +261,8 @@ public class CleanManager {
             }
             long size = Util.getFileSize(file);
             if (size > 0) {
-                AppCache appCache = new AppCache(path, packageName, size);
+                JunkInfo appCache = new JunkInfo(path, packageName, size);
+                appCache.type = JunkInfo.TableType.APP;
                 appCacheSize += size;
                 appCaches.add(appCache);
             }
@@ -277,7 +286,9 @@ public class CleanManager {
                 String name = com.android.clean.filemanager.Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
                 apkSize += size;
-                apkFiles.add(new FileInfo(path, name, date, size));
+                JunkInfo info = new JunkInfo(path, name, date, size);
+                info.type = JunkInfo.TableType.APKFILE;
+                apkFiles.add(info);
             } while (cursor.moveToNext());
             cursor.close();
         }
@@ -299,7 +310,9 @@ public class CleanManager {
                 String name = com.android.clean.filemanager.Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
                 logSize += size;
-                logFiles.add(new FileInfo(path, name, date, size));
+                JunkInfo info = new JunkInfo(path, name, date, size);
+                info.type = JunkInfo.TableType.LOGFILE;
+                logFiles.add(info);
             } while (cursor.moveToNext());
             cursor.close();
         }
@@ -311,7 +324,17 @@ public class CleanManager {
     //SystemCache和应用管理用的同一个
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void loadSystemCache(final SystemCacheCallBack systemCacheCallBack) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            usageStatsList = getUsageStatistics(UsageStatsManager.INTERVAL_DAILY);
+            System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
+            Collections.sort(usageStatsList, new Sizesort());
+        } else {
+            recentTasks = am.getRecentTasks(10, ActivityManager.RECENT_IGNORE_UNAVAILABLE);
+        }
+
         systemCacheSize = 0;
+        appListSize = 0;
         systemCaches.clear();
         if (systemCacheCallBack == null) {
             throw new Error("systemCacheCallBack can not be null");
@@ -387,21 +410,58 @@ public class CleanManager {
         } catch (Exception e) {
 
         }
+        appList = (ArrayList<JunkInfo>) systemCaches.clone();
         systemCacheCallBack.loadFinished(systemCaches, systemCacheSize);
     }
 
     private void getStatsCompleted(PackageInfo packageInfo, PackageStats pStats, CountDownLatch countDownLatch) {
+
         synchronized (countDownLatch) {
-            AppInfo appInfo = new AppInfo();
-            appInfo.pkgName = packageInfo.packageName;
+            JunkInfo appInfo = new JunkInfo();
+            appInfo.pkg = packageInfo.packageName;
+
             appInfo.label = packageInfo.applicationInfo.loadLabel(pm).toString();
-            if (pStats != null) {
-                appInfo.pkgCacheSize = pStats.cacheSize;
-                systemCacheSize += appInfo.pkgCacheSize;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                for (int i = 0; i < usageStatsList.size(); i++) {
+                    if (TextUtils.equals(packageInfo.packageName, usageStatsList.get(i).getPackageName())) {
+                        appInfo.lastRunTime = i;
+                    }
+                }
+            } else {
+                for (int i = 0; i < recentTasks.size(); i++) {
+                    if (TextUtils.equals(packageInfo.packageName, recentTasks.get(i).baseIntent.getComponent().getPackageName())) {
+                        appInfo.lastRunTime = i;
+                    }
+                }
             }
+
+            if (pStats != null) {
+                appInfo.cacheSize = pStats.cacheSize;
+                appInfo.size = pStats.codeSize + pStats.dataSize;
+                systemCacheSize += appInfo.cacheSize;
+                appListSize += appInfo.size;
+            }
+            appInfo.type = JunkInfo.TableType.APP;
             systemCaches.add(appInfo);
             countDownLatch.countDown();
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public List<UsageStats> getUsageStatistics(int intervalType) {
+        // Get the app statistics since one year ago from the current time.
+        UsageStatsManager mUsageStatsManager = (UsageStatsManager) mContext
+                .getSystemService(Context.USAGE_STATS_SERVICE); //Context.USAGE_STATS_SERVICE
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.YEAR, -1);
+        List<UsageStats> queryUsageStats = mUsageStatsManager
+                .queryUsageStats(intervalType, cal.getTimeInMillis(),
+                        System.currentTimeMillis());
+
+        if (queryUsageStats.size() == 0) {
+//            mContext.startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        }
+        return queryUsageStats;
     }
 
 
@@ -504,6 +564,10 @@ public class CleanManager {
         return systemCacheSize;
     }
 
+    public long getAppListSize() {
+        return appListSize;
+    }
+
     public long getApkSize() {
         return apkSize;
     }
@@ -524,36 +588,48 @@ public class CleanManager {
         return ramSize;
     }
 
-    private ArrayList<AppRam> getAppRamList() {
-        return (ArrayList<AppRam>) appRamList.clone();
+    public ArrayList<JunkInfo> getAppRamList() {
+        return (ArrayList<JunkInfo>) appRamList;
     }
 
-    private ArrayList<UninstallResidual> getUninstallResiduals() {
-        return (ArrayList<UninstallResidual>) uninstallResiduals.clone();
+    public ArrayList<JunkInfo> getUninstallResiduals() {
+        return (ArrayList<JunkInfo>) uninstallResiduals;
     }
 
-    private ArrayList<AppCache> getAppCaches() {
-        return (ArrayList<AppCache>) appCaches.clone();
+    public ArrayList<JunkInfo> getAppCaches() {
+        return (ArrayList<JunkInfo>) appCaches;
     }
 
-    private Vector<AppInfo> getSystemCaches() {
-        return (Vector<AppInfo>) systemCaches.clone();
+    public ArrayList<JunkInfo> getSystemCaches() {
+        return (ArrayList<JunkInfo>) systemCaches;
     }
 
-    public ArrayList<FileInfo> getApkFiles() {
-        return (ArrayList<FileInfo>) apkFiles.clone();
+    public ArrayList<JunkInfo> getAppList() {
+        return (ArrayList<JunkInfo>) appList;
     }
 
-    public ArrayList<FileInfo> getLogFiles() {
-        return (ArrayList<FileInfo>) apkFiles.clone();
+    public ArrayList<JunkInfo> getApkFiles() {
+        return (ArrayList<JunkInfo>) apkFiles;
+    }
+
+    public ArrayList<JunkInfo> getLogFiles() {
+        return (ArrayList<JunkInfo>) logFiles;
     }
 
 
-    public void removeRam(AppRam appRam) {
+    public void removeRam(JunkInfo appRam) {
         am.killBackgroundProcesses(appRam.pkg);
         if (appRam.isSelfBoot) {
             return;
         }
+        ramSize -= appRam.size;
+        if (appRamList != null) {
+            appRamList.remove(appRam);
+        }
+    }
+
+    public void removeRamSelfBoot(JunkInfo appRam) {
+        am.killBackgroundProcesses(appRam.pkg);
         ramSize -= appRam.size;
         if (appRamList != null) {
             appRamList.remove(appRam);
@@ -567,15 +643,22 @@ public class CleanManager {
         }
     }
 
-    public void removeAppCache(AppCache appCache) {
-        Util.deleteFile(appCache.filePath);
+    public void removeAppCache(JunkInfo appCache) {
+        Util.deleteFile(appCache.path);
         appCacheSize -= appCache.size;
         if (appCaches != null) {
             appCaches.remove(appCache);
         }
     }
 
-    public void removeFilesOfUnintalledApk(UninstallResidual uninstallResidual) {
+    public void removeAppList(JunkInfo appInfo) {
+        appListSize -= appInfo.size;
+        if (appList != null) {
+            appList.remove(appInfo);
+        }
+    }
+
+    public void removeFilesOfUnintalledApk(JunkInfo uninstallResidual) {
         Util.deleteFile(uninstallResidual.path);
         uninstallSize -= uninstallResidual.size;
         if (uninstallResiduals != null) {

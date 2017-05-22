@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
@@ -39,7 +40,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.DrawHookView;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.customeview.SlowScrollView;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
 
@@ -275,15 +276,16 @@ public class SuccessActivity extends BaseActivity {
     private void shendu() {
         cleanApplication = (MyApplication) getApplication();
         List<JunkInfo> startList = new ArrayList<>();
-        for (JunkInfo info : cleanApplication.getAppRam()) {
-            if (info.isStartSelf) {
+        for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
+            if (info.isSelfBoot) {
                 startList.add(info);
             }
         }
         if (startList.size() == 0) {
             main_power_button.setVisibility(View.GONE);
         } else {
-            power_icon.setImageDrawable(startList.get(0).icon);
+
+            power_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
             String text1 = getString(R.string.power_1, String.valueOf(startList.size())) + " ";
             SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
             ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

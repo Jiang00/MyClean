@@ -370,8 +370,9 @@ public class NotificationService extends Service {
                 return;
             }
             //junk
-            long laji_size = cleanApplication.getCacheSize() + cleanApplication.getApkSize() + cleanApplication.getUnloadSize()
-                    + cleanApplication.getLogSize() + cleanApplication.getDataSize() + cleanApplication.getRamSize();
+            long laji_size = CleanManager.getInstance(this).getApkSize() + CleanManager.getInstance(this).getCacheSize() + CleanManager.getInstance(this).getUnloadSize() + CleanManager.getInstance(this).getLogSize()
+                    + CleanManager.getInstance(this).getDataSize() + CleanManager.getInstance(this).getRamSize();
+
             if (hh >= 6 && hh < 12 && PreData.getDB(this, Constant.KEY_TONGZHI_ZAO_JUNK, true)) {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_JUNK, true);
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, true);

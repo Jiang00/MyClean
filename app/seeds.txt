@@ -28767,6 +28767,24 @@ com.android.clean.R$xml: int acc
 com.android.clean.core.CleanService
 com.android.clean.core.CleanService: CleanService()
 com.android.clean.core.CleanService: CleanService(java.lang.String)
+com.android.clean.db.CleanDBHelper$TableType
+com.android.clean.db.CleanDBHelper$TableType: com.android.clean.db.CleanDBHelper$TableType Ram
+com.android.clean.db.CleanDBHelper$TableType: com.android.clean.db.CleanDBHelper$TableType Notification
+com.android.clean.db.CleanDBHelper$TableType: com.android.clean.db.CleanDBHelper$TableType GameBoost
+com.android.clean.db.CleanDBHelper$TableType: com.android.clean.db.CleanDBHelper$TableType[] $VALUES
+com.android.clean.db.CleanDBHelper$TableType: com.android.clean.db.CleanDBHelper$TableType[] values()
+com.android.clean.db.CleanDBHelper$TableType: com.android.clean.db.CleanDBHelper$TableType valueOf(java.lang.String)
+com.android.clean.db.CleanDBHelper$TableType: CleanDBHelper$TableType(java.lang.String,int)
+com.android.clean.db.CleanDBHelper$TableType: void <clinit>()
+com.android.clean.entity.JunkInfo$TableType
+com.android.clean.entity.JunkInfo$TableType: com.android.clean.entity.JunkInfo$TableType APKFILE
+com.android.clean.entity.JunkInfo$TableType: com.android.clean.entity.JunkInfo$TableType LOGFILE
+com.android.clean.entity.JunkInfo$TableType: com.android.clean.entity.JunkInfo$TableType APP
+com.android.clean.entity.JunkInfo$TableType: com.android.clean.entity.JunkInfo$TableType[] $VALUES
+com.android.clean.entity.JunkInfo$TableType: com.android.clean.entity.JunkInfo$TableType[] values()
+com.android.clean.entity.JunkInfo$TableType: com.android.clean.entity.JunkInfo$TableType valueOf(java.lang.String)
+com.android.clean.entity.JunkInfo$TableType: JunkInfo$TableType(java.lang.String,int)
+com.android.clean.entity.JunkInfo$TableType: void <clinit>()
 com.android.clean.filemanager.FileCategoryHelper$FileCategory
 com.android.clean.filemanager.FileCategoryHelper$FileCategory: com.android.clean.filemanager.FileCategoryHelper$FileCategory All
 com.android.clean.filemanager.FileCategoryHelper$FileCategory: com.android.clean.filemanager.FileCategoryHelper$FileCategory Music
@@ -28799,15 +28817,6 @@ com.android.clean.notification.NotificationMonitorService
 com.android.clean.notification.NotificationMonitorService: NotificationMonitorService()
 com.android.clean.powerclean.CustomerAccessibilityService
 com.android.clean.powerclean.CustomerAccessibilityService: CustomerAccessibilityService()
-com.android.clean.whitelist.WhiteListHelper$TableType
-com.android.clean.whitelist.WhiteListHelper$TableType: com.android.clean.whitelist.WhiteListHelper$TableType Ram
-com.android.clean.whitelist.WhiteListHelper$TableType: com.android.clean.whitelist.WhiteListHelper$TableType Notification
-com.android.clean.whitelist.WhiteListHelper$TableType: com.android.clean.whitelist.WhiteListHelper$TableType GameBoost
-com.android.clean.whitelist.WhiteListHelper$TableType: com.android.clean.whitelist.WhiteListHelper$TableType[] $VALUES
-com.android.clean.whitelist.WhiteListHelper$TableType: com.android.clean.whitelist.WhiteListHelper$TableType[] values()
-com.android.clean.whitelist.WhiteListHelper$TableType: com.android.clean.whitelist.WhiteListHelper$TableType valueOf(java.lang.String)
-com.android.clean.whitelist.WhiteListHelper$TableType: WhiteListHelper$TableType(java.lang.String,int)
-com.android.clean.whitelist.WhiteListHelper$TableType: void <clinit>()
 com.android.client.AdListener
 com.android.client.AdListener: void onReceiveReward(boolean,int)
 com.android.client.AdListener: void onFullAdClosed()
@@ -45565,10 +45574,12 @@ com.supers.clean.junk.entity.JunkInfo: JunkInfo(android.graphics.drawable.Drawab
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String)
 com.supers.clean.junk.entity.JunkInfo: JunkInfo(boolean,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long,long,boolean,boolean,long)
-com.supers.clean.junk.entity.Sizesort
-com.supers.clean.junk.entity.Sizesort: Sizesort()
-com.supers.clean.junk.entity.Sizesort: int compare(android.app.usage.UsageStats,android.app.usage.UsageStats)
-com.supers.clean.junk.entity.Sizesort: int compare(java.lang.Object,java.lang.Object)
+com.supers.clean.junk.entity.SideInfo
+com.supers.clean.junk.entity.SideInfo: int textId
+com.supers.clean.junk.entity.SideInfo: int drawableId
+com.supers.clean.junk.entity.SideInfo: boolean isCheck
+com.supers.clean.junk.entity.SideInfo: SideInfo(int,int,boolean)
+com.supers.clean.junk.entity.SideInfo: SideInfo(int,int)
 com.supers.clean.junk.presenter.BasePresenter
 com.supers.clean.junk.presenter.BasePresenter: java.lang.Object iView
 com.supers.clean.junk.presenter.BasePresenter: int cpuTemp
@@ -45679,7 +45690,7 @@ com.supers.clean.junk.presenter.JunkRamPresenter: void setUnit(long,android.widg
 com.supers.clean.junk.presenter.JunkRamPresenter: void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List)
 com.supers.clean.junk.presenter.LastRunsort
 com.supers.clean.junk.presenter.LastRunsort: LastRunsort()
-com.supers.clean.junk.presenter.LastRunsort: int compare(com.supers.clean.junk.entity.JunkInfo,com.supers.clean.junk.entity.JunkInfo)
+com.supers.clean.junk.presenter.LastRunsort: int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo)
 com.supers.clean.junk.presenter.LastRunsort: int compare(java.lang.Object,java.lang.Object)
 com.supers.clean.junk.presenter.MainPresenter
 com.supers.clean.junk.presenter.MainPresenter: int cpuTemp
@@ -45734,11 +45745,11 @@ com.supers.clean.junk.presenter.RamPresenter: void addRamAdapterData()
 com.supers.clean.junk.presenter.RamPresenter: void bleachFile(java.util.List)
 com.supers.clean.junk.presenter.Sizesort
 com.supers.clean.junk.presenter.Sizesort: Sizesort()
-com.supers.clean.junk.presenter.Sizesort: int compare(com.supers.clean.junk.entity.JunkInfo,com.supers.clean.junk.entity.JunkInfo)
+com.supers.clean.junk.presenter.Sizesort: int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo)
 com.supers.clean.junk.presenter.Sizesort: int compare(java.lang.Object,java.lang.Object)
 com.supers.clean.junk.presenter.Timesort
 com.supers.clean.junk.presenter.Timesort: Timesort()
-com.supers.clean.junk.presenter.Timesort: int compare(com.supers.clean.junk.entity.JunkInfo,com.supers.clean.junk.entity.JunkInfo)
+com.supers.clean.junk.presenter.Timesort: int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo)
 com.supers.clean.junk.presenter.Timesort: int compare(java.lang.Object,java.lang.Object)
 com.supers.clean.junk.service.FloatService
 com.supers.clean.junk.service.FloatService: FloatService()

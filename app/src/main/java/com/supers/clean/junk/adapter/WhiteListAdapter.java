@@ -8,17 +8,20 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.clean.core.CleanManager;
 import com.android.clean.db.CleanDBHelper;
+import com.android.clean.util.LoadManager;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 
 /**
  */
@@ -62,15 +65,16 @@ public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 info.isWhiteList = !info.isWhiteList;
                 if (info.isWhiteList) {
-                    CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.Ram, info.packageName);
+                    CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.Ram, info.pkg);
                     showToast(info.label + context.getText(R.string.white_list_jiaru));
                     Util.track("白名单页面", "选中" + info.label, "", 1);
                 } else {
                     showToast(info.label + context.getText(R.string.white_list_yichu));
-                    CleanDBHelper.getInstance(context).deleteItem(CleanDBHelper.TableType.Ram, info.packageName);
+                    boolean a = CleanDBHelper.getInstance(context).deleteItem(CleanDBHelper.TableType.Ram, info.pkg);
+                    Log.e("a", a + "a");
                 }
-                for (JunkInfo junkInfo : ((MyApplication) ((Activity) context).getApplication()).getListMng()) {
-                    if (info.packageName.equals(junkInfo.packageName)) {
+                for (JunkInfo junkInfo : CleanManager.getInstance(context).getAppList()) {
+                    if (info.pkg.equals(junkInfo.pkg)) {
                         junkInfo.isWhiteList = info.isWhiteList;
                     }
                 }
@@ -78,7 +82,8 @@ public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {
                 notifyDataSetChanged();
             }
         });
-        holder.iv_icon.setImageBitmap(getBitmap(info.icon));
+
+        holder.iv_icon.setImageBitmap(getBitmap(LoadManager.getInstance(context).getAppIcon(info.pkg)));
         holder.tv_lable.setText(info.label);
 
         return convertView;

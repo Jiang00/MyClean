@@ -1,6 +1,6 @@
 package com.android.clean.callback;
 
-import com.android.clean.entity.UninstallResidual;
+import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 
@@ -9,5 +9,5 @@ import java.util.ArrayList;
  */
 
 public abstract class UninstallResidualCallback {
-    public abstract void loadFinished(ArrayList<UninstallResidual> uninstallResiduals, long totalSize);
+    public abstract void loadFinished(ArrayList<JunkInfo> uninstallResiduals, long totalSize);
 }

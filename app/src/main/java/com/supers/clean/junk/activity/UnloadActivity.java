@@ -11,13 +11,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
+import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.Constant;
 import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -59,32 +61,34 @@ public class UnloadActivity extends BaseActivity {
             return;
         }
         Util.track("卸载残余页面", "展示", "", 1);
-        for (JunkInfo info : cleanApplication.getAppCache()) {
-            if (info.packageName.equals(packageName)) {
+        for (JunkInfo info : CleanManager.getInstance(this).getAppCaches()) {
+            if (info.pkg.equals(packageName)) {
                 a = true;
                 iv_icon.setRotation(-10);
-                iv_icon.setImageDrawable(info.icon);
+
+                iv_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
                 size = info.size;
                 path = info.path;
-                tv_size.setText(Util.convertStorage(size,false));
+                tv_size.setText(Util.convertStorage(size, false));
                 bt_queren.setOnClickListener(BtClickListener);
                 bt_quxiao.setOnClickListener(BtClickListener);
                 iv_cha.setOnClickListener(BtClickListener);
             }
         }
         if (!a) {
-            mngList = cleanApplication.getListMng();
+            mngList = CleanManager.getInstance(this).getAppList();
             if (mngList == null || mngList.size() == 0) {
                 return;
             }
             for (JunkInfo info : mngList) {
-                if (info.packageName.equals(packageName)) {
+                if (info.pkg.equals(packageName)) {
                     a = true;
                     iv_icon.setRotation(-10);
-                    iv_icon.setImageDrawable(info.icon);
+
+                    iv_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
                     size = (long) ((Math.random() * 1024 * 100) + 1024 * 10);
                     path = MemoryManager.getPhoneInSDCardPath() + "/Android/data/" + packageName;
-                    tv_size.setText(Util.convertStorage(size,false));
+                    tv_size.setText(Util.convertStorage(size, false));
                     bt_queren.setOnClickListener(BtClickListener);
                     bt_quxiao.setOnClickListener(BtClickListener);
                     iv_cha.setOnClickListener(BtClickListener);

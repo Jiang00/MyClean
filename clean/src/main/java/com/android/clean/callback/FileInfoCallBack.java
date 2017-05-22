@@ -1,5 +1,6 @@
 package com.android.clean.callback;
 
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.filemanager.FileInfo;
 
 import java.util.ArrayList;
@@ -9,5 +10,5 @@ import java.util.ArrayList;
  */
 
 public abstract class FileInfoCallBack {
-    public abstract void loadFinished(ArrayList<FileInfo> appInfoList, long totalSize) ;
+    public abstract void loadFinished(ArrayList<JunkInfo> appInfoList, long totalSize) ;
 }

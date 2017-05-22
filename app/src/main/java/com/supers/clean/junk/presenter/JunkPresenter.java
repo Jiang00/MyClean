@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
+import com.android.clean.filemanager.FileInfo;
 import com.supers.clean.junk.view.JunkView;
 import com.supers.clean.junk.activity.MyApplication;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,28 +33,30 @@ public class JunkPresenter extends BasePresenter<JunkView> {
         super.init();
 
         iView.loadFullAd();
-        allSize = cleanApplication.getApkSize() + cleanApplication.getCacheSize() + cleanApplication.getUnloadSize() + cleanApplication.getLogSize() + cleanApplication.getDataSize();
-        for (JunkInfo info : cleanApplication.getSystemCache()) {
+
+        allSize = CleanManager.getInstance(context).getApkSize() + CleanManager.getInstance(context).getCacheSize() + CleanManager.getInstance(context).getUnloadSize() + CleanManager.getInstance(context).getLogSize()
+                + CleanManager.getInstance(context).getDataSize();
+        for (JunkInfo info : CleanManager.getInstance(context).getSystemCaches()) {
             if (info.isChecked) {
                 cleanSize += info.size;
             }
         }
-        for (JunkInfo info : cleanApplication.getApkFiles()) {
+        for (JunkInfo info : CleanManager.getInstance(context).getApkFiles()) {
             if (info.isChecked) {
                 cleanSize += info.size;
             }
         }
-        for (JunkInfo info : cleanApplication.getAppCache()) {
+        for (JunkInfo info : CleanManager.getInstance(context).getAppCaches()) {
             if (info.isChecked) {
                 cleanSize += info.size;
             }
         }
-        for (JunkInfo info : cleanApplication.getAppJunk()) {
+        for (JunkInfo info : CleanManager.getInstance(context).getLogFiles()) {
             if (info.isChecked) {
                 cleanSize += info.size;
             }
         }
-        for (JunkInfo info : cleanApplication.getFilesOfUnintalledApk()) {
+        for (JunkInfo info : CleanManager.getInstance(context).getUninstallResiduals()) {
             if (info.isChecked) {
                 cleanSize += info.size;
             }
@@ -85,23 +89,23 @@ public class JunkPresenter extends BasePresenter<JunkView> {
     }
 
     public void addSystemAdapterData() {
-        iView.addSystemdata(cleanApplication.getCacheSize(), cleanApplication.getSystemCache());
+        iView.addSystemdata(CleanManager.getInstance(context).getCacheSize(), CleanManager.getInstance(context).getSystemCaches());
     }
 
     public void addApkAdapterData() {
-        iView.addApkdata(cleanApplication.getApkSize(), cleanApplication.getApkFiles());
+        iView.addApkdata(CleanManager.getInstance(context).getApkSize(), CleanManager.getInstance(context).getApkFiles());
     }
 
     public void addUnloadAdapterData() {
-        iView.addUnloaddata(cleanApplication.getUnloadSize(), cleanApplication.getFilesOfUnintalledApk());
+        iView.addUnloaddata(CleanManager.getInstance(context).getUnloadSize(), CleanManager.getInstance(context).getUninstallResiduals());
     }
 
     public void addLogAdapterData() {
-        iView.addLogdata(cleanApplication.getLogSize(), cleanApplication.getAppJunk());
+        iView.addLogdata(CleanManager.getInstance(context).getLogSize(), CleanManager.getInstance(context).getLogFiles());
     }
 
     public void addUserAdapterData() {
-        iView.addUserdata(cleanApplication.getDataSize(), cleanApplication.getAppCache());
+        iView.addUserdata(CleanManager.getInstance(context).getDataSize(), CleanManager.getInstance(context).getAppCaches());
     }
 
     @Override
@@ -115,11 +119,11 @@ public class JunkPresenter extends BasePresenter<JunkView> {
                            List<JunkInfo> appJunk, List<JunkInfo> appCache) {
         clearList = new ArrayList<>();
         if (isZhankai) {
-            clearList.addAll(cleanApplication.getSystemCache());
+            clearList.addAll(CleanManager.getInstance(context).getSystemCaches());
         }
 
 //                adapter1.clear();
-        cleanApplication.clearSystemCache();
+        CleanManager.getInstance(context).clearSystemCache();
         for (JunkInfo fileListInfo : apkFiles) {
             if (fileListInfo.isChecked) {
                 cleanApplication.removeApkFiles(fileListInfo);
