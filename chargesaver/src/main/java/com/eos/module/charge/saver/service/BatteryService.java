@@ -15,7 +15,6 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 
-import com.android.client.AndroidSdk;
 import com.eos.eshop.ShopMaster;
 import com.eos.module.charge.saver.ChargeActivity;
 import com.eos.module.charge.saver.R;
@@ -123,7 +122,6 @@ public class BatteryService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        AndroidSdk.onCreate(this);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -131,7 +129,6 @@ public class BatteryService extends Service {
         intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         registerReceiver(mReceiver, intentFilter);
-        AndroidSdk.track("AndroidSDK", "onCreate", BatteryService.class.getSimpleName(), 1);
     }
 
     @Override
@@ -162,7 +159,6 @@ public class BatteryService extends Service {
             }
             intent.setClass(this, ChargeActivity.class);
             startActivity(intent);
-            AndroidSdk.track("充电屏保", "", "", 1);
             return;
         }
 
@@ -210,7 +206,6 @@ public class BatteryService extends Service {
                                 WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
             }
-            AndroidSdk.track("充电屏保", "", "", 1);
         } catch (Exception e) {
         }
     }
