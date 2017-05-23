@@ -27561,38 +27561,38 @@ com.android.clean.core.CleanManager -> com.android.clean.core.a:
     75:92:void <init>(android.content.Context) -> <init>
     95:98:com.android.clean.core.CleanManager getInstance(android.content.Context) -> a
     110:112:void startLoad() -> a
-    115:174:void load() -> b
-    177:209:void loadAppRam(com.android.clean.callback.AppRamCallBack) -> a
-    212:241:void loadUninstallResidual(com.android.clean.callback.UninstallResidualCallback) -> a
-    245:274:void loadAppCache(com.android.clean.callback.AppCacheCallBack) -> a
-    277:298:void loadApkFile(com.android.clean.callback.FileInfoCallBack) -> a
-    301:322:void loadLogFile(com.android.clean.callback.FileInfoCallBack) -> b
-    328:415:void loadSystemCache(com.android.clean.callback.SystemCacheCallBack) -> a
-    419:448:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
-    453:464:java.util.List getUsageStatistics(int) -> a
-    469:487:void clearSystemCache() -> c
-    491:508:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    513:528:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
-    531:538:void clearNotificationInfo() -> d
-    541:551:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
-    554:560:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
-    564:564:long getCacheSize() -> e
-    572:572:long getApkSize() -> f
-    576:576:long getUnloadSize() -> g
-    580:580:long getLogSize() -> h
-    584:584:long getDataSize() -> i
-    588:588:long getRamSize() -> j
-    592:592:java.util.ArrayList getAppRamList() -> k
-    596:596:java.util.ArrayList getUninstallResiduals() -> l
-    600:600:java.util.ArrayList getAppCaches() -> m
-    604:604:java.util.ArrayList getSystemCaches() -> n
-    608:608:java.util.ArrayList getAppList() -> o
-    612:612:java.util.ArrayList getApkFiles() -> p
-    616:616:java.util.ArrayList getLogFiles() -> q
-    632:637:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> a
-    655:659:void removeAppList(com.android.clean.entity.JunkInfo) -> b
-    60:60:long access$002(com.android.clean.core.CleanManager,long) -> a
-    60:60:void access$100(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
+    115:173:void load() -> b
+    176:208:void loadAppRam(com.android.clean.callback.AppRamCallBack) -> a
+    211:240:void loadUninstallResidual(com.android.clean.callback.UninstallResidualCallback) -> a
+    244:273:void loadAppCache(com.android.clean.callback.AppCacheCallBack) -> a
+    276:297:void loadApkFile(com.android.clean.callback.FileInfoCallBack) -> a
+    300:321:void loadLogFile(com.android.clean.callback.FileInfoCallBack) -> b
+    327:414:void loadSystemCache(com.android.clean.callback.SystemCacheCallBack) -> a
+    418:447:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
+    452:463:java.util.List getUsageStatistics(int) -> a
+    468:486:void clearSystemCache() -> c
+    490:507:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
+    512:527:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
+    530:537:void clearNotificationInfo() -> d
+    540:550:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
+    553:559:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
+    563:563:long getCacheSize() -> e
+    571:571:long getApkSize() -> f
+    575:575:long getUnloadSize() -> g
+    579:579:long getLogSize() -> h
+    583:583:long getDataSize() -> i
+    587:587:long getRamSize() -> j
+    591:591:java.util.ArrayList getAppRamList() -> k
+    595:595:java.util.ArrayList getUninstallResiduals() -> l
+    599:599:java.util.ArrayList getAppCaches() -> m
+    603:603:java.util.ArrayList getSystemCaches() -> n
+    607:607:java.util.ArrayList getAppList() -> o
+    611:611:java.util.ArrayList getApkFiles() -> p
+    615:615:java.util.ArrayList getLogFiles() -> q
+    620:628:void removeRam(com.android.clean.entity.JunkInfo) -> a
+    631:636:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> b
+    654:658:void removeAppList(com.android.clean.entity.JunkInfo) -> c
+    60:60:void access$000(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.android.clean.core.CleanManager$1 -> com.android.clean.core.a$1:
     com.android.clean.core.CleanManager this$0 -> a
     116:116:void <init>(com.android.clean.core.CleanManager) -> <init>
@@ -27616,23 +27616,23 @@ com.android.clean.core.CleanManager$5 -> com.android.clean.core.a$5:
 com.android.clean.core.CleanManager$6 -> com.android.clean.core.a$6:
     com.android.clean.core.CleanManager this$0 -> a
     162:162:void <init>(com.android.clean.core.CleanManager) -> <init>
-    165:170:void loadFinished(java.util.ArrayList,long) -> a
+    165:169:void loadFinished(java.util.ArrayList,long) -> a
 com.android.clean.core.CleanManager$7 -> com.android.clean.core.a$7:
     android.content.pm.PackageInfo val$packageInfo -> a
     java.util.concurrent.CountDownLatch val$countDownLatch -> b
     com.android.clean.core.CleanManager this$0 -> c
-    385:385:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
-    389:390:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
+    384:384:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
+    388:389:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
 com.android.clean.core.CleanManager$8 -> com.android.clean.core.a$8:
     android.content.pm.PackageInfo val$packageInfo -> a
     java.util.concurrent.CountDownLatch val$countDownLatch -> b
     com.android.clean.core.CleanManager this$0 -> c
-    394:394:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
-    398:399:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
+    393:393:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
+    397:398:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
 com.android.clean.core.CleanManager$9 -> com.android.clean.core.a$9:
     com.android.clean.core.CleanManager this$0 -> a
-    475:475:void <init>(com.android.clean.core.CleanManager) -> <init>
-    479:480:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
+    474:474:void <init>(com.android.clean.core.CleanManager) -> <init>
+    478:479:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
 com.android.clean.core.CleanService -> com.android.clean.core.CleanService:
     android.os.Looper mServiceLooper -> a
     com.android.clean.core.CleanService$ServiceHandler mServiceHandler -> b
@@ -27663,8 +27663,8 @@ com.android.clean.db.CleanDBHelper -> com.android.clean.db.CleanDBHelper:
     72:77:void createTable(com.android.clean.db.CleanDBHelper$TableType) -> c
     80:86:java.lang.String getTableName(com.android.clean.db.CleanDBHelper$TableType) -> a
     97:104:boolean deleteItem(com.android.clean.db.CleanDBHelper$TableType,java.lang.String) -> a
-    108:123:boolean addItem(com.android.clean.db.CleanDBHelper$TableType,java.lang.String) -> b
-    128:156:java.util.ArrayList getWhiteList(com.android.clean.db.CleanDBHelper$TableType) -> b
+    108:124:boolean addItem(com.android.clean.db.CleanDBHelper$TableType,java.lang.String) -> b
+    129:157:java.util.ArrayList getWhiteList(com.android.clean.db.CleanDBHelper$TableType) -> b
 com.android.clean.db.CleanDBHelper$TableType -> com.android.clean.db.CleanDBHelper$TableType:
     com.android.clean.db.CleanDBHelper$TableType Ram -> Ram
     com.android.clean.db.CleanDBHelper$TableType Notification -> Notification
@@ -34186,45 +34186,45 @@ com.eos.module.charge.saver.service.BatteryService -> com.eos.module.charge.save
     android.content.BroadcastReceiver mReceiver -> b
     com.eos.module.charge.saver.view.BatteryView$UnlockListener horUnlock -> c
     com.eos.module.charge.saver.view.DuckView$UnlockListener duckUnlock -> d
-    32:230:void <init>() -> <init>
-    72:76:boolean isScreenOn() -> a
-    100:105:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    109:115:void batteryChange(android.content.Intent) -> a
-    120:120:android.os.IBinder onBind(android.content.Intent) -> onBind
-    125:135:void onCreate() -> onCreate
-    139:146:void onDestroy() -> onDestroy
-    149:216:void showChargeView() -> b
-    32:32:boolean access$000(com.eos.module.charge.saver.service.BatteryService) -> a
-    32:32:void access$100(com.eos.module.charge.saver.service.BatteryService) -> b
-    32:32:com.eos.module.charge.saver.Util.WidgetContainer access$200(com.eos.module.charge.saver.service.BatteryService) -> c
-    32:32:com.eos.module.charge.saver.view.DuckView access$300(com.eos.module.charge.saver.service.BatteryService) -> d
-    32:32:com.eos.module.charge.saver.view.BatteryView access$400(com.eos.module.charge.saver.service.BatteryService) -> e
-    32:32:java.lang.Runnable access$500(com.eos.module.charge.saver.service.BatteryService) -> f
-    32:32:android.os.Handler access$600(com.eos.module.charge.saver.service.BatteryService) -> g
-    32:32:java.lang.Runnable access$700(com.eos.module.charge.saver.service.BatteryService) -> h
-    32:32:com.eos.module.charge.saver.Util.WidgetContainer access$202(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.Util.WidgetContainer) -> a
-    32:32:com.eos.module.charge.saver.view.BatteryView access$402(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.view.BatteryView) -> a
-    32:32:com.eos.module.charge.saver.view.DuckView access$302(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.view.DuckView) -> a
+    31:225:void <init>() -> <init>
+    71:75:boolean isScreenOn() -> a
+    99:104:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    108:114:void batteryChange(android.content.Intent) -> a
+    119:119:android.os.IBinder onBind(android.content.Intent) -> onBind
+    124:132:void onCreate() -> onCreate
+    136:143:void onDestroy() -> onDestroy
+    146:211:void showChargeView() -> b
+    31:31:boolean access$000(com.eos.module.charge.saver.service.BatteryService) -> a
+    31:31:void access$100(com.eos.module.charge.saver.service.BatteryService) -> b
+    31:31:com.eos.module.charge.saver.Util.WidgetContainer access$200(com.eos.module.charge.saver.service.BatteryService) -> c
+    31:31:com.eos.module.charge.saver.view.DuckView access$300(com.eos.module.charge.saver.service.BatteryService) -> d
+    31:31:com.eos.module.charge.saver.view.BatteryView access$400(com.eos.module.charge.saver.service.BatteryService) -> e
+    31:31:java.lang.Runnable access$500(com.eos.module.charge.saver.service.BatteryService) -> f
+    31:31:android.os.Handler access$600(com.eos.module.charge.saver.service.BatteryService) -> g
+    31:31:java.lang.Runnable access$700(com.eos.module.charge.saver.service.BatteryService) -> h
+    31:31:com.eos.module.charge.saver.Util.WidgetContainer access$202(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.Util.WidgetContainer) -> a
+    31:31:com.eos.module.charge.saver.view.BatteryView access$402(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.view.BatteryView) -> a
+    31:31:com.eos.module.charge.saver.view.DuckView access$302(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.view.DuckView) -> a
 com.eos.module.charge.saver.service.BatteryService$1 -> com.eos.module.charge.saver.service.BatteryService$1:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    44:44:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    47:55:void run() -> run
+    43:43:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    46:54:void run() -> run
 com.eos.module.charge.saver.service.BatteryService$2 -> com.eos.module.charge.saver.service.BatteryService$2:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    58:58:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    61:67:void run() -> run
+    57:57:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    60:66:void run() -> run
 com.eos.module.charge.saver.service.BatteryService$3 -> com.eos.module.charge.saver.service.BatteryService$3:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    80:80:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    83:95:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    79:79:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    82:94:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.eos.module.charge.saver.service.BatteryService$4 -> com.eos.module.charge.saver.service.BatteryService$4:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    218:218:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    221:227:void onUnlock() -> a
+    213:213:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    216:222:void onUnlock() -> a
 com.eos.module.charge.saver.service.BatteryService$5 -> com.eos.module.charge.saver.service.BatteryService$5:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    230:230:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    233:239:void onUnlock() -> a
+    225:225:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    228:234:void onUnlock() -> a
 com.eos.module.charge.saver.view.ADLabel -> com.eos.module.charge.saver.view.ADLabel:
     java.lang.String mTextContent -> a
     int mTextColor -> b
@@ -45518,22 +45518,22 @@ com.supers.clean.junk.adapter.SideAdapter$ViewHolder -> com.supers.clean.junk.a.
     250:250:void <init>(com.supers.clean.junk.adapter.SideAdapter) -> <init>
 com.supers.clean.junk.adapter.WhiteListAdapter -> com.supers.clean.junk.a.m:
     android.widget.Toast toast -> a
-    32:33:void <init>(android.content.Context) -> <init>
-    37:87:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    91:98:void showToast(java.lang.String) -> a
-    102:117:android.graphics.Bitmap getBitmap(android.graphics.drawable.Drawable) -> a
+    33:34:void <init>(android.content.Context) -> <init>
+    38:89:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    93:100:void showToast(java.lang.String) -> a
+    104:119:android.graphics.Bitmap getBitmap(android.graphics.drawable.Drawable) -> a
 com.supers.clean.junk.adapter.WhiteListAdapter$1 -> com.supers.clean.junk.a.m$1:
     com.android.clean.entity.JunkInfo val$info -> a
     com.supers.clean.junk.adapter.WhiteListAdapter this$0 -> b
-    62:62:void <init>(com.supers.clean.junk.adapter.WhiteListAdapter,com.android.clean.entity.JunkInfo) -> <init>
-    65:81:void onClick(android.view.View) -> onClick
+    63:63:void <init>(com.supers.clean.junk.adapter.WhiteListAdapter,com.android.clean.entity.JunkInfo) -> <init>
+    66:83:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.WhiteListAdapter$ViewHolder -> com.supers.clean.junk.a.m$a:
     android.widget.ImageView checkBox -> a
     android.widget.ImageView iv_icon -> b
     android.widget.TextView tv_lable -> c
     android.widget.TextView tv_zhuangtai -> d
     com.supers.clean.junk.adapter.WhiteListAdapter this$0 -> e
-    121:121:void <init>(com.supers.clean.junk.adapter.WhiteListAdapter) -> <init>
+    123:123:void <init>(com.supers.clean.junk.adapter.WhiteListAdapter) -> <init>
 com.supers.clean.junk.broadcast.UnloadBroadcast -> com.supers.clean.junk.broadcast.UnloadBroadcast:
     23:23:void <init>() -> <init>
     27:55:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -46477,9 +46477,9 @@ com.supers.clean.junk.presenter.JunkRamPresenter -> com.supers.clean.junk.presen
     124:126:void setUnit(long,android.widget.TextView) -> setUnit
     130:184:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> bleachFile
 com.supers.clean.junk.presenter.LastRunsort -> com.supers.clean.junk.presenter.LastRunsort:
-    119:119:void <init>() -> <init>
-    122:122:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
-    119:119:int compare(java.lang.Object,java.lang.Object) -> compare
+    128:128:void <init>() -> <init>
+    131:131:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
+    128:128:int compare(java.lang.Object,java.lang.Object) -> compare
 com.supers.clean.junk.presenter.MainPresenter -> com.supers.clean.junk.presenter.MainPresenter:
     int cpuTemp -> cpuTemp
     27:33:void <init>(com.supers.clean.junk.view.MainView,android.content.Context) -> <init>
@@ -46512,12 +46512,12 @@ com.supers.clean.junk.presenter.ManagerPresenter -> com.supers.clean.junk.presen
     java.util.ArrayList list_time -> list_time
     java.util.ArrayList list_pinlv -> list_pinlv
     int type -> type
-    27:35:void <init>(com.supers.clean.junk.view.AppManagerView,android.content.Context) -> <init>
-    39:58:void init() -> init
-    61:68:void addCleandata(boolean,long) -> addCleandata
-    71:72:void addAdapterData() -> addAdapterData
-    76:86:void bleachFile(java.util.List) -> bleachFile
-    89:102:void unloadSuccess(java.lang.String) -> unloadSuccess
+    28:36:void <init>(com.supers.clean.junk.view.AppManagerView,android.content.Context) -> <init>
+    40:59:void init() -> init
+    62:69:void addCleandata(boolean,long) -> addCleandata
+    72:73:void addAdapterData() -> addAdapterData
+    77:87:void bleachFile(java.util.List) -> bleachFile
+    90:111:void unloadSuccess(java.lang.String) -> unloadSuccess
 com.supers.clean.junk.presenter.RamPresenter -> com.supers.clean.junk.presenter.RamPresenter:
     com.supers.clean.junk.activity.MyApplication cleanApplication -> cleanApplication
     long allSize -> allSize
@@ -46532,13 +46532,13 @@ com.supers.clean.junk.presenter.RamPresenter -> com.supers.clean.junk.presenter.
     82:83:void addRamAdapterData() -> addRamAdapterData
     86:97:void bleachFile(java.util.List) -> bleachFile
 com.supers.clean.junk.presenter.Sizesort -> com.supers.clean.junk.presenter.Sizesort:
-    106:106:void <init>() -> <init>
-    109:109:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
-    106:106:int compare(java.lang.Object,java.lang.Object) -> compare
+    115:115:void <init>() -> <init>
+    118:118:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
+    115:115:int compare(java.lang.Object,java.lang.Object) -> compare
 com.supers.clean.junk.presenter.Timesort -> com.supers.clean.junk.presenter.Timesort:
-    113:113:void <init>() -> <init>
-    115:115:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
-    113:113:int compare(java.lang.Object,java.lang.Object) -> compare
+    122:122:void <init>() -> <init>
+    124:124:int compare(com.android.clean.entity.JunkInfo,com.android.clean.entity.JunkInfo) -> compare
+    122:122:int compare(java.lang.Object,java.lang.Object) -> compare
 com.supers.clean.junk.service.FloatService -> com.supers.clean.junk.service.FloatService:
     android.content.pm.PackageManager pm -> f
     android.app.ActivityManager am -> g

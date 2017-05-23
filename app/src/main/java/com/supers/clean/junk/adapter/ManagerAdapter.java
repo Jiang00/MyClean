@@ -55,7 +55,7 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
         }
         holder.name.setText(info.label);
         holder.time.setText(Util.getStrTime(info.date));
-        holder.size.setText(Util.convertStorage(info.size, true));
+        holder.size.setText(Util.convertStorage(info.allSize, true));
 
         Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
         holder.icon.setImageDrawable(icon);
@@ -70,10 +70,10 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
                     holder.checkBox.setImageResource(R.mipmap.ram_passed);
-                    managerPresenter.addCleandata(true, info.size);
+                    managerPresenter.addCleandata(true, info.allSize);
                 } else {
                     holder.checkBox.setImageResource(R.mipmap.ram_normal);
-                    managerPresenter.addCleandata(false, info.size);
+                    managerPresenter.addCleandata(false, info.allSize);
                 }
             }
         });

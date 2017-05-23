@@ -1,7 +1,9 @@
 package com.supers.clean.junk.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.support.v4.util.LruCache;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import com.supers.clean.junk.presenter.JunkPresenter;
 public class JunkAdapter extends MybaseAdapter<JunkInfo> {
     AllListener listener;
     JunkPresenter junkPresenter;
+    LruCache lruCache;
 
     public JunkAdapter(Context context) {
         super(context);
@@ -26,6 +29,13 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
     public JunkAdapter(Context context, JunkPresenter junkPresenter) {
         super(context);
         this.junkPresenter = junkPresenter;
+        lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {
+            @Override
+            protected int sizeOf(String key, Bitmap bitmap) {
+                // 返回用户定义的item的大小，默认返回1代表item的数量.重写此方法来衡量每张图片的大小。
+                return bitmap.getByteCount() / 1024;
+            }
+        };
     }
 
     public void setOnlistener(AllListener listener) {
@@ -55,6 +65,7 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
         }
         if (info.type == JunkInfo.TableType.APKFILE) {
             holder.name.setText(info.label);
+
             Drawable icon = LoadManager.getInstance(context).getApkIconforPath(info.path);
             holder.icon.setImageDrawable(icon);
         } else if (info.type == JunkInfo.TableType.APP) {
@@ -101,5 +112,28 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
 
     public interface AllListener {
         void onChecked(boolean check);
+    }
+
+    /**
+     * @param key    传入图片的key值，一般用图片url代替
+     * @param bitmap 要缓存的图片对象
+     */
+    public void addBitmapToCache(String key, Bitmap bitmap) {
+        if (getBitmapFromCache(key) == null) {
+            if (bitmap == null) {
+                return;
+            } else {
+                lruCache.put(key, bitmap);
+            }
+        }
+    }
+
+    /**
+     * @param key 要取出的bitmap的key值
+     * @return 返回取出的bitmap
+     */
+    public Bitmap getBitmapFromCache(String key) {
+
+        return (Bitmap) lruCache.get(key);
     }
 }

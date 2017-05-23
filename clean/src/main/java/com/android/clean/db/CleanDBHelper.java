@@ -95,7 +95,7 @@ public class CleanDBHelper extends SQLiteOpenHelper {
     public boolean deleteItem(TableType tableType, String pkgName) {
 
         String table_name = getTableName(tableType);
-        String sql = "delete from " + table_name + " where " + PKG_NAME + "='" + pkgName+"'";
+        String sql = "delete from " + table_name + " where " + PKG_NAME + "='" + pkgName + "'";
         try {
             return getWritableDatabase().compileStatement(sql).executeUpdateDelete() != -1;
         } catch (Exception e) {

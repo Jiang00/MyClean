@@ -13,7 +13,7 @@ public class JunkInfo {
     public String path;
     public String pkg;
     public long size;
-    public long cacheSize;
+    public long allSize;
     public long date;
     public long lastRunTime;
 

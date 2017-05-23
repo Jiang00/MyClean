@@ -163,7 +163,6 @@ public class CleanManager {
             @Override
             public void loadFinished(ArrayList<JunkInfo> appInfoList, long totalSize) {
                 Log.e("rqy", "loadSystemCache--" + totalSize);
-                systemCacheSize = totalSize;
                 for (JunkInfo appInfo : appInfoList) {
                     Log.e("rqy", appInfo + "");
                 }
@@ -436,9 +435,9 @@ public class CleanManager {
             }
 
             if (pStats != null) {
-                appInfo.cacheSize = pStats.cacheSize;
-                appInfo.size = pStats.codeSize + pStats.dataSize;
-                systemCacheSize += appInfo.cacheSize;
+                appInfo.size = pStats.cacheSize;
+                appInfo.allSize = pStats.codeSize + pStats.dataSize;
+                systemCacheSize += appInfo.size;
                 appListSize += appInfo.size;
             }
             appInfo.type = JunkInfo.TableType.APP;

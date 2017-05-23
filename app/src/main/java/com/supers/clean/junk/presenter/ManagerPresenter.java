@@ -3,6 +3,7 @@ package com.supers.clean.junk.presenter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
 
 import com.android.clean.core.CleanManager;
 import com.supers.clean.junk.view.AppManagerView;
@@ -89,6 +90,8 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         if (clearList == null || clearList.size() == 0) {
             return;
         }
+
+
         for (JunkInfo softinfo : clearList) {
             if (softinfo.pkg.equals(packageName)) {
                 CleanManager.getInstance(context).removeAppList(softinfo);
@@ -97,6 +100,12 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
                 list_pinlv.remove(softinfo);
                 addCleandata(false, softinfo.size);
                 iView.updateAdapter(list_size, list_time, list_pinlv);
+            }
+        }
+        for (JunkInfo ramInfo : CleanManager.getInstance(context).getAppRamList()) {
+            if (TextUtils.equals(ramInfo.pkg, packageName)) {
+                CleanManager.getInstance(context).removeRam(ramInfo);
+                return;
             }
         }
     }
