@@ -137,6 +137,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private CrossData.CrossPromotionBean bean;
     private View viewpager_3;
     private AlertDialog dialog;
+    private String from;
 
     @Override
     protected void findId() {
@@ -204,7 +205,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 startService(new Intent(this, BatteryService.class).putExtra("show", true));
                 Log.e("jfy", "main=" + pkg);
             }
-            String from = getIntent().getStringExtra("from");
+            from = getIntent().getStringExtra("from");
             if (TextUtils.equals(from, "translate")) {
                 DialogManager.showCrossDialog(this, AndroidSdk.getExtraData(), "list2", "flight", null);
             }
@@ -683,6 +684,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("eos_start_full");
         } else {
+            if (TextUtils.equals(from, "translate")) {
+                return;
+            }
             View nativeView_full = CommonUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
@@ -698,18 +702,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     Runnable fullAdRunnale = new Runnable() {
         @Override
         public void run() {
-            CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
-                    lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
-            if (crA != null) {
-                crA.addListener(new SimpleAnimListener() {
-                    @Override
-                    public void onAnimationEnd(CRAnimation animation) {
-                        super.onAnimationEnd(animation);
-                        ll_ad_full.setVisibility(View.GONE);
-                    }
-                });
-                crA.start();
-            }
+            adDelete();
             main_full_time.setVisibility(View.GONE);
         }
     };
@@ -1069,6 +1062,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     }
 
     private void adDelete() {
+        if (ll_ad_full == null) {
+            return;
+        }
+        if (onPause) {
+            ll_ad_full.setVisibility(View.GONE);
+            return;
+        }
+
         CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
                 lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
         if (crA != null) {
