@@ -865,7 +865,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(GBoostActivity.class, 1);
                     break;
                 case R.id.lot_family:
-                    CommonUtil.track("主页面", "点击主题family按钮", "", 1);
+                    CommonUtil.track("主页面", "点击广告礼包按钮", "", 1);
                     Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
                     ll_ad_full.startAnimation(animation);
                     ll_ad_full.setVisibility(View.VISIBLE);
