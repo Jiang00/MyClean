@@ -259,6 +259,11 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         junk_apk_list.setVisibility(View.GONE);
 //        junk_apk_size.setText(CommonUtil.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_apk_unit);
+        if (list.size() == 0) {
+            junk_log_size.setText(CommonUtil.convertStorage(0, false));
+            junkPresenter.setUnit(size, junk_log_unit);
+            return;
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
