@@ -665,9 +665,9 @@ public class CleanManager {
         }
     }
 
-    public void removeApkFiles(FileInfo fileInfo) {
-        Util.deleteFile(fileInfo.filePath);
-        apkSize -= fileInfo.fileSize;
+    public void removeApkFiles(JunkInfo fileInfo) {
+        Util.deleteFile(fileInfo.path);
+        apkSize -= fileInfo.size;
         if (apkFiles != null) {
             apkFiles.remove(fileInfo);
         }

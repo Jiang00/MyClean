@@ -1,6 +1,8 @@
 package com.supers.clean.junk.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.support.v4.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ public abstract class MybaseAdapter<T> extends BaseAdapter {
     List<T> list;
     protected Context context;
     protected LayoutInflater inflater;
+    protected LruCache lruCache;
 
     public MybaseAdapter(Context context) {
         super();
@@ -89,5 +92,31 @@ public abstract class MybaseAdapter<T> extends BaseAdapter {
     public void setList(List<T> list) {
         // TODO Auto-generated method stub
         this.list = list;
+    }
+
+    /**
+     * @param key    传入图片的key值，一般用图片url代替
+     * @param bitmap 要缓存的图片对象
+     */
+    public void addBitmapToCache(String key, Bitmap bitmap) {
+        if (getBitmapFromCache(key) == null) {
+            if (bitmap == null) {
+                return;
+            } else {
+
+                lruCache.put(key, bitmap);
+            }
+        }
+    }
+
+    /**
+     * @param key 要取出的bitmap的key值
+     * @return 返回取出的bitmap
+     */
+    public Bitmap getBitmapFromCache(String key) {
+        if (lruCache != null)
+            return (Bitmap) lruCache.get(key);
+        else
+            return null;
     }
 }

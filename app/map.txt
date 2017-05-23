@@ -27591,7 +27591,10 @@ com.android.clean.core.CleanManager -> com.android.clean.core.a:
     615:615:java.util.ArrayList getLogFiles() -> q
     620:628:void removeRam(com.android.clean.entity.JunkInfo) -> a
     631:636:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> b
-    654:658:void removeAppList(com.android.clean.entity.JunkInfo) -> c
+    646:651:void removeAppCache(com.android.clean.entity.JunkInfo) -> c
+    654:658:void removeAppList(com.android.clean.entity.JunkInfo) -> d
+    661:666:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> e
+    669:674:void removeApkFiles(com.android.clean.entity.JunkInfo) -> f
     60:60:void access$000(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.android.clean.core.CleanManager$1 -> com.android.clean.core.a$1:
     com.android.clean.core.CleanManager this$0 -> a
@@ -43465,17 +43468,17 @@ com.supers.clean.junk.activity.JunkActivity -> com.supers.clean.junk.activity.Ju
     android.widget.Button junk_button_clean -> K
     com.supers.clean.junk.customeview.MyScrollView junk_scroll -> L
     android.widget.ListView junk_list_all -> M
-    com.supers.clean.junk.presenter.JunkPresenter junkPresenter -> O
-    com.supers.clean.junk.adapter.JunkAdapter adapterSystem -> P
-    com.supers.clean.junk.adapter.JunkAdapter adapterApk -> Q
-    com.supers.clean.junk.adapter.JunkAdapter adapterUnload -> R
-    com.supers.clean.junk.adapter.JunkAdapter adapterLog -> S
-    com.supers.clean.junk.adapter.JunkAdapter adapterUser -> T
-    com.supers.clean.junk.adapter.JunkAdapter adapterClear -> U
-    boolean color1 -> V
-    boolean color2 -> W
-    android.os.Handler myHandler -> X
-    android.view.View$OnClickListener onClickListener -> N
+    com.supers.clean.junk.presenter.JunkPresenter junkPresenter -> P
+    com.supers.clean.junk.adapter.JunkAdapter adapterSystem -> Q
+    com.supers.clean.junk.adapter.JunkAdapter adapterApk -> R
+    com.supers.clean.junk.adapter.JunkAdapter adapterUnload -> S
+    com.supers.clean.junk.adapter.JunkAdapter adapterLog -> T
+    com.supers.clean.junk.adapter.JunkAdapter adapterUser -> U
+    com.supers.clean.junk.adapter.JunkAdapter adapterClear -> V
+    boolean color1 -> W
+    boolean color2 -> X
+    android.os.Handler myHandler -> N
+    android.view.View$OnClickListener onClickListener -> O
     38:534:void <init>() -> <init>
     63:98:void findId() -> a
     102:107:void onCreate(android.os.Bundle) -> onCreate
@@ -45275,27 +45278,48 @@ com.supers.clean.junk.adapter.HorizontalListViewAdapter$ViewHolder -> com.supers
     109:109:android.widget.ImageView access$300(com.supers.clean.junk.adapter.HorizontalListViewAdapter$ViewHolder) -> c
 com.supers.clean.junk.adapter.JunkAdapter -> com.supers.clean.junk.a.d:
     com.supers.clean.junk.presenter.JunkPresenter junkPresenter -> a
-    android.support.v4.util.LruCache lruCache -> b
-    30:39:void <init>(android.content.Context,com.supers.clean.junk.presenter.JunkPresenter) -> <init>
-    47:103:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    33:42:void <init>(android.content.Context,com.supers.clean.junk.presenter.JunkPresenter) -> <init>
+    50:143:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.supers.clean.junk.adapter.JunkAdapter$1 -> com.supers.clean.junk.a.d$1:
     com.supers.clean.junk.adapter.JunkAdapter this$0 -> a
-    32:32:void <init>(com.supers.clean.junk.adapter.JunkAdapter,int) -> <init>
-    36:36:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
-    32:32:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+    35:35:void <init>(com.supers.clean.junk.adapter.JunkAdapter,int) -> <init>
+    39:39:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    35:35:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
 com.supers.clean.junk.adapter.JunkAdapter$2 -> com.supers.clean.junk.a.d$2:
     com.android.clean.entity.JunkInfo val$info -> a
     com.supers.clean.junk.adapter.JunkAdapter$ViewHolder val$holder -> b
     com.supers.clean.junk.adapter.JunkAdapter this$0 -> c
-    88:88:void <init>(com.supers.clean.junk.adapter.JunkAdapter,com.android.clean.entity.JunkInfo,com.supers.clean.junk.adapter.JunkAdapter$ViewHolder) -> <init>
-    91:99:void onClick(android.view.View) -> onClick
+    72:72:void <init>(com.supers.clean.junk.adapter.JunkAdapter,com.android.clean.entity.JunkInfo,com.supers.clean.junk.adapter.JunkAdapter$ViewHolder) -> <init>
+    75:91:void run() -> run
+com.supers.clean.junk.adapter.JunkAdapter$2$1 -> com.supers.clean.junk.a.d$2$1:
+    android.graphics.Bitmap val$finalBitmap -> a
+    com.supers.clean.junk.adapter.JunkAdapter$2 this$1 -> b
+    81:81:void <init>(com.supers.clean.junk.adapter.JunkAdapter$2,android.graphics.Bitmap) -> <init>
+    84:85:void run() -> run
+com.supers.clean.junk.adapter.JunkAdapter$3 -> com.supers.clean.junk.a.d$3:
+    com.android.clean.entity.JunkInfo val$info -> a
+    com.supers.clean.junk.adapter.JunkAdapter$ViewHolder val$holder -> b
+    com.supers.clean.junk.adapter.JunkAdapter this$0 -> c
+    96:96:void <init>(com.supers.clean.junk.adapter.JunkAdapter,com.android.clean.entity.JunkInfo,com.supers.clean.junk.adapter.JunkAdapter$ViewHolder) -> <init>
+    99:115:void run() -> run
+com.supers.clean.junk.adapter.JunkAdapter$3$1 -> com.supers.clean.junk.a.d$3$1:
+    android.graphics.Bitmap val$finalBitmap -> a
+    com.supers.clean.junk.adapter.JunkAdapter$3 this$1 -> b
+    105:105:void <init>(com.supers.clean.junk.adapter.JunkAdapter$3,android.graphics.Bitmap) -> <init>
+    108:109:void run() -> run
+com.supers.clean.junk.adapter.JunkAdapter$4 -> com.supers.clean.junk.a.d$4:
+    com.android.clean.entity.JunkInfo val$info -> a
+    com.supers.clean.junk.adapter.JunkAdapter$ViewHolder val$holder -> b
+    com.supers.clean.junk.adapter.JunkAdapter this$0 -> c
+    128:128:void <init>(com.supers.clean.junk.adapter.JunkAdapter,com.android.clean.entity.JunkInfo,com.supers.clean.junk.adapter.JunkAdapter$ViewHolder) -> <init>
+    131:139:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.JunkAdapter$ViewHolder -> com.supers.clean.junk.a.d$a:
     android.widget.TextView name -> a
     android.widget.ImageView icon -> b
     android.widget.ImageView checkBox -> c
     android.widget.TextView size -> d
     com.supers.clean.junk.adapter.JunkAdapter this$0 -> e
-    106:106:void <init>(com.supers.clean.junk.adapter.JunkAdapter) -> <init>
+    146:146:void <init>(com.supers.clean.junk.adapter.JunkAdapter) -> <init>
 com.supers.clean.junk.adapter.JunkRamAdapter -> com.supers.clean.junk.a.e:
     com.supers.clean.junk.presenter.JunkRamPresenter junkPresenter -> a
     25:27:void <init>(android.content.Context,com.supers.clean.junk.presenter.JunkRamPresenter) -> <init>
@@ -45332,20 +45356,23 @@ com.supers.clean.junk.adapter.ManagerAdapter$ViewHolder -> com.supers.clean.junk
     com.supers.clean.junk.adapter.ManagerAdapter this$0 -> f
     85:85:void <init>(com.supers.clean.junk.adapter.ManagerAdapter) -> <init>
 com.supers.clean.junk.adapter.MybaseAdapter -> com.supers.clean.junk.a.g:
-    java.util.List list -> c
-    android.content.Context context -> d
-    android.view.LayoutInflater inflater -> e
-    18:23:void <init>(android.content.Context) -> <init>
-    26:26:java.util.List getData() -> a
-    30:30:java.lang.Object getData(int) -> a
-    34:35:void addData(java.lang.Object) -> a
-    42:43:void addDataList(java.util.List) -> a
-    46:47:void removeData(java.lang.Object) -> b
-    58:59:void upList(java.util.List) -> b
-    62:63:void clear() -> b
-    71:71:int getCount() -> getCount
-    77:77:java.lang.Object getItem(int) -> getItem
-    83:83:long getItemId(int) -> getItemId
+    java.util.List list -> b
+    android.content.Context context -> c
+    android.view.LayoutInflater inflater -> d
+    android.support.v4.util.LruCache lruCache -> e
+    21:26:void <init>(android.content.Context) -> <init>
+    29:29:java.util.List getData() -> a
+    33:33:java.lang.Object getData(int) -> a
+    37:38:void addData(java.lang.Object) -> a
+    45:46:void addDataList(java.util.List) -> a
+    49:50:void removeData(java.lang.Object) -> b
+    61:62:void upList(java.util.List) -> b
+    65:66:void clear() -> b
+    74:74:int getCount() -> getCount
+    80:80:java.lang.Object getItem(int) -> getItem
+    86:86:long getItemId(int) -> getItemId
+    102:110:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
+    117:120:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
 com.supers.clean.junk.adapter.NotifiAdapter -> com.supers.clean.junk.a.h:
     22:24:void <init>(android.content.Context) -> <init>
     28:62:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
@@ -45375,8 +45402,8 @@ com.supers.clean.junk.adapter.NotifiSettingAdapter$ViewHolder -> com.supers.clea
     69:69:void <init>(com.supers.clean.junk.adapter.NotifiSettingAdapter) -> <init>
 com.supers.clean.junk.adapter.RamAdapter -> com.supers.clean.junk.a.j:
     com.supers.clean.junk.presenter.RamPresenter ramPresenter -> a
-    java.util.List white_list -> b
-    android.support.v7.app.AlertDialog dialog -> f
+    java.util.List white_list -> f
+    android.support.v7.app.AlertDialog dialog -> g
     31:35:void <init>(android.content.Context,com.supers.clean.junk.presenter.RamPresenter) -> <init>
     43:45:void upList(java.util.List) -> b
     49:101:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
@@ -45487,20 +45514,20 @@ com.supers.clean.junk.adapter.RecycleViewAdapter$RecycleViewCallBack -> com.supe
     void deleteSuccessCallback(java.util.ArrayList) -> a
 com.supers.clean.junk.adapter.SideAdapter -> com.supers.clean.junk.a.l:
     int idx -> a
-    int BATTERY -> b
-    int FLOAT -> f
-    int JUNK -> g
-    int RAM -> h
-    int MANAGER -> i
-    int FILE -> j
-    int POWER -> k
-    int NOTIFI -> l
-    int PICTURE -> m
-    int GBOOST -> n
-    int FAMILY -> o
-    int THEME -> p
-    int SETTING -> q
-    int ROTATE -> r
+    int BATTERY -> f
+    int FLOAT -> g
+    int JUNK -> h
+    int RAM -> i
+    int MANAGER -> j
+    int FILE -> k
+    int POWER -> l
+    int NOTIFI -> m
+    int PICTURE -> n
+    int GBOOST -> o
+    int FAMILY -> p
+    int THEME -> q
+    int SETTING -> r
+    int ROTATE -> s
     63:64:void <init>(android.content.Context) -> <init>
     68:155:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
     159:241:void onC(int) -> b
@@ -45526,7 +45553,7 @@ com.supers.clean.junk.adapter.WhiteListAdapter -> com.supers.clean.junk.a.m:
     android.widget.Toast toast -> a
     33:34:void <init>(android.content.Context) -> <init>
     38:89:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    93:100:void showToast(java.lang.String) -> a
+    93:100:void showToast(java.lang.String) -> b
     104:119:android.graphics.Bitmap getBitmap(android.graphics.drawable.Drawable) -> a
 com.supers.clean.junk.adapter.WhiteListAdapter$1 -> com.supers.clean.junk.a.m$1:
     com.android.clean.entity.JunkInfo val$info -> a

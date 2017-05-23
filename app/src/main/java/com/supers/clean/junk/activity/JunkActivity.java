@@ -56,7 +56,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
     private JunkAdapter adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterClear;
     private boolean color1 = true;
     private boolean color2 = true;
-    private Handler myHandler;
+    public Handler myHandler;
 
     @Override
     protected void findId() {
