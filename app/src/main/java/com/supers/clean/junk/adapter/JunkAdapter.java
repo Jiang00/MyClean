@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.support.v4.util.LruCache;
 import android.util.Log;
 import android.view.View;
@@ -72,40 +73,41 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Drawable drawable = getBitmapFromCache(info.pkg);
-                    if (drawable == null) {
-                        drawable = LoadManager.getInstance(context).getApkIconforPath(info.path);
-                        addBitmapToCache(info.pkg, drawable);
+                    Bitmap bitmap = getBitmapFromCache(info.path);
+                    if (bitmap == null) {
+                        bitmap = Util.getBitmap(LoadManager.getInstance(context).getApkIconforPath(info.path));
+                        addBitmapToCache(info.path, bitmap);
                     }
-                    final Drawable finalDrawable = drawable;
+                    final Bitmap finalDrawable = bitmap;
                     ((JunkActivity) context).myHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            holder.icon.setImageDrawable(finalDrawable);
+                            holder.icon.setImageBitmap(finalDrawable);
                         }
                     });
 
-//                        bitmap.recycle();
-//                        bitmap = null;
-//                    }
                 }
             }).start();
 
         } else if (info.type == JunkInfo.TableType.APP) {
-            holder.name.setText(LoadManager.getInstance(context).getAppLabel(info.pkg));
+            if (info.label == null) {
+                info.label = LoadManager.getInstance(context).getAppLabel(info.pkg);
+            }
+            holder.name.setText(info.label);
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Drawable drawable = getBitmapFromCache(info.pkg);
-                    if (drawable == null) {
-                        drawable = LoadManager.getInstance(context).getAppIcon(info.pkg);
-                        addBitmapToCache(info.pkg, drawable);
+                    Bitmap bitmap = getBitmapFromCache(info.pkg);
+                    if (bitmap == null) {
+                        bitmap = Util.getBitmap(LoadManager.getInstance(context).getAppIcon(info.pkg));
+                        addBitmapToCache(info.pkg, bitmap);
                     }
-                    final Drawable finalDrawable = drawable;
+
+                    final Bitmap finalDrawable = bitmap;
                     ((JunkActivity) context).myHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            holder.icon.setImageDrawable(finalDrawable);
+                            holder.icon.setImageBitmap(finalDrawable);
                         }
                     });
                 }
@@ -150,5 +152,17 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
         void onChecked(boolean check);
     }
 
+    class DrawableTask extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... params) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
+    }
 
 }

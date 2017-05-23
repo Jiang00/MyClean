@@ -97,15 +97,26 @@ public abstract class MybaseAdapter<T> extends BaseAdapter {
 
     /**
      * @param key    传入图片的key值，一般用图片url代替
-     * @param drawable 要缓存的图片对象
+     * @param bitmap 要缓存的图片对象
      */
-    public void addBitmapToCache(String key, Drawable drawable) {
+    public void addBitmapToCache(String key, Bitmap bitmap) {
         if (getBitmapFromCache(key) == null) {
-            if (drawable == null) {
+            if (bitmap == null) {
                 return;
             } else {
 
-                lruCache.put(key, drawable);
+                lruCache.put(key, bitmap);
+            }
+        }
+    }
+
+    public void addLabelToCache(String key, String label) {
+        if (getBitmapFromCache(key) == null) {
+            if (label == null) {
+                return;
+            } else {
+
+                lruCache.put(key, label);
             }
         }
     }
@@ -114,9 +125,16 @@ public abstract class MybaseAdapter<T> extends BaseAdapter {
      * @param key 要取出的bitmap的key值
      * @return 返回取出的bitmap
      */
-    public Drawable getBitmapFromCache(String key) {
+    public Bitmap getBitmapFromCache(String key) {
         if (lruCache != null)
-            return (Drawable) lruCache.get(key);
+            return (Bitmap) lruCache.get(key);
+        else
+            return null;
+    }
+
+    public String getLabelFromCache(String key) {
+        if (lruCache != null)
+            return (String) lruCache.get(key);
         else
             return null;
     }

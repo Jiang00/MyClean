@@ -1,7 +1,9 @@
 package com.supers.clean.junk.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.support.v4.util.LruCache;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,6 +13,7 @@ import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.activity.JunkActivity;
 import com.supers.clean.junk.presenter.JunkRamPresenter;
 
 public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
@@ -24,6 +27,13 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
     public JunkRamAdapter(Context context, JunkRamPresenter junkPresenter) {
         super(context);
         this.junkPresenter = junkPresenter;
+        lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {
+            @Override
+            protected int sizeOf(String key, Bitmap bitmap) {
+                // 返回用户定义的item的大小，默认返回1代表item的数量.重写此方法来衡量每张图片的大小。
+                return bitmap.getByteCount() / 1024;
+            }
+        };
     }
 
     public void setOnlistener(AllListener listener) {
@@ -53,12 +63,47 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
         }
         if (info.type == JunkInfo.TableType.APKFILE) {
             holder.name.setText(info.label);
-            Drawable icon = LoadManager.getInstance(context).getApkIconforPath(info.path);
-            holder.icon.setImageDrawable(icon);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Bitmap bitmap = getBitmapFromCache(info.path);
+                    if (bitmap == null) {
+                        bitmap = Util.getBitmap(LoadManager.getInstance(context).getApkIconforPath(info.path));
+                        addBitmapToCache(info.path, bitmap);
+                    }
+                    final Bitmap finalDrawable = bitmap;
+                    ((JunkActivity) context).myHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            holder.icon.setImageBitmap(finalDrawable);
+                        }
+                    });
+
+                }
+            }).start();
         } else if (info.type == JunkInfo.TableType.APP) {
-            holder.name.setText(LoadManager.getInstance(context).getAppLabel(info.pkg));
-            Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
-            holder.icon.setImageDrawable(icon);
+            if (info.label == null) {
+                info.label = LoadManager.getInstance(context).getAppLabel(info.pkg);
+            }
+            holder.name.setText(info.label);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Bitmap bitmap = getBitmapFromCache(info.pkg);
+                    if (bitmap == null) {
+                        bitmap = Util.getBitmap(LoadManager.getInstance(context).getAppIcon(info.pkg));
+                        addBitmapToCache(info.pkg, bitmap);
+                    }
+
+                    final Bitmap finalDrawable = bitmap;
+                    ((JunkActivity) context).myHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            holder.icon.setImageBitmap(finalDrawable);
+                        }
+                    });
+                }
+            }).start();
         } else {
             holder.name.setText(info.label);
             holder.icon.setImageResource(R.mipmap.log_file);

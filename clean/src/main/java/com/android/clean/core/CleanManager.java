@@ -438,7 +438,7 @@ public class CleanManager {
                 appInfo.size = pStats.cacheSize;
                 appInfo.allSize = pStats.codeSize + pStats.dataSize;
                 systemCacheSize += appInfo.size;
-                appListSize += appInfo.size;
+                appListSize += appInfo.allSize;
             }
             appInfo.type = JunkInfo.TableType.APP;
             systemCaches.add(appInfo);

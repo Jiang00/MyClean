@@ -210,7 +210,12 @@ public class JunkActivity extends BaseActivity implements JunkView {
 
     @Override
     public void addSystemdata(final long size, List<JunkInfo> list) {
-        adapterSystem.addDataList(list);
+        for (JunkInfo info : list) {
+            if (info.size > 0) {
+                adapterSystem.addData(info);
+            }
+        }
+//        adapterSystem.addDataList(list);
         junk_system_list.setVisibility(View.GONE);
 //        junk_system_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_system_unit);

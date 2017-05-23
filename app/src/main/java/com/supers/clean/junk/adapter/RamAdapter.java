@@ -1,7 +1,9 @@
 package com.supers.clean.junk.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.support.v4.util.LruCache;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import com.android.clean.util.LoadManager;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.activity.JunkActivity;
 import com.supers.clean.junk.presenter.RamPresenter;
 
 import java.util.List;
@@ -31,7 +34,13 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
         super(context);
         this.ramPresenter = ramPresenter;
         white_list = CleanDBHelper.getInstance(context).getWhiteList(CleanDBHelper.TableType.Ram);
-
+        lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {
+            @Override
+            protected int sizeOf(String key, Bitmap bitmap) {
+                // 返回用户定义的item的大小，默认返回1代表item的数量.重写此方法来衡量每张图片的大小。
+                return bitmap.getByteCount() / 1024;
+            }
+        };
     }
 
     public void setOnlistener(AllListener listener) {
@@ -65,10 +74,29 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        info.label = LoadManager.getInstance(context).getAppLabel(info.pkg);
+        if (info.label == null) {
+            info.label = LoadManager.getInstance(context).getAppLabel(info.pkg);
+        }
         holder.name.setText(info.label);
-        final Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
-        holder.icon.setImageDrawable(icon);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bitmap = getBitmapFromCache(info.pkg);
+
+                if (bitmap == null) {
+                    bitmap = Util.getBitmap(LoadManager.getInstance(context).getAppIcon(info.pkg));
+                    addBitmapToCache(info.pkg, bitmap);
+                }
+
+                final Bitmap finalDrawable = bitmap;
+                ((JunkActivity) context).myHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        holder.icon.setImageBitmap(finalDrawable);
+                    }
+                });
+            }
+        }).start();
         if (white_list.contains(info.pkg)) {
             info.isChecked = false;
         }
@@ -89,7 +117,7 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
                     ramPresenter.addCleandata(true, info.size);
                 } else {
                     if (!isAdd) {
-                        showDialog(icon, info.label, info.pkg);
+                        showDialog(holder.icon.getDrawable(), info.label, info.pkg);
                     }
                     holder.checkBox.setImageResource(R.mipmap.ram_normal);
                     ramPresenter.addCleandata(false, info.size);
