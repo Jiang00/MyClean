@@ -90,16 +90,17 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_manager);
+        long startTime = System.currentTimeMillis();
+        Log.e("time1", startTime + "==");
         myHandler = new Handler();
         managerPresenter = new ManagerPresenter(this, this);
-        Log.e("time1", System.currentTimeMillis() + "==");
+
         managerPresenter.init();
-        Log.e("time1", System.currentTimeMillis() + "==");
         receiver = new MyReceiver();
         filter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
         filter.addDataScheme("package");
         registerReceiver(receiver, filter);
-
+        Log.e("time1", System.currentTimeMillis()-startTime + "==");
     }
 
     @Override
@@ -165,33 +166,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                     }
                 });
             }
-            if (ll_ad_pinlv != null && nativeView3 != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad_pinlv.getLayoutParams();
-                ll_ad_pinlv.setLayoutParams(layout_ad);
-                ll_ad_pinlv.addView(nativeView3);
-            } else {
-                tuiGuang();
-                DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "manager", true, new CrossManager.onCrossViewClickListener() {
-                    @Override
-                    public void onClick(View view) {
 
-                    }
-
-                    @Override
-                    public void onLoadView(View view) {
-                        if (view != null) {
-                            ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                            lot_manager_pinlv = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                            lot_manager_pinlv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                            fl_lot_manager_pinlv.setVisibility(View.VISIBLE);
-                            lot_manager_pinlv.pauseAnimation();
-                            fl_lot_manager_pinlv.addView(view, 0);
-                        } else {
-                            fl_lot_manager_pinlv.setVisibility(View.GONE);
-                        }
-                    }
-                });
-            }
         }
 
     }

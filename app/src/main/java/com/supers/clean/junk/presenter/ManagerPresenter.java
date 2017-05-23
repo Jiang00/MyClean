@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.clean.core.CleanManager;
 import com.supers.clean.junk.view.AppManagerView;
@@ -38,7 +39,6 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     @Override
     public void init() {
         super.init();
-
         allSize = CleanManager.getInstance(context).getRamSize();
         list_size = new ArrayList<>();
         list_time = new ArrayList<>();
@@ -50,14 +50,9 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         list_size.addAll(list);
         list_time.addAll(list);
         list_pinlv.addAll(list);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Collections.sort(list_size, new Sizesort());
-                Collections.sort(list_time, new Timesort());
-                Collections.sort(list_pinlv, new LastRunsort());
-            }
-        }).start();
+        Collections.sort(list_size, new Sizesort());
+        Collections.sort(list_time, new Timesort());
+        Collections.sort(list_pinlv, new LastRunsort());
         iView.initData(cleanSize);
         iView.onClick();
         iView.loadFullAd();
