@@ -9,6 +9,8 @@ import java.util.List;
 public class JsonData {
 
     public int full_main;
+    public int full_start;
+    public int full_exit;
     public int full_manager;
     public int full_message;
     public int full_success;

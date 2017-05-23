@@ -19152,6 +19152,113 @@ android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener -> android.
     276:279:void <init>(android.view.View,java.lang.String) -> <init>
     283:296:void onClick(android.view.View) -> onClick
     300:325:void resolveMethod(android.content.Context,java.lang.String) -> resolveMethod
+android.support.v7.app.MAppCompatActivity -> android.support.v7.app.MAppCompatActivity:
+    android.support.v7.app.AppCompatDelegate mDelegate -> mDelegate
+    com.mingle.skin.SkinStyle mSkinStyle -> mSkinStyle
+    10:10:void <init>() -> <init>
+    23:26:android.support.v7.app.AppCompatDelegate getDelegate() -> getDelegate
+    31:35:void onResume() -> onResume
+    39:41:void onPause() -> onPause
+android.support.v7.app.MAppCompatDelegateFactory -> android.support.v7.app.MAppCompatDelegateFactory:
+    12:12:void <init>() -> <init>
+    22:22:android.support.v7.app.AppCompatDelegate create(android.app.Activity,android.support.v7.app.AppCompatCallback) -> create
+    31:31:android.support.v7.app.AppCompatDelegate create(android.app.Dialog,android.support.v7.app.AppCompatCallback) -> create
+    36:42:android.support.v7.app.AppCompatDelegate create(android.content.Context,android.view.Window,android.support.v7.app.AppCompatCallback) -> create
+android.support.v7.app.MAppCompatDelegateImplV11 -> android.support.v7.app.MAppCompatDelegateImplV11:
+    java.lang.reflect.Field field -> field
+    android.support.v7.app.MAppCompatViewInflater mAppCompatViewInflater -> mAppCompatViewInflater
+    21:22:void <init>(android.content.Context,android.view.Window,android.support.v7.app.AppCompatCallback) -> <init>
+    30:40:android.view.View createView(android.view.View,java.lang.String,android.content.Context,android.util.AttributeSet) -> createView
+    49:72:boolean isSubDecorInstalled() -> isSubDecorInstalled
+    17:17:void installViewFactory() -> installViewFactory
+    17:17:void invalidateOptionsMenu() -> invalidateOptionsMenu
+    17:17:android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback) -> startSupportActionMode
+    17:17:void onMenuModeChange(android.support.v7.internal.view.menu.MenuBuilder) -> onMenuModeChange
+    17:17:boolean onMenuItemSelected(android.support.v7.internal.view.menu.MenuBuilder,android.view.MenuItem) -> onMenuItemSelected
+    17:17:boolean hasWindowFeature(int) -> hasWindowFeature
+    17:17:boolean requestWindowFeature(int) -> requestWindowFeature
+    17:17:void addContentView(android.view.View,android.view.ViewGroup$LayoutParams) -> addContentView
+    17:17:void setContentView(android.view.View,android.view.ViewGroup$LayoutParams) -> setContentView
+    17:17:void setContentView(int) -> setContentView
+    17:17:void setContentView(android.view.View) -> setContentView
+    17:17:void onPostResume() -> onPostResume
+    17:17:void onStop() -> onStop
+    17:17:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    17:17:void setSupportActionBar(android.support.v7.widget.Toolbar) -> setSupportActionBar
+    17:17:void initWindowDecorActionBar() -> initWindowDecorActionBar
+    17:17:void onPostCreate(android.os.Bundle) -> onPostCreate
+    17:17:void onCreate(android.os.Bundle) -> onCreate
+    17:17:boolean isHandleNativeActionModesEnabled() -> isHandleNativeActionModesEnabled
+    17:17:void setHandleNativeActionModesEnabled(boolean) -> setHandleNativeActionModesEnabled
+    17:17:android.view.MenuInflater getMenuInflater() -> getMenuInflater
+    17:17:android.support.v7.app.ActionBar getSupportActionBar() -> getSupportActionBar
+android.support.v7.app.MAppCompatDelegateImplV14 -> android.support.v7.app.MAppCompatDelegateImplV14:
+    java.lang.reflect.Field field -> field
+    android.support.v7.app.MAppCompatViewInflater mAppCompatViewInflater -> mAppCompatViewInflater
+    20:21:void <init>(android.content.Context,android.view.Window,android.support.v7.app.AppCompatCallback) -> <init>
+    29:39:android.view.View createView(android.view.View,java.lang.String,android.content.Context,android.util.AttributeSet) -> createView
+    48:71:boolean isSubDecorInstalled() -> isSubDecorInstalled
+    16:16:boolean isHandleNativeActionModesEnabled() -> isHandleNativeActionModesEnabled
+    16:16:void setHandleNativeActionModesEnabled(boolean) -> setHandleNativeActionModesEnabled
+    16:16:void installViewFactory() -> installViewFactory
+    16:16:void invalidateOptionsMenu() -> invalidateOptionsMenu
+    16:16:android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback) -> startSupportActionMode
+    16:16:void onMenuModeChange(android.support.v7.internal.view.menu.MenuBuilder) -> onMenuModeChange
+    16:16:boolean onMenuItemSelected(android.support.v7.internal.view.menu.MenuBuilder,android.view.MenuItem) -> onMenuItemSelected
+    16:16:boolean hasWindowFeature(int) -> hasWindowFeature
+    16:16:boolean requestWindowFeature(int) -> requestWindowFeature
+    16:16:void addContentView(android.view.View,android.view.ViewGroup$LayoutParams) -> addContentView
+    16:16:void setContentView(android.view.View,android.view.ViewGroup$LayoutParams) -> setContentView
+    16:16:void setContentView(int) -> setContentView
+    16:16:void setContentView(android.view.View) -> setContentView
+    16:16:void onPostResume() -> onPostResume
+    16:16:void onStop() -> onStop
+    16:16:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    16:16:void setSupportActionBar(android.support.v7.widget.Toolbar) -> setSupportActionBar
+    16:16:void initWindowDecorActionBar() -> initWindowDecorActionBar
+    16:16:void onPostCreate(android.os.Bundle) -> onPostCreate
+    16:16:void onCreate(android.os.Bundle) -> onCreate
+    16:16:android.view.MenuInflater getMenuInflater() -> getMenuInflater
+    16:16:android.support.v7.app.ActionBar getSupportActionBar() -> getSupportActionBar
+android.support.v7.app.MAppCompatDelegateImplV7 -> android.support.v7.app.MAppCompatDelegateImplV7:
+    java.lang.reflect.Field field -> field
+    android.support.v7.app.MAppCompatViewInflater mAppCompatViewInflater -> mAppCompatViewInflater
+    21:22:void <init>(android.content.Context,android.view.Window,android.support.v7.app.AppCompatCallback) -> <init>
+    30:40:android.view.View createView(android.view.View,java.lang.String,android.content.Context,android.util.AttributeSet) -> createView
+    49:72:boolean isSubDecorInstalled() -> isSubDecorInstalled
+    17:17:void installViewFactory() -> installViewFactory
+    17:17:void invalidateOptionsMenu() -> invalidateOptionsMenu
+    17:17:android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback) -> startSupportActionMode
+    17:17:void onMenuModeChange(android.support.v7.internal.view.menu.MenuBuilder) -> onMenuModeChange
+    17:17:boolean onMenuItemSelected(android.support.v7.internal.view.menu.MenuBuilder,android.view.MenuItem) -> onMenuItemSelected
+    17:17:boolean hasWindowFeature(int) -> hasWindowFeature
+    17:17:boolean requestWindowFeature(int) -> requestWindowFeature
+    17:17:void addContentView(android.view.View,android.view.ViewGroup$LayoutParams) -> addContentView
+    17:17:void setContentView(android.view.View,android.view.ViewGroup$LayoutParams) -> setContentView
+    17:17:void setContentView(int) -> setContentView
+    17:17:void setContentView(android.view.View) -> setContentView
+    17:17:void onPostResume() -> onPostResume
+    17:17:void onStop() -> onStop
+    17:17:void onConfigurationChanged(android.content.res.Configuration) -> onConfigurationChanged
+    17:17:void setSupportActionBar(android.support.v7.widget.Toolbar) -> setSupportActionBar
+    17:17:void initWindowDecorActionBar() -> initWindowDecorActionBar
+    17:17:void onPostCreate(android.os.Bundle) -> onPostCreate
+    17:17:void onCreate(android.os.Bundle) -> onCreate
+    17:17:boolean isHandleNativeActionModesEnabled() -> isHandleNativeActionModesEnabled
+    17:17:void setHandleNativeActionModesEnabled(boolean) -> setHandleNativeActionModesEnabled
+    17:17:android.view.MenuInflater getMenuInflater() -> getMenuInflater
+    17:17:android.support.v7.app.ActionBar getSupportActionBar() -> getSupportActionBar
+android.support.v7.app.MAppCompatViewInflater -> android.support.v7.app.MAppCompatViewInflater:
+    java.lang.Class[] sConstructorSignature -> sConstructorSignature
+    java.lang.String LOG_TAG -> LOG_TAG
+    java.util.Map sConstructorMap -> sConstructorMap
+    java.lang.Object[] mConstructorArgs -> mConstructorArgs
+    38:48:void <init>() -> <init>
+    53:115:android.view.View createView(android.view.View,java.lang.String,android.content.Context,android.util.AttributeSet,boolean,boolean,boolean) -> createView
+    119:140:android.view.View createViewFromTag(android.content.Context,java.lang.String,android.util.AttributeSet) -> createViewFromTag
+    146:162:android.view.View createView(android.content.Context,java.lang.String,java.lang.String) -> createView
+    171:194:android.content.Context themifyContext(android.content.Context,android.util.AttributeSet,boolean,boolean) -> themifyContext
+    40:45:void <clinit>() -> <clinit>
 android.support.v7.app.NavItemSelectedListener -> android.support.v7.app.NavItemSelectedListener:
     android.support.v7.app.ActionBar$OnNavigationListener mListener -> mListener
     30:32:void <init>(android.support.v7.app.ActionBar$OnNavigationListener) -> <init>
@@ -32889,11 +32996,11 @@ com.eos.manager.AppLock -> com.eos.manager.AppLock:
     135:137:void onPause() -> onPause
     141:144:void onPostResume() -> onPostResume
     158:165:void setupToolbar() -> d
-    169:174:boolean onSupportNavigateUp() -> onSupportNavigateUp
-    179:180:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
-    185:189:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    193:199:void initgetData() -> e
-    203:219:void onBackPressed() -> onBackPressed
+    169:170:boolean onSupportNavigateUp() -> onSupportNavigateUp
+    175:176:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    181:185:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    189:195:void initgetData() -> e
+    199:211:void onBackPressed() -> onBackPressed
 com.eos.manager.AppLockBootReceiver -> com.eos.manager.AppLockBootReceiver:
     12:12:void <init>() -> <init>
     16:55:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -40928,6 +41035,812 @@ com.loopj.android.http.RetryHandler -> com.a.a.a.m:
 com.loopj.android.http.Utils -> com.a.a.a.n:
     38:41:void asserts(boolean,java.lang.String) -> a
     51:54:java.lang.Object notNull(java.lang.Object,java.lang.String) -> a
+com.mingle.baselibrary.R -> com.mingle.a.a:
+com.mingle.baselibrary.R$styleable -> com.mingle.a.a$a:
+    int[] ActionBar -> ActionBar
+    int[] ActionBarLayout -> ActionBarLayout
+    int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
+    int ActionBar_background -> ActionBar_background
+    int ActionBar_backgroundSplit -> ActionBar_backgroundSplit
+    int ActionBar_backgroundStacked -> ActionBar_backgroundStacked
+    int ActionBar_contentInsetEnd -> ActionBar_contentInsetEnd
+    int ActionBar_contentInsetLeft -> ActionBar_contentInsetLeft
+    int ActionBar_contentInsetRight -> ActionBar_contentInsetRight
+    int ActionBar_contentInsetStart -> ActionBar_contentInsetStart
+    int ActionBar_customNavigationLayout -> ActionBar_customNavigationLayout
+    int ActionBar_displayOptions -> ActionBar_displayOptions
+    int ActionBar_divider -> ActionBar_divider
+    int ActionBar_elevation -> ActionBar_elevation
+    int ActionBar_height -> ActionBar_height
+    int ActionBar_hideOnContentScroll -> ActionBar_hideOnContentScroll
+    int ActionBar_homeAsUpIndicator -> ActionBar_homeAsUpIndicator
+    int ActionBar_homeLayout -> ActionBar_homeLayout
+    int ActionBar_icon -> ActionBar_icon
+    int ActionBar_indeterminateProgressStyle -> ActionBar_indeterminateProgressStyle
+    int ActionBar_itemPadding -> ActionBar_itemPadding
+    int ActionBar_logo -> ActionBar_logo
+    int ActionBar_navigationMode -> ActionBar_navigationMode
+    int ActionBar_popupTheme -> ActionBar_popupTheme
+    int ActionBar_progressBarPadding -> ActionBar_progressBarPadding
+    int ActionBar_progressBarStyle -> ActionBar_progressBarStyle
+    int ActionBar_subtitle -> ActionBar_subtitle
+    int ActionBar_subtitleTextStyle -> ActionBar_subtitleTextStyle
+    int ActionBar_title -> ActionBar_title
+    int ActionBar_titleTextStyle -> ActionBar_titleTextStyle
+    int[] ActionMenuItemView -> ActionMenuItemView
+    int ActionMenuItemView_android_minWidth -> ActionMenuItemView_android_minWidth
+    int[] ActionMenuView -> ActionMenuView
+    int[] ActionMode -> ActionMode
+    int ActionMode_background -> ActionMode_background
+    int ActionMode_backgroundSplit -> ActionMode_backgroundSplit
+    int ActionMode_closeItemLayout -> ActionMode_closeItemLayout
+    int ActionMode_height -> ActionMode_height
+    int ActionMode_subtitleTextStyle -> ActionMode_subtitleTextStyle
+    int ActionMode_titleTextStyle -> ActionMode_titleTextStyle
+    int[] ActivityChooserView -> ActivityChooserView
+    int ActivityChooserView_expandActivityOverflowButtonDrawable -> ActivityChooserView_expandActivityOverflowButtonDrawable
+    int ActivityChooserView_initialActivityCount -> ActivityChooserView_initialActivityCount
+    int[] AlertDialog -> AlertDialog
+    int AlertDialog_android_layout -> AlertDialog_android_layout
+    int AlertDialog_buttonPanelSideLayout -> AlertDialog_buttonPanelSideLayout
+    int AlertDialog_listItemLayout -> AlertDialog_listItemLayout
+    int AlertDialog_listLayout -> AlertDialog_listLayout
+    int AlertDialog_multiChoiceItemLayout -> AlertDialog_multiChoiceItemLayout
+    int AlertDialog_singleChoiceItemLayout -> AlertDialog_singleChoiceItemLayout
+    int[] AppCompatTextView -> AppCompatTextView
+    int AppCompatTextView_android_textAppearance -> AppCompatTextView_android_textAppearance
+    int AppCompatTextView_textAllCaps -> AppCompatTextView_textAllCaps
+    int[] CompoundButton -> CompoundButton
+    int CompoundButton_android_button -> CompoundButton_android_button
+    int CompoundButton_buttonTint -> CompoundButton_buttonTint
+    int CompoundButton_buttonTintMode -> CompoundButton_buttonTintMode
+    int[] DrawerArrowToggle -> DrawerArrowToggle
+    int DrawerArrowToggle_arrowHeadLength -> DrawerArrowToggle_arrowHeadLength
+    int DrawerArrowToggle_arrowShaftLength -> DrawerArrowToggle_arrowShaftLength
+    int DrawerArrowToggle_barLength -> DrawerArrowToggle_barLength
+    int DrawerArrowToggle_color -> DrawerArrowToggle_color
+    int DrawerArrowToggle_drawableSize -> DrawerArrowToggle_drawableSize
+    int DrawerArrowToggle_gapBetweenBars -> DrawerArrowToggle_gapBetweenBars
+    int DrawerArrowToggle_spinBars -> DrawerArrowToggle_spinBars
+    int DrawerArrowToggle_thickness -> DrawerArrowToggle_thickness
+    int[] LinearLayout -> LinearLayout
+    int[] LinearLayoutCompat -> LinearLayoutCompat
+    int[] LinearLayoutCompat_Layout -> LinearLayoutCompat_Layout
+    int LinearLayoutCompat_Layout_android_layout_gravity -> LinearLayoutCompat_Layout_android_layout_gravity
+    int LinearLayoutCompat_Layout_android_layout_height -> LinearLayoutCompat_Layout_android_layout_height
+    int LinearLayoutCompat_Layout_android_layout_weight -> LinearLayoutCompat_Layout_android_layout_weight
+    int LinearLayoutCompat_Layout_android_layout_width -> LinearLayoutCompat_Layout_android_layout_width
+    int LinearLayoutCompat_android_baselineAligned -> LinearLayoutCompat_android_baselineAligned
+    int LinearLayoutCompat_android_baselineAlignedChildIndex -> LinearLayoutCompat_android_baselineAlignedChildIndex
+    int LinearLayoutCompat_android_gravity -> LinearLayoutCompat_android_gravity
+    int LinearLayoutCompat_android_orientation -> LinearLayoutCompat_android_orientation
+    int LinearLayoutCompat_android_weightSum -> LinearLayoutCompat_android_weightSum
+    int LinearLayoutCompat_divider -> LinearLayoutCompat_divider
+    int LinearLayoutCompat_dividerPadding -> LinearLayoutCompat_dividerPadding
+    int LinearLayoutCompat_measureWithLargestChild -> LinearLayoutCompat_measureWithLargestChild
+    int LinearLayoutCompat_showDividers -> LinearLayoutCompat_showDividers
+    int LinearLayout_nightDivider -> LinearLayout_nightDivider
+    int[] ListPopupWindow -> ListPopupWindow
+    int ListPopupWindow_android_dropDownHorizontalOffset -> ListPopupWindow_android_dropDownHorizontalOffset
+    int ListPopupWindow_android_dropDownVerticalOffset -> ListPopupWindow_android_dropDownVerticalOffset
+    int[] ListView -> ListView
+    int ListView_nightLVDivider -> ListView_nightLVDivider
+    int[] MenuGroup -> MenuGroup
+    int MenuGroup_android_checkableBehavior -> MenuGroup_android_checkableBehavior
+    int MenuGroup_android_enabled -> MenuGroup_android_enabled
+    int MenuGroup_android_id -> MenuGroup_android_id
+    int MenuGroup_android_menuCategory -> MenuGroup_android_menuCategory
+    int MenuGroup_android_orderInCategory -> MenuGroup_android_orderInCategory
+    int MenuGroup_android_visible -> MenuGroup_android_visible
+    int[] MenuItem -> MenuItem
+    int MenuItem_actionLayout -> MenuItem_actionLayout
+    int MenuItem_actionProviderClass -> MenuItem_actionProviderClass
+    int MenuItem_actionViewClass -> MenuItem_actionViewClass
+    int MenuItem_android_alphabeticShortcut -> MenuItem_android_alphabeticShortcut
+    int MenuItem_android_checkable -> MenuItem_android_checkable
+    int MenuItem_android_checked -> MenuItem_android_checked
+    int MenuItem_android_enabled -> MenuItem_android_enabled
+    int MenuItem_android_icon -> MenuItem_android_icon
+    int MenuItem_android_id -> MenuItem_android_id
+    int MenuItem_android_menuCategory -> MenuItem_android_menuCategory
+    int MenuItem_android_numericShortcut -> MenuItem_android_numericShortcut
+    int MenuItem_android_onClick -> MenuItem_android_onClick
+    int MenuItem_android_orderInCategory -> MenuItem_android_orderInCategory
+    int MenuItem_android_title -> MenuItem_android_title
+    int MenuItem_android_titleCondensed -> MenuItem_android_titleCondensed
+    int MenuItem_android_visible -> MenuItem_android_visible
+    int MenuItem_showAsAction -> MenuItem_showAsAction
+    int[] MenuView -> MenuView
+    int MenuView_android_headerBackground -> MenuView_android_headerBackground
+    int MenuView_android_horizontalDivider -> MenuView_android_horizontalDivider
+    int MenuView_android_itemBackground -> MenuView_android_itemBackground
+    int MenuView_android_itemIconDisabledAlpha -> MenuView_android_itemIconDisabledAlpha
+    int MenuView_android_itemTextAppearance -> MenuView_android_itemTextAppearance
+    int MenuView_android_verticalDivider -> MenuView_android_verticalDivider
+    int MenuView_android_windowAnimationStyle -> MenuView_android_windowAnimationStyle
+    int MenuView_preserveIconSpacing -> MenuView_preserveIconSpacing
+    int[] PopupWindow -> PopupWindow
+    int[] PopupWindowBackgroundState -> PopupWindowBackgroundState
+    int PopupWindowBackgroundState_state_above_anchor -> PopupWindowBackgroundState_state_above_anchor
+    int PopupWindow_android_popupBackground -> PopupWindow_android_popupBackground
+    int PopupWindow_overlapAnchor -> PopupWindow_overlapAnchor
+    int[] SearchView -> SearchView
+    int SearchView_android_focusable -> SearchView_android_focusable
+    int SearchView_android_imeOptions -> SearchView_android_imeOptions
+    int SearchView_android_inputType -> SearchView_android_inputType
+    int SearchView_android_maxWidth -> SearchView_android_maxWidth
+    int SearchView_closeIcon -> SearchView_closeIcon
+    int SearchView_commitIcon -> SearchView_commitIcon
+    int SearchView_defaultQueryHint -> SearchView_defaultQueryHint
+    int SearchView_goIcon -> SearchView_goIcon
+    int SearchView_iconifiedByDefault -> SearchView_iconifiedByDefault
+    int SearchView_layout -> SearchView_layout
+    int SearchView_queryBackground -> SearchView_queryBackground
+    int SearchView_queryHint -> SearchView_queryHint
+    int SearchView_searchHintIcon -> SearchView_searchHintIcon
+    int SearchView_searchIcon -> SearchView_searchIcon
+    int SearchView_submitBackground -> SearchView_submitBackground
+    int SearchView_suggestionRowLayout -> SearchView_suggestionRowLayout
+    int SearchView_voiceIcon -> SearchView_voiceIcon
+    int[] Spinner -> Spinner
+    int Spinner_android_dropDownWidth -> Spinner_android_dropDownWidth
+    int Spinner_android_popupBackground -> Spinner_android_popupBackground
+    int Spinner_android_prompt -> Spinner_android_prompt
+    int Spinner_popupTheme -> Spinner_popupTheme
+    int[] SwitchCompat -> SwitchCompat
+    int SwitchCompat_android_textOff -> SwitchCompat_android_textOff
+    int SwitchCompat_android_textOn -> SwitchCompat_android_textOn
+    int SwitchCompat_android_thumb -> SwitchCompat_android_thumb
+    int SwitchCompat_showText -> SwitchCompat_showText
+    int SwitchCompat_splitTrack -> SwitchCompat_splitTrack
+    int SwitchCompat_switchMinWidth -> SwitchCompat_switchMinWidth
+    int SwitchCompat_switchPadding -> SwitchCompat_switchPadding
+    int SwitchCompat_switchTextAppearance -> SwitchCompat_switchTextAppearance
+    int SwitchCompat_thumbTextPadding -> SwitchCompat_thumbTextPadding
+    int SwitchCompat_track -> SwitchCompat_track
+    int[] TextAppearance -> TextAppearance
+    int TextAppearance_android_textColor -> TextAppearance_android_textColor
+    int TextAppearance_android_textSize -> TextAppearance_android_textSize
+    int TextAppearance_android_textStyle -> TextAppearance_android_textStyle
+    int TextAppearance_android_typeface -> TextAppearance_android_typeface
+    int TextAppearance_textAllCaps -> TextAppearance_textAllCaps
+    int[] TextView -> TextView
+    int TextView_nightTextAppearance -> TextView_nightTextAppearance
+    int TextView_nightTextColor -> TextView_nightTextColor
+    int TextView_nightTextColorHighlight -> TextView_nightTextColorHighlight
+    int TextView_nightTextColorHint -> TextView_nightTextColorHint
+    int TextView_nightTextColorLink -> TextView_nightTextColorLink
+    int[] Toolbar -> Toolbar
+    int Toolbar_android_gravity -> Toolbar_android_gravity
+    int Toolbar_android_minHeight -> Toolbar_android_minHeight
+    int Toolbar_collapseContentDescription -> Toolbar_collapseContentDescription
+    int Toolbar_collapseIcon -> Toolbar_collapseIcon
+    int Toolbar_contentInsetEnd -> Toolbar_contentInsetEnd
+    int Toolbar_contentInsetLeft -> Toolbar_contentInsetLeft
+    int Toolbar_contentInsetRight -> Toolbar_contentInsetRight
+    int Toolbar_contentInsetStart -> Toolbar_contentInsetStart
+    int Toolbar_logo -> Toolbar_logo
+    int Toolbar_logoDescription -> Toolbar_logoDescription
+    int Toolbar_maxButtonHeight -> Toolbar_maxButtonHeight
+    int Toolbar_navigationContentDescription -> Toolbar_navigationContentDescription
+    int Toolbar_navigationIcon -> Toolbar_navigationIcon
+    int Toolbar_popupTheme -> Toolbar_popupTheme
+    int Toolbar_subtitle -> Toolbar_subtitle
+    int Toolbar_subtitleTextAppearance -> Toolbar_subtitleTextAppearance
+    int Toolbar_subtitleTextColor -> Toolbar_subtitleTextColor
+    int Toolbar_title -> Toolbar_title
+    int Toolbar_titleMarginBottom -> Toolbar_titleMarginBottom
+    int Toolbar_titleMarginEnd -> Toolbar_titleMarginEnd
+    int Toolbar_titleMarginStart -> Toolbar_titleMarginStart
+    int Toolbar_titleMarginTop -> Toolbar_titleMarginTop
+    int Toolbar_titleMargins -> Toolbar_titleMargins
+    int Toolbar_titleTextAppearance -> Toolbar_titleTextAppearance
+    int Toolbar_titleTextColor -> Toolbar_titleTextColor
+    int[] View -> View
+    int[] ViewBackgroundHelper -> ViewBackgroundHelper
+    int ViewBackgroundHelper_android_background -> ViewBackgroundHelper_android_background
+    int ViewBackgroundHelper_backgroundTint -> ViewBackgroundHelper_backgroundTint
+    int ViewBackgroundHelper_backgroundTintMode -> ViewBackgroundHelper_backgroundTintMode
+    int[] ViewStubCompat -> ViewStubCompat
+    int ViewStubCompat_android_id -> ViewStubCompat_android_id
+    int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
+    int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
+    int View_android_focusable -> View_android_focusable
+    int View_android_theme -> View_android_theme
+    int View_nightBackground -> View_nightBackground
+    int View_paddingEnd -> View_paddingEnd
+    int View_paddingStart -> View_paddingStart
+    int View_theme -> View_theme
+    912:1116:void <clinit>() -> <clinit>
+com.mingle.circletreveal.CircleRevealEnable -> com.mingle.b.a:
+    com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    void superDraw(android.graphics.Canvas) -> a
+com.mingle.circletreveal.CircleRevealHelper -> com.mingle.b.b:
+    com.nineoldandroids.animation.ValueAnimator mValueAnimator -> a
+    android.graphics.Path mPath -> b
+    android.view.View mView -> c
+    int mAnchorX -> d
+    int mAnchorY -> e
+    float mRadius -> f
+    com.mingle.circletreveal.CircleRevealEnable mCircleRevealEnable -> g
+    22:33:void <init>(android.view.View) -> <init>
+    46:77:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    84:95:void draw(android.graphics.Canvas) -> a
+    18:18:float access$002(com.mingle.circletreveal.CircleRevealHelper,float) -> a
+    18:18:android.view.View access$100(com.mingle.circletreveal.CircleRevealHelper) -> a
+com.mingle.circletreveal.CircleRevealHelper$1 -> com.mingle.b.b$1:
+    com.mingle.circletreveal.CircleRevealHelper this$0 -> a
+    65:65:void <init>(com.mingle.circletreveal.CircleRevealHelper) -> <init>
+    68:72:void onAnimationUpdate(com.nineoldandroids.animation.ValueAnimator) -> a
+com.mingle.circletreveal.CircularRevealCompat -> com.mingle.b.c:
+    android.view.View mView -> a
+    16:18:void <init>(android.view.View) -> <init>
+    23:28:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+com.mingle.listener.SingleClickHelper -> com.mingle.c.a:
+    long L_CLICK_INTERVAL -> a
+    long preClickTime -> b
+    7:7:void <init>() -> <init>
+    14:19:boolean clickEnable() -> a
+    9:9:void <clinit>() -> <clinit>
+com.mingle.listener.SingleClickListener -> com.mingle.c.b:
+    android.view.View$OnClickListener mListener -> a
+    com.mingle.listener.SingleClickHelper singleClickhelper -> b
+    13:17:void <init>(android.view.View$OnClickListener) -> <init>
+    22:25:void onClick(android.view.View) -> onClick
+com.mingle.listener.SingleItemClickListener -> com.mingle.c.c:
+    android.widget.AdapterView$OnItemClickListener singleItemClickListener -> a
+    com.mingle.listener.SingleClickHelper singleClickhelper -> b
+    12:16:void <init>(android.widget.AdapterView$OnItemClickListener) -> <init>
+    21:24:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.mingle.skin.SkinConfig -> com.mingle.skin.a:
+    18:23:com.mingle.skin.SkinStyle getSkinStyle(android.content.Context) -> a
+    31:37:void setSkinStyle(android.content.Context,com.mingle.skin.SkinStyle) -> a
+com.mingle.skin.SkinEnable -> com.mingle.skin.b:
+    void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.skin.SkinStyle -> com.mingle.skin.SkinStyle:
+    com.mingle.skin.SkinStyle Dark -> Dark
+    com.mingle.skin.SkinStyle Light -> Light
+    com.mingle.skin.SkinStyle[] $VALUES -> $VALUES
+    6:6:com.mingle.skin.SkinStyle[] values() -> values
+    6:6:com.mingle.skin.SkinStyle valueOf(java.lang.String) -> valueOf
+    6:6:void <init>(java.lang.String,int) -> <init>
+    6:9:void <clinit>() -> <clinit>
+com.mingle.skin.hepler.DefaultViewSkinHelper -> com.mingle.skin.a.a:
+    android.view.View mView -> a
+    com.mingle.skin.SkinStyle mSkinStyle -> b
+    int mLightBackgroundRes -> d
+    int mLightBackgroundColor -> e
+    int mDarkBackgroundRes -> f
+    int mDarkBackgroundColor -> g
+    int nightTextColor -> h
+    int mNightTextColorRes -> i
+    int mLightTextColor -> j
+    int mLightTextColorRes -> k
+    boolean mEnable -> c
+    15:34:void <init>() -> <init>
+    42:67:void init(android.view.View,android.util.AttributeSet) -> a
+    70:71:void setView(android.view.View) -> a
+    74:117:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+    121:125:void setCurrentTheme() -> a
+com.mingle.skin.hepler.LinearLayoutSkinHelper -> com.mingle.skin.a.b:
+    int mDividerRes -> d
+    int mDarkDividerRes -> e
+    14:14:void <init>() -> <init>
+    23:31:void init(android.view.View,android.util.AttributeSet) -> a
+    36:69:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+com.mingle.skin.hepler.ListViewSkinHelper -> com.mingle.skin.a.c:
+    int mNightLVDivider -> d
+    int mNightLVDividerRes -> e
+    int mDivider -> f
+    int mDividerRes -> g
+    13:19:void <init>() -> <init>
+    23:42:void init(android.view.View,android.util.AttributeSet) -> a
+    46:109:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+com.mingle.skin.hepler.SkinCompat -> com.mingle.skin.a.d:
+    34:43:void setSkinStyle(android.app.Activity,com.mingle.skin.SkinStyle,com.mingle.skin.hepler.SkinCompat$SkinStyleChangeListener) -> a
+    56:63:void setCurrentTheme(android.app.Activity,com.mingle.skin.hepler.SkinCompat$SkinStyleChangeListener) -> a
+    70:89:void changeSkinStyle(android.view.View,com.mingle.skin.SkinStyle) -> a
+com.mingle.skin.hepler.SkinCompat$SkinStyleChangeListener -> com.mingle.skin.a.d$a:
+    void beforeChange() -> a
+    void afterChange() -> b
+com.mingle.skin.hepler.SkinHelper -> com.mingle.skin.a.e:
+    23:23:void <init>() -> <init>
+    void init(android.view.View,android.util.AttributeSet) -> a
+    void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+    31:42:com.mingle.skin.hepler.SkinHelper create(android.view.View) -> b
+    47:47:com.mingle.skin.hepler.DefaultViewSkinHelper createDeFault() -> b
+    void setCurrentTheme() -> a
+com.mingle.skin.hepler.TextViewSkinHelper -> com.mingle.skin.a.f:
+    int mNightTextColor -> d
+    int mNightTextColorRes -> e
+    int mNightTextColorHighlight -> f
+    int mNightTextColorAppearance -> g
+    int mNightTextColorLinkRes -> h
+    int mNightTextColorLink -> i
+    int mNightTextColorHintRes -> j
+    int mNightTextColorHint -> k
+    int mLightTextColor -> l
+    int mLightTextColorRes -> m
+    int mLightTextColorHighlight -> n
+    int ligghtTextAppearance -> o
+    int mLightTextColorLinkRes -> p
+    int mLightTextColorLink -> q
+    int mLightTextColorHintRes -> r
+    int mLightTextColorHint -> s
+    17:17:void <init>() -> <init>
+    46:103:void init(android.view.View,android.util.AttributeSet) -> a
+    107:173:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+com.mingle.skin.hepler.ViewSkinHelper -> com.mingle.skin.a.g:
+    android.view.View mView -> a
+    com.mingle.skin.SkinStyle mSkinStyle -> b
+    int mLightBackgroundRes -> d
+    int mLightBackgroundColor -> e
+    int mDarkBackgroundRes -> f
+    int mDarkBackgroundColor -> g
+    boolean mEnable -> c
+    14:29:void <init>() -> <init>
+    37:54:void init(android.view.View,android.util.AttributeSet) -> a
+    58:82:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+    87:92:void setCurrentTheme() -> a
+com.mingle.widget.Button -> com.mingle.widget.Button:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    32:34:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    38:42:void init(android.util.AttributeSet) -> a
+    45:47:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    52:53:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    57:58:void draw(android.graphics.Canvas) -> draw
+    63:64:void superDraw(android.graphics.Canvas) -> a
+    68:68:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    73:75:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.CheckBox -> com.mingle.widget.CheckBox:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    31:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    37:41:void init(android.util.AttributeSet) -> a
+    44:46:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    51:52:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    56:57:void draw(android.graphics.Canvas) -> draw
+    62:63:void superDraw(android.graphics.Canvas) -> a
+    71:71:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    76:78:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.CheckedTextView -> com.mingle.widget.CheckedTextView:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    32:34:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    38:42:void init(android.util.AttributeSet) -> a
+    45:47:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    52:53:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    57:58:void draw(android.graphics.Canvas) -> draw
+    63:64:void superDraw(android.graphics.Canvas) -> a
+    72:72:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    77:79:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.CompleteTextView -> com.mingle.widget.CompleteTextView:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    31:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    37:41:void init(android.util.AttributeSet) -> a
+    44:46:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    51:52:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    56:57:void draw(android.graphics.Canvas) -> draw
+    62:63:void superDraw(android.graphics.Canvas) -> a
+    70:70:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    75:77:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.EditText -> com.mingle.widget.EditText:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    31:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    37:41:void init(android.util.AttributeSet) -> a
+    44:46:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    51:52:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    56:57:void draw(android.graphics.Canvas) -> draw
+    62:63:void superDraw(android.graphics.Canvas) -> a
+    71:71:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    76:78:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.FrameLayout -> com.mingle.widget.FrameLayout:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    37:39:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    43:47:void init(android.util.AttributeSet) -> a
+    50:52:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    57:58:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    62:63:void draw(android.graphics.Canvas) -> draw
+    68:69:void superDraw(android.graphics.Canvas) -> a
+    76:80:void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
+    86:86:android.widget.FrameLayout$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    92:92:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    97:98:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+    25:25:android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+com.mingle.widget.FrameLayout$SLayoutParams -> com.mingle.widget.FrameLayout$a:
+    com.mingle.skin.hepler.DefaultViewSkinHelper mSkinHelper -> b
+    com.mingle.widget.FrameLayout this$0 -> a
+    104:108:void <init>(com.mingle.widget.FrameLayout,android.content.Context,android.util.AttributeSet) -> <init>
+    111:112:void setSkinHelper(android.view.View) -> a
+    114:115:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+com.mingle.widget.ImageButton -> com.mingle.widget.ImageButton:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    31:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    37:41:void init(android.util.AttributeSet) -> a
+    44:46:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    51:52:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    56:57:void draw(android.graphics.Canvas) -> draw
+    62:63:void superDraw(android.graphics.Canvas) -> a
+    71:71:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    76:78:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.ImageView -> com.mingle.widget.ImageView:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    35:37:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    41:45:void init(android.util.AttributeSet) -> a
+    48:50:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    55:56:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    60:61:void draw(android.graphics.Canvas) -> draw
+    66:67:void superDraw(android.graphics.Canvas) -> a
+    75:75:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    80:82:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.LinearLayout -> com.mingle.widget.LinearLayout:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    33:35:void <init>(android.content.Context) -> <init>
+    38:40:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    44:48:void init(android.util.AttributeSet) -> a
+    52:54:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    58:59:void setDividerDrawable(android.graphics.drawable.Drawable) -> setDividerDrawable
+    63:64:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    68:69:void draw(android.graphics.Canvas) -> draw
+    74:75:void superDraw(android.graphics.Canvas) -> a
+    81:81:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    88:89:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+    95:95:android.widget.LinearLayout$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    100:104:void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
+    108:108:android.widget.LinearLayout$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+    27:27:android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    27:27:android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+com.mingle.widget.LinearLayout$SLayoutParams -> com.mingle.widget.LinearLayout$a:
+    com.mingle.skin.hepler.DefaultViewSkinHelper mSkinHelper -> b
+    com.mingle.widget.LinearLayout this$0 -> a
+    116:120:void <init>(com.mingle.widget.LinearLayout,android.content.Context,android.util.AttributeSet) -> <init>
+    123:124:void setSkinHelper(android.view.View) -> a
+    127:128:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+com.mingle.widget.ListView -> com.mingle.widget.ListView:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    37:39:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    43:47:void init(android.util.AttributeSet) -> a
+    50:52:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    57:58:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    62:63:void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener) -> setOnItemClickListener
+    67:68:void draw(android.graphics.Canvas) -> draw
+    73:74:void superDraw(android.graphics.Canvas) -> a
+    80:80:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    85:86:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+    22:22:void setAdapter(android.widget.Adapter) -> setAdapter
+com.mingle.widget.MultiAutoCompleteTextView -> com.mingle.widget.MultiAutoCompleteTextView:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    31:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    37:41:void init(android.util.AttributeSet) -> a
+    44:46:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    51:52:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    56:57:void draw(android.graphics.Canvas) -> draw
+    62:63:void superDraw(android.graphics.Canvas) -> a
+    71:71:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    76:78:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.RadioButton -> com.mingle.widget.RadioButton:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    31:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    37:41:void init(android.util.AttributeSet) -> a
+    44:46:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    51:52:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    56:57:void draw(android.graphics.Canvas) -> draw
+    62:63:void superDraw(android.graphics.Canvas) -> a
+    71:71:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    76:78:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.RatingBar -> com.mingle.widget.RatingBar:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    31:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    37:41:void init(android.util.AttributeSet) -> a
+    44:46:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    51:52:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    56:57:void draw(android.graphics.Canvas) -> draw
+    62:63:void superDraw(android.graphics.Canvas) -> a
+    71:71:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    76:78:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.RelativeLayout -> com.mingle.widget.RelativeLayout:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    39:41:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    45:49:void init(android.util.AttributeSet) -> a
+    52:54:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    59:60:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    64:65:void draw(android.graphics.Canvas) -> draw
+    70:71:void superDraw(android.graphics.Canvas) -> a
+    76:80:void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
+    86:86:android.widget.RelativeLayout$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+    91:91:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    96:97:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+    27:27:android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
+com.mingle.widget.RelativeLayout$SLayoutParams -> com.mingle.widget.RelativeLayout$a:
+    com.mingle.skin.hepler.DefaultViewSkinHelper mSkinHelper -> b
+    com.mingle.widget.RelativeLayout this$0 -> a
+    104:108:void <init>(com.mingle.widget.RelativeLayout,android.content.Context,android.util.AttributeSet) -> <init>
+    111:112:void setSkinHelper(android.view.View) -> a
+    114:115:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+com.mingle.widget.SLayoutParamsI -> com.mingle.widget.a:
+    void setSkinStyle(com.mingle.skin.SkinStyle) -> a
+com.mingle.widget.Spinner -> com.mingle.widget.Spinner:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    32:34:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    38:42:void init(android.util.AttributeSet) -> a
+    45:47:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    52:53:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    57:58:void draw(android.graphics.Canvas) -> draw
+    63:64:void superDraw(android.graphics.Canvas) -> a
+    72:72:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    77:79:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.TextView -> com.mingle.widget.TextView:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    37:39:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    43:47:void init(android.util.AttributeSet) -> a
+    50:52:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    57:58:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    62:63:void draw(android.graphics.Canvas) -> draw
+    68:69:void superDraw(android.graphics.Canvas) -> a
+    76:76:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    82:85:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.View -> com.mingle.widget.View:
+    com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
+    com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
+    39:41:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    45:49:void init(android.util.AttributeSet) -> a
+    52:54:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    58:59:void setOnClickListener(android.view.View$OnClickListener) -> setOnClickListener
+    63:64:void draw(android.graphics.Canvas) -> draw
+    68:69:void superDraw(android.graphics.Canvas) -> a
+    75:75:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    80:82:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
+com.mingle.widget.WidgetFactor -> com.mingle.widget.b:
+    com.mingle.widget.WidgetFactor instant -> a
+    com.mingle.widget.WidgetFactor$WidgetParser mWidgetParser -> b
+    9:9:void <init>() -> <init>
+    16:20:com.mingle.widget.WidgetFactor getInstant() -> a
+    27:30:android.view.View parseWidget(java.lang.String,android.content.Context,android.util.AttributeSet) -> a
+com.mingle.widget.WidgetFactor$WidgetParser -> com.mingle.widget.b$a:
+    android.view.View parseWidget(java.lang.String,android.content.Context,android.util.AttributeSet) -> a
+com.mingle.widget.animation.CRAnimation -> com.mingle.widget.a.a:
+    com.nineoldandroids.animation.Animator mNAnimator -> a
+    android.animation.Animator mAAnimator -> b
+    19:21:void <init>(com.nineoldandroids.animation.Animator) -> <init>
+    23:25:void <init>(android.animation.Animator) -> <init>
+    54:101:void addListener(com.mingle.widget.animation.SimpleAnimListener) -> a
+    135:143:void start() -> a
+com.mingle.widget.animation.CRAnimation$1 -> com.mingle.widget.a.a$1:
+    com.mingle.widget.animation.SimpleAnimListener val$simpleAnimListener -> a
+    com.mingle.widget.animation.CRAnimation this$0 -> b
+    55:55:void <init>(com.mingle.widget.animation.CRAnimation,com.mingle.widget.animation.SimpleAnimListener) -> <init>
+    58:59:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    64:65:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    69:70:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    74:75:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+com.mingle.widget.animation.CRAnimation$2 -> com.mingle.widget.a.a$2:
+    com.mingle.widget.animation.SimpleAnimListener val$simpleAnimListener -> a
+    com.mingle.widget.animation.CRAnimation this$0 -> b
+    78:78:void <init>(com.mingle.widget.animation.CRAnimation,com.mingle.widget.animation.SimpleAnimListener) -> <init>
+    81:82:void onAnimationStart(com.nineoldandroids.animation.Animator) -> a
+    86:87:void onAnimationEnd(com.nineoldandroids.animation.Animator) -> b
+    96:97:void onAnimationRepeat(com.nineoldandroids.animation.Animator) -> c
+com.mingle.widget.animation.SimpleAnimListener -> com.mingle.widget.a.b:
+    6:6:void <init>() -> <init>
+    10:10:void onAnimationStart(com.mingle.widget.animation.CRAnimation) -> a
+    14:14:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+    18:18:void onAnimationCancel(com.mingle.widget.animation.CRAnimation) -> c
+    22:22:void onAnimationRepeat(com.mingle.widget.animation.CRAnimation) -> d
+com.nineoldandroids.animation.Animator -> com.b.a.a:
+    java.util.ArrayList mListeners -> a
+    27:247:void <init>() -> <init>
+    49:49:void start() -> a
+    145:149:void addListener(com.nineoldandroids.animation.Animator$AnimatorListener) -> a
+    192:203:com.nineoldandroids.animation.Animator clone() -> b
+    27:27:java.lang.Object clone() -> clone
+com.nineoldandroids.animation.Animator$AnimatorListener -> com.b.a.a$a:
+    void onAnimationStart(com.nineoldandroids.animation.Animator) -> a
+    void onAnimationEnd(com.nineoldandroids.animation.Animator) -> b
+    void onAnimationRepeat(com.nineoldandroids.animation.Animator) -> c
+com.nineoldandroids.animation.FloatEvaluator -> com.b.a.b:
+    22:22:void <init>() -> <init>
+    39:40:java.lang.Float evaluate(float,java.lang.Number,java.lang.Number) -> a
+    22:22:java.lang.Object evaluate(float,java.lang.Object,java.lang.Object) -> a
+com.nineoldandroids.animation.FloatKeyframeSet -> com.b.a.c:
+    float firstValue -> g
+    float lastValue -> h
+    float deltaValue -> i
+    boolean firstTime -> j
+    39:43:void <init>(com.nineoldandroids.animation.Keyframe$FloatKeyframe[]) -> <init>
+    47:47:java.lang.Object getValue(float) -> a
+    52:59:com.nineoldandroids.animation.FloatKeyframeSet clone() -> a
+    63:132:float getFloatValue(float) -> b
+    35:35:com.nineoldandroids.animation.KeyframeSet clone() -> b
+    35:35:java.lang.Object clone() -> clone
+com.nineoldandroids.animation.IntEvaluator -> com.b.a.d:
+    22:22:void <init>() -> <init>
+    39:40:java.lang.Integer evaluate(float,java.lang.Integer,java.lang.Integer) -> a
+    22:22:java.lang.Object evaluate(float,java.lang.Object,java.lang.Object) -> a
+com.nineoldandroids.animation.Keyframe -> com.b.a.e:
+    float mFraction -> a
+    java.lang.Class mValueType -> b
+    android.view.animation.Interpolator mInterpolator -> d
+    boolean mHasValue -> c
+    38:320:void <init>() -> <init>
+    108:108:com.nineoldandroids.animation.Keyframe ofFloat(float,float) -> a
+    124:124:com.nineoldandroids.animation.Keyframe ofFloat(float) -> a
+    java.lang.Object getValue() -> a
+    191:191:float getFraction() -> b
+    211:211:android.view.animation.Interpolator getInterpolator() -> c
+    221:222:void setInterpolator(android.view.animation.Interpolator) -> a
+    com.nineoldandroids.animation.Keyframe clone() -> d
+    38:38:java.lang.Object clone() -> clone
+com.nineoldandroids.animation.Keyframe$FloatKeyframe -> com.b.a.e$a:
+    float mValue -> d
+    326:331:void <init>(float,float) -> <init>
+    333:336:void <init>(float) -> <init>
+    339:339:float getFloatValue() -> e
+    343:343:java.lang.Object getValue() -> a
+    355:357:com.nineoldandroids.animation.Keyframe$FloatKeyframe clone() -> f
+    320:320:com.nineoldandroids.animation.Keyframe clone() -> d
+    320:320:java.lang.Object clone() -> clone
+com.nineoldandroids.animation.KeyframeSet -> com.b.a.f:
+    int mNumKeyframes -> a
+    com.nineoldandroids.animation.Keyframe mFirstKeyframe -> b
+    com.nineoldandroids.animation.Keyframe mLastKeyframe -> c
+    android.view.animation.Interpolator mInterpolator -> d
+    java.util.ArrayList mKeyframes -> e
+    com.nineoldandroids.animation.TypeEvaluator mEvaluator -> f
+    44:51:void <init>(com.nineoldandroids.animation.Keyframe[]) -> <init>
+    69:80:com.nineoldandroids.animation.KeyframeSet ofFloat(float[]) -> a
+    139:140:void setEvaluator(com.nineoldandroids.animation.TypeEvaluator) -> a
+    144:151:com.nineoldandroids.animation.KeyframeSet clone() -> b
+    169:216:java.lang.Object getValue(float) -> a
+    221:225:java.lang.String toString() -> toString
+    33:33:java.lang.Object clone() -> clone
+com.nineoldandroids.animation.PropertyValuesHolder -> com.b.a.g:
+    java.lang.String mPropertyName -> a
+    com.nineoldandroids.util.Property mProperty -> b
+    java.lang.reflect.Method mSetter -> c
+    java.lang.reflect.Method mGetter -> h
+    java.lang.Class mValueType -> d
+    com.nineoldandroids.animation.KeyframeSet mKeyframeSet -> e
+    com.nineoldandroids.animation.TypeEvaluator sIntEvaluator -> i
+    com.nineoldandroids.animation.TypeEvaluator sFloatEvaluator -> j
+    java.lang.Class[] FLOAT_VARIANTS -> k
+    java.lang.Class[] INTEGER_VARIANTS -> l
+    java.lang.Class[] DOUBLE_VARIANTS -> m
+    java.util.HashMap sSetterPropertyMap -> n
+    java.util.HashMap sGetterPropertyMap -> o
+    java.util.concurrent.locks.ReentrantReadWriteLock mPropertyMapLock -> f
+    java.lang.Object[] mTmpValueArray -> g
+    com.nineoldandroids.animation.TypeEvaluator mEvaluator -> p
+    java.lang.Object mAnimatedValue -> q
+    56:133:void <init>(java.lang.String) -> <init>
+    176:176:com.nineoldandroids.animation.PropertyValuesHolder ofFloat(java.lang.String,float[]) -> a
+    327:329:void setFloatValues(float[]) -> a
+    594:602:com.nineoldandroids.animation.PropertyValuesHolder clone() -> a
+    634:646:void init() -> b
+    670:671:void calculateValue(float) -> a
+    713:713:java.lang.String getPropertyName() -> c
+    722:722:java.lang.Object getAnimatedValue() -> d
+    727:727:java.lang.String toString() -> toString
+    36:36:java.lang.Object clone() -> clone
+    36:36:void <init>(java.lang.String,com.nineoldandroids.animation.PropertyValuesHolder$1) -> <init>
+    80:102:void <clinit>() -> <clinit>
+com.nineoldandroids.animation.PropertyValuesHolder$1 -> com.b.a.g$1:
+com.nineoldandroids.animation.PropertyValuesHolder$FloatPropertyValuesHolder -> com.b.a.g$a:
+    com.nineoldandroids.animation.FloatKeyframeSet mFloatKeyframeSet -> h
+    float mFloatAnimatedValue -> i
+    918:920:void <init>(java.lang.String,float[]) -> <init>
+    932:934:void setFloatValues(float[]) -> a
+    938:939:void calculateValue(float) -> a
+    943:943:java.lang.Object getAnimatedValue() -> d
+    948:950:com.nineoldandroids.animation.PropertyValuesHolder$FloatPropertyValuesHolder clone() -> e
+    889:889:com.nineoldandroids.animation.PropertyValuesHolder clone() -> a
+    889:889:java.lang.Object clone() -> clone
+com.nineoldandroids.animation.TypeEvaluator -> com.b.a.h:
+    java.lang.Object evaluate(float,java.lang.Object,java.lang.Object) -> a
+com.nineoldandroids.animation.ValueAnimator -> com.b.a.i:
+    long mStartTime -> b
+    long mSeekTime -> c
+    java.lang.ThreadLocal sAnimationHandler -> h
+    java.lang.ThreadLocal sAnimations -> i
+    java.lang.ThreadLocal sPendingAnimations -> j
+    java.lang.ThreadLocal sDelayedAnims -> k
+    java.lang.ThreadLocal sEndingAnims -> l
+    java.lang.ThreadLocal sReadyAnims -> m
+    android.view.animation.Interpolator sDefaultInterpolator -> n
+    com.nineoldandroids.animation.TypeEvaluator sIntEvaluator -> o
+    com.nineoldandroids.animation.TypeEvaluator sFloatEvaluator -> p
+    boolean mPlayingBackwards -> q
+    int mCurrentIteration -> r
+    float mCurrentFraction -> s
+    boolean mStartedDelay -> t
+    long mDelayStartTime -> u
+    int mPlayingState -> d
+    boolean mRunning -> v
+    boolean mStarted -> w
+    boolean mInitialized -> e
+    long mDuration -> x
+    long mStartDelay -> y
+    long sFrameDelay -> z
+    int mRepeatCount -> A
+    int mRepeatMode -> B
+    android.view.animation.Interpolator mInterpolator -> C
+    java.util.ArrayList mUpdateListeners -> D
+    com.nineoldandroids.animation.PropertyValuesHolder[] mValues -> f
+    java.util.HashMap mValuesMap -> g
+    85:284:void <init>() -> <init>
+    315:317:com.nineoldandroids.animation.ValueAnimator ofFloat(float[]) -> a
+    401:412:void setFloatValues(float[]) -> b
+    456:465:void setValues(com.nineoldandroids.animation.PropertyValuesHolder[]) -> a
+    490:497:void initAnimation() -> c
+    510:515:com.nineoldandroids.animation.ValueAnimator setDuration(long) -> a
+    538:546:void setCurrentPlayTime(long) -> b
+    556:559:long getCurrentPlayTime() -> d
+    744:748:java.lang.Object getAnimatedValue() -> e
+    820:824:void addUpdateListener(com.nineoldandroids.animation.ValueAnimator$AnimatorUpdateListener) -> a
+    917:947:void start(boolean) -> a
+    951:952:void start() -> a
+    993:993:boolean isRunning() -> f
+    1025:1039:void endAnimation() -> n
+    1046:1058:void startAnimation() -> o
+    1071:1084:boolean delayedAnimationFrame(long) -> d
+    1100:1143:boolean animationFrame(long) -> c
+    1169:1181:void animateValue(float) -> a
+    1185:1211:com.nineoldandroids.animation.ValueAnimator clone() -> g
+    1256:1262:java.lang.String toString() -> toString
+    43:43:com.nineoldandroids.animation.Animator clone() -> b
+    43:43:java.lang.Object clone() -> clone
+    43:43:java.lang.ThreadLocal access$000() -> h
+    43:43:java.lang.ThreadLocal access$100() -> i
+    43:43:java.lang.ThreadLocal access$200() -> j
+    43:43:long access$300(com.nineoldandroids.animation.ValueAnimator) -> a
+    43:43:void access$400(com.nineoldandroids.animation.ValueAnimator) -> b
+    43:43:java.lang.ThreadLocal access$500() -> k
+    43:43:java.lang.ThreadLocal access$600() -> l
+    43:43:boolean access$700(com.nineoldandroids.animation.ValueAnimator,long) -> a
+    43:43:boolean access$802(com.nineoldandroids.animation.ValueAnimator,boolean) -> a
+    43:43:void access$900(com.nineoldandroids.animation.ValueAnimator) -> c
+    43:43:long access$1000() -> m
+    94:222:void <clinit>() -> <clinit>
+com.nineoldandroids.animation.ValueAnimator$1 -> com.b.a.i$1:
+    99:99:void <init>() -> <init>
+    102:102:java.util.ArrayList initialValue() -> a
+    99:99:java.lang.Object initialValue() -> initialValue
+com.nineoldandroids.animation.ValueAnimator$2 -> com.b.a.i$2:
+    108:108:void <init>() -> <init>
+    111:111:java.util.ArrayList initialValue() -> a
+    108:108:java.lang.Object initialValue() -> initialValue
+com.nineoldandroids.animation.ValueAnimator$3 -> com.b.a.i$3:
+    120:120:void <init>() -> <init>
+    123:123:java.util.ArrayList initialValue() -> a
+    120:120:java.lang.Object initialValue() -> initialValue
+com.nineoldandroids.animation.ValueAnimator$4 -> com.b.a.i$4:
+    128:128:void <init>() -> <init>
+    131:131:java.util.ArrayList initialValue() -> a
+    128:128:java.lang.Object initialValue() -> initialValue
+com.nineoldandroids.animation.ValueAnimator$5 -> com.b.a.i$5:
+    136:136:void <init>() -> <init>
+    139:139:java.util.ArrayList initialValue() -> a
+    136:136:java.lang.Object initialValue() -> initialValue
+com.nineoldandroids.animation.ValueAnimator$AnimationHandler -> com.b.a.i$a:
+    570:570:void <init>() -> <init>
+    585:682:void handleMessage(android.os.Message) -> handleMessage
+    570:570:void <init>(com.nineoldandroids.animation.ValueAnimator$1) -> <init>
+com.nineoldandroids.animation.ValueAnimator$AnimatorUpdateListener -> com.b.a.i$b:
+    void onAnimationUpdate(com.nineoldandroids.animation.ValueAnimator) -> a
+com.nineoldandroids.util.Property -> com.b.b.a:
 com.privacy.lock.R -> com.privacy.lock.a:
 com.privacy.lock.R$anim -> com.privacy.lock.a$a:
     int abc_fade_in -> abc_fade_in
@@ -45482,6 +46395,8 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int IndicatorView_selectDrawable -> IndicatorView_selectDrawable
     int[] LinearConstraintLayout -> LinearConstraintLayout
     int LinearConstraintLayout_android_orientation -> LinearConstraintLayout_android_orientation
+    int[] LinearLayout -> LinearLayout
+    int LinearLayout_nightDivider -> LinearLayout_nightDivider
     int[] LinearLayoutCompat -> LinearLayoutCompat
     int LinearLayoutCompat_android_baselineAligned -> LinearLayoutCompat_android_baselineAligned
     int LinearLayoutCompat_android_baselineAlignedChildIndex -> LinearLayoutCompat_android_baselineAlignedChildIndex
@@ -45500,6 +46415,8 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int[] ListPopupWindow -> ListPopupWindow
     int ListPopupWindow_android_dropDownHorizontalOffset -> ListPopupWindow_android_dropDownHorizontalOffset
     int ListPopupWindow_android_dropDownVerticalOffset -> ListPopupWindow_android_dropDownVerticalOffset
+    int[] ListView -> ListView
+    int ListView_nightLVDivider -> ListView_nightLVDivider
     int[] LottieAnimationView -> LottieAnimationView
     int LottieAnimationView_lottie_autoPlay -> LottieAnimationView_lottie_autoPlay
     int LottieAnimationView_lottie_cacheStrategy -> LottieAnimationView_lottie_cacheStrategy
@@ -45676,6 +46593,12 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int TextInputLayout_hintAnimationEnabled -> TextInputLayout_hintAnimationEnabled
     int TextInputLayout_hintEnabled -> TextInputLayout_hintEnabled
     int TextInputLayout_hintTextAppearance -> TextInputLayout_hintTextAppearance
+    int[] TextView -> TextView
+    int TextView_nightTextAppearance -> TextView_nightTextAppearance
+    int TextView_nightTextColor -> TextView_nightTextColor
+    int TextView_nightTextColorHighlight -> TextView_nightTextColorHighlight
+    int TextView_nightTextColorHint -> TextView_nightTextColorHint
+    int TextView_nightTextColorLink -> TextView_nightTextColorLink
     int[] Toolbar -> Toolbar
     int Toolbar_android_gravity -> Toolbar_android_gravity
     int Toolbar_android_minHeight -> Toolbar_android_minHeight
@@ -45705,6 +46628,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int[] View -> View
     int View_android_focusable -> View_android_focusable
     int View_android_theme -> View_android_theme
+    int View_nightBackground -> View_nightBackground
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
@@ -45716,7 +46640,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6134:15055:void <clinit>() -> <clinit>
+    6198:15259:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -45749,27 +46673,27 @@ com.supers.clean.junk.activity.BaseActivity -> com.supers.clean.junk.activity.Ba
     boolean onPause -> l
     boolean onDestroyed -> m
     29:36:void <init>() -> <init>
-    40:73:void onCreate(android.os.Bundle) -> onCreate
-    77:79:void onResume() -> onResume
-    83:85:void onPause() -> onPause
-    89:91:void onDestroy() -> onDestroy
-    95:101:void setContentView(int) -> setContentView
-    105:105:void findId() -> a
-    108:109:void tuiGuang() -> b
-    112:114:void jumpTo(java.lang.Class) -> a
-    117:120:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    123:126:void jumpToActivity(java.lang.Class,android.os.Bundle) -> a
-    129:131:void jumpToActivity(java.lang.Class,int) -> a
-    134:139:int getStatusHeight(android.app.Activity) -> a
-    160:169:void setTranslucentStatus(boolean) -> a
-    172:179:void full() -> c
-    183:196:void setHideVirtualKey(android.view.Window) -> a
-    203:209:void showToast(java.lang.String) -> a
-    212:212:android.view.View $(int) -> a
+    40:75:void onCreate(android.os.Bundle) -> onCreate
+    79:81:void onResume() -> onResume
+    85:87:void onPause() -> onPause
+    91:93:void onDestroy() -> onDestroy
+    97:103:void setContentView(int) -> setContentView
+    107:107:void findId() -> a
+    110:111:void tuiGuang() -> b
+    114:116:void jumpTo(java.lang.Class) -> a
+    119:122:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
+    125:128:void jumpToActivity(java.lang.Class,android.os.Bundle) -> a
+    131:133:void jumpToActivity(java.lang.Class,int) -> a
+    136:141:int getStatusHeight(android.app.Activity) -> a
+    162:171:void setTranslucentStatus(boolean) -> a
+    174:181:void full() -> c
+    185:198:void setHideVirtualKey(android.view.Window) -> a
+    205:211:void showToast(java.lang.String) -> a
+    214:214:android.view.View $(int) -> a
 com.supers.clean.junk.activity.BaseActivity$1 -> com.supers.clean.junk.activity.BaseActivity$1:
     com.supers.clean.junk.activity.BaseActivity this$0 -> a
-    173:173:void <init>(com.supers.clean.junk.activity.BaseActivity) -> <init>
-    176:177:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    175:175:void <init>(com.supers.clean.junk.activity.BaseActivity) -> <init>
+    178:179:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.supers.clean.junk.activity.CoolingActivity -> com.supers.clean.junk.activity.CoolingActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -46697,17 +47621,17 @@ com.supers.clean.junk.activity.LoadingActivity -> com.supers.clean.junk.activity
     android.os.Handler myHandler -> a
     android.widget.TextView tv_tiaoguo -> b
     java.lang.Runnable runnable1 -> c
-    29:68:void <init>() -> <init>
+    29:61:void <init>() -> <init>
     35:38:void findId() -> a
-    43:66:void onCreate(android.os.Bundle) -> onCreate
-    84:86:void onResume() -> onResume
-    90:91:void onStop() -> onStop
-    95:97:void onDestroy() -> onDestroy
-    101:102:void onBackPressed() -> onBackPressed
+    43:59:void onCreate(android.os.Bundle) -> onCreate
+    77:79:void onResume() -> onResume
+    83:84:void onStop() -> onStop
+    88:90:void onDestroy() -> onDestroy
+    94:95:void onBackPressed() -> onBackPressed
 com.supers.clean.junk.activity.LoadingActivity$1 -> com.supers.clean.junk.activity.LoadingActivity$1:
     com.supers.clean.junk.activity.LoadingActivity this$0 -> a
-    68:68:void <init>(com.supers.clean.junk.activity.LoadingActivity) -> <init>
-    72:78:void run() -> run
+    61:61:void <init>(com.supers.clean.junk.activity.LoadingActivity) -> <init>
+    65:71:void run() -> run
 com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.MainActivity:
     com.supers.clean.junk.customeview.MyScrollView main_scroll_view -> a
     com.supers.clean.junk.customeview.PullToRefreshLayout main_pull_refresh -> b
@@ -46725,7 +47649,7 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     android.widget.TextView main_sd_size -> s
     android.widget.TextView main_ram_per -> t
     android.widget.TextView main_ram_size -> u
-    android.widget.ImageView main_air_all -> v
+    android.widget.LinearLayout main_air_all -> v
     android.widget.RelativeLayout main_junk_button -> w
     android.widget.RelativeLayout main_ram_button -> x
     android.widget.RelativeLayout main_cooling_button -> y
@@ -46757,148 +47681,199 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     android.support.v4.widget.DrawerLayout main_drawer -> Y
     android.widget.LinearLayout ll_ad -> Z
     android.widget.LinearLayout ll_ad_side -> aa
-    android.widget.FrameLayout fl_lot_side -> ab
-    android.widget.ImageView side_title -> ac
-    com.sample.lottie.LottieAnimationView lot_main -> ad
-    com.sample.lottie.LottieAnimationView lot_family -> ae
-    com.sample.lottie.LottieAnimationView lot_side -> af
-    java.lang.String TAG_MAIN -> aj
-    java.lang.String TAG_HUA -> ak
-    java.lang.String TAG_SIDE -> al
-    com.supers.clean.junk.activity.MyApplication cleanApplication -> am
-    android.os.Handler handler -> an
-    com.supers.clean.junk.presenter.MainPresenter mainPresenter -> ao
-    com.supers.clean.junk.adapter.SideAdapter adapter -> ap
-    long mExitTime -> aq
-    int temp -> ar
-    android.support.v4.view.ViewPager viewpager -> as
-    android.content.pm.PackageManager packageManager -> at
-    boolean mDrawerOpened -> au
-    com.eos.ui.demo.entries.CrossData$CrossPromotionBean bean -> av
-    android.view.View viewpager_3 -> aw
-    int sdProgress -> ag
-    com.supers.clean.junk.customeview.PullToRefreshLayout$OnRefreshListener refreshListener -> ah
-    android.view.View$OnClickListener onClickListener -> ai
-    68:715:void <init>() -> <init>
-    133:178:void findId() -> a
-    182:371:void onCreate(android.os.Bundle) -> onCreate
-    374:391:boolean addTapTuiguang() -> h
-    395:458:void tuiGuang() -> b
-    463:496:void onClick() -> onClick
-    500:519:void initCpu(int) -> b
-    525:564:void initSd(int,java.lang.String,long) -> a
-    568:590:void initRam(int,java.lang.String) -> a
-    594:598:void initGuard(int,android.view.animation.RotateAnimation) -> a
-    602:623:void initSideData() -> d
-    630:630:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
-    634:635:void setRotateGone() -> e
-    639:640:void openDrawer() -> f
-    644:647:void closeDrawer() -> g
-    651:680:void loadFullAd() -> c
-    872:898:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    902:905:void onRestart() -> onRestart
-    909:921:void onPause() -> onPause
-    925:938:void onResume() -> onResume
-    942:952:void onDestroy() -> onDestroy
-    955:964:void onBackPressed() -> onBackPressed
-    970:970:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    974:979:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    983:988:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    993:993:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    68:68:com.supers.clean.junk.presenter.MainPresenter access$000(com.supers.clean.junk.activity.MainActivity) -> a
-    68:68:android.support.v4.view.ViewPager access$100(com.supers.clean.junk.activity.MainActivity) -> b
-    68:68:com.eos.ui.demo.entries.CrossData$CrossPromotionBean access$200(com.supers.clean.junk.activity.MainActivity) -> c
-    68:68:android.content.pm.PackageManager access$300(com.supers.clean.junk.activity.MainActivity) -> d
-    68:68:boolean access$400(com.supers.clean.junk.activity.MainActivity) -> e
-    68:68:android.os.Handler access$500(com.supers.clean.junk.activity.MainActivity) -> f
-    68:68:com.supers.clean.junk.activity.MyApplication access$600(com.supers.clean.junk.activity.MainActivity) -> g
-    68:68:int access$700(com.supers.clean.junk.activity.MainActivity) -> h
+    com.mingle.widget.LinearLayout ll_ad_full -> ab
+    android.widget.ProgressBar ad_progressbar -> ac
+    android.widget.TextView main_full_time -> ad
+    android.widget.FrameLayout fl_lot_side -> ae
+    android.widget.ImageView side_title -> af
+    com.sample.lottie.LottieAnimationView lot_main -> ag
+    com.sample.lottie.LottieAnimationView lot_family -> ah
+    com.sample.lottie.LottieAnimationView lot_side -> ai
+    java.lang.String TAG_MAIN -> an
+    java.lang.String TAG_HUA -> ao
+    java.lang.String TAG_SIDE -> ap
+    java.lang.String TAG_START_FULL -> aq
+    java.lang.String TAG_EXIT_FULL -> ar
+    com.supers.clean.junk.activity.MyApplication cleanApplication -> as
+    android.os.Handler handler -> at
+    com.supers.clean.junk.presenter.MainPresenter mainPresenter -> au
+    com.supers.clean.junk.adapter.SideAdapter adapter -> av
+    int temp -> aw
+    android.support.v4.view.ViewPager viewpager -> ax
+    android.content.pm.PackageManager packageManager -> ay
+    boolean mDrawerOpened -> az
+    com.eos.ui.demo.entries.CrossData$CrossPromotionBean bean -> aA
+    android.view.View viewpager_3 -> aB
+    int skip -> aC
+    android.support.v7.app.AlertDialog dialog -> aD
+    int sdProgress -> aj
+    java.lang.Runnable fullAdRunnale -> ak
+    com.supers.clean.junk.customeview.PullToRefreshLayout$OnRefreshListener refreshListener -> al
+    android.view.View$OnClickListener onClickListener -> am
+    73:772:void <init>() -> <init>
+    144:192:void findId() -> a
+    196:383:void onCreate(android.os.Bundle) -> onCreate
+    386:403:boolean addTapTuiguang() -> h
+    407:470:void tuiGuang() -> b
+    475:509:void onClick() -> onClick
+    513:532:void initCpu(int) -> b
+    538:577:void initSd(int,java.lang.String,long) -> a
+    581:603:void initRam(int,java.lang.String) -> a
+    607:611:void initGuard(int,android.view.animation.RotateAnimation) -> a
+    615:636:void initSideData() -> d
+    640:641:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
+    645:646:void setRotateGone() -> e
+    650:651:void openDrawer() -> f
+    655:658:void closeDrawer() -> g
+    662:696:void loadFullAd() -> c
+    1020:1046:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    1050:1053:void onRestart() -> onRestart
+    1057:1069:void onPause() -> onPause
+    1073:1086:void onResume() -> onResume
+    1090:1100:void onDestroy() -> onDestroy
+    1103:1154:void onBackPressed() -> onBackPressed
+    1157:1206:void showExitDialog() -> i
+    1212:1212:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    1216:1221:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    1225:1230:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    1235:1235:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    73:73:com.supers.clean.junk.presenter.MainPresenter access$000(com.supers.clean.junk.activity.MainActivity) -> a
+    73:73:android.support.v4.view.ViewPager access$100(com.supers.clean.junk.activity.MainActivity) -> b
+    73:73:com.eos.ui.demo.entries.CrossData$CrossPromotionBean access$200(com.supers.clean.junk.activity.MainActivity) -> c
+    73:73:android.content.pm.PackageManager access$300(com.supers.clean.junk.activity.MainActivity) -> d
+    73:73:boolean access$400(com.supers.clean.junk.activity.MainActivity) -> e
+    73:73:android.os.Handler access$500(com.supers.clean.junk.activity.MainActivity) -> f
+    73:73:com.supers.clean.junk.activity.MyApplication access$600(com.supers.clean.junk.activity.MainActivity) -> g
+    73:73:int access$710(com.supers.clean.junk.activity.MainActivity) -> h
+    73:73:int access$700(com.supers.clean.junk.activity.MainActivity) -> i
+    73:73:int access$800(com.supers.clean.junk.activity.MainActivity) -> j
+    73:73:java.lang.String access$900(com.supers.clean.junk.activity.MainActivity) -> k
+    73:73:android.support.v7.app.AlertDialog access$1000(com.supers.clean.junk.activity.MainActivity) -> l
 com.supers.clean.junk.activity.MainActivity$1 -> com.supers.clean.junk.activity.MainActivity$1:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    268:268:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    271:273:void onClick(android.view.View) -> onClick
+    280:280:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    283:285:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$10 -> com.supers.clean.junk.activity.MainActivity$2:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    526:526:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    529:530:void run() -> run
+    539:539:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    542:543:void run() -> run
 com.supers.clean.junk.activity.MainActivity$11 -> com.supers.clean.junk.activity.MainActivity$3:
     java.lang.Runnable val$sdRunable -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    532:532:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.Runnable) -> <init>
-    535:537:void progressUpdate(int) -> a
+    545:545:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.Runnable) -> <init>
+    548:550:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$12 -> com.supers.clean.junk.activity.MainActivity$4:
     java.lang.String val$size -> a
     long val$sd_kongxian -> b
     com.supers.clean.junk.activity.MainActivity this$0 -> c
-    540:540:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
-    543:561:void run() -> run
+    553:553:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String,long) -> <init>
+    556:574:void run() -> run
 com.supers.clean.junk.activity.MainActivity$13 -> com.supers.clean.junk.activity.MainActivity$5:
     java.lang.String val$size -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    569:569:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
-    572:587:void progressUpdate(int) -> a
+    582:582:void <init>(com.supers.clean.junk.activity.MainActivity,java.lang.String) -> <init>
+    585:600:void progressUpdate(int) -> a
 com.supers.clean.junk.activity.MainActivity$13$1 -> com.supers.clean.junk.activity.MainActivity$5$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$13 this$1 -> b
-    572:572:void <init>(com.supers.clean.junk.activity.MainActivity$13,int) -> <init>
-    575:585:void run() -> run
+    585:585:void <init>(com.supers.clean.junk.activity.MainActivity$13,int) -> <init>
+    588:598:void run() -> run
 com.supers.clean.junk.activity.MainActivity$14 -> com.supers.clean.junk.activity.MainActivity$6:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    684:684:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    688:688:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
-    693:701:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
+    698:698:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    701:737:void run() -> run
 com.supers.clean.junk.activity.MainActivity$14$1 -> com.supers.clean.junk.activity.MainActivity$6$1:
     com.supers.clean.junk.activity.MainActivity$14 this$1 -> a
-    694:694:void <init>(com.supers.clean.junk.activity.MainActivity$14) -> <init>
-    697:699:void run() -> run
+    706:706:void <init>(com.supers.clean.junk.activity.MainActivity$14) -> <init>
+    709:711:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
 com.supers.clean.junk.activity.MainActivity$15 -> com.supers.clean.junk.activity.MainActivity$7:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    715:715:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    719:867:void onClick(android.view.View) -> onClick
-com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$8:
+    741:741:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    745:745:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
+    750:758:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
+com.supers.clean.junk.activity.MainActivity$15$1 -> com.supers.clean.junk.activity.MainActivity$7$1:
+    com.supers.clean.junk.activity.MainActivity$15 this$1 -> a
+    751:751:void <init>(com.supers.clean.junk.activity.MainActivity$15) -> <init>
+    754:756:void run() -> run
+com.supers.clean.junk.activity.MainActivity$16 -> com.supers.clean.junk.activity.MainActivity$8:
+    com.supers.clean.junk.activity.MainActivity this$0 -> a
+    772:772:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    776:1015:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MainActivity$16$1 -> com.supers.clean.junk.activity.MainActivity$8$1:
+    com.supers.clean.junk.activity.MainActivity$16 this$1 -> a
+    869:869:void <init>(com.supers.clean.junk.activity.MainActivity$16) -> <init>
+    872:915:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    920:920:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    925:925:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.supers.clean.junk.activity.MainActivity$16$1$1 -> com.supers.clean.junk.activity.MainActivity$8$1$1:
+    com.supers.clean.junk.activity.MainActivity$16$1 this$2 -> a
+    872:872:void <init>(com.supers.clean.junk.activity.MainActivity$16$1) -> <init>
+    875:877:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    881:913:void onNativeAdLoadFails() -> onNativeAdLoadFails
+com.supers.clean.junk.activity.MainActivity$16$1$1$1 -> com.supers.clean.junk.activity.MainActivity$8$1$1$1:
+    com.supers.clean.junk.activity.MainActivity$16$1$1 this$3 -> a
+    885:885:void <init>(com.supers.clean.junk.activity.MainActivity$16$1$1) -> <init>
+    888:890:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+com.supers.clean.junk.activity.MainActivity$16$2 -> com.supers.clean.junk.activity.MainActivity$8$2:
+    com.supers.clean.junk.activity.MainActivity$16 this$1 -> a
+    984:984:void <init>(com.supers.clean.junk.activity.MainActivity$16) -> <init>
+    987:989:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+com.supers.clean.junk.activity.MainActivity$17 -> com.supers.clean.junk.activity.MainActivity$9:
+    com.supers.clean.junk.activity.MainActivity this$0 -> a
+    1107:1107:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1110:1112:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+com.supers.clean.junk.activity.MainActivity$18 -> com.supers.clean.junk.activity.MainActivity$10:
+    com.supers.clean.junk.activity.MainActivity this$0 -> a
+    1168:1168:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1171:1173:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MainActivity$19 -> com.supers.clean.junk.activity.MainActivity$11:
+    com.supers.clean.junk.activity.MainActivity this$0 -> a
+    1175:1175:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1178:1179:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$12:
     java.util.ArrayList val$arrayList -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    320:320:void <init>(com.supers.clean.junk.activity.MainActivity,java.util.ArrayList) -> <init>
-    323:323:int getCount() -> getCount
-    328:329:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    334:336:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    340:340:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-com.supers.clean.junk.activity.MainActivity$3 -> com.supers.clean.junk.activity.MainActivity$9:
+    332:332:void <init>(com.supers.clean.junk.activity.MainActivity,java.util.ArrayList) -> <init>
+    335:335:int getCount() -> getCount
+    340:341:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    346:348:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    352:352:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+com.supers.clean.junk.activity.MainActivity$3 -> com.supers.clean.junk.activity.MainActivity$13:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    347:347:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    350:351:void run() -> run
-com.supers.clean.junk.activity.MainActivity$4 -> com.supers.clean.junk.activity.MainActivity$10:
+    359:359:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    362:363:void run() -> run
+com.supers.clean.junk.activity.MainActivity$4 -> com.supers.clean.junk.activity.MainActivity$14:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    353:353:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    356:357:void run() -> run
-com.supers.clean.junk.activity.MainActivity$5 -> com.supers.clean.junk.activity.MainActivity$11:
+    365:365:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    368:369:void run() -> run
+com.supers.clean.junk.activity.MainActivity$5 -> com.supers.clean.junk.activity.MainActivity$15:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    381:381:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    384:389:void onClick(android.view.View) -> onClick
-com.supers.clean.junk.activity.MainActivity$6 -> com.supers.clean.junk.activity.MainActivity$12:
+    393:393:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    396:401:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MainActivity$6 -> com.supers.clean.junk.activity.MainActivity$16:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    403:403:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    407:407:void onClick(android.view.View) -> onClick
-    411:430:void onLoadView(android.view.View) -> a
-com.supers.clean.junk.activity.MainActivity$7 -> com.supers.clean.junk.activity.MainActivity$13:
+    415:415:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    419:419:void onClick(android.view.View) -> onClick
+    423:442:void onLoadView(android.view.View) -> a
+com.supers.clean.junk.activity.MainActivity$7 -> com.supers.clean.junk.activity.MainActivity$17:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    432:432:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    436:436:void onClick(android.view.View) -> onClick
-    440:455:void onLoadView(android.view.View) -> a
-com.supers.clean.junk.activity.MainActivity$8 -> com.supers.clean.junk.activity.MainActivity$14:
+    444:444:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    448:448:void onClick(android.view.View) -> onClick
+    452:467:void onLoadView(android.view.View) -> a
+com.supers.clean.junk.activity.MainActivity$8 -> com.supers.clean.junk.activity.MainActivity$18:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    487:487:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    490:493:void onScrollChanged(com.supers.clean.junk.customeview.MyScrollView,int,int,int,int) -> a
-com.supers.clean.junk.activity.MainActivity$9 -> com.supers.clean.junk.activity.MainActivity$15:
+    500:500:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    503:506:void onScrollChanged(com.supers.clean.junk.customeview.MyScrollView,int,int,int,int) -> a
+com.supers.clean.junk.activity.MainActivity$9 -> com.supers.clean.junk.activity.MainActivity$19:
     int val$temp -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
-    502:502:void <init>(com.supers.clean.junk.activity.MainActivity,int) -> <init>
-    505:516:void progressUpdate(int) -> a
-com.supers.clean.junk.activity.MainActivity$9$1 -> com.supers.clean.junk.activity.MainActivity$15$1:
+    515:515:void <init>(com.supers.clean.junk.activity.MainActivity,int) -> <init>
+    518:529:void progressUpdate(int) -> a
+com.supers.clean.junk.activity.MainActivity$9$1 -> com.supers.clean.junk.activity.MainActivity$19$1:
     int val$progress -> a
     com.supers.clean.junk.activity.MainActivity$9 this$1 -> b
-    505:505:void <init>(com.supers.clean.junk.activity.MainActivity$9,int) -> <init>
-    508:514:void run() -> run
+    518:518:void <init>(com.supers.clean.junk.activity.MainActivity$9,int) -> <init>
+    521:527:void run() -> run
 com.supers.clean.junk.activity.ManagerActivity -> com.supers.clean.junk.activity.ManagerActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -48508,6 +49483,11 @@ com.supers.clean.junk.broadcast.UnloadBroadcast$1 -> com.supers.clean.junk.broad
     com.supers.clean.junk.broadcast.UnloadBroadcast this$0 -> b
     39:39:void <init>(com.supers.clean.junk.broadcast.UnloadBroadcast,android.content.Context) -> <init>
     42:56:void run() -> run
+com.supers.clean.junk.customeview.CirLinearLayout -> com.supers.clean.junk.customeview.CirLinearLayout:
+    23:24:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    27:28:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    32:32:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
+    38:38:void superDraw(android.graphics.Canvas) -> a
 com.supers.clean.junk.customeview.CustomRoundCpu -> com.supers.clean.junk.customeview.CustomRoundCpu:
     android.content.Context context -> c
     android.graphics.Paint circlePoint -> d
@@ -49290,6 +50270,8 @@ com.supers.clean.junk.db.RecyclerDbHelper -> com.supers.clean.junk.b.b:
     246:257:boolean deleteImageFromRecyler(com.supers.clean.junk.similarimage.ImageInfo) -> c
 com.supers.clean.junk.entity.JsonData -> com.supers.clean.junk.entity.JsonData:
     int full_main -> full_main
+    int full_start -> full_start
+    int full_exit -> full_exit
     int full_manager -> full_manager
     int full_message -> full_message
     int full_success -> full_success
@@ -49314,7 +50296,7 @@ com.supers.clean.junk.entity.JsonData -> com.supers.clean.junk.entity.JsonData:
 com.supers.clean.junk.entity.JsonData$CrossBean -> com.supers.clean.junk.entity.JsonData$CrossBean:
     java.lang.String crossMark -> crossMark
     java.util.List sequence -> sequence
-    33:33:void <init>() -> <init>
+    35:35:void <init>() -> <init>
 com.supers.clean.junk.entity.JsonData$CrossPromotionBean -> com.supers.clean.junk.entity.JsonData$CrossPromotionBean:
     int mark -> mark
     java.lang.String crossType -> crossType
@@ -49328,15 +50310,15 @@ com.supers.clean.junk.entity.JsonData$CrossPromotionBean -> com.supers.clean.jun
     java.lang.String topPicUrl -> topPicUrl
     java.util.List appName -> appName
     java.util.List content -> content
-    43:43:void <init>() -> <init>
+    45:45:void <init>() -> <init>
 com.supers.clean.junk.entity.JsonData$CrossPromotionBean$AppNameBean -> com.supers.clean.junk.entity.JsonData$CrossPromotionBean$AppNameBean:
     java.lang.String lag -> lag
     java.lang.String content -> content
-    72:72:void <init>() -> <init>
+    74:74:void <init>() -> <init>
 com.supers.clean.junk.entity.JsonData$CrossPromotionBean$ContentBean -> com.supers.clean.junk.entity.JsonData$CrossPromotionBean$ContentBean:
     java.lang.String lag -> lag
     java.util.List content -> content
-    82:82:void <init>() -> <init>
+    84:84:void <init>() -> <init>
 com.supers.clean.junk.entity.JunkInfo -> com.supers.clean.junk.entity.JunkInfo:
     long serialVersionUID -> serialVersionUID
     java.lang.String path -> path
