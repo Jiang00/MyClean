@@ -82,7 +82,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     CustomRoundCpu main_custom_cpu, main_custom_sd, main_custom_ram;
     TextView main_cpu_temp, main_sd_per, main_sd_size, main_ram_per, main_ram_size;
     ImageView main_air_all;
-//    ImageView main_air, main_air_smoke;
+    //    ImageView main_air, main_air_smoke;
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
     LinearLayout main_manager_button, main_applock_button, main_theme_button;
     TextView main_junk_h, main_ram_h, main_cooling_h;

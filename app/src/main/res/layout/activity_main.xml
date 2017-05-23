@@ -146,51 +146,30 @@
                                 android:layout_height="0dp"
                                 android:layout_weight="1">
 
-                                <RelativeLayout
-                                    android:id="@+id/main_junk_button"
+
+                                <LinearLayout
+                                    android:id="@+id/main_applock_button"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
                                     android:orientation="vertical">
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="vertical">
-
-                                        <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:src="@mipmap/main_junk_button" />
-
-                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="@dimen/d8"
-                                            android:text="@string/main_junk_name"
-                                            android:textColor="@color/B2"
-                                            android:textSize="@dimen/s12"
-                                            app:typeface="eos_clean.otf" />
-                                    </LinearLayout>
-
-                                    <TextView
-                                        android:id="@+id/main_junk_h"
+                                    <ImageView
                                         android:layout_width="wrap_content"
-                                        android:layout_height="@dimen/d12"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginRight="@dimen/d27"
-                                        android:layout_marginTop="@dimen/d23"
-                                        android:background="@drawable/shape_a2"
-                                        android:gravity="center"
-                                        android:paddingLeft="@dimen/d3"
-                                        android:paddingRight="@dimen/d3"
-                                        android:textColor="@color/A8"
-                                        android:textSize="@dimen/s8"
-                                        android:visibility="invisible" />
-                                </RelativeLayout>
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="@dimen/d8"
+                                        android:src="@mipmap/main_applock_button" />
 
+                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/main_aopplock_name"
+                                        android:textColor="@color/B2"
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="eos_clean.otf" />
+                                </LinearLayout>
                                 <View
                                     android:layout_width="1px"
                                     android:layout_height="match_parent"
@@ -329,29 +308,50 @@
                                     android:layout_height="match_parent"
                                     android:background="@color/B1" />
 
-                                <LinearLayout
-                                    android:id="@+id/main_applock_button"
+                                <RelativeLayout
+                                    android:id="@+id/main_junk_button"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:background="?attr/selectableItemBackground"
-                                    android:gravity="center"
                                     android:orientation="vertical">
 
-                                    <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginBottom="@dimen/d8"
-                                        android:src="@mipmap/main_applock_button" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
 
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:src="@mipmap/main_junk_button" />
+
+                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/d8"
+                                            android:text="@string/main_junk_name"
+                                            android:textColor="@color/B2"
+                                            android:textSize="@dimen/s12"
+                                            app:typeface="eos_clean.otf" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/main_junk_h"
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/main_aopplock_name"
-                                        android:textColor="@color/B2"
-                                        android:textSize="@dimen/s12"
-                                        app:typeface="eos_clean.otf" />
-                                </LinearLayout>
+                                        android:layout_height="@dimen/d12"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginRight="@dimen/d27"
+                                        android:layout_marginTop="@dimen/d23"
+                                        android:background="@drawable/shape_a2"
+                                        android:gravity="center"
+                                        android:paddingLeft="@dimen/d3"
+                                        android:paddingRight="@dimen/d3"
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s8"
+                                        android:visibility="invisible" />
+                                </RelativeLayout>
 
 
                                 <View
