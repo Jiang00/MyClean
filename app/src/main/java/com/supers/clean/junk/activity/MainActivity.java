@@ -136,7 +136,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private boolean mDrawerOpened = false;
     private CrossData.CrossPromotionBean bean;
     private View viewpager_3;
-    private int skip;
     private AlertDialog dialog;
 
     @Override
@@ -689,8 +688,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
                 main_full_time.setVisibility(View.VISIBLE);
-                skip = 6;
-                handler.post(fullAdRunnale);
+                nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
+                int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
+                handler.postDelayed(fullAdRunnale, skip * 1000);
             }
         }
     }
@@ -698,42 +698,19 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     Runnable fullAdRunnale = new Runnable() {
         @Override
         public void run() {
-            main_full_time.setText(skip-- + "");
-            if (skip == 0) {
-                CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
-                        lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
-                if (crA != null) {
-                    crA.addListener(new SimpleAnimListener() {
-                        @Override
-                        public void onAnimationEnd(CRAnimation animation) {
-                            super.onAnimationEnd(animation);
-                            ll_ad_full.setVisibility(View.GONE);
-                        }
-                    });
-                    crA.start();
-                }
-//                Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ad_suo);
-//                ll_ad_full.startAnimation(animation);
-//                animation.setAnimationListener(new Animation.AnimationListener() {
-//                    @Override
-//                    public void onAnimationEnd(Animation animation) {
-//                        ll_ad_full.setVisibility(View.GONE);
-//                    }
-//
-//                    @Override
-//                    public void onAnimationRepeat(Animation animation) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onAnimationStart(Animation animation) {
-//
-//                    }
-//                });
-                main_full_time.setVisibility(View.GONE);
-            } else {
-                handler.postDelayed(this, 1000);
+            CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
+                    lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
+            if (crA != null) {
+                crA.addListener(new SimpleAnimListener() {
+                    @Override
+                    public void onAnimationEnd(CRAnimation animation) {
+                        super.onAnimationEnd(animation);
+                        ll_ad_full.setVisibility(View.GONE);
+                    }
+                });
+                crA.start();
             }
+            main_full_time.setVisibility(View.GONE);
         }
     };
 
@@ -872,6 +849,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                             AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
                                 @Override
                                 public void onNativeAdLoadSuccess(View view) {
+                                    ImageView ad_delete = (ImageView) view.findViewById(R.id.ad_delete);
+                                    ad_delete.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            adDelete();
+                                        }
+                                    });
                                     ll_ad_full.addView(view);
                                     ad_progressbar.setVisibility(View.GONE);
                                 }
@@ -879,36 +863,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                                 @Override
                                 public void onNativeAdLoadFails() {
                                     showToast(getString(R.string.load_fails));
-                                    CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
-                                            lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
-                                    if (crA != null) {
-                                        crA.addListener(new SimpleAnimListener() {
-                                            @Override
-                                            public void onAnimationEnd(CRAnimation animation) {
-                                                super.onAnimationEnd(animation);
-                                                ll_ad_full.setVisibility(View.GONE);
-                                            }
-                                        });
-                                        crA.start();
-                                    }
-//                            Animation animation_s = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ad_suo);
-//                            ll_ad_full.startAnimation(animation_s);
-//                            animation_s.setAnimationListener(new Animation.AnimationListener() {
-//                                @Override
-//                                public void onAnimationEnd(Animation animation) {
-//                                    ll_ad_full.setVisibility(View.GONE);
-//                                }
-//
-//                                @Override
-//                                public void onAnimationRepeat(Animation animation) {
-//
-//                                }
-//
-//                                @Override
-//                                public void onAnimationStart(Animation animation) {
-//
-//                                }
-//                            });
+                                    adDelete();
                                     ad_progressbar.setVisibility(View.GONE);
                                 }
                             });
@@ -978,18 +933,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     }
                     break;
                 case R.id.main_full_time:
-                    CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
-                            lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
-                    if (crA != null) {
-                        crA.addListener(new SimpleAnimListener() {
-                            @Override
-                            public void onAnimationEnd(CRAnimation animation) {
-                                super.onAnimationEnd(animation);
-                                ll_ad_full.setVisibility(View.GONE);
-                            }
-                        });
-                        crA.start();
-                    }
+                    adDelete();
 //                    Animation animation_s = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ad_suo);
 //                    ll_ad_full.startAnimation(animation_s);
 //                    animation_s.setAnimationListener(new Animation.AnimationListener() {
@@ -1101,36 +1045,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     public void onBackPressed() {
         if (ll_ad_full.getVisibility() == View.VISIBLE) {
-            CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
-                    lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
-            if (crA != null) {
-                crA.addListener(new SimpleAnimListener() {
-                    @Override
-                    public void onAnimationEnd(CRAnimation animation) {
-                        super.onAnimationEnd(animation);
-                        ll_ad_full.setVisibility(View.GONE);
-                    }
-                });
-                crA.start();
-            }
-//            Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ad_suo);
-//            ll_ad_full.startAnimation(animation);
-//            animation.setAnimationListener(new Animation.AnimationListener() {
-//                @Override
-//                public void onAnimationEnd(Animation animation) {
-//                    ll_ad_full.setVisibility(View.GONE);
-//                }
-//
-//                @Override
-//                public void onAnimationRepeat(Animation animation) {
-//
-//                }
-//
-//                @Override
-//                public void onAnimationStart(Animation animation) {
-//
-//                }
-//            });
+            adDelete();
             main_full_time.setVisibility(View.GONE);
             handler.removeCallbacks(fullAdRunnale);
             return;
@@ -1151,6 +1066,21 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //        } else {
 //            super.onBackPressed();
 //        }
+    }
+
+    private void adDelete() {
+        CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
+                lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
+        if (crA != null) {
+            crA.addListener(new SimpleAnimListener() {
+                @Override
+                public void onAnimationEnd(CRAnimation animation) {
+                    super.onAnimationEnd(animation);
+                    ll_ad_full.setVisibility(View.GONE);
+                }
+            });
+            crA.start();
+        }
     }
 
     private void showExitDialog() {
