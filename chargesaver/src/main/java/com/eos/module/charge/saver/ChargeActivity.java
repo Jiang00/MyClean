@@ -58,7 +58,7 @@ public class ChargeActivity extends Activity {
         }
     }
 
-    private void doBar (){
+    private void doBar() {
         try {
             batteryView = (BatteryView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
             setContentView(batteryView);
@@ -73,7 +73,7 @@ public class ChargeActivity extends Activity {
         }
     }
 
-    private void doDuck(){
+    private void doDuck() {
         try {
             duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
             setContentView(duckView);
@@ -84,7 +84,7 @@ public class ChargeActivity extends Activity {
                     overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
                 }
             });
-        } catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -94,7 +94,7 @@ public class ChargeActivity extends Activity {
         super.onCreate(savedInstanceState);
         hideBottomUIMenu();
         String type;
-        try{
+        try {
             type = getIntent().getExtras().getString("type");
         } catch (Exception e) {
             type = "bar";

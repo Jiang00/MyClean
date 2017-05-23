@@ -1,39 +1,41 @@
 package com.supers.clean.junk.activity;
 
-import android.app.Activity;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.text.SpannableString;
-import android.text.Spanned;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
+import com.android.client.ClientNativeAd;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;
@@ -45,11 +47,14 @@ import com.eos.module.charge.saver.service.BatteryService;
 import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.eos.ui.demo.entries.CrossData;
-import com.eos.ui.demo.view.CrossView;
+import com.mingle.circletreveal.CircularRevealCompat;
+import com.mingle.widget.animation.CRAnimation;
+import com.mingle.widget.animation.SimpleAnimListener;
 import com.sample.lottie.LottieAnimationView;
 import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
+import com.supers.clean.junk.customeview.CirLinearLayout;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
@@ -99,6 +104,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ListViewForScrollView side_listView;
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side;
+    com.mingle.widget.LinearLayout ll_ad_full;
+    ProgressBar ad_progressbar;
+    TextView main_full_time;
 
     // LottieAnimationView lot_side;
     FrameLayout fl_lot_side;
@@ -112,6 +120,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_MAIN = "eos_main";
     private String TAG_HUA = "eos_hua";
     private String TAG_SIDE = "eos_side";
+    private String TAG_START_FULL = "eos_start_native";
+    private String TAG_EXIT_FULL = "eos_exit_native";
 
     private MyApplication cleanApplication;
     private Handler handler = new Handler();
@@ -127,6 +137,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private boolean mDrawerOpened = false;
     private CrossData.CrossPromotionBean bean;
     private View viewpager_3;
+    private int skip;
+    private AlertDialog dialog;
 
     @Override
     protected void findId() {
@@ -169,12 +181,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_guard_all = (FrameLayout) findViewById(R.id.main_guard_all);
         side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
+        ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
+        main_full_time = (TextView) findViewById(R.id.main_full_time);
+
         //lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         side_title = (ImageView) findViewById(R.id.side_title);
         lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
-
     }
 
     @Override
@@ -483,6 +498,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_tuiguang_button.setOnClickListener(onClickListener);
         fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
+        main_full_time.setOnClickListener(onClickListener);
 
         main_scroll_view.setScrollViewListener(new MyScrollView.ScrollViewListener() {
             @Override
@@ -649,17 +665,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             View nativeView = CommonUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                Log.e("aaa", "=====" + layout_ad.height);
-                if (nativeView.getHeight() == CommonUtil.dp2px(250)) {
-                    layout_ad.height = CommonUtil.dp2px(250);
-                }
-                Log.e("ad_mob", "h=" + nativeView.getHeight() + "w=" + nativeView.getWidth());
-                ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
                 ll_ad.setGravity(Gravity.CENTER_HORIZONTAL);
                 main_scroll_view.setScrollY(0);
@@ -676,9 +684,63 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 ll_ad_side.addView(nativeView_side);
             }
 
+
+        }
+        if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
+            AndroidSdk.showFullAd("eos_start_full");
+        } else {
+            View nativeView_full = CommonUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
+            if (ll_ad_full != null && nativeView_full != null) {
+                ll_ad_full.addView(nativeView_full);
+                ll_ad_full.setVisibility(View.VISIBLE);
+                main_full_time.setVisibility(View.VISIBLE);
+                skip = 6;
+                handler.post(fullAdRunnale);
+            }
         }
     }
 
+    Runnable fullAdRunnale = new Runnable() {
+        @Override
+        public void run() {
+            main_full_time.setText(skip-- + "");
+            if (skip == 0) {
+                CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
+                        lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
+                if (crA != null) {
+                    crA.addListener(new SimpleAnimListener() {
+                        @Override
+                        public void onAnimationEnd(CRAnimation animation) {
+                            super.onAnimationEnd(animation);
+                            ll_ad_full.setVisibility(View.GONE);
+                        }
+                    });
+                    crA.start();
+                }
+//                Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ad_suo);
+//                ll_ad_full.startAnimation(animation);
+//                animation.setAnimationListener(new Animation.AnimationListener() {
+//                    @Override
+//                    public void onAnimationEnd(Animation animation) {
+//                        ll_ad_full.setVisibility(View.GONE);
+//                    }
+//
+//                    @Override
+//                    public void onAnimationRepeat(Animation animation) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onAnimationStart(Animation animation) {
+//
+//                    }
+//                });
+                main_full_time.setVisibility(View.GONE);
+            } else {
+                handler.postDelayed(this, 1000);
+            }
+        }
+    };
 
     //上拉刷新监听
     PullToRefreshLayout.OnRefreshListener refreshListener = new PullToRefreshLayout.OnRefreshListener() {
@@ -804,11 +866,70 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.lot_family:
                     CommonUtil.track("主页面", "点击主题family按钮", "", 1);
-                    ShopMaster.launch(MainActivity.this, "EOS_Family",
-                            new Theme(R.raw.battery_0, getPackageName())
-//                            , new Theme(R.raw.battery_1, context.getPackageName())
-                    );
-//                    mainPresenter.jumpToActivity(ThemeActivity.class, 1);
+                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
+                    ll_ad_full.startAnimation(animation);
+                    ll_ad_full.setVisibility(View.VISIBLE);
+                    ad_progressbar.setVisibility(View.VISIBLE);
+                    ll_ad_full.removeAllViews();
+                    animation.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
+                                @Override
+                                public void onNativeAdLoadSuccess(View view) {
+                                    ll_ad_full.addView(view);
+                                    ad_progressbar.setVisibility(View.GONE);
+                                }
+
+                                @Override
+                                public void onNativeAdLoadFails() {
+                                    showToast(getString(R.string.load_fails));
+                                    CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
+                                            lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
+                                    if (crA != null) {
+                                        crA.addListener(new SimpleAnimListener() {
+                                            @Override
+                                            public void onAnimationEnd(CRAnimation animation) {
+                                                super.onAnimationEnd(animation);
+                                                ll_ad_full.setVisibility(View.GONE);
+                                            }
+                                        });
+                                        crA.start();
+                                    }
+//                            Animation animation_s = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ad_suo);
+//                            ll_ad_full.startAnimation(animation_s);
+//                            animation_s.setAnimationListener(new Animation.AnimationListener() {
+//                                @Override
+//                                public void onAnimationEnd(Animation animation) {
+//                                    ll_ad_full.setVisibility(View.GONE);
+//                                }
+//
+//                                @Override
+//                                public void onAnimationRepeat(Animation animation) {
+//
+//                                }
+//
+//                                @Override
+//                                public void onAnimationStart(Animation animation) {
+//
+//                                }
+//                            });
+                                    ad_progressbar.setVisibility(View.GONE);
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+
+                        }
+                    });
+
                     break;
 
                 case R.id.main_rotate_good:
@@ -861,7 +982,39 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         UtilGp.openPlayStore(getApplicationContext(), tuiguang);
                     }
                     break;
-
+                case R.id.main_full_time:
+                    CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
+                            lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
+                    if (crA != null) {
+                        crA.addListener(new SimpleAnimListener() {
+                            @Override
+                            public void onAnimationEnd(CRAnimation animation) {
+                                super.onAnimationEnd(animation);
+                                ll_ad_full.setVisibility(View.GONE);
+                            }
+                        });
+                        crA.start();
+                    }
+//                    Animation animation_s = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ad_suo);
+//                    ll_ad_full.startAnimation(animation_s);
+//                    animation_s.setAnimationListener(new Animation.AnimationListener() {
+//                        @Override
+//                        public void onAnimationEnd(Animation animation) {
+//                            ll_ad_full.setVisibility(View.GONE);
+//                        }
+//
+//                        @Override
+//                        public void onAnimationRepeat(Animation animation) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onAnimationStart(Animation animation) {
+//
+//                        }
+//                    });
+                    main_full_time.setVisibility(View.GONE);
+                    break;
 
             }
         }
@@ -952,15 +1105,109 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     }
 
     public void onBackPressed() {
+        if (ll_ad_full.getVisibility() == View.VISIBLE) {
+            CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
+                    lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
+            if (crA != null) {
+                crA.addListener(new SimpleAnimListener() {
+                    @Override
+                    public void onAnimationEnd(CRAnimation animation) {
+                        super.onAnimationEnd(animation);
+                        ll_ad_full.setVisibility(View.GONE);
+                    }
+                });
+                crA.start();
+            }
+//            Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ad_suo);
+//            ll_ad_full.startAnimation(animation);
+//            animation.setAnimationListener(new Animation.AnimationListener() {
+//                @Override
+//                public void onAnimationEnd(Animation animation) {
+//                    ll_ad_full.setVisibility(View.GONE);
+//                }
+//
+//                @Override
+//                public void onAnimationRepeat(Animation animation) {
+//
+//                }
+//
+//                @Override
+//                public void onAnimationStart(Animation animation) {
+//
+//                }
+//            });
+            main_full_time.setVisibility(View.GONE);
+            handler.removeCallbacks(fullAdRunnale);
+            return;
+        }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
-        } else if ((System.currentTimeMillis() - mExitTime) > 2000) {
-            Toast.makeText(getApplicationContext(), getString(R.string.main_back_pressed), Toast.LENGTH_SHORT).show();
-            mExitTime = System.currentTimeMillis();
-
         } else {
-            super.onBackPressed();
+            if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 1) {
+                AndroidSdk.showFullAd("eos_exit_full");
+            }
+            showExitDialog();
         }
+
+//        else if ((System.currentTimeMillis() - mExitTime) > 2000) {
+//            Toast.makeText(getApplicationContext(), getString(R.string.main_back_pressed), Toast.LENGTH_SHORT).show();
+//            mExitTime = System.currentTimeMillis();
+//
+//        } else {
+//            super.onBackPressed();
+//        }
+    }
+
+    private void showExitDialog() {
+        View view = View.inflate(this, R.layout.dialog_exit, null);
+        LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
+        TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
+        TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
+        if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
+            View nativeExit = CommonUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
+            if (nativeExit != null) {
+                ll_ad_exit.addView(nativeExit);
+                ll_ad_exit.setVisibility(View.VISIBLE);
+            }
+        }
+        exit_queren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+        exit_quxiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.width = dm.widthPixels; //设置宽度
+        lp.height = dm.heightPixels; //设置高度
+        if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
+            int uiOptions =
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                            //布局位于状态栏下方
+                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                            //隐藏导航栏
+                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+            if (Build.VERSION.SDK_INT >= 19) {
+                uiOptions |= 0x00001000;
+            } else {
+                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+            }
+            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        }
+        dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setContentView(view);
     }
 
 
