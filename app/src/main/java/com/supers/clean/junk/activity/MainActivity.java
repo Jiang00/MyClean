@@ -699,7 +699,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 main_full_time.setVisibility(View.VISIBLE);
                 nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
                 int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
-                handler.postDelayed(fullAdRunnale, skip);
+                handler.postDelayed(fullAdRunnale, skip * 1000);
             }
         }
     }
