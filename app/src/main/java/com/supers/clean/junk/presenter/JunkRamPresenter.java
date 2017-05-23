@@ -30,6 +30,10 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
     public void init() {
         super.init();
         iView.loadFullAd();
+        if (cleanApplication.getAppJunk().size() == 0) {
+            cleanApplication.clearAppJunk();
+        }
+
         allSize = cleanApplication.getApkSize() + cleanApplication.getCacheSize() + cleanApplication.getRamSize() + cleanApplication.getUnloadSize() + cleanApplication.getLogSize() + cleanApplication.getDataSize();
         for (JunkInfo info : cleanApplication.getSystemCache()) {
             if (info.isChecked) {
@@ -62,7 +66,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
             }
         }
         iView.initData(allSize);
-        iView.setCleanDAta(true,cleanSize);
+        iView.setCleanDAta(true, cleanSize);
         iView.setColor(allSize);
         iView.onClick();
     }
@@ -77,7 +81,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
         } else {
             cleanSize -= size;
         }
-        iView.setCleanDAta(false,cleanSize);
+        iView.setCleanDAta(false, cleanSize);
     }
 
     public void addAdapterData() {
