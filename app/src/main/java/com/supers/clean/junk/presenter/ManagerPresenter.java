@@ -50,9 +50,14 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         list_size.addAll(list);
         list_time.addAll(list);
         list_pinlv.addAll(list);
-        Collections.sort(list_size, new Sizesort());
-        Collections.sort(list_time, new Timesort());
-        Collections.sort(list_pinlv, new LastRunsort());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Collections.sort(list_size, new Sizesort());
+                Collections.sort(list_time, new Timesort());
+                Collections.sort(list_pinlv, new LastRunsort());
+            }
+        }).start();
         iView.initData(cleanSize);
         iView.onClick();
         iView.loadFullAd();

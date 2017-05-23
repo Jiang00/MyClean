@@ -144,7 +144,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
 
         for (JunkInfo fileListInfo : appJunk) {
             if (fileListInfo.isChecked) {
-                CleanManager.getInstance(context).removeAppCache(fileListInfo);
+                CleanManager.getInstance(context).removeAppLog(fileListInfo);
                 if (isZhankai) {
                     clearList.add(fileListInfo);
                 }

@@ -219,7 +219,7 @@ public class FloatActivity extends BaseActivity {
                 killAll(FloatActivity.this);
             }
         }).start();
-        cleanApplication.clearRam();
+        CleanManager.getInstance(this).clearRam();
 
         setListAnimation();
         float_cricle.setVisibility(View.INVISIBLE);

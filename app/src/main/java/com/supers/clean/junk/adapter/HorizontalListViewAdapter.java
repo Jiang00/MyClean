@@ -13,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
 import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.MyApplication;
@@ -98,7 +99,7 @@ public class HorizontalListViewAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     list.remove(position);
-                    ((MyApplication) mContext.getApplicationContext()).removeRam(info);
+                    CleanManager.getInstance(mContext).removeRam(info);
                     notifyDataSetChanged();
                     Log.e("aaa", "delete_app======");
                 }

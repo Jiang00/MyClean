@@ -136,7 +136,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
         CleanManager.getInstance(context).clearSystemCache();
         for (JunkInfo fileListInfo : apkFiles) {
             if (fileListInfo.isChecked) {
-                cleanApplication.removeApkFiles(fileListInfo);
+                CleanManager.getInstance(context).removeApkFiles(fileListInfo);
                 if (isZhankai) {
                     clearList.add(fileListInfo);
                 }
@@ -145,7 +145,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
 
         for (JunkInfo clearListInfo : filesOfUnintalledApk) {
             if (clearListInfo.isChecked) {
-                cleanApplication.removeFilesOfUnintalledApk(clearListInfo);
+                CleanManager.getInstance(context).removeFilesOfUnintalledApk(clearListInfo);
                 if (isZhankai) {
                     clearList.add(clearListInfo);
                 }
@@ -154,7 +154,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
 
         for (JunkInfo fileListInfo : appJunk) {
             if (fileListInfo.isChecked) {
-                cleanApplication.removeAppJunk(fileListInfo);
+                CleanManager.getInstance(context).removeAppLog(fileListInfo);
                 if (isZhankai) {
                     clearList.add(fileListInfo);
                 }
@@ -163,7 +163,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
 
         for (JunkInfo fileListInfo : appCache) {
             if (fileListInfo.isChecked) {
-                cleanApplication.removeAppCache(fileListInfo);
+                CleanManager.getInstance(context).removeAppCache(fileListInfo);
                 if (isZhankai) {
                     clearList.add(fileListInfo);
                 }
@@ -172,7 +172,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
 
         for (JunkInfo speedUpInfo : appRam) {
             if (speedUpInfo.isChecked) {
-                cleanApplication.removeRam(speedUpInfo);
+                CleanManager.getInstance(context).removeRam(speedUpInfo);
                 if (isZhankai) {
                     clearList.add(speedUpInfo);
                 }

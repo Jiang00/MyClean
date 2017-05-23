@@ -220,6 +220,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void addSystemdata(final long size, List<JunkInfo> list) {
         for (JunkInfo info : list) {
             if (info.size > 0) {
+                info.isChecked = true;
                 adapterSystem.addData(info);
             }
         }

@@ -409,7 +409,6 @@ public class CleanManager {
         } catch (Exception e) {
 
         }
-        appList = (ArrayList<JunkInfo>) systemCaches.clone();
         systemCacheCallBack.loadFinished(systemCaches, systemCacheSize);
     }
 
@@ -441,7 +440,10 @@ public class CleanManager {
                 appListSize += appInfo.allSize;
             }
             appInfo.type = JunkInfo.TableType.APP;
-            systemCaches.add(appInfo);
+            appList.add(appInfo);
+            if (appInfo.size > 0) {
+                systemCaches.add(appInfo);
+            }
             countDownLatch.countDown();
         }
     }
@@ -467,6 +469,8 @@ public class CleanManager {
     public void clearSystemCache() {
         StatFs stat = new StatFs(Environment.getDataDirectory().getAbsolutePath());
         try {
+            systemCaches.clear();
+            systemCacheSize = 0;
             Method mFreeStorageAndNotifyMethod = mContext.getPackageManager().getClass().getMethod(
                     "freeStorageAndNotify", Long.TYPE, IPackageDataObserver.class);
             mFreeStorageAndNotifyMethod.invoke(mContext.getPackageManager(),
@@ -670,6 +674,14 @@ public class CleanManager {
         apkSize -= fileInfo.size;
         if (apkFiles != null) {
             apkFiles.remove(fileInfo);
+        }
+    }
+
+    public void removeAppLog(JunkInfo fileInfo) {
+        Util.deleteFile(fileInfo.path);
+        logSize -= fileInfo.size;
+        if (logFiles != null) {
+            logFiles.remove(fileInfo);
         }
     }
 }

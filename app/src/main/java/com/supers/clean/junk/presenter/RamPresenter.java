@@ -90,7 +90,7 @@ public class RamPresenter extends BasePresenter<RamView> {
             }
         }
         for (JunkInfo info : clearList) {
-            cleanApplication.removeRam(info);
+            CleanManager.getInstance(context).removeRam(info);
         }
         changeColor(allSize - cleanSize);
         iView.cleanAnimation(clearList, cleanSize);

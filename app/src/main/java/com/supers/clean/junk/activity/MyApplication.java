@@ -42,90 +42,10 @@ public class MyApplication extends Application {
     private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 5;
 
 
-    private int THREAD_POOL_COUNT = 3;
-
-    private ArrayList<JunkInfo>  filesOfUnintallApk, apkFiles, appJunk, appCache, appRam, listMng;
-
-    private ArrayList<JunkInfo> white_ram;
-
-
-    private long  apkSize, unloadSize, logSize, dataSize, ramSize;
-
     private ActivityManager am;
 
     private HandlerThread mThread;
-    private Handler threadHandler;
 
-    private Runnable runnable;
-
-    private SimpleTask appManagerTask, ramTask, appCacheTask, filesOfUninstalledAppTask, cacheTask;
-
-    private ApkFileAndAppJunkTask fileTask;
-
-    private ExecutorService mThreadPool;
-
-
-
-
-
-    public void removeRam(JunkInfo fileListInfo) {
-        am.killBackgroundProcesses(fileListInfo.pkg);
-        if (fileListInfo.isSelfBoot) {
-            return;
-        }
-        ramSize -= fileListInfo.size;
-        if (appRam != null) {
-            appRam.remove(fileListInfo);
-        }
-    }
-
-    public void removeRamStartSelf(JunkInfo fileListInfo) {
-        am.killBackgroundProcesses(fileListInfo.pkg);
-        ramSize -= fileListInfo.size;
-        if (appRam != null) {
-            appRam.remove(fileListInfo);
-        }
-    }
-
-    public void clearRam() {
-        if (appRam != null) {
-            appRam.clear();
-            ramSize = 0;
-        }
-    }
-
-
-    public void removeAppCache(JunkInfo fileListInfo) {
-        Util.deleteFile(fileListInfo.path);
-        dataSize -= fileListInfo.size;
-        if (appCache != null) {
-            appCache.remove(fileListInfo);
-        }
-    }
-
-    public void removeAppJunk(JunkInfo fileListInfo) {
-        Util.deleteFile(fileListInfo.path);
-        logSize -= fileListInfo.size;
-        if (appJunk != null) {
-            appJunk.remove(fileListInfo);
-        }
-    }
-
-    public void removeFilesOfUnintalledApk(JunkInfo fileListInfo) {
-        Util.deleteFile(fileListInfo.path);
-        unloadSize -= fileListInfo.size;
-        if (filesOfUnintallApk != null) {
-            filesOfUnintallApk.remove(fileListInfo);
-        }
-    }
-
-    public void removeApkFiles(JunkInfo fileListInfo) {
-        Util.deleteFile(fileListInfo.path);
-        apkSize -= fileListInfo.size;
-        if (apkFiles != null) {
-            apkFiles.remove(fileListInfo);
-        }
-    }
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -171,17 +91,10 @@ public class MyApplication extends Application {
             return;
         }
         am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        runnable = getScanIntervalRunnable();
 
-        initLists();
-
-        mThreadPool = Executors.newFixedThreadPool(THREAD_POOL_COUNT);
 
         mThread = new HandlerThread("scan");
         mThread.start();
-        threadHandler = new Handler(mThread.getLooper());
-        threadHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
-        asyncInitData();
 
         if (PreData.getDB(this, Constant.FIRST_INSTALL, true)) {
             PreData.putDB(this, Constant.IS_ACTION_BAR, Util.checkDeviceHasNavigationBar(this));
@@ -196,59 +109,9 @@ public class MyApplication extends Application {
     }
 
 
-    private Runnable getScanIntervalRunnable() {
-        return new Runnable() {
-            @Override
-            public void run() {
-                String pkg = TopActivityPkg.getTopPackageName(MyApplication.this);
-                if (!TextUtils.equals(MyApplication.this.getPackageName(), pkg)) {
-                    asyncInitData();
-                }
-                threadHandler.postDelayed(runnable, SCAN_TIME_INTERVAL);
-            }
-        };
-    }
-
-
     @Override
     public void onTerminate() {
-        threadHandler.removeCallbacks(runnable);
         super.onTerminate();
-    }
-
-    private void asyncInitData() {
-        resetLists();
-
-        resetSizes();
-
-    }
-
-    private void initLists() {
-        apkFiles = new ArrayList<>();
-        filesOfUnintallApk = new ArrayList<>();
-        appJunk = new ArrayList<>();
-        appCache = new ArrayList<>();
-        appRam = new ArrayList<>();
-        white_ram = new ArrayList<>();
-        listMng = new ArrayList<>();
-    }
-
-    private void resetLists() {
-        apkFiles.clear();
-        filesOfUnintallApk.clear();
-        appJunk.clear();
-        appCache.clear();
-        appRam.clear();
-        white_ram.clear();
-        listMng.clear();
-    }
-
-    private void resetSizes() {
-        apkSize = 0;
-        unloadSize = 0;
-        logSize = 0;
-        dataSize = 0;
-        ramSize = 0;
     }
 
 
