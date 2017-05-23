@@ -170,6 +170,7 @@
                                         android:textSize="@dimen/s12"
                                         app:typeface="eos_clean.otf" />
                                 </LinearLayout>
+
                                 <View
                                     android:layout_width="1px"
                                     android:layout_height="match_parent"
@@ -1134,14 +1135,15 @@
 
         <TextView
             android:id="@+id/main_full_time"
-            android:layout_width="@dimen/d27"
-            android:layout_height="@dimen/d27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginRight="@dimen/d10"
             android:layout_marginTop="@dimen/d10"
-            android:background="@drawable/shape_b1"
+            android:background="@color/B8"
             android:gravity="center"
-            android:text="6"
+            android:padding="@dimen/d5"
+            android:text="Skip"
             android:textColor="@color/A8"
             android:textSize="@dimen/s15"
             android:visibility="gone" />
