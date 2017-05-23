@@ -72,16 +72,16 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Bitmap bitmap = getBitmapFromCache(info.pkg);
-                    if (bitmap == null) {
-                        bitmap = ((BitmapDrawable) LoadManager.getInstance(context).getApkIconforPath(info.path)).getBitmap();
-                        addBitmapToCache(info.pkg, bitmap);
+                    Drawable drawable = getBitmapFromCache(info.pkg);
+                    if (drawable == null) {
+                        drawable = LoadManager.getInstance(context).getApkIconforPath(info.path);
+                        addBitmapToCache(info.pkg, drawable);
                     }
-                    final Bitmap finalBitmap = bitmap;
+                    final Drawable finalDrawable = drawable;
                     ((JunkActivity) context).myHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            holder.icon.setImageBitmap(finalBitmap);
+                            holder.icon.setImageDrawable(finalDrawable);
                         }
                     });
 
@@ -96,22 +96,18 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Bitmap bitmap = getBitmapFromCache(info.pkg);
-                    if (bitmap == null) {
-                        bitmap = ((BitmapDrawable) LoadManager.getInstance(context).getAppIcon(info.pkg)).getBitmap();
-                        addBitmapToCache(info.pkg, bitmap);
+                    Drawable drawable = getBitmapFromCache(info.pkg);
+                    if (drawable == null) {
+                        drawable = LoadManager.getInstance(context).getAppIcon(info.pkg);
+                        addBitmapToCache(info.pkg, drawable);
                     }
-                    final Bitmap finalBitmap = bitmap;
-                    holder.icon.post(new Runnable() {
+                    final Drawable finalDrawable = drawable;
+                    ((JunkActivity) context).myHandler.post(new Runnable() {
                         @Override
                         public void run() {
-                            holder.icon.setImageBitmap(finalBitmap);
+                            holder.icon.setImageDrawable(finalDrawable);
                         }
                     });
-                    if (!bitmap.isRecycled()) {
-                        bitmap.recycle();
-                        bitmap = null;
-                    }
                 }
             }).start();
         } else {
