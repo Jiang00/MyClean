@@ -2,6 +2,8 @@ package com.supers.clean.junk.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.util.LruCache;
 import android.util.Log;
@@ -66,8 +68,24 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
         if (info.type == JunkInfo.TableType.APKFILE) {
             holder.name.setText(info.label);
 
-            Drawable icon = LoadManager.getInstance(context).getApkIconforPath(info.path);
-            holder.icon.setImageDrawable(icon);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Bitmap bitmap = getBitmapFromCache(info.pkg);
+                    if (bitmap == null) {
+                        bitmap = ((BitmapDrawable) LoadManager.getInstance(context).getApkIconforPath(info.path)).getBitmap();
+                        addBitmapToCache(info.pkg, bitmap);
+                    }
+                    final Bitmap finalBitmap = bitmap;
+                    holder.icon.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            holder.icon.setImageBitmap(finalBitmap);
+                        }
+                    });
+                }
+            }).start();
+
         } else if (info.type == JunkInfo.TableType.APP) {
             Log.e("time", System.currentTimeMillis() + "=");
             holder.name.setText(LoadManager.getInstance(context).getAppLabel(info.pkg));

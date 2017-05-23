@@ -27678,7 +27678,7 @@ com.android.clean.entity.JunkInfo -> com.android.clean.entity.JunkInfo:
     java.lang.String path -> a
     java.lang.String pkg -> b
     long size -> c
-    long cacheSize -> d
+    long allSize -> d
     long date -> e
     long lastRunTime -> f
     java.lang.String label -> g
@@ -45275,21 +45275,27 @@ com.supers.clean.junk.adapter.HorizontalListViewAdapter$ViewHolder -> com.supers
     109:109:android.widget.ImageView access$300(com.supers.clean.junk.adapter.HorizontalListViewAdapter$ViewHolder) -> c
 com.supers.clean.junk.adapter.JunkAdapter -> com.supers.clean.junk.a.d:
     com.supers.clean.junk.presenter.JunkPresenter junkPresenter -> a
-    27:29:void <init>(android.content.Context,com.supers.clean.junk.presenter.JunkPresenter) -> <init>
-    37:92:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    android.support.v4.util.LruCache lruCache -> b
+    30:39:void <init>(android.content.Context,com.supers.clean.junk.presenter.JunkPresenter) -> <init>
+    47:103:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.supers.clean.junk.adapter.JunkAdapter$1 -> com.supers.clean.junk.a.d$1:
+    com.supers.clean.junk.adapter.JunkAdapter this$0 -> a
+    32:32:void <init>(com.supers.clean.junk.adapter.JunkAdapter,int) -> <init>
+    36:36:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    32:32:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+com.supers.clean.junk.adapter.JunkAdapter$2 -> com.supers.clean.junk.a.d$2:
     com.android.clean.entity.JunkInfo val$info -> a
     com.supers.clean.junk.adapter.JunkAdapter$ViewHolder val$holder -> b
     com.supers.clean.junk.adapter.JunkAdapter this$0 -> c
-    77:77:void <init>(com.supers.clean.junk.adapter.JunkAdapter,com.android.clean.entity.JunkInfo,com.supers.clean.junk.adapter.JunkAdapter$ViewHolder) -> <init>
-    80:88:void onClick(android.view.View) -> onClick
+    88:88:void <init>(com.supers.clean.junk.adapter.JunkAdapter,com.android.clean.entity.JunkInfo,com.supers.clean.junk.adapter.JunkAdapter$ViewHolder) -> <init>
+    91:99:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.adapter.JunkAdapter$ViewHolder -> com.supers.clean.junk.a.d$a:
     android.widget.TextView name -> a
     android.widget.ImageView icon -> b
     android.widget.ImageView checkBox -> c
     android.widget.TextView size -> d
     com.supers.clean.junk.adapter.JunkAdapter this$0 -> e
-    95:95:void <init>(com.supers.clean.junk.adapter.JunkAdapter) -> <init>
+    106:106:void <init>(com.supers.clean.junk.adapter.JunkAdapter) -> <init>
 com.supers.clean.junk.adapter.JunkRamAdapter -> com.supers.clean.junk.a.e:
     com.supers.clean.junk.presenter.JunkRamPresenter junkPresenter -> a
     25:27:void <init>(android.content.Context,com.supers.clean.junk.presenter.JunkRamPresenter) -> <init>
@@ -45326,9 +45332,9 @@ com.supers.clean.junk.adapter.ManagerAdapter$ViewHolder -> com.supers.clean.junk
     com.supers.clean.junk.adapter.ManagerAdapter this$0 -> f
     85:85:void <init>(com.supers.clean.junk.adapter.ManagerAdapter) -> <init>
 com.supers.clean.junk.adapter.MybaseAdapter -> com.supers.clean.junk.a.g:
-    java.util.List list -> b
-    android.content.Context context -> c
-    android.view.LayoutInflater inflater -> d
+    java.util.List list -> c
+    android.content.Context context -> d
+    android.view.LayoutInflater inflater -> e
     18:23:void <init>(android.content.Context) -> <init>
     26:26:java.util.List getData() -> a
     30:30:java.lang.Object getData(int) -> a
@@ -45369,7 +45375,7 @@ com.supers.clean.junk.adapter.NotifiSettingAdapter$ViewHolder -> com.supers.clea
     69:69:void <init>(com.supers.clean.junk.adapter.NotifiSettingAdapter) -> <init>
 com.supers.clean.junk.adapter.RamAdapter -> com.supers.clean.junk.a.j:
     com.supers.clean.junk.presenter.RamPresenter ramPresenter -> a
-    java.util.List white_list -> e
+    java.util.List white_list -> b
     android.support.v7.app.AlertDialog dialog -> f
     31:35:void <init>(android.content.Context,com.supers.clean.junk.presenter.RamPresenter) -> <init>
     43:45:void upList(java.util.List) -> b
@@ -45481,7 +45487,7 @@ com.supers.clean.junk.adapter.RecycleViewAdapter$RecycleViewCallBack -> com.supe
     void deleteSuccessCallback(java.util.ArrayList) -> a
 com.supers.clean.junk.adapter.SideAdapter -> com.supers.clean.junk.a.l:
     int idx -> a
-    int BATTERY -> e
+    int BATTERY -> b
     int FLOAT -> f
     int JUNK -> g
     int RAM -> h
