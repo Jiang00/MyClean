@@ -46672,28 +46672,29 @@ com.supers.clean.junk.activity.BaseActivity -> com.supers.clean.junk.activity.Ba
     com.supers.clean.junk.entity.JsonData data -> k
     boolean onPause -> l
     boolean onDestroyed -> m
-    29:36:void <init>() -> <init>
-    40:76:void onCreate(android.os.Bundle) -> onCreate
-    80:82:void onResume() -> onResume
-    86:88:void onPause() -> onPause
-    92:94:void onDestroy() -> onDestroy
-    98:104:void setContentView(int) -> setContentView
-    108:108:void findId() -> a
-    111:112:void tuiGuang() -> b
-    115:117:void jumpTo(java.lang.Class) -> a
-    120:123:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    126:129:void jumpToActivity(java.lang.Class,android.os.Bundle) -> a
-    132:134:void jumpToActivity(java.lang.Class,int) -> a
-    137:142:int getStatusHeight(android.app.Activity) -> a
-    163:172:void setTranslucentStatus(boolean) -> a
-    175:182:void full() -> c
-    186:199:void setHideVirtualKey(android.view.Window) -> a
-    206:212:void showToast(java.lang.String) -> a
-    215:215:android.view.View $(int) -> a
+    boolean onResume -> n
+    29:37:void <init>() -> <init>
+    41:77:void onCreate(android.os.Bundle) -> onCreate
+    81:84:void onResume() -> onResume
+    88:91:void onPause() -> onPause
+    95:97:void onDestroy() -> onDestroy
+    101:107:void setContentView(int) -> setContentView
+    111:111:void findId() -> a
+    114:115:void tuiGuang() -> b
+    118:120:void jumpTo(java.lang.Class) -> a
+    123:126:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
+    129:132:void jumpToActivity(java.lang.Class,android.os.Bundle) -> a
+    135:137:void jumpToActivity(java.lang.Class,int) -> a
+    140:145:int getStatusHeight(android.app.Activity) -> a
+    166:175:void setTranslucentStatus(boolean) -> a
+    178:185:void full() -> c
+    189:202:void setHideVirtualKey(android.view.Window) -> a
+    209:215:void showToast(java.lang.String) -> a
+    218:218:android.view.View $(int) -> a
 com.supers.clean.junk.activity.BaseActivity$1 -> com.supers.clean.junk.activity.BaseActivity$1:
     com.supers.clean.junk.activity.BaseActivity this$0 -> a
-    176:176:void <init>(com.supers.clean.junk.activity.BaseActivity) -> <init>
-    179:180:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    179:179:void <init>(com.supers.clean.junk.activity.BaseActivity) -> <init>
+    182:183:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.supers.clean.junk.activity.CoolingActivity -> com.supers.clean.junk.activity.CoolingActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -46703,17 +46704,17 @@ com.supers.clean.junk.activity.CoolingActivity -> com.supers.clean.junk.activity
     android.widget.LinearLayout cooling_text -> f
     android.widget.TextView cooling_wendu -> g
     android.widget.FrameLayout fl_lot_cooling -> h
-    android.widget.FrameLayout cooling_fl -> n
-    com.supers.clean.junk.customeview.FlakeView flakeView -> o
-    android.os.Handler mHandler -> p
-    java.lang.Runnable runnable -> q
-    java.util.Random random -> r
-    android.view.animation.Animation rotate_zheng -> s
-    android.view.animation.Animation rotate_ni -> t
-    android.view.animation.Animation suo -> u
-    int time -> v
-    com.sample.lottie.LottieAnimationView lottieAnimationView -> w
-    android.animation.AnimatorSet animationLine_1 -> x
+    android.widget.FrameLayout cooling_fl -> o
+    com.supers.clean.junk.customeview.FlakeView flakeView -> p
+    android.os.Handler mHandler -> q
+    java.lang.Runnable runnable -> r
+    java.util.Random random -> s
+    android.view.animation.Animation rotate_zheng -> t
+    android.view.animation.Animation rotate_ni -> u
+    android.view.animation.Animation suo -> v
+    int time -> w
+    com.sample.lottie.LottieAnimationView lottieAnimationView -> x
+    android.animation.AnimatorSet animationLine_1 -> y
     35:49:void <init>() -> <init>
     67:77:void findId() -> a
     81:168:void onCreate(android.os.Bundle) -> onCreate
@@ -46774,34 +46775,34 @@ com.supers.clean.junk.activity.FileActivity -> com.supers.clean.junk.activity.Fi
     android.widget.TextView file_apk_size -> f
     android.widget.TextView file_zip_size -> g
     android.widget.TextView file_txt_size -> h
-    android.widget.TextView file_music_size -> n
-    android.widget.TextView file_video_size -> o
-    android.widget.TextView file_other_size -> p
-    android.widget.TextView file_apk_num -> q
-    android.widget.TextView file_zip_num -> r
-    android.widget.TextView file_txt_num -> s
-    android.widget.TextView file_music_num -> t
-    android.widget.TextView file_video_num -> u
-    android.widget.TextView file_qita_num -> v
-    android.widget.LinearLayout file_apk_button -> w
-    android.widget.LinearLayout file_zip_button -> x
-    android.widget.LinearLayout file_txt_button -> y
-    android.widget.LinearLayout file_music_button -> z
-    android.widget.LinearLayout file_video_button -> A
-    android.widget.LinearLayout file_other_button -> B
-    android.widget.LinearLayout ll_ad -> C
-    android.view.View nativeView -> E
-    java.lang.String TAG_FILE -> F
-    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> G
-    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo apkInfo -> H
-    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo zipInfo -> I
-    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo docInfo -> J
-    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo musicInfo -> K
-    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo videoInfo -> L
-    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo otherInfo -> M
-    com.supers.clean.junk.filemanager.Util$SDCardInfo sdCardInfo -> N
-    android.os.Handler mHandler -> O
-    android.view.View$OnClickListener clickListener -> D
+    android.widget.TextView file_music_size -> o
+    android.widget.TextView file_video_size -> p
+    android.widget.TextView file_other_size -> q
+    android.widget.TextView file_apk_num -> r
+    android.widget.TextView file_zip_num -> s
+    android.widget.TextView file_txt_num -> t
+    android.widget.TextView file_music_num -> u
+    android.widget.TextView file_video_num -> v
+    android.widget.TextView file_qita_num -> w
+    android.widget.LinearLayout file_apk_button -> x
+    android.widget.LinearLayout file_zip_button -> y
+    android.widget.LinearLayout file_txt_button -> z
+    android.widget.LinearLayout file_music_button -> A
+    android.widget.LinearLayout file_video_button -> B
+    android.widget.LinearLayout file_other_button -> C
+    android.widget.LinearLayout ll_ad -> D
+    android.view.View nativeView -> F
+    java.lang.String TAG_FILE -> G
+    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> H
+    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo apkInfo -> I
+    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo zipInfo -> J
+    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo docInfo -> K
+    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo musicInfo -> L
+    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo videoInfo -> M
+    com.supers.clean.junk.filemanager.FileCategoryHelper$CategoryInfo otherInfo -> N
+    com.supers.clean.junk.filemanager.Util$SDCardInfo sdCardInfo -> O
+    android.os.Handler mHandler -> P
+    android.view.View$OnClickListener clickListener -> E
     24:153:void <init>() -> <init>
     44:69:void findId() -> a
     73:82:void onCreate(android.os.Bundle) -> onCreate
@@ -46846,26 +46847,26 @@ com.supers.clean.junk.activity.FileDocActivity -> com.supers.clean.junk.activity
     android.support.v4.view.ViewPager doc_view_pager -> f
     android.support.design.widget.TabLayout view_pager_tab -> g
     android.widget.LinearLayout null_ll -> h
-    android.widget.FrameLayout file_fl -> n
-    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> s
-    java.util.ArrayList docList -> t
-    java.util.ArrayList txtList -> u
-    java.util.ArrayList pdfList -> v
-    android.os.Handler mHandler -> w
-    java.util.ArrayList titleList -> x
-    java.util.ArrayList viewList -> y
-    android.view.View view_doc -> z
-    android.view.View view_txt -> A
-    android.view.View view_pdf -> B
-    com.supers.clean.junk.adapter.FileAdapter adapter_doc -> o
-    com.supers.clean.junk.adapter.FileAdapter adapter_txt -> p
-    com.supers.clean.junk.adapter.FileAdapter adapter_pdf -> q
-    android.support.v7.app.AlertDialog dialog -> C
-    com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory fc_clean -> D
-    java.lang.String TAG_FILE_2 -> E
-    android.view.View nativeView -> F
-    android.widget.LinearLayout ll_ad -> G
-    android.view.View$OnClickListener clickListener -> r
+    android.widget.FrameLayout file_fl -> o
+    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> t
+    java.util.ArrayList docList -> u
+    java.util.ArrayList txtList -> v
+    java.util.ArrayList pdfList -> w
+    android.os.Handler mHandler -> x
+    java.util.ArrayList titleList -> y
+    java.util.ArrayList viewList -> z
+    android.view.View view_doc -> A
+    android.view.View view_txt -> B
+    android.view.View view_pdf -> C
+    com.supers.clean.junk.adapter.FileAdapter adapter_doc -> p
+    com.supers.clean.junk.adapter.FileAdapter adapter_txt -> q
+    com.supers.clean.junk.adapter.FileAdapter adapter_pdf -> r
+    android.support.v7.app.AlertDialog dialog -> D
+    com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory fc_clean -> E
+    java.lang.String TAG_FILE_2 -> F
+    android.view.View nativeView -> G
+    android.widget.LinearLayout ll_ad -> H
+    android.view.View$OnClickListener clickListener -> s
     43:246:void <init>() -> <init>
     73:83:void findId() -> a
     87:108:void onCreate(android.os.Bundle) -> onCreate
@@ -46933,19 +46934,19 @@ com.supers.clean.junk.activity.FileListActivity -> com.supers.clean.junk.activit
     android.widget.ProgressBar file_progressbar -> f
     android.widget.LinearLayout ll_ad -> g
     android.widget.ImageView null_icon -> h
-    android.widget.LinearLayout null_ll -> n
-    android.widget.FrameLayout file_fl -> o
-    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> q
-    com.supers.clean.junk.adapter.FileAdapter adapter -> r
-    java.util.ArrayList fileList -> s
-    android.os.Handler mHandler -> t
-    java.lang.String name -> u
-    int nameId -> v
-    android.support.v7.app.AlertDialog dialog -> w
-    com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory fc -> x
-    java.lang.String Tag_file_1 -> y
-    android.view.View nativeView -> z
-    android.view.View$OnClickListener clickListener -> p
+    android.widget.LinearLayout null_ll -> o
+    android.widget.FrameLayout file_fl -> p
+    com.supers.clean.junk.filemanager.FileCategoryHelper fileHelper -> r
+    com.supers.clean.junk.adapter.FileAdapter adapter -> s
+    java.util.ArrayList fileList -> t
+    android.os.Handler mHandler -> u
+    java.lang.String name -> v
+    int nameId -> w
+    android.support.v7.app.AlertDialog dialog -> x
+    com.supers.clean.junk.filemanager.FileCategoryHelper$FileCategory fc -> y
+    java.lang.String Tag_file_1 -> z
+    android.view.View nativeView -> A
+    android.view.View$OnClickListener clickListener -> q
     39:195:void <init>() -> <init>
     66:78:void findId() -> a
     82:116:void onCreate(android.os.Bundle) -> onCreate
@@ -47006,26 +47007,26 @@ com.supers.clean.junk.activity.FloatActivity -> com.supers.clean.junk.activity.F
     android.widget.LinearLayout ll_shengyin -> f
     android.widget.LinearLayout ll_gps -> g
     android.widget.ImageView iv_wifi -> h
-    android.widget.ImageView iv_liuliang -> n
-    android.widget.ImageView iv_xianshi -> o
-    android.widget.ImageView iv_shengyin -> p
-    android.widget.ImageView iv_gps -> q
-    android.widget.ImageView float_cricle -> r
-    android.widget.ImageView float_rotate -> s
-    android.widget.TextView float_memory -> t
-    android.widget.TextView float_tishi -> u
-    android.widget.RelativeLayout rl_memory -> v
-    android.view.View nativeView -> x
-    com.supers.clean.junk.adapter.HorizontalListViewAdapter adapter -> y
-    com.supers.clean.junk.activity.MyApplication cleanApplication -> z
-    java.util.ArrayList listFloat -> A
-    java.util.ArrayList listFloat_white -> B
-    android.os.Handler myHandler -> C
-    java.lang.String TAG_FLAOT -> D
-    android.view.animation.Animation rotate -> E
-    android.view.animation.Animation suo -> F
-    android.view.animation.Animation fang -> G
-    android.view.View$OnClickListener kuaijieListener -> w
+    android.widget.ImageView iv_liuliang -> o
+    android.widget.ImageView iv_xianshi -> p
+    android.widget.ImageView iv_shengyin -> q
+    android.widget.ImageView iv_gps -> r
+    android.widget.ImageView float_cricle -> s
+    android.widget.ImageView float_rotate -> t
+    android.widget.TextView float_memory -> u
+    android.widget.TextView float_tishi -> v
+    android.widget.RelativeLayout rl_memory -> w
+    android.view.View nativeView -> y
+    com.supers.clean.junk.adapter.HorizontalListViewAdapter adapter -> z
+    com.supers.clean.junk.activity.MyApplication cleanApplication -> A
+    java.util.ArrayList listFloat -> B
+    java.util.ArrayList listFloat_white -> C
+    android.os.Handler myHandler -> D
+    java.lang.String TAG_FLAOT -> E
+    android.view.animation.Animation rotate -> F
+    android.view.animation.Animation suo -> G
+    android.view.animation.Animation fang -> H
+    android.view.View$OnClickListener kuaijieListener -> x
     46:193:void <init>() -> <init>
     65:83:void findId() -> a
     87:101:void onCreate(android.os.Bundle) -> onCreate
@@ -47113,28 +47114,28 @@ com.supers.clean.junk.activity.GBoostActivity -> com.supers.clean.junk.activity.
     com.supers.clean.junk.customeview.PagerView gboost_recyc -> f
     com.rd.PageIndicatorView pageindicatorview -> g
     android.widget.TextView gboost_ram_size -> h
-    android.widget.TextView gboost_network_size -> n
-    android.widget.TextView gboost_cpu_szie -> o
-    android.widget.ImageView gboost_power_check -> p
-    android.widget.Button gboost_clean_button -> q
-    android.widget.LinearLayout ll_add_game -> r
-    android.widget.FrameLayout add_left -> s
-    android.widget.ListView list_game -> t
-    android.widget.TextView add_short -> u
-    com.supers.clean.junk.customeview.LaunchpadAdapter adapter -> w
-    java.util.ArrayList list -> x
-    android.os.Handler mHandler -> y
-    com.supers.clean.junk.adapter.AddGameAdapter whiteListAdapter -> z
-    com.supers.clean.junk.activity.MyApplication cleanApplication -> A
-    long total -> B
-    long idle -> C
-    long lastTotalRxBytes -> D
-    long lastTimeStamp -> E
-    boolean search -> F
-    java.util.List gboost_add -> G
-    java.util.List listEdit -> H
-    int screenWidth -> I
-    android.view.View$OnClickListener clickListener -> v
+    android.widget.TextView gboost_network_size -> o
+    android.widget.TextView gboost_cpu_szie -> p
+    android.widget.ImageView gboost_power_check -> q
+    android.widget.Button gboost_clean_button -> r
+    android.widget.LinearLayout ll_add_game -> s
+    android.widget.FrameLayout add_left -> t
+    android.widget.ListView list_game -> u
+    android.widget.TextView add_short -> v
+    com.supers.clean.junk.customeview.LaunchpadAdapter adapter -> x
+    java.util.ArrayList list -> y
+    android.os.Handler mHandler -> z
+    com.supers.clean.junk.adapter.AddGameAdapter whiteListAdapter -> A
+    com.supers.clean.junk.activity.MyApplication cleanApplication -> B
+    long total -> C
+    long idle -> D
+    long lastTotalRxBytes -> E
+    long lastTimeStamp -> F
+    boolean search -> G
+    java.util.List gboost_add -> H
+    java.util.List listEdit -> I
+    int screenWidth -> J
+    android.view.View$OnClickListener clickListener -> w
     56:224:void <init>() -> <init>
     105:123:void findId() -> a
     127:153:void onCreate(android.os.Bundle) -> onCreate
@@ -47227,43 +47228,43 @@ com.supers.clean.junk.activity.JunkActivity -> com.supers.clean.junk.activity.Ju
     android.widget.TextView junk_fangxin -> f
     android.widget.LinearLayout junk_button_system -> g
     android.widget.LinearLayout junk_button_apk -> h
-    android.widget.LinearLayout junk_button_unload -> n
-    android.widget.LinearLayout junk_button_log -> o
-    android.widget.LinearLayout junk_button_user -> p
-    android.widget.TextView junk_system_size -> q
-    android.widget.TextView junk_apk_size -> r
-    android.widget.TextView junk_unload_size -> s
-    android.widget.TextView junk_log_size -> t
-    android.widget.TextView junk_user_size -> u
-    android.widget.TextView junk_system_unit -> v
-    android.widget.TextView junk_apk_unit -> w
-    android.widget.TextView junk_unload_unit -> x
-    android.widget.TextView junk_log_unit -> y
-    android.widget.TextView junk_user_unit -> z
-    android.widget.ImageView junk_system_jiantou -> A
-    android.widget.ImageView junk_apk_jiaotou -> B
-    android.widget.ImageView junk_unload_jiantou -> C
-    android.widget.ImageView junk_log_jiantou -> D
-    android.widget.ImageView junk_user_jiantou -> E
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_system_list -> F
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_apk_list -> G
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_unload_list -> H
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_log_list -> I
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_user_list -> J
-    android.widget.Button junk_button_clean -> K
-    com.supers.clean.junk.customeview.MyScrollView junk_scroll -> L
-    android.widget.ListView junk_list_all -> M
-    com.supers.clean.junk.presenter.JunkPresenter junkPresenter -> O
-    com.supers.clean.junk.adapter.JunkAdapter adapterSystem -> P
-    com.supers.clean.junk.adapter.JunkAdapter adapterApk -> Q
-    com.supers.clean.junk.adapter.JunkAdapter adapterUnload -> R
-    com.supers.clean.junk.adapter.JunkAdapter adapterLog -> S
-    com.supers.clean.junk.adapter.JunkAdapter adapterUser -> T
-    com.supers.clean.junk.adapter.JunkAdapter adapterClear -> U
-    boolean color1 -> V
-    boolean color2 -> W
-    android.os.Handler myHandler -> X
-    android.view.View$OnClickListener onClickListener -> N
+    android.widget.LinearLayout junk_button_unload -> o
+    android.widget.LinearLayout junk_button_log -> p
+    android.widget.LinearLayout junk_button_user -> q
+    android.widget.TextView junk_system_size -> r
+    android.widget.TextView junk_apk_size -> s
+    android.widget.TextView junk_unload_size -> t
+    android.widget.TextView junk_log_size -> u
+    android.widget.TextView junk_user_size -> v
+    android.widget.TextView junk_system_unit -> w
+    android.widget.TextView junk_apk_unit -> x
+    android.widget.TextView junk_unload_unit -> y
+    android.widget.TextView junk_log_unit -> z
+    android.widget.TextView junk_user_unit -> A
+    android.widget.ImageView junk_system_jiantou -> B
+    android.widget.ImageView junk_apk_jiaotou -> C
+    android.widget.ImageView junk_unload_jiantou -> D
+    android.widget.ImageView junk_log_jiantou -> E
+    android.widget.ImageView junk_user_jiantou -> F
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_system_list -> G
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_apk_list -> H
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_unload_list -> I
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_log_list -> J
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_user_list -> K
+    android.widget.Button junk_button_clean -> L
+    com.supers.clean.junk.customeview.MyScrollView junk_scroll -> M
+    android.widget.ListView junk_list_all -> N
+    com.supers.clean.junk.presenter.JunkPresenter junkPresenter -> P
+    com.supers.clean.junk.adapter.JunkAdapter adapterSystem -> Q
+    com.supers.clean.junk.adapter.JunkAdapter adapterApk -> R
+    com.supers.clean.junk.adapter.JunkAdapter adapterUnload -> S
+    com.supers.clean.junk.adapter.JunkAdapter adapterLog -> T
+    com.supers.clean.junk.adapter.JunkAdapter adapterUser -> U
+    com.supers.clean.junk.adapter.JunkAdapter adapterClear -> V
+    boolean color1 -> W
+    boolean color2 -> X
+    android.os.Handler myHandler -> Y
+    android.view.View$OnClickListener onClickListener -> O
     39:535:void <init>() -> <init>
     64:99:void findId() -> a
     103:108:void onCreate(android.os.Bundle) -> onCreate
@@ -47416,49 +47417,49 @@ com.supers.clean.junk.activity.JunkAndRamActivity -> com.supers.clean.junk.activ
     android.widget.TextView junk_fangxin -> f
     android.widget.LinearLayout junk_button_system -> g
     android.widget.LinearLayout junk_button_apk -> h
-    android.widget.LinearLayout junk_button_unload -> n
-    android.widget.LinearLayout junk_button_log -> o
-    android.widget.LinearLayout junk_button_user -> p
-    android.widget.LinearLayout junk_button_ram -> q
-    android.widget.TextView junk_system_size -> r
-    android.widget.TextView junk_apk_size -> s
-    android.widget.TextView junk_unload_size -> t
-    android.widget.TextView junk_log_size -> u
-    android.widget.TextView junk_user_size -> v
-    android.widget.TextView junk_ram_size -> w
-    android.widget.TextView junk_system_unit -> x
-    android.widget.TextView junk_apk_unit -> y
-    android.widget.TextView junk_unload_unit -> z
-    android.widget.TextView junk_log_unit -> A
-    android.widget.TextView junk_user_unit -> B
-    android.widget.TextView junk_ram_unit -> C
-    android.widget.ImageView junk_system_jiantou -> D
-    android.widget.ImageView junk_apk_jiaotou -> E
-    android.widget.ImageView junk_unload_jiantou -> F
-    android.widget.ImageView junk_log_jiantou -> G
-    android.widget.ImageView junk_user_jiantou -> H
-    android.widget.ImageView junk_ram_jiantou -> I
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_system_list -> J
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_apk_list -> K
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_unload_list -> L
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_log_list -> M
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_user_list -> N
-    com.supers.clean.junk.customeview.ListViewForScrollView junk_ram_list -> O
-    android.widget.Button junk_button_clean -> P
-    com.supers.clean.junk.customeview.MyScrollView junk_scroll -> Q
-    android.widget.ListView junk_list_all -> R
-    com.supers.clean.junk.presenter.JunkRamPresenter junkPresenter -> T
-    com.supers.clean.junk.adapter.JunkRamAdapter adapterSystem -> U
-    com.supers.clean.junk.adapter.JunkRamAdapter adapterApk -> V
-    com.supers.clean.junk.adapter.JunkRamAdapter adapterUnload -> W
-    com.supers.clean.junk.adapter.JunkRamAdapter adapterLog -> X
-    com.supers.clean.junk.adapter.JunkRamAdapter adapterUser -> Y
-    com.supers.clean.junk.adapter.JunkRamAdapter adapterRam -> Z
-    com.supers.clean.junk.adapter.JunkRamAdapter adapterClear -> aa
-    boolean color1 -> ab
-    boolean color2 -> ac
-    android.os.Handler myHandler -> ad
-    android.view.View$OnClickListener onClickListener -> S
+    android.widget.LinearLayout junk_button_unload -> o
+    android.widget.LinearLayout junk_button_log -> p
+    android.widget.LinearLayout junk_button_user -> q
+    android.widget.LinearLayout junk_button_ram -> r
+    android.widget.TextView junk_system_size -> s
+    android.widget.TextView junk_apk_size -> t
+    android.widget.TextView junk_unload_size -> u
+    android.widget.TextView junk_log_size -> v
+    android.widget.TextView junk_user_size -> w
+    android.widget.TextView junk_ram_size -> x
+    android.widget.TextView junk_system_unit -> y
+    android.widget.TextView junk_apk_unit -> z
+    android.widget.TextView junk_unload_unit -> A
+    android.widget.TextView junk_log_unit -> B
+    android.widget.TextView junk_user_unit -> C
+    android.widget.TextView junk_ram_unit -> D
+    android.widget.ImageView junk_system_jiantou -> E
+    android.widget.ImageView junk_apk_jiaotou -> F
+    android.widget.ImageView junk_unload_jiantou -> G
+    android.widget.ImageView junk_log_jiantou -> H
+    android.widget.ImageView junk_user_jiantou -> I
+    android.widget.ImageView junk_ram_jiantou -> J
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_system_list -> K
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_apk_list -> L
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_unload_list -> M
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_log_list -> N
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_user_list -> O
+    com.supers.clean.junk.customeview.ListViewForScrollView junk_ram_list -> P
+    android.widget.Button junk_button_clean -> Q
+    com.supers.clean.junk.customeview.MyScrollView junk_scroll -> R
+    android.widget.ListView junk_list_all -> S
+    com.supers.clean.junk.presenter.JunkRamPresenter junkPresenter -> U
+    com.supers.clean.junk.adapter.JunkRamAdapter adapterSystem -> V
+    com.supers.clean.junk.adapter.JunkRamAdapter adapterApk -> W
+    com.supers.clean.junk.adapter.JunkRamAdapter adapterUnload -> X
+    com.supers.clean.junk.adapter.JunkRamAdapter adapterLog -> Y
+    com.supers.clean.junk.adapter.JunkRamAdapter adapterUser -> Z
+    com.supers.clean.junk.adapter.JunkRamAdapter adapterRam -> aa
+    com.supers.clean.junk.adapter.JunkRamAdapter adapterClear -> ab
+    boolean color1 -> ac
+    boolean color2 -> ad
+    android.os.Handler myHandler -> ae
+    android.view.View$OnClickListener onClickListener -> T
     39:586:void <init>() -> <init>
     64:104:void findId() -> a
     108:113:void onCreate(android.os.Bundle) -> onCreate
@@ -47641,76 +47642,76 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     android.widget.RelativeLayout main_cpu_air_button -> f
     android.widget.RelativeLayout main_sd_air_button -> g
     android.widget.RelativeLayout main_ram_air_button -> h
-    com.supers.clean.junk.customeview.CustomRoundCpu main_custom_cpu -> n
-    com.supers.clean.junk.customeview.CustomRoundCpu main_custom_sd -> o
-    com.supers.clean.junk.customeview.CustomRoundCpu main_custom_ram -> p
-    android.widget.TextView main_cpu_temp -> q
-    android.widget.TextView main_sd_per -> r
-    android.widget.TextView main_sd_size -> s
-    android.widget.TextView main_ram_per -> t
-    android.widget.TextView main_ram_size -> u
-    android.widget.ImageView main_air_all -> v
-    android.widget.RelativeLayout main_junk_button -> w
-    android.widget.RelativeLayout main_ram_button -> x
-    android.widget.RelativeLayout main_cooling_button -> y
-    android.widget.LinearLayout main_manager_button -> z
-    android.widget.LinearLayout main_applock_button -> A
-    android.widget.LinearLayout main_theme_button -> B
-    android.widget.TextView main_junk_h -> C
-    android.widget.TextView main_ram_h -> D
-    android.widget.TextView main_cooling_h -> E
-    android.widget.LinearLayout main_rotate_all -> F
-    android.widget.ImageView main_rotate_good -> G
-    android.widget.LinearLayout main_tuiguang_button -> H
-    android.widget.FrameLayout fl_lot_main -> I
-    android.widget.TextView main_msg_tuiguang -> J
-    android.widget.LinearLayout main_msg_button -> K
-    android.widget.LinearLayout main_power_button -> L
-    android.widget.LinearLayout main_notifi_button -> M
-    android.widget.LinearLayout main_file_button -> N
-    android.widget.LinearLayout main_gboost_button -> O
-    android.widget.LinearLayout main_picture_button -> P
-    android.widget.TextView main_msg_ram_percent -> Q
-    android.widget.TextView main_msg_sd_percent -> R
-    android.widget.TextView main_msg_sd_unit -> S
-    android.widget.TextView main_msg_cpu_percent -> T
-    android.widget.TextView main_gurad_num -> U
-    android.widget.ImageView main_guard_rotate -> V
-    android.widget.FrameLayout main_guard_all -> W
-    com.supers.clean.junk.customeview.ListViewForScrollView side_listView -> X
-    android.support.v4.widget.DrawerLayout main_drawer -> Y
-    android.widget.LinearLayout ll_ad -> Z
-    android.widget.LinearLayout ll_ad_side -> aa
-    com.mingle.widget.LinearLayout ll_ad_full -> ab
-    android.widget.ProgressBar ad_progressbar -> ac
-    android.widget.TextView main_full_time -> ad
-    android.widget.FrameLayout fl_lot_side -> ae
-    android.widget.ImageView side_title -> af
-    com.sample.lottie.LottieAnimationView lot_main -> ag
-    com.sample.lottie.LottieAnimationView lot_family -> ah
-    com.sample.lottie.LottieAnimationView lot_side -> ai
-    java.lang.String TAG_MAIN -> an
-    java.lang.String TAG_HUA -> ao
-    java.lang.String TAG_SIDE -> ap
-    java.lang.String TAG_START_FULL -> aq
-    java.lang.String TAG_EXIT_FULL -> ar
-    com.supers.clean.junk.activity.MyApplication cleanApplication -> as
-    android.os.Handler handler -> at
-    com.supers.clean.junk.presenter.MainPresenter mainPresenter -> au
-    com.supers.clean.junk.adapter.SideAdapter adapter -> av
-    int temp -> aw
-    android.support.v4.view.ViewPager viewpager -> ax
-    android.content.pm.PackageManager packageManager -> ay
-    boolean mDrawerOpened -> az
-    com.eos.ui.demo.entries.CrossData$CrossPromotionBean bean -> aA
-    android.view.View viewpager_3 -> aB
-    android.support.v7.app.AlertDialog dialog -> aC
-    java.lang.String from -> aD
-    int sdProgress -> aj
-    java.lang.Runnable fullAdRunnale -> ak
-    com.supers.clean.junk.customeview.PullToRefreshLayout$OnRefreshListener refreshListener -> al
-    android.view.View$OnClickListener onClickListener -> am
-    73:748:void <init>() -> <init>
+    com.supers.clean.junk.customeview.CustomRoundCpu main_custom_cpu -> o
+    com.supers.clean.junk.customeview.CustomRoundCpu main_custom_sd -> p
+    com.supers.clean.junk.customeview.CustomRoundCpu main_custom_ram -> q
+    android.widget.TextView main_cpu_temp -> r
+    android.widget.TextView main_sd_per -> s
+    android.widget.TextView main_sd_size -> t
+    android.widget.TextView main_ram_per -> u
+    android.widget.TextView main_ram_size -> v
+    android.widget.ImageView main_air_all -> w
+    android.widget.RelativeLayout main_junk_button -> x
+    android.widget.RelativeLayout main_ram_button -> y
+    android.widget.RelativeLayout main_cooling_button -> z
+    android.widget.LinearLayout main_manager_button -> A
+    android.widget.LinearLayout main_applock_button -> B
+    android.widget.LinearLayout main_theme_button -> C
+    android.widget.TextView main_junk_h -> D
+    android.widget.TextView main_ram_h -> E
+    android.widget.TextView main_cooling_h -> F
+    android.widget.LinearLayout main_rotate_all -> G
+    android.widget.ImageView main_rotate_good -> H
+    android.widget.LinearLayout main_tuiguang_button -> I
+    android.widget.FrameLayout fl_lot_main -> J
+    android.widget.TextView main_msg_tuiguang -> K
+    android.widget.LinearLayout main_msg_button -> L
+    android.widget.LinearLayout main_power_button -> M
+    android.widget.LinearLayout main_notifi_button -> N
+    android.widget.LinearLayout main_file_button -> O
+    android.widget.LinearLayout main_gboost_button -> P
+    android.widget.LinearLayout main_picture_button -> Q
+    android.widget.TextView main_msg_ram_percent -> R
+    android.widget.TextView main_msg_sd_percent -> S
+    android.widget.TextView main_msg_sd_unit -> T
+    android.widget.TextView main_msg_cpu_percent -> U
+    android.widget.TextView main_gurad_num -> V
+    android.widget.ImageView main_guard_rotate -> W
+    android.widget.FrameLayout main_guard_all -> X
+    com.supers.clean.junk.customeview.ListViewForScrollView side_listView -> Y
+    android.support.v4.widget.DrawerLayout main_drawer -> Z
+    android.widget.LinearLayout ll_ad -> aa
+    android.widget.LinearLayout ll_ad_side -> ab
+    com.mingle.widget.LinearLayout ll_ad_full -> ac
+    android.widget.ProgressBar ad_progressbar -> ad
+    android.widget.TextView main_full_time -> ae
+    android.widget.FrameLayout fl_lot_side -> af
+    android.widget.ImageView side_title -> ag
+    com.sample.lottie.LottieAnimationView lot_main -> ah
+    com.sample.lottie.LottieAnimationView lot_family -> ai
+    com.sample.lottie.LottieAnimationView lot_side -> aj
+    java.lang.String TAG_MAIN -> ao
+    java.lang.String TAG_HUA -> ap
+    java.lang.String TAG_SIDE -> aq
+    java.lang.String TAG_START_FULL -> ar
+    java.lang.String TAG_EXIT_FULL -> as
+    com.supers.clean.junk.activity.MyApplication cleanApplication -> at
+    android.os.Handler handler -> au
+    com.supers.clean.junk.presenter.MainPresenter mainPresenter -> av
+    com.supers.clean.junk.adapter.SideAdapter adapter -> aw
+    int temp -> ax
+    android.support.v4.view.ViewPager viewpager -> ay
+    android.content.pm.PackageManager packageManager -> az
+    boolean mDrawerOpened -> aA
+    com.eos.ui.demo.entries.CrossData$CrossPromotionBean bean -> aB
+    android.view.View viewpager_3 -> aC
+    android.support.v7.app.AlertDialog dialog -> aD
+    java.lang.String from -> aE
+    int sdProgress -> ak
+    java.lang.Runnable fullAdRunnale -> al
+    com.supers.clean.junk.customeview.PullToRefreshLayout$OnRefreshListener refreshListener -> am
+    android.view.View$OnClickListener onClickListener -> an
+    73:747:void <init>() -> <init>
     145:193:void findId() -> a
     197:386:void onCreate(android.os.Bundle) -> onCreate
     389:406:boolean addTapTuiguang() -> h
@@ -47726,18 +47727,18 @@ com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.Ma
     655:656:void openDrawer() -> f
     660:663:void closeDrawer() -> g
     667:705:void loadFullAd() -> c
-    945:971:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    975:978:void onRestart() -> onRestart
-    982:994:void onPause() -> onPause
-    998:1011:void onResume() -> onResume
-    1015:1025:void onDestroy() -> onDestroy
-    1028:1050:void onBackPressed() -> onBackPressed
-    1053:1072:void adDelete() -> i
-    1075:1124:void showExitDialog() -> j
-    1130:1130:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    1134:1139:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    1143:1148:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    1153:1153:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    944:970:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    974:977:void onRestart() -> onRestart
+    981:993:void onPause() -> onPause
+    997:1010:void onResume() -> onResume
+    1014:1024:void onDestroy() -> onDestroy
+    1027:1050:void onBackPressed() -> onBackPressed
+    1053:1076:void adDelete() -> i
+    1079:1128:void showExitDialog() -> j
+    1134:1134:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    1138:1143:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    1147:1152:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    1157:1157:void onDrawerStateChanged(int) -> onDrawerStateChanged
     73:73:com.supers.clean.junk.presenter.MainPresenter access$000(com.supers.clean.junk.activity.MainActivity) -> a
     73:73:android.support.v4.view.ViewPager access$100(com.supers.clean.junk.activity.MainActivity) -> b
     73:73:com.eos.ui.demo.entries.CrossData$CrossPromotionBean access$200(com.supers.clean.junk.activity.MainActivity) -> c
@@ -47781,47 +47782,47 @@ com.supers.clean.junk.activity.MainActivity$13$1 -> com.supers.clean.junk.activi
 com.supers.clean.junk.activity.MainActivity$14 -> com.supers.clean.junk.activity.MainActivity$6:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
     707:707:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    710:713:void run() -> run
+    710:712:void run() -> run
 com.supers.clean.junk.activity.MainActivity$15 -> com.supers.clean.junk.activity.MainActivity$7:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    717:717:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    721:721:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
-    726:734:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
+    716:716:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    720:720:void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
+    725:733:void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
 com.supers.clean.junk.activity.MainActivity$15$1 -> com.supers.clean.junk.activity.MainActivity$7$1:
     com.supers.clean.junk.activity.MainActivity$15 this$1 -> a
-    727:727:void <init>(com.supers.clean.junk.activity.MainActivity$15) -> <init>
-    730:732:void run() -> run
+    726:726:void <init>(com.supers.clean.junk.activity.MainActivity$15) -> <init>
+    729:731:void run() -> run
 com.supers.clean.junk.activity.MainActivity$16 -> com.supers.clean.junk.activity.MainActivity$8:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    748:748:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    752:940:void onClick(android.view.View) -> onClick
+    747:747:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    751:939:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$16$1 -> com.supers.clean.junk.activity.MainActivity$8$1:
     com.supers.clean.junk.activity.MainActivity$16 this$1 -> a
-    845:845:void <init>(com.supers.clean.junk.activity.MainActivity$16) -> <init>
-    848:869:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    874:874:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    879:879:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    844:844:void <init>(com.supers.clean.junk.activity.MainActivity$16) -> <init>
+    847:868:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    873:873:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    878:878:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.supers.clean.junk.activity.MainActivity$16$1$1 -> com.supers.clean.junk.activity.MainActivity$8$1$1:
     com.supers.clean.junk.activity.MainActivity$16$1 this$2 -> a
-    848:848:void <init>(com.supers.clean.junk.activity.MainActivity$16$1) -> <init>
-    851:860:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    864:867:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    847:847:void <init>(com.supers.clean.junk.activity.MainActivity$16$1) -> <init>
+    850:859:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    863:866:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.supers.clean.junk.activity.MainActivity$16$1$1$1 -> com.supers.clean.junk.activity.MainActivity$8$1$1$1:
     com.supers.clean.junk.activity.MainActivity$16$1$1 this$3 -> a
-    852:852:void <init>(com.supers.clean.junk.activity.MainActivity$16$1$1) -> <init>
-    855:856:void onClick(android.view.View) -> onClick
+    851:851:void <init>(com.supers.clean.junk.activity.MainActivity$16$1$1) -> <init>
+    854:855:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$17 -> com.supers.clean.junk.activity.MainActivity$9:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1063:1063:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1066:1068:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+    1064:1064:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1067:1069:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
 com.supers.clean.junk.activity.MainActivity$18 -> com.supers.clean.junk.activity.MainActivity$10:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1086:1086:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1089:1091:void onClick(android.view.View) -> onClick
+    1090:1090:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1093:1095:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$19 -> com.supers.clean.junk.activity.MainActivity$11:
     com.supers.clean.junk.activity.MainActivity this$0 -> a
-    1093:1093:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
-    1096:1097:void onClick(android.view.View) -> onClick
+    1097:1097:void <init>(com.supers.clean.junk.activity.MainActivity) -> <init>
+    1100:1101:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.MainActivity$2 -> com.supers.clean.junk.activity.MainActivity$12:
     java.util.ArrayList val$arrayList -> a
     com.supers.clean.junk.activity.MainActivity this$0 -> b
@@ -47875,31 +47876,31 @@ com.supers.clean.junk.activity.ManagerActivity -> com.supers.clean.junk.activity
     android.widget.LinearLayout ll_ad_pinlv -> f
     android.widget.RelativeLayout manager_clean -> g
     android.widget.FrameLayout fl_lot_manager_size -> h
-    android.widget.FrameLayout fl_lot_manager_time -> n
-    android.widget.FrameLayout fl_lot_manager_pinlv -> o
-    com.sample.lottie.LottieAnimationView lot_manager_size -> p
-    com.sample.lottie.LottieAnimationView lot_manager_time -> q
-    com.sample.lottie.LottieAnimationView lot_manager_pinlv -> r
-    android.support.v4.view.ViewPager doc_view_pager -> s
-    android.support.design.widget.TabLayout view_pager_tab -> t
-    com.supers.clean.junk.presenter.ManagerPresenter managerPresenter -> v
-    com.supers.clean.junk.adapter.ManagerAdapter adapter_size -> w
-    com.supers.clean.junk.adapter.ManagerAdapter adapter_time -> x
-    com.supers.clean.junk.adapter.ManagerAdapter adapter_pinlv -> y
-    com.supers.clean.junk.activity.ManagerActivity$MyReceiver receiver -> z
-    android.content.IntentFilter filter -> A
-    android.view.View nativeView1 -> B
-    android.view.View nativeView2 -> C
-    android.view.View nativeView3 -> D
-    java.lang.String TAG_MANAGER -> E
-    java.util.ArrayList titleList -> F
-    android.view.View view_size -> G
-    android.view.View view_time -> H
-    android.view.View view_pinlv -> I
-    android.view.View view_permiss -> J
-    java.util.ArrayList viewList -> K
-    com.supers.clean.junk.activity.ManagerActivity$MyPagerAdaptre pagerAdapter -> L
-    android.view.View$OnClickListener onClickListener -> u
+    android.widget.FrameLayout fl_lot_manager_time -> o
+    android.widget.FrameLayout fl_lot_manager_pinlv -> p
+    com.sample.lottie.LottieAnimationView lot_manager_size -> q
+    com.sample.lottie.LottieAnimationView lot_manager_time -> r
+    com.sample.lottie.LottieAnimationView lot_manager_pinlv -> s
+    android.support.v4.view.ViewPager doc_view_pager -> t
+    android.support.design.widget.TabLayout view_pager_tab -> u
+    com.supers.clean.junk.presenter.ManagerPresenter managerPresenter -> w
+    com.supers.clean.junk.adapter.ManagerAdapter adapter_size -> x
+    com.supers.clean.junk.adapter.ManagerAdapter adapter_time -> y
+    com.supers.clean.junk.adapter.ManagerAdapter adapter_pinlv -> z
+    com.supers.clean.junk.activity.ManagerActivity$MyReceiver receiver -> A
+    android.content.IntentFilter filter -> B
+    android.view.View nativeView1 -> C
+    android.view.View nativeView2 -> D
+    android.view.View nativeView3 -> E
+    java.lang.String TAG_MANAGER -> F
+    java.util.ArrayList titleList -> G
+    android.view.View view_size -> H
+    android.view.View view_time -> I
+    android.view.View view_pinlv -> J
+    android.view.View view_permiss -> K
+    java.util.ArrayList viewList -> L
+    com.supers.clean.junk.activity.ManagerActivity$MyPagerAdaptre pagerAdapter -> M
+    android.view.View$OnClickListener onClickListener -> v
     51:382:void <init>() -> <init>
     78:85:void findId() -> a
     89:98:void onCreate(android.os.Bundle) -> onCreate
@@ -47971,17 +47972,17 @@ com.supers.clean.junk.activity.MessageActivity -> com.supers.clean.junk.activity
     android.widget.TextView message_system_start_time2 -> f
     android.widget.TextView message_isRoot -> g
     android.widget.TextView message_resolution -> h
-    android.widget.TextView message_q_camera -> n
-    android.widget.TextView message_h_camera -> o
-    android.widget.TextView message_imei -> p
-    android.widget.TextView message_ram -> q
-    android.widget.TextView message_sd -> r
-    android.widget.LinearLayout ll_ad -> s
-    android.widget.FrameLayout fl_lot_message -> t
-    com.sample.lottie.LottieAnimationView lot_message -> u
-    android.telephony.TelephonyManager telManager -> v
-    java.lang.String TAG_MESSAGE -> w
-    android.os.Handler myHandler -> x
+    android.widget.TextView message_q_camera -> o
+    android.widget.TextView message_h_camera -> p
+    android.widget.TextView message_imei -> q
+    android.widget.TextView message_ram -> r
+    android.widget.TextView message_sd -> s
+    android.widget.LinearLayout ll_ad -> t
+    android.widget.FrameLayout fl_lot_message -> u
+    com.sample.lottie.LottieAnimationView lot_message -> v
+    android.telephony.TelephonyManager telManager -> w
+    java.lang.String TAG_MESSAGE -> x
+    android.os.Handler myHandler -> y
     38:48:void <init>() -> <init>
     53:69:void findId() -> a
     73:138:void onCreate(android.os.Bundle) -> onCreate
@@ -48239,8 +48240,8 @@ com.supers.clean.junk.activity.NotifiSettingActivity -> com.supers.clean.junk.ac
     android.widget.RelativeLayout notifi_button_rl -> f
     com.supers.clean.junk.adapter.NotifiSettingAdapter adapter -> g
     com.supers.clean.junk.activity.MyApplication myApplication -> h
-    java.util.ArrayList list -> n
-    android.view.View$OnClickListener nOnClickListener -> o
+    java.util.ArrayList list -> o
+    android.view.View$OnClickListener nOnClickListener -> p
     23:82:void <init>() -> <init>
     37:45:void findId() -> a
     49:75:void onCreate(android.os.Bundle) -> onCreate
@@ -48259,26 +48260,26 @@ com.supers.clean.junk.activity.PictureActivity -> com.supers.clean.junk.activity
     android.widget.TextView picture_size -> f
     android.widget.Button picture_button -> g
     android.widget.TextView picture_scan -> h
-    android.widget.ProgressBar picture_progressbar -> n
-    android.widget.LinearLayout picture_other -> o
-    android.support.v7.widget.RecyclerView picture_recycle -> p
-    android.support.v4.view.ViewPager picture_pager -> q
-    android.widget.FrameLayout pager_fl -> r
-    android.widget.ImageView pic_pager_left -> s
-    android.widget.TextView pic_pager_title -> t
-    android.widget.LinearLayout pic_pager_delete -> u
-    android.widget.LinearLayout pic_pager_check -> v
-    android.widget.ImageView pic_pager_check_iv -> w
-    com.supers.clean.junk.adapter.RecycleViewAdapter adapter -> D
-    android.support.v4.view.PagerAdapter pagerAdapter -> E
-    com.supers.clean.junk.similarimage.ImageHelper imageHelper -> F
-    java.util.ArrayList pagerView -> G
-    java.util.ArrayList allList -> x
-    android.support.v7.app.AlertDialog dialog -> y
-    long allSize -> z
-    boolean mIsQuerying -> A
-    android.os.Handler mHandler -> B
-    android.view.View$OnClickListener clickListener -> C
+    android.widget.ProgressBar picture_progressbar -> o
+    android.widget.LinearLayout picture_other -> p
+    android.support.v7.widget.RecyclerView picture_recycle -> q
+    android.support.v4.view.ViewPager picture_pager -> r
+    android.widget.FrameLayout pager_fl -> s
+    android.widget.ImageView pic_pager_left -> t
+    android.widget.TextView pic_pager_title -> u
+    android.widget.LinearLayout pic_pager_delete -> v
+    android.widget.LinearLayout pic_pager_check -> w
+    android.widget.ImageView pic_pager_check_iv -> x
+    com.supers.clean.junk.adapter.RecycleViewAdapter adapter -> E
+    android.support.v4.view.PagerAdapter pagerAdapter -> F
+    com.supers.clean.junk.similarimage.ImageHelper imageHelper -> G
+    java.util.ArrayList pagerView -> H
+    java.util.ArrayList allList -> y
+    android.support.v7.app.AlertDialog dialog -> z
+    long allSize -> A
+    boolean mIsQuerying -> B
+    android.os.Handler mHandler -> C
+    android.view.View$OnClickListener clickListener -> D
     48:364:void <init>() -> <init>
     84:104:void findId() -> a
     137:155:void onCreate(android.os.Bundle) -> onCreate
@@ -48398,18 +48399,18 @@ com.supers.clean.junk.activity.PictureHuiActivity -> com.supers.clean.junk.activ
     android.widget.LinearLayout ll_picture -> f
     android.widget.TextView picture_restore -> g
     android.widget.TextView picture_delete -> h
-    android.support.v7.widget.GridLayoutManager gridLayoutManager -> n
-    com.supers.clean.junk.similarimage.ImageHelper imageHelper -> r
-    com.supers.clean.junk.activity.PictureHuiActivity$HuiAdapter adapter -> s
-    android.support.v7.app.AlertDialog dialog -> t
-    boolean isRestore -> u
-    android.os.Handler mHandler -> v
-    java.lang.String TAG_RECYCLE -> w
-    android.view.View nativeView -> x
-    android.widget.LinearLayout ll_ad -> y
-    boolean isfalse -> o
-    android.view.View$OnClickListener clickListener -> p
-    com.supers.clean.junk.activity.PictureHuiActivity$MyCallBack callBack -> q
+    android.support.v7.widget.GridLayoutManager gridLayoutManager -> o
+    com.supers.clean.junk.similarimage.ImageHelper imageHelper -> s
+    com.supers.clean.junk.activity.PictureHuiActivity$HuiAdapter adapter -> t
+    android.support.v7.app.AlertDialog dialog -> u
+    boolean isRestore -> v
+    android.os.Handler mHandler -> w
+    java.lang.String TAG_RECYCLE -> x
+    android.view.View nativeView -> y
+    android.widget.LinearLayout ll_ad -> z
+    boolean isfalse -> p
+    android.view.View$OnClickListener clickListener -> q
+    com.supers.clean.junk.activity.PictureHuiActivity$MyCallBack callBack -> r
     45:129:void <init>() -> <init>
     68:78:void findId() -> a
     82:101:void onCreate(android.os.Bundle) -> onCreate
@@ -48535,16 +48536,16 @@ com.supers.clean.junk.activity.PowerActivity -> com.supers.clean.junk.activity.P
     android.widget.Button junk_button_clean -> e
     android.os.Handler mHandler -> f
     android.support.v7.widget.GridLayoutManager mLayoutManager -> h
-    com.supers.clean.junk.activity.PowerActivity$HomeAdapter homeAdapter -> n
-    com.supers.clean.junk.activity.PowerActivity$HomeAdapter containerAdapter -> o
-    com.supers.clean.junk.activity.MyApplication cleanApplication -> p
-    java.util.ArrayList startList -> q
-    android.view.View containerView -> r
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> s
-    android.widget.TextView containerView_power_size -> t
-    android.widget.Button containerView_junk_button_clean -> u
-    com.supers.clean.junk.customeview.PowerWidgetContainer container -> v
-    int count -> w
+    com.supers.clean.junk.activity.PowerActivity$HomeAdapter homeAdapter -> o
+    com.supers.clean.junk.activity.PowerActivity$HomeAdapter containerAdapter -> p
+    com.supers.clean.junk.activity.MyApplication cleanApplication -> q
+    java.util.ArrayList startList -> r
+    android.view.View containerView -> s
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> t
+    android.widget.TextView containerView_power_size -> u
+    android.widget.Button containerView_junk_button_clean -> v
+    com.supers.clean.junk.customeview.PowerWidgetContainer container -> w
+    int count -> x
     java.lang.Runnable runnable -> g
     42:170:void <init>() -> <init>
     63:69:void findId() -> a
@@ -48624,22 +48625,22 @@ com.supers.clean.junk.activity.PrivacyActivity -> com.supers.clean.junk.activity
     android.widget.ImageView privary_small_4 -> f
     android.widget.ImageView privary_small_5 -> g
     android.widget.ImageView privary_line_1 -> h
-    android.widget.ImageView privary_line_2 -> n
-    android.widget.ImageView privary_yuan_1 -> o
-    android.widget.ImageView privary_yuan_2 -> p
-    android.widget.ImageView privary_yuan_3 -> q
-    android.widget.ImageView privary_cut_1 -> r
-    android.widget.ImageView privary_cut_2 -> s
-    android.widget.ImageView privary_browser_1 -> t
-    android.widget.ImageView privary_browser_2 -> u
-    android.widget.ImageView privary_call_1 -> v
-    android.widget.ImageView privary_call_2 -> w
-    android.animation.AnimatorSet animatorSmall -> y
-    android.animation.AnimatorSet animationLine_1 -> z
-    android.animation.AnimatorSet animationLine_2 -> A
-    android.animation.ObjectAnimator animator -> B
-    android.os.Handler mHandler -> C
-    android.view.View$OnClickListener clickListener -> x
+    android.widget.ImageView privary_line_2 -> o
+    android.widget.ImageView privary_yuan_1 -> p
+    android.widget.ImageView privary_yuan_2 -> q
+    android.widget.ImageView privary_yuan_3 -> r
+    android.widget.ImageView privary_cut_1 -> s
+    android.widget.ImageView privary_cut_2 -> t
+    android.widget.ImageView privary_browser_1 -> u
+    android.widget.ImageView privary_browser_2 -> v
+    android.widget.ImageView privary_call_1 -> w
+    android.widget.ImageView privary_call_2 -> x
+    android.animation.AnimatorSet animatorSmall -> z
+    android.animation.AnimatorSet animationLine_1 -> A
+    android.animation.AnimatorSet animationLine_2 -> B
+    android.animation.ObjectAnimator animator -> C
+    android.os.Handler mHandler -> D
+    android.view.View$OnClickListener clickListener -> y
     31:225:void <init>() -> <init>
     48:67:void findId() -> a
     71:112:void onCreate(android.os.Bundle) -> onCreate
@@ -48666,13 +48667,13 @@ com.supers.clean.junk.activity.RamAvtivity -> com.supers.clean.junk.activity.Ram
     android.widget.TextView junk_unit -> f
     android.widget.TextView junk_fangxin -> g
     android.widget.Button junk_button_clean -> h
-    android.widget.ListView junk_list_all -> n
-    com.supers.clean.junk.presenter.RamPresenter ramPresenter -> p
-    com.supers.clean.junk.adapter.RamAdapter adapterRam -> q
-    boolean color1 -> r
-    boolean color2 -> s
-    android.os.Handler myHandler -> t
-    android.view.View$OnClickListener onClickListener -> o
+    android.widget.ListView junk_list_all -> o
+    com.supers.clean.junk.presenter.RamPresenter ramPresenter -> q
+    com.supers.clean.junk.adapter.RamAdapter adapterRam -> r
+    boolean color1 -> s
+    boolean color2 -> t
+    android.os.Handler myHandler -> u
+    android.view.View$OnClickListener onClickListener -> p
     36:264:void <init>() -> <init>
     56:66:void findId() -> a
     70:78:void onCreate(android.os.Bundle) -> onCreate
@@ -48739,27 +48740,27 @@ com.supers.clean.junk.activity.SettingActivity -> com.supers.clean.junk.activity
     android.widget.RelativeLayout setting_battery -> f
     android.widget.RelativeLayout setting_unload -> g
     android.widget.RelativeLayout setting_power -> h
-    android.widget.RelativeLayout setting_file -> n
-    android.widget.RelativeLayout setting_picture -> o
-    android.widget.RelativeLayout setting_gboost -> p
-    android.widget.RelativeLayout setting_hui -> q
-    android.widget.RelativeLayout setting_notifi -> r
-    android.widget.RelativeLayout setting_white -> s
-    android.widget.RelativeLayout setting_short -> t
-    android.widget.RelativeLayout setting_rotate -> u
-    android.widget.ImageView setting_tongzhi_check -> v
-    android.widget.ImageView setting_tongzhilan_check -> w
-    android.widget.ImageView setting_float_check -> x
-    android.widget.ImageView setting_battery_check -> y
-    android.widget.ImageView setting_unload_check -> z
-    android.widget.LinearLayout ll_ad -> A
-    android.widget.ScrollView setting_scroll -> B
-    android.widget.FrameLayout fl_lot_setting -> C
-    android.view.View nativeView -> E
-    java.lang.String TAG_SETTING -> F
-    android.os.Handler myHandler -> G
-    com.sample.lottie.LottieAnimationView lot_setting -> H
-    android.view.View$OnClickListener onClickListener -> D
+    android.widget.RelativeLayout setting_file -> o
+    android.widget.RelativeLayout setting_picture -> p
+    android.widget.RelativeLayout setting_gboost -> q
+    android.widget.RelativeLayout setting_hui -> r
+    android.widget.RelativeLayout setting_notifi -> s
+    android.widget.RelativeLayout setting_white -> t
+    android.widget.RelativeLayout setting_short -> u
+    android.widget.RelativeLayout setting_rotate -> v
+    android.widget.ImageView setting_tongzhi_check -> w
+    android.widget.ImageView setting_tongzhilan_check -> x
+    android.widget.ImageView setting_float_check -> y
+    android.widget.ImageView setting_battery_check -> z
+    android.widget.ImageView setting_unload_check -> A
+    android.widget.LinearLayout ll_ad -> B
+    android.widget.ScrollView setting_scroll -> C
+    android.widget.FrameLayout fl_lot_setting -> D
+    android.view.View nativeView -> F
+    java.lang.String TAG_SETTING -> G
+    android.os.Handler myHandler -> H
+    com.sample.lottie.LottieAnimationView lot_setting -> I
+    android.view.View$OnClickListener onClickListener -> E
     37:212:void <init>() -> <init>
     54:79:void findId() -> a
     83:105:void onCreate(android.os.Bundle) -> onCreate
@@ -48795,16 +48796,16 @@ com.supers.clean.junk.activity.ShortCutActivity -> com.supers.clean.junk.activit
     android.view.animation.Animation rotate -> f
     android.view.animation.Animation fang -> g
     com.eos.module.tweenengine.TweenManager tweenManager -> h
-    boolean istween -> n
-    boolean isdoudong -> o
-    long size -> p
-    int count -> q
-    android.os.Handler myHandler -> r
-    android.view.View nativeView -> s
-    java.lang.String TAG_SHORTCUT -> t
-    com.supers.clean.junk.customeview.FlakeViewOnShort flakeView -> u
-    android.view.animation.Animation suo -> v
-    android.app.Dialog dialog -> w
+    boolean istween -> o
+    boolean isdoudong -> p
+    long size -> q
+    int count -> r
+    android.os.Handler myHandler -> s
+    android.view.View nativeView -> t
+    java.lang.String TAG_SHORTCUT -> u
+    com.supers.clean.junk.customeview.FlakeViewOnShort flakeView -> v
+    android.view.animation.Animation suo -> w
+    android.app.Dialog dialog -> x
     43:61:void <init>() -> <init>
     68:73:void findId() -> a
     77:107:void onCreate(android.os.Bundle) -> onCreate
@@ -48890,42 +48891,42 @@ com.supers.clean.junk.activity.SuccessActivity -> com.supers.clean.junk.activity
     com.supers.clean.junk.customeview.DrawHookView success_drawhook -> f
     android.widget.ImageView success_huojian -> g
     com.supers.clean.junk.customeview.SlowScrollView scrollView -> h
-    android.widget.LinearLayout main_rotate_all -> n
-    android.widget.LinearLayout main_power_button -> o
-    android.widget.LinearLayout main_notifi_button -> p
-    android.widget.LinearLayout main_file_button -> q
-    android.widget.LinearLayout main_cooling_button -> r
-    android.widget.LinearLayout main_ram_button -> s
-    android.widget.LinearLayout main_junk_button -> t
-    android.widget.LinearLayout main_gboost_button -> u
-    android.widget.LinearLayout main_picture_button -> v
-    android.widget.ImageView power_icon -> w
-    android.widget.TextView power_text -> x
-    android.widget.ImageView main_rotate_good -> y
-    android.widget.ImageView success_progress -> z
-    android.widget.LinearLayout ad_title -> A
-    android.widget.LinearLayout ll_ad_xiao -> B
-    android.widget.LinearLayout ad_native_2 -> C
-    android.widget.FrameLayout fl_lot_success -> D
-    android.widget.LinearLayout main_tuiguang_button -> E
-    android.widget.TextView main_msg_tuiguang -> F
-    com.sample.lottie.LottieAnimationView lot_success -> G
-    android.view.View nativeView -> I
-    android.view.View native_xiao -> J
-    android.view.View native_title -> K
-    boolean isdoudong -> L
-    com.eos.module.tweenengine.TweenManager tweenManager -> M
-    boolean istween -> N
-    android.os.Handler myHandler -> O
-    java.lang.String TAG_CLEAN -> P
-    java.lang.String TAG_CLEAN_2 -> Q
-    java.lang.String TAG_TITLE -> R
-    android.view.animation.Animation rotate -> S
-    boolean haveAd -> T
-    boolean animationEnd -> U
-    com.eos.manager.page.SecuritySharPFive shareFive -> V
-    com.supers.clean.junk.activity.MyApplication cleanApplication -> W
-    android.view.View$OnClickListener onClickListener -> H
+    android.widget.LinearLayout main_rotate_all -> o
+    android.widget.LinearLayout main_power_button -> p
+    android.widget.LinearLayout main_notifi_button -> q
+    android.widget.LinearLayout main_file_button -> r
+    android.widget.LinearLayout main_cooling_button -> s
+    android.widget.LinearLayout main_ram_button -> t
+    android.widget.LinearLayout main_junk_button -> u
+    android.widget.LinearLayout main_gboost_button -> v
+    android.widget.LinearLayout main_picture_button -> w
+    android.widget.ImageView power_icon -> x
+    android.widget.TextView power_text -> y
+    android.widget.ImageView main_rotate_good -> z
+    android.widget.ImageView success_progress -> A
+    android.widget.LinearLayout ad_title -> B
+    android.widget.LinearLayout ll_ad_xiao -> C
+    android.widget.LinearLayout ad_native_2 -> D
+    android.widget.FrameLayout fl_lot_success -> E
+    android.widget.LinearLayout main_tuiguang_button -> F
+    android.widget.TextView main_msg_tuiguang -> G
+    com.sample.lottie.LottieAnimationView lot_success -> H
+    android.view.View nativeView -> J
+    android.view.View native_xiao -> K
+    android.view.View native_title -> L
+    boolean isdoudong -> M
+    com.eos.module.tweenengine.TweenManager tweenManager -> N
+    boolean istween -> O
+    android.os.Handler myHandler -> P
+    java.lang.String TAG_CLEAN -> Q
+    java.lang.String TAG_CLEAN_2 -> R
+    java.lang.String TAG_TITLE -> S
+    android.view.animation.Animation rotate -> T
+    boolean haveAd -> U
+    boolean animationEnd -> V
+    com.eos.manager.page.SecuritySharPFive shareFive -> W
+    com.supers.clean.junk.activity.MyApplication cleanApplication -> X
+    android.view.View$OnClickListener onClickListener -> I
     53:561:void <init>() -> <init>
     104:133:void findId() -> a
     137:275:void onCreate(android.os.Bundle) -> onCreate
@@ -49049,11 +49050,11 @@ com.supers.clean.junk.activity.UnloadActivity -> com.supers.clean.junk.activity.
     android.widget.LinearLayout ll_ad -> f
     long size -> g
     java.lang.String path -> h
-    android.view.View nativeView -> p
-    java.lang.String TAG_UNLOAD -> q
-    java.util.ArrayList mngList -> r
-    android.os.Handler myHandler -> n
-    android.view.View$OnClickListener BtClickListener -> o
+    android.view.View nativeView -> q
+    java.lang.String TAG_UNLOAD -> r
+    java.util.ArrayList mngList -> s
+    android.os.Handler myHandler -> o
+    android.view.View$OnClickListener BtClickListener -> p
     29:123:void <init>() -> <init>
     45:99:void onCreate(android.os.Bundle) -> onCreate
     102:121:void addAd() -> c
@@ -49075,9 +49076,9 @@ com.supers.clean.junk.activity.WhiteListAddActivity -> com.supers.clean.junk.act
     android.widget.ImageButton clear -> e
     android.widget.EditText search_edit_text -> f
     com.supers.clean.junk.adapter.WhiteListAdapter adapter -> g
-    boolean search -> n
-    java.util.List white_list -> o
-    java.util.List listEdit -> p
+    boolean search -> o
+    java.util.List white_list -> p
+    java.util.List listEdit -> q
     android.view.View$OnClickListener clickListener -> h
     29:79:void <init>() -> <init>
     44:51:void findId() -> a

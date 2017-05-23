@@ -54,7 +54,7 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
         }
         holder.name.setText(info.label);
         holder.time.setText(CommonUtil.getStrTime(info.time));
-        holder.size.setText(CommonUtil.convertStorage(info.size,true));
+        holder.size.setText(CommonUtil.convertStorage(info.size, true));
         Drawable icon = info.icon;
         holder.icon.setImageDrawable(icon);
         if (info.isChecked) {

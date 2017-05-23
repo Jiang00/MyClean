@@ -708,7 +708,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         @Override
         public void run() {
             adDelete();
-
             main_full_time.setVisibility(View.GONE);
         }
     };
@@ -1028,6 +1027,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (ll_ad_full.getVisibility() == View.VISIBLE) {
             adDelete();
             main_full_time.setVisibility(View.GONE);
+            ad_progressbar.setVisibility(View.GONE);
             handler.removeCallbacks(fullAdRunnale);
             return;
         }
@@ -1053,22 +1053,26 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (ll_ad_full == null) {
             return;
         }
-        if (onPause) {
+        if (onPause || !onResume) {
             ll_ad_full.setVisibility(View.GONE);
             return;
         }
-        CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
-                lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
-        if (crA != null) {
-            crA.addListener(new SimpleAnimListener() {
-                @Override
-                public void onAnimationEnd(CRAnimation animation) {
-                    super.onAnimationEnd(animation);
-                    ll_ad_full.setVisibility(View.GONE);
-                }
-            });
-            crA.start();
+        try {
+            CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
+                    lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
+            if (crA != null) {
+                crA.addListener(new SimpleAnimListener() {
+                    @Override
+                    public void onAnimationEnd(CRAnimation animation) {
+                        super.onAnimationEnd(animation);
+                        ll_ad_full.setVisibility(View.GONE);
+                    }
+                });
+                crA.start();
+            }
+        } catch (Exception e) {
         }
+
     }
 
     private void showExitDialog() {

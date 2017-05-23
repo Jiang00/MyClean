@@ -34,6 +34,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected boolean onPause = false;
     protected boolean onDestroyed = false;
+    protected boolean onResume = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,6 +79,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        onResume = true;
         onPause = false;
     }
 
@@ -85,6 +87,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         onPause = true;
+        onResume = false;
     }
 
     @Override
