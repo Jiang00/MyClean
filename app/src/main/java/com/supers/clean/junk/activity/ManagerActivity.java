@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
@@ -71,6 +72,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     private View view_size, view_time, view_pinlv, view_permiss;
     private ArrayList<View> viewList;
     private MyPagerAdaptre pagerAdapter;
+    public Handler myHandler;
 
     @Override
     protected void findId() {
@@ -87,6 +89,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_manager);
+        myHandler = new Handler();
         managerPresenter = new ManagerPresenter(this, this);
         managerPresenter.init();
         receiver = new MyReceiver();

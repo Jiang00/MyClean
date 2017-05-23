@@ -14,6 +14,7 @@ import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.activity.JunkActivity;
+import com.supers.clean.junk.activity.JunkAndRamActivity;
 import com.supers.clean.junk.presenter.JunkRamPresenter;
 
 public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
@@ -72,7 +73,7 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
                         addBitmapToCache(info.path, bitmap);
                     }
                     final Bitmap finalDrawable = bitmap;
-                    ((JunkActivity) context).myHandler.post(new Runnable() {
+                    ((JunkAndRamActivity) context).myHandler.post(new Runnable() {
                         @Override
                         public void run() {
                             holder.icon.setImageBitmap(finalDrawable);
@@ -96,7 +97,7 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
                     }
 
                     final Bitmap finalDrawable = bitmap;
-                    ((JunkActivity) context).myHandler.post(new Runnable() {
+                    ((JunkAndRamActivity) context).myHandler.post(new Runnable() {
                         @Override
                         public void run() {
                             holder.icon.setImageBitmap(finalDrawable);

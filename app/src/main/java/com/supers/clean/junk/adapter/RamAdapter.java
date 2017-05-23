@@ -16,6 +16,7 @@ import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.activity.JunkActivity;
+import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.presenter.RamPresenter;
 
 import java.util.List;
@@ -89,7 +90,7 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
                 }
 
                 final Bitmap finalDrawable = bitmap;
-                ((JunkActivity) context).myHandler.post(new Runnable() {
+                ((RamAvtivity) context).myHandler.post(new Runnable() {
                     @Override
                     public void run() {
                         holder.icon.setImageBitmap(finalDrawable);

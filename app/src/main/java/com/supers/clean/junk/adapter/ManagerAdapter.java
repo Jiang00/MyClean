@@ -14,6 +14,7 @@ import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.activity.JunkActivity;
+import com.supers.clean.junk.activity.ManagerActivity;
 import com.supers.clean.junk.presenter.ManagerPresenter;
 
 public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
@@ -77,7 +78,7 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
                 }
 
                 final Bitmap finalDrawable = bitmap;
-                ((JunkActivity) context).myHandler.post(new Runnable() {
+                ((ManagerActivity) context).myHandler.post(new Runnable() {
                     @Override
                     public void run() {
                         holder.icon.setImageBitmap(finalDrawable);

@@ -49,7 +49,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     private RamAdapter adapterRam;
     private boolean color1 = true;
     private boolean color2 = true;
-    private Handler myHandler;
+    public Handler myHandler;
 
     @Override
     protected void findId() {

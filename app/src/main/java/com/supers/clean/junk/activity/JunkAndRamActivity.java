@@ -57,7 +57,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     private JunkRamAdapter adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterRam, adapterClear;
     private boolean color1 = true;
     private boolean color2 = true;
-    private Handler myHandler;
+    public Handler myHandler;
 
     @Override
     protected void findId() {
@@ -225,7 +225,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         }
         junk_system_list.setVisibility(View.GONE);
 //        junk_system_size.setText(Util.getFileSizeKongge(size));
-//        junkPresenter.setUnit(size, junk_system_unit);
+//        junkPresenter.setUnit(size, junk_system_unit);mana
 
         new Thread(new Runnable() {
             @Override
