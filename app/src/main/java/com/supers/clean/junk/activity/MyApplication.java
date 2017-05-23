@@ -216,6 +216,11 @@ public class MyApplication extends App {
         }
     }
 
+    public void clearAppJunk() {
+        logSize = 0;
+        appJunk.clear();
+    }
+
     public void removeFilesOfUnintalledApk(JunkInfo fileListInfo) {
         CommonUtil.deleteFile(fileListInfo.path);
         unloadSize -= fileListInfo.size;
