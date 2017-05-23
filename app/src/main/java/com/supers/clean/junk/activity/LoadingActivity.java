@@ -45,7 +45,7 @@ public class LoadingActivity extends BaseActivity {
         ShopMaster.onCreate(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
-//        ShortCutUtils.addShortcut(this);
+        ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
         tv_tiaoguo.setVisibility(View.INVISIBLE);
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
