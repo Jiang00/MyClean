@@ -33,6 +33,8 @@ import com.android.client.AndroidSdk;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;
+import com.eos.manager.AppLockPatternEosActivity;
+import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
@@ -754,37 +756,37 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_applock_button:
                     Util.track("applock", "主界面点击", "", 1);
-//                    int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
-//                    if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
-//                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-//                        intent.putExtra("is_main", true);
-//                        startActivity(intent);
-//                        break;
-//                    }
-//                    if (type == 0) {
-//                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock", packageManager)) {
-//                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-//                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
-//                        } else {
-//                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
-//                            startActivity(intent);
-//                        }
-//                    } else if (type == 1) {
-//                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock", packageManager)) {
-//                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-//                        } else {
-//                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
-//                            startActivity(intent);
-//                        }
-//                    } else {
-//                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-//                        intent.putExtra("is_main", true);
-//                        startActivity(intent);
-//                    }
-//
-//                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-//                    intent.putExtra("is_main", true);
-//                    startActivity(intent);
+                    int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
+                    if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
+                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
+                        intent.putExtra("is_main", true);
+                        startActivity(intent);
+                        break;
+                    }
+                    if (type == 0) {
+                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock")) {
+                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
+                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
+                        } else {
+                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
+                            startActivity(intent);
+                        }
+                    } else if (type == 1) {
+                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock")) {
+                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
+                        } else {
+                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
+                            startActivity(intent);
+                        }
+                    } else {
+                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
+                        intent.putExtra("is_main", true);
+                        startActivity(intent);
+                    }
+
+                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
+                    intent.putExtra("is_main", true);
+                    startActivity(intent);
                     break;
                 case R.id.main_theme_button:
                     Util.track("主页面", "点击进入buton游戏加速", "", 1);

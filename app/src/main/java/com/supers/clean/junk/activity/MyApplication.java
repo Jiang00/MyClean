@@ -13,6 +13,7 @@ import com.android.clean.notification.NotificationMonitorService;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.eos.kpa.DaemonClient;
+import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
@@ -37,7 +38,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by on 2016/11/29.
  */
-public class MyApplication extends Application {
+public class MyApplication extends App {
 
     private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 5;
 
