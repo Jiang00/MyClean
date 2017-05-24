@@ -85,6 +85,7 @@ public class FileDocActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file_doc);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         title_name.setText(R.string.file_txt);
         loadAd();
         setListenet();

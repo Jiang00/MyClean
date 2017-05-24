@@ -102,6 +102,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);
         junkPresenter.init();
@@ -423,21 +424,21 @@ public class JunkActivity extends BaseActivity implements JunkView {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (finalI != 0) {
-                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(finalI, true) + ")");
-                                }
-                            }
-                        });
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                if (finalI != 0) {
+//                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(finalI, true) + ")");
+//                                }
+//                            }
+//                        });
                     }
                 }
             }).start();
         } else {
-            if (size != 0) {
-                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(size, true) + ")");
-            }
+//            if (size != 0) {
+//                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(size, true) + ")");
+//            }
         }
 
     }

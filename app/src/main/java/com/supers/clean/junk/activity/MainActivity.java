@@ -137,6 +137,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private View viewpager_3;
     private String from;
     private AlertDialog dialog;
+    private LinearLayout deep;
+    private FrameLayout lot_tap;
+    private ArrayList<View> arrayList;
 
     @Override
     protected void findId() {
@@ -227,7 +230,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
         tuiGuang();
 
-        final ArrayList<View> arrayList = new ArrayList<>();
+        arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
         main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
         main_custom_cpu = (CustomRoundCpu) view.findViewById(R.id.main_custom_cpu);
@@ -258,7 +261,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
         viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_deep, null);
         Button deep_ok = (Button) viewpager_3.findViewById(R.id.deep_ok);
-        LinearLayout deep = (LinearLayout) viewpager_3.findViewById(R.id.deep);
+        deep = (LinearLayout) viewpager_3.findViewById(R.id.deep);
         LinearLayout tap_ll = (LinearLayout) viewpager_3.findViewById(R.id.tap_ll);
         ImageView tap_iv_1 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_1);
         ImageView tap_iv_2 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_2);
@@ -267,7 +270,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         ImageView tap_iv_5 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_5);
         TextView tap_iv_6 = (TextView) viewpager_3.findViewById(R.id.tap_iv_6);
         TextView tap_deep_text = (TextView) viewpager_3.findViewById(R.id.tap_deep_text);
-        final FrameLayout lot_tap = (FrameLayout) viewpager_3.findViewById(R.id.lot_tap);
+        lot_tap = (FrameLayout) viewpager_3.findViewById(R.id.lot_tap);
         if (!PreData.getDB(this, Constant.DEEP_CLEAN, false)) {
             List<JunkInfo> startList = new ArrayList<>();
             for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
@@ -965,6 +968,16 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             main_ram_h.setVisibility(View.GONE);
         } else if (resultCode == Constant.JUNK_RESUIL) {
             main_junk_h.setVisibility(View.GONE);
+        } else if (resultCode == Constant.POWER_RESUIL) {
+            if (viewpager_3 != null && arrayList.contains(viewpager_3)) {
+                arrayList.remove(viewpager_3);
+                if (addTapTuiguang()) {
+                    deep.setVisibility(View.INVISIBLE);
+                    lot_tap.setVisibility(View.VISIBLE);
+                    arrayList.add(viewpager_3);
+                }
+            }
+
         }
 
     }

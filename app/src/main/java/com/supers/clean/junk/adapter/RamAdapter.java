@@ -79,25 +79,31 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
             info.label = LoadManager.getInstance(context).getAppLabel(info.pkg);
         }
         holder.name.setText(info.label);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Bitmap bitmap = getBitmapFromCache(info.pkg);
-
-                if (bitmap == null) {
-                    bitmap = Util.getBitmap(LoadManager.getInstance(context).getAppIcon(info.pkg));
-                    addBitmapToCache(info.pkg, bitmap);
-                }
-
-                final Bitmap finalDrawable = bitmap;
-                ((RamAvtivity) context).myHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        holder.icon.setImageBitmap(finalDrawable);
-                    }
-                });
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//                try {
+//                    Bitmap bitmap = getBitmapFromCache(info.pkg);
+//                    if (bitmap == null) {
+//                        bitmap = Util.getBitmap(LoadManager.getInstance(context).getAppIcon(info.pkg));
+//                        addBitmapToCache(info.pkg, bitmap);
+//                    }
+//
+//                    final Bitmap finalDrawable = bitmap;
+//                    ((RamAvtivity) context).myHandler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            holder.icon.setImageBitmap(finalDrawable);
+//                        }
+//                    });
+//                } catch (OutOfMemoryError error) {
+//
+//                }
+//
+//            }
+//        }).start();
+        holder.icon.setImageDrawable(LoadManager.getInstance(context).getAppIcon(info.pkg));
         if (white_list.contains(info.pkg)) {
             info.isChecked = false;
         }

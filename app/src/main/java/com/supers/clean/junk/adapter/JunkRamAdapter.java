@@ -64,47 +64,13 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
         }
         if (info.type == JunkInfo.TableType.APKFILE) {
             holder.name.setText(info.label);
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Bitmap bitmap = getBitmapFromCache(info.path);
-                    if (bitmap == null) {
-                        bitmap = Util.getBitmap(LoadManager.getInstance(context).getApkIconforPath(info.path));
-                        addBitmapToCache(info.path, bitmap);
-                    }
-                    final Bitmap finalDrawable = bitmap;
-                    ((JunkAndRamActivity) context).myHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            holder.icon.setImageBitmap(finalDrawable);
-                        }
-                    });
-
-                }
-            }).start();
+            holder.icon.setImageDrawable(LoadManager.getInstance(context).getApkIconforPath(info.path));
         } else if (info.type == JunkInfo.TableType.APP) {
             if (info.label == null) {
                 info.label = LoadManager.getInstance(context).getAppLabel(info.pkg);
             }
             holder.name.setText(info.label);
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Bitmap bitmap = getBitmapFromCache(info.pkg);
-                    if (bitmap == null) {
-                        bitmap = Util.getBitmap(LoadManager.getInstance(context).getAppIcon(info.pkg));
-                        addBitmapToCache(info.pkg, bitmap);
-                    }
-
-                    final Bitmap finalDrawable = bitmap;
-                    ((JunkAndRamActivity) context).myHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            holder.icon.setImageBitmap(finalDrawable);
-                        }
-                    });
-                }
-            }).start();
+            holder.icon.setImageDrawable(LoadManager.getInstance(context).getAppIcon(info.pkg));
         } else {
             holder.name.setText(info.label);
             holder.icon.setImageResource(R.mipmap.log_file);

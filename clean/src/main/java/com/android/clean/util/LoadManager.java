@@ -22,7 +22,7 @@ public class LoadManager {
 
     public static LoadManager getInstance(Context context) {
         if (loadManager == null) {
-            loadManager = new LoadManager(context);
+            loadManager = new LoadManager(context.getApplicationContext());
         }
         return loadManager;
     }

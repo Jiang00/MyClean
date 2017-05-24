@@ -68,27 +68,8 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
         holder.time.setText(Util.getStrTime(info.date));
         holder.size.setText(Util.convertStorage(info.allSize, true));
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Bitmap bitmap = getBitmapFromCache(info.pkg);
-                if (bitmap == null) {
-                    bitmap = Util.getBitmap(LoadManager.getInstance(context).getAppIcon(info.pkg));
-                    addBitmapToCache(info.pkg, bitmap);
-                }
-
-                final Bitmap finalDrawable = bitmap;
-                ((ManagerActivity) context).myHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        holder.icon.setImageBitmap(finalDrawable);
-                    }
-                });
-
-            }
-        }).start();
-//        Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
-//        holder.icon.setImageDrawable(icon);
+        Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
+        holder.icon.setImageDrawable(icon);
         if (info.isChecked) {
             holder.checkBox.setImageResource(R.mipmap.ram_passed);
         } else {

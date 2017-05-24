@@ -28,6 +28,7 @@ import com.android.clean.powerclean.CustomerAccessibilityService;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.PowerWidgetContainer;
 import com.android.clean.entity.JunkInfo;
@@ -74,6 +75,7 @@ public class PowerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         mHandler = new Handler();
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));
         initData();
@@ -124,7 +126,7 @@ public class PowerActivity extends BaseActivity {
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
             }
         });
         if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
@@ -149,7 +151,7 @@ public class PowerActivity extends BaseActivity {
                     bundle.putString("from", "GBoost");
                     jumpToActivity(SuccessActivity.class, bundle, 1);
                 }
-                finish();
+                onBackPressed();
                 return;
             }
             junk_button_clean.callOnClick();
@@ -204,7 +206,7 @@ public class PowerActivity extends BaseActivity {
                     bundle.putString("from", "GBoost");
                     jumpToActivity(SuccessActivity.class, bundle, 1);
                 }
-                finish();
+                onBackPressed();
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putInt("count", count);
@@ -335,10 +337,15 @@ public class PowerActivity extends BaseActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        setResult(Constant.POWER_RESUIL);
+        finish();
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(1);
-            finish();
+            onBackPressed();
         }
         if (requestCode == 100) {
             if (Util.isAccessibilitySettingsOn(PowerActivity.this)) {

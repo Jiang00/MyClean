@@ -80,6 +80,7 @@ public class CoolingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +106,7 @@ public class CoolingActivity extends BaseActivity {
         animator_ine_1_r.setRepeatCount(-1);
         animationLine_1.setDuration(1000);
         animationLine_1.setInterpolator(new AccelerateDecelerateInterpolator());
-        animationLine_1.playTogether(animator_ine_1_x, animator_ine_1_y,animator_ine_1_r);
+        animationLine_1.playTogether(animator_ine_1_x, animator_ine_1_y, animator_ine_1_r);
         animationLine_1.start();
 
         suo.setAnimationListener(new Animation.AnimationListener() {

@@ -280,8 +280,11 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             @Override
             public void run() {
                 adapter_size.upList(listsize);
+                adapter_size.notifyDataSetChanged();
                 adapter_time.upList(listtime);
+                adapter_time.notifyDataSetChanged();
                 adapter_pinlv.upList(listpinlv);
+                adapter_pinlv.notifyDataSetChanged();
             }
         });
     }

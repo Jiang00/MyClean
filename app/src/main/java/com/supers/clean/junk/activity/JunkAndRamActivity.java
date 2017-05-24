@@ -108,6 +108,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         myHandler = new Handler();
         junkPresenter = new JunkRamPresenter(this, this);
         junkPresenter.init();
@@ -466,21 +467,21 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (finalI != 0) {
-                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(finalI, true) + ")");
-                                }
-                            }
-                        });
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                if (finalI != 0) {
+//                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(finalI, true) + ")");
+//                                }
+//                            }
+//                        });
                     }
                 }
             }).start();
         } else {
-            if (cleanSize != 0) {
-                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(cleanSize, true) + ")");
-            }
+//            if (cleanSize != 0) {
+//                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + Util.convertStorage(cleanSize, true) + ")");
+//            }
         }
 
     }

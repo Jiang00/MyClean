@@ -131,6 +131,9 @@ public class ShortCutActivity extends BaseActivity {
             ll_ad = (LinearLayout) view.findViewById(R.id.ll_ad);
             loadAd();
             TextView short_clean_szie = (TextView) view.findViewById(R.id.short_clean_szie);
+            if (size < 0) {
+                size = 0;
+            }
             short_clean_szie.setText(Util.convertStorage(size, true));
             dialog = new Dialog(ShortCutActivity.this, R.style.add_dialog);
             dialog.show();
@@ -162,6 +165,9 @@ public class ShortCutActivity extends BaseActivity {
         int count = 0;
         final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
         for (PackageInfo packageInfo : installedPackages) {
+            if (onPause) {
+                break;
+            }
             if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.eosmobi")) {
                 continue;
             }
@@ -246,7 +252,10 @@ public class ShortCutActivity extends BaseActivity {
         myHandler.post(new Runnable() {
             @Override
             public void run() {
-                flakeView.addFlakes(FLAKE_NUM);
+                try {
+                    flakeView.addFlakes(FLAKE_NUM);
+                } catch (Exception e) {
+                }
             }
         });
         myHandler.postDelayed(new Runnable() {

@@ -70,6 +70,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
         ramPresenter.init();
@@ -201,21 +202,21 @@ public class RamAvtivity extends BaseActivity implements RamView {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (finalI != 0) {
-                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(finalI, true) + ")");
-                                }
-                            }
-                        });
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                if (finalI != 0) {
+//                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(finalI, true) + ")");
+//                                }
+//                            }
+//                        });
                     }
                 }
             }).start();
         } else {
-            if (size != 0) {
-                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(size, true) + ")");
-            }
+//            if (size != 0) {
+//                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(size, true) + ")");
+//            }
         }
 
     }

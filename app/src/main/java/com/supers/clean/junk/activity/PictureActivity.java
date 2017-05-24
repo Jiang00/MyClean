@@ -135,6 +135,7 @@ public class PictureActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);

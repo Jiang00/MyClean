@@ -85,7 +85,6 @@ public class SuccessActivity extends BaseActivity {
     LottieAnimationView lot_success;
     private View nativeView;
     private View native_xiao;
-    private View native_title;
 
     private boolean isdoudong;
     private TweenManager tweenManager;
@@ -356,7 +355,6 @@ public class SuccessActivity extends BaseActivity {
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
         native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
-        native_title = AdUtil.getNativeAdView(TAG_TITLE, R.layout.native_ad_title);
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight();
@@ -369,10 +367,6 @@ public class SuccessActivity extends BaseActivity {
                 scrollView.isTouch = false;
                 scrollView.smoothScrollToSlow(2000);
             }
-        }
-        if (ad_title != null && native_title != null) {
-            ad_title.addView(native_title);
-            ad_title.setVisibility(View.VISIBLE);
         }
         if (ll_ad_xiao != null && native_xiao != null) {
             ll_ad_xiao.addView(native_xiao);

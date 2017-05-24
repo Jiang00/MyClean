@@ -104,6 +104,7 @@ public class Constant {
     public static final int SETTING_RESUIL = 22;
     public static final int COOLING_RESUIL = 23;
     public static final int WHITE_RESUIL = 24;
+    public static final int POWER_RESUIL = 25;
 
     //内部功能
 

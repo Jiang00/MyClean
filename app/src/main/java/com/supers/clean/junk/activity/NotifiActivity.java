@@ -19,6 +19,7 @@ import com.android.clean.core.CleanManager;
 import com.android.clean.notification.NotificationCallBack;
 import com.android.clean.notification.NotificationInfo;
 import com.android.clean.notification.NotificationMonitorService;
+import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.NotifiAdapter;
 import com.supers.clean.junk.customeview.DeleteListView;
@@ -110,6 +111,7 @@ public class NotifiActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
 
@@ -121,6 +123,7 @@ public class NotifiActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, NotificationMonitorService.class));

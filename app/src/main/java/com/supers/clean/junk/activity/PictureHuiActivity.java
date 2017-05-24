@@ -124,7 +124,7 @@ public class PictureHuiActivity extends BaseActivity {
 
     }
 
-    boolean isfalse = false;
+    boolean isfalse = true;
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -135,8 +135,10 @@ public class PictureHuiActivity extends BaseActivity {
                     break;
                 case R.id.title_check:
                     if (isfalse) {
+                        isfalse = false;
                         adapter.allPassed(false);
                     } else {
+                        isfalse = true;
                         adapter.allPassed(true);
                     }
                     break;
