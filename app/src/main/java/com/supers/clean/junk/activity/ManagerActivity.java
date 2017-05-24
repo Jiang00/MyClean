@@ -27,6 +27,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -36,7 +37,6 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.AppManagerView;
@@ -60,8 +60,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     LinearLayout ll_ad_size, ll_ad_time, ll_ad_pinlv;
     TextView manager_shouquan;
     RelativeLayout manager_clean;
-    FrameLayout fl_lot_manager_size, fl_lot_manager_time, fl_lot_manager_pinlv;
-    LottieAnimationView lot_manager_size, lot_manager_time, lot_manager_pinlv;
     ViewPager doc_view_pager;
     TabLayout view_pager_tab;
 
@@ -117,54 +115,12 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                 ll_ad_size.setLayoutParams(layout_ad);
                 ll_ad_size.addView(nativeView1);
             } else {
-                tuiGuang();
-                DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "manager", true, new CrossManager.onCrossViewClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                    }
-
-                    @Override
-                    public void onLoadView(View view) {
-                        if (view != null) {
-                            ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                            lot_manager_size = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                            lot_manager_size.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                            fl_lot_manager_size.setVisibility(View.VISIBLE);
-                            lot_manager_size.pauseAnimation();
-                            fl_lot_manager_size.addView(view, 0);
-                        } else {
-                            fl_lot_manager_size.setVisibility(View.GONE);
-                        }
-                    }
-                });
             }
             if (ll_ad_time != null && nativeView2 != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_time.getLayoutParams();
                 ll_ad_time.setLayoutParams(layout_ad);
                 ll_ad_time.addView(nativeView2);
             } else {
-                tuiGuang();
-                DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "manager", true, new CrossManager.onCrossViewClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                    }
-
-                    @Override
-                    public void onLoadView(View view) {
-                        if (view != null) {
-                            ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                            lot_manager_time = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                            lot_manager_time.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                            fl_lot_manager_time.setVisibility(View.VISIBLE);
-                            lot_manager_time.pauseAnimation();
-                            fl_lot_manager_time.addView(view, 0);
-                        } else {
-                            fl_lot_manager_time.setVisibility(View.GONE);
-                        }
-                    }
-                });
             }
 
         }
@@ -183,6 +139,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         adapter_size = new ManagerAdapter(this, managerPresenter);
         adapter_time = new ManagerAdapter(this, managerPresenter);
         adapter_pinlv = new ManagerAdapter(this, managerPresenter);
+        managerPresenter.addAdapterData();
         titleList = new ArrayList<>();
         titleList.add(getString(R.string.manager_sort_size));
         titleList.add(getString(R.string.manager_sort_time));
@@ -217,37 +174,10 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             public void onPageSelected(int position) {
                 if (position == 0) {
 //                    adapter_size.notifyDataSetChanged();
-                    if (lot_manager_time != null) {
-                        lot_manager_time.pauseAnimation();
-                    }
-                    if (lot_manager_pinlv != null) {
-                        lot_manager_pinlv.pauseAnimation();
-                    }
-                    if (lot_manager_size != null) {
-                        lot_manager_size.playAnimation();
-                    }
                 } else if (position == 1) {
 //                    adapter_time.notifyDataSetChanged();
-                    if (lot_manager_size != null) {
-                        lot_manager_size.pauseAnimation();
-                    }
-                    if (lot_manager_pinlv != null) {
-                        lot_manager_pinlv.pauseAnimation();
-                    }
-                    if (lot_manager_time != null) {
-                        lot_manager_time.playAnimation();
-                    }
                 } else {
 //                    adapter_pinlv.notifyDataSetChanged();
-                    if (lot_manager_size != null) {
-                        lot_manager_size.pauseAnimation();
-                    }
-                    if (lot_manager_time != null) {
-                        lot_manager_time.pauseAnimation();
-                    }
-                    if (lot_manager_pinlv != null) {
-                        lot_manager_pinlv.playAnimation();
-                    }
 
                 }
             }
@@ -269,16 +199,13 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
 
     private void initList() {
-        ListViewForScrollView listView_size = (ListViewForScrollView) view_size.findViewById(R.id.file_list);
-        ListViewForScrollView listView_time = (ListViewForScrollView) view_time.findViewById(R.id.file_list);
-        ListViewForScrollView listView_pinlv = (ListViewForScrollView) view_pinlv.findViewById(R.id.file_list);
+        ListView listView_size = (ListView) view_size.findViewById(R.id.file_list);
+        ListView listView_time = (ListView) view_time.findViewById(R.id.file_list);
+        ListView listView_pinlv = (ListView) view_pinlv.findViewById(R.id.file_list);
         TextView manager_shouquan = (TextView) view_permiss.findViewById(R.id.manager_shouquan);
         ll_ad_size = (LinearLayout) view_size.findViewById(R.id.ll_ad);
-        fl_lot_manager_size = (FrameLayout) view_size.findViewById(R.id.fl_lot_manager);
         ll_ad_time = (LinearLayout) view_time.findViewById(R.id.ll_ad);
-        fl_lot_manager_time = (FrameLayout) view_time.findViewById(R.id.fl_lot_manager);
         ll_ad_pinlv = (LinearLayout) view_pinlv.findViewById(R.id.ll_ad);
-        fl_lot_manager_pinlv = (FrameLayout) view_pinlv.findViewById(R.id.fl_lot_manager);
         listView_size.setAdapter(adapter_size);
         listView_time.setAdapter(adapter_time);
         listView_pinlv.setAdapter(adapter_pinlv);
@@ -348,15 +275,15 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
 
     @Override
-    public void updateAdapter(List<JunkInfo> listsize, List<JunkInfo> listtime, List<JunkInfo> listpinlv) {
-        Log.e("time", System.currentTimeMillis() + "=");
-        adapter_size.addDataList(listsize);
-        adapter_time.addDataList(listtime);
-        adapter_pinlv.addDataList(listpinlv);
-        Log.e("time", System.currentTimeMillis() + "=");
-//        adapter_size.notifyDataSetChanged();
-//        adapter_time.notifyDataSetChanged();
-//        adapter_pinlv.notifyDataSetChanged();
+    public void updateAdapter(final List<JunkInfo> listsize, final List<JunkInfo> listtime, final List<JunkInfo> listpinlv) {
+        myHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                adapter_size.upList(listsize);
+                adapter_time.upList(listtime);
+                adapter_pinlv.upList(listpinlv);
+            }
+        });
     }
 
 
@@ -447,30 +374,12 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        managerPresenter.addAdapterData();
-        if (lot_manager_size != null) {
-            lot_manager_size.playAnimation();
-        }
-        if (lot_manager_time != null) {
-            lot_manager_time.playAnimation();
-        }
-        if (lot_manager_pinlv != null) {
-            lot_manager_pinlv.playAnimation();
-        }
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (lot_manager_size != null) {
-            lot_manager_size.pauseAnimation();
-        }
-        if (lot_manager_time != null) {
-            lot_manager_time.pauseAnimation();
-        }
-        if (lot_manager_pinlv != null) {
-            lot_manager_pinlv.pauseAnimation();
-        }
     }
 
     @Override

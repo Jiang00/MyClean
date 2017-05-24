@@ -1,44 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.supers.clean.junk.customeview.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
+
 
     <LinearLayout
+        android:id="@+id/ll_ad"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
 
-        <LinearLayout
-            android:id="@+id/ll_ad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-
-        <FrameLayout
-            android:id="@+id/fl_lot_manager"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d135"
-            android:visibility="gone">
-
-            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                app:typeface="eos_clean.otf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:background="@color/black_35"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center"
-                android:text="AD"
-                android:textColor="@android:color/white"
-                android:textSize="8sp" />
-        </FrameLayout>
-
-        <com.supers.clean.junk.customeview.ListViewForScrollView
-            android:id="@+id/file_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@drawable/list_divider"
-            android:dividerHeight="1dp" />
-    </LinearLayout>
-</com.supers.clean.junk.customeview.MyScrollView>
+    <ListView
+        android:id="@+id/file_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/list_divider"
+        android:dividerHeight="1dp" />
+</LinearLayout>

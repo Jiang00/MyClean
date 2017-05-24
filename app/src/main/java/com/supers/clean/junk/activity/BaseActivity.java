@@ -34,6 +34,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected boolean onPause = false;
     protected boolean onDestroyed = false;
+    protected boolean onResume = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,9 @@ public class BaseActivity extends AppCompatActivity {
             try {
                 data = JsonParser.getInstance().fromJson(AndroidSdk.getExtraData(), JsonData.class);
                 PreData.putDB(this, Constant.FULL_MAIN, data.full_main);
+                PreData.putDB(this, Constant.FULL_START, data.full_start);
+                PreData.putDB(this, Constant.FULL_EXIT, data.full_exit);
+                PreData.putDB(this, Constant.SKIP_TIME, data.skip_time);
                 PreData.putDB(this, Constant.FULL_MANAGER, data.full_manager);
                 PreData.putDB(this, Constant.FULL_MESSAGE, data.full_message);
                 PreData.putDB(this, Constant.FULL_SUCCESS, data.full_success);
@@ -76,12 +80,14 @@ public class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         onPause = false;
+        onResume = true;
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         onPause = true;
+        onResume = false;
     }
 
     @Override
