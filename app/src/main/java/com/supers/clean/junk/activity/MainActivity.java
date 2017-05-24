@@ -762,7 +762,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                        break;
 //                    }
 //                    if (type == 0) {
-//                        if (Util.isPkgInstalled("com.eosmobi.applock", packageManager)) {
+//                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock", packageManager)) {
 //                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
 //                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
 //                        } else {
@@ -770,7 +770,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                            startActivity(intent);
 //                        }
 //                    } else if (type == 1) {
-//                        if (Util.isPkgInstalled("com.eosmobi.applock", packageManager)) {
+//                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock", packageManager)) {
 //                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
 //                        } else {
 //                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
@@ -781,7 +781,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                        intent.putExtra("is_main", true);
 //                        startActivity(intent);
 //                    }
-
+//
 //                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
 //                    intent.putExtra("is_main", true);
 //                    startActivity(intent);
