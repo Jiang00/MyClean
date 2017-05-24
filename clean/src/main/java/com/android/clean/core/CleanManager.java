@@ -417,7 +417,7 @@ public class CleanManager {
         synchronized (countDownLatch) {
             JunkInfo appInfo = new JunkInfo();
             appInfo.pkg = packageInfo.packageName;
-
+            appInfo.date = packageInfo.lastUpdateTime;
             appInfo.label = packageInfo.applicationInfo.loadLabel(pm).toString();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 for (int i = 0; i < usageStatsList.size(); i++) {

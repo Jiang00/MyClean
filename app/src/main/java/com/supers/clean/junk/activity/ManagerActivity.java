@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -90,8 +92,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_manager);
-        long startTime = System.currentTimeMillis();
-        Log.e("time1", startTime + "==");
         myHandler = new Handler();
         managerPresenter = new ManagerPresenter(this, this);
 
@@ -100,7 +100,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         filter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
         filter.addDataScheme("package");
         registerReceiver(receiver, filter);
-        Log.e("time1", System.currentTimeMillis()-startTime + "==");
     }
 
     @Override
@@ -258,7 +257,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             }
         });
 
-        managerPresenter.addAdapterData();
+//        managerPresenter.addAdapterData();
         String fileSize = Util.convertStorage(cleanSize, true);
         if (TextUtils.isEmpty(fileSize)) {
             junk_button_clean.setText(getResources().getText(R.string.manager_button));
@@ -305,12 +304,26 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                 mChildCount--;
                 return POSITION_NONE;
             }
+
             return super.getItemPosition(object);
         }
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            container.addView(viewList.get(position));
+//            container.addView(viewList.get(position));
+
+            try {
+                if (viewList.get(position).getParent() == null)
+                    ((ViewPager) container).addView(viewList.get(position), 0);
+                else {
+                    ((ViewGroup) viewList.get(position).getParent()).removeView(viewList.get(position));
+                    ((ViewPager) container).addView(viewList.get(position), 0);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
             return viewList.get(position);
         }
 
@@ -335,12 +348,14 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
     @Override
     public void updateAdapter(List<JunkInfo> listsize, List<JunkInfo> listtime, List<JunkInfo> listpinlv) {
-        adapter_size.upList(listsize);
-        adapter_time.upList(listtime);
-        adapter_pinlv.upList(listpinlv);
-        adapter_size.notifyDataSetChanged();
-        adapter_time.notifyDataSetChanged();
-        adapter_pinlv.notifyDataSetChanged();
+        Log.e("time", System.currentTimeMillis() + "=");
+        adapter_size.addDataList(listsize);
+        adapter_time.addDataList(listtime);
+        adapter_pinlv.addDataList(listpinlv);
+        Log.e("time", System.currentTimeMillis() + "=");
+//        adapter_size.notifyDataSetChanged();
+//        adapter_time.notifyDataSetChanged();
+//        adapter_pinlv.notifyDataSetChanged();
     }
 
 
@@ -431,6 +446,7 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        managerPresenter.addAdapterData();
         if (lot_manager_size != null) {
             lot_manager_size.playAnimation();
         }

@@ -1,11 +1,8 @@
 package com.eos.manager;
 
-import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.TargetApi;
-import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.IntDef;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
