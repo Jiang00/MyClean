@@ -24,6 +24,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RamAdapter;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.RamView;
 
@@ -276,7 +277,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
                 case R.id.junk_button_clean:
                     PreData.putDB(RamAvtivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
-                    Util.track("ram页面", "点击清理", "", 1);
+                    AdUtil.track("ram页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     Log.e("aaa", "===ram点击");
                     showToast((String) getText(R.string.toast_ing));
@@ -306,7 +307,7 @@ public class RamAvtivity extends BaseActivity implements RamView {
     @Override
     public void onBackPressed() {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
-            Util.track("通知栏", "跳转垃圾清页面", "", 1);
+            AdUtil.track("通知栏", "跳转垃圾清页面", "", 1);
             jumpTo(MainActivity.class);
         } else {
             setResult(Constant.RAM_RESUIL);

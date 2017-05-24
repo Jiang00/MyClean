@@ -31,6 +31,7 @@ import com.eos.module.tweenengine.TweenManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FlakeViewOnShort;
 import com.supers.clean.junk.customeview.ImageAccessor;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 
 import java.util.List;
@@ -108,7 +109,7 @@ public class ShortCutActivity extends BaseActivity {
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_SHORTCUT, 0) == 1) {
         } else {
-            nativeView = Util.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+            nativeView = AdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 if (nativeView.getHeight() == Util.dp2px(250)) {

@@ -40,6 +40,7 @@ import com.supers.clean.junk.adapter.AddGameAdapter;
 import com.supers.clean.junk.customeview.LaunchpadAdapter;
 import com.supers.clean.junk.customeview.PagerView;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.ShortCutUtils;
@@ -206,14 +207,14 @@ public class GBoostActivity extends BaseActivity {
                             @Override
                             public void onClick(Object o, int pos) {
                                 if (pos == 0) {
-                                    Util.track("游戏加速页面", "点击添加游戏", "", 1);
+                                    AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
                                     ll_add_game.setVisibility(View.VISIBLE);
                                     whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
                                     list_game.setAdapter(whiteListAdapter);
                                     initData();
                                 } else {
                                     try {
-                                        Util.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
+                                        AdUtil.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
                                         Bundle bundle = new Bundle();
                                         bundle.putString("from", "GBoost");
                                         bundle.putString("packageName", list.get(pos));
@@ -265,7 +266,7 @@ public class GBoostActivity extends BaseActivity {
                     break;
 
                 case R.id.gboost_power_check:
-                    Util.track("游戏加速页面", "开启辅助功能", "", 1);
+                    AdUtil.track("游戏加速页面", "开启辅助功能", "", 1);
                     try {
                         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                         startActivityForResult(intent, 100);
@@ -282,7 +283,7 @@ public class GBoostActivity extends BaseActivity {
                     }, 1500);
                     break;
                 case R.id.gboost_clean_button:
-                    Util.track("游戏加速页面", "点击一键加速", "", 1);
+                    AdUtil.track("游戏加速页面", "点击一键加速", "", 1);
                     Bundle bundle = new Bundle();
                     bundle.putString("from", "GBoost");
                     jumpToActivity(PowerActivity.class, bundle, 1);

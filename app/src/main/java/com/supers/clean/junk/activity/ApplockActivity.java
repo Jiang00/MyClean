@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
 
@@ -59,7 +60,7 @@ public class ApplockActivity extends BaseActivity {
         bt_1rl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.track("applock", "跳转GP下载pro版", "", 1);
+                AdUtil.track("applock", "跳转GP下载pro版", "", 1);
                 UtilGp.openPlayStore(ApplockActivity.this, "com.eosmobi.applock");
                 finish();
             }
@@ -68,7 +69,7 @@ public class ApplockActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 PreData.putDB(ApplockActivity.this, Constant.FIRST_APPLOCK, 2);
-//                Util.track("applock", "选择简版", "", 1);
+//                AdUtil.track("applock", "选择简版", "", 1);
 //                Intent intent = new Intent(ApplockActivity.this, AppLockPatternEosActivity.class);
 //                intent.putExtra("is_main", true);
 //                startActivity(intent);

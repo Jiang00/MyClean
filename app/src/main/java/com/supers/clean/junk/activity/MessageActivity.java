@@ -24,6 +24,7 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CameraUtils;
 import com.android.clean.util.MemoryManager;
@@ -179,7 +180,7 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void addAd() {
-        View nativeView = Util.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_3);
+        View nativeView = AdUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             if (nativeView.getHeight() == Util.dp2px(250)) {

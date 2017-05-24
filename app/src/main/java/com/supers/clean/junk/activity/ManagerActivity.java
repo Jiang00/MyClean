@@ -37,6 +37,7 @@ import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.AppManagerView;
 import com.supers.clean.junk.adapter.ManagerAdapter;
@@ -108,9 +109,9 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
             tuiGuang();
         } else {
-            nativeView1 = Util.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
-            nativeView2 = Util.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
-            nativeView3 = Util.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+            nativeView1 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+            nativeView2 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
+            nativeView3 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             if (ll_ad_size != null && nativeView1 != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_size.getLayoutParams();
                 ll_ad_size.setLayoutParams(layout_ad);

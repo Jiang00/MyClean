@@ -21,6 +21,7 @@ import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.GBoostActivity;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.util.AdUtil;
 
 import java.util.ArrayList;
 
@@ -69,7 +70,7 @@ public class AddGameAdapter extends MybaseAdapter<JunkInfo> {
                 if (!isContains) {
                     CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.GameBoost, info.pkg);
                     game_list.add(info.pkg);
-                    Util.track("游戏加速页面", "添加游戏到列表", info.label, 1);
+                    AdUtil.track("游戏加速页面", "添加游戏到列表", info.label, 1);
                     Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
                     shortcutIntent.setClass(context, GBoostActivity.class);
                     shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);

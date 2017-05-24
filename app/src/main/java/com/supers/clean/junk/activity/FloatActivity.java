@@ -30,6 +30,7 @@ import com.android.clean.core.CleanManager;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.HorizontalListViewAdapter;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CheckState;
 import com.android.clean.util.Util;
@@ -111,7 +112,7 @@ public class FloatActivity extends BaseActivity {
                 }
             }, 1000);
         } else {
-            nativeView = Util.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
+            nativeView = AdUtil.getNativeAdView(TAG_FLAOT, R.layout.native_ad_5);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 if (nativeView.getHeight() == Util.dp2px(250)) {

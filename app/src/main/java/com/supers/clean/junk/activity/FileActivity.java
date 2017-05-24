@@ -14,6 +14,7 @@ import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FileRoundView;
 import com.android.clean.util.Util;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 
 /**
@@ -131,7 +132,7 @@ public class FileActivity extends BaseActivity {
         if (PreData.getDB(this, Constant.FULL_FILE, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            nativeView = Util.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
+            nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
             }
@@ -159,7 +160,7 @@ public class FileActivity extends BaseActivity {
                     break;
                 case R.id.file_apk_button:
 
-                    Util.track("文件管理页面", "点击进入安装包页面", "", 1);
+                    AdUtil.track("文件管理页面", "点击进入安装包页面", "", 1);
                     bundle.putString("name", "apk");
                     bundle.putInt("nameId", R.string.file_apk);
                     if (apkInfo.count == 0) {
@@ -171,7 +172,7 @@ public class FileActivity extends BaseActivity {
                     if (zipInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
-                    Util.track("文件管理页面", "点击进入压缩包页面", "", 1);
+                    AdUtil.track("文件管理页面", "点击进入压缩包页面", "", 1);
                     bundle.putString("name", "zip");
                     bundle.putInt("nameId", R.string.file_zip);
                     jumpToActivity(FileListActivity.class, bundle, 1);
@@ -180,14 +181,14 @@ public class FileActivity extends BaseActivity {
                     if (docInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
-                    Util.track("文件管理页面", "点击进入文档页面", "", 1);
+                    AdUtil.track("文件管理页面", "点击进入文档页面", "", 1);
                     jumpToActivity(FileDocActivity.class, 1);
                     break;
                 case R.id.file_music_button:
                     if (musicInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
-                    Util.track("文件管理页面", "点击进入音乐页面", "", 1);
+                    AdUtil.track("文件管理页面", "点击进入音乐页面", "", 1);
                     bundle.putString("name", "music");
                     bundle.putInt("nameId", R.string.file_music);
                     jumpToActivity(FileListActivity.class, bundle, 1);
@@ -196,13 +197,13 @@ public class FileActivity extends BaseActivity {
                     if (videoInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
-                    Util.track("文件管理页面", "点击进入视频页面", "", 1);
+                    AdUtil.track("文件管理页面", "点击进入视频页面", "", 1);
                     bundle.putString("name", "video");
                     bundle.putInt("nameId", R.string.file_video);
                     jumpToActivity(FileListActivity.class, bundle, 1);
                     break;
                 case R.id.file_other_button:
-                    Util.track("文件管理页面", "点击进入其他页面", "", 1);
+                    AdUtil.track("文件管理页面", "点击进入其他页面", "", 1);
                     if (otherInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }

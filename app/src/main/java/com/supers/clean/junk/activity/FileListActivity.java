@@ -26,6 +26,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.FileAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
 import com.android.clean.util.Util;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 
 import java.util.ArrayList;
@@ -128,7 +129,7 @@ public class FileListActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = Util.getNativeAdView(Tag_file_1, R.layout.native_ad_3);
+        nativeView = AdUtil.getNativeAdView(Tag_file_1, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);

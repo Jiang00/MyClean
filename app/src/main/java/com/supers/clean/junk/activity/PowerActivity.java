@@ -32,6 +32,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.PowerWidgetContainer;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.service.NotificationService;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 
 import java.util.ArrayList;
@@ -86,14 +87,14 @@ public class PowerActivity extends BaseActivity {
         junk_button_clean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.track("深度清理页面", "点击清理", "", 1);
+                AdUtil.track("深度清理页面", "点击清理", "", 1);
                 if (!Util.isAccessibilitySettingsOn(PowerActivity.this)) {
                     try {
                         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
                         startActivityForResult(intent, 100);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        Util.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
+                        AdUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
                     }
 
                     mHandler.postDelayed(new Runnable() {

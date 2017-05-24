@@ -22,6 +22,7 @@ import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.MyApplication;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.util.AdUtil;
 
 /**
  */
@@ -67,7 +68,7 @@ public class WhiteListAdapter extends MybaseAdapter<JunkInfo> {
                 if (info.isWhiteList) {
                     CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.Ram, info.pkg);
                     showToast(info.label + context.getText(R.string.white_list_jiaru));
-                    Util.track("白名单页面", "选中" + info.label, "", 1);
+                    AdUtil.track("白名单页面", "选中" + info.label, "", 1);
                 } else {
                     showToast(info.label + context.getText(R.string.white_list_yichu));
                     boolean a = CleanDBHelper.getInstance(context).deleteItem(CleanDBHelper.TableType.Ram, info.pkg);

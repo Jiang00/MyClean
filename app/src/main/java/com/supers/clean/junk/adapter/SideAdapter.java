@@ -36,6 +36,7 @@ import com.supers.clean.junk.activity.SettingActivity;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.service.FloatService;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
 
@@ -158,50 +159,50 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private void onC(int position) {
         if (position == BATTERY) {
             if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, true)) {
-                Util.track("侧边栏", "点击关闭充电屏保", "", 1);
+               AdUtil.track("侧边栏", "点击关闭充电屏保", "", 1);
                 Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, false);
             } else {
-                Util.track("侧边栏", "点击开启充电屏保", "", 1);
+               AdUtil.track("侧边栏", "点击开启充电屏保", "", 1);
                 Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, true);
             }
         } else if (position == FLOAT) {
             if (PreData.getDB(context, Constant.FlOAT_SWITCH, true)) {
-                Util.track("侧边栏", "点击关闭悬浮窗", "", 1);
+               AdUtil.track("侧边栏", "点击关闭悬浮窗", "", 1);
                 PreData.putDB(context, Constant.FlOAT_SWITCH, false);
                 Intent intent1 = new Intent(context, FloatService.class);
                 context.stopService(intent1);
             } else {
-                Util.track("侧边栏", "点击开启悬浮窗", "", 1);
+               AdUtil.track("侧边栏", "点击开启悬浮窗", "", 1);
                 PreData.putDB(context, Constant.FlOAT_SWITCH, true);
                 Intent intent1 = new Intent(context, FloatService.class);
                 context.startService(intent1);
             }
         } else if (position == JUNK) {
-            Util.track("侧边栏", "点击进入垃圾页面", "", 1);
+           AdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
             Intent intent2 = new Intent(context, JunkActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
         } else if (position == RAM) {
-            Util.track("侧边栏", "点击进入ram页面", "", 1);
+           AdUtil.track("侧边栏", "点击进入ram页面", "", 1);
             Intent intent3 = new Intent(context, RamAvtivity.class);
             ((Activity) context).startActivityForResult(intent3, 1);
         } else if (position == MANAGER) {
-            Util.track("侧边栏", "点击进入应用管理页面", "", 1);
+           AdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
             Intent intent4 = new Intent(context, ManagerActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
 //            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
 //            ((Activity) context).startActivityForResult(intent, 1);
-            Util.track("侧边栏", "点击进入文件管理页面", "", 1);
+           AdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
             PreData.putDB(context, Constant.FILE_CLEAN, true);
             Intent intent5 = new Intent(context, FileActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == POWER) {
             PreData.putDB(context, Constant.DEEP_CLEAN, true);
-            Util.track("侧边栏", "点击进入深度清理页面", "", 1);
+           AdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, PowerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == NOTIFI) {
-            Util.track("侧边栏", "点击进入通知栏清理页面", "", 1);
+           AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
             if (!Util.isNotificationListenEnabled(context)) {
                 ((Activity) context).startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
@@ -213,29 +214,29 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 ((Activity) context).startActivityForResult(intent6, 1);
             }
         } else if (position == PICTURE) {
-            Util.track("侧边栏", "点击进入相似图片", "", 1);
+           AdUtil.track("侧边栏", "点击进入相似图片", "", 1);
             PreData.putDB(context, Constant.PHOTO_CLEAN, true);
             Intent intent = new Intent(context, PictureActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == GBOOST) {
-            Util.track("侧边栏", "点击进入游戏加速", "", 1);
+           AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, Constant.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, GBoostActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == FAMILY) {
-            Util.track("侧边栏", "点击进入family页面", "", 1);
+           AdUtil.track("侧边栏", "点击进入family页面", "", 1);
             ShopMaster.launch(context, "EOS_Family",
                     new Theme(R.raw.battery_0, context.getPackageName()));
         } else if (position == THEME) {
-            Util.track("侧边栏", "点击进入主题页面", "", 1);
+           AdUtil.track("侧边栏", "点击进入主题页面", "", 1);
             ShopMaster.launch(context,
                     new Theme(R.raw.battery_0, context.getPackageName()));
         } else if (position == SETTING) {
-            Util.track("侧边栏", "点击进入设置页面", "", 1);
+           AdUtil.track("侧边栏", "点击进入设置页面", "", 1);
             Intent intent9 = new Intent(context, SettingActivity.class);
             ((Activity) context).startActivityForResult(intent9, 1);
         } else if (position == ROTATE) {
-            Util.track("侧边栏", "点击好评", "", 1);
+           AdUtil.track("侧边栏", "点击好评", "", 1);
             UtilGp.rate(context);
         }
     }

@@ -27,6 +27,7 @@ import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.android.clean.similarimage.RecyclerDbHelper;
 import com.android.clean.util.Util;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 
 import java.text.ParseException;
@@ -107,7 +108,7 @@ public class PictureHuiActivity extends BaseActivity {
     }
 
     private void addAd() {
-        nativeView = Util.getNativeAdView(TAG_RECYCLE, R.layout.native_ad_3);
+        nativeView = AdUtil.getNativeAdView(TAG_RECYCLE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);

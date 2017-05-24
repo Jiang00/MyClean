@@ -15,6 +15,7 @@ import com.android.client.AndroidSdk;
 import com.eos.eshop.ShopMaster;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PhoneManager;
 import com.supers.clean.junk.util.ShortCutUtils;
@@ -46,8 +47,8 @@ public class LoadingActivity extends BaseActivity {
         myHandler = new Handler();
         tv_tiaoguo.setVisibility(View.INVISIBLE);
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
-            Util.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
-            Util.track("是否安装applock", (LoadManager.getInstance(this).isPkgInstalled("com.eosmobi.applock")) == true ? "是" : "否", "", 1)
+            AdUtil.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
+            AdUtil.track("是否安装applock", (LoadManager.getInstance(this).isPkgInstalled("com.eosmobi.applock")) == true ? "是" : "否", "", 1)
             ;
             PreData.putDB(this, Constant.ROOT_TRAK, false);
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());

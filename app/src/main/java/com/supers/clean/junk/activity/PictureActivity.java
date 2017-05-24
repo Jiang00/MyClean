@@ -35,6 +35,7 @@ import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.RecycleViewAdapter;
 import com.android.clean.similarimage.RecyclerDbHelper;
+import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 
 import java.util.ArrayList;
@@ -367,11 +368,11 @@ public class PictureActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.title_right:
-                    Util.track("相似图片页面", "点击进入回收站", "", 1);
+                    AdUtil.track("相似图片页面", "点击进入回收站", "", 1);
                     jumpToActivity(PictureHuiActivity.class, 1);
                     break;
                 case R.id.picture_button:
-                    Util.track("相似图片页面", "点击清理按钮,弹出确认弹窗", "", 1);
+                    AdUtil.track("相似图片页面", "点击清理按钮,弹出确认弹窗", "", 1);
                     ArrayList<Bitmap> bitmaps = adapter.checkDate();
                     int num = bitmaps.size();
                     if (num == 0) {
@@ -381,7 +382,7 @@ public class PictureActivity extends BaseActivity {
                     deleteDialog(bitmaps);
                     break;
                 case R.id.picture_other:
-                    Util.track("相似图片页面", "点击检测其他垃圾", "", 1);
+                    AdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
                     jumpTo(JunkActivity.class);
                     onBackPressed();
                     break;
@@ -422,14 +423,14 @@ public class PictureActivity extends BaseActivity {
         cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.track("相似图片页面", "点击确认弹窗关闭按钮", "", 1);
+                AdUtil.track("相似图片页面", "点击确认弹窗关闭按钮", "", 1);
                 dialog.dismiss();
             }
         });
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.track("相似图片页面", "点击确认弹窗ok按钮", "", 1);
+                AdUtil.track("相似图片页面", "点击确认弹窗ok按钮", "", 1);
                 ok.setOnClickListener(null);
                 cancle.setOnClickListener(null);
                 image_list.setVisibility(View.GONE);
