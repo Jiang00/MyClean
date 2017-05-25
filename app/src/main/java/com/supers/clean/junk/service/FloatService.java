@@ -150,7 +150,10 @@ public class FloatService extends Service {
             }
 
         });
-        mana.addView(mFullScreenCheckView, layoutParams);
+        try {
+            mana.addView(mFullScreenCheckView, layoutParams);
+        } catch (Exception e) {
+        }
     }
 
 
