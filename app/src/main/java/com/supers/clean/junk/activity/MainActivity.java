@@ -185,7 +185,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
-        main_full_time = (TextView) findViewById(R.id.main_full_time);
+
         //lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         side_title = (ImageView) findViewById(R.id.side_title);
@@ -699,8 +699,18 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
-                main_full_time.setVisibility(View.VISIBLE);
                 nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
+                main_full_time = (TextView) nativeView_full.findViewById(R.id.main_full_time);
+                LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
+                loading_text.setOnClickListener(null);
+                main_full_time.setVisibility(View.VISIBLE);
+                main_full_time.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        handler.removeCallbacks(fullAdRunnale);
+                        adDelete();
+                    }
+                });
                 int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
                 handler.postDelayed(fullAdRunnale, skip * 1000);
             }
@@ -711,7 +721,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         @Override
         public void run() {
             adDelete();
-            main_full_time.setVisibility(View.GONE);
         }
     };
 
@@ -853,6 +862,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                             AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
                                 @Override
                                 public void onNativeAdLoadSuccess(View view) {
+                                    LinearLayout loading_text = (LinearLayout) view.findViewById(R.id.loading_text);
+                                    loading_text.setOnClickListener(null);
                                     ImageView ad_delete = (ImageView) view.findViewById(R.id.ad_delete);
                                     ad_delete.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -1039,7 +1050,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void onBackPressed() {
         if (ll_ad_full.getVisibility() == View.VISIBLE) {
             adDelete();
-            main_full_time.setVisibility(View.GONE);
             handler.removeCallbacks(fullAdRunnale);
             return;
         }
