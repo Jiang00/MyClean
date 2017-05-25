@@ -144,6 +144,7 @@ public class FloatService extends Service {
                     Log.e("full", "==1");
 
                     manager.removeWindowsView();
+
                 } else {
                     Log.e("full", "==2");
                     manager.addWindowsView();
@@ -151,7 +152,10 @@ public class FloatService extends Service {
             }
 
         });
-        mana.addView(mFullScreenCheckView, layoutParams);
+        try {
+            mana.addView(mFullScreenCheckView, layoutParams);
+        } catch (Exception e) {
+        }
     }
 
 
