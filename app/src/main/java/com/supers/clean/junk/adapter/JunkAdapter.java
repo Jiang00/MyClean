@@ -54,7 +54,7 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = inflater
-                    .inflate(R.layout.layout_junk_ram_item, null);
+                    .inflate(R.layout.layout_junk_r\am_item, null);
             holder.name = (TextView) convertView
                     .findViewById(R.id.junk_item_lable);
             holder.icon = (ImageView) convertView
