@@ -335,6 +335,7 @@ public class CleanManager {
         systemCacheSize = 0;
         appListSize = 0;
         systemCaches.clear();
+        appList.clear();
         if (systemCacheCallBack == null) {
             throw new Error("systemCacheCallBack can not be null");
         }
