@@ -141,17 +141,18 @@ public class FloatService extends Service {
                 mana.getDefaultDisplay().getMetrics(dm);
                 int viewHeight = mFullScreenCheckView.getHeight();
                 if (viewHeight == dm.widthPixels || viewHeight == dm.heightPixels) {
-                    Log.e("full", "==1");
 
                     manager.removeWindowsView();
                 } else {
-                    Log.e("full", "==2");
                     manager.addWindowsView();
                 }
             }
 
         });
-        mana.addView(mFullScreenCheckView, layoutParams);
+        try {
+            mana.addView(mFullScreenCheckView, layoutParams);
+        } catch (Exception e) {
+        }
     }
 
 

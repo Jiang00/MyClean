@@ -1,5 +1,6 @@
 package com.supers.clean.junk.presenter;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -148,9 +149,14 @@ public class FloatStateManager {
         circleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, FloatActivity.class);
+                Intent intent = new Intent(context.getApplicationContext(), FloatActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                try {
+                    pendingIntent.send();
+                } catch (PendingIntent.CanceledException e) {
+                    e.printStackTrace();
+                }
 //                removeWindowsView();
             }
         });

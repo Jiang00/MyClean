@@ -1,5 +1,8 @@
 package com.supers.clean.junk.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +12,13 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.widget.Toast;
 
 import com.android.clean.util.PreData;
@@ -31,7 +37,7 @@ public class BaseActivity extends AppCompatActivity {
     protected String tuiguang = "com.eosmobi.applock";
     protected String extraData;
     protected JsonData data;
-
+    protected View view_title_bar;
     protected boolean onPause = false;
     protected boolean onDestroyed = false;
     protected boolean onResume = false;
@@ -99,7 +105,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
-        View view_title_bar = findViewById(R.id.view_title_bar);
+        view_title_bar = findViewById(R.id.view_title_bar);
         ViewGroup.LayoutParams linearParams = view_title_bar.getLayoutParams();
         linearParams.height = getStatusHeight(this);
         view_title_bar.setLayoutParams(linearParams);
@@ -212,6 +218,37 @@ public class BaseActivity extends AppCompatActivity {
             toast.setText(text);
         }
         toast.show();
+    }
+
+
+    public void toggleEditAnimation(int resId1, int resId2) {
+        final View searchView = findViewById(resId1);
+        View normalView = findViewById(resId2);
+
+        final View visibleView, invisibleView;
+        if (searchView.getVisibility() == View.GONE) {
+            visibleView = normalView;
+            invisibleView = searchView;
+        } else {
+            visibleView = searchView;
+            invisibleView = normalView;
+        }
+        final ObjectAnimator invis2vis = ObjectAnimator.ofFloat(invisibleView, "rotationY", -90, 0);
+        invis2vis.setDuration(500);
+        invis2vis.setInterpolator(new LinearInterpolator());
+        ObjectAnimator vis2invis = ObjectAnimator.ofFloat(visibleView, "rotationY", 0, 90);
+        vis2invis.setDuration(500);
+        vis2invis.setInterpolator(new LinearInterpolator());
+
+        vis2invis.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                visibleView.setVisibility(View.GONE);
+                invisibleView.setVisibility(View.VISIBLE);
+                invis2vis.start();
+            }
+        });
+        vis2invis.start();
     }
 
     protected <T extends View> T $(@IdRes int id) {

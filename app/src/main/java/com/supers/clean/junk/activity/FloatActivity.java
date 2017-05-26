@@ -497,4 +497,5 @@ public class FloatActivity extends BaseActivity {
         liuLiang();
         gps();
     }
+
 }

@@ -26,47 +26,29 @@
             <include layout="@layout/layout_title" />
         </LinearLayout>
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="@dimen/d208"
-                android:layout_height="@dimen/d208"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250"
-                android:src="@mipmap/success_1" />
-
-            <ImageView
-                android:layout_width="@dimen/d208"
-                android:layout_height="@dimen/d208"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250"
-                android:src="@mipmap/success_2" />
-
-            <ImageView
-                android:id="@+id/success_progress"
-                android:layout_width="@dimen/d208"
-                android:layout_height="@dimen/d208"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250"
-                android:src="@mipmap/success_3" />
-
             <com.supers.clean.junk.customeview.DrawHookView
                 android:id="@+id/success_drawhook"
-                android:layout_width="@dimen/d208"
-                android:layout_height="@dimen/d208"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250" />
+                android:layout_width="@dimen/d109"
+                android:layout_height="@dimen/d109"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/d72" />
 
-            <ImageView
-                android:id="@+id/success_huojian"
+            <TextView
+                android:id="@+id/success_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250"
-                android:src="@mipmap/success_huojian"
+                android:layout_below="@id/success_drawhook"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/d20"
+                android:text="@string/success_title"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s20"
                 android:visibility="invisible" />
+
 
             <com.supers.clean.junk.customeview.SlowScrollView
                 android:id="@+id/scrollView"
@@ -124,7 +106,7 @@
                                         android:text="@string/success_cleaned"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="ljh_1.TTF" />
 
                                     <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                         android:id="@+id/success_clean_2"
@@ -134,7 +116,7 @@
                                         android:text="@string/success_1"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="ljh_1.TTF" />
                                 </LinearLayout>
 
 
@@ -180,7 +162,7 @@
                                 android:text="@string/main_rotate_title"
                                 android:textColor="@color/A9"
                                 android:textSize="@dimen/s14"
-                                app:typeface="eos_clean.otf" />
+                                app:typeface="ljh_1.TTF" />
                         </LinearLayout>
 
                         <View
@@ -261,7 +243,7 @@
                                     android:text="@string/side_file"
                                     android:textColor="@color/B2"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
@@ -270,7 +252,7 @@
                                     android:text="@string/file_main"
                                     android:textColor="@color/B3"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -322,7 +304,7 @@
                                     android:text="@string/side_junk"
                                     android:textColor="@color/B2"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
@@ -331,7 +313,7 @@
                                     android:text="@string/success_8"
                                     android:textColor="@color/B3"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -383,7 +365,7 @@
                                     android:text="@string/side_ram"
                                     android:textColor="@color/B2"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
@@ -392,7 +374,7 @@
                                     android:text="@string/success_9"
                                     android:textColor="@color/B3"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -444,7 +426,7 @@
                                     android:text="@string/main_cooling_name"
                                     android:textColor="@color/B2"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
@@ -453,7 +435,7 @@
                                     android:text="@string/success_10"
                                     android:textColor="@color/B3"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -506,7 +488,7 @@
                                     android:text="@string/gboost_0"
                                     android:textColor="@color/B2"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
@@ -515,7 +497,7 @@
                                     android:text="@string/gboost_10"
                                     android:textColor="@color/B3"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -568,7 +550,7 @@
                                     android:text="@string/side_picture"
                                     android:textColor="@color/B2"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
@@ -577,7 +559,7 @@
                                     android:text="@string/picture_delete"
                                     android:textColor="@color/B3"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -632,7 +614,7 @@
                                     android:text="@string/side_notifi"
                                     android:textColor="@color/B2"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:id="@+id/notifi_text"
@@ -642,7 +624,7 @@
                                     android:text="@string/notifi_msg_main"
                                     android:textColor="@color/B3"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -691,7 +673,7 @@
                                 android:text="@string/side_power"
                                 android:textColor="@color/B2"
                                 android:textSize="@dimen/s16"
-                                app:typeface="eos_clean.otf" />
+                                app:typeface="ljh_1.TTF" />
 
                             <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                 android:id="@+id/power_text"
@@ -700,7 +682,7 @@
                                 android:text="@string/power_3"
                                 android:textColor="@color/B3"
                                 android:textSize="@dimen/s14"
-                                app:typeface="eos_clean.otf" />
+                                app:typeface="ljh_1.TTF" />
                         </LinearLayout>
 
                         <ImageView
@@ -742,7 +724,7 @@
                                 android:layout_marginLeft="@dimen/d6"
                                 android:textColor="@color/A9"
                                 android:textSize="@dimen/s14"
-                                app:typeface="eos_clean.otf" />
+                                app:typeface="ljh_1.TTF" />
                         </LinearLayout>
 
                         <View
@@ -771,7 +753,7 @@
                                 android:text="AD"
                                 android:textColor="@android:color/white"
                                 android:textSize="@dimen/s8"
-                                app:typeface="eos_clean.otf" />
+                                app:typeface="ljh_1.TTF" />
                         </FrameLayout>
 
 
@@ -794,6 +776,6 @@
 
                 </LinearLayout>
             </com.supers.clean.junk.customeview.SlowScrollView>
-        </FrameLayout>
+        </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
+import com.android.clean.core.CleanManager;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.MainView;
@@ -43,7 +44,7 @@ public class MainPresenter extends BasePresenter<MainView> {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                reStart();
+                reStart(false);
                 //cpu温度
                 CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
                     @Override
@@ -64,31 +65,51 @@ public class MainPresenter extends BasePresenter<MainView> {
         translate.setRepeatCount(-1);
         translate.setRepeatMode(Animation.REVERSE);
         iView.loadAirAnimator(translate);
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(115));
-        rotateAnimation.setDuration(2000);
-        rotateAnimation.setRepeatCount(-1);
-        iView.initGuard(MemoryManager.getInstallNum(context), rotateAnimation);
         setRotateGone();
         iView.onClick();
 
     }
 
-    public void reStart() {
+    public void reStart(boolean isRaStart) {
         //SD卡储存
         long sd_all = MemoryManager.getPhoneAllSize();
         long sd_kongxian = MemoryManager.getPhoneAllFreeSize();
         long sd_shiyong = sd_all - sd_kongxian;
         int sd_me = (int) (sd_shiyong * 100 / sd_all);
-        String sd_size = Util.convertStorage(sd_shiyong, true) + "/" + Util.convertStorage(sd_all, true);
-        iView.initSd(sd_me, sd_size, sd_kongxian);
+        iView.initSd(sd_me, sd_kongxian);
         //ram使用
         long ram_kongxian = MemoryManager.getPhoneFreeRamMemory(context);
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
         long ram_shiyong = ram_all - ram_kongxian;
         int memo = (int) (ram_shiyong * 100 / ram_all);
-        String ram_size = Util.convertStorage(ram_shiyong, true) + "/" + Util.convertStorage(ram_all, true);
-        iView.initRam(memo, ram_size);
+        iView.initRam(memo);
+        startFenshu(isRaStart);
         setRotateGone();
+    }
+
+    public void startFenshu(boolean isReStart) {
+        int function = 100;
+
+        if (CleanManager.getInstance(context).getSystemCaches().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getAppCaches().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getLogFiles().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getUninstallResiduals().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getApkFiles().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getAppRamList().size() != 0) {
+            function -= Util.getMemory(context) * 0.7;
+        }
+        iView.startFenshu(function, isReStart);
+
     }
 
 

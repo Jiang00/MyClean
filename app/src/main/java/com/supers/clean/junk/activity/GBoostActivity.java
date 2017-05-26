@@ -7,19 +7,19 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.TrafficStats;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -34,21 +34,14 @@ import com.android.clean.gboost.GameBooster;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.clean.util.LoadManager;
-import com.rd.PageIndicatorView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.AddGameAdapter;
-import com.supers.clean.junk.customeview.LaunchpadAdapter;
 import com.supers.clean.junk.customeview.PagerView;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
-import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.ShortCutUtils;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,20 +57,12 @@ public class GBoostActivity extends BaseActivity {
     ImageView add_right;
     ImageButton clear;
     EditText search_edit_text;
-    PagerView gboost_recyc;
-    PageIndicatorView pageindicatorview;
-    TextView gboost_ram_size;
-    TextView gboost_network_size;
-    TextView gboost_cpu_szie;
-    ImageView gboost_power_check;
-    Button gboost_clean_button;
+    RecyclerView gboost_recyc;
     LinearLayout ll_add_game;
     FrameLayout add_left;
     ListView list_game;
-    TextView add_short;
 
 
-    private LaunchpadAdapter adapter;
     private ArrayList<String> list;
     private Handler mHandler = new Handler() {
         @Override
@@ -94,14 +79,9 @@ public class GBoostActivity extends BaseActivity {
     private AddGameAdapter whiteListAdapter;
     private MyApplication cleanApplication;
 
-    private long total;
-    private long idle;
-    private long lastTotalRxBytes;
-    private long lastTimeStamp;
     private boolean search;
     private List<JunkInfo> gboost_add, listEdit;
-    private int screenWidth;
-    private int width;
+    private MyAdapter adapter;
 
     @Override
     protected void findId() {
@@ -112,24 +92,16 @@ public class GBoostActivity extends BaseActivity {
         clear = (ImageButton) findViewById(R.id.clear);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
 
-        gboost_recyc = (PagerView) findViewById(R.id.gboost_recyc);
-        pageindicatorview = (PageIndicatorView) findViewById(R.id.pageindicatorview);
-        gboost_ram_size = (TextView) findViewById(R.id.gboost_ram_size);
-        gboost_network_size = (TextView) findViewById(R.id.gboost_network_size);
-        gboost_cpu_szie = (TextView) findViewById(R.id.gboost_cpu_szie);
-        gboost_power_check = (ImageView) findViewById(R.id.gboost_power_check);
-        gboost_clean_button = (Button) findViewById(R.id.gboost_clean_button);
+        gboost_recyc = (RecyclerView) findViewById(R.id.gboost_recyc);
         ll_add_game = (LinearLayout) findViewById(R.id.ll_add_game);
         add_left = (FrameLayout) findViewById(R.id.add_left);
         list_game = (ListView) findViewById(R.id.list_game);
-        add_short = (TextView) findViewById(R.id.add_short);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_gboost);
-        screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
         cleanApplication = (MyApplication) getApplication();
 
@@ -137,19 +109,9 @@ public class GBoostActivity extends BaseActivity {
         add_left.setOnClickListener(clickListener);
         title_name.setText(R.string.gboost_0);
 
-        long size = MemoryManager.getPhoneFreeRamMemory(this);
-        gboost_ram_size.setText(Util.convertStorage(size, true));
 
-        if (Util.isAccessibilitySettingsOn(this)) {
-            gboost_power_check.setImageResource(R.mipmap.side_check_passed);
-        } else {
-            gboost_power_check.setImageResource(R.mipmap.side_check_normal);
-        }
-        gboost_power_check.setOnClickListener(clickListener);
-        gboost_clean_button.setOnClickListener(clickListener);
         add_right.setOnClickListener(clickListener);
         clear.setOnClickListener(clickListener);
-        add_short.setOnClickListener(clickListener);
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
@@ -183,55 +145,80 @@ public class GBoostActivity extends BaseActivity {
                     public void run() {
                         list.add(0, getString(R.string.gboost_7));
                         Log.e("jfy", list.size() + "==");
-                        adapter = new LaunchpadAdapter(GBoostActivity.this, list);
-                        gboost_recyc.setAdapter(adapter);
-                        gboost_recyc.refreshView();
-                        if (list.size() <= 12) {
-                            pageindicatorview.setCount(0);
-                        } else if (list.size() <= 24) {
-                            pageindicatorview.setCount(2);
-                        } else if (list.size() <= 36) {
-                            pageindicatorview.setCount(3);
-                        } else if (list.size() <= 48) {
-                            pageindicatorview.setCount(3);
-                        } else {
-                            pageindicatorview.setCount(5);
-                        }
-                        gboost_recyc.setOnPageChangedListener(new PagerView.OnPageChangedListener() {
-                            @Override
-                            public void onPageChange(int oldPage, int newPage) {
-                                pageindicatorview.setSelection(newPage);
-                            }
-                        });
-                        gboost_recyc.setOnItemClickListener(new PagerView.OnItemClickListener() {
-                            @Override
-                            public void onClick(Object o, int pos) {
-                                if (pos == 0) {
-                                    AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
-                                    ll_add_game.setVisibility(View.VISIBLE);
-                                    whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
-                                    list_game.setAdapter(whiteListAdapter);
-                                    initData();
-                                } else {
-                                    try {
-                                        AdUtil.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
-                                        Bundle bundle = new Bundle();
-                                        bundle.putString("from", "GBoost");
-                                        bundle.putString("packageName", list.get(pos));
-                                        jumpToActivity(PowerActivity.class, bundle);
-                                    } catch (Exception e) {
-                                    }
-                                }
-                            }
-                        });
+                        gboost_recyc.setLayoutManager(new GridLayoutManager(GBoostActivity.this, 2));
+                        gboost_recyc.setAdapter(adapter = new MyAdapter());
 
                     }
                 });
             }
-        }).
+        }).start();
 
-                start();
+    }
 
+
+    class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            MyAdapter.MyViewHolder holder = new MyAdapter.MyViewHolder(LayoutInflater.from(
+                    GBoostActivity.this).inflate(R.layout.layout_gboost_item, parent,
+                    false));
+            return holder;
+        }
+
+        @Override
+        public void onBindViewHolder(final MyViewHolder holder, final int position) {
+            if (position == 0) {
+                holder.add.setVisibility(View.VISIBLE);
+                holder.app.setVisibility(View.GONE);
+            } else {
+                holder.gboost_item_icon.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(position)));
+                holder.gboost_item_name.setText(LoadManager.getInstance(GBoostActivity.this).getAppLabel(list.get(position)));
+            }
+            holder.gboost_item_c.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (position == 0) {
+                        AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
+                        ll_add_game.setVisibility(View.VISIBLE);
+                        whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
+                        list_game.setAdapter(whiteListAdapter);
+                        initData();
+                    } else {
+                        try {
+                            AdUtil.track("游戏加速页面", "点击启动游戏", list.get(position), 1);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("from", "GBoost");
+                            bundle.putString("packageName", list.get(position));
+                            jumpToActivity(PowerActivity.class, bundle);
+                        } catch (Exception e) {
+                        }
+                    }
+                }
+            });
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return list.size();
+        }
+
+        class MyViewHolder extends RecyclerView.ViewHolder {
+            LinearLayout app, add;
+            ImageView gboost_item_icon;
+            TextView gboost_item_name;
+            FrameLayout gboost_item_c;
+
+            public MyViewHolder(View view) {
+                super(view);
+                gboost_item_icon = (ImageView) view.findViewById(R.id.gboost_item_icon);
+                gboost_item_c = (FrameLayout) view.findViewById(R.id.gboost_item_c);
+                app = (LinearLayout) view.findViewById(R.id.app);
+                add = (LinearLayout) view.findViewById(R.id.add);
+                gboost_item_name = (TextView) view.findViewById(R.id.gboost_item_name);
+            }
+        }
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -240,20 +227,8 @@ public class GBoostActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.add_left:
                     ll_add_game.setVisibility(View.GONE);
-                    gboost_recyc.refreshView();
-                    if (list.size() <= 12) {
-                        pageindicatorview.setCount(0);
-                    } else if (list.size() <= 24) {
-                        pageindicatorview.setCount(2);
-                    } else if (list.size() <= 36) {
-                        pageindicatorview.setCount(3);
-                    } else if (list.size() <= 48) {
-                        pageindicatorview.setCount(3);
-                    } else {
-                        pageindicatorview.setCount(5);
-                    }
-//                    gboost_recyc.scrollBy(2000, 0);
                     shortGame(false);
+                    adapter.notifyDataSetChanged();
                     break;
                 case R.id.title_left:
                     onBackPressed();
@@ -263,33 +238,6 @@ public class GBoostActivity extends BaseActivity {
                     break;
                 case R.id.clear:
                     toggleEditAnimation();
-                    break;
-
-                case R.id.gboost_power_check:
-                    AdUtil.track("游戏加速页面", "开启辅助功能", "", 1);
-                    try {
-                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                        startActivityForResult(intent, 100);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                    mHandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent transintent = new Intent(GBoostActivity.this, PermissionActivity.class);
-                            startActivity(transintent);
-                        }
-                    }, 1500);
-                    break;
-                case R.id.gboost_clean_button:
-                    AdUtil.track("游戏加速页面", "点击一键加速", "", 1);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("from", "GBoost");
-                    jumpToActivity(PowerActivity.class, bundle, 1);
-                    break;
-                case R.id.add_short:
-                    shortGame(true);
                     break;
             }
         }
@@ -352,105 +300,18 @@ public class GBoostActivity extends BaseActivity {
         vis2invis.start();
     }
 
-    private long getCup() {
-        long usage = 0;
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/stat")), 1000);
-            String load = reader.readLine();
-            reader.close();
-
-            String[] toks = load.split(" ");
-
-            long currTotal = Long.parseLong(toks[2]) + Long.parseLong(toks[3]) + Long.parseLong(toks[4]);
-            long currIdle = Long.parseLong(toks[5]);
-
-            usage = (long) ((currTotal - total) * 100.0f / (currTotal - total + currIdle - idle));
-            total = currTotal;
-            idle = currIdle;
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return usage;
-    }
-
-    private long getNetWork() {
-        long nowTotalRxBytes = getTotalRxBytes(); // 获取当前数据总量
-        long nowTimeStamp = System.currentTimeMillis(); // 当前时间
-        long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
-                - lastTimeStamp));// 毫秒转换
-//        gboost_network_size.setText(Util.convertStorageWifi(speed));
-        lastTimeStamp = nowTimeStamp;
-        lastTotalRxBytes = nowTotalRxBytes;
-        return speed;
-    }
-
-    private long getTotalRxBytes() {
-        // 得到整个手机的流量值
-        return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
-                : (TrafficStats.getTotalRxBytes());//
-    }
 
     @Override
     protected void onResume() {
         super.onResume();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final long sizeall = MemoryManager.getPhoneTotalRamMemory();
-                while (!onPause) {
-                    final int cup = (int) getCup();
-                    final int speed = (int) getNetWork();
-                    final long size = MemoryManager.getPhoneFreeRamMemory(GBoostActivity.this);
-                    final int memo = (int) (size * 100 / sizeall);
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (cup <= 40) {
-                                gboost_cpu_szie.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_1));
-                            } else if (cup <= 80) {
-                                gboost_cpu_szie.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_2));
-                            } else {
-                                gboost_cpu_szie.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_3));
-                            }
-                            if (memo <= 20) {
-                                gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_3));
-                            } else if (memo <= 60) {
-                                gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_2));
-                            } else {
-                                gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_1));
-                            }
-                            gboost_cpu_szie.setText(cup + "%");
-                            gboost_network_size.setText(Util.convertStorageWifi(speed));
-                            gboost_ram_size.setText(Util.convertStorage(size, true));
-                        }
-                    });
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }).start();
     }
 
     @Override
     public void onBackPressed() {
         if (ll_add_game.getVisibility() == View.VISIBLE) {
             ll_add_game.setVisibility(View.GONE);
-            gboost_recyc.refreshView();
-            if (list.size() <= 12) {
-                pageindicatorview.setCount(0);
-            } else if (list.size() <= 24) {
-                pageindicatorview.setCount(2);
-            } else if (list.size() <= 36) {
-                pageindicatorview.setCount(3);
-            } else if (list.size() <= 48) {
-                pageindicatorview.setCount(3);
-            } else {
-                pageindicatorview.setCount(5);
-            }
             shortGame(false);
+            adapter.notifyDataSetChanged();
         } else {
             finish();
         }
@@ -539,13 +400,6 @@ public class GBoostActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 100 || requestCode == 1) {
-            if (Util.isAccessibilitySettingsOn(this)) {
-                gboost_power_check.setImageResource(R.mipmap.side_check_passed);
-            } else {
-                gboost_power_check.setImageResource(R.mipmap.side_check_normal);
-            }
-        }
         super.onActivityResult(requestCode, resultCode, data);
     }
 

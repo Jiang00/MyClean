@@ -6,6 +6,8 @@ import android.view.MotionEvent;
 import android.widget.ScrollView;
 import android.widget.Scroller;
 
+import com.supers.clean.junk.R;
+
 /**
  * Created by on 2017/1/12.
  */
@@ -13,26 +15,30 @@ import android.widget.Scroller;
 public class SlowScrollView extends ScrollView {
 
     private Scroller mScroller;
+    Context context;
 
     public SlowScrollView(Context context) {
         super(context);
+        this.context = context;
         mScroller = new Scroller(context);
     }
 
     public SlowScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         mScroller = new Scroller(context);
     }
 
     public SlowScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        this.context = context;
         mScroller = new Scroller(context);
     }
 
     //调用此方法滚动到目标位置  duration滚动时间
     public void smoothScrollToSlow(int duration) {
         int dx = 0 - getScrollX();//mScroller.getFinalX();  普通view使用这种方法
-        int dy = getBottom() - getScrollY() + 500 + 500;  //mScroller.getFinalY();
+        int dy = getBottom() - getScrollY() + context.getResources().getDimensionPixelSize(R.dimen.d500);  //mScroller.getFinalY();
         smoothScrollBySlow(dx, dy, duration);
     }
 

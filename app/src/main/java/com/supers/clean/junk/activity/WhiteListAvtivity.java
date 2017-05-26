@@ -51,12 +51,6 @@ public class WhiteListAvtivity extends BaseActivity {
         title_right.setVisibility(View.VISIBLE);
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
-        whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
-        for (String info : whiteList) {
-            Log.e("whitelist", info);
-        }
-
-
         white_list = new ArrayList<>();
         adapter = new WhiteListAdapter(this);
         listView.setAdapter(adapter);
@@ -65,6 +59,7 @@ public class WhiteListAvtivity extends BaseActivity {
 
     private void initDAta() {
         white_list.clear();
+        whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
         for (JunkInfo info : CleanManager.getInstance(this).getAppList()) {
             if (whiteList.contains(info.pkg)) {
                 info.isWhiteList = true;
@@ -103,8 +98,7 @@ public class WhiteListAvtivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == 1) {
+        if (resultCode == Constant.WHITE_ADD_RESUIL) {
             initDAta();
         }
     }

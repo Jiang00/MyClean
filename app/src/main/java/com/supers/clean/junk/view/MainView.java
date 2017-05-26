@@ -9,11 +9,12 @@ import android.view.animation.TranslateAnimation;
 public interface MainView extends IView {
     void initCpu(int temp);
 
-    void initSd(int perent, String size, long sd_kongxian);
+    void initSd(int perent, long sd_kongxian);
 
-    void initRam(int percent, String size);
+    void initRam(int percent);
 
-    void initGuard(int num, RotateAnimation rotateAnimation);
+    void startFenshu(int percent,boolean isRestart);
+
 
     void loadAirAnimator(TranslateAnimation translateAnimation);
 

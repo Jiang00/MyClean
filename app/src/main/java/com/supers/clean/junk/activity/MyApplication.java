@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 
@@ -13,32 +12,19 @@ import com.android.clean.notification.NotificationMonitorService;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.eos.kpa.DaemonClient;
-import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
-import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
-import com.supers.clean.junk.task.ApkFileAndAppJunkTask;
-import com.supers.clean.junk.task.AppCacheTask;
-import com.supers.clean.junk.task.AppManagerTask;
-import com.supers.clean.junk.task.FilesOfUninstalledAppTask;
-import com.supers.clean.junk.task.RamTask;
-import com.supers.clean.junk.task.SimpleTask;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.TopActivityPkg;
-
-import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Created by on 2016/11/29.
  */
-public class MyApplication extends App {
+public class MyApplication extends Application {
 
     private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 5;
 

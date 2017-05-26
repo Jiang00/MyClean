@@ -20,6 +20,7 @@ import com.android.clean.db.CleanDBHelper;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.WhiteListAdapter;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -168,7 +169,7 @@ public class WhiteListAddActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        setResult(1);
+        setResult(Constant.WHITE_ADD_RESUIL);
         finish();
     }
 }

@@ -3,6 +3,8 @@ package com.supers.clean.junk.customeview;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -30,6 +32,7 @@ public class DrawHookView extends View {
 
     DrawHookListener drawHookListener;
     private Paint paint;
+    private Paint paint_g;
 
     public DrawHookView(Context context) {
         this(context, null);
@@ -51,16 +54,22 @@ public class DrawHookView extends View {
          * 绘制圆弧
          */
         paint = new Paint();
+        paint_g = new Paint();
         //设置画笔颜色
 //        paint.setColor(getResources().getColor(R.color.white_40));
         //设置圆弧的宽度
-        paint.setStrokeWidth(Util.dp2px(10));
+        paint.setStrokeWidth(Util.dp2px(4));
+        paint_g.setStrokeWidth(Util.dp2px(7));
         //设置圆弧为空心
         paint.setStyle(Paint.Style.STROKE);
+        paint_g.setStyle(Paint.Style.STROKE);
         //消除锯齿
         paint.setAntiAlias(true);
-//        paint.setStrokeCap(Paint.Cap.ROUND);
+        paint_g.setAntiAlias(true);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        paint_g.setStrokeCap(Paint.Cap.ROUND);
         paint.setColor(getResources().getColor(R.color.white_100));
+        paint_g.setColor(getResources().getColor(R.color.white_100));
     }
 
     //绘制
@@ -85,15 +94,15 @@ public class DrawHookView extends View {
         int radius = size / 2;
 
         //定义的圆弧的形状和大小的界限
-//        RectF rectF = new RectF(0 + Util.dp2px(5), 0 + Util.dp2px(5), size - Util.dp2px(5), size - Util.dp2px(5));
+        RectF rectF = new RectF(0 + Util.dp2px(2), 0 + Util.dp2px(2), size - Util.dp2px(2), size - Util.dp2px(2));
 
         //根据进度画圆弧
-//        canvas.drawArc(rectF, 235, -360 * progress / 100, false, paint);
+        canvas.drawArc(rectF, 200, -360 * progress / 100, false, paint);
         /**
          * 绘制对勾
          */
         //先等圆弧画完，才话对勾
-        if (progress == 0) {
+        if (progress <= 100) {
             return;
         }
         if (line1_x < radius / 3) {
@@ -102,22 +111,22 @@ public class DrawHookView extends View {
             line2_x = line1_x;
             line2_y = line1_y;
             //画第一根线
-            canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
+            canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint_g);
         } else if (line1_x >= radius / 3 && line2_x <= radius * 5 / 6) {
             line2_x += move_distance;
             line2_y -= move_distance;
             //画第一根线
-            canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
+            canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint_g);
             //画第二根线
-            canvas.drawLine(center1 + line1_x - Util.dp2px(6), center + line1_y, center1 + line2_x, center + line2_y, paint);
+            canvas.drawLine(center1 + line1_x, center + line1_y, center1 + line2_x, center + line2_y, paint_g);
         } else {
             if (drawHookListener != null) {
                 drawHookListener.duogouSc();
             }
             //画第一根线
-            canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
+            canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint_g);
             //画第二根线
-            canvas.drawLine(center1 + line1_x - Util.dp2px(6), center + line1_y, center1 + line2_x, center + line2_y, paint);
+            canvas.drawLine(center1 + line1_x, center + line1_y, center1 + line2_x, center + line2_y, paint_g);
             stop = true;
         }
     }

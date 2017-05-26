@@ -270,7 +270,7 @@ public class PullToRefreshLayout extends RelativeLayout {
                     changeState(DONE);
                     hide();
                 }
-            }.sendEmptyMessageDelayed(0, 500);
+            }.sendEmptyMessageDelayed(0, 10);
         } else {
             changeState(DONE);
             hide();

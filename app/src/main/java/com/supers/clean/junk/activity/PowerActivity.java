@@ -187,8 +187,6 @@ public class PowerActivity extends BaseActivity {
                     return;
                 }
             }
-            junk_button_clean.setBackgroundResource(R.drawable.shape_button_ffffff);
-            junk_button_clean.setTextColor(ContextCompat.getColor(PowerActivity.this, R.color.main_circle_backg));
             power_size.setText(getString(R.string.power_1, 0 + "") + " ");
             homeAdapter.notifyDataSetChanged();
             if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {

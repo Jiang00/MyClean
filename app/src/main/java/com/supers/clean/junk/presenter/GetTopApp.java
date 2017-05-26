@@ -36,20 +36,17 @@ public class GetTopApp {
                 ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
                 if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
                     packageName = runningTaskInfo.topActivity.getPackageName();
-                    Log.e("float", "1==" + packageName);
                 }
             }
         } else {
             try {
 
                 packageName = getTopPackage();
-                Log.e("float", "2==" + packageName);
                 if (packageName != null) {
                     return packageName;
                 }
                 packageName = getActivePackages();
                 if (packageName != null) {
-                    Log.e("float", "3==" + packageName);
                     return packageName;
                 }
 
@@ -58,12 +55,10 @@ public class GetTopApp {
                     ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
                     if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
                         packageName = runningTaskInfo.topActivity.getPackageName();
-                        Log.e("float", "1==" + packageName);
                     }
                 }
 
                 packageName = getForegroundApp();
-                Log.e("float", "4==" + packageName);
             } catch (Exception e) {
             }
         }

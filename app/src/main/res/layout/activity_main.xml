@@ -26,6 +26,7 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/main_title"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/title_hight"
                 android:background="@color/A1">
@@ -48,12 +49,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d16"
                     android:layout_toRightOf="@id/iv_title_left"
                     android:text="@string/app_name"
                     android:textColor="@color/A8"
                     android:textSize="@dimen/s17"
-                    app:typeface="eos_clean.otf" />
+                    app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:id="@+id/iv_title_right"
@@ -111,7 +111,7 @@
                         <RelativeLayout
                             android:id="@+id/main_all_cercle"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/main_t"
+                            android:layout_height="@dimen/d295"
                             android:background="@color/A1">
 
                             <android.support.v4.view.ViewPager
@@ -138,7 +138,7 @@
                         <!--六个按钮-->
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/main_6_anniu"
+                            android:layout_height="@dimen/d203"
                             android:orientation="vertical">
 
                             <LinearLayout
@@ -155,6 +155,7 @@
                                     android:orientation="vertical">
 
                                     <LinearLayout
+                                        android:id="@+id/main_junk_image"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="center"
@@ -163,36 +164,50 @@
                                         <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/d12"
                                             android:src="@mipmap/main_junk_button" />
 
                                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="@dimen/d8"
                                             android:text="@string/main_junk_name"
-                                            android:textColor="@color/B2"
+                                            android:textColor="#bdbdbd"
                                             android:textSize="@dimen/s12"
-                                            app:typeface="eos_clean.otf" />
+                                            app:typeface="ljh_1.TTF" />
                                     </LinearLayout>
 
-                                    <TextView
-                                        android:id="@+id/main_junk_h"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="@dimen/d12"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginRight="@dimen/d27"
-                                        android:layout_marginTop="@dimen/d23"
-                                        android:background="@drawable/shape_a2"
+                                    <LinearLayout
+                                        android:id="@+id/main_junk_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
                                         android:gravity="center"
-                                        android:paddingLeft="@dimen/d3"
-                                        android:paddingRight="@dimen/d3"
-                                        android:textColor="@color/A8"
-                                        android:textSize="@dimen/s8"
-                                        android:visibility="invisible" />
+                                        android:orientation="vertical"
+                                        android:visibility="gone">
+
+                                        <TextView
+                                            android:id="@+id/main_junk_h"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="@dimen/d30"
+                                            android:layout_marginBottom="@dimen/d12"
+                                            android:gravity="bottom"
+                                            android:textColor="#ff3c3c"
+                                            android:textSize="@dimen/s20"
+                                            android:visibility="invisible" />
+
+                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/main_junk_name"
+                                            android:textColor="#bdbdbd"
+                                            android:textSize="@dimen/s12"
+                                            app:typeface="ljh_1.TTF" />
+                                    </LinearLayout>
+
+
                                 </RelativeLayout>
 
                                 <View
-                                    android:layout_width="1px"
+                                    android:layout_width="1dp"
                                     android:layout_height="match_parent"
                                     android:background="@color/B1" />
 
@@ -204,6 +219,7 @@
                                     android:background="?attr/selectableItemBackground">
 
                                     <LinearLayout
+                                        android:id="@+id/main_ram_image"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="center"
@@ -212,67 +228,53 @@
                                         <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginBottom="@dimen/d8"
+                                            android:layout_marginBottom="@dimen/d12"
                                             android:src="@mipmap/main_ram_button" />
 
                                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_ram_name"
-                                            android:textColor="@color/B2"
+                                            android:textColor="#bdbdbd"
                                             android:textSize="@dimen/s12"
-                                            app:typeface="eos_clean.otf" />
+                                            app:typeface="ljh_1.TTF" />
                                     </LinearLayout>
 
-                                    <TextView
-                                        android:id="@+id/main_ram_h"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="@dimen/d12"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginRight="@dimen/d27"
-                                        android:layout_marginTop="@dimen/d23"
-                                        android:background="@drawable/shape_a2"
+                                    <LinearLayout
+                                        android:id="@+id/main_ram_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
                                         android:gravity="center"
-                                        android:paddingLeft="@dimen/d3"
-                                        android:paddingRight="@dimen/d3"
-                                        android:textColor="@color/A8"
-                                        android:textSize="@dimen/s8"
-                                        android:visibility="invisible" />
+                                        android:orientation="vertical"
+                                        android:visibility="gone">
+
+                                        <TextView
+                                            android:id="@+id/main_ram_h"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="@dimen/d30"
+                                            android:layout_marginBottom="@dimen/d12"
+                                            android:gravity="bottom"
+                                            android:textColor="#ff3c3c"
+                                            android:textSize="@dimen/s20"
+                                            android:visibility="invisible" />
+
+                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/main_ram_name"
+                                            android:textColor="#bdbdbd"
+                                            android:textSize="@dimen/s12"
+                                            app:typeface="ljh_1.TTF" />
+                                    </LinearLayout>
+
                                 </RelativeLayout>
 
-                                <View
-                                    android:layout_width="1px"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/B1" />
 
-                                <LinearLayout
-                                    android:id="@+id/main_manager_button"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="?attr/selectableItemBackground"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginBottom="@dimen/d8"
-                                        android:src="@mipmap/main_manager_button" />
-
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/main_manager_name"
-                                        android:textColor="@color/B2"
-                                        android:textSize="@dimen/s12"
-                                        app:typeface="eos_clean.otf" />
-                                </LinearLayout>
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1px"
+                                android:layout_height="1dp"
                                 android:background="@color/B1" />
 
                             <LinearLayout
@@ -288,6 +290,7 @@
                                     android:background="?attr/selectableItemBackground">
 
                                     <LinearLayout
+                                        android:id="@+id/main_cooling_image"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:gravity="center"
@@ -296,41 +299,54 @@
                                         <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginBottom="@dimen/d8"
+                                            android:layout_marginBottom="@dimen/d12"
                                             android:src="@mipmap/main_cooling_button" />
 
                                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_cooling_name"
-                                            android:textColor="@color/B2"
+                                            android:textColor="#bdbdbd"
                                             android:textSize="@dimen/s12"
-                                            app:typeface="eos_clean.otf" />
+                                            app:typeface="ljh_1.TTF" />
                                     </LinearLayout>
 
-                                    <TextView
-                                        android:id="@+id/main_cooling_h"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="@dimen/d12"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginRight="@dimen/d27"
-                                        android:layout_marginTop="@dimen/d23"
-                                        android:background="@drawable/shape_a2"
+                                    <LinearLayout
+                                        android:id="@+id/main_cooling_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
                                         android:gravity="center"
-                                        android:paddingLeft="@dimen/d3"
-                                        android:paddingRight="@dimen/d3"
-                                        android:textColor="@color/A8"
-                                        android:textSize="@dimen/s8"
-                                        android:visibility="invisible" />
+                                        android:orientation="vertical"
+                                        android:visibility="gone">
+
+                                        <TextView
+                                            android:id="@+id/main_cooling_h"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="@dimen/d30"
+                                            android:layout_marginBottom="@dimen/d12"
+                                            android:gravity="bottom"
+                                            android:textColor="#ff3c3c"
+                                            android:textSize="@dimen/s20"
+                                            android:visibility="invisible" />
+
+                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/main_cooling_name"
+                                            android:textColor="#bdbdbd"
+                                            android:textSize="@dimen/s12"
+                                            app:typeface="ljh_1.TTF" />
+                                    </LinearLayout>
+
                                 </RelativeLayout>
 
                                 <View
-                                    android:layout_width="1px"
+                                    android:layout_width="1dp"
                                     android:layout_height="match_parent"
                                     android:background="@color/B1" />
 
                                 <LinearLayout
-                                    android:id="@+id/main_applock_button"
+                                    android:id="@+id/main_manager_button"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
@@ -341,46 +357,16 @@
                                     <ImageView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginBottom="@dimen/d8"
-                                        android:src="@mipmap/main_applock_button" />
+                                        android:layout_marginBottom="@dimen/d12"
+                                        android:src="@mipmap/main_manager_button" />
 
                                     <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/main_aopplock_name"
-                                        android:textColor="@color/B2"
+                                        android:text="@string/main_manager_name"
+                                        android:textColor="#bdbdbd"
                                         android:textSize="@dimen/s12"
-                                        app:typeface="eos_clean.otf" />
-                                </LinearLayout>
-
-
-                                <View
-                                    android:layout_width="1px"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/B1" />
-
-                                <LinearLayout
-                                    android:id="@+id/main_theme_button"
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="?attr/selectableItemBackground"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginBottom="@dimen/d8"
-                                        android:src="@mipmap/main_theme_button" />
-
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/gboost_0"
-                                        android:textColor="@color/B2"
-                                        android:textSize="@dimen/s12"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="ljh_1.TTF" />
                                 </LinearLayout>
                             </LinearLayout>
 
@@ -389,7 +375,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d9"
-                            android:background="@color/A10" />
+                            android:background="#f5f7fa" />
                         <!--好评-->
                         <LinearLayout
                             android:id="@+id/main_rotate_all"
@@ -400,56 +386,102 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d40"
+                                android:layout_height="@dimen/d44"
                                 android:orientation="horizontal">
 
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="@dimen/d4"
+                                    android:layout_height="@dimen/d26"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d19"
-                                    android:src="@mipmap/main_rotate_1" />
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@drawable/shape_lv_r" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d6"
+                                    android:layout_marginLeft="@dimen/d9"
                                     android:text="@string/main_rotate_title"
-                                    android:textColor="@color/A9"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    android:textColor="#414141"
+                                    android:textSize="@dimen/s15"
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginRight="@dimen/d16"
-                                android:background="@color/B1" />
+                                android:layout_height="@dimen/d5"
+                                android:background="#f5f7fa" />
 
-                            <FrameLayout
+
+                            <ImageView
                                 android:layout_width="match_parent"
+                                android:layout_height="@dimen/d84"
+                                android:layout_marginBottom="@dimen/d16"
+                                android:scaleType="centerCrop"
+                                android:src="@mipmap/main_rotate_2" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/d16">
+                                android:layout_gravity="center_horizontal"
+                                android:text="@string/rotate_msg"
+                                android:textColor="#5d5d5d"
+                                android:textSize="@dimen/s14" />
 
-                                <ImageView
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/d8"
+                                android:text="@string/rotate_msg_2"
+                                android:textColor="#5d5d5d"
+                                android:textSize="@dimen/s14" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d50"
+                                android:layout_marginTop="@dimen/d10">
+
+                                <FrameLayout
+                                    android:id="@+id/main_rotate_bad"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="@string/main_rotate_bad"
+                                        android:textColor="#949494"
+                                        android:textSize="@dimen/s12" />
+                                </FrameLayout>
+
+                                <FrameLayout
                                     android:id="@+id/main_rotate_good"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/d141"
-                                    android:layout_marginBottom="@dimen/d16"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:scaleType="centerCrop"
-                                    android:src="@mipmap/main_rotate_2" />
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="bottom|right"
-                                    android:src="@mipmap/main_rotate_4" />
+                                    <TextView
+                                        android:layout_width="@dimen/d146"
+                                        android:layout_height="@dimen/d36"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/shape_2fb5ff"
+                                        android:gravity="center"
+                                        android:text="@string/main_rotate_good"
+                                        android:textColor="@color/white_100"
+                                        android:textSize="@dimen/s16" />
 
-                            </FrameLayout>
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="bottom|right"
+                                        android:layout_marginRight="@dimen/d67"
+                                        android:src="@mipmap/main_rotate_4" />
+                                </FrameLayout>
+                            </LinearLayout>
+
 
                             <View
                                 android:layout_width="match_parent"
@@ -469,15 +501,15 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d40"
+                                android:layout_height="@dimen/d44"
                                 android:orientation="horizontal">
 
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="@dimen/d4"
+                                    android:layout_height="@dimen/d26"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d19"
-                                    android:src="@mipmap/main_rotate_1" />
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@drawable/shape_lv_r" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:id="@+id/main_msg_tuiguang"
@@ -485,26 +517,20 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d6"
-                                    android:textColor="@color/A9"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    android:textColor="#414141"
+                                    android:textSize="@dimen/s15"
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginRight="@dimen/d16"
-                                android:background="@color/B1" />
+                                android:layout_height="@dimen/d5"
+                                android:background="#f5f7fa" />
 
                             <FrameLayout
                                 android:id="@+id/fl_lot_main"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d135"
-                                android:layout_marginBottom="@dimen/d16"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginRight="@dimen/d16"
-                                android:layout_marginTop="@dimen/d16">
+                                android:layout_height="@dimen/d176">
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
@@ -516,7 +542,7 @@
                                     android:text="AD"
                                     android:textColor="@android:color/white"
                                     android:textSize="8sp"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </FrameLayout>
 
 
@@ -537,14 +563,14 @@
                             <ImageView
                                 android:layout_width="@dimen/d40"
                                 android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_marginTop="@dimen/d16"
                                 android:src="@mipmap/notifi_6" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginBottom="@dimen/d16"
                                 android:layout_marginLeft="@dimen/d12"
                                 android:layout_marginTop="@dimen/d16"
                                 android:layout_weight="1"
@@ -555,18 +581,18 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/side_notifi"
-                                    android:textColor="@color/B6"
+                                    android:textColor="#2f2f2f"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d4"
+                                    android:layout_marginTop="@dimen/d8"
                                     android:text="@string/notifi_msg_main"
-                                    android:textColor="@color/B7"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    android:textColor="#802f2f2f"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -579,7 +605,7 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1px"
+                            android:layout_height="1dp"
                             android:background="@color/B1" />
 
                         <!--深度清理-->
@@ -593,14 +619,14 @@
                             <ImageView
                                 android:layout_width="@dimen/d40"
                                 android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_marginTop="@dimen/d16"
                                 android:src="@mipmap/power_6" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginBottom="@dimen/d16"
                                 android:layout_marginLeft="@dimen/d12"
                                 android:layout_marginTop="@dimen/d16"
                                 android:layout_weight="1"
@@ -611,18 +637,18 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/side_power"
-                                    android:textColor="@color/B6"
+                                    android:textColor="#2f2f2f"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d4"
+                                    android:layout_marginTop="@dimen/d8"
                                     android:text="@string/power_3"
-                                    android:textColor="@color/B7"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    android:textColor="#802f2f2f"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -635,7 +661,7 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1px"
+                            android:layout_height="1dp"
                             android:background="@color/B1" />
 
                         <!--文件管理-->
@@ -649,14 +675,14 @@
                             <ImageView
                                 android:layout_width="@dimen/d40"
                                 android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_marginTop="@dimen/d16"
                                 android:src="@mipmap/file_main" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginBottom="@dimen/d16"
                                 android:layout_marginLeft="@dimen/d12"
                                 android:layout_marginTop="@dimen/d16"
                                 android:layout_weight="1"
@@ -667,18 +693,18 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/side_file"
-                                    android:textColor="@color/B6"
+                                    android:textColor="#2f2f2f"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d4"
+                                    android:layout_marginTop="@dimen/d8"
                                     android:text="@string/file_main"
-                                    android:textColor="@color/B7"
+                                    android:textColor="#802f2f2f"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -691,7 +717,7 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1px"
+                            android:layout_height="1dp"
                             android:background="@color/B1" />
 
                         <!--游戏加速-->
@@ -705,14 +731,14 @@
                             <ImageView
                                 android:layout_width="@dimen/d40"
                                 android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_marginTop="@dimen/d16"
                                 android:src="@mipmap/gboost_main" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginBottom="@dimen/d16"
                                 android:layout_marginLeft="@dimen/d12"
                                 android:layout_marginTop="@dimen/d16"
                                 android:layout_weight="1"
@@ -723,18 +749,18 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/gboost_0"
-                                    android:textColor="@color/B6"
+                                    android:textColor="#2f2f2f"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d4"
+                                    android:layout_marginTop="@dimen/d8"
                                     android:text="@string/gboost_10"
-                                    android:textColor="@color/B7"
+                                    android:textColor="#802f2f2f"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -747,7 +773,7 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1px"
+                            android:layout_height="1dp"
                             android:background="@color/B1" />
                         <!--相似图片-->
                         <LinearLayout
@@ -760,14 +786,14 @@
                             <ImageView
                                 android:layout_width="@dimen/d40"
                                 android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d20"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_marginTop="@dimen/d16"
                                 android:src="@mipmap/picture_main" />
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d15"
+                                android:layout_marginBottom="@dimen/d16"
                                 android:layout_marginLeft="@dimen/d12"
                                 android:layout_marginTop="@dimen/d16"
                                 android:layout_weight="1"
@@ -778,18 +804,18 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/side_picture"
-                                    android:textColor="@color/B6"
+                                    android:textColor="#2f2f2f"
                                     android:textSize="@dimen/s16"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d4"
+                                    android:layout_marginTop="@dimen/d8"
                                     android:text="@string/picture_delete"
-                                    android:textColor="@color/B7"
+                                    android:textColor="#802f2f2f"
                                     android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    app:typeface="ljh_1.TTF" />
                             </LinearLayout>
 
                             <ImageView
@@ -805,6 +831,16 @@
                             android:layout_height="@dimen/d9"
                             android:background="@color/A10" />
 
+                        <!--ad-->
+                        <LinearLayout
+                            android:id="@+id/ll_ad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="@dimen/d6"
+                            android:layout_marginRight="@dimen/d6"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical" />
 
                         <!--硬件信息-->
                         <LinearLayout
@@ -816,15 +852,15 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d40"
+                                android:layout_height="@dimen/d44"
                                 android:orientation="horizontal">
 
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="@dimen/d4"
+                                    android:layout_height="@dimen/d26"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d19"
-                                    android:src="@mipmap/main_rotate_1" />
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@drawable/shape_lv_r" />
 
                                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
@@ -832,24 +868,48 @@
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d6"
                                     android:text="@string/main_msg_title"
-                                    android:textColor="@color/A9"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="eos_clean.otf" />
+                                    android:textColor="#414141"
+                                    android:textSize="@dimen/s15"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical">
+
+                                    <ImageView
+                                        android:id="@+id/msg_im"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginRight="@dimen/d16"
+                                        android:src="@mipmap/main_msg_1" />
+
+                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginRight="@dimen/d5"
+                                        android:layout_toLeftOf="@id/msg_im"
+                                        android:text="@string/main_msg_more"
+                                        android:textColor="@color/black_50"
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="ljh_1.TTF" />
+
+
+                                </RelativeLayout>
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginRight="@dimen/d16"
-                                android:background="@color/B1" />
+                                android:layout_height="@dimen/d5"
+                                android:background="#f5f7fa" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/d14"
-                                android:layout_marginRight="@dimen/d14"
-                                android:layout_marginTop="@dimen/d19"
+                                android:layout_marginTop="@dimen/d15"
                                 android:orientation="horizontal">
 
                                 <LinearLayout
@@ -865,10 +925,10 @@
 
                                         <ImageView
                                             android:id="@+id/main_msg_ram_backg"
-                                            android:layout_width="@dimen/d84"
-                                            android:layout_height="@dimen/d84"
+                                            android:layout_width="@dimen/d56"
+                                            android:layout_height="@dimen/d56"
                                             android:layout_centerInParent="true"
-                                            android:src="@drawable/round_a1" />
+                                            android:src="@drawable/msg_1" />
 
                                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                             android:id="@+id/main_msg_ram_percent"
@@ -876,9 +936,9 @@
                                             android:layout_height="wrap_content"
                                             android:layout_centerInParent="true"
                                             android:text="96%"
-                                            android:textColor="@color/A8"
-                                            android:textSize="@dimen/s24"
-                                            app:typeface="eos_clean.otf" />
+                                            android:textColor="#64b5f6"
+                                            android:textSize="@dimen/s17"
+                                            app:typeface="ljh_1.TTF" />
                                     </RelativeLayout>
 
                                     <com.eos.module.charge.saver.view.CustomerTypefaceTextView
@@ -887,9 +947,9 @@
                                         android:layout_gravity="center_horizontal"
                                         android:layout_marginTop="@dimen/d5"
                                         android:text="@string/main_msg_ram"
-                                        android:textColor="@color/B2"
-                                        android:textSize="@dimen/s12"
-                                        app:typeface="eos_clean.otf" />
+                                        android:textColor="#9c000000"
+                                        android:textSize="@dimen/s14"
+                                        app:typeface="ljh_1.TTF" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -905,10 +965,10 @@
 
                                         <ImageView
                                             android:id="@+id/main_msg_sd_backg"
-                                            android:layout_width="@dimen/d84"
-                                            android:layout_height="@dimen/d84"
+                                            android:layout_width="@dimen/d56"
+                                            android:layout_height="@dimen/d56"
                                             android:layout_centerInParent="true"
-                                            android:src="@drawable/round_a4" />
+                                            android:src="@drawable/msg_2" />
 
                                         <LinearLayout
                                             android:layout_width="wrap_content"
@@ -922,9 +982,9 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="864"
-                                                android:textColor="@color/A8"
-                                                android:textSize="@dimen/s24"
-                                                app:typeface="eos_clean.otf" />
+                                                android:textColor="#ffc742"
+                                                android:textSize="@dimen/s17"
+                                                app:typeface="ljh_1.TTF" />
 
                                             <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                                 android:id="@+id/main_msg_sd_unit"
@@ -932,9 +992,9 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="@dimen/d2"
                                                 android:text="MB"
-                                                android:textColor="@color/A8"
-                                                android:textSize="@dimen/s13"
-                                                app:typeface="eos_clean.otf" />
+                                                android:textColor="#ffc742"
+                                                android:textSize="@dimen/s11"
+                                                app:typeface="ljh_1.TTF" />
                                         </LinearLayout>
 
                                     </RelativeLayout>
@@ -945,9 +1005,9 @@
                                         android:layout_gravity="center_horizontal"
                                         android:layout_marginTop="@dimen/d5"
                                         android:text="@string/main_msg_sd"
-                                        android:textColor="@color/B2"
-                                        android:textSize="@dimen/s12"
-                                        app:typeface="eos_clean.otf" />
+                                        android:textColor="#9c000000"
+                                        android:textSize="@dimen/s14"
+                                        app:typeface="ljh_1.TTF" />
 
                                 </LinearLayout>
 
@@ -964,10 +1024,10 @@
 
                                         <ImageView
                                             android:id="@+id/main_msg_cpu_backg"
-                                            android:layout_width="@dimen/d84"
-                                            android:layout_height="@dimen/d84"
+                                            android:layout_width="@dimen/d56"
+                                            android:layout_height="@dimen/d56"
                                             android:layout_centerInParent="true"
-                                            android:src="@drawable/round_a3" />
+                                            android:src="@drawable/msg_3" />
 
                                         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                                             android:id="@+id/main_msg_cpu_percent"
@@ -975,9 +1035,9 @@
                                             android:layout_height="wrap_content"
                                             android:layout_centerInParent="true"
                                             android:text="12%"
-                                            android:textColor="@color/A8"
-                                            android:textSize="@dimen/s24"
-                                            app:typeface="eos_clean.otf" />
+                                            android:textColor="#64dd17"
+                                            android:textSize="@dimen/s17"
+                                            app:typeface="ljh_1.TTF" />
                                     </RelativeLayout>
 
                                     <com.eos.module.charge.saver.view.CustomerTypefaceTextView
@@ -986,132 +1046,24 @@
                                         android:layout_gravity="center_horizontal"
                                         android:layout_marginTop="@dimen/d5"
                                         android:text="@string/main_msg_cpu"
-                                        android:textColor="@color/B2"
-                                        android:textSize="@dimen/s12"
-                                        app:typeface="eos_clean.otf" />
+                                        android:textColor="#9c000000"
+                                        android:textSize="@dimen/s14"
+                                        app:typeface="ljh_1.TTF" />
                                 </LinearLayout>
 
 
                             </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d10"
-                                android:layout_marginTop="@dimen/d9"
-                                android:gravity="center_vertical">
-
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d9"
-                                    android:layout_weight="1"
-                                    android:gravity="center_vertical|right"
-                                    android:text="@string/main_msg_more"
-                                    android:textColor="@color/A5"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="eos_clean.otf" />
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d24"
-                                    android:src="@mipmap/main_msg_1" />
-                            </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d9"
-                                android:background="@color/A10" />
                         </LinearLayout>
 
-                        <!--ad-->
                         <LinearLayout
-                            android:id="@+id/ll_ad"
+                            android:id="@+id/ad_native_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginLeft="@dimen/d6"
-                            android:layout_marginRight="@dimen/d6"
+                            android:layout_marginTop="@dimen/d9"
+                            android:background="@color/A1"
                             android:gravity="center_horizontal"
-                            android:orientation="vertical" />
-
-                        <!--守护信息-->
-                        <FrameLayout
-                            android:id="@+id/main_guard_all"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d225"
-                            android:background="@color/A10">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal|bottom"
-                                android:src="@mipmap/main_guard_1" />
-
-                            <ImageView
-                                android:id="@+id/main_guard_rotate"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal|bottom"
-                                android:src="@mipmap/main_guard_2" />
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginBottom="@dimen/d10"
-                                android:gravity="center_horizontal">
-
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:id="@+id/main_gurad_app_name"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/app_name"
-                                    android:textColor="@color/B3"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="eos_clean.otf" />
-
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="@dimen/d2"
-                                    android:layout_toRightOf="@id/main_gurad_app_name"
-                                    android:text="@string/main_guard_title"
-                                    android:textColor="@color/B3"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="eos_clean.otf" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@id/main_gurad_app_name"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center_vertical"
-                                    android:orientation="horizontal">
-
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:id="@+id/main_gurad_num"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="11"
-                                        android:textColor="@color/B3"
-                                        android:textSize="@dimen/s20"
-                                        app:typeface="eos_clean.otf" />
-
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_toRightOf="@id/main_gurad_app_name"
-                                        android:text="@string/main_guard_unit"
-                                        android:textColor="@color/B3"
-                                        android:textSize="@dimen/s12"
-                                        app:typeface="eos_clean.otf" />
-                                </LinearLayout>
-                            </RelativeLayout>
-                        </FrameLayout>
+                            android:orientation="vertical"
+                            android:visibility="invisible" />
 
                     </LinearLayout>
 
@@ -1131,7 +1083,6 @@
             android:clickable="true"
             android:orientation="vertical"
             android:visibility="gone" />
-
 
 
         <ProgressBar
