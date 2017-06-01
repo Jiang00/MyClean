@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cooling_backg">
+    android:background="@color/A1">
 
     <LinearLayout
         android:id="@+id/junk_title_backg"
@@ -29,26 +29,17 @@
 
 
         <ImageView
+            android:layout_width="@dimen/d112"
+            android:layout_height="@dimen/d112"
+            android:layout_gravity="center"
+            android:src="@drawable/shape_baihuan" />
+
+        <ImageView
             android:id="@+id/cooling_xuehua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/d100"
+            android:layout_height="@dimen/d100"
             android:layout_gravity="center"
             android:src="@mipmap/cooling_1" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/privary_4" />
-
-        <ImageView
-            android:id="@+id/cooling_kuo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/privary_4" />
-
-
     </FrameLayout>
 
     <LinearLayout
@@ -56,37 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" />
-
-    <LinearLayout
-        android:id="@+id/cooling_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="@dimen/d90"
-        android:orientation="vertical"
-        android:visibility="invisible">
-
-        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:text="@string/cooling_start"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s15"
-            app:typeface="ljh_1.TTF" />
-
-        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-            android:id="@+id/cooling_wendu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:text="40℃"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s30"
-            app:typeface="ljh_1.TTF" />
-    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/fl_lot_cooling"

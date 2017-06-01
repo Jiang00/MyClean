@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,8 +22,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.android.client.ClientNativeAd;
-import com.android.theme.internal.data.ThemeManager;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
@@ -235,12 +234,12 @@ public class BatteryView extends FrameLayout {
 
     private void initBack() {
         try {
-            String pkg = ThemeManager.currentTheme().getPackageName();
-            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-            if (themeContext == null) {
-                return;
-            }
-            InputStream input = themeContext.getAssets().open("eos_back.png");
+//            String pkg = ThemeManager.currentTheme().getPackageName();
+//            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+//            if (themeContext == null) {
+//                return;
+//            }
+            InputStream input = mContext.getAssets().open("eos_back.png");
             BitmapFactory.Options opts = new BitmapFactory.Options();
             opts.inScaled = false;
             opts.inDensity = 160;
@@ -254,12 +253,12 @@ public class BatteryView extends FrameLayout {
 
     private void initShutter() {
         try {
-            String pkg = ThemeManager.currentTheme().getPackageName();
-            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-            if (themeContext == null) {
-                return;
-            }
-            InputStream input = themeContext.getAssets().open("eos_shutter.png");
+//            String pkg = ThemeManager.currentTheme().getPackageName();
+//            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+//            if (themeContext == null) {
+//                return;
+//            }
+            InputStream input = mContext.getAssets().open("eos_shutter.png");
             BitmapFactory.Options opts = new BitmapFactory.Options();
             opts.inScaled = false;
             opts.inDensity = 160;
@@ -273,32 +272,27 @@ public class BatteryView extends FrameLayout {
 
     private void initParticle() {
         try {
-            String pkg = ThemeManager.currentTheme().getPackageName();
-            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-            if (themeContext == null) {
-                return;
-            }
-            InputStream input = themeContext.getAssets().open("eos_particle.png");
-            BitmapFactory.Options opts = new BitmapFactory.Options();
-            opts.inScaled = false;
-            opts.inDensity = 160;
-            Bitmap bitmap = BitmapFactory.decodeStream(input, null, opts);
-            if (bitmap != null && bubbleLayout != null) {
-                bubbleLayout.setParticleBitmap(bitmap);
-            }
+//            String pkg = ThemeManager.currentTheme().getPackageName();
+//            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+//            if (themeContext == null) {
+//                return;
+//            }
+//            InputStream input = mContext.getAssets().open("eos_particle.png");
+//            BitmapFactory.Options opts = new BitmapFactory.Options();
+//            opts.inScaled = false;
+//            opts.inDensity = 160;
+//            Bitmap bitmap = BitmapFactory.decodeStream(input, null, opts);
+//            if (bitmap != null && bubbleLayout != null) {
+//                bubbleLayout.setParticleBitmap(bitmap);
+//            }
         } catch (Exception e) {
         }
     }
 
     private void initShell() {
         try {
-            String pkg = ThemeManager.currentTheme().getPackageName();
-            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-            if (themeContext == null) {
-                return;
-            }
-            shell.setImageAssetsFolder(themeContext, "theme://images/shell");
-            shell.setAnimation(themeContext, "theme://shell.json");
+            shell.setImageAssetsFolder(mContext, "theme://images/shell");
+            shell.setAnimation(mContext, "theme://shell.json");
             shell.loop(true);
             shell.playAnimation();
         } catch (Exception e) {
@@ -311,13 +305,8 @@ public class BatteryView extends FrameLayout {
 
     private void initWater() {
         try {
-            String pkg = ThemeManager.currentTheme().getPackageName();
-            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-            if (themeContext == null) {
-                return;
-            }
-            water.setImageAssetsFolder(themeContext, "theme://images/water");
-            water.setAnimation(themeContext, "theme://water.json");
+            water.setImageAssetsFolder(mContext, "theme://images/water");
+            water.setAnimation(mContext, "theme://water.json");
         } catch (Exception e) {
             if (!water.isAnimating()) {
                 water.setImageAssetsFolder(null, "images/water");
@@ -330,13 +319,8 @@ public class BatteryView extends FrameLayout {
 
     private void initLighting() {
         try {
-            String pkg = ThemeManager.currentTheme().getPackageName();
-            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-            if (themeContext == null) {
-                return;
-            }
-            lighting.setImageAssetsFolder(themeContext, "theme://images/lighting");
-            lighting.setAnimation(themeContext, "theme://lighting.json");
+            lighting.setImageAssetsFolder(mContext, "theme://images/lighting");
+            lighting.setAnimation(mContext, "theme://lighting.json");
         } catch (Exception e) {
             lighting.setImageAssetsFolder(null, "images/lighting");
             lighting.setAnimation(null, "lighting.json");
@@ -351,16 +335,6 @@ public class BatteryView extends FrameLayout {
             initViews();
             isBindView = true;
 
-//            shell.setAnimation("shell.json");
-//            shell.loop(true);
-//            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
-//                    new OnCompositionLoadedListener() {
-//                        @Override
-//                        public void onCompositionLoaded(LottieComposition composition) {
-//                            shell.setComposition(composition);
-//                        }
-//                    });
-//            shell.playAnimation();
             initShell();
             initBack();
             initShutter();

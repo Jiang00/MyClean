@@ -23,7 +23,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d95"
+            android:layout_height="@dimen/d121"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -37,7 +37,8 @@
                 android:lines="1"
                 android:text="0"
                 android:textColor="@color/A8"
-                android:textSize="@dimen/s63"
+                android:textSize="@dimen/s57"
+                android:textStyle="bold"
                 app:typeface="ljh_1.TTF" />
 
             <LinearLayout
@@ -52,18 +53,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s21"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/s20"
                     app:typeface="ljh_1.TTF" />
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/junk_fangxin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d12"
+                    android:layout_marginTop="@dimen/d5"
                     android:text="@string/junk_title_clean"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s12"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/s16"
                     app:typeface="ljh_1.TTF" />
 
 
@@ -86,7 +87,7 @@
             android:dividerHeight="0px"
             android:visibility="invisible" />
 
-        <com.supers.clean.junk.customeview.MyScrollView
+        <com.supers.clean.junk.mview.MyScrollView
             android:id="@+id/junk_scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -105,55 +106,78 @@
                     android:background="?attr/selectableItemBackground"
                     android:orientation="vertical">
 
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d56"
+                        android:layout_height="@dimen/d61"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="@dimen/d72"
                             android:layout_height="match_parent"
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:scaleType="center"
                                 android:src="@mipmap/junk_system" />
                         </LinearLayout>
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="@string/junk_system"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            android:orientation="vertical">
 
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/junk_system"
+                                android:textColor="#707070"
+                                android:textSize="@dimen/s16"
+                                app:typeface="ljh_1.TTF" />
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_system_size"
-                            android:layout_width="@dimen/d37"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="10.0"
-                            android:textColor="@color/A1"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d3"
+                                android:orientation="horizontal">
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_system_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="ljh_1.TTF" />
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="@string/ram_yuji"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_system_size"
+                                    android:layout_width="@dimen/d37"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="10.0"
+                                    android:textColor="#31cf62"
+                                    android:textSize="@dimen/s15"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_system_unit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="MB"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+                            </LinearLayout>
+                        </LinearLayout>
+
 
                         <ImageView
                             android:id="@+id/junk_system_jiantou"
@@ -161,13 +185,16 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
-                            android:src="@mipmap/junk_jiantou"
-                            android:visibility="visible" />
+                            android:src="@mipmap/junk_jiantou" />
                     </LinearLayout>
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e5e5e5" />
                 </LinearLayout>
 
-                <com.supers.clean.junk.customeview.ListViewForScrollView
+                <com.supers.clean.junk.mview.ListViewForScrollView
                     android:id="@+id/junk_system_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -182,54 +209,81 @@
                     android:background="?attr/selectableItemBackground"
                     android:orientation="vertical">
 
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d56"
+                        android:layout_height="@dimen/d61"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="@dimen/d72"
                             android:layout_height="match_parent"
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:scaleType="center"
                                 android:src="@mipmap/junk_apk" />
                         </LinearLayout>
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="@string/junk_apk"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            android:orientation="vertical">
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_apk_size"
-                            android:layout_width="@dimen/d37"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="10.0"
-                            android:textColor="@color/A1"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:text="@string/junk_apk"
+                                android:textColor="#707070"
+                                android:textSize="@dimen/s16"
+                                app:typeface="ljh_1.TTF" />
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_apk_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="ljh_1.TTF" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d3"
+                                android:orientation="horizontal">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="@string/ram_yuji"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_apk_size"
+                                    android:layout_width="@dimen/d37"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="10.0"
+                                    android:textColor="#31cf62"
+                                    android:textSize="@dimen/s15"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_apk_unit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="MB"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+                            </LinearLayout>
+                        </LinearLayout>
+
 
                         <ImageView
                             android:id="@+id/junk_apk_jiaotou"
@@ -241,9 +295,13 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e5e5e5" />
                 </LinearLayout>
 
-                <com.supers.clean.junk.customeview.ListViewForScrollView
+                <com.supers.clean.junk.mview.ListViewForScrollView
                     android:id="@+id/junk_apk_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -260,53 +318,78 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d56"
+                        android:layout_height="@dimen/d61"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="@dimen/d72"
                             android:layout_height="match_parent"
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:scaleType="center"
                                 android:src="@mipmap/junk_unload" />
                         </LinearLayout>
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="@string/junk_unload"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            android:orientation="vertical">
 
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:text="@string/junk_unload"
+                                android:textColor="#707070"
+                                android:textSize="@dimen/s16"
+                                app:typeface="ljh_1.TTF" />
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_unload_size"
-                            android:layout_width="@dimen/d37"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="10.0"
-                            android:textColor="@color/A1"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d3"
+                                android:orientation="horizontal">
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_unload_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="ljh_1.TTF" />
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="@string/ram_yuji"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_unload_size"
+                                    android:layout_width="@dimen/d37"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="10.0"
+                                    android:textColor="#31cf62"
+                                    android:textSize="@dimen/s15"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_unload_unit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="MB"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+                            </LinearLayout>
+                        </LinearLayout>
+
 
                         <ImageView
                             android:id="@+id/junk_unload_jiantou"
@@ -318,9 +401,13 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e5e5e5" />
                 </LinearLayout>
 
-                <com.supers.clean.junk.customeview.ListViewForScrollView
+                <com.supers.clean.junk.mview.ListViewForScrollView
                     android:id="@+id/junk_unload_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -337,53 +424,77 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d56"
+                        android:layout_height="@dimen/d61"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="@dimen/d72"
                             android:layout_height="match_parent"
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:scaleType="center"
                                 android:src="@mipmap/junk_log" />
                         </LinearLayout>
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="@string/junk_log"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            android:orientation="vertical">
 
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/junk_log"
+                                android:textColor="#707070"
+                                android:textSize="@dimen/s16"
+                                app:typeface="ljh_1.TTF" />
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_log_size"
-                            android:layout_width="@dimen/d37"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="10.0"
-                            android:textColor="@color/A1"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d3"
+                                android:orientation="horizontal">
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_log_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="ljh_1.TTF" />
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="@string/ram_yuji"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_log_size"
+                                    android:layout_width="@dimen/d37"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="10.0"
+                                    android:textColor="#31cf62"
+                                    android:textSize="@dimen/s15"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_log_unit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="MB"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+                            </LinearLayout>
+                        </LinearLayout>
+
 
                         <ImageView
                             android:id="@+id/junk_log_jiantou"
@@ -395,9 +506,14 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e5e5e5" />
+
                 </LinearLayout>
 
-                <com.supers.clean.junk.customeview.ListViewForScrollView
+                <com.supers.clean.junk.mview.ListViewForScrollView
                     android:id="@+id/junk_log_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -414,53 +530,78 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d56"
+                        android:layout_height="@dimen/d61"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
+                            android:layout_width="@dimen/d72"
                             android:layout_height="match_parent"
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:scaleType="center"
                                 android:src="@mipmap/junk_user" />
                         </LinearLayout>
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:text="@string/junk_user"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            android:orientation="vertical">
 
+                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:text="@string/junk_user"
+                                android:textColor="#707070"
+                                android:textSize="@dimen/s16"
+                                app:typeface="ljh_1.TTF" />
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_user_size"
-                            android:layout_width="@dimen/d37"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="10.0"
-                            android:textColor="@color/A1"
-                            android:textSize="@dimen/s14"
-                            app:typeface="ljh_1.TTF" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d3"
+                                android:orientation="horizontal">
 
-                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_user_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="ljh_1.TTF" />
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="@string/ram_yuji"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_user_size"
+                                    android:layout_width="@dimen/d37"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="10.0"
+                                    android:textColor="#31cf62"
+                                    android:textSize="@dimen/s15"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/junk_user_unit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="MB"
+                                    android:textColor="#bfbfbf"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+                            </LinearLayout>
+                        </LinearLayout>
+
 
                         <ImageView
                             android:id="@+id/junk_user_jiantou"
@@ -472,9 +613,13 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#e5e5e5" />
                 </LinearLayout>
 
-                <com.supers.clean.junk.customeview.ListViewForScrollView
+                <com.supers.clean.junk.mview.ListViewForScrollView
                     android:id="@+id/junk_user_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -482,26 +627,25 @@
                     android:divider="@drawable/list_divider"
                     android:dividerHeight="0px" />
             </LinearLayout>
-        </com.supers.clean.junk.customeview.MyScrollView>
+        </com.supers.clean.junk.mview.MyScrollView>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:layout_gravity="bottom">
-
-            <Button
-                android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d168"
-                android:layout_height="@dimen/d40"
-                android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/junk_button"
-                android:textAllCaps="false"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s14"
-                android:visibility="invisible" />
-        </RelativeLayout>
     </FrameLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d56"
+        android:layout_gravity="bottom">
 
+        <Button
+            android:id="@+id/junk_button_clean"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
+            android:layout_centerInParent="true"
+            android:background="@color/A1"
+            android:text="@string/junk_button"
+            android:textAllCaps="false"
+            android:textColor="@color/A8"
+            android:textSize="@dimen/s14"
+            android:visibility="invisible" />
+    </RelativeLayout>
 </LinearLayout>

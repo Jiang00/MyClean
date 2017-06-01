@@ -47,7 +47,7 @@
 
 
     <application
-        android:name=".activity.MyApplication"
+        android:name=".mactivity.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -56,7 +56,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".mactivity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -66,7 +66,7 @@
         </activity>
 
         <activity
-            android:name=".activity.LoadingActivity"
+            android:name=".mactivity.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -87,78 +87,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.CoolingActivity"
+            android:name=".mactivity.CoolingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.JunkActivity"
+            android:name=".mactivity.LajiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.JunkAndRamActivity"
+            android:name=".mactivity.LajjiAndRamActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ManagerActivity"
+            android:name=".mactivity.AppActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.MessageActivity"
+            android:name=".mactivity.MessageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.RamAvtivity"
+            android:name=".mactivity.RamAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SettingActivity"
+            android:name=".mactivity.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ThemeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.SuccessActivity"
+            android:name=".mactivity.SuccessActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.WhiteListAvtivity"
+            android:name=".mactivity.WhiteListAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.WhiteListAddActivity"
+            android:name=".mactivity.WhiteListAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PowerActivity"
+            android:name=".mactivity.DeepActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.NotifiInfoActivity"
+            android:name=".mactivity.NotifiAnimaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PermissionActivity"
+            android:name=".mactivity.PermissionActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name=".activity.NotifiActivity"
+            android:name=".mactivity.NotifiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.NotifiSettingActivity"
+            android:name=".mactivity.NotifiSettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.FloatActivity"
+            android:name=".mactivity.XuanfuActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name=".activity.UnloadActivity"
+            android:name=".mactivity.UnloadActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name=".activity.PictureActivity"
+            android:name=".mactivity.PhotoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PictureHuiActivity"
+            android:name=".mactivity.PhotoHuiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.GBoostActivity"
+            android:name=".mactivity.GBoostActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -171,7 +168,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ShortCutActivity"
+            android:name=".mactivity.ShortCutActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -192,7 +189,7 @@
         </receiver>
 
         <service
-            android:name=".service.FloatService"
+            android:name=".service.XuanfuService"
             android:excludeFromRecents="true" />
         <service
             android:name=".service.NotificationService"
@@ -200,29 +197,26 @@
             android:excludeFromRecents="true" />
 
         <activity
-            android:name=".activity.TranslateActivity"
+            android:name=".mactivity.TranslateActivity"
             android:theme="@style/Transparent" />
         <activity
-            android:name=".activity.ApplockActivity"
+            android:name=".mactivity.FileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.FileActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.FileListActivity"
+            android:name=".mactivity.FileListActivity"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".activity.FileDocActivity"
+            android:name=".mactivity.FileDocActivity"
             android:screenOrientation="portrait" />
 
         <service
-            android:name=".widget.WidgetService"
+            android:name=".Zwidget.WidgetService"
             android:enabled="true" />
 
         <receiver
-            android:name=".widget.WidgetProvider"
+            android:name=".Zwidget.WidgetProvider"
             android:icon="@drawable/widget_4"
             android:label="@string/app_name_4_4">
             <intent-filter>
@@ -236,7 +230,7 @@
         </receiver>
 
         <receiver
-            android:name=".widget.TempProvider"
+            android:name=".Zwidget.TempProvider"
             android:icon="@drawable/widget_temp_preview"
             android:label="@string/app_name_4_1">
             <intent-filter>
@@ -249,7 +243,7 @@
         </receiver>
 
         <service
-            android:name=".widget.TempService"
+            android:name=".Zwidget.TempService"
             android:enabled="true" />
 
     </application>

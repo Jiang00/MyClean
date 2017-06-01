@@ -22,81 +22,70 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="224dp"
+        android:layout_height="wrap_content"
         android:background="@color/A1"
-        android:scaleType="fitXY"
         android:src="@mipmap/power_1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/A1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/d20">
+
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+            android:id="@+id/power_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/power_1"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/s22"
+            app:typeface="ljh_1.TTF" />
+
+        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/d2"
+            android:singleLine="true"
+            android:text="@string/power_2"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/s15"
+            app:typeface="ljh_1.TTF" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A10"
+        android:background="@color/white_100"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:background="#ffffff"
-            android:orientation="horizontal"
-            android:paddingBottom="13dp"
-            android:paddingTop="13dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="27dp"
-                android:layout_marginRight="15dp"
-                android:src="@mipmap/power_2" />
-
-            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/power_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/power_1"
-                android:textColor="#ff3131"
-                android:textSize="13sp"
-                app:typeface="ljh_1.TTF" />
-
-            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:singleLine="true"
-                android:text="@string/power_2"
-                android:textColor="#808ea4"
-                android:textSize="13sp"
-                app:typeface="ljh_1.TTF" />
-        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/power_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="9dp"
+            android:layout_marginLeft="@dimen/d20"
+            android:layout_marginRight="@dimen/d20"
             android:overScrollMode="never"
             android:scrollbars="none" />
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d72">
+        android:layout_height="@dimen/d56">
 
         <Button
             android:id="@+id/junk_button_clean"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d40"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/shape_button"
+            android:background="@color/A1"
             android:text="@string/junk_button"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:textSize="@dimen/s15" />
+            android:textSize="@dimen/s20" />
     </RelativeLayout>
 </LinearLayout>

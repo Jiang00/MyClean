@@ -21,12 +21,6 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_ad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
-
     <ScrollView
         android:id="@+id/setting_scroll"
         android:layout_width="match_parent"
@@ -44,11 +38,12 @@
             <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
+                android:background="#f5f7fa"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/d16"
                 android:text="@string/setting_kaiguanllei"
-                android:textColor="@color/A1"
-                android:textSize="@dimen/s13"
+                android:textColor="#535353"
+                android:textSize="@dimen/s12"
                 app:typeface="ljh_1.TTF" />
 
             <RelativeLayout
@@ -59,12 +54,14 @@
                 <RelativeLayout
                     android:id="@+id/rl_tongzhi"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_tongzhi" />
                 </RelativeLayout>
@@ -75,21 +72,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_tongzhi"
                     android:text="@string/setting_tongzhi"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
+                    android:textColor="#6f6f6f"
+                    android:textSize="@dimen/s16"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:id="@+id/setting_tongzhi_check"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -100,12 +97,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_tongzhilan"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_tongzhilan" />
                 </RelativeLayout>
@@ -116,21 +113,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_tongzhilan"
                     android:text="@string/setting_tongzhilan"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:id="@+id/setting_tongzhilan_check"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -141,12 +138,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_float"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_float" />
                 </RelativeLayout>
@@ -157,21 +154,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_float"
                     android:text="@string/setting_float"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:id="@+id/setting_float_check"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -182,12 +179,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_battery"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_battery" />
                 </RelativeLayout>
@@ -198,21 +195,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_battery"
                     android:text="@string/setting_battery"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:id="@+id/setting_battery_check"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -223,12 +220,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_unload"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_unload" />
                 </RelativeLayout>
@@ -239,14 +236,14 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_unload"
                     android:text="@string/setting_unload"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:id="@+id/setting_unload_check"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center" />
             </RelativeLayout>
@@ -254,11 +251,12 @@
             <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
+                android:background="#f5f7fa"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
                 android:text="@string/setting_gongneng"
-                android:textColor="@color/A1"
-                android:textSize="@dimen/s13"
+                android:textColor="#535353"
+                android:textSize="@dimen/s12"
                 app:typeface="ljh_1.TTF" />
 
             <RelativeLayout
@@ -269,12 +267,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_picture"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_picture" />
                 </RelativeLayout>
@@ -285,21 +283,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_picture"
                     android:text="@string/side_picture"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
+                    android:src="@mipmap/right" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
 
@@ -311,12 +309,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_hui"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_hui" />
                 </RelativeLayout>
@@ -327,21 +325,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_hui"
                     android:text="@string/picture_hui"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
+                    android:src="@mipmap/right" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -352,12 +350,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_gboost"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/gboost_setting" />
                 </RelativeLayout>
@@ -368,22 +366,23 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_gboost"
                     android:text="@string/gboost_0"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
+                    android:src="@mipmap/right" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
+
             <RelativeLayout
                 android:id="@+id/setting_file"
                 android:layout_width="match_parent"
@@ -392,12 +391,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_file"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_file" />
                 </RelativeLayout>
@@ -408,21 +407,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_file"
                     android:text="@string/side_file"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
+                    android:src="@mipmap/right" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -433,12 +432,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_notifi"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_notifi" />
                 </RelativeLayout>
@@ -449,21 +448,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_notifi"
                     android:text="@string/side_notifi"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
+                    android:src="@mipmap/right" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -474,12 +473,12 @@
                 <RelativeLayout
                     android:id="@+id/rl_power"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_power" />
                 </RelativeLayout>
@@ -490,21 +489,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_power"
                     android:text="@string/side_power"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
+                    android:src="@mipmap/right" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -515,15 +514,15 @@
                 <RelativeLayout
                     android:id="@+id/rl_white"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerInParent="true"
                         android:src="@mipmap/setting_white" />
                 </RelativeLayout>
@@ -534,21 +533,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_white"
                     android:text="@string/setting_white"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
+                    android:src="@mipmap/right" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -559,7 +558,7 @@
                 <RelativeLayout
                     android:id="@+id/rl_short"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -575,21 +574,21 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_short"
                     android:text="@string/setting_short"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
+                    android:src="@mipmap/right" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/B1" />
 
             <RelativeLayout
@@ -600,14 +599,14 @@
                 <RelativeLayout
                     android:id="@+id/rl_rotate"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                            android:src="@mipmap/setting_rotate" />
+                        android:src="@mipmap/setting_rotate" />
                 </RelativeLayout>
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
@@ -616,16 +615,16 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_rotate"
                     android:text="@string/setting_rotate"
-                    android:textColor="@color/A9"
+                    android:textColor="#6f6f6f"
                     android:textSize="@dimen/s14"
                     app:typeface="ljh_1.TTF" />
 
                 <ImageView
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:layout_alignParentRight="true"
                     android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
+                    android:src="@mipmap/right" />
             </RelativeLayout>
 
 
@@ -650,4 +649,11 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
 </LinearLayout>

@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/short_backg"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#7d000000"
@@ -22,35 +22,38 @@
 
         <FrameLayout
             android:id="@+id/short_fl"
-            android:layout_width="@dimen/d90"
-            android:layout_height="@dimen/d90"
-            android:layout_gravity="center"
-            android:background="@mipmap/short_0">
+            android:layout_width="@dimen/d133"
+            android:layout_height="@dimen/d133"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d84"
+                android:layout_gravity="center"
+                android:src="@drawable/shape_round_a1" />
+
+            <ImageView
+                android:id="@+id/short_backg"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d84"
+                android:layout_gravity="center"
+                android:src="@mipmap/short_cut_0" />
+
+            <ImageView
+                android:id="@+id/short_zhuan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@mipmap/short_cut_2" />
 
             <ImageView
                 android:id="@+id/short_huojian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d84"
                 android:layout_gravity="center"
-                android:src="@mipmap/short_4" />
-
-            <LinearLayout
-                android:id="@+id/short_xian"
-                android:layout_width="@dimen/d61"
-                android:layout_height="@dimen/d61"
-                android:layout_gravity="center"
-                android:orientation="vertical" />
+                android:src="@mipmap/short_cut_1" />
         </FrameLayout>
 
-
-        <LinearLayout
-            android:id="@+id/ll_ad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="vertical"
-            android:visibility="gone" />
 
     </LinearLayout>
 

@@ -4,16 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 
 import com.android.clean.core.CleanManager;
-import com.android.clean.db.CleanDBHelper;
 import com.supers.clean.junk.view.RamView;
-import com.supers.clean.junk.activity.MyApplication;
+import com.supers.clean.junk.mactivity.MyApplication;
 import com.android.clean.util.MemoryManager;
 import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.android.clean.db.CleanDBHelper.TableType.Ram;
 
 /**
  * Created by on 2017/3/2.

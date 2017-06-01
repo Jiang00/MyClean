@@ -41,7 +41,7 @@
             app:typeface="ljh_1.TTF" />
 
 
-        <com.supers.clean.junk.customeview.DeleteListView
+        <com.supers.clean.junk.mview.DeleteListView
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,14 +61,14 @@
     <RelativeLayout
         android:id="@+id/notifi_button_rl"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d72">
+        android:layout_height="@dimen/d56">
 
         <Button
             android:id="@+id/notifi_button_clean"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d40"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
             android:layout_centerInParent="true"
-            android:background="@drawable/shape_button"
+            android:background="@color/A1"
             android:text="@string/notifi_button"
             android:textColor="#ffffff"
             android:textSize="20sp" />

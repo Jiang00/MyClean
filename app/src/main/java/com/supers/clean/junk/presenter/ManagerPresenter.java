@@ -4,11 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.android.clean.core.CleanManager;
 import com.supers.clean.junk.view.AppManagerView;
-import com.supers.clean.junk.activity.MyApplication;
+import com.supers.clean.junk.mactivity.MyApplication;
 import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;

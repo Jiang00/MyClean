@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/d4"
-    android:layout_marginLeft="@dimen/d2"
-    android:layout_marginRight="@dimen/d2"
-    android:layout_marginTop="@dimen/d4"
-    android:orientation="vertical">
+    android:layout_marginBottom="@dimen/d9"
+    android:layout_marginLeft="@dimen/d10"
+    android:layout_marginRight="@dimen/d10"
+    android:layout_marginTop="@dimen/d9"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/d3">
 
     <ImageView
         android:id="@+id/picture_icon"
-        android:layout_width="@dimen/d112"
-        android:layout_height="@dimen/d112"
+        android:layout_width="@dimen/d90"
+        android:layout_height="@dimen/d90"
         android:background="@color/white_100"
         android:scaleType="centerCrop" />
 
@@ -19,16 +21,16 @@
         android:id="@+id/picture_best"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:src="@mipmap/picture_xing" />
 
     <ImageView
         android:id="@+id/picture_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/d23"
+        android:layout_height="@dimen/d23"
         android:layout_gravity="bottom|right"
-        android:paddingLeft="@dimen/d10"
-        android:paddingTop="@dimen/d10"
-        android:src="@mipmap/picture_normal" />
+        android:padding="@dimen/d3"
+        android:src="@mipmap/ram_normal" />
 
 
-</FrameLayout>
+</android.support.v7.widget.CardView>

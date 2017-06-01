@@ -13,8 +13,6 @@ import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.activity.JunkActivity;
-import com.supers.clean.junk.activity.ManagerActivity;
 import com.supers.clean.junk.presenter.ManagerPresenter;
 
 public class ManagerAdapter extends MybaseAdapter<JunkInfo> {

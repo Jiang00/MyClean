@@ -28,7 +28,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.android.theme.internal.data.ThemeManager;
 import com.eos.module.charge.saver.ADActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.ADRequest;
@@ -342,13 +341,13 @@ public class DuckView extends FrameLayout {
 
     private void initShell() {
         try {
-            String pkg = ThemeManager.currentTheme().getPackageName();
-            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-            if (themeContext == null) {
-                return;
-            }
-            shell.setImageAssetsFolder(themeContext, "theme://images/shell");
-            shell.setAnimation(themeContext, "theme://shell.json");
+//            String pkg = ThemeManager.currentTheme().getPackageName();
+//            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+//            if (themeContext == null) {
+//                return;
+//            }
+            shell.setImageAssetsFolder(mContext, "theme://images/shell");
+            shell.setAnimation(mContext, "theme://shell.json");
             shell.loop(true);
             shell.playAnimation();
         } catch (Exception e) {
@@ -361,13 +360,13 @@ public class DuckView extends FrameLayout {
 
     private void initWater() {
         try {
-            String pkg = ThemeManager.currentTheme().getPackageName();
-            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-            if (themeContext == null) {
-                return;
-            }
-            water.setImageAssetsFolder(themeContext, "theme://images/water");
-            water.setAnimation(themeContext, "theme://water.json");
+//            String pkg = ThemeManager.currentTheme().getPackageName();
+//            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+//            if (themeContext == null) {
+//                return;
+//            }
+            water.setImageAssetsFolder(mContext, "theme://images/water");
+            water.setAnimation(mContext, "theme://water.json");
         } catch (Exception e) {
             if (!water.isAnimating()) {
                 water.setImageAssetsFolder(null, "images/water");
@@ -380,12 +379,12 @@ public class DuckView extends FrameLayout {
 
     private void initBack() {
         try {
-            String pkg = ThemeManager.currentTheme().getPackageName();
-            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-            if (themeContext == null) {
-                return;
-            }
-            InputStream input = themeContext.getAssets().open("eos_back.png");
+//            String pkg = ThemeManager.currentTheme().getPackageName();
+//            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
+//            if (themeContext == null) {
+//                return;
+//            }
+            InputStream input = mContext.getAssets().open("eos_back.png");
             BitmapFactory.Options opts = new BitmapFactory.Options();
             opts.inScaled = false;
             opts.inDensity = 160;

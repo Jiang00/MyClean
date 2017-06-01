@@ -15,8 +15,6 @@ import com.android.clean.util.LoadManager;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.activity.JunkActivity;
-import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.presenter.RamPresenter;
 
 import java.util.List;
@@ -71,6 +69,8 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
                     .findViewById(R.id.check_iv);
             holder.size = (TextView) convertView
                     .findViewById(R.id.size_tv);
+            holder.size_danwei = (TextView) convertView
+                    .findViewById(R.id.size_danwei);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -79,30 +79,6 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
             info.label = LoadManager.getInstance(context).getAppLabel(info.pkg);
         }
         holder.name.setText(info.label);
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//                try {
-//                    Bitmap bitmap = getBitmapFromCache(info.pkg);
-//                    if (bitmap == null) {
-//                        bitmap = Util.getBitmap(LoadManager.getInstance(context).getAppIcon(info.pkg));
-//                        addBitmapToCache(info.pkg, bitmap);
-//                    }
-//
-//                    final Bitmap finalDrawable = bitmap;
-//                    ((RamAvtivity) context).myHandler.post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            holder.icon.setImageBitmap(finalDrawable);
-//                        }
-//                    });
-//                } catch (OutOfMemoryError error) {
-//
-//                }
-//
-//            }
-//        }).start();
         holder.icon.setImageDrawable(LoadManager.getInstance(context).getAppIcon(info.pkg));
         if (white_list.contains(info.pkg)) {
             info.isChecked = false;
@@ -131,7 +107,8 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
                 }
             }
         });
-        holder.size.setText(Util.convertStorage(info.size, true));
+        holder.size.setText(Util.convertStorage(info.size, false));
+        holder.size_danwei.setText(Util.convertStorageDanwei(info.size));
 
         return convertView;
     }
@@ -171,6 +148,7 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
         ImageView icon;
         ImageView checkBox;
         TextView size;
+        TextView size_danwei;
     }
 
     public interface AllListener {

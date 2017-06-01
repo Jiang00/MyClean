@@ -15,7 +15,6 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 
-import com.eos.eshop.ShopMaster;
 import com.eos.module.charge.saver.ChargeActivity;
 import com.eos.module.charge.saver.R;
 import com.eos.module.charge.saver.Util.Constants;
@@ -34,7 +33,7 @@ public class BatteryService extends Service {
 
     private WidgetContainer container;
     private BatteryView batteryView = null;
-    private DuckView duckView = null;
+    //    private DuckView duckView = null;
     public BatteryEntry entry;
 
     private static final int MSG_SCREEN_ON_DELAYED = 100;
@@ -57,9 +56,9 @@ public class BatteryService extends Service {
     private Runnable batteryChangeRunnable = new Runnable() {
         @Override
         public void run() {
-            if (duckView != null) {
-                duckView.bind(entry);
-            }
+//            if (duckView != null) {
+//                duckView.bind(entry);
+//            }
             if (batteryView != null) {
                 batteryView.bind(entry);
             }
@@ -100,7 +99,6 @@ public class BatteryService extends Service {
             b = true;
             showChargeView();
         }
-        ShopMaster.onCreate(getApplicationContext());
         return START_STICKY_COMPATIBILITY;
     }
 
@@ -170,9 +168,9 @@ public class BatteryService extends Service {
             if (batteryView != null) {
                 batteryView.bind(entry);
             }
-            if (duckView != null) {
-                duckView.bind(entry);
-            }
+//            if (duckView != null) {
+//                duckView.bind(entry);
+//            }
             return;
         }
         try {
@@ -195,16 +193,16 @@ public class BatteryService extends Service {
                                 WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
             } else if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_DUCK)) {
-                if (duckView == null) {
-                    duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
-                    duckView.bind(entry);
-                    duckView.setUnlockListener(duckUnlock);
-                }
-                container.removeAllViews();
-                container.addView(duckView,
-                        container.makeLayoutParams(
-                                WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
-                container.addToWindow();
+//                if (duckView == null) {
+//                    duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
+//                    duckView.bind(entry);
+//                    duckView.setUnlockListener(duckUnlock);
+//                }
+//                container.removeAllViews();
+//                container.addView(duckView,
+//                        container.makeLayoutParams(
+//                                WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
+//                container.addToWindow();
             }
         } catch (Exception e) {
         }
@@ -222,17 +220,17 @@ public class BatteryService extends Service {
         }
     };
 
-    DuckView.UnlockListener duckUnlock = new DuckView.UnlockListener() {
-        @Override
-        public void onUnlock() {
-            if (container != null) {
-                container.removeFromWindow();
-                container.removeAllViews();
-                container = null;
-                duckView = null;
-            }
-        }
-    };
+//    DuckView.UnlockListener duckUnlock = new DuckView.UnlockListener() {
+//        @Override
+//        public void onUnlock() {
+//            if (container != null) {
+//                container.removeFromWindow();
+//                container.removeAllViews();
+//                container = null;
+//                duckView = null;
+//            }
+//        }
+//    };
 
 
 }

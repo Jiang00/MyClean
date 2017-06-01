@@ -9,23 +9,15 @@
 
     <RelativeLayout
         android:id="@+id/rl"
-        android:layout_width="72dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/d67"
+        android:layout_height="@dimen/d50"
         android:orientation="horizontal">
-
-        <com.sample.lottie.LottieAnimationView
-            android:id="@+id/lot_family"
-            android:layout_width="@dimen/d30"
-            android:layout_height="@dimen/d30"
-            android:layout_marginLeft="@dimen/d13"
-            android:layout_centerVertical="true" />
 
         <ImageView
             android:id="@+id/iv_le"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp" />
+            android:layout_centerInParent="true" />
 
     </RelativeLayout>
 
@@ -36,9 +28,19 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/rl"
         android:text="aaaaaaa"
-        android:textColor="@color/B2"
-        android:textSize="@dimen/s13"
+        android:textColor="#1c1f24"
+        android:textSize="@dimen/s14"
         app:typeface="ljh_1.TTF" />
+
+    <ImageView
+        android:id="@+id/iv_red"
+        android:layout_width="@dimen/d10"
+        android:layout_height="@dimen/d10"
+        android:layout_marginLeft="@dimen/d5"
+        android:layout_marginTop="@dimen/d10"
+        android:layout_toRightOf="@id/tv_name"
+        android:src="@drawable/shape_a2"
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/iv_check"
@@ -46,13 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="@dimen/d30"
         android:src="@mipmap/side_check_normal" />
 
-    <View
-        android:id="@+id/side_divide"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/B1"
-        android:visibility="gone" />
+
 </RelativeLayout>

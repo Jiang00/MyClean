@@ -5,11 +5,11 @@
     android:id="@+id/main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.supers.clean.junk.activity.MainActivity">
+    tools:context="com.supers.clean.junk.mactivity.MainActivity">
 
     <include layout="@layout/activity_main" />
 
-    <com.supers.clean.junk.customeview.MainFrameLayout
+    <com.supers.clean.junk.mview.MainFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -25,38 +25,20 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
-                android:background="@color/A1" />
+                android:background="#4dba6f" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/A1"
+                android:background="#4dba6f"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/side_title"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d120"
-                    android:background="@mipmap/side_title_1" />
+                    android:background="#4dba6f" />
 
-                <FrameLayout
-                    android:id="@+id/fl_lot_side"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d120"
-                    android:visibility="gone">
-
-                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|right"
-                        android:background="@color/black_35"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="center"
-                        android:text="AD"
-                        android:textColor="@android:color/white"
-                        android:textSize="8sp"
-                        app:typeface="ljh_1.TTF" />
-                </FrameLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_ad_side"
@@ -77,18 +59,17 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.supers.clean.junk.customeview.ListViewForScrollView
+                    <com.supers.clean.junk.mview.ListViewForScrollView
                         android:id="@+id/side_listView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d8"
-                        android:divider="#00000000"
-                        android:dividerHeight="0dp" />
-
-
+                        android:background="@color/white_100"
+                        android:divider="@drawable/list_divider"
+                        android:dividerHeight="0px" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </com.supers.clean.junk.customeview.MainFrameLayout>
+    </com.supers.clean.junk.mview.MainFrameLayout>
 
 </android.support.v4.widget.DrawerLayout>

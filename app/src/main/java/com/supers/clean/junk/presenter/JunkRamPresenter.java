@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
 import com.supers.clean.junk.view.JunkRamView;
-import com.supers.clean.junk.activity.MyApplication;
+import com.supers.clean.junk.mactivity.MyApplication;
 import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;

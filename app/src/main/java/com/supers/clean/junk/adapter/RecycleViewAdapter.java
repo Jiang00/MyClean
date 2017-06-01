@@ -14,8 +14,8 @@ import android.widget.ImageView;
 import com.android.clean.similarimage.ImageHelper;
 import com.android.clean.similarimage.ImageInfo;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.activity.PictureActivity;
-import com.supers.clean.junk.customeview.MyGridLayoutManager;
+import com.supers.clean.junk.mactivity.PhotoActivity;
+import com.supers.clean.junk.mview.MyGridLayoutManager;
 import com.android.clean.similarimage.RecyclerDbHelper;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.MyViewHolder> {
     public ArrayList<ArrayList<ImageInfo>> groupList;
-    private PictureActivity pictureActivity;
+    private PhotoActivity pictureActivity;
     private ImageHelper imageHelper;
     private MyGridLayoutManager gridLayoutManager;
     private RecycleViewCallBack deleteCallBack;
@@ -39,7 +39,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         void deleteSuccessCallback(ArrayList<ArrayList<ImageInfo>> list);
     }
 
-    public RecycleViewAdapter(PictureActivity pictureActivity, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, ImageHelper imageHelper, Handler handler) {
+    public RecycleViewAdapter(PhotoActivity pictureActivity, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, ImageHelper imageHelper, Handler handler) {
         this.handler = handler;
         this.pictureActivity = pictureActivity;
         this.imageHelper = imageHelper;
@@ -187,9 +187,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 holder.picture_best.setVisibility(View.INVISIBLE);
             }
             if (info.isNormal) {
-                holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                holder.picture_check.setImageResource(R.mipmap.ram_normal);
             } else {
-                holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                holder.picture_check.setImageResource(R.mipmap.ram_passed);
             }
 //            HomeAdapter.LoadImage imageLoad = new HomeAdapter.LoadImage(holder);
 //            imageLoad.execute(info.path, info.name);
@@ -227,9 +227,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                     info.isNormal = !info.isNormal;
                     pictureActivity.updateUi();
                     if (info.isNormal) {
-                        holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                        holder.picture_check.setImageResource(R.mipmap.ram_normal);
                     } else {
-                        holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                        holder.picture_check.setImageResource(R.mipmap.ram_passed);
                     }
 
                 }

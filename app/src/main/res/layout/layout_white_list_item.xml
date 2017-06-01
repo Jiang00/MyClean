@@ -9,8 +9,7 @@
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d72"
-        android:orientation="horizontal">
+        android:layout_height="@dimen/d72">
 
         <ImageView
             android:id="@+id/iv_le"
@@ -43,7 +42,7 @@
             android:id="@+id/tv_zhuangtai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/d3"
             android:text="@string/white_list_tishi"
             android:textColor="@color/black_54"
             android:textSize="@dimen/s11"
@@ -55,12 +54,8 @@
 
     <ImageView
         android:id="@+id/iv_check"
-        android:layout_width="@dimen/d40"
-        android:layout_height="@dimen/d40"
+        android:layout_width="@dimen/d72"
+        android:layout_height="@dimen/d72"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:scaleType="center"
-        android:src="@mipmap/white_jia" />
+        android:scaleType="center" />
 </RelativeLayout>

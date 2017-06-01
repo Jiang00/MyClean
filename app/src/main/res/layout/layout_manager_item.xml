@@ -8,12 +8,12 @@
     <RelativeLayout
         android:id="@+id/junk_item_rl"
         android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d56">
+        android:layout_height="@dimen/d72">
 
         <ImageView
             android:id="@+id/junk_item_icon"
-            android:layout_width="@dimen/d33"
-            android:layout_height="@dimen/d33"
+            android:layout_width="@dimen/d36"
+            android:layout_height="@dimen/d36"
             android:layout_centerInParent="true" />
     </RelativeLayout>
 
@@ -29,18 +29,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="app标题"
-            android:textColor="@color/black_87"
-            android:textSize="@dimen/s14"
+            android:textColor="#393939"
+            android:textSize="@dimen/s18"
             app:typeface="ljh_1.TTF" />
 
         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/d3"
             android:text="app标题"
-            android:textColor="@color/black_54"
-            android:textSize="@dimen/s11"
+            android:textColor="#80393939"
+            android:textSize="@dimen/s12"
             app:typeface="ljh_1.TTF" />
     </LinearLayout>
 
@@ -61,7 +61,7 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="@color/black_54"
-        android:textSize="@dimen/s11"
+        android:textColor="#80393939"
+        android:textSize="@dimen/s12"
         app:typeface="ljh_1.TTF" />
 </RelativeLayout>

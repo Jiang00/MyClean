@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/A1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -143,11 +144,10 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/d56"
-                android:layout_above="@id/load_text_3"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:clickable="false"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="@dimen/d32"
@@ -157,13 +157,12 @@
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/d10"
+                    android:layout_marginTop="@dimen/d17"
                     android:text="@string/app_name"
-                    android:textColor="@color/B6"
-                    android:textSize="@dimen/s24"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s16"
                     android:textStyle="bold"
                     app:typeface="ljh_1.TTF" />
             </LinearLayout>
@@ -173,11 +172,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/d17"
+                android:layout_marginBottom="@dimen/d16"
+                android:layout_marginTop="@dimen/d43"
                 android:clickable="false"
                 android:text="@string/loading_2"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s13"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s12"
                 app:typeface="ljh_1.TTF" />
         </LinearLayout>
 

@@ -2,7 +2,6 @@ package com.supers.clean.junk.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.support.v4.util.LruCache;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,17 +12,12 @@ import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.activity.JunkActivity;
-import com.supers.clean.junk.activity.JunkAndRamActivity;
 import com.supers.clean.junk.presenter.JunkRamPresenter;
 
 public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
     AllListener listener;
     JunkRamPresenter junkPresenter;
 
-    public JunkRamAdapter(Context context) {
-        super(context);
-    }
 
     public JunkRamAdapter(Context context, JunkRamPresenter junkPresenter) {
         super(context);
@@ -37,9 +31,6 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
         };
     }
 
-    public void setOnlistener(AllListener listener) {
-        this.listener = listener;
-    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -76,19 +67,19 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
             holder.icon.setImageResource(R.mipmap.log_file);
         }
         if (info.isChecked) {
-            holder.checkBox.setImageResource(R.mipmap.junk_passed);
+            holder.checkBox.setImageResource(R.mipmap.ram_passed);
         } else {
-            holder.checkBox.setImageResource(R.mipmap.junk_normal);
+            holder.checkBox.setImageResource(R.mipmap.ram_normal);
         }
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
-                    holder.checkBox.setImageResource(R.mipmap.junk_passed);
+                    holder.checkBox.setImageResource(R.mipmap.ram_passed);
                     junkPresenter.addCleandata(true, info.size);
                 } else {
-                    holder.checkBox.setImageResource(R.mipmap.junk_normal);
+                    holder.checkBox.setImageResource(R.mipmap.ram_normal);
                     junkPresenter.addCleandata(false, info.size);
                 }
             }

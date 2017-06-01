@@ -23,7 +23,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d95"
+            android:layout_height="@dimen/d121"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -36,7 +36,8 @@
                 android:lines="1"
                 android:text="0"
                 android:textColor="#ffffff"
-                android:textSize="@dimen/s63"
+                android:textSize="@dimen/s57"
+                android:textStyle="bold"
                 app:typeface="ljh_1.TTF" />
 
             <LinearLayout
@@ -51,18 +52,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KB"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s21"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/s22"
                     app:typeface="ljh_1.TTF" />
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/junk_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d12"
+                    android:layout_marginTop="@dimen/d5"
                     android:text="@string/junk_title_clean"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s12"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/s16"
                     app:typeface="ljh_1.TTF" />
 
             </LinearLayout>
@@ -81,28 +82,28 @@
             android:id="@+id/junk_list_all"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/A8"
+            android:background="@color/white_100"
             android:divider="@drawable/list_divider"
             android:dividerHeight="1dp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:layout_gravity="bottom">
 
-            <Button
-                android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d168"
-                android:layout_height="@dimen/d40"
-                android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/ram_button"
-                android:textColor="#ffffff"
-                android:textAllCaps="false"
-                android:textSize="@dimen/s15"
-                android:visibility="invisible" />
-        </RelativeLayout>
     </FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d56"
+        android:layout_gravity="bottom">
 
+        <Button
+            android:id="@+id/junk_button_clean"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
+            android:layout_centerInParent="true"
+            android:background="@color/A1"
+            android:text="@string/ram_button"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/s20"
+            android:visibility="invisible" />
+    </RelativeLayout>
 
 </LinearLayout>

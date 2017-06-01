@@ -2,10 +2,9 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/d295"
     xmlns:tools="http://schemas.android.com/tools"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_t">
 
     <LinearLayout
         android:id="@+id/deep"
@@ -115,109 +114,5 @@
             android:textSize="@dimen/s17" />
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/lot_tap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        android:layout_marginLeft="@dimen/d16"
-        android:layout_marginRight="@dimen/d16"
-        android:background="@color/A8">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:padding="@dimen/d10">
-
-            <ImageView
-                android:id="@+id/ad_image"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d146"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="centerCrop"
-                android:tag="ad_image" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:orientation="horizontal"
-                android:tag="ad_choices" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ad" />
-
-            <LinearLayout
-                android:id="@+id/ll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ad_image"
-                android:layout_marginTop="@dimen/d10"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/ad_icon"
-                    android:layout_width="@dimen/d48"
-                    android:layout_height="@dimen/d48"
-                    android:layout_marginLeft="@dimen/d5"
-                    android:tag="ad_icon" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d5"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/ad_title"
-                        tools:text="Your see"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="marquee"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:fontFamily="sans-serif-regular"
-                        android:singleLine="true"
-                        android:tag="ad_title"
-                        android:textColor="#425f78"
-                        android:textSize="@dimen/s17" />
-
-                    <TextView
-                        android:id="@+id/ad_subtitle"
-                        tools:text="Your see Your see Your see Your see"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/ll"
-                        android:layout_marginTop="@dimen/d6"
-                        android:fontFamily="sans-serif-light"
-                        android:lines="1"
-                        android:tag="ad_desc"
-                        android:textColor="#7a90b3"
-                        android:textSize="@dimen/s11" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/ad_action"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d37"
-                android:layout_below="@id/ll"
-                android:layout_marginTop="@dimen/d10"
-                android:background="@drawable/select_text_ad"
-                android:gravity="center"
-                android:tag="ad_action"
-                android:text="Install"
-                android:textColor="#fff"
-                android:textSize="@dimen/s21" />
-        </RelativeLayout>
-    </FrameLayout>
 
 </FrameLayout>

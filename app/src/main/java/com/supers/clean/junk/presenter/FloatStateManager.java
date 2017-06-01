@@ -14,8 +14,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.android.clean.util.Util;
-import com.supers.clean.junk.activity.FloatActivity;
-import com.supers.clean.junk.customeview.FloatStateView;
+import com.supers.clean.junk.mactivity.XuanfuActivity;
+import com.supers.clean.junk.mview.FloatStateView;
 
 import java.lang.reflect.Field;
 
@@ -149,7 +149,7 @@ public class FloatStateManager {
         circleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context.getApplicationContext(), FloatActivity.class);
+                Intent intent = new Intent(context.getApplicationContext(), XuanfuActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                 try {

@@ -24,7 +24,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <android.support.design.widget.TabLayout
@@ -43,24 +44,24 @@
             android:layout_height="match_parent"
             android:layout_below="@id/view_pager_tab"
             android:background="@color/A8" />
+    </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/manager_clean"
+    <RelativeLayout
+        android:id="@+id/manager_clean"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d56"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/junk_button_clean"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:layout_alignParentBottom="true"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d168"
-                android:layout_height="@dimen/d40"
-                android:textAllCaps="false"
-                android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/ram_button"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/s15" />
-        </RelativeLayout>
+            android:layout_height="@dimen/d56"
+            android:layout_centerInParent="true"
+            android:background="@color/A1"
+            android:text="@string/ram_button"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/s15" />
     </RelativeLayout>
 </LinearLayout>

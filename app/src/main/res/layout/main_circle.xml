@@ -3,39 +3,36 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/d295">
+    android:layout_height="@dimen/main_t">
 
 
     <RelativeLayout
-        android:layout_width="@dimen/d217"
-        android:layout_height="@dimen/d217"
-        android:layout_gravity="center">
+        android:id="@+id/main_qiu"
+        android:layout_width="@dimen/d232"
+        android:layout_height="@dimen/d232"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/d10">
 
-        <com.supers.clean.junk.customeview.CustomRoundCpu
+        <ImageView
+            android:layout_width="@dimen/d232"
+            android:layout_height="@dimen/d232"
+            android:src="@mipmap/main_qiu_w" />
+
+        <com.supers.clean.junk.mview.CustomRoundCpu
             android:id="@+id/main_fenshu_round"
             android:layout_width="@dimen/d217"
             android:layout_height="@dimen/d217"
-            android:layout_gravity="center" />
+            android:layout_centerInParent="true" />
 
         <com.eos.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/main_fenshu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/d50"
+            android:layout_marginTop="@dimen/d56"
             android:text="100"
             android:textColor="@color/A8"
             android:textSize="@dimen/s63" />
-
-        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/main_fenshu"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@id/main_fenshu"
-            android:text="分"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s18" />
 
         <Button
             android:layout_width="@dimen/d72"
@@ -44,6 +41,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/d9"
             android:background="@drawable/shape_button_ffffff"
+            android:clickable="false"
             android:text="@string/main_qiu"
             android:textColor="@color/A8"
             android:textSize="@dimen/s12" />

@@ -115,4 +115,10 @@ public class Constant {
     public static final String GBOOST_CLEAN = "GBOOST_CLEAN";
     public static final String PHOTO_CLEAN = "PHOTO_CLEAN";
 
+
+    //红点
+    public static final String SIDE_ROTATE = "SIDE_FILE";
+    public static final String SIDE_DEEP = "SIDE_DEEP";
+    public static final String SIDE_NOTIFI = "SIDE_NOTIFI";
+
 }

@@ -17,9 +17,8 @@ import android.widget.Toast;
 
 import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.LoadManager;
-import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.activity.GBoostActivity;
+import com.supers.clean.junk.mactivity.GBoostActivity;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.AdUtil;
 
