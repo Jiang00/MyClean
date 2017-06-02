@@ -60,6 +60,7 @@ import com.froumobic.module.charge.saver.Util.Utils;
 import com.mingle.circletreveal.CircularRevealCompat;
 import com.mingle.widget.animation.CRAnimation;
 import com.mingle.widget.animation.SimpleAnimListener;
+import com.rd.PageIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,6 +121,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private MSideAdapter adapter;
     private int temp;
     private ViewPager viewpager;
+    PageIndicatorView pageindicatorview;
 
     private View viewpager_3;
     private AlertDialog dialog;
@@ -269,6 +271,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         }
 
         viewpager = (ViewPager) findViewById(R.id.viewpager);
+        pageindicatorview = (PageIndicatorView) findViewById(R.id.pageindicatorview);
 
         viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
             @Override
@@ -276,10 +279,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                 return arrayList.size();
             }
 
-            @Override
-            public int getItemPosition(Object object) {
-                return POSITION_NONE;
-            }
 
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
@@ -287,10 +286,21 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                 return arrayList.get(position);
             }
 
+//            public void removeItem() {
+//                arrayList.remove(arrayList.size() - 1);
+//                notifyDataSetChanged();
+//            }
+
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
-                container.removeView(arrayList.get(position));
+                View view = (View) object;
+                container.removeView(view);
+                view = null;
+            }
 
+            @Override
+            public int getItemPosition(Object object) {
+                return POSITION_NONE;
             }
 
             @Override
@@ -831,9 +841,10 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             main_junk_image.setVisibility(View.VISIBLE);
         } else if (resultCode == Constant.POWER_RESUIL) {
             if (viewpager_3 != null && arrayList.contains(viewpager_3)) {
-//                viewpager.removeView(viewpager_3);
-                arrayList.remove(viewpager_3);
-//                pagerAdapter.notifyDataSetChanged();
+                arrayList.remove(arrayList.size() - 1);
+                viewpager.removeView(viewpager_3);
+                pagerAdapter.notifyDataSetChanged();
+                pageindicatorview.setViewPager(viewpager);
             }
 
         }
