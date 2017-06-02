@@ -45,7 +45,6 @@ import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
-import com.eos.ui.demo.dialog.DialogManager;
 import com.mingle.circletreveal.CircularRevealCompat;
 import com.mingle.widget.animation.CRAnimation;
 import com.mingle.widget.animation.SimpleAnimListener;
@@ -127,7 +126,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private ViewPager viewpager;
 
     private View viewpager_3;
-    private String from;
     private AlertDialog dialog;
     private ArrayList<View> arrayList;
 
@@ -188,14 +186,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
-        try {
-            from = getIntent().getStringExtra("from");
-            if (TextUtils.equals(from, "translate")) {
-                DialogManager.showCrossDialog(this, AndroidSdk.getExtraData(), "list2", "flight", null);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         if (PreData.getDB(this, Constant.SIDE_ROTATE, false) && PreData.getDB(this, Constant.SIDE_DEEP, false)
                 && PreData.getDB(this, Constant.SIDE_NOTIFI, false)) {
@@ -579,9 +569,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("eos_start_full");
         } else {
-            if (TextUtils.equals(from, "translate")) {
-                return;
-            }
             View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
@@ -599,6 +586,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     }
                 });
                 int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
+                Log.e("timead", skip + "-==");
                 handler.postDelayed(fullAdRunnale, skip * 1000);
             }
         }

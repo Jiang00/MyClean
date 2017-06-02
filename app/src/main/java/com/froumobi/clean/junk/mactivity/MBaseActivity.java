@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -22,9 +23,9 @@ import android.widget.Toast;
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.froumobi.clean.junk.R;
-import com.froumobi.clean.junk.entity.JsonData;
 import com.froumobi.clean.junk.util.Constant;
-import com.froumobi.clean.junk.util.JsonParser;
+
+import org.json.JSONObject;
 
 /**
  * Created by on 2017/2/28.
@@ -32,8 +33,6 @@ import com.froumobi.clean.junk.util.JsonParser;
 
 public class MBaseActivity extends AppCompatActivity {
     private Toast toast;
-    protected String tuiguang = "com.eosmobi.applock";
-    protected JsonData data;
     protected View view_title_bar;
     protected boolean onPause = false;
     protected boolean onDestroyed = false;
@@ -53,30 +52,7 @@ public class MBaseActivity extends AppCompatActivity {
             full();
         }
 
-        if (data == null) {
-            try {
-                data = JsonParser.getInstance().fromJson(AndroidSdk.getExtraData(), JsonData.class);
-                PreData.putDB(this, Constant.FULL_MAIN, data.full_main);
-                PreData.putDB(this, Constant.FULL_START, data.full_start);
-                PreData.putDB(this, Constant.FULL_EXIT, data.full_exit);
-                PreData.putDB(this, Constant.SKIP_TIME, data.skip_time);
-                PreData.putDB(this, Constant.FULL_MANAGER, data.full_manager);
-                PreData.putDB(this, Constant.FULL_MESSAGE, data.full_message);
-                PreData.putDB(this, Constant.FULL_SUCCESS, data.full_success);
-                PreData.putDB(this, Constant.FULL_SETTING, data.full_setting);
-                PreData.putDB(this, Constant.FULL_UNLOAD, data.full_unload);
-                PreData.putDB(this, Constant.FULL_FLOAT, data.full_float);
-                PreData.putDB(this, Constant.FULL_COOL, data.full_cool);
-                PreData.putDB(this, Constant.FULL_SHORTCUT, data.full_shortcut);
-                PreData.putDB(this, Constant.FULL_FILE, data.full_file);
-                PreData.putDB(this, Constant.FULL_FILE_1, data.full_file_1);
-                PreData.putDB(this, Constant.FULL_FILE_2, data.full_file_2);
-                PreData.putDB(this, Constant.PICTURE, data.full_similar_photo);
-                PreData.putDB(this, Constant.RECYCLEBIN, data.full_recyclebin);
-            } catch (Exception e) {
 
-            }
-        }
     }
 
     @Override
@@ -107,6 +83,7 @@ public class MBaseActivity extends AppCompatActivity {
     protected void findId() {
 
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

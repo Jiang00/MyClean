@@ -38,7 +38,6 @@ import com.froumobi.clean.junk.mactivity.MyApplication;
 import com.froumobi.clean.junk.mactivity.NotifiActivity;
 import com.froumobi.clean.junk.mactivity.RamAvtivity;
 import com.froumobi.clean.junk.mactivity.SuccessActivity;
-import com.froumobi.clean.junk.mactivity.TranslateActivity;
 import com.android.clean.util.Util;
 import com.froumobi.clean.junk.util.AdUtil;
 import com.froumobi.clean.junk.util.Constant;
@@ -59,7 +58,7 @@ public class NotificationService extends Service {
     private Notification notification_notifi;
 
     private MyApplication cleanApplication;
-    private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
+    private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
 
     private Bitmap bitmap_progress;
     private Paint paint_1;
@@ -143,10 +142,6 @@ public class NotificationService extends Service {
         notifyIntentCooling.putExtra("from", "notifi");
         notifyIntentCooling.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        notifyIntentFlash = new Intent(this, TranslateActivity.class);
-        notifyIntentFlash.putExtra("from", "notifi");
-        notifyIntentFlash.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notifyIntentJunkRam = new Intent(this, LajjiAndRamActivity.class);
         notifyIntentJunkRam.putExtra("from", "notifi");
         notifyIntentJunkRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
@@ -209,15 +204,12 @@ public class NotificationService extends Service {
                 notifyIntentRam, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentCooling = PendingIntent.getActivity(this, requestCode,
                 notifyIntentCooling, PendingIntent.FLAG_UPDATE_CURRENT);
-        PendingIntent pendIntentFlash = PendingIntent.getActivity(this, requestCode,
-                notifyIntentFlash, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentJunkRam = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_UPDATE_CURRENT);
         notifyIntentJunkRam.putExtra("from2", "twoday");
         remoteView_1.setOnClickPendingIntent(R.id.notifi_icon, pendIntentMain);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_ram, pendIntentRam);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_cooling, pendIntentCooling);
-        remoteView_1.setOnClickPendingIntent(R.id.notifi_flash, pendIntentFlash);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_junk_ram, pendIntentJunkRam);
         mBuilder.setContent(remoteView_1);
         mBuilder.setAutoCancel(false);

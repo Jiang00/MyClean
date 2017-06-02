@@ -722,66 +722,6 @@
                     </LinearLayout>
 
 
-                    <!--交叉推广-->
-                    <LinearLayout
-                        android:id="@+id/main_tuiguang_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d9"
-                        android:background="@color/A8"
-                        android:orientation="vertical"
-                        android:visibility="visible">
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d44"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d4"
-                                android:layout_height="@dimen/d16"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:src="@drawable/shape_lv_r" />
-
-                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                android:id="@+id/main_msg_tuiguang"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/d6"
-                                android:textColor="#414141"
-                                android:textSize="@dimen/s15"
-                                app:typeface="ljh_1.TTF" />
-                        </LinearLayout>
-
-
-                        <FrameLayout
-                            android:id="@+id/fl_lot_success"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d176">
-
-                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom|right"
-                                android:background="@color/black_35"
-                                android:fontFamily="sans-serif-light"
-                                android:gravity="center"
-                                android:text="AD"
-                                android:textColor="@android:color/white"
-                                android:textSize="@dimen/s8"
-                                app:typeface="ljh_1.TTF" />
-                        </FrameLayout>
-
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d9" />
-                    </LinearLayout>
-
-
                     <LinearLayout
                         android:id="@+id/ad_native_2"
                         android:layout_width="match_parent"

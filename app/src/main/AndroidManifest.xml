@@ -73,8 +73,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-            <action android:name="android.intent.action.CREATE_SHORTCUT" />
-            <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PICK" />
@@ -196,9 +196,6 @@
             android:enabled="true"
             android:excludeFromRecents="true" />
 
-        <activity
-            android:name="com.froumobi.clean.junk.mactivity.TranslateActivity"
-            android:theme="@style/Transparent" />
         <activity
             android:name="com.froumobi.clean.junk.mactivity.FileActivity"
             android:screenOrientation="portrait" />

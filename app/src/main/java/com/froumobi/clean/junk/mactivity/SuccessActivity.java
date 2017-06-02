@@ -71,9 +71,6 @@ public class SuccessActivity extends MBaseActivity {
     LinearLayout ll_ad_xiao;
 
     LinearLayout ad_native_2;
-    FrameLayout fl_lot_success;
-    LinearLayout main_tuiguang_button;
-    TextView main_msg_tuiguang;
     LottieAnimationView lot_success;
     private View nativeView;
     private View native_xiao;
@@ -120,9 +117,6 @@ public class SuccessActivity extends MBaseActivity {
 //        delete = (ImageView) findViewById(R.id.delete);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
-        fl_lot_success = (FrameLayout) findViewById(R.id.fl_lot_success);
-        main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
-        main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
     }
 
@@ -267,14 +261,6 @@ public class SuccessActivity extends MBaseActivity {
         success_jiantou.startAnimation(translate);
         shendu();
         if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-//                    success_jiantou.clearAnimation();
-//                    success_jiantou.setVisibility(View.INVISIBLE);
-//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-            }, data.inter_time * 1000);
 
         } else {
             myHandler.postDelayed(new Runnable() {
@@ -356,7 +342,6 @@ public class SuccessActivity extends MBaseActivity {
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
 //        delete.setOnClickListener(onClickListener);
-        main_tuiguang_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
@@ -477,13 +462,6 @@ public class SuccessActivity extends MBaseActivity {
                         onBackPressed();
                     }
 
-                    break;
-                case R.id.main_tuiguang_button:
-                    if (LoadManager.getInstance(SuccessActivity.this).isPkgInstalled(tuiguang)) {
-                        Util.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
-                    } else {
-                        UtilGp.openPlayStore(getApplicationContext(), tuiguang);
-                    }
                     break;
             }
         }
