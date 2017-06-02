@@ -109,6 +109,7 @@
 
 -keep class com.android.kpa.nativ.** { *; }
 
+
 -keep class com.sample.lottie.** { *;}
 
 -dontwarn com.squareup.picasso.**

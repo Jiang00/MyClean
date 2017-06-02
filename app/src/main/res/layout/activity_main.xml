@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white_100"
     android:orientation="vertical"
-    tools:context="com.froumobi.clean.junk.mactivity.MainActivity">
+    tools:context="com.froumobic.clean.junk.mactivity.MainActivity">
 
 
     <View
@@ -53,7 +53,7 @@
                     android:src="@drawable/shape_a2"
                     android:visibility="visible" />
 
-                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -77,33 +77,25 @@
                     android:scaleType="center"
                     android:src="@mipmap/main_setting" />
 
-                <com.sample.lottie.LottieAnimationView
+                <ImageView
                     android:id="@+id/lot_family"
-                    android:layout_width="@dimen/d40"
-                    android:layout_height="@dimen/d40"
-                    android:layout_marginTop="@dimen/d5"
-                    android:layout_toLeftOf="@id/iv_title_right" />
-
-                <TextView
-                    android:layout_width="@dimen/d40"
-                    android:layout_height="@dimen/d40"
-                    android:layout_marginTop="@dimen/d5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/iv_title_right"
-                    android:gravity="center"
-                    android:text="AD"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s10" />
+                    android:src="@mipmap/ad_box" />
+
 
             </RelativeLayout>
 
-            <com.froumobi.clean.junk.mview.PullToRefreshLayout
+            <com.froumobic.clean.junk.mview.PullToRefreshLayout
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <include layout="@layout/layout_load_more" />
 
-                <com.froumobi.clean.junk.mview.MyScrollView
+                <com.froumobic.clean.junk.mview.MyScrollView
                     android:id="@+id/main_scroll_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -176,7 +168,7 @@
                                             android:layout_marginBottom="@dimen/d12"
                                             android:src="@mipmap/main_junk_button" />
 
-                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_junk_name"
@@ -203,7 +195,7 @@
                                             android:textSize="@dimen/s20"
                                             android:visibility="invisible" />
 
-                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_junk_name"
@@ -240,7 +232,7 @@
                                             android:layout_marginBottom="@dimen/d12"
                                             android:src="@mipmap/main_ram_button" />
 
-                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_ram_name"
@@ -267,7 +259,7 @@
                                             android:textSize="@dimen/s20"
                                             android:visibility="invisible" />
 
-                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_ram_name"
@@ -311,7 +303,7 @@
                                             android:layout_marginBottom="@dimen/d12"
                                             android:src="@mipmap/main_cooling_button" />
 
-                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_cooling_name"
@@ -338,7 +330,7 @@
                                             android:textSize="@dimen/s20"
                                             android:visibility="invisible" />
 
-                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_cooling_name"
@@ -369,7 +361,7 @@
                                         android:layout_marginBottom="@dimen/d12"
                                         android:src="@mipmap/main_manager_button" />
 
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/main_manager_name"
@@ -405,7 +397,7 @@
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@drawable/shape_lv_r" />
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
@@ -512,7 +504,7 @@
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:id="@+id/main_msg_power"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -521,7 +513,7 @@
                                     android:textSize="@dimen/s16"
                                     app:typeface="ljh_1.TTF" />
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d3"
@@ -568,7 +560,7 @@
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:id="@+id/main_msg_picture"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -577,7 +569,7 @@
                                     android:textSize="@dimen/s16"
                                     app:typeface="ljh_1.TTF" />
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d3"
@@ -625,7 +617,7 @@
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:id="@+id/main_msg_notifi"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -634,7 +626,7 @@
                                     android:textSize="@dimen/s16"
                                     app:typeface="ljh_1.TTF" />
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d3"
@@ -682,7 +674,7 @@
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:id="@+id/main_msg_file"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -691,7 +683,7 @@
                                     android:textSize="@dimen/s16"
                                     app:typeface="ljh_1.TTF" />
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d3"
@@ -738,7 +730,7 @@
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:id="@+id/main_msg_GBoost"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -747,7 +739,7 @@
                                     android:textSize="@dimen/s16"
                                     app:typeface="ljh_1.TTF" />
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d3"
@@ -802,7 +794,7 @@
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@drawable/shape_lv_r" />
 
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
@@ -826,7 +818,7 @@
                                         android:layout_marginRight="@dimen/d16"
                                         android:src="@mipmap/main_msg_1" />
 
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
@@ -859,13 +851,13 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center">
 
-                                        <com.froumobi.clean.junk.mview.RoundJinduRam
+                                        <com.froumobic.clean.junk.mview.RoundJinduRam
                                             android:id="@+id/main_msg_ram_backg"
                                             android:layout_width="@dimen/d56"
                                             android:layout_height="@dimen/d56"
                                             android:layout_centerInParent="true" />
 
-                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                             android:id="@+id/main_msg_ram_percent"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -876,7 +868,7 @@
                                             app:typeface="ljh_1.TTF" />
                                     </RelativeLayout>
 
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
@@ -898,7 +890,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center">
 
-                                        <com.froumobi.clean.junk.mview.RoundJindu
+                                        <com.froumobic.clean.junk.mview.RoundJindu
                                             android:id="@+id/main_msg_sd_backg"
                                             android:layout_width="@dimen/d56"
                                             android:layout_height="@dimen/d56"
@@ -911,7 +903,7 @@
                                             android:gravity="center"
                                             android:orientation="vertical">
 
-                                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                                 android:id="@+id/main_msg_sd_percent"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
@@ -920,7 +912,7 @@
                                                 android:textSize="@dimen/s17"
                                                 app:typeface="ljh_1.TTF" />
 
-                                            <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                            <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                                 android:id="@+id/main_msg_sd_unit"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
@@ -933,7 +925,7 @@
 
                                     </RelativeLayout>
 
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
@@ -963,7 +955,7 @@
                                             android:layout_centerInParent="true"
                                             android:src="@drawable/msg_3" />
 
-                                        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                             android:id="@+id/main_msg_cpu_percent"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -974,7 +966,7 @@
                                             app:typeface="ljh_1.TTF" />
                                     </RelativeLayout>
 
-                                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
@@ -1001,11 +993,11 @@
 
                     </LinearLayout>
 
-                </com.froumobi.clean.junk.mview.MyScrollView>
+                </com.froumobic.clean.junk.mview.MyScrollView>
 
                 <include layout="@layout/layout_load_more" />
 
-            </com.froumobi.clean.junk.mview.PullToRefreshLayout>
+            </com.froumobic.clean.junk.mview.PullToRefreshLayout>
         </LinearLayout>
 
 

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.eos.module.charge.saver">
+    package="com.froumobic.module.charge.saver">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application>
         <service
-            android:name=".service.BatteryService"
+            android:name="com.froumobic.module.charge.saver.service.BatteryService"
             android:permission="android.permission.BIND_JOB_SERVICE">
-            <intent-filter>
-                <action android:name="com.eos.battery.service" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </service>
 
-        <receiver android:name=".receiver.StartReceiver">
+        <receiver android:name="com.froumobic.module.charge.saver.receiver.StartReceiver">
             <intent-filter android:priority="2147483647">
 
                 <!-- 优先级加最高 -->
@@ -32,14 +27,15 @@
         </receiver>
 
         <activity
-            android:name=".ADActivity"
+            android:name="com.froumobic.module.charge.saver.ADActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" />
-        <activity android:name=".ChargeActivity"
-            android:screenOrientation="nosensor"
-            android:noHistory="true"
+        <activity
+            android:name="com.froumobic.module.charge.saver.ChargeActivity"
             android:launchMode="singleInstance"
-            android:theme="@style/CustomTranslate"/>
+            android:noHistory="true"
+            android:screenOrientation="nosensor"
+            android:theme="@style/CustomTranslate" />
     </application>
 
 </manifest>

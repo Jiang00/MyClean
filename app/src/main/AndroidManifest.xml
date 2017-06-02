@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.froumobi.clean.junk">
+    package="com.froumobic.clean.junk">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -47,7 +47,7 @@
 
 
     <application
-        android:name="com.froumobi.clean.junk.mactivity.MyApplication"
+        android:name="com.froumobic.clean.junk.mactivity.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -56,17 +56,12 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.MainActivity"
+            android:name="com.froumobic.clean.junk.mactivity.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="com.eos.clean.main" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.LoadingActivity"
+            android:name="com.froumobic.clean.junk.mactivity.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -87,75 +82,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.CoolingActivity"
+            android:name="com.froumobic.clean.junk.mactivity.CoolingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.LajiActivity"
+            android:name="com.froumobic.clean.junk.mactivity.LajiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.LajjiAndRamActivity"
+            android:name="com.froumobic.clean.junk.mactivity.LajjiAndRamActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.AppActivity"
+            android:name="com.froumobic.clean.junk.mactivity.AppActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.MessageActivity"
+            android:name="com.froumobic.clean.junk.mactivity.MessageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.RamAvtivity"
+            android:name="com.froumobic.clean.junk.mactivity.RamAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.SettingActivity"
+            android:name="com.froumobic.clean.junk.mactivity.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.SuccessActivity"
+            android:name="com.froumobic.clean.junk.mactivity.SuccessActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.WhiteListAvtivity"
+            android:name="com.froumobic.clean.junk.mactivity.WhiteListAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.WhiteListAddActivity"
+            android:name="com.froumobic.clean.junk.mactivity.WhiteListAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.DeepActivity"
+            android:name="com.froumobic.clean.junk.mactivity.DeepActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.NotifiAnimaActivity"
+            android:name="com.froumobic.clean.junk.mactivity.NotifiAnimaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.PermissionActivity"
+            android:name="com.froumobic.clean.junk.mactivity.PermissionActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.NotifiActivity"
+            android:name="com.froumobic.clean.junk.mactivity.NotifiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.NotifiSettingActivity"
+            android:name="com.froumobic.clean.junk.mactivity.NotifiSettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.XuanfuActivity"
+            android:name="com.froumobic.clean.junk.mactivity.XuanfuActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.UnloadActivity"
+            android:name="com.froumobic.clean.junk.mactivity.UnloadActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.PhotoActivity"
+            android:name="com.froumobic.clean.junk.mactivity.PhotoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.PhotoHuiActivity"
+            android:name="com.froumobic.clean.junk.mactivity.PhotoHuiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.GBoostActivity"
+            android:name="com.froumobic.clean.junk.mactivity.GBoostActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -168,7 +163,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.ShortCutActivity"
+            android:name="com.froumobic.clean.junk.mactivity.ShortCutActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -178,7 +173,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.froumobi.clean.junk.broadcast.UnloadBroadcast">
+        <receiver android:name="com.froumobic.clean.junk.broadcast.UnloadBroadcast">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -189,37 +184,37 @@
         </receiver>
 
         <service
-            android:name="com.froumobi.clean.junk.service.XuanfuService"
+            android:name="com.froumobic.clean.junk.service.XuanfuService"
             android:excludeFromRecents="true" />
         <service
-            android:name="com.froumobi.clean.junk.service.NotificationService"
+            android:name="com.froumobic.clean.junk.service.NotificationService"
             android:enabled="true"
             android:excludeFromRecents="true" />
 
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.FileActivity"
+            android:name="com.froumobic.clean.junk.mactivity.FileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.FileListActivity"
+            android:name="com.froumobic.clean.junk.mactivity.FileListActivity"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name="com.froumobi.clean.junk.mactivity.FileDocActivity"
+            android:name="com.froumobic.clean.junk.mactivity.FileDocActivity"
             android:screenOrientation="portrait" />
 
         <service
-            android:name="com.froumobi.clean.junk.Zwidget.WidgetService"
+            android:name="com.froumobic.clean.junk.Zwidget.WidgetService"
             android:enabled="true" />
 
         <receiver
-            android:name="com.froumobi.clean.junk.Zwidget.WidgetProvider"
+            android:name="com.froumobic.clean.junk.Zwidget.WidgetProvider"
             android:icon="@drawable/widget_4"
             android:label="@string/app_name_4_4">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="app.eosmobi.action.widget.ram" />
-                <action android:name="app.eosmobi.action.widget.update" />
+                <action android:name="app.froumobi.action.widget.ram" />
+                <action android:name="app.froumobi.action.widget.update" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
@@ -227,12 +222,12 @@
         </receiver>
 
         <receiver
-            android:name="com.froumobi.clean.junk.Zwidget.TempProvider"
+            android:name="com.froumobic.clean.junk.Zwidget.TempProvider"
             android:icon="@drawable/widget_temp_preview"
             android:label="@string/app_name_4_1">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="app.eosmobi.action.widget.temp" />
+                <action android:name="app.froumobi.action.widget.temp" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
@@ -240,7 +235,7 @@
         </receiver>
 
         <service
-            android:name="com.froumobi.clean.junk.Zwidget.TempService"
+            android:name="com.froumobic.clean.junk.Zwidget.TempService"
             android:enabled="true" />
 
     </application>
