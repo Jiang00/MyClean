@@ -106,7 +106,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     // LottieAnimationView lot_side;
     ImageView side_title;
     ImageView lot_family;
-
+    PagerAdapter pagerAdapter;
 
     private String TAG_MAIN = "main";
     private String TAG_HUA = "hua";
@@ -238,7 +238,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             if (startList.size() == 0) {
             } else {
                 if (startList.size() > 0) {
-
                     tap_iv_1.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
                 }
                 if (startList.size() > 1) {
@@ -271,10 +270,15 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
         viewpager = (ViewPager) findViewById(R.id.viewpager);
 
-        viewpager.setAdapter(new PagerAdapter() {
+        viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
             @Override
             public int getCount() {
                 return arrayList.size();
+            }
+
+            @Override
+            public int getItemPosition(Object object) {
+                return POSITION_NONE;
             }
 
             @Override
@@ -512,7 +516,13 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
     @Override
     public void setRotateGone() {
-        main_rotate_all.setVisibility(View.GONE);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                main_rotate_all.setVisibility(View.GONE);
+            }
+        });
+
     }
 
     @Override
@@ -821,7 +831,9 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             main_junk_image.setVisibility(View.VISIBLE);
         } else if (resultCode == Constant.POWER_RESUIL) {
             if (viewpager_3 != null && arrayList.contains(viewpager_3)) {
+//                viewpager.removeView(viewpager_3);
                 arrayList.remove(viewpager_3);
+//                pagerAdapter.notifyDataSetChanged();
             }
 
         }

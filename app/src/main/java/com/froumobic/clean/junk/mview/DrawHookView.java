@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -117,7 +118,11 @@ public class DrawHookView extends View {
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint_g);
             //画第二根线
-            canvas.drawLine(center1 + line1_x, center + line1_y, center1 + line2_x, center + line2_y, paint_g);
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
+                canvas.drawLine(center1 + line1_x, center + line1_y, center1 + line2_x, center + line2_y, paint_g);
+            } else {
+                canvas.drawLine(center1 + line1_x - Util.dp2px(7) / 2, center + line1_y, center1 + line2_x, center + line2_y, paint_g);
+            }
         } else {
             if (drawHookListener != null) {
                 drawHookListener.duogouSc();
@@ -125,7 +130,11 @@ public class DrawHookView extends View {
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint_g);
             //画第二根线
-            canvas.drawLine(center1 + line1_x, center + line1_y, center1 + line2_x, center + line2_y, paint_g);
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
+                canvas.drawLine(center1 + line1_x, center + line1_y, center1 + line2_x, center + line2_y, paint_g);
+            } else {
+                canvas.drawLine(center1 + line1_x - Util.dp2px(7) / 2, center + line1_y, center1 + line2_x, center + line2_y, paint_g);
+            }
             stop = true;
         }
     }

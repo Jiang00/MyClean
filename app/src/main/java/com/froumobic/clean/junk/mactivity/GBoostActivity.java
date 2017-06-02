@@ -321,7 +321,7 @@ public class GBoostActivity extends MBaseActivity {
         Intent shortcutIntent = new Intent();
         shortcutIntent.setAction(Intent.ACTION_VIEW);
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
-                "com.froumobic.clean.junk.activity.GBoostActivity"));
+                "com.froumobic.clean.junk.mactivity.GBoostActivity"));
         String title = GBoostActivity.this.getString(R.string.gboost_0);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
