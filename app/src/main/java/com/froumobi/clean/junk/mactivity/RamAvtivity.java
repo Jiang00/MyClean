@@ -65,6 +65,7 @@ public class RamAvtivity extends MBaseActivity implements RamView {
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -75,6 +76,7 @@ public class RamAvtivity extends MBaseActivity implements RamView {
     @Override
     public void loadFullAd() {
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +89,7 @@ public class RamAvtivity extends MBaseActivity implements RamView {
         title_right.setVisibility(View.VISIBLE);
 
     }
+
     @Override
     public void onClick() {
         title_left.setOnClickListener(onClickListener);
@@ -292,7 +295,6 @@ public class RamAvtivity extends MBaseActivity implements RamView {
 
         }
     };
-
 
 
     @Override

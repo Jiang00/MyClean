@@ -33,7 +33,6 @@ public class FloatStateView extends View {
     private int pratent;
     private Bitmap bitmap_normal;
     private Bitmap bitmap_left;
-    private Bitmap bitmap_right;
 
 
     public FloatStateView(Context context) {
@@ -81,8 +80,7 @@ public class FloatStateView extends View {
         textPaint.setFakeBoldText(true);
         Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);
         bitmap_normal = Bitmap.createScaledBitmap(src, width, height, true);
-        bitmap_left = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_left), width, height, true);
-        bitmap_right = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing_right), width, height, true);
+        bitmap_left = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.float_beijing), width, height, true);
     }
 
     /**
@@ -96,11 +94,7 @@ public class FloatStateView extends View {
         if (type == STATE_NORMAL) {
             canvas.drawBitmap(bitmap_normal, 0, 0, null);
         } else {
-            if (type == STATE_LEFT) {
-                canvas.drawBitmap(bitmap_left, 0, 0, null);
-            } else {
-                canvas.drawBitmap(bitmap_right, 0, 0, null);
-            }
+            canvas.drawBitmap(bitmap_left, 0, 0, null);
 
             if (pratent > 40 && pratent <= 80) {
                 firstPaint.setColor(getResources().getColor(R.color.A4));

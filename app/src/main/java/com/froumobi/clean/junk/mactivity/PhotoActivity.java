@@ -166,6 +166,7 @@ public class PhotoActivity extends MBaseActivity {
         picture_other.setOnClickListener(clickListener);
         pic_pager_left.setOnClickListener(clickListener);
     }
+
     private void loadAd() {
         if (PreData.getDB(this, Constant.PICTURE, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
@@ -289,7 +290,6 @@ public class PhotoActivity extends MBaseActivity {
     }
 
 
-
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -325,6 +325,7 @@ public class PhotoActivity extends MBaseActivity {
 
         }
     };
+
     public void updateUi() {
         long size = 0;
         long count = 0;
@@ -342,6 +343,7 @@ public class PhotoActivity extends MBaseActivity {
         picture_danwei.setText(Util.convertStorageDanwei(size));
 
     }
+
     private void deleteDialog(final ArrayList<Bitmap> checkDate) {
         final int deleteSize = checkDate.size();
         View view = View.inflate(this, R.layout.dialog_picture, null);
@@ -455,6 +457,7 @@ public class PhotoActivity extends MBaseActivity {
             finish();
         }
     }
+
     private void initData() {
 
         imageHelper.querySimilarImage(this, new ImageHelper.OnQuerySimilarPicCallBack() {
@@ -531,6 +534,7 @@ public class PhotoActivity extends MBaseActivity {
         });
 
     }
+
     @Override
     public void onBackPressed() {
         if (pager_fl.getVisibility() == (View.VISIBLE)) {
@@ -546,7 +550,6 @@ public class PhotoActivity extends MBaseActivity {
         pager_fl.setVisibility(View.VISIBLE);
         bigPicture(list);
     }
-
 
 
 }

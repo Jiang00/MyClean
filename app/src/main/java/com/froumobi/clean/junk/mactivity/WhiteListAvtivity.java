@@ -3,6 +3,7 @@ package com.supers.clean.junk.mactivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -53,9 +54,9 @@ public class WhiteListAvtivity extends MBaseActivity {
         white_list = new ArrayList<>();
         adapter = new WhiteListAdapter(this);
         listView.setAdapter(adapter);
+        listView.addFooterView(new ViewStub(this));
         initDAta();
     }
-
 
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -78,6 +79,7 @@ public class WhiteListAvtivity extends MBaseActivity {
         setResult(Constant.WHITE_RESUIL);
         finish();
     }
+
     private void initDAta() {
         white_list.clear();
         whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
@@ -95,6 +97,7 @@ public class WhiteListAvtivity extends MBaseActivity {
             white_wu.setVisibility(View.INVISIBLE);
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Constant.WHITE_ADD_RESUIL) {

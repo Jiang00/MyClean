@@ -10,7 +10,7 @@ import com.android.clean.core.CleanManager;
 import com.android.clean.notification.NotificationMonitorService;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
-import com.eos.kpa.DaemonClient;
+import com.android.kpa.DaemonClient;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;

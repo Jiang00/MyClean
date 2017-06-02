@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewStub;
 import android.view.animation.LinearInterpolator;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -98,6 +99,7 @@ public class WhiteListAddActivity extends MBaseActivity {
         });
         vis2invis.start();
     }
+
     @Override
     protected void findId() {
         super.findId();
@@ -122,6 +124,7 @@ public class WhiteListAddActivity extends MBaseActivity {
         whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
         adapter = new WhiteListAdapter(this);
         list_si.setAdapter(adapter);
+        list_si.addFooterView(new ViewStub(this));
         initData();
     }
 
@@ -152,7 +155,6 @@ public class WhiteListAddActivity extends MBaseActivity {
             }
         }
     };
-
 
 
     private void upData(String string) {

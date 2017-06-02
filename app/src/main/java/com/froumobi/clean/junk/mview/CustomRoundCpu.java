@@ -24,7 +24,7 @@ public class CustomRoundCpu extends View {
     float lineWidth = getResources().getDimension(R.dimen.d5);
     float padding = getResources().getDimension(R.dimen.d14);
     int size;
-    private int progress;
+    private int progress = 100;
     private CustomRoundListener customRoundListener;
     private Bitmap bitmap;
     private Matrix mMatrix;
@@ -149,6 +149,7 @@ public class CustomRoundCpu extends View {
     public interface CustomRoundListener {
         void progressUpdate(int progress);
     }
+
     public void setProgress(int progress) {
         this.progress = progress;
         postInvalidate();

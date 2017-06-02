@@ -74,6 +74,7 @@ public class LajjiAndRamActivity extends MBaseActivity implements JunkRamView {
         junkPresenter = new JunkRamPresenter(this, this);
         junkPresenter.init();
     }
+
     @Override
     protected void findId() {
         super.findId();
@@ -706,7 +707,7 @@ public class LajjiAndRamActivity extends MBaseActivity implements JunkRamView {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(1);
+
             onBackPressed();
         }
     }
@@ -721,6 +722,7 @@ public class LajjiAndRamActivity extends MBaseActivity implements JunkRamView {
             }
             jumpTo(MainActivity.class);
         }
+        setResult(Constant.JUNK_RAM_RESUIL);
         finish();
     }
 }

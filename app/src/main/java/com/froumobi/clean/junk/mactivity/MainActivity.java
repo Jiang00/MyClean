@@ -110,7 +110,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     // LottieAnimationView lot_side;
     ImageView side_title;
     LottieAnimationView lot_main;
-    LottieAnimationView lot_main_tap;
     LottieAnimationView lot_family;
 
     LottieAnimationView lot_side;
@@ -122,18 +121,12 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private String TAG_EXIT_FULL = "eos_exit_native";
     private String TAG_FULL_PULL = "pull_full";
 
-    private MyApplication cleanApplication;
     private Handler handler = new Handler();
     private MainPresenter mainPresenter;
     private MSideAdapter adapter;
-    private long mExitTime;
     private int temp;
     private ViewPager viewpager;
-    /* private PagerAdapter pagerAdapter;
-     private View pageView;*/
 
-    private boolean mDrawerOpened = false;
-    private CrossData.CrossPromotionBean bean;
     private View viewpager_3;
     private String from;
     private AlertDialog dialog;
@@ -196,7 +189,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
-        cleanApplication = (MyApplication) getApplication();
         try {
             from = getIntent().getStringExtra("from");
             if (TextUtils.equals(from, "translate")) {
@@ -805,13 +797,27 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (resultCode == Constant.SETTING_RESUIL) {
             initSideData();
             adapter.notifyDataSetChanged();
+        } else if (resultCode == Constant.JUNK_RAM_RESUIL) {
+            main_cooling_h.setVisibility(View.GONE);
+            main_cooling_text.setVisibility(View.GONE);
+            main_cooling_image.setRotationY(0);
+            main_cooling_image.setVisibility(View.VISIBLE);
+
+            main_ram_text.setVisibility(View.GONE);
+            main_ram_image.setRotationY(0);
+            main_ram_image.setVisibility(View.VISIBLE);
+            main_ram_h.setVisibility(View.GONE);
+
+            main_junk_text.setVisibility(View.GONE);
+            main_junk_h.setVisibility(View.GONE);
+            main_junk_image.setRotationY(0);
+            main_junk_image.setVisibility(View.VISIBLE);
         } else if (resultCode == Constant.COOLING_RESUIL) {
             int wendu = data.getIntExtra("wendu", 0);
             temp -= wendu;
             if (temp == 0) {
                 temp = 40;
             }
-
             main_cooling_h.setVisibility(View.GONE);
             main_cooling_text.setVisibility(View.GONE);
             main_cooling_image.setRotationY(0);
@@ -993,7 +999,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
     @Override
     public void onDrawerOpened(View drawerView) {
-        mDrawerOpened = true;
         Log.e(TAG, "onDrawerOpened");
         if (lot_side != null) {
             lot_side.playAnimation();
@@ -1002,7 +1007,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
     @Override
     public void onDrawerClosed(View drawerView) {
-        mDrawerOpened = false;
         Log.e(TAG, "onDrawerClosed");
         if (lot_side != null) {
             lot_side.pauseAnimation();
