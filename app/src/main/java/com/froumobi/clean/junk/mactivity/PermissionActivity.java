@@ -1,14 +1,14 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 
 /**
- * Created by Ivy on 2017/5/19.
+ * Created by froumobi on 2017/5/19.
  */
 
 public class PermissionActivity extends Activity {

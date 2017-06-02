@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -20,13 +20,13 @@ import android.widget.TextView;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.adapter.RamAdapter;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.adapter.RamAdapter;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.presenter.RamPresenter;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.view.RamView;
+import com.froumobi.clean.junk.presenter.RamPresenter;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.view.RamView;
 
 import java.util.List;
 

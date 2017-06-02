@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.froumobi.clean.junk.util;
 
 import android.support.annotation.LayoutRes;
 import android.util.Log;
@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.BuildConfig;
+import com.froumobi.clean.junk.BuildConfig;
 
 /**
- * Created by Ivy on 2017/5/24.
+ * Created by froumobi on 2017/5/24.
  */
 
 public class AdUtil {

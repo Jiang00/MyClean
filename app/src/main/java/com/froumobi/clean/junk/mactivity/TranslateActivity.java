@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.android.clean.util.LoadManager;
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 import com.android.clean.util.Util;
 
 /**
- * Created by Ivy on 2017/3/27.
+ * Created by froumobi on 2017/3/27.
  */
 
 public class TranslateActivity extends Activity {

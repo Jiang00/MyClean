@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
 
 /**
- * Created by Ivy on 2017/4/20.
+ * Created by froumobi on 2017/4/20.
  */
 
 public class FileActivity extends MBaseActivity {

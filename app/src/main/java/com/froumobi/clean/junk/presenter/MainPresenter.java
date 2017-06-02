@@ -1,4 +1,4 @@
-package com.supers.clean.junk.presenter;
+package com.froumobi.clean.junk.presenter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,14 +7,13 @@ import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.view.MainView;
-import com.supers.clean.junk.util.CpuTempReader;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.view.MainView;
+import com.froumobi.clean.junk.util.CpuTempReader;
 import com.android.clean.util.MemoryManager;
 import com.android.clean.util.PreData;
 

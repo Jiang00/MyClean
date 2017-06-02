@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.annotation.TargetApi;
 import android.os.Build;
@@ -12,12 +12,12 @@ import android.widget.TextView;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.PhoneManager;
-import com.supers.clean.junk.util.ShortCutUtils;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.PhoneManager;
+import com.froumobi.clean.junk.util.ShortCutUtils;
 
 /**
  * Created by on 2017/3/8.

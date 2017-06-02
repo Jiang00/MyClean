@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mview;
+package com.froumobi.clean.junk.mview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,7 +12,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 
 /**
  */

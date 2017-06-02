@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white_100"
     android:orientation="vertical"
-    tools:context="com.supers.clean.junk.mactivity.MainActivity">
+    tools:context="com.froumobi.clean.junk.mactivity.MainActivity">
 
 
     <View
@@ -96,14 +96,14 @@
 
             </RelativeLayout>
 
-            <com.supers.clean.junk.mview.PullToRefreshLayout
+            <com.froumobi.clean.junk.mview.PullToRefreshLayout
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <include layout="@layout/layout_load_more" />
 
-                <com.supers.clean.junk.mview.MyScrollView
+                <com.froumobi.clean.junk.mview.MyScrollView
                     android:id="@+id/main_scroll_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -400,7 +400,7 @@
 
                                 <ImageView
                                     android:layout_width="@dimen/d4"
-                                    android:layout_height="@dimen/d26"
+                                    android:layout_height="@dimen/d16"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@drawable/shape_lv_r" />
@@ -488,6 +488,118 @@
 
                         </LinearLayout>
 
+                        <!--深度清理-->
+                        <LinearLayout
+                            android:id="@+id/main_power_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/power_6" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/d16"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d16"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/main_msg_power"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/side_power"
+                                    android:textColor="#2f2f2f"
+                                    android:textSize="@dimen/s16"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="@dimen/d225"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d3"
+                                    android:text="@string/power_3"
+                                    android:textColor="#802f2f2f"
+                                    android:textSize="@dimen/s12"
+                                    app:typeface="ljh_1.TTF" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d29"
+                                android:src="@mipmap/right" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/B1" />
+
+                        <!--相似图片-->
+                        <LinearLayout
+                            android:id="@+id/main_picture_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d40"
+                                android:layout_height="@dimen/d40"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginTop="@dimen/d16"
+                                android:src="@mipmap/picture_main" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/d16"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:layout_marginTop="@dimen/d16"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:id="@+id/main_msg_picture"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/side_picture"
+                                    android:textColor="#2f2f2f"
+                                    android:textSize="@dimen/s16"
+                                    app:typeface="ljh_1.TTF" />
+
+                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                                    android:layout_width="@dimen/d225"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d3"
+                                    android:text="@string/picture_delete"
+                                    android:textColor="#802f2f2f"
+                                    android:textSize="@dimen/s14"
+                                    app:typeface="ljh_1.TTF" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d29"
+                                android:src="@mipmap/right" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/B1" />
+
 
                         <!--通知栏清理-->
                         <LinearLayout
@@ -545,61 +657,6 @@
                             android:layout_height="1dp"
                             android:background="@color/B1" />
 
-                        <!--深度清理-->
-                        <LinearLayout
-                            android:id="@+id/main_power_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginTop="@dimen/d16"
-                                android:src="@mipmap/power_6" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d16"
-                                android:layout_marginLeft="@dimen/d12"
-                                android:layout_marginTop="@dimen/d16"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_power"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/side_power"
-                                    android:textColor="#2f2f2f"
-                                    android:textSize="@dimen/s16"
-                                    app:typeface="ljh_1.TTF" />
-
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="@dimen/d225"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d3"
-                                    android:text="@string/power_3"
-                                    android:textColor="#802f2f2f"
-                                    android:textSize="@dimen/s12"
-                                    app:typeface="ljh_1.TTF" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/d16"
-                                android:layout_marginTop="@dimen/d29"
-                                android:src="@mipmap/right" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/B1" />
 
                         <!--文件管理-->
                         <LinearLayout
@@ -710,63 +767,9 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/B1" />
-                        <!--相似图片-->
-                        <LinearLayout
-                            android:id="@+id/main_picture_button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="@dimen/d40"
-                                android:layout_height="@dimen/d40"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginTop="@dimen/d16"
-                                android:src="@mipmap/picture_main" />
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/d16"
-                                android:layout_marginLeft="@dimen/d12"
-                                android:layout_marginTop="@dimen/d16"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:id="@+id/main_msg_picture"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/side_picture"
-                                    android:textColor="#2f2f2f"
-                                    android:textSize="@dimen/s16"
-                                    app:typeface="ljh_1.TTF" />
-
-                                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-                                    android:layout_width="@dimen/d225"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/d3"
-                                    android:text="@string/picture_delete"
-                                    android:textColor="#802f2f2f"
-                                    android:textSize="@dimen/s14"
-                                    app:typeface="ljh_1.TTF" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/d16"
-                                android:layout_marginTop="@dimen/d29"
-                                android:src="@mipmap/right" />
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
                             android:layout_height="@dimen/d9"
                             android:background="#f5f7fa" />
+
 
                         <!--ad-->
                         <LinearLayout
@@ -794,7 +797,7 @@
 
                                 <ImageView
                                     android:layout_width="@dimen/d4"
-                                    android:layout_height="@dimen/d26"
+                                    android:layout_height="@dimen/d16"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@drawable/shape_lv_r" />
@@ -856,7 +859,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center">
 
-                                        <com.supers.clean.junk.mview.RoundJinduRam
+                                        <com.froumobi.clean.junk.mview.RoundJinduRam
                                             android:id="@+id/main_msg_ram_backg"
                                             android:layout_width="@dimen/d56"
                                             android:layout_height="@dimen/d56"
@@ -895,7 +898,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center">
 
-                                        <com.supers.clean.junk.mview.RoundJindu
+                                        <com.froumobi.clean.junk.mview.RoundJindu
                                             android:id="@+id/main_msg_sd_backg"
                                             android:layout_width="@dimen/d56"
                                             android:layout_height="@dimen/d56"
@@ -998,11 +1001,11 @@
 
                     </LinearLayout>
 
-                </com.supers.clean.junk.mview.MyScrollView>
+                </com.froumobi.clean.junk.mview.MyScrollView>
 
                 <include layout="@layout/layout_load_more" />
 
-            </com.supers.clean.junk.mview.PullToRefreshLayout>
+            </com.froumobi.clean.junk.mview.PullToRefreshLayout>
         </LinearLayout>
 
 

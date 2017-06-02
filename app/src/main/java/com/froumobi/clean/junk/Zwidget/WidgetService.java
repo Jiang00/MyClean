@@ -1,11 +1,11 @@
-package com.supers.clean.junk.Zwidget;
+package com.froumobi.clean.junk.Zwidget;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 
 /**
- * Created by Ivy on 2017/3/28.
+ * Created by froumobi on 2017/3/28.
  */
 
 public class WidgetService extends AutoUpdateService {

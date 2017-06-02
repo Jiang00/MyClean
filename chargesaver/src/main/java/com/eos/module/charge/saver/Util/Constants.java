@@ -16,12 +16,8 @@ public class Constants {
     public static final String TAG_CHARGING = "charging";
     public static final String TAG_DUCK_CHARGING = "duck_charging";
 
-    public static final float TALK_PARAMETER = 0.6f;
-    public static final float INTERNET_PARAMETER = 0.4f;
-    public static final float GAME_PARAMETER = 0.2f;
 
     public static final String KEY_SAVER_TYPE = "charge_saver_type";
-    public static final String TYPE_DUCK = "duck";
     public static final String TYPE_HOR_BAR = "hor_bar";
 
 }

@@ -1,4 +1,4 @@
-package com.supers.clean.junk.view;
+package com.froumobi.clean.junk.view;
 
 import com.android.clean.entity.JunkInfo;
 

@@ -1,4 +1,4 @@
-package com.supers.clean.junk.presenter;
+package com.froumobi.clean.junk.presenter;
 
 /**
  * Created by on 2017/3/2.

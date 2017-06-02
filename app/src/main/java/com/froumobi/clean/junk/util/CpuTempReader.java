@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.froumobi.clean.junk.util;
 
 import android.os.AsyncTask;
 import android.util.Log;

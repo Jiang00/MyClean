@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.db.CleanDBHelper;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.adapter.WhiteListAdapter;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.adapter.WhiteListAdapter;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;

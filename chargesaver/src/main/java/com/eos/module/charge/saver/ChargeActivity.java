@@ -16,13 +16,11 @@ import android.view.WindowManager;
 
 import com.eos.module.charge.saver.entry.BatteryEntry;
 import com.eos.module.charge.saver.view.BatteryView;
-import com.eos.module.charge.saver.view.DuckView;
 
 public class ChargeActivity extends Activity {
 
 
     private BatteryView batteryView;
-    private DuckView duckView;
     private BatteryEntry entry;
     private boolean isBar;
 
@@ -73,21 +71,6 @@ public class ChargeActivity extends Activity {
         }
     }
 
-    private void doDuck() {
-        try {
-            duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
-            setContentView(duckView);
-            duckView.setUnlockListener(new DuckView.UnlockListener() {
-                @Override
-                public void onUnlock() {
-                    ChargeActivity.this.finish();
-                    overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
-                }
-            });
-        } catch (Exception e) {
-
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,8 +86,8 @@ public class ChargeActivity extends Activity {
             isBar = true;
             doBar();
         } else if (TextUtils.equals(type, "duck")) {
-            isBar = false;
-            doDuck();
+//            isBar = false;
+//            doDuck();
         }
 
         IntentFilter intentFilter = new IntentFilter();
@@ -130,7 +113,6 @@ public class ChargeActivity extends Activity {
     @Override
     protected void onDestroy() {
         batteryView = null;
-        duckView = null;
         super.onDestroy();
         try {
             unregisterReceiver(mReceiver);
@@ -170,9 +152,6 @@ public class ChargeActivity extends Activity {
                 batteryView.bind(entry);
             }
         } else {
-            if (duckView != null) {
-                duckView.bind(entry);
-            }
         }
     }
 

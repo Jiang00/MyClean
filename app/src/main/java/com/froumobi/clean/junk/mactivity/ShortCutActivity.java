@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.animation.ObjectAnimator;
 import android.app.ActivityManager;
@@ -24,9 +24,9 @@ import android.widget.TextView;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
 
 import java.util.List;
 

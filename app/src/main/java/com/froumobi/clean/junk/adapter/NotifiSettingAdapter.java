@@ -1,4 +1,4 @@
-package com.supers.clean.junk.adapter;
+package com.froumobi.clean.junk.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -9,11 +9,11 @@ import android.widget.TextView;
 
 import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.LoadManager;
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 import com.android.clean.entity.JunkInfo;
 
 /**
- * Created by Ivy on 2017/4/17.
+ * Created by froumobi on 2017/4/17.
  */
 
 public class NotifiSettingAdapter extends MybaseAdapter<JunkInfo> {

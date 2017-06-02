@@ -1,4 +1,4 @@
-package com.supers.clean.junk.adapter;
+package com.froumobi.clean.junk.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.android.clean.notification.NotificationInfo;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 
 /**
- * Created by Ivy on 2017/4/17.
+ * Created by froumobi on 2017/4/17.
  */
 
 public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {

@@ -1,4 +1,4 @@
-package com.supers.clean.junk.Zwidget;
+package com.froumobi.clean.junk.Zwidget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -16,12 +16,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.mactivity.CoolingActivity;
-import com.supers.clean.junk.util.CpuTempReader;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.mactivity.CoolingActivity;
+import com.froumobi.clean.junk.util.CpuTempReader;
 
 /**
- * Created by Ivy on 2017/3/28.
+ * Created by froumobi on 2017/3/28.
  */
 
 public class TempProvider extends AutoUpdateWidgetProvider {

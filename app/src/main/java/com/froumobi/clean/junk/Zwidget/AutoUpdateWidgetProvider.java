@@ -1,4 +1,4 @@
-package com.supers.clean.junk.Zwidget;
+package com.froumobi.clean.junk.Zwidget;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

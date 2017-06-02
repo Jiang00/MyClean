@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.froumobi.clean.junk.util;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.froumobi.clean.junk.util;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -19,7 +19,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -30,10 +29,9 @@ import android.widget.HeaderViewListAdapter;
 import android.widget.Toast;
 
 
-import com.supers.clean.junk.BuildConfig;
+import com.froumobi.clean.junk.BuildConfig;
 
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.UUID;
 

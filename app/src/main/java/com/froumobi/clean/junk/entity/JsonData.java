@@ -1,4 +1,4 @@
-package com.supers.clean.junk.entity;
+package com.froumobi.clean.junk.entity;
 
 
 import java.util.List;

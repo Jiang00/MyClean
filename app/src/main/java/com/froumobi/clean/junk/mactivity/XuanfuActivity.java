@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -23,14 +23,14 @@ import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.CheckState;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.CheckState;
 import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
 import com.android.clean.util.PreData;
-import com.supers.clean.junk.util.SwitchControl;
+import com.froumobi.clean.junk.util.SwitchControl;
 import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;

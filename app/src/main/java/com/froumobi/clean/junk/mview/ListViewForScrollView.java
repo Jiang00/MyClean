@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mview;
+package com.froumobi.clean.junk.mview;
 
 import android.content.Context;
 import android.util.AttributeSet;

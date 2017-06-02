@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.froumobi.clean.junk.util;
 
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;

@@ -17,8 +17,7 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="@dimen/d16"
         android:layout_marginRight="@dimen/d16"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/d90">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -39,6 +38,7 @@
                 android:layout_width="@dimen/d120"
                 android:layout_height="@dimen/d112"
                 android:layout_marginLeft="@dimen/d26"
+                android:layout_marginTop="@dimen/d8"
                 android:src="@mipmap/unload_tong" />
 
             <com.eos.module.charge.saver.view.CustomerTypefaceTextView
@@ -48,7 +48,7 @@
                 android:layout_marginTop="@dimen/d61"
                 android:layout_toRightOf="@id/zhuangshi"
                 android:text="158"
-                android:textColor="#ff3232"
+                android:textColor="#ff9c1b"
                 android:textSize="@dimen/s18"
                 app:typeface="ljh_1.TTF" />
 
@@ -113,14 +113,14 @@
                     android:textSize="@dimen/s18" />
             </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll"
+            android:orientation="vertical" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_ad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ll"
-        android:layout_marginLeft="@dimen/d16"
-        android:layout_marginRight="@dimen/d16"
-        android:orientation="vertical" />
+
 </RelativeLayout>

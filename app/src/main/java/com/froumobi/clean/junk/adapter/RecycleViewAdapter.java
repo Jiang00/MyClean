@@ -1,4 +1,4 @@
-package com.supers.clean.junk.adapter;
+package com.froumobi.clean.junk.adapter;
 
 import android.graphics.Bitmap;
 import android.os.Handler;
@@ -13,15 +13,15 @@ import android.widget.ImageView;
 
 import com.android.clean.similarimage.ImageHelper;
 import com.android.clean.similarimage.ImageInfo;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.mactivity.PhotoActivity;
-import com.supers.clean.junk.mview.MyGridLayoutManager;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.mactivity.PhotoActivity;
+import com.froumobi.clean.junk.mview.MyGridLayoutManager;
 import com.android.clean.similarimage.RecyclerDbHelper;
 
 import java.util.ArrayList;
 
 /**
- * Created by Ivy on 2017/4/28.
+ * Created by froumobi on 2017/4/28.
  */
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.MyViewHolder> {

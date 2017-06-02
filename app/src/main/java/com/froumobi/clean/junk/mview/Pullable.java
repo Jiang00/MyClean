@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mview;
+package com.froumobi.clean.junk.mview;
 
 public interface Pullable
 {

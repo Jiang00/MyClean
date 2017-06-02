@@ -22,7 +22,6 @@ import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.Util.WidgetContainer;
 import com.eos.module.charge.saver.entry.BatteryEntry;
 import com.eos.module.charge.saver.view.BatteryView;
-import com.eos.module.charge.saver.view.DuckView;
 
 /**
  * Created by on 2016/10/20.
@@ -84,9 +83,9 @@ public class BatteryService extends Service {
                 batteryChange(intent);
                 mHandler.removeCallbacks(batteryChangeRunnable);
                 mHandler.postDelayed(batteryChangeRunnable, MSG_BATTERY_CHANGE_DELAYED);
-            } else if (Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_SCREEN_ON.equals(action)) {
-                mHandler.removeCallbacks(runnable);
-                mHandler.postDelayed(runnable, MSG_SCREEN_ON_DELAYED);
+            } else if (Intent.ACTION_SCREEN_ON.equals(action)) {
+//                mHandler.removeCallbacks(runnable);
+//                mHandler.postDelayed(runnable, MSG_SCREEN_ON_DELAYED);
             } else {
                 showChargeView();
             }
@@ -192,17 +191,6 @@ public class BatteryService extends Service {
                         container.makeLayoutParams(
                                 WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
-            } else if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_DUCK)) {
-//                if (duckView == null) {
-//                    duckView = (DuckView) LayoutInflater.from(this).inflate(R.layout.charge_duck_view, null);
-//                    duckView.bind(entry);
-//                    duckView.setUnlockListener(duckUnlock);
-//                }
-//                container.removeAllViews();
-//                container.addView(duckView,
-//                        container.makeLayoutParams(
-//                                WidgetContainer.MATCH_PARENT, WidgetContainer.MATCH_PARENT, Gravity.CENTER));
-//                container.addToWindow();
             }
         } catch (Exception e) {
         }

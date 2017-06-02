@@ -1,4 +1,4 @@
-package com.supers.clean.junk.presenter;
+package com.froumobi.clean.junk.presenter;
 
 import android.app.PendingIntent;
 import android.content.Context;
@@ -14,8 +14,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.android.clean.util.Util;
-import com.supers.clean.junk.mactivity.XuanfuActivity;
-import com.supers.clean.junk.mview.FloatStateView;
+import com.froumobi.clean.junk.mactivity.XuanfuActivity;
+import com.froumobi.clean.junk.mview.FloatStateView;
 
 import java.lang.reflect.Field;
 

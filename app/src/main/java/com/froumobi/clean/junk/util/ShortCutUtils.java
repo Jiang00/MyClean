@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.froumobi.clean.junk.util;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -8,8 +8,8 @@ import android.graphics.Bitmap;
 import android.os.Parcelable;
 
 import com.android.clean.util.PreData;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.mactivity.GBoostActivity;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.mactivity.GBoostActivity;
 
 
 /**
@@ -33,7 +33,7 @@ public class ShortCutUtils {
                 "com.android.launcher.action.INSTALL_SHORTCUT");
         Intent shortcutIntent = new Intent();
         shortcutIntent.setComponent(new ComponentName(cx.getPackageName(),
-                "com.supers.clean.junk.activity.ShortCutActivity"));
+                "com.froumobi.clean.junk.mactivity.ShortCutActivity"));
         //设置启动的模式
         shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
                 | Intent.FLAG_ACTIVITY_NEW_TASK);

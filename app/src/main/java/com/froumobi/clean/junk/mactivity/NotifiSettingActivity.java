@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.android.clean.core.CleanManager;
 import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.PreData;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.adapter.NotifiSettingAdapter;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.adapter.NotifiSettingAdapter;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
 import static com.android.clean.db.CleanDBHelper.TableType.Notification;
 
 /**
- * Created by Ivy on 2017/4/13.
+ * Created by froumobi on 2017/4/13.
  */
 
 public class NotifiSettingActivity extends MBaseActivity {

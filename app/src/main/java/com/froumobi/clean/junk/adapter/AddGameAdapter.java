@@ -1,4 +1,4 @@
-package com.supers.clean.junk.adapter;
+package com.froumobi.clean.junk.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,10 +17,10 @@ import android.widget.Toast;
 
 import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.LoadManager;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.mactivity.GBoostActivity;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.mactivity.GBoostActivity;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.AdUtil;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,7 @@
-package com.supers.clean.junk.entity;
+package com.froumobi.clean.junk.entity;
 
 /**
- * Created by Ivy on 2017/5/22.
+ * Created by froumobi on 2017/5/22.
  */
 
 public class SideInfo {

@@ -4,7 +4,7 @@ android {
     compileSdkVersion COMPILE_SDK_VERSION as int
     buildToolsVersion BUILD_TOOLS_VERSION
     defaultConfig {
-        applicationId "com.eosmobi.cleaner"
+        applicationId "com.froumobi.cleaner"
         minSdkVersion MIN_SDK_VERSION as int
         targetSdkVersion TARGET_SDK_VERSION as int
         versionCode VERSION_CODE as int
@@ -210,7 +210,7 @@ dependencies {
     compile project(path: ':baselibrary')
     compile 'com.core:empty:1.2.7'
     compile project(':clean')
-    compile 'com.eos:keepalive:1.0.4'
+    compile 'com.fraumobi:keepalive:1.0.5'
     compile 'com.eos.module:eosui:1.2.1'
     compile project(path: ':pageindicatorview')
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0'

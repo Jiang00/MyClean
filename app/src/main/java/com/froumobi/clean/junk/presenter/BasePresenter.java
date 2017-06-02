@@ -1,4 +1,4 @@
-package com.supers.clean.junk.presenter;
+package com.froumobi.clean.junk.presenter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.supers.clean.junk.util.UtilGp;
+import com.froumobi.clean.junk.util.UtilGp;
 
 /**
  */

@@ -1,4 +1,4 @@
-package com.supers.clean.junk.adapter;
+package com.froumobi.clean.junk.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -17,9 +17,9 @@ import android.widget.Toast;
 import com.android.clean.core.CleanManager;
 import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.LoadManager;
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.AdUtil;
 
 /**
  */

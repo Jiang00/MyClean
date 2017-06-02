@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -30,13 +30,13 @@ import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.sample.lottie.LottieAnimationView;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.mview.DrawHookView;
-import com.supers.clean.junk.mview.SlowScrollView;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.mview.DrawHookView;
+import com.froumobi.clean.junk.mview.SlowScrollView;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.UtilGp;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.UtilGp;
 
 import java.util.ArrayList;
 import java.util.List;

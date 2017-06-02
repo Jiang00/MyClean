@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,9 +14,9 @@ import android.widget.TextView;
 import com.android.clean.core.CleanManager;
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
 import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
 import com.android.clean.entity.JunkInfo;
@@ -46,7 +46,6 @@ public class UnloadActivity extends MBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_unload);
         myHandler = new Handler();
-        MyApplication cleanApplication = (MyApplication) getApplication();
         tv_size = (TextView) findViewById(R.id.tv_size);
         bt_queren = (Button) findViewById(R.id.bt_queren);
         bt_quxiao = (Button) findViewById(R.id.bt_quxiao);
@@ -104,7 +103,7 @@ public class UnloadActivity extends MBaseActivity {
             }, 1000);
 
         } else {
-            nativeView = AdUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_4);
+            nativeView = AdUtil.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
                 if (nativeView.getHeight() == Util.dp2px(250)) {
@@ -164,6 +163,7 @@ public class UnloadActivity extends MBaseActivity {
             }
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         finish();

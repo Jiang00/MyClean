@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mview;
+package com.froumobi.clean.junk.mview;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -14,7 +14,7 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.RelativeLayout;
 
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

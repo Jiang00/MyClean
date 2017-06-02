@@ -1,4 +1,4 @@
-package com.supers.clean.junk.adapter;
+package com.froumobi.clean.junk.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.clean.util.LoadManager;
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 import com.android.clean.util.Util;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.presenter.JunkPresenter;
+import com.froumobi.clean.junk.presenter.JunkPresenter;
 
 public class JunkAdapter extends MybaseAdapter<JunkInfo> {
     AllListener listener;

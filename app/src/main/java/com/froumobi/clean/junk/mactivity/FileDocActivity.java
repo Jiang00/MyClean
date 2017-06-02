@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -26,16 +26,16 @@ import com.android.clean.filemanager.FileSortHelper;
 import com.android.clean.filemanager.FileUtils;
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.adapter.FileAdapter;
-import com.supers.clean.junk.entity.JunkInfo;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.adapter.FileAdapter;
+import com.froumobi.clean.junk.entity.JunkInfo;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
 
 import java.util.ArrayList;
 
 /**
- * Created by Ivy on 2017/4/21.
+ * Created by froumobi on 2017/4/21.
  */
 
 public class FileDocActivity extends MBaseActivity {

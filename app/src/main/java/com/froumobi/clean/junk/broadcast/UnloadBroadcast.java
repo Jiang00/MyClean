@@ -1,4 +1,4 @@
-package com.supers.clean.junk.broadcast;
+package com.froumobi.clean.junk.broadcast;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.content.Intent;
 import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.mactivity.UnloadActivity;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.mactivity.UnloadActivity;
+import com.froumobi.clean.junk.util.Constant;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

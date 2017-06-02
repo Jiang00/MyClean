@@ -1,6 +1,5 @@
-package com.supers.clean.junk.view;
+package com.froumobi.clean.junk.view;
 
-import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
 /**

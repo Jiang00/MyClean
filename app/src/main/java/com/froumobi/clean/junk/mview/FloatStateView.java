@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mview;
+package com.froumobi.clean.junk.mview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.android.clean.util.Util;
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 
 /**
  * Created by chengyuan on 16/8/12.

@@ -9,7 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 /**
- * Created by Ivy on 2017/5/19.
+ * Created by froumobi on 2017/5/19.
  */
 
 public class LoadManager {

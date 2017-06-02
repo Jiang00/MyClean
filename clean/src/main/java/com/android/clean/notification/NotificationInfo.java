@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.RemoteViews;
 
 /**
- * Created by Ivy on 2017/4/14.
+ * Created by froumobi on 2017/4/14.
  */
 
 public class NotificationInfo {

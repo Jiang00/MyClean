@@ -1,4 +1,4 @@
-package com.supers.clean.junk.presenter;
+package com.froumobi.clean.junk.presenter;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
@@ -6,7 +6,6 @@ import android.app.usage.UsageEvents;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.app.Application;
 import android.content.Context;
@@ -15,10 +15,10 @@ import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.squareup.leakcanary.LeakCanary;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.service.XuanfuService;
-import com.supers.clean.junk.service.NotificationService;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.service.XuanfuService;
+import com.froumobi.clean.junk.service.NotificationService;
+import com.froumobi.clean.junk.util.Constant;
 
 /**
  * Created by on 2016/11/29.

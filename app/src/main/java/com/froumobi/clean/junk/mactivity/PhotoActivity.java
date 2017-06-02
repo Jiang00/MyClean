@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -32,16 +32,16 @@ import com.android.clean.similarimage.ImageInfo;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.adapter.RecycleViewAdapter;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.adapter.RecycleViewAdapter;
 import com.android.clean.similarimage.RecyclerDbHelper;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
 
 import java.util.ArrayList;
 
 /**
- * Created by Ivy on 2017/4/27.
+ * Created by froumobi on 2017/4/27.
  */
 
 public class PhotoActivity extends MBaseActivity {

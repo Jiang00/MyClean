@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -29,17 +29,17 @@ import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.mview.PowerWidgetContainer;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.mview.PowerWidgetContainer;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.service.NotificationService;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.service.NotificationService;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
 
 import java.util.ArrayList;
 
 /**
- * Created by Ivy on 2017/4/7.
+ * Created by froumobi on 2017/4/7.
  */
 
 public class DeepActivity extends MBaseActivity {

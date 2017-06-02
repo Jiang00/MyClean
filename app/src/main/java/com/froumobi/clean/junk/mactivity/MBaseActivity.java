@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -21,10 +21,10 @@ import android.widget.Toast;
 
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.entity.JsonData;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.JsonParser;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.entity.JsonData;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.JsonParser;
 
 /**
  * Created by on 2017/2/28.

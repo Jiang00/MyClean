@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +11,11 @@ import android.widget.Button;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.sample.lottie.LottieAnimationView;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.util.Constant;
 
 /**
- * Created by Ivy on 2017/4/13.
+ * Created by froumobi on 2017/4/13.
  */
 
 public class NotifiAnimaActivity extends MBaseActivity {

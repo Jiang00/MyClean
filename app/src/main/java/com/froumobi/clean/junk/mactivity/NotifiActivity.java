@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,18 +20,18 @@ import com.android.clean.notification.NotificationCallBack;
 import com.android.clean.notification.NotificationInfo;
 import com.android.clean.notification.NotificationMonitorService;
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.adapter.NotifiAdapter;
-import com.supers.clean.junk.mview.DeleteListView;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.adapter.NotifiAdapter;
+import com.froumobi.clean.junk.mview.DeleteListView;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.Constant;
 import com.android.clean.util.PreData;
 
 import java.util.ArrayList;
 
 
 /**
- * Created by Ivy on 2017/4/13.
+ * Created by froumobi on 2017/4/13.
  */
 
 public class NotifiActivity extends Activity {

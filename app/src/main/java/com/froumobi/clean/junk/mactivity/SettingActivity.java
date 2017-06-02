@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.content.Intent;
 import android.os.Build;
@@ -21,13 +21,13 @@ import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
 import com.sample.lottie.LottieAnimationView;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.service.XuanfuService;
-import com.supers.clean.junk.service.NotificationService;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.ShortCutUtils;
-import com.supers.clean.junk.util.UtilGp;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.service.XuanfuService;
+import com.froumobi.clean.junk.service.NotificationService;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.ShortCutUtils;
+import com.froumobi.clean.junk.util.UtilGp;
 
 /**
  * Created by on 2017/3/2.

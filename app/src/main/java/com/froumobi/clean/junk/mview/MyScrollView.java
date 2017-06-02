@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mview;
+package com.froumobi.clean.junk.mview;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Scroller;
 
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 
 /**
  */

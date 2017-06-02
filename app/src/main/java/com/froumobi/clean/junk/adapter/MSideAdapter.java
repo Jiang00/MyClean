@@ -1,4 +1,4 @@
-package com.supers.clean.junk.adapter;
+package com.froumobi.clean.junk.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,22 +19,22 @@ import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.Utils;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.mactivity.FileActivity;
-import com.supers.clean.junk.mactivity.GBoostActivity;
-import com.supers.clean.junk.mactivity.LajiActivity;
-import com.supers.clean.junk.mactivity.AppActivity;
-import com.supers.clean.junk.mactivity.NotifiActivity;
-import com.supers.clean.junk.mactivity.NotifiAnimaActivity;
-import com.supers.clean.junk.mactivity.PhotoActivity;
-import com.supers.clean.junk.mactivity.DeepActivity;
-import com.supers.clean.junk.mactivity.RamAvtivity;
-import com.supers.clean.junk.mactivity.SettingActivity;
-import com.supers.clean.junk.entity.SideInfo;
-import com.supers.clean.junk.service.XuanfuService;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.UtilGp;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.mactivity.FileActivity;
+import com.froumobi.clean.junk.mactivity.GBoostActivity;
+import com.froumobi.clean.junk.mactivity.LajiActivity;
+import com.froumobi.clean.junk.mactivity.AppActivity;
+import com.froumobi.clean.junk.mactivity.NotifiActivity;
+import com.froumobi.clean.junk.mactivity.NotifiAnimaActivity;
+import com.froumobi.clean.junk.mactivity.PhotoActivity;
+import com.froumobi.clean.junk.mactivity.DeepActivity;
+import com.froumobi.clean.junk.mactivity.RamAvtivity;
+import com.froumobi.clean.junk.mactivity.SettingActivity;
+import com.froumobi.clean.junk.entity.SideInfo;
+import com.froumobi.clean.junk.service.XuanfuService;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.UtilGp;
 
 
 public class MSideAdapter extends MybaseAdapter<SideInfo> {

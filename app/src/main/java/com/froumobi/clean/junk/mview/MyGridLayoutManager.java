@@ -1,11 +1,11 @@
-package com.supers.clean.junk.mview;
+package com.froumobi.clean.junk.mview;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.AttributeSet;
 
 /**
- * Created by Ivy on 2017/4/27.
+ * Created by froumobi on 2017/4/27.
  */
 
 public class MyGridLayoutManager extends GridLayoutManager {

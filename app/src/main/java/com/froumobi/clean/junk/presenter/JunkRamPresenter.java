@@ -1,12 +1,12 @@
-package com.supers.clean.junk.presenter;
+package com.froumobi.clean.junk.presenter;
 
 import android.app.Activity;
 import android.content.Context;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
-import com.supers.clean.junk.view.JunkRamView;
-import com.supers.clean.junk.mactivity.MyApplication;
+import com.froumobi.clean.junk.view.JunkRamView;
+import com.froumobi.clean.junk.mactivity.MyApplication;
 import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;

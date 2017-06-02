@@ -1,4 +1,4 @@
-package com.supers.clean.junk.adapter;
+package com.froumobi.clean.junk.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.android.clean.filemanager.FileUtils;
 import com.android.clean.filemanager.Util;
 import com.android.clean.util.LoadManager;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.entity.JunkInfo;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.entity.JunkInfo;
 
 /**
- * Created by Ivy on 2017/4/21.
+ * Created by froumobi on 2017/4/21.
  */
 
 public class FileAdapter extends MybaseAdapter<JunkInfo> {

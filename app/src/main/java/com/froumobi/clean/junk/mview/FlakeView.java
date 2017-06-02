@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.supers.clean.junk.mview;
+package com.froumobi.clean.junk.mview;
 
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
@@ -27,7 +27,7 @@ import android.graphics.Paint;
 import android.util.Log;
 import android.view.View;
 
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 
 import java.util.ArrayList;
 

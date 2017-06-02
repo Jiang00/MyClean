@@ -1,4 +1,4 @@
-package com.supers.clean.junk.Zwidget;
+package com.froumobi.clean.junk.Zwidget;
 
 import android.app.ActivityManager;
 import android.app.PendingIntent;
@@ -16,15 +16,15 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RemoteViews;
 
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.mactivity.MainActivity;
-import com.supers.clean.junk.mactivity.SuccessActivity;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.mactivity.MainActivity;
+import com.froumobi.clean.junk.mactivity.SuccessActivity;
 import com.android.clean.util.Util;
 
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/3/28.
+ * Created by froumobi on 2017/3/28.
  */
 
 public class WidgetProvider extends AutoUpdateWidgetProvider {

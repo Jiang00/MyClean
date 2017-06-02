@@ -1,8 +1,7 @@
-package com.supers.clean.junk.adapter;
+package com.froumobi.clean.junk.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.support.v4.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;

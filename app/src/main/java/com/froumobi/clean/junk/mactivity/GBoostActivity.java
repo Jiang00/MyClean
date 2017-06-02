@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -34,18 +34,18 @@ import com.android.clean.gboost.GameBooster;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.clean.util.LoadManager;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.adapter.AddGameAdapter;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.adapter.AddGameAdapter;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.ShortCutUtils;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.ShortCutUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/5/5.
+ * Created by froumobi on 2017/5/5.
  */
 
 public class GBoostActivity extends MBaseActivity {

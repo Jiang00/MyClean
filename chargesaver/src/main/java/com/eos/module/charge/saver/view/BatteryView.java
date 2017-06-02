@@ -66,7 +66,6 @@ public class BatteryView extends FrameLayout {
 
     private LottieAnimationView shell;
     private LottieAnimationView water;
-    private LottieAnimationView lighting;
     private int halfWidth;
     private ImageView shutter;
 
@@ -187,32 +186,6 @@ public class BatteryView extends FrameLayout {
             });
         }
 
-        if (lighting != null && entry.isCharging()) {
-            if (entry.getLevel() == 100) {
-                if (lighting.isAnimating()) {
-                    lighting.cancelAnimation();
-                }
-                slide.setVisibility(VISIBLE);
-                lighting.setVisibility(GONE);
-            } else {
-                if (lighting.getVisibility() == View.GONE) {
-                    lighting.setVisibility(VISIBLE);
-                    slide.setVisibility(GONE);
-                    lighting.resumeAnimation();
-                } else {
-                    if (!lighting.isAnimating()) {
-                        initLighting();
-                        lighting.playAnimation();
-                    }
-                }
-            }
-        } else if (lighting != null) {
-            if (lighting.isAnimating()) {
-                lighting.pauseAnimation();
-            }
-            slide.setVisibility(VISIBLE);
-            lighting.setVisibility(GONE);
-        }
 
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
@@ -270,24 +243,6 @@ public class BatteryView extends FrameLayout {
         }
     }
 
-    private void initParticle() {
-        try {
-//            String pkg = ThemeManager.currentTheme().getPackageName();
-//            Context themeContext = mContext.createPackageContext(pkg, Context.CONTEXT_IGNORE_SECURITY);
-//            if (themeContext == null) {
-//                return;
-//            }
-//            InputStream input = mContext.getAssets().open("eos_particle.png");
-//            BitmapFactory.Options opts = new BitmapFactory.Options();
-//            opts.inScaled = false;
-//            opts.inDensity = 160;
-//            Bitmap bitmap = BitmapFactory.decodeStream(input, null, opts);
-//            if (bitmap != null && bubbleLayout != null) {
-//                bubbleLayout.setParticleBitmap(bitmap);
-//            }
-        } catch (Exception e) {
-        }
-    }
 
     private void initShell() {
         try {
@@ -317,16 +272,6 @@ public class BatteryView extends FrameLayout {
         water.setSpeed(5.0f);
     }
 
-    private void initLighting() {
-        try {
-            lighting.setImageAssetsFolder(mContext, "theme://images/lighting");
-            lighting.setAnimation(mContext, "theme://lighting.json");
-        } catch (Exception e) {
-            lighting.setImageAssetsFolder(null, "images/lighting");
-            lighting.setAnimation(null, "lighting.json");
-        }
-        lighting.loop(true);
-    }
 
     @Override
     protected void onFinishInflate() {
@@ -338,7 +283,6 @@ public class BatteryView extends FrameLayout {
             initShell();
             initBack();
             initShutter();
-            initParticle();
 
             updateTime();
 
@@ -456,7 +400,6 @@ public class BatteryView extends FrameLayout {
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
         shell = (LottieAnimationView) findViewById(R.id.battery_shell);
         water = (LottieAnimationView) findViewById(R.id.battery_electricity);
-        lighting = (LottieAnimationView) findViewById(R.id.battery_lighting);
     }
 
     public void pauseBubble() {
@@ -499,9 +442,6 @@ public class BatteryView extends FrameLayout {
         }
         if (water != null && water.isAnimating()) {
             water.cancelAnimation();
-        }
-        if (lighting != null && lighting.isAnimating()) {
-            lighting.cancelAnimation();
         }
         if (shell != null && shell.isAnimating()) {
             shell.cancelAnimation();

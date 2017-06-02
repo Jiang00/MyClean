@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.Manifest;
 import android.content.Context;
@@ -20,12 +20,12 @@ import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.sample.lottie.LottieAnimationView;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.CameraUtils;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.util.AdUtil;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.util.CameraUtils;
 import com.android.clean.util.MemoryManager;
-import com.supers.clean.junk.util.PhoneManager;
+import com.froumobi.clean.junk.util.PhoneManager;
 
 import java.util.Locale;
 

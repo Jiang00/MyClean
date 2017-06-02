@@ -1,4 +1,4 @@
-package com.supers.clean.junk.mactivity;
+package com.froumobi.clean.junk.mactivity;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
@@ -14,9 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.mview.FlakeView;
+import com.froumobi.clean.junk.R;
+import com.froumobi.clean.junk.util.Constant;
+import com.froumobi.clean.junk.mview.FlakeView;
 import com.android.clean.util.PreData;
 
 import java.util.Random;

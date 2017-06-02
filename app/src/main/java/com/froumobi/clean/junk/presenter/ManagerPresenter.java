@@ -1,4 +1,4 @@
-package com.supers.clean.junk.presenter;
+package com.froumobi.clean.junk.presenter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,8 +6,8 @@ import android.net.Uri;
 import android.text.TextUtils;
 
 import com.android.clean.core.CleanManager;
-import com.supers.clean.junk.view.AppManagerView;
-import com.supers.clean.junk.mactivity.MyApplication;
+import com.froumobi.clean.junk.view.AppManagerView;
+import com.froumobi.clean.junk.mactivity.MyApplication;
 import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;

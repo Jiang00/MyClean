@@ -1,4 +1,4 @@
-package com.supers.clean.junk.service;
+package com.froumobi.clean.junk.service;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
@@ -22,11 +22,11 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
 import com.android.clean.db.CleanDBHelper;
-import com.supers.clean.junk.R;
+import com.froumobi.clean.junk.R;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.presenter.GetTopApp;
-import com.supers.clean.junk.presenter.FloatStateManager;
-import com.supers.clean.junk.util.Constant;
+import com.froumobi.clean.junk.presenter.GetTopApp;
+import com.froumobi.clean.junk.presenter.FloatStateManager;
+import com.froumobi.clean.junk.util.Constant;
 import com.android.clean.util.PreData;
 
 import java.util.ArrayList;

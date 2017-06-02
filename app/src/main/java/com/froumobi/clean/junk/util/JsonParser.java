@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.froumobi.clean.junk.util;
 
 import android.util.Log;
 
@@ -10,7 +10,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * IVY (2016) All Rights Reserved.
+ * froumobi (2016) All Rights Reserved.
  * Created by renqingyou on 11/08/16.
  */
 public class JsonParser {
