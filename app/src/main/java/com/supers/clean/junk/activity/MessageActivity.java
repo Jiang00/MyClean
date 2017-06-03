@@ -13,21 +13,18 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.MemoryManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.eos.ui.demo.cross.CrossManager;
-import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CameraUtils;
-import com.android.clean.util.MemoryManager;
+import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PhoneManager;
 
 import java.util.Locale;
@@ -42,7 +39,6 @@ public class MessageActivity extends BaseActivity {
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
-    FrameLayout fl_lot_message;
     LottieAnimationView lot_message;
 
     private TelephonyManager telManager;
@@ -66,7 +62,6 @@ public class MessageActivity extends BaseActivity {
         message_ram = (TextView) findViewById(R.id.message_ram);
         message_sd = (TextView) findViewById(R.id.message_sd);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-        fl_lot_message = (FrameLayout) findViewById(R.id.fl_lot_message);
     }
 
     @Override
@@ -132,37 +127,10 @@ public class MessageActivity extends BaseActivity {
         message_imei.setText(getPhoneIMEI());
 
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
-        message_ram.setText(Util.convertStorage(ram_all,true));
+        message_ram.setText(Util.convertStorage(ram_all, true));
         long sd_all = MemoryManager.getPhoneAllSize();
-        message_sd.setText(Util.convertStorage(sd_all,true));
+        message_sd.setText(Util.convertStorage(sd_all, true));
 
-    }
-
-    @Override
-    public void tuiGuang() {
-        super.tuiGuang();
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "message", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_message = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                    lot_message.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    fl_lot_message.setVisibility(View.VISIBLE);
-                    if (onPause) {
-                        lot_message.pauseAnimation();
-                    }
-                    fl_lot_message.addView(view, 0);
-                } else {
-                    fl_lot_message.setVisibility(View.GONE);
-                }
-            }
-        });
     }
 
     private void loadAd() {
@@ -173,7 +141,6 @@ public class MessageActivity extends BaseActivity {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, 1000);
-            tuiGuang();
         } else {
             addAd();
         }
@@ -189,7 +156,6 @@ public class MessageActivity extends BaseActivity {
             ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
         } else {
-            tuiGuang();
         }
     }
 

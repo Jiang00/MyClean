@@ -2,7 +2,7 @@ package com.supers.clean.junk.customeview;
 
 import android.widget.ImageView;
 
-import com.eos.module.tweenengine.TweenAccessor;
+import com.twee.module.tweenengine.TweenAccessor;
 
 
 public class ImageAccessor implements TweenAccessor<ImageView> {

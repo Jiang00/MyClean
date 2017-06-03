@@ -25,22 +25,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.eos.module.tweenengine.Tween;
-import com.eos.module.tweenengine.TweenEquations;
-import com.eos.module.tweenengine.TweenManager;
-import com.eos.ui.demo.cross.CrossManager;
-import com.eos.ui.demo.dialog.DialogManager;
-import com.eos.ui.demo.entries.CrossData;
+import com.twee.module.tweenengine.Tween;
+import com.twee.module.tweenengine.TweenEquations;
+import com.twee.module.tweenengine.TweenManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.DrawHookView;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.customeview.SlowScrollView;
-import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
@@ -251,17 +248,8 @@ public class SuccessActivity extends BaseActivity {
         translate.setRepeatCount(-1);
         translate.setRepeatMode(Animation.REVERSE);
         success_jiantou.startAnimation(translate);
-        tuiGuang();
         shendu();
         if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-//                    success_jiantou.clearAnimation();
-//                    success_jiantou.setVisibility(View.INVISIBLE);
-//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-            }, data.inter_time * 1000);
 
         } else {
             myHandler.postDelayed(new Runnable() {
@@ -293,39 +281,6 @@ public class SuccessActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public void tuiGuang() {
-        super.tuiGuang();
-        final CrossData.CrossPromotionBean bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
-        if (bean != null) {
-            tuiguang = bean.pkg;
-        }
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "success", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    main_msg_tuiguang.setText(bean.appName.get(0).content);
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_success = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                    lot_success.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    Log.e("tuiguang", "main 不为空");
-                    main_tuiguang_button.setVisibility(View.VISIBLE);
-                    if (onPause) {
-                        lot_success.pauseAnimation();
-                    }
-                    fl_lot_success.addView(view, 0);
-                } else {
-                    main_tuiguang_button.setVisibility(View.GONE);
-                    Log.e("tuiguang", "main 为空");
-                }
-            }
-        });
-    }
 
     private void initAnimation() {
         myHandler.post(new Runnable() {

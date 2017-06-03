@@ -110,7 +110,6 @@ public class FileDocActivity extends BaseActivity {
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FILE_2, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-            tuiGuang();
         } else {
             addAd();
         }

@@ -123,7 +123,6 @@ public class FileListActivity extends BaseActivity {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, 1000);
-            tuiGuang();
         } else {
             addAd();
         }

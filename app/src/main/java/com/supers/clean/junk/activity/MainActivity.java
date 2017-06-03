@@ -10,7 +10,6 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -29,42 +28,31 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.clean.core.CleanManager;
-import com.android.clean.util.Util;
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.LoadManager;
+import com.android.clean.util.PreData;
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.android.theme.internal.data.Theme;
-import com.android.theme.internal.data.ThemeManager;
-import com.eos.eshop.ShopMaster;
-import com.eos.manager.AppLockPatternEosActivity;
-import com.eos.manager.meta.SecurityMyPref;
-import com.eos.module.charge.saver.Util.Constants;
-import com.eos.module.charge.saver.Util.Utils;
-import com.eos.module.charge.saver.service.BatteryService;
-import com.eos.ui.demo.cross.CrossManager;
-import com.eos.ui.demo.dialog.DialogManager;
-import com.eos.ui.demo.entries.CrossData;
+import com.my.module.charge.saver.Util.Constants;
+import com.my.module.charge.saver.Util.Utils;
 import com.mingle.circletreveal.CircularRevealCompat;
 import com.mingle.widget.animation.CRAnimation;
 import com.mingle.widget.animation.SimpleAnimListener;
 import com.rd.PageIndicatorView;
 import com.sample.lottie.LottieAnimationView;
-import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
-import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
-import com.android.clean.util.PreData;
 import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 
@@ -136,7 +124,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
      private View pageView;*/
 
     private boolean mDrawerOpened = false;
-    private CrossData.CrossPromotionBean bean;
     private View viewpager_3;
     private String from;
     private AlertDialog dialog;
@@ -201,21 +188,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
         cleanApplication = (MyApplication) getApplication();
-        try {
-            String pkg = getIntent().getStringExtra("theme_package_name");
-            if (pkg != null) {
-                ThemeManager.applyTheme(this, pkg, false);
-                Utils.writeData(this, Constants.CHARGE_SAVER_SWITCH, true);
-                startService(new Intent(this, BatteryService.class).putExtra("show", true));
-                Log.e("jfy", "main=" + pkg);
-            }
-            from = getIntent().getStringExtra("from");
-            if (TextUtils.equals(from, "translate")) {
-                DialogManager.showCrossDialog(this, AndroidSdk.getExtraData(), "list2", "flight", null);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
       /*  new Thread() {
             @Override
@@ -288,199 +260,70 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                 }
             });
-            if (startList.size() == 0) {
-                if (addTapTuiguang()) {
-                    deep.setVisibility(View.INVISIBLE);
-                    lot_tap.setVisibility(View.VISIBLE);
-                    arrayList.add(viewpager_3);
+
+            viewpager = (ViewPager) findViewById(R.id.viewpager);
+            pageindicatorview = (PageIndicatorView) findViewById(R.id.pageindicatorview);
+
+            viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
+                @Override
+                public int getCount() {
+                    return arrayList.size();
                 }
-            } else {
-                if (startList.size() > 0) {
 
-                    tap_iv_1.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
+                @Override
+                public Object instantiateItem(ViewGroup container, int position) {
+                    container.addView(arrayList.get(position), 0);
+                    return arrayList.get(position);
                 }
-                if (startList.size() > 1) {
-                    tap_iv_2.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(1).pkg));
-                    tap_iv_2.setVisibility(View.VISIBLE);
+
+                @Override
+                public void destroyItem(ViewGroup container, int position, Object object) {
+                    View view = (View) object;
+                    container.removeView(view);
+                    view = null;
                 }
-                if (startList.size() > 2) {
-                    tap_iv_3.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(2).pkg));
-                    tap_iv_3.setVisibility(View.VISIBLE);
+
+                @Override
+                public int getItemPosition(Object object) {
+                    return POSITION_NONE;
                 }
-                if (startList.size() <= 3) {
-                    tap_ll.setVisibility(View.GONE);
-                } else {
-                    if (startList.size() > 3) {
-                        tap_iv_4.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(3).pkg));
-                    }
-                    if (startList.size() > 4) {
-                        tap_iv_5.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(4).pkg));
-                    }
-                    if (startList.size() > 5) {
-                        tap_iv_6.setVisibility(View.VISIBLE);
-                    }
+
+
+                @Override
+                public boolean isViewFromObject(View arg0, Object arg1) {
+                    return arg0 == arg1;
                 }
-                tap_deep_text.setText(getString(R.string.tap_deep, startList.size()));
-                arrayList.add(viewpager_3);
-            }
-
-        } else {
-            if (addTapTuiguang()) {
-                deep.setVisibility(View.INVISIBLE);
-                lot_tap.setVisibility(View.VISIBLE);
-                arrayList.add(viewpager_3);
-            }
-        }
-
-        viewpager = (ViewPager) findViewById(R.id.viewpager);
-        pageindicatorview = (PageIndicatorView) findViewById(R.id.pageindicatorview);
-
-        viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
-            @Override
-            public int getCount() {
-                return arrayList.size();
-            }
-
-            @Override
-            public Object instantiateItem(ViewGroup container, int position) {
-                container.addView(arrayList.get(position), 0);
-                return arrayList.get(position);
-            }
-
-            @Override
-            public void destroyItem(ViewGroup container, int position, Object object) {
-                View view = (View) object;
-                container.removeView(view);
-                view = null;
-            }
-
-            @Override
-            public int getItemPosition(Object object) {
-                return POSITION_NONE;
-            }
-
-
-            @Override
-            public boolean isViewFromObject(View arg0, Object arg1) {
-                return arg0 == arg1;
-            }
-        });
+            });
 
 //        if (adView == null && Util.isAccessibilitySettingsOn(this)) {
 //            pageView.setVisibility(View.GONE);
 //        } else {
-        view.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                viewpager.setCurrentItem(2);
-            }
-        }, 3000);
-        view.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                viewpager.setCurrentItem(1);
-            }
-        }, 4000);
+            view.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    viewpager.setCurrentItem(2);
+                }
+            }, 3000);
+            view.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    viewpager.setCurrentItem(1);
+                }
+            }, 4000);
 //        }
-        mainPresenter = new MainPresenter(this, this);
-        mainPresenter.init();
-        mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
+            mainPresenter = new MainPresenter(this, this);
+            mainPresenter.init();
+            mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
 
-        AdUtil.track("主页面", "进入主页面", "", 1);
-        lot_family.setImageAssetsFolder("images/box/");
-        lot_family.setAnimation("box.json");
-        lot_family.loop(true);
-        lot_family.playAnimation();
-
-
-    }
-
-    private boolean addTapTuiguang() {
-        if (bean == null || bean.pkg == null) {
-            return false;
+            AdUtil.track("主页面", "进入主页面", "", 1);
+            lot_family.setImageAssetsFolder("images/box/");
+            lot_family.setAnimation("box.json");
+            lot_family.loop(true);
+            lot_family.playAnimation();
         }
-        Picasso.with(this).load(bean.iconUrl).into((ImageView) viewpager_3.findViewById(R.id.ad_icon));
-        Picasso.with(this).load(bean.topPicUrl).into((ImageView) viewpager_3.findViewById(R.id.ad_image));
-        ((TextView) viewpager_3.findViewById(R.id.ad_title)).setText(bean.appName.get(0).content);
-        ((TextView) viewpager_3.findViewById(R.id.ad_subtitle)).setText(bean.content.get(0).content.get(0));
-        ((TextView) viewpager_3.findViewById(R.id.ad_action)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (LoadManager.getInstance(MainActivity.this).isPkgInstalled(bean.pkg)) {
-                    Util.doStartApplicationWithPackageName(MainActivity.this, bean.pkg);
-                } else {
-                    UtilGp.openPlayStore(getApplicationContext(), bean.pkg);
-                }
-            }
-        });
-        return true;
-    }
-
-    public void tuiGuang() {
-        super.tuiGuang();
-//        if (true) {
-//            return;
-//        }
-        bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
-        if (bean != null) {
-            tuiguang = bean.pkg;
-        }
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    fl_lot_side.setVisibility(View.VISIBLE);
-                    side_title.setVisibility(View.GONE);
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_side = (LottieAnimationView) view.findViewById(R.id.cross_default_lottie);
-                    if (lot_side == null) {
-                        return;
-                    }
-                    lot_side.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    fl_lot_side.addView(view, 0);
-                    if (mDrawerOpened) {
-                        lot_side.playAnimation();
-                    } else {
-                        lot_side.pauseAnimation();
-                    }
-                } else {
-                    fl_lot_side.setVisibility(View.GONE);
-                    side_title.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    main_msg_tuiguang.setText(bean.appName.get(0).content);
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_main = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                    lot_main.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    Log.e("tuiguang", "main 不为空");
-                    main_tuiguang_button.setVisibility(View.VISIBLE);
-                    if (onPause) {
-                        lot_main.pauseAnimation();
-                    }
-                    fl_lot_main.addView(view, 0);
-                } else {
-                    main_tuiguang_button.setVisibility(View.GONE);
-                    Log.e("tuiguang", "main 为空");
-                }
-            }
-        });
 
     }
+
 
     //初始化监听
     public void onClick() {
@@ -642,7 +485,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
         adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
         adapter.addData(new SideInfo(R.string.side_family, R.mipmap.side_theme));//family
-        adapter.addData(new SideInfo(R.string.side_theme, R.mipmap.side_theme));//主题
         adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
         adapter.addData(new SideInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
 
@@ -703,9 +545,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("eos_start_full");
         } else {
-            if (TextUtils.equals(from, "translate")) {
-                return;
-            }
             View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
@@ -820,38 +659,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(CoolingActivity.class, bundle1, 1);
                     break;
                 case R.id.main_applock_button:
-                    AdUtil.track("applock", "主界面点击", "", 1);
-                    int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
-                    if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
-                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-                        intent.putExtra("is_main", true);
-                        startActivity(intent);
-                        break;
-                    }
-                    if (type == 0) {
-                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock")) {
-                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
-                            startActivity(intent);
-                        }
-                    } else if (type == 1) {
-                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock")) {
-                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
-                            startActivity(intent);
-                        }
-                    } else {
-                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-                        intent.putExtra("is_main", true);
-                        startActivity(intent);
-                    }
-
-                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-                    intent.putExtra("is_main", true);
-                    startActivity(intent);
                     break;
                 case R.id.main_theme_button:
                     AdUtil.track("主页面", "点击进入buton游戏加速", "", 1);
@@ -991,17 +798,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         } else if (resultCode == Constant.JUNK_RESUIL) {
             main_junk_h.setVisibility(View.GONE);
         } else if (resultCode == Constant.POWER_RESUIL) {
-            if (viewpager_3 != null && arrayList.contains(viewpager_3)) {
-                arrayList.remove(viewpager_3);
-                viewpager.removeView(viewpager_3);
-                if (addTapTuiguang()) {
-                    deep.setVisibility(View.INVISIBLE);
-                    lot_tap.setVisibility(View.VISIBLE);
-                    arrayList.add(viewpager_3);
-                }
-                pageindicatorview.setViewPager(viewpager);
-                pagerAdapter.notifyDataSetChanged();
-            }
 
         }
 
