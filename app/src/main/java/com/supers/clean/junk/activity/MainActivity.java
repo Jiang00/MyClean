@@ -50,6 +50,7 @@ import com.eos.ui.demo.entries.CrossData;
 import com.mingle.circletreveal.CircularRevealCompat;
 import com.mingle.widget.animation.CRAnimation;
 import com.mingle.widget.animation.SimpleAnimListener;
+import com.rd.PageIndicatorView;
 import com.sample.lottie.LottieAnimationView;
 import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
@@ -129,6 +130,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private long mExitTime;
     private int temp;
     private ViewPager viewpager;
+    PageIndicatorView pageindicatorview;
+    PagerAdapter pagerAdapter;
     /* private PagerAdapter pagerAdapter;
      private View pageView;*/
 
@@ -330,8 +333,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
 
         viewpager = (ViewPager) findViewById(R.id.viewpager);
+        pageindicatorview = (PageIndicatorView) findViewById(R.id.pageindicatorview);
 
-        viewpager.setAdapter(new PagerAdapter() {
+        viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
             @Override
             public int getCount() {
                 return arrayList.size();
@@ -345,9 +349,16 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
-                container.removeView(arrayList.get(position));
-
+                View view = (View) object;
+                container.removeView(view);
+                view = null;
             }
+
+            @Override
+            public int getItemPosition(Object object) {
+                return POSITION_NONE;
+            }
+
 
             @Override
             public boolean isViewFromObject(View arg0, Object arg1) {
@@ -982,11 +993,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         } else if (resultCode == Constant.POWER_RESUIL) {
             if (viewpager_3 != null && arrayList.contains(viewpager_3)) {
                 arrayList.remove(viewpager_3);
+                viewpager.removeView(viewpager_3);
                 if (addTapTuiguang()) {
                     deep.setVisibility(View.INVISIBLE);
                     lot_tap.setVisibility(View.VISIBLE);
                     arrayList.add(viewpager_3);
                 }
+                pageindicatorview.setViewPager(viewpager);
+                pagerAdapter.notifyDataSetChanged();
             }
 
         }

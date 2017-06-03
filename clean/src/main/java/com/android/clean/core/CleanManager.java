@@ -242,8 +242,18 @@ public class CleanManager {
     public void loadAppCache(AppCacheCallBack appCacheCallBack) {
 
         List<PackageInfo> packages = mContext.getPackageManager().getInstalledPackages(0);
+        String cacheFilePath = null;
+        try {
+            cacheFilePath = mContext.getExternalCacheDir().getAbsolutePath();
+        } catch (Exception e) {
 
-        String cacheFilePath = mContext.getExternalCacheDir().getAbsolutePath();
+        }
+        if (cacheFilePath == null) {
+            if (appCacheCallBack != null) {
+                appCacheCallBack.loadFinished(appCaches, appCacheSize);
+            }
+            return;
+        }
 
         appCacheSize = 0;
         appCaches.clear();
