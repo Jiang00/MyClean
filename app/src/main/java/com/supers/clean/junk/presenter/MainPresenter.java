@@ -58,12 +58,6 @@ public class MainPresenter extends BasePresenter<MainView> {
                 });
             }
         }).start();
-        TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
-        translate.setInterpolator(new AccelerateInterpolator());//OvershootInterpolator
-        translate.setDuration(300);
-        translate.setRepeatCount(-1);
-        translate.setRepeatMode(Animation.REVERSE);
-        iView.loadAirAnimator(translate);
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(115));
         rotateAnimation.setDuration(2000);
         rotateAnimation.setRepeatCount(-1);

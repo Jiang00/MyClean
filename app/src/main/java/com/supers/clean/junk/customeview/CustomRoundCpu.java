@@ -16,7 +16,6 @@ public class CustomRoundCpu extends View {
 
     private Context context;
     private Paint circlePoint;
-    private Paint backgPoint;
     float lineWidth = getResources().getDimension(R.dimen.d4);
     int size;
     private int progress;
@@ -43,10 +42,6 @@ public class CustomRoundCpu extends View {
         circlePoint.setStrokeCap(Paint.Cap.ROUND);
         circlePoint.setStrokeWidth(lineWidth);
         circlePoint.setStyle(Paint.Style.STROKE);
-        backgPoint = new Paint();
-        backgPoint.setAntiAlias(true);
-        backgPoint.setStrokeWidth(lineWidth);
-        backgPoint.setColor(context.getResources().getColor(R.color.A8));
     }
 
     @Override
@@ -63,24 +58,18 @@ public class CustomRoundCpu extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        circlePoint.setColor(context.getResources().getColor(R.color.B4));
+        circlePoint.setColor(context.getResources().getColor(R.color.A5));
         RectF rect = new RectF();
         rect.left = 0 + lineWidth / 2 + 1;
         rect.right = size - lineWidth / 2 - 1;
         rect.top = 0 + lineWidth / 2 + 1;
         rect.bottom = size - lineWidth / 2 - 1;
-        RectF rectBack = new RectF();
-        rectBack.left = 0 + 1;
-        rectBack.right = size - 1;
-        rectBack.top = 0 + 1;
-        rectBack.bottom = size - 1;
-        canvas.drawArc(rectBack, 0, 360, false, backgPoint);
         canvas.drawArc(rect, 0, 360, false, circlePoint);
         canvas.save();
         if (progress >= 0 && progress < 40) {
-            circlePoint.setColor(context.getResources().getColor(R.color.A3));
-        } else if (progress >= 40 && progress < 80) {
             circlePoint.setColor(context.getResources().getColor(R.color.A4));
+        } else if (progress >= 40 && progress < 80) {
+            circlePoint.setColor(context.getResources().getColor(R.color.A3));
         } else {
             circlePoint.setColor(context.getResources().getColor(R.color.A2));
         }

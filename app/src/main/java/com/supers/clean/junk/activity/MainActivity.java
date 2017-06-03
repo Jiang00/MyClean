@@ -56,6 +56,7 @@ import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
+import com.supers.clean.junk.customeview.CustomRoundRam;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
@@ -76,16 +77,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public static final String TAG = "MainActivity";
     MyScrollView main_scroll_view;
     PullToRefreshLayout main_pull_refresh;
-    FrameLayout main_scale_all;
     ImageView iv_title_right;
     ImageView iv_title_left;
     RelativeLayout main_cpu_air_button, main_sd_air_button, main_ram_air_button;
-    CustomRoundCpu main_custom_cpu, main_custom_sd, main_custom_ram;
+    CustomRoundCpu main_custom_cpu, main_custom_sd;
+    CustomRoundRam main_custom_ram;
     TextView main_cpu_temp, main_sd_per, main_sd_size, main_ram_per, main_ram_size;
-    LinearLayout main_air_all;
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
     LinearLayout main_manager_button, main_applock_button, main_theme_button;
-    TextView main_junk_h, main_ram_h, main_cooling_h;
     LinearLayout main_rotate_all;
     ImageView main_rotate_good;
     LinearLayout main_tuiguang_button;
@@ -112,37 +111,23 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     FrameLayout fl_lot_side;
     ImageView side_title;
     LottieAnimationView lot_main;
-    LottieAnimationView lot_main_tap;
     LottieAnimationView lot_family;
 
     LottieAnimationView lot_side;
 
     private String TAG_MAIN = "eos_main";
-    private String TAG_HUA = "eos_hua";
     private String TAG_SIDE = "eos_side";
     private String TAG_START_FULL = "eos_start_native";
     private String TAG_EXIT_FULL = "eos_exit_native";
 
-    private MyApplication cleanApplication;
     private Handler handler = new Handler();
     private MainPresenter mainPresenter;
     private SideAdapter adapter;
     private long mExitTime;
     private int temp;
-    private ViewPager viewpager;
-    PageIndicatorView pageindicatorview;
-    PagerAdapter pagerAdapter;
-    /* private PagerAdapter pagerAdapter;
-     private View pageView;*/
 
-    private boolean mDrawerOpened = false;
-    private CrossData.CrossPromotionBean bean;
-    private View viewpager_3;
     private String from;
     private AlertDialog dialog;
-    private LinearLayout deep;
-    private FrameLayout lot_tap;
-    private ArrayList<View> arrayList;
 
     @Override
     protected void findId() {
@@ -152,9 +137,22 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         //main_all_cercle = (FrameLayout) findViewById(R.id.main_all_cercle);
         main_scroll_view = (MyScrollView) findViewById(R.id.main_scroll_view);
         main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
-        main_scale_all = (FrameLayout) findViewById(R.id.main_scale_all);
         iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
+
+
+        main_cpu_air_button = (RelativeLayout) findViewById(R.id.main_cpu_air_button);
+        main_custom_cpu = (CustomRoundCpu) findViewById(R.id.main_custom_cpu);
+        main_cpu_temp = (TextView) findViewById(R.id.main_cpu_temp);
+        main_sd_air_button = (RelativeLayout) findViewById(R.id.main_sd_air_button);
+        main_custom_sd = (CustomRoundCpu) findViewById(R.id.main_custom_sd);
+        main_sd_per = (TextView) findViewById(R.id.main_sd_per);
+        main_sd_size = (TextView) findViewById(R.id.main_sd_size);
+        main_ram_air_button = (RelativeLayout) findViewById(R.id.main_ram_air_button);
+        main_custom_ram = (CustomRoundRam) findViewById(R.id.main_custom_ram);
+        main_ram_per = (TextView) findViewById(R.id.main_ram_per);
+        main_ram_size = (TextView) findViewById(R.id.main_ram_size);
+
 
         main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
         main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
@@ -162,9 +160,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_cooling_button = (RelativeLayout) findViewById(R.id.main_cooling_button);
         main_applock_button = (LinearLayout) findViewById(R.id.main_applock_button);
         main_theme_button = (LinearLayout) findViewById(R.id.main_theme_button);
-        main_junk_h = (TextView) findViewById(R.id.main_junk_h);
-        main_ram_h = (TextView) findViewById(R.id.main_ram_h);
-        main_cooling_h = (TextView) findViewById(R.id.main_cooling_h);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
         main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
@@ -200,7 +195,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
-        cleanApplication = (MyApplication) getApplication();
         try {
             String pkg = getIntent().getStringExtra("theme_package_name");
             if (pkg != null) {
@@ -216,172 +210,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-      /*  new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                // 返回系统包名
-                if (Util.isRoot()) {
-                    String apkRoot = "chmod 777 " + getPackageCodePath();
-                    Util.RootCommand(apkRoot);
-                }
-            }
-        }.start();*/
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
-        tuiGuang();
-
-        arrayList = new ArrayList<>();
-        View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
-        main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
-        main_custom_cpu = (CustomRoundCpu) view.findViewById(R.id.main_custom_cpu);
-        main_cpu_temp = (TextView) view.findViewById(R.id.main_cpu_temp);
-        main_sd_air_button = (RelativeLayout) view.findViewById(R.id.main_sd_air_button);
-        main_custom_sd = (CustomRoundCpu) view.findViewById(R.id.main_custom_sd);
-        main_sd_per = (TextView) view.findViewById(R.id.main_sd_per);
-        main_sd_size = (TextView) view.findViewById(R.id.main_sd_size);
-        main_ram_air_button = (RelativeLayout) view.findViewById(R.id.main_ram_air_button);
-        main_custom_ram = (CustomRoundCpu) view.findViewById(R.id.main_custom_ram);
-        main_ram_per = (TextView) view.findViewById(R.id.main_ram_per);
-        main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
-        main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
-        arrayList.add(view);
-
-        View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
-        LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
-        View adView = AdUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
-        if (adView != null) {
-            ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
-            if (adView.getHeight() == Util.dp2px(250)) {
-                layout_ad.height = Util.dp2px(250);
-            }
-            view_ad.setLayoutParams(layout_ad);
-            view_ad.addView(adView);
-            view_ad.setGravity(Gravity.CENTER);
-            arrayList.add(viewpager_2);
-        }
-        viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_deep, null);
-        Button deep_ok = (Button) viewpager_3.findViewById(R.id.deep_ok);
-        deep = (LinearLayout) viewpager_3.findViewById(R.id.deep);
-        LinearLayout tap_ll = (LinearLayout) viewpager_3.findViewById(R.id.tap_ll);
-        ImageView tap_iv_1 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_1);
-        ImageView tap_iv_2 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_2);
-        ImageView tap_iv_3 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_3);
-        ImageView tap_iv_4 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_4);
-        ImageView tap_iv_5 = (ImageView) viewpager_3.findViewById(R.id.tap_iv_5);
-        TextView tap_iv_6 = (TextView) viewpager_3.findViewById(R.id.tap_iv_6);
-        TextView tap_deep_text = (TextView) viewpager_3.findViewById(R.id.tap_deep_text);
-        lot_tap = (FrameLayout) viewpager_3.findViewById(R.id.lot_tap);
-        if (!PreData.getDB(this, Constant.DEEP_CLEAN, false)) {
-            List<JunkInfo> startList = new ArrayList<>();
-            for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
-                if (info.isSelfBoot) {
-                    startList.add(info);
-                }
-            }
-            deep_ok.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AdUtil.track("主页面", "点击Tap进入深度清理", "", 1);
-                    mainPresenter.jumpToActivity(PowerActivity.class, 1);
-                }
-            });
-            if (startList.size() == 0) {
-                if (addTapTuiguang()) {
-                    deep.setVisibility(View.INVISIBLE);
-                    lot_tap.setVisibility(View.VISIBLE);
-                    arrayList.add(viewpager_3);
-                }
-            } else {
-                if (startList.size() > 0) {
-
-                    tap_iv_1.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
-                }
-                if (startList.size() > 1) {
-                    tap_iv_2.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(1).pkg));
-                    tap_iv_2.setVisibility(View.VISIBLE);
-                }
-                if (startList.size() > 2) {
-                    tap_iv_3.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(2).pkg));
-                    tap_iv_3.setVisibility(View.VISIBLE);
-                }
-                if (startList.size() <= 3) {
-                    tap_ll.setVisibility(View.GONE);
-                } else {
-                    if (startList.size() > 3) {
-                        tap_iv_4.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(3).pkg));
-                    }
-                    if (startList.size() > 4) {
-                        tap_iv_5.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(4).pkg));
-                    }
-                    if (startList.size() > 5) {
-                        tap_iv_6.setVisibility(View.VISIBLE);
-                    }
-                }
-                tap_deep_text.setText(getString(R.string.tap_deep, startList.size()));
-                arrayList.add(viewpager_3);
-            }
-
-        } else {
-            if (addTapTuiguang()) {
-                deep.setVisibility(View.INVISIBLE);
-                lot_tap.setVisibility(View.VISIBLE);
-                arrayList.add(viewpager_3);
-            }
-        }
-
-        viewpager = (ViewPager) findViewById(R.id.viewpager);
-        pageindicatorview = (PageIndicatorView) findViewById(R.id.pageindicatorview);
-
-        viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
-            @Override
-            public int getCount() {
-                return arrayList.size();
-            }
-
-            @Override
-            public Object instantiateItem(ViewGroup container, int position) {
-                container.addView(arrayList.get(position), 0);
-                return arrayList.get(position);
-            }
-
-            @Override
-            public void destroyItem(ViewGroup container, int position, Object object) {
-                View view = (View) object;
-                container.removeView(view);
-                view = null;
-            }
-
-            @Override
-            public int getItemPosition(Object object) {
-                return POSITION_NONE;
-            }
-
-
-            @Override
-            public boolean isViewFromObject(View arg0, Object arg1) {
-                return arg0 == arg1;
-            }
-        });
-
-//        if (adView == null && Util.isAccessibilitySettingsOn(this)) {
-//            pageView.setVisibility(View.GONE);
-//        } else {
-        view.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                viewpager.setCurrentItem(2);
-            }
-        }, 3000);
-        view.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                viewpager.setCurrentItem(1);
-            }
-        }, 4000);
-//        }
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
@@ -395,92 +226,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     }
 
-    private boolean addTapTuiguang() {
-        if (bean == null || bean.pkg == null) {
-            return false;
-        }
-        Picasso.with(this).load(bean.iconUrl).into((ImageView) viewpager_3.findViewById(R.id.ad_icon));
-        Picasso.with(this).load(bean.topPicUrl).into((ImageView) viewpager_3.findViewById(R.id.ad_image));
-        ((TextView) viewpager_3.findViewById(R.id.ad_title)).setText(bean.appName.get(0).content);
-        ((TextView) viewpager_3.findViewById(R.id.ad_subtitle)).setText(bean.content.get(0).content.get(0));
-        ((TextView) viewpager_3.findViewById(R.id.ad_action)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (LoadManager.getInstance(MainActivity.this).isPkgInstalled(bean.pkg)) {
-                    Util.doStartApplicationWithPackageName(MainActivity.this, bean.pkg);
-                } else {
-                    UtilGp.openPlayStore(getApplicationContext(), bean.pkg);
-                }
-            }
-        });
-        return true;
-    }
-
-    public void tuiGuang() {
-        super.tuiGuang();
-//        if (true) {
-//            return;
-//        }
-        bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
-        if (bean != null) {
-            tuiguang = bean.pkg;
-        }
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "side", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    fl_lot_side.setVisibility(View.VISIBLE);
-                    side_title.setVisibility(View.GONE);
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_side = (LottieAnimationView) view.findViewById(R.id.cross_default_lottie);
-                    if (lot_side == null) {
-                        return;
-                    }
-                    lot_side.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    fl_lot_side.addView(view, 0);
-                    if (mDrawerOpened) {
-                        lot_side.playAnimation();
-                    } else {
-                        lot_side.pauseAnimation();
-                    }
-                } else {
-                    fl_lot_side.setVisibility(View.GONE);
-                    side_title.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "main", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    main_msg_tuiguang.setText(bean.appName.get(0).content);
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_main = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                    lot_main.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    Log.e("tuiguang", "main 不为空");
-                    main_tuiguang_button.setVisibility(View.VISIBLE);
-                    if (onPause) {
-                        lot_main.pauseAnimation();
-                    }
-                    fl_lot_main.addView(view, 0);
-                } else {
-                    main_tuiguang_button.setVisibility(View.GONE);
-                    Log.e("tuiguang", "main 为空");
-                }
-            }
-        });
-
-    }
 
     //初始化监听
     public void onClick() {
@@ -491,7 +236,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_cpu_air_button.setOnClickListener(onClickListener);
         main_sd_air_button.setOnClickListener(onClickListener);
         main_ram_air_button.setOnClickListener(onClickListener);
-        main_air_all.setOnClickListener(onClickListener);
         main_junk_button.setOnClickListener(onClickListener);
         main_ram_button.setOnClickListener(onClickListener);
         main_manager_button.setOnClickListener(onClickListener);
@@ -509,14 +253,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
 
-        main_scroll_view.setScrollViewListener(new MyScrollView.ScrollViewListener() {
-            @Override
-            public void onScrollChanged(MyScrollView scrollView, int x, int y, int oldx, int oldy) {
-                if (y == 0 && oldy != 0) {
-                    viewpager.setCurrentItem(0);
-                }
-            }
-        });
 
     }
 
@@ -532,10 +268,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     public void run() {
                         main_cpu_temp.setText(String.valueOf(progress) + "℃");
                         main_msg_cpu_percent.setText(String.valueOf(progress) + "℃");
-                        if (main_cooling_h.getVisibility() == View.INVISIBLE) {
-                            main_cooling_h.setText(String.valueOf(temp) + "℃");
-                            main_cooling_h.setVisibility(View.VISIBLE);
-                        }
                     }
                 });
             }
@@ -576,14 +308,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 } else {
                     main_msg_sd_unit.setText("GB");
                 }
-                if (main_junk_h.getVisibility() == View.INVISIBLE) {
-                    long junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
-                            CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
-                    if (junk_size > 0) {
-                        main_junk_h.setText(Util.convertStorage(junk_size, true));
-                        main_junk_h.setVisibility(View.VISIBLE);
-                    }
-                }
             }
         });
 
@@ -592,7 +316,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void initRam(final int percent, final String size) {
         main_custom_ram.startProgress(false, percent);
-        main_custom_ram.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
+        main_custom_ram.setCustomRoundListener(new CustomRoundRam.CustomRoundListener() {
             @Override
             public void progressUpdate(final int progress) {
                 runOnUiThread(new Runnable() {
@@ -601,13 +325,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         main_ram_per.setText(String.valueOf(progress) + "%");
                         main_ram_size.setText(size);
                         main_msg_ram_percent.setText(String.valueOf(progress) + "%");
-                        if (main_ram_h.getVisibility() == View.INVISIBLE) {
-                            long ram_size = CleanManager.getInstance(MainActivity.this).getRamSize();
-                            if (ram_size > 0) {
-                                main_ram_h.setText(Util.convertStorage(ram_size, true));
-                                main_ram_h.setVisibility(View.VISIBLE);
-                            }
-                        }
                     }
                 });
             }
@@ -648,10 +365,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     }
 
-    @Override
-    public void loadAirAnimator(TranslateAnimation translate) {
-        main_air_all.startAnimation(translate);
-    }
 
     @Override
     public void setRotateGone() {
@@ -796,10 +509,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     AdUtil.track("主页面", "点击ram球进入内存加速页面", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
-                case R.id.main_air_all:
-                    AdUtil.track("主页面", "点击火箭进入清理所有界面", "", 1);
-                    mainPresenter.jumpToActivity(JunkAndRamActivity.class, 1);
-                    break;
                 case R.id.main_junk_button:
                     AdUtil.track("主页面", "点击垃圾清理按钮", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
@@ -918,7 +627,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_power_button:
                     AdUtil.track("主页面", "点击进入深度清理", "", 1);
-                    PreData.putDB(MainActivity.this, Constant.DEEP_CLEAN, true);
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                     break;
                 case R.id.main_file_button:
@@ -975,8 +683,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             if (temp == 0) {
                 temp = 40;
             }
-
-            main_cooling_h.setVisibility(View.GONE);
         } else if (requestCode == 100) {
             if (Util.isNotificationListenEnabled(MainActivity.this)) {
                 PreData.putDB(MainActivity.this, Constant.KEY_NOTIFI, true);
@@ -987,21 +693,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 startActivityForResult(intent, 1);
             }
         } else if (resultCode == Constant.RAM_RESUIL) {
-            main_ram_h.setVisibility(View.GONE);
         } else if (resultCode == Constant.JUNK_RESUIL) {
-            main_junk_h.setVisibility(View.GONE);
         } else if (resultCode == Constant.POWER_RESUIL) {
-            if (viewpager_3 != null && arrayList.contains(viewpager_3)) {
-                arrayList.remove(viewpager_3);
-                viewpager.removeView(viewpager_3);
-                if (addTapTuiguang()) {
-                    deep.setVisibility(View.INVISIBLE);
-                    lot_tap.setVisibility(View.VISIBLE);
-                    arrayList.add(viewpager_3);
-                }
-                pageindicatorview.setViewPager(viewpager);
-                pagerAdapter.notifyDataSetChanged();
-            }
 
         }
 
@@ -1159,7 +852,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void onDrawerOpened(View drawerView) {
-        mDrawerOpened = true;
         Log.e(TAG, "onDrawerOpened");
         if (lot_side != null) {
             lot_side.playAnimation();
@@ -1168,7 +860,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void onDrawerClosed(View drawerView) {
-        mDrawerOpened = false;
         Log.e(TAG, "onDrawerClosed");
         if (lot_side != null) {
             lot_side.pauseAnimation();

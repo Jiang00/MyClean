@@ -571,7 +571,6 @@ public class SuccessActivity extends BaseActivity {
                         return;
                     }
                     AdUtil.track("完成页面", "点击进入深度清理", "", 1);
-                    PreData.putDB(SuccessActivity.this, Constant.DEEP_CLEAN, true);
                     jumpTo(PowerActivity.class);
                     onBackPressed();
                     break;

@@ -197,7 +197,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             Intent intent5 = new Intent(context, FileActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == POWER) {
-            PreData.putDB(context, Constant.DEEP_CLEAN, true);
            AdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, PowerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);

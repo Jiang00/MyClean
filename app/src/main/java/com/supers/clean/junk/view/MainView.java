@@ -15,7 +15,6 @@ public interface MainView extends IView {
 
     void initGuard(int num, RotateAnimation rotateAnimation);
 
-    void loadAirAnimator(TranslateAnimation translateAnimation);
 
     void setRotateGone();
 

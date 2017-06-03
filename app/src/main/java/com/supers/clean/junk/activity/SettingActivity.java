@@ -293,7 +293,6 @@ public class SettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_power:
                     AdUtil.track("设置页面", "进入深度清理", "", 1);
-                    PreData.putDB(SettingActivity.this, Constant.DEEP_CLEAN, true);
                     Intent intentP = new Intent(SettingActivity.this, PowerActivity.class);
                     startActivity(intentP);
                     break;
