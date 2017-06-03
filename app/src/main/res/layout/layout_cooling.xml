@@ -66,7 +66,7 @@
         android:orientation="vertical"
         android:visibility="invisible">
 
-        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+        <com.my.module.charge.saver.view.CustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -76,7 +76,7 @@
             android:textSize="@dimen/s15"
             app:typeface="eos_clean.otf" />
 
-        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+        <com.my.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/cooling_wendu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,24 +88,5 @@
             app:typeface="eos_clean.otf" />
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/fl_lot_cooling"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d135"
-        android:layout_gravity="bottom"
-        android:visibility="invisible">
-
-        <com.eos.module.charge.saver.view.CustomerTypefaceTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:background="@color/black_35"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:text="AD"
-            android:textColor="@android:color/white"
-            android:textSize="8sp"
-            app:typeface="eos_clean.otf" />
-    </FrameLayout>
 
 </FrameLayout>

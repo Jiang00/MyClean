@@ -8,10 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.clean.util.Util;
-import com.eos.module.charge.saver.Util.Constants;
-import com.eos.module.charge.saver.Util.Utils;
-import com.eos.module.charge.saver.service.BatteryService;
+import com.my.module.charge.saver.Util.Constants;
+import com.my.module.charge.saver.Util.Utils;
+import com.my.module.charge.saver.service.BatteryService;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.AdUtil;
 

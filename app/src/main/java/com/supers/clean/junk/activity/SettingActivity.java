@@ -18,11 +18,8 @@ import android.widget.TextView;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.eos.module.charge.saver.Util.Constants;
-import com.eos.module.charge.saver.Util.Utils;
-import com.eos.ui.demo.cross.CrossManager;
-import com.eos.ui.demo.dialog.DialogManager;
-import com.sample.lottie.LottieAnimationView;
+import com.my.module.charge.saver.Util.Constants;
+import com.my.module.charge.saver.Util.Utils;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
@@ -43,12 +40,10 @@ public class SettingActivity extends BaseActivity {
     ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check, setting_unload_check;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
-    FrameLayout fl_lot_setting;
     private View nativeView;
 
     private String TAG_SETTING = "eos_setting";
     private Handler myHandler;
-    private LottieAnimationView lot_setting;
 
     @Override
     protected void findId() {
@@ -76,7 +71,6 @@ public class SettingActivity extends BaseActivity {
         setting_unload_check = (ImageView) findViewById(R.id.setting_unload_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
-        fl_lot_setting = (FrameLayout) findViewById(R.id.fl_lot_setting);
     }
 
     @Override
@@ -96,7 +90,6 @@ public class SettingActivity extends BaseActivity {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, 1000);
-            tuiGuang();
         } else {
             addAd();
         }
@@ -108,44 +101,13 @@ public class SettingActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (lot_setting != null) {
-            lot_setting.playAnimation();
-        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (lot_setting != null) {
-            lot_setting.pauseAnimation();
-        }
     }
 
-    public void tuiGuang() {
-        super.tuiGuang();
-        DialogManager.getCrossView(getApplicationContext(), extraData, "list1", "Setting", true, new CrossManager.onCrossViewClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-
-            @Override
-            public void onLoadView(View view) {
-                if (view != null) {
-                    ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    lot_setting = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
-                    lot_setting.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    fl_lot_setting.setVisibility(View.VISIBLE);
-                    fl_lot_setting.addView(view, 0);
-                    if (onPause) {
-                        lot_setting.pauseAnimation();
-                    }
-                } else {
-                    fl_lot_setting.setVisibility(View.GONE);
-                }
-            }
-        });
-    }
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
@@ -160,7 +122,6 @@ public class SettingActivity extends BaseActivity {
 //            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
             setting_scroll.setScrollY(0);
         } else {
-            tuiGuang();
         }
     }
 

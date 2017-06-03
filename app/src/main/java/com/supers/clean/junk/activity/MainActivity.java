@@ -10,7 +10,6 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -29,30 +28,21 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.clean.core.CleanManager;
-import com.android.clean.util.Util;
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.LoadManager;
+import com.android.clean.util.PreData;
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.android.theme.internal.data.Theme;
-import com.android.theme.internal.data.ThemeManager;
-import com.eos.eshop.ShopMaster;
-import com.eos.manager.AppLockPatternEosActivity;
-import com.eos.manager.meta.SecurityMyPref;
-import com.eos.module.charge.saver.Util.Constants;
-import com.eos.module.charge.saver.Util.Utils;
-import com.eos.module.charge.saver.service.BatteryService;
-import com.eos.ui.demo.cross.CrossManager;
-import com.eos.ui.demo.dialog.DialogManager;
-import com.eos.ui.demo.entries.CrossData;
+import com.my.module.charge.saver.Util.Constants;
+import com.my.module.charge.saver.Util.Utils;
 import com.mingle.circletreveal.CircularRevealCompat;
 import com.mingle.widget.animation.CRAnimation;
 import com.mingle.widget.animation.SimpleAnimListener;
 import com.rd.PageIndicatorView;
 import com.sample.lottie.LottieAnimationView;
-import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
@@ -60,12 +50,10 @@ import com.supers.clean.junk.customeview.CustomRoundRam;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
-import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
-import com.android.clean.util.PreData;
 import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 
@@ -125,7 +113,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private SideAdapter adapter;
     private long mExitTime;
     private int temp;
-
     private String from;
     private AlertDialog dialog;
 
@@ -195,21 +182,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
-        try {
-            String pkg = getIntent().getStringExtra("theme_package_name");
-            if (pkg != null) {
-                ThemeManager.applyTheme(this, pkg, false);
-                Utils.writeData(this, Constants.CHARGE_SAVER_SWITCH, true);
-                startService(new Intent(this, BatteryService.class).putExtra("show", true));
-                Log.e("jfy", "main=" + pkg);
-            }
-            from = getIntent().getStringExtra("from");
-            if (TextUtils.equals(from, "translate")) {
-                DialogManager.showCrossDialog(this, AndroidSdk.getExtraData(), "list2", "flight", null);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
@@ -359,7 +332,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
         adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
         adapter.addData(new SideInfo(R.string.side_family, R.mipmap.side_theme));//family
-        adapter.addData(new SideInfo(R.string.side_theme, R.mipmap.side_theme));//主题
         adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
         adapter.addData(new SideInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
 
@@ -416,9 +388,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("eos_start_full");
         } else {
-            if (TextUtils.equals(from, "translate")) {
-                return;
-            }
             View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
@@ -529,38 +498,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(CoolingActivity.class, bundle1, 1);
                     break;
                 case R.id.main_applock_button:
-                    AdUtil.track("applock", "主界面点击", "", 1);
-                    int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
-                    if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
-                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-                        intent.putExtra("is_main", true);
-                        startActivity(intent);
-                        break;
-                    }
-                    if (type == 0) {
-                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock")) {
-                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-                            PreData.putDB(MainActivity.this, Constant.FIRST_APPLOCK, 1);
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
-                            startActivity(intent);
-                        }
-                    } else if (type == 1) {
-                        if (LoadManager.getInstance(MainActivity.this).isPkgInstalled("com.eosmobi.applock")) {
-                            Util.doStartApplicationWithPackageName(MainActivity.this, "com.eosmobi.applock");
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
-                            startActivity(intent);
-                        }
-                    } else {
-                        Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-                        intent.putExtra("is_main", true);
-                        startActivity(intent);
-                    }
-
-                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-                    intent.putExtra("is_main", true);
-                    startActivity(intent);
                     break;
                 case R.id.main_theme_button:
                     AdUtil.track("主页面", "点击进入buton游戏加速", "", 1);

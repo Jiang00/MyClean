@@ -14,36 +14,29 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.entity.JunkInfo;
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.eos.ui.demo.cross.CrossManager;
-import com.eos.ui.demo.dialog.DialogManager;
-import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.adapter.ManagerAdapter;
+import com.supers.clean.junk.presenter.ManagerPresenter;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.AppManagerView;
-import com.supers.clean.junk.adapter.ManagerAdapter;
-import com.android.clean.util.PreData;
-import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.presenter.ManagerPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +98,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     public void loadFullAd() {
         if (PreData.getDB(this, Constant.FULL_MANAGER, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-            tuiGuang();
         } else {
             nativeView1 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView2 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
