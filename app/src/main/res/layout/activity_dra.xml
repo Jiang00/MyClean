@@ -39,24 +39,6 @@
                     android:layout_height="@dimen/d120"
                     android:background="@mipmap/side_title_1" />
 
-                <FrameLayout
-                    android:id="@+id/fl_lot_side"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d120"
-                    android:visibility="gone">
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|right"
-                        android:background="@color/black_35"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="center"
-                        android:text="AD"
-                        android:textColor="@android:color/white"
-                        android:textSize="8sp"
-                        app:typeface="eos_clean.otf" />
-                </FrameLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_ad_side"

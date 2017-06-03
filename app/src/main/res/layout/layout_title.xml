@@ -10,13 +10,13 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/d8"
-        android:layout_marginRight="@dimen/d8"
+        android:layout_marginRight="@dimen/d27"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/d8">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/d24"
+            android:layout_height="@dimen/d24"
             android:layout_gravity="center"
             android:src="@mipmap/tilte_left" />
     </FrameLayout>
@@ -26,18 +26,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/d16"
         android:layout_toRightOf="@id/title_left"
         android:text="@string/app_name"
-        android:textColor="@color/A8"
-        android:textSize="@dimen/s17"
+        android:textColor="@color/A7"
+        android:textSize="@dimen/s18"
         app:typeface="eos_clean.otf" />
 
     <ImageView
         android:id="@+id/title_right"
-        android:layout_width="@dimen/d56"
-        android:layout_height="@dimen/d56"
+        android:layout_width="@dimen/d36"
+        android:layout_height="@dimen/d36"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/d8"
+        android:padding="@dimen/d8"
         android:scaleType="center"
         android:src="@mipmap/white_list_right"
         android:visibility="invisible" />
@@ -50,7 +52,7 @@
         android:gravity="center"
         android:text="@string/picture_9"
         android:textColor="@color/white_54"
-        android:textSize="@dimen/d16"
+        android:textSize="@dimen/s16"
         android:visibility="invisible"
         app:typeface="eos_clean.otf" />
 

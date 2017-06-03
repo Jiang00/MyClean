@@ -13,7 +13,6 @@ public interface MainView extends IView {
 
     void initRam(int percent, String size);
 
-    void initGuard(int num, RotateAnimation rotateAnimation);
 
 
     void setRotateGone();

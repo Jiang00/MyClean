@@ -118,13 +118,13 @@ public class Util {
         long gb = mb * 1024;
 
         if (size >= gb) {
-            return danwei ? String.format("%.1f", (float) size / gb) + "GB" : String.format("%.1f", (float) size / gb);
+            return danwei ? String.format("%.1f", (float) size / gb) + "G" : String.format("%.1f", (float) size / gb);
         } else if (size >= mb) {
             float f = (float) size / mb;
-            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "MB" : String.format(f > 100 ? "%.0f" : "%.1f", f);
+            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "M" : String.format(f > 100 ? "%.0f" : "%.1f", f);
         } else {
             float f = (float) size / kb;
-            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "KB" : String.format(f > 100 ? "%.0f" : "%.1f", f);
+            return danwei ? String.format(f > 100 ? "%.0f" : "%.1f", f) + "K" : String.format(f > 100 ? "%.0f" : "%.1f", f);
         }
 //        else {
 //            float f = (float) size;

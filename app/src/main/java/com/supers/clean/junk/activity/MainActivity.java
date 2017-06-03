@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -68,35 +69,29 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ImageView iv_title_right;
     ImageView iv_title_left;
     RelativeLayout main_cpu_air_button, main_sd_air_button, main_ram_air_button;
+    ImageView main_huojian;
     CustomRoundCpu main_custom_cpu, main_custom_sd;
     CustomRoundRam main_custom_ram;
     TextView main_cpu_temp, main_sd_per, main_sd_size, main_ram_per, main_ram_size;
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
     LinearLayout main_manager_button, main_applock_button, main_theme_button;
     LinearLayout main_rotate_all;
-    ImageView main_rotate_good;
-    LinearLayout main_tuiguang_button;
-    FrameLayout fl_lot_main;
-    TextView main_msg_tuiguang;
+    TextView main_rotate_good, main_rotate_bad;
     LinearLayout main_msg_button;
     LinearLayout main_power_button;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
     LinearLayout main_gboost_button;
     LinearLayout main_picture_button;
-    TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_sd_unit, main_msg_cpu_percent;
-    TextView main_gurad_num;
-    ImageView main_guard_rotate;
-    FrameLayout main_guard_all;
+    TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_cpu_percent;
     ListViewForScrollView side_listView;
     DrawerLayout main_drawer;
-    LinearLayout ll_ad, ll_ad_side;
+    LinearLayout ll_ad, ll_ad_side, ad_native_2;
     com.mingle.widget.LinearLayout ll_ad_full;
     ProgressBar ad_progressbar;
     TextView main_full_time;
 
     // LottieAnimationView lot_side;
-    FrameLayout fl_lot_side;
     ImageView side_title;
     LottieAnimationView lot_main;
     LottieAnimationView lot_family;
@@ -107,6 +102,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_SIDE = "eos_side";
     private String TAG_START_FULL = "eos_start_native";
     private String TAG_EXIT_FULL = "eos_exit_native";
+    private String TAG_FULL_PULL = "eos_exit_native";
 
     private Handler handler = new Handler();
     private MainPresenter mainPresenter;
@@ -136,6 +132,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_sd_per = (TextView) findViewById(R.id.main_sd_per);
         main_sd_size = (TextView) findViewById(R.id.main_sd_size);
         main_ram_air_button = (RelativeLayout) findViewById(R.id.main_ram_air_button);
+        main_huojian = (ImageView) findViewById(R.id.main_huojian);
         main_custom_ram = (CustomRoundRam) findViewById(R.id.main_custom_ram);
         main_ram_per = (TextView) findViewById(R.id.main_ram_per);
         main_ram_size = (TextView) findViewById(R.id.main_ram_size);
@@ -148,10 +145,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_applock_button = (LinearLayout) findViewById(R.id.main_applock_button);
         main_theme_button = (LinearLayout) findViewById(R.id.main_theme_button);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
-        main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
-        main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
-        fl_lot_main = (FrameLayout) findViewById(R.id.fl_lot_main);
-        main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
+        main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
+        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
@@ -160,19 +155,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
-        main_msg_sd_unit = (TextView) findViewById(R.id.main_msg_sd_unit);
         main_msg_cpu_percent = (TextView) findViewById(R.id.main_msg_cpu_percent);
-        main_gurad_num = (TextView) findViewById(R.id.main_gurad_num);
-        main_guard_rotate = (ImageView) findViewById(R.id.main_guard_rotate);
-        main_guard_all = (FrameLayout) findViewById(R.id.main_guard_all);
         side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
 
         //lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
-        fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         side_title = (ImageView) findViewById(R.id.side_title);
         lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
 
@@ -209,6 +200,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_cpu_air_button.setOnClickListener(onClickListener);
         main_sd_air_button.setOnClickListener(onClickListener);
         main_ram_air_button.setOnClickListener(onClickListener);
+        main_huojian.setOnClickListener(onClickListener);
         main_junk_button.setOnClickListener(onClickListener);
         main_ram_button.setOnClickListener(onClickListener);
         main_manager_button.setOnClickListener(onClickListener);
@@ -216,14 +208,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_applock_button.setOnClickListener(onClickListener);
         main_theme_button.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
+        main_rotate_bad.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
         main_gboost_button.setOnClickListener(onClickListener);
         main_picture_button.setOnClickListener(onClickListener);
-        main_tuiguang_button.setOnClickListener(onClickListener);
-        fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
 
 
@@ -241,6 +232,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     public void run() {
                         main_cpu_temp.setText(String.valueOf(progress) + "℃");
                         main_msg_cpu_percent.setText(String.valueOf(progress) + "℃");
+                        if (temp < 50) {
+                            main_msg_cpu_percent.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A4));
+                        } else if (temp < 60) {
+                            main_msg_cpu_percent.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
+                        } else {
+                            main_msg_cpu_percent.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
+                        }
+
                     }
                 });
             }
@@ -271,15 +270,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             @Override
             public void run() {
                 main_sd_size.setText(size);
-                main_msg_sd_percent.setText(Util.convertStorage(sd_kongxian, false));
-                if (sd_kongxian < 1024) {
-                    main_msg_sd_unit.setText("B");
-                } else if (sd_kongxian < 1048576) {
-                    main_msg_sd_unit.setText("KB");
-                } else if (sd_kongxian < 1073741824) {
-                    main_msg_sd_unit.setText("MB");
+                main_msg_sd_percent.setText(Util.convertStorage(sd_kongxian, true));
+                if (percent < 40) {
+                    main_msg_sd_percent.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A4));
+                } else if (percent < 80) {
+                    main_msg_sd_percent.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
                 } else {
-                    main_msg_sd_unit.setText("GB");
+                    main_msg_sd_percent.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
                 }
             }
         });
@@ -296,21 +293,21 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     @Override
                     public void run() {
                         main_ram_per.setText(String.valueOf(progress) + "%");
+
                         main_ram_size.setText(size);
                         main_msg_ram_percent.setText(String.valueOf(progress) + "%");
+                        if (progress < 40) {
+                            main_msg_ram_percent.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A4));
+                        } else if (progress < 80) {
+                            main_msg_ram_percent.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
+                        } else {
+                            main_msg_ram_percent.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
+                        }
                     }
                 });
             }
         });
 
-    }
-
-    @Override
-    public void initGuard(int num, RotateAnimation rotateAnimation) {
-        if (num != -1) {
-            main_gurad_num.setText(String.valueOf(num) + " ");
-        }
-        main_guard_rotate.startAnimation(rotateAnimation);
     }
 
     @Override
@@ -428,13 +425,28 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         @Override
         public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
             AdUtil.track("主页面", "刷新成功", "", 1);
-            handler.postDelayed(new Runnable() {
+            AndroidSdk.loadNativeAd(TAG_FULL_PULL, R.layout.native_ad_full, new ClientNativeAd.NativeAdLoadListener() {
                 @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                public void onNativeAdLoadSuccess(View view) {
                     main_pull_refresh.loadmoreFinish(PullToRefreshLayout.SUCCEED);
+                    main_scroll_view.setAdSuccess(true);
+                    if (ad_native_2 != null) {
+                        ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
+                        layout_ad.height = main_scroll_view.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
+                        Log.e("success_ad", "hiegt=" + main_scroll_view.getMeasuredHeight());
+                        ad_native_2.setLayoutParams(layout_ad);
+                        ad_native_2.addView(view);
+                        ad_native_2.setVisibility(View.VISIBLE);
+                        main_scroll_view.isTouch = false;
+                        main_scroll_view.smoothScrollToSlow(2000);
+                    }
                 }
-            }, 500);
+
+                @Override
+                public void onNativeAdLoadFails() {
+                    main_pull_refresh.loadmoreFinish(PullToRefreshLayout.FAIL);
+                }
+            });
         }
     };
 
@@ -476,6 +488,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_ram_air_button:
                     AdUtil.track("主页面", "点击ram球进入内存加速页面", "", 1);
+                    mainPresenter.jumpToActivity(RamAvtivity.class, 1);
+                    break;
+                case R.id.main_huojian:
+                    AdUtil.track("主页面", "点击火箭进入内存加速页面", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
                 case R.id.main_junk_button:
@@ -558,6 +574,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     AdUtil.track("主页面", "点击好评good按钮", "", 1);
                     mainPresenter.clickRotate(true);
                     break;
+                case R.id.main_rotate_bad:
+                    AdUtil.track("主页面", "点击好评bad按钮", "", 1);
+                    mainPresenter.clickRotate(false);
+                    break;
                 case R.id.main_msg_button:
                     AdUtil.track("主页面", "点击进入硬件信息", "", 1);
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
@@ -592,15 +612,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     } else {
                         Intent intent6 = new Intent(MainActivity.this, NotifiActivity.class);
                         startActivityForResult(intent6, 1);
-                    }
-                    break;
-                case R.id.main_tuiguang_button:
-                case R.id.fl_lot_side:
-                    if (LoadManager.getInstance(MainActivity.this).isPkgInstalled(tuiguang)) {
-                        Util.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
-                        AdUtil.track("主页面", "启动" + tuiguang, "", 1);
-                    } else {
-                        UtilGp.openPlayStore(getApplicationContext(), tuiguang);
                     }
                     break;
 
@@ -653,11 +664,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (lot_main != null) {
             lot_main.pauseAnimation();
         }
-        Animation animation = main_guard_rotate.getAnimation();
-        if (animation == null) {
-            return;
-        }
-        animation.cancel();
     }
 
     @Override
@@ -671,10 +677,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (lot_main != null) {
             lot_main.playAnimation();
         }
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
-        rotateAnimation.setDuration(2000);
-        rotateAnimation.setRepeatCount(-1);
-        main_guard_rotate.startAnimation(rotateAnimation);
     }
 
     @Override

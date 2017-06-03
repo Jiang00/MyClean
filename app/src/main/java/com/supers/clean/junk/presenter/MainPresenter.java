@@ -58,10 +58,6 @@ public class MainPresenter extends BasePresenter<MainView> {
                 });
             }
         }).start();
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(115));
-        rotateAnimation.setDuration(2000);
-        rotateAnimation.setRepeatCount(-1);
-        iView.initGuard(MemoryManager.getInstallNum(context), rotateAnimation);
         setRotateGone();
         iView.onClick();
 
