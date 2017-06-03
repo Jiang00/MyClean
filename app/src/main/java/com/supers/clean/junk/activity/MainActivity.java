@@ -76,9 +76,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     TextView main_junk_h, main_ram_h, main_cooling_h;
     LinearLayout main_rotate_all;
     ImageView main_rotate_good;
-    LinearLayout main_tuiguang_button;
-    FrameLayout fl_lot_main;
-    TextView main_msg_tuiguang;
     LinearLayout main_msg_button;
     LinearLayout main_power_button;
     LinearLayout main_notifi_button;
@@ -91,7 +88,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     FrameLayout main_guard_all;
     ListViewForScrollView side_listView;
     DrawerLayout main_drawer;
-    LinearLayout ll_ad, ll_ad_side;
+    LinearLayout ll_ad, ll_ad_side, ad_native_2;
     com.mingle.widget.LinearLayout ll_ad_full;
     ProgressBar ad_progressbar;
     TextView main_full_time;
@@ -110,6 +107,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_SIDE = "eos_side";
     private String TAG_START_FULL = "eos_start_native";
     private String TAG_EXIT_FULL = "eos_exit_native";
+    private String TAG_FULL_PULL = "pull_full";
 
     private MyApplication cleanApplication;
     private Handler handler = new Handler();
@@ -154,9 +152,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_cooling_h = (TextView) findViewById(R.id.main_cooling_h);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
-        main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
-        fl_lot_main = (FrameLayout) findViewById(R.id.fl_lot_main);
-        main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
@@ -172,6 +167,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_guard_all = (FrameLayout) findViewById(R.id.main_guard_all);
         side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
@@ -348,7 +344,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_file_button.setOnClickListener(onClickListener);
         main_gboost_button.setOnClickListener(onClickListener);
         main_picture_button.setOnClickListener(onClickListener);
-        main_tuiguang_button.setOnClickListener(onClickListener);
         fl_lot_side.setOnClickListener(onClickListener);
         lot_family.setOnClickListener(onClickListener);
 
@@ -585,13 +580,28 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         @Override
         public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
             AdUtil.track("主页面", "刷新成功", "", 1);
-            handler.postDelayed(new Runnable() {
+            AndroidSdk.loadNativeAd(TAG_FULL_PULL, R.layout.native_ad_full, new ClientNativeAd.NativeAdLoadListener() {
                 @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                public void onNativeAdLoadSuccess(View view) {
                     main_pull_refresh.loadmoreFinish(PullToRefreshLayout.SUCCEED);
+                    main_scroll_view.setAdSuccess(true);
+                    if (ad_native_2 != null) {
+                        ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
+                        layout_ad.height = main_scroll_view.getMeasuredHeight();
+                        Log.e("success_ad", "hiegt=" + main_scroll_view.getMeasuredHeight());
+                        ad_native_2.setLayoutParams(layout_ad);
+                        ad_native_2.addView(view);
+                        ad_native_2.setVisibility(View.VISIBLE);
+                        main_scroll_view.isTouch = false;
+                        main_scroll_view.smoothScrollToSlow(2000);
+                    }
                 }
-            }, 500);
+
+                @Override
+                public void onNativeAdLoadFails() {
+                    main_pull_refresh.loadmoreFinish(PullToRefreshLayout.FAIL);
+                }
+            });
         }
     };
 
@@ -754,15 +764,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     } else {
                         Intent intent6 = new Intent(MainActivity.this, NotifiActivity.class);
                         startActivityForResult(intent6, 1);
-                    }
-                    break;
-                case R.id.main_tuiguang_button:
-                case R.id.fl_lot_side:
-                    if (LoadManager.getInstance(MainActivity.this).isPkgInstalled(tuiguang)) {
-                        Util.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
-                        AdUtil.track("主页面", "启动" + tuiguang, "", 1);
-                    } else {
-                        UtilGp.openPlayStore(getApplicationContext(), tuiguang);
                     }
                     break;
 

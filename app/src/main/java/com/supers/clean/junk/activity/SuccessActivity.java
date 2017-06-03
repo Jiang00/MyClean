@@ -30,10 +30,6 @@ import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.twee.module.tweenengine.Tween;
-import com.twee.module.tweenengine.TweenEquations;
-import com.twee.module.tweenengine.TweenManager;
-import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.DrawHookView;
 import com.supers.clean.junk.customeview.ImageAccessor;
@@ -41,6 +37,9 @@ import com.supers.clean.junk.customeview.SlowScrollView;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
+import com.twee.module.tweenengine.Tween;
+import com.twee.module.tweenengine.TweenEquations;
+import com.twee.module.tweenengine.TweenManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,10 +75,6 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout ll_ad_xiao;
 
     LinearLayout ad_native_2;
-    FrameLayout fl_lot_success;
-    LinearLayout main_tuiguang_button;
-    TextView main_msg_tuiguang;
-    LottieAnimationView lot_success;
     private View nativeView;
     private View native_xiao;
 
@@ -122,9 +117,6 @@ public class SuccessActivity extends BaseActivity {
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         success_progress = (ImageView) findViewById(R.id.success_progress);
-        fl_lot_success = (FrameLayout) findViewById(R.id.fl_lot_success);
-        main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
-        main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
     }
@@ -295,7 +287,6 @@ public class SuccessActivity extends BaseActivity {
         title_left.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
 //        delete.setOnClickListener(onClickListener);
-        main_tuiguang_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
@@ -591,13 +582,6 @@ public class SuccessActivity extends BaseActivity {
                     }
 
                     break;
-                case R.id.main_tuiguang_button:
-                    if (LoadManager.getInstance(SuccessActivity.this).isPkgInstalled(tuiguang)) {
-                        Util.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
-                    } else {
-                        UtilGp.openPlayStore(getApplicationContext(), tuiguang);
-                    }
-                    break;
             }
         }
     };
@@ -621,17 +605,11 @@ public class SuccessActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        if (lot_success != null) {
-            lot_success.playAnimation();
-        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (lot_success != null) {
-            lot_success.pauseAnimation();
-        }
     }
 
     @Override
