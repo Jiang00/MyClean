@@ -51,7 +51,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
     private static final int GBOOST = idx++;
-    private static final int FAMILY = idx++;
     private static final int SETTING = idx++;
     private static final int ROTATE = idx++;
 
@@ -71,8 +70,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                     .findViewById(R.id.rl_item);
             holder.checkBox = (ImageView) convertView
                     .findViewById(R.id.iv_check);
-            holder.lot_family = (LottieAnimationView) convertView
-                    .findViewById(R.id.lot_family);
             holder.iv_le = (ImageView) convertView
                     .findViewById(R.id.iv_le);
             holder.tv_name = (TextView) convertView
@@ -84,15 +81,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.tv_name.setText(info.textId);
-        if (position == FAMILY) {
-            holder.lot_family.setImageAssetsFolder("images/box/");
-            holder.lot_family.setAnimation("box.json");
-            holder.lot_family.loop(true);
-            holder.lot_family.playAnimation();
-        } else {
-            holder.lot_family.setVisibility(View.GONE);
-            holder.iv_le.setImageResource(info.drawableId);
-        }
+        holder.iv_le.setImageResource(info.drawableId);
         if (info.isCheck) {
             holder.checkBox.setImageResource(R.mipmap.side_check_passed);
         } else {
@@ -110,24 +99,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 onC(position);
             }
         });
-//        convertView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                int action = event.getAction();
-//                switch (action) {
-//                    case MotionEvent.ACTION_DOWN:
-//                        holder.iv_le.setColorFilter(ContextCompat.getColor(context, R.color.A1));
-//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.A1));
-//                        break;
-//                    case MotionEvent.ACTION_CANCEL:
-//                    case MotionEvent.ACTION_UP:
-//                        holder.iv_le.setColorFilter(0);
-//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.B2));
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
         if (position == BATTERY || position == FLOAT) {
             holder.checkBox.setVisibility(View.VISIBLE);
         } else {
@@ -144,7 +115,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 convertView.setLayoutParams(param);
             }
         }
-        if (position == JUNK || position == FAMILY) {
+        if (position == JUNK || position == SETTING) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);
@@ -219,8 +190,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             PreData.putDB(context, Constant.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, GBoostActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
-        } else if (position == FAMILY) {
-            AdUtil.track("侧边栏", "点击进入family页面", "", 1);
         } else if (position == SETTING) {
             AdUtil.track("侧边栏", "点击进入设置页面", "", 1);
             Intent intent9 = new Intent(context, SettingActivity.class);
@@ -242,7 +211,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         RelativeLayout rl_item;
         ImageView checkBox;
         ImageView iv_le;
-        LottieAnimationView lot_family;
         TextView tv_name;
         View side_divide;
     }
