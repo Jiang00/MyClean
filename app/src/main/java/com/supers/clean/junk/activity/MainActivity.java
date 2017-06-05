@@ -958,6 +958,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.battery_button:
                     main_battery.setVisibility(View.GONE);
                     Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                    initSideData();
                     break;
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);

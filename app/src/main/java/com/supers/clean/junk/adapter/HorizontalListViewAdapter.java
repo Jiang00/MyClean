@@ -26,8 +26,6 @@ import java.util.List;
 public class HorizontalListViewAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
-    Bitmap iconBitmap;
-    private int selectIndex = -1;
     List<JunkInfo> list;
     public ActivityManager am;
 
@@ -93,17 +91,17 @@ public class HorizontalListViewAdapter extends BaseAdapter {
         }
         holder.mTitle.setText(info.label);
         LoadManager.getInstance(mContext).getAppIcon(info.pkg);
-        holder.mImage.setImageBitmap(iconBitmap);
-            holder.delete_app.setImageResource(R.mipmap.qing);
-            holder.delete_app.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    list.remove(position);
-                    CleanManager.getInstance(mContext).removeRam(info);
-                    notifyDataSetChanged();
-                    Log.e("aaa", "delete_app======");
-                }
-            });
+        holder.mImage.setImageDrawable(LoadManager.getInstance(mContext).getAppIcon(info.pkg));
+        holder.delete_app.setImageResource(R.mipmap.qing);
+        holder.delete_app.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                list.remove(position);
+                CleanManager.getInstance(mContext).removeRam(info);
+                notifyDataSetChanged();
+                Log.e("aaa", "delete_app======");
+            }
+        });
         return convertView;
     }
 

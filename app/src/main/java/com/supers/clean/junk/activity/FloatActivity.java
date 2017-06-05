@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.android.clean.callback.AppRamCallBack;
 import com.android.clean.core.CleanManager;
+import com.android.clean.db.CleanDBHelper;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.HorizontalListViewAdapter;
@@ -62,6 +63,7 @@ public class FloatActivity extends BaseActivity {
     private Handler myHandler;
     private String TAG_FLAOT = "eos_float";
     private Animation rotate, suo, fang;
+    private ArrayList<String> whiteList;
 
     @Override
     protected void findId() {
@@ -127,7 +129,7 @@ public class FloatActivity extends BaseActivity {
     private void initList() {
         listFloat = new ArrayList<>();
         listFloat_white = new ArrayList<>();
-        listFloat = CleanManager.getInstance(this).getAppRamList();
+        listFloat.addAll(CleanManager.getInstance(this).getAppRamList());
         adapter = new HorizontalListViewAdapter(this);
         adapter.clear();
         if (listFloat.size() == 0) {
@@ -145,11 +147,17 @@ public class FloatActivity extends BaseActivity {
             });
 
         } else {
-//            listFloat_white = cleanApplication.getWhiteRam();
-//            adapter.addDataList(listFloat);
-//            adapter.addDataListLocation(0, listFloat_white);
-//            adapter.notifyDataSetChanged();.
-//            waterView.setOnClickListener(WaterViewOnclick);
+            whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
+            for (JunkInfo info : listFloat) {
+                if (whiteList.contains(info.pkg)) {
+                    info.isWhiteList = true;
+                    listFloat_white.add(info);
+                }
+            }
+            listFloat.removeAll(listFloat_white);
+            adapter.addDataList(listFloat);
+            adapter.addDataListLocation(0, listFloat_white);
+            adapter.notifyDataSetChanged();
         }
         horizontal_listview.setAdapter(adapter);
         float_memory.setText(Util.getMemory(this) + "");

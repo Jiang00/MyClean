@@ -52,10 +52,6 @@ public class WhiteListAvtivity extends BaseActivity {
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
         whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
-        for (String info : whiteList) {
-            Log.e("whitelist", info);
-        }
-
 
         white_list = new ArrayList<>();
         adapter = new WhiteListAdapter(this);
