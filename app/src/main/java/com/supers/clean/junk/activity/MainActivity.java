@@ -184,6 +184,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         side_title = (ImageView) findViewById(R.id.side_title);
         lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
+        main_battery = (LinearLayout) findViewById(R.id.main_battery);
     }
 
     @Override
@@ -666,7 +667,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         }
         if (PreData.getDB(this, Constant.FIRST_BATTERY, true)) {
-            main_battery = (LinearLayout) findViewById(R.id.main_battery);
+
             ImageView battery_cha = (ImageView) findViewById(R.id.battery_cha);
             Button battery_button = (Button) findViewById(R.id.battery_button);
             main_battery.setVisibility(View.VISIBLE);
