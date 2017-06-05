@@ -216,7 +216,7 @@ public class NotificationService extends Service {
         mBuilder.setOngoing(true);
         mBuilder.setPriority(Notification.PRIORITY_MAX);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.notification_title);
+        mBuilder.setSmallIcon(R.mipmap.loading_icon);
         notification_1 = mBuilder.build();
         notification_1.flags = Notification.FLAG_INSISTENT;
         notification_1.flags |= Notification.FLAG_ONGOING_EVENT;
@@ -418,7 +418,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.notification_title);
+        mBuilder.setSmallIcon(R.mipmap.loading_icon);
         notification_ram = mBuilder.build();
         notification_ram.defaults = Notification.DEFAULT_SOUND;
         notification_ram.flags = Notification.FLAG_AUTO_CANCEL;
@@ -437,7 +437,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.notification_title);
+        mBuilder.setSmallIcon(R.mipmap.loading_icon);
         notification_cooling = mBuilder.build();
         notification_cooling.defaults = Notification.DEFAULT_SOUND;
         notification_cooling.flags = Notification.FLAG_AUTO_CANCEL;
@@ -457,7 +457,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.notification_title);
+        mBuilder.setSmallIcon(R.mipmap.loading_icon);
         notification_junk = mBuilder.build();
         notification_junk.defaults = Notification.DEFAULT_SOUND;
         notification_junk.flags = Notification.FLAG_AUTO_CANCEL;
@@ -477,7 +477,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.notification_title);
+        mBuilder.setSmallIcon(R.mipmap.loading_icon);
         notification_two_day = mBuilder.build();
         notification_two_day.defaults = Notification.DEFAULT_SOUND;
         notification_two_day.flags = Notification.FLAG_AUTO_CANCEL;
@@ -497,7 +497,7 @@ public class NotificationService extends Service {
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(false);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.notification_title);
+        mBuilder.setSmallIcon(R.mipmap.loading_icon);
         notification_gboost = mBuilder.build();
         notification_gboost.defaults = Notification.DEFAULT_SOUND;
         notification_gboost.flags = Notification.FLAG_AUTO_CANCEL;

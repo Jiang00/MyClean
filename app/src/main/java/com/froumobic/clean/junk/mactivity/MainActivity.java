@@ -103,6 +103,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     ImageView main_red;
     RoundJindu main_msg_sd_backg;
     RoundJinduRam main_msg_ram_backg;
+    FrameLayout main_battery;
 
     // LottieAnimationView lot_side;
     ImageView side_title;
@@ -175,7 +176,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         main_red = (ImageView) findViewById(R.id.main_red);
         main_msg_sd_backg = (RoundJindu) findViewById(R.id.main_msg_sd_backg);
         main_msg_ram_backg = (RoundJinduRam) findViewById(R.id.main_msg_ram_backg);
-
+        main_battery = (FrameLayout) findViewById(R.id.main_battery);
 
     }
 
@@ -331,6 +332,14 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
         AdUtil.track("主页面", "进入主页面", "", 1);
 
+        if (PreData.getDB(this, Constant.FIRST_BATTERY, true)) {
+            PreData.putDB(this, Constant.FIRST_BATTERY, false);
+            main_battery.setVisibility(View.VISIBLE);
+            ImageView battery_cha = (ImageView) findViewById(R.id.battery_cha);
+            Button battery_button = (Button) findViewById(R.id.battery_button);
+            battery_cha.setOnClickListener(onClickListener);
+            battery_button.setOnClickListener(onClickListener);
+        }
 
     }
 
@@ -504,7 +513,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             side_listView.setAdapter(adapter);
         }
         adapter.clear();
-        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
+        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)));//充电屏保
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
@@ -780,6 +789,15 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                         startActivityForResult(intent6, 1);
                     }
                     break;
+                case R.id.battery_button:
+                    main_battery.setVisibility(View.GONE);
+                    Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                    initSideData();
+                    adapter.notifyDataSetChanged();
+                    break;
+                case R.id.battery_cha:
+                    main_battery.setVisibility(View.GONE);
+                    break;
             }
         }
     };
@@ -884,6 +902,10 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (ll_ad_full.getVisibility() == View.VISIBLE) {
             adDelete();
             handler.removeCallbacks(fullAdRunnale);
+            return;
+        }
+        if (main_battery.getVisibility() == View.VISIBLE) {
+            main_battery.setVisibility(View.GONE);
             return;
         }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {

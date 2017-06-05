@@ -50,6 +50,8 @@ public class Constant {
 
     public static final String ROOT_TRAK = "ROOT_TRAK";
 
+    public static final String FIRST_BATTERY = "FIRST_BATTERY";
+
     public static final String KEY_LOADING_GAI = "KEY_LOADING_GAI";//loading页面广告概率
 
     public static final String FIRST_APPLOCK = "FIRST_APPLOCK";//applock

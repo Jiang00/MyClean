@@ -189,15 +189,31 @@
                         android:src="@mipmap/setting_battery" />
                 </RelativeLayout>
 
-                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_battery"
-                    android:text="@string/setting_battery"
-                    android:textColor="#6f6f6f"
-                    android:textSize="@dimen/s14"
-                    app:typeface="ljh_1.TTF" />
+                    android:orientation="vertical">
+
+                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/setting_battery"
+                        android:textColor="#6f6f6f"
+                        android:textSize="@dimen/s14"
+                        app:typeface="ljh_1.TTF" />
+
+                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d5"
+                        android:text="@string/battery_8"
+                        android:textColor="#806f6f6f"
+                        android:textSize="@dimen/s14"
+                        app:typeface="ljh_1.TTF" />
+                </LinearLayout>
+
 
                 <ImageView
                     android:id="@+id/setting_battery_check"

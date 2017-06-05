@@ -137,7 +137,7 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
 
     private void onC(int position, ViewHolder holder) {
         if (position == BATTERY) {
-            if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, true)) {
+            if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, false)) {
                 AdUtil.track("侧边栏", "点击关闭充电屏保", "", 1);
                 Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, false);
             } else {

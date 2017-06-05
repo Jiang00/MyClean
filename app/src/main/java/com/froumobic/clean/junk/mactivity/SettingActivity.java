@@ -144,7 +144,7 @@ public class SettingActivity extends MBaseActivity {
         } else {
             setting_float_check.setImageResource(R.mipmap.setting_check_normal);
         }
-        if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)) {
+        if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)) {
             setting_battery_check.setImageResource(R.mipmap.setting_check_passed);
         } else {
             setting_battery_check.setImageResource(R.mipmap.setting_check_normal);
@@ -223,7 +223,7 @@ public class SettingActivity extends MBaseActivity {
                 case R.id.setting_battery:
 
                     //chongdian
-                    if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true)) {
+                    if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false)) {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
                         AdUtil.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.setting_check_normal);
