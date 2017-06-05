@@ -46,7 +46,6 @@ public class JunkActivity extends BaseActivity implements JunkView {
     TextView junk_fangxin;
     LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user;
     TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size;
-    TextView junk_system_unit, junk_apk_unit, junk_unload_unit, junk_log_unit, junk_user_unit;
     ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou;
     ListViewForScrollView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list;
     Button junk_button_clean;
@@ -78,11 +77,6 @@ public class JunkActivity extends BaseActivity implements JunkView {
         junk_unload_size = $(R.id.junk_unload_size);
         junk_log_size = $(R.id.junk_log_size);
         junk_user_size = $(R.id.junk_user_size);
-        junk_system_unit = $(R.id.junk_system_unit);
-        junk_apk_unit = $(R.id.junk_apk_unit);
-        junk_unload_unit = $(R.id.junk_unload_unit);
-        junk_log_unit = $(R.id.junk_log_unit);
-        junk_user_unit = $(R.id.junk_user_unit);
         junk_system_jiantou = $(R.id.junk_system_jiantou);
         junk_apk_jiaotou = $(R.id.junk_apk_jiaotou);
         junk_unload_jiantou = $(R.id.junk_unload_jiantou);
@@ -220,8 +214,6 @@ public class JunkActivity extends BaseActivity implements JunkView {
         }
 //        adapterSystem.addDataList(list);
         junk_system_list.setVisibility(View.GONE);
-//        junk_system_size.setText(Util.getFileSizeKongge(size));
-//        junkPresenter.setUnit(size, junk_system_unit);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -244,8 +236,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_system_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_system_unit);
+                            junk_system_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }
@@ -280,8 +271,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_apk_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_apk_unit);
+                            junk_apk_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }
@@ -316,8 +306,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_unload_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_unload_unit);
+                            junk_unload_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }
@@ -352,8 +341,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_log_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_log_unit);
+                            junk_log_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }
@@ -388,8 +376,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_user_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_user_unit);
+                            junk_user_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A8"
+    android:background="@color/A7"
     android:orientation="vertical">
 
 
@@ -11,7 +11,7 @@
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/A1"
+        android:background="@color/A4"
         android:orientation="vertical">
 
         <View
@@ -23,7 +23,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d95"
+            android:layout_height="@dimen/d127"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -36,8 +36,8 @@
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s63"
+                android:textColor="@color/A7"
+                android:textSize="@dimen/s60"
                 app:typeface="eos_clean.otf" />
 
             <LinearLayout
@@ -48,22 +48,22 @@
                 android:orientation="vertical">
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/junk_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="B"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s21"
-                    app:typeface="eos_clean.otf" />
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/junk_fangxin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d12"
                     android:text="@string/junk_title_clean"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s12"
+                    android:textColor="@color/A6"
+                    android:textSize="@dimen/s16"
+                    app:typeface="eos_clean.otf" />
+
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/junk_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d4"
+                    android:text="B"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/s22"
                     app:typeface="eos_clean.otf" />
 
 
@@ -75,13 +75,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A10">
+        android:background="@color/A7">
 
         <ListView
             android:id="@+id/junk_list_all"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/A8"
+            android:background="@color/A7"
             android:divider="@drawable/list_divider"
             android:dividerHeight="0px"
             android:visibility="invisible" />
@@ -90,7 +90,7 @@
             android:id="@+id/junk_scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/A8"
+            android:background="@color/A7"
             android:scrollbars="none">
 
             <LinearLayout
@@ -111,13 +111,14 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
+                            android:layout_width="@dimen/d72"
+                            android:layout_height="match_parent">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_system" />
                         </LinearLayout>
 
@@ -128,42 +129,31 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_system"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s16"
                             app:typeface="eos_clean.otf" />
 
 
                         <com.my.module.charge.saver.view.CustomerTypefaceTextView
                             android:id="@+id/junk_system_size"
-                            android:layout_width="@dimen/d37"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
+                            android:layout_marginRight="@dimen/d16"
                             android:gravity="center"
-                            android:text="10.0"
+                            android:text="10.0M"
                             android:textColor="@color/A1"
                             android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_system_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
 
                         <ImageView
                             android:id="@+id/junk_system_jiantou"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
-                            android:src="@mipmap/junk_jiantou"
+                            android:layout_marginRight="@dimen/d16"
+                            android:src="@mipmap/right"
                             android:visibility="visible" />
                     </LinearLayout>
 
@@ -174,7 +164,7 @@
                     android:id="@+id/junk_system_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/A8"
+                    android:background="@color/A7"
                     android:divider="@drawable/list_divider"
                     android:dividerHeight="0px" />
 
@@ -191,13 +181,14 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
+                            android:layout_width="@dimen/d72"
+                            android:layout_height="match_parent">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_apk" />
                         </LinearLayout>
 
@@ -208,41 +199,30 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_apk"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s16"
                             app:typeface="eos_clean.otf" />
 
                         <com.my.module.charge.saver.view.CustomerTypefaceTextView
                             android:id="@+id/junk_apk_size"
-                            android:layout_width="@dimen/d37"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
+                            android:layout_marginRight="@dimen/d16"
                             android:gravity="center"
-                            android:text="10.0"
+                            android:text="10.0M"
                             android:textColor="@color/A1"
                             android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_apk_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
 
                         <ImageView
                             android:id="@+id/junk_apk_jiaotou"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
-                            android:src="@mipmap/junk_jiantou"
+                            android:layout_marginRight="@dimen/d16"
+                            android:src="@mipmap/right"
                             android:visibility="visible" />
                     </LinearLayout>
 
@@ -252,7 +232,7 @@
                     android:id="@+id/junk_apk_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/A8"
+                    android:background="@color/A7"
                     android:divider="@drawable/list_divider"
                     android:dividerHeight="0px" />
 
@@ -269,13 +249,14 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
+                            android:layout_width="@dimen/d72"
+                            android:layout_height="match_parent">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_unload" />
                         </LinearLayout>
 
@@ -286,41 +267,30 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_unload"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s16"
                             app:typeface="eos_clean.otf" />
 
                         <com.my.module.charge.saver.view.CustomerTypefaceTextView
                             android:id="@+id/junk_unload_size"
-                            android:layout_width="@dimen/d37"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
+                            android:layout_marginRight="@dimen/d16"
                             android:gravity="center"
-                            android:text="10.0"
+                            android:text="10.0M"
                             android:textColor="@color/A1"
                             android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_unload_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
 
                         <ImageView
                             android:id="@+id/junk_unload_jiantou"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
-                            android:src="@mipmap/junk_jiantou"
+                            android:layout_marginRight="@dimen/d16"
+                            android:src="@mipmap/right"
                             android:visibility="visible" />
                     </LinearLayout>
 
@@ -330,7 +300,7 @@
                     android:id="@+id/junk_unload_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/A8"
+                    android:background="@color/A7"
                     android:divider="@drawable/list_divider"
                     android:dividerHeight="0px" />
 
@@ -347,13 +317,14 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
+                            android:layout_width="@dimen/d72"
+                            android:layout_height="match_parent">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_log" />
                         </LinearLayout>
 
@@ -364,42 +335,31 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_log"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s16"
                             app:typeface="eos_clean.otf" />
 
 
                         <com.my.module.charge.saver.view.CustomerTypefaceTextView
                             android:id="@+id/junk_log_size"
-                            android:layout_width="@dimen/d37"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
+                            android:layout_marginRight="@dimen/d16"
                             android:gravity="center"
-                            android:text="10.0"
+                            android:text="10.0M"
                             android:textColor="@color/A1"
                             android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_log_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
 
                         <ImageView
                             android:id="@+id/junk_log_jiantou"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
-                            android:src="@mipmap/junk_jiantou"
+                            android:layout_marginRight="@dimen/d16"
+                            android:src="@mipmap/right"
                             android:visibility="visible" />
                     </LinearLayout>
 
@@ -409,7 +369,7 @@
                     android:id="@+id/junk_log_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/A8"
+                    android:background="@color/A7"
                     android:divider="@drawable/list_divider"
                     android:dividerHeight="0px" />
 
@@ -426,13 +386,14 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
+                            android:layout_width="@dimen/d72"
+                            android:layout_height="match_parent">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_user" />
                         </LinearLayout>
 
@@ -443,42 +404,31 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_user"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s16"
                             app:typeface="eos_clean.otf" />
 
 
                         <com.my.module.charge.saver.view.CustomerTypefaceTextView
                             android:id="@+id/junk_user_size"
-                            android:layout_width="@dimen/d37"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
+                            android:layout_marginRight="@dimen/d16"
                             android:gravity="center"
-                            android:text="10.0"
+                            android:text="10.0M"
                             android:textColor="@color/A1"
                             android:textSize="@dimen/s14"
                             app:typeface="eos_clean.otf" />
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_user_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
 
                         <ImageView
                             android:id="@+id/junk_user_jiantou"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
-                            android:src="@mipmap/junk_jiantou"
+                            android:layout_marginRight="@dimen/d16"
+                            android:src="@mipmap/right"
                             android:visibility="visible" />
                     </LinearLayout>
 
@@ -488,7 +438,7 @@
                     android:id="@+id/junk_user_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/A8"
+                    android:background="@color/A7"
                     android:divider="@drawable/list_divider"
                     android:dividerHeight="0px" />
 
@@ -505,13 +455,14 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/file_yiji_item_icon_width"
-                            android:layout_height="match_parent"
-                            android:gravity="center">
+                            android:layout_width="@dimen/d72"
+                            android:layout_height="match_parent">
 
                             <ImageView
-                                android:layout_width="@dimen/d32"
-                                android:layout_height="@dimen/d32"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:src="@mipmap/junk_ram" />
                         </LinearLayout>
 
@@ -522,33 +473,21 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="@string/junk_ram"
-                            android:textColor="@color/B2"
-                            android:textSize="@dimen/s14"
+                            android:textColor="@color/A8"
+                            android:textSize="@dimen/s16"
                             app:typeface="eos_clean.otf" />
 
 
                         <com.my.module.charge.saver.view.CustomerTypefaceTextView
                             android:id="@+id/junk_ram_size"
-                            android:layout_width="@dimen/d37"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/d3"
-                            android:layout_marginRight="@dimen/d3"
+                            android:layout_marginRight="@dimen/d16"
                             android:gravity="center"
-                            android:text="10.0"
+                            android:text="10.0M"
                             android:textColor="@color/A1"
                             android:textSize="@dimen/s14"
-                            app:typeface="eos_clean.otf" />
-
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/junk_ram_unit"
-                            android:layout_width="@dimen/d23"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:text="MB"
-                            android:textColor="@color/B3"
-                            android:textSize="@dimen/s12"
                             app:typeface="eos_clean.otf" />
 
                         <ImageView
@@ -556,8 +495,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginRight="@dimen/file_yiji_item_pro_margin"
-                            android:src="@mipmap/junk_jiantou"
+                            android:layout_marginRight="@dimen/d16"
+                            android:src="@mipmap/right"
                             android:visibility="visible" />
                     </LinearLayout>
 
@@ -567,7 +506,7 @@
                     android:id="@+id/junk_ram_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/A8"
+                    android:background="@color/A7"
                     android:divider="@drawable/list_divider"
                     android:dividerHeight="0px" />
 
@@ -581,14 +520,14 @@
 
             <Button
                 android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d168"
+                android:layout_width="@dimen/d250"
                 android:layout_height="@dimen/d40"
                 android:layout_centerInParent="true"
                 android:background="@drawable/shape_button"
                 android:text="@string/junk_button"
                 android:textAllCaps="false"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s15"
+                android:textColor="@color/A7"
+                android:textSize="@dimen/s16"
                 android:visibility="invisible" />
         </RelativeLayout>
     </FrameLayout>

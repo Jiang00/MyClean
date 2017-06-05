@@ -92,7 +92,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     TextView main_full_time;
 
     // LottieAnimationView lot_side;
-    ImageView side_title;
     LottieAnimationView lot_main;
     LottieAnimationView lot_family;
 
@@ -164,7 +163,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
 
         //lot_side = (LottieAnimationView) findViewById(R.id.lot_side);
-        side_title = (ImageView) findViewById(R.id.side_title);
         lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
 
     }
