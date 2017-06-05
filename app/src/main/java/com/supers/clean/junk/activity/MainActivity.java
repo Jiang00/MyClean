@@ -116,6 +116,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LottieAnimationView lot_family;
 
     LottieAnimationView lot_side;
+    LinearLayout main_battery;
 
     private String TAG_MAIN = "eos_main";
     private String TAG_HUA = "eos_hua";
@@ -193,7 +194,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         fl_lot_side = (FrameLayout) findViewById(R.id.fl_lot_side);
         side_title = (ImageView) findViewById(R.id.side_title);
         lot_family = (LottieAnimationView) findViewById(R.id.lot_family);
-
+        main_battery = (LinearLayout) findViewById(R.id.main_battery);
     }
 
     @Override
@@ -217,17 +218,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             e.printStackTrace();
         }
 
-      /*  new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                // 返回系统包名
-                if (Util.isRoot()) {
-                    String apkRoot = "chmod 777 " + getPackageCodePath();
-                    Util.RootCommand(apkRoot);
-                }
-            }
-        }.start();*/
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
@@ -391,7 +381,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         lot_family.setAnimation("box.json");
         lot_family.loop(true);
         lot_family.playAnimation();
-
+        if (PreData.getDB(this, Constant.FIRST_BATTERY, true)) {
+            PreData.putDB(this, Constant.FIRST_BATTERY, false);
+            main_battery.setVisibility(View.VISIBLE);
+            ImageView battery_cha = (ImageView) findViewById(R.id.battery_cha);
+            Button battery_button = (Button) findViewById(R.id.battery_button);
+            battery_cha.setOnClickListener(onClickListener);
+            battery_button.setOnClickListener(onClickListener);
+        }
 
     }
 
@@ -630,7 +627,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             side_listView.setAdapter(adapter);
         }
         adapter.clear();
-        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
+        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)));//充电屏保
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
@@ -958,7 +955,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         UtilGp.openPlayStore(getApplicationContext(), tuiguang);
                     }
                     break;
-
+                case R.id.battery_button:
+                    main_battery.setVisibility(View.GONE);
+                    Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                    break;
+                case R.id.battery_cha:
+                    main_battery.setVisibility(View.GONE);
+                    break;
 
             }
         }
@@ -1065,6 +1068,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (ll_ad_full.getVisibility() == View.VISIBLE) {
             adDelete();
             handler.removeCallbacks(fullAdRunnale);
+            return;
+        }
+        if (main_battery.getVisibility() == View.VISIBLE) {
+            main_battery.setVisibility(View.GONE);
             return;
         }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
