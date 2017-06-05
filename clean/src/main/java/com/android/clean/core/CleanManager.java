@@ -463,17 +463,19 @@ public class CleanManager {
     public List<UsageStats> getUsageStatistics(int intervalType) {
         // Get the app statistics since one year ago from the current time.
         UsageStatsManager mUsageStatsManager = (UsageStatsManager) mContext
-                .getSystemService(Context.USAGE_STATS_SERVICE); //Context.USAGE_STATS_SERVICE
+                .getSystemService("usagestats"); //Context.USAGE_STATS_SERVICE
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.YEAR, -1);
-        List<UsageStats> queryUsageStats = mUsageStatsManager
-                .queryUsageStats(intervalType, cal.getTimeInMillis(),
-                        System.currentTimeMillis());
-
-        if (queryUsageStats.size() == 0) {
-//            mContext.startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        try {
+            List<UsageStats> queryUsageStats = mUsageStatsManager
+                    .queryUsageStats(intervalType, cal.getTimeInMillis(),
+                            System.currentTimeMillis());
+            return queryUsageStats;
+        } catch (Exception e) {
+            return null;
         }
-        return queryUsageStats;
+
+
     }
 
 

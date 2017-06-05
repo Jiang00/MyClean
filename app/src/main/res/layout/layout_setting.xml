@@ -182,7 +182,7 @@
                 <RelativeLayout
                     android:id="@+id/rl_battery"
                     android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:layout_height="@dimen/d72"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -192,21 +192,39 @@
                         android:src="@mipmap/setting_battery" />
                 </RelativeLayout>
 
-                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_battery"
-                    android:text="@string/setting_battery"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
+                    android:orientation="vertical">
+
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/setting_battery"
+                        android:textColor="@color/A9"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="@dimen/d5"
+                        android:text="@string/battery_8"
+                        android:textColor="@color/black_50"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+                </LinearLayout>
+
 
                 <ImageView
                     android:id="@+id/setting_battery_check"
                     android:layout_width="@dimen/d72"
                     android:layout_height="@dimen/d56"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:scaleType="center" />
             </RelativeLayout>
 
@@ -384,6 +402,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="@color/B1" />
+
             <RelativeLayout
                 android:id="@+id/setting_file"
                 android:layout_width="match_parent"
@@ -607,7 +626,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                            android:src="@mipmap/setting_rotate" />
+                        android:src="@mipmap/setting_rotate" />
                 </RelativeLayout>
 
                 <com.eos.module.charge.saver.view.CustomerTypefaceTextView
