@@ -260,7 +260,7 @@ public class DuckView extends FrameLayout {
             @Override
             public void onClick(View v) {
                 switchLayout.setVisibility(VISIBLE);
-                if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
+                if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, false)) {
                     switchBox.setChecked(true);
                 } else {
                     switchBox.setChecked(false);
@@ -270,7 +270,7 @@ public class DuckView extends FrameLayout {
         switchBox.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
+                if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, false)) {
                     Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, false);
                     switchBox.setChecked(false);
                 } else {

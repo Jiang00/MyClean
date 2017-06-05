@@ -1,6 +1,5 @@
 package com.supers.clean.junk.activity;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -18,7 +17,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -32,13 +30,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
-import com.eos.eshop.ShopMaster;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
@@ -54,7 +49,6 @@ import com.sample.lottie.LottieAnimationView;
 import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
-import com.supers.clean.junk.customeview.CirLinearLayout;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
@@ -138,6 +132,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private View viewpager_3;
     private AlertDialog dialog;
     private String from;
+    private LinearLayout main_battery;
 
     @Override
     protected void findId() {
@@ -213,17 +208,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             e.printStackTrace();
         }
 
-      /*  new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                // 返回系统包名
-                if (CommonUtil.isRoot()) {
-                    String apkRoot = "chmod 777 " + getPackageCodePath();
-                    CommonUtil.RootCommand(apkRoot);
-                }
-            }
-        }.start();*/
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
@@ -617,7 +601,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             side_listView.setAdapter(adapter);
         }
         adapter.clear();
-        adapter.addData(new JunkInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
+        adapter.addData(new JunkInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)));//充电屏保
         adapter.addData(new JunkInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new JunkInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new JunkInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
@@ -680,6 +664,16 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
 
 
+        }
+        if (PreData.getDB(this, Constant.FIRST_BATTERY, true)) {
+            main_battery = (LinearLayout) findViewById(R.id.main_battery);
+            ImageView battery_cha = (ImageView) findViewById(R.id.battery_cha);
+            Button battery_button = (Button) findViewById(R.id.battery_button);
+            main_battery.setVisibility(View.VISIBLE);
+            battery_cha.setOnClickListener(onClickListener);
+            battery_button.setOnClickListener(onClickListener);
+            PreData.putDB(this, Constant.FIRST_BATTERY, false);
+            return;
         }
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("eos_start_full");
@@ -947,6 +941,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                    });
                     main_full_time.setVisibility(View.GONE);
                     break;
+                case R.id.battery_button:
+                    main_battery.setVisibility(View.GONE);
+                    Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                    break;
+                case R.id.battery_cha:
+                    main_battery.setVisibility(View.GONE);
+                    break;
 
             }
         }
@@ -1041,6 +1042,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             adDelete();
             main_full_time.setVisibility(View.GONE);
             handler.removeCallbacks(fullAdRunnale);
+            return;
+        }
+        if (main_battery.getVisibility() == View.VISIBLE) {
+            main_battery.setVisibility(View.GONE);
             return;
         }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {

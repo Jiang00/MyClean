@@ -158,7 +158,7 @@ public class SideAdapter extends MybaseAdapter<JunkInfo> {
 
     private void onC(int position) {
         if (position == BATTERY) {
-            if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, true)) {
+            if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, false)) {
                 CommonUtil.track("侧边栏", "点击关闭充电屏保", "", 1);
                 Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, false);
             } else {
