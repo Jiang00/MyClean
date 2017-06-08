@@ -59,7 +59,7 @@ public class Util {
     }
 
     public static String getStrTime3(long time) {
-        SimpleDateFormat sf = new SimpleDateFormat("yyMMdd");
+        SimpleDateFormat sf = new SimpleDateFormat("yy-MM-dd");
         String times = sf.format(new Date(time));
         return times;
     }

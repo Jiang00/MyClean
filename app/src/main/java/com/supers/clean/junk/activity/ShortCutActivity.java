@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,7 +30,6 @@ import com.twee.module.tweenengine.Tween;
 import com.twee.module.tweenengine.TweenEquations;
 import com.twee.module.tweenengine.TweenManager;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.customeview.FlakeViewOnShort;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
@@ -46,8 +46,8 @@ public class ShortCutActivity extends BaseActivity {
 
     FrameLayout short_backg;
     ImageView short_huojian;
+    ImageView short_b;
     LinearLayout ll_ad;
-    LinearLayout short_xian;
     FrameLayout short_fl;
     private Animation rotate;
     private Animation fang;
@@ -59,7 +59,6 @@ public class ShortCutActivity extends BaseActivity {
     private Handler myHandler;
     private View nativeView;
     private String TAG_SHORTCUT = "eos_shortcut";
-    private FlakeViewOnShort flakeView;
     private Animation suo;
     private Dialog dialog;
 
@@ -68,8 +67,8 @@ public class ShortCutActivity extends BaseActivity {
         super.findId();
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
         short_fl = (FrameLayout) findViewById(R.id.short_fl);
+        short_b = (ImageView) findViewById(R.id.short_b);
         short_huojian = (ImageView) findViewById(R.id.short_huojian);
-        short_xian = (LinearLayout) findViewById(R.id.short_xian);
     }
 
     @Override
@@ -246,21 +245,19 @@ public class ShortCutActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        flakeView = new FlakeViewOnShort(this);
-        short_xian.addView(flakeView);
-        flakeView.setRotation(35);
-        myHandler.post(new Runnable() {
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(short_b, "rotation", 0, 360);
+        rotation.setDuration(1200);
+        rotation.setInterpolator(new LinearInterpolator());
+        rotation.setRepeatCount(2);
+        rotation.start();
+        rotation.addListener(new Animator.AnimatorListener() {
             @Override
-            public void run() {
-                try {
-                    flakeView.addFlakes(FLAKE_NUM);
-                } catch (Exception e) {
-                }
+            public void onAnimationCancel(Animator animation) {
+
             }
-        });
-        myHandler.postDelayed(new Runnable() {
+
             @Override
-            public void run() {
+            public void onAnimationEnd(Animator animation) {
                 AnimatorSet set = new AnimatorSet();
                 ObjectAnimator translationY = ObjectAnimator.ofFloat(short_huojian, "translationY", 0, -Util.dp2px(90));
                 ObjectAnimator translationX = ObjectAnimator.ofFloat(short_huojian, "translationX", 0, Util.dp2px(90));
@@ -275,7 +272,6 @@ public class ShortCutActivity extends BaseActivity {
                     public void onAnimationEnd(Animator animation) {
                         short_fl.startAnimation(suo);
                         short_huojian.setVisibility(View.GONE);
-                        short_xian.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -309,19 +305,25 @@ public class ShortCutActivity extends BaseActivity {
 
                     }
                 });
+
             }
-        }, 4000);
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (flakeView != null) {
-            flakeView.subtractFlakes(FLAKE_NUM);
-            flakeView.pause();
-            flakeView = null;
-        }
     }
 
     @Override

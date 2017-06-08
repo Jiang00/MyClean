@@ -36,7 +36,6 @@ public class CoolingActivity extends BaseActivity {
     TextView title_name;
     LinearLayout cooling_piao;
     ImageView cooling_xuehua;
-    ImageView cooling_kuo;
     LinearLayout cooling_text;
     TextView cooling_wendu;
     FrameLayout cooling_fl;
@@ -53,10 +52,8 @@ public class CoolingActivity extends BaseActivity {
     };
     private Random random;
     private Animation rotate_zheng;
-    private Animation rotate_ni;
     private Animation suo;
     private int time;
-    private AnimatorSet animationLine_1;
 
     @Override
     protected void findId() {
@@ -65,7 +62,6 @@ public class CoolingActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
-        cooling_kuo = (ImageView) findViewById(R.id.cooling_kuo);
         cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
@@ -86,23 +82,11 @@ public class CoolingActivity extends BaseActivity {
         title_name.setText(R.string.main_cooling_name);
 
         rotate_zheng = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
-        rotate_ni = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         mHandler = new Handler();
         cooling_xuehua.startAnimation(rotate_zheng);
         startCoolingAni();
 
-        animationLine_1 = new AnimatorSet();
-        ObjectAnimator animator_ine_1_x = ObjectAnimator.ofFloat(cooling_kuo, "scaleX", 0, 2f);
-        animator_ine_1_x.setRepeatCount(-1);
-        ObjectAnimator animator_ine_1_y = ObjectAnimator.ofFloat(cooling_kuo, "scaleY", 0, 2f);
-        ObjectAnimator animator_ine_1_r = ObjectAnimator.ofFloat(cooling_kuo, "alpha", 1, 0f);
-        animator_ine_1_y.setRepeatCount(-1);
-        animator_ine_1_r.setRepeatCount(-1);
-        animationLine_1.setDuration(1000);
-        animationLine_1.setInterpolator(new AccelerateDecelerateInterpolator());
-        animationLine_1.playTogether(animator_ine_1_x, animator_ine_1_y, animator_ine_1_r);
-        animationLine_1.start();
 
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -129,38 +113,6 @@ public class CoolingActivity extends BaseActivity {
 
             }
         });
-        if (TextUtils.equals("main", getIntent().getStringExtra("from"))) {
-            cooling_text.setVisibility(View.VISIBLE);
-            final int wendu = getIntent().getIntExtra("wendu", 40);
-            cooling_wendu.setText(wendu + "℃");
-            for (int i = 0; i <= time; i++) {
-                cooling_wendu.setText((wendu - i) + "℃");
-            }
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-
-                    for (int i = 0; i <= time; i++) {
-                        if (onPause) {
-                            return;
-                        }
-                        final int finalI = i;
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                cooling_wendu.setText((wendu - finalI) + "℃");
-                            }
-                        });
-                        try {
-                            Thread.sleep(500);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                }
-            }).start();
-        }
     }
 
 
@@ -174,7 +126,6 @@ public class CoolingActivity extends BaseActivity {
             public void onAnimationUpdate(ValueAnimator animation) {
                 int value = (int) animation.getAnimatedValue();
                 if (value == 20) {
-                    animationLine_1.cancel();
                     cooling_fl.startAnimation(suo);
                     hideSnow();
                 }

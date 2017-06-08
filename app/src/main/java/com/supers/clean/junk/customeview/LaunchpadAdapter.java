@@ -83,20 +83,13 @@ public class LaunchpadAdapter extends PagerAdapter<String> {
     public void onBindView(View view, String junkInfo) {
         ImageView gboost_item_icon = (ImageView) view.findViewById(R.id.gboost_item_icon);
         TextView gboost_item_name = (TextView) view.findViewById(R.id.gboost_item_name);
-        if (TextUtils.equals(context.getString(R.string.gboost_7), junkInfo)) {
-            gboost_item_icon.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.gboost_add));
-            gboost_item_name.setText(junkInfo);
-        } else {
-            try {
-                ApplicationInfo info = pm.getApplicationInfo(junkInfo, 0);
-                gboost_item_icon.setImageDrawable(info.loadIcon(pm));
-                gboost_item_name.setText(info.loadLabel(pm));
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-            }
+        try {
+            ApplicationInfo info = pm.getApplicationInfo(junkInfo, 0);
+            gboost_item_icon.setImageDrawable(info.loadIcon(pm));
+            gboost_item_name.setText(info.loadLabel(pm));
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
         }
-
-
     }
 
     public void onPause() {

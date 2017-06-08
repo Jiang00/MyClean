@@ -39,7 +39,6 @@ public class CustomRoundCpu extends View {
     private void init() {
         circlePoint = new Paint();
         circlePoint.setAntiAlias(true);
-        circlePoint.setStrokeCap(Paint.Cap.ROUND);
         circlePoint.setStrokeWidth(lineWidth);
         circlePoint.setStyle(Paint.Style.STROKE);
     }

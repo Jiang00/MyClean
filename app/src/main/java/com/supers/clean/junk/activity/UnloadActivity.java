@@ -30,7 +30,6 @@ import java.util.ArrayList;
  */
 
 public class UnloadActivity extends BaseActivity {
-    ImageView iv_icon;
     TextView tv_size;
     Button bt_quxiao, bt_queren;
     ImageView iv_cha;
@@ -49,7 +48,6 @@ public class UnloadActivity extends BaseActivity {
         setContentView(R.layout.layout_unload);
         myHandler = new Handler();
         MyApplication cleanApplication = (MyApplication) getApplication();
-        iv_icon = (ImageView) findViewById(R.id.iv_icon);
         tv_size = (TextView) findViewById(R.id.tv_size);
         bt_queren = (Button) findViewById(R.id.bt_queren);
         bt_quxiao = (Button) findViewById(R.id.bt_quxiao);
@@ -65,9 +63,6 @@ public class UnloadActivity extends BaseActivity {
         for (JunkInfo info : CleanManager.getInstance(this).getAppCaches()) {
             if (info.pkg.equals(packageName)) {
                 a = true;
-                iv_icon.setRotation(-10);
-
-                iv_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
                 size = info.size;
                 path = info.path;
                 tv_size.setText(Util.convertStorage(size, false));
@@ -84,9 +79,6 @@ public class UnloadActivity extends BaseActivity {
             for (JunkInfo info : mngList) {
                 if (info.pkg.equals(packageName)) {
                     a = true;
-                    iv_icon.setRotation(-10);
-
-                    iv_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
                     size = (long) ((Math.random() * 1024 * 100) + 1024 * 10);
                     path = MemoryManager.getPhoneInSDCardPath() + "/Android/data/" + packageName;
                     tv_size.setText(Util.convertStorage(size, false));

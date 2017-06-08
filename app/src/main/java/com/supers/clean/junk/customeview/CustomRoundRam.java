@@ -39,7 +39,6 @@ public class CustomRoundRam extends View {
     private void init() {
         circlePoint = new Paint();
         circlePoint.setAntiAlias(true);
-        circlePoint.setStrokeCap(Paint.Cap.ROUND);
         circlePoint.setStrokeWidth(lineWidth);
         circlePoint.setStyle(Paint.Style.STROKE);
     }
@@ -58,7 +57,7 @@ public class CustomRoundRam extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        circlePoint.setColor(context.getResources().getColor(R.color.B4));
+        circlePoint.setColor(context.getResources().getColor(R.color.A5));
         RectF rect = new RectF();
         rect.left = 0 + lineWidth / 2 + 1;
         rect.right = size - lineWidth / 2 - 1;

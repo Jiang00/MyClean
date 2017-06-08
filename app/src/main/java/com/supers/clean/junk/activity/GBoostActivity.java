@@ -69,12 +69,12 @@ public class GBoostActivity extends BaseActivity {
     TextView gboost_ram_size;
     TextView gboost_network_size;
     TextView gboost_cpu_szie;
-    ImageView gboost_power_check;
+    TextView gboost_power_check;
     Button gboost_clean_button;
     LinearLayout ll_add_game;
     FrameLayout add_left;
     ListView list_game;
-    TextView add_short;
+    TextView add_games;
 
 
     private LaunchpadAdapter adapter;
@@ -92,7 +92,6 @@ public class GBoostActivity extends BaseActivity {
         }
     };
     private AddGameAdapter whiteListAdapter;
-    private MyApplication cleanApplication;
 
     private long total;
     private long idle;
@@ -117,12 +116,12 @@ public class GBoostActivity extends BaseActivity {
         gboost_ram_size = (TextView) findViewById(R.id.gboost_ram_size);
         gboost_network_size = (TextView) findViewById(R.id.gboost_network_size);
         gboost_cpu_szie = (TextView) findViewById(R.id.gboost_cpu_szie);
-        gboost_power_check = (ImageView) findViewById(R.id.gboost_power_check);
+        gboost_power_check = (TextView) findViewById(R.id.gboost_power_check);
         gboost_clean_button = (Button) findViewById(R.id.gboost_clean_button);
         ll_add_game = (LinearLayout) findViewById(R.id.ll_add_game);
         add_left = (FrameLayout) findViewById(R.id.add_left);
         list_game = (ListView) findViewById(R.id.list_game);
-        add_short = (TextView) findViewById(R.id.add_short);
+        add_games = (TextView) findViewById(R.id.add_games);
     }
 
     @Override
@@ -131,7 +130,6 @@ public class GBoostActivity extends BaseActivity {
         setContentView(R.layout.layout_gboost);
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
-        cleanApplication = (MyApplication) getApplication();
 
         title_left.setOnClickListener(clickListener);
         add_left.setOnClickListener(clickListener);
@@ -141,15 +139,15 @@ public class GBoostActivity extends BaseActivity {
         gboost_ram_size.setText(Util.convertStorage(size, true));
 
         if (Util.isAccessibilitySettingsOn(this)) {
-            gboost_power_check.setImageResource(R.mipmap.side_check_passed);
+            gboost_power_check.setText(R.string.gboost_g);
         } else {
-            gboost_power_check.setImageResource(R.mipmap.side_check_normal);
+            gboost_power_check.setText(R.string.gboost_k);
         }
         gboost_power_check.setOnClickListener(clickListener);
         gboost_clean_button.setOnClickListener(clickListener);
         add_right.setOnClickListener(clickListener);
         clear.setOnClickListener(clickListener);
-        add_short.setOnClickListener(clickListener);
+        add_games.setOnClickListener(clickListener);
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
@@ -181,7 +179,6 @@ public class GBoostActivity extends BaseActivity {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        list.add(0, getString(R.string.gboost_7));
                         Log.e("jfy", list.size() + "==");
                         adapter = new LaunchpadAdapter(GBoostActivity.this, list);
                         gboost_recyc.setAdapter(adapter);
@@ -206,21 +203,14 @@ public class GBoostActivity extends BaseActivity {
                         gboost_recyc.setOnItemClickListener(new PagerView.OnItemClickListener() {
                             @Override
                             public void onClick(Object o, int pos) {
-                                if (pos == 0) {
-                                    AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
-                                    ll_add_game.setVisibility(View.VISIBLE);
-                                    whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
-                                    list_game.setAdapter(whiteListAdapter);
-                                    initData();
-                                } else {
-                                    try {
-                                        AdUtil.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
-                                        Bundle bundle = new Bundle();
-                                        bundle.putString("from", "GBoost");
-                                        bundle.putString("packageName", list.get(pos));
-                                        jumpToActivity(PowerActivity.class, bundle);
-                                    } catch (Exception e) {
-                                    }
+
+                                try {
+                                    AdUtil.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("from", "GBoost");
+                                    bundle.putString("packageName", list.get(pos));
+                                    jumpToActivity(PowerActivity.class, bundle);
+                                } catch (Exception e) {
                                 }
                             }
                         });
@@ -288,8 +278,12 @@ public class GBoostActivity extends BaseActivity {
                     bundle.putString("from", "GBoost");
                     jumpToActivity(PowerActivity.class, bundle, 1);
                     break;
-                case R.id.add_short:
-                    shortGame(true);
+                case R.id.add_games:
+                    AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
+                    ll_add_game.setVisibility(View.VISIBLE);
+                    whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
+                    list_game.setAdapter(whiteListAdapter);
+                    initData();
                     break;
             }
         }
@@ -406,18 +400,18 @@ public class GBoostActivity extends BaseActivity {
                         @Override
                         public void run() {
                             if (cup <= 40) {
-                                gboost_cpu_szie.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_1));
+                                gboost_cpu_szie.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.A4));
                             } else if (cup <= 80) {
-                                gboost_cpu_szie.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_2));
+                                gboost_cpu_szie.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.A3));
                             } else {
-                                gboost_cpu_szie.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_3));
+                                gboost_cpu_szie.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.A2));
                             }
                             if (memo <= 20) {
-                                gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_3));
+                                gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.A2));
                             } else if (memo <= 60) {
-                                gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_2));
+                                gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.A3));
                             } else {
-                                gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.gboost_1));
+                                gboost_ram_size.setTextColor(ContextCompat.getColor(GBoostActivity.this, R.color.A4));
                             }
                             gboost_cpu_szie.setText(cup + "%");
                             gboost_network_size.setText(Util.convertStorageWifi(speed));
@@ -469,23 +463,23 @@ public class GBoostActivity extends BaseActivity {
             ShortCutUtils.addShortcut(GBoostActivity.this, shortcutIntent, title, false, bitmap);
             return;
         }
-        if (list.size() > 1 && (!PreData.getDB(GBoostActivity.this, Constant.GBOOST_SI, false) || isChuangjian)) {
+        if (list.size() > 0 && (!PreData.getDB(GBoostActivity.this, Constant.GBOOST_SI, false) || isChuangjian)) {
             View shortcut_view = View.inflate(GBoostActivity.this, R.layout.layout_gboost_short, null);
-            if (list.size() > 1) {
+            if (list.size() > 0) {
                 ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
-                iv_1.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(1)));
+                iv_1.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(0)));
+            }
+            if (list.size() > 1) {
+                ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
+                iv_2.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(1)));
             }
             if (list.size() > 2) {
-                ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
-                iv_2.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(2)));
+                ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
+                iv_3.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(2)));
             }
             if (list.size() > 3) {
-                ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
-                iv_3.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(3)));
-            }
-            if (list.size() > 4) {
                 ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
-                iv_4.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(4)));
+                iv_4.setImageDrawable(LoadManager.getInstance(GBoostActivity.this).getAppIcon(list.get(3)));
                 PreData.putDB(GBoostActivity.this, Constant.GBOOST_SI, true);
             }
 
@@ -541,9 +535,9 @@ public class GBoostActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100 || requestCode == 1) {
             if (Util.isAccessibilitySettingsOn(this)) {
-                gboost_power_check.setImageResource(R.mipmap.side_check_passed);
+                gboost_power_check.setText(R.string.gboost_g);
             } else {
-                gboost_power_check.setImageResource(R.mipmap.side_check_normal);
+                gboost_power_check.setText(R.string.gboost_k);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

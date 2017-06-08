@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.util.LruCache;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,7 +57,7 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
                     .findViewById(R.id.item_time);
             holder.icon = (ImageView) convertView
                     .findViewById(R.id.junk_item_icon);
-            holder.checkBox = (ImageView) convertView
+            holder.checkBox = (CheckBox) convertView
                     .findViewById(R.id.check_iv);
             holder.size = (TextView) convertView
                     .findViewById(R.id.size_tv);
@@ -65,25 +66,25 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.name.setText(info.label);
-        holder.time.setText(Util.getStrTime(info.date));
+        holder.time.setText(Util.getStrTime3(info.date));
         holder.size.setText(Util.convertStorage(info.allSize, true));
 
         Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
         holder.icon.setImageDrawable(icon);
         if (info.isChecked) {
-            holder.checkBox.setImageResource(R.mipmap.ram_passed);
+            holder.checkBox.setChecked(true);
         } else {
-            holder.checkBox.setImageResource(R.mipmap.ram_normal);
+            holder.checkBox.setChecked(false);
         }
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
-                    holder.checkBox.setImageResource(R.mipmap.ram_passed);
+                    holder.checkBox.setChecked(true);
                     managerPresenter.addCleandata(true, info.allSize);
                 } else {
-                    holder.checkBox.setImageResource(R.mipmap.ram_normal);
+                    holder.checkBox.setChecked(false);
                     managerPresenter.addCleandata(false, info.allSize);
                 }
             }
@@ -96,7 +97,7 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
     public class ViewHolder {
         TextView name;
         ImageView icon;
-        ImageView checkBox;
+        CheckBox checkBox;
         TextView size;
         TextView time;
     }

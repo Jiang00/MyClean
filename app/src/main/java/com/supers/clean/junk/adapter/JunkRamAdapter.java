@@ -76,19 +76,19 @@ public class JunkRamAdapter extends MybaseAdapter<JunkInfo> {
             holder.icon.setImageResource(R.mipmap.log_file);
         }
         if (info.isChecked) {
-            holder.checkBox.setImageResource(R.mipmap.junk_passed);
+            holder.checkBox.setImageResource(R.mipmap.ram_passed);
         } else {
-            holder.checkBox.setImageResource(R.mipmap.junk_normal);
+            holder.checkBox.setImageResource(R.mipmap.ram_normal);
         }
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
-                    holder.checkBox.setImageResource(R.mipmap.junk_passed);
+                    holder.checkBox.setImageResource(R.mipmap.ram_passed);
                     junkPresenter.addCleandata(true, info.size);
                 } else {
-                    holder.checkBox.setImageResource(R.mipmap.junk_normal);
+                    holder.checkBox.setImageResource(R.mipmap.ram_normal);
                     junkPresenter.addCleandata(false, info.size);
                 }
             }

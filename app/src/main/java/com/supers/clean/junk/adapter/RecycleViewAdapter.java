@@ -187,9 +187,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 holder.picture_best.setVisibility(View.INVISIBLE);
             }
             if (info.isNormal) {
-                holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                holder.picture_check.setImageResource(R.mipmap.ram_normal);
             } else {
-                holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                holder.picture_check.setImageResource(R.mipmap.ram_passed);
             }
 //            HomeAdapter.LoadImage imageLoad = new HomeAdapter.LoadImage(holder);
 //            imageLoad.execute(info.path, info.name);
@@ -227,9 +227,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                     info.isNormal = !info.isNormal;
                     pictureActivity.updateUi();
                     if (info.isNormal) {
-                        holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                        holder.picture_check.setImageResource(R.mipmap.ram_normal);
                     } else {
-                        holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                        holder.picture_check.setImageResource(R.mipmap.ram_passed);
                     }
 
                 }

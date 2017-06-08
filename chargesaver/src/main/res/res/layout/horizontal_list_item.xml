@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_list_item"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp" />
+
+        <ImageView
+            android:id="@+id/delete_app"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="13dp"
+            android:src="@mipmap/qing" />
+
+        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            android:id="@+id/text_list_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_list_item"
+            android:layout_centerHorizontal="true"
+            android:maxEms="4"
+            android:singleLine="true"
+            android:text="aaa"
+            android:textColor="#acadaf"
+            android:textSize="12sp"
+            app:typeface="eos_clean.otf" />
+    </RelativeLayout>
+
+
+</LinearLayout>

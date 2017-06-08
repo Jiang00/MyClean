@@ -394,9 +394,9 @@ public class PictureHuiActivity extends BaseActivity {
         public void onBindViewHolder(final HuiAdapter.HomeViewHolder holder, final int position) {
             final ImageInfo info = list.get(position);
             if (info.isNormal) {
-                holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                holder.picture_check.setImageResource(R.mipmap.ram_normal);
             } else {
-                holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                holder.picture_check.setImageResource(R.mipmap.ram_passed);
             }
 
             Bitmap cachebitmap = getBitmapFromCache(info.backFilePath);
@@ -443,9 +443,9 @@ public class PictureHuiActivity extends BaseActivity {
                 public void onClick(View v) {
                     info.isNormal = !info.isNormal;
                     if (info.isNormal) {
-                        holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                        holder.picture_check.setImageResource(R.mipmap.ram_normal);
                     } else {
-                        holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                        holder.picture_check.setImageResource(R.mipmap.ram_passed);
                     }
                 }
             });

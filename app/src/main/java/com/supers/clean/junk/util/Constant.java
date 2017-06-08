@@ -97,6 +97,8 @@ public class Constant {
 
     public static final String RECYCLEBIN = "RECYCLEBIN";
 
+    public static final String MAIN_LOT_AD = "MAIN_LOT_AD";
+
 //    跳转
 
     public static final int RAM_RESUIL = 20;

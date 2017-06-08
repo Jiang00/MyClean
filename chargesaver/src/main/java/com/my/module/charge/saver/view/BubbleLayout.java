@@ -41,7 +41,7 @@ public class BubbleLayout extends View {
     }
 
     private void init() {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.eos_bubble);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.battery_bubble);
     }
 
     public void destroy() {

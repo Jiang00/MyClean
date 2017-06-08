@@ -114,6 +114,15 @@ public class PictureActivity extends BaseActivity {
                     if (adapter == null || adapter.getItemCount() == 0) {
                         picture_progressbar.setVisibility(View.GONE);
                         picture_other.setVisibility(View.VISIBLE);
+                        picture_button.setText(R.string.picture_4);
+                        picture_button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                AdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
+                                jumpTo(JunkActivity.class);
+                                onBackPressed();
+                            }
+                        });
                         picture_scan.setText("");
                     } else {
                         picture_scan.setText(R.string.picture_jianyi);
@@ -144,13 +153,13 @@ public class PictureActivity extends BaseActivity {
         picture_recycle.setLayoutManager(new LinearLayoutManager(this));
 
         picture_recycle.setItemAnimator(new DefaultItemAnimator());
+        clickListen();
         new Thread(new Runnable() {
             @Override
             public void run() {
                 initData();
             }
         }).start();
-        clickListen();
         loadAd();
     }
 
@@ -164,16 +173,15 @@ public class PictureActivity extends BaseActivity {
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
         picture_button.setOnClickListener(clickListener);
-        picture_other.setOnClickListener(clickListener);
         pic_pager_left.setOnClickListener(clickListener);
     }
 
     public void bigPicture(final ArrayList<ImageInfo> list) {
         pic_pager_title.setText("1/" + list.size());
         if (list.get(0).isNormal) {
-            pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+            pic_pager_check_iv.setImageResource(R.mipmap.ram_normal);
         } else {
-            pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+            pic_pager_check_iv.setImageResource(R.mipmap.ram_passed);
         }
         pic_pager_check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,9 +189,9 @@ public class PictureActivity extends BaseActivity {
                 int position = picture_pager.getCurrentItem();
                 list.get(position).isNormal = !list.get(position).isNormal;
                 if (list.get(position).isNormal) {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_normal);
                 } else {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_passed);
                 }
                 updateUi();
             }
@@ -272,9 +280,9 @@ public class PictureActivity extends BaseActivity {
                     return;
                 }
                 if (list.get(position).isNormal) {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_normal);
                 } else {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_passed);
                 }
             }
 
@@ -382,11 +390,6 @@ public class PictureActivity extends BaseActivity {
                     }
                     deleteDialog(bitmaps);
                     break;
-                case R.id.picture_other:
-                    AdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
-                    jumpTo(JunkActivity.class);
-                    onBackPressed();
-                    break;
                 case R.id.pic_pager_left:
                     pager_fl.setVisibility(View.GONE);
                     picture_pager.setAdapter(null);
@@ -469,6 +472,15 @@ public class PictureActivity extends BaseActivity {
                                 if (adapter.getItemCount() == 0) {
                                     picture_progressbar.setVisibility(View.GONE);
                                     picture_other.setVisibility(View.VISIBLE);
+                                    picture_button.setText(R.string.picture_4);
+                                    picture_button.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            AdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
+                                            jumpTo(JunkActivity.class);
+                                            onBackPressed();
+                                        }
+                                    });
                                 }
                                 Bundle bundle = new Bundle();
                                 bundle.putLong("sizeP", oldSize - allSize);

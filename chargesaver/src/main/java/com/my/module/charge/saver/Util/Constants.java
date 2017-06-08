@@ -5,7 +5,7 @@ package com.my.module.charge.saver.Util;
  */
 
 public class Constants {
-    public static final String MODULE_FILL_NAME = "eos_module_battery_charge_saver";
+    public static final String MODULE_FILL_NAME = "battery_charge_saver";
     public static final String CHARGE_SAVER_SWITCH = "_ChargeSaver_";
     public static final String CHARGE_SAVER_TITLE = "_charge_saver_title_";
     public static final String CHARGE_SAVER_ICON = "_charge_saver_icon_";

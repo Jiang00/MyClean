@@ -337,7 +337,7 @@ public class BatteryView extends FrameLayout {
                 }
             });
 
-            String titleTxt = (String) Utils.readData(mContext, Constants.CHARGE_SAVER_TITLE, "EOSBATTERY");
+            String titleTxt = (String) Utils.readData(mContext, Constants.CHARGE_SAVER_TITLE, "Cleaner");
             title.setText(titleTxt);
             int iconId = (int) Utils.readData(mContext, Constants.CHARGE_SAVER_ICON, R.mipmap.battery_inner_icon);
             if (iconId > -1) {

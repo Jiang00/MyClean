@@ -220,9 +220,11 @@ public class PowerActivity extends BaseActivity {
     private void animatorView(final View view, final int i) {
         AnimatorSet set = new AnimatorSet();
         View icon = view.findViewById(R.id.recyc_icon);
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(icon, "scaleY", 1f, 0f);
-        ObjectAnimator rotate = ObjectAnimator.ofFloat(icon, "rotation", 0f, 360f);
+//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
+//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(icon, "scaleY", 1f, 0f);
+//        ObjectAnimator rotate = ObjectAnimator.ofFloat(icon, "rotation", 0f, 360f);
+        ObjectAnimator translationX = ObjectAnimator.ofFloat(icon, "translationX", 0f, -360f);
+
         set.setDuration(2000)
                 .addListener(new Animator.AnimatorListener() {
                     @Override
@@ -249,7 +251,7 @@ public class PowerActivity extends BaseActivity {
                     public void onAnimationStart(Animator animation) {
                     }
                 });
-        set.play(scaleX).with(scaleY).with(rotate);
+        set.play(translationX);
         set.start();
     }
 
@@ -291,7 +293,7 @@ public class PowerActivity extends BaseActivity {
             if (isWidget) {
                 holder.recyc_check.setVisibility(View.GONE);
             } else {
-                holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.power_4 : R.mipmap.power_5);
+                holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.ram_passed : R.mipmap.ram_normal);
             }
 
             holder.recyc_icon.setImageDrawable(LoadManager.getInstance(PowerActivity.this).getAppIcon(startList.get(position).pkg));

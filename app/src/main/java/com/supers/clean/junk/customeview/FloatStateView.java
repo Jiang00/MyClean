@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -75,8 +76,8 @@ public class FloatStateView extends View {
 
         // 文字
         textPaint = new Paint();
-        textPaint.setTextSize(Util.dp2px(12));
-        textPaint.setColor(Color.WHITE);
+        textPaint.setTextSize(Util.dp2px(10));
+        textPaint.setColor(ContextCompat.getColor(mContext, R.color.A8));
         textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(true);
         Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);
@@ -125,7 +126,7 @@ public class FloatStateView extends View {
 
     public void upDate(int pratent) {
         this.pratent = pratent;
-        this.text = pratent + "";
+        this.text = pratent + "%";
         postInvalidate();
     }
 

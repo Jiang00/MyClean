@@ -1,6 +1,7 @@
 package com.supers.clean.junk.activity;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -69,17 +71,14 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_picture_button;
     ImageView power_icon;
     TextView power_text;
-    ImageView main_rotate_good;
+    TextView main_rotate_good;
+    TextView main_rotate_bad;
     //    ImageView delete;
     ImageView success_progress;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
 
     LinearLayout ad_native_2;
-    FrameLayout fl_lot_success;
-    LinearLayout main_tuiguang_button;
-    TextView main_msg_tuiguang;
-    LottieAnimationView lot_success;
     private View nativeView;
     private View native_xiao;
 
@@ -90,7 +89,7 @@ public class SuccessActivity extends BaseActivity {
     private String TAG_CLEAN = "eos_success";
     private String TAG_CLEAN_2 = "eos_success_2";
     private String TAG_TITLE = "eos_icon";
-    private Animation rotate;
+    private Animation rotate_set;
 
     private boolean haveAd;
     private boolean animationEnd;
@@ -117,14 +116,12 @@ public class SuccessActivity extends BaseActivity {
         main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
         main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         power_text = (TextView) findViewById(R.id.power_text);
-        main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
+        main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
+        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
 //        delete = (ImageView) findViewById(R.id.delete);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         success_progress = (ImageView) findViewById(R.id.success_progress);
-        fl_lot_success = (FrameLayout) findViewById(R.id.fl_lot_success);
-        main_tuiguang_button = (LinearLayout) findViewById(R.id.main_tuiguang_button);
-        main_msg_tuiguang = (TextView) findViewById(R.id.main_msg_tuiguang);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
     }
@@ -138,8 +135,7 @@ public class SuccessActivity extends BaseActivity {
         istween = true;
         setAnimationThread();
         myHandler = new Handler();
-        rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
-        success_progress.startAnimation(rotate);
+
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
         } else {
@@ -294,8 +290,8 @@ public class SuccessActivity extends BaseActivity {
     private void addListener() {
         title_left.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
+        main_rotate_bad.setOnClickListener(onClickListener);
 //        delete.setOnClickListener(onClickListener);
-        main_tuiguang_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
@@ -312,7 +308,7 @@ public class SuccessActivity extends BaseActivity {
         native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
-            layout_ad.height = scrollView.getMeasuredHeight();
+            layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
             Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
             ad_native_2.setLayoutParams(layout_ad);
             haveAd = true;
@@ -398,6 +394,22 @@ public class SuccessActivity extends BaseActivity {
 //    }
 
     public void startFirstAnimation() {
+//        rotate_set = AnimationUtils.loadAnimation(this, R.anim.set_success);
+//        success_progress.startAnimation(rotate_set);
+        final AnimatorSet set = new AnimatorSet();
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(success_progress, "scaleX", 1f, 1.3f, 1f);
+        scaleX.setDuration(2400);
+        scaleX.setRepeatCount(0);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(success_progress, "scaleY", 1f, 1.3f, 1f);
+        scaleY.setDuration(2400);
+        scaleY.setRepeatCount(0);
+        ObjectAnimator rotate = ObjectAnimator.ofFloat(success_progress, "rotation", 0f, 360f);
+        rotate.setDuration(600);
+        rotate.setRepeatCount(3);
+        set.setInterpolator(new LinearInterpolator());
+//        rotate.start();
+        set.playTogether(scaleX, scaleY, rotate);
+        set.start();
         Animation animation = AnimationUtils.loadAnimation(SuccessActivity.this, R.anim.huojian_pop);
         success_huojian.startAnimation(animation);
         animation.setFillAfter(true);
@@ -428,11 +440,14 @@ public class SuccessActivity extends BaseActivity {
                         }
                     }
                 }).start();
-                myHandler.postDelayed(new Runnable() {
+                set.addListener(new Animator.AnimatorListener() {
                     @Override
-                    public void run() {
-                        success_progress.clearAnimation();
-                        success_progress.setVisibility(View.GONE);
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
                         isdoudong = false;
                         ObjectAnimator a = ObjectAnimator.ofFloat(success_huojian, View.TRANSLATION_Y, 0, -2500);
                         a.setDuration(300);
@@ -460,7 +475,17 @@ public class SuccessActivity extends BaseActivity {
                         });
                         success_drawhook.startProgress(500);
                     }
-                }, 1000);
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+                });
             }
 
             @Override
@@ -518,6 +543,10 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.main_rotate_good:
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessActivity.this);
+                    main_rotate_all.setVisibility(View.GONE);
+                    break;
+                case R.id.main_rotate_bad:
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
@@ -590,13 +619,6 @@ public class SuccessActivity extends BaseActivity {
                     }
 
                     break;
-                case R.id.main_tuiguang_button:
-                    if (LoadManager.getInstance(SuccessActivity.this).isPkgInstalled(tuiguang)) {
-                        Util.doStartApplicationWithPackageName(getApplicationContext(), tuiguang);
-                    } else {
-                        UtilGp.openPlayStore(getApplicationContext(), tuiguang);
-                    }
-                    break;
             }
         }
     };
@@ -620,17 +642,11 @@ public class SuccessActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        if (lot_success != null) {
-            lot_success.playAnimation();
-        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (lot_success != null) {
-            lot_success.pauseAnimation();
-        }
     }
 
     @Override

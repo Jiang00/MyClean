@@ -19,27 +19,27 @@ import java.util.Map;
 
 public class Utils {
 
-    public static void writeData(Context context, String key, Object value){
+    public static void writeData(Context context, String key, Object value) {
         if (context != null) {
             SharedPreferences sp = context.getSharedPreferences(Constants.MODULE_FILL_NAME, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
             if (value instanceof Integer) {
-                editor.putInt(key, (int)value).apply();
+                editor.putInt(key, (int) value).apply();
             } else if (value instanceof String) {
                 editor.putString(key, String.valueOf(value)).apply();
             } else if (value instanceof Boolean) {
-                editor.putBoolean(key, (Boolean)value).apply();
+                editor.putBoolean(key, (Boolean) value).apply();
             } else if (value instanceof Float) {
-                editor.putFloat(key, (Float)value).apply();
+                editor.putFloat(key, (Float) value).apply();
             }
         }
     }
 
-    public static Object readData(Context context, String key, Object defaultValue){
+    public static Object readData(Context context, String key, Object defaultValue) {
         if (context != null) {
             SharedPreferences sp = context.getSharedPreferences(Constants.MODULE_FILL_NAME, Context.MODE_PRIVATE);
             Map<String, ?> map = sp.getAll();
-            if (map.containsKey(key)) {
+            if (map != null && map.containsKey(key)) {
                 return map.get(key);
             }
         }
@@ -47,7 +47,7 @@ public class Utils {
     }
 
 
-    public static String getDistanceTime(long time1, long time2 ) {
+    public static String getDistanceTime(long time1, long time2) {
         long hours = 0;
         long minutes = 1;
         try {
@@ -97,7 +97,8 @@ public class Utils {
                 am.getMemoryInfo(mi);
                 availMemory = mi.availMem;
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
 //        return Formatter.formatFileSize(context, mi.availMem);// 将获取的内存大小规格化
         return availMemory;
     }
