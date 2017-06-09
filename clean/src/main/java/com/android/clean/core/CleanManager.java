@@ -289,10 +289,12 @@ public class CleanManager {
         if (cursor != null && cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
-                if (cursor.getString(FileCategoryHelper.COLUMN_SIZE) == null) {
+                long size = 0;
+                try {
+                    size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
+                } catch (Exception e) {
                     continue;
                 }
-                long size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
                 String path = cursor.getString(FileCategoryHelper.COLUMN_PATH);
                 String name = com.android.clean.filemanager.Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
@@ -316,10 +318,12 @@ public class CleanManager {
         if (cursor != null && cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
-                if (cursor.getString(FileCategoryHelper.COLUMN_SIZE) == null) {
+                long size = 0;
+                try {
+                    size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
+                } catch (Exception e) {
                     continue;
                 }
-                long size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
                 String path = cursor.getString(FileCategoryHelper.COLUMN_PATH);
                 String name = com.android.clean.filemanager.Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
