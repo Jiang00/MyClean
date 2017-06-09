@@ -681,6 +681,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         }
                     }, 2000);
                     adapter.notifyDataSetChanged();
+                    AdUtil.track("主界面", "充电屏保引导", "叉掉", 1);
                     break;
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);
@@ -690,6 +691,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                             main_pull_refresh.autoRefresh();
                         }
                     }, 2000);
+                    AdUtil.track("主界面", "充电屏保引导", "打开", 1);
                     break;
 
 
@@ -762,6 +764,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (ll_ad_full.getVisibility() == View.VISIBLE) {
             adDelete();
             handler.removeCallbacks(fullAdRunnale);
+            return;
+        }
+        if (main_battery.getVisibility() == View.VISIBLE) {
+            main_battery.setVisibility(View.GONE);
+            AdUtil.track("主界面", "充电屏保引导", "返回键返回", 1);
             return;
         }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {

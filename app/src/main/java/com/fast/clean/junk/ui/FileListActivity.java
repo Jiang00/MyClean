@@ -129,6 +129,9 @@ public class FileListActivity extends BaseActivity {
                     break;
                 case R.id.file_button_clean:
                     ArrayList<JunkInfo> deleteList = new ArrayList<>();
+                    if (fileList == null || fileList.size() == 0) {
+                        break;
+                    }
                     for (JunkInfo info : fileList) {
                         if (info.isChecked) {
                             deleteList.add(info);
@@ -152,6 +155,7 @@ public class FileListActivity extends BaseActivity {
             addAd();
         }
     }
+
     private void initData() {
         new Thread(new Runnable() {
             @Override
