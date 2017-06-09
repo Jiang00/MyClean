@@ -59,7 +59,7 @@
                         android:text="@string/picture_scan"
                         android:textColor="@color/A6"
                         android:textSize="@dimen/s16"
-                        app:typeface="eos_clean.otf" />
+                         />
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/picture_danwei"
@@ -69,7 +69,7 @@
                         android:text="MB"
                         android:textColor="@color/A7"
                         android:textSize="@dimen/s22"
-                        app:typeface="eos_clean.otf" />
+                         />
                 </LinearLayout>
             </LinearLayout>
 
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#f1f1f1">
+            android:background="#ffffff">
 
             <ProgressBar
                 android:id="@+id/picture_progressbar"
@@ -114,6 +114,7 @@
                         android:id="@+id/picture_recycle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/d5"
                         android:scrollbars="none" />
 
                     <ImageView
@@ -156,9 +157,9 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
                     android:text="@string/picture_3"
-                    android:textColor="#bfbfbf"
-                    android:textSize="@dimen/s21"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A9"
+                    android:textSize="@dimen/s16"
+                     />
 
             </LinearLayout>
 
@@ -209,7 +210,7 @@
                 android:text="1/2"
                 android:textColor="@color/A7"
                 android:textSize="@dimen/s16"
-                app:typeface="eos_clean.otf" />
+                 />
 
         </LinearLayout>
 
@@ -234,7 +235,7 @@
                     android:text="@string/picture_14"
                     android:textColor="@color/A8"
                     android:textSize="@dimen/d20"
-                    app:typeface="eos_clean.otf" />
+                     />
             </LinearLayout>
 
             <LinearLayout
@@ -261,7 +262,7 @@
                     android:text="@string/picture_13"
                     android:textColor="@color/A8"
                     android:textSize="@dimen/d20"
-                    app:typeface="eos_clean.otf" />
+                     />
             </LinearLayout>
         </RelativeLayout>
     </FrameLayout>

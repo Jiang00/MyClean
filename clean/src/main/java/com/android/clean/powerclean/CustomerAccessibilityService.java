@@ -41,12 +41,6 @@ public class CustomerAccessibilityService extends android.accessibilityservice.A
         Intent intent = new Intent("com.android.clean.accessibility.event");
         intent.putExtra("event", event);
         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
-       /* if (event.getPackageName() != null) {
-            String packageName = event.getPackageName().toString();
-            if (!packageName.equals(getPackageName())) {
-                AppLockEosService.startLock(this, packageName);
-            }
-        }*/
         if (isDis) {
             return;
         }

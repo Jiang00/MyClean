@@ -5,7 +5,7 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 
 /**
- * Created by Ivy on 2017/5/3.
+ * Created by on 2017/5/3.
  */
 
 public class MediaScanner {

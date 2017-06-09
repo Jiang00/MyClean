@@ -15,7 +15,7 @@
         <FrameLayout
             android:id="@+id/ad_image"
             android:layout_width="match_parent"
-            android:layout_height="135dp"
+            android:layout_height="@dimen/d135"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
             android:tag="ad_image" />
@@ -38,16 +38,16 @@
             android:gravity="center"
             android:text="AD"
             android:textColor="@android:color/white"
-            android:textSize="8sp" />
+            android:textSize="@dimen/s8" />
 
         <TextView
             android:id="@+id/ad_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ad_image"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="100dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginLeft="@dimen/d4"
+            android:layout_marginRight="@dimen/d100"
+            android:layout_marginTop="@dimen/d5"
             android:ellipsize="marquee"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -55,22 +55,22 @@
             android:singleLine="true"
             android:tag="ad_title"
             android:textColor="#de000000"
-            android:textSize="14sp"
+            android:textSize="@dimen/s14"
             tools:text="Your see" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ad_title"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginLeft="@dimen/d4"
+            android:layout_marginRight="@dimen/d100"
             android:layout_marginTop="1dp"
             android:ellipsize="end"
             android:fontFamily="sans-serif-light"
             android:lines="1"
             android:tag="ad_subtitle"
             android:textColor="#8a000000"
-            android:textSize="10sp"
+            android:textSize="@dimen/s10"
             tools:text="Your see Your see Your see Your see" />
 
         <TextView
@@ -79,17 +79,17 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/ad_image"
             android:layout_gravity="end"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginRight="@dimen/d4"
+            android:layout_marginTop="@dimen/d3"
             android:background="@drawable/ad_green"
-            android:paddingBottom="4dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="4dp"
+            android:paddingBottom="@dimen/d4"
+            android:paddingLeft="@dimen/d5"
+            android:paddingRight="@dimen/d5"
+            android:paddingTop="@dimen/d4"
             android:tag="ad_action"
             android:text="Install"
             android:textColor="#fff"
-            android:textSize="16sp" />
+            android:textSize="@dimen/s16" />
     </RelativeLayout>
 
 </LinearLayout>

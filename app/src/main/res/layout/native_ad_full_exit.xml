@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/A1">
+    android:background="@color/A7">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,12 +14,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/d9"
+            android:layout_marginRight="@dimen/d9"
             android:layout_weight="1">
 
             <FrameLayout
                 android:id="@+id/ad_image"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d190"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:scaleType="centerCrop"
                 android:tag="ad_image" />
@@ -42,74 +44,79 @@
         </RelativeLayout>
 
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_ic"
-                android:layout_width="@dimen/d65"
-                android:layout_height="@dimen/d65"
-                android:layout_centerHorizontal="true"
-                android:tag="ad_icon" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_ic"
-                android:layout_marginTop="@dimen/d10"
-                android:orientation="vertical">
+                android:layout_marginLeft="@dimen/d9"
+                android:layout_marginTop="@dimen/d9"
+                android:orientation="horizontal">
 
-                <TextView
+
+                <ImageView
+                    android:id="@+id/iv_ic"
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:layout_centerHorizontal="true"
+                    android:tag="ad_icon" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="@dimen/full_ad__ac_action_green_margin"
-                    android:layout_marginRight="@dimen/full_ad__ac_action_green_margin"
-                    android:layout_marginTop="@dimen/d10"
-                    android:ellipsize="marquee"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:fontFamily="sans-serif-regular"
-                    android:gravity="center"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:singleLine="true"
-                    android:tag="ad_title"
-                    android:textColor="@color/A8"
-                    android:textSize="18sp"
-                    tools:text="Your see" />
+                    android:layout_below="@id/iv_ic"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/full_ad__desc_text_margin"
-                    android:layout_marginRight="@dimen/full_ad__desc_text_margin"
-                    android:layout_marginTop="@dimen/full_ad__desc_text_margin_top"
-                    android:ellipsize="end"
-                    android:fontFamily="sans-serif-light"
-                    android:gravity="center_horizontal"
-                    android:lines="3"
-                    android:tag="ad_desc"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                    tools:text="Your seeasd df fsfsfsfsf" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/d9"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="sans-serif-regular"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:singleLine="true"
+                        android:tag="ad_title"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s22"
+                        tools:text="Your see" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d50"
-                    android:layout_marginBottom="@dimen/d20"
-                    android:layout_marginLeft="@dimen/full_ad__ac_action_green_margin"
-                    android:layout_marginRight="@dimen/full_ad__ac_action_green_margin"
-                    android:layout_marginTop="@dimen/full_ad_ac_action_green_margin_top"
-                    android:background="@drawable/select_text_ad"
-                    android:gravity="center"
-                    android:tag="ad_action"
-                    android:text="Install"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/full_ad__ac_action_green_text_size" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/d9"
+                        android:layout_marginTop="@dimen/d5"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-light"
+                        android:lines="2"
+                        android:tag="ad_desc"
+                        android:textColor="@color/A9"
+                        android:textSize="@dimen/s16"
+                        tools:text="Your seeasd df fsfsfsfsf" />
+
+                </LinearLayout>
             </LinearLayout>
 
-        </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d56"
+                android:layout_marginBottom="@dimen/d33"
+                android:layout_marginLeft="@dimen/d9"
+                android:layout_marginRight="@dimen/d9"
+                android:layout_marginTop="@dimen/d33"
+                android:background="@drawable/shape__a4_r"
+                android:elevation="@dimen/d4"
+                android:gravity="center"
+                android:tag="ad_action"
+                android:text="Install"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/s16" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
 

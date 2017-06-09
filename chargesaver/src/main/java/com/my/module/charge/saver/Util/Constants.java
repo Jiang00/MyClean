@@ -11,7 +11,6 @@ public class Constants {
     public static final String CHARGE_SAVER_ICON = "_charge_saver_icon_";
     public static final String IS_ACTIVITY = "is_activity";
 
-    public static final String ACTION_CHARGE_SAVER_SWITCH_STATE = "com.eos.module.charge.saver.switch";
 
     public static final String TAG_CHARGING = "charging";
     public static final String TAG_DUCK_CHARGING = "duck_charging";

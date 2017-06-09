@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.supers.clean.junk">
+    package="com.fast.clean.junk">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!--获取最上层包名-->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <!--可以访问使用量数据-->
@@ -47,7 +48,7 @@
 
 
     <application
-        android:name=".activity.MyApplication"
+        android:name="com.fast.clean.junk.ui.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -56,25 +57,20 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.fast.clean.junk.ui.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="com.eos.clean.main" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name=".activity.LoadingActivity"
+            android:name="com.fast.clean.junk.ui.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-            <action android:name="android.intent.action.CREATE_SHORTCUT" />
-            <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PICK" />
@@ -87,78 +83,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.CoolingActivity"
+            android:name="com.fast.clean.junk.ui.CpuCoolingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.JunkActivity"
+            android:name="com.fast.clean.junk.ui.JunkActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.JunkAndRamActivity"
+            android:name="com.fast.clean.junk.ui.JunkAndRamActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ManagerActivity"
+            android:name="com.fast.clean.junk.ui.AppManagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.MessageActivity"
+            android:name="com.fast.clean.junk.ui.MessageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.RamAvtivity"
+            android:name="com.fast.clean.junk.ui.NeicunAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SettingActivity"
+            android:name="com.fast.clean.junk.ui.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ThemeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.SuccessActivity"
+            android:name="com.fast.clean.junk.ui.SuccessActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.WhiteListAvtivity"
+            android:name="com.fast.clean.junk.ui.WhiteListAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.WhiteListAddActivity"
+            android:name="com.fast.clean.junk.ui.WhiteListAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PowerActivity"
+            android:name="com.fast.clean.junk.ui.PowerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.NotifiInfoActivity"
+            android:name="com.fast.clean.junk.ui.NotifiInfoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PermissionActivity"
+            android:name="com.fast.clean.junk.ui.PermissionActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name=".activity.NotifiActivity"
+            android:name="com.fast.clean.junk.ui.NotifiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.NotifiSettingActivity"
+            android:name="com.fast.clean.junk.ui.NotifiSettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.FloatActivity"
+            android:name="com.fast.clean.junk.ui.FloatActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name=".activity.UnloadActivity"
+            android:name="com.fast.clean.junk.ui.UnloadActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name=".activity.PictureActivity"
+            android:name="com.fast.clean.junk.ui.PictureActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PictureHuiActivity"
+            android:name="com.fast.clean.junk.ui.PictureHuiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.GBoostActivity"
+            android:name="com.fast.clean.junk.ui.GBoostActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -171,7 +164,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ShortCutActivity"
+            android:name="com.fast.clean.junk.ui.ShortCutActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -181,7 +174,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".broadcast.UnloadBroadcast">
+        <receiver android:name="com.fast.clean.junk.broadcast.UnloadBroadcast">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -192,65 +185,25 @@
         </receiver>
 
         <service
-            android:name=".service.FloatService"
+            android:name="com.fast.clean.junk.aservice.MyFloatService"
             android:excludeFromRecents="true" />
         <service
-            android:name=".service.NotificationService"
+            android:name="com.fast.clean.junk.aservice.NotificationService"
             android:enabled="true"
             android:excludeFromRecents="true" />
 
         <activity
-            android:name=".activity.TranslateActivity"
-            android:theme="@style/Transparent" />
-        <activity
-            android:name=".activity.ApplockActivity"
+            android:name="com.fast.clean.junk.ui.FileManagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.FileActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.FileListActivity"
+            android:name="com.fast.clean.junk.ui.FileListActivity"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".activity.FileDocActivity"
+            android:name="com.fast.clean.junk.ui.FileDocActivity"
             android:screenOrientation="portrait" />
 
-        <service
-            android:name=".widget.WidgetService"
-            android:enabled="true" />
-
-        <receiver
-            android:name=".widget.WidgetProvider"
-            android:icon="@drawable/widget_4"
-            android:label="@string/app_name_4_4">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="app.eosmobi.action.widget.ram" />
-                <action android:name="app.eosmobi.action.widget.update" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/ram" />
-        </receiver>
-
-        <receiver
-            android:name=".widget.TempProvider"
-            android:icon="@drawable/widget_temp_preview"
-            android:label="@string/app_name_4_1">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="app.eosmobi.action.widget.temp" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/temp" />
-        </receiver>
-
-        <service
-            android:name=".widget.TempService"
-            android:enabled="true" />
 
     </application>
 

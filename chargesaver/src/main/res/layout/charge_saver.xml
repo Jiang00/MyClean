@@ -16,6 +16,7 @@
             android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:src="@drawable/shape_backg" />
+
         <com.my.module.charge.saver.view.BubbleLayout
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
@@ -68,9 +69,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/icon_h"
-                    android:paddingLeft="@dimen/icon_h"
-                    android:paddingRight="@dimen/icon_h">
+                    android:layout_marginRight="@dimen/d8"
+                    android:padding="@dimen/d8">
 
                     <ImageView
                         android:layout_width="15dp"
@@ -172,11 +172,6 @@
             android:layout_height="@dimen/d61"
             android:layout_gravity="center_horizontal|bottom">
 
-            <com.sample.lottie.LottieAnimationView
-                android:id="@+id/battery_lighting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:lottie_autoPlay="false" />
 
             <LinearLayout
                 android:id="@+id/battery_slide"
@@ -187,7 +182,7 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingTop="@dimen/d8"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"

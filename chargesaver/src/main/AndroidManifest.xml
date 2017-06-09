@@ -8,11 +8,6 @@
         <service
             android:name="com.my.module.charge.saver.service.BatteryService"
             android:permission="android.permission.BIND_JOB_SERVICE">
-            <intent-filter>
-                <action android:name="com.eos.battery.service" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </service>
 
         <receiver android:name="com.my.module.charge.saver.receiver.StartReceiver">

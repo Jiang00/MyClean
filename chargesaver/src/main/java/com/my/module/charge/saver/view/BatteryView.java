@@ -55,13 +55,11 @@ public class BatteryView extends FrameLayout {
     private TextView date;
     private TextView week;
     private TextView batteryLeft;
-    private LinearLayout slide;
     private TextView currentLevel;
     private BubbleLayout bubbleLayout;
 
     private LottieAnimationView shell;
     private LottieAnimationView water;
-    private LottieAnimationView lighting;
     private int halfWidth;
     private ImageView shutter;
 
@@ -182,32 +180,6 @@ public class BatteryView extends FrameLayout {
             });
         }
 
-        if (lighting != null && entry.isCharging()) {
-            if (entry.getLevel() == 100) {
-                if (lighting.isAnimating()) {
-                    lighting.cancelAnimation();
-                }
-                slide.setVisibility(VISIBLE);
-                lighting.setVisibility(GONE);
-            } else {
-                if (lighting.getVisibility() == View.GONE) {
-                    lighting.setVisibility(VISIBLE);
-                    slide.setVisibility(GONE);
-                    lighting.resumeAnimation();
-                } else {
-                    if (!lighting.isAnimating()) {
-                        initLighting();
-                        lighting.playAnimation();
-                    }
-                }
-            }
-        } else if (lighting != null) {
-            if (lighting.isAnimating()) {
-                lighting.pauseAnimation();
-            }
-            slide.setVisibility(VISIBLE);
-            lighting.setVisibility(GONE);
-        }
 
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
@@ -256,16 +228,6 @@ public class BatteryView extends FrameLayout {
         water.setSpeed(5.0f);
     }
 
-    private void initLighting() {
-        try {
-            lighting.setImageAssetsFolder(mContext, "theme://images/lighting");
-            lighting.setAnimation(mContext, "theme://lighting.json");
-        } catch (Exception e) {
-            lighting.setImageAssetsFolder(null, "images/lighting");
-            lighting.setAnimation(null, "lighting.json");
-        }
-        lighting.loop(true);
-    }
 
     @Override
     protected void onFinishInflate() {
@@ -376,9 +338,6 @@ public class BatteryView extends FrameLayout {
                             Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, true);
                         }
                     }
-                    if (mContext != null) {
-                        mContext.sendBroadcast(new Intent(Constants.ACTION_CHARGE_SAVER_SWITCH_STATE));
-                    }
                 }
             });
         }
@@ -388,7 +347,6 @@ public class BatteryView extends FrameLayout {
         shutter = (ImageView) findViewById(R.id.battery_shutter);
         bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
-        slide = (LinearLayout) findViewById(R.id.battery_slide);
         batteryView = (BatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
@@ -402,7 +360,6 @@ public class BatteryView extends FrameLayout {
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
         shell = (LottieAnimationView) findViewById(R.id.battery_shell);
         water = (LottieAnimationView) findViewById(R.id.battery_electricity);
-        lighting = (LottieAnimationView) findViewById(R.id.battery_lighting);
     }
 
     public void pauseBubble() {
@@ -445,9 +402,6 @@ public class BatteryView extends FrameLayout {
         }
         if (water != null && water.isAnimating()) {
             water.cancelAnimation();
-        }
-        if (lighting != null && lighting.isAnimating()) {
-            lighting.cancelAnimation();
         }
         if (shell != null && shell.isAnimating()) {
             shell.cancelAnimation();

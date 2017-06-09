@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/A1"
+        android:elevation="@dimen/d4"
         android:orientation="vertical">
 
         <View
@@ -36,10 +37,10 @@
             android:layout_marginRight="16dp"
             android:gravity="center"
             android:text="@string/notifi_nor"
-            android:textColor="#bfbfbf"
-            android:textSize="22sp"
+            android:textColor="@color/A9"
+            android:textSize="@dimen/s16"
             android:visibility="invisible"
-            app:typeface="eos_clean.otf" />
+             />
 
 
         <ListView

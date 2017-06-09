@@ -20,7 +20,6 @@ import com.android.clean.db.CleanDBHelper;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/4/14.
  */
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
