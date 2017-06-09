@@ -71,6 +71,7 @@ public class FileListActivity extends MBaseActivity {
         file_fl = (FrameLayout) findViewById(R.id.file_fl);
 
     }
+
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(Tag_file_1, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
@@ -79,6 +80,7 @@ public class FileListActivity extends MBaseActivity {
             ll_ad.addView(nativeView);
         }
     }
+
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FILE_1, 0) == 1) {
             mHandler.postDelayed(new Runnable() {
@@ -91,6 +93,7 @@ public class FileListActivity extends MBaseActivity {
             addAd();
         }
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,8 +121,6 @@ public class FileListActivity extends MBaseActivity {
         adapter.notifyDataSetChanged();
 
     }
-
-
 
 
     private void initData() {
@@ -185,6 +186,9 @@ public class FileListActivity extends MBaseActivity {
                     break;
                 case R.id.file_button_clean:
                     ArrayList<JunkInfo> deleteList = new ArrayList<>();
+                    if (fileList == null) {
+                        break;
+                    }
                     for (JunkInfo info : fileList) {
                         if (info.isChecked) {
                             deleteList.add(info);

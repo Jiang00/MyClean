@@ -794,9 +794,11 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
                     initSideData();
                     adapter.notifyDataSetChanged();
+                    AdUtil.track("主界面", "充电屏保引导", "打开了", 1);
                     break;
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);
+                    AdUtil.track("主界面", "充电屏保引导", "叉掉了", 1);
                     break;
             }
         }
@@ -905,6 +907,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             return;
         }
         if (main_battery.getVisibility() == View.VISIBLE) {
+            AdUtil.track("主界面", "充电屏保引导", "返回键退出", 1);
             main_battery.setVisibility(View.GONE);
             return;
         }

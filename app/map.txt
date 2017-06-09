@@ -27672,38 +27672,38 @@ com.android.clean.core.CleanManager -> com.android.clean.core.a:
     176:208:void loadAppRam(com.android.clean.callback.AppRamCallBack) -> a
     211:240:void loadUninstallResidual(com.android.clean.callback.UninstallResidualCallback) -> a
     244:282:void loadAppCache(com.android.clean.callback.AppCacheCallBack) -> a
-    285:306:void loadApkFile(com.android.clean.callback.FileInfoCallBack) -> a
-    309:330:void loadLogFile(com.android.clean.callback.FileInfoCallBack) -> b
-    336:423:void loadSystemCache(com.android.clean.callback.SystemCacheCallBack) -> a
-    427:459:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
-    464:475:java.util.List getUsageStatistics(int) -> a
-    480:500:void clearSystemCache() -> c
-    504:521:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    526:541:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
-    544:551:void clearNotificationInfo() -> d
-    554:564:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
-    567:573:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
-    577:577:long getCacheSize() -> e
-    585:585:long getApkSize() -> f
-    589:589:long getUnloadSize() -> g
-    593:593:long getLogSize() -> h
-    597:597:long getDataSize() -> i
-    601:601:long getRamSize() -> j
-    605:605:java.util.ArrayList getAppRamList() -> k
-    609:609:java.util.ArrayList getUninstallResiduals() -> l
-    613:613:java.util.ArrayList getAppCaches() -> m
-    617:617:java.util.ArrayList getSystemCaches() -> n
-    621:621:java.util.ArrayList getAppList() -> o
-    625:625:java.util.ArrayList getApkFiles() -> p
-    629:629:java.util.ArrayList getLogFiles() -> q
-    634:642:void removeRam(com.android.clean.entity.JunkInfo) -> a
-    645:650:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> b
-    653:657:void clearRam() -> r
-    660:665:void removeAppCache(com.android.clean.entity.JunkInfo) -> c
-    668:672:void removeAppList(com.android.clean.entity.JunkInfo) -> d
-    675:680:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> e
-    683:688:void removeApkFiles(com.android.clean.entity.JunkInfo) -> f
-    691:696:void removeAppLog(com.android.clean.entity.JunkInfo) -> g
+    285:309:void loadApkFile(com.android.clean.callback.FileInfoCallBack) -> a
+    312:336:void loadLogFile(com.android.clean.callback.FileInfoCallBack) -> b
+    342:429:void loadSystemCache(com.android.clean.callback.SystemCacheCallBack) -> a
+    433:465:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
+    470:481:java.util.List getUsageStatistics(int) -> a
+    486:506:void clearSystemCache() -> c
+    510:527:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
+    532:547:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
+    550:557:void clearNotificationInfo() -> d
+    560:570:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
+    573:579:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
+    583:583:long getCacheSize() -> e
+    591:591:long getApkSize() -> f
+    595:595:long getUnloadSize() -> g
+    599:599:long getLogSize() -> h
+    603:603:long getDataSize() -> i
+    607:607:long getRamSize() -> j
+    611:611:java.util.ArrayList getAppRamList() -> k
+    615:615:java.util.ArrayList getUninstallResiduals() -> l
+    619:619:java.util.ArrayList getAppCaches() -> m
+    623:623:java.util.ArrayList getSystemCaches() -> n
+    627:627:java.util.ArrayList getAppList() -> o
+    631:631:java.util.ArrayList getApkFiles() -> p
+    635:635:java.util.ArrayList getLogFiles() -> q
+    640:648:void removeRam(com.android.clean.entity.JunkInfo) -> a
+    651:656:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> b
+    659:663:void clearRam() -> r
+    666:671:void removeAppCache(com.android.clean.entity.JunkInfo) -> c
+    674:678:void removeAppList(com.android.clean.entity.JunkInfo) -> d
+    681:686:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> e
+    689:694:void removeApkFiles(com.android.clean.entity.JunkInfo) -> f
+    697:702:void removeAppLog(com.android.clean.entity.JunkInfo) -> g
     60:60:void access$000(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.android.clean.core.CleanManager$1 -> com.android.clean.core.a$1:
     com.android.clean.core.CleanManager this$0 -> a
@@ -27733,18 +27733,18 @@ com.android.clean.core.CleanManager$7 -> com.android.clean.core.a$7:
     android.content.pm.PackageInfo val$packageInfo -> a
     java.util.concurrent.CountDownLatch val$countDownLatch -> b
     com.android.clean.core.CleanManager this$0 -> c
-    394:394:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
-    398:399:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
+    400:400:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
+    404:405:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
 com.android.clean.core.CleanManager$8 -> com.android.clean.core.a$8:
     android.content.pm.PackageInfo val$packageInfo -> a
     java.util.concurrent.CountDownLatch val$countDownLatch -> b
     com.android.clean.core.CleanManager this$0 -> c
-    403:403:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
-    407:408:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
+    409:409:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
+    413:414:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
 com.android.clean.core.CleanManager$9 -> com.android.clean.core.a$9:
     com.android.clean.core.CleanManager this$0 -> a
-    488:488:void <init>(com.android.clean.core.CleanManager) -> <init>
-    492:493:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
+    494:494:void <init>(com.android.clean.core.CleanManager) -> <init>
+    498:499:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
 com.android.clean.core.CleanService -> com.android.clean.core.CleanService:
     android.os.Looper mServiceLooper -> a
     com.android.clean.core.CleanService$ServiceHandler mServiceHandler -> b
@@ -27836,11 +27836,11 @@ com.android.clean.filemanager.FileCategoryHelper -> com.android.clean.filemanage
     167:194:java.lang.String buildSelectionByCategory(com.android.clean.filemanager.FileCategoryHelper$FileCategory) -> c
     199:222:android.net.Uri getContentUriByCategory(com.android.clean.filemanager.FileCategoryHelper$FileCategory) -> b
     226:241:java.lang.String buildSortOrder(com.android.clean.filemanager.FileSortHelper$SortMethod) -> a
-    245:257:android.database.Cursor query(com.android.clean.filemanager.FileCategoryHelper$FileCategory,com.android.clean.filemanager.FileSortHelper$SortMethod) -> a
-    262:284:void refreshCategoryInfo() -> a
-    287:303:boolean refreshMediaCategory(com.android.clean.filemanager.FileCategoryHelper$FileCategory,android.net.Uri) -> a
-    307:333:com.android.clean.filemanager.FileCategoryHelper$FileCategory getCategoryFromPath(java.lang.String) -> a
-    337:341:boolean matchExts(java.lang.String,java.lang.String[]) -> a
+    245:260:android.database.Cursor query(com.android.clean.filemanager.FileCategoryHelper$FileCategory,com.android.clean.filemanager.FileSortHelper$SortMethod) -> a
+    266:288:void refreshCategoryInfo() -> a
+    291:307:boolean refreshMediaCategory(com.android.clean.filemanager.FileCategoryHelper$FileCategory,android.net.Uri) -> a
+    311:337:com.android.clean.filemanager.FileCategoryHelper$FileCategory getCategoryFromPath(java.lang.String) -> a
+    341:345:boolean matchExts(java.lang.String,java.lang.String[]) -> a
     50:53:void <clinit>() -> <clinit>
 com.android.clean.filemanager.FileCategoryHelper$1 -> com.android.clean.filemanager.FileCategoryHelper$1:
     int[] $SwitchMap$com$android$clean$filemanager$FileCategoryHelper$FileCategory -> a
@@ -30294,15 +30294,15 @@ com.froumobic.clean.junk.mactivity.FileListActivity -> com.froumobic.clean.junk.
     java.lang.String Tag_file_1 -> s
     android.view.View nativeView -> t
     android.view.View$OnClickListener clickListener -> j
-    36:179:void <init>() -> <init>
+    36:180:void <init>() -> <init>
     62:73:void findId() -> a
-    75:81:void addAd() -> b
-    83:93:void loadAd() -> c
-    96:120:void onCreate(android.os.Bundle) -> onCreate
-    126:172:void initData() -> d
-    175:177:void setListenet() -> e
-    200:256:void showDia(java.util.ArrayList) -> a
-    260:262:void onBackPressed() -> onBackPressed
+    76:82:void addAd() -> b
+    85:95:void loadAd() -> c
+    99:123:void onCreate(android.os.Bundle) -> onCreate
+    127:173:void initData() -> d
+    176:178:void setListenet() -> e
+    204:260:void showDia(java.util.ArrayList) -> a
+    264:266:void onBackPressed() -> onBackPressed
     36:36:java.lang.String access$000(com.froumobic.clean.junk.mactivity.FileListActivity) -> a
     36:36:com.android.clean.filemanager.FileCategoryHelper$FileCategory access$102(com.froumobic.clean.junk.mactivity.FileListActivity,com.android.clean.filemanager.FileCategoryHelper$FileCategory) -> a
     36:36:com.android.clean.filemanager.FileCategoryHelper$FileCategory access$100(com.froumobic.clean.junk.mactivity.FileListActivity) -> b
@@ -30314,37 +30314,37 @@ com.froumobic.clean.junk.mactivity.FileListActivity -> com.froumobic.clean.junk.
     36:36:android.support.v7.app.AlertDialog access$700(com.froumobic.clean.junk.mactivity.FileListActivity) -> g
 com.froumobic.clean.junk.mactivity.FileListActivity$1 -> com.froumobic.clean.junk.mactivity.FileListActivity$1:
     com.froumobic.clean.junk.mactivity.FileListActivity this$0 -> a
-    84:84:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity) -> <init>
-    87:88:void run() -> run
+    86:86:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity) -> <init>
+    89:90:void run() -> run
 com.froumobic.clean.junk.mactivity.FileListActivity$2 -> com.froumobic.clean.junk.mactivity.FileListActivity$2:
     com.froumobic.clean.junk.mactivity.FileListActivity this$0 -> a
-    126:126:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity) -> <init>
-    129:170:void run() -> run
+    127:127:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity) -> <init>
+    130:171:void run() -> run
 com.froumobic.clean.junk.mactivity.FileListActivity$2$1 -> com.froumobic.clean.junk.mactivity.FileListActivity$2$1:
     com.froumobic.clean.junk.mactivity.FileListActivity$2 this$1 -> a
-    153:153:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity$2) -> <init>
-    156:159:void run() -> run
+    154:154:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity$2) -> <init>
+    157:160:void run() -> run
 com.froumobic.clean.junk.mactivity.FileListActivity$2$2 -> com.froumobic.clean.junk.mactivity.FileListActivity$2$2:
     com.froumobic.clean.junk.mactivity.FileListActivity$2 this$1 -> a
-    162:162:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity$2) -> <init>
-    165:167:void run() -> run
+    163:163:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity$2) -> <init>
+    166:168:void run() -> run
 com.froumobic.clean.junk.mactivity.FileListActivity$3 -> com.froumobic.clean.junk.mactivity.FileListActivity$3:
     com.froumobic.clean.junk.mactivity.FileListActivity this$0 -> a
-    179:179:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity) -> <init>
-    182:196:void onClick(android.view.View) -> onClick
+    180:180:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity) -> <init>
+    183:200:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.FileListActivity$4 -> com.froumobic.clean.junk.mactivity.FileListActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.froumobic.clean.junk.mactivity.FileListActivity this$0 -> b
-    220:220:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity,java.util.ArrayList) -> <init>
-    223:248:void onClick(android.view.View) -> onClick
+    224:224:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity,java.util.ArrayList) -> <init>
+    227:252:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.FileListActivity$4$1 -> com.froumobic.clean.junk.mactivity.FileListActivity$4$1:
     com.froumobic.clean.junk.mactivity.FileListActivity$4 this$1 -> a
-    229:229:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity$4) -> <init>
-    232:239:void run() -> run
+    233:233:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity$4) -> <init>
+    236:243:void run() -> run
 com.froumobic.clean.junk.mactivity.FileListActivity$5 -> com.froumobic.clean.junk.mactivity.FileListActivity$5:
     com.froumobic.clean.junk.mactivity.FileListActivity this$0 -> a
-    250:250:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity) -> <init>
-    253:254:void onClick(android.view.View) -> onClick
+    254:254:void <init>(com.froumobic.clean.junk.mactivity.FileListActivity) -> <init>
+    257:258:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.GBoostActivity -> com.froumobic.clean.junk.mactivity.GBoostActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -30832,17 +30832,17 @@ com.froumobic.clean.junk.mactivity.LoadingActivity -> com.froumobic.clean.junk.m
     android.os.Handler myHandler -> a
     android.widget.TextView tv_tiaoguo -> b
     java.lang.Runnable runnable1 -> c
-    28:59:void <init>() -> <init>
+    28:58:void <init>() -> <init>
     34:37:void findId() -> a
-    42:57:void onCreate(android.os.Bundle) -> onCreate
-    132:133:void onStop() -> onStop
-    137:139:void onDestroy() -> onDestroy
-    143:145:void onResume() -> onResume
-    149:150:void onBackPressed() -> onBackPressed
+    43:56:void onCreate(android.os.Bundle) -> onCreate
+    131:132:void onStop() -> onStop
+    136:138:void onDestroy() -> onDestroy
+    142:144:void onResume() -> onResume
+    148:149:void onBackPressed() -> onBackPressed
 com.froumobic.clean.junk.mactivity.LoadingActivity$1 -> com.froumobic.clean.junk.mactivity.LoadingActivity$1:
     com.froumobic.clean.junk.mactivity.LoadingActivity this$0 -> a
-    59:59:void <init>(com.froumobic.clean.junk.mactivity.LoadingActivity) -> <init>
-    64:126:void run() -> run
+    58:58:void <init>(com.froumobic.clean.junk.mactivity.LoadingActivity) -> <init>
+    63:125:void run() -> run
 com.froumobic.clean.junk.mactivity.MBaseActivity -> com.froumobic.clean.junk.mactivity.MBaseActivity:
     android.widget.Toast toast -> a
     android.view.View view_title_bar -> P
@@ -30962,18 +30962,18 @@ com.froumobic.clean.junk.mactivity.MainActivity -> com.froumobic.clean.junk.mact
     538:545:void setRotateGone() -> e
     549:550:void openDrawer() -> f
     561:613:void loadFullAd() -> b
-    807:873:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    877:880:void onRestart() -> onRestart
-    884:885:void onPause() -> onPause
-    889:894:void onResume() -> onResume
-    898:899:void onDestroy() -> onDestroy
-    902:919:void onBackPressed() -> onBackPressed
-    922:942:void adDelete() -> g
-    945:994:void showExitDialog() -> h
-    999:999:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    1003:1003:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    1007:1007:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    1012:1012:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    809:875:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    879:882:void onRestart() -> onRestart
+    886:887:void onPause() -> onPause
+    891:896:void onResume() -> onResume
+    900:901:void onDestroy() -> onDestroy
+    904:922:void onBackPressed() -> onBackPressed
+    925:945:void adDelete() -> g
+    948:997:void showExitDialog() -> h
+    1002:1002:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    1006:1006:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    1010:1010:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    1015:1015:void onDrawerStateChanged(int) -> onDrawerStateChanged
     68:68:com.froumobic.clean.junk.presenter.MainPresenter access$000(com.froumobic.clean.junk.mactivity.MainActivity) -> a
     68:68:java.util.ArrayList access$100(com.froumobic.clean.junk.mactivity.MainActivity) -> b
     68:68:android.support.v4.view.ViewPager access$200(com.froumobic.clean.junk.mactivity.MainActivity) -> c
@@ -31014,7 +31014,7 @@ com.froumobic.clean.junk.mactivity.MainActivity$13$1 -> com.froumobic.clean.junk
 com.froumobic.clean.junk.mactivity.MainActivity$14 -> com.froumobic.clean.junk.mactivity.MainActivity$6:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
     662:662:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    666:802:void onClick(android.view.View) -> onClick
+    666:804:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$14$1 -> com.froumobic.clean.junk.mactivity.MainActivity$6$1:
     com.froumobic.clean.junk.mactivity.MainActivity$14 this$1 -> a
     706:706:void <init>(com.froumobic.clean.junk.mactivity.MainActivity$14) -> <init>
@@ -31032,20 +31032,20 @@ com.froumobic.clean.junk.mactivity.MainActivity$14$1$1$1 -> com.froumobic.clean.
     718:719:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$15 -> com.froumobic.clean.junk.mactivity.MainActivity$7:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    807:807:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    810:811:void run() -> run
+    809:809:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    812:813:void run() -> run
 com.froumobic.clean.junk.mactivity.MainActivity$16 -> com.froumobic.clean.junk.mactivity.MainActivity$8:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    933:933:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    936:938:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
+    936:936:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    939:941:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
 com.froumobic.clean.junk.mactivity.MainActivity$17 -> com.froumobic.clean.junk.mactivity.MainActivity$9:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    956:956:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    959:961:void onClick(android.view.View) -> onClick
+    959:959:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    962:964:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$18 -> com.froumobic.clean.junk.mactivity.MainActivity$10:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
-    963:963:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
-    966:967:void onClick(android.view.View) -> onClick
+    966:966:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
+    969:970:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MainActivity$2 -> com.froumobic.clean.junk.mactivity.MainActivity$11:
     com.froumobic.clean.junk.mactivity.MainActivity this$0 -> a
     277:277:void <init>(com.froumobic.clean.junk.mactivity.MainActivity) -> <init>
@@ -31149,10 +31149,10 @@ com.froumobic.clean.junk.mactivity.MessageActivity$3 -> com.froumobic.clean.junk
     144:145:void run() -> run
 com.froumobic.clean.junk.mactivity.MyApplication -> com.froumobic.clean.junk.mactivity.MyApplication:
     android.os.HandlerThread mThread -> a
-    26:26:void <init>() -> <init>
-    34:37:void attachBaseContext(android.content.Context) -> attachBaseContext
-    41:87:void onCreate() -> onCreate
-    92:93:void onTerminate() -> onTerminate
+    27:27:void <init>() -> <init>
+    35:38:void attachBaseContext(android.content.Context) -> attachBaseContext
+    42:89:void onCreate() -> onCreate
+    94:95:void onTerminate() -> onTerminate
 com.froumobic.clean.junk.mactivity.NotifiActivity -> com.froumobic.clean.junk.mactivity.NotifiActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
