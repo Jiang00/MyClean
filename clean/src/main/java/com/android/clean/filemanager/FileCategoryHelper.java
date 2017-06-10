@@ -254,7 +254,12 @@ public class FileCategoryHelper {
         String[] columns = new String[]{
                 FileColumns._ID, FileColumns.DATA, FileColumns.SIZE, FileColumns.DATE_MODIFIED
         };
-        return mContext.getContentResolver().query(uri, columns, selection, null, sortOrder);
+        try {
+            return mContext.getContentResolver().query(uri, columns, selection, null, sortOrder);
+        } catch (Exception e) {
+            return null;
+        }
+
     }
 
     public void refreshCategoryInfo() {

@@ -12,6 +12,7 @@ import com.android.clean.core.CleanManager;
 import com.android.clean.notification.NotificationMonitorService;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
+import com.android.client.AndroidSdk;
 import com.eos.kpa.DaemonClient;
 import com.eos.manager.App;
 import com.eos.module.charge.saver.Util.Constants;
@@ -58,7 +59,7 @@ public class MyApplication extends App {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        AndroidSdk.onCreate(this);
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/
