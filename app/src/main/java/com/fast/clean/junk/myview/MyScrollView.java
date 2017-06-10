@@ -68,14 +68,14 @@ public class MyScrollView extends NestedScrollView implements Pullable {
     }
 
     public boolean canPullDown() {
-        if (SadSuccess) {
-            return false;
-        }
-        if (getScrollY() == 0)
-            return true;
-        else {
-            return false;
-        }
+//        if (SadSuccess) {
+//            return false;
+//        }
+//        if (getScrollY() == 0)
+//            return true;
+//        else {
+        return false;
+//        }
     }
 
     boolean XadSuccess;

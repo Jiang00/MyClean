@@ -68,10 +68,12 @@ public class BaseActivity extends AppCompatActivity {
         onDestroyed = true;
     }
 
+    View view_title_bar;
+
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
-        View view_title_bar = findViewById(R.id.view_title_bar);
+        view_title_bar = findViewById(R.id.view_title_bar);
         ViewGroup.LayoutParams linearParams = view_title_bar.getLayoutParams();
         linearParams.height = getStatusHeight(this);
         view_title_bar.setLayoutParams(linearParams);

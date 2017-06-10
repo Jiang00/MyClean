@@ -6,6 +6,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
 
+import com.android.clean.core.CleanManager;
 import com.android.clean.util.Util;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.view.MainView;
@@ -42,7 +43,7 @@ public class MainPresenter extends BasePresenter<MainView> {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                reStart();
+
                 //cpu温度
                 RCpuTempReader.getCPUTemp(new RCpuTempReader.TemperatureResultCallback() {
                     @Override
@@ -57,6 +58,7 @@ public class MainPresenter extends BasePresenter<MainView> {
                 });
             }
         }).start();
+        reStart(false);
         setRotateGone();
         iView.onClick();
 
@@ -68,22 +70,33 @@ public class MainPresenter extends BasePresenter<MainView> {
         this.context = context;
     }
 
-    public void reStart() {
-        //SD卡储存
-        long sd_all = MemoryManager.getPhoneAllSize();
-        long sd_kongxian = MemoryManager.getPhoneAllFreeSize();
-        long sd_shiyong = sd_all - sd_kongxian;
-        int sd_me = (int) (sd_shiyong * 100 / sd_all);
-        String sd_size = Util.convertStorage(sd_shiyong, true) + "/" + Util.convertStorage(sd_all, true);
-        iView.initSd(sd_me, sd_size, sd_kongxian);
-        //ram使用
-        long ram_kongxian = MemoryManager.getPhoneFreeRamMemory(context);
-        long ram_all = MemoryManager.getPhoneTotalRamMemory();
-        long ram_shiyong = ram_all - ram_kongxian;
-        int memo = (int) (ram_shiyong * 100 / ram_all);
-        String ram_size = Util.convertStorage(ram_shiyong, true) + "/" + Util.convertStorage(ram_all, true);
-        iView.initRam(memo, ram_size);
+    public void reStart(boolean isReStart) {
+        startFenshu(isReStart);
         setRotateGone();
+    }
+
+    public void startFenshu(boolean isReStart) {
+        int function = 100;
+        if (CleanManager.getInstance(context).getSystemCaches().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getAppCaches().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getLogFiles().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getUninstallResiduals().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getApkFiles().size() != 0) {
+            function -= 6;
+        }
+        if (CleanManager.getInstance(context).getAppRamList().size() != 0) {
+            function -= Util.getMemory(context) * 0.7;
+        }
+        iView.initQiu(function, isReStart);
+
     }
 
 
