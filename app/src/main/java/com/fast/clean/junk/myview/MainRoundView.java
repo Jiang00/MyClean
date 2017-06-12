@@ -75,7 +75,7 @@ public class MainRoundView extends View {
         circlePoint.setStrokeWidth(lineWidth);
         circlePoint.setStyle(Paint.Style.STROKE);
         mMatrix = new Matrix();
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.battery_cha);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.dian);
     }
 
     @Override

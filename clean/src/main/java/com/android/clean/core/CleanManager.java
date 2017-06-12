@@ -321,7 +321,7 @@ public class CleanManager {
             do {
                 long size = 0;
                 try {
-                    size =   Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
+                    size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
                 } catch (Exception e) {
                     continue;
                 }

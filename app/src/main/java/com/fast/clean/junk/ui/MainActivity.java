@@ -335,6 +335,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 ll_ad.addView(nativeView);
                 ll_ad.setGravity(Gravity.CENTER_HORIZONTAL);
                 ll_ad.setVisibility(View.VISIBLE);
+                Animation animation = AnimationUtils.loadAnimation(this, R.anim.tran_left_in);
+                ll_ad.startAnimation(animation);
                 main_scroll_view.setScrollY(0);
 //                main_scroll_view.fullScroll(ScrollView.FOCUS_UP);
 

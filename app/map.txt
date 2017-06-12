@@ -27891,31 +27891,31 @@ com.android.clean.core.CleanManager -> com.android.clean.core.a:
     475:486:java.util.List getUsageStatistics(int) -> a
     491:511:void clearSystemCache() -> c
     515:532:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    537:552:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
-    555:562:void clearNotificationInfo() -> d
-    565:575:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
-    578:584:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
-    588:588:long getCacheSize() -> e
-    596:596:long getApkSize() -> f
-    600:600:long getUnloadSize() -> g
-    604:604:long getLogSize() -> h
-    608:608:long getDataSize() -> i
-    612:612:long getRamSize() -> j
-    616:616:java.util.ArrayList getAppRamList() -> k
-    620:620:java.util.ArrayList getUninstallResiduals() -> l
-    624:624:java.util.ArrayList getAppCaches() -> m
-    628:628:java.util.ArrayList getSystemCaches() -> n
-    632:632:java.util.ArrayList getAppList() -> o
-    636:636:java.util.ArrayList getApkFiles() -> p
-    640:640:java.util.ArrayList getLogFiles() -> q
-    645:653:void removeRam(com.android.clean.entity.JunkInfo) -> a
-    656:661:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> b
-    664:668:void clearRam() -> r
-    671:676:void removeAppCache(com.android.clean.entity.JunkInfo) -> c
-    679:683:void removeAppList(com.android.clean.entity.JunkInfo) -> d
-    686:691:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> e
-    694:699:void removeApkFiles(com.android.clean.entity.JunkInfo) -> f
-    702:707:void removeAppLog(com.android.clean.entity.JunkInfo) -> g
+    537:553:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
+    556:563:void clearNotificationInfo() -> d
+    566:576:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
+    579:585:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
+    589:589:long getCacheSize() -> e
+    597:597:long getApkSize() -> f
+    601:601:long getUnloadSize() -> g
+    605:605:long getLogSize() -> h
+    609:609:long getDataSize() -> i
+    613:613:long getRamSize() -> j
+    617:617:java.util.ArrayList getAppRamList() -> k
+    621:621:java.util.ArrayList getUninstallResiduals() -> l
+    625:625:java.util.ArrayList getAppCaches() -> m
+    629:629:java.util.ArrayList getSystemCaches() -> n
+    633:633:java.util.ArrayList getAppList() -> o
+    637:637:java.util.ArrayList getApkFiles() -> p
+    641:641:java.util.ArrayList getLogFiles() -> q
+    646:654:void removeRam(com.android.clean.entity.JunkInfo) -> a
+    657:662:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> b
+    665:669:void clearRam() -> r
+    672:677:void removeAppCache(com.android.clean.entity.JunkInfo) -> c
+    680:684:void removeAppList(com.android.clean.entity.JunkInfo) -> d
+    687:692:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> e
+    695:700:void removeApkFiles(com.android.clean.entity.JunkInfo) -> f
+    703:708:void removeAppLog(com.android.clean.entity.JunkInfo) -> g
     60:60:void access$000(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.android.clean.core.CleanManager$1 -> com.android.clean.core.a$1:
     com.android.clean.core.CleanManager this$0 -> a
@@ -29845,24 +29845,24 @@ com.fast.clean.junk.aservice.NotificationService -> com.fast.clean.junk.aservice
     long lastTimeStamp -> B
     com.android.clean.notification.NotificationCallBack notificationCallBack -> b
     java.lang.Runnable runnableW -> C
-    51:231:void <init>() -> <init>
+    51:232:void <init>() -> <init>
     75:75:android.os.IBinder onBind(android.content.Intent) -> onBind
     80:99:void onCreate() -> onCreate
     127:132:android.graphics.Canvas getCanvas() -> a
     136:159:void initIntent() -> b
     164:171:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     176:178:void onstart() -> c
-    186:229:void changZhuTongzhi() -> d
-    264:398:void update() -> e
-    401:417:void tonghzi_two_day() -> f
-    421:422:long getTotalRxBytes() -> g
-    432:447:void tonghzi_Ram() -> h
-    451:466:void tonghzi_cooling() -> i
-    470:486:void tonghzi_junk() -> j
-    491:507:void tonghzi_gboost() -> k
-    511:519:android.graphics.Bitmap screenShot(android.view.View,int) -> a
-    523:542:void tonghzi_notifi() -> l
-    548:554:void onDestroy() -> onDestroy
+    187:230:void changZhuTongzhi() -> d
+    265:399:void update() -> e
+    403:419:void tonghzi_two_day() -> f
+    424:427:long getTotalRxBytes() -> g
+    439:454:void tonghzi_Ram() -> h
+    458:473:void tonghzi_cooling() -> i
+    477:493:void tonghzi_junk() -> j
+    498:514:void tonghzi_gboost() -> k
+    518:526:android.graphics.Bitmap screenShot(android.view.View,int) -> a
+    531:550:void tonghzi_notifi() -> l
+    556:562:void onDestroy() -> onDestroy
     51:51:void access$000(com.fast.clean.junk.aservice.NotificationService) -> a
     51:51:android.widget.RemoteViews access$100(com.fast.clean.junk.aservice.NotificationService) -> b
     51:51:android.app.Notification access$200(com.fast.clean.junk.aservice.NotificationService) -> c
@@ -29890,13 +29890,13 @@ com.fast.clean.junk.aservice.NotificationService$1 -> com.fast.clean.junk.aservi
     104:122:void notificationChanged(java.util.ArrayList) -> a
 com.fast.clean.junk.aservice.NotificationService$2 -> com.fast.clean.junk.aservice.NotificationService$2:
     com.fast.clean.junk.aservice.NotificationService this$0 -> a
-    231:231:void <init>(com.fast.clean.junk.aservice.NotificationService) -> <init>
-    233:258:void run() -> run
+    232:232:void <init>(com.fast.clean.junk.aservice.NotificationService) -> <init>
+    234:259:void run() -> run
 com.fast.clean.junk.aservice.NotificationService$3 -> com.fast.clean.junk.aservice.NotificationService$3:
     int val$memory -> a
     com.fast.clean.junk.aservice.NotificationService this$0 -> b
-    266:266:void <init>(com.fast.clean.junk.aservice.NotificationService,int) -> <init>
-    269:288:void callbackResult(com.fast.clean.junk.util.RCpuTempReader$ResultCpuTemperature) -> a
+    267:267:void <init>(com.fast.clean.junk.aservice.NotificationService,int) -> <init>
+    270:289:void callbackResult(com.fast.clean.junk.util.RCpuTempReader$ResultCpuTemperature) -> a
 com.fast.clean.junk.broadcast.UnloadBroadcast -> com.fast.clean.junk.broadcast.UnloadBroadcast:
     20:20:void <init>() -> <init>
     31:52:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -31623,7 +31623,7 @@ com.fast.clean.junk.ui.MainActivity -> com.fast.clean.junk.ui.MainActivity:
     java.lang.Runnable fullAdRunnale -> N
     com.fast.clean.junk.myview.PullToRefreshLayout$OnRefreshListener refreshListener -> O
     android.view.View$OnClickListener onClickListener -> P
-    55:445:void <init>() -> <init>
+    55:447:void <init>() -> <init>
     105:146:void findId() -> a
     150:166:void onCreate(android.os.Bundle) -> onCreate
     172:193:void onClick() -> c
@@ -31634,19 +31634,19 @@ com.fast.clean.junk.ui.MainActivity -> com.fast.clean.junk.ui.MainActivity:
     273:302:void setColor(int,boolean) -> b
     307:308:void setRotateGone() -> e
     312:313:void openDrawer() -> f
-    324:389:void loadFullAd() -> b
-    600:624:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    628:631:void onRestart() -> onRestart
-    635:640:void onPause() -> onPause
-    644:651:void onResume() -> onResume
-    655:659:void onDestroy() -> onDestroy
-    662:680:void onBackPressed() -> onBackPressed
-    683:705:void adDelete() -> g
-    725:774:void showExitDialog() -> h
-    779:779:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    783:784:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    788:789:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    794:794:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    324:391:void loadFullAd() -> b
+    602:626:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    630:633:void onRestart() -> onRestart
+    637:642:void onPause() -> onPause
+    646:653:void onResume() -> onResume
+    657:661:void onDestroy() -> onDestroy
+    664:682:void onBackPressed() -> onBackPressed
+    685:707:void adDelete() -> g
+    727:776:void showExitDialog() -> h
+    781:781:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    785:786:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    790:791:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    796:796:void onDrawerStateChanged(int) -> onDrawerStateChanged
     55:55:void access$000(com.fast.clean.junk.ui.MainActivity) -> a
     55:55:java.lang.String access$100(com.fast.clean.junk.ui.MainActivity) -> b
     55:55:com.fast.clean.junk.presenter.MainPresenter access$200(com.fast.clean.junk.ui.MainActivity) -> c
@@ -31671,49 +31671,49 @@ com.fast.clean.junk.ui.MainActivity$2 -> com.fast.clean.junk.ui.MainActivity$2:
     258:259:void run() -> run
 com.fast.clean.junk.ui.MainActivity$3 -> com.fast.clean.junk.ui.MainActivity$3:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    391:391:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    394:395:void run() -> run
+    393:393:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    396:397:void run() -> run
 com.fast.clean.junk.ui.MainActivity$4 -> com.fast.clean.junk.ui.MainActivity$4:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    399:399:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    403:403:void onRefresh(com.fast.clean.junk.myview.PullToRefreshLayout) -> a
-    408:431:void onLoadMore(com.fast.clean.junk.myview.PullToRefreshLayout) -> b
+    401:401:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    405:405:void onRefresh(com.fast.clean.junk.myview.PullToRefreshLayout) -> a
+    410:433:void onLoadMore(com.fast.clean.junk.myview.PullToRefreshLayout) -> b
 com.fast.clean.junk.ui.MainActivity$4$1 -> com.fast.clean.junk.ui.MainActivity$4$1:
     com.fast.clean.junk.ui.MainActivity$4 this$1 -> a
-    409:409:void <init>(com.fast.clean.junk.ui.MainActivity$4) -> <init>
-    412:424:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    428:429:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    411:411:void <init>(com.fast.clean.junk.ui.MainActivity$4) -> <init>
+    414:426:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    430:431:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.fast.clean.junk.ui.MainActivity$5 -> com.fast.clean.junk.ui.MainActivity$5:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    445:445:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    449:595:void onClick(android.view.View) -> onClick
+    447:447:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    451:597:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MainActivity$5$1 -> com.fast.clean.junk.ui.MainActivity$5$1:
     com.fast.clean.junk.ui.MainActivity$5 this$1 -> a
-    497:497:void <init>(com.fast.clean.junk.ui.MainActivity$5) -> <init>
-    500:523:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    528:528:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    533:533:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    499:499:void <init>(com.fast.clean.junk.ui.MainActivity$5) -> <init>
+    502:525:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    530:530:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    535:535:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.fast.clean.junk.ui.MainActivity$5$1$1 -> com.fast.clean.junk.ui.MainActivity$5$1$1:
     com.fast.clean.junk.ui.MainActivity$5$1 this$2 -> a
-    500:500:void <init>(com.fast.clean.junk.ui.MainActivity$5$1) -> <init>
-    503:514:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    518:521:void onNativeAdLoadFails() -> onNativeAdLoadFails
+    502:502:void <init>(com.fast.clean.junk.ui.MainActivity$5$1) -> <init>
+    505:516:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    520:523:void onNativeAdLoadFails() -> onNativeAdLoadFails
 com.fast.clean.junk.ui.MainActivity$5$1$1$1 -> com.fast.clean.junk.ui.MainActivity$5$1$1$1:
     com.fast.clean.junk.ui.MainActivity$5$1$1 this$3 -> a
-    506:506:void <init>(com.fast.clean.junk.ui.MainActivity$5$1$1) -> <init>
-    509:510:void onClick(android.view.View) -> onClick
+    508:508:void <init>(com.fast.clean.junk.ui.MainActivity$5$1$1) -> <init>
+    511:512:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MainActivity$6 -> com.fast.clean.junk.ui.MainActivity$6:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    695:695:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    698:700:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
+    697:697:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    700:702:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> a
 com.fast.clean.junk.ui.MainActivity$7 -> com.fast.clean.junk.ui.MainActivity$7:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    736:736:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    739:741:void onClick(android.view.View) -> onClick
+    738:738:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    741:743:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MainActivity$8 -> com.fast.clean.junk.ui.MainActivity$8:
     com.fast.clean.junk.ui.MainActivity this$0 -> a
-    743:743:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
-    746:747:void onClick(android.view.View) -> onClick
+    745:745:void <init>(com.fast.clean.junk.ui.MainActivity) -> <init>
+    748:749:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.MessageActivity -> com.fast.clean.junk.ui.MessageActivity:
     android.widget.TextView message_model -> a
     android.widget.TextView message_android_version -> b
