@@ -321,7 +321,7 @@ public class CleanManager {
             do {
                 long size = 0;
                 try {
-                    size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
+                    size =   Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
                 } catch (Exception e) {
                     continue;
                 }
@@ -536,11 +536,12 @@ public class CleanManager {
     public void notificationChanged(NotificationInfo notifiInfo, boolean isAdd) {
         if (notificationList == null) {
             notificationList = new ArrayList<>();
-        }
-        for (NotificationInfo info : notificationList) {
-            if (TextUtils.equals(info.pkg, notifiInfo.pkg) && info.id == notifiInfo.id) {
-                notificationList.remove(info);
-                break;
+        } else {
+            for (NotificationInfo info : notificationList) {
+                if (TextUtils.equals(info.pkg, notifiInfo.pkg) && info.id == notifiInfo.id) {
+                    notificationList.remove(info);
+                    break;
+                }
             }
         }
         if (isAdd) {

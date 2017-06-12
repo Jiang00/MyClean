@@ -176,6 +176,7 @@ public class NotificationService extends Service {
         myHandler.removeCallbacks(runnableW);
         myHandler.postAtTime(runnableW, 2000);
     }
+
     private void onCancle() {
         if (mNotifyManager != null)
             mNotifyManager.cancel(102);
@@ -396,6 +397,7 @@ public class NotificationService extends Service {
         }
 
     }
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_two_day() {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
@@ -418,8 +420,13 @@ public class NotificationService extends Service {
 
     private long getTotalRxBytes() {
         // 得到整个手机的流量值
-        return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
-                : (TrafficStats.getTotalRxBytes());//
+        try {
+            return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
+                    : (TrafficStats.getTotalRxBytes());//
+        } catch (Exception e) {
+            return 0;
+        }
+
         // // 得到当前应用的流量值
         // return TrafficStats.getUidRxBytes(getApplicationInfo().uid) ==
         // TrafficStats.UNSUPPORTED ? 0 : (TrafficStats
@@ -518,6 +525,7 @@ public class NotificationService extends Service {
         Bitmap bitmap = view.getDrawingCache();
         return bitmap;
     }
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_notifi() {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
