@@ -27672,38 +27672,38 @@ com.android.clean.core.CleanManager -> com.android.clean.core.a:
     176:208:void loadAppRam(com.android.clean.callback.AppRamCallBack) -> a
     211:240:void loadUninstallResidual(com.android.clean.callback.UninstallResidualCallback) -> a
     244:283:void loadAppCache(com.android.clean.callback.AppCacheCallBack) -> a
-    286:307:void loadApkFile(com.android.clean.callback.FileInfoCallBack) -> a
-    310:331:void loadLogFile(com.android.clean.callback.FileInfoCallBack) -> b
-    337:424:void loadSystemCache(com.android.clean.callback.SystemCacheCallBack) -> a
-    428:460:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
-    465:475:java.util.List getUsageStatistics(int) -> a
-    483:503:void clearSystemCache() -> c
-    507:524:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    529:544:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
-    547:554:void clearNotificationInfo() -> d
-    557:567:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
-    570:576:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
-    580:580:long getCacheSize() -> e
-    588:588:long getApkSize() -> f
-    592:592:long getUnloadSize() -> g
-    596:596:long getLogSize() -> h
-    600:600:long getDataSize() -> i
-    604:604:long getRamSize() -> j
-    608:608:java.util.ArrayList getAppRamList() -> k
-    612:612:java.util.ArrayList getUninstallResiduals() -> l
-    616:616:java.util.ArrayList getAppCaches() -> m
-    620:620:java.util.ArrayList getSystemCaches() -> n
-    624:624:java.util.ArrayList getAppList() -> o
-    628:628:java.util.ArrayList getApkFiles() -> p
-    632:632:java.util.ArrayList getLogFiles() -> q
-    637:645:void removeRam(com.android.clean.entity.JunkInfo) -> a
-    648:653:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> b
-    656:660:void clearRam() -> r
-    663:668:void removeAppCache(com.android.clean.entity.JunkInfo) -> c
-    671:675:void removeAppList(com.android.clean.entity.JunkInfo) -> d
-    678:683:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> e
-    686:691:void removeApkFiles(com.android.clean.entity.JunkInfo) -> f
-    694:699:void removeAppLog(com.android.clean.entity.JunkInfo) -> g
+    286:312:void loadApkFile(com.android.clean.callback.FileInfoCallBack) -> a
+    315:341:void loadLogFile(com.android.clean.callback.FileInfoCallBack) -> b
+    347:434:void loadSystemCache(com.android.clean.callback.SystemCacheCallBack) -> a
+    438:470:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
+    475:485:java.util.List getUsageStatistics(int) -> a
+    493:513:void clearSystemCache() -> c
+    517:534:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
+    539:555:void notificationChanged(com.android.clean.notification.NotificationInfo,boolean) -> a
+    558:565:void clearNotificationInfo() -> d
+    568:578:void addNotificationCallBack(com.android.clean.notification.NotificationCallBack) -> a
+    581:587:void removeNotificatioCallBack(com.android.clean.notification.NotificationCallBack) -> b
+    591:591:long getCacheSize() -> e
+    599:599:long getApkSize() -> f
+    603:603:long getUnloadSize() -> g
+    607:607:long getLogSize() -> h
+    611:611:long getDataSize() -> i
+    615:615:long getRamSize() -> j
+    619:619:java.util.ArrayList getAppRamList() -> k
+    623:623:java.util.ArrayList getUninstallResiduals() -> l
+    627:627:java.util.ArrayList getAppCaches() -> m
+    631:631:java.util.ArrayList getSystemCaches() -> n
+    635:635:java.util.ArrayList getAppList() -> o
+    639:639:java.util.ArrayList getApkFiles() -> p
+    643:643:java.util.ArrayList getLogFiles() -> q
+    648:656:void removeRam(com.android.clean.entity.JunkInfo) -> a
+    659:664:void removeRamSelfBoot(com.android.clean.entity.JunkInfo) -> b
+    667:671:void clearRam() -> r
+    674:679:void removeAppCache(com.android.clean.entity.JunkInfo) -> c
+    682:686:void removeAppList(com.android.clean.entity.JunkInfo) -> d
+    689:694:void removeFilesOfUnintalledApk(com.android.clean.entity.JunkInfo) -> e
+    697:702:void removeApkFiles(com.android.clean.entity.JunkInfo) -> f
+    705:710:void removeAppLog(com.android.clean.entity.JunkInfo) -> g
     60:60:void access$000(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.android.clean.core.CleanManager$1 -> com.android.clean.core.a$1:
     com.android.clean.core.CleanManager this$0 -> a
@@ -27733,18 +27733,18 @@ com.android.clean.core.CleanManager$7 -> com.android.clean.core.a$7:
     android.content.pm.PackageInfo val$packageInfo -> a
     java.util.concurrent.CountDownLatch val$countDownLatch -> b
     com.android.clean.core.CleanManager this$0 -> c
-    395:395:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
-    399:400:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
+    405:405:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
+    409:410:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
 com.android.clean.core.CleanManager$8 -> com.android.clean.core.a$8:
     android.content.pm.PackageInfo val$packageInfo -> a
     java.util.concurrent.CountDownLatch val$countDownLatch -> b
     com.android.clean.core.CleanManager this$0 -> c
-    404:404:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
-    408:409:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
+    414:414:void <init>(com.android.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
+    418:419:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
 com.android.clean.core.CleanManager$9 -> com.android.clean.core.a$9:
     com.android.clean.core.CleanManager this$0 -> a
-    491:491:void <init>(com.android.clean.core.CleanManager) -> <init>
-    495:496:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
+    501:501:void <init>(com.android.clean.core.CleanManager) -> <init>
+    505:506:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
 com.android.clean.core.CleanService -> com.android.clean.core.CleanService:
     android.os.Looper mServiceLooper -> a
     com.android.clean.core.CleanService$ServiceHandler mServiceHandler -> b
@@ -27836,11 +27836,11 @@ com.android.clean.filemanager.FileCategoryHelper -> com.android.clean.filemanage
     167:194:java.lang.String buildSelectionByCategory(com.android.clean.filemanager.FileCategoryHelper$FileCategory) -> c
     199:222:android.net.Uri getContentUriByCategory(com.android.clean.filemanager.FileCategoryHelper$FileCategory) -> b
     226:241:java.lang.String buildSortOrder(com.android.clean.filemanager.FileSortHelper$SortMethod) -> a
-    245:257:android.database.Cursor query(com.android.clean.filemanager.FileCategoryHelper$FileCategory,com.android.clean.filemanager.FileSortHelper$SortMethod) -> a
-    262:284:void refreshCategoryInfo() -> a
-    287:303:boolean refreshMediaCategory(com.android.clean.filemanager.FileCategoryHelper$FileCategory,android.net.Uri) -> a
-    307:333:com.android.clean.filemanager.FileCategoryHelper$FileCategory getCategoryFromPath(java.lang.String) -> a
-    337:341:boolean matchExts(java.lang.String,java.lang.String[]) -> a
+    245:260:android.database.Cursor query(com.android.clean.filemanager.FileCategoryHelper$FileCategory,com.android.clean.filemanager.FileSortHelper$SortMethod) -> a
+    267:289:void refreshCategoryInfo() -> a
+    292:308:boolean refreshMediaCategory(com.android.clean.filemanager.FileCategoryHelper$FileCategory,android.net.Uri) -> a
+    312:338:com.android.clean.filemanager.FileCategoryHelper$FileCategory getCategoryFromPath(java.lang.String) -> a
+    342:346:boolean matchExts(java.lang.String,java.lang.String[]) -> a
     50:53:void <clinit>() -> <clinit>
 com.android.clean.filemanager.FileCategoryHelper$1 -> com.android.clean.filemanager.FileCategoryHelper$1:
     int[] $SwitchMap$com$android$clean$filemanager$FileCategoryHelper$FileCategory -> a
@@ -47450,8 +47450,8 @@ com.supers.clean.junk.activity.FileListActivity -> com.supers.clean.junk.activit
     133:139:void addAd() -> d
     142:188:void initData() -> e
     191:193:void setListenet() -> f
-    216:272:void showDia(java.util.ArrayList) -> a
-    276:278:void onBackPressed() -> onBackPressed
+    219:275:void showDia(java.util.ArrayList) -> a
+    279:281:void onBackPressed() -> onBackPressed
     38:38:java.lang.String access$000(com.supers.clean.junk.activity.FileListActivity) -> a
     38:38:com.android.clean.filemanager.FileCategoryHelper$FileCategory access$102(com.supers.clean.junk.activity.FileListActivity,com.android.clean.filemanager.FileCategoryHelper$FileCategory) -> a
     38:38:com.android.clean.filemanager.FileCategoryHelper$FileCategory access$100(com.supers.clean.junk.activity.FileListActivity) -> b
@@ -47480,20 +47480,20 @@ com.supers.clean.junk.activity.FileListActivity$2$2 -> com.supers.clean.junk.act
 com.supers.clean.junk.activity.FileListActivity$3 -> com.supers.clean.junk.activity.FileListActivity$3:
     com.supers.clean.junk.activity.FileListActivity this$0 -> a
     195:195:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
-    198:212:void onClick(android.view.View) -> onClick
+    198:215:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FileListActivity$4 -> com.supers.clean.junk.activity.FileListActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.supers.clean.junk.activity.FileListActivity this$0 -> b
-    236:236:void <init>(com.supers.clean.junk.activity.FileListActivity,java.util.ArrayList) -> <init>
-    239:264:void onClick(android.view.View) -> onClick
+    239:239:void <init>(com.supers.clean.junk.activity.FileListActivity,java.util.ArrayList) -> <init>
+    242:267:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FileListActivity$4$1 -> com.supers.clean.junk.activity.FileListActivity$4$1:
     com.supers.clean.junk.activity.FileListActivity$4 this$1 -> a
-    245:245:void <init>(com.supers.clean.junk.activity.FileListActivity$4) -> <init>
-    248:255:void run() -> run
+    248:248:void <init>(com.supers.clean.junk.activity.FileListActivity$4) -> <init>
+    251:258:void run() -> run
 com.supers.clean.junk.activity.FileListActivity$5 -> com.supers.clean.junk.activity.FileListActivity$5:
     com.supers.clean.junk.activity.FileListActivity this$0 -> a
-    266:266:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
-    269:270:void onClick(android.view.View) -> onClick
+    269:269:void <init>(com.supers.clean.junk.activity.FileListActivity) -> <init>
+    272:273:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.FloatActivity -> com.supers.clean.junk.activity.FloatActivity:
     com.supers.clean.junk.customeview.HorizontalListView horizontal_listview -> a
     android.widget.LinearLayout ll_ad -> b
@@ -48101,17 +48101,17 @@ com.supers.clean.junk.activity.LoadingActivity -> com.supers.clean.junk.activity
     android.os.Handler myHandler -> a
     android.widget.TextView tv_tiaoguo -> b
     java.lang.Runnable runnable1 -> c
-    27:60:void <init>() -> <init>
+    27:59:void <init>() -> <init>
     33:36:void findId() -> a
-    41:58:void onCreate(android.os.Bundle) -> onCreate
-    76:78:void onResume() -> onResume
-    82:83:void onStop() -> onStop
-    87:89:void onDestroy() -> onDestroy
-    93:94:void onBackPressed() -> onBackPressed
+    42:57:void onCreate(android.os.Bundle) -> onCreate
+    75:77:void onResume() -> onResume
+    81:82:void onStop() -> onStop
+    86:88:void onDestroy() -> onDestroy
+    92:93:void onBackPressed() -> onBackPressed
 com.supers.clean.junk.activity.LoadingActivity$1 -> com.supers.clean.junk.activity.LoadingActivity$1:
     com.supers.clean.junk.activity.LoadingActivity this$0 -> a
-    60:60:void <init>(com.supers.clean.junk.activity.LoadingActivity) -> <init>
-    64:70:void run() -> run
+    59:59:void <init>(com.supers.clean.junk.activity.LoadingActivity) -> <init>
+    63:69:void run() -> run
 com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.MainActivity:
     com.supers.clean.junk.customeview.MyScrollView main_scroll_view -> a
     com.supers.clean.junk.customeview.PullToRefreshLayout main_pull_refresh -> b
@@ -48502,10 +48502,10 @@ com.supers.clean.junk.activity.MessageActivity$4 -> com.supers.clean.junk.activi
 com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.MyApplication:
     android.app.ActivityManager am -> a
     android.os.HandlerThread mThread -> b
-    41:41:void <init>() -> <init>
-    53:56:void attachBaseContext(android.content.Context) -> attachBaseContext
-    60:110:void onCreate() -> onCreate
-    115:116:void onTerminate() -> onTerminate
+    37:37:void <init>() -> <init>
+    49:52:void attachBaseContext(android.content.Context) -> attachBaseContext
+    56:106:void onCreate() -> onCreate
+    111:112:void onTerminate() -> onTerminate
 com.supers.clean.junk.activity.NotifiActivity -> com.supers.clean.junk.activity.NotifiActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -50906,16 +50906,16 @@ com.supers.clean.junk.service.NotificationService -> com.supers.clean.junk.servi
     167:174:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     183:185:void onstart() -> c
     189:235:void changZhuTongzhi() -> d
-    269:270:long getTotalRxBytes() -> e
-    280:414:void update() -> f
-    418:433:void tonghzi_Ram() -> g
-    437:452:void tonghzi_cooling() -> h
-    456:472:void tonghzi_junk() -> i
-    476:492:void tonghzi_two_day() -> j
-    496:512:void tonghzi_gboost() -> k
-    516:535:void tonghzi_notifi() -> l
-    538:546:android.graphics.Bitmap screenShot(android.view.View,int) -> a
-    553:559:void onDestroy() -> onDestroy
+    270:273:long getTotalRxBytes() -> e
+    279:413:void update() -> f
+    417:432:void tonghzi_Ram() -> g
+    436:451:void tonghzi_cooling() -> h
+    455:471:void tonghzi_junk() -> i
+    475:491:void tonghzi_two_day() -> j
+    495:511:void tonghzi_gboost() -> k
+    515:534:void tonghzi_notifi() -> l
+    537:545:android.graphics.Bitmap screenShot(android.view.View,int) -> a
+    552:558:void onDestroy() -> onDestroy
     52:52:void access$000(com.supers.clean.junk.service.NotificationService) -> a
     52:52:android.widget.RemoteViews access$100(com.supers.clean.junk.service.NotificationService) -> b
     52:52:android.app.Notification access$200(com.supers.clean.junk.service.NotificationService) -> c
@@ -50948,8 +50948,8 @@ com.supers.clean.junk.service.NotificationService$2 -> com.supers.clean.junk.ser
 com.supers.clean.junk.service.NotificationService$3 -> com.supers.clean.junk.service.NotificationService$3:
     int val$memory -> a
     com.supers.clean.junk.service.NotificationService this$0 -> b
-    282:282:void <init>(com.supers.clean.junk.service.NotificationService,int) -> <init>
-    285:304:void callbackResult(com.supers.clean.junk.util.CpuTempReader$ResultCpuTemperature) -> callbackResult
+    281:281:void <init>(com.supers.clean.junk.service.NotificationService,int) -> <init>
+    284:303:void callbackResult(com.supers.clean.junk.util.CpuTempReader$ResultCpuTemperature) -> callbackResult
 com.supers.clean.junk.util.AdUtil -> com.supers.clean.junk.b.a:
     19:21:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
     24:44:android.view.View getNativeAdView(java.lang.String,int) -> a
