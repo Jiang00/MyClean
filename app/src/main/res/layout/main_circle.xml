@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/d4"
-                    android:text="33℃"
+                    android:text="0℃"
                     android:textColor="@color/A6"
                     android:textSize="@dimen/s21"
                     android:textStyle="bold"
@@ -84,7 +84,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/d4"
                     android:layout_marginTop="@dimen/d10"
-                    android:text="78%"
+                    android:text="0%"
                     android:textColor="@color/A6"
                     android:textSize="@dimen/s38"
                     android:textStyle="bold"
@@ -138,7 +138,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/d4"
                     android:layout_marginTop="@dimen/d10"
-                    android:text="78%"
+                    android:text="0%"
                     android:textColor="@color/A6"
                     android:textSize="@dimen/s48"
                     android:textStyle="bold"
@@ -167,25 +167,25 @@
         </RelativeLayout>
 
         <LinearLayout
-        android:id="@+id/main_air_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="@dimen/d5"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+            android:id="@+id/main_air_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="@dimen/d5"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <ImageView
-        android:id="@+id/main_air"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/main_air" />
+            <ImageView
+                android:id="@+id/main_air"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/main_air" />
 
-        <ImageView
-        android:id="@+id/main_air_smoke"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/main_air_smoke" />
+            <ImageView
+                android:id="@+id/main_air_smoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/main_air_smoke" />
         </LinearLayout>
 
     </FrameLayout>
