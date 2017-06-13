@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -178,7 +178,7 @@
         android:id="@+id/pager_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_100"
+        android:background="@color/black_100"
         android:paddingTop="@dimen/d24"
         android:visibility="gone">
 
@@ -187,12 +187,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/pager_title"
             android:layout_width="match_parent"
             android:layout_height="@dimen/d56"
-            android:background="@color/A1"
-            android:orientation="horizontal">
+            android:background="@color/black_100">
 
             <FrameLayout
                 android:layout_width="@dimen/d72"
@@ -212,12 +211,12 @@
                 android:id="@+id/pic_pager_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
                 android:text="1/2"
                 android:textColor="@color/A7"
                 android:textSize="@dimen/s16" />
 
-        </LinearLayout>
+        </FrameLayout>
 
         <RelativeLayout
             android:id="@+id/pager_buttom"
@@ -227,26 +226,23 @@
 
             <LinearLayout
                 android:id="@+id/pic_pager_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/d50"
+                android:layout_height="@dimen/d50"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
                 android:orientation="horizontal">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_marginRight="@dimen/d16"
-                    android:text="@string/picture_14"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/d20" />
+                    android:src="@mipmap/picture_right" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/pic_pager_check"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
+                android:layout_width="@dimen/d50"
+                android:layout_height="@dimen/d50"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -254,18 +250,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
                     android:src="@mipmap/ram_normal" />
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d10"
-                    android:layout_marginRight="@dimen/d16"
-                    android:text="@string/picture_13"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/d20" />
             </LinearLayout>
         </RelativeLayout>
     </FrameLayout>

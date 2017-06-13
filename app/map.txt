@@ -29845,24 +29845,24 @@ com.fast.clean.junk.aservice.NotificationService -> com.fast.clean.junk.aservice
     long lastTimeStamp -> B
     com.android.clean.notification.NotificationCallBack notificationCallBack -> b
     java.lang.Runnable runnableW -> C
-    51:232:void <init>() -> <init>
+    51:231:void <init>() -> <init>
     75:75:android.os.IBinder onBind(android.content.Intent) -> onBind
     80:99:void onCreate() -> onCreate
     127:132:android.graphics.Canvas getCanvas() -> a
     136:159:void initIntent() -> b
     164:171:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     176:178:void onstart() -> c
-    187:230:void changZhuTongzhi() -> d
-    265:399:void update() -> e
-    403:419:void tonghzi_two_day() -> f
-    424:427:long getTotalRxBytes() -> g
-    439:454:void tonghzi_Ram() -> h
-    458:473:void tonghzi_cooling() -> i
-    477:493:void tonghzi_junk() -> j
-    498:514:void tonghzi_gboost() -> k
-    518:526:android.graphics.Bitmap screenShot(android.view.View,int) -> a
-    531:550:void tonghzi_notifi() -> l
-    556:562:void onDestroy() -> onDestroy
+    187:229:void changZhuTongzhi() -> d
+    264:398:void update() -> e
+    402:418:void tonghzi_two_day() -> f
+    423:426:long getTotalRxBytes() -> g
+    438:453:void tonghzi_Ram() -> h
+    457:472:void tonghzi_cooling() -> i
+    476:492:void tonghzi_junk() -> j
+    497:513:void tonghzi_gboost() -> k
+    517:525:android.graphics.Bitmap screenShot(android.view.View,int) -> a
+    530:549:void tonghzi_notifi() -> l
+    555:561:void onDestroy() -> onDestroy
     51:51:void access$000(com.fast.clean.junk.aservice.NotificationService) -> a
     51:51:android.widget.RemoteViews access$100(com.fast.clean.junk.aservice.NotificationService) -> b
     51:51:android.app.Notification access$200(com.fast.clean.junk.aservice.NotificationService) -> c
@@ -29890,13 +29890,13 @@ com.fast.clean.junk.aservice.NotificationService$1 -> com.fast.clean.junk.aservi
     104:122:void notificationChanged(java.util.ArrayList) -> a
 com.fast.clean.junk.aservice.NotificationService$2 -> com.fast.clean.junk.aservice.NotificationService$2:
     com.fast.clean.junk.aservice.NotificationService this$0 -> a
-    232:232:void <init>(com.fast.clean.junk.aservice.NotificationService) -> <init>
-    234:259:void run() -> run
+    231:231:void <init>(com.fast.clean.junk.aservice.NotificationService) -> <init>
+    233:258:void run() -> run
 com.fast.clean.junk.aservice.NotificationService$3 -> com.fast.clean.junk.aservice.NotificationService$3:
     int val$memory -> a
     com.fast.clean.junk.aservice.NotificationService this$0 -> b
-    267:267:void <init>(com.fast.clean.junk.aservice.NotificationService,int) -> <init>
-    270:289:void callbackResult(com.fast.clean.junk.util.RCpuTempReader$ResultCpuTemperature) -> a
+    266:266:void <init>(com.fast.clean.junk.aservice.NotificationService,int) -> <init>
+    269:288:void callbackResult(com.fast.clean.junk.util.RCpuTempReader$ResultCpuTemperature) -> a
 com.fast.clean.junk.broadcast.UnloadBroadcast -> com.fast.clean.junk.broadcast.UnloadBroadcast:
     20:20:void <init>() -> <init>
     31:52:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -31967,11 +31967,11 @@ com.fast.clean.junk.ui.PictureActivity -> com.fast.clean.junk.ui.PictureActivity
     173:286:void bigPicture(java.util.ArrayList) -> a
     289:293:void clickListen() -> d
     297:370:void initData() -> e
-    404:516:void deleteDialog(java.util.ArrayList) -> c
-    520:523:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    527:534:void onBackPressed() -> onBackPressed
-    537:539:void showBigPic(java.util.ArrayList) -> b
-    543:558:void updateUi() -> b
+    404:500:void deleteDialog(java.util.ArrayList) -> c
+    504:507:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    511:518:void onBackPressed() -> onBackPressed
+    521:523:void showBigPic(java.util.ArrayList) -> b
+    527:542:void updateUi() -> b
     47:47:com.fast.clean.junk.adapter.RecycleViewAdapter access$000(com.fast.clean.junk.ui.PictureActivity) -> a
     47:47:void access$100(com.fast.clean.junk.ui.PictureActivity) -> b
     47:47:java.util.ArrayList access$200(com.fast.clean.junk.ui.PictureActivity) -> c
@@ -31989,37 +31989,36 @@ com.fast.clean.junk.ui.PictureActivity$1$1 -> com.fast.clean.junk.ui.PictureActi
     120:123:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$10 -> com.fast.clean.junk.ui.PictureActivity$2:
     com.fast.clean.junk.ui.PictureActivity this$0 -> a
-    427:427:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
-    430:432:void onClick(android.view.View) -> onClick
+    412:412:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
+    415:417:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$11 -> com.fast.clean.junk.ui.PictureActivity$3:
     android.widget.TextView val$ok -> a
     android.widget.TextView val$cancle -> b
-    android.widget.LinearLayout val$image_list -> c
-    android.widget.ProgressBar val$delete_progress -> d
-    int val$deleteSize -> e
-    android.widget.TextView val$count -> f
-    com.fast.clean.junk.ui.PictureActivity this$0 -> g
-    434:434:void <init>(com.fast.clean.junk.ui.PictureActivity,android.widget.TextView,android.widget.TextView,android.widget.LinearLayout,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
-    437:493:void onClick(android.view.View) -> onClick
+    android.widget.ProgressBar val$delete_progress -> c
+    int val$deleteSize -> d
+    android.widget.TextView val$count -> e
+    com.fast.clean.junk.ui.PictureActivity this$0 -> f
+    419:419:void <init>(com.fast.clean.junk.ui.PictureActivity,android.widget.TextView,android.widget.TextView,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
+    422:477:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$11$1 -> com.fast.clean.junk.ui.PictureActivity$3$1:
     int num -> a
     com.fast.clean.junk.ui.PictureActivity$11 this$1 -> b
-    442:443:void <init>(com.fast.clean.junk.ui.PictureActivity$11) -> <init>
-    447:454:void deleteItemCallback(long) -> a
-    458:491:void deleteSuccessCallback(java.util.ArrayList) -> a
+    426:427:void <init>(com.fast.clean.junk.ui.PictureActivity$11) -> <init>
+    431:438:void deleteItemCallback(long) -> a
+    442:475:void deleteSuccessCallback(java.util.ArrayList) -> a
 com.fast.clean.junk.ui.PictureActivity$11$1$1 -> com.fast.clean.junk.ui.PictureActivity$3$1$1:
     com.fast.clean.junk.ui.PictureActivity$11$1 this$2 -> a
-    447:447:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1) -> <init>
-    450:452:void run() -> run
+    431:431:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1) -> <init>
+    434:436:void run() -> run
 com.fast.clean.junk.ui.PictureActivity$11$1$2 -> com.fast.clean.junk.ui.PictureActivity$3$1$2:
     java.util.ArrayList val$list -> a
     com.fast.clean.junk.ui.PictureActivity$11$1 this$2 -> b
-    459:459:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1,java.util.ArrayList) -> <init>
-    462:489:void run() -> run
+    443:443:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1,java.util.ArrayList) -> <init>
+    446:473:void run() -> run
 com.fast.clean.junk.ui.PictureActivity$11$1$2$1 -> com.fast.clean.junk.ui.PictureActivity$3$1$2$1:
     com.fast.clean.junk.ui.PictureActivity$11$1$2 this$3 -> a
-    475:475:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1$2) -> <init>
-    478:481:void onClick(android.view.View) -> onClick
+    459:459:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1$2) -> <init>
+    462:465:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$2 -> com.fast.clean.junk.ui.PictureActivity$4:
     com.fast.clean.junk.ui.PictureActivity this$0 -> a
     156:156:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
@@ -32107,7 +32106,7 @@ com.fast.clean.junk.ui.PictureHuiActivity -> com.fast.clean.junk.ui.PictureHuiAc
     120:125:void loadAd() -> d
     162:171:void notifiActivity() -> e
     175:179:void onBackPressed() -> onBackPressed
-    182:290:void dialog(boolean,int) -> a
+    182:287:void dialog(boolean,int) -> a
     44:44:com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter access$000(com.fast.clean.junk.ui.PictureHuiActivity) -> a
     44:44:void access$100(com.fast.clean.junk.ui.PictureHuiActivity,boolean,int) -> a
     44:44:android.os.Handler access$200(com.fast.clean.junk.ui.PictureHuiActivity) -> b
@@ -32127,92 +32126,92 @@ com.fast.clean.junk.ui.PictureHuiActivity$2 -> com.fast.clean.junk.ui.PictureHui
     android.widget.ProgressBar val$delete_progress -> e
     boolean val$isrestore -> f
     com.fast.clean.junk.ui.PictureHuiActivity this$0 -> g
-    197:197:void <init>(com.fast.clean.junk.ui.PictureHuiActivity,android.widget.TextView,android.widget.TextView,android.widget.TextView,int,android.widget.ProgressBar,boolean) -> <init>
-    200:261:void onClick(android.view.View) -> onClick
+    194:194:void <init>(com.fast.clean.junk.ui.PictureHuiActivity,android.widget.TextView,android.widget.TextView,android.widget.TextView,int,android.widget.ProgressBar,boolean) -> <init>
+    197:258:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureHuiActivity$2$1 -> com.fast.clean.junk.ui.PictureHuiActivity$2$1:
     int num -> a
     com.fast.clean.junk.ui.PictureHuiActivity$2 this$1 -> b
-    206:207:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2) -> <init>
-    211:218:void progress() -> a
-    222:231:void success() -> b
+    203:204:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2) -> <init>
+    208:215:void progress() -> a
+    219:228:void success() -> b
 com.fast.clean.junk.ui.PictureHuiActivity$2$1$1 -> com.fast.clean.junk.ui.PictureHuiActivity$2$1$1:
     com.fast.clean.junk.ui.PictureHuiActivity$2$1 this$2 -> a
-    211:211:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2$1) -> <init>
-    214:216:void run() -> run
+    208:208:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2$1) -> <init>
+    211:213:void run() -> run
 com.fast.clean.junk.ui.PictureHuiActivity$2$1$2 -> com.fast.clean.junk.ui.PictureHuiActivity$2$1$2:
     com.fast.clean.junk.ui.PictureHuiActivity$2$1 this$2 -> a
-    223:223:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2$1) -> <init>
-    226:228:void run() -> run
+    220:220:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2$1) -> <init>
+    223:225:void run() -> run
 com.fast.clean.junk.ui.PictureHuiActivity$2$2 -> com.fast.clean.junk.ui.PictureHuiActivity$2$2:
     int num -> a
     com.fast.clean.junk.ui.PictureHuiActivity$2 this$1 -> b
-    234:235:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2) -> <init>
-    239:246:void progress() -> a
-    250:258:void success() -> b
+    231:232:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2) -> <init>
+    236:243:void progress() -> a
+    247:255:void success() -> b
 com.fast.clean.junk.ui.PictureHuiActivity$2$2$1 -> com.fast.clean.junk.ui.PictureHuiActivity$2$2$1:
     com.fast.clean.junk.ui.PictureHuiActivity$2$2 this$2 -> a
-    239:239:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2$2) -> <init>
-    242:244:void run() -> run
+    236:236:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2$2) -> <init>
+    239:241:void run() -> run
 com.fast.clean.junk.ui.PictureHuiActivity$2$2$2 -> com.fast.clean.junk.ui.PictureHuiActivity$2$2$2:
     com.fast.clean.junk.ui.PictureHuiActivity$2$2 this$2 -> a
-    251:251:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2$2) -> <init>
-    254:256:void run() -> run
+    248:248:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$2$2) -> <init>
+    251:253:void run() -> run
 com.fast.clean.junk.ui.PictureHuiActivity$3 -> com.fast.clean.junk.ui.PictureHuiActivity$3:
     com.fast.clean.junk.ui.PictureHuiActivity this$0 -> a
-    263:263:void <init>(com.fast.clean.junk.ui.PictureHuiActivity) -> <init>
-    266:267:void onClick(android.view.View) -> onClick
+    260:260:void <init>(com.fast.clean.junk.ui.PictureHuiActivity) -> <init>
+    263:264:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter -> com.fast.clean.junk.ui.PictureHuiActivity$a:
     java.util.ArrayList list -> a
     android.support.v4.util.LruCache lruCache -> b
     com.fast.clean.junk.ui.PictureHuiActivity this$0 -> c
-    302:316:void <init>(com.fast.clean.junk.ui.PictureHuiActivity,java.util.ArrayList) -> <init>
-    319:343:void restore(com.fast.clean.junk.ui.PictureHuiActivity$MyCallBack) -> a
-    346:352:int checkNum() -> a
-    356:377:void delete(com.fast.clean.junk.ui.PictureHuiActivity$MyCallBack) -> b
-    380:384:void allPassed(boolean) -> a
-    388:391:com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    396:453:void onBindViewHolder(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder,int) -> a
-    462:462:int getItemCount() -> getItemCount
-    483:490:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
-    498:498:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
-    300:300:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    300:300:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    299:313:void <init>(com.fast.clean.junk.ui.PictureHuiActivity,java.util.ArrayList) -> <init>
+    316:340:void restore(com.fast.clean.junk.ui.PictureHuiActivity$MyCallBack) -> a
+    343:349:int checkNum() -> a
+    353:374:void delete(com.fast.clean.junk.ui.PictureHuiActivity$MyCallBack) -> b
+    377:381:void allPassed(boolean) -> a
+    385:388:com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    393:450:void onBindViewHolder(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder,int) -> a
+    459:459:int getItemCount() -> getItemCount
+    480:487:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
+    495:495:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
+    297:297:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    297:297:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$1 -> com.fast.clean.junk.ui.PictureHuiActivity$a$1:
     com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter this$1 -> a
-    302:302:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter,int) -> <init>
-    306:306:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
-    302:302:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+    299:299:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter,int) -> <init>
+    303:303:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    299:299:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
 com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$2 -> com.fast.clean.junk.ui.PictureHuiActivity$a$2:
     com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter this$1 -> a
-    321:321:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter) -> <init>
-    324:339:void run() -> run
+    318:318:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter) -> <init>
+    321:336:void run() -> run
 com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$3 -> com.fast.clean.junk.ui.PictureHuiActivity$a$3:
     com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter this$1 -> a
-    357:357:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter) -> <init>
-    360:374:void run() -> run
+    354:354:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter) -> <init>
+    357:371:void run() -> run
 com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$4 -> com.fast.clean.junk.ui.PictureHuiActivity$a$4:
     com.android.clean.similarimage.ImageInfo val$info -> a
     com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder val$holder -> b
     com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter this$1 -> c
-    407:407:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter,com.android.clean.similarimage.ImageInfo,com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder) -> <init>
-    410:422:void run() -> run
+    404:404:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter,com.android.clean.similarimage.ImageInfo,com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder) -> <init>
+    407:419:void run() -> run
 com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$4$1 -> com.fast.clean.junk.ui.PictureHuiActivity$a$4$1:
     android.graphics.Bitmap val$bitma -> a
     com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$4 this$2 -> b
-    413:413:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$4,android.graphics.Bitmap) -> <init>
-    416:419:void run() -> run
+    410:410:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$4,android.graphics.Bitmap) -> <init>
+    413:416:void run() -> run
 com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$5 -> com.fast.clean.junk.ui.PictureHuiActivity$a$5:
     com.android.clean.similarimage.ImageInfo val$info -> a
     com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder val$holder -> b
     com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter this$1 -> c
-    442:442:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter,com.android.clean.similarimage.ImageInfo,com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder) -> <init>
-    445:451:void onClick(android.view.View) -> onClick
+    439:439:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter,com.android.clean.similarimage.ImageInfo,com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder) -> <init>
+    442:448:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter$HomeViewHolder -> com.fast.clean.junk.ui.PictureHuiActivity$a$a:
     android.widget.ImageView picture_icon -> a
     android.widget.ImageView picture_check -> b
     android.widget.TextView picture_time -> c
     com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter this$1 -> d
-    470:475:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter,android.view.View) -> <init>
+    467:472:void <init>(com.fast.clean.junk.ui.PictureHuiActivity$HuiAdapter,android.view.View) -> <init>
 com.fast.clean.junk.ui.PictureHuiActivity$MyCallBack -> com.fast.clean.junk.ui.PictureHuiActivity$b:
     void progress() -> a
     void success() -> b

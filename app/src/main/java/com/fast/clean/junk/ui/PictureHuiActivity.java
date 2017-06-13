@@ -180,17 +180,14 @@ public class PictureHuiActivity extends BaseActivity {
 
     private void dialog(final boolean isrestore, final int count) {
         View view = View.inflate(this, R.layout.dialog_picture, null);
-        view.findViewById(R.id.image_list).setVisibility(View.GONE);
         final TextView pro = (TextView) view.findViewById(R.id.count);
         TextView message = (TextView) view.findViewById(R.id.message);
-        TextView title = (TextView) view.findViewById(R.id.title);
         final ProgressBar delete_progress = (ProgressBar) view.findViewById(R.id.delete_progress);
         final TextView ok = (TextView) view.findViewById(R.id.ok);
         final TextView cancle = (TextView) view.findViewById(R.id.cancle);
         pro.setVisibility(View.GONE);
         if (isrestore) {
             message.setText(getString(R.string.picture_15, count));
-            title.setText(R.string.picture_16);
         } else {
             message.setText(getString(R.string.picture_12, count));
         }

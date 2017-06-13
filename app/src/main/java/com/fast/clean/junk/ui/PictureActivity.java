@@ -407,23 +407,8 @@ public class PictureActivity extends BaseActivity {
         final TextView ok = (TextView) view.findViewById(R.id.ok);
         final TextView cancle = (TextView) view.findViewById(R.id.cancle);
         final TextView count = (TextView) view.findViewById(R.id.count);
-        final LinearLayout image_list = (LinearLayout) view.findViewById(R.id.image_list);
         final ProgressBar delete_progress = (ProgressBar) view.findViewById(R.id.delete_progress);
-        ImageView image_1 = (ImageView) view.findViewById(R.id.image_1);
         message.setText(getString(R.string.picture_1, checkDate.size()));
-        image_1.setImageBitmap(checkDate.get(0));
-        if (deleteSize >= 2 && null != checkDate.get(1)) {
-            ImageView image_2 = (ImageView) view.findViewById(R.id.image_2);
-            image_2.setImageBitmap(checkDate.get(1));
-        }
-        if (deleteSize >= 3 && null != checkDate.get(2)) {
-            ImageView image_3 = (ImageView) view.findViewById(R.id.image_3);
-            image_3.setImageBitmap(checkDate.get(2));
-        }
-        if (deleteSize >= 4 && null != checkDate.get(3)) {
-            ImageView image_4 = (ImageView) view.findViewById(R.id.image_4);
-            image_4.setImageBitmap(checkDate.get(3));
-        }
         cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -437,7 +422,6 @@ public class PictureActivity extends BaseActivity {
                 AdUtil.track("相似图片页面", "点击确认弹窗ok按钮", "", 1);
                 ok.setOnClickListener(null);
                 cancle.setOnClickListener(null);
-                image_list.setVisibility(View.GONE);
                 delete_progress.setVisibility(View.VISIBLE);
                 adapter.delete(new RecycleViewAdapter.RecycleViewCallBack() {
                     int num = 0;

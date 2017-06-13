@@ -197,7 +197,6 @@ public class NotificationService extends Service {
             paint_1.setColor(ContextCompat.getColor(this, R.color.A1));
         }
         canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
-
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
         remoteView_1.setTextViewText(R.id.norifi_memory_text, Util.getMemory(this) + "%");
         int requestCode = (int) SystemClock.uptimeMillis();

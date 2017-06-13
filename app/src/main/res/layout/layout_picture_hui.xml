@@ -48,44 +48,19 @@
             android:background="@color/A7"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/A13"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="@dimen/d5"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_marginTop="@dimen/d5"
-                    android:src="@mipmap/gboost_2" />
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="@dimen/d5"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginTop="@dimen/d5"
-                    android:text="@string/picture_5"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s14" />
-            </LinearLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-
                 android:layout_weight="1">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/picture_hui_recyc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/d5"
+                    android:layout_marginLeft="@dimen/d15"
+                    android:layout_marginRight="@dimen/d15"
+                    android:layout_marginTop="@dimen/d8"
                     android:scrollbars="none" />
 
                 <ImageView
@@ -109,17 +84,16 @@
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/picture_restore"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d40"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d15"
-                        android:layout_marginRight="@dimen/d4"
-                        android:background="@drawable/shape_a1_r"
+                        android:layout_width="@dimen/d146"
+                        android:layout_height="@dimen/d37"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="@dimen/d10"
+                        android:background="@drawable/shape_pic_hui_1"
                         android:elevation="@dimen/d2"
                         android:gravity="center"
                         android:text="@string/picture_6"
-                        android:textColor="@color/A7"
-                        android:textSize="@dimen/s16"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s19"
                         app:typeface="Roboto-Medium.ttf" />
                 </FrameLayout>
 
@@ -130,17 +104,15 @@
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/picture_delete"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d40"
+                        android:layout_width="@dimen/d146"
+                        android:layout_height="@dimen/d37"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d4"
-                        android:layout_marginRight="@dimen/d15"
-                        android:background="@drawable/shape_a2_r"
-                        android:elevation="@dimen/d2"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:background="@drawable/shape_pic_hui_2"
                         android:gravity="center"
                         android:text="@string/picture_7"
-                        android:textColor="@color/A7"
-                        android:textSize="@dimen/s16"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s19"
                         app:typeface="Roboto-Medium.ttf" />
                 </FrameLayout>
 

@@ -15,118 +15,93 @@
         android:background="@drawable/shape_radio"
         android:orientation="vertical">
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="@dimen/d24"
-            android:layout_marginTop="@dimen/d24"
-            android:text="@string/delete_queren"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s16"
-             />
-
-
         <LinearLayout
-            android:id="@+id/image_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d20"
+            android:layout_height="@dimen/d90"
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/image_1"
-                android:layout_width="@dimen/d48"
-                android:layout_height="@dimen/d56"
-                android:layout_marginLeft="@dimen/d24" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d20"
+                android:layout_marginRight="@dimen/d15"
+                android:src="@mipmap/pic_dialog_delete" />
 
-            <ImageView
-                android:id="@+id/image_2"
-                android:layout_width="@dimen/d48"
-                android:layout_height="@dimen/d56"
-                android:layout_marginLeft="@dimen/d12" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/image_3"
-                android:layout_width="@dimen/d48"
-                android:layout_height="@dimen/d56"
-                android:layout_marginLeft="@dimen/d12" />
+                <ProgressBar
+                    android:id="@+id/delete_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d3"
+                    android:layout_gravity="center"
+                    android:progress="100"
+                    android:progressDrawable="@drawable/pic_progress"
+                    android:visibility="gone" />
 
-            <ImageView
-                android:id="@+id/image_4"
-                android:layout_width="@dimen/d48"
-                android:layout_height="@dimen/d56"
-                android:layout_marginLeft="@dimen/d12" />
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/picture_1"
+                    android:textColor="@color/A9"
+                    android:textSize="@dimen/s15" />
+
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d12"
+                    android:text="@string/picture_2"
+                    android:textColor="@color/A10"
+                    android:textSize="@dimen/s11" />
+            </LinearLayout>
         </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/delete_progress"
-            style="?android:attr/progressBarStyleHorizontal"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d3"
-            android:layout_marginLeft="@dimen/d24"
-            android:layout_marginRight="@dimen/d24"
-            android:layout_marginTop="@dimen/d30"
-            android:progress="100"
-            android:progressDrawable="@drawable/pic_progress"
-            android:visibility="gone" />
+            android:layout_height="1dp"
+            android:background="@color/A8" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-            android:id="@+id/message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d24"
-            android:layout_marginTop="@dimen/d20"
-            android:text="@string/picture_1"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s14"
-             />
-
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-            android:id="@+id/count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d24"
-            android:layout_marginTop="@dimen/d13"
-            android:text="@string/picture_2"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s12"
-             />
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d8"
-            android:layout_marginTop="@dimen/d27"
+            android:layout_height="@dimen/d36"
             android:orientation="horizontal">
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/ok"
-                android:layout_width="@dimen/d61"
-                android:layout_height="@dimen/d36"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d24"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:text="@string/premiss_3"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s16"
-                 />
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/cancle"
-                android:layout_width="@dimen/d61"
-                android:layout_height="@dimen/d36"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_toLeftOf="@id/ok"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:text="@string/premiss_4"
                 android:textColor="@color/A8"
-                android:textSize="@dimen/s16"
-                 />
-        </RelativeLayout>
+                android:textSize="@dimen/s16" />
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/A8" />
+
+            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                android:id="@+id/ok"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="@string/premiss_3"
+                android:textColor="@color/A13"
+                android:textSize="@dimen/s16" />
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>
