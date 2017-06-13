@@ -515,7 +515,6 @@ public class MyApplication extends App {
 
                 @Override
                 public void finishLoading(long dataSize, ArrayList<JunkInfo> dataList) {
-                    Log.e("rqy", "finishLoading--" + "end threadName=" + Thread.currentThread().getName() + "");
                 }
             });
         }

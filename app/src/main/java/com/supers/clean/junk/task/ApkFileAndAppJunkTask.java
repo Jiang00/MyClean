@@ -33,7 +33,6 @@ public class ApkFileAndAppJunkTask implements Runnable {
 
 
     void loadData() {
-        long startTime = System.currentTimeMillis();
         path = MemoryManager.getPhoneInSDCardPath();
         if (path == null) {
             path = "/storage/";
@@ -41,9 +40,6 @@ public class ApkFileAndAppJunkTask implements Runnable {
         File rootPath = new File(path);
         File[] dirs = rootPath.listFiles();
         searchDirs(dirs);
-        long endTime = System.currentTimeMillis();
-        long time = endTime - startTime;
-        Log.e("rqy", "线程" + Thread.currentThread().getId() + "--" + getClass().getSimpleName() + "--time=" + time);
     }
 
     private void searchDirs(final File[] file) {

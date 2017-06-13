@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.supers.clean.junk.privacy;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;

@@ -1,4 +1,4 @@
-package com.supers.clean.junk.util;
+package com.supers.clean.junk.privacy;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -9,6 +9,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.util.Log;
+
+import com.supers.clean.junk.privacy.ConversationContact;
 
 import java.io.InputStream;
 

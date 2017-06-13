@@ -1,4 +1,4 @@
-package com.supers.clean.junk.entity;
+package com.supers.clean.junk.privacy;
 
 /**
  * Created by renqingyou on 2017/6/5.
