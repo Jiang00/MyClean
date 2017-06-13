@@ -22,7 +22,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
-import com.android.clean.BuildConfig;
+import com.fast.clean.BuildConfig;
 import com.fast.clean.deepclean.MyAccessibilityService;
 
 import java.io.ByteArrayOutputStream;
