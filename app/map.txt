@@ -29464,18 +29464,18 @@ com.fast.clean.junk.adapter.FileAdapter -> com.fast.clean.junk.a.a:
     java.lang.String name -> a
     26:27:void <init>(android.content.Context) -> <init>
     30:32:void <init>(android.content.Context,java.lang.String) -> <init>
-    42:98:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    44:100:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.fast.clean.junk.adapter.FileAdapter$1 -> com.fast.clean.junk.a.a$1:
     com.fast.clean.junk.entity.JunkInfo val$info -> a
     com.fast.clean.junk.adapter.FileAdapter$ViewHolder val$viewHolder -> b
     com.fast.clean.junk.adapter.FileAdapter this$0 -> c
-    80:80:void <init>(com.fast.clean.junk.adapter.FileAdapter,com.fast.clean.junk.entity.JunkInfo,com.fast.clean.junk.adapter.FileAdapter$ViewHolder) -> <init>
-    83:90:void onClick(android.view.View) -> onClick
+    82:82:void <init>(com.fast.clean.junk.adapter.FileAdapter,com.fast.clean.junk.entity.JunkInfo,com.fast.clean.junk.adapter.FileAdapter$ViewHolder) -> <init>
+    85:92:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.adapter.FileAdapter$2 -> com.fast.clean.junk.a.a$2:
     com.fast.clean.junk.entity.JunkInfo val$info -> a
     com.fast.clean.junk.adapter.FileAdapter this$0 -> b
-    92:92:void <init>(com.fast.clean.junk.adapter.FileAdapter,com.fast.clean.junk.entity.JunkInfo) -> <init>
-    95:96:void onClick(android.view.View) -> onClick
+    94:94:void <init>(com.fast.clean.junk.adapter.FileAdapter,com.fast.clean.junk.entity.JunkInfo) -> <init>
+    97:98:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.adapter.FileAdapter$ViewHolder -> com.fast.clean.junk.a.a$a:
     android.widget.TextView file_name -> a
     android.widget.RelativeLayout file -> b
@@ -29483,7 +29483,7 @@ com.fast.clean.junk.adapter.FileAdapter$ViewHolder -> com.fast.clean.junk.a.a$a:
     android.widget.ImageView file_icon -> d
     android.widget.ImageView file_check -> e
     com.fast.clean.junk.adapter.FileAdapter this$0 -> f
-    33:33:void <init>(com.fast.clean.junk.adapter.FileAdapter) -> <init>
+    34:34:void <init>(com.fast.clean.junk.adapter.FileAdapter) -> <init>
 com.fast.clean.junk.adapter.IgnoreListAdapter -> com.fast.clean.junk.a.b:
     android.widget.Toast toast -> a
     31:32:void <init>(android.content.Context) -> <init>
@@ -29671,7 +29671,7 @@ com.fast.clean.junk.adapter.RamAdapter -> com.fast.clean.junk.a.k:
     33:43:void <init>(android.content.Context,com.fast.clean.junk.presenter.RamPresenter) -> <init>
     51:53:void upList(java.util.List) -> b
     57:110:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    114:141:void showDialog(android.graphics.drawable.Drawable,java.lang.String,java.lang.String) -> a
+    114:139:void showDialog(android.graphics.drawable.Drawable,java.lang.String,java.lang.String) -> a
     22:22:void access$000(com.fast.clean.junk.adapter.RamAdapter,android.graphics.drawable.Drawable,java.lang.String,java.lang.String) -> a
     22:22:android.support.v7.app.AlertDialog access$100(com.fast.clean.junk.adapter.RamAdapter) -> a
 com.fast.clean.junk.adapter.RamAdapter$1 -> com.fast.clean.junk.a.k$1:
@@ -29689,19 +29689,19 @@ com.fast.clean.junk.adapter.RamAdapter$2 -> com.fast.clean.junk.a.k$2:
 com.fast.clean.junk.adapter.RamAdapter$3 -> com.fast.clean.junk.a.k$3:
     java.lang.String val$pkg -> a
     com.fast.clean.junk.adapter.RamAdapter this$0 -> b
-    127:127:void <init>(com.fast.clean.junk.adapter.RamAdapter,java.lang.String) -> <init>
-    130:133:void onClick(android.view.View) -> onClick
+    125:125:void <init>(com.fast.clean.junk.adapter.RamAdapter,java.lang.String) -> <init>
+    128:131:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.adapter.RamAdapter$4 -> com.fast.clean.junk.a.k$4:
     com.fast.clean.junk.adapter.RamAdapter this$0 -> a
-    135:135:void <init>(com.fast.clean.junk.adapter.RamAdapter) -> <init>
-    138:139:void onClick(android.view.View) -> onClick
+    133:133:void <init>(com.fast.clean.junk.adapter.RamAdapter) -> <init>
+    136:137:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.adapter.RamAdapter$ViewHolder -> com.fast.clean.junk.a.k$a:
     android.widget.TextView name -> a
     android.widget.ImageView icon -> b
     android.widget.ImageView checkBox -> c
     android.widget.TextView size -> d
     com.fast.clean.junk.adapter.RamAdapter this$0 -> e
-    143:143:void <init>(com.fast.clean.junk.adapter.RamAdapter) -> <init>
+    141:141:void <init>(com.fast.clean.junk.adapter.RamAdapter) -> <init>
 com.fast.clean.junk.adapter.RecycleViewAdapter -> com.fast.clean.junk.a.l:
     java.util.ArrayList groupList -> a
     com.fast.clean.junk.ui.PictureActivity pictureActivity -> c
@@ -30807,13 +30807,13 @@ com.fast.clean.junk.ui.FileDocActivity -> com.fast.clean.junk.ui.FileDocActivity
     132:132:void initTxt() -> c
     135:135:void initPdf() -> d
     138:185:void initData() -> e
-    190:195:void loadAd() -> f
+    189:194:void loadAd() -> f
     197:203:void initDoc() -> g
     206:212:void addAd() -> h
     215:217:void setListenet() -> i
     257:278:void queryData(com.android.clean.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
-    281:344:void showDia(java.util.ArrayList) -> a
-    348:350:void onBackPressed() -> onBackPressed
+    281:338:void showDia(java.util.ArrayList) -> a
+    342:344:void onBackPressed() -> onBackPressed
     40:40:java.util.ArrayList access$000(com.fast.clean.junk.ui.FileDocActivity) -> a
     40:40:void access$100(com.fast.clean.junk.ui.FileDocActivity,com.android.clean.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
     40:40:java.util.ArrayList access$200(com.fast.clean.junk.ui.FileDocActivity) -> b
@@ -30848,16 +30848,16 @@ com.fast.clean.junk.ui.FileDocActivity$3 -> com.fast.clean.junk.ui.FileDocActivi
 com.fast.clean.junk.ui.FileDocActivity$4 -> com.fast.clean.junk.ui.FileDocActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.fast.clean.junk.ui.FileDocActivity this$0 -> b
-    301:301:void <init>(com.fast.clean.junk.ui.FileDocActivity,java.util.ArrayList) -> <init>
-    304:336:void onClick(android.view.View) -> onClick
+    295:295:void <init>(com.fast.clean.junk.ui.FileDocActivity,java.util.ArrayList) -> <init>
+    298:330:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.FileDocActivity$4$1 -> com.fast.clean.junk.ui.FileDocActivity$4$1:
     com.fast.clean.junk.ui.FileDocActivity$4 this$1 -> a
-    310:310:void <init>(com.fast.clean.junk.ui.FileDocActivity$4) -> <init>
-    313:320:void run() -> run
+    304:304:void <init>(com.fast.clean.junk.ui.FileDocActivity$4) -> <init>
+    307:314:void run() -> run
 com.fast.clean.junk.ui.FileDocActivity$5 -> com.fast.clean.junk.ui.FileDocActivity$5:
     com.fast.clean.junk.ui.FileDocActivity this$0 -> a
-    338:338:void <init>(com.fast.clean.junk.ui.FileDocActivity) -> <init>
-    341:342:void onClick(android.view.View) -> onClick
+    332:332:void <init>(com.fast.clean.junk.ui.FileDocActivity) -> <init>
+    335:336:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.FileListActivity -> com.fast.clean.junk.ui.FileListActivity:
     android.widget.ProgressBar file_progressbar -> a
     android.widget.LinearLayout ll_ad -> b
@@ -30888,7 +30888,7 @@ com.fast.clean.junk.ui.FileListActivity -> com.fast.clean.junk.ui.FileListActivi
     160:206:void initData() -> c
     209:211:void setListenet() -> d
     214:220:void addAd() -> e
-    223:279:void showDia(java.util.ArrayList) -> a
+    223:273:void showDia(java.util.ArrayList) -> a
     36:36:java.util.ArrayList access$000(com.fast.clean.junk.ui.FileListActivity) -> a
     36:36:void access$100(com.fast.clean.junk.ui.FileListActivity,java.util.ArrayList) -> a
     36:36:java.lang.String access$200(com.fast.clean.junk.ui.FileListActivity) -> b
@@ -30921,16 +30921,16 @@ com.fast.clean.junk.ui.FileListActivity$3$2 -> com.fast.clean.junk.ui.FileListAc
 com.fast.clean.junk.ui.FileListActivity$4 -> com.fast.clean.junk.ui.FileListActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.fast.clean.junk.ui.FileListActivity this$0 -> b
-    243:243:void <init>(com.fast.clean.junk.ui.FileListActivity,java.util.ArrayList) -> <init>
-    246:271:void onClick(android.view.View) -> onClick
+    237:237:void <init>(com.fast.clean.junk.ui.FileListActivity,java.util.ArrayList) -> <init>
+    240:265:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.FileListActivity$4$1 -> com.fast.clean.junk.ui.FileListActivity$4$1:
     com.fast.clean.junk.ui.FileListActivity$4 this$1 -> a
-    252:252:void <init>(com.fast.clean.junk.ui.FileListActivity$4) -> <init>
-    255:262:void run() -> run
+    246:246:void <init>(com.fast.clean.junk.ui.FileListActivity$4) -> <init>
+    249:256:void run() -> run
 com.fast.clean.junk.ui.FileListActivity$5 -> com.fast.clean.junk.ui.FileListActivity$5:
     com.fast.clean.junk.ui.FileListActivity this$0 -> a
-    273:273:void <init>(com.fast.clean.junk.ui.FileListActivity) -> <init>
-    276:277:void onClick(android.view.View) -> onClick
+    267:267:void <init>(com.fast.clean.junk.ui.FileListActivity) -> <init>
+    270:271:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.FileManagerActivity -> com.fast.clean.junk.ui.FileManagerActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -31960,18 +31960,18 @@ com.fast.clean.junk.ui.PictureActivity -> com.fast.clean.junk.ui.PictureActivity
     boolean mIsQuerying -> z
     android.os.Handler mHandler -> A
     android.view.View$OnClickListener clickListener -> B
-    47:373:void <init>() -> <init>
+    47:372:void <init>() -> <init>
     83:103:void findId() -> a
-    145:164:void onCreate(android.os.Bundle) -> onCreate
-    167:170:void loadAd() -> c
-    174:287:void bigPicture(java.util.ArrayList) -> a
-    290:294:void clickListen() -> d
-    298:371:void initData() -> e
-    405:518:void deleteDialog(java.util.ArrayList) -> c
-    522:525:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    529:536:void onBackPressed() -> onBackPressed
-    539:541:void showBigPic(java.util.ArrayList) -> b
-    545:560:void updateUi() -> b
+    144:163:void onCreate(android.os.Bundle) -> onCreate
+    166:169:void loadAd() -> c
+    173:286:void bigPicture(java.util.ArrayList) -> a
+    289:293:void clickListen() -> d
+    297:370:void initData() -> e
+    404:516:void deleteDialog(java.util.ArrayList) -> c
+    520:523:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    527:534:void onBackPressed() -> onBackPressed
+    537:539:void showBigPic(java.util.ArrayList) -> b
+    543:558:void updateUi() -> b
     47:47:com.fast.clean.junk.adapter.RecycleViewAdapter access$000(com.fast.clean.junk.ui.PictureActivity) -> a
     47:47:void access$100(com.fast.clean.junk.ui.PictureActivity) -> b
     47:47:java.util.ArrayList access$200(com.fast.clean.junk.ui.PictureActivity) -> c
@@ -31982,15 +31982,15 @@ com.fast.clean.junk.ui.PictureActivity -> com.fast.clean.junk.ui.PictureActivity
 com.fast.clean.junk.ui.PictureActivity$1 -> com.fast.clean.junk.ui.PictureActivity$1:
     com.fast.clean.junk.ui.PictureActivity this$0 -> a
     105:105:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
-    108:140:void handleMessage(android.os.Message) -> handleMessage
+    108:139:void handleMessage(android.os.Message) -> handleMessage
 com.fast.clean.junk.ui.PictureActivity$1$1 -> com.fast.clean.junk.ui.PictureActivity$1$1:
     com.fast.clean.junk.ui.PictureActivity$1 this$1 -> a
-    118:118:void <init>(com.fast.clean.junk.ui.PictureActivity$1) -> <init>
-    121:124:void onClick(android.view.View) -> onClick
+    117:117:void <init>(com.fast.clean.junk.ui.PictureActivity$1) -> <init>
+    120:123:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$10 -> com.fast.clean.junk.ui.PictureActivity$2:
     com.fast.clean.junk.ui.PictureActivity this$0 -> a
-    428:428:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
-    431:433:void onClick(android.view.View) -> onClick
+    427:427:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
+    430:432:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$11 -> com.fast.clean.junk.ui.PictureActivity$3:
     android.widget.TextView val$ok -> a
     android.widget.TextView val$cancle -> b
@@ -31999,85 +31999,85 @@ com.fast.clean.junk.ui.PictureActivity$11 -> com.fast.clean.junk.ui.PictureActiv
     int val$deleteSize -> e
     android.widget.TextView val$count -> f
     com.fast.clean.junk.ui.PictureActivity this$0 -> g
-    435:435:void <init>(com.fast.clean.junk.ui.PictureActivity,android.widget.TextView,android.widget.TextView,android.widget.LinearLayout,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
-    438:495:void onClick(android.view.View) -> onClick
+    434:434:void <init>(com.fast.clean.junk.ui.PictureActivity,android.widget.TextView,android.widget.TextView,android.widget.LinearLayout,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
+    437:493:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$11$1 -> com.fast.clean.junk.ui.PictureActivity$3$1:
     int num -> a
     com.fast.clean.junk.ui.PictureActivity$11 this$1 -> b
-    443:444:void <init>(com.fast.clean.junk.ui.PictureActivity$11) -> <init>
-    448:455:void deleteItemCallback(long) -> a
-    459:493:void deleteSuccessCallback(java.util.ArrayList) -> a
+    442:443:void <init>(com.fast.clean.junk.ui.PictureActivity$11) -> <init>
+    447:454:void deleteItemCallback(long) -> a
+    458:491:void deleteSuccessCallback(java.util.ArrayList) -> a
 com.fast.clean.junk.ui.PictureActivity$11$1$1 -> com.fast.clean.junk.ui.PictureActivity$3$1$1:
     com.fast.clean.junk.ui.PictureActivity$11$1 this$2 -> a
-    448:448:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1) -> <init>
-    451:453:void run() -> run
+    447:447:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1) -> <init>
+    450:452:void run() -> run
 com.fast.clean.junk.ui.PictureActivity$11$1$2 -> com.fast.clean.junk.ui.PictureActivity$3$1$2:
     java.util.ArrayList val$list -> a
     com.fast.clean.junk.ui.PictureActivity$11$1 this$2 -> b
-    460:460:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1,java.util.ArrayList) -> <init>
-    463:491:void run() -> run
+    459:459:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1,java.util.ArrayList) -> <init>
+    462:489:void run() -> run
 com.fast.clean.junk.ui.PictureActivity$11$1$2$1 -> com.fast.clean.junk.ui.PictureActivity$3$1$2$1:
     com.fast.clean.junk.ui.PictureActivity$11$1$2 this$3 -> a
-    477:477:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1$2) -> <init>
-    480:483:void onClick(android.view.View) -> onClick
+    475:475:void <init>(com.fast.clean.junk.ui.PictureActivity$11$1$2) -> <init>
+    478:481:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$2 -> com.fast.clean.junk.ui.PictureActivity$4:
     com.fast.clean.junk.ui.PictureActivity this$0 -> a
-    157:157:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
-    160:161:void run() -> run
+    156:156:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
+    159:160:void run() -> run
 com.fast.clean.junk.ui.PictureActivity$3 -> com.fast.clean.junk.ui.PictureActivity$5:
     java.util.ArrayList val$list -> a
     com.fast.clean.junk.ui.PictureActivity this$0 -> b
-    180:180:void <init>(com.fast.clean.junk.ui.PictureActivity,java.util.ArrayList) -> <init>
-    183:191:void onClick(android.view.View) -> onClick
+    179:179:void <init>(com.fast.clean.junk.ui.PictureActivity,java.util.ArrayList) -> <init>
+    182:190:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$4 -> com.fast.clean.junk.ui.PictureActivity$6:
     java.util.ArrayList val$list -> a
     com.fast.clean.junk.ui.PictureActivity this$0 -> b
-    194:194:void <init>(com.fast.clean.junk.ui.PictureActivity,java.util.ArrayList) -> <init>
-    197:210:void onClick(android.view.View) -> onClick
+    193:193:void <init>(com.fast.clean.junk.ui.PictureActivity,java.util.ArrayList) -> <init>
+    196:209:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureActivity$5 -> com.fast.clean.junk.ui.PictureActivity$7:
     java.util.ArrayList val$list -> a
     int val$finalI -> b
     android.widget.ImageView val$icon -> c
     com.fast.clean.junk.ui.PictureActivity this$0 -> d
-    217:217:void <init>(com.fast.clean.junk.ui.PictureActivity,java.util.ArrayList,int,android.widget.ImageView) -> <init>
-    221:229:void run() -> run
+    216:216:void <init>(com.fast.clean.junk.ui.PictureActivity,java.util.ArrayList,int,android.widget.ImageView) -> <init>
+    220:228:void run() -> run
 com.fast.clean.junk.ui.PictureActivity$5$1 -> com.fast.clean.junk.ui.PictureActivity$7$1:
     android.graphics.Bitmap val$bitma -> a
     com.fast.clean.junk.ui.PictureActivity$5 this$1 -> b
-    223:223:void <init>(com.fast.clean.junk.ui.PictureActivity$5,android.graphics.Bitmap) -> <init>
-    226:227:void run() -> run
+    222:222:void <init>(com.fast.clean.junk.ui.PictureActivity$5,android.graphics.Bitmap) -> <init>
+    225:226:void run() -> run
 com.fast.clean.junk.ui.PictureActivity$6 -> com.fast.clean.junk.ui.PictureActivity$8:
     com.fast.clean.junk.ui.PictureActivity this$0 -> a
-    235:235:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
-    238:238:int getCount() -> getCount
-    243:244:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    249:252:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    256:256:int getItemPosition(java.lang.Object) -> getItemPosition
-    261:261:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    234:234:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
+    237:237:int getCount() -> getCount
+    242:243:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    248:251:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    255:255:int getItemPosition(java.lang.Object) -> getItemPosition
+    260:260:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.fast.clean.junk.ui.PictureActivity$7 -> com.fast.clean.junk.ui.PictureActivity$9:
     java.util.ArrayList val$list -> a
     com.fast.clean.junk.ui.PictureActivity this$0 -> b
-    264:264:void <init>(com.fast.clean.junk.ui.PictureActivity,java.util.ArrayList) -> <init>
-    267:267:void onPageScrolled(int,float,int) -> onPageScrolled
-    271:281:void onPageSelected(int) -> onPageSelected
-    285:285:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    263:263:void <init>(com.fast.clean.junk.ui.PictureActivity,java.util.ArrayList) -> <init>
+    266:266:void onPageScrolled(int,float,int) -> onPageScrolled
+    270:280:void onPageSelected(int) -> onPageSelected
+    284:284:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.fast.clean.junk.ui.PictureActivity$8 -> com.fast.clean.junk.ui.PictureActivity$10:
     com.fast.clean.junk.ui.PictureActivity this$0 -> a
-    298:298:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
-    301:302:void startQuery() -> a
-    306:321:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
-    325:331:void startAsyncPic(int,java.util.ArrayList) -> a
-    336:336:void endAsyncPic(int,java.util.ArrayList) -> b
-    340:367:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
+    297:297:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
+    300:301:void startQuery() -> a
+    305:320:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
+    324:330:void startAsyncPic(int,java.util.ArrayList) -> a
+    335:335:void endAsyncPic(int,java.util.ArrayList) -> b
+    339:366:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
 com.fast.clean.junk.ui.PictureActivity$8$1 -> com.fast.clean.junk.ui.PictureActivity$10$1:
     java.util.ArrayList val$totalSimilarImage -> a
     com.fast.clean.junk.ui.PictureActivity$8 this$1 -> b
-    340:340:void <init>(com.fast.clean.junk.ui.PictureActivity$8,java.util.ArrayList) -> <init>
-    343:365:void run() -> run
+    339:339:void <init>(com.fast.clean.junk.ui.PictureActivity$8,java.util.ArrayList) -> <init>
+    342:364:void run() -> run
 com.fast.clean.junk.ui.PictureActivity$9 -> com.fast.clean.junk.ui.PictureActivity$11:
     com.fast.clean.junk.ui.PictureActivity this$0 -> a
-    373:373:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
-    376:401:void onClick(android.view.View) -> onClick
+    372:372:void <init>(com.fast.clean.junk.ui.PictureActivity) -> <init>
+    375:400:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.PictureHuiActivity -> com.fast.clean.junk.ui.PictureHuiActivity:
     android.widget.LinearLayout ll_picture -> a
     android.widget.TextView picture_restore -> b
