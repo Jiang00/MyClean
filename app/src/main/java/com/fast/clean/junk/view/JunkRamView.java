@@ -1,6 +1,6 @@
 package com.fast.clean.junk.view;
 
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.entity.JunkInfo;
 
 import java.util.List;
 

@@ -15,11 +15,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.clean.db.CleanDBHelper;
-import com.android.clean.util.LoadManager;
+import com.fast.clean.db.CleanDBHelper;
+import com.fast.clean.mutil.LoadManager;
 import com.fast.clean.junk.R;
-import com.fast.clean.junk.ui.GBoostActivity;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.junk.ui.DyxGboostActivity;
+import com.fast.clean.entity.JunkInfo;
 import com.fast.clean.junk.util.AdUtil;
 
 import java.util.ArrayList;
@@ -71,7 +71,7 @@ public class JiaGameAdapter extends MybaseAdapter<JunkInfo> {
                     game_list.add(info.pkg);
                     AdUtil.track("游戏加速页面", "添加游戏到列表", info.label, 1);
                     Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
-                    shortcutIntent.setClass(context, GBoostActivity.class);
+                    shortcutIntent.setClass(context, DyxGboostActivity.class);
                     shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
                 }

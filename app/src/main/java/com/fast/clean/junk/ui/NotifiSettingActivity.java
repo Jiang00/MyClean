@@ -8,18 +8,18 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.db.CleanDBHelper;
-import com.android.clean.util.PreData;
+import com.fast.clean.core.CleanManager;
+import com.fast.clean.db.CleanDBHelper;
+import com.fast.clean.mutil.PreData;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.NotifiSettingAdapter;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.entity.JunkInfo;
 import com.fast.clean.junk.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.android.clean.db.CleanDBHelper.TableType.Notification;
+import static com.fast.clean.db.CleanDBHelper.TableType.Notification;
 
 /**
  * Created by on 2017/4/13.

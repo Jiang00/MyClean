@@ -20,7 +20,7 @@ import android.widget.ImageView;
 import android.widget.Scroller;
 import android.widget.TextView;
 
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.Util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -720,10 +720,10 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
 //            this.getAdapter().exchange(temChangPosition, dragPosition);
 //            temChangPosition = dragPosition;
 //        }
-//        if (x > getRight() - Util.dp2px(25) && mCurScreen < totalPage - 1 && mScroller.isFinished()
+//        if (x > getRight() - FileUtil.dp2px(25) && mCurScreen < totalPage - 1 && mScroller.isFinished()
 //                && x - startX > 10) {
 //            snapToScreen(mCurScreen + 1, false);
-//        } else if (x - getLeft() < Util.dp2px(35) && mCurScreen > 0 && mScroller.isFinished()
+//        } else if (x - getLeft() < FileUtil.dp2px(35) && mCurScreen > 0 && mScroller.isFinished()
 //                && x - startX < -10) {
 //            snapToScreen(mCurScreen - 1, false);
 //        }

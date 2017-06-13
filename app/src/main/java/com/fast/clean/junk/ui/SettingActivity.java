@@ -15,11 +15,11 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
-import com.my.module.charge.saver.Util.Constants;
-import com.my.module.charge.saver.Util.Utils;
+import com.charging.module.charge.saver.Util.Constants;
+import com.charging.module.charge.saver.Util.Utils;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.aservice.MyFloatService;
 import com.fast.clean.junk.aservice.NotificationService;
@@ -252,7 +252,7 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_gboost:
                     AdUtil.track("设置页面", "进入游戏加速", "", 1);
                     PreData.putDB(SettingActivity.this, Constant.GBOOST_CLEAN, true);
-                    Intent intentGB = new Intent(SettingActivity.this, GBoostActivity.class);
+                    Intent intentGB = new Intent(SettingActivity.this, DyxGboostActivity.class);
                     startActivity(intentGB);
                     break;
                 case R.id.setting_hui:

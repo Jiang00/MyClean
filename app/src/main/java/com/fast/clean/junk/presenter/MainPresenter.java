@@ -6,12 +6,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
 
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.view.MainView;
 import com.fast.clean.junk.util.RCpuTempReader;
-import com.android.clean.util.MemoryManager;
-import com.android.clean.util.PreData;
+import com.fast.clean.mutil.MemoryManager;
+import com.fast.clean.mutil.PreData;
 
 import java.lang.reflect.Field;
 

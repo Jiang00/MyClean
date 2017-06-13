@@ -23,12 +23,12 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.my.module.charge.saver.Util.Constants;
-import com.my.module.charge.saver.Util.Utils;
+import com.charging.module.charge.saver.Util.Constants;
+import com.charging.module.charge.saver.Util.Utils;
 import com.mingle.circletreveal.CircularRevealCompat;
 import com.mingle.widget.animation.CRAnimation;
 import com.mingle.widget.animation.SimpleAnimListener;
@@ -543,7 +543,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_sd_air_button:
                     AdUtil.track("主页面", "点击sd球进入垃圾清理页面", "", 1);
-                    mainPresenter.jumpToActivity(JunkActivity.class, 1);
+                    mainPresenter.jumpToActivity(FileLajiActivity.class, 1);
                     break;
                 case R.id.main_ram_air_button:
                     AdUtil.track("主页面", "点击ram球进入内存加速页面", "", 1);
@@ -551,11 +551,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_huojian:
                     AdUtil.track("主页面", "点击火箭进入内存加速页面", "", 1);
-                    mainPresenter.jumpToActivity(JunkAndRamActivity.class, 1);
+                    mainPresenter.jumpToActivity(FileLajiAndRamActivity.class, 1);
                     break;
                 case R.id.main_junk_button:
                     AdUtil.track("主页面", "点击垃圾清理按钮", "", 1);
-                    mainPresenter.jumpToActivity(JunkActivity.class, 1);
+                    mainPresenter.jumpToActivity(FileLajiActivity.class, 1);
                     break;
                 case R.id.main_ram_button:
                     AdUtil.track("主页面", "点击ram清理按钮", "", 1);
@@ -578,7 +578,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_theme_button:
                     AdUtil.track("主页面", "点击进入buton游戏加速", "", 1);
-                    mainPresenter.jumpToActivity(GBoostActivity.class, 1);
+                    mainPresenter.jumpToActivity(DyxGboostActivity.class, 1);
                     break;
                 case R.id.lot_ad:
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
@@ -638,7 +638,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_msg_button:
                     AdUtil.track("主页面", "点击进入硬件信息", "", 1);
-                    mainPresenter.jumpToActivity(MessageActivity.class, 1);
+                    mainPresenter.jumpToActivity(PhoneMessageActivity.class, 1);
                     break;
                 case R.id.main_power_button:
                     AdUtil.track("主页面", "点击进入深度清理", "", 1);
@@ -652,7 +652,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_gboost_button:
                     AdUtil.track("主页面", "点击进入游戏加速", "", 1);
                     PreData.putDB(MainActivity.this, Constant.GBOOST_CLEAN, true);
-                    mainPresenter.jumpToActivity(GBoostActivity.class, 1);
+                    mainPresenter.jumpToActivity(DyxGboostActivity.class, 1);
                     break;
                 case R.id.main_picture_button:
                     AdUtil.track("主页面", "点击进入相似图片", "", 1);

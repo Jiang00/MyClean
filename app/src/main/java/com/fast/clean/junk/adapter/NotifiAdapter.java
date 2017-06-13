@@ -9,8 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.clean.notification.NotificationInfo;
-import com.android.clean.util.Util;
+import com.fast.clean.notification.NotificationInfo;
+import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.R;
 
 /**

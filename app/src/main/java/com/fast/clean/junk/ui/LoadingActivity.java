@@ -9,8 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.AdUtil;

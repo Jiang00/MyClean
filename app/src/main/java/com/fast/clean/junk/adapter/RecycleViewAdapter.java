@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.android.clean.similarimage.ImageHelper;
-import com.android.clean.similarimage.ImageInfo;
+import com.fast.clean.xsimilarimage.ImageHelper;
+import com.fast.clean.xsimilarimage.ImageInfo;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.ui.PictureActivity;
 import com.fast.clean.junk.myview.MyGridLayoutManager;
-import com.android.clean.similarimage.RecyclerDbHelper;
+import com.fast.clean.xsimilarimage.RecyclerDbHelper;
 
 import java.util.ArrayList;
 
@@ -202,7 +202,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                     @Override
                     public void run() {
                         final Bitmap bitmap = imageHelper.getImageThumbnail(pictureActivity, info.originId, MediaStore.Images.Thumbnails.MINI_KIND);
-                        // final Bitmap bitmap = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, Util.dp2px(112), Util.dp2px(112));
+                        // final Bitmap bitmap = imageHelper.pathWithScaledBitmap(pictureActivity, info.path, FileUtil.dp2px(112), FileUtil.dp2px(112));
                         if (bitmap != null) {
                             handler.post(new Runnable() {
                                 @Override

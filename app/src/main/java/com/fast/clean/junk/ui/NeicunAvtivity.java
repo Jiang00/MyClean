@@ -17,12 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.RamAdapter;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.entity.JunkInfo;
 import com.fast.clean.junk.presenter.RamPresenter;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
@@ -206,7 +206,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
 //                            @Override
 //                            public void run() {
 //                                if (finalI != 0) {
-//                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(finalI, true) + ")");
+//                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + FileUtil.convertStorage(finalI, true) + ")");
 //                                }
 //                            }
 //                        });
@@ -215,7 +215,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
             }).start();
         } else {
 //            if (size != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + Util.convertStorage(size, true) + ")");
+//                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + FileUtil.convertStorage(size, true) + ")");
 //            }
         }
 

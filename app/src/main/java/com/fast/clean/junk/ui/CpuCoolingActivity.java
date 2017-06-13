@@ -17,7 +17,7 @@ import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.myview.FlakeView;
-import com.android.clean.util.PreData;
+import com.fast.clean.mutil.PreData;
 
 import java.util.Random;
 

@@ -16,16 +16,16 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.notification.NotificationCallBack;
-import com.android.clean.notification.NotificationInfo;
-import com.android.clean.notification.NotificationMonitorService;
+import com.fast.clean.core.CleanManager;
+import com.fast.clean.notification.NotificationCallBack;
+import com.fast.clean.notification.NotificationInfo;
+import com.fast.clean.notification.MyNotificationMonitorService;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.NotifiAdapter;
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.util.Constant;
-import com.android.clean.util.PreData;
+import com.fast.clean.mutil.PreData;
 
 import java.util.ArrayList;
 
@@ -127,7 +127,7 @@ public class NotifiActivity extends Activity {
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         findId();
         myApplication = (MyApplication) getApplication();
-        startService(new Intent(this, NotificationMonitorService.class));
+        startService(new Intent(this, MyNotificationMonitorService.class));
         title_name.setText(R.string.side_notifi);
         title_right.setImageResource(R.mipmap.main_setting);
         title_right.setVisibility(View.VISIBLE);

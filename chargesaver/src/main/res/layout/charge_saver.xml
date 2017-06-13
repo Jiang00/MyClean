@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.my.module.charge.saver.view.BatteryView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.charging.module.charge.saver.view.BatteryView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/battery_charge_save"
     android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/shape_backg" />
 
-        <com.my.module.charge.saver.view.BubbleLayout
+        <com.charging.module.charge.saver.view.BubbleLayout
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -50,7 +50,7 @@
                     android:layout_centerVertical="true"
                     android:src="@mipmap/battery_inner_icon" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.charging.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/battery_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                 </LinearLayout>
             </RelativeLayout>
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.charging.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/battery_now_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                 android:layout_marginLeft="@dimen/d24"
                 android:orientation="horizontal">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.charging.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/battery_now_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                     android:textSize="@dimen/s16"
                     app:typeface="Roboto-Light.ttf" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.charging.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/battery_now_week"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                     app:typeface="Roboto-Light.ttf" />
             </LinearLayout>
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.charging.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/battery_now_battery_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                     android:layout_height="match_parent"
                     app:lottie_autoPlay="false" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.charging.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/battery_level"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -184,7 +184,7 @@
                 android:paddingTop="@dimen/d8"
                 android:visibility="visible">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.charging.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -232,4 +232,4 @@
             android:layout_marginLeft="@dimen/time_top" />
     </LinearLayout>
 
-</com.my.module.charge.saver.view.BatteryView>
+</com.charging.module.charge.saver.view.BatteryView>

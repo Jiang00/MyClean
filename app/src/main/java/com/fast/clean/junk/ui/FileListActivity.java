@@ -17,10 +17,11 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.clean.filemanager.FileCategoryHelper;
-import com.android.clean.filemanager.FileSortHelper;
-import com.android.clean.filemanager.FileUtils;
-import com.android.clean.util.PreData;
+import com.fast.clean.filemanager.FileCategoryHelper;
+import com.fast.clean.filemanager.FileSortHelper;
+import com.fast.clean.filemanager.FileUtil;
+import com.fast.clean.filemanager.FileUtils;
+import com.fast.clean.mutil.PreData;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.FileAdapter;
@@ -180,7 +181,7 @@ public class FileListActivity extends BaseActivity {
                         }
                         long _id = cursor.getLong(FileCategoryHelper.COLUMN_ID);
                         long size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
-                        fileList.add(new JunkInfo(_id, null, com.android.clean.filemanager.Util.getNameFromFilepath(cursor.getString(FileCategoryHelper.COLUMN_PATH)),
+                        fileList.add(new JunkInfo(_id, null, FileUtil.getNameFromFilepath(cursor.getString(FileCategoryHelper.COLUMN_PATH)),
                                 cursor.getString(FileCategoryHelper.COLUMN_PATH), size, false));
                     } while (cursor.moveToNext());
                     cursor.close();

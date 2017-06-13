@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Parcelable;
 
-import com.android.clean.util.PreData;
+import com.fast.clean.junk.ui.DyxGboostActivity;
+import com.fast.clean.mutil.PreData;
 import com.fast.clean.junk.R;
-import com.fast.clean.junk.ui.GBoostActivity;
 import com.fast.clean.junk.ui.ShortCutActivity;
 
 
@@ -72,7 +72,7 @@ public class ShortCutUtils {
         Intent shortcut = new Intent(
                 "com.android.launcher.action.INSTALL_SHORTCUT");
         Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
-        shortcutIntent.setClass(cx, GBoostActivity.class);
+        shortcutIntent.setClass(cx, DyxGboostActivity.class);
         shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         //设置启动的模式
         shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS

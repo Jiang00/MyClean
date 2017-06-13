@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.os.Handler;
 import android.os.IBinder;
@@ -22,13 +21,13 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 
-import com.android.clean.db.CleanDBHelper;
+import com.fast.clean.db.CleanDBHelper;
 import com.fast.clean.junk.R;
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.presenter.GetTopApp;
 import com.fast.clean.junk.presenter.FloatStateManager;
 import com.fast.clean.junk.util.Constant;
-import com.android.clean.util.PreData;
+import com.fast.clean.mutil.PreData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,7 +111,7 @@ public class MyFloatService extends Service {
             public void run() {
                 String pkg = topApp.execute();
 //                if (hmoes.contains(pkg)) {
-//                    manager.upDate(Util.getMemory(MyFloatService.this));
+//                    manager.upDate(FileUtil.getMemory(MyFloatService.this));
 //                    manager.addWindowsView();
 //                } else {
 //                    manager.removeWindowsView();

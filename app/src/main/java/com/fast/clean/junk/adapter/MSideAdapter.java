@@ -14,15 +14,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.aservice.MyFloatService;
-import com.my.module.charge.saver.Util.Constants;
-import com.my.module.charge.saver.Util.Utils;
+import com.charging.module.charge.saver.Util.Constants;
+import com.charging.module.charge.saver.Util.Utils;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.ui.FileManagerActivity;
-import com.fast.clean.junk.ui.GBoostActivity;
-import com.fast.clean.junk.ui.JunkActivity;
+import com.fast.clean.junk.ui.DyxGboostActivity;
+import com.fast.clean.junk.ui.FileLajiActivity;
 import com.fast.clean.junk.ui.AppManagerActivity;
 import com.fast.clean.junk.ui.NotifiActivity;
 import com.fast.clean.junk.ui.NotifiInfoActivity;
@@ -164,7 +164,7 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
             }
         } else if (position == JUNK) {
             AdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
-            Intent intent2 = new Intent(context, JunkActivity.class);
+            Intent intent2 = new Intent(context, FileLajiActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
         } else if (position == RAM) {
             AdUtil.track("侧边栏", "点击进入ram页面", "", 1);
@@ -203,7 +203,7 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == GBOOST) {
             AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, Constant.GBOOST_CLEAN, true);
-            Intent intent = new Intent(context, GBoostActivity.class);
+            Intent intent = new Intent(context, DyxGboostActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {
             AdUtil.track("侧边栏", "点击进入设置页面", "", 1);

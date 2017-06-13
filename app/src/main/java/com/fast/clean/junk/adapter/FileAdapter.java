@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.clean.filemanager.FileUtils;
-import com.android.clean.filemanager.Util;
-import com.android.clean.util.LoadManager;
+import com.fast.clean.filemanager.FileUtil;
+import com.fast.clean.filemanager.FileUtils;
+import com.fast.clean.mutil.LoadManager;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.entity.JunkInfo;
 
@@ -71,7 +71,7 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
             viewHolder.file_icon.setImageDrawable(info.icon);
         }
         viewHolder.file_name.setText(info.name);
-        viewHolder.file_size.setText(Util.convertStorage(info.size));
+        viewHolder.file_size.setText(FileUtil.convertStorage(info.size));
         if (info.isChecked) {
             viewHolder.file_check.setImageResource(R.mipmap.ram_passed);
         } else {

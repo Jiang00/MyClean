@@ -27,9 +27,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.clean.entity.JunkInfo;
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.entity.JunkInfo;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.ManagerAdapter;

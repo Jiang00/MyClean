@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.ui.FloatActivity;
 import com.fast.clean.junk.myview.FloatStateView;
 

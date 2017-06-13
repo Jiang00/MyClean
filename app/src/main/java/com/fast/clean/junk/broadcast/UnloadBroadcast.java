@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.android.clean.db.CleanDBHelper;
-import com.android.clean.util.Util;
+import com.fast.clean.db.CleanDBHelper;
+import com.fast.clean.mutil.Util;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -3,11 +3,11 @@ package com.fast.clean.junk.presenter;
 import android.app.Activity;
 import android.content.Context;
 
-import com.android.clean.core.CleanManager;
+import com.fast.clean.core.CleanManager;
 import com.fast.clean.junk.view.MRamView;
 import com.fast.clean.junk.ui.MyApplication;
-import com.android.clean.util.MemoryManager;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.mutil.MemoryManager;
+import com.fast.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;

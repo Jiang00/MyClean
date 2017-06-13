@@ -27,23 +27,23 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.notification.NotificationCallBack;
-import com.android.clean.notification.NotificationInfo;
+import com.fast.clean.core.CleanManager;
+import com.fast.clean.notification.NotificationCallBack;
+import com.fast.clean.notification.NotificationInfo;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.ui.CpuCoolingActivity;
-import com.fast.clean.junk.ui.JunkAndRamActivity;
+import com.fast.clean.junk.ui.FileLajiAndRamActivity;
 import com.fast.clean.junk.ui.MainActivity;
 import com.fast.clean.junk.ui.MyApplication;
 import com.fast.clean.junk.ui.NotifiActivity;
 import com.fast.clean.junk.ui.NeicunAvtivity;
 import com.fast.clean.junk.ui.SuccessActivity;
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.util.RCpuTempReader;
 import com.fast.clean.junk.util.PhoneManager;
-import com.android.clean.util.PreData;
+import com.fast.clean.mutil.PreData;
 
 import java.util.ArrayList;
 
@@ -144,7 +144,7 @@ public class NotificationService extends Service {
         notifyIntentCooling.putExtra("from", "notifi");
         notifyIntentCooling.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        notifyIntentJunkRam = new Intent(this, JunkAndRamActivity.class);
+        notifyIntentJunkRam = new Intent(this, FileLajiAndRamActivity.class);
         notifyIntentJunkRam.putExtra("from", "notifi");
         notifyIntentJunkRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -176,6 +176,7 @@ public class NotificationService extends Service {
         myHandler.removeCallbacks(runnableW);
         myHandler.postAtTime(runnableW, 2000);
     }
+
     private void onCancle() {
         if (mNotifyManager != null)
             mNotifyManager.cancel(102);
@@ -396,6 +397,7 @@ public class NotificationService extends Service {
         }
 
     }
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_two_day() {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
@@ -418,13 +420,12 @@ public class NotificationService extends Service {
 
     private long getTotalRxBytes() {
         // 得到整个手机的流量值
-        return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
-                : (TrafficStats.getTotalRxBytes());//
-        // // 得到当前应用的流量值
-        // return TrafficStats.getUidRxBytes(getApplicationInfo().uid) ==
-        // TrafficStats.UNSUPPORTED ? 0 : (TrafficStats
-        // .getUidRxBytes(getApplicationInfo().uid) / 1024);// 转为KB
-
+        try {
+            return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
+                    : (TrafficStats.getTotalRxBytes());//
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -518,6 +519,7 @@ public class NotificationService extends Service {
         Bitmap bitmap = view.getDrawingCache();
         return bitmap;
     }
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void tonghzi_notifi() {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);

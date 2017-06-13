@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.android.clean.util.Util;
+import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.R;
 
 /**
@@ -87,7 +87,7 @@ public class DrawHookView extends View {
         int radius = size / 2;
 
         //定义的圆弧的形状和大小的界限
-//        RectF rectF = new RectF(0 + Util.dp2px(5), 0 + Util.dp2px(5), size - Util.dp2px(5), size - Util.dp2px(5));
+//        RectF rectF = new RectF(0 + FileUtil.dp2px(5), 0 + FileUtil.dp2px(5), size - FileUtil.dp2px(5), size - FileUtil.dp2px(5));
 
         //根据进度画圆弧
 //        canvas.drawArc(rectF, 235, -360 * progress / 100, false, paint);

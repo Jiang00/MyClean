@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.clean.util.LoadManager;
+import com.fast.clean.mutil.LoadManager;
 import com.fast.clean.junk.R;
-import com.android.clean.util.Util;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.mutil.Util;
+import com.fast.clean.entity.JunkInfo;
 import com.fast.clean.junk.presenter.JunkPresenter;
 
 public class JunkAdapter extends MybaseAdapter<JunkInfo> {

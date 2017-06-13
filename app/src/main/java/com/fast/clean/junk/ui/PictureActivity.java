@@ -27,14 +27,14 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.clean.similarimage.ImageHelper;
-import com.android.clean.similarimage.ImageInfo;
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.xsimilarimage.ImageHelper;
+import com.fast.clean.xsimilarimage.ImageInfo;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.RecycleViewAdapter;
-import com.android.clean.similarimage.RecyclerDbHelper;
+import com.fast.clean.xsimilarimage.RecyclerDbHelper;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
 
@@ -119,7 +119,7 @@ public class PictureActivity extends BaseActivity {
                             @Override
                             public void onClick(View v) {
                                 AdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
-                                jumpTo(JunkActivity.class);
+                                jumpTo(FileLajiActivity.class);
                                 onBackPressed();
                             }
                         });
@@ -478,7 +478,7 @@ public class PictureActivity extends BaseActivity {
                                         @Override
                                         public void onClick(View v) {
                                             AdUtil.track("相似图片页面", "点击检测其他垃圾", "", 1);
-                                            jumpTo(JunkActivity.class);
+                                            jumpTo(FileLajiActivity.class);
                                             onBackPressed();
                                         }
                                     });

@@ -9,7 +9,7 @@
 
     <application android:allowBackup="true">
         <service
-            android:name="com.android.clean.powerclean.CustomerAccessibilityService"
+            android:name="com.android.clean.com.fast.clean.powerclean.CustomerAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -21,14 +21,14 @@
         </service>
 
         <service
-            android:name="com.android.clean.notification.NotificationMonitorService"
+            android:name="com.android.clean.com.fast.clean.notification.NotificationMonitorService"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
 
-        <service android:name=".core.CleanService"/>
+        <service android:name="com.fast.clean.core.MyCleanService"/>
 
     </application>
 

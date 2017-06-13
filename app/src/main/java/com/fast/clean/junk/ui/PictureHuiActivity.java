@@ -20,13 +20,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.clean.similarimage.ImageHelper;
-import com.android.clean.similarimage.ImageInfo;
-import com.android.clean.util.PreData;
+import com.fast.clean.xsimilarimage.ImageHelper;
+import com.fast.clean.xsimilarimage.ImageInfo;
+import com.fast.clean.mutil.PreData;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
-import com.android.clean.similarimage.RecyclerDbHelper;
-import com.android.clean.util.Util;
+import com.fast.clean.xsimilarimage.RecyclerDbHelper;
+import com.fast.clean.mutil.Util;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
 

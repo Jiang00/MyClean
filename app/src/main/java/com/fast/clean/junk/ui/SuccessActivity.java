@@ -26,11 +26,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.entity.JunkInfo;
-import com.android.clean.util.LoadManager;
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.core.CleanManager;
+import com.fast.clean.entity.JunkInfo;
+import com.fast.clean.mutil.LoadManager;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
 import com.twee.module.tweenengine.Tween;
 import com.twee.module.tweenengine.TweenEquations;
@@ -558,7 +558,7 @@ public class SuccessActivity extends BaseActivity {
                     break;
                 case R.id.main_junk_button:
                     AdUtil.track("完成页面", "点击进入垃圾清理", "", 1);
-                    jumpTo(JunkActivity.class);
+                    jumpTo(FileLajiActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_ram_button:
@@ -588,7 +588,7 @@ public class SuccessActivity extends BaseActivity {
                     }
                     AdUtil.track("完成页面", "点击进入游戏加速", "", 1);
                     PreData.putDB(SuccessActivity.this, Constant.GBOOST_CLEAN, true);
-                    jumpTo(GBoostActivity.class);
+                    jumpTo(DyxGboostActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_picture_button:

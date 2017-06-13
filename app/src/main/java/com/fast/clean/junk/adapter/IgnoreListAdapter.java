@@ -14,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.db.CleanDBHelper;
-import com.android.clean.util.LoadManager;
+import com.fast.clean.core.CleanManager;
+import com.fast.clean.db.CleanDBHelper;
+import com.fast.clean.mutil.LoadManager;
 import com.fast.clean.junk.R;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.entity.JunkInfo;
 import com.fast.clean.junk.util.AdUtil;
 
 /**

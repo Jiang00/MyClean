@@ -7,16 +7,16 @@ import android.content.Intent;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.notification.NotificationMonitorService;
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.core.CleanManager;
+import com.fast.clean.notification.MyNotificationMonitorService;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.achtapps.kpa.DaemonClient;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.aservice.MyFloatService;
-import com.my.module.charge.saver.Util.Constants;
-import com.my.module.charge.saver.Util.Utils;
-import com.my.module.charge.saver.service.BatteryService;
+import com.charging.module.charge.saver.Util.Constants;
+import com.charging.module.charge.saver.Util.Utils;
+import com.charging.module.charge.saver.service.BatteryService;
 import com.squareup.leakcanary.LeakCanary;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.aservice.NotificationService;
@@ -71,7 +71,7 @@ public class MyApplication extends Application {
 
         //启动通知兰清理
         if (Util.isNotificationListenEnabled(this) && PreData.getDB(this, Constant.KEY_NOTIFI, false)) {
-            startService(new Intent(this, NotificationMonitorService.class));
+            startService(new Intent(this, MyNotificationMonitorService.class));
         }
 
         String name = Util.getProcessName(this);

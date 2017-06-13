@@ -23,15 +23,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.powerclean.CustomerAccessibilityService;
-import com.android.clean.util.LoadManager;
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
+import com.fast.clean.core.CleanManager;
+import com.fast.clean.deepclean.MyAccessibilityService;
+import com.fast.clean.mutil.LoadManager;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.myview.PowerWidgetContainer;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.entity.JunkInfo;
 import com.fast.clean.junk.aservice.NotificationService;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
@@ -76,7 +76,7 @@ public class PowerActivity extends BaseActivity {
         setContentView(R.layout.layout_power);
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         mHandler = new Handler();
-        startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));
+        startService(new Intent(this, MyAccessibilityService.class).putExtra("isDis", false));
         initData();
         title_name.setText(R.string.side_power);
         power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
@@ -333,7 +333,7 @@ public class PowerActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", true));
+        startService(new Intent(this, MyAccessibilityService.class).putExtra("isDis", true));
         super.onDestroy();
 
     }

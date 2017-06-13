@@ -15,11 +15,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.db.CleanDBHelper;
+import com.fast.clean.core.CleanManager;
+import com.fast.clean.db.CleanDBHelper;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.IgnoreListAdapter;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -11,15 +11,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.clean.core.CleanManager;
-import com.android.clean.util.PreData;
+import com.fast.clean.core.CleanManager;
+import com.fast.clean.mutil.PreData;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
-import com.android.clean.util.Util;
-import com.android.clean.util.MemoryManager;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.mutil.Util;
+import com.fast.clean.mutil.MemoryManager;
+import com.fast.clean.entity.JunkInfo;
 
 import java.io.File;
 import java.util.ArrayList;

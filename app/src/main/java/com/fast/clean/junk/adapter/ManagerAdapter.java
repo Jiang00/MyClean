@@ -6,14 +6,13 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.util.LruCache;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.clean.util.LoadManager;
+import com.fast.clean.mutil.LoadManager;
 import com.fast.clean.junk.R;
-import com.android.clean.util.Util;
-import com.android.clean.entity.JunkInfo;
+import com.fast.clean.mutil.Util;
+import com.fast.clean.entity.JunkInfo;
 import com.fast.clean.junk.presenter.ManagerPresenter;
 
 public class ManagerAdapter extends MybaseAdapter<JunkInfo> {

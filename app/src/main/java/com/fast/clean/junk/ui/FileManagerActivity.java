@@ -8,8 +8,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.clean.filemanager.FileCategoryHelper;
-import com.android.clean.util.PreData;
+import com.fast.clean.filemanager.FileCategoryHelper;
+import com.fast.clean.mutil.PreData;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.AdUtil;
@@ -146,7 +146,7 @@ public class FileManagerActivity extends BaseActivity {
                         bundle.putInt("count", 0);
                     }
                     AdUtil.track("文件管理页面", "点击进入文档页面", "", 1);
-                    jumpToActivity(FileDocActivity.class, 1);
+                    jumpToActivity(DocActivity.class, 1);
                     break;
                 case R.id.file_music_button:
                     if (musicInfo.count == 0) {
