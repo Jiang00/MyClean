@@ -113,12 +113,10 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
     private void showDialog(Drawable drawable, String label, final String pkg) {
         View view = View.inflate(context, R.layout.dialog_file, null);
         ImageView dialog_icon = (ImageView) view.findViewById(R.id.dialog_icon);
-        TextView title = (TextView) view.findViewById(R.id.title);
         TextView message = (TextView) view.findViewById(R.id.message);
         TextView ok = (TextView) view.findViewById(R.id.ok);
         TextView cancle = (TextView) view.findViewById(R.id.cancle);
         dialog_icon.setImageDrawable(drawable);
-        title.setText(label);
         message.setText(context.getString(R.string.add_white, label));
         dialog = new AlertDialog.Builder(context).create();
         dialog.setView(view);

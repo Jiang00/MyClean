@@ -8,15 +8,15 @@
 
     <RelativeLayout
         android:id="@+id/junk_item_rl"
-        android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d72">
+        android:layout_width="@dimen/d90"
+        android:layout_height="@dimen/d60">
 
         <ImageView
             android:id="@+id/junk_item_icon"
             android:layout_width="@dimen/d36"
             android:layout_height="@dimen/d36"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/d16" />
+            android:layout_marginLeft="@dimen/d36" />
     </RelativeLayout>
 
     <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -27,9 +27,8 @@
         android:layout_toRightOf="@id/junk_item_rl"
         android:maxLength="15"
         android:text="app标题"
-        android:textColor="@color/A8"
-        android:textSize="@dimen/s16"
-         />
+        android:textColor="@color/A10"
+        android:textSize="@dimen/s15" />
 
     <ImageView
         android:id="@+id/check_iv"
@@ -37,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginLeft="@dimen/d25"
         android:layout_marginRight="@dimen/d16"
         android:src="@mipmap/ram_passed" />
 
@@ -48,7 +47,6 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="@color/A9"
-        android:textSize="@dimen/s14"
-         />
+        android:textColor="@color/A10"
+        android:textSize="@dimen/s12" />
 </RelativeLayout>

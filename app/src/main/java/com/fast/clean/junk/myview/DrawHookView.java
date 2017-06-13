@@ -68,7 +68,7 @@ public class DrawHookView extends View {
         //设置画笔颜色
 //        paint.setColor(getResources().getColor(R.color.white_40));
         //设置圆弧的宽度
-        paint.setStrokeWidth(Util.dp2px(10));
+        paint.setStrokeWidth(Util.dp2px(5));
         //设置圆弧为空心
         paint.setStyle(Paint.Style.STROKE);
         //消除锯齿
@@ -111,7 +111,7 @@ public class DrawHookView extends View {
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
             //画第二根线
-            canvas.drawLine(center1 + line1_x - Util.dp2px(6), center + line1_y, center1 + line2_x, center + line2_y, paint);
+            canvas.drawLine(center1 + line1_x - Util.dp2px(3), center + line1_y, center1 + line2_x, center + line2_y, paint);
         } else {
             if (drawHookListener != null) {
                 drawHookListener.duogouSc();
@@ -119,7 +119,7 @@ public class DrawHookView extends View {
             //画第一根线
             canvas.drawLine(center1, center, center1 + line1_x, center + line1_y, paint);
             //画第二根线
-            canvas.drawLine(center1 + line1_x - Util.dp2px(6), center + line1_y, center1 + line2_x, center + line2_y, paint);
+            canvas.drawLine(center1 + line1_x - Util.dp2px(3), center + line1_y, center1 + line2_x, center + line2_y, paint);
             stop = true;
         }
     }

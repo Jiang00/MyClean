@@ -185,7 +185,6 @@ public class FileDocActivity extends BaseActivity {
     }
 
 
-
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FILE_2, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
@@ -193,6 +192,7 @@ public class FileDocActivity extends BaseActivity {
             addAd();
         }
     }
+
     private void initDoc() {
         ListView listView_doc = (ListView) view_doc.findViewById(R.id.file_list);
         ListView listView_txt = (ListView) view_txt.findViewById(R.id.file_list);
@@ -283,16 +283,10 @@ public class FileDocActivity extends BaseActivity {
             return;
         }
         View view = View.inflate(this, R.layout.dialog_file, null);
-        TextView title = (TextView) view.findViewById(R.id.title);
         TextView message = (TextView) view.findViewById(R.id.message);
         TextView ok = (TextView) view.findViewById(R.id.ok);
         TextView cancle = (TextView) view.findViewById(R.id.cancle);
 
-        if (deleteList.size() == 1) {
-            title.setText(deleteList.get(0).name);
-        } else {
-            title.setText(R.string.delete_queren);
-        }
         message.setText(getString(R.string.delete_2, deleteList.size()));
         dialog = new AlertDialog.Builder(FileDocActivity.this).create();
         dialog.setView(view);

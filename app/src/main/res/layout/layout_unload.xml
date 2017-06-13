@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/B2">
+    android:background="@color/black_50">
 
     <View
         android:id="@+id/view_title_bar"
@@ -52,8 +52,7 @@
                 android:layout_toRightOf="@id/zhuangshi"
                 android:text="158"
                 android:textColor="@color/A2"
-                android:textSize="@dimen/s30"
-                 />
+                android:textSize="@dimen/s30" />
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/tv_danwei"
@@ -64,8 +63,7 @@
                 android:layout_toRightOf="@id/tv_size"
                 android:text="KB "
                 android:textColor="#ffffff"
-                android:textSize="@dimen/s15"
-                 />
+                android:textSize="@dimen/s15" />
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
@@ -74,8 +72,7 @@
                 android:layout_toRightOf="@id/tv_danwei"
                 android:text="@string/unload_canyu"
                 android:textColor="@color/A7"
-                android:textSize="@dimen/s15"
-                 />
+                android:textSize="@dimen/s15" />
         </RelativeLayout>
 
         <LinearLayout

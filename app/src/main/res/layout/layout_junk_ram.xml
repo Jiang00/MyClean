@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A7"
+    android:background="@color/white_100"
     android:orientation="vertical">
 
 
@@ -23,7 +23,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d127"
+            android:layout_height="@dimen/d146"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -32,13 +32,12 @@
                 android:id="@+id/junk_size_all"
                 android:layout_width="@dimen/d146"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d82"
+                android:layout_marginLeft="@dimen/d72"
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s60"
-                 />
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s66" />
 
             <LinearLayout
                 android:id="@+id/ll_tv"
@@ -52,19 +51,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/junk_title_clean"
-                    android:textColor="@color/A6"
-                    android:textSize="@dimen/s16"
-                     />
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s16" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/junk_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d4"
+                    android:layout_marginTop="@dimen/d8"
                     android:text="B"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/s22"
-                     />
+                    android:textSize="@dimen/s20" />
 
 
             </LinearLayout>
@@ -75,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A7"
+        android:background="@color/white_100"
         android:orientation="vertical">
 
         <FrameLayout
@@ -87,8 +84,8 @@
                 android:id="@+id/junk_list_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/A7"
-                android:divider="@drawable/list_divider"
+                android:background="@color/white_100"
+                android:divider="@drawable/junk_divider"
                 android:dividerHeight="0px"
                 android:visibility="gone" />
 
@@ -97,11 +94,17 @@
                 android:id="@+id/junk_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/A7"
+                android:background="@color/white_100"
                 android:scrollbars="none">
 
+                <LinearLayout
+                    android:id="@+id/junk_button_system"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="vertical">
+
                     <LinearLayout
-                        android:id="@+id/junk_button_system"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackground"
@@ -109,7 +112,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d56"
+                            android:layout_height="@dimen/d60"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -117,8 +120,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
+                                    android:layout_width="@dimen/d39"
+                                    android:layout_height="@dimen/d39"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_system" />
@@ -131,9 +134,8 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_system"
-                                android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textColor="@color/A9"
+                                android:textSize="@dimen/s15" />
 
 
                             <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -141,12 +143,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginRight="@dimen/d25"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A10"
+                                android:textSize="@dimen/s12" />
 
 
                             <ImageView
@@ -159,13 +160,20 @@
                                 android:visibility="visible" />
                         </LinearLayout>
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/A8" />
+                    </LinearLayout>
+
+
                     <com.fast.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_system_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
-                        android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:background="@color/white_100"
+                        android:divider="@drawable/junk_divider"
+                        android:dividerHeight="1dp" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_apk"
@@ -176,7 +184,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d56"
+                            android:layout_height="@dimen/d60"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -184,8 +192,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
+                                    android:layout_width="@dimen/d39"
+                                    android:layout_height="@dimen/d39"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_apk" />
@@ -198,21 +206,19 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_apk"
-                                android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textColor="@color/A9"
+                                android:textSize="@dimen/s15" />
 
                             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                                 android:id="@+id/junk_apk_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginRight="@dimen/d25"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A10"
+                                android:textSize="@dimen/s12" />
 
 
                             <ImageView
@@ -225,15 +231,19 @@
                                 android:visibility="visible" />
                         </LinearLayout>
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/A8" />
                     </LinearLayout>
 
                     <com.fast.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_apk_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
-                        android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:background="@color/white_100"
+                        android:divider="@drawable/junk_divider"
+                        android:dividerHeight="1dp" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_unload"
@@ -244,7 +254,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d56"
+                            android:layout_height="@dimen/d60"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -252,8 +262,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
+                                    android:layout_width="@dimen/d39"
+                                    android:layout_height="@dimen/d39"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_unload" />
@@ -266,21 +276,19 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_unload"
-                                android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textColor="@color/A9"
+                                android:textSize="@dimen/s15" />
 
                             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                                 android:id="@+id/junk_unload_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginRight="@dimen/d25"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A10"
+                                android:textSize="@dimen/s12" />
 
 
                             <ImageView
@@ -293,15 +301,19 @@
                                 android:visibility="visible" />
                         </LinearLayout>
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/A8" />
                     </LinearLayout>
 
                     <com.fast.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_unload_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
-                        android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:background="@color/white_100"
+                        android:divider="@drawable/junk_divider"
+                        android:dividerHeight="1dp" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_log"
@@ -312,7 +324,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d56"
+                            android:layout_height="@dimen/d60"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -320,8 +332,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
+                                    android:layout_width="@dimen/d39"
+                                    android:layout_height="@dimen/d39"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_log" />
@@ -334,9 +346,8 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_log"
-                                android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textColor="@color/A9"
+                                android:textSize="@dimen/s15" />
 
 
                             <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -344,12 +355,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginRight="@dimen/d25"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A10"
+                                android:textSize="@dimen/s12" />
 
 
                             <ImageView
@@ -362,15 +372,19 @@
                                 android:visibility="visible" />
                         </LinearLayout>
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/A8" />
                     </LinearLayout>
 
                     <com.fast.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_log_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
-                        android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:background="@color/white_100"
+                        android:divider="@drawable/junk_divider"
+                        android:dividerHeight="1dp" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_user"
@@ -381,7 +395,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d56"
+                            android:layout_height="@dimen/d60"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -389,8 +403,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
+                                    android:layout_width="@dimen/d39"
+                                    android:layout_height="@dimen/d39"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_user" />
@@ -403,9 +417,8 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_user"
-                                android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textColor="@color/A9"
+                                android:textSize="@dimen/s15" />
 
 
                             <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -413,12 +426,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginRight="@dimen/d25"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A10"
+                                android:textSize="@dimen/s12" />
 
 
                             <ImageView
@@ -431,15 +443,19 @@
                                 android:visibility="visible" />
                         </LinearLayout>
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/A8" />
                     </LinearLayout>
 
                     <com.fast.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_user_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
-                        android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:background="@color/white_100"
+                        android:divider="@drawable/junk_divider"
+                        android:dividerHeight="1dp" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_ram"
@@ -450,7 +466,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d56"
+                            android:layout_height="@dimen/d60"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -458,8 +474,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
+                                    android:layout_width="@dimen/d39"
+                                    android:layout_height="@dimen/d39"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_ram" />
@@ -472,9 +488,8 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_ram"
-                                android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textColor="@color/A9"
+                                android:textSize="@dimen/s15" />
 
 
                             <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -482,12 +497,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginRight="@dimen/d25"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A10"
+                                android:textSize="@dimen/s12" />
 
                             <ImageView
                                 android:id="@+id/junk_ram_jiantou"
@@ -499,15 +513,19 @@
                                 android:visibility="visible" />
                         </LinearLayout>
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/A8" />
                     </LinearLayout>
 
                     <com.fast.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_ram_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
-                        android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:background="@color/white_100"
+                        android:divider="@drawable/junk_divider"
+                        android:dividerHeight="1dp" />
 
                 </LinearLayout>
             </com.fast.clean.junk.myview.MyScrollView>
@@ -523,18 +541,18 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/d72"
             android:layout_gravity="bottom"
-            android:background="@color/A7">
+            android:background="@color/white_100">
 
             <Button
                 android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d250"
-                android:layout_height="@dimen/d40"
+                android:layout_width="@dimen/d168"
+                android:layout_height="@dimen/d44"
                 android:layout_centerInParent="true"
                 android:background="@drawable/shape_button"
                 android:text="@string/junk_button"
                 android:textAllCaps="false"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s16"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s20"
                 android:visibility="invisible" />
         </RelativeLayout>
     </LinearLayout>

@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/junk_item_rl"
         android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d72">
+        android:layout_height="@dimen/d60">
 
         <ImageView
             android:id="@+id/junk_item_icon"
@@ -31,8 +31,8 @@
             android:layout_height="wrap_content"
             android:maxLength="20"
             android:text="app标题"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s16" />
+            android:textColor="@color/A10"
+            android:textSize="@dimen/s15" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,25 +45,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="17-03-16"
-                android:textColor="@color/A9"
-                android:textSize="@dimen/s14" />
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d8"
-                android:text="@string/manager_zhan"
-                android:textColor="@color/A9"
-                android:textSize="@dimen/s14" />
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/size_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d3"
-                android:text="size"
-                android:textColor="@color/A9"
-                android:textSize="@dimen/s14" />
+                android:textColor="@color/A10"
+                android:textSize="@dimen/s10" />
         </LinearLayout>
 
 
@@ -75,8 +58,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp" />
+        android:layout_marginLeft="@dimen/d25"
+        android:layout_marginRight="@dimen/d16" />
 
+    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        android:id="@+id/size_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/check_iv"
+        android:text="size"
+        android:textColor="@color/A10"
+        android:textSize="@dimen/s14" />
 
 </RelativeLayout>

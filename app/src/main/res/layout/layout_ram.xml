@@ -23,7 +23,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d127"
+            android:layout_height="@dimen/d146"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -31,13 +31,12 @@
                 android:id="@+id/junk_size_all"
                 android:layout_width="@dimen/d146"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d82"
+                android:layout_marginLeft="@dimen/d72"
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
                 android:textColor="#ffffff"
-                android:textSize="@dimen/s60"
-                 />
+                android:textSize="@dimen/s66" />
 
             <LinearLayout
                 android:id="@+id/ll_tv"
@@ -52,19 +51,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/junk_title_clean"
-                    android:textColor="@color/A6"
-                    android:textSize="@dimen/s16"
-                     />
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s16" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/junk_fangxin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d4"
+                    android:layout_marginTop="@dimen/d8"
                     android:text="B"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/s22"
-                     />
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s20" />
 
             </LinearLayout>
 
@@ -88,9 +85,9 @@
                 android:id="@+id/junk_list_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/A7"
+                android:background="@color/white_100"
                 android:divider="@drawable/list_divider"
-                android:dividerHeight="1px" />
+                android:dividerHeight="1dp" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -104,18 +101,18 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/d72"
             android:layout_gravity="bottom"
-            android:background="@color/A7">
+            android:background="@color/white_100">
 
             <Button
                 android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d250"
-                android:layout_height="@dimen/d40"
+                android:layout_width="@dimen/d168"
+                android:layout_height="@dimen/d44"
                 android:layout_centerInParent="true"
                 android:background="@drawable/shape_button"
                 android:text="@string/ram_button"
                 android:textAllCaps="false"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s16"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s20"
                 android:visibility="invisible" />
         </RelativeLayout>
     </LinearLayout>

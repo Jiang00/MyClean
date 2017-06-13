@@ -63,13 +63,12 @@ public class SuccessActivity extends BaseActivity {
     TextView title_name;
     ImageView success_jiantou;
     TextView success_clean_size;
-    TextView success_clean_2;
     DrawHookView success_drawhook;
     ImageView success_huojian;
     SlowScrollView scrollView;
     LinearLayout main_picture_button;
     TextView main_rotate_bad;
-    //    ImageView delete;
+    ImageView rotate_cha;
     ImageView success_progress;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
@@ -100,7 +99,6 @@ public class SuccessActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
-        success_clean_2 = (TextView) findViewById(R.id.success_clean_2);
         success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
@@ -116,7 +114,7 @@ public class SuccessActivity extends BaseActivity {
         power_text = (TextView) findViewById(R.id.power_text);
         main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
-//        delete = (ImageView) findViewById(R.id.delete);
+        rotate_cha = (ImageView) findViewById(R.id.rotate_cha);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         success_progress = (ImageView) findViewById(R.id.success_progress);
@@ -214,7 +212,6 @@ public class SuccessActivity extends BaseActivity {
             success_clean_size.setText(getString(R.string.success_4, sizePic + ""));
         } else {
             success_clean_size.setText(getText(R.string.success_normal));
-            success_clean_2.setVisibility(View.GONE);
         }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
@@ -289,7 +286,7 @@ public class SuccessActivity extends BaseActivity {
         title_left.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
-//        delete.setOnClickListener(onClickListener);
+        rotate_cha.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
@@ -394,20 +391,11 @@ public class SuccessActivity extends BaseActivity {
     public void startFirstAnimation() {
 //        rotate_set = AnimationUtils.loadAnimation(this, R.anim.set_success);
 //        success_progress.startAnimation(rotate_set);
-        final AnimatorSet set = new AnimatorSet();
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(success_progress, "scaleX", 1f, 1.3f, 1f);
-        scaleX.setDuration(2400);
-        scaleX.setRepeatCount(0);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(success_progress, "scaleY", 1f, 1.3f, 1f);
-        scaleY.setDuration(2400);
-        scaleY.setRepeatCount(0);
-        ObjectAnimator rotate = ObjectAnimator.ofFloat(success_progress, "rotation", 0f, 360f);
+        final ObjectAnimator rotate = ObjectAnimator.ofFloat(success_progress, "rotation", 0f, 360f);
         rotate.setDuration(600);
         rotate.setRepeatCount(3);
-        set.setInterpolator(new LinearInterpolator());
-//        rotate.start();
-        set.playTogether(scaleX, scaleY, rotate);
-        set.start();
+        rotate.setInterpolator(new LinearInterpolator());
+        rotate.start();
         Animation animation = AnimationUtils.loadAnimation(SuccessActivity.this, R.anim.huojian_pop);
         success_huojian.startAnimation(animation);
         animation.setFillAfter(true);
@@ -438,7 +426,7 @@ public class SuccessActivity extends BaseActivity {
                         }
                     }
                 }).start();
-                set.addListener(new Animator.AnimatorListener() {
+                rotate.addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationCancel(Animator animation) {
 
@@ -458,6 +446,7 @@ public class SuccessActivity extends BaseActivity {
 
                             @Override
                             public void onAnimationEnd(Animator animation) {
+                                success_progress.setVisibility(View.GONE);
                                 success_huojian.setVisibility(View.GONE);
                             }
 
@@ -539,11 +528,18 @@ public class SuccessActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.main_rotate_good:
+                    AdUtil.track("完成页面", "点击好评good", "", 1);
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessActivity.this);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_rotate_bad:
+                    AdUtil.track("完成页面", "点击好评bad", "", 1);
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
+                    main_rotate_all.setVisibility(View.GONE);
+                    break;
+                case R.id.rotate_cha:
+                    AdUtil.track("完成页面", "点击好评叉号", "", 1);
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;

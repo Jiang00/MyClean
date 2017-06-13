@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d72"
+        android:layout_height="@dimen/d60"
         android:orientation="horizontal">
 
         <ImageView
@@ -20,37 +20,18 @@
             android:layout_marginLeft="@dimen/d16" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_zi"
-        android:layout_width="@dimen/d217"
+
+    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        android:id="@+id/file_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/rl"
-        android:gravity="clip_vertical"
-        android:orientation="vertical">
+        android:lines="1"
+        android:text="1111"
+        android:textColor="@color/A10"
+        android:textSize="@dimen/s15" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-            android:id="@+id/file_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lines="1"
-            android:text="1111"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s16"
-
-
-            />
-
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-            android:id="@+id/file_size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d5"
-            android:text="@string/white_list_tishi"
-            android:textColor="@color/black_54"
-            android:textSize="@dimen/s14"
-             />
-    </LinearLayout>
 
     <ImageView
         android:id="@+id/file_check"
@@ -58,7 +39,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/d25"
         android:layout_marginRight="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="center" />
+
+    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        android:id="@+id/file_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/file_check"
+        android:textColor="@color/A10"
+        android:textSize="@dimen/s12" />
+
 </RelativeLayout>

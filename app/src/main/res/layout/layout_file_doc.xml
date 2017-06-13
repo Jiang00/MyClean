@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/null_apk" />
+                android:src="@mipmap/null_doc" />
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
@@ -47,8 +47,7 @@
                 android:layout_marginTop="@dimen/d16"
                 android:text="@string/file_null"
                 android:textColor="@color/A9"
-                android:textSize="@dimen/s16"
-                 />
+                android:textSize="@dimen/s16" />
         </LinearLayout>
 
         <FrameLayout
@@ -77,11 +76,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/A1"
-                    android:elevation="@dimen/d4"
-                    app:tabIndicatorColor="#818797"
-                    app:tabSelectedTextColor="@color/A7"
+                    app:tabIndicatorColor="@color/A14"
+                    app:tabSelectedTextColor="@color/white_100"
                     app:tabTextAppearance="@style/tablayout_textSize"
-                    app:tabTextColor="@color/A6" />
+                    app:tabTextColor="@color/white_100" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -108,14 +106,14 @@
 
                     <Button
                         android:id="@+id/file_button_clean"
-                        android:layout_width="@dimen/d250"
-                        android:layout_height="@dimen/d40"
+                        android:layout_width="@dimen/d168"
+                        android:layout_height="@dimen/d44"
                         android:layout_centerInParent="true"
                         android:background="@drawable/shape_button"
                         android:text="@string/junk_button"
                         android:textAllCaps="false"
-                        android:textColor="@color/A7"
-                        android:textSize="@dimen/s16" />
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s20" />
                 </RelativeLayout>
             </LinearLayout>
         </FrameLayout>

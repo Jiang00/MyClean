@@ -30,6 +30,7 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
         super(context);
         this.name = name;
     }
+
     class ViewHolder {
         TextView file_name;
         RelativeLayout file;
@@ -37,6 +38,7 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
         ImageView file_icon;
         ImageView file_check;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final JunkInfo info = getItem(position);

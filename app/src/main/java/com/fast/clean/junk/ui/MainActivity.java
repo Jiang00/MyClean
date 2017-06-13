@@ -214,7 +214,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
         adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
         adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-//        adapter.addData(new SideInfo(R.string.privary_0, R.mipmap.side_power));//隐私清理
         adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
         adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
         adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
