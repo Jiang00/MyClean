@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -58,8 +59,6 @@ public class BatteryView extends FrameLayout {
     private TextView currentLevel;
     private BubbleLayout bubbleLayout;
 
-    private LottieAnimationView shell;
-    private LottieAnimationView water;
     private int halfWidth;
     private ImageView shutter;
 
@@ -158,27 +157,14 @@ public class BatteryView extends FrameLayout {
             return;
         }
         final int curLevel = entry.getLevel();
-        currentLevel.setText(curLevel + "%");
-        final int le = curLevel % 100;
-
-        if (water != null && !water.isAnimating()) {
-            initWater();
-            water.playAnimation();
-            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    progress = (int) (animation.getAnimatedFraction() * 100);
-                    if (le == 0) {
-                        if (progress == 99) {
-                            progress = 100;
-                            water.pauseAnimation();
-                        }
-                    } else if (progress == le) {
-                        water.pauseAnimation();
-                    }
-                }
-            });
+        if (curLevel < 20) {
+            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_3));
+        } else if (curLevel < 80) {
+            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_2));
+        } else {
+            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_1));
         }
+        currentLevel.setText(curLevel + "%");
 
 
         int leftChargeTime = entry.getLeftTime();
@@ -200,35 +186,6 @@ public class BatteryView extends FrameLayout {
     }
 
 
-    private void initShell() {
-        try {
-            shell.setImageAssetsFolder(mContext, "theme://images/shell");
-            shell.setAnimation(mContext, "theme://shell.json");
-            shell.loop(true);
-            shell.playAnimation();
-        } catch (Exception e) {
-            shell.setImageAssetsFolder(null, "images/shell");
-            shell.setAnimation(null, "shell.json");
-        }
-        shell.loop(true);
-        shell.playAnimation();
-    }
-
-    private void initWater() {
-        try {
-            water.setImageAssetsFolder(mContext, "theme://images/water");
-            water.setAnimation(mContext, "theme://water.json");
-        } catch (Exception e) {
-            if (!water.isAnimating()) {
-                water.setImageAssetsFolder(null, "images/water");
-                water.setAnimation(null, "water.json");
-            }
-        }
-        water.loop(true);
-        water.setSpeed(5.0f);
-    }
-
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
@@ -246,7 +203,6 @@ public class BatteryView extends FrameLayout {
 //                        }
 //                    });
 //            shell.playAnimation();
-            initShell();
 
             updateTime();
 
@@ -358,8 +314,6 @@ public class BatteryView extends FrameLayout {
         date = (TextView) findViewById(R.id.battery_now_date);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
-        shell = (LottieAnimationView) findViewById(R.id.battery_shell);
-        water = (LottieAnimationView) findViewById(R.id.battery_electricity);
     }
 
     public void pauseBubble() {
@@ -399,12 +353,6 @@ public class BatteryView extends FrameLayout {
         }
         if (isRegisterTimeUpdate) {
             unregisterTimeUpdateReceiver();
-        }
-        if (water != null && water.isAnimating()) {
-            water.cancelAnimation();
-        }
-        if (shell != null && shell.isAnimating()) {
-            shell.cancelAnimation();
         }
         if (bubbleLayout != null) {
             bubbleLayout.destroy();

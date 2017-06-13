@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/shape_backg" />
+            android:src="@mipmap/battery_beijing" />
 
         <com.my.module.charge.saver.view.BubbleLayout
             android:id="@+id/battery_bubble_layout"
@@ -83,17 +83,18 @@
                 android:id="@+id/battery_now_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:layout_marginTop="@dimen/d33"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d20"
                 android:text="17:24"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/s53"
+                android:textSize="@dimen/s60"
                 app:typeface="Roboto-Light.ttf" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d24"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d15"
                 android:orientation="horizontal">
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -102,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:text="09/03"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/s16"
+                    android:textSize="@dimen/s18"
                     app:typeface="Roboto-Light.ttf" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -112,7 +113,7 @@
                     android:paddingLeft="@dimen/week_p"
                     android:text="Fri"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/s16"
+                    android:textSize="@dimen/s18"
                     app:typeface="Roboto-Light.ttf" />
             </LinearLayout>
 
@@ -125,37 +126,10 @@
                 android:text="1h 39min left"
                 android:textColor="@color/white_100"
                 android:textSize="@dimen/s13"
+                android:visibility="gone"
                 app:typeface="Roboto-Light.ttf" />
 
-            <FrameLayout
-                android:layout_width="@dimen/d112"
-                android:layout_height="@dimen/d53"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/d4">
 
-                <com.sample.lottie.LottieAnimationView
-                    android:id="@+id/battery_electricity"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/d3"
-                    app:lottie_autoPlay="false" />
-
-                <com.sample.lottie.LottieAnimationView
-                    android:id="@+id/battery_shell"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:lottie_autoPlay="false" />
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/battery_level"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s16"
-                    app:typeface="Roboto-Light.ttf" />
-            </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -167,39 +141,35 @@
             android:gravity="center_horizontal"
             android:orientation="vertical" />
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/d61"
-            android:layout_gravity="center_horizontal|bottom">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/d61"
+            android:orientation="horizontal">
 
-
-            <LinearLayout
-                android:id="@+id/battery_slide"
+            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                android:id="@+id/battery_level_ing"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginBottom="@dimen/bottom_8"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/d8"
-                android:visibility="visible">
+                android:text="@string/charging_ing"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s16"
+                app:typeface="Roboto-Light.ttf" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/unlock"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s13"
-                    app:typeface="Roboto-Light.ttf" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:src="@mipmap/unlock" />
-            </LinearLayout>
-        </FrameLayout>
+            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                android:id="@+id/battery_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/d20"
+                android:text="0%"
+                android:textColor="@color/charg_3"
+                android:textSize="@dimen/s16"
+                app:typeface="Roboto-Light.ttf" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

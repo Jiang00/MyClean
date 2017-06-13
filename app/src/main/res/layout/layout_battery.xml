@@ -27,7 +27,7 @@
             android:layout_marginLeft="@dimen/d16"
             android:layout_toRightOf="@id/iv"
             android:text="@string/app_name"
-            android:textColor="@color/A7"
+            android:textColor="@color/white_100"
             android:textSize="@dimen/s17" />
 
         <ImageView
@@ -41,43 +41,39 @@
 
     </RelativeLayout>
 
-    <FrameLayout
+
+    <ImageView
+        android:id="@+id/battery_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/d50"
+        android:src="@mipmap/battery_2" />
 
-        <ImageView
-            android:id="@+id/battery_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d15"
-            android:src="@mipmap/battery_2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
-            android:text="@string/battery_2"
-            android:textColor="@color/A7"
-            android:textSize="@dimen/s18" />
-    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/d23"
+        android:text="@string/battery_2"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/s19" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/d6"
         android:text="@string/battery_3"
-        android:textColor="@color/A7"
-        android:textSize="@dimen/s12" />
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/s13" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/d135"
-        android:layout_marginLeft="@dimen/d16"
-        android:layout_marginRight="@dimen/d16"
-        android:layout_marginTop="@dimen/d72"
-        android:background="@drawable/shape_07_r"
+        android:layout_marginTop="@dimen/d44"
+        android:background="@color/white_20"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:paddingLeft="@dimen/d16">
@@ -86,24 +82,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/battery_4"
-            android:textColor="@color/A7"
-            android:textSize="@dimen/s14" />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s18" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d15"
+            android:layout_marginTop="@dimen/d8"
             android:text="@string/battery_5"
-            android:textColor="@color/A7"
-            android:textSize="@dimen/s14" />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s18" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d15"
+            android:layout_marginTop="@dimen/d8"
             android:text="@string/battery_6"
-            android:textColor="@color/A7"
-            android:textSize="@dimen/s14" />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s18" />
     </LinearLayout>
 
     <LinearLayout
@@ -114,13 +110,13 @@
 
         <Button
             android:id="@+id/battery_button"
-            android:layout_width="@dimen/d250"
-            android:layout_height="@dimen/d44"
+            android:layout_width="@dimen/d176"
+            android:layout_height="@dimen/d36"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/shape__a4_r"
+            android:background="@drawable/shape_ffffff_round"
             android:text="@string/battery_7"
-            android:textColor="@color/A7"
-            android:textSize="@dimen/s15" />
+            android:textColor="@color/A1"
+            android:textSize="@dimen/s19" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -128,8 +124,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/d6"
             android:text="@string/battery_8"
-            android:textColor="@color/A12"
-            android:textSize="@dimen/s10" />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s15" />
     </LinearLayout>
 
 

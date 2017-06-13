@@ -145,50 +145,48 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/d12"
-                android:layout_marginLeft="@dimen/d30"
+                android:layout_marginLeft="@dimen/d16"
                 android:clickable="false"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="@dimen/d36"
-                    android:layout_height="@dimen/d36"
-                    android:layout_gravity="bottom"
-                    android:src="@mipmap/loading_icon" />
+                    android:layout_width="@dimen/d43"
+                    android:layout_height="@dimen/d43"
+                    android:src="@mipmap/loading_2" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d4"
+                    android:layout_marginBottom="@dimen/d20"
+                    android:layout_marginLeft="@dimen/d16"
                     android:orientation="vertical">
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
-                        android:textColor="@color/A7"
-                        android:textSize="@dimen/s19" />
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s18" />
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/loading_2"
-                        android:textColor="@color/A7"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s13" />
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/load_text_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:text="@string/loading_3"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s12" />
                 </LinearLayout>
             </LinearLayout>
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/load_text_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/d20"
-                android:layout_marginLeft="@dimen/d30"
-                android:clickable="false"
-                android:text="@string/loading_3"
-                android:textColor="@color/A12"
-                android:textSize="@dimen/s12"
-                 />
+
         </LinearLayout>
 
     </LinearLayout>

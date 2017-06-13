@@ -31558,19 +31558,18 @@ com.fast.clean.junk.ui.JunkAndRamActivity$9$2 -> com.fast.clean.junk.ui.JunkAndR
     514:515:void run() -> run
 com.fast.clean.junk.ui.LoadingActivity -> com.fast.clean.junk.ui.LoadingActivity:
     android.os.Handler myHandler -> a
-    android.widget.TextView tv_tiaoguo -> b
-    java.lang.Runnable runnable1 -> c
-    27:56:void <init>() -> <init>
-    33:36:void findId() -> a
-    42:54:void onCreate(android.os.Bundle) -> onCreate
-    129:131:void onResume() -> onResume
-    135:136:void onStop() -> onStop
-    140:142:void onDestroy() -> onDestroy
-    146:147:void onBackPressed() -> onBackPressed
+    java.lang.Runnable runnable1 -> b
+    27:52:void <init>() -> <init>
+    32:33:void findId() -> a
+    39:50:void onCreate(android.os.Bundle) -> onCreate
+    125:127:void onResume() -> onResume
+    131:132:void onStop() -> onStop
+    136:138:void onDestroy() -> onDestroy
+    142:143:void onBackPressed() -> onBackPressed
 com.fast.clean.junk.ui.LoadingActivity$1 -> com.fast.clean.junk.ui.LoadingActivity$1:
     com.fast.clean.junk.ui.LoadingActivity this$0 -> a
-    56:56:void <init>(com.fast.clean.junk.ui.LoadingActivity) -> <init>
-    61:123:void run() -> run
+    52:52:void <init>(com.fast.clean.junk.ui.LoadingActivity) -> <init>
+    57:119:void run() -> run
 com.fast.clean.junk.ui.MainActivity -> com.fast.clean.junk.ui.MainActivity:
     android.widget.RelativeLayout main_junk_button -> a
     android.widget.RelativeLayout main_ram_button -> b
@@ -32643,16 +32642,16 @@ com.fast.clean.junk.ui.WhiteListAvtivity -> com.fast.clean.junk.ui.WhiteListAvti
     android.widget.TextView title_name -> f
     android.widget.ImageView title_right -> g
     android.view.View$OnClickListener clickListener -> h
-    26:83:void <init>() -> <init>
+    26:79:void <init>() -> <init>
     38:44:void findId() -> a
-    48:64:void onCreate(android.os.Bundle) -> onCreate
-    67:81:void initDAta() -> b
-    100:102:void onBackPressed() -> onBackPressed
-    106:110:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    48:59:void onCreate(android.os.Bundle) -> onCreate
+    62:77:void initDAta() -> b
+    96:98:void onBackPressed() -> onBackPressed
+    102:106:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
 com.fast.clean.junk.ui.WhiteListAvtivity$1 -> com.fast.clean.junk.ui.WhiteListAvtivity$1:
     com.fast.clean.junk.ui.WhiteListAvtivity this$0 -> a
-    83:83:void <init>(com.fast.clean.junk.ui.WhiteListAvtivity) -> <init>
-    86:95:void onClick(android.view.View) -> onClick
+    79:79:void <init>(com.fast.clean.junk.ui.WhiteListAvtivity) -> <init>
+    82:91:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.util.AdUtil -> com.fast.clean.junk.d.a:
     19:21:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
     24:44:android.view.View getNativeAdView(java.lang.String,int) -> a
@@ -35560,7 +35559,6 @@ com.my.module.charge.saver.R$id -> com.my.module.charge.saver.a$b:
     int battery_ad_layout -> battery_ad_layout
     int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
-    int battery_electricity -> battery_electricity
     int battery_icon -> battery_icon
     int battery_level -> battery_level
     int battery_more -> battery_more
@@ -35568,7 +35566,6 @@ com.my.module.charge.saver.R$id -> com.my.module.charge.saver.a$b:
     int battery_now_date -> battery_now_date
     int battery_now_time -> battery_now_time
     int battery_now_week -> battery_now_week
-    int battery_shell -> battery_shell
     int battery_shutter -> battery_shutter
     int battery_slide -> battery_slide
     int battery_switch -> battery_switch
@@ -35746,6 +35743,7 @@ com.my.module.charge.saver.R$layout -> com.my.module.charge.saver.a$c:
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
 com.my.module.charge.saver.R$mipmap -> com.my.module.charge.saver.a$d:
     int ad_right -> ad_right
+    int battery_beijing -> battery_beijing
     int battery_bubble -> battery_bubble
     int battery_inner_icon -> battery_inner_icon
     int battery_more -> battery_more
@@ -36383,7 +36381,7 @@ com.my.module.charge.saver.R$styleable -> com.my.module.charge.saver.a$f:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1524:2105:void <clinit>() -> <clinit>
+    1523:2104:void <clinit>() -> <clinit>
 com.my.module.charge.saver.Util.ADRequest -> com.my.module.charge.saver.Util.a:
     16:16:void <init>() -> <init>
     19:20:void showFullAD() -> a
@@ -36595,74 +36593,62 @@ com.my.module.charge.saver.view.BatteryView -> com.my.module.charge.saver.view.B
     android.widget.TextView batteryLeft -> r
     android.widget.TextView currentLevel -> s
     com.my.module.charge.saver.view.BubbleLayout bubbleLayout -> t
-    com.sample.lottie.LottieAnimationView shell -> u
-    com.sample.lottie.LottieAnimationView water -> v
-    int halfWidth -> w
-    android.widget.ImageView shutter -> x
-    android.content.BroadcastReceiver timerUpdateReceiver -> y
-    android.content.IntentFilter mIntentFilter -> z
-    int progress -> A
-    41:154:void <init>(android.content.Context) -> <init>
-    41:154:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    41:154:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    84:85:void setUnlockListener(com.my.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
-    97:135:void showNativeAD() -> f
-    138:152:void updateTime() -> a
-    157:195:void bind(com.my.module.charge.saver.entry.BatteryEntry) -> a
-    205:215:void initShell() -> g
-    219:229:void initWater() -> h
-    234:344:void onFinishInflate() -> onFinishInflate
-    347:363:void initViews() -> i
-    366:369:void pauseBubble() -> b
-    372:375:void reStartBubble() -> c
-    379:386:void onAttachedToWindow() -> onAttachedToWindow
-    390:415:void onDetachedFromWindow() -> onDetachedFromWindow
-    418:422:int analysisJson(org.json.JSONObject) -> a
-    427:434:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    437:439:void registerTimeUpdateReceiver() -> d
-    442:444:void unregisterTimeUpdateReceiver() -> e
+    int halfWidth -> u
+    android.widget.ImageView shutter -> v
+    android.content.BroadcastReceiver timerUpdateReceiver -> w
+    android.content.IntentFilter mIntentFilter -> x
+    int progress -> y
+    41:152:void <init>(android.content.Context) -> <init>
+    41:152:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    41:152:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    82:83:void setUnlockListener(com.my.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
+    95:133:void showNativeAD() -> f
+    136:150:void updateTime() -> a
+    155:174:void bind(com.my.module.charge.saver.entry.BatteryEntry) -> a
+    184:293:void onFinishInflate() -> onFinishInflate
+    296:310:void initViews() -> g
+    313:316:void pauseBubble() -> b
+    319:322:void reStartBubble() -> c
+    326:333:void onAttachedToWindow() -> onAttachedToWindow
+    337:356:void onDetachedFromWindow() -> onDetachedFromWindow
+    359:363:int analysisJson(org.json.JSONObject) -> a
+    368:375:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    378:380:void registerTimeUpdateReceiver() -> d
+    383:385:void unregisterTimeUpdateReceiver() -> e
     36:36:android.view.GestureDetector access$000(com.my.module.charge.saver.view.BatteryView) -> a
     36:36:int access$100(com.my.module.charge.saver.view.BatteryView) -> b
     36:36:com.my.module.charge.saver.view.BatteryView$UnlockListener access$200(com.my.module.charge.saver.view.BatteryView) -> c
-    36:36:int access$302(com.my.module.charge.saver.view.BatteryView,int) -> a
-    36:36:int access$300(com.my.module.charge.saver.view.BatteryView) -> d
-    36:36:com.sample.lottie.LottieAnimationView access$400(com.my.module.charge.saver.view.BatteryView) -> e
-    36:36:android.widget.LinearLayout access$500(com.my.module.charge.saver.view.BatteryView) -> f
-    36:36:float access$600(com.my.module.charge.saver.view.BatteryView) -> g
-    36:36:com.my.module.charge.saver.view.BatteryView access$700(com.my.module.charge.saver.view.BatteryView) -> h
-    36:36:float access$602(com.my.module.charge.saver.view.BatteryView,float) -> a
-    36:36:android.content.Context access$800(com.my.module.charge.saver.view.BatteryView) -> i
-    36:36:android.widget.CheckBox access$900(com.my.module.charge.saver.view.BatteryView) -> j
+    36:36:android.widget.LinearLayout access$300(com.my.module.charge.saver.view.BatteryView) -> d
+    36:36:float access$400(com.my.module.charge.saver.view.BatteryView) -> e
+    36:36:com.my.module.charge.saver.view.BatteryView access$500(com.my.module.charge.saver.view.BatteryView) -> f
+    36:36:float access$402(com.my.module.charge.saver.view.BatteryView,float) -> a
+    36:36:android.content.Context access$600(com.my.module.charge.saver.view.BatteryView) -> g
+    36:36:android.widget.CheckBox access$700(com.my.module.charge.saver.view.BatteryView) -> h
 com.my.module.charge.saver.view.BatteryView$1 -> com.my.module.charge.saver.view.BatteryView$1:
     com.my.module.charge.saver.view.BatteryView this$0 -> a
-    87:87:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
-    90:91:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    85:85:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
+    88:89:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.my.module.charge.saver.view.BatteryView$2 -> com.my.module.charge.saver.view.BatteryView$2:
     com.my.module.charge.saver.view.BatteryView this$0 -> a
-    109:109:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
-    112:132:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    107:107:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
+    110:130:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.my.module.charge.saver.view.BatteryView$3 -> com.my.module.charge.saver.view.BatteryView$3:
-    int val$le -> a
-    com.my.module.charge.saver.view.BatteryView this$0 -> b
-    167:167:void <init>(com.my.module.charge.saver.view.BatteryView,int) -> <init>
-    170:179:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    com.my.module.charge.saver.view.BatteryView this$0 -> a
+    205:205:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
+    208:224:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.my.module.charge.saver.view.BatteryView$4 -> com.my.module.charge.saver.view.BatteryView$4:
     com.my.module.charge.saver.view.BatteryView this$0 -> a
-    256:256:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
-    259:275:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    227:227:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
+    230:234:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    239:247:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.my.module.charge.saver.view.BatteryView$5 -> com.my.module.charge.saver.view.BatteryView$5:
     com.my.module.charge.saver.view.BatteryView this$0 -> a
-    278:278:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
-    281:285:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    290:298:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    258:258:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
+    261:264:void onClick(android.view.View) -> onClick
 com.my.module.charge.saver.view.BatteryView$6 -> com.my.module.charge.saver.view.BatteryView$6:
     com.my.module.charge.saver.view.BatteryView this$0 -> a
-    309:309:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
-    312:315:void onClick(android.view.View) -> onClick
-com.my.module.charge.saver.view.BatteryView$7 -> com.my.module.charge.saver.view.BatteryView$7:
-    com.my.module.charge.saver.view.BatteryView this$0 -> a
-    327:327:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
-    330:341:void onClick(android.view.View) -> onClick
+    276:276:void <init>(com.my.module.charge.saver.view.BatteryView) -> <init>
+    279:290:void onClick(android.view.View) -> onClick
 com.my.module.charge.saver.view.BatteryView$UnlockListener -> com.my.module.charge.saver.view.BatteryView$a:
     void onUnlock() -> a
 com.my.module.charge.saver.view.BubbleLayout -> com.my.module.charge.saver.view.BubbleLayout:

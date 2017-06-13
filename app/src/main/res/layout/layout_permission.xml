@@ -20,7 +20,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d61"
+                android:layout_height="@dimen/d53"
                 android:background="@drawable/normal_rectangle"
                 android:gravity="center_horizontal|center_vertical">
 
@@ -28,116 +28,75 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
-                    android:text="@string/permiss_t"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/s18" />
+                    android:text="@string/permission_1"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s19" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d5"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/app_name"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/s18" />
             </LinearLayout>
 
-            <RelativeLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d19"
-                android:background="@color/A7">
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="@dimen/d190"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d208"
+                    android:background="@mipmap/permiss_1" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/d33"
-                    android:layout_marginLeft="@dimen/d29"
-                    android:src="@mipmap/permiss_1" />
+                    android:layout_marginTop="@dimen/d53"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:src="@mipmap/side_check_normal" />
-            </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/aaa"
+                        android:layout_width="@dimen/d33"
+                        android:layout_height="@dimen/d33"
+                        android:layout_marginLeft="@dimen/d29"
+                        android:background="@mipmap/icon" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d33"
-                android:layout_marginTop="@dimen/d19"
-                android:orientation="horizontal">
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/d12"
+                        android:layout_toRightOf="@id/aaa"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/app_name"
+                        android:textColor="@color/A9"
+                        android:textSize="@dimen/s12" />
 
-                <ImageView
-                    android:id="@+id/aaa"
-                    android:layout_width="@dimen/d33"
-                    android:layout_height="@dimen/d33"
-                    android:layout_marginLeft="@dimen/d29"
-                    android:background="@mipmap/icon" />
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/d5"
-                    android:layout_toRightOf="@id/aaa"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/app_name"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s16" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:src="@mipmap/side_check_passed" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d44"
+                        android:src="@mipmap/permiss_3" />
 
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:background="@mipmap/permiss_2" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d44"
+                        android:background="@mipmap/permiss_2" />
+                </RelativeLayout>
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d19"
-                android:background="@color/A7">
-
-                <ImageView
-                    android:layout_width="@dimen/d190"
-                    android:layout_height="@dimen/d33"
-                    android:layout_marginLeft="@dimen/d29"
-                    android:src="@mipmap/permiss_1" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:src="@mipmap/side_check_normal" />
-            </RelativeLayout>
-
-            <Button
-                android:id="@+id/bt"
-                android:layout_width="@dimen/d109"
-                android:layout_height="@dimen/d32"
-                android:layout_marginBottom="@dimen/d16"
-                android:layout_marginTop="@dimen/d53"
-                android:background="@drawable/shape_a1_r"
-                android:text="OK"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s16" />
+                <Button
+                    android:id="@+id/bt"
+                    android:layout_width="@dimen/d112"
+                    android:layout_height="@dimen/d29"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/d9"
+                    android:background="@drawable/shape_ffffff_round"
+                    android:text="OK"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s15" />
+            </FrameLayout>
         </LinearLayout>
 
 

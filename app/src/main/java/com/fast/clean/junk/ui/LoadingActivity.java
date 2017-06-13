@@ -26,13 +26,10 @@ import org.json.JSONObject;
 
 public class LoadingActivity extends BaseActivity {
     Handler myHandler;
-    TextView tv_tiaoguo;
 
     @Override
     protected void findId() {
         super.findId();
-        tv_tiaoguo = (TextView) findViewById(R.id.tv_tiaoguo);
-        // ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
 
@@ -43,7 +40,6 @@ public class LoadingActivity extends BaseActivity {
         setContentView(R.layout.layout_loading);
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
-        tv_tiaoguo.setVisibility(View.INVISIBLE);
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
             AdUtil.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
             PreData.putDB(this, Constant.ROOT_TRAK, false);
