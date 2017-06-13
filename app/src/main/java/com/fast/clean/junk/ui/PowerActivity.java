@@ -295,7 +295,7 @@ public class PowerActivity extends BaseActivity {
             } else {
                 holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.ram_passed : R.mipmap.ram_normal);
             }
-
+            holder.recyc_name.setText(startList.get(position).label);
             holder.recyc_icon.setImageDrawable(LoadManager.getInstance(PowerActivity.this).getAppIcon(startList.get(position).pkg));
             holder.recyc_item.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -321,12 +321,14 @@ public class PowerActivity extends BaseActivity {
             FrameLayout recyc_item;
             ImageView recyc_icon;
             ImageView recyc_check;
+            TextView recyc_name;
 
             public MyViewHolder(View view) {
                 super(view);
                 recyc_item = (FrameLayout) view.findViewById(R.id.recyc_item);
                 recyc_icon = (ImageView) view.findViewById(R.id.recyc_icon);
                 recyc_check = (ImageView) view.findViewById(R.id.recyc_check);
+                recyc_name = (TextView) view.findViewById(R.id.recyc_name);
             }
         }
     }

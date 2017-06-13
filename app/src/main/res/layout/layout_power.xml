@@ -21,9 +21,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d225"
+        android:layout_height="@dimen/d196"
         android:background="@color/A1"
-        android:scaleType="fitXY"
+        android:scaleType="center"
         android:src="@mipmap/power_1" />
 
     <LinearLayout
@@ -35,37 +35,47 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/A13"
-            android:orientation="horizontal"
-            android:paddingBottom="13dp"
-            android:paddingTop="13dp">
+            android:layout_height="@dimen/d60"
+            android:background="@color/white_100"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="@dimen/d72"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:src="@mipmap/power_2" />
+
+            </FrameLayout>
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/power_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d16"
                 android:text="@string/power_1"
-                android:textColor="@color/A2"
-                android:textSize="@dimen/s14"
-                 />
+                android:textColor="@color/A13"
+                android:textSize="@dimen/s14" />
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d5"
                 android:singleLine="true"
                 android:text="@string/power_2"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s14"
-                 />
+                android:textColor="@color/A10"
+                android:textSize="@dimen/s14" />
         </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/A10">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/power_recycler"
@@ -85,17 +95,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/d72"
-        android:background="@color/A7">
+        android:background="@color/white_100">
 
         <Button
             android:id="@+id/junk_button_clean"
-            android:layout_width="@dimen/d250"
-            android:layout_height="@dimen/d40"
+            android:layout_width="@dimen/d168"
+            android:layout_height="@dimen/d44"
             android:layout_centerInParent="true"
             android:background="@drawable/shape_button"
             android:text="@string/junk_button"
             android:textAllCaps="false"
-            android:textColor="@color/A7"
-            android:textSize="@dimen/s16" />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s20" />
     </RelativeLayout>
 </LinearLayout>

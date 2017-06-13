@@ -35,7 +35,7 @@ import java.util.Locale;
 
 public class MessageActivity extends BaseActivity {
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
-    message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
+            message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     FrameLayout title_left;
     TextView title_name;
     private TelephonyManager telManager;
@@ -142,6 +142,7 @@ public class MessageActivity extends BaseActivity {
         else
             return false;
     }
+
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_MESSAGE, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
