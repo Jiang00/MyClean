@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.entry;
+package com.fast.module.charge.saver.entry;
 
 /**
  * Created by song on 16/4/19.

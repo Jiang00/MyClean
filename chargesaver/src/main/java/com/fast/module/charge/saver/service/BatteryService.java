@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.service;
+package com.fast.module.charge.saver.service;
 
 import android.annotation.TargetApi;
 import android.app.Service;
@@ -15,13 +15,13 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 
-import com.charging.module.charge.saver.ChargeActivity;
-import com.charging.module.charge.saver.R;
-import com.charging.module.charge.saver.Util.Constants;
-import com.charging.module.charge.saver.Util.Utils;
-import com.charging.module.charge.saver.Util.WidgetContainer;
-import com.charging.module.charge.saver.entry.BatteryEntry;
-import com.charging.module.charge.saver.view.BatteryView;
+import com.fast.module.charge.saver.ChargeActivity;
+import com.fast.module.charge.saver.R;
+import com.fast.module.charge.saver.Util.Constants;
+import com.fast.module.charge.saver.Util.Utils;
+import com.fast.module.charge.saver.Util.WidgetContainer;
+import com.fast.module.charge.saver.entry.BatteryEntry;
+import com.fast.module.charge.saver.view.BatteryView;
 
 /**
  * Created by on 2016/10/20.

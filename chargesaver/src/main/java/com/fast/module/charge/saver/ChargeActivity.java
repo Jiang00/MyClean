@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver;
+package com.fast.module.charge.saver;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -14,8 +14,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.charging.module.charge.saver.entry.BatteryEntry;
-import com.charging.module.charge.saver.view.BatteryView;
+import com.fast.module.charge.saver.entry.BatteryEntry;
+import com.fast.module.charge.saver.view.BatteryView;
 
 public class ChargeActivity extends Activity {
 

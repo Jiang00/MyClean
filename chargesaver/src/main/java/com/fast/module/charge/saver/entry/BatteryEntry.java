@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.entry;
+package com.fast.module.charge.saver.entry;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

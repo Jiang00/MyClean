@@ -1,10 +1,10 @@
-package com.charging.module.charge.saver.receiver;
+package com.fast.module.charge.saver.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.charging.module.charge.saver.service.BatteryService;
+import com.fast.module.charge.saver.service.BatteryService;
 
 
 /**

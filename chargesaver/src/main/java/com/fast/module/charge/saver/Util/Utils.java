@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.Util;
+package com.fast.module.charge.saver.Util;
 
 import android.app.ActivityManager;
 import android.content.Context;

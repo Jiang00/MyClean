@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.cpuutils;
+package com.fast.module.charge.saver.cpuutils;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,8 +1,9 @@
-package com.charging.module.charge.saver.Util;
+package com.fast.module.charge.saver.Util;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.PixelFormat;
+import android.graphics.Point;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.view.Gravity;
@@ -15,7 +16,7 @@ import android.widget.FrameLayout;
 /**
  * Created by huale on 2015/2/3.
  */
-public class WidgetContainer extends FrameLayout implements View.OnClickListener {
+public class MyWidgetContainer extends FrameLayout implements View.OnClickListener {
     public static final int MATCH_PARENT = WindowManager.LayoutParams.MATCH_PARENT;
     public static final int WRAP_CONTENT = WindowManager.LayoutParams.WRAP_CONTENT;
 
@@ -27,104 +28,31 @@ public class WidgetContainer extends FrameLayout implements View.OnClickListener
     boolean movable;
     int screenHeight;
 
-    private WidgetContainer(Context context, Builder builder) {
-        super(context);
+    public MyWidgetContainer(Context context, int width, int height, int orientation) {
+        this(context, Gravity.NO_GRAVITY, orientation, width, height, false);
+    }
 
-        this.movable = builder.movable;
-        int type = builder.type;
-        int flag = builder.flag;
-        if (!builder.blockInput) {
-            flag |= WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
-        }
-        if (!builder.blockTouch) {
-            flag = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-        }
+    public MyWidgetContainer(Context context, int gravity, int width, int height, boolean movable) {
+        this(context, gravity, ActivityInfo.SCREEN_ORIENTATION_BEHIND, width, height, movable);
+    }
+
+    public MyWidgetContainer(Context context, int gravity, int orientation, int width, int height, boolean movable) {
+        super(context);
+        this.movable = movable;
+        int type = Build.VERSION.SDK_INT >= 19 ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        int flag = Build.VERSION.SDK_INT >= 19 ? (WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR) : 0;
         lp = new WindowManager.LayoutParams(
-                builder.width, builder.height, type, flag,
-                PixelFormat.TRANSPARENT);
-        lp.gravity = builder.gravity;
-        lp.screenOrientation = builder.orientation;
+                width, height, type, flag,
+                PixelFormat.TRANSLUCENT);
+        lp.gravity = gravity;
+        lp.screenOrientation = orientation;
+
         wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        screenHeight = wm.getDefaultDisplay().getHeight();
+        Point size = getScreenSize(context);
+        screenHeight = size.y;
 
         setOnClickListener(this);
-        if (Build.VERSION.SDK_INT > 18) {
-            setFitsSystemWindows(true);
-            setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                    | View.SYSTEM_UI_FLAG_LOW_PROFILE
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        }
     }
-
-    public LayoutParams makeLayoutParams(int width, int height, int gravity) {
-        return new LayoutParams(width, height, gravity);
-    }
-
-    public static class Builder {
-        boolean movable = false;
-        boolean blockTouch = true;
-        boolean blockInput = true;
-        int orientation = BEHIND;
-        int gravity = Gravity.NO_GRAVITY;
-        int width = MATCH_PARENT;
-        int height = MATCH_PARENT;
-        int type = Build.VERSION.SDK_INT >= 19 ? (Build.VERSION.SDK_INT < 24 ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR) : WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
-
-        int flag = Build.VERSION.SDK_INT >= 19 ?
-
-//                (WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR)
-                (WindowManager.LayoutParams.FLAG_FULLSCREEN
-                        | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-                        | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
-                        | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                        | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD)
-                : 0;
-
-        public Builder setMovable(boolean movable) {
-            this.movable = movable;
-            return this;
-        }
-
-        public Builder setBlockTouch(boolean blockTouch) {
-            this.blockTouch = blockTouch;
-            return this;
-        }
-
-        public Builder setBlockInput(boolean blockInput) {
-            this.blockInput = blockInput;
-            return this;
-        }
-
-        public Builder setOrientation(int orientation) {
-            this.orientation = orientation;
-            return this;
-        }
-
-        public Builder setGravity(int gravity) {
-            this.gravity = gravity;
-            return this;
-        }
-
-        public Builder setWidth(int width) {
-            this.width = width;
-            return this;
-        }
-
-        public Builder setHeight(int height) {
-            this.height = height;
-            return this;
-        }
-
-        public WidgetContainer build(Context context) {
-            return new WidgetContainer(context, this);
-        }
-    }
-
-//    public void setBackgroundColor(int color){
-//        this.setBackgroundColor(color);
-//    }
 
     @Override
     public void onClick(View v) {
@@ -237,5 +165,17 @@ public class WidgetContainer extends FrameLayout implements View.OnClickListener
         } else {
             return super.onTouchEvent(event);
         }
+    }
+
+    public  Point getScreenSize(Context context) {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Point size = new Point();
+        if (Build.VERSION.SDK_INT >= 13) {
+            wm.getDefaultDisplay().getSize(size);
+        } else {
+            size.x = wm.getDefaultDisplay().getWidth();
+            size.y = wm.getDefaultDisplay().getHeight();
+        }
+        return size;
     }
 }

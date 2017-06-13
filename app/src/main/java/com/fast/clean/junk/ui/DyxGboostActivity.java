@@ -457,7 +457,7 @@ public class DyxGboostActivity extends BaseActivity {
         Intent shortcutIntent = new Intent();
         shortcutIntent.setAction(Intent.ACTION_VIEW);
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
-                DyxGboostActivity.class.getName()));
+                DyxGboostActivity.class.getCanonicalName()));
         String title = DyxGboostActivity.this.getString(R.string.gboost_0);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
@@ -487,9 +487,6 @@ public class DyxGboostActivity extends BaseActivity {
             Bitmap bitmap = Util.getViewBitmap(shortcut_view);
             if (bitmap != null) {
                 Log.e("short", "chuangjian ");
-//                Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
-//                shortcutIntent.setClass(DyxGboostActivity.this, DyxGboostActivity.class);
-//                shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
                 ShortCutUtils.removeShortcut(DyxGboostActivity.this, shortcutIntent, title);
                 ShortCutUtils.addShortcut(DyxGboostActivity.this, shortcutIntent, title, false, bitmap);
             }

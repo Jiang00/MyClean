@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.view;
+package com.fast.module.charge.saver.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.charging.module.charge.saver.R;
+import com.fast.module.charge.saver.R;
 
 /**
  * Created by Switch on 2017/3/10.

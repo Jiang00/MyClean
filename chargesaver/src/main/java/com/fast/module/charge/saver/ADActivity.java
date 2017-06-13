@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver;
+package com.fast.module.charge.saver;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.Window;
 
 import com.android.client.AndroidSdk;
-import com.charging.module.charge.saver.Util.ADRequest;
+import com.fast.module.charge.saver.Util.ADRequest;
 
 public class ADActivity extends Activity {
 

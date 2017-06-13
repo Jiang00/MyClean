@@ -1,11 +1,11 @@
-package com.charging.module.charge.saver.Util;
+package com.fast.module.charge.saver.Util;
 
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.charging.module.charge.saver.R;
+import com.fast.module.charge.saver.R;
 
 /**
  * Created by on 2016/11/9.

@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.view;
+package com.fast.module.charge.saver.view;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.charging.module.charge.saver.R;
+import com.fast.module.charge.saver.R;
 
 public class BubbleLayout extends View {
 

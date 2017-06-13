@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.Util;
+package com.fast.module.charge.saver.Util;
 
 /**
  * Created by on 2016/10/27.

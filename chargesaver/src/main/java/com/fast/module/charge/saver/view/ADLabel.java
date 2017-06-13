@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.view;
+package com.fast.module.charge.saver.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 
-import com.charging.module.charge.saver.R;
+import com.fast.module.charge.saver.R;
 
 public class ADLabel extends View {
     private String mTextContent;

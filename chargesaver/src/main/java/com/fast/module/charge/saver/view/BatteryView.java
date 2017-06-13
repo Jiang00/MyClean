@@ -1,4 +1,4 @@
-package com.charging.module.charge.saver.view;
+package com.fast.module.charge.saver.view;
 
 import android.animation.ValueAnimator;
 import android.content.BroadcastReceiver;
@@ -18,12 +18,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.charging.module.charge.saver.ADActivity;
-import com.charging.module.charge.saver.R;
-import com.charging.module.charge.saver.Util.ADRequest;
-import com.charging.module.charge.saver.Util.Constants;
-import com.charging.module.charge.saver.Util.Utils;
-import com.charging.module.charge.saver.entry.BatteryEntry;
+import com.fast.module.charge.saver.ADActivity;
+import com.fast.module.charge.saver.R;
+import com.fast.module.charge.saver.Util.ADRequest;
+import com.fast.module.charge.saver.Util.Constants;
+import com.fast.module.charge.saver.Util.Utils;
+import com.fast.module.charge.saver.entry.BatteryEntry;
 import com.sample.lottie.LottieAnimationView;
 
 import org.json.JSONException;
