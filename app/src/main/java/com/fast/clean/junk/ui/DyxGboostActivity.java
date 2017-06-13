@@ -181,14 +181,14 @@ public class DyxGboostActivity extends BaseActivity {
     }
 
     private void addData() {
+        if (PreData.getDB(DyxGboostActivity.this, Constant.GBOOST_LUN, true)) {
+            PreData.putDB(DyxGboostActivity.this, Constant.GBOOST_LUN, false);
+            list.addAll(GameBooster.getInstalledGameList(DyxGboostActivity.this));
+            shortGame(false);
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if (PreData.getDB(DyxGboostActivity.this, Constant.GBOOST_LUN, true)) {
-                    PreData.putDB(DyxGboostActivity.this, Constant.GBOOST_LUN, false);
-                    list.addAll(GameBooster.getInstalledGameList(DyxGboostActivity.this));
-                    shortGame(false);
-                }
                 ArrayList<String> gboost_names = CleanDBHelper.getInstance(DyxGboostActivity.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                 for (String pkg : gboost_names) {
                     if (LoadManager.getInstance(DyxGboostActivity.this).isPkgInstalled(pkg)) {
