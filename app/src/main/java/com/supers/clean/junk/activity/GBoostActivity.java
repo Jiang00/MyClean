@@ -162,14 +162,14 @@ public class GBoostActivity extends BaseActivity {
     }
 
     private void addData() {
+        if (PreData.getDB(GBoostActivity.this, Constant.GBOOST_LUN, true)) {
+            PreData.putDB(GBoostActivity.this, Constant.GBOOST_LUN, false);
+            list.addAll(GameBooster.getInstalledGameList(GBoostActivity.this));
+            shortGame(false);
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if (PreData.getDB(GBoostActivity.this, Constant.GBOOST_LUN, true)) {
-                    PreData.putDB(GBoostActivity.this, Constant.GBOOST_LUN, false);
-                    list.addAll(GameBooster.getInstalledGameList(GBoostActivity.this));
-                    shortGame(false);
-                }
                 ArrayList<String> gboost_names = CleanDBHelper.getInstance(GBoostActivity.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                 for (String pkg : gboost_names) {
                     if (LoadManager.getInstance(GBoostActivity.this).isPkgInstalled(pkg)) {
