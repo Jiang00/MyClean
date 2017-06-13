@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.view.GravityCompat;
@@ -39,6 +40,7 @@ import com.android.client.ClientNativeAd;
 import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
 import com.eos.eshop.ShopMaster;
+import com.eos.manager.AppLock;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
@@ -793,6 +795,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_applock_button:
                     CommonUtil.track("applock", "主界面点击", "", 1);
+                    if (true) {
+                        Intent goPrivacyIntent = new Intent(MainActivity.this, PrivacyActivity.class);
+                        startActivity(goPrivacyIntent);
+                        finish();
+                        break;
+                    }
                     int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
                     if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
                         Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);

@@ -102,13 +102,19 @@
             android:src="@mipmap/privary_1" />
     </FrameLayout>
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
         <LinearLayout
+
             android:id="@+id/privary_mess"
             android:layout_width="match_parent"
             android:layout_height="@dimen/d109"
@@ -127,17 +133,17 @@
                     android:layout_height="@dimen/d67">
 
                     <ImageView
-                        android:id="@+id/privary_cut_1"
+                        android:id="@+id/privacy_cut_yuandian"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/privary_5" />
-
+                        android:src="@mipmap/privacy_yuandian" />
 
                     <ImageView
-                        android:id="@+id/privary_cut_2"
+                        android:id="@+id/privacy_cut_bg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/shape_huan" />
+                        android:src="@drawable/shape_huan"
+                        android:visibility="gone" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -150,15 +156,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
-                    android:singleLine="true"
+                    android:lines="1"
+                    android:text="@string/clip_record"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s11" />
 
                 <TextView
+                    android:id="@+id/privacy_cut_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d4"
-                    android:singleLine="true"
+                    android:lines="1"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s9" />
             </LinearLayout>
@@ -175,16 +183,17 @@
                     android:layout_height="@dimen/d67">
 
                     <ImageView
-                        android:id="@+id/privary_browser_1"
+                        android:id="@+id/privacy_sms_yuandian"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/privary_5" />
+                        android:src="@mipmap/privacy_yuandian" />
 
                     <ImageView
-                        android:id="@+id/privary_browser_2"
+                        android:id="@+id/privacy_sms_bg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/shape_huan" />
+                        android:src="@drawable/shape_huan"
+                        android:visibility="gone" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -197,15 +206,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
-                    android:singleLine="true"
+                    android:lines="1"
+                    android:text="@string/sms_record"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s11" />
 
                 <TextView
+                    android:id="@+id/privacy_sms_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d4"
-                    android:singleLine="true"
+                    android:lines="1"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s9" />
             </LinearLayout>
@@ -222,18 +233,19 @@
                     android:layout_height="@dimen/d67">
 
                     <ImageView
-                        android:id="@+id/privary_call_1"
+                        android:id="@+id/privacy_call_yuandian"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:src="@mipmap/privary_5" />
+                        android:src="@mipmap/privacy_yuandian" />
 
                     <ImageView
-                        android:id="@+id/privary_call_2"
+                        android:id="@+id/privacy_call_bg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:src="@drawable/shape_huan" />
+                        android:src="@drawable/shape_huan"
+                        android:visibility="gone" />
 
                     <ImageView
                         android:layout_width="@dimen/d36"
@@ -246,31 +258,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
-                    android:singleLine="true"
+                    android:lines="1"
+                    android:text="@string/call_record"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s11" />
 
                 <TextView
+                    android:id="@+id/privacy_call_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d4"
-                    android:singleLine="true"
+                    android:lines="1"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s9" />
             </LinearLayout>
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/privary_button"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d43"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/d61"
-            android:background="@drawable/shape_privary_button"
-            android:text="@string/junk_button"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/s17" />
+
     </LinearLayout>
 
 

@@ -4,15 +4,22 @@
     package="com.supers.clean.junk">
 
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <!--IMEI-->
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- 读写SDCard权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--获取最上层包名-->
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -89,6 +96,11 @@
         <activity
             android:name=".activity.CoolingActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.PrivacyActivity" />
+
+        <activity
+            android:name=".activity.PrivacyCleanActivity"
+            android:theme="@style/PrivacyStyle" />
         <activity
             android:name=".activity.JunkActivity"
             android:screenOrientation="portrait" />
