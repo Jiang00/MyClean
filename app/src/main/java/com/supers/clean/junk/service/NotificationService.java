@@ -82,7 +82,7 @@ public class NotificationService extends Service {
         if (myHandler == null)
             myHandler = new Handler();
         cleanApplication = (MyApplication) getApplication();
-        phoneManager = PhoneManager.getPhoneManage(this);
+        phoneManager = PhoneManager.getPhoneManage(this);// 获得对象
         initIntent();
         bitmap_progress = Bitmap.createBitmap(Util.dp2px(29), Util.dp2px(29), Bitmap.Config.ARGB_8888);
         paint_1 = new Paint();

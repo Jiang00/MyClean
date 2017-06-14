@@ -31,7 +31,6 @@ import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.entity.JunkInfo;
-import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -53,7 +52,6 @@ import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 
 import java.util.ArrayList;
@@ -127,7 +125,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private AlertDialog dialog;
     private LinearLayout deep;
     private FrameLayout lot_tap;
-    private ArrayList<View> arrayList;
+    private ArrayList<View> arrayList;//记录main_circle布局文件的控件绑定信息
 
     @Override
     protected void findId() {
@@ -196,12 +194,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 }
             }
         }.start();*/
+        //Build.VERSION.SDK_INT  判断Android SDK版本号
+        // Build.VERSION_CODES.KITKAT  是一个Android的版本4.4
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
         tuiGuang();
 
         arrayList = new ArrayList<>();
+        // 获得指定的布局文件，然后通过其对象绑定控件
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
         main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
         main_custom_cpu = (CustomRoundCpu) view.findViewById(R.id.main_custom_cpu);
@@ -217,19 +218,23 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
         arrayList.add(view);
 
+        // 广告
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
+        // native_ad_2是点击广告跳转的界面
         View adView = AdUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
         if (adView != null) {
             ViewGroup.LayoutParams layout_ad = view_ad.getLayoutParams();
             if (adView.getHeight() == Util.dp2px(250)) {
                 layout_ad.height = Util.dp2px(250);
             }
+            // 设置LinearLayout控件的高度
             view_ad.setLayoutParams(layout_ad);
             view_ad.addView(adView);
             view_ad.setGravity(Gravity.CENTER);
             arrayList.add(viewpager_2);
         }
+        //main_deep界面的深度清理(没有用)
         viewpager_3 = LayoutInflater.from(this).inflate(R.layout.main_deep, null);
         Button deep_ok = (Button) viewpager_3.findViewById(R.id.deep_ok);
         deep = (LinearLayout) viewpager_3.findViewById(R.id.deep);
@@ -303,6 +308,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             view.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    //setCurrentItem(1)方法设置viewpager其初始显示的页面
                     viewpager.setCurrentItem(1);
                 }
             }, 4000);
@@ -368,7 +374,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        // 设置CPU温度
                         main_cpu_temp.setText(String.valueOf(progress) + "℃");
+                        // 设置硬件信息里的CPU温度
                         main_msg_cpu_percent.setText(String.valueOf(progress) + "℃");
                         if (main_cooling_h.getVisibility() == View.INVISIBLE) {
                             main_cooling_h.setText(String.valueOf(temp) + "℃");
@@ -389,6 +397,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         final Runnable sdRunable = new Runnable() {
             @Override
             public void run() {
+                // 设置存储空间占用率
                 main_sd_per.setText(String.valueOf(sdProgress) + "%");
             }
         };
@@ -403,8 +412,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                // 设置存储空间信息
                 main_sd_size.setText(size);
+                //设置硬件信息里的剩余空间
                 main_msg_sd_percent.setText(Util.convertStorage(sd_kongxian, false));
+                //根据剩余的空间大小来设置单位
                 if (sd_kongxian < 1024) {
                     main_msg_sd_unit.setText("B");
                 } else if (sd_kongxian < 1048576) {
@@ -424,7 +436,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 }
             }
         });
-
     }
 
     @Override
@@ -436,8 +447,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        // 设置内存占用率
                         main_ram_per.setText(String.valueOf(progress) + "%");
+                        // 设置运行内存信息
                         main_ram_size.setText(size);
+                        // 设置硬件信息里的已用内存
                         main_msg_ram_percent.setText(String.valueOf(progress) + "%");
                         if (main_ram_h.getVisibility() == View.INVISIBLE) {
                             long ram_size = CleanManager.getInstance(MainActivity.this).getRamSize();
@@ -450,17 +464,17 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 });
             }
         });
-
     }
 
     @Override
     public void initGuard(int num, RotateAnimation rotateAnimation) {
         if (num != -1) {
-            main_gurad_num.setText(String.valueOf(num) + " ");
+            main_gurad_num.setText(String.valueOf(num) + " ");//valueOf是将num转换为字符串
         }
         main_guard_rotate.startAnimation(rotateAnimation);
     }
 
+    // 菜单
     @Override
     public void initSideData() {
         if (adapter == null) {
@@ -485,11 +499,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void loadAirAnimator(TranslateAnimation translate) {
+        //小火箭动画
         main_air_all.startAnimation(translate);
     }
 
     @Override
     public void setRotateGone() {
+        //评价过了，设置隐藏
         main_rotate_all.setVisibility(View.GONE);
     }
 
@@ -620,15 +636,17 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
             switch (v.getId()) {
                 case R.id.iv_title_left:
+                    // 菜单按钮
                     mainPresenter.openDrawer();
                     AdUtil.track("主页面", "点击进入侧边栏按钮", "", 1);
-
                     break;
                 case R.id.iv_title_right:
+                    //设置按钮
                     AdUtil.track("主页面", "点击进入设置页面", "", 1);
                     mainPresenter.jumpToActivity(SettingActivity.class, 1);
                     break;
                 case R.id.main_cpu_air_button:
+                    // 点击CPU小球，跳转到CPU降温界面
                     Bundle bundle = new Bundle();
                     bundle.putString("from", "main");
                     bundle.putInt("wendu", temp);
@@ -636,30 +654,38 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(CoolingActivity.class, bundle, 1);
                     break;
                 case R.id.main_sd_air_button:
+                    // 点击存储空间小球，跳转到垃圾清理界面
                     AdUtil.track("主页面", "点击sd球进入垃圾清理页面", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
                     break;
                 case R.id.main_ram_air_button:
+                    // 点击运行内存小球，跳转到内存清理界面
                     AdUtil.track("主页面", "点击ram球进入内存加速页面", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
                 case R.id.main_air_all:
+                    //点击小火箭，跳转到清理列表
                     AdUtil.track("主页面", "点击火箭进入清理所有界面", "", 1);
                     mainPresenter.jumpToActivity(JunkAndRamActivity.class, 1);
                     break;
+                //好评上面的六个按钮点击事件
                 case R.id.main_junk_button:
+                    // 垃圾清理事件
                     AdUtil.track("主页面", "点击垃圾清理按钮", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
                     break;
                 case R.id.main_ram_button:
+                    //ram清理按钮
                     AdUtil.track("主页面", "点击ram清理按钮", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
                 case R.id.main_manager_button:
+                    //  应用管理按钮
                     AdUtil.track("主页面", "点击应用管理按钮", "", 1);
                     mainPresenter.jumpToActivity(ManagerActivity.class, 1);
                     break;
                 case R.id.main_cooling_button:
+                    //降温
                     AdUtil.track("主页面", "点击降温按钮", "", 1);
                     Bundle bundle1 = new Bundle();
                     bundle1.putString("from", "main");
@@ -667,16 +693,21 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(CoolingActivity.class, bundle1, 1);
                     break;
                 case R.id.main_applock_button:
+                    //应用锁
                     break;
                 case R.id.main_theme_button:
+                    //游戏加速
                     AdUtil.track("主页面", "点击进入buton游戏加速", "", 1);
                     mainPresenter.jumpToActivity(GBoostActivity.class, 1);
                     break;
+
                 case R.id.lot_family:
+                    //广告礼盒点击事件
                     AdUtil.track("主页面", "点击广告礼包", "", 1);
 //                    ShopMaster.launch(MainActivity.this, "EOS_Family",
 //                            new Theme(R.raw.battery_0, getPackageName())
 //                    );
+                    // 位移动画
                     Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
                     ll_ad_full.startAnimation(animation);
                     ll_ad_full.setVisibility(View.VISIBLE);
@@ -712,15 +743,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
                         @Override
                         public void onAnimationRepeat(Animation animation) {
-
                         }
 
                         @Override
                         public void onAnimationStart(Animation animation) {
-
                         }
                     });
-
                     break;
 
                 case R.id.main_rotate_good:
@@ -728,30 +756,37 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.clickRotate(true);
                     break;
                 case R.id.main_msg_button:
+                    //硬件信息
                     AdUtil.track("主页面", "点击进入硬件信息", "", 1);
                     mainPresenter.jumpToActivity(MessageActivity.class, 1);
                     break;
+                //下方五个清理事件
                 case R.id.main_power_button:
+                    // 深度清理
                     AdUtil.track("主页面", "点击进入深度清理", "", 1);
                     PreData.putDB(MainActivity.this, Constant.DEEP_CLEAN, true);
                     mainPresenter.jumpToActivity(PowerActivity.class, 1);
                     break;
                 case R.id.main_file_button:
+                    //文件管理
                     AdUtil.track("主页面", "点击进入文件管理", "", 1);
                     PreData.putDB(MainActivity.this, Constant.FILE_CLEAN, true);
                     mainPresenter.jumpToActivity(FileActivity.class, 1);
                     break;
                 case R.id.main_gboost_button:
+                    //游戏加速
                     AdUtil.track("主页面", "点击进入游戏加速", "", 1);
                     PreData.putDB(MainActivity.this, Constant.GBOOST_CLEAN, true);
                     mainPresenter.jumpToActivity(GBoostActivity.class, 1);
                     break;
                 case R.id.main_picture_button:
+                    //相似图片
                     AdUtil.track("主页面", "点击进入相似图片", "", 1);
                     PreData.putDB(MainActivity.this, Constant.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(PictureActivity.class, 1);
                     break;
                 case R.id.main_notifi_button:
+                    //通知栏清理
                     AdUtil.track("主页面", "点击进入通知栏清理", "", 1);
                     PreData.putDB(MainActivity.this, Constant.NOTIFI_CLEAN, true);
                     if (!Util.isNotificationListenEnabled(MainActivity.this)) {
@@ -764,8 +799,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         startActivityForResult(intent6, 1);
                     }
                     break;
-
-
             }
         }
     };
@@ -904,9 +937,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
+                // ll_ad_exit可见
                 ll_ad_exit.setVisibility(View.VISIBLE);
             }
         }
+        // 点击确定退出事件
         exit_queren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -914,6 +949,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 finish();
             }
         });
+        // 点击取消退出事件
         exit_quxiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

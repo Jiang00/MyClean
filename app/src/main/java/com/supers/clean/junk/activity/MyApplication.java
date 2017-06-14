@@ -49,13 +49,14 @@ public class MyApplication extends Application {
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/
         //charging
+        // 启动充电服务
         startService(new Intent(this, BatteryService.class));
 //        Utils.writeData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, false);//
 //        Utils.writeData(this, Constants.CHARGE_STATE_NOTIFICATION_SWITCH, false);//
         Utils.writeData(this, Constants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
         Utils.writeData(this, Constants.CHARGE_SAVER_ICON, R.mipmap.loading_icon);
 
-        CleanManager.getInstance(this).startLoad();
+        CleanManager.getInstance(this).startLoad();//CleanManager.getInstance(this)得到CleanManager对象，查看加载内容
 
         if (PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationService.class);

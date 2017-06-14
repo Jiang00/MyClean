@@ -24,6 +24,7 @@ import com.my.module.charge.saver.entry.BatteryEntry;
 import com.my.module.charge.saver.view.BatteryView;
 
 /**
+ * 电池服务
  * Created by on 2016/10/20.
  */
 public class BatteryService extends Service {
@@ -40,7 +41,7 @@ public class BatteryService extends Service {
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            boolean isScreenOn = isScreenOn();
+            boolean isScreenOn = isScreenOn();//获取电源状态
             if (isScreenOn) {
                 showChargeView();
             } else {
@@ -62,8 +63,9 @@ public class BatteryService extends Service {
 
     @TargetApi(Build.VERSION_CODES.KITKAT_WATCH)
     private boolean isScreenOn() {
+        // PowerManager这个类主要是用来控制电源状态的
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) { // KITKAT_WATCH对应 API 20
             return powerManager.isInteractive();
         } else {
             return powerManager.isScreenOn();

@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import com.my.module.charge.saver.R;
 
 /**
+ * 设置字体
  * Created by on 2016/10/27.
  */
 

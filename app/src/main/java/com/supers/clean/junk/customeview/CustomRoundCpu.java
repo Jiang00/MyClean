@@ -64,7 +64,7 @@ public class CustomRoundCpu extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         circlePoint.setColor(context.getResources().getColor(R.color.B4));
-        RectF rect = new RectF();
+        RectF rect = new RectF();//矩形
         rect.left = 0 + lineWidth / 2 + 1;
         rect.right = size - lineWidth / 2 - 1;
         rect.top = 0 + lineWidth / 2 + 1;
@@ -85,7 +85,8 @@ public class CustomRoundCpu extends View {
             circlePoint.setColor(context.getResources().getColor(R.color.A2));
         }
         if (isRotate) {
-            canvas.rotate(61, size / 2, size / 2);
+            canvas.rotate(61, size / 2, size / 2);//度数和位置（x,y）
+            //绘制一段弧线，它表示由一对坐标、宽度和高度指定的椭圆部分。
             canvas.drawArc(rect, 0, progress * 310 / 100, false, circlePoint);
         } else {
             canvas.rotate(90, size / 2, size / 2);

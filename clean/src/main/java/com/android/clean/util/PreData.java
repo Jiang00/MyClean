@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 
 public final class PreData {
 
@@ -54,9 +51,11 @@ public final class PreData {
 
     public static <T> void putDB(Context context, String key, T value) {
         try {
+            // 主要是保存一些常用的配置比如窗口状态，一般在Activity中重载窗口状态
             SharedPreferences db = getDB(context);
             if (db != null) {
                 SharedPreferences.Editor e = db.edit();
+                // instanceof 运算符是用来在运行时指出对象是否是特定类的一个实例
                 if (value instanceof String) {
                     e.putString(key, (String) value);
                 } else if (value instanceof Integer) {

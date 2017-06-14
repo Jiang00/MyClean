@@ -119,6 +119,7 @@ public class LoadingActivity extends BaseActivity {
             getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
             int a = Util.dp2px(360);
             Log.e("jfy", "px=" + a + "" + "=" + metrics.density + "=" + metrics.widthPixels);
+            // 在jumpTo中实现界面跳转
             jumpTo(MainActivity.class);
             finish();
         }
