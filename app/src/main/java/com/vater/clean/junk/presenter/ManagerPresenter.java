@@ -67,14 +67,13 @@ public class ManagerPresenter extends BasePresenter<AllAppView> {
             return;
         }
 
-
         for (JunkInfo softinfo : clearList) {
             if (softinfo.pkg.equals(packageName)) {
                 CleanManager.getInstance(context).removeAppList(softinfo);
                 list_size.remove(softinfo);
                 list_time.remove(softinfo);
                 list_pinlv.remove(softinfo);
-                addCleandata(false, softinfo.size);
+                addCleandata(false, softinfo.allSize);
                 iView.updateAdapter(list_size, list_time, list_pinlv);
             }
         }
