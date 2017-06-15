@@ -5,20 +5,21 @@ import android.os.Parcelable;
 
 import com.supers.clean.junk.entity.PrivacyData;
 
+import java.util.ArrayList;
+
 /**
  * Created by renqingyou on 2017/6/9.
  */
 
 public class SmsEntity extends PrivacyData implements Parcelable {
     public String address;
-    public String type;
     public String date;
     public int read;
     public String status;
-    public int id;
 
     public SmsEntity() {
     }
+
 
     protected SmsEntity(Parcel in) {
         address = in.readString();
@@ -27,6 +28,11 @@ public class SmsEntity extends PrivacyData implements Parcelable {
         read = in.readInt();
         status = in.readString();
         id = in.readInt();
+        text = in.readString();
+        num = in.readString();
+        isChecked = in.readByte() != 0;
+        count = in.readInt();
+        idList = in.readArrayList(ArrayList.class.getClassLoader());
     }
 
     public static final Creator<SmsEntity> CREATOR = new Creator<SmsEntity>() {
@@ -57,6 +63,7 @@ public class SmsEntity extends PrivacyData implements Parcelable {
         return address.hashCode();
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -70,5 +77,10 @@ public class SmsEntity extends PrivacyData implements Parcelable {
         dest.writeInt(read);
         dest.writeString(status);
         dest.writeInt(id);
+        dest.writeString(text);
+        dest.writeString(num);
+        dest.writeByte((byte) (isChecked ? 1 : 0));
+        dest.writeInt(count);
+        dest.writeList(idList);
     }
 }

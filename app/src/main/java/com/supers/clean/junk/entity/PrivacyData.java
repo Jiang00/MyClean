@@ -1,5 +1,6 @@
 package com.supers.clean.junk.entity;
 
+
 import java.util.ArrayList;
 
 /**

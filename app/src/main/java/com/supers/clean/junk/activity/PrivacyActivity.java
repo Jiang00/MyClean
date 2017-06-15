@@ -61,6 +61,8 @@ public class PrivacyActivity extends BaseActivity {
 
     private static final int GO_TO_PRIVACY = 3;
 
+    private boolean isHaveCut;
+
 
     @Override
     protected void findId() {
@@ -114,7 +116,7 @@ public class PrivacyActivity extends BaseActivity {
                 super.handleMessage(msg);
                 switch (msg.what) {
                     case CUT_MESSAGE:
-                        boolean isHaveCut = PrivacyClean.getInstance(PrivacyActivity.this).isHaveCutText();
+                        isHaveCut = PrivacyClean.getInstance(PrivacyActivity.this).isHaveCutText();
 
                         privacy_total = getString(R.string.privacy_total);
 
@@ -160,12 +162,17 @@ public class PrivacyActivity extends BaseActivity {
                         mHandler.sendEmptyMessageDelayed(GO_TO_PRIVACY, 2000);
                         break;
                     case GO_TO_PRIVACY:
-                        Intent privacyIntent = new Intent(PrivacyActivity.this, PrivacyCleanActivity.class);
-                        privacyIntent.putParcelableArrayListExtra("read_sms", readSmsEntities);
-                        privacyIntent.putParcelableArrayListExtra("strange_sms", strangeSmsEnties);
-                        privacyIntent.putParcelableArrayListExtra("dismiss_call", dissmissCallEntities);
-                        privacyIntent.putParcelableArrayListExtra("strange_call", strangeCallEnties);
-                        startActivity(privacyIntent);
+                        if (readSmsEntities.size() + strangeSmsEnties.size() + dissmissCallEntities.size() + strangeCallEnties.size() == 0 && !isHaveCut) {
+                            Intent intent = new Intent(PrivacyActivity.this, SuccessActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Intent privacyIntent = new Intent(PrivacyActivity.this, PrivacyCleanActivity.class);
+                            privacyIntent.putParcelableArrayListExtra("read_sms", readSmsEntities);
+                            privacyIntent.putParcelableArrayListExtra("strange_sms", strangeSmsEnties);
+                            privacyIntent.putParcelableArrayListExtra("dismiss_call", dissmissCallEntities);
+                            privacyIntent.putParcelableArrayListExtra("strange_call", strangeCallEnties);
+                            startActivity(privacyIntent);
+                        }
                         finish();
                         break;
                     default:
@@ -264,7 +271,6 @@ public class PrivacyActivity extends BaseActivity {
                         if (callEntity.callName != null) {
                             continue;
                         }
-
                         boolean isHaveSameAddress = false;
                         for (int i = 0; i < strangeCallEnties.size(); i++) {
                             CallEntity callEn = strangeCallEnties.get(i);

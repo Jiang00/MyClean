@@ -60,39 +60,15 @@ public class PrivacyCleanActivity extends BaseActivity implements View.OnClickLi
 
     private HashMap<Integer, PrivacyAdapter> privacyAdapters = new HashMap<>();
 
-    private ArrayList<CallEntity> dissmissCallEntities = new ArrayList<>();
-    private ArrayList<CallEntity> strangeCallEnties = new ArrayList<>();
+    private ArrayList<CallEntity> dissmissCallEntities;
+    private ArrayList<CallEntity> strangeCallEnties;
 
-    private ArrayList<SmsEntity> readSmsEntities = new ArrayList<>();
-    private ArrayList<SmsEntity> strangeSmsEnties = new ArrayList<>();
+    private ArrayList<SmsEntity> readSmsEntities;
+    private ArrayList<SmsEntity> strangeSmsEnties;
 
     private AlertDialog dialog;
 
     private int checkNum = 0;
-
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            int missNum = dissmissCallEntities.size();
-            int strangeCallNum = strangeCallEnties.size();
-            privacy_dismiss_call_text.setText(missNum + "");
-            privacy_strange_call_text.setText(strangeCallNum + "");
-
-            int totalCallCount = missNum + strangeCallNum;
-            privacy_call_num_text.setText(totalCallCount + "");
-
-            privacy_read_sms_text.setText(readSmsEntities.size() + "");
-            privacy_strange_sms.setText(strangeSmsEnties.size() + "");
-            int totalSmsCount = readSmsEntities.size() + strangeSmsEnties.size();
-            privacy_sms_text.setText(totalSmsCount + "");
-
-            checkNum = totalSmsCount + totalCallCount + cutNum;
-
-            privacy_all_size_text.setText(checkNum + "");
-            clean.setText(getString(R.string.junk_button) + "( " + checkNum + " )");
-        }
-    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -130,101 +106,6 @@ public class PrivacyCleanActivity extends BaseActivity implements View.OnClickLi
         privacy_all_size_text.setText(checkNum + "");
         clean.setText(getString(R.string.junk_button) + "( " + checkNum + " )");
 
-        /*new Thread() {
-            @Override
-            public void run() {
-                ArrayList<SmsEntity> smsList = privacyClean.querySms();
-
-                for (SmsEntity smsEntity : smsList) {
-                    if (smsEntity.read == 1) {
-                        //已读短信
-                        boolean isHaveSameAddress = false;
-                        for (int i = 0; i < readSmsEntities.size(); i++) {
-                            SmsEntity smsEntities = readSmsEntities.get(i);
-                            if (TextUtils.equals(smsEntities.address, smsEntity.address)) {
-                                smsEntities.count++;
-                                smsEntities.idList.add(smsEntity.id);
-                                isHaveSameAddress = true;
-                                break;
-                            }
-                        }
-                        if (!isHaveSameAddress) {
-                            smsEntity.idList = new ArrayList<>();
-                            smsEntity.idList.add(smsEntity.id);
-                            smsEntity.count++;
-                            readSmsEntities.add(smsEntity);
-                        }
-                    } else {
-                        String name = privacyClean.getContactNameByPhoneNumber(smsEntity.address);
-                        if (!TextUtils.isEmpty(name)) {
-                            continue;
-                        }
-                        boolean isHaveSameAddress = false;
-                        for (int i = 0; i < strangeSmsEnties.size(); i++) {
-                            SmsEntity smsEntities = strangeSmsEnties.get(i);
-                            if (TextUtils.equals(smsEntities.address, smsEntity.address)) {
-                                smsEntities.count++;
-                                smsEntities.idList.add(smsEntity.id);
-                                isHaveSameAddress = true;
-                                break;
-                            }
-                        }
-                        if (!isHaveSameAddress) {
-                            smsEntity.idList = new ArrayList<>();
-                            smsEntity.idList.add(smsEntity.id);
-                            smsEntity.count++;
-                            strangeSmsEnties.add(smsEntity);
-                        }
-                    }
-                }
-
-                ArrayList<CallEntity> callEntities = privacyClean.queryCall();
-                for (CallEntity callEntity : callEntities) {
-                    Log.e("rqy", callEntity + "");
-                    if (callEntity.callType == CallLog.Calls.MISSED_TYPE) {
-                        //未接来电
-                        boolean isHaveSameAddress = false;
-                        for (int i = 0; i < dissmissCallEntities.size(); i++) {
-                            CallEntity callEn = dissmissCallEntities.get(i);
-                            if (TextUtils.equals(callEntity.callNumber, callEn.callNumber)) {
-                                callEn.count++;
-                                callEn.idList.add(callEntity.id);
-                                isHaveSameAddress = true;
-                                break;
-                            }
-                        }
-                        if (!isHaveSameAddress) {
-                            callEntity.idList = new ArrayList<>();
-                            callEntity.idList.add(callEntity.id);
-                            callEntity.count++;
-                            dissmissCallEntities.add(callEntity);
-                        }
-                    } else {
-                        if (callEntity.callName != null) {
-                            continue;
-                        }
-
-                        boolean isHaveSameAddress = false;
-                        for (int i = 0; i < strangeCallEnties.size(); i++) {
-                            CallEntity callEn = strangeCallEnties.get(i);
-                            if (TextUtils.equals(callEntity.callNumber, callEn.callNumber)) {
-                                callEn.count++;
-                                callEn.idList.add(callEntity.id);
-                                isHaveSameAddress = true;
-                                break;
-                            }
-                        }
-                        if (!isHaveSameAddress) {
-                            callEntity.idList = new ArrayList<>();
-                            callEntity.idList.add(callEntity.id);
-                            callEntity.count++;
-                            strangeCallEnties.add(callEntity);
-                        }
-                    }
-                }
-                handler.sendEmptyMessage(0);
-            }
-        }.start();*/
     }
 
     @Override
@@ -322,7 +203,11 @@ public class PrivacyCleanActivity extends BaseActivity implements View.OnClickLi
                 itemClick(read_sms_listview, readSmsEntities, READ_SMS_TYPE);
                 break;
             case R.id.privacy_clean_button:
-                showDia(checkNum + "");
+                if (checkNum > 0) {
+                    showDia(checkNum + "");
+                } else {
+                    goToSuccessPage();
+                }
                 break;
             case R.id.read_sms_checkbox:
                 if (read_sms_type == TYPE_CHECK) {

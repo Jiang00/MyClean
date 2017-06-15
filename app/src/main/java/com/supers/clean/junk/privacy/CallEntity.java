@@ -5,17 +5,21 @@ import android.os.Parcelable;
 
 import com.supers.clean.junk.entity.PrivacyData;
 
+import java.util.ArrayList;
+
 /**
  * Created by renqingyou on 2017/6/9.
  */
 
-public class CallEntity extends PrivacyData implements Parcelable{
+public class CallEntity extends PrivacyData implements Parcelable {
     public String callName;
     public String callNumber;
     public String callLogID;
     public String callData;
     public int callType;
     public String isCallNew;
+
+
 
     public CallEntity() {
         super();
@@ -28,6 +32,13 @@ public class CallEntity extends PrivacyData implements Parcelable{
         callData = in.readString();
         callType = in.readInt();
         isCallNew = in.readString();
+        id = in.readInt();
+        type = in.readString();
+        text = in.readString();
+        num = in.readString();
+        isChecked = in.readByte() != 0;
+        count = in.readInt();
+        idList = in.readArrayList(ArrayList.class.getClassLoader());
     }
 
     public static final Creator<CallEntity> CREATOR = new Creator<CallEntity>() {
@@ -73,6 +84,7 @@ public class CallEntity extends PrivacyData implements Parcelable{
         return result;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -86,5 +98,12 @@ public class CallEntity extends PrivacyData implements Parcelable{
         dest.writeString(callData);
         dest.writeInt(callType);
         dest.writeString(isCallNew);
+        dest.writeInt(id);
+        dest.writeString(type);
+        dest.writeString(text);
+        dest.writeString(num);
+        dest.writeByte((byte) (isChecked ? 1 : 0));
+        dest.writeInt(count);
+        dest.writeList(idList);
     }
 }
