@@ -16,27 +16,25 @@
             android:layout_width="match_parent"
             android:layout_height="24dp" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/d72"
             android:gravity="center"
             android:text="@string/notifi_1"
-            android:textColor="@color/A7"
-            android:textSize="@dimen/s17"
-            />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s17" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/d33"
             android:gravity="center"
             android:text="@string/notifi_2"
-            android:textColor="@color/A7"
-            android:textSize="@dimen/s17"
-            />
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s17" />
 
         <com.sample.lottie.LottieAnimationView
             android:id="@+id/notifi_info_lot"
@@ -56,13 +54,14 @@
 
         <Button
             android:id="@+id/notifi_info_text"
-            android:layout_width="@dimen/d250"
-            android:layout_height="@dimen/d40"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="@dimen/d168"
+            android:layout_height="@dimen/d44"
             android:layout_centerInParent="true"
             android:background="@drawable/shape_button"
             android:text="@string/notifi_info_2"
-            android:textColor="@color/A7"
-            android:textSize="@dimen/s16"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s18"
             android:visibility="invisible" />
     </RelativeLayout>
 </FrameLayout>

@@ -52,7 +52,7 @@
 
             </FrameLayout>
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:id="@+id/power_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                 android:textColor="@color/A13"
                 android:textSize="@dimen/s14" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -99,6 +99,7 @@
 
         <Button
             android:id="@+id/junk_button_clean"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="@dimen/d168"
             android:layout_height="@dimen/d44"
             android:layout_centerInParent="true"
@@ -106,6 +107,6 @@
             android:text="@string/junk_button"
             android:textAllCaps="false"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/s20" />
+            android:textSize="@dimen/s18" />
     </RelativeLayout>
 </LinearLayout>

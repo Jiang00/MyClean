@@ -16,7 +16,7 @@
             android:layout_width="@dimen/d50"
             android:layout_height="@dimen/d50"
             android:layout_marginLeft="@dimen/d26"
-            android:src="@mipmap/manager_icon" />
+            android:src="@mipmap/icon" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -24,14 +24,14 @@
             android:layout_marginLeft="@dimen/d18"
             android:orientation="vertical">
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/premiss_1"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s16" />
+                android:textColor="@color/A9"
+                android:textSize="@dimen/s18" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/d16"
@@ -40,16 +40,16 @@
                 android:textColor="@color/A9"
                 android:textSize="@dimen/s12" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:id="@+id/manager_shouquan"
-                android:layout_width="@dimen/d190"
-                android:layout_height="@dimen/d37"
+                android:layout_width="@dimen/d168"
+                android:layout_height="@dimen/d44"
                 android:layout_marginTop="@dimen/d30"
-                android:background="@drawable/shape__a4_r"
+                android:background="@drawable/shape_button"
                 android:gravity="center"
                 android:text="@string/premiss_5"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/s15"
+                android:textSize="@dimen/s18"
                 app:typeface="Roboto-Medium.ttf" />
         </LinearLayout>
 

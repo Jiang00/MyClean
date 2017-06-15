@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d56"
+        android:layout_height="@dimen/d60"
         android:orientation="horizontal">
 
         <ImageView
@@ -27,26 +27,24 @@
         android:gravity="clip_vertical"
         android:orientation="vertical">
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
             android:id="@+id/notifi_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s15"
-             />
+            android:textColor="@color/A10"
+            android:textSize="@dimen/s15" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
             android:id="@+id/notifi_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:textColor="@color/A9"
-            android:textSize="@dimen/s12"
-             />
+            android:textColor="@color/A10"
+            android:textSize="@dimen/s12" />
     </LinearLayout>
 
 
-    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
         android:id="@+id/notifi_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
