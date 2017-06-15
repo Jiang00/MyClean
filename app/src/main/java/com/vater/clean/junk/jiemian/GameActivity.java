@@ -157,14 +157,14 @@ public class GameActivity extends BaseActivity {
     }
 
     private void addData() {
+        if (PreData.getDB(GameActivity.this, Constant.GBOOST_LUN, true)) {
+            PreData.putDB(GameActivity.this, Constant.GBOOST_LUN, false);
+            list.addAll(GameBooster.getInstalledGameList(GameActivity.this));
+            shortGame(false);
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if (PreData.getDB(GameActivity.this, Constant.GBOOST_LUN, true)) {
-                    PreData.putDB(GameActivity.this, Constant.GBOOST_LUN, false);
-                    list.addAll(GameBooster.getInstalledGameList(GameActivity.this));
-                    shortGame(false);
-                }
                 ArrayList<String> gboost_names = CleanDBHelper.getInstance(GameActivity.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                 for (String pkg : gboost_names) {
                     if (LoadManager.getInstance(GameActivity.this).isPkgInstalled(pkg)) {
@@ -448,23 +448,23 @@ public class GameActivity extends BaseActivity {
             ShortCutUtils.addShortcut(GameActivity.this, shortcutIntent, title, false, bitmap);
             return;
         }
-        if (list.size() > 0 && (!PreData.getDB(GameActivity.this, Constant.GBOOST_SI, false) || isChuangjian)) {
+        if (list.size() > 1 && (!PreData.getDB(GameActivity.this, Constant.GBOOST_SI, false) || isChuangjian)) {
             View shortcut_view = View.inflate(GameActivity.this, R.layout.layout_gboost_short, null);
-            if (list.size() > 0) {
-                ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
-                iv_1.setImageDrawable(LoadManager.getInstance(GameActivity.this).getAppIcon(list.get(0)));
-            }
             if (list.size() > 1) {
-                ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
-                iv_2.setImageDrawable(LoadManager.getInstance(GameActivity.this).getAppIcon(list.get(1)));
+                ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
+                iv_1.setImageDrawable(LoadManager.getInstance(GameActivity.this).getAppIcon(list.get(1)));
             }
             if (list.size() > 2) {
-                ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
-                iv_3.setImageDrawable(LoadManager.getInstance(GameActivity.this).getAppIcon(list.get(2)));
+                ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
+                iv_2.setImageDrawable(LoadManager.getInstance(GameActivity.this).getAppIcon(list.get(2)));
             }
             if (list.size() > 3) {
+                ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
+                iv_3.setImageDrawable(LoadManager.getInstance(GameActivity.this).getAppIcon(list.get(3)));
+            }
+            if (list.size() > 4) {
                 ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
-                iv_4.setImageDrawable(LoadManager.getInstance(GameActivity.this).getAppIcon(list.get(3)));
+                iv_4.setImageDrawable(LoadManager.getInstance(GameActivity.this).getAppIcon(list.get(4)));
                 PreData.putDB(GameActivity.this, Constant.GBOOST_SI, true);
             }
 

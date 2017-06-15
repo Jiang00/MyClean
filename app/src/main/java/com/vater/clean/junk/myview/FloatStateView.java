@@ -103,7 +103,7 @@ public class FloatStateView extends View {
             }
 
             if (pratent > 40 && pratent <= 80) {
-                firstPaint.setColor(getResources().getColor(R.color.A4));
+                firstPaint.setColor(getResources().getColor(R.color.A3));
             } else if (pratent > 80) {
                 firstPaint.setColor(getResources().getColor(R.color.A2));
             } else {
@@ -129,6 +129,7 @@ public class FloatStateView extends View {
             runThread.start();
         }
     }
+
     public void setDragState(int type) {
         this.type = type;
         invalidate();

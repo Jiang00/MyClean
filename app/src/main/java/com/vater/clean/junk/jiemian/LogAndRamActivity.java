@@ -168,7 +168,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
         if (size > 1024 * 1024 * 100 && size <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A3));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
@@ -177,7 +177,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
         } else if (size > 1024 * 1024 * 200) {
             if (color2) {
                 color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A2));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());

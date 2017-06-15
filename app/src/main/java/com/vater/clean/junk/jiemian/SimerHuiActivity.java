@@ -63,7 +63,6 @@ public class SimerHuiActivity extends BaseActivity {
     private Handler mHandler;
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,6 +147,7 @@ public class SimerHuiActivity extends BaseActivity {
         }
         finish();
     }
+
     @Override
     protected void findId() {
         super.findId();
@@ -178,6 +178,7 @@ public class SimerHuiActivity extends BaseActivity {
         picture_delete.setOnClickListener(clickListener);
 
     }
+
     private void dialog(final boolean isrestore, final int count) {
         View view = View.inflate(this, R.layout.dialog_picture, null);
         final TextView pro = (TextView) view.findViewById(R.id.count);

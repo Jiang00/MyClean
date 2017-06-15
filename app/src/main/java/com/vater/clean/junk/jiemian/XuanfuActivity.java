@@ -358,7 +358,7 @@ public class XuanfuActivity extends BaseActivity {
         } else if (light == LIGHT_100_PERCENT) {
             //高
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_100);
-        } else if (light == 0) {
+        } else if (light == -1) {
             //自动
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_zidong);
         }
@@ -383,15 +383,18 @@ public class XuanfuActivity extends BaseActivity {
     private int getLight() {
         int light = 0;
         ContentResolver cr = this.getContentResolver();
+        boolean auto = false;
         try {
-            boolean auto = Settings.System.getInt(cr,
+            auto = Settings.System.getInt(cr,
                     Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
             light = android.provider.Settings.System.getInt(cr,
                     Settings.System.SCREEN_BRIGHTNESS, -1);
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
-
+        if (auto) {
+            return -1;
+        }
         return light;
     }
 
@@ -432,7 +435,7 @@ public class XuanfuActivity extends BaseActivity {
                     iv_xianshi.setImageResource(R.mipmap.float_liangdu_100);
                     break;
                 case LIGHT_100_PERCENT:
-                    light = LIGHT_NORMAL - 1;
+                    light = LIGHT_50_PERCENT;
                     Settings.System.putInt(cr,
                             Settings.System.SCREEN_BRIGHTNESS_MODE,
                             Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
