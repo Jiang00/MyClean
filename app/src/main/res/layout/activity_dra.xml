@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#ffffff">
-        // android:layout_gravity="start"
+        <!--android:layout_gravity="start"让布局在左侧-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,22 +22,67 @@
             android:background="#ffffff"
             android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:background="@color/A1" />
-
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/A1"
                 android:orientation="vertical">
-                <!--侧滑上方图片-->
-                <ImageView
-                    android:id="@+id/side_title"
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d120"
-                    android:background="@mipmap/side_title_1" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--侧滑上方图片-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="-10dp"
+                            android:layout_marginLeft="-35dp"
+                            android:background="@mipmap/side_title_1" />
+
+                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                            android:id="@+id/side_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/d24"
+                            android:layout_marginTop="@dimen/d80"
+                            android:text="Junk Clean"
+                            android:textColor="@color/A0"
+                            android:textSize="@dimen/s16"
+                            app:typeface="msyh.ttf" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:background="@mipmap/side_title_1" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/d100"
+                            android:layout_marginTop="@dimen/d30"
+                            android:background="@mipmap/side_title_2" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-27dp"
+                        android:background="@mipmap/side_title_3" />
+
+                </LinearLayout>
+
 
                 <FrameLayout
                     android:id="@+id/fl_lot_side"
@@ -55,7 +100,7 @@
                         android:text="AD"
                         android:textColor="@android:color/white"
                         android:textSize="8sp"
-                        app:typeface="eos_clean.otf" />
+                        app:typeface="msyh.ttf" />
                 </FrameLayout>
 
                 <LinearLayout

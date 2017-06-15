@@ -73,6 +73,7 @@ public class BaseActivity extends AppCompatActivity {
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
         View view_title_bar = findViewById(R.id.view_title_bar);
+        System.out.println("==================+"+view_title_bar);
         ViewGroup.LayoutParams linearParams = view_title_bar.getLayoutParams();
         linearParams.height = getStatusHeight(this);
         view_title_bar.setLayoutParams(linearParams);

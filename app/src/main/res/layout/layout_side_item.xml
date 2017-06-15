@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl_item"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/d48"
 
     android:background="?selectableItemBackground">
-
     <RelativeLayout
         android:id="@+id/rl"
-        android:layout_width="72dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/d72"
+        android:layout_height="@dimen/d48"
         android:orientation="horizontal">
 
 
@@ -19,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp" />
+            android:layout_marginLeft="@dimen/d24" />
 
     </RelativeLayout>
 
@@ -30,9 +29,9 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/rl"
         android:text="aaaaaaa"
-        android:textColor="@color/B2"
-        android:textSize="@dimen/s13"
-        app:typeface="eos_clean.otf" />
+        android:textColor="@color/A2"
+        android:textSize="@dimen/s14"
+        app:typeface="msyh.ttf"  />
 
     <ImageView
         android:id="@+id/iv_check"
@@ -40,13 +39,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="@dimen/d16"
         android:src="@mipmap/side_check_normal" />
 
+    <!--<View-->
+        <!--android:id="@+id/side_divide"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/B1"-->
+        <!--android:visibility="gone" />-->
     <View
         android:id="@+id/side_divide"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/d220"
         android:layout_height="1dp"
-        android:background="@color/B1"
-        android:visibility="gone" />
+        android:layout_below="@id/tv_name"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@id/tv_name"
+        android:background="@color/A4"/>
 </RelativeLayout>

@@ -19,7 +19,6 @@ import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.my.module.charge.saver.Util.Constants;
 import com.my.module.charge.saver.Util.Utils;
-import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.FileActivity;
 import com.supers.clean.junk.activity.GBoostActivity;
@@ -55,7 +54,6 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static final int ROTATE = idx++;
 
     public SideAdapter(Context context) {
-
         super(context);
     }
 
@@ -115,10 +113,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 convertView.setLayoutParams(param);
             }
         }
-        if (position == JUNK || position == SETTING) {
-            holder.side_divide.setVisibility(View.VISIBLE);
-        } else {
+        if (position == 8) {
             holder.side_divide.setVisibility(View.GONE);
+        } else {
+            holder.side_divide.setVisibility(View.VISIBLE);
         }
         return convertView;
     }

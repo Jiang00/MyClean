@@ -5,10 +5,9 @@ import android.content.Context;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
-import com.android.clean.filemanager.FileInfo;
-import com.supers.clean.junk.view.JunkView;
-import com.supers.clean.junk.activity.MyApplication;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.activity.MyApplication;
+import com.supers.clean.junk.view.JunkView;
 
 import java.util.ArrayList;
 import java.util.List;
