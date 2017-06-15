@@ -618,7 +618,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new JunkInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
         adapter.addData(new JunkInfo(R.string.side_file, R.mipmap.side_file));//文件管理
         adapter.addData(new JunkInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-//        adapter.addData(new JunkInfo(R.string.privary_0, R.mipmap.side_power));//隐私清理
+        adapter.addData(new JunkInfo(R.string.privacy_clean, R.mipmap.side_privacy_clean));//隐私清理
         adapter.addData(new JunkInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
         adapter.addData(new JunkInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
         adapter.addData(new JunkInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
@@ -787,11 +787,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_applock_button:
                     CommonUtil.track("applock", "主界面点击", "", 1);
-                    if (true) {
-                        Intent goPrivacyIntent = new Intent(MainActivity.this, PrivacyActivity.class);
-                        startActivity(goPrivacyIntent);
-                        break;
-                    }
                     int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
                     if (!TextUtils.equals(SecurityMyPref.getPasswd(), "")) {
                         Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);

@@ -24,7 +24,7 @@ public class PrivacyClean {
     private Context mContext;
 
     private PrivacyClean(Context context) {
-        mContext = context;
+        mContext = context.getApplicationContext();
     }
 
 
@@ -60,7 +60,6 @@ public class PrivacyClean {
         where.append(" IS NULL ");
         resolver.delete(CallLog.Calls.CONTENT_URI, where.toString(), null);
     }
-
 
     public ArrayList<CallEntity> queryCall() {
         ArrayList<CallEntity> callEntities = new ArrayList<>();
@@ -118,8 +117,7 @@ public class PrivacyClean {
     public ArrayList<SmsEntity> querySms() {
         ArrayList<SmsEntity> smsList = new ArrayList<>();
         Uri uri = Uri.parse("content://sms");
-        String[] projections = new String[]{"_id", "address", "date",
-                "date_sent", "read", "status", "type", "body"};
+        String[] projections = new String[]{"_id", "address", "date", "read", "status", "type"};
         Cursor cursor = null;
         try {
             cursor = mContext.getContentResolver().query(uri, projections,
@@ -133,27 +131,26 @@ public class PrivacyClean {
                         .getColumnIndexOrThrow("_id"));
                 String address = cursor.getString(cursor
                         .getColumnIndexOrThrow("address")); // 对方号码
-                String date = cursor.getString(cursor
+               /* String date = cursor.getString(cursor
                         .getColumnIndexOrThrow("date"));  // 发件日期
                 String date_sent = cursor.getString(cursor
-                        .getColumnIndexOrThrow("date_sent"));
+                        .getColumnIndexOrThrow("date_sent"));*/
                 int read = cursor.getInt(cursor
                         .getColumnIndexOrThrow("read")); //0 “未读”，1“已读”
                 String status = cursor.getString(cursor
                         .getColumnIndexOrThrow("status"));  // 状态 integer   default-1。 -1：接收，0：complete,64： pending, 128failed
                 String type = cursor.getString(cursor
                         .getColumnIndexOrThrow("type"));  //  1：inbox 接受 2：sent 发送 3：draft56  4：outbox  5：failed  6：queued
-                String body = cursor.getString(cursor
-                        .getColumnIndexOrThrow("body")); //短信内容
+               /* String body = cursor.getString(cursor
+                        .getColumnIndexOrThrow("body")); //短信内容*/
                 SmsEntity smsEntity = new SmsEntity();
                 smsEntity.id = id;
                 smsEntity.address = address;
                 smsEntity.type = type;
-                smsEntity.date = date;
+               /* smsEntity.date = date;*/
                 smsEntity.read = read;
                 smsEntity.status = status;
                 smsList.add(smsEntity);
-                Log.e("rqy", address + "--" + date + "--" + date_sent + "--" + read + "--" + status + "--" + type + "--" + body);
             }
         } catch (Exception e) {
 
@@ -176,6 +173,21 @@ public class PrivacyClean {
         StringBuilder where = new StringBuilder();
         where.append("read = 1");
         cResolver.delete(smsUri, where.toString(), null);
+    }
+
+    public void deleteSms(String placeHolder) {
+        ContentResolver cResolver = mContext.getContentResolver();
+        Uri smsUri = Uri.parse("content://sms/");
+        StringBuilder where = new StringBuilder();
+        where.append("_id in (" + placeHolder + ")");
+        cResolver.delete(smsUri, where.toString(), null);
+    }
+
+    public void deleteCall(String placeHolder) {
+        ContentResolver cResolver = mContext.getContentResolver();
+        StringBuilder where = new StringBuilder();
+        where.append("_id in (" + placeHolder + ")");
+        cResolver.delete(CallLog.Calls.CONTENT_URI, where.toString(), null);
     }
 
     public void cleanNoContactSms() {
@@ -218,13 +230,13 @@ public class PrivacyClean {
         return smsInfos;
     }
 
-    public String getContactNameByPhoneNumber(Context context, String address) {
+    public String getContactNameByPhoneNumber(String address) {
         Log.e("rqy", "address=" + address);
         String[] projection = {ContactsContract.PhoneLookup.DISPLAY_NAME,
                 ContactsContract.CommonDataKinds.Phone.NUMBER};
 
         // 将自己添加到 msPeers 中
-        Cursor cursor = context.getContentResolver().query(
+        Cursor cursor = mContext.getContentResolver().query(
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                 projection, // Which columns to return.
                 ContactsContract.CommonDataKinds.Phone.NUMBER + " = '"
@@ -260,4 +272,5 @@ public class PrivacyClean {
         //cm.getPrimaryClip().newHtmlText("","","");
         cm.setText("");
     }
+
 }

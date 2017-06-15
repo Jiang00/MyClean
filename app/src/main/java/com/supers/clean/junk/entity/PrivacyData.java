@@ -14,4 +14,9 @@ public class PrivacyData {
     public boolean isChecked = true;
     public int count;
     public ArrayList<Integer> idList;
+
+    public PrivacyData() {
+
+    }
+
 }

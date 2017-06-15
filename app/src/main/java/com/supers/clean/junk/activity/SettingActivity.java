@@ -76,6 +76,7 @@ public class SettingActivity extends BaseActivity {
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
         fl_lot_setting = (FrameLayout) findViewById(R.id.fl_lot_setting);
+        findViewById(R.id.setting_privacy).setOnClickListener(onClickListener);
     }
 
     @Override
@@ -335,6 +336,13 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_rotate:
                     CommonUtil.track("设置页面", "好评", "", 1);
                     UtilGp.rate(SettingActivity.this);
+                    break;
+                case R.id.setting_privacy:
+                    CommonUtil.track("设置页面", "隐私清理", "", 1);
+                    Intent privacyIntent = new Intent(SettingActivity.this, PrivacyActivity.class);
+                    startActivity(privacyIntent);
+                    break;
+                default:
                     break;
             }
         }

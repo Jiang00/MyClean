@@ -1,5 +1,6 @@
 package com.supers.clean.junk.adapter;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.PrivacyCleanActivity;
 import com.supers.clean.junk.entity.PrivacyData;
 import com.supers.clean.junk.privacy.CallEntity;
+import com.supers.clean.junk.privacy.PrivacyClean;
 import com.supers.clean.junk.privacy.SmsEntity;
 
 import java.util.ArrayList;
@@ -70,7 +72,8 @@ public class PrivacyAdapter extends BaseAdapter {
         } else if (object instanceof SmsEntity) {
             SmsEntity smsEntity = (SmsEntity) object;
             viewHolder.privacy_item_num_text.setText(smsEntity.count + "");
-            viewHolder.privacy_item_text.setText(smsEntity.address);
+            String name = PrivacyClean.getInstance(mContext).getContactNameByPhoneNumber(smsEntity.address);
+            viewHolder.privacy_item_text.setText(TextUtils.isEmpty(name) ? smsEntity.address : name);
         }
         viewHolder.privacy_item_checkbox.setChecked(object.isChecked);
         viewHolder.privacy_item_checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

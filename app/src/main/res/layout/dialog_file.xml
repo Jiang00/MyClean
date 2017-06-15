@@ -16,14 +16,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/d19"
+            android:paddingTop="@dimen/d17">
 
             <ImageView
                 android:id="@+id/dialog_icon"
                 android:layout_width="@dimen/d40"
                 android:layout_height="@dimen/d40"
-                android:layout_marginLeft="@dimen/d19"
-                android:layout_marginTop="@dimen/d17"
+                android:layout_marginRight="@dimen/d6"
                 android:src="@mipmap/file_apk_icon" />
 
             <com.eos.module.charge.saver.view.CustomerTypefaceTextView
@@ -31,7 +32,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginLeft="@dimen/d6"
                 android:maxLength="20"
                 android:text="@string/delete_queren"
                 android:textColor="@color/black_100"
