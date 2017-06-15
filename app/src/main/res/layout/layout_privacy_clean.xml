@@ -74,8 +74,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/A10">
+        android:layout_weight="1">
 
         <ScrollView
             android:layout_width="wrap_content"
@@ -127,16 +126,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:text="issues"
                         android:textColor="@color/B3"
                         android:textSize="10sp" />
 
-                    <CheckBox
+                    <ImageView
                         android:id="@+id/cut_checkbox"
-                        style="@style/PrivacyCheckboxTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        android:src="@mipmap/privacy_checkbox_all_checked" />
 
                 </LinearLayout>
 
@@ -181,16 +180,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:text="issues"
                         android:textColor="@color/B3"
                         android:textSize="10sp" />
 
-                    <CheckBox
+                    <ImageView
                         android:id="@+id/sms_checkbox"
-                        style="@style/PrivacyCheckboxTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        android:src="@mipmap/privacy_checkbox_all_checked"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
@@ -199,6 +199,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
+                    android:background="@color/A10"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="25dp"
@@ -234,28 +235,34 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:text="issues"
                         android:textColor="@color/B3"
                         android:textSize="10sp" />
 
-                    <CheckBox
+                    <ImageView
                         android:id="@+id/read_sms_checkbox"
-                        style="@style/PrivacyCheckboxTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        android:src="@mipmap/privacy_checkbox_all_checked" />
+
                 </LinearLayout>
 
-                <ListView
+                <com.supers.clean.junk.customeview.ListViewForScrollView
                     android:id="@+id/read_sms_listview"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></ListView>
+                    android:layout_height="wrap_content"
+                    android:background="@color/A10"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dip"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/layout_strange_sms"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
+                    android:background="@color/A10"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="25dp"
@@ -291,29 +298,34 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:text="issues"
                         android:textColor="@color/B3"
                         android:textSize="10sp" />
 
-                    <CheckBox
+                    <ImageView
                         android:id="@+id/strange_sms_checkbox"
-                        style="@style/PrivacyCheckboxTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        android:src="@mipmap/privacy_checkbox_all_checked" />
+
                 </LinearLayout>
 
-                <ListView
+                <com.supers.clean.junk.customeview.ListViewForScrollView
                     android:id="@+id/strange_sms_listview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"></ListView>
+                    android:background="@color/A10"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dip"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/layout_contact_sms"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
+                    android:background="@color/A10"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="25dp"
@@ -349,6 +361,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:text="issues"
                         android:textColor="@color/B3"
                         android:textSize="10sp" />
@@ -360,11 +373,14 @@
                         android:checked="true" />
                 </LinearLayout>
 
-                <ListView
+                <com.supers.clean.junk.customeview.ListViewForScrollView
                     android:id="@+id/contact_sms_listview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"></ListView>
+                    android:background="@color/A10"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dip"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/layout_call"
@@ -407,16 +423,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:text="issues"
                         android:textColor="@color/B3"
                         android:textSize="10sp" />
 
-                    <CheckBox
+                    <ImageView
                         android:id="@+id/call_checkbox"
-                        style="@style/PrivacyCheckboxTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        android:src="@mipmap/privacy_checkbox_all_checked"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
@@ -426,6 +443,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
+                    android:background="@color/A10"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="25dp"
@@ -461,29 +479,34 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:text="issues"
                         android:textColor="@color/B3"
                         android:textSize="10sp" />
 
-                    <CheckBox
+                    <ImageView
                         android:id="@+id/dismiss_call_checkbox"
-                        style="@style/PrivacyCheckboxTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        android:src="@mipmap/privacy_checkbox_all_checked" />
+
                 </LinearLayout>
 
-                <ListView
+                <com.supers.clean.junk.customeview.ListViewForScrollView
                     android:id="@+id/dissmiss_call_listview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"></ListView>
+                    android:background="@color/A10"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dip"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/layout_strange_call"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
+                    android:background="@color/A10"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="25dp"
@@ -519,23 +542,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:text="issues"
                         android:textColor="@color/B3"
                         android:textSize="10sp" />
 
-                    <CheckBox
+                    <ImageView
                         android:id="@+id/strange_call_checkbox"
-                        style="@style/PrivacyCheckboxTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        android:src="@mipmap/privacy_checkbox_all_checked" />
+
                 </LinearLayout>
 
-                <ListView
+                <com.supers.clean.junk.customeview.ListViewForScrollView
                     android:id="@+id/strange_call_listview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"></ListView>
+                    android:background="@color/A10"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dip"
+                    android:visibility="gone" />
 
 
                 <LinearLayout
@@ -543,6 +570,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
+                    android:background="@color/A10"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="25dp"
@@ -578,6 +606,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
                         android:text="issues"
                         android:textColor="@color/B3"
                         android:textSize="10sp" />
@@ -589,12 +618,14 @@
                         android:checked="true" />
                 </LinearLayout>
 
-                <ListView
+                <com.supers.clean.junk.customeview.ListViewForScrollView
                     android:id="@+id/listview_contact_call"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"></ListView>
-
+                    android:background="@color/A10"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dip"
+                    android:visibility="gone" />
 
             </LinearLayout>
         </ScrollView>

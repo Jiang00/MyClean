@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CallLog;
 import android.provider.ContactsContract;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
@@ -61,40 +62,48 @@ public class PrivacyClean {
     }
 
 
-    public void queryCall() {
+    public ArrayList<CallEntity> queryCall() {
+        ArrayList<CallEntity> callEntities = new ArrayList<>();
         final String[] projection = null;
         final String selection = null;
         final String[] selectionArgs = null;
-        final String sortOrder = android.provider.CallLog.Calls.DATE + " DESC";
+        final String sortOrder = CallLog.Calls.DATE + " DESC";
         Cursor cursor = null;
         try {
             cursor = mContext.getContentResolver().query(
                     CallLog.Calls.CONTENT_URI, projection,
                     selection, selectionArgs, sortOrder);
             while (cursor.moveToNext()) {
-                String callName = cursor.getString(cursor.getColumnIndex(android.provider.CallLog.Calls.CACHED_NAME));
-                String callLogID = cursor.getString(cursor
-                        .getColumnIndex(android.provider.CallLog.Calls._ID));
+                String callName = cursor.getString(cursor.getColumnIndex(CallLog.Calls.CACHED_NAME));
+                int id = cursor.getInt(cursor
+                        .getColumnIndex(CallLog.Calls._ID));
                 String callNumber = cursor.getString(cursor
-                        .getColumnIndex(android.provider.CallLog.Calls.NUMBER));
+                        .getColumnIndex(CallLog.Calls.NUMBER));
                 //需要对时间进行一定的处理
                 String callDate = cursor.getString(cursor
-                        .getColumnIndex(android.provider.CallLog.Calls.DATE));
+                        .getColumnIndex(CallLog.Calls.DATE));
                 long callTime = Long.parseLong(callDate);
                 SimpleDateFormat sdf = new SimpleDateFormat(
                         "M-dd HH:mm");
                 callDate = sdf.format(new Date(callTime));
 
-                String callType = cursor.getString(cursor
-                        .getColumnIndex(android.provider.CallLog.Calls.TYPE));
+                int callType = cursor.getInt(cursor
+                        .getColumnIndex(CallLog.Calls.TYPE));
                 String isCallNew = cursor.getString(cursor
-                        .getColumnIndex(android.provider.CallLog.Calls.NEW));
+                        .getColumnIndex(CallLog.Calls.NEW));
 //                    if (Integer.parseInt(callType) == (CallLog.Calls.MISSED_TYPE)
 //                            && Integer.parseInt(isCallNew) > 0)  //通过call.new进行了限定，会对读取有一些问题，要删掉该限定
                /* if (Integer.parseInt(callType) == (CallLog.Calls.MISSED_TYPE)) {*/
                 //textView.setText(callType+"|"+callDate+"|"+callNumber+"|");
 //只是以最简单ListView显示联系人的一些数据----适配器的如何配置可查看http://blog.csdn.net/cl18652469346/article/details/52237637
-                Log.e("rqy", callName + "----" + callDate + "----" + callNumber + "----" + "callType:" + callType);
+                CallEntity callEntity = new CallEntity();
+                callEntity.id = id;
+                callEntity.callNumber = callNumber;
+                callEntity.callName = callName;
+                callEntity.callData = callDate;
+                callEntity.callType = callType;
+                callEntity.isCallNew = isCallNew;
+                callEntities.add(callEntity);
                 /*}*/
             }
         } catch (Exception e) {
@@ -103,6 +112,7 @@ public class PrivacyClean {
             if (cursor != null)
                 cursor.close();
         }
+        return callEntities;
     }
 
     public ArrayList<SmsEntity> querySms() {
@@ -119,7 +129,7 @@ public class PrivacyClean {
             while (cursor != null && !cursor.isClosed() && cursor.moveToNext()) {
                 int columnCount = cursor.getColumnCount();
                 Log.v("aaa", "columnCount--" + columnCount);
-                String id = cursor.getString(cursor
+                int id = cursor.getInt(cursor
                         .getColumnIndexOrThrow("_id"));
                 String address = cursor.getString(cursor
                         .getColumnIndexOrThrow("address")); // 对方号码
@@ -127,7 +137,7 @@ public class PrivacyClean {
                         .getColumnIndexOrThrow("date"));  // 发件日期
                 String date_sent = cursor.getString(cursor
                         .getColumnIndexOrThrow("date_sent"));
-                String read = cursor.getString(cursor
+                int read = cursor.getInt(cursor
                         .getColumnIndexOrThrow("read")); //0 “未读”，1“已读”
                 String status = cursor.getString(cursor
                         .getColumnIndexOrThrow("status"));  // 状态 integer   default-1。 -1：接收，0：complete,64： pending, 128failed
@@ -136,6 +146,7 @@ public class PrivacyClean {
                 String body = cursor.getString(cursor
                         .getColumnIndexOrThrow("body")); //短信内容
                 SmsEntity smsEntity = new SmsEntity();
+                smsEntity.id = id;
                 smsEntity.address = address;
                 smsEntity.type = type;
                 smsEntity.date = date;
@@ -237,14 +248,16 @@ public class PrivacyClean {
         return null;
     }
 
-    public int queryCut() {
+    public boolean isHaveCutText() {
         //获取剪贴板管理服务
         ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
         //cm.getPrimaryClip().newHtmlText("","","");
-        int count = 0;
-        if (cm.hasPrimaryClip()) {
-            count = cm.getPrimaryClip().getItemCount();
-        }
-        return count;
+        return !TextUtils.isEmpty(cm.getText());
+    }
+
+    public void cleanCut() {
+        ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+        //cm.getPrimaryClip().newHtmlText("","","");
+        cm.setText("");
     }
 }

@@ -96,7 +96,7 @@ public class PrivacyActivity extends BaseActivity {
         animationYuan1(privacy_cut_yuandian);
 
 
-        int count = PrivacyClean.getInstance(this).queryCut();
+        boolean isHaveCut = PrivacyClean.getInstance(this).isHaveCutText();
 
         ArrayList<SmsEntity> smsEntities = PrivacyClean.getInstance(this).querySms();
         int smsCount = smsEntities.size();
@@ -108,7 +108,7 @@ public class PrivacyActivity extends BaseActivity {
         GradientDrawable gradientDrawable;
         String privacy_total = getString(R.string.privacy_total);
 
-        if (count == 0) {
+        if (!isHaveCut) {
             gradientDrawable = getGradientDrawable("#2c8dea");
         } else {
             gradientDrawable = getGradientDrawable("#f84a4a");
@@ -116,7 +116,7 @@ public class PrivacyActivity extends BaseActivity {
         privacy_cut_bg.setImageDrawable(gradientDrawable);
         animation(privacy_cut_bg);
         TextView textView = (TextView) findViewById(R.id.privacy_cut_total);
-        textView.setText(privacy_total.replace("%", count + ""));
+        textView.setText(privacy_total.replace("%", isHaveCut ? 1 + "" : 0 + ""));
         privacy_cut_yuandian.setVisibility(View.GONE);
 
 
@@ -197,8 +197,10 @@ public class PrivacyActivity extends BaseActivity {
                 //textView.setText(callType+"|"+callDate+"|"+callNumber+"|");
 //只是以最简单ListView显示联系人的一些数据----适配器的如何配置可查看http://blog.csdn.net/cl18652469346/article/details/52237637
                 CallEntity callEntity = new CallEntity();
+                callEntity.callLogID = callLogID;
                 callEntity.callName = callName;
                 callEntity.callNumber = callNumber;
+                callEntity.isCallNew = isCallNew;
                 callEntities.add(callEntity);
                 Log.e("rqy", callName + "----" + callDate + "----" + callNumber + "----" + "callType:" + callType);
 
@@ -330,6 +332,5 @@ public class PrivacyActivity extends BaseActivity {
         gradientDrawable.setUseLevel(false);
         return gradientDrawable;
     }
-
 
 }

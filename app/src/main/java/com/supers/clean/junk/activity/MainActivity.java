@@ -1,11 +1,9 @@
 package com.supers.clean.junk.activity;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Debug;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.view.GravityCompat;
@@ -19,7 +17,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -33,14 +30,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
-import com.eos.eshop.ShopMaster;
-import com.eos.manager.AppLock;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
@@ -56,7 +49,6 @@ import com.sample.lottie.LottieAnimationView;
 import com.squareup.picasso.Picasso;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
-import com.supers.clean.junk.customeview.CirLinearLayout;
 import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
@@ -128,7 +120,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private Handler handler = new Handler();
     private MainPresenter mainPresenter;
     private SideAdapter adapter;
-    private long mExitTime;
+    //private long mExitTime;
     private int temp;
     private ViewPager viewpager;
     /* private PagerAdapter pagerAdapter;
@@ -798,7 +790,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     if (true) {
                         Intent goPrivacyIntent = new Intent(MainActivity.this, PrivacyActivity.class);
                         startActivity(goPrivacyIntent);
-                        finish();
                         break;
                     }
                     int type = PreData.getDB(MainActivity.this, Constant.FIRST_APPLOCK, 0);
