@@ -311,8 +311,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 ll_ad.addView(nativeView);
                 ll_ad.setGravity(Gravity.CENTER_HORIZONTAL);
                 ll_ad.setVisibility(View.VISIBLE);
-                Animation animation = AnimationUtils.loadAnimation(this, R.anim.tran_left_in);
-                ll_ad.startAnimation(animation);
+                final Animation animation = AnimationUtils.loadAnimation(this, R.anim.tran_left_in);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ll_ad.startAnimation(animation);
+                    }
+                }, 1000);
                 main_scroll_view.setScrollY(0);
 //                main_scroll_view.fullScroll(ScrollView.FOCUS_UP);
 
@@ -711,7 +716,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
-            View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
+            View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_2);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
                 ll_ad_exit.setVisibility(View.VISIBLE);
