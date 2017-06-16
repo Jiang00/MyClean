@@ -1,14 +1,16 @@
 package com.supers.clean.junk.customeview;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
+import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
+import android.graphics.Path;
+import android.graphics.PathMeasure;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.graphics.SweepGradient;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -28,7 +30,8 @@ public class CustomRoundCpu extends View {
     private int progress;
     private boolean isRotate;
     private CustomRoundListener customRoundListener;
-    SweepGradient sweepGradient;
+    private Matrix mMatrix;
+    private Bitmap bitmap;
 
     public CustomRoundCpu(Context context) {
         this(context, null);
@@ -61,7 +64,10 @@ public class CustomRoundCpu extends View {
         backgPoint.setAntiAlias(true);
         backgPoint.setStrokeWidth(lineWidth);
         backgPoint.setStrokeCap(Paint.Cap.ROUND);
-        backgPoint.setColor(context.getResources().getColor(R.color.A8));
+        backgPoint.setStyle(Paint.Style.STROKE);
+        backgPoint.setColor(context.getResources().getColor(R.color.B4));
+        mMatrix = new Matrix();
+        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.main_dian);
 
     }
 
@@ -73,46 +79,32 @@ public class CustomRoundCpu extends View {
         int d = (width >= height) ? height : width;
         size = d;
         setMeasuredDimension(d, d);
-        float position[] = {0.0f, 0.8f, 1f};
-        sweepGradient = new SweepGradient(size / 2, size / 2,
-                new int[]{ContextCompat.getColor(context, R.color.A2), ContextCompat.getColor(context, R.color.B6), ContextCompat.getColor(context, R.color.A2)},
-                position);
-        LinearGradient gradient = new LinearGradient(0, 0, size, size, ContextCompat.getColor(context, R.color.A2), ContextCompat.getColor(context, R.color.B6), Shader.TileMode.CLAMP);
+        LinearGradient gradient = new LinearGradient(0, 0, size, size, ContextCompat.getColor(context, R.color.C9)
+                , ContextCompat.getColor(context, R.color.C8), Shader.TileMode.CLAMP);
         circlePoint.setShader(gradient);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-//        circlePoint.setColor(context.getResources().getColor(R.color.white_100));
         RectF rect = new RectF();
         rect.left = 0 + lineWidth / 2 + 1;
         rect.right = size - lineWidth / 2 - 1;
         rect.top = 0 + lineWidth / 2 + 1;
         rect.bottom = size - lineWidth / 2 - 1;
-//        RectF rectBack = new RectF();
-//        rectBack.left = 0 + 1;
-//        rectBack.right = size - 1;
-//        rectBack.top = 0 + 1;
-//        rectBack.bottom = size - 1;
-////        canvas.drawArc(rectBack, 0, 360, false, backgPoint);
         canvas.drawArc(rect, 0, 360, false, backgPoint);
         canvas.save();
-//        if (progress >= 0 && progress < 40) {
-//            circlePoint.setColor(context.getResources().getColor(R.color.A3));
-//        } else if (progress >= 40 && progress < 80) {
-//            circlePoint.setColor(context.getResources().getColor(R.color.A4));
-//        } else {
-//            circlePoint.setColor(context.getResources().getColor(R.color.A2));
-//        }
-
-        if (isRotate) {
-            canvas.rotate(61, size / 2, size / 2);
-            canvas.drawArc(rect, 0, progress * 310 / 100, false, circlePoint);
-        } else {
-            canvas.rotate(90, size / 2, size / 2);
-            canvas.drawArc(rect, 0, progress * 360 / 100, false, circlePoint);
-        }
+        canvas.rotate(90, size / 2, size / 2);
+        canvas.drawArc(rect, 0, progress * 360 / 100, false, circlePoint);
+        Path path = new Path();
+        path.addArc(rect, 0, progress * -360 / 100);
+        float[] pos = new float[2]; // 当前点的实际位置
+        float[] tan = new float[2]; // 当前点的tangent值,
+        PathMeasure measure = new PathMeasure(path, false);
+        measure.getPosTan(measure.getLength() * 1, pos, tan);
+        mMatrix.reset();
+        mMatrix.postTranslate(pos[0] - bitmap.getWidth() / 2, pos[1] - bitmap.getHeight() / 2);
+        canvas.drawBitmap(bitmap, mMatrix, circlePoint);
         canvas.restore();
     }
 
