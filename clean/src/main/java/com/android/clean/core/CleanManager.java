@@ -347,7 +347,9 @@ public class CleanManager {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             usageStatsList = getUsageStatistics(UsageStatsManager.INTERVAL_DAILY);
             System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
-            Collections.sort(usageStatsList, new Sizesort());
+            if (usageStatsList != null && usageStatsList.size() > 1) {
+                Collections.sort(usageStatsList, new Sizesort());
+            }
         } else {
             recentTasks = am.getRecentTasks(10, ActivityManager.RECENT_IGNORE_UNAVAILABLE);
         }
