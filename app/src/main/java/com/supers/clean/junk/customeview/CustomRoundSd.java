@@ -21,11 +21,11 @@ import com.supers.clean.junk.R;
 /**
  */
 
-public class CustomRoundCpu extends View {
+public class CustomRoundSd extends View {
     private Context context;
     private Paint circlePoint;
     private Paint backgPoint;
-    float lineWidth = getResources().getDimension(R.dimen.d4);
+    float lineWidth = getResources().getDimension(R.dimen.d8);
     int size;
     private int progress;
     private boolean isRotate;
@@ -33,15 +33,15 @@ public class CustomRoundCpu extends View {
     private Matrix mMatrix;
     private Bitmap bitmap;
 
-    public CustomRoundCpu(Context context) {
+    public CustomRoundSd(Context context) {
         this(context, null);
     }
 
-    public CustomRoundCpu(Context context, AttributeSet attrs) {
+    public CustomRoundSd(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CustomRoundCpu(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomRoundSd(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
         init();
@@ -54,7 +54,7 @@ public class CustomRoundCpu extends View {
 
     private void init() {
         circlePoint = new Paint();
-        circlePoint.setColor(ContextCompat.getColor(context, R.color.B5));
+        circlePoint.setColor(ContextCompat.getColor(context, R.color.A8));
         circlePoint.setStrokeCap(Paint.Cap.ROUND);
         circlePoint.setFilterBitmap(true);
         circlePoint.setAntiAlias(true);
@@ -79,8 +79,8 @@ public class CustomRoundCpu extends View {
         int d = (width >= height) ? height : width;
         size = d;
         setMeasuredDimension(d, d);
-        LinearGradient gradient = new LinearGradient(0, 0, size, size, ContextCompat.getColor(context, R.color.C9)
-                , ContextCompat.getColor(context, R.color.C8), Shader.TileMode.CLAMP);
+        LinearGradient gradient = new LinearGradient(0, 0, size, size, ContextCompat.getColor(context, R.color.C8)
+                , ContextCompat.getColor(context, R.color.C9), Shader.TileMode.CLAMP);
         circlePoint.setShader(gradient);
     }
 
@@ -96,15 +96,17 @@ public class CustomRoundCpu extends View {
         canvas.save();
         canvas.rotate(90, size / 2, size / 2);
         canvas.drawArc(rect, 0, progress * 360 / 100, false, circlePoint);
-        Path path = new Path();
-        path.addArc(rect, 0, progress * -360 / 100);
-        float[] pos = new float[2]; // 当前点的实际位置
-        float[] tan = new float[2]; // 当前点的tangent值,
-        PathMeasure measure = new PathMeasure(path, false);
-        measure.getPosTan(measure.getLength() * 1, pos, tan);
-        mMatrix.reset();
-        mMatrix.postTranslate(pos[0] - bitmap.getWidth() / 2, pos[1] - bitmap.getHeight() / 2);
-        canvas.drawBitmap(bitmap, mMatrix, circlePoint);
+        if (progress != 100 || progress != 0) {
+            Path path = new Path();
+            path.addArc(rect, 0, progress * 360 / 100);
+            float[] pos = new float[2]; // 当前点的实际位置
+            float[] tan = new float[2]; // 当前点的tangent值,
+            PathMeasure measure = new PathMeasure(path, false);
+            measure.getPosTan(measure.getLength() * 1, pos, tan);
+            mMatrix.reset();
+            mMatrix.postTranslate(pos[0] - bitmap.getWidth() / 2, pos[1] - bitmap.getHeight() / 2);
+            canvas.drawBitmap(bitmap, mMatrix, circlePoint);
+        }
         canvas.restore();
     }
 

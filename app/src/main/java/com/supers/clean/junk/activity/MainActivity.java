@@ -21,7 +21,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,8 +29,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
-import com.android.clean.entity.JunkInfo;
-import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
@@ -45,7 +42,8 @@ import com.rd.PageIndicatorView;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.SideAdapter;
-import com.supers.clean.junk.customeview.CustomRoundCpu;
+import com.supers.clean.junk.customeview.CustomRoundRam;
+import com.supers.clean.junk.customeview.CustomRoundSd;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
@@ -53,11 +51,9 @@ import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends BaseActivity implements MainView, DrawerLayout.DrawerListener {
 
@@ -67,14 +63,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ImageView iv_title_right;
     ImageView iv_title_left;
     RelativeLayout main_sd_air_button, main_ram_air_button;
-    CustomRoundCpu main_custom_sd, main_custom_ram;
+    CustomRoundSd main_custom_sd;
+    CustomRoundRam main_custom_ram;
     TextView main_sd_per, main_sd_size, main_ram_per, main_ram_size;
-    LinearLayout main_air_all;
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
     LinearLayout main_manager_button;
     TextView main_junk_h, main_ram_h, main_cooling_h;
     LinearLayout main_rotate_all;
-    ImageView main_rotate_good;
+    TextView main_rotate_good, main_rotate_bad;
+    ImageView main_rotate_cha;
     LinearLayout main_msg_button;
     LinearLayout main_power_button;
     LinearLayout main_notifi_button;
@@ -115,7 +112,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private long mExitTime;
     private int temp;
     private ViewPager viewpager;
-    PageIndicatorView pageindicatorview;
     PagerAdapter pagerAdapter;
     /* private PagerAdapter pagerAdapter;
      private View pageView;*/
@@ -139,17 +135,18 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
 
         main_sd_air_button = (RelativeLayout) findViewById(R.id.main_sd_air_button);
-        main_custom_sd = (CustomRoundCpu) findViewById(R.id.main_custom_sd);
+        main_custom_sd = (CustomRoundSd) findViewById(R.id.main_custom_sd);
         main_sd_per = (TextView) findViewById(R.id.main_sd_per);
         main_sd_size = (TextView) findViewById(R.id.main_sd_size);
         main_ram_air_button = (RelativeLayout) findViewById(R.id.main_ram_air_button);
-        main_custom_ram = (CustomRoundCpu) findViewById(R.id.main_custom_ram);
+        main_custom_ram = (CustomRoundRam) findViewById(R.id.main_custom_ram);
         main_ram_per = (TextView) findViewById(R.id.main_ram_per);
         main_ram_size = (TextView) findViewById(R.id.main_ram_size);
-        main_air_all = (LinearLayout) findViewById(R.id.main_air_all);
 
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
-        main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
+        main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
+        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
+        main_rotate_cha = (ImageView) findViewById(R.id.main_rotate_cha);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
@@ -206,7 +203,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             arrayList.add(viewpager_2);
         }
         viewpager = (ViewPager) findViewById(R.id.viewpager);
-        pageindicatorview = (PageIndicatorView) findViewById(R.id.pageindicatorview);
 
         viewpager.setAdapter(pagerAdapter = new PagerAdapter() {
             @Override
@@ -264,12 +260,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         iv_title_left.setOnClickListener(onClickListener);
         main_sd_air_button.setOnClickListener(onClickListener);
         main_ram_air_button.setOnClickListener(onClickListener);
-        main_air_all.setOnClickListener(onClickListener);
         main_junk_button.setOnClickListener(onClickListener);
         main_ram_button.setOnClickListener(onClickListener);
         main_manager_button.setOnClickListener(onClickListener);
         main_cooling_button.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
+        main_rotate_cha.setOnClickListener(onClickListener);
+        main_rotate_bad.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
@@ -309,10 +306,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         final Runnable sdRunable = new Runnable() {
             @Override
             public void run() {
-                main_sd_per.setText(String.valueOf(sdProgress) + "%");
+                main_sd_per.setText(String.valueOf(sdProgress) + "");
             }
         };
-        main_custom_sd.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
+        main_custom_sd.setCustomRoundListener(new CustomRoundSd.CustomRoundListener() {
             @Override
             public void progressUpdate(int progress) {
                 MainActivity.this.sdProgress = progress;
@@ -350,7 +347,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void initRam(final int percent, final String size) {
         main_custom_ram.startProgress(false, percent);
-        main_custom_ram.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
+        main_custom_ram.setCustomRoundListener(new CustomRoundRam.CustomRoundListener() {
             @Override
             public void progressUpdate(final int progress) {
                 runOnUiThread(new Runnable() {
@@ -405,7 +402,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void loadAirAnimator(TranslateAnimation translate) {
-        main_air_all.startAnimation(translate);
     }
 
     @Override
@@ -547,10 +543,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     AdUtil.track("主页面", "点击ram球进入内存加速页面", "", 1);
                     mainPresenter.jumpToActivity(RamAvtivity.class, 1);
                     break;
-                case R.id.main_air_all:
-                    AdUtil.track("主页面", "点击火箭进入清理所有界面", "", 1);
-                    mainPresenter.jumpToActivity(JunkAndRamActivity.class, 1);
-                    break;
                 case R.id.main_junk_button:
                     AdUtil.track("主页面", "点击垃圾清理按钮", "", 1);
                     mainPresenter.jumpToActivity(JunkActivity.class, 1);
@@ -624,6 +616,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_rotate_good:
                     AdUtil.track("主页面", "点击好评good按钮", "", 1);
                     mainPresenter.clickRotate(true);
+                    break;
+                case R.id.main_rotate_bad:
+                    AdUtil.track("主页面", "点击好评good按钮", "", 1);
+                    mainPresenter.clickRotate(false);
+                    break;
+                case R.id.main_rotate_cha:
+                    AdUtil.track("主页面", "点击好评good按钮", "", 1);
+                    mainPresenter.clickRotate(false);
                     break;
                 case R.id.main_msg_button:
                     AdUtil.track("主页面", "点击进入硬件信息", "", 1);
