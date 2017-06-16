@@ -131,6 +131,47 @@
                 android:background="@color/B1" />
 
             <RelativeLayout
+                android:id="@+id/setting_unload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_unload"
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/setting_unload" />
+                </RelativeLayout>
+
+                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/rl_unload"
+                    android:text="@string/setting_unload"
+                    android:textColor="#6f6f6f"
+                    android:textSize="@dimen/s14"
+                    app:typeface="ljh_1.TTF" />
+
+                <ImageView
+                    android:id="@+id/setting_unload_check"
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="center" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/B1" />
+
+            <RelativeLayout
                 android:id="@+id/setting_float"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -144,7 +185,8 @@
                     <ImageView
                         android:layout_width="@dimen/d30"
                         android:layout_height="@dimen/d30"
-                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
                         android:src="@mipmap/setting_float" />
                 </RelativeLayout>
 
@@ -223,46 +265,6 @@
                     android:scaleType="center" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_unload"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_unload"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d72"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/d30"
-                        android:layout_height="@dimen/d30"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_unload" />
-                </RelativeLayout>
-
-                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_unload"
-                    android:text="@string/setting_unload"
-                    android:textColor="#6f6f6f"
-                    android:textSize="@dimen/s14"
-                    app:typeface="ljh_1.TTF" />
-
-                <ImageView
-                    android:id="@+id/setting_unload_check"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d72"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center" />
-            </RelativeLayout>
 
             <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="match_parent"
@@ -274,6 +276,88 @@
                 android:textColor="#535353"
                 android:textSize="@dimen/s12"
                 app:typeface="ljh_1.TTF" />
+
+            <RelativeLayout
+                android:id="@+id/setting_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_file"
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/setting_file" />
+                </RelativeLayout>
+
+                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/rl_file"
+                    android:text="@string/side_file"
+                    android:textColor="#6f6f6f"
+                    android:textSize="@dimen/s14"
+                    app:typeface="ljh_1.TTF" />
+
+                <ImageView
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="center"
+                    android:src="@mipmap/right" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/B1" />
+
+            <RelativeLayout
+                android:id="@+id/setting_gboost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_gboost"
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/gboost_setting" />
+                </RelativeLayout>
+
+                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/rl_gboost"
+                    android:text="@string/gboost_0"
+                    android:textColor="#6f6f6f"
+                    android:textSize="@dimen/s14"
+                    app:typeface="ljh_1.TTF" />
+
+                <ImageView
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="center"
+                    android:src="@mipmap/right" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/B1" />
 
             <RelativeLayout
                 android:id="@+id/setting_picture"
@@ -358,87 +442,6 @@
                 android:layout_height="1dp"
                 android:background="@color/B1" />
 
-            <RelativeLayout
-                android:id="@+id/setting_gboost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_gboost"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d72"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/d30"
-                        android:layout_height="@dimen/d30"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/gboost_setting" />
-                </RelativeLayout>
-
-                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_gboost"
-                    android:text="@string/gboost_0"
-                    android:textColor="#6f6f6f"
-                    android:textSize="@dimen/s14"
-                    app:typeface="ljh_1.TTF" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d72"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/right" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_file"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_file"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d72"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/d30"
-                        android:layout_height="@dimen/d30"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_file" />
-                </RelativeLayout>
-
-                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_file"
-                    android:text="@string/side_file"
-                    android:textColor="#6f6f6f"
-                    android:textSize="@dimen/s14"
-                    app:typeface="ljh_1.TTF" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d72"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/right" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/B1" />
 
             <RelativeLayout
                 android:id="@+id/setting_notifi"

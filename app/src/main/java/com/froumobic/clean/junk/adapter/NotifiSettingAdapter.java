@@ -44,9 +44,9 @@ public class NotifiSettingAdapter extends MybaseAdapter<JunkInfo> {
         holder.iv_icon.setImageDrawable(LoadManager.getInstance(context).getAppIcon(info.pkg));
         holder.tv_lable.setText(info.label);
         if (!info.isnotifiWhiteList) {
-            holder.checkBox.setImageResource(R.mipmap.setting_check_passed);
+            holder.checkBox.setImageResource(R.mipmap.side_check_passed);
         } else {
-            holder.checkBox.setImageResource(R.mipmap.setting_check_normal);
+            holder.checkBox.setImageResource(R.mipmap.side_check_normal);
         }
         holder.rl_item.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,11 +54,11 @@ public class NotifiSettingAdapter extends MybaseAdapter<JunkInfo> {
                 if (!info.isnotifiWhiteList) {
                     info.isnotifiWhiteList = true;
                     CleanDBHelper.getInstance(context).addItem(CleanDBHelper.TableType.Notification, info.pkg);
-                    holder.checkBox.setImageResource(R.mipmap.setting_check_normal);
+                    holder.checkBox.setImageResource(R.mipmap.side_check_normal);
                 } else {
                     info.isnotifiWhiteList = false;
                     CleanDBHelper.getInstance(context).deleteItem(CleanDBHelper.TableType.Notification, info.pkg);
-                    holder.checkBox.setImageResource(R.mipmap.setting_check_passed);
+                    holder.checkBox.setImageResource(R.mipmap.side_check_passed);
                 }
             }
         });

@@ -130,29 +130,29 @@ public class SettingActivity extends MBaseActivity {
 
     private void initData() {
         if (PreData.getDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true)) {
-            setting_tongzhi_check.setImageResource(R.mipmap.setting_check_passed);
+            setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            setting_tongzhi_check.setImageResource(R.mipmap.setting_check_normal);
+            setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
         }
         if (PreData.getDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
-            setting_tongzhilan_check.setImageResource(R.mipmap.setting_check_passed);
+            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            setting_tongzhilan_check.setImageResource(R.mipmap.setting_check_normal);
+            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
         }
         if (PreData.getDB(SettingActivity.this, Constant.FlOAT_SWITCH, true)) {
-            setting_float_check.setImageResource(R.mipmap.setting_check_passed);
+            setting_float_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            setting_float_check.setImageResource(R.mipmap.setting_check_normal);
+            setting_float_check.setImageResource(R.mipmap.side_check_normal);
         }
         if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)) {
-            setting_battery_check.setImageResource(R.mipmap.setting_check_passed);
+            setting_battery_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            setting_battery_check.setImageResource(R.mipmap.setting_check_normal);
+            setting_battery_check.setImageResource(R.mipmap.side_check_normal);
         }
         if (PreData.getDB(this, Constant.KEY_UNLOAD, true)) {
-            setting_unload_check.setImageResource(R.mipmap.setting_check_passed);
+            setting_unload_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            setting_unload_check.setImageResource(R.mipmap.setting_check_normal);
+            setting_unload_check.setImageResource(R.mipmap.side_check_normal);
         }
     }
 
@@ -185,22 +185,22 @@ public class SettingActivity extends MBaseActivity {
                     AdUtil.track("设置页面", "点击通知开关", "", 1);
                     if (PreData.getDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true)) {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHI_SWITCH, false);
-                        setting_tongzhi_check.setImageResource(R.mipmap.setting_check_normal);
+                        setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHI_SWITCH, true);
-                        setting_tongzhi_check.setImageResource(R.mipmap.setting_check_passed);
+                        setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
                 case R.id.setting_tongzhilan:
                     AdUtil.track("设置页面", "点击通知栏开关", "", 1);
                     if (PreData.getDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, false);
-                        setting_tongzhilan_check.setImageResource(R.mipmap.setting_check_normal);
+                        setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
                         stopService(intent);
                     } else {
                         PreData.putDB(SettingActivity.this, Constant.TONGZHILAN_SWITCH, true);
-                        setting_tongzhilan_check.setImageResource(R.mipmap.setting_check_passed);
+                        setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
                         Intent intent = new Intent(SettingActivity.this, NotificationService.class);
                         intent.setAction("notification");
                         startService(intent);
@@ -211,12 +211,12 @@ public class SettingActivity extends MBaseActivity {
                     if (PreData.getDB(SettingActivity.this, Constant.FlOAT_SWITCH, true)) {
                         PreData.putDB(SettingActivity.this, Constant.FlOAT_SWITCH, false);
                         Intent intent1 = new Intent(SettingActivity.this, XuanfuService.class);
-                        setting_float_check.setImageResource(R.mipmap.setting_check_normal);
+                        setting_float_check.setImageResource(R.mipmap.side_check_normal);
                         stopService(intent1);
                     } else {
                         PreData.putDB(SettingActivity.this, Constant.FlOAT_SWITCH, true);
                         Intent intent1 = new Intent(SettingActivity.this, XuanfuService.class);
-                        setting_float_check.setImageResource(R.mipmap.setting_check_passed);
+                        setting_float_check.setImageResource(R.mipmap.side_check_passed);
                         startService(intent1);
                     }
                     break;
@@ -226,23 +226,23 @@ public class SettingActivity extends MBaseActivity {
                     if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false)) {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
                         AdUtil.track("设置页面", "点击充电屏保开关", "关", 1);
-                        setting_battery_check.setImageResource(R.mipmap.setting_check_normal);
+                        setting_battery_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
                         AdUtil.track("设置页面", "点击充电屏保开关", "开", 1);
-                        setting_battery_check.setImageResource(R.mipmap.setting_check_passed);
+                        setting_battery_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
                 case R.id.setting_unload:
                     //chongdian
                     if (PreData.getDB(SettingActivity.this, Constant.KEY_UNLOAD, true)) {
                         PreData.putDB(SettingActivity.this, Constant.KEY_UNLOAD, false);
-                        setting_unload_check.setImageResource(R.mipmap.setting_check_normal);
+                        setting_unload_check.setImageResource(R.mipmap.side_check_normal);
                         AdUtil.track("设置页面", "点击卸载残余开关", "关", 1);
                     } else {
                         PreData.putDB(SettingActivity.this, Constant.KEY_UNLOAD, true);
                         AdUtil.track("设置页面", "点击卸载残余开关", "开", 1);
-                        setting_unload_check.setImageResource(R.mipmap.setting_check_passed);
+                        setting_unload_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
                 case R.id.setting_white:

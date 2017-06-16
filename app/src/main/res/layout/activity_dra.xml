@@ -27,19 +27,29 @@
                 android:layout_height="24dp"
                 android:background="@color/A1" />
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d120"
                 android:background="@color/A1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/side_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_width="@dimen/d48"
+                    android:layout_height="@dimen/d48"
+                    android:layout_centerHorizontal="true"
                     android:src="@mipmap/loading_icon_1" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/side_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/d8"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s16" />
 
                 <LinearLayout
                     android:id="@+id/ll_ad_side"
@@ -47,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical" />
 
-            </FrameLayout>
+            </RelativeLayout>
 
 
             <ScrollView

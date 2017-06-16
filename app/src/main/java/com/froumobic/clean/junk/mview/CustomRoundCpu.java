@@ -21,7 +21,7 @@ public class CustomRoundCpu extends View {
 
     private Context context;
     private Paint circlePoint;
-    float lineWidth = getResources().getDimension(R.dimen.d5);
+    float lineWidth = getResources().getDimension(R.dimen.d10);
     float padding = getResources().getDimension(R.dimen.d14);
     int size;
     private int progress = 100;

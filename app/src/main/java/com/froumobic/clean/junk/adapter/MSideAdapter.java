@@ -39,16 +39,15 @@ import com.froumobic.clean.junk.util.UtilGp;
 
 public class MSideAdapter extends MybaseAdapter<SideInfo> {
     private static int idx = 0;
-    private static final int BATTERY = idx++;
     private static final int FLOAT = idx++;
+    private static final int BATTERY = idx++;
     private static final int JUNK = idx++;
     private static final int RAM = idx++;
     private static final int MANAGER = idx++;
-    private static final int FILE = idx++;
-    private static final int POWER = idx++;
-    //    private static final int PRIVARY = idx++;
     private static final int NOTIFI = idx++;
+    private static final int FILE = idx++;
     private static final int PICTURE = idx++;
+    private static final int POWER = idx++;
     private static final int GBOOST = idx++;
     //    private static final int FAMILY = idx++;
 //    private static final int THEME = idx++;
