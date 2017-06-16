@@ -20,7 +20,6 @@ public class CallEntity extends PrivacyData implements Parcelable {
     public String isCallNew;
 
 
-
     public CallEntity() {
         super();
     }
@@ -58,7 +57,7 @@ public class CallEntity extends PrivacyData implements Parcelable {
         return "CallEntity{" +
                 "callName='" + callName + '\'' +
                 ", callNumber='" + callNumber + '\'' +
-                ", callLogID='" + callLogID + '\'' +
+                ", id='" + id + '\'' +
                 ", callData='" + callData + '\'' +
                 ", callType=" + callType +
                 ", isCallNew='" + isCallNew + '\'' +

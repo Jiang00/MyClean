@@ -38,7 +38,6 @@ public class PrivacyActivity extends BaseActivity {
     ImageView privary_yuan_1, privary_yuan_2, privary_yuan_3;
     ImageView privacy_cut_yuandian, privacy_cut_bg, privacy_sms_yuandian, privacy_sms_bg, privacy_call_yuandian, privacy_call_record_bg;
 
-
     private AnimatorSet animatorSmall, animationLine_1, animationLine_2;
     private ObjectAnimator animator;
     private AnimatorSet animatorSet;
@@ -52,7 +51,6 @@ public class PrivacyActivity extends BaseActivity {
     private ArrayList<SmsEntity> readSmsEntities = new ArrayList<>();
     private ArrayList<SmsEntity> strangeSmsEnties = new ArrayList<>();
 
-
     private static final int CUT_MESSAGE = 0;
 
     private static final int SMS_MESSAGE = 1;
@@ -62,6 +60,10 @@ public class PrivacyActivity extends BaseActivity {
     private static final int GO_TO_PRIVACY = 3;
 
     private boolean isHaveCut;
+
+    private String privacy_total;
+
+    private GradientDrawable gradientDrawable;
 
 
     @Override
@@ -100,9 +102,6 @@ public class PrivacyActivity extends BaseActivity {
         animationSet.start();
     }
 
-    String privacy_total;
-    GradientDrawable gradientDrawable;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,7 +133,19 @@ public class PrivacyActivity extends BaseActivity {
                         privary_yuan_2.setImageResource(R.mipmap.privary_10);
                         break;
                     case SMS_MESSAGE:
-                        int smsCount = strangeSmsEnties.size() + readSmsEntities.size();
+                        int smsCount = 0;
+                        for (SmsEntity smsEntity : readSmsEntities) {
+                            if (smsEntity.isChecked) {
+                                smsCount += smsEntity.idList.size();
+                            }
+                        }
+
+                        for (SmsEntity smsEntity : strangeSmsEnties) {
+                            if (smsEntity.isChecked) {
+                                smsCount += smsEntity.idList.size();
+                            }
+                        }
+
                         if (smsCount == 0) {
                             gradientDrawable = getGradientDrawable("#2c8dea");
                         } else {
@@ -148,7 +159,20 @@ public class PrivacyActivity extends BaseActivity {
                         privary_yuan_2.setImageResource(R.mipmap.privary_11);
                         break;
                     case CALL_MESSAGE:
-                        int callCount = dissmissCallEntities.size() + strangeCallEnties.size();
+                        int callCount = 0;
+                        
+                        for (CallEntity smsEntity : dissmissCallEntities) {
+                            if (smsEntity.isChecked) {
+                                callCount += smsEntity.idList.size();
+                            }
+                        }
+
+                        for (CallEntity smsEntity : strangeCallEnties) {
+                            if (smsEntity.isChecked) {
+                                callCount += smsEntity.idList.size();
+                            }
+                        }
+
                         if (callCount == 0) {
                             gradientDrawable = getGradientDrawable("#2c8dea");
                         } else {

@@ -3,8 +3,6 @@ package com.supers.clean.junk.activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -70,6 +68,11 @@ public class PrivacyCleanActivity extends BaseActivity implements View.OnClickLi
 
     private int checkNum = 0;
 
+    private int readSmsCheckCount = 0;
+    private int strangeSmsCheckCount = 0;
+    private int dismissCallCheckCount = 0;
+    private int strangeCallCheckCount = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,23 +91,20 @@ public class PrivacyCleanActivity extends BaseActivity implements View.OnClickLi
         cutNum = isHaveCut ? 1 : 0;
         privacy_cut_num_text.setText(cutNum + "");
 
-        int missNum = dissmissCallEntities.size();
-        int strangeCallNum = strangeCallEnties.size();
-        privacy_dismiss_call_text.setText(missNum + "");
-        privacy_strange_call_text.setText(strangeCallNum + "");
+        updateButtonText();
 
-        int totalCallCount = missNum + strangeCallNum;
+        privacy_dismiss_call_text.setText(dismissCallCheckCount + "");
+        privacy_strange_call_text.setText(strangeCallCheckCount + "");
+
+        int totalCallCount = dismissCallCheckCount + strangeCallCheckCount;
         privacy_call_num_text.setText(totalCallCount + "");
 
-        privacy_read_sms_text.setText(readSmsEntities.size() + "");
-        privacy_strange_sms.setText(strangeSmsEnties.size() + "");
-        int totalSmsCount = readSmsEntities.size() + strangeSmsEnties.size();
+        privacy_read_sms_text.setText(readSmsCheckCount + "");
+        privacy_strange_sms.setText(strangeSmsCheckCount + "");
+        int totalSmsCount = readSmsCheckCount + strangeSmsCheckCount;
         privacy_sms_text.setText(totalSmsCount + "");
 
-        checkNum = totalSmsCount + totalCallCount + cutNum;
-
         privacy_all_size_text.setText(checkNum + "");
-        clean.setText(getString(R.string.junk_button) + "( " + checkNum + " )");
 
     }
 
@@ -497,31 +497,31 @@ public class PrivacyCleanActivity extends BaseActivity implements View.OnClickLi
     }
 
     public void updateButtonText() {
-        int readSmsCheckCount = 0;
+        readSmsCheckCount = 0;
+        strangeSmsCheckCount = 0;
+        dismissCallCheckCount = 0;
+        strangeCallCheckCount = 0;
         for (SmsEntity smsEntity : readSmsEntities) {
             if (smsEntity.isChecked) {
-                readSmsCheckCount++;
+                readSmsCheckCount += smsEntity.idList.size();
             }
         }
 
-        int strangeSmsCheckCount = 0;
         for (SmsEntity smsEntity : strangeSmsEnties) {
             if (smsEntity.isChecked) {
-                strangeSmsCheckCount++;
+                strangeSmsCheckCount += smsEntity.idList.size();
             }
         }
 
-        int dismissCallCheckCount = 0;
         for (CallEntity smsEntity : dissmissCallEntities) {
             if (smsEntity.isChecked) {
-                dismissCallCheckCount++;
+                dismissCallCheckCount += smsEntity.idList.size();
             }
         }
 
-        int strangeCallCheckCount = 0;
         for (CallEntity smsEntity : strangeCallEnties) {
             if (smsEntity.isChecked) {
-                strangeCallCheckCount++;
+                strangeCallCheckCount += smsEntity.idList.size();
             }
         }
 

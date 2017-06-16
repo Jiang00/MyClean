@@ -94,7 +94,7 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
                 list_size.remove(softinfo);
                 list_time.remove(softinfo);
                 list_pinlv.remove(softinfo);
-                addCleandata(false, softinfo.size);
+                addCleandata(false, softinfo.allSize);
                 iView.updateAdapter(list_size, list_time, list_pinlv);
             }
         }

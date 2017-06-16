@@ -176,18 +176,28 @@ public class PrivacyClean {
     }
 
     public void deleteSms(String placeHolder) {
-        ContentResolver cResolver = mContext.getContentResolver();
-        Uri smsUri = Uri.parse("content://sms/");
-        StringBuilder where = new StringBuilder();
-        where.append("_id in (" + placeHolder + ")");
-        cResolver.delete(smsUri, where.toString(), null);
+        Log.e("rqy", "deleteSms--placeHolder=" + placeHolder);
+        try {
+            ContentResolver cResolver = mContext.getContentResolver();
+            Uri smsUri = Uri.parse("content://sms/");
+            StringBuilder where = new StringBuilder();
+            where.append("_id in (" + placeHolder + ")");
+            cResolver.delete(smsUri, where.toString(), null);
+        } catch (Exception e) {
+            Log.e("rqy", "deleteSms--error--placeHolder=" + placeHolder);
+        }
     }
 
     public void deleteCall(String placeHolder) {
-        ContentResolver cResolver = mContext.getContentResolver();
-        StringBuilder where = new StringBuilder();
-        where.append("_id in (" + placeHolder + ")");
-        cResolver.delete(CallLog.Calls.CONTENT_URI, where.toString(), null);
+        Log.e("rqy", "deleteCall--placeHolder=" + placeHolder);
+        try {
+            ContentResolver cResolver = mContext.getContentResolver();
+            StringBuilder where = new StringBuilder();
+            where.append("_id in (" + placeHolder + ")");
+            cResolver.delete(CallLog.Calls.CONTENT_URI, where.toString(), null);
+        } catch (Exception e) {
+            Log.e("rqy", "deleteCall--error--placeHolder=" + placeHolder);
+        }
     }
 
     public void cleanNoContactSms() {
