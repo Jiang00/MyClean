@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
+import com.froumobic.clean.junk.mactivity.MainActivity;
 import com.froumobic.module.charge.saver.Util.Constants;
 import com.froumobic.module.charge.saver.Util.Utils;
 import com.froumobic.clean.junk.R;
@@ -188,9 +189,7 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
             }
             AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
-            if (!Util.isNotificationListenEnabled(context)) {
-                ((Activity) context).startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-            } else if (!PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
+            if (!Util.isNotificationListenEnabled(context) || !PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
                 Intent intent6 = new Intent(context, NotifiAnimaActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
             } else {

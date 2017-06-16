@@ -778,9 +778,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                 case R.id.main_notifi_button:
                     AdUtil.track("主页面", "点击进入通知栏清理", "", 1);
                     PreData.putDB(MainActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!Util.isNotificationListenEnabled(MainActivity.this)) {
-                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!PreData.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
+                    if (!Util.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
                         Intent intent6 = new Intent(MainActivity.this, NotifiAnimaActivity.class);
                         startActivityForResult(intent6, 1);
                     } else {
