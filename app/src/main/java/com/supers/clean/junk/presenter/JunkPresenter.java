@@ -1,14 +1,11 @@
 package com.supers.clean.junk.presenter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
-import com.android.clean.filemanager.FileInfo;
-import com.supers.clean.junk.view.JunkView;
-import com.supers.clean.junk.activity.MyApplication;
 import com.android.clean.entity.JunkInfo;
+import com.supers.clean.junk.view.JunkView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +15,12 @@ import java.util.List;
  */
 
 public class JunkPresenter extends BasePresenter<JunkView> {
-    private MyApplication cleanApplication;
     private long allSize;
     private long cleanSize;
     private ArrayList<JunkInfo> clearList;
 
     public JunkPresenter(JunkView iView, Context context) {
         super(iView, context);
-        cleanApplication = (MyApplication) ((Activity) context).getApplication();
     }
 
     @Override
@@ -37,6 +32,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
         allSize = CleanManager.getInstance(context).getApkSize() + CleanManager.getInstance(context).getCacheSize() + CleanManager.getInstance(context).getUnloadSize() + CleanManager.getInstance(context).getLogSize()
                 + CleanManager.getInstance(context).getDataSize();
         for (JunkInfo info : CleanManager.getInstance(context).getSystemCaches()) {
+
             if (info.isChecked) {
                 cleanSize += info.size;
             }

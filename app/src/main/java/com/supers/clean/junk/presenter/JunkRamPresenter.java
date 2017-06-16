@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
 import com.supers.clean.junk.view.JunkRamView;
-import com.supers.clean.junk.activity.MyApplication;
 import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
@@ -17,14 +16,12 @@ import java.util.List;
  */
 
 public class JunkRamPresenter extends BasePresenter<JunkRamView> {
-    private MyApplication cleanApplication;
     private long allSize;
     private long cleanSize;
     private ArrayList<JunkInfo> clearList;
 
     public JunkRamPresenter(JunkRamView iView, Context context) {
         super(iView, context);
-        cleanApplication = (MyApplication) ((Activity) context).getApplication();
     }
 
     @Override
@@ -35,6 +32,7 @@ public class JunkRamPresenter extends BasePresenter<JunkRamView> {
                 + CleanManager.getInstance(context).getDataSize() + CleanManager.getInstance(context).getRamSize();
 
         for (JunkInfo info : CleanManager.getInstance(context).getSystemCaches()) {
+
             if (info.isChecked) {
                 cleanSize += info.size;
             }

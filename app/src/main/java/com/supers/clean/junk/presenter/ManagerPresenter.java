@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.android.clean.core.CleanManager;
 import com.supers.clean.junk.view.AppManagerView;
-import com.supers.clean.junk.activity.MyApplication;
 import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
@@ -24,7 +22,6 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
     public static final int SIZE_TYPE = 0;
     public static final int TIME_TYPE = 1;
     public static final int PINLV_TYPE = 2;
-    private MyApplication cleanApplication;
     private long allSize;
     private long cleanSize = 0;
     private ArrayList<JunkInfo> clearList;
@@ -33,7 +30,6 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
 
     public ManagerPresenter(AppManagerView iView, Context context) {
         super(iView, context);
-        cleanApplication = (MyApplication) context.getApplicationContext();
     }
 
     @Override

@@ -2,16 +2,13 @@ package com.supers.clean.junk.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.DownloadManager;
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Downloads;
+import android.os.Message;
+import android.provider.CallLog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +20,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.privacy.CallEntity;
+import com.supers.clean.junk.privacy.PrivacyClean;
+import com.supers.clean.junk.privacy.SmsEntity;
+
+import java.util.ArrayList;
 
 /**
  * Created by Ivy on 2017/5/9.
@@ -34,20 +36,41 @@ public class PrivacyActivity extends BaseActivity {
     ImageView privary_small_1, privary_small_2, privary_small_3, privary_small_4, privary_small_5;
     ImageView privary_line_1, privary_line_2;
     ImageView privary_yuan_1, privary_yuan_2, privary_yuan_3;
-    ImageView privary_cut_1, privary_cut_2, privary_browser_1, privary_browser_2, privary_call_1, privary_call_2;
+    ImageView privacy_cut_yuandian, privacy_cut_bg, privacy_sms_yuandian, privacy_sms_bg, privacy_call_yuandian, privacy_call_record_bg;
 
 
     private AnimatorSet animatorSmall, animationLine_1, animationLine_2;
     private ObjectAnimator animator;
-    private AnimatorSet animator_cut_2, animator_browser_2, animator_call_2;
-    private ObjectAnimator animator_cut, animator_browser, animator_call;
+    private AnimatorSet animatorSet;
     private Handler mHandler;
+
+    private PrivacyClean privacyClean;
+
+    private ArrayList<CallEntity> dissmissCallEntities = new ArrayList<>();
+    private ArrayList<CallEntity> strangeCallEnties = new ArrayList<>();
+
+    private ArrayList<SmsEntity> readSmsEntities = new ArrayList<>();
+    private ArrayList<SmsEntity> strangeSmsEnties = new ArrayList<>();
+
+
+    private static final int CUT_MESSAGE = 0;
+
+    private static final int SMS_MESSAGE = 1;
+
+    private static final int CALL_MESSAGE = 2;
+
+    private static final int GO_TO_PRIVACY = 3;
+
+    private boolean isHaveCut;
+
 
     @Override
     protected void findId() {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
+        title_left.setOnClickListener(clickListener);
         title_name = (TextView) findViewById(R.id.title_name);
+        title_name.setText(R.string.privacy_clean);
         privary_small_1 = (ImageView) findViewById(R.id.privary_small_1);
         privary_small_2 = (ImageView) findViewById(R.id.privary_small_2);
         privary_small_3 = (ImageView) findViewById(R.id.privary_small_3);
@@ -58,106 +81,243 @@ public class PrivacyActivity extends BaseActivity {
         privary_yuan_1 = (ImageView) findViewById(R.id.privary_yuan_1);
         privary_yuan_2 = (ImageView) findViewById(R.id.privary_yuan_2);
         privary_yuan_3 = (ImageView) findViewById(R.id.privary_yuan_3);
-        privary_cut_1 = (ImageView) findViewById(R.id.privary_cut_1);
-        privary_cut_2 = (ImageView) findViewById(R.id.privary_cut_2);
-        privary_browser_1 = (ImageView) findViewById(R.id.privary_browser_1);
-        privary_browser_2 = (ImageView) findViewById(R.id.privary_browser_2);
-        privary_call_1 = (ImageView) findViewById(R.id.privary_call_1);
-        privary_call_2 = (ImageView) findViewById(R.id.privary_call_2);
+        privacy_cut_yuandian = (ImageView) findViewById(R.id.privacy_cut_yuandian);
+        privacy_cut_bg = (ImageView) findViewById(R.id.privacy_cut_bg);
+        privacy_sms_yuandian = (ImageView) findViewById(R.id.privacy_sms_yuandian);
+        privacy_sms_bg = (ImageView) findViewById(R.id.privacy_sms_bg);
+        privacy_call_yuandian = (ImageView) findViewById(R.id.privacy_call_yuandian);
+        privacy_call_record_bg = (ImageView) findViewById(R.id.privacy_call_bg);
+
     }
+
+    public void bgAnimation(View view) {
+        final AnimatorSet animationSet = new AnimatorSet();
+        ObjectAnimator animatorX = ObjectAnimator.ofFloat(view, "scaleX", 0, 1);
+        ObjectAnimator animatorY = ObjectAnimator.ofFloat(view, "scaleY", 0, 1);
+        animationSet.setDuration(500);
+        animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
+        animationSet.play(animatorX).with(animatorY);
+        animationSet.start();
+    }
+
+    String privacy_total;
+    GradientDrawable gradientDrawable;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_privary);
-        mHandler = new Handler();
-        title_left.setOnClickListener(clickListener);
+
+        privacyClean = PrivacyClean.getInstance(this);
+
+        mHandler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                switch (msg.what) {
+                    case CUT_MESSAGE:
+                        isHaveCut = PrivacyClean.getInstance(PrivacyActivity.this).isHaveCutText();
+
+                        privacy_total = getString(R.string.privacy_total);
+
+                        if (!isHaveCut) {
+                            gradientDrawable = getGradientDrawable("#2c8dea");
+                        } else {
+                            gradientDrawable = getGradientDrawable("#f84a4a");
+                        }
+
+                        privacy_cut_bg.setImageDrawable(gradientDrawable);
+                        animation(privacy_cut_bg);
+                        TextView textView = (TextView) findViewById(R.id.privacy_cut_total);
+                        textView.setText(privacy_total.replace("%", isHaveCut ? 1 + "" : 0 + ""));
+                        privacy_cut_yuandian.setVisibility(View.GONE);
+                        privary_yuan_2.setImageResource(R.mipmap.privary_10);
+                        break;
+                    case SMS_MESSAGE:
+                        int smsCount = strangeSmsEnties.size() + readSmsEntities.size();
+                        if (smsCount == 0) {
+                            gradientDrawable = getGradientDrawable("#2c8dea");
+                        } else {
+                            gradientDrawable = getGradientDrawable("#f84a4a");
+                        }
+                        privacy_sms_bg.setImageDrawable(gradientDrawable);
+                        animation(privacy_sms_bg);
+                        TextView smsText = (TextView) findViewById(R.id.privacy_sms_total);
+                        smsText.setText(privacy_total.replace("%", smsCount + ""));
+                        privacy_sms_yuandian.setVisibility(View.GONE);
+                        privary_yuan_2.setImageResource(R.mipmap.privary_11);
+                        break;
+                    case CALL_MESSAGE:
+                        int callCount = dissmissCallEntities.size() + strangeCallEnties.size();
+                        if (callCount == 0) {
+                            gradientDrawable = getGradientDrawable("#2c8dea");
+                        } else {
+                            gradientDrawable = getGradientDrawable("#f84a4a");
+                        }
+                        privacy_call_record_bg.setImageDrawable(gradientDrawable);
+                        animation(privacy_call_record_bg);
+                        TextView callText = (TextView) findViewById(R.id.privacy_call_total);
+                        callText.setText(privacy_total.replace("%", callCount + ""));
+                        privacy_call_yuandian.setVisibility(View.GONE);
+                        mHandler.sendEmptyMessageDelayed(GO_TO_PRIVACY, 2000);
+                        break;
+                    case GO_TO_PRIVACY:
+                        if (readSmsEntities.size() + strangeSmsEnties.size() + dissmissCallEntities.size() + strangeCallEnties.size() == 0 && !isHaveCut) {
+                            Intent intent = new Intent(PrivacyActivity.this, SuccessActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Intent privacyIntent = new Intent(PrivacyActivity.this, PrivacyCleanActivity.class);
+                            privacyIntent.putParcelableArrayListExtra("read_sms", readSmsEntities);
+                            privacyIntent.putParcelableArrayListExtra("strange_sms", strangeSmsEnties);
+                            privacyIntent.putParcelableArrayListExtra("dismiss_call", dissmissCallEntities);
+                            privacyIntent.putParcelableArrayListExtra("strange_call", strangeCallEnties);
+                            startActivity(privacyIntent);
+                        }
+                        finish();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
+
         animationSmall();
         animationLine();
-        animationYuan();
-        //获取剪贴板管理服务
-        ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-        cm.setPrimaryClip(ClipData.newPlainText(null, null));
-        if (cm.hasPrimaryClip() && !TextUtils.isEmpty(cm.getPrimaryClip().getItemAt(0).getText())) {
-            String a = cm.getPrimaryClip().getItemAt(0).getText().toString();
-            int count = cm.getPrimaryClip().getItemCount();
-            Log.e("privary", a + "==" + count);
-        }
-        history();
-        DownloadManager manager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-        DownloadManager.Query query = new DownloadManager.Query();
-        query.setFilterByStatus(DownloadManager.STATUS_SUCCESSFUL);
-        Cursor cursor = manager.query(query);
-        int count = 0;
-        while (cursor != null && cursor.moveToNext()) {
-            count++;
-            Log.e("privary1", count + "");
-        }
-        ContentResolver resolver = getContentResolver();
-        Cursor cursor1 = resolver.query(Downloads.Impl.ALL_DOWNLOADS_CONTENT_URI,
-                new String[]{Downloads.Impl._ID}, null, null, null);
-        //获取所有的DOWNLOADS任务
-        Cursor cursor2 = resolver.query(Downloads.Impl.ALL_DOWNLOADS_CONTENT_URI,
-                null, null, null, null);
-        int idColumn1 = cursor1.getColumnIndexOrThrow(Downloads.Impl._ID);
-        int idColumn = cursor2.getColumnIndexOrThrow(Downloads.Impl._ID);
-        while (cursor2 != null && cursor2.moveToNext()) {
-            count++;
-            Log.e("privary2", count + "");
-        }
-        while (cursor1 != null && cursor1.moveToNext()) {
-            count++;
-            Log.e("privary2", count + "");
-        }
+
+        animationYuan(privary_yuan_3);
+        animationYuan1(privacy_call_yuandian);
+        animationYuan1(privacy_sms_yuandian);
+        animationYuan1(privacy_cut_yuandian);
+
+        mHandler.sendEmptyMessageDelayed(CUT_MESSAGE, 1000);
+
+        queryData();
+
     }
 
-    private String history() {
-        String string = null;
-        ContentResolver contentResolver = getContentResolver();
+    private void queryData() {
+        new Thread() {
+            @Override
+            public void run() {
+                ArrayList<SmsEntity> smsList = privacyClean.querySms();
 
-        Cursor cursor = contentResolver.query(
-                Uri.parse("content://browser/bookmarks"),
-                new String[]{"url"}, null, null, null);
+                for (SmsEntity smsEntity : smsList) {
+                    if (smsEntity.read == 1) {
+                        //已读短信
+                        boolean isHaveSameAddress = false;
+                        for (int i = 0; i < readSmsEntities.size(); i++) {
+                            SmsEntity smsEntities = readSmsEntities.get(i);
+                            if (TextUtils.equals(smsEntities.address, smsEntity.address)) {
+                                smsEntities.count++;
+                                smsEntities.idList.add(smsEntity.id);
+                                isHaveSameAddress = true;
+                                break;
+                            }
+                        }
+                        if (!isHaveSameAddress) {
+                            smsEntity.idList = new ArrayList<>();
+                            smsEntity.idList.add(smsEntity.id);
+                            smsEntity.count++;
+                            readSmsEntities.add(smsEntity);
+                        }
+                    } else {
+                        String name = privacyClean.getContactNameByPhoneNumber(smsEntity.address);
+                        if (!TextUtils.isEmpty(name)) {
+                            continue;
+                        }
+                        boolean isHaveSameAddress = false;
+                        for (int i = 0; i < strangeSmsEnties.size(); i++) {
+                            SmsEntity smsEntities = strangeSmsEnties.get(i);
+                            if (TextUtils.equals(smsEntities.address, smsEntity.address)) {
+                                smsEntities.count++;
+                                smsEntities.idList.add(smsEntity.id);
+                                isHaveSameAddress = true;
+                                break;
+                            }
+                        }
+                        if (!isHaveSameAddress) {
+                            smsEntity.idList = new ArrayList<>();
+                            smsEntity.idList.add(smsEntity.id);
+                            smsEntity.count++;
+                            strangeSmsEnties.add(smsEntity);
+                        }
+                    }
+                }
 
-        while (cursor != null && cursor.moveToNext()) {
-            string = cursor.getString(cursor.getColumnIndex("url"));
-            Log.e("privary1", string == null ? "null" : string);
-        }
-        return string;
+                mHandler.sendEmptyMessageDelayed(SMS_MESSAGE, 2000);
+
+                ArrayList<CallEntity> callEntities = privacyClean.queryCall();
+                for (CallEntity callEntity : callEntities) {
+                    Log.e("rqy", callEntity + "");
+                    if (callEntity.callType == CallLog.Calls.MISSED_TYPE) {
+                        //未接来电
+                        boolean isHaveSameAddress = false;
+                        for (int i = 0; i < dissmissCallEntities.size(); i++) {
+                            CallEntity callEn = dissmissCallEntities.get(i);
+                            if (TextUtils.equals(callEntity.callNumber, callEn.callNumber)) {
+                                callEn.count++;
+                                callEn.idList.add(callEntity.id);
+                                isHaveSameAddress = true;
+                                break;
+                            }
+                        }
+                        if (!isHaveSameAddress) {
+                            callEntity.idList = new ArrayList<>();
+                            callEntity.idList.add(callEntity.id);
+                            callEntity.count++;
+                            dissmissCallEntities.add(callEntity);
+                        }
+                    } else {
+                        if (callEntity.callName != null) {
+                            continue;
+                        }
+                        boolean isHaveSameAddress = false;
+                        for (int i = 0; i < strangeCallEnties.size(); i++) {
+                            CallEntity callEn = strangeCallEnties.get(i);
+                            if (TextUtils.equals(callEntity.callNumber, callEn.callNumber)) {
+                                callEn.count++;
+                                callEn.idList.add(callEntity.id);
+                                isHaveSameAddress = true;
+                                break;
+                            }
+                        }
+                        if (!isHaveSameAddress) {
+                            callEntity.idList = new ArrayList<>();
+                            callEntity.idList.add(callEntity.id);
+                            callEntity.count++;
+                            strangeCallEnties.add(callEntity);
+                        }
+                    }
+                }
+
+                mHandler.sendEmptyMessageDelayed(CALL_MESSAGE, 4000);
+
+            }
+        }.start();
     }
 
-    private void animationCut() {
-        //获取剪贴板管理服务
-        ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-//        cm.setPrimaryClip(ClipData.newPlainText(null, "内容"));
-        if (cm.hasPrimaryClip()) {
-            String a = cm.getPrimaryClip().getItemAt(0).getText().toString();
-            int count = cm.getPrimaryClip().getItemCount();
-            Log.e("privary", a + "==" + count);
-        }
 
-        animator_cut = ObjectAnimator.ofFloat(privary_cut_1, "rotation", 0, 359);
-        animator_cut.setRepeatCount(-1);
-        animator_cut.setInterpolator(new LinearInterpolator());
-        animator_cut.setDuration(1000);
-        animator_cut.start();
-        privary_cut_2.setVisibility(View.INVISIBLE);
+    private void animation(View view) {
+        animatorSet = new AnimatorSet();
+        ObjectAnimator animatorX = ObjectAnimator.ofFloat(view, "scaleX", 0, 1);
+        ObjectAnimator animatorY = ObjectAnimator.ofFloat(view, "scaleY", 0, 1);
+        animatorSet.setDuration(500);
+        animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
+        animatorSet.play(animatorX).with(animatorY);
+        animatorSet.start();
+        view.setVisibility(View.VISIBLE);
     }
 
-    private void animationCut2() {
-        animator_cut_2 = new AnimatorSet();
-        ObjectAnimator animatorX = ObjectAnimator.ofFloat(privary_cut_2, "scaleX", 0, 1);
-        ObjectAnimator animatorY = ObjectAnimator.ofFloat(privary_cut_2, "scaleY", 0, 1);
-        animator_cut_2.setDuration(500);
-        animator_cut_2.setInterpolator(new AccelerateDecelerateInterpolator());
-        animator_cut_2.play(animatorX).with(animatorY);
-        animator_cut_2.start();
-        privary_cut_2.setImageResource(R.drawable.shape_privary_1);
-        privary_cut_2.setVisibility(View.VISIBLE);
+    private void animationYuan(View view) {
+        animator = ObjectAnimator.ofFloat(view, "rotation", 0, 359);
+        animator.setRepeatCount(-1);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(1000);
+        animator.start();
     }
 
-    private void animationYuan() {
-        animator = ObjectAnimator.ofFloat(privary_yuan_3, "rotation", 0, 359);
+    private void animationYuan1(View view) {
+        animator = ObjectAnimator.ofFloat(view, "rotation", 0, -359);
         animator.setRepeatCount(-1);
         animator.setInterpolator(new LinearInterpolator());
         animator.setDuration(1000);
@@ -229,8 +389,9 @@ public class PrivacyActivity extends BaseActivity {
                 case R.id.title_left:
                     onBackPressed();
                     break;
+                default:
+                    break;
             }
-
         }
     };
 
@@ -242,4 +403,15 @@ public class PrivacyActivity extends BaseActivity {
         animationLine_2.cancel();
         super.onDestroy();
     }
+
+
+    private GradientDrawable getGradientDrawable(String color) {
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setShape(GradientDrawable.OVAL);
+        gradientDrawable.setColor(Color.parseColor(color));
+        gradientDrawable.setCornerRadius(R.dimen.d61);
+        gradientDrawable.setUseLevel(false);
+        return gradientDrawable;
+    }
+
 }

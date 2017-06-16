@@ -34,7 +34,6 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.CoolingActivity;
 import com.supers.clean.junk.activity.JunkAndRamActivity;
 import com.supers.clean.junk.activity.MainActivity;
-import com.supers.clean.junk.activity.MyApplication;
 import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SuccessActivity;
@@ -58,7 +57,6 @@ public class NotificationService extends Service {
     private Notification notification_1;
     private Notification notification_notifi;
 
-    private MyApplication cleanApplication;
     private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
 
     private Bitmap bitmap_progress;
@@ -81,7 +79,6 @@ public class NotificationService extends Service {
         super.onCreate();
         if (myHandler == null)
             myHandler = new Handler();
-        cleanApplication = (MyApplication) getApplication();
         phoneManager = PhoneManager.getPhoneManage(this);
         initIntent();
         bitmap_progress = Bitmap.createBitmap(Util.dp2px(29), Util.dp2px(29), Bitmap.Config.ARGB_8888);

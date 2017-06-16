@@ -31,6 +31,7 @@ import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.NotifiInfoActivity;
 import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.activity.PowerActivity;
+import com.supers.clean.junk.activity.PrivacyActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SettingActivity;
 import com.android.clean.entity.JunkInfo;
@@ -50,7 +51,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static final int MANAGER = idx++;
     private static final int FILE = idx++;
     private static final int POWER = idx++;
-    //    private static final int PRIVARY = idx++;
+    private static final int PRIVARY = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
     private static final int GBOOST = idx++;
@@ -238,6 +239,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == ROTATE) {
             AdUtil.track("侧边栏", "点击好评", "", 1);
             UtilGp.rate(context);
+        } else if (position == PRIVARY) {
+            AdUtil.track("侧边栏", "点击隐私清理", "", 1);
+            Intent intent9 = new Intent(context, PrivacyActivity.class);
+            ((Activity) context).startActivityForResult(intent9, 1);
         }
     }
 

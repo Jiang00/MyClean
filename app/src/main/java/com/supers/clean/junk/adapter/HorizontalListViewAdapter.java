@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.android.clean.core.CleanManager;
 import com.android.clean.util.LoadManager;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.activity.MyApplication;
 import com.android.clean.entity.JunkInfo;
 
 import java.util.ArrayList;

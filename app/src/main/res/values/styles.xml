@@ -16,6 +16,13 @@
         <!--<item name="android:backgroundDimEnabled">true</item>-->
     </style>
 
+    <style name="PrivacyStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:activityOpenEnterAnimation">@anim/right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/right_out</item>
+    </style>
+
     <style name="tablayout_textSize" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
         <item name="android:textSize">@dimen/s17</item>
     </style>
@@ -34,5 +41,13 @@
         <item name="android:background">#00000000</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="PrivacyCheckboxTheme">
+        <item name="android:button">@drawable/privacy_checkbox_style</item>
+    </style>
+
+    <style name="PrivacyCheckboxTheme1">
+        <item name="android:button">@drawable/privacy_checkbox_style</item>
     </style>
 </resources>

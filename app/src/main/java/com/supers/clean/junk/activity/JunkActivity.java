@@ -295,6 +295,7 @@ public class JunkActivity extends BaseActivity implements JunkView {
         junk_unload_list.setVisibility(View.GONE);
 //        junk_unload_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_unload_unit);
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -331,6 +332,11 @@ public class JunkActivity extends BaseActivity implements JunkView {
         junk_log_list.setVisibility(View.GONE);
 //        junk_log_size.setText(Util.getFileSizeKongge(size));
 //        junkPresenter.setUnit(size, junk_log_unit);
+        if (list.size() == 0) {
+            junk_log_size.setText(Util.convertStorage(0, false));
+            junkPresenter.setUnit(size, junk_log_unit);
+            return;
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {

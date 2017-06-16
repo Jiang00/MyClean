@@ -31,11 +31,7 @@ public abstract class SimpleTask implements Runnable {
         if (mSimpleTaskListener != null) {
             mSimpleTaskListener.startLoad();
         }
-        long startTime = System.currentTimeMillis();
         loadData();
-        long endTime = System.currentTimeMillis();
-        long time = endTime - startTime;
-        Log.e("rqy", "线程" + Thread.currentThread().getId() + "--" + getClass().getSimpleName() + "--time=" + time);
     }
 
     abstract void loadData();

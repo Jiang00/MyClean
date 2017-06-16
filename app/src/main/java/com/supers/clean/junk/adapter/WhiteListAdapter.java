@@ -1,6 +1,5 @@
 package com.supers.clean.junk.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -18,9 +17,7 @@ import android.widget.Toast;
 import com.android.clean.core.CleanManager;
 import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.LoadManager;
-import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.activity.MyApplication;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.AdUtil;
 

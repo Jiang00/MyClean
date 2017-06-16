@@ -73,8 +73,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-            <action android:name="android.intent.action.CREATE_SHORTCUT" />
-            <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PICK" />
@@ -89,6 +89,12 @@
         <activity
             android:name=".activity.CoolingActivity"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".activity.PrivacyActivity" />
+
+        <activity
+            android:name=".activity.PrivacyCleanActivity"
+            android:theme="@style/PrivacyStyle" />
         <activity
             android:name=".activity.JunkActivity"
             android:screenOrientation="portrait" />
