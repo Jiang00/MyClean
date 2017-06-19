@@ -182,7 +182,9 @@ public class PrivacyClean {
             Uri smsUri = Uri.parse("content://sms/");
             StringBuilder where = new StringBuilder();
             where.append("_id in (" + placeHolder + ")");
-            cResolver.delete(smsUri, where.toString(), null);
+            //where.append("_id = ('" + placeHolder + "')");
+            int success = cResolver.delete(smsUri, where.toString(), null);
+            Log.e("rqy", "success=" + success);
         } catch (Exception e) {
             Log.e("rqy", "deleteSms--error--placeHolder=" + placeHolder);
         }

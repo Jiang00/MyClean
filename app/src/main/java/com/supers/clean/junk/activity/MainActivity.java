@@ -845,10 +845,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         intent.putExtra("is_main", true);
                         startActivity(intent);
                     }
-
-                    Intent intent = new Intent(MainActivity.this, AppLockPatternEosActivity.class);
-                    intent.putExtra("is_main", true);
-                    startActivity(intent);
                     break;
                 case R.id.main_theme_button:
                     AdUtil.track("主页面", "点击进入buton游戏加速", "", 1);
@@ -963,6 +959,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);
+                    break;
+                default:
                     break;
 
             }
