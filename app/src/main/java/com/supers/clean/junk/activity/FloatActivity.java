@@ -47,7 +47,6 @@ import java.util.List;
 
 
 public class FloatActivity extends BaseActivity {
-    HorizontalListView horizontal_listview;
     LinearLayout ll_ad;
     LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
@@ -56,9 +55,6 @@ public class FloatActivity extends BaseActivity {
     RelativeLayout rl_memory;
 
     private View nativeView;
-    private HorizontalListViewAdapter adapter;
-    private MyApplication cleanApplication;
-    private ArrayList<JunkInfo> listFloat, listFloat_white;
     private Handler myHandler;
     private String TAG_FLAOT = "eos_float";
     private Animation rotate, suo, fang;
@@ -66,7 +62,6 @@ public class FloatActivity extends BaseActivity {
     @Override
     protected void findId() {
         super.findId();
-        horizontal_listview = (HorizontalListView) findViewById(R.id.horizontal_listview);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ll_wifi = (LinearLayout) findViewById(R.id.ll_wifi);
         ll_liuliang = (LinearLayout) findViewById(R.id.ll_liuliang);
@@ -89,7 +84,6 @@ public class FloatActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_float);
-        cleanApplication = (MyApplication) getApplication();
         myHandler = new Handler();
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
@@ -125,33 +119,6 @@ public class FloatActivity extends BaseActivity {
     }
 
     private void initList() {
-        listFloat = new ArrayList<>();
-        listFloat_white = new ArrayList<>();
-        listFloat = CleanManager.getInstance(this).getAppRamList();
-        adapter = new HorizontalListViewAdapter(this);
-        adapter.clear();
-        if (listFloat.size() == 0) {
-            CleanManager.getInstance(this).loadAppRam(new AppRamCallBack() {
-                @Override
-                public void loadFinished(final List<JunkInfo> appRamList, List<String> whiteList, long totalSize) {
-                    myHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            adapter.addDataListLocation(0, appRamList);
-                            adapter.notifyDataSetChanged();
-                        }
-                    });
-                }
-            });
-
-        } else {
-//            listFloat_white = cleanApplication.getWhiteRam();
-//            adapter.addDataList(listFloat);
-//            adapter.addDataListLocation(0, listFloat_white);
-//            adapter.notifyDataSetChanged();.
-//            waterView.setOnClickListener(WaterViewOnclick);
-        }
-        horizontal_listview.setAdapter(adapter);
         float_memory.setText(Util.getMemory(this) + "");
 
     }
@@ -222,7 +189,6 @@ public class FloatActivity extends BaseActivity {
         }).start();
         CleanManager.getInstance(this).clearRam();
 
-        setListAnimation();
         float_cricle.setVisibility(View.INVISIBLE);
         float_tishi.setVisibility(View.INVISIBLE);
         rl_memory.startAnimation(suo);
@@ -264,34 +230,6 @@ public class FloatActivity extends BaseActivity {
         });
     }
 
-    private void setListAnimation() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int a = adapter.getCount() - listFloat_white.size();
-                int time = 100;
-                for (int i = 0; i < a; i++) {
-                    try {
-                        if (i > 10) {
-                            time = 30;
-                        }
-                        Thread.sleep(time--);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            if (adapter.getData().size() > listFloat_white.size()) {
-                                adapter.removeData(listFloat_white.size());
-
-                                adapter.notifyDataSetChanged();
-                            }
-                        }
-                    });
-                }
-            }
-        }).start();
-    }
 
     public int killAll(Context context) {
         long ram_all = MemoryManager.getPhoneTotalRamMemory();

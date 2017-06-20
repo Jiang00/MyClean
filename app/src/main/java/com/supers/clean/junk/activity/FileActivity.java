@@ -9,13 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.clean.filemanager.FileCategoryHelper;
+import com.android.clean.filemanager.Util;
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FileLineView;
-import com.supers.clean.junk.customeview.FileRoundView;
-import com.android.clean.util.Util;
-import com.supers.clean.junk.customeview.LineProgressView;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 
@@ -26,12 +24,13 @@ import com.supers.clean.junk.util.Constant;
 public class FileActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-
+    TextView file_sd_kong;
     FileLineView file_piechart;
-    TextView file_sd_shengyu, file_sd_all;
     TextView file_apk_size, file_zip_size, file_txt_size, file_music_size, file_video_size, file_other_size;
-    TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num, file_qita_num;
+    TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num, file_other_num;
     LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button, file_other_button;
+    LinearLayout file_apk_null, file_zip_null, file_txt_null, file_music_null, file_video_null, file_other_null;
+    LinearLayout file_apk, file_zip, file_txt, file_music, file_video, file_other;
     LinearLayout ll_ad;
     private View nativeView;
 
@@ -46,27 +45,39 @@ public class FileActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
+        file_sd_kong = (TextView) findViewById(R.id.file_sd_kong);
         file_piechart = (FileLineView) findViewById(R.id.file_piechart);
-        file_sd_shengyu = (TextView) findViewById(R.id.file_sd_shengyu);
-        file_sd_all = (TextView) findViewById(R.id.file_sd_all);
         file_apk_size = (TextView) findViewById(R.id.file_apk_size);
         file_zip_size = (TextView) findViewById(R.id.file_zip_size);
         file_txt_size = (TextView) findViewById(R.id.file_txt_size);
         file_music_size = (TextView) findViewById(R.id.file_music_size);
         file_video_size = (TextView) findViewById(R.id.file_video_size);
-        file_other_size = (TextView) findViewById(R.id.file_qita_size);
+        file_other_size = (TextView) findViewById(R.id.file_other_size);
         file_apk_num = (TextView) findViewById(R.id.file_apk_num);
         file_zip_num = (TextView) findViewById(R.id.file_zip_num);
         file_txt_num = (TextView) findViewById(R.id.file_txt_num);
         file_music_num = (TextView) findViewById(R.id.file_music_num);
         file_video_num = (TextView) findViewById(R.id.file_video_num);
-        file_qita_num = (TextView) findViewById(R.id.file_qita_num);
+        file_other_num = (TextView) findViewById(R.id.file_other_num);
         file_apk_button = (LinearLayout) findViewById(R.id.file_apk_button);
         file_zip_button = (LinearLayout) findViewById(R.id.file_zip_button);
         file_txt_button = (LinearLayout) findViewById(R.id.file_txt_button);
         file_music_button = (LinearLayout) findViewById(R.id.file_music_button);
         file_video_button = (LinearLayout) findViewById(R.id.file_video_button);
         file_other_button = (LinearLayout) findViewById(R.id.file_other_button);
+        file_apk_null = (LinearLayout) findViewById(R.id.file_apk_null);
+        file_zip_null = (LinearLayout) findViewById(R.id.file_zip_null);
+        file_txt_null = (LinearLayout) findViewById(R.id.file_txt_null);
+        file_music_null = (LinearLayout) findViewById(R.id.file_music_null);
+        file_video_null = (LinearLayout) findViewById(R.id.file_video_null);
+        file_other_null = (LinearLayout) findViewById(R.id.file_other_null);
+        file_apk = (LinearLayout) findViewById(R.id.file_apk);
+        file_zip = (LinearLayout) findViewById(R.id.file_zip);
+        file_txt = (LinearLayout) findViewById(R.id.file_txt);
+        file_music = (LinearLayout) findViewById(R.id.file_music);
+        file_video = (LinearLayout) findViewById(R.id.file_video);
+        file_other = (LinearLayout) findViewById(R.id.file_other);
+
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
@@ -91,10 +102,11 @@ public class FileActivity extends BaseActivity {
     }
 
     private void initData() {
-        sdCardInfo = com.android.clean.filemanager.Util.getSDCardInfo();
+        sdCardInfo = Util.getSDCardInfo();
         if (sdCardInfo != null) {
-            file_sd_all.setText(com.android.clean.filemanager.Util.convertStorage(sdCardInfo.total));
-            file_sd_shengyu.setText(com.android.clean.filemanager.Util.convertStorage(sdCardInfo.free));
+//            file_sd_all.setText(Util.convertStorage(sdCardInfo.total));
+//            file_sd_shengyu.setText(Util.convertStorage(sdCardInfo.free));
+            file_sd_kong.setText(sdCardInfo.free * 100 / sdCardInfo.total + "%");
         }
         new Thread(new Runnable() {
             @Override
@@ -109,18 +121,60 @@ public class FileActivity extends BaseActivity {
                         musicInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Music);
                         videoInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Video);
                         otherInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Other);
-                        file_apk_size.setText(com.android.clean.filemanager.Util.convertStorage(apkInfo.size));
-                        file_zip_size.setText(com.android.clean.filemanager.Util.convertStorage(zipInfo.size));
-                        file_txt_size.setText(com.android.clean.filemanager.Util.convertStorage(docInfo.size));
-                        file_music_size.setText(com.android.clean.filemanager.Util.convertStorage(musicInfo.size));
-                        file_video_size.setText(com.android.clean.filemanager.Util.convertStorage(videoInfo.size));
-                        file_other_size.setText(com.android.clean.filemanager.Util.convertStorage(otherInfo.size));
-                        file_apk_num.setText(getString(R.string.file_num, apkInfo.count));
-                        file_zip_num.setText(getString(R.string.file_num, zipInfo.count));
-                        file_txt_num.setText(getString(R.string.file_num, docInfo.count));
-                        file_music_num.setText(getString(R.string.file_num, musicInfo.count));
-                        file_video_num.setText(getString(R.string.file_num, videoInfo.count));
-                        file_qita_num.setText(getString(R.string.file_num, otherInfo.count));
+                        file_apk_size.setText(Util.convertStorage(apkInfo.size));
+                        file_zip_size.setText(Util.convertStorage(zipInfo.size));
+                        file_txt_size.setText(Util.convertStorage(docInfo.size));
+                        file_music_size.setText(Util.convertStorage(musicInfo.size));
+                        file_video_size.setText(Util.convertStorage(videoInfo.size));
+                        file_other_size.setText(Util.convertStorage(otherInfo.size));
+                        if (apkInfo.count == 0) {
+                            file_apk.setVisibility(View.GONE);
+                            file_apk_null.setVisibility(View.VISIBLE);
+                        } else {
+                            file_apk.setVisibility(View.VISIBLE);
+                            file_apk_null.setVisibility(View.GONE);
+                            file_apk_num.setText(apkInfo.count + getString(R.string.file_apk));
+                        }
+                        if (zipInfo.count == 0) {
+                            file_zip.setVisibility(View.GONE);
+                            file_zip_null.setVisibility(View.VISIBLE);
+                        } else {
+                            file_zip.setVisibility(View.VISIBLE);
+                            file_zip_null.setVisibility(View.GONE);
+                            file_zip_num.setText(zipInfo.count + getString(R.string.file_zip));
+                        }
+                        if (docInfo.count == 0) {
+                            file_txt.setVisibility(View.GONE);
+                            file_txt_null.setVisibility(View.VISIBLE);
+                        } else {
+                            file_txt.setVisibility(View.VISIBLE);
+                            file_txt_null.setVisibility(View.GONE);
+                            file_txt_num.setText(docInfo.count + getString(R.string.file_txt));
+                        }
+                        if (musicInfo.count == 0) {
+                            file_music.setVisibility(View.GONE);
+                            file_music_null.setVisibility(View.VISIBLE);
+                        } else {
+                            file_music.setVisibility(View.VISIBLE);
+                            file_music_null.setVisibility(View.GONE);
+                            file_music_num.setText(musicInfo.count + getString(R.string.file_music));
+                        }
+                        if (videoInfo.count == 0) {
+                            file_video.setVisibility(View.GONE);
+                            file_video_null.setVisibility(View.VISIBLE);
+                        } else {
+                            file_video.setVisibility(View.VISIBLE);
+                            file_video_null.setVisibility(View.GONE);
+                            file_video_num.setText(videoInfo.count + getString(R.string.file_video));
+                        }
+                        if (otherInfo.count == 0) {
+                            file_other.setVisibility(View.GONE);
+                            file_other_null.setVisibility(View.VISIBLE);
+                        } else {
+                            file_other.setVisibility(View.VISIBLE);
+                            file_other_null.setVisibility(View.GONE);
+                            file_other_num.setText(otherInfo.count + getString(R.string.file_other));
+                        }
                         file_piechart.setProgress(mHandler, apkInfo.size, zipInfo.size, docInfo.size, musicInfo.size, videoInfo.size, otherInfo.size);
                         setListener();
                     }
@@ -137,6 +191,9 @@ public class FileActivity extends BaseActivity {
             nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
+                ll_ad.setVisibility(View.VISIBLE);
+            } else {
+                ll_ad.setVisibility(View.GONE);
             }
         }
 
@@ -210,7 +267,7 @@ public class FileActivity extends BaseActivity {
                         bundle.putInt("count", 0);
                     }
                     bundle.putString("name", "other");
-                    bundle.putInt("nameId", R.string.file_pther);
+                    bundle.putInt("nameId", R.string.file_other);
                     jumpToActivity(FileListActivity.class, bundle, 1);
                     break;
             }
@@ -224,48 +281,4 @@ public class FileActivity extends BaseActivity {
         }
     }
 
-    private void setPieChat() {
-//            List<PieEntry> entries = new ArrayList<>();
-//    //        entries.add(new PieEntry(apkInfo.size));
-//    //        entries.add(new PieEntry(zipInfo.size));
-//    //        entries.add(new PieEntry(docInfo.size));
-//    //        entries.add(new PieEntry(musicInfo.size));
-//    //        entries.add(new PieEntry(videoInfo.size));
-//    //        entries.add(new PieEntry(otherInfo.size));
-//    //        if (sdCardInfo != null) {
-//    //            entries.add(new PieEntry(sdCardInfo.free));
-//    //        } else {
-//    //            entries.add(new PieEntry(MemoryManager.getPhoneAllFreeSize()));
-//    //        }
-//            entries.add(new PieEntry(1, "apk"));
-//            entries.add(new PieEntry(1.1f, "zip"));
-//            entries.add(new PieEntry(1.1f, "doc"));
-//            entries.add(new PieEntry(1.1f, "music"));
-//            entries.add(new PieEntry(100, "video"));
-//            entries.add(new PieEntry(500, "other"));
-//    //        entries.add(new PieEntry(10000,"free"));
-//
-//            PieDataSet set = new PieDataSet(entries, "");
-//            set.setSelectionShift(0); // 选中态多出的长度
-//            set.setSliceSpace(0f); //设置个饼状图之间的距离
-//            set.setDrawValues(false);//百分比是否画
-//            set.setColors(new int[]{ContextCompat.getColor(this, R.color.file_apk), ContextCompat.getColor(this, R.color.file_zip), ContextCompat.getColor(this, R.color.file_txt),
-//                    ContextCompat.getColor(this, R.color.file_music), ContextCompat.getColor(this, R.color.file_video),
-//                    ContextCompat.getColor(this, R.color.file_qita), ContextCompat.getColor(this, R.color.file_shengyu)});
-//            PieData data = new PieData(set);
-//            file_piechart.setData(data);
-//            file_piechart.getDescription().setEnabled(false);//设置标题说明是否显示
-//            Legend mLegend = file_piechart.getLegend(); //设置比例块
-//            mLegend.setEnabled(false);//比例块是否显示
-//            file_piechart.setRotationAngle(70); // 初始旋转角度
-//    //        file_piechart.setDrawHoleEnabled(false);//实心
-//            file_piechart.setHoleRadius(Util.dp2px(30));  //内空心洞半径
-//            file_piechart.setTransparentCircleRadius(0); // 半透明圈
-//    //        file_piechart.setHoleRadius(0)  //内空心洞半径为零==实心圆
-//            file_piechart.setRotationEnabled(false); // 手动旋转开关
-//    //        file_piechart.animateX(1000);  //设置动画
-//            file_piechart.setDrawEntryLabels(false);//设置lable是否画
-//            file_piechart.setHardwareAccelerationEnabled(true);
-//            file_piechart.invalidate();
-    }
 }

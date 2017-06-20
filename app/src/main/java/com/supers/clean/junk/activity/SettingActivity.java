@@ -135,6 +135,7 @@ public class SettingActivity extends BaseActivity {
             }
             ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
 //            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
             setting_scroll.setScrollY(0);
         } else {

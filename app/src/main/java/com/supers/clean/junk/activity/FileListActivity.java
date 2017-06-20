@@ -42,7 +42,6 @@ public class FileListActivity extends BaseActivity {
     TextView title_name;
     ListView file_list;
     Button file_button_clean;
-    RelativeLayout file_clean_rl;
     ProgressBar file_progressbar;
     LinearLayout ll_ad;
     ImageView null_icon;
@@ -67,7 +66,6 @@ public class FileListActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         file_list = (ListView) findViewById(R.id.file_list);
         file_button_clean = (Button) findViewById(R.id.file_button_clean);
-        file_clean_rl = (RelativeLayout) findViewById(R.id.file_clean_rl);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         null_icon = (ImageView) findViewById(R.id.null_icon);
@@ -93,17 +91,6 @@ public class FileListActivity extends BaseActivity {
         if (0 == getIntent().getIntExtra("count", 1)) {
             file_fl.setVisibility(View.GONE);
             null_ll.setVisibility(View.VISIBLE);
-            if (TextUtils.equals("apk", name)) {
-                null_icon.setImageResource(R.mipmap.null_apk);
-            } else if (TextUtils.equals("zip", name)) {
-                null_icon.setImageResource(R.mipmap.null_zip);
-            } else if (TextUtils.equals("music", name)) {
-                null_icon.setImageResource(R.mipmap.null_music);
-            } else if (TextUtils.equals("video", name)) {
-                null_icon.setImageResource(R.mipmap.null_video);
-            } else if (TextUtils.equals("other", name)) {
-                null_icon.setImageResource(R.mipmap.null_other);
-            }
             return;
         }
         fileHelper = new FileCategoryHelper(this);
@@ -134,6 +121,7 @@ public class FileListActivity extends BaseActivity {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
         }
     }
 
@@ -216,18 +204,18 @@ public class FileListActivity extends BaseActivity {
             showToast(getString(R.string.delete));
             return;
         }
-        View view = View.inflate(this, R.layout.dialog_file, null);
+        View view = View.inflate(this, R.layout.dialog_picture, null);
         TextView title = (TextView) view.findViewById(R.id.title);
         TextView message = (TextView) view.findViewById(R.id.message);
         TextView ok = (TextView) view.findViewById(R.id.ok);
         TextView cancle = (TextView) view.findViewById(R.id.cancle);
 
-        if (deleteList.size() == 1) {
-            title.setText(deleteList.get(0).name);
-        } else {
-            title.setText(R.string.delete_queren);
-        }
-        message.setText(getString(R.string.delete_2, deleteList.size()));
+//        if (deleteList.size() == 1) {
+//            title.setText(deleteList.get(0).name);
+//        } else {
+//            title.setText(R.string.delete_queren);
+//        }
+//        message.setText(getString(R.string.delete_2, deleteList.size()));
         dialog = new AlertDialog.Builder(FileListActivity.this).create();
         dialog.setView(view);
         dialog.show();

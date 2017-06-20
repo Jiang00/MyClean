@@ -96,12 +96,7 @@ public class FloatStateView extends View {
         if (type == STATE_NORMAL) {
             canvas.drawBitmap(bitmap_normal, 0, 0, null);
         } else {
-            if (type == STATE_LEFT) {
-                canvas.drawBitmap(bitmap_left, 0, 0, null);
-            } else {
-                canvas.drawBitmap(bitmap_right, 0, 0, null);
-            }
-
+            canvas.drawBitmap(bitmap_left, 0, 0, null);
             if (pratent > 40 && pratent <= 80) {
                 firstPaint.setColor(getResources().getColor(R.color.A4));
             } else if (pratent > 80) {
@@ -115,6 +110,7 @@ public class FloatStateView extends View {
             float dy = -(metrics.descent + metrics.ascent) / 2;
             float y = dy + height / 2;
             canvas.drawText(text, x, y, textPaint);
+            canvas.drawBitmap(bitmap_right, 0, 0, null);
         }
     }
 

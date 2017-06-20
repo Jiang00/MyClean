@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/A10"
     android:orientation="vertical">
 
     <LinearLayout
@@ -38,16 +39,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/null_apk" />
+                android:src="@mipmap/no_photo" />
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/d16"
+                android:layout_marginTop="@dimen/d24"
                 android:text="@string/file_null"
-                android:textColor="@color/black_50"
-                android:textSize="@dimen/d16"
+                android:textColor="@color/B8"
+                android:textSize="@dimen/s17"
                 app:typeface="eos_clean.otf" />
         </LinearLayout>
 
@@ -56,7 +57,6 @@
             android:id="@+id/file_fl"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <ProgressBar
                 android:id="@+id/file_progressbar"
@@ -77,32 +77,31 @@
                     android:id="@+id/ll_ad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" />
+                    android:layout_margin="@dimen/d7"
+                    android:background="@drawable/shape_ad"
+                    android:elevation="@dimen/d2"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
 
                 <ListView
                     android:id="@+id/file_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d7"
+                    android:background="@drawable/shape_ad"
                     android:divider="@drawable/list_divider"
-                    android:dividerHeight="1dp" />
+                    android:dividerHeight="0px"
+                    android:elevation="@dimen/d2"
+                    android:scrollbars="none" />
             </LinearLayout>
 
-            <RelativeLayout
-                android:id="@+id/file_clean_rl"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d72"
-                android:layout_gravity="bottom">
 
-                <Button
-                    android:id="@+id/file_button_clean"
-                    android:layout_width="@dimen/d168"
-                    android:layout_height="@dimen/d40"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/shape_button"
-                    android:text="@string/junk_button"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/s15" />
-            </RelativeLayout>
+            <Button
+                android:id="@+id/file_button_clean"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@drawable/shape_button" />
         </FrameLayout>
     </FrameLayout>
 

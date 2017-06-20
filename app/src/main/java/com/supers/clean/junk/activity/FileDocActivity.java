@@ -45,7 +45,6 @@ public class FileDocActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
     Button file_button_clean;
-    RelativeLayout file_clean_rl;
     ProgressBar file_progressbar;
     ViewPager doc_view_pager;
     TabLayout view_pager_tab;
@@ -73,7 +72,6 @@ public class FileDocActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         file_button_clean = (Button) findViewById(R.id.file_button_clean);
-        file_clean_rl = (RelativeLayout) findViewById(R.id.file_clean_rl);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         doc_view_pager = (ViewPager) findViewById(R.id.doc_view_pager);
         view_pager_tab = (TabLayout) findViewById(R.id.view_pager_tab);
@@ -121,6 +119,7 @@ public class FileDocActivity extends BaseActivity {
             ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
             ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
         }
     }
 
@@ -284,18 +283,18 @@ public class FileDocActivity extends BaseActivity {
             showToast(getString(R.string.delete));
             return;
         }
-        View view = View.inflate(this, R.layout.dialog_file, null);
+        View view = View.inflate(this, R.layout.dialog_picture, null);
         TextView title = (TextView) view.findViewById(R.id.title);
         TextView message = (TextView) view.findViewById(R.id.message);
         TextView ok = (TextView) view.findViewById(R.id.ok);
         TextView cancle = (TextView) view.findViewById(R.id.cancle);
 
-        if (deleteList.size() == 1) {
-            title.setText(deleteList.get(0).name);
-        } else {
-            title.setText(R.string.delete_queren);
-        }
-        message.setText(getString(R.string.delete_2, deleteList.size()));
+//        if (deleteList.size() == 1) {
+//            title.setText(deleteList.get(0).name);
+//        } else {
+//            title.setText(R.string.delete_queren);
+//        }
+//        message.setText(getString(R.string.delete_2, deleteList.size()));
         dialog = new AlertDialog.Builder(FileDocActivity.this).create();
         dialog.setView(view);
         dialog.show();

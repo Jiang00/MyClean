@@ -26,13 +26,13 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d176">
+                android:layout_height="@dimen/d127">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/d141"
                     android:layout_marginTop="@dimen/d50"
-                    android:background="#42a5f5" />
+                    android:background="@color/A1" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -259,24 +259,11 @@
                 android:id="@+id/ll_ad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#42a5f5"
+                android:background="@color/A1"
                 android:orientation="vertical">
 
             </LinearLayout>
         </LinearLayout>
 
     </FrameLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="125dp">
-
-        <com.supers.clean.junk.customeview.HorizontalListView
-            android:id="@+id/horizontal_listview"
-            android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom" />
-
-    </RelativeLayout>
 </LinearLayout>

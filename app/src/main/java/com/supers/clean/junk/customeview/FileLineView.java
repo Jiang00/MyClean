@@ -3,7 +3,9 @@ package com.supers.clean.junk.customeview;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.RectF;
+import android.graphics.Region;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -19,7 +21,7 @@ import com.supers.clean.junk.R;
 
 public class FileLineView extends View {
 
-    private int size;
+    private int whith, hight;
     private long apk_size;
     private long zip_size;
     private long doc_size;
@@ -84,40 +86,40 @@ public class FileLineView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int w = MeasureSpec.getSize(widthMeasureSpec);
-        int h = MeasureSpec.getSize(heightMeasureSpec);
-        size = w >= h ? h : w;
-        setMeasuredDimension(size, size);
-        rectF = new RectF(0 + lint_whith / 2, 0 + lint_whith / 2, size - lint_whith / 2, size - lint_whith / 2);
+        whith = MeasureSpec.getSize(widthMeasureSpec);
+        hight = MeasureSpec.getSize(heightMeasureSpec);
+        setMeasuredDimension(whith, hight);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+
         float start1 = 0;
-        float start2 = apk_size == 0 ? 0 : (0 + apk_size) * 360 / all_size;
-        float start3 = (0 + apk_size + zip_size) == 0 ? 0 : (0 + apk_size + zip_size) * 360 / all_size;
-        float start4 = (0 + apk_size + zip_size + doc_size) == 0 ? 0 : (0 + apk_size + zip_size + doc_size) * 360 / all_size;
-        float start5 = (0 + apk_size + zip_size + doc_size + music_size) == 0 ? 0 : (0 + apk_size + zip_size + doc_size + music_size) * 360 / all_size;
-        float start6 = (0 + apk_size + zip_size + doc_size + music_size + video_size) == 0 ? 0 : (0 + apk_size + zip_size + doc_size + music_size + video_size) * 360 / all_size;
-        float start7 = (0 + apk_size + zip_size + doc_size + music_size + video_size + other_size) == 0 ? 0 : (0 + apk_size + zip_size + doc_size + music_size + video_size + other_size) * 360 / all_size;
+        float start2 = apk_size == 0 ? 0 : (0 + apk_size) * whith / all_size;
+        float start3 = (0 + apk_size + zip_size) == 0 ? 0 : (0 + apk_size + zip_size) * whith / all_size;
+        float start4 = (0 + apk_size + zip_size + doc_size) == 0 ? 0 : (0 + apk_size + zip_size + doc_size) * whith / all_size;
+        float start5 = (0 + apk_size + zip_size + doc_size + music_size) == 0 ? 0 : (0 + apk_size + zip_size + doc_size + music_size) * whith / all_size;
+        float start6 = (0 + apk_size + zip_size + doc_size + music_size + video_size) == 0 ? 0 : (0 + apk_size + zip_size + doc_size + music_size + video_size) * whith / all_size;
+        float start7 = (0 + apk_size + zip_size + doc_size + music_size + video_size + other_size) == 0 ? 0 : (0 + apk_size + zip_size + doc_size + music_size + video_size + other_size) * whith / all_size;
         Log.e("draw", start1 + "=" + start2 + "=" + start3 + "=" + start4 + "=" + start5 + "=" + start6 + "=" + start7);
 //        canvas.translate(-size/2,-size/2);
-        canvas.drawLine();
-        canvas.drawArc(rectF, 0, 360, false, paint_other);
+        canvas.drawLine(start1, hight / 2, start7, hight / 2, paint_other);
+//        canvas.drawArc(rectF, 0, 360, false, paint_other);
         if (all_size == 0) {
             return;
         }
-        canvas.drawArc(rectF, start1, start2 + 1, false, paint_apk);
-        canvas.drawArc(rectF, start2, start3 - start2 + 1, false, paint_zip);
-        canvas.drawArc(rectF, start3, start4 - start3 + 1, false, paint_doc);
-        canvas.drawArc(rectF, start4, start5 - start4 + 1, false, paint_music);
-        canvas.drawArc(rectF, start5, start6 - start5 + 1, false, paint_video);
-        canvas.drawArc(rectF, start6, start7 - start6, false, paint_other);
+
+        canvas.drawLine(start1, hight / 2, start2, hight / 2, paint_apk);
+        canvas.drawLine(start2, hight / 2, start3, hight / 2, paint_zip);
+        canvas.drawLine(start3, hight / 2, start4, hight / 2, paint_doc);
+        canvas.drawLine(start4, hight / 2, start5, hight / 2, paint_music);
+        canvas.drawLine(start5, hight / 2, start6, hight / 2, paint_video);
+        canvas.drawLine(start6, hight / 2, start7, hight / 2, paint_other);
     }
 
     public void setProgress(final Handler handler, final long apkSize, final long zipSize, final long docSize, final long musicSize, final long videoSize, final long otherSize) {
         all_size = apkSize + zipSize + docSize + musicSize + videoSize + otherSize;
-        final long kedu = all_size / 360 * 2;
+        final long kedu = all_size / whith * 2;
         apk_size = 0;
         zip_size = 0;
         doc_size = 0;
