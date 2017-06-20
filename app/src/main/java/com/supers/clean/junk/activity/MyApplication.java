@@ -54,6 +54,16 @@ public class MyApplication extends App {
     }
 
     @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        String language = PreData.getDB(this, BaseActivity.DEFAULT_SYSTEM_LANGUAGE, BaseActivity.DEFAULT_SYSTEM_LANGUAGE);
+
+        if (!TextUtils.equals(language, BaseActivity.DEFAULT_SYSTEM_LANGUAGE)) {
+            changeAppLanguage(language);
+        }
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
 
