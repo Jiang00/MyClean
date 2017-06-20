@@ -4,9 +4,13 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Log;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.notification.NotificationMonitorService;
@@ -28,6 +32,7 @@ import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.TopActivityPkg;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -51,9 +56,26 @@ public class MyApplication extends App {
         mDaemonClient.onAttachBaseContext(base);
     }
 
+    private void changeAppLanguage(String language) {
+        // 本地语言设置
+        Locale myLocale = new Locale(language);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        String language = PreData.getDB(this, BaseActivity.DEFAULT_SYSTEM_LANGUAGE, BaseActivity.DEFAULT_SYSTEM_LANGUAGE);
+
+        if (!TextUtils.equals(language, BaseActivity.DEFAULT_SYSTEM_LANGUAGE)) {
+            changeAppLanguage(language);
+        }
+
         AndroidSdk.onCreate(this);
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
