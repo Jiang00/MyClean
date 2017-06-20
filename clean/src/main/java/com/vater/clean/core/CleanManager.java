@@ -619,9 +619,9 @@ public class CleanManager {
 
 
     public void removeRam(JunkInfo appRam) {
-        am.killBackgroundProcesses(appRam.pkg);
-        if (appRam.isSelfBoot) {
-            return;
+        try {
+            am.killBackgroundProcesses(appRam.pkg);
+        } catch (Exception e) {
         }
         ramSize -= appRam.size;
         if (appRamList != null) {
@@ -630,7 +630,10 @@ public class CleanManager {
     }
 
     public void removeRamSelfBoot(JunkInfo appRam) {
-        am.killBackgroundProcesses(appRam.pkg);
+        try {
+            am.killBackgroundProcesses(appRam.pkg);
+        } catch (Exception e) {
+        }
         ramSize -= appRam.size;
         if (appRamList != null) {
             appRamList.remove(appRam);

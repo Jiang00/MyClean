@@ -80,7 +80,6 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
     }
 
 
-
     @Override
     public void loadFullAd() {
     }
@@ -157,12 +156,14 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
             textView.setText("GB");
         }
     }
+
     @Override
     public void onClick() {
         title_left.setOnClickListener(onClickListener);
         junk_button_clean.setOnClickListener(onClickListener);
         title_right.setOnClickListener(onClickListener);
     }
+
     @Override
     public void initData(long allSize) {
         title_name.setText(R.string.main_ram_name);
