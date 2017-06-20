@@ -15,7 +15,6 @@ import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -53,26 +52,33 @@ public class BaseActivity extends AppCompatActivity {
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String name = LanguageSettingActivity.class.getCanonicalName();
-            String getName = getLocalClassName();
-            if (TextUtils.equals(getName, name)) {
-                return;
-            }
             String language = intent.getStringExtra(DEFAULT_SYSTEM_LANGUAGE);
             if (TextUtils.equals(language, DEFAULT_SYSTEM_LANGUAGE)) {
-                language = getSystemLanguage();
+                Locale locale = getSystemLanguage();
+                if (locale == null) {
+                    return;
+                }
+                Resources res = getResources();
+                Configuration conf = res.getConfiguration();
+                DisplayMetrics dm = res.getDisplayMetrics();
+                conf.locale = locale;
+                res.updateConfiguration(conf, dm);
+            } else {
+                if (TextUtils.isEmpty(language)) {
+                    return;
+                }
+                changeAppLanguage(language);
             }
-            if (TextUtils.isEmpty(language)) {
-                return;
+            languageChange();
+            if (recreateActivity()) {
+                recreate();
             }
-            changeAppLanguage(language);
-            Log.e("rqy", "getSystemLanguage=" + getSystemLanguage());
         }
     };
 
-    public String getSystemLanguage() {
+    public Locale getSystemLanguage() {
         try {
-            return ActivityManagerNative.getDefault().getConfiguration().locale.getCountry();
+            return ActivityManagerNative.getDefault().getConfiguration().locale;
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -123,6 +129,11 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * see languageChange
+     *
+     * @param language
+     */
     public void setLanguage(String language) {
         if (TextUtils.isEmpty(language)) {
             return;
@@ -134,13 +145,23 @@ public class BaseActivity extends AppCompatActivity {
         localBroadcastManager.sendBroadcast(lanuguageIntent);
     }
 
+    public boolean recreateActivity() {
+        return true;
+    }
+
+
+    public void languageChange() {
+
+    }
+
+
     private void changeAppLanguage(String language) {
         // 本地语言设置
         Resources res = getResources();
         Configuration conf = res.getConfiguration();
         DisplayMetrics dm = res.getDisplayMetrics();
         if (TextUtils.equals(language, "cn")) {
-            conf.locale = Locale.SIMPLIFIED_CHINESE;
+            conf.locale = new Locale("zh", "CN");
         } else if (TextUtils.equals(language, "in")) {
             conf.locale = new Locale("in", "ID");
         } else {
@@ -148,7 +169,6 @@ public class BaseActivity extends AppCompatActivity {
             conf.locale = myLocale;
         }
         res.updateConfiguration(conf, dm);
-        recreate();
     }
 
     @Override

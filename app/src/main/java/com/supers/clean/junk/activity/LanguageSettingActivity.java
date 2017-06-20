@@ -26,6 +26,8 @@ public class LanguageSettingActivity extends BaseActivity {
 
     TextView title_name;
 
+    LanguageSettingAdapter languageSettingAdapter;
+
     @Override
 
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class LanguageSettingActivity extends BaseActivity {
                 finish();
             }
         });
-        final LanguageSettingAdapter languageSettingAdapter = new LanguageSettingAdapter();
+        languageSettingAdapter = new LanguageSettingAdapter();
         listView.setAdapter(languageSettingAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -51,16 +53,31 @@ public class LanguageSettingActivity extends BaseActivity {
                     LanguageEntity languageEntity = languageEntities.get(i);
                     if (i == position) {
                         languageEntity.checked = true;
-                        setLanguage(languageEntity.id);
                     } else {
                         languageEntity.checked = false;
                     }
                 }
-                title_name.setText(R.string.language);
-                languageEntities.get(0).language = getString(R.string.language_system);
-                languageSettingAdapter.notifyDataSetChanged();
+                setLanguage(languageEntities.get(position).id);
             }
         });
+    }
+
+    @Override
+    public boolean recreateActivity() {
+        return false;
+    }
+
+    @Override
+    public void languageChange() {
+        super.languageChange();
+        title_name.setText(R.string.language);
+        for (LanguageEntity languageEntity : languageEntities) {
+            if (TextUtils.equals(languageEntity.id, DEFAULT_SYSTEM_LANGUAGE)) {
+                languageEntity.language = getString(R.string.language_system);
+                break;
+            }
+        }
+        languageSettingAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -93,17 +110,29 @@ public class LanguageSettingActivity extends BaseActivity {
         languageEntities.add(languageEntity10);
         LanguageEntity languageEntity11 = new LanguageEntity("in", "Indonesian");
         languageEntities.add(languageEntity11);
+        LanguageEntity languageEntity12 = new LanguageEntity("th", "ไทย");
+        languageEntities.add(languageEntity12);
+        LanguageEntity languageEntity13 = new LanguageEntity("hi", "हिन्दी");
+        languageEntities.add(languageEntity13);
 
         String language = PreData.getDB(this, DEFAULT_SYSTEM_LANGUAGE, DEFAULT_SYSTEM_LANGUAGE);
 
         if (TextUtils.equals(language, DEFAULT_SYSTEM_LANGUAGE)) {
             languageEntities.get(0).checked = true;
         } else {
-            for (LanguageEntity lagEntity : languageEntities) {
+            int index = -1;
+            for (int i = 0; i < languageEntities.size(); i++) {
+                LanguageEntity lagEntity = languageEntities.get(i);
                 if (TextUtils.equals(lagEntity.id, language)) {
                     lagEntity.checked = true;
+                    index = i;
                     break;
                 }
+            }
+            if (index != -1) {
+                LanguageEntity lagEntity = languageEntities.get(index);
+                languageEntities.remove(index);
+                languageEntities.add(0, lagEntity);
             }
         }
 
