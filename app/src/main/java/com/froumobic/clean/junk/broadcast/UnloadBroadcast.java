@@ -37,7 +37,7 @@ public class UnloadBroadcast extends BroadcastReceiver {
                 public void run() {
                     ArrayList<String> gboost_names = CleanDBHelper.getInstance(context).getWhiteList(CleanDBHelper.TableType.GameBoost);
                     try {
-                        String data = Util.readFileFromAssets(context, "raw/gboost.json");
+                        String data = Util.readFileFromAssets(context, "raw/game.json");
                         JSONObject jsonObject = new JSONObject(data);
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
                         for (int i = 0; i < jsonArray.length(); i++) {
