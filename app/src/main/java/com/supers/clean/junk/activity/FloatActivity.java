@@ -53,6 +53,7 @@ public class FloatActivity extends BaseActivity {
     ImageView float_cricle, float_rotate;
     TextView float_memory, float_tishi;
     RelativeLayout rl_memory;
+    TextView float_ram_free, float_ram_use;
 
     private View nativeView;
     private Handler myHandler;
@@ -78,6 +79,8 @@ public class FloatActivity extends BaseActivity {
         float_memory = (TextView) findViewById(R.id.float_memory);
         rl_memory = (RelativeLayout) findViewById(R.id.rl_memory);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
+        float_ram_free = (TextView) findViewById(R.id.float_ram_free);
+        float_ram_use = (TextView) findViewById(R.id.float_ram_use);
     }
 
     @Override
@@ -90,7 +93,7 @@ public class FloatActivity extends BaseActivity {
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
         float_rotate.startAnimation(rotate);
         loadAd();
-        initList();
+        initSize();
         wifi();
         shengYin();
         xianshiD();
@@ -118,9 +121,12 @@ public class FloatActivity extends BaseActivity {
         }
     }
 
-    private void initList() {
+    private void initSize() {
         float_memory.setText(Util.getMemory(this) + "");
-
+        long size_all = MemoryManager.getPhoneTotalRamMemory();
+        long kong = getAvailMemory((ActivityManager) getSystemService(Context.ACTIVITY_SERVICE));
+        float_ram_free.setText(Util.convertStorage(kong, true));
+        float_ram_use.setText(Util.convertStorage(size_all = kong, true));
     }
 
     private void addListener() {
