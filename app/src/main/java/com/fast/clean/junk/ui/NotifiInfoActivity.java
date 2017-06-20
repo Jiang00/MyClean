@@ -33,8 +33,8 @@ public class NotifiInfoActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_notifi_info);
-        notifi_info_lot.setImageAssetsFolder("images/notifi/");
-        notifi_info_lot.setAnimation("notifi.json");
+        notifi_info_lot.setImageAssetsFolder("images/cation/");
+        notifi_info_lot.setAnimation("cation.json");
         notifi_info_lot.loop(false);
         notifi_info_lot.setSpeed(0.7f);
         notifi_info_lot.playAnimation();

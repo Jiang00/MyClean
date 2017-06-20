@@ -168,8 +168,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (main_lot_ad % 3 == 0) {
             main_applock_button.setVisibility(View.GONE);
             ll_lot_ad.setVisibility(View.VISIBLE);
-            lot_ad.setImageAssetsFolder("images/box/");
-            lot_ad.setAnimation("box.json");
+            lot_ad.setImageAssetsFolder("images/main/");
+            lot_ad.setAnimation("main.json");
             lot_ad.loop(true);
             lot_ad.playAnimation();
         } else {
