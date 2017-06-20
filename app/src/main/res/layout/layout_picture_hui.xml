@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/A10"
     android:orientation="vertical">
 
     <LinearLayout
@@ -40,66 +41,49 @@
             android:text="@string/picture_8"
             android:textColor="#bfbfbf"
             android:textSize="@dimen/d20"
+            android:visibility="invisible"
             app:typeface="eos_clean.otf" />
 
         <LinearLayout
             android:id="@+id/ll_picture"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#f1f1f1"
+            android:layout_margin="@dimen/d7"
+            android:background="@drawable/shape_ad"
+            android:elevation="@dimen/d2"
             android:orientation="vertical">
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/d10"
-                android:layout_marginLeft="@dimen/d33"
-                android:layout_marginRight="@dimen/d33"
-                android:layout_marginTop="@dimen/d10"
-                android:gravity="center"
+                android:layout_height="@dimen/d33"
+                android:layout_marginLeft="@dimen/d8"
+                android:gravity="center_vertical"
                 android:text="@string/picture_5"
-                android:textColor="@color/black_54"
-                android:textSize="@dimen/d10"
-                app:typeface="eos_clean.otf" />
+                android:textColor="@color/B2"
+                android:textSize="@dimen/s11" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
+                android:background="@color/B1" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/picture_hui_recyc"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="@dimen/d3"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:scrollbars="none" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d50"
-                android:background="@color/white_100"
-                android:orientation="horizontal">
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/picture_restore"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/picture_6"
-                    android:textColor="@color/black_54"
-                    android:textSize="@dimen/d17"
-                    app:typeface="eos_clean.otf" />
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/picture_delete"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="#f04f4f"
-                    android:gravity="center"
-                    android:text="@string/picture_7"
-                    android:textColor="@color/black_54"
-                    android:textSize="@dimen/d17"
-                    app:typeface="eos_clean.otf" />
-            </LinearLayout>
         </LinearLayout>
-    </FrameLayout>
 
+
+        <Button
+            android:id="@+id/picture_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@drawable/shape_button" />
+
+    </FrameLayout>
 </LinearLayout>

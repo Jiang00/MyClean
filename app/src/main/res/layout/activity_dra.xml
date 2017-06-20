@@ -22,41 +22,49 @@
             android:background="#ffffff"
             android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:background="@color/A1" />
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/d146"
                 android:background="@color/A1"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/side_title"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d120"
+                    android:layout_height="match_parent"
                     android:background="@mipmap/side_title_1" />
 
-                <FrameLayout
-                    android:id="@+id/fl_lot_side"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d120"
-                    android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/d48"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|right"
-                        android:background="@color/black_35"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="center"
-                        android:text="AD"
-                        android:textColor="@android:color/white"
-                        android:textSize="8sp"
-                        app:typeface="eos_clean.otf" />
-                </FrameLayout>
+                        android:src="@mipmap/side_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="@string/app_name"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s13" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d4"
+                        android:text="@string/loading_2"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s9" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_ad_side"
@@ -70,7 +78,10 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none">
+                android:overScrollMode="never"
+                android:scrollbarSize="@dimen/d4"
+                android:scrollbarThumbVertical="@drawable/scrollview_bar"
+                android:scrollbars="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -84,8 +95,6 @@
                         android:layout_marginTop="@dimen/d8"
                         android:divider="#00000000"
                         android:dividerHeight="0dp" />
-
-
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

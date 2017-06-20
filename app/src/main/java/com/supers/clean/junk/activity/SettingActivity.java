@@ -96,6 +96,22 @@ public class SettingActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             setting_notifi.setVisibility(View.GONE);
         }
+        if (PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) == 0) {
+            setting_notifi.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.DEEP_KAIGUAN, 1) == 0) {
+            setting_power.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) == 0) {
+            setting_file.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) == 0) {
+            setting_gboost.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) == 0) {
+            setting_picture.setVisibility(View.GONE);
+        }
+
     }
 
     @Override

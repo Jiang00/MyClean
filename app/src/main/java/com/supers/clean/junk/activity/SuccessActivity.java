@@ -37,9 +37,6 @@ import com.supers.clean.junk.customeview.SlowScrollView;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
-import com.twee.module.tweenengine.Tween;
-import com.twee.module.tweenengine.TweenEquations;
-import com.twee.module.tweenengine.TweenManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,13 +48,13 @@ import java.util.List;
 public class SuccessActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    ImageView success_jiantou;
     TextView success_clean_size;
     TextView success_clean_2;
-    DrawHookView success_drawhook;
-    ImageView success_huojian;
     SlowScrollView scrollView;
     LinearLayout main_rotate_all;
+    TextView main_rotate_good;
+    TextView main_rotate_bad;
+    ImageView main_rotate_cha;
     LinearLayout main_power_button;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
@@ -68,9 +65,8 @@ public class SuccessActivity extends BaseActivity {
     LinearLayout main_picture_button;
     ImageView power_icon;
     TextView power_text;
-    ImageView main_rotate_good;
+
     //    ImageView delete;
-    ImageView success_progress;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
 
@@ -78,29 +74,21 @@ public class SuccessActivity extends BaseActivity {
     private View nativeView;
     private View native_xiao;
 
-    private boolean isdoudong;
-    private TweenManager tweenManager;
-    private boolean istween;
     private Handler myHandler;
     private String TAG_CLEAN = "eos_success";
     private String TAG_CLEAN_2 = "eos_success_2";
     private String TAG_TITLE = "eos_icon";
-    private Animation rotate;
 
     private boolean haveAd;
     private boolean animationEnd;
-    private MyApplication cleanApplication;
 
     @Override
     protected void findId() {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
         success_clean_2 = (TextView) findViewById(R.id.success_clean_2);
-        success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
-        success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
@@ -112,11 +100,11 @@ public class SuccessActivity extends BaseActivity {
         main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
         main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         power_text = (TextView) findViewById(R.id.power_text);
-        main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
-//        delete = (ImageView) findViewById(R.id.delete);
+        main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
+        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
+        main_rotate_cha = (ImageView) findViewById(R.id.main_rotate_cha);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
-        success_progress = (ImageView) findViewById(R.id.success_progress);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
     }
@@ -125,13 +113,7 @@ public class SuccessActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_success);
-        tweenManager = new TweenManager();
-        Tween.registerAccessor(ImageView.class, new ImageAccessor());
-        istween = true;
-        setAnimationThread();
         myHandler = new Handler();
-        rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
-        success_progress.startAnimation(rotate);
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
         } else {
@@ -217,32 +199,29 @@ public class SuccessActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
-        initAnimation();
-        success_drawhook.setListener(new DrawHookView.DrawHookListener() {
+        if (PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) == 0) {
+            main_notifi_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.DEEP_KAIGUAN, 1) == 0) {
+            main_power_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) == 0) {
+            main_file_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) == 0) {
+            main_gboost_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) == 0) {
+            main_picture_button.setVisibility(View.GONE);
+        }
 
-            @Override
-            public void duogouSc() {
-                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-                startSecondAnimation();
-                success_drawhook.setListener(null);
-            }
-        });
+        initAnimation();
         if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
-
         addListener();
-        TranslateAnimation translate = new TranslateAnimation(0, 0, 10, 2);
-        translate.setInterpolator(new AccelerateInterpolator());//OvershootInterpolator
-        translate.setDuration(400);
-        translate.setRepeatCount(-1);
-        translate.setRepeatMode(Animation.REVERSE);
-        success_jiantou.startAnimation(translate);
         shendu();
         if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
-
         } else {
             myHandler.postDelayed(new Runnable() {
                 public void run() {
@@ -254,7 +233,6 @@ public class SuccessActivity extends BaseActivity {
     }
 
     private void shendu() {
-        cleanApplication = (MyApplication) getApplication();
         List<JunkInfo> startList = new ArrayList<>();
         for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
             if (info.isSelfBoot) {
@@ -275,18 +253,22 @@ public class SuccessActivity extends BaseActivity {
 
 
     private void initAnimation() {
-        myHandler.post(new Runnable() {
+        myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startFirstAnimation();
+                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+                startSecondAnimation();
             }
-        });
+        }, 3000);
     }
 
     private void addListener() {
         title_left.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
-//        delete.setOnClickListener(onClickListener);
+        main_rotate_bad.setOnClickListener(onClickListener);
+        main_rotate_cha.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
@@ -300,7 +282,7 @@ public class SuccessActivity extends BaseActivity {
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+        native_xiao = AdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_6);
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight();
@@ -388,83 +370,6 @@ public class SuccessActivity extends BaseActivity {
 //        });
 //    }
 
-    public void startFirstAnimation() {
-        Animation animation = AnimationUtils.loadAnimation(SuccessActivity.this, R.anim.huojian_pop);
-        success_huojian.startAnimation(animation);
-        animation.setFillAfter(true);
-        success_huojian.setVisibility(View.VISIBLE);
-        animation.setAnimationListener(new android.view.animation.Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(android.view.animation.Animation animation) {
-                final float hx = success_huojian.getX();
-                final float hy = success_huojian.getY();
-                isdoudong = true;
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        while (isdoudong) {
-                            if (onDestroyed) {
-                                break;
-                            }
-                            int x = (int) (Math.random() * (16)) - 8;
-                            int y = (int) (Math.random() * (16)) - 8;
-                            try {
-                                Thread.sleep(80);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            Tween.to(success_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1, 1)
-                                    .ease(TweenEquations.easeInQuad).delay(0)
-                                    .start(tweenManager);
-                        }
-                    }
-                }).start();
-                myHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        success_progress.clearAnimation();
-                        success_progress.setVisibility(View.GONE);
-                        isdoudong = false;
-                        ObjectAnimator a = ObjectAnimator.ofFloat(success_huojian, View.TRANSLATION_Y, 0, -2500);
-                        a.setDuration(300);
-                        a.start();
-                        a.addListener(new Animator.AnimatorListener() {
-                            @Override
-                            public void onAnimationCancel(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                success_huojian.setVisibility(View.GONE);
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationStart(Animator animation) {
-
-                            }
-                        });
-                        success_drawhook.startProgress(500);
-                    }
-                }, 1000);
-            }
-
-            @Override
-            public void onAnimationRepeat(android.view.animation.Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(android.view.animation.Animation animation) {
-
-            }
-        });
-    }
 
     private void startSecondAnimation() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate_success);
@@ -509,6 +414,11 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.main_rotate_good:
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessActivity.this);
+                    main_rotate_all.setVisibility(View.GONE);
+                    break;
+                case R.id.main_rotate_bad:
+                case R.id.main_rotate_cha:
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
@@ -580,7 +490,6 @@ public class SuccessActivity extends BaseActivity {
                         startActivity(intent6);
                         onBackPressed();
                     }
-
                     break;
             }
         }
@@ -615,7 +524,6 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        istween = false;
     }
 
     @Override
@@ -624,34 +532,4 @@ public class SuccessActivity extends BaseActivity {
         finish();
     }
 
-    private void setAnimationThread() {
-        new Thread(new Runnable() {
-            private long lastMillis = -1;
-
-            public void run() {
-                while (istween) {
-                    if (lastMillis > 0) {
-                        long currentMillis = System.currentTimeMillis();
-                        final float delta = (currentMillis - lastMillis) / 1000f;
-
-                        runOnUiThread(new Runnable() {
-
-                            public void run() {
-                                tweenManager.update(delta);
-
-                            }
-                        });
-
-                        lastMillis = currentMillis;
-                    } else {
-                        lastMillis = System.currentTimeMillis();
-                    }
-                    try {
-                        Thread.sleep(1000 / 60);
-                    } catch (InterruptedException ex) {
-                    }
-                }
-            }
-        }).start();
-    }
 }

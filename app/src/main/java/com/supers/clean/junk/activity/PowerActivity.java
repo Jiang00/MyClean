@@ -12,6 +12,7 @@ import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -21,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
@@ -46,16 +48,15 @@ public class PowerActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
     RecyclerView power_recycler;
-    TextView power_size;
     Button junk_button_clean;
+    ImageView power_check;
     Handler mHandler;
-    private GridLayoutManager mLayoutManager;
+    private LinearLayoutManager mLayoutManager;
     private HomeAdapter homeAdapter, containerAdapter;
     private MyApplication cleanApplication;
     private ArrayList<JunkInfo> startList;
     private View containerView;
     private RecyclerView containerView_recyclerView;
-    private TextView containerView_power_size;
     private Button containerView_junk_button_clean;
     private PowerWidgetContainer container;
     private int count = 0;
@@ -67,8 +68,8 @@ public class PowerActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
-        power_size = (TextView) findViewById(R.id.power_size);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
+        power_check = (ImageView) findViewById(R.id.power_check);
     }
 
     @Override
@@ -80,55 +81,15 @@ public class PowerActivity extends BaseActivity {
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));
         initData();
         title_name.setText(R.string.side_power);
-        power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
-        mLayoutManager = new GridLayoutManager(this, 4);//设置为一个4列的纵向网格布局
+        mLayoutManager = new LinearLayoutManager(this);//设置为一个4列的纵向网格布局
         power_recycler.setLayoutManager(mLayoutManager);
         power_recycler.setAdapter(homeAdapter = new HomeAdapter(false));
         // 设置item动画
         power_recycler.setItemAnimator(new DefaultItemAnimator());
-        junk_button_clean.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AdUtil.track("深度清理页面", "点击清理", "", 1);
-                if (!Util.isAccessibilitySettingsOn(PowerActivity.this)) {
-                    try {
-                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                        startActivityForResult(intent, 100);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        AdUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
-                    }
+        junk_button_clean.setOnClickListener(clickListener);
+        power_check.setOnClickListener(clickListener);
+        title_left.setOnClickListener(clickListener);
 
-                    mHandler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent transintent = new Intent(PowerActivity.this, PermissionActivity.class);
-                            startActivity(transintent);
-                        }
-                    }, 1500);
-                    return;
-                }
-                junk_button_clean.setOnClickListener(null);
-//                showPackageDetail(startList.get(0).packageName);
-                containerView = View.inflate(PowerActivity.this, R.layout.layout_power, null);
-                container = new PowerWidgetContainer.Builder()
-                        .setHeight(PowerWidgetContainer.MATCH_PARENT)
-                        .setWidth(PowerWidgetContainer.MATCH_PARENT)
-                        .setOrientation(PowerWidgetContainer.PORTRAIT)
-                        .build(PowerActivity.this.getApplicationContext());
-                container.addView(containerView, container.makeLayoutParams(PowerWidgetContainer.MATCH_PARENT,
-                        PowerWidgetContainer.MATCH_PARENT, Gravity.CENTER));
-                container.addToWindow();
-                setContainer();
-
-            }
-        });
-        title_left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
         if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
             title_name.setText(R.string.gboost_11);
             for (JunkInfo info : startList) {
@@ -158,13 +119,74 @@ public class PowerActivity extends BaseActivity {
         }
     }
 
+    View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.title_left:
+                    onBackPressed();
+                    break;
+                case R.id.power_check:
+                    AdUtil.track("深度清理页面", "开启辅助功能", "", 1);
+                    try {
+                        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                        startActivityForResult(intent, 100);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent transintent = new Intent(PowerActivity.this, PermissionActivity.class);
+                            startActivity(transintent);
+                        }
+                    }, 1500);
+                    break;
+                case R.id.junk_button_clean:
+                    AdUtil.track("深度清理页面", "点击清理", "", 1);
+                    if (!Util.isAccessibilitySettingsOn(PowerActivity.this)) {
+                        try {
+                            Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                            startActivityForResult(intent, 100);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            AdUtil.track("深度清理页面", "进入辅助功能失败:" + Build.MODEL, "", 1);
+                        }
+
+                        mHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent transintent = new Intent(PowerActivity.this, PermissionActivity.class);
+                                startActivity(transintent);
+                            }
+                        }, 1500);
+                        return;
+                    }
+                    junk_button_clean.setOnClickListener(null);
+//                showPackageDetail(startList.get(0).packageName);
+                    containerView = View.inflate(PowerActivity.this, R.layout.layout_power, null);
+                    container = new PowerWidgetContainer.Builder()
+                            .setHeight(PowerWidgetContainer.MATCH_PARENT)
+                            .setWidth(PowerWidgetContainer.MATCH_PARENT)
+                            .setOrientation(PowerWidgetContainer.PORTRAIT)
+                            .build(PowerActivity.this.getApplicationContext());
+                    container.addView(containerView, container.makeLayoutParams(PowerWidgetContainer.MATCH_PARENT,
+                            PowerWidgetContainer.MATCH_PARENT, Gravity.CENTER));
+                    container.addToWindow();
+                    setContainer();
+
+                    break;
+
+            }
+        }
+    };
+
     private void setContainer() {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
-        containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
         containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
-        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         containerView_junk_button_clean.setVisibility(View.GONE);
-        containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
+        containerView_recyclerView.setLayoutManager(new LinearLayoutManager(this));
         containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
         // 设置item动画
         containerView_recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -187,9 +209,6 @@ public class PowerActivity extends BaseActivity {
                     return;
                 }
             }
-            junk_button_clean.setBackgroundResource(R.drawable.shape_button_ffffff);
-            junk_button_clean.setTextColor(ContextCompat.getColor(PowerActivity.this, R.color.main_circle_backg));
-            power_size.setText(getString(R.string.power_1, 0 + "") + " ");
             homeAdapter.notifyDataSetChanged();
             if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
                 if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
@@ -219,22 +238,18 @@ public class PowerActivity extends BaseActivity {
 
     private void animatorView(final View view, final int i) {
         AnimatorSet set = new AnimatorSet();
-        View icon = view.findViewById(R.id.recyc_icon);
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(icon, "scaleY", 1f, 0f);
-        ObjectAnimator rotate = ObjectAnimator.ofFloat(icon, "rotation", 0f, 360f);
-        set.setDuration(2000)
+        View recyc_item = view.findViewById(R.id.recyc_item);
+        ObjectAnimator translationX = ObjectAnimator.ofFloat(recyc_item, "translationX", 0f, getResources().getDimensionPixelOffset(R.dimen.d333));
+        set.setDuration(1000)
                 .addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationCancel(Animator animation) {
-
                     }
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         CleanManager.getInstance(PowerActivity.this).removeRamSelfBoot(startList.get(i));
                         startList.remove(i);
-                        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
                         containerAdapter.notifyItemRemoved(i);
                         containerAdapter.reChangesData(i);
                         mHandler.post(runnable);
@@ -249,7 +264,7 @@ public class PowerActivity extends BaseActivity {
                     public void onAnimationStart(Animator animation) {
                     }
                 });
-        set.play(scaleX).with(scaleY).with(rotate);
+        set.play(translationX);
         set.start();
     }
 
@@ -316,13 +331,13 @@ public class PowerActivity extends BaseActivity {
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {
-            FrameLayout recyc_item;
+            RelativeLayout recyc_item;
             ImageView recyc_icon;
             ImageView recyc_check;
 
             public MyViewHolder(View view) {
                 super(view);
-                recyc_item = (FrameLayout) view.findViewById(R.id.recyc_item);
+                recyc_item = (RelativeLayout) view.findViewById(R.id.recyc_item);
                 recyc_icon = (ImageView) view.findViewById(R.id.recyc_icon);
                 recyc_check = (ImageView) view.findViewById(R.id.recyc_check);
             }
@@ -340,6 +355,16 @@ public class PowerActivity extends BaseActivity {
     public void onBackPressed() {
         setResult(Constant.POWER_RESUIL);
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (Util.isAccessibilitySettingsOn(this)) {
+            power_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            power_check.setImageResource(R.mipmap.side_check_normal);
+        }
     }
 
     @Override

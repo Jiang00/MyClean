@@ -9,17 +9,18 @@
 
     <RelativeLayout
         android:id="@+id/rl"
-        android:layout_width="72dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/d72"
+        android:layout_height="@dimen/d48"
         android:orientation="horizontal">
 
 
         <ImageView
             android:id="@+id/iv_le"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/d24"
+            android:layout_height="@dimen/d24"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp" />
+            android:layout_marginLeft="16dp"
+            />
 
     </RelativeLayout>
 
@@ -40,13 +41,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="@dimen/d16"
         android:src="@mipmap/side_check_normal" />
 
     <View
         android:id="@+id/side_divide"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
         android:background="@color/B1"
         android:visibility="gone" />
 </RelativeLayout>

@@ -114,4 +114,12 @@ public class Constant {
     public static final String GBOOST_CLEAN = "GBOOST_CLEAN";
     public static final String PHOTO_CLEAN = "PHOTO_CLEAN";
 
+
+    //功能开关控制
+    public static final String NOTIFI_KAIGUAN = "NOTIFI_KAIGUAN";
+    public static final String DEEP_KAIGUAN = "DEEP_KAIGUAN";
+    public static final String FILE_KAIGUAN = "FILE_KAIGUAN";
+    public static final String GBOOST_KAIGUAN = "GBOOST_KAIGUAN";
+    public static final String PICTURE_KAIGUAN = "PICTURE_KAIGUAN";
+
 }

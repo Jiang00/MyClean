@@ -93,10 +93,10 @@ public class CustomRoundRam extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         RectF rect = new RectF();
-        rect.left = 0 + lineWidth / 2 + 1;
-        rect.right = size - lineWidth / 2 - 1;
-        rect.top = 0 + lineWidth / 2 + 1;
-        rect.bottom = size - lineWidth / 2 - 1;
+        rect.left = 0 + lineWidth + 1;
+        rect.right = size - lineWidth - 1;
+        rect.top = 0 + lineWidth + 1;
+        rect.bottom = size - lineWidth - 1;
         canvas.drawArc(rect, 0, 360, false, backgPoint);
         canvas.save();
         canvas.rotate(90, size / 2, size / 2);

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@color/A10"
     android:orientation="vertical">
 
 
@@ -29,14 +29,14 @@
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/junk_size_all"
-                android:layout_width="@dimen/d146"
+                android:layout_width="@dimen/d161"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d82"
+                android:layout_marginLeft="@dimen/d72"
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
                 android:textColor="#ffffff"
-                android:textSize="@dimen/s63"
+                android:textSize="@dimen/s72"
                 app:typeface="eos_clean.otf" />
 
             <LinearLayout
@@ -51,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KB"
-                    android:textColor="#8affffff"
+                    android:textColor="@color/B10"
                     android:textSize="@dimen/s21"
                     app:typeface="eos_clean.otf" />
 
@@ -59,13 +59,13 @@
                     android:id="@+id/junk_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d8"
                     android:text="@string/junk_title_clean"
-                    android:textColor="#8affffff"
+                    android:textColor="@color/B10"
                     android:textSize="@dimen/s12"
                     app:typeface="eos_clean.otf" />
 
             </LinearLayout>
-
 
         </LinearLayout>
     </LinearLayout>
@@ -73,34 +73,26 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/A10">
+        android:layout_weight="1">
 
         <ListView
             android:id="@+id/junk_list_all"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/A8"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d7"
+            android:background="@drawable/shape_ad"
             android:divider="@drawable/list_divider"
-            android:dividerHeight="1dp" />
+            android:dividerHeight="0px"
+            android:elevation="@dimen/d2" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:layout_gravity="bottom">
 
-            <Button
-                android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d168"
-                android:layout_height="@dimen/d40"
-                android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/ram_button"
-                android:textColor="#ffffff"
-                android:textAllCaps="false"
-                android:textSize="@dimen/s15"
-                android:visibility="invisible" />
-        </RelativeLayout>
+        <Button
+            android:id="@+id/junk_button_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@drawable/shape_button"
+            android:visibility="invisible" />
     </FrameLayout>
 
 

@@ -12,8 +12,10 @@ import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.customeview.FileLineView;
 import com.supers.clean.junk.customeview.FileRoundView;
 import com.android.clean.util.Util;
+import com.supers.clean.junk.customeview.LineProgressView;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 
@@ -25,7 +27,7 @@ public class FileActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
 
-    FileRoundView file_piechart;
+    FileLineView file_piechart;
     TextView file_sd_shengyu, file_sd_all;
     TextView file_apk_size, file_zip_size, file_txt_size, file_music_size, file_video_size, file_other_size;
     TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num, file_qita_num;
@@ -44,7 +46,7 @@ public class FileActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        file_piechart = (FileRoundView) findViewById(R.id.file_piechart);
+        file_piechart = (FileLineView) findViewById(R.id.file_piechart);
         file_sd_shengyu = (TextView) findViewById(R.id.file_sd_shengyu);
         file_sd_all = (TextView) findViewById(R.id.file_sd_all);
         file_apk_size = (TextView) findViewById(R.id.file_apk_size);

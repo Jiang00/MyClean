@@ -14,7 +14,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
+<android.support.v7.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
+</android.support.v7.widget.CardView>
             <RelativeLayout
                 android:id="@+id/main_junk_button"
                 android:layout_width="0dp"
@@ -41,10 +45,10 @@
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d8"
+                        android:layout_marginTop="@dimen/d9"
                         android:text="@string/main_junk_name"
-                        android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s11"
                         app:typeface="eos_clean.otf" />
                 </LinearLayout>
 
@@ -85,15 +89,15 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d8"
+                        android:layout_marginBottom="@dimen/d9"
                         android:src="@mipmap/main_ram_button" />
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/main_ram_name"
-                        android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s11"
                         app:typeface="eos_clean.otf" />
                 </LinearLayout>
 
@@ -140,15 +144,15 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d8"
+                        android:layout_marginBottom="@dimen/d9"
                         android:src="@mipmap/main_cooling_button" />
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/main_cooling_name"
-                        android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s11"
                         app:typeface="eos_clean.otf" />
                 </LinearLayout>
 
@@ -185,15 +189,15 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/d8"
+                    android:layout_marginBottom="@dimen/d9"
                     android:src="@mipmap/main_manager_button" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/main_manager_name"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
+                    android:textColor="@color/A6"
+                    android:textSize="@dimen/s11"
                     app:typeface="eos_clean.otf" />
             </LinearLayout>
         </LinearLayout>

@@ -38,7 +38,6 @@ import com.supers.clean.junk.activity.MyApplication;
 import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.activity.SuccessActivity;
-import com.supers.clean.junk.activity.TranslateActivity;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
@@ -59,7 +58,7 @@ public class NotificationService extends Service {
     private Notification notification_notifi;
 
     private MyApplication cleanApplication;
-    private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentFlash, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
+    private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
 
     private Bitmap bitmap_progress;
     private Paint paint_1;
@@ -143,10 +142,6 @@ public class NotificationService extends Service {
         notifyIntentCooling.putExtra("from", "notifi");
         notifyIntentCooling.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        notifyIntentFlash = new Intent(this, TranslateActivity.class);
-        notifyIntentFlash.putExtra("from", "notifi");
-        notifyIntentFlash.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notifyIntentJunkRam = new Intent(this, JunkAndRamActivity.class);
         notifyIntentJunkRam.putExtra("from", "notifi");
         notifyIntentJunkRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
@@ -196,7 +191,7 @@ public class NotificationService extends Service {
         if (memory > 70) {
             paint_1.setColor(ContextCompat.getColor(this, R.color.A2));
         } else {
-            paint_1.setColor(ContextCompat.getColor(this, R.color.white_100));
+            paint_1.setColor(ContextCompat.getColor(this, R.color.A1));
         }
         canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
 
@@ -209,15 +204,12 @@ public class NotificationService extends Service {
                 notifyIntentRam, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentCooling = PendingIntent.getActivity(this, requestCode,
                 notifyIntentCooling, PendingIntent.FLAG_UPDATE_CURRENT);
-        PendingIntent pendIntentFlash = PendingIntent.getActivity(this, requestCode,
-                notifyIntentFlash, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentJunkRam = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_UPDATE_CURRENT);
         notifyIntentJunkRam.putExtra("from2", "twoday");
         remoteView_1.setOnClickPendingIntent(R.id.notifi_icon, pendIntentMain);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_ram, pendIntentRam);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_cooling, pendIntentCooling);
-        remoteView_1.setOnClickPendingIntent(R.id.notifi_flash, pendIntentFlash);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_junk_ram, pendIntentJunkRam);
         mBuilder.setContent(remoteView_1);
         mBuilder.setAutoCancel(false);
@@ -295,7 +287,7 @@ public class NotificationService extends Service {
                 if (memory > 70) {
                     paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A2));
                 } else {
-                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.white_100));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A1));
                 }
                 canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
@@ -313,7 +305,7 @@ public class NotificationService extends Service {
                 if (memory > 80) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
-                   AdUtil.track("通知栏", "内存通知", "展示", 1);
+                    AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
                 }
                 return;
@@ -323,7 +315,7 @@ public class NotificationService extends Service {
                 if (memory > 80) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
-                   AdUtil.track("通知栏", "内存通知", "展示", 1);
+                    AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
                 }
                 return;
@@ -333,7 +325,7 @@ public class NotificationService extends Service {
                 if (memory > 80) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
-                   AdUtil.track("通知栏", "内存通知", "展示", 1);
+                    AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
                 }
                 return;
@@ -345,7 +337,7 @@ public class NotificationService extends Service {
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
-                   AdUtil.track("通知栏", "降温通知", "展示", 1);
+                    AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, false);
                 }
                 return;
@@ -355,7 +347,7 @@ public class NotificationService extends Service {
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
-                   AdUtil.track("通知栏", "降温通知", "展示", 1);
+                    AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, false);
                 }
                 return;
@@ -365,7 +357,7 @@ public class NotificationService extends Service {
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
-                   AdUtil.track("通知栏", "降温通知", "展示", 1);
+                    AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, false);
                 }
                 return;
@@ -380,7 +372,7 @@ public class NotificationService extends Service {
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
-                   AdUtil.track("通知栏", "垃圾通知", "展示", 1);
+                    AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_JUNK, false);
                 }
             } else if (hh >= 12 && hh < 18 && PreData.getDB(this, Constant.KEY_TONGZHI_ZHONG_JUNK, true)) {
@@ -389,7 +381,7 @@ public class NotificationService extends Service {
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
-                   AdUtil.track("通知栏", "垃圾通知", "展示", 1);
+                    AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_JUNK, false);
                 }
             } else if (hh >= 18 && PreData.getDB(this, Constant.KEY_TONGZHI_WAN_JUNK, true)) {
@@ -398,7 +390,7 @@ public class NotificationService extends Service {
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
-                   AdUtil.track("通知栏", "垃圾通知", "展示", 1);
+                    AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }
@@ -406,7 +398,7 @@ public class NotificationService extends Service {
             if (Util.millTransFate(time - clean_two_day) > 2) {
                 tonghzi_two_day();
                 mNotifyManager.notify(101, notification_two_day);
-               AdUtil.track("通知栏", "两天唤醒", "展示", 1);
+                AdUtil.track("通知栏", "两天唤醒", "展示", 1);
                 PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
             }
         }

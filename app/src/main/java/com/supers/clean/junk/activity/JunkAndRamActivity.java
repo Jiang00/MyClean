@@ -47,7 +47,6 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
     TextView junk_fangxin;
     LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user, junk_button_ram;
     TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size, junk_ram_size;
-    TextView junk_system_unit, junk_apk_unit, junk_unload_unit, junk_log_unit, junk_user_unit, junk_ram_unit;
     ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou, junk_ram_jiantou;
     ListViewForScrollView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list, junk_ram_list;
     Button junk_button_clean;
@@ -81,12 +80,6 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         junk_log_size = (TextView) findViewById(R.id.junk_log_size);
         junk_user_size = (TextView) findViewById(R.id.junk_user_size);
         junk_ram_size = (TextView) findViewById(R.id.junk_ram_size);
-        junk_system_unit = (TextView) findViewById(R.id.junk_system_unit);
-        junk_apk_unit = (TextView) findViewById(R.id.junk_apk_unit);
-        junk_unload_unit = (TextView) findViewById(R.id.junk_unload_unit);
-        junk_log_unit = (TextView) findViewById(R.id.junk_log_unit);
-        junk_user_unit = (TextView) findViewById(R.id.junk_user_unit);
-        junk_ram_unit = (TextView) findViewById(R.id.junk_ram_unit);
         junk_system_jiantou = (ImageView) findViewById(R.id.junk_system_jiantou);
         junk_apk_jiaotou = (ImageView) findViewById(R.id.junk_apk_jiaotou);
         junk_unload_jiantou = (ImageView) findViewById(R.id.junk_unload_jiantou);
@@ -251,8 +244,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_system_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_system_unit);
+                            junk_system_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }
@@ -287,8 +279,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_apk_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_apk_unit);
+                            junk_apk_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }
@@ -323,8 +314,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_unload_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_unload_unit);
+                            junk_unload_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }
@@ -359,8 +349,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_log_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_log_unit);
+                            junk_log_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }
@@ -395,8 +384,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_user_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_user_unit);
+                            junk_user_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }
@@ -432,8 +420,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junk_ram_size.setText(Util.convertStorage(finalI, false));
-                            junkPresenter.setUnit(size, junk_ram_unit);
+                            junk_ram_size.setText(Util.convertStorage(finalI, true));
                         }
                     });
                 }

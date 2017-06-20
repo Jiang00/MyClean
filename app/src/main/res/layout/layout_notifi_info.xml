@@ -22,7 +22,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/d72"
             android:gravity="center"
-            android:text="@string/notifi_1"
+            android:text="@string/notifi_t"
             android:textColor="@color/white_100"
             android:textSize="@dimen/s17"
             app:typeface="eos_clean.otf" />
@@ -33,18 +33,17 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/d33"
             android:gravity="center"
-            android:text="@string/notifi_2"
+            android:text="@string/notifi_m"
             android:textColor="@color/A8"
             android:textSize="@dimen/s17"
             app:typeface="eos_clean.otf" />
 
         <com.sample.lottie.LottieAnimationView
             android:id="@+id/notifi_info_lot"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="@dimen/d30"
-            android:layout_marginRight="@dimen/d30"
-            android:layout_weight="1" />
+            android:layout_width="@dimen/d176"
+            android:layout_height="@dimen/d225"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d72" />
 
     </LinearLayout>
 
@@ -56,13 +55,13 @@
 
         <Button
             android:id="@+id/notifi_info_text"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d40"
+            android:layout_width="@dimen/d301"
+            android:layout_height="@dimen/d33"
             android:layout_centerInParent="true"
-            android:background="@drawable/shape_button"
+            android:background="@drawable/shape_a8"
             android:text="@string/notifi_info_2"
             android:textColor="#ffffff"
-            android:textSize="@dimen/s15"
+            android:textSize="@dimen/s16"
             android:visibility="invisible" />
     </RelativeLayout>
 </FrameLayout>

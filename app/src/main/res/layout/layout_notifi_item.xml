@@ -1,71 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:id="@+id/rl"
-        android:layout_width="72dp"
-        android:layout_height="56dp"
-        android:orientation="horizontal">
+        android:id="@+id/sys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/iv_le"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
-            android:layout_centerInParent="true" />
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="@dimen/d65"
+            android:layout_height="@dimen/d56"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_le"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/rl"
+            android:gravity="clip_vertical"
+            android:orientation="vertical">
+
+            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                android:id="@+id/notifi_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/B2"
+                android:textSize="@dimen/s14"
+                app:typeface="eos_clean.otf" />
+
+            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                android:id="@+id/notifi_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s11"
+                app:typeface="eos_clean.otf" />
+        </LinearLayout>
+
+        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            android:id="@+id/notifi_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s12"
+            app:typeface="eos_clean.otf" />
+
     </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/rl"
-        android:gravity="clip_vertical"
-        android:orientation="vertical">
-
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-            android:id="@+id/notifi_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black_87"
-            android:textSize="14sp"
-            app:typeface="eos_clean.otf" />
-
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-            android:id="@+id/notifi_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:textColor="@color/black_54"
-            android:textSize="11sp"
-            app:typeface="eos_clean.otf" />
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="16dp"
-        android:scaleType="center" />
-
-    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-        android:id="@+id/notifi_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="16dp"
-        android:scaleType="center"
-        app:typeface="eos_clean.otf" />
 
     <FrameLayout
         android:id="@+id/fl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:layout_height="@dimen/d56"
         android:visibility="gone" />
-</RelativeLayout>
+</FrameLayout>

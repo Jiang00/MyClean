@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:lv="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white_100"
-    android:orientation="vertical">
+    android:background="@color/white_100">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:padding="@dimen/d5">
 
         <FrameLayout
             android:id="@+id/ad_image"
             android:layout_width="match_parent"
-            android:layout_height="135dp"
+            android:layout_height="@dimen/d116"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
             android:tag="ad_image" />
@@ -27,69 +26,75 @@
             android:orientation="horizontal"
             android:tag="ad_choices" />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/ad_image"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="end"
-            android:background="#32000000"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:text="AD"
-            android:textColor="@android:color/white"
-            android:textSize="8sp" />
+            android:src="@mipmap/ad_right" />
 
-        <TextView
-            android:id="@+id/ad_title"
+        <LinearLayout
+            android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ad_image"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="100dp"
-            android:layout_marginTop="5dp"
-            android:ellipsize="marquee"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:fontFamily="sans-serif-regular"
-            android:singleLine="true"
-            android:tag="ad_title"
-            android:textColor="#de000000"
-            android:textSize="14sp"
-            tools:text="Your see" />
+            android:layout_marginTop="@dimen/d6"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ad_title"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="100dp"
-            android:layout_marginTop="1dp"
-            android:ellipsize="end"
-            android:fontFamily="sans-serif-light"
-            android:lines="1"
-            android:tag="ad_subtitle"
-            android:textColor="#8a000000"
-            android:textSize="10sp"
-            tools:text="Your see Your see Your see Your see" />
+            <ImageView
+                android:id="@+id/ad_icon"
+                android:layout_width="@dimen/d43"
+                android:layout_height="@dimen/d43"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d16"
+                android:tag="ad_icon" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/ad_image"
-            android:layout_gravity="end"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/ad_green"
-            android:paddingBottom="4dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="4dp"
-            android:tag="ad_action"
-            android:text="Install"
-            android:textColor="#fff"
-            android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d12"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ad_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="sans-serif-regular"
+                    android:singleLine="true"
+                    android:tag="ad_title"
+                    android:textColor="#de000000"
+                    android:textSize="@dimen/s14"
+                    tools:text="Your see" />
+
+                <TextView
+                    android:id="@+id/ad_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll"
+                    android:layout_marginTop="@dimen/d7"
+                    android:fontFamily="sans-serif-light"
+                    android:lines="1"
+                    android:tag="ad_desc"
+                    android:textColor="#8a000000"
+                    android:textSize="@dimen/s14"
+                    tools:text="Your see Your see Your see Your see" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="@dimen/d56"
+                android:layout_height="@dimen/d33"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d10"
+                android:background="#1a99ff"
+                android:gravity="center"
+                android:tag="ad_action"
+                android:text="Install"
+                android:textColor="#fff"
+                android:textSize="@dimen/s11" />
+        </LinearLayout>
     </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>

@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -38,9 +40,9 @@ public class NotifiActivity extends Activity {
     FrameLayout title_left;
     TextView title_name;
     ImageView title_right;
-    DeleteListView list_si;
-    TextView white_wu;
-    RelativeLayout notifi_button_rl;
+    ListView list_si;
+    LinearLayout white_wu;
+    LinearLayout ll_list;
     Button notifi_button_clean;
 
     private NotifiAdapter adapter;
@@ -61,11 +63,11 @@ public class NotifiActivity extends Activity {
         linearParams.height = getStatusHeight(this);
         view_title_bar.setLayoutParams(linearParams);
         title_left = (FrameLayout) findViewById(R.id.title_left);
-        list_si = (DeleteListView) findViewById(R.id.list_si);
+        list_si = (ListView) findViewById(R.id.list_si);
         title_name = (TextView) findViewById(R.id.title_name);
         title_right = (ImageView) findViewById(R.id.title_right);
-        white_wu = (TextView) findViewById(R.id.white_wu);
-        notifi_button_rl = (RelativeLayout) findViewById(R.id.notifi_button_rl);
+        white_wu = (LinearLayout) findViewById(R.id.white_wu);
+        ll_list = (LinearLayout) findViewById(R.id.ll_list);
         notifi_button_clean = (Button) findViewById(R.id.notifi_button_clean);
     }
 
@@ -146,11 +148,13 @@ public class NotifiActivity extends Activity {
             if (notificationList != null && notificationList.size() != 0) {
                 adapter.upList(notificationList);
                 adapter.notifyDataSetChanged();
-                white_wu.setVisibility(View.INVISIBLE);
-                notifi_button_rl.setVisibility(View.VISIBLE);
+                white_wu.setVisibility(View.GONE);
+                ll_list.setVisibility(View.VISIBLE);
+                notifi_button_clean.setVisibility(View.VISIBLE);
             } else {
                 white_wu.setVisibility(View.VISIBLE);
-                notifi_button_rl.setVisibility(View.GONE);
+                ll_list.setVisibility(View.GONE);
+                notifi_button_clean.setVisibility(View.GONE);
             }
         }
     };
@@ -160,13 +164,6 @@ public class NotifiActivity extends Activity {
         title_left.setOnClickListener(nOnClickListener);
         title_right.setOnClickListener(nOnClickListener);
         notifi_button_clean.setOnClickListener(nOnClickListener);
-        list_si.setRemoveListener(new DeleteListView.RemoveListener() {
-            @Override
-            public void removeItem(DeleteListView.RemoveDirection direction, int position) {
-                NotificationInfo info = adapter.getItem(position);
-                CleanManager.getInstance(NotifiActivity.this).notificationChanged(info, false);
-            }
-        });
         list_si.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -6,97 +6,85 @@
     android:background="@color/A10"
     android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/A1"
-        android:orientation="vertical">
+        android:layout_height="@dimen/d225">
 
-        <View
-            android:id="@+id/view_title_bar"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="24dp" />
-
-        <include layout="@layout/layout_title" />
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="224dp"
-        android:background="@color/A1"
-        android:scaleType="fitXY"
-        android:src="@mipmap/power_1" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/A10"
-        android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_deep"
+            android:scaleType="fitXY"
+            android:src="@mipmap/power_1" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:background="#ffffff"
-            android:orientation="horizontal"
-            android:paddingBottom="13dp"
-            android:paddingTop="13dp">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="27dp"
-                android:layout_marginRight="15dp"
-                android:src="@mipmap/power_2" />
+            <View
+                android:id="@+id/view_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="24dp" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/power_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/power_1"
-                android:textColor="#ff3131"
-                android:textSize="13sp"
-                app:typeface="eos_clean.otf" />
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:singleLine="true"
-                android:text="@string/power_2"
-                android:textColor="#808ea4"
-                android:textSize="13sp"
-                app:typeface="eos_clean.otf" />
+            <include layout="@layout/layout_title" />
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/power_recycler"
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="9dp"
-            android:overScrollMode="never"
-            android:scrollbars="none" />
-    </LinearLayout>
+            android:layout_margin="@dimen/d7"
+            android:background="@drawable/shape_ad"
+            android:elevation="@dimen/d2"
+            android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d72">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d33"
+                android:orientation="horizontal">
+
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d7"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="@string/power_accb"
+                    android:textColor="@color/B2"
+                    android:textSize="@dimen/s11"
+                    app:typeface="eos_clean.otf" />
+
+                <ImageView
+                    android:id="@+id/power_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginRight="@dimen/d8"
+                    android:src="@mipmap/side_check_passed" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/power_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/junk_button_clean"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d40"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/shape_button"
-            android:text="@string/junk_button"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/s15" />
-    </RelativeLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@drawable/shape_button" />
+    </FrameLayout>
 </LinearLayout>

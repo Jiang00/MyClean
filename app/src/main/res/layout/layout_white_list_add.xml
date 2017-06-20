@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    android:background="@color/A10"
     android:orientation="vertical">
 
     <LinearLayout
@@ -32,9 +32,12 @@
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_100"
+            android:layout_margin="@dimen/d8"
+            android:background="@drawable/shape_ad"
             android:divider="@drawable/list_divider"
-            android:dividerHeight="1dp" />
+            android:dividerHeight="0px"
+            android:elevation="@dimen/d2"
+            android:scrollbars="none" />
     </FrameLayout>
 
 </LinearLayout>

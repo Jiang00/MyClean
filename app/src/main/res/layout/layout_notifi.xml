@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    android:background="@color/A10"
     android:orientation="vertical">
 
     <LinearLayout
@@ -26,51 +26,102 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <LinearLayout
             android:id="@+id/white_wu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:gravity="center"
-            android:text="@string/notifi_nor"
-            android:textColor="#bfbfbf"
-            android:textSize="22sp"
-            android:visibility="invisible"
-            app:typeface="eos_clean.otf" />
+            android:orientation="vertical"
+            android:visibility="invisible">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/no_photo" />
 
-        <com.supers.clean.junk.customeview.DeleteListView
-            android:id="@+id/list_si"
+            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="@dimen/d24"
+                android:text="@string/notifi_nor"
+                android:textColor="@color/B8"
+                android:textSize="@dimen/s17"
+                app:typeface="eos_clean.otf" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_100"
-            android:divider="@drawable/list_divider"
-            android:dividerHeight="1dp" />
+            android:layout_margin="@dimen/d7"
+            android:background="@drawable/shape_ad"
+            android:elevation="@dimen/d2"
+            android:orientation="vertical">
 
-        <View
-            android:id="@+id/view_set"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/black_50"
-            android:clickable="true"
-            android:visibility="gone" />
-    </FrameLayout>
+            <RelativeLayout
+                android:id="@+id/notifi_setting_t"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d33"
+                android:orientation="horizontal"
+                android:visibility="gone">
 
-    <RelativeLayout
-        android:id="@+id/notifi_button_rl"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d72">
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:text="@string/notifi_kaiguan"
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s11"
+                    app:typeface="eos_clean.otf" />
+
+                <ImageView
+                    android:id="@+id/notifi_all_check"
+                    android:layout_width="@dimen/d36"
+                    android:layout_height="@dimen/d36"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/d8"
+                    android:scaleType="center"
+                    android:src="@mipmap/side_check_passed" />
+            </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ListView
+                    android:id="@+id/list_si"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/list_divider"
+                    android:dividerHeight="0px" />
+
+                <View
+                    android:id="@+id/view_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/black_50"
+                    android:clickable="true"
+                    android:elevation="@dimen/d2"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/notifi_button_clean"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d40"
-            android:layout_centerInParent="true"
-            android:background="@drawable/shape_button"
-            android:text="@string/notifi_button"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
-    </RelativeLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="@drawable/shape_button" />
+
+
+    </FrameLayout>
+
+
 </LinearLayout>

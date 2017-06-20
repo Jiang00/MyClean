@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,7 +30,7 @@ public class WhiteListAvtivity extends BaseActivity {
     ImageView title_right;
     WhiteListAdapter adapter;
     ListView listView;
-    TextView white_wu;
+    LinearLayout white_wu;
     List<JunkInfo> white_list;
     private List<String> whiteList;
 
@@ -40,7 +41,7 @@ public class WhiteListAvtivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         title_right = (ImageView) findViewById(R.id.title_right);
         listView = (ListView) findViewById(R.id.list_si);
-        white_wu = (TextView) findViewById(R.id.white_wu);
+        white_wu = (LinearLayout) findViewById(R.id.white_wu);
     }
 
     @Override
@@ -51,11 +52,6 @@ public class WhiteListAvtivity extends BaseActivity {
         title_right.setVisibility(View.VISIBLE);
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
-        whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
-        for (String info : whiteList) {
-            Log.e("whitelist", info);
-        }
-
 
         white_list = new ArrayList<>();
         adapter = new WhiteListAdapter(this);
@@ -64,6 +60,7 @@ public class WhiteListAvtivity extends BaseActivity {
     }
 
     private void initDAta() {
+        whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
         white_list.clear();
         for (JunkInfo info : CleanManager.getInstance(this).getAppList()) {
             if (whiteList.contains(info.pkg)) {

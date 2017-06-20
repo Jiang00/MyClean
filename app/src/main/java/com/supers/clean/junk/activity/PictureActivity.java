@@ -120,7 +120,6 @@ public class PictureActivity extends BaseActivity {
                         Animation animation1 = AnimationUtils.loadAnimation(PictureActivity.this, R.anim.translate_notifi);
                         picture_button.startAnimation(animation1);
                         picture_button.setVisibility(View.VISIBLE);
-                        picture_button.setText(getString(R.string.picture_14) + "( " + msg.arg1 + " )");
                     }
                     break;
                 default:
@@ -171,9 +170,9 @@ public class PictureActivity extends BaseActivity {
     public void bigPicture(final ArrayList<ImageInfo> list) {
         pic_pager_title.setText("1/" + list.size());
         if (list.get(0).isNormal) {
-            pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+            pic_pager_check_iv.setImageResource(R.mipmap.ram_normal);
         } else {
-            pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+            pic_pager_check_iv.setImageResource(R.mipmap.ram_passed);
         }
         pic_pager_check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,9 +180,9 @@ public class PictureActivity extends BaseActivity {
                 int position = picture_pager.getCurrentItem();
                 list.get(position).isNormal = !list.get(position).isNormal;
                 if (list.get(position).isNormal) {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_normal);
                 } else {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_passed);
                 }
                 updateUi();
             }
@@ -272,9 +271,9 @@ public class PictureActivity extends BaseActivity {
                     return;
                 }
                 if (list.get(position).isNormal) {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_normal);
                 } else {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_passed);
                 }
             }
 
@@ -400,27 +399,13 @@ public class PictureActivity extends BaseActivity {
     private void deleteDialog(final ArrayList<Bitmap> checkDate) {
         final int deleteSize = checkDate.size();
         View view = View.inflate(this, R.layout.dialog_picture, null);
-        TextView message = (TextView) view.findViewById(R.id.message);
+        final TextView message = (TextView) view.findViewById(R.id.message);
         final TextView ok = (TextView) view.findViewById(R.id.ok);
         final TextView cancle = (TextView) view.findViewById(R.id.cancle);
         final TextView count = (TextView) view.findViewById(R.id.count);
-        final LinearLayout image_list = (LinearLayout) view.findViewById(R.id.image_list);
         final ProgressBar delete_progress = (ProgressBar) view.findViewById(R.id.delete_progress);
-        ImageView image_1 = (ImageView) view.findViewById(R.id.image_1);
+        final LinearLayout progress_lin = (LinearLayout) view.findViewById(R.id.progress_lin);
         message.setText(getString(R.string.picture_1, checkDate.size()));
-        image_1.setImageBitmap(checkDate.get(0));
-        if (deleteSize >= 2 && null != checkDate.get(1)) {
-            ImageView image_2 = (ImageView) view.findViewById(R.id.image_2);
-            image_2.setImageBitmap(checkDate.get(1));
-        }
-        if (deleteSize >= 3 && null != checkDate.get(2)) {
-            ImageView image_3 = (ImageView) view.findViewById(R.id.image_3);
-            image_3.setImageBitmap(checkDate.get(2));
-        }
-        if (deleteSize >= 4 && null != checkDate.get(3)) {
-            ImageView image_4 = (ImageView) view.findViewById(R.id.image_4);
-            image_4.setImageBitmap(checkDate.get(3));
-        }
         cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -434,8 +419,8 @@ public class PictureActivity extends BaseActivity {
                 AdUtil.track("相似图片页面", "点击确认弹窗ok按钮", "", 1);
                 ok.setOnClickListener(null);
                 cancle.setOnClickListener(null);
-                image_list.setVisibility(View.GONE);
-                delete_progress.setVisibility(View.VISIBLE);
+                progress_lin.setVisibility(View.VISIBLE);
+                message.setVisibility(View.GONE);
                 adapter.delete(new RecycleViewAdapter.RecycleViewCallBack() {
                     int num = 0;
 
@@ -540,7 +525,6 @@ public class PictureActivity extends BaseActivity {
                 }
             }
         }
-        picture_button.setText(getString(R.string.picture_14) + "( " + count + " )");
         picture_size.setText(Util.convertStorage(size, false));
         picture_danwei.setText(Util.convertStorageDanwei(size));
 

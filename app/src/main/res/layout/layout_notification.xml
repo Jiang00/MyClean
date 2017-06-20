@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="64dp"
-    android:background="@drawable/shape_radio_000000"
+    android:background="@drawable/shape_ad"
     android:orientation="horizontal">
 
     <FrameLayout
@@ -17,42 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
-            android:src="@mipmap/loading_icon" />
+            android:src="@mipmap/notifi_icon" />
     </FrameLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:src="@mipmap/notifi_line" />
-
-    <LinearLayout
-        android:layout_width="75dp"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/notifi_network_type"
-            android:layout_width="29dp"
-            android:layout_height="29dp"
-            android:scaleType="center"
-            android:src="@mipmap/notifi_liuliang" />
-
-        <TextView
-            android:id="@+id/notifi_network_sudu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3.4KB/s"
-            android:textColor="#5cd9ff"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:src="@mipmap/notifi_line" />
 
     <LinearLayout
         android:id="@+id/notifi_ram"
@@ -78,8 +44,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="78%"
-                android:textColor="@color/white_100"
-                android:textSize="8sp" />
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s9" />
         </FrameLayout>
 
         <TextView
@@ -87,8 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:text="@string/notifi_jiasu"
-            android:textColor="@color/white_80"
-            android:textSize="9sp" />
+            android:textColor="@color/B2"
+            android:textSize="@dimen/s9" />
 
     </LinearLayout>
 
@@ -107,7 +73,7 @@
             android:layout_height="29dp"
             android:gravity="center"
             android:text="53℃"
-            android:textColor="@color/white_100"
+            android:textColor="@color/A4"
             android:textSize="12sp" />
 
         <TextView
@@ -115,32 +81,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:text="@string/notifi_wendu"
-            android:textColor="@color/white_80"
-            android:textSize="9sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/notifi_flash"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="29dp"
-            android:layout_height="29dp"
-            android:scaleType="center"
-            android:src="@mipmap/notifi_flash" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="@string/notifi_flash"
-            android:textColor="@color/white_80"
-            android:textSize="9sp" />
+            android:textColor="@color/B2"
+            android:textSize="@dimen/s9" />
     </LinearLayout>
 
     <LinearLayout
@@ -163,7 +105,30 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:text="@string/notifi_clean"
-            android:textColor="@color/white_80"
-            android:textSize="9sp" />
+            android:textColor="@color/B2"
+            android:textSize="@dimen/s9" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/notifi_network_type"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:scaleType="center"
+            android:src="@mipmap/notifi_liuliang" />
+
+        <TextView
+            android:id="@+id/notifi_network_sudu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3.4KB/s"
+            android:textColor="@color/A1"
+            android:textSize="12sp" />
     </LinearLayout>
 </LinearLayout>

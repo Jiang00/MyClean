@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/A10"
     android:orientation="vertical">
 
 
@@ -25,7 +26,11 @@
         android:id="@+id/ll_ad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:layout_marginTop="@dimen/d7"
+        android:background="@drawable/shape_ad"
+        android:elevation="@dimen/d2"
+        android:orientation="vertical"
+        android:visibility="gone" />
 
     <ScrollView
         android:id="@+id/setting_scroll"
@@ -37,598 +42,508 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white_100"
             android:orientation="vertical">
 
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d32"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/d16"
-                android:text="@string/setting_kaiguanllei"
-                android:textColor="@color/A1"
-                android:textSize="@dimen/s13"
-                app:typeface="eos_clean.otf" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d7"
+                android:background="@color/A8"
+                android:elevation="@dimen/d2"
+                android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/setting_tongzhi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_tongzhi"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/d32"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_tongzhi" />
-                </RelativeLayout>
+                        android:layout_marginLeft="@dimen/d16"
+                        android:src="@mipmap/setting_line" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_tongzhi"
-                    android:text="@string/setting_tongzhi"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:id="@+id/setting_tongzhi_check"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_tongzhilan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d5"
+                        android:gravity="center_vertical"
+                        android:text="@string/setting_kaiguanllei"
+                        android:textColor="@color/A5"
+                        android:textSize="@dimen/s13"
+                        app:typeface="eos_clean.otf" />
+                </LinearLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_tongzhilan"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
+                    android:id="@+id/setting_tongzhi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/setting_tongzhi"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/setting_tongzhi_check"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d56"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="center" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_tongzhilan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/setting_tongzhilan"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/setting_tongzhilan_check"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d56"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="center" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_float"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/setting_float"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/setting_float_check"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d56"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="center" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_battery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/setting_battery"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/setting_battery_check"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d56"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="center" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_unload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/setting_unload"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/setting_unload_check"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d56"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="center" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d7"
+                android:background="@color/A8"
+                android:elevation="@dimen/d2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/d32"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_tongzhilan" />
-                </RelativeLayout>
+                        android:layout_marginLeft="@dimen/d16"
+                        android:src="@mipmap/setting_line" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_tongzhilan"
-                    android:text="@string/setting_tongzhilan"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:id="@+id/setting_tongzhilan_check"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_float"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d5"
+                        android:gravity="center_vertical"
+                        android:text="@string/setting_gongneng"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s13"
+                        app:typeface="eos_clean.otf" />
+                </LinearLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_float"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
+                    android:id="@+id/setting_picture"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d56">
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/side_picture"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:scaleType="center"
+                        android:src="@mipmap/setting_rig" />
+
+                    <TextView
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d14"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/a"
+                        android:background="@drawable/shape_a2"
+                        android:gravity="center"
+                        android:text="NEW"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s8" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_hui"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d56">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/picture_hui"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/b"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:scaleType="center"
+                        android:src="@mipmap/setting_rig" />
+
+                    <TextView
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d14"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/b"
+                        android:background="@drawable/shape_a2"
+                        android:gravity="center"
+                        android:text="NEW"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s8" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_gboost"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d56">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/gboost_0"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:scaleType="center"
+                        android:src="@mipmap/setting_rig" />
+
+                    <TextView
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d14"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/c"
+                        android:background="@drawable/shape_a2"
+                        android:gravity="center"
+                        android:text="NEW"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s8" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d56">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/side_file"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:scaleType="center"
+                        android:src="@mipmap/setting_rig" />
+
+                    <TextView
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d14"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/d"
+                        android:background="@drawable/shape_a2"
+                        android:gravity="center"
+                        android:text="NEW"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s8" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_notifi"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d56">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/side_notifi"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/e"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:scaleType="center"
+                        android:src="@mipmap/setting_rig" />
+
+                    <TextView
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d14"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/e"
+                        android:background="@drawable/shape_a2"
+                        android:gravity="center"
+                        android:text="NEW"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s8" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_power"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d56">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/side_power"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <ImageView
+                        android:id="@+id/f"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:scaleType="center"
+                        android:src="@mipmap/setting_rig" />
+
+                    <TextView
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d14"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/f"
+                        android:background="@drawable/shape_a2"
+                        android:gravity="center"
+                        android:text="NEW"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s8" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/setting_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/setting_white"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_float" />
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:scaleType="center"
+                        android:src="@mipmap/setting_rig" />
                 </RelativeLayout>
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_float"
-                    android:text="@string/setting_float"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:id="@+id/setting_float_check"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_battery"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <RelativeLayout
-                    android:id="@+id/rl_battery"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
+                    android:id="@+id/setting_short"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/setting_short"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_battery" />
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:scaleType="center"
+                        android:src="@mipmap/setting_rig" />
                 </RelativeLayout>
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_battery"
-                    android:text="@string/setting_battery"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:id="@+id/setting_battery_check"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_unload"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <RelativeLayout
-                    android:id="@+id/rl_unload"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
+                    android:id="@+id/setting_rotate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:text="@string/setting_rotate"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_unload" />
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:scaleType="center"
+                        android:src="@mipmap/setting_rig" />
                 </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_unload"
-                    android:text="@string/setting_unload"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:id="@+id/setting_unload_check"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center" />
-            </RelativeLayout>
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d32"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:text="@string/setting_gongneng"
-                android:textColor="@color/A1"
-                android:textSize="@dimen/s13"
-                app:typeface="eos_clean.otf" />
-
-            <RelativeLayout
-                android:id="@+id/setting_picture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_picture"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_picture" />
-                </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_picture"
-                    android:text="@string/side_picture"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-
-            <RelativeLayout
-                android:id="@+id/setting_hui"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_hui"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_hui" />
-                </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_hui"
-                    android:text="@string/picture_hui"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_gboost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_gboost"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/gboost_setting" />
-                </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_gboost"
-                    android:text="@string/gboost_0"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-            <RelativeLayout
-                android:id="@+id/setting_file"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_file"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_file" />
-                </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_file"
-                    android:text="@string/side_file"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_notifi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_notifi"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_notifi" />
-                </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_notifi"
-                    android:text="@string/side_notifi"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_power"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_power"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_power" />
-                </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_power"
-                    android:text="@string/side_power"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_white"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_white" />
-                </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_white"
-                    android:text="@string/setting_white"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_short"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_short"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/setting_shortcut" />
-                </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_short"
-                    android:text="@string/setting_short"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:id="@+id/setting_rotate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <RelativeLayout
-                    android:id="@+id/rl_rotate"
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                            android:src="@mipmap/setting_rotate" />
-                </RelativeLayout>
-
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/rl_rotate"
-                    android:text="@string/setting_rotate"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
-
-                <ImageView
-                    android:layout_width="@dimen/d72"
-                    android:layout_height="@dimen/d56"
-                    android:layout_alignParentRight="true"
-                    android:scaleType="center"
-                    android:src="@mipmap/setting_rig" />
-            </RelativeLayout>
-
-
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

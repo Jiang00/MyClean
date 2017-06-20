@@ -112,6 +112,21 @@ public class LoadingActivity extends BaseActivity {
                 if (jsonObject.has("full_recyclebin")) {
                     PreData.putDB(LoadingActivity.this, Constant.RECYCLEBIN, jsonObject.getInt("full_recyclebin"));
                 }
+                if (jsonObject.has("notifi_kaiguan")) {
+                    PreData.putDB(LoadingActivity.this, Constant.NOTIFI_KAIGUAN, jsonObject.getInt("notifi_kaiguan"));
+                }
+                if (jsonObject.has("deep_kaiguan")) {
+                    PreData.putDB(LoadingActivity.this, Constant.DEEP_KAIGUAN, jsonObject.getInt("deep_kaiguan"));
+                }
+                if (jsonObject.has("deep_kaiguan")) {
+                    PreData.putDB(LoadingActivity.this, Constant.FILE_KAIGUAN, jsonObject.getInt("file_kaiguan"));
+                }
+                if (jsonObject.has("gboost_kaiguan")) {
+                    PreData.putDB(LoadingActivity.this, Constant.GBOOST_KAIGUAN, jsonObject.getInt("gboost_kaiguan"));
+                }
+                if (jsonObject.has("picture_kaiguan")) {
+                    PreData.putDB(LoadingActivity.this, Constant.PICTURE_KAIGUAN, jsonObject.getInt("picture_kaiguan"));
+                }
             } catch (Exception e) {
 
             }

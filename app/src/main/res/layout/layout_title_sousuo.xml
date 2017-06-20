@@ -11,11 +11,11 @@
 
         <FrameLayout
             android:id="@+id/title_left"
-            android:layout_width="@dimen/d36"
-            android:layout_height="@dimen/d36"
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/d8"
-            android:layout_marginRight="@dimen/d27"
+            android:layout_marginRight="@dimen/d8"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/d8">
 
@@ -33,14 +33,14 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/title_left"
             android:text="@string/app_name"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/s20"
+            android:textColor="@color/A8"
+            android:textSize="@dimen/s17"
             app:typeface="eos_clean.otf" />
 
         <ImageView
             android:id="@+id/title_right"
-            android:layout_width="@dimen/d36"
-            android:layout_height="@dimen/d36"
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/d8"
@@ -59,14 +59,14 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d43"
+            android:layout_height="@dimen/d36"
             android:layout_gravity="center"
             android:background="@drawable/shape_radio" />
 
         <EditText
             android:id="@+id/search_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d43"
+            android:layout_height="@dimen/d36"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/d30"
             android:background="@null"
@@ -74,14 +74,14 @@
             android:focusableInTouchMode="true"
             android:hint="@string/edit_hint"
             android:singleLine="true"
-            android:textColor="#8a000000"
-            android:textColorHint="#59000000" />
+            android:textColor="@color/B2"
+            android:textColorHint="@color/B4" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d10"
+            android:layout_marginLeft="@dimen/d8"
             android:src="@mipmap/edit_left_drawable" />
 
         <ImageButton
@@ -89,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|end"
-            android:layout_marginRight="@dimen/d5"
+            android:layout_marginRight="@dimen/d3"
             android:background="@mipmap/eidt_cha"
             android:padding="@dimen/d5" />
     </FrameLayout>

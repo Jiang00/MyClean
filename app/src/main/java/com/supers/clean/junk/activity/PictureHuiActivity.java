@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -45,12 +46,11 @@ public class PictureHuiActivity extends BaseActivity {
 
     FrameLayout title_left;
     TextView title_name;
-    TextView title_check;
+    ImageView title_right;
     RecyclerView picture_hui_recyc;
     TextView hui_never;
     LinearLayout ll_picture;
-    TextView picture_restore;
-    TextView picture_delete;
+    Button picture_delete;
 
     GridLayoutManager gridLayoutManager;
     private ImageHelper imageHelper;
@@ -66,13 +66,12 @@ public class PictureHuiActivity extends BaseActivity {
     protected void findId() {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
+        title_right = (ImageView) findViewById(R.id.title_right);
         title_name = (TextView) findViewById(R.id.title_name);
-        title_check = (TextView) findViewById(R.id.title_check);
         picture_hui_recyc = (RecyclerView) findViewById(R.id.picture_hui_recyc);
         hui_never = (TextView) findViewById(R.id.hui_never);
         ll_picture = (LinearLayout) findViewById(R.id.ll_picture);
-        picture_restore = (TextView) findViewById(R.id.picture_restore);
-        picture_delete = (TextView) findViewById(R.id.picture_delete);
+        picture_delete = (Button) findViewById(R.id.picture_delete);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
@@ -83,13 +82,15 @@ public class PictureHuiActivity extends BaseActivity {
         title_name.setText(R.string.picture_10);
         imageHelper = new ImageHelper();
         mHandler = new Handler();
+        title_right.setVisibility(View.VISIBLE);
+        title_right.setImageResource(R.mipmap.picture_huanyuan);
         ArrayList<ImageInfo> imageInfos = RecyclerDbHelper.getInstance(this).getRecyclerImageList();
         if (imageInfos.size() == 0) {
             hui_never.setVisibility(View.VISIBLE);
             ll_picture.setVisibility(View.INVISIBLE);
-            title_check.setVisibility(View.INVISIBLE);
+            title_right.setVisibility(View.GONE);
         } else {
-            title_check.setVisibility(View.VISIBLE);
+            title_right.setVisibility(View.VISIBLE);
             gridLayoutManager = new GridLayoutManager(this, 3);
             picture_hui_recyc.setLayoutManager(gridLayoutManager);
             picture_hui_recyc.setAdapter(adapter = new HuiAdapter(imageInfos));
@@ -118,8 +119,7 @@ public class PictureHuiActivity extends BaseActivity {
 
     private void addListener() {
         title_left.setOnClickListener(clickListener);
-        title_check.setOnClickListener(clickListener);
-        picture_restore.setOnClickListener(clickListener);
+        title_right.setOnClickListener(clickListener);
         picture_delete.setOnClickListener(clickListener);
 
     }
@@ -142,8 +142,7 @@ public class PictureHuiActivity extends BaseActivity {
                         adapter.allPassed(true);
                     }
                     break;
-                case R.id.picture_restore:
-//                    dialog(adapter.checkNum());
+                case R.id.title_right:
                     if (adapter.checkNum() > 0) {
                         dialog(true, adapter.checkNum());
                     }
@@ -161,9 +160,9 @@ public class PictureHuiActivity extends BaseActivity {
         if (adapter.getItemCount() == 0) {
             hui_never.setVisibility(View.VISIBLE);
             ll_picture.setVisibility(View.INVISIBLE);
-            title_check.setVisibility(View.INVISIBLE);
+            title_right.setVisibility(View.INVISIBLE);
         } else {
-            title_check.setVisibility(View.VISIBLE);
+            title_right.setVisibility(View.VISIBLE);
             hui_never.setVisibility(View.INVISIBLE);
             ll_picture.setVisibility(View.VISIBLE);
         }
@@ -179,17 +178,17 @@ public class PictureHuiActivity extends BaseActivity {
 
     private void dialog(final boolean isrestore, final int count) {
         View view = View.inflate(this, R.layout.dialog_picture, null);
-        view.findViewById(R.id.image_list).setVisibility(View.GONE);
         final TextView pro = (TextView) view.findViewById(R.id.count);
-        TextView message = (TextView) view.findViewById(R.id.message);
-        TextView title = (TextView) view.findViewById(R.id.title);
+        final TextView message = (TextView) view.findViewById(R.id.message);
+        final TextView title = (TextView) view.findViewById(R.id.title);
         final ProgressBar delete_progress = (ProgressBar) view.findViewById(R.id.delete_progress);
+        final LinearLayout progress_lin = (LinearLayout) view.findViewById(R.id.progress_lin);
         final TextView ok = (TextView) view.findViewById(R.id.ok);
         final TextView cancle = (TextView) view.findViewById(R.id.cancle);
         pro.setVisibility(View.GONE);
         if (isrestore) {
             message.setText(getString(R.string.picture_15, count));
-            title.setText(R.string.picture_16);
+            title.setText(getString(R.string.picture_16));
         } else {
             message.setText(getString(R.string.picture_12, count));
         }
@@ -200,7 +199,8 @@ public class PictureHuiActivity extends BaseActivity {
                 cancle.setOnClickListener(null);
                 pro.setText(count + "/" + "0");
                 pro.setVisibility(View.VISIBLE);
-                delete_progress.setVisibility(View.VISIBLE);
+                progress_lin.setVisibility(View.VISIBLE);
+                message.setVisibility(View.GONE);
                 if (isrestore) {
                     adapter.restore(new MyCallBack() {
                         int num = 0;
@@ -394,9 +394,9 @@ public class PictureHuiActivity extends BaseActivity {
         public void onBindViewHolder(final HuiAdapter.HomeViewHolder holder, final int position) {
             final ImageInfo info = list.get(position);
             if (info.isNormal) {
-                holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                holder.picture_check.setImageResource(R.mipmap.ram_normal);
             } else {
-                holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                holder.picture_check.setImageResource(R.mipmap.ram_passed);
             }
 
             Bitmap cachebitmap = getBitmapFromCache(info.backFilePath);
@@ -443,9 +443,9 @@ public class PictureHuiActivity extends BaseActivity {
                 public void onClick(View v) {
                     info.isNormal = !info.isNormal;
                     if (info.isNormal) {
-                        holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                        holder.picture_check.setImageResource(R.mipmap.ram_normal);
                     } else {
-                        holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                        holder.picture_check.setImageResource(R.mipmap.ram_passed);
                     }
                 }
             });

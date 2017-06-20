@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    android:background="@color/A10"
     android:orientation="vertical">
 
     <LinearLayout
@@ -29,17 +29,11 @@
             android:layout_width="@dimen/d167"
             android:layout_height="@dimen/d167">
 
-            <ImageView
-                android:id="@+id/file_touying"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:src="@mipmap/file_yinying" />
 
-            <com.supers.clean.junk.customeview.FileRoundView
+            <com.supers.clean.junk.customeview.FileLineView
                 android:id="@+id/file_piechart"
                 android:layout_width="@dimen/d133"
-                android:layout_height="@dimen/d133"
+                android:layout_height="@dimen/d4"
                 android:layout_gravity="center" />
 
             <!--<com.github.mikephil.charting.charts.PieChart-->

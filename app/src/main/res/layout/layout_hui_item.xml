@@ -3,21 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/d3"
+    android:layout_marginBottom="@dimen/d6"
+    android:layout_marginLeft="@dimen/d10"
+    android:layout_marginRight="@dimen/d10"
+    android:layout_marginTop="@dimen/d6"
     android:orientation="vertical">
 
-    <ImageView
+    <com.supers.clean.junk.customeview.RoundImageView
         android:id="@+id/picture_icon"
-        android:layout_width="@dimen/d112"
-        android:layout_height="@dimen/d112" />
+        android:layout_width="@dimen/d90"
+        android:layout_height="@dimen/d90" />
 
     <ImageView
         android:id="@+id/picture_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/picture_normal" />
+        android:paddingRight="@dimen/d3"
+        android:paddingTop="@dimen/d3"
+        android:src="@mipmap/ram_normal" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -30,9 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="@dimen/d2"
         android:text="000"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/d12"
+        android:textColor="@color/A8"
+        android:textSize="@dimen/s11"
         app:typeface="eos_clean.otf" />
 </FrameLayout>

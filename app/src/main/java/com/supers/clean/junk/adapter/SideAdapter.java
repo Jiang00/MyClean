@@ -21,10 +21,12 @@ import com.my.module.charge.saver.Util.Constants;
 import com.my.module.charge.saver.Util.Utils;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
+import com.supers.clean.junk.activity.CoolingActivity;
 import com.supers.clean.junk.activity.FileActivity;
 import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.activity.JunkActivity;
 import com.supers.clean.junk.activity.ManagerActivity;
+import com.supers.clean.junk.activity.MessageActivity;
 import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.NotifiInfoActivity;
 import com.supers.clean.junk.activity.PictureActivity;
@@ -44,13 +46,14 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static final int FLOAT = idx++;
     private static final int JUNK = idx++;
     private static final int RAM = idx++;
-    private static final int MANAGER = idx++;
-    private static final int FILE = idx++;
     private static final int POWER = idx++;
-    //    private static final int PRIVARY = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
+    private static final int FILE = idx++;
+    private static final int BATTERY_COOLING = idx++;
+    private static final int MANAGER = idx++;
     private static final int GBOOST = idx++;
+    private static final int MESSAGE = idx++;
     private static final int SETTING = idx++;
     private static final int ROTATE = idx++;
 
@@ -105,22 +108,41 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            if (position == NOTIFI) {
-                holder.rl_item.setVisibility(View.GONE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(0, 1);
-                convertView.setLayoutParams(param);
-            } else {
-                holder.rl_item.setVisibility(View.VISIBLE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
-                convertView.setLayoutParams(param);
-            }
+            guan(position, NOTIFI, holder, convertView);
         }
-        if (position == JUNK || position == SETTING) {
+        if (PreData.getDB(context, Constant.NOTIFI_KAIGUAN, 1) == 0) {
+            guan(position, NOTIFI, holder, convertView);
+        }
+        if (PreData.getDB(context, Constant.DEEP_KAIGUAN, 1) == 0) {
+            guan(position, POWER, holder, convertView);
+        }
+        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) == 0) {
+            guan(position, FILE, holder, convertView);
+        }
+        if (PreData.getDB(context, Constant.GBOOST_KAIGUAN, 1) == 0) {
+            guan(position, GBOOST, holder, convertView);
+        }
+        if (PreData.getDB(context, Constant.PICTURE_KAIGUAN, 1) == 0) {
+            guan(position, PICTURE, holder, convertView);
+        }
+        if (position == JUNK || position == FILE || position == MESSAGE) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);
         }
         return convertView;
+    }
+
+    private void guan(int position, int item, ViewHolder holder, View convertView) {
+        if (position == item) {
+            holder.rl_item.setVisibility(View.GONE);
+            AbsListView.LayoutParams param = new AbsListView.LayoutParams(0, 1);
+            convertView.setLayoutParams(param);
+        } else {
+            holder.rl_item.setVisibility(View.VISIBLE);
+            AbsListView.LayoutParams param = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
+            convertView.setLayoutParams(param);
+        }
     }
 
     private void onC(int position) {
@@ -152,13 +174,15 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             AdUtil.track("侧边栏", "点击进入ram页面", "", 1);
             Intent intent3 = new Intent(context, RamAvtivity.class);
             ((Activity) context).startActivityForResult(intent3, 1);
+        } else if (position == BATTERY_COOLING) {
+            AdUtil.track("侧边栏", "点击进入电池降温", "", 1);
+            Intent intent = new Intent(context, CoolingActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == MANAGER) {
             AdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
             Intent intent4 = new Intent(context, ManagerActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
-//            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-//            ((Activity) context).startActivityForResult(intent, 1);
             AdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
             PreData.putDB(context, Constant.FILE_CLEAN, true);
             Intent intent5 = new Intent(context, FileActivity.class);
@@ -171,9 +195,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == NOTIFI) {
             AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
-            if (!Util.isNotificationListenEnabled(context)) {
-                ((Activity) context).startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-            } else if (!PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
+            if (!Util.isNotificationListenEnabled(context) || !PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
                 Intent intent6 = new Intent(context, NotifiInfoActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
             } else {
@@ -189,6 +211,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, Constant.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, GBoostActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
+        } else if (position == MESSAGE) {
+            AdUtil.track("侧边栏", "点击进入硬件信息", "", 1);
+            Intent intent = new Intent(context, MessageActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {
             AdUtil.track("侧边栏", "点击进入设置页面", "", 1);

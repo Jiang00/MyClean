@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.clean.notification.NotificationInfo;
@@ -32,6 +33,8 @@ public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
             holder = new ViewHolder();
             holder.frameLayout = (FrameLayout) convertView
                     .findViewById(R.id.fl);
+            holder.rl_sys = (RelativeLayout) convertView
+                    .findViewById(R.id.sys);
             holder.icon = (ImageView) convertView
                     .findViewById(R.id.iv_le);
             holder.notifi_title = (TextView) convertView
@@ -53,10 +56,12 @@ public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
             holder.time.setText(Util.getStrTime2(info.time));
             holder.frameLayout.removeAllViews();
             holder.frameLayout.setVisibility(View.GONE);
+            holder.rl_sys.setVisibility(View.VISIBLE);
         } else if (info.remoteViews != null) {
             View view = info.remoteViews.apply(context, holder.frameLayout);
             holder.frameLayout.addView(view);
             holder.frameLayout.setVisibility(View.VISIBLE);
+            holder.rl_sys.setVisibility(View.GONE);
         }
         Log.e("adapter", info.pkg + "=" + info.title);
         return convertView;
@@ -65,6 +70,7 @@ public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
 
     public class ViewHolder {
         FrameLayout frameLayout;
+        RelativeLayout rl_sys;
         ImageView icon;
         TextView notifi_title;
         TextView notifi_text;

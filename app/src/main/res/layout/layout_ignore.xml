@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/A8"
+    android:background="@color/A10"
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,27 +25,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <LinearLayout
             android:id="@+id/white_wu"
-            app:typeface="eos_clean.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/d16"
-            android:layout_marginRight="@dimen/d16"
-            android:gravity="center"
-            android:text="@string/white_wu"
-            android:textColor="#bfbfbf"
-            android:textSize="@dimen/s21"
-            android:visibility="invisible" />
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/no_photo" />
+
+            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginRight="@dimen/d16"
+                android:layout_marginTop="@dimen/d24"
+                android:text="@string/white_wu"
+                android:textColor="@color/B8"
+                android:textSize="@dimen/s17"
+                app:typeface="eos_clean.otf" />
+        </LinearLayout>
+
 
         <ListView
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/A8"
+            android:layout_margin="@dimen/d7"
+            android:background="@drawable/shape_ad"
             android:divider="@drawable/list_divider"
-            android:dividerHeight="1px" />
+            android:dividerHeight="0px"
+            android:elevation="@dimen/d2"
+            android:scrollbars="none" />
     </FrameLayout>
 
 </LinearLayout>
