@@ -20,34 +20,6 @@
             android:layout_height="10dp" />
 
         <include layout="@layout/layout_title" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d95"
-            android:orientation="vertical">
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/message_model"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:layout_marginTop="@dimen/d27"
-                android:text="Sanxign"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s24"
-                app:typeface="eos_clean.otf" />
-
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/message_android_version"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Android"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s16"
-                app:typeface="eos_clean.otf" />
-
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -82,18 +54,27 @@
                 android:elevation="@dimen/d2"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/d33"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:gravity="center_vertical"
+                    android:text="@string/message_start"
+                    android:textColor="@color/A5"
+                    android:textSize="@dimen/s11" />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
+                    android:layout_height="@dimen/d33"
                     android:gravity="center_vertical">
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
+                        android:layout_marginLeft="@dimen/d8"
                         android:text="@string/message_brand"
                         android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
+                        android:textSize="@dimen/s13"
                         app:typeface="eos_clean.otf" />
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -101,206 +82,79 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="sun"
-                        android:textColor="@color/B2"
+                        android:layout_marginRight="@dimen/d8"
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s11"
                         app:typeface="eos_clean.otf" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
+                    android:layout_height="@dimen/d33"
                     android:gravity="center_vertical">
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:text="@string/message_boot_time"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginStart="18dp"
+                        android:text="@string/message_model"
                         android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
+                        android:textSize="@dimen/s13"
                         app:typeface="eos_clean.otf" />
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/message_system_start_time"
+                        android:id="@+id/message_model"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="sun"
-                        android:textColor="@color/B2"
+                        android:layout_marginRight="@dimen/d8"
+
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s11"
                         app:typeface="eos_clean.otf" />
                 </RelativeLayout>
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
+                    android:layout_height="@dimen/d33"
                     android:gravity="center_vertical">
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:text="@string/message_boot_time2"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:text="@string/message_cpu"
                         android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
+                        android:textSize="@dimen/s13"
                         app:typeface="eos_clean.otf" />
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/message_system_start_time2"
+                        android:id="@+id/message_cpu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="sun"
-                        android:textColor="@color/B2"
+                        android:layout_marginRight="@dimen/d8"
+
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s11"
                         app:typeface="eos_clean.otf" />
                 </RelativeLayout>
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
+                    android:layout_height="@dimen/d33"
                     android:gravity="center_vertical">
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:text="@string/message_isRoot"
-                        android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
-                        app:typeface="eos_clean.otf" />
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/message_isRoot"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="Y"
-                        android:textColor="@color/B2"
-                        app:typeface="eos_clean.otf" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
-                    android:gravity="center_vertical">
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:text="@string/message_fenbianlv"
-                        android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
-                        app:typeface="eos_clean.otf" />
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/message_resolution"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="sun"
-                        android:textColor="@color/B2"
-                        app:typeface="eos_clean.otf" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
-                    android:gravity="center_vertical">
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:text="@string/message_q_camera"
-                        android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
-                        app:typeface="eos_clean.otf" />
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/message_q_camera"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="sun"
-                        android:textColor="@color/B2"
-                        app:typeface="eos_clean.otf" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
-                    android:gravity="center_vertical">
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:text="@string/message_h_camera"
-                        android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
-                        app:typeface="eos_clean.otf" />
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/message_h_camera"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="sun"
-                        android:textColor="@color/B2"
-                        app:typeface="eos_clean.otf" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
-                    android:gravity="center_vertical">
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:text="@string/message_imei"
-                        android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
-                        app:typeface="eos_clean.otf" />
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/message_imei"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="sun"
-                        android:textColor="@color/B2"
-                        app:typeface="eos_clean.otf" />
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
-                    android:gravity="center_vertical">
-
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
+                        android:layout_marginLeft="@dimen/d8"
                         android:text="@string/message_ram"
                         android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
+                        android:textSize="@dimen/s13"
                         app:typeface="eos_clean.otf" />
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -308,25 +162,26 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="sun"
-                        android:textColor="@color/B2"
+                        android:layout_marginRight="@dimen/d8"
+
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s11"
                         app:typeface="eos_clean.otf" />
                 </RelativeLayout>
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/d32"
+                    android:layout_height="@dimen/d33"
                     android:gravity="center_vertical">
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d16"
+                        android:layout_marginLeft="@dimen/d8"
                         android:text="@string/message_sd"
                         android:textColor="@color/B2"
-                        android:textSize="@dimen/s12"
+                        android:textSize="@dimen/s13"
                         app:typeface="eos_clean.otf" />
 
                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -334,11 +189,255 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/d16"
-                        android:text="sun"
-                        android:textColor="@color/B2"
+                        android:layout_marginRight="@dimen/d8"
+
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s11"
                         app:typeface="eos_clean.otf" />
                 </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d33"
+                    android:gravity="center_vertical">
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:text="@string/message_version"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s13"
+                        app:typeface="eos_clean.otf" />
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/message_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d8"
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d33"
+                    android:gravity="center_vertical">
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:text="@string/message_q_camera"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s13"
+                        app:typeface="eos_clean.otf" />
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/message_q_camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d8"
+
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d33"
+                    android:gravity="center_vertical">
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:text="@string/message_h_camera"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s13"
+                        app:typeface="eos_clean.otf" />
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/message_h_camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d8"
+
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d33"
+                    android:gravity="center_vertical">
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:text="@string/message_fenbianlv"
+                        android:textColor="@color/B2"
+                        android:textSize="@dimen/s13"
+                        app:typeface="eos_clean.otf" />
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/message_resolution"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d8"
+
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/d7"
+                android:background="@drawable/shape_ad"
+                android:elevation="@dimen/d2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.supers.clean.junk.customeview.MessageRoundView
+                        android:id="@+id/message_r_sd"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d72"
+                        android:layout_marginTop="@dimen/d10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="@string/main_arc_sd"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s11" />
+
+                    <TextView
+                        android:id="@+id/message_text_sd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d6"
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s9" />
+
+                    <TextView
+                        android:id="@+id/message_button_sd"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d24"
+                        android:layout_marginBottom="@dimen/d10"
+                        android:layout_marginTop="@dimen/d6"
+                        android:background="@drawable/shape_a8"
+                        android:gravity="center"
+                        android:text="@string/main_arc_sd"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.supers.clean.junk.customeview.MessageRoundView
+                        android:id="@+id/message_r_ram"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d72"
+                        android:layout_marginTop="@dimen/d10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="@string/main_arc_ram"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s11" />
+
+                    <TextView
+                        android:id="@+id/message_text_ram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d6"
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s9" />
+
+                    <TextView
+                        android:id="@+id/message_button_ram"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d24"
+                        android:layout_marginBottom="@dimen/d10"
+                        android:layout_marginTop="@dimen/d6"
+                        android:background="@drawable/shape_a8"
+                        android:gravity="center"
+                        android:text="@string/main_arc_sd"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.supers.clean.junk.customeview.MessageRoundView
+                        android:id="@+id/message_r_cpu"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d72"
+                        android:layout_marginTop="@dimen/d10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="@string/main_arc_cpu"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s11" />
+
+                    <TextView
+                        android:id="@+id/message_text_cpu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d6"
+                        android:text="@string/message_hot"
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s9" />
+
+                    <TextView
+                        android:id="@+id/message_button_cpu"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d24"
+                        android:layout_marginBottom="@dimen/d10"
+                        android:layout_marginTop="@dimen/d6"
+                        android:background="@drawable/shape_a8"
+                        android:gravity="center"
+                        android:text="@string/main_arc_sd"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s12" />
+                </LinearLayout>
             </LinearLayout>
 
 

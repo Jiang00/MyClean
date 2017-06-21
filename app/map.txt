@@ -28089,10 +28089,9 @@ com.android.clean.util.Util -> com.android.clean.d.e:
     56:58:java.lang.String getStrTime2(long) -> b
     68:70:java.lang.String getStrTimeHH(long) -> c
     81:94:int millTransFate(long) -> d
-    98:111:java.lang.String millTransFate2(long) -> e
     116:127:java.lang.String convertStorage(long,boolean) -> a
-    136:149:java.lang.String convertStorageWifi(long) -> f
-    154:163:java.lang.String convertStorageDanwei(long) -> g
+    136:149:java.lang.String convertStorageWifi(long) -> e
+    154:163:java.lang.String convertStorageDanwei(long) -> f
     170:170:int dp2px(int) -> a
     195:200:boolean isThirdApp(android.content.pm.ApplicationInfo) -> a
     222:232:boolean isStartSelf(android.content.pm.PackageManager,java.lang.String) -> a
@@ -37580,7 +37579,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5312:14231:void <clinit>() -> <clinit>
+    5319:14238:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -38799,56 +38798,63 @@ com.supers.clean.junk.activity.MessageActivity -> com.supers.clean.junk.activity
     android.widget.TextView title_name -> b
     android.widget.TextView message_brand -> c
     android.widget.TextView message_model -> d
-    android.widget.TextView message_android_version -> e
-    android.widget.TextView message_system_start_time -> f
-    android.widget.TextView message_system_start_time2 -> g
-    android.widget.TextView message_isRoot -> h
-    android.widget.TextView message_resolution -> m
-    android.widget.TextView message_q_camera -> n
-    android.widget.TextView message_h_camera -> o
-    android.widget.TextView message_imei -> p
-    android.widget.TextView message_ram -> q
-    android.widget.TextView message_sd -> r
-    android.widget.LinearLayout ll_ad -> s
-    com.sample.lottie.LottieAnimationView lot_message -> t
-    android.telephony.TelephonyManager telManager -> u
-    java.lang.String TAG_MESSAGE -> v
-    android.os.Handler myHandler -> w
-    36:45:void <init>() -> <init>
-    50:66:void findId() -> a
-    70:136:void onCreate(android.os.Bundle) -> onCreate
-    139:149:void loadAd() -> d
-    152:158:void addAd() -> e
-    161:166:boolean isW() -> f
-    171:175:java.lang.String getResolution() -> b
-    183:187:java.lang.String getPhoneIMEI() -> c
-    193:198:void onResume() -> onResume
-    202:206:void onPause() -> onPause
-    36:36:boolean access$000(com.supers.clean.junk.activity.MessageActivity) -> a
+    android.widget.TextView message_version -> e
+    android.widget.TextView message_cpu -> f
+    android.widget.TextView message_resolution -> g
+    android.widget.TextView message_q_camera -> h
+    android.widget.TextView message_h_camera -> m
+    android.widget.TextView message_ram -> n
+    android.widget.TextView message_sd -> o
+    android.widget.LinearLayout ll_ad -> p
+    com.sample.lottie.LottieAnimationView lot_message -> q
+    com.supers.clean.junk.customeview.MessageRoundView message_r_sd -> r
+    com.supers.clean.junk.customeview.MessageRoundView message_r_ram -> s
+    com.supers.clean.junk.customeview.MessageRoundView message_r_cpu -> t
+    android.widget.TextView message_text_sd -> u
+    android.widget.TextView message_text_ram -> v
+    android.widget.TextView message_text_cpu -> w
+    android.telephony.TelephonyManager telManager -> x
+    java.lang.String TAG_MESSAGE -> y
+    android.os.Handler myHandler -> z
+    40:51:void <init>() -> <init>
+    56:75:void findId() -> a
+    79:153:void onCreate(android.os.Bundle) -> onCreate
+    156:166:void loadAd() -> d
+    169:175:void addAd() -> e
+    178:183:boolean isW() -> f
+    188:192:java.lang.String getResolution() -> b
+    207:212:int getPhoneCpuNumber() -> c
+    218:223:void onResume() -> onResume
+    227:231:void onPause() -> onPause
+    40:40:boolean access$000(com.supers.clean.junk.activity.MessageActivity) -> a
 com.supers.clean.junk.activity.MessageActivity$1 -> com.supers.clean.junk.activity.MessageActivity$1:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    75:75:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    78:79:void onClick(android.view.View) -> onClick
+    84:84:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    87:88:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.MessageActivity$1CpuFilter -> com.supers.clean.junk.activity.MessageActivity$a:
+    com.supers.clean.junk.activity.MessageActivity this$0 -> a
+    198:198:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    200:203:boolean accept(java.io.File) -> accept
 com.supers.clean.junk.activity.MessageActivity$2 -> com.supers.clean.junk.activity.MessageActivity$2:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    96:96:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    99:126:void run() -> run
+    101:101:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    104:131:void run() -> run
 com.supers.clean.junk.activity.MessageActivity$2$1 -> com.supers.clean.junk.activity.MessageActivity$2$1:
     double val$q_w -> a
     double val$h_w -> b
     com.supers.clean.junk.activity.MessageActivity$2 this$1 -> c
-    106:106:void <init>(com.supers.clean.junk.activity.MessageActivity$2,double,double) -> <init>
-    109:111:void run() -> run
+    111:111:void <init>(com.supers.clean.junk.activity.MessageActivity$2,double,double) -> <init>
+    114:116:void run() -> run
 com.supers.clean.junk.activity.MessageActivity$2$2 -> com.supers.clean.junk.activity.MessageActivity$2$2:
     java.lang.String val$q -> a
     java.lang.String val$h -> b
     com.supers.clean.junk.activity.MessageActivity$2 this$1 -> c
-    117:117:void <init>(com.supers.clean.junk.activity.MessageActivity$2,java.lang.String,java.lang.String) -> <init>
-    120:122:void run() -> run
+    122:122:void <init>(com.supers.clean.junk.activity.MessageActivity$2,java.lang.String,java.lang.String) -> <init>
+    125:127:void run() -> run
 com.supers.clean.junk.activity.MessageActivity$3 -> com.supers.clean.junk.activity.MessageActivity$3:
     com.supers.clean.junk.activity.MessageActivity this$0 -> a
-    140:140:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
-    143:144:void run() -> run
+    157:157:void <init>(com.supers.clean.junk.activity.MessageActivity) -> <init>
+    160:161:void run() -> run
 com.supers.clean.junk.activity.MyApplication -> com.supers.clean.junk.activity.MyApplication:
     android.app.ActivityManager am -> a
     android.os.HandlerThread mThread -> b
@@ -40591,6 +40597,26 @@ com.supers.clean.junk.customeview.MainScrollView$1 -> com.supers.clean.junk.cust
     com.supers.clean.junk.customeview.MainScrollView this$0 -> a
     35:35:void <init>(com.supers.clean.junk.customeview.MainScrollView) -> <init>
     38:43:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+com.supers.clean.junk.customeview.MessageRoundView -> com.supers.clean.junk.customeview.MessageRoundView:
+    android.content.Context context -> c
+    android.graphics.Paint circlePoint -> d
+    android.graphics.Paint backgPoint -> e
+    android.graphics.Paint textPaint -> f
+    java.lang.String text -> g
+    float lineWidth -> a
+    int size -> b
+    int progress -> h
+    com.supers.clean.junk.customeview.MessageRoundView$CustomRoundListener customRoundListener -> i
+    37:38:void <init>(android.content.Context) -> <init>
+    41:42:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    29:48:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    52:53:void setLayerType(int,android.graphics.Paint) -> setLayerType
+    56:73:void init() -> a
+    78:83:void onMeasure(int,int) -> onMeasure
+    87:107:void onDraw(android.graphics.Canvas) -> onDraw
+    132:134:void setProgress(int) -> setProgress
+    137:139:void setCustomRoundListener(com.supers.clean.junk.customeview.MessageRoundView$CustomRoundListener) -> setCustomRoundListener
+com.supers.clean.junk.customeview.MessageRoundView$CustomRoundListener -> com.supers.clean.junk.customeview.MessageRoundView$a:
 com.supers.clean.junk.customeview.MyGridLayoutManager -> com.supers.clean.junk.customeview.MyGridLayoutManager:
     boolean isScrollEnabled -> a
     12:16:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
