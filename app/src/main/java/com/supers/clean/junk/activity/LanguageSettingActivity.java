@@ -1,6 +1,5 @@
 package com.supers.clean.junk.activity;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
