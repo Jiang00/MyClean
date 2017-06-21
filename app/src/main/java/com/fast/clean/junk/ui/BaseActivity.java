@@ -16,7 +16,6 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.fast.clean.mutil.PreData;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.Constant;
 
@@ -91,9 +90,6 @@ public class BaseActivity extends AppCompatActivity {
         return result;
     }
 
-    public void tuiGuang() {
-        extraData = AndroidSdk.getExtraData();
-    }
 
 
     public void jumpToActivity(Class<?> classs, Bundle bundle) {

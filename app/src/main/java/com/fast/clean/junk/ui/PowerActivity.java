@@ -28,7 +28,6 @@ import com.fast.clean.deepclean.MyAccessibilityService;
 import com.fast.clean.mutil.LoadManager;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.myview.PowerWidgetContainer;
 import com.fast.clean.entity.JunkInfo;
@@ -74,7 +73,6 @@ public class PowerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         mHandler = new Handler();
         startService(new Intent(this, MyAccessibilityService.class).putExtra("isDis", false));
         initData();

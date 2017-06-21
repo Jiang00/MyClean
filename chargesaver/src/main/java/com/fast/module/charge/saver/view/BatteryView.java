@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.client.AndroidSdk;
 import com.fast.module.charge.saver.ADActivity;
 import com.fast.module.charge.saver.R;
 import com.fast.module.charge.saver.Util.ADRequest;
@@ -389,7 +388,7 @@ public class BatteryView extends FrameLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         try {
-            JSONObject object = new JSONObject(AndroidSdk.getExtraData());
+            JSONObject object = new JSONObject("");
             int state = analysisJson(object);
             if (state == 1) {
                 mContext.startActivity(new Intent(mContext, ADActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));

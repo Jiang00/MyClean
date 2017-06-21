@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.RamAdapter;
 import com.fast.clean.entity.JunkInfo;
@@ -70,7 +69,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
         ramPresenter.init();
@@ -78,7 +77,6 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
         title_right.setVisibility(View.VISIBLE);
 
     }
-
 
 
     @Override
@@ -96,6 +94,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
 
         ramPresenter.addAdapterData();
     }
+
     @Override
     public void loadFullAd() {
     }
@@ -106,6 +105,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
         junk_button_clean.setOnClickListener(onClickListener);
         title_right.setOnClickListener(onClickListener);
     }
+
     @Override
     public void setColor(int memory, final long allSize) {
         new Thread(new Runnable() {
@@ -292,7 +292,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onResumeWithoutTransition(this);
+//        AndroidSdk.onResumeWithoutTransition(this);
     }
 
     @Override

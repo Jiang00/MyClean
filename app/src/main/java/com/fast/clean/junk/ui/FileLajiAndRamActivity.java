@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
@@ -101,7 +100,7 @@ public class FileLajiAndRamActivity extends BaseActivity implements JunkRamView 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         myHandler = new Handler();
         junkPresenter = new JunkRamPresenter(this, this);
         junkPresenter.init();
@@ -685,7 +684,7 @@ public class FileLajiAndRamActivity extends BaseActivity implements JunkRamView 
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onResumeWithoutTransition(this);
+//        AndroidSdk.onResumeWithoutTransition(this);
     }
 
     @Override

@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.myview.FlakeView;
@@ -67,7 +66,7 @@ public class CpuCoolingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +89,7 @@ public class CpuCoolingActivity extends BaseActivity {
                 cooling_fl.setVisibility(View.INVISIBLE);
                 cooling_xuehua.clearAnimation();
                 if (PreData.getDB(CpuCoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
                 Bundle bundle = new Bundle();
                 bundle.putInt("wendu", time);

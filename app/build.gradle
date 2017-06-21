@@ -4,7 +4,7 @@ android {
     compileSdkVersion COMPILE_SDK_VERSION as int
     buildToolsVersion BUILD_TOOLS_VERSION
     defaultConfig {
-        applicationId "com.acht.cleaner"
+        applicationId "com.achtapps.boost.clean.fast.cleaner"
         minSdkVersion MIN_SDK_VERSION as int
         targetSdkVersion TARGET_SDK_VERSION as int
         versionCode VERSION_CODE as int
@@ -208,7 +208,7 @@ dependencies {
     compile project(path: ':tweenengine')
     compile project(path: ':chargesaver')
     compile project(path: ':baselibrary')
-    compile 'com.core:empty:1.2.7'
+//    compile 'com.core:empty:1.2.7'
 //    compile files('libs/gson-2.2.3.jar')
     compile project(':clean')
     compile 'com.achtapps:keepalive:1.0.6'
@@ -217,4 +217,6 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+    compile 'com.google.android.gms:play-services-ads:10.2.4'
 }

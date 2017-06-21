@@ -68,7 +68,7 @@ public class MyScrollView extends NestedScrollView implements Pullable {
     }
 
     public boolean canPullDown() {
-        if (SadSuccess) {
+        if (true) {
             return false;
         }
         if (getScrollY() == 0)
@@ -90,7 +90,7 @@ public class MyScrollView extends NestedScrollView implements Pullable {
     }
 
     public boolean canPullUp() {
-        if (XadSuccess) {
+        if (true) {
             return false;
         }
         if (getScrollY() >= (getChildAt(0).getHeight() - getMeasuredHeight()))

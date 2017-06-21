@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
@@ -58,7 +57,7 @@ public class LoadingActivity extends BaseActivity {
         @Override
         public void run() {
             try {
-                JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
+                JSONObject jsonObject = new JSONObject("");
                 if (jsonObject.has("full_main")) {
                     PreData.putDB(LoadingActivity.this, Constant.FULL_MAIN, jsonObject.getInt("full_main"));
                 }
@@ -127,7 +126,6 @@ public class LoadingActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onResumeWithoutTransition(this);
     }
 
     @Override

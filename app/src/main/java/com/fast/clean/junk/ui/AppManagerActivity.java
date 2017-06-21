@@ -30,7 +30,6 @@ import android.widget.TextView;
 import com.fast.clean.entity.JunkInfo;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.ManagerAdapter;
 import com.fast.clean.junk.presenter.ManagerPresenter;
@@ -97,7 +96,7 @@ public class AppManagerActivity extends BaseActivity implements AppManagerView {
     @Override
     public void loadFullAd() {
         if (PreData.getDB(this, Constant.FULL_MANAGER, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             nativeView1 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView2 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
@@ -363,7 +362,7 @@ public class AppManagerActivity extends BaseActivity implements AppManagerView {
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onResumeWithoutTransition(this);
+//        AndroidSdk.onResumeWithoutTransition(this);
 
     }
 

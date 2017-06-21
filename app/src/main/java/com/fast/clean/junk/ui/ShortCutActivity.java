@@ -25,7 +25,6 @@ import android.widget.TextView;
 
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.twee.module.tweenengine.Tween;
 import com.twee.module.tweenengine.TweenEquations;
 import com.twee.module.tweenengine.TweenManager;
@@ -244,7 +243,6 @@ public class ShortCutActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onResumeWithoutTransition(this);
         ObjectAnimator rotation = ObjectAnimator.ofFloat(short_b, "rotation", 0, 360);
         rotation.setDuration(1200);
         rotation.setInterpolator(new LinearInterpolator());

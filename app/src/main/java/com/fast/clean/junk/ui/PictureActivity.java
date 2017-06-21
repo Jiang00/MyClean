@@ -31,7 +31,6 @@ import com.fast.clean.xsimilarimage.ImageHelper;
 import com.fast.clean.xsimilarimage.ImageInfo;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.adapter.RecycleViewAdapter;
 import com.fast.clean.xsimilarimage.RecyclerDbHelper;
@@ -144,7 +143,7 @@ public class PictureActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_picture);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
         title_right.setImageResource(R.mipmap.picture_right);
@@ -165,7 +164,7 @@ public class PictureActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.PICTURE, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         }
     }
 

@@ -26,7 +26,6 @@ import com.fast.clean.core.CleanManager;
 import com.fast.clean.mutil.MemoryManager;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.CheckState;
@@ -110,7 +109,7 @@ public class FloatActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, 1000);
         } else {

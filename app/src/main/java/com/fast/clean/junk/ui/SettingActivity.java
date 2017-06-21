@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.fast.module.charge.saver.Util.Constants;
 import com.fast.module.charge.saver.Util.Utils;
 import com.fast.clean.junk.R;
@@ -85,7 +84,7 @@ public class SettingActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, 1000);
         } else {

@@ -23,7 +23,6 @@ import android.widget.TextView;
 import com.fast.clean.xsimilarimage.ImageHelper;
 import com.fast.clean.xsimilarimage.ImageInfo;
 import com.fast.clean.mutil.PreData;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.xsimilarimage.RecyclerDbHelper;
 import com.fast.clean.mutil.Util;
@@ -118,7 +117,7 @@ public class PictureHuiActivity extends BaseActivity {
 
     private void loadAd() {
         if (PreData.getDB(this, Constant.RECYCLEBIN, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             addAd();
         }

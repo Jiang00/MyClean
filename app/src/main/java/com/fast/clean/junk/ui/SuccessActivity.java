@@ -31,7 +31,6 @@ import com.fast.clean.entity.JunkInfo;
 import com.fast.clean.mutil.LoadManager;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.twee.module.tweenengine.Tween;
 import com.twee.module.tweenengine.TweenEquations;
 import com.twee.module.tweenengine.TweenManager;
@@ -129,6 +128,7 @@ public class SuccessActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_success);
         tweenManager = new TweenManager();
+
         Tween.registerAccessor(ImageView.class, new ImageAccessor());
         istween = true;
         setAnimationThread();
@@ -224,8 +224,9 @@ public class SuccessActivity extends BaseActivity {
 
             @Override
             public void duogouSc() {
-                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 1) == 1) {
+//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    AdUtil.showFull(SuccessActivity.this);
                 }
                 startSecondAnimation();
                 success_drawhook.setListener(null);
@@ -243,7 +244,7 @@ public class SuccessActivity extends BaseActivity {
         translate.setRepeatMode(Animation.REVERSE);
         success_jiantou.startAnimation(translate);
         shendu();
-        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
+        if (PreData.getDB(this, Constant.FULL_SUCCESS, 1) == 1) {
 
         } else {
             myHandler.postDelayed(new Runnable() {
@@ -639,7 +640,7 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onResumeWithoutTransition(this);
+//        AndroidSdk.onResumeWithoutTransition(this);
     }
 
     @Override

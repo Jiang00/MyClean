@@ -6,7 +6,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 
-import com.android.client.AndroidSdk;
 import com.fast.module.charge.saver.Util.ADRequest;
 
 public class ADActivity extends Activity {
@@ -16,7 +15,6 @@ public class ADActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        AndroidSdk.onCreate(this, new AndroidSdk.Builder());
         getWindow().getDecorView().setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -30,7 +28,6 @@ public class ADActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onResume(this);
         ADRequest.showFullAD();
     }
 }

@@ -19,7 +19,6 @@ import android.widget.TextView;
 import com.fast.clean.mutil.MemoryManager;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
 import com.sample.lottie.LottieAnimationView;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.AdUtil;
@@ -147,7 +146,7 @@ public class PhoneMessageActivity extends BaseActivity {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
             }, 1000);
         } else {
@@ -193,7 +192,7 @@ public class PhoneMessageActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onResumeWithoutTransition(this);
+//        AndroidSdk.onResumeWithoutTransition(this);
         if (lot_message != null) {
             lot_message.playAnimation();
         }

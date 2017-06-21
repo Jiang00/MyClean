@@ -8,11 +8,11 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 
 import com.fast.clean.core.CleanManager;
+import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.notification.MyNotificationMonitorService;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
 import com.achtapps.kpa.DaemonClient;
-import com.android.client.AndroidSdk;
 import com.fast.clean.junk.aservice.MyFloatService;
 import com.fast.module.charge.saver.Util.Constants;
 import com.fast.module.charge.saver.Util.Utils;
@@ -45,7 +45,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        AndroidSdk.onCreate(this);
+//        AndroidSdk.onCreate(this);
+        AdUtil.loadFull(this);
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/
