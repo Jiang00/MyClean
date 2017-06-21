@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    android:background="@color/A10"
     android:orientation="vertical">
 
 
@@ -31,36 +31,28 @@
             android:id="@+id/view_pager_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/A1"
-            app:tabIndicatorColor="@color/B5"
-            app:tabSelectedTextColor="@color/A8"
+            android:background="@color/A8"
+            android:elevation="@dimen/d2"
+            app:tabIndicatorColor="@color/A7"
+            app:tabSelectedTextColor="@color/A7"
             app:tabTextAppearance="@style/tablayout_textSize"
-            app:tabTextColor="@color/white_54" />
+            app:tabTextColor="@color/B5" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/doc_view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/view_pager_tab"
-            android:background="@color/A8" />
+            android:layout_below="@id/view_pager_tab" />
 
-        <RelativeLayout
-            android:id="@+id/manager_clean"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
+
+        <Button
+            android:id="@+id/junk_button_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d168"
-                android:layout_height="@dimen/d40"
-                android:textAllCaps="false"
-                android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/ram_button"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/s15" />
-        </RelativeLayout>
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_button"
+            android:visibility="gone" />
     </RelativeLayout>
 </LinearLayout>

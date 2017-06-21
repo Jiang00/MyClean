@@ -36,7 +36,7 @@ import java.util.Locale;
 public class MessageActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
+    TextView message_brand, message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
     LottieAnimationView lot_message;
@@ -61,6 +61,7 @@ public class MessageActivity extends BaseActivity {
         message_imei = (TextView) findViewById(R.id.message_imei);
         message_ram = (TextView) findViewById(R.id.message_ram);
         message_sd = (TextView) findViewById(R.id.message_sd);
+        message_brand = (TextView) findViewById(R.id.message_brand);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
@@ -79,7 +80,8 @@ public class MessageActivity extends BaseActivity {
         });
         telManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         message_model.setText(Build.MODEL);
-        message_android_version.setText("Android " + Build.VERSION.RELEASE);
+        message_brand.setText(Build.BRAND);
+        message_android_version.setText(Build.VERSION.RELEASE);
 
         long time = System.currentTimeMillis() - SystemClock.elapsedRealtime();
 
@@ -149,12 +151,8 @@ public class MessageActivity extends BaseActivity {
     private void addAd() {
         View nativeView = AdUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            if (nativeView.getHeight() == Util.dp2px(250)) {
-                layout_ad.height = Util.dp2px(250);
-            }
-            ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
+            ll_ad.setVisibility(View.VISIBLE);
         } else {
         }
     }

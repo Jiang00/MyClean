@@ -75,7 +75,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toLeftOf="@id/float_ram_free"
-                            android:text="@string/float_1"
+                            android:text="@string/float_2"
                             android:textColor="@color/A8"
                             android:textSize="@dimen/s11" />
                     </RelativeLayout>
@@ -111,7 +111,7 @@
                                 android:lines="1"
                                 android:text="@string/float_wifi"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s10"
+                                android:textSize="@dimen/s9"
                                 app:typeface="eos_clean.otf" />
                         </LinearLayout>
 
@@ -139,7 +139,7 @@
                                 android:lines="1"
                                 android:text="@string/float_liuliang"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s10"
+                                android:textSize="@dimen/s9"
                                 app:typeface="eos_clean.otf" />
                         </LinearLayout>
 
@@ -167,7 +167,7 @@
                                 android:lines="1"
                                 android:text="@string/float_liangdu"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s10"
+                                android:textSize="@dimen/s9"
                                 app:typeface="eos_clean.otf" />
                         </LinearLayout>
 
@@ -195,7 +195,7 @@
                                 android:lines="1"
                                 android:text="@string/float_shengyin"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s10"
+                                android:textSize="@dimen/s9"
                                 app:typeface="eos_clean.otf" />
                         </LinearLayout>
 
@@ -223,7 +223,7 @@
                                 android:lines="1"
                                 android:text="@string/float_gps"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s10"
+                                android:textSize="@dimen/s9"
                                 app:typeface="eos_clean.otf" />
                         </LinearLayout>
 
@@ -233,72 +233,32 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:visibility="gone">
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="visible">
+
 
                     <ImageView
-                        android:layout_width="@dimen/d100"
-                        android:layout_height="@dimen/d100"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/shape_ffffff_round" />
-
-                    <ImageView
-                        android:id="@+id/float_cricle"
-                        android:layout_width="@dimen/d100"
-                        android:layout_height="@dimen/d100"
+                        android:layout_width="@dimen/d59"
+                        android:layout_height="@dimen/d59"
                         android:layout_centerHorizontal="true"
                         android:src="@mipmap/float_dialog_2" />
 
-                    <ImageView
+                    <com.supers.clean.junk.customeview.FloatRound
                         android:id="@+id/float_rotate"
-                        android:layout_width="@dimen/d100"
-                        android:layout_height="@dimen/d100"
-                        android:layout_centerHorizontal="true"
-                        android:src="@mipmap/float_dialog_3" />
+                        android:layout_width="@dimen/d56"
+                        android:layout_height="@dimen/d56"
+                        android:layout_centerInParent="true" />
 
-                    <LinearLayout
+
+                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/float_tishi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:id="@+id/rl_memory"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center">
-
-                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                android:id="@+id/float_memory"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="77"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s30"
-                                app:typeface="eos_clean.otf" />
-
-                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_toRightOf="@id/float_memory"
-                                android:text="%"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s13"
-                                app:typeface="eos_clean.otf" />
-                        </RelativeLayout>
-
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/float_tishi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/float_memory"
-                            android:layout_gravity="center"
-                            android:text="@string/float_jiasu"
-                            android:textColor="@color/A1"
-                            android:textSize="@dimen/s11"
-                            app:typeface="eos_clean.otf" />
-                    </LinearLayout>
+                        android:text="@string/float_jiasu"
+                        android:textColor="@color/A8"
+                        android:textSize="@dimen/s11"
+                        app:typeface="eos_clean.otf" />
 
 
                 </RelativeLayout>
@@ -310,7 +270,8 @@
                 android:id="@+id/ll_ad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/A1"
+                android:layout_marginTop="@dimen/d5"
+                android:background="@drawable/shape_float_3"
                 android:orientation="vertical">
 
             </LinearLayout>

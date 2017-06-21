@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -30,6 +31,7 @@ import com.android.clean.core.CleanManager;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.HorizontalListViewAdapter;
+import com.supers.clean.junk.customeview.FloatRound;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.CheckState;
@@ -50,15 +52,14 @@ public class FloatActivity extends BaseActivity {
     LinearLayout ll_ad;
     LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
-    ImageView float_cricle, float_rotate;
-    TextView float_memory, float_tishi;
-    RelativeLayout rl_memory;
+    FloatRound float_rotate;
+    TextView float_tishi;
     TextView float_ram_free, float_ram_use;
 
     private View nativeView;
     private Handler myHandler;
     private String TAG_FLAOT = "eos_float";
-    private Animation rotate, suo, fang;
+    private Animation suo, fang;
 
     @Override
     protected void findId() {
@@ -74,10 +75,7 @@ public class FloatActivity extends BaseActivity {
         iv_xianshi = (ImageView) findViewById(R.id.iv_xianshi);
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
-        float_cricle = (ImageView) findViewById(R.id.float_cricle);
-        float_rotate = (ImageView) findViewById(R.id.float_rotate);
-        float_memory = (TextView) findViewById(R.id.float_memory);
-        rl_memory = (RelativeLayout) findViewById(R.id.rl_memory);
+        float_rotate = (FloatRound) findViewById(R.id.float_rotate);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
         float_ram_free = (TextView) findViewById(R.id.float_ram_free);
         float_ram_use = (TextView) findViewById(R.id.float_ram_use);
@@ -88,10 +86,8 @@ public class FloatActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_float);
         myHandler = new Handler();
-        rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
-        float_rotate.startAnimation(rotate);
         loadAd();
         initSize();
         wifi();
@@ -122,11 +118,11 @@ public class FloatActivity extends BaseActivity {
     }
 
     private void initSize() {
-        float_memory.setText(Util.getMemory(this) + "");
         long size_all = MemoryManager.getPhoneTotalRamMemory();
         long kong = getAvailMemory((ActivityManager) getSystemService(Context.ACTIVITY_SERVICE));
         float_ram_free.setText(Util.convertStorage(kong, true));
-        float_ram_use.setText(Util.convertStorage(size_all = kong, true));
+        float_ram_use.setText(Util.convertStorage(size_all - kong, true));
+        float_rotate.setProgress(Util.getMemory(this));
     }
 
     private void addListener() {
@@ -180,6 +176,7 @@ public class FloatActivity extends BaseActivity {
                     }
                     break;
                 case R.id.float_rotate:
+                    float_rotate.setOnClickListener(null);
                     startCleanAnimation();
                     break;
             }
@@ -194,34 +191,26 @@ public class FloatActivity extends BaseActivity {
             }
         }).start();
         CleanManager.getInstance(this).clearRam();
-
-        float_cricle.setVisibility(View.INVISIBLE);
-        float_tishi.setVisibility(View.INVISIBLE);
-        rl_memory.startAnimation(suo);
+        float_rotate.setCustomRoundListener(new FloatRound.CustomRoundListener() {
+            @Override
+            public void progressUpdate() {
+                float_rotate.startProgress2(Util.getMemory(FloatActivity.this));
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        initSize();
+                    }
+                });
+            }
+        });
+        float_rotate.startProgress1();
+        float_tishi.startAnimation(suo);
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
-                float_memory.setText(Util.getMemory(FloatActivity.this) + "");
                 float_tishi.setText(R.string.float_yijiasu);
-                float_tishi.setVisibility(View.VISIBLE);
-
-                rl_memory.startAnimation(fang);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-        });
-        fang.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                float_cricle.setVisibility(View.VISIBLE);
+                float_tishi.startAnimation(fang);
+                initSize();
             }
 
             @Override
@@ -264,42 +253,34 @@ public class FloatActivity extends BaseActivity {
     }
 
     private void wifi() {
-        Drawable d = iv_wifi.getDrawable();
-        BitmapDrawable bitmap = (BitmapDrawable) d;
         if (CheckState.wifiState(this)) {
-            bitmap.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
         } else {
-            bitmap.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
         }
     }
 
     private void wifiD() {
-        Drawable d = iv_wifi.getDrawable();
-        BitmapDrawable bitmap = (BitmapDrawable) d;
         if (!CheckState.wifiState(this)) {
-            bitmap.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
         } else {
-            bitmap.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_wifi.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
         }
     }
 
     private void liuLiang() {
-        Drawable d = iv_liuliang.getDrawable();
-        BitmapDrawable bitmap = (BitmapDrawable) d;
         if (CheckState.networkState(this, null)) {
-            bitmap.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
         } else {
-            bitmap.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
         }
     }
 
     private void liuLiangd() {
-        Drawable d = iv_liuliang.getDrawable();
-        BitmapDrawable bitmap = (BitmapDrawable) d;
         if (!CheckState.networkState(this, null)) {
-            bitmap.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
         } else {
-            bitmap.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_liuliang.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
         }
     }
 
@@ -314,44 +295,43 @@ public class FloatActivity extends BaseActivity {
         } else if (light == LIGHT_100_PERCENT) {
             //高
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_100);
-        } else if (light == 0) {
+        } else if (light == -1) {
             //自动
             iv_xianshi.setImageResource(R.mipmap.float_liangdu_zidong);
         }
     }
 
     private void shengYin() {
-        Drawable d = iv_shengyin.getDrawable();
-        BitmapDrawable bitmap = (BitmapDrawable) d;
         if (CheckState.soundState(this)) {
-            bitmap.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_shengyin.setColorFilter(ContextCompat.getColor(this, R.color.float_kaiguan));
         } else {
-            bitmap.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_shengyin.setColorFilter(null);
         }
     }
 
     private void gps() {
-        Drawable d = iv_gps.getDrawable();
-        BitmapDrawable bitmap = (BitmapDrawable) d;
         if (CheckState.gpsState(this)) {
-            bitmap.setColorFilter(getResources().getColor(R.color.float_kaiguan), PorterDuff.Mode.SRC_ATOP);
+            iv_gps.setColorFilter(getResources().getColor(R.color.float_kaiguan));
         } else {
-            bitmap.setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
+            iv_gps.setColorFilter(null);
         }
     }
 
     private int getLight() {
         int light = 0;
         ContentResolver cr = this.getContentResolver();
+        boolean auto = false;
         try {
-            boolean auto = Settings.System.getInt(cr,
+            auto = Settings.System.getInt(cr,
                     Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
             light = android.provider.Settings.System.getInt(cr,
                     Settings.System.SCREEN_BRIGHTNESS, -1);
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
-
+        if (auto) {
+            return -1;
+        }
         return light;
     }
 

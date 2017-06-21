@@ -52,7 +52,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
     Button junk_button_clean;
     LinearLayout ll_ad_size, ll_ad_time, ll_ad_pinlv;
     TextView manager_shouquan;
-    RelativeLayout manager_clean;
     ViewPager doc_view_pager;
     TabLayout view_pager_tab;
 
@@ -75,7 +74,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
-        manager_clean = (RelativeLayout) findViewById(R.id.manager_clean);
         view_pager_tab = (TabLayout) findViewById(R.id.view_pager_tab);
         doc_view_pager = (ViewPager) findViewById(R.id.doc_view_pager);
     }
@@ -106,12 +104,14 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
                 ViewGroup.LayoutParams layout_ad = ll_ad_size.getLayoutParams();
                 ll_ad_size.setLayoutParams(layout_ad);
                 ll_ad_size.addView(nativeView1);
+                ll_ad_size.setVisibility(View.VISIBLE);
             } else {
             }
             if (ll_ad_time != null && nativeView2 != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_time.getLayoutParams();
                 ll_ad_time.setLayoutParams(layout_ad);
                 ll_ad_time.addView(nativeView2);
+                ll_ad_time.setVisibility(View.VISIBLE);
             } else {
             }
 
@@ -164,14 +164,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
 
             @Override
             public void onPageSelected(int position) {
-                if (position == 0) {
-//                    adapter_size.notifyDataSetChanged();
-                } else if (position == 1) {
-//                    adapter_time.notifyDataSetChanged();
-                } else {
-//                    adapter_pinlv.notifyDataSetChanged();
-
-                }
             }
 
             @Override
@@ -180,7 +172,6 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
             }
         });
 
-//        managerPresenter.addAdapterData();
         String fileSize = Util.convertStorage(cleanSize, true);
         if (TextUtils.isEmpty(fileSize)) {
             junk_button_clean.setText(getResources().getText(R.string.manager_button));
@@ -287,10 +278,10 @@ public class ManagerActivity extends BaseActivity implements AppManagerView {
         String fileSize = Util.convertStorage(size, true);
         if (TextUtils.isEmpty(fileSize)) {
             junk_button_clean.setText(getResources().getText(R.string.manager_button));
-            manager_clean.setVisibility(View.GONE);
+            junk_button_clean.setVisibility(View.GONE);
         } else {
             junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
-            manager_clean.setVisibility(View.VISIBLE);
+            junk_button_clean.setVisibility(View.VISIBLE);
         }
         adapter_size.notifyDataSetChanged();
         adapter_time.notifyDataSetChanged();

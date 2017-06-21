@@ -39358,6 +39358,7 @@ com.supers.clean.junk.R$dimen: int d5
 com.supers.clean.junk.R$dimen: int d50
 com.supers.clean.junk.R$dimen: int d53
 com.supers.clean.junk.R$dimen: int d56
+com.supers.clean.junk.R$dimen: int d59
 com.supers.clean.junk.R$dimen: int d6
 com.supers.clean.junk.R$dimen: int d61
 com.supers.clean.junk.R$dimen: int d65
@@ -39592,6 +39593,9 @@ com.supers.clean.junk.R$drawable: int shape_dian_zip
 com.supers.clean.junk.R$drawable: int shape_ffffff_25
 com.supers.clean.junk.R$drawable: int shape_ffffff_b
 com.supers.clean.junk.R$drawable: int shape_ffffff_round
+com.supers.clean.junk.R$drawable: int shape_float_1
+com.supers.clean.junk.R$drawable: int shape_float_2
+com.supers.clean.junk.R$drawable: int shape_float_3
 com.supers.clean.junk.R$drawable: int shape_green_ad
 com.supers.clean.junk.R$drawable: int shape_huan
 com.supers.clean.junk.R$drawable: int shape_invisible
@@ -39799,8 +39803,8 @@ com.supers.clean.junk.R$id: int fill_vertical
 com.supers.clean.junk.R$id: int fixed
 com.supers.clean.junk.R$id: int fl
 com.supers.clean.junk.R$id: int fl_progress
-com.supers.clean.junk.R$id: int float_cricle
-com.supers.clean.junk.R$id: int float_memory
+com.supers.clean.junk.R$id: int float_ram_free
+com.supers.clean.junk.R$id: int float_ram_use
 com.supers.clean.junk.R$id: int float_rotate
 com.supers.clean.junk.R$id: int float_tishi
 com.supers.clean.junk.R$id: int gboost_clean_button
@@ -39816,7 +39820,6 @@ com.supers.clean.junk.R$id: int goost_container
 com.supers.clean.junk.R$id: int home
 com.supers.clean.junk.R$id: int homeAsUp
 com.supers.clean.junk.R$id: int horizontal
-com.supers.clean.junk.R$id: int horizontal_listview
 com.supers.clean.junk.R$id: int hui_never
 com.supers.clean.junk.R$id: int icon
 com.supers.clean.junk.R$id: int icon_1
@@ -39952,12 +39955,12 @@ com.supers.clean.junk.R$id: int main_scroll_view
 com.supers.clean.junk.R$id: int main_sd_air_button
 com.supers.clean.junk.R$id: int main_sd_per
 com.supers.clean.junk.R$id: int main_sd_size
-com.supers.clean.junk.R$id: int manager_clean
 com.supers.clean.junk.R$id: int manager_permision
 com.supers.clean.junk.R$id: int manager_shouquan
 com.supers.clean.junk.R$id: int media_actions
 com.supers.clean.junk.R$id: int message
 com.supers.clean.junk.R$id: int message_android_version
+com.supers.clean.junk.R$id: int message_brand
 com.supers.clean.junk.R$id: int message_h_camera
 com.supers.clean.junk.R$id: int message_imei
 com.supers.clean.junk.R$id: int message_isRoot
@@ -40067,7 +40070,6 @@ com.supers.clean.junk.R$id: int recycle_time
 com.supers.clean.junk.R$id: int right
 com.supers.clean.junk.R$id: int rl
 com.supers.clean.junk.R$id: int rl_item
-com.supers.clean.junk.R$id: int rl_memory
 com.supers.clean.junk.R$id: int rl_title
 com.supers.clean.junk.R$id: int scale
 com.supers.clean.junk.R$id: int screen
@@ -40654,6 +40656,8 @@ com.supers.clean.junk.R$string: int file_other
 com.supers.clean.junk.R$string: int file_txt
 com.supers.clean.junk.R$string: int file_video
 com.supers.clean.junk.R$string: int file_zip
+com.supers.clean.junk.R$string: int float_1
+com.supers.clean.junk.R$string: int float_2
 com.supers.clean.junk.R$string: int float_gps
 com.supers.clean.junk.R$string: int float_h_1
 com.supers.clean.junk.R$string: int float_jiasu
@@ -40720,6 +40724,7 @@ com.supers.clean.junk.R$string: int manager_sort_size
 com.supers.clean.junk.R$string: int manager_sort_time
 com.supers.clean.junk.R$string: int message_boot_time
 com.supers.clean.junk.R$string: int message_boot_time2
+com.supers.clean.junk.R$string: int message_brand
 com.supers.clean.junk.R$string: int message_fenbianlv
 com.supers.clean.junk.R$string: int message_h_camera
 com.supers.clean.junk.R$string: int message_hard
@@ -41970,6 +41975,12 @@ com.supers.clean.junk.customeview.FlakeView: void setNumFlakes(int)
 com.supers.clean.junk.customeview.FlakeViewOnShort
 com.supers.clean.junk.customeview.FlakeViewOnShort: int getNumFlakes()
 com.supers.clean.junk.customeview.FlakeViewOnShort: void setNumFlakes(int)
+com.supers.clean.junk.customeview.FloatRound
+com.supers.clean.junk.customeview.FloatRound: FloatRound(android.content.Context)
+com.supers.clean.junk.customeview.FloatRound: FloatRound(android.content.Context,android.util.AttributeSet)
+com.supers.clean.junk.customeview.FloatRound: FloatRound(android.content.Context,android.util.AttributeSet,int)
+com.supers.clean.junk.customeview.FloatRound: void setProgress(int)
+com.supers.clean.junk.customeview.FloatRound: void setCustomRoundListener(com.supers.clean.junk.customeview.FloatRound$CustomRoundListener)
 com.supers.clean.junk.customeview.FloatStateView
 com.supers.clean.junk.customeview.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet)
 com.supers.clean.junk.customeview.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet,int)
