@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.android.clean.util.PreData;
@@ -26,13 +28,14 @@ import org.json.JSONObject;
 
 public class LoadingActivity extends BaseActivity {
     Handler myHandler;
-    TextView tv_tiaoguo;
+
+    TextView loading_text_1, loading_text_2;
 
     @Override
     protected void findId() {
         super.findId();
-        tv_tiaoguo = (TextView) findViewById(R.id.tv_tiaoguo);
-        // ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        loading_text_1 = (TextView) findViewById(R.id.loading_text_1);
+        loading_text_2 = (TextView) findViewById(R.id.loading_text_2);
     }
 
 
@@ -44,7 +47,6 @@ public class LoadingActivity extends BaseActivity {
         setContentView(R.layout.layout_loading);
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
-        tv_tiaoguo.setVisibility(View.INVISIBLE);
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
             AdUtil.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
             PreData.putDB(this, Constant.ROOT_TRAK, false);
@@ -52,6 +54,29 @@ public class LoadingActivity extends BaseActivity {
         }
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2000);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate_loading);
+
+        loading_text_1.startAnimation(animation);
+        loading_text_1.setVisibility(View.VISIBLE);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                Animation animation1 = AnimationUtils.loadAnimation(LoadingActivity.this, R.anim.translate_loading);
+                loading_text_2.startAnimation(animation1);
+                loading_text_2.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+        });
+
     }
 
     Runnable runnable1 = new Runnable() {
