@@ -158,7 +158,7 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)) {
+        if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)) {
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
@@ -242,7 +242,7 @@ public class SettingActivity extends BaseActivity {
                         AdUtil.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
-                        Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                        Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
                         AdUtil.track("设置页面", "点击充电屏保开关", "开", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_passed);
                     }

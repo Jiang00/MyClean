@@ -1,5 +1,6 @@
 package com.supers.clean.junk.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,12 +17,14 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -115,6 +118,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private LinearLayout deep;
     private FrameLayout lot_tap;
     private ArrayList<View> arrayList;
+    private Dialog dialogB;
 
     @Override
     protected void findId() {
@@ -369,7 +373,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             side_listView.setAdapter(adapter);
         }
         adapter.clear();
-        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
+        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)));//充电屏保
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
@@ -420,6 +424,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
 
         }
+
+        if (!PreData.getDB(this, Constant.BATTERY_FIRST, false)) {
+            showBattery();
+            PreData.putDB(this, Constant.BATTERY_FIRST, true);
+            return;
+        }
+
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("eos_start_full");
         } else {
@@ -451,6 +462,37 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             adDelete();
         }
     };
+
+    private void showBattery() {
+        View view = getLayoutInflater().inflate(R.layout.layout_battery, null);
+        ImageView battery_cha = (ImageView) view.findViewById(R.id.battery_cancel);
+        Button battery_button = (Button) view.findViewById(R.id.battery_ok);
+        battery_cha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        battery_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                initSideData();
+                adapter.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+        });
+        dialogB = new Dialog(this, R.style.add_dialog);
+        dialogB.setCanceledOnTouchOutside(false);
+        dialogB.show();
+        Window window = dialogB.getWindow();
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+        WindowManager.LayoutParams lp = window.getAttributes();
+        lp.width = dm.widthPixels; //设置宽度
+        window.setAttributes(lp);
+        window.setContentView(view);
+    }
 
     //上拉刷新监听
     PullToRefreshLayout.OnRefreshListener refreshListener = new PullToRefreshLayout.OnRefreshListener() {

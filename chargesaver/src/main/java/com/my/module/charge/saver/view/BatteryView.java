@@ -313,7 +313,7 @@ public class BatteryView extends FrameLayout {
                 }
             });
 
-            if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
+            if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, false)) {
                 if (saverSwitch != null) {
                     saverSwitch.setChecked(true);
                 }
@@ -325,7 +325,7 @@ public class BatteryView extends FrameLayout {
             saverSwitch.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
+                    if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, false)) {
                         if (saverSwitch != null) {
                             saverSwitch.setChecked(false);
                             Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, false);
