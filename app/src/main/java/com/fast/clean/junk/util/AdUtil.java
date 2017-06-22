@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.fast.clean.junk.BuildConfig;
+import com.google.android.gms.ads.AdActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -54,7 +55,6 @@ public class AdUtil {
             @Override
             public void onAdLeftApplication() {
                 super.onAdLeftApplication();
-                mInterstitialAd.zzd(false);
                 Log.e("adadad", "onAdLeftApplication");
             }
 
