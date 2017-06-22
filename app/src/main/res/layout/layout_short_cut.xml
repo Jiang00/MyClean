@@ -22,35 +22,25 @@
 
         <FrameLayout
             android:id="@+id/short_fl"
-            android:layout_width="@dimen/d90"
-            android:layout_height="@dimen/d90"
-            android:layout_gravity="center"
-            android:background="@mipmap/short_0">
+            android:layout_width="@dimen/d72"
+            android:layout_height="@dimen/d72"
+            android:layout_gravity="center">
 
             <ImageView
-                android:id="@+id/short_huojian"
+                android:id="@+id/short_rotate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/short_4" />
+                android:src="@mipmap/short_0" />
 
-            <LinearLayout
-                android:id="@+id/short_xian"
-                android:layout_width="@dimen/d61"
-                android:layout_height="@dimen/d61"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="vertical" />
+                android:src="@mipmap/short_1" />
+
         </FrameLayout>
 
-
-        <LinearLayout
-            android:id="@+id/ll_ad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="vertical"
-            android:visibility="gone" />
 
     </LinearLayout>
 

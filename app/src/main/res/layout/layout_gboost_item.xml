@@ -10,28 +10,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/d17"
+        android:layout_marginTop="@dimen/d10"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/gboost_item_icon"
-            android:layout_width="@dimen/d46"
-            android:layout_height="@dimen/d46"
+            android:layout_width="@dimen/d59"
+            android:layout_height="@dimen/d59"
             android:layout_gravity="center" />
 
         <com.my.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/gboost_item_name"
-            app:typeface="eos_clean.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/d10"
             android:layout_marginRight="@dimen/d10"
-            android:layout_marginTop="@dimen/d10"
+            android:layout_marginTop="@dimen/d12"
             android:gravity="center"
             android:singleLine="true"
             android:text="aaaa"
-            android:textColor="#8041434a"
-            android:textSize="@dimen/d10" />
+            android:textColor="@color/B5"
+            android:textSize="@dimen/s14"
+            app:typeface="eos_clean.otf" />
     </LinearLayout>
 </FrameLayout>

@@ -23,9 +23,11 @@ import com.android.client.AndroidSdk;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.MessageRoundView;
+import com.supers.clean.junk.customeview.MessageRoundViewCpu;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.CameraUtils;
 import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.CpuTempReader;
 import com.supers.clean.junk.util.PhoneManager;
 
 import java.io.File;
@@ -44,8 +46,10 @@ public class MessageActivity extends BaseActivity {
             message_q_camera, message_h_camera, message_ram, message_sd;
     LinearLayout ll_ad;
     LottieAnimationView lot_message;
-    MessageRoundView message_r_sd, message_r_ram, message_r_cpu;
+    MessageRoundView message_r_sd, message_r_ram;
+    MessageRoundViewCpu message_r_cpu;
     TextView message_text_sd, message_text_ram, message_text_cpu;
+    TextView message_button_sd, message_button_ram, message_button_cpu;
 
     private TelephonyManager telManager;
     private String TAG_MESSAGE = "eos_message";
@@ -68,10 +72,13 @@ public class MessageActivity extends BaseActivity {
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         message_r_sd = (MessageRoundView) findViewById(R.id.message_r_sd);
         message_r_ram = (MessageRoundView) findViewById(R.id.message_r_ram);
-        message_r_cpu = (MessageRoundView) findViewById(R.id.message_r_cpu);
+        message_r_cpu = (MessageRoundViewCpu) findViewById(R.id.message_r_cpu);
         message_text_sd = (TextView) findViewById(R.id.message_text_sd);
         message_text_ram = (TextView) findViewById(R.id.message_text_ram);
         message_text_cpu = (TextView) findViewById(R.id.message_text_cpu);
+        message_button_sd = (TextView) findViewById(R.id.message_button_sd);
+        message_button_ram = (TextView) findViewById(R.id.message_button_ram);
+        message_button_cpu = (TextView) findViewById(R.id.message_button_cpu);
     }
 
     @Override
@@ -130,8 +137,14 @@ public class MessageActivity extends BaseActivity {
 
             }
         }).start();
+        initN();
 
+        message_button_sd.setOnClickListener(clickListener);
+        message_button_ram.setOnClickListener(clickListener);
+        message_button_cpu.setOnClickListener(clickListener);
+    }
 
+    private void initN() {
         //SD卡储存
         long sd_all = MemoryManager.getPhoneAllSize();
         long sd_kongxian = MemoryManager.getPhoneAllFreeSize();
@@ -150,6 +163,27 @@ public class MessageActivity extends BaseActivity {
         message_ram.setText(Util.convertStorage(ram_all, true));
         message_r_ram.setProgress(memo);
         message_text_ram.setText(ram_size);
+
+        //cpu温度
+        CpuTempReader.getCPUTemp(new CpuTempReader.TemperatureResultCallback() {
+            @Override
+            public void callbackResult(CpuTempReader.ResultCpuTemperature result) {
+                int cpuTemp = 40;
+                if (result != null) {
+                    cpuTemp = (int) result.getTemperature();
+                }
+                final int finalCpuTemp = cpuTemp;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        message_r_cpu.setProgress(finalCpuTemp);
+                        if (finalCpuTemp > 60) {
+                            message_text_cpu.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
+            }
+        });
     }
 
     private void loadAd() {
@@ -164,6 +198,24 @@ public class MessageActivity extends BaseActivity {
             addAd();
         }
     }
+
+    View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.message_button_sd:
+                    jumpTo(JunkActivity.class);
+                    break;
+                case R.id.message_button_ram:
+                    jumpTo(RamAvtivity.class);
+                    break;
+                case R.id.message_button_cpu:
+                    jumpTo(CoolingActivity.class);
+                    break;
+            }
+        }
+    };
+
 
     private void addAd() {
         View nativeView = AdUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_3);
@@ -220,6 +272,12 @@ public class MessageActivity extends BaseActivity {
         if (lot_message != null) {
             lot_message.playAnimation();
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        initN();
     }
 
     @Override

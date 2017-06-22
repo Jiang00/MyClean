@@ -1,18 +1,10 @@
 package com.supers.clean.junk.customeview;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.LinearGradient;
-import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PathMeasure;
 import android.graphics.RectF;
-import android.graphics.Shader;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -21,27 +13,27 @@ import com.supers.clean.junk.R;
 /**
  */
 
-public class MessageRoundView extends View {
+public class MessageRoundViewCpu extends View {
     private Context context;
     private Paint circlePoint;
     private Paint backgPoint;
     private Paint textPaint;
-    private String text = "50%";
+    private String text = "50℃";
     float lineWidth = getResources().getDimensionPixelOffset(R.dimen.d3);
     int size;
     private int progress;
     private boolean isRotate;
     private CustomRoundListener customRoundListener;
 
-    public MessageRoundView(Context context) {
+    public MessageRoundViewCpu(Context context) {
         this(context, null);
     }
 
-    public MessageRoundView(Context context, AttributeSet attrs) {
+    public MessageRoundViewCpu(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public MessageRoundView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MessageRoundViewCpu(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
         init();
@@ -93,12 +85,9 @@ public class MessageRoundView extends View {
         canvas.drawArc(rect, 0, 360, false, backgPoint);
         canvas.save();
         canvas.rotate(90, size / 2, size / 2);
-        if (progress > 80) {
+        if (progress > 60) {
             circlePoint.setColor(context.getResources().getColor(R.color.A2));
             textPaint.setColor(context.getResources().getColor(R.color.A2));
-        } else if (progress > 40) {
-            circlePoint.setColor(context.getResources().getColor(R.color.A4));
-            textPaint.setColor(context.getResources().getColor(R.color.A4));
         } else {
             circlePoint.setColor(context.getResources().getColor(R.color.A1));
             textPaint.setColor(context.getResources().getColor(R.color.A1));
@@ -139,7 +128,7 @@ public class MessageRoundView extends View {
 
     public void setProgress(int progress) {
         this.progress = progress;
-        this.text = progress + "%";
+        this.text = progress + "℃";
         postInvalidate();
     }
 

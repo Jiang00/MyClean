@@ -56,9 +56,9 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
     // 同上
     private int halfBitmapHeight;
     // 动态设置行数
-    private int rowCount = 3;
+    private int rowCount = 4;
     // 动态设置列数
-    private int colCount = 4;
+    private int colCount = 3;
     // 每一页的Item总数
     private int itemPerPage = rowCount * colCount;
     // 行间距

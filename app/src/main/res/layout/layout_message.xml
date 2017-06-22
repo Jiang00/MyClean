@@ -349,7 +349,7 @@
                         android:layout_marginTop="@dimen/d6"
                         android:background="@drawable/shape_a8"
                         android:gravity="center"
-                        android:text="@string/main_arc_sd"
+                        android:text="@string/notification_button"
                         android:textColor="@color/A8"
                         android:textSize="@dimen/s12" />
                 </LinearLayout>
@@ -391,7 +391,7 @@
                         android:layout_marginTop="@dimen/d6"
                         android:background="@drawable/shape_a8"
                         android:gravity="center"
-                        android:text="@string/main_arc_sd"
+                        android:text="@string/float_jiasu"
                         android:textColor="@color/A8"
                         android:textSize="@dimen/s12" />
                 </LinearLayout>
@@ -403,7 +403,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.supers.clean.junk.customeview.MessageRoundView
+                    <com.supers.clean.junk.customeview.MessageRoundViewCpu
                         android:id="@+id/message_r_cpu"
                         android:layout_width="@dimen/d72"
                         android:layout_height="@dimen/d72"
@@ -424,7 +424,8 @@
                         android:layout_marginTop="@dimen/d6"
                         android:text="@string/message_hot"
                         android:textColor="@color/B3"
-                        android:textSize="@dimen/s9" />
+                        android:textSize="@dimen/s9"
+                        android:visibility="invisible" />
 
                     <TextView
                         android:id="@+id/message_button_cpu"
@@ -434,7 +435,7 @@
                         android:layout_marginTop="@dimen/d6"
                         android:background="@drawable/shape_a8"
                         android:gravity="center"
-                        android:text="@string/main_arc_sd"
+                        android:text="@string/notifi_jiangwen"
                         android:textColor="@color/A8"
                         android:textSize="@dimen/s12" />
                 </LinearLayout>
