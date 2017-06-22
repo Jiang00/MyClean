@@ -127,6 +127,7 @@ public class SuccessActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_success);
+//        AdUtil.loadFull(this);
         tweenManager = new TweenManager();
 
         Tween.registerAccessor(ImageView.class, new ImageAccessor());
@@ -226,7 +227,7 @@ public class SuccessActivity extends BaseActivity {
             public void duogouSc() {
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 1) == 1) {
 //                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                    AdUtil.showFull(SuccessActivity.this);
+                    AdUtil.showFull(SuccessActivity.this.getApplicationContext());
                 }
                 startSecondAnimation();
                 success_drawhook.setListener(null);
@@ -324,7 +325,13 @@ public class SuccessActivity extends BaseActivity {
         }
     }
 
-//    private void addAd() {
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.e("adadad", "onRestart");
+    }
+
+    //    private void addAd() {
 //        AndroidSdk.loadNativeAd(TAG_CLEAN, R.layout.native_ad_full, new ClientNativeAd.NativeAdLoadListener() {
 //            @Override
 //            public void onNativeAdLoadSuccess(View view) {

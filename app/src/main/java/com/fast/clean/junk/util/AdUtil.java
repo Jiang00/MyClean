@@ -12,6 +12,8 @@ import com.fast.clean.junk.BuildConfig;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.purchase.InAppPurchase;
+import com.google.android.gms.ads.purchase.InAppPurchaseListener;
 
 /**
  * Created by on 2017/5/24.
@@ -29,18 +31,31 @@ public class AdUtil {
 
     public static void loadFull(final Context context) {
         mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3150670592875039/8515778101");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3150670592875039/8705751307");
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
                 Log.e("adadad", "onAdClosed");
-                requestNewInterstitial();
+                loadFull(context);
             }
 
             @Override
             public void onAdLoaded() {
                 super.onAdLoaded();
                 Log.e("adadad", "onAdLoaded");
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+                Log.e("adadad", "onAdOpened");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                super.onAdLeftApplication();
+                mInterstitialAd.zzd(false);
+                Log.e("adadad", "onAdLeftApplication");
             }
 
             @Override
