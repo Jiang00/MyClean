@@ -33722,10 +33722,8 @@ com.rd.PageIndicatorView -> com.rd.PageIndicatorView:
     android.support.v4.view.ViewPager viewPager -> I
     int viewPagerId -> J
     com.rd.RtlMode rtlMode -> K
-    50:98:void <init>(android.content.Context) -> <init>
     50:103:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     50:108:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    50:114:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
     118:120:void onAttachedToWindow() -> onAttachedToWindow
     124:126:void onDetachedFromWindow() -> onDetachedFromWindow
     130:135:android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
@@ -37579,7 +37577,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5313:14232:void <clinit>() -> <clinit>
+    5315:14234:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -38021,84 +38019,105 @@ com.supers.clean.junk.activity.GBoostActivity -> com.supers.clean.junk.activity.
     android.widget.ImageView add_right -> c
     android.widget.ImageButton clear -> d
     android.widget.EditText search_edit_text -> e
-    com.supers.clean.junk.customeview.PagerView gboost_recyc -> f
-    com.rd.PageIndicatorView pageindicatorview -> g
-    android.widget.Button gboost_clean_button -> h
-    android.widget.LinearLayout ll_add_game -> m
-    android.widget.FrameLayout add_left -> n
-    android.widget.ListView list_game -> o
-    com.supers.clean.junk.customeview.LaunchpadAdapter adapter -> q
-    java.util.ArrayList list -> r
-    android.os.Handler mHandler -> s
-    com.supers.clean.junk.adapter.AddGameAdapter whiteListAdapter -> t
-    com.supers.clean.junk.activity.MyApplication cleanApplication -> u
-    boolean search -> v
-    java.util.List gboost_add -> w
-    java.util.List listEdit -> x
-    int screenWidth -> y
-    android.view.View$OnClickListener clickListener -> p
-    59:219:void <init>() -> <init>
-    103:116:void findId() -> a
-    120:138:void onCreate(android.os.Bundle) -> onCreate
-    141:144:void initList() -> b
-    147:217:void addData() -> c
-    261:315:void toggleEditAnimation() -> d
-    357:358:void onResume() -> onResume
-    362:380:void onBackPressed() -> onBackPressed
-    383:422:void shortGame(boolean) -> a
-    425:440:void initData() -> e
-    443:452:void upData(java.lang.String) -> b
-    456:458:void onDestroy() -> onDestroy
-    462:463:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    android.support.v7.widget.RecyclerView gboost_recyc -> f
+    android.widget.Button gboost_clean_button -> g
+    android.widget.LinearLayout ll_add_game -> h
+    android.widget.FrameLayout add_left -> m
+    android.widget.ListView list_game -> n
+    android.content.pm.PackageManager pm -> r
+    android.widget.TextView gboost_short_add -> o
+    android.widget.ImageView gboost_short_iv -> p
+    com.supers.clean.junk.activity.GBoostActivity$GbAdapter adapter -> s
+    java.util.ArrayList list -> t
+    android.os.Handler mHandler -> u
+    com.supers.clean.junk.adapter.AddGameAdapter whiteListAdapter -> v
+    com.supers.clean.junk.activity.MyApplication cleanApplication -> w
+    boolean search -> x
+    java.util.List gboost_add -> y
+    java.util.List listEdit -> z
+    int screenWidth -> A
+    android.view.View$OnClickListener clickListener -> q
+    59:179:void <init>() -> <init>
+    103:117:void findId() -> a
+    121:140:void onCreate(android.os.Bundle) -> onCreate
+    143:145:void initList() -> b
+    148:177:void addData() -> c
+    213:267:void toggleEditAnimation() -> d
+    272:273:void onResume() -> onResume
+    277:284:void onBackPressed() -> onBackPressed
+    287:328:void shortGame(boolean) -> a
+    331:346:void initData() -> e
+    349:358:void upData(java.lang.String) -> b
+    362:364:void onDestroy() -> onDestroy
+    368:369:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     59:59:java.util.ArrayList access$000(com.supers.clean.junk.activity.GBoostActivity) -> a
     59:59:android.os.Handler access$100(com.supers.clean.junk.activity.GBoostActivity) -> b
-    59:59:com.supers.clean.junk.customeview.LaunchpadAdapter access$202(com.supers.clean.junk.activity.GBoostActivity,com.supers.clean.junk.customeview.LaunchpadAdapter) -> a
-    59:59:com.supers.clean.junk.customeview.LaunchpadAdapter access$200(com.supers.clean.junk.activity.GBoostActivity) -> c
-    59:59:com.supers.clean.junk.adapter.AddGameAdapter access$302(com.supers.clean.junk.activity.GBoostActivity,com.supers.clean.junk.adapter.AddGameAdapter) -> a
-    59:59:com.supers.clean.junk.adapter.AddGameAdapter access$300(com.supers.clean.junk.activity.GBoostActivity) -> d
-    59:59:void access$400(com.supers.clean.junk.activity.GBoostActivity) -> e
-    59:59:void access$500(com.supers.clean.junk.activity.GBoostActivity,boolean) -> a
+    59:59:com.supers.clean.junk.activity.GBoostActivity$GbAdapter access$202(com.supers.clean.junk.activity.GBoostActivity,com.supers.clean.junk.activity.GBoostActivity$GbAdapter) -> a
+    59:59:com.supers.clean.junk.activity.GBoostActivity$GbAdapter access$200(com.supers.clean.junk.activity.GBoostActivity) -> c
+    59:59:void access$300(com.supers.clean.junk.activity.GBoostActivity,boolean) -> a
+    59:59:void access$400(com.supers.clean.junk.activity.GBoostActivity) -> d
+    59:59:boolean access$500(com.supers.clean.junk.activity.GBoostActivity) -> e
     59:59:void access$600(com.supers.clean.junk.activity.GBoostActivity) -> f
-    59:59:boolean access$700(com.supers.clean.junk.activity.GBoostActivity) -> g
-    59:59:boolean access$702(com.supers.clean.junk.activity.GBoostActivity,boolean) -> b
-    59:59:void access$800(com.supers.clean.junk.activity.GBoostActivity,java.lang.String) -> a
+    59:59:boolean access$502(com.supers.clean.junk.activity.GBoostActivity,boolean) -> b
+    59:59:void access$700(com.supers.clean.junk.activity.GBoostActivity,java.lang.String) -> a
+    59:59:android.content.pm.PackageManager access$800(com.supers.clean.junk.activity.GBoostActivity) -> g
+    59:59:com.supers.clean.junk.adapter.AddGameAdapter access$902(com.supers.clean.junk.activity.GBoostActivity,com.supers.clean.junk.adapter.AddGameAdapter) -> a
+    59:59:com.supers.clean.junk.adapter.AddGameAdapter access$900(com.supers.clean.junk.activity.GBoostActivity) -> h
 com.supers.clean.junk.activity.GBoostActivity$1 -> com.supers.clean.junk.activity.GBoostActivity$1:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
     77:77:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
     80:87:void handleMessage(android.os.Message) -> handleMessage
 com.supers.clean.junk.activity.GBoostActivity$2 -> com.supers.clean.junk.activity.GBoostActivity$2:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
-    152:152:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
-    155:212:void run() -> run
+    153:153:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
+    156:174:void run() -> run
 com.supers.clean.junk.activity.GBoostActivity$2$1 -> com.supers.clean.junk.activity.GBoostActivity$2$1:
     com.supers.clean.junk.activity.GBoostActivity$2 this$1 -> a
-    163:163:void <init>(com.supers.clean.junk.activity.GBoostActivity$2) -> <init>
-    166:210:void run() -> run
-com.supers.clean.junk.activity.GBoostActivity$2$1$1 -> com.supers.clean.junk.activity.GBoostActivity$2$1$1:
-    com.supers.clean.junk.activity.GBoostActivity$2$1 this$2 -> a
-    182:182:void <init>(com.supers.clean.junk.activity.GBoostActivity$2$1) -> <init>
-    185:186:void onPageChange(int,int) -> a
-com.supers.clean.junk.activity.GBoostActivity$2$1$2 -> com.supers.clean.junk.activity.GBoostActivity$2$1$2:
-    com.supers.clean.junk.activity.GBoostActivity$2$1 this$2 -> a
-    188:188:void <init>(com.supers.clean.junk.activity.GBoostActivity$2$1) -> <init>
-    191:207:void onClick(java.lang.Object,int) -> a
+    164:164:void <init>(com.supers.clean.junk.activity.GBoostActivity$2) -> <init>
+    167:172:void run() -> run
 com.supers.clean.junk.activity.GBoostActivity$3 -> com.supers.clean.junk.activity.GBoostActivity$3:
     com.supers.clean.junk.activity.GBoostActivity this$0 -> a
-    219:219:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
-    222:257:void onClick(android.view.View) -> onClick
+    179:179:void <init>(com.supers.clean.junk.activity.GBoostActivity) -> <init>
+    182:209:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.GBoostActivity$4 -> com.supers.clean.junk.activity.GBoostActivity$4:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.supers.clean.junk.activity.GBoostActivity this$0 -> d
-    281:281:void <init>(com.supers.clean.junk.activity.GBoostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    284:312:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    233:233:void <init>(com.supers.clean.junk.activity.GBoostActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    236:264:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.supers.clean.junk.activity.GBoostActivity$4$1 -> com.supers.clean.junk.activity.GBoostActivity$4$1:
     com.supers.clean.junk.activity.GBoostActivity$4 this$1 -> a
-    292:292:void <init>(com.supers.clean.junk.activity.GBoostActivity$4) -> <init>
-    295:296:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    301:301:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    306:306:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    244:244:void <init>(com.supers.clean.junk.activity.GBoostActivity$4) -> <init>
+    247:248:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    253:253:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    258:258:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+com.supers.clean.junk.activity.GBoostActivity$GbAdapter -> com.supers.clean.junk.activity.GBoostActivity$a:
+    java.util.ArrayList list -> a
+    android.support.v4.util.LruCache lruCache -> b
+    com.supers.clean.junk.activity.GBoostActivity this$0 -> c
+    374:385:void <init>(com.supers.clean.junk.activity.GBoostActivity,java.util.ArrayList) -> <init>
+    389:392:com.supers.clean.junk.activity.GBoostActivity$GbAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    397:430:void onBindViewHolder(com.supers.clean.junk.activity.GBoostActivity$GbAdapter$HomeViewHolder,int) -> a
+    439:439:int getItemCount() -> getItemCount
+    372:372:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    372:372:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+com.supers.clean.junk.activity.GBoostActivity$GbAdapter$1 -> com.supers.clean.junk.activity.GBoostActivity$a$1:
+    com.supers.clean.junk.activity.GBoostActivity$GbAdapter this$1 -> a
+    374:374:void <init>(com.supers.clean.junk.activity.GBoostActivity$GbAdapter,int) -> <init>
+    378:378:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    374:374:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+com.supers.clean.junk.activity.GBoostActivity$GbAdapter$2 -> com.supers.clean.junk.activity.GBoostActivity$a$2:
+    int val$position -> a
+    com.supers.clean.junk.activity.GBoostActivity$GbAdapter this$1 -> b
+    409:409:void <init>(com.supers.clean.junk.activity.GBoostActivity$GbAdapter,int) -> <init>
+    412:428:void onClick(android.view.View) -> onClick
+com.supers.clean.junk.activity.GBoostActivity$GbAdapter$HomeViewHolder -> com.supers.clean.junk.activity.GBoostActivity$a$a:
+    android.widget.ImageView gboost_item_icon -> a
+    android.widget.TextView gboost_item_name -> b
+    android.widget.FrameLayout gboost_item_c -> c
+    com.supers.clean.junk.activity.GBoostActivity$GbAdapter this$1 -> d
+    447:452:void <init>(com.supers.clean.junk.activity.GBoostActivity$GbAdapter,android.view.View) -> <init>
 com.supers.clean.junk.activity.JunkActivity -> com.supers.clean.junk.activity.JunkActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -40449,16 +40468,6 @@ com.supers.clean.junk.customeview.HorizontalListView$OnScrollStateChangedListene
     1295:1311:void <clinit>() -> <clinit>
 com.supers.clean.junk.customeview.HorizontalListView$RunningOutOfDataListener -> com.supers.clean.junk.customeview.HorizontalListView$d:
     void onRunningOutOfData() -> a
-com.supers.clean.junk.customeview.LaunchpadAdapter -> com.supers.clean.junk.customeview.b:
-    int currentViewTag -> f
-    android.content.Context context -> a
-    int interval_time -> b
-    android.content.pm.PackageManager pm -> g
-    40:74:void <init>(android.content.Context,java.util.ArrayList) -> <init>
-    79:79:int getItemLayoutId(int,java.lang.String) -> a
-    84:100:void onBindView(android.view.View,java.lang.String) -> a
-    33:33:void onBindView(android.view.View,java.lang.Object) -> a
-    33:33:int getItemLayoutId(int,java.lang.Object) -> a
 com.supers.clean.junk.customeview.LineProgressView -> com.supers.clean.junk.customeview.LineProgressView:
     android.graphics.Paint paint -> a
     float whight -> b
@@ -40584,10 +40593,10 @@ com.supers.clean.junk.customeview.PageIndicatorView -> com.supers.clean.junk.cus
     23:39:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     42:49:void init(android.content.Context) -> a
     84:91:void setSelectedPage(int) -> setSelectedPage
-com.supers.clean.junk.customeview.PagerAdapter -> com.supers.clean.junk.customeview.c:
-    java.util.List mList -> c
-    com.supers.clean.junk.customeview.PagerAdapter$OnDataChangeListener mDataChangeListener -> d
-    android.view.LayoutInflater mInflater -> e
+com.supers.clean.junk.customeview.PagerAdapter -> com.supers.clean.junk.customeview.b:
+    java.util.List mList -> a
+    com.supers.clean.junk.customeview.PagerAdapter$OnDataChangeListener mDataChangeListener -> b
+    android.view.LayoutInflater mInflater -> c
     18:21:void <init>(android.content.Context,java.util.ArrayList) -> <init>
     24:27:android.view.View getView(int) -> a
     int getItemLayoutId(int,java.lang.Object) -> a
@@ -40596,7 +40605,7 @@ com.supers.clean.junk.customeview.PagerAdapter -> com.supers.clean.junk.customev
     49:50:void setOnDataChangeListener(com.supers.clean.junk.customeview.PagerAdapter$OnDataChangeListener) -> a
     70:70:java.lang.Object getItem(int) -> b
     74:74:int indexOf(java.lang.Object) -> a
-com.supers.clean.junk.customeview.PagerAdapter$OnDataChangeListener -> com.supers.clean.junk.customeview.c$a:
+com.supers.clean.junk.customeview.PagerAdapter$OnDataChangeListener -> com.supers.clean.junk.customeview.b$a:
 com.supers.clean.junk.customeview.PagerView -> com.supers.clean.junk.customeview.PagerView:
     com.supers.clean.junk.customeview.PagerAdapter mAdapter -> a
     android.content.Context mContext -> b
@@ -40643,7 +40652,6 @@ com.supers.clean.junk.customeview.PagerView -> com.supers.clean.junk.customeview
     com.supers.clean.junk.customeview.PagerView$OnEnterCreateShortListener onEnterCreateShortListener -> Q
     com.supers.clean.junk.customeview.PagerView$OnItemClickListener onItemClickListener -> R
     java.util.ArrayList adViewList -> S
-    47:141:void <init>(android.content.Context) -> <init>
     47:146:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     47:151:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     155:172:void init(android.content.Context) -> a
@@ -40688,7 +40696,7 @@ com.supers.clean.junk.customeview.PagerView$1 -> com.supers.clean.junk.customevi
     526:526:void <init>(com.supers.clean.junk.customeview.PagerView) -> <init>
     529:535:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.customeview.PagerView$1Adapter -> com.supers.clean.junk.customeview.PagerView$a:
-    com.supers.clean.junk.customeview.PagerView this$0 -> a
+    com.supers.clean.junk.customeview.PagerView this$0 -> d
     188:190:void <init>(com.supers.clean.junk.customeview.PagerView,android.content.Context,java.util.ArrayList) -> <init>
     194:194:int getItemLayoutId(int,com.supers.clean.junk.customeview.PagerView$1Data) -> a
     199:203:void onBindView(android.view.View,com.supers.clean.junk.customeview.PagerView$1Data) -> a
@@ -40820,7 +40828,7 @@ com.supers.clean.junk.customeview.PullToRefreshLayout$MyTimer$MyTask -> com.supe
 com.supers.clean.junk.customeview.PullToRefreshLayout$OnRefreshListener -> com.supers.clean.junk.customeview.PullToRefreshLayout$b:
     void onRefresh(com.supers.clean.junk.customeview.PullToRefreshLayout) -> a
     void onLoadMore(com.supers.clean.junk.customeview.PullToRefreshLayout) -> b
-com.supers.clean.junk.customeview.Pullable -> com.supers.clean.junk.customeview.d:
+com.supers.clean.junk.customeview.Pullable -> com.supers.clean.junk.customeview.c:
     boolean canPullDown() -> a
     boolean canPullUp() -> b
 com.supers.clean.junk.customeview.ResultAnimation -> com.supers.clean.junk.customeview.ResultAnimation:

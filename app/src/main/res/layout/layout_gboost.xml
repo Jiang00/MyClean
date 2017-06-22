@@ -27,8 +27,47 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/d9"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d7"
+            android:layout_marginRight="@dimen/d7"
+            android:layout_marginTop="@dimen/d7"
+            android:background="@drawable/shape_ad"
+            android:elevation="@dimen/d2">
+
+            <ImageView
+                android:id="@+id/gboost_short_iv"
+                android:layout_width="@dimen/d61"
+                android:layout_height="@dimen/d61"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/d14"
+                android:src="@mipmap/gboost_short" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/gboost_add_short"
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:id="@+id/gboost_short_add"
+                android:layout_width="@dimen/d48"
+                android:layout_height="@dimen/d20"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/d13"
+                android:background="@drawable/shape_a8"
+                android:gravity="center"
+                android:text="@string/gboost_12"
+                android:textColor="@color/A8"
+                android:textSize="@dimen/s12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/d7"
             android:background="@drawable/shape_ad"
             android:elevation="@dimen/d2"
             android:orientation="vertical">
@@ -56,29 +95,10 @@
                     app:typeface="eos_clean.otf" />
             </LinearLayout>
 
-            <FrameLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/gboost_recyc"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.supers.clean.junk.customeview.PagerView
-                    android:id="@+id/gboost_recyc"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-                <com.rd.PageIndicatorView
-                    android:id="@+id/pageindicatorview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="@dimen/d5"
-                    app:piv_animationType="drop"
-                    app:piv_count="0"
-                    app:piv_interactiveAnimation="true"
-                    app:piv_radius="@dimen/d3"
-                    app:piv_selectedColor="@color/A1"
-                    app:piv_unselectedColor="@color/black_35" />
-            </FrameLayout>
-
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
 
@@ -91,7 +111,8 @@
             android:id="@+id/gboost_clean_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_button" />
+            android:background="@drawable/shape_button"
+            android:visibility="gone" />
     </FrameLayout>
 
     <LinearLayout
@@ -114,12 +135,14 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
+                android:layout_height="@dimen/d56">
 
                 <RelativeLayout
                     android:id="@+id/normal_bar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
 
                     <FrameLayout
                         android:id="@+id/add_left"
@@ -162,36 +185,36 @@
                 <FrameLayout
                     android:id="@+id/goost_container"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_height="@dimen/d56"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginRight="@dimen/d8"
                     android:visibility="gone">
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="42dp"
+                        android:layout_height="@dimen/d36"
                         android:layout_gravity="center"
                         android:background="@drawable/shape_radio" />
 
                     <EditText
                         android:id="@+id/search_edit_text"
                         android:layout_width="match_parent"
-                        android:layout_height="42dp"
+                        android:layout_height="@dimen/d36"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="@dimen/d30"
                         android:background="@null"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
                         android:hint="@string/edit_hint"
                         android:singleLine="true"
-                        android:textColor="#8a000000"
-                        android:textColorHint="#59000000" />
+                        android:textColor="@color/B2"
+                        android:textColorHint="@color/B4" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="@dimen/d8"
                         android:src="@mipmap/edit_left_drawable" />
 
                     <ImageButton
@@ -199,9 +222,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical|end"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginRight="@dimen/d3"
                         android:background="@mipmap/eidt_cha"
-                        android:padding="5dp" />
+                        android:padding="@dimen/d5" />
                 </FrameLayout>
             </FrameLayout>
 

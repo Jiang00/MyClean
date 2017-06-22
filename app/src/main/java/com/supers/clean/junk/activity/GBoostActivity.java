@@ -5,19 +5,25 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.TrafficStats;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.util.LruCache;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,25 +36,19 @@ import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.db.CleanDBHelper;
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.gboost.GameBooster;
+import com.android.clean.util.LoadManager;
+import com.android.clean.util.MemoryManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
-import com.android.clean.util.LoadManager;
-import com.rd.PageIndicatorView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.AddGameAdapter;
-import com.supers.clean.junk.customeview.LaunchpadAdapter;
 import com.supers.clean.junk.customeview.PagerView;
-import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
-import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.ShortCutUtils;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,15 +64,15 @@ public class GBoostActivity extends BaseActivity {
     ImageView add_right;
     ImageButton clear;
     EditText search_edit_text;
-    PagerView gboost_recyc;
-    PageIndicatorView pageindicatorview;
+    RecyclerView gboost_recyc;
     Button gboost_clean_button;
     LinearLayout ll_add_game;
     FrameLayout add_left;
     ListView list_game;
-
-
-    private LaunchpadAdapter adapter;
+    private PackageManager pm;
+    TextView gboost_short_add;
+    ImageView gboost_short_iv;
+    private GbAdapter adapter;
     private ArrayList<String> list;
     private Handler mHandler = new Handler() {
         @Override
@@ -107,12 +107,13 @@ public class GBoostActivity extends BaseActivity {
         clear = (ImageButton) findViewById(R.id.clear);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
 
-        gboost_recyc = (PagerView) findViewById(R.id.gboost_recyc);
-        pageindicatorview = (PageIndicatorView) findViewById(R.id.pageindicatorview);
+        gboost_recyc = (RecyclerView) findViewById(R.id.gboost_recyc);
         gboost_clean_button = (Button) findViewById(R.id.gboost_clean_button);
         ll_add_game = (LinearLayout) findViewById(R.id.ll_add_game);
         add_left = (FrameLayout) findViewById(R.id.add_left);
         list_game = (ListView) findViewById(R.id.list_game);
+        gboost_short_iv = (ImageView) findViewById(R.id.gboost_short_iv);
+        gboost_short_add = (TextView) findViewById(R.id.gboost_short_add);
     }
 
     @Override
@@ -122,7 +123,7 @@ public class GBoostActivity extends BaseActivity {
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
         cleanApplication = (MyApplication) getApplication();
-
+        pm = getPackageManager();
         title_left.setOnClickListener(clickListener);
         add_left.setOnClickListener(clickListener);
         title_name.setText(R.string.gboost_0);
@@ -132,6 +133,7 @@ public class GBoostActivity extends BaseActivity {
         gboost_clean_button.setOnClickListener(clickListener);
         add_right.setOnClickListener(clickListener);
         clear.setOnClickListener(clickListener);
+        gboost_short_add.setOnClickListener(clickListener);
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
@@ -140,7 +142,6 @@ public class GBoostActivity extends BaseActivity {
     private void initList() {
         list = new ArrayList<>();
         addData();
-
     }
 
     private void addData() {
@@ -165,54 +166,13 @@ public class GBoostActivity extends BaseActivity {
                     public void run() {
                         list.add(0, getString(R.string.gboost_7));
                         Log.e("jfy", list.size() + "==");
-                        adapter = new LaunchpadAdapter(GBoostActivity.this, list);
+                        adapter = new GbAdapter(list);
+                        gboost_recyc.setLayoutManager(new GridLayoutManager(GBoostActivity.this, 3));
                         gboost_recyc.setAdapter(adapter);
-                        gboost_recyc.refreshView();
-                        if (list.size() <= 12) {
-                            pageindicatorview.setCount(0);
-                        } else if (list.size() <= 24) {
-                            pageindicatorview.setCount(2);
-                        } else if (list.size() <= 36) {
-                            pageindicatorview.setCount(3);
-                        } else if (list.size() <= 48) {
-                            pageindicatorview.setCount(3);
-                        } else {
-                            pageindicatorview.setCount(5);
-                        }
-                        gboost_recyc.setOnPageChangedListener(new PagerView.OnPageChangedListener() {
-                            @Override
-                            public void onPageChange(int oldPage, int newPage) {
-                                pageindicatorview.setSelection(newPage);
-                            }
-                        });
-                        gboost_recyc.setOnItemClickListener(new PagerView.OnItemClickListener() {
-                            @Override
-                            public void onClick(Object o, int pos) {
-                                if (pos == 0) {
-                                    AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
-                                    ll_add_game.setVisibility(View.VISIBLE);
-                                    whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
-                                    list_game.setAdapter(whiteListAdapter);
-                                    initData();
-                                } else {
-                                    try {
-                                        AdUtil.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
-                                        Bundle bundle = new Bundle();
-                                        bundle.putString("from", "GBoost");
-                                        bundle.putString("packageName", list.get(pos));
-                                        jumpToActivity(PowerActivity.class, bundle);
-                                    } catch (Exception e) {
-                                    }
-                                }
-                            }
-                        });
-
                     }
                 });
             }
-        }).
-
-                start();
+        }).start();
 
     }
 
@@ -222,19 +182,7 @@ public class GBoostActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.add_left:
                     ll_add_game.setVisibility(View.GONE);
-                    gboost_recyc.refreshView();
-                    if (list.size() <= 12) {
-                        pageindicatorview.setCount(0);
-                    } else if (list.size() <= 24) {
-                        pageindicatorview.setCount(2);
-                    } else if (list.size() <= 36) {
-                        pageindicatorview.setCount(3);
-                    } else if (list.size() <= 48) {
-                        pageindicatorview.setCount(3);
-                    } else {
-                        pageindicatorview.setCount(5);
-                    }
-//                    gboost_recyc.scrollBy(2000, 0);
+                    adapter.notifyDataSetChanged();
                     shortGame(false);
                     break;
                 case R.id.title_left:
@@ -252,6 +200,10 @@ public class GBoostActivity extends BaseActivity {
                     Bundle bundle = new Bundle();
                     bundle.putString("from", "GBoost");
                     jumpToActivity(PowerActivity.class, bundle, 1);
+                    break;
+                case R.id.gboost_short_add:
+                    AdUtil.track("游戏加速页面", "点击添加快捷方式", "", 1);
+                    shortGame(true);
                     break;
             }
         }
@@ -314,43 +266,6 @@ public class GBoostActivity extends BaseActivity {
         vis2invis.start();
     }
 
-    private long getCup() {
-        long usage = 0;
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/stat")), 1000);
-            String load = reader.readLine();
-            reader.close();
-
-            String[] toks = load.split(" ");
-
-            long currTotal = Long.parseLong(toks[2]) + Long.parseLong(toks[3]) + Long.parseLong(toks[4]);
-            long currIdle = Long.parseLong(toks[5]);
-
-            usage = (long) ((currTotal - total) * 100.0f / (currTotal - total + currIdle - idle));
-            total = currTotal;
-            idle = currIdle;
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return usage;
-    }
-
-    private long getNetWork() {
-        long nowTotalRxBytes = getTotalRxBytes(); // 获取当前数据总量
-        long nowTimeStamp = System.currentTimeMillis(); // 当前时间
-        long speed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
-                - lastTimeStamp));// 毫秒转换
-//        gboost_network_size.setText(Util.convertStorageWifi(speed));
-        lastTimeStamp = nowTimeStamp;
-        lastTotalRxBytes = nowTotalRxBytes;
-        return speed;
-    }
-
-    private long getTotalRxBytes() {
-        // 得到整个手机的流量值
-        return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
-                : (TrafficStats.getTotalRxBytes());//
-    }
 
     @Override
     protected void onResume() {
@@ -361,18 +276,7 @@ public class GBoostActivity extends BaseActivity {
     public void onBackPressed() {
         if (ll_add_game.getVisibility() == View.VISIBLE) {
             ll_add_game.setVisibility(View.GONE);
-            gboost_recyc.refreshView();
-            if (list.size() <= 12) {
-                pageindicatorview.setCount(0);
-            } else if (list.size() <= 24) {
-                pageindicatorview.setCount(2);
-            } else if (list.size() <= 36) {
-                pageindicatorview.setCount(3);
-            } else if (list.size() <= 48) {
-                pageindicatorview.setCount(3);
-            } else {
-                pageindicatorview.setCount(5);
-            }
+            adapter.notifyDataSetChanged();
             shortGame(false);
         } else {
             finish();
@@ -390,6 +294,7 @@ public class GBoostActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
             ShortCutUtils.addShortcut(GBoostActivity.this, shortcutIntent, title, false, bitmap);
+            gboost_short_iv.setImageBitmap(bitmap);
             return;
         }
         if (list.size() > 1 && (!PreData.getDB(GBoostActivity.this, Constant.GBOOST_SI, false) || isChuangjian)) {
@@ -417,6 +322,7 @@ public class GBoostActivity extends BaseActivity {
                 Log.e("short", "chuangjian ");
                 ShortCutUtils.removeShortcut(GBoostActivity.this, shortcutIntent, title);
                 ShortCutUtils.addShortcut(GBoostActivity.this, shortcutIntent, title, false, bitmap);
+                gboost_short_iv.setImageBitmap(bitmap);
             }
         }
     }
@@ -463,4 +369,110 @@ public class GBoostActivity extends BaseActivity {
     }
 
 
+    class GbAdapter extends RecyclerView.Adapter<GbAdapter.HomeViewHolder> {
+        ArrayList<String> list;
+        LruCache lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {
+            @Override
+            protected int sizeOf(String key, Bitmap bitmap) {
+                // 返回用户定义的item的大小，默认返回1代表item的数量.重写此方法来衡量每张图片的大小。
+                return bitmap.getByteCount() / 1024;
+            }
+        };
+
+
+        public GbAdapter(ArrayList<String> list) {
+            this.list = list;
+        }
+
+
+        public GbAdapter.HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            GbAdapter.HomeViewHolder holder = new GbAdapter.HomeViewHolder(LayoutInflater.from(
+                    GBoostActivity.this).inflate(R.layout.layout_gboost_item, parent,
+                    false));
+            return holder;
+        }
+
+        @Override
+        public void onBindViewHolder(final GbAdapter.HomeViewHolder holder, final int position) {
+            if (position == 0) {
+                holder.gboost_item_icon.setImageResource(R.mipmap.gboost_add);
+                holder.gboost_item_name.setText(list.get(position));
+            } else {
+                try {
+                    ApplicationInfo info = pm.getApplicationInfo(list.get(position), 0);
+                    holder.gboost_item_icon.setImageDrawable(info.loadIcon(pm));
+                    holder.gboost_item_name.setText(info.loadLabel(pm));
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+            holder.gboost_item_c.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (position == 0) {
+                        AdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
+                        ll_add_game.setVisibility(View.VISIBLE);
+                        whiteListAdapter = new AddGameAdapter(GBoostActivity.this, list);
+                        list_game.setAdapter(whiteListAdapter);
+                        initData();
+                    } else {
+                        try {
+                            AdUtil.track("游戏加速页面", "点击启动游戏", list.get(position), 1);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("from", "GBoost");
+                            bundle.putString("packageName", list.get(position));
+                            jumpToActivity(PowerActivity.class, bundle);
+                        } catch (Exception e) {
+                        }
+                    }
+                }
+            });
+        }
+
+        public void reChangesData(int position) {
+            notifyItemRangeChanged(position, this.list.size() - position); //mList是数据
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return this.list.size();
+        }
+
+        class HomeViewHolder extends RecyclerView.ViewHolder {
+            ImageView gboost_item_icon;
+            TextView gboost_item_name;
+            FrameLayout gboost_item_c;
+
+            public HomeViewHolder(View view) {
+                super(view);
+                gboost_item_icon = (ImageView) view.findViewById(R.id.gboost_item_icon);
+                gboost_item_name = (TextView) view.findViewById(R.id.gboost_item_name);
+                gboost_item_c = (FrameLayout) view.findViewById(R.id.gboost_item_c);
+            }
+        }
+
+        /**
+         * @param key    传入图片的key值，一般用图片url代替
+         * @param bitmap 要缓存的图片对象
+         */
+        public void addBitmapToCache(String key, Bitmap bitmap) {
+            if (getBitmapFromCache(key) == null) {
+                if (bitmap == null) {
+                    return;
+                } else {
+                    lruCache.put(key, bitmap);
+                }
+            }
+        }
+
+        /**
+         * @param key 要取出的bitmap的key值
+         * @return 返回取出的bitmap
+         */
+        public Bitmap getBitmapFromCache(String key) {
+
+            return (Bitmap) lruCache.get(key);
+        }
+    }
 }
