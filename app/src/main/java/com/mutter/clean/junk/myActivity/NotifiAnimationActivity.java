@@ -2,6 +2,7 @@ package com.mutter.clean.junk.myActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ public class NotifiAnimationActivity extends BaseActivity {
     private static final int REQUSETSET = 110;
     Button notifi_info_text;
     LottieAnimationView notifi_info_lot;
+    Handler handler;
 
     @Override
     protected void findId() {
@@ -31,6 +33,7 @@ public class NotifiAnimationActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_notifi_info);
+        handler = new Handler();
         notifi_info_lot.setAnimation("lyp_tz.json");
         notifi_info_lot.loop(true);
         notifi_info_lot.setSpeed(0.5f);
@@ -40,6 +43,13 @@ public class NotifiAnimationActivity extends BaseActivity {
             public void onClick(View v) {
                 if (!Util.isNotificationListenEnabled(NotifiAnimationActivity.this)) {
                     startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), REQUSETSET);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent transintent = new Intent(NotifiAnimationActivity.this, ShowPermissionActivity.class);
+                            startActivity(transintent);
+                        }
+                    }, 1500);
                 } else {
                     PreData.putDB(NotifiAnimationActivity.this, Constant.KEY_NOTIFI, true);
                     startActivity(new Intent(NotifiAnimationActivity.this, NotifiActivity.class));

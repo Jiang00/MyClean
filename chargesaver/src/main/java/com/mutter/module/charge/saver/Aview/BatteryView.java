@@ -25,6 +25,8 @@ import com.mutter.module.charge.saver.Util.Constants;
 import com.mutter.module.charge.saver.Util.Utils;
 import com.mutter.module.charge.saver.entry.BatteryEntry;
 import com.sample.lottie.LottieAnimationView;
+import com.sample.lottie.LottieComposition;
+import com.sample.lottie.OnCompositionLoadedListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -119,6 +121,7 @@ public class BatteryView extends FrameLayout {
                             if ((event.getX() - startX) > halfWidth / 2) {
                                 if (listener != null) {
                                     listener.onUnlock();
+
                                 }
                             }
                             return true;
@@ -200,8 +203,8 @@ public class BatteryView extends FrameLayout {
 
     private void initShell() {
         try {
-            shell.setImageAssetsFolder(mContext, "theme://images/shell");
-            shell.setAnimation(mContext, "theme://shell.json");
+            shell.setImageAssetsFolder(mContext, "theme://images/waikuang");
+            shell.setAnimation(mContext, "theme://waikuang.json");
             shell.loop(true);
             shell.playAnimation();
         } catch (Exception e) {
@@ -214,11 +217,11 @@ public class BatteryView extends FrameLayout {
 
     private void initWater() {
         try {
-            water.setImageAssetsFolder(mContext, "theme://images/water");
-            water.setAnimation(mContext, "theme://water.json");
+            water.setImageAssetsFolder(mContext, "theme://images/shui");
+            water.setAnimation(mContext, "theme://shui.json");
         } catch (Exception e) {
             if (!water.isAnimating()) {
-                water.setImageAssetsFolder(null, "images/water");
+                water.setImageAssetsFolder(null, "images/shui");
                 water.setAnimation(null, "shui.json");
             }
         }
@@ -234,16 +237,6 @@ public class BatteryView extends FrameLayout {
             initViews();
             isBindView = true;
 
-//            shell.setAnimation("shell.json");
-//            shell.loop(true);
-//            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
-//                    new OnCompositionLoadedListener() {
-//                        @Override
-//                        public void onCompositionLoaded(LottieComposition composition) {
-//                            shell.setComposition(composition);
-//                        }
-//                    });
-//            shell.playAnimation();
             initShell();
 
             updateTime();
@@ -392,9 +385,9 @@ public class BatteryView extends FrameLayout {
         try {
             JSONObject object = new JSONObject(AndroidSdk.getExtraData());
             int state = analysisJson(object);
-            if (state == 1) {
-                mContext.startActivity(new Intent(mContext, ADActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
-            }
+//            if (state == 1) {
+//                mContext.startActivity(new Intent(mContext, ADActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }

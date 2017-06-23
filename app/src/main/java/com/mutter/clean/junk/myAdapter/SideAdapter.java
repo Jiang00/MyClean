@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -39,25 +40,50 @@ import com.mutter.clean.junk.util.UtilGp;
 
 
 public class SideAdapter extends MybaseAdapter<SideInfo> {
-    private static int idx = 0;
-    private static final int BATTERY = idx++;
-    private static final int FLOAT = idx++;
-    private static final int JUNK = idx++;
-    private static final int RAM = idx++;
-    private static final int POWER = idx++;
-    private static final int NOTIFI = idx++;
-    private static final int PICTURE = idx++;
-    private static final int FILE = idx++;
-    private static final int BATTERY_COOLING = idx++;
-    private static final int MANAGER = idx++;
-    private static final int GBOOST = idx++;
-    private static final int MESSAGE = idx++;
-    private static final int SETTING = idx++;
-    private static final int ROTATE = idx++;
+
+    private int BATTERY = -1;
+    private int FLOAT = -1;
+    private int JUNK = -1;
+    private int RAM = -1;
+    private int POWER = -1;
+    private int NOTIFI = -1;
+    private int PICTURE = -1;
+    private int FILE = -1;
+    private int BATTERY_COOLING = -1;
+    private int MANAGER = -1;
+    private int GBOOST = -1;
+    private int MESSAGE = -1;
+    private int SETTING = -1;
+    private int ROTATE = -1;
 
     public SideAdapter(Context context) {
-
         super(context);
+        int idx = 0;
+
+        BATTERY = idx++;
+        FLOAT = idx++;
+        JUNK = idx++;
+        RAM = idx++;
+        if (PreData.getDB(context, Constant.DEEP_KAIGUAN, 1) != 0) {
+            POWER = idx++;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, Constant.NOTIFI_KAIGUAN, 1) != 0) {
+            NOTIFI = idx++;
+        }
+        if (PreData.getDB(context, Constant.PICTURE_KAIGUAN, 1) != 0) {
+            PICTURE = idx++;
+        }
+        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) != 0) {
+            FILE = idx++;
+        }
+        BATTERY_COOLING = idx++;
+        MANAGER = idx++;
+        if (PreData.getDB(context, Constant.GBOOST_KAIGUAN, 1) != 0) {
+            GBOOST = idx++;
+        }
+        MESSAGE = idx++;
+        SETTING = idx++;
+        ROTATE = idx++;
     }
 
     @Override
@@ -88,6 +114,18 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else {
             holder.checkBox.setImageResource(R.mipmap.side_check_normal);
         }
+
+        if (position == BATTERY || position == FLOAT) {
+            holder.checkBox.setVisibility(View.VISIBLE);
+        } else {
+            holder.checkBox.setVisibility(View.INVISIBLE);
+        }
+
+        if (position == JUNK || position == FILE || position == MESSAGE) {
+            holder.side_divide.setVisibility(View.VISIBLE);
+        } else {
+            holder.side_divide.setVisibility(View.GONE);
+        }
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,45 +138,18 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 onC(position);
             }
         });
-        if (position == BATTERY || position == FLOAT) {
-            holder.checkBox.setVisibility(View.VISIBLE);
-        } else {
-            holder.checkBox.setVisibility(View.INVISIBLE);
-        }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            guan(position, NOTIFI, holder, convertView);
-        }
-        if (PreData.getDB(context, Constant.NOTIFI_KAIGUAN, 1) == 0) {
-            guan(position, NOTIFI, holder, convertView);
-        }
-        if (PreData.getDB(context, Constant.DEEP_KAIGUAN, 1) == 0) {
-            guan(position, POWER, holder, convertView);
-        }
-        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) == 0) {
-            guan(position, FILE, holder, convertView);
-        }
-        if (PreData.getDB(context, Constant.GBOOST_KAIGUAN, 1) == 0) {
-            guan(position, GBOOST, holder, convertView);
-        }
-        if (PreData.getDB(context, Constant.PICTURE_KAIGUAN, 1) == 0) {
-            guan(position, PICTURE, holder, convertView);
-        }
-        if (position == JUNK || position == FILE || position == MESSAGE) {
-            holder.side_divide.setVisibility(View.VISIBLE);
-        } else {
-            holder.side_divide.setVisibility(View.GONE);
-        }
         return convertView;
     }
 
     private void guan(int position, int item, ViewHolder holder, View convertView) {
         if (position == item) {
-            holder.rl_item.setVisibility(View.GONE);
-            AbsListView.LayoutParams param = new AbsListView.LayoutParams(0, 1);
+//            holder.rl_item.setVisibility(View.GONE);
+            convertView.setVisibility(View.GONE);
+            AbsListView.LayoutParams param = new AbsListView.LayoutParams(1, 1);
             convertView.setLayoutParams(param);
         } else {
-            holder.rl_item.setVisibility(View.VISIBLE);
-            AbsListView.LayoutParams param = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
+            convertView.setVisibility(View.VISIBLE);
+            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             convertView.setLayoutParams(param);
         }
     }

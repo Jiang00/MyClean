@@ -40,7 +40,7 @@ public class BatteryActivity extends Activity {
 
     protected void hideBottomUIMenu() {
         try {
-            if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) {
+            if (Build.VERSION.SDK_INT < 19) {
                 View v = this.getWindow().getDecorView();
                 v.setSystemUiVisibility(View.GONE);
             } else if (Build.VERSION.SDK_INT >= 19) {
@@ -62,11 +62,13 @@ public class BatteryActivity extends Activity {
             batteryView.setUnlockListener(new BatteryView.UnlockListener() {
                 @Override
                 public void onUnlock() {
-                    BatteryActivity.this.finish();
                     overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
+                    finish();
                 }
             });
+            Log.e("battery", "bar===");
         } catch (Exception e) {
+            finish();
         }
     }
 
@@ -74,16 +76,9 @@ public class BatteryActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("battery", "onCreate");
         hideBottomUIMenu();
-        String type;
-        try {
-            type = getIntent().getExtras().getString("type");
-        } catch (Exception e) {
-            type = "bar";
-        }
-        if (TextUtils.equals(type, "bar")) {
-            doBar();
-        }
+        doBar();
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
@@ -108,6 +103,7 @@ public class BatteryActivity extends Activity {
     @Override
     protected void onDestroy() {
         batteryView = null;
+        Log.e("battery", "onDestroy");
         super.onDestroy();
         try {
             unregisterReceiver(mReceiver);

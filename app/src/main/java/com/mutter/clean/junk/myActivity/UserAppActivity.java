@@ -290,6 +290,13 @@ public class UserAppActivity extends BaseActivity implements AppManagerView {
                     Intent intent = new Intent(
                             Settings.ACTION_USAGE_ACCESS_SETTINGS);
                     startActivityForResult(intent, 100);
+                    myHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent transintent = new Intent(UserAppActivity.this, ShowPermissionActivity.class);
+                            startActivity(transintent);
+                        }
+                    }, 1500);
                     break;
                 case R.id.junk_button_clean:
                     if (doc_view_pager.getCurrentItem() == 0) {

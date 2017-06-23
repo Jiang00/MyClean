@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Parcelable;
 
+import com.mutter.clean.junk.myActivity.HuojianActivity;
 import com.mutter.clean.util.PreData;
 import com.mutter.clean.junk.R;
 import com.mutter.clean.junk.myActivity.GameActivity;
@@ -33,7 +34,7 @@ public class ShortCutUtils {
                 "com.android.launcher.action.INSTALL_SHORTCUT");
         Intent shortcutIntent = new Intent();
         shortcutIntent.setComponent(new ComponentName(cx.getPackageName(),
-                "com.mutter.clean.junk.activity.HuojianActivity"));
+                HuojianActivity.class.getCanonicalName()));
         //设置启动的模式
         shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
                 | Intent.FLAG_ACTIVITY_NEW_TASK);

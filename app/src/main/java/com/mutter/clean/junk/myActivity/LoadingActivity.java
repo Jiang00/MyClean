@@ -143,7 +143,7 @@ public class LoadingActivity extends BaseActivity {
                 if (jsonObject.has("deep_kaiguan")) {
                     PreData.putDB(LoadingActivity.this, Constant.DEEP_KAIGUAN, jsonObject.getInt("deep_kaiguan"));
                 }
-                if (jsonObject.has("deep_kaiguan")) {
+                if (jsonObject.has("file_kaiguan")) {
                     PreData.putDB(LoadingActivity.this, Constant.FILE_KAIGUAN, jsonObject.getInt("file_kaiguan"));
                 }
                 if (jsonObject.has("gboost_kaiguan")) {

@@ -22,6 +22,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -40,7 +41,6 @@ import com.mutter.clean.junk.R;
 import com.mutter.clean.junk.myAdapter.SideAdapter;
 import com.mutter.clean.junk.myview.RoundRam;
 import com.mutter.clean.junk.myview.RoundSd;
-import com.mutter.clean.junk.myview.ListViewForScrollView;
 import com.mutter.clean.junk.myview.MyScrollView;
 import com.mutter.clean.junk.myview.PullToRefreshLayout;
 import com.mutter.clean.junk.entity.SideInfo;
@@ -71,7 +71,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LinearLayout main_power_button;
     LinearLayout main_gboost_button;
     LinearLayout main_picture_button;
-    ListViewForScrollView side_listView;
+    ListView side_listView;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
     DrawerLayout main_drawer;
@@ -84,6 +84,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     // LottieAnimationView lot_side;
     ImageView side_title;
     ImageView lot_family;
+    FrameLayout ad_delete;
     FrameLayout main_ad;
 
 
@@ -142,7 +143,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
         main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
         main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
-        side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
+        side_listView = (ListView) findViewById(R.id.side_listView);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
@@ -150,6 +151,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         side_title = (ImageView) findViewById(R.id.side_title);
         lot_family = (ImageView) findViewById(R.id.lot_family);
+        ad_delete = (FrameLayout) findViewById(R.id.ad_delete);
         main_ad = (FrameLayout) findViewById(R.id.main_ad);
 
     }
@@ -370,16 +372,27 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
-        adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-        adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
-        adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
-        adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+        if (PreData.getDB(this, Constant.DEEP_KAIGUAN, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
+        }
+        if (PreData.getDB(this, Constant.PICTURE_KAIGUAN, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
+        }
+        if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+        }
         adapter.addData(new SideInfo(R.string.main_cooling_name, R.mipmap.side_battery));//电池降温
         adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-        adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
+        if (PreData.getDB(this, Constant.GBOOST_KAIGUAN, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
+        }
         adapter.addData(new SideInfo(R.string.main_msg_title, R.mipmap.side_message));//硬件信息
         adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
         adapter.addData(new SideInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
+
 
     }
 
@@ -747,8 +760,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             return;
         }
 
-        CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(lot_family.getLeft() + lot_family.getWidth() / 2,
-                lot_family.getTop() + lot_family.getHeight() / 2, ll_ad_full.getHeight(), 0);
+        CRAnimation crA = new CircularRevealCompat(ll_ad_full).circularReveal(ad_delete.getLeft() + ad_delete.getWidth() / 2,
+                ad_delete.getTop() + ad_delete.getWidth() / 2, ll_ad_full.getHeight(), 0);
         if (crA != null) {
             crA.addListener(new SimpleAnimListener() {
                 @Override
