@@ -225,7 +225,17 @@ public class SuccessActivity extends BaseActivity {
             @Override
             public void duogouSc() {
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
+                        AndroidSdk.showFullAd("ramboost");
+                    } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
+                        AndroidSdk.showFullAd("junkclean");
+                    } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
+                        AndroidSdk.showFullAd("Rocketclean");
+                    } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+                        AndroidSdk.showFullAd("cpucooler");
+                    } else {
+                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    }
                 }
                 startSecondAnimation();
                 success_drawhook.setListener(null);

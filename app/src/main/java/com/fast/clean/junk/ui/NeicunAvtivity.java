@@ -70,7 +70,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd("junkclean");
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
         ramPresenter.init();
@@ -78,7 +78,6 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
         title_right.setVisibility(View.VISIBLE);
 
     }
-
 
 
     @Override
@@ -96,6 +95,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
 
         ramPresenter.addAdapterData();
     }
+
     @Override
     public void loadFullAd() {
     }
@@ -106,6 +106,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
         junk_button_clean.setOnClickListener(onClickListener);
         title_right.setOnClickListener(onClickListener);
     }
+
     @Override
     public void setColor(int memory, final long allSize) {
         new Thread(new Runnable() {
