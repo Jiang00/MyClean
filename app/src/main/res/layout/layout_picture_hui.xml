@@ -27,14 +27,14 @@
         android:layout_margin="@dimen/d7"
         android:background="@drawable/shape_ad"
         android:elevation="@dimen/d2"
-        android:visibility="gone"
-        android:orientation="vertical" />
+        android:orientation="vertical"
+        android:visibility="gone" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <LinearLayout
             android:id="@+id/hui_never"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,11 +42,23 @@
             android:layout_marginLeft="@dimen/d16"
             android:layout_marginRight="@dimen/d16"
             android:gravity="center"
-            android:text="@string/picture_8"
-            android:textColor="#bfbfbf"
-            android:textSize="@dimen/d20"
-            android:visibility="invisible"
-            app:typeface="eos_clean.otf" />
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/no_photo" />
+
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d24"
+                android:text="@string/picture_8"
+                android:textColor="@color/B8"
+                android:textSize="@dimen/s17"
+                app:typeface="lyp_text.otf" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_picture"

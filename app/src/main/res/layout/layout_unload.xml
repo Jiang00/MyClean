@@ -17,113 +17,94 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="@dimen/d16"
         android:layout_marginRight="@dimen/d16"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/d90">
+        android:background="@drawable/shape_ad"
+        android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d120"
-            android:background="@drawable/shape_a1">
+        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d14"
+            android:textColor="@color/A6"
+            android:textSize="@dimen/s12"
+            app:typeface="lyp_text.otf" />
 
-            <ImageView
-                android:id="@+id/iv_cha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d8"
-                android:src="@mipmap/unload_delete" />
-
-            <ImageView
-                android:id="@+id/zhuangshi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d24"
-                android:layout_marginTop="@dimen/d23"
-                android:src="@mipmap/unload_tong" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/d14"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/iv_icon"
-                android:layout_width="@dimen/d30"
-                android:layout_height="@dimen/d30"
-                android:layout_alignRight="@id/zhuangshi"
-                android:layout_alignTop="@id/zhuangshi"
-                android:layout_marginRight="@dimen/d20"
-                android:layout_marginTop="@dimen/d2"
+                android:layout_width="@dimen/d24"
+                android:layout_height="@dimen/d24"
                 android:src="@mipmap/icon" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:id="@+id/tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:layout_marginTop="@dimen/d50"
-                android:layout_toRightOf="@id/zhuangshi"
+                android:layout_marginLeft="@dimen/d5"
                 android:text="158"
-                android:textColor="@color/B9"
-                android:textSize="@dimen/s30"
-                app:typeface="eos_clean.otf" />
+                android:textColor="@color/A4"
+                android:textSize="@dimen/s20"
+                app:typeface="lyp_text.otf" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:id="@+id/tv_danwei"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
-                android:layout_marginLeft="@dimen/d6"
+                android:layout_marginLeft="@dimen/d5"
                 android:layout_toRightOf="@id/tv_size"
                 android:text="KB "
-                android:textColor="#ffffff"
+                android:textColor="@color/B3"
                 android:textSize="@dimen/s15"
-                app:typeface="eos_clean.otf" />
+                app:typeface="lyp_text.otf" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
-                android:layout_toRightOf="@id/tv_danwei"
                 android:text="@string/unload_canyu"
-                android:textColor="@color/A8"
+                android:textColor="@color/B3"
                 android:textSize="@dimen/s15"
-                app:typeface="eos_clean.otf" />
-        </RelativeLayout>
+                app:typeface="lyp_text.otf" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d44"
-            android:background="@drawable/shape_ffffff_b"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/d10"
+            android:layout_marginTop="@dimen/d24"
+            android:gravity="center"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                android:id="@+id/bt_quxiao"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d24"
+                android:background="@drawable/shape_rotate_bad"
+                android:gravity="center"
+                android:text="@string/main_rotate_bad"
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s13"
+                app:typeface="lyp_text.otf" />
 
-                <Button
-                    android:id="@+id/bt_quxiao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@string/quxiao"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s17" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <Button
-                    android:id="@+id/bt_queren"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@string/qingli"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s17" />
-            </LinearLayout>
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                android:id="@+id/bt_queren"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d24"
+                android:background="@drawable/shape_rotate_good"
+                android:gravity="center"
+                android:text="@string/main_rotate_good"
+                android:textColor="@color/A8"
+                android:textSize="@dimen/s13"
+                app:typeface="lyp_text.otf" />
         </LinearLayout>
     </LinearLayout>
 

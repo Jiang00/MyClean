@@ -28,17 +28,17 @@
             android:orientation="horizontal">
 
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:id="@+id/junk_size_all"
-                android:layout_width="@dimen/d161"
+                android:layout_width="@dimen/d176"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d72"
+                android:layout_marginLeft="@dimen/d61"
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
                 android:textColor="@color/A8"
                 android:textSize="@dimen/s72"
-                app:typeface="eos_clean.otf" />
+                app:typeface="lyp_text.otf" />
 
             <LinearLayout
                 android:id="@+id/ll_tv"
@@ -47,16 +47,16 @@
                 android:layout_gravity="center_vertical"
                 android:orientation="vertical">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                     android:id="@+id/junk_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B"
                     android:textColor="@color/B10"
                     android:textSize="@dimen/s21"
-                    app:typeface="eos_clean.otf" />
+                    app:typeface="lyp_text.otf" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                     android:id="@+id/junk_fangxin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                     android:text="@string/junk_title_clean"
                     android:textColor="@color/B10"
                     android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    app:typeface="lyp_text.otf" />
 
 
             </LinearLayout>
@@ -86,7 +86,7 @@
             android:dividerHeight="0px"
             android:visibility="invisible" />
 
-        <com.supers.clean.junk.customeview.MyScrollView
+        <com.mutter.clean.junk.myview.MyScrollView
             android:id="@+id/junk_scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -123,7 +123,7 @@
                                 android:src="@mipmap/junk_system" />
                         </LinearLayout>
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -132,10 +132,10 @@
                             android:text="@string/junk_system"
                             android:textColor="@color/B2"
                             android:textSize="@dimen/s14"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:id="@+id/junk_system_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                             android:text="0MB"
                             android:textColor="@color/B3"
                             android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
                         <ImageView
@@ -160,7 +160,7 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
-                    <com.supers.clean.junk.customeview.ListViewForScrollView
+                    <com.mutter.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_system_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
                                 android:src="@mipmap/junk_apk" />
                         </LinearLayout>
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -204,9 +204,9 @@
                             android:text="@string/junk_apk"
                             android:textColor="@color/B2"
                             android:textSize="@dimen/s14"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:id="@+id/junk_apk_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
                             android:text="0MB"
                             android:textColor="@color/B3"
                             android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
                         <ImageView
@@ -231,7 +231,7 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
-                    <com.supers.clean.junk.customeview.ListViewForScrollView
+                    <com.mutter.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_apk_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -265,7 +265,7 @@
                                 android:src="@mipmap/junk_unload" />
                         </LinearLayout>
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -274,9 +274,9 @@
                             android:text="@string/junk_unload"
                             android:textColor="@color/B2"
                             android:textSize="@dimen/s14"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:id="@+id/junk_unload_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -288,7 +288,7 @@
                             android:text="0MB"
                             android:textColor="@color/B3"
                             android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
                         <ImageView
@@ -301,7 +301,7 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
-                    <com.supers.clean.junk.customeview.ListViewForScrollView
+                    <com.mutter.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_unload_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -335,7 +335,7 @@
                                 android:src="@mipmap/junk_log" />
                         </LinearLayout>
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -344,10 +344,10 @@
                             android:text="@string/junk_log"
                             android:textColor="@color/B2"
                             android:textSize="@dimen/s14"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:id="@+id/junk_log_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -359,7 +359,7 @@
                             android:text="0MB"
                             android:textColor="@color/B3"
                             android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
                         <ImageView
@@ -372,7 +372,7 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
-                    <com.supers.clean.junk.customeview.ListViewForScrollView
+                    <com.mutter.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_log_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -406,7 +406,7 @@
                                 android:src="@mipmap/junk_user" />
                         </LinearLayout>
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -415,10 +415,10 @@
                             android:text="@string/junk_user"
                             android:textColor="@color/B2"
                             android:textSize="@dimen/s14"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:id="@+id/junk_user_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -430,7 +430,7 @@
                             android:text="0MB"
                             android:textColor="@color/B3"
                             android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
                         <ImageView
@@ -443,7 +443,7 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
-                    <com.supers.clean.junk.customeview.ListViewForScrollView
+                    <com.mutter.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_user_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -477,7 +477,7 @@
                                 android:src="@mipmap/junk_ram" />
                         </LinearLayout>
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -486,10 +486,10 @@
                             android:text="@string/junk_ram"
                             android:textColor="@color/B2"
                             android:textSize="@dimen/s14"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                             android:id="@+id/junk_ram_size"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -501,7 +501,7 @@
                             android:text="0MB"
                             android:textColor="@color/B3"
                             android:textSize="@dimen/s12"
-                            app:typeface="eos_clean.otf" />
+                            app:typeface="lyp_text.otf" />
 
 
                         <ImageView
@@ -514,7 +514,7 @@
                             android:visibility="visible" />
                     </LinearLayout>
 
-                    <com.supers.clean.junk.customeview.ListViewForScrollView
+                    <com.mutter.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_ram_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -523,7 +523,7 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </com.supers.clean.junk.customeview.MyScrollView>
+        </com.mutter.clean.junk.myview.MyScrollView>
 
 
         <Button

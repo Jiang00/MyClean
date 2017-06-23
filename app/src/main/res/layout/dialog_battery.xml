@@ -7,9 +7,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/d36"
-        android:layout_marginRight="@dimen/d36"
-        android:background="@drawable/shape_ad"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -21,13 +18,28 @@
             android:textColor="@color/A6"
             android:textSize="@dimen/s12" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d14"
-            android:text="@string/battery_4"
-            android:textColor="@color/B2"
-            android:textSize="@dimen/s12" />
+            android:layout_marginTop="@dimen/d10"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/battery_shandian" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d5"
+                android:text="@string/battery_4"
+                android:textColor="@color/B2"
+                android:textSize="@dimen/s12" />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,8 +66,8 @@
 
             <TextView
                 android:id="@+id/battery_cancel"
-                android:layout_width="@dimen/d112"
-                android:layout_height="@dimen/d29"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d24"
                 android:background="@drawable/shape_rotate_bad"
                 android:gravity="center"
                 android:text="@string/battery_7"
@@ -64,8 +76,8 @@
 
             <TextView
                 android:id="@+id/battery_ok"
-                android:layout_width="@dimen/d112"
-                android:layout_height="@dimen/d29"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d24"
                 android:background="@drawable/shape_rotate_good"
                 android:gravity="center"
                 android:text="@string/battery_8"

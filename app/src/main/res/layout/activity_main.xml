@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/A10"
     android:orientation="vertical"
-    tools:context="com.supers.clean.junk.activity.MainActivity">
+    tools:context="com.mutter.clean.junk.myActivity.MainActivity">
 
 
     <View
@@ -43,7 +43,7 @@
                     android:scaleType="center"
                     android:src="@mipmap/main_menu" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                     android:text="@string/app_name"
                     android:textColor="@color/A8"
                     android:textSize="@dimen/s17"
-                    app:typeface="eos_clean.otf" />
+                    app:typeface="lyp_text.otf" />
 
                 <ImageView
                     android:id="@+id/iv_title_right"
@@ -70,14 +70,14 @@
 
             </RelativeLayout>
 
-            <com.supers.clean.junk.customeview.PullToRefreshLayout
+            <com.mutter.clean.junk.myview.PullToRefreshLayout
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <include layout="@layout/layout_load_more" />
 
-                <com.supers.clean.junk.customeview.MyScrollView
+                <com.mutter.clean.junk.myview.MyScrollView
                     android:id="@+id/main_scroll_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -107,7 +107,7 @@
                                 android:layout_marginLeft="@dimen/d33"
                                 android:layout_marginTop="@dimen/d53">
 
-                                <com.supers.clean.junk.customeview.CustomRoundSd
+                                <com.mutter.clean.junk.myview.RoundSd
                                     android:id="@+id/main_custom_sd"
                                     android:layout_width="@dimen/d176"
                                     android:layout_height="@dimen/d176"
@@ -119,21 +119,21 @@
                                     android:layout_centerInParent="true"
                                     android:orientation="vertical">
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
                                         android:text="@string/main_arc_sd"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s12"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="lyp_text.otf" />
 
                                     <RelativeLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d14">
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                             android:id="@+id/main_sd_per"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -142,9 +142,9 @@
                                             android:textColor="@color/A8"
                                             android:textSize="@dimen/s61"
                                             android:textStyle="bold"
-                                            app:typeface="eos_clean.otf" />
+                                            app:typeface="lyp_text.otf" />
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_alignBaseline="@id/main_sd_per"
@@ -154,10 +154,10 @@
                                             android:textColor="@color/A8"
                                             android:textSize="@dimen/s30"
                                             android:textStyle="bold"
-                                            app:typeface="eos_clean.otf" />
+                                            app:typeface="lyp_text.otf" />
                                     </RelativeLayout>
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:id="@+id/main_sd_size"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -166,7 +166,7 @@
                                         android:text="1.3/1.7GB"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s13"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="lyp_text.otf" />
 
 
                                 </LinearLayout>
@@ -180,7 +180,7 @@
                                 android:layout_marginRight="@dimen/d40"
                                 android:layout_marginTop="@dimen/d8">
 
-                                <com.supers.clean.junk.customeview.CustomRoundRam
+                                <com.mutter.clean.junk.myview.RoundRam
                                     android:id="@+id/main_custom_ram"
                                     android:layout_width="@dimen/d125"
                                     android:layout_height="@dimen/d125"
@@ -192,14 +192,14 @@
                                     android:layout_centerInParent="true"
                                     android:orientation="vertical">
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
                                         android:text="@string/main_arc_ram"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s11"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="lyp_text.otf" />
 
                                     <RelativeLayout
                                         android:layout_width="match_parent"
@@ -207,7 +207,7 @@
                                         android:layout_gravity="center_horizontal"
                                         android:layout_marginTop="@dimen/d9">
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                             android:id="@+id/main_ram_per"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -216,9 +216,9 @@
                                             android:textColor="@color/A8"
                                             android:textSize="@dimen/s34"
                                             android:textStyle="bold"
-                                            app:typeface="eos_clean.otf" />
+                                            app:typeface="lyp_text.otf" />
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_alignBaseline="@id/main_ram_per"
@@ -228,11 +228,11 @@
                                             android:textColor="@color/A8"
                                             android:textSize="@dimen/s18"
                                             android:textStyle="bold"
-                                            app:typeface="eos_clean.otf" />
+                                            app:typeface="lyp_text.otf" />
                                     </RelativeLayout>
 
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:id="@+id/main_ram_size"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -241,7 +241,7 @@
                                         android:text="1.3/1.7GB"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s11"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="lyp_text.otf" />
 
 
                                 </LinearLayout>
@@ -424,23 +424,23 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_notifi"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_notifi"
                                         android:textColor="@color/B2"
                                         android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="lyp_text.otf" />
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d8"
                                         android:text="@string/notifi_msg_main"
                                         android:textColor="@color/B3"
-                                        android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="lyp_text.otf" />
                                 </LinearLayout>
                             </LinearLayout>
 
@@ -472,23 +472,23 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_power"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_power"
                                         android:textColor="@color/B2"
                                         android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="lyp_text.otf" />
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d8"
                                         android:text="@string/power_3"
                                         android:textColor="@color/B3"
-                                        android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="lyp_text.otf" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -521,23 +521,23 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_file"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_file"
                                         android:textColor="@color/B2"
                                         android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="lyp_text.otf" />
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d8"
                                         android:text="@string/file_main"
                                         android:textColor="@color/B3"
-                                        android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="lyp_text.otf" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -570,23 +570,23 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_GBoost"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/gboost_0"
                                         android:textColor="@color/B2"
                                         android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="lyp_text.otf" />
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d8"
                                         android:text="@string/gboost_10"
                                         android:textColor="@color/B3"
-                                        android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="lyp_text.otf" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -618,23 +618,23 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_picture"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_picture"
                                         android:textColor="@color/B2"
                                         android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        app:typeface="lyp_text.otf" />
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d8"
                                         android:text="@string/picture_delete"
                                         android:textColor="@color/B3"
-                                        android:textSize="@dimen/s14"
-                                        app:typeface="eos_clean.otf" />
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="lyp_text.otf" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -656,11 +656,11 @@
                             android:visibility="gone" />
                     </LinearLayout>
 
-                </com.supers.clean.junk.customeview.MyScrollView>
+                </com.mutter.clean.junk.myview.MyScrollView>
 
                 <include layout="@layout/layout_load_more" />
 
-            </com.supers.clean.junk.customeview.PullToRefreshLayout>
+            </com.mutter.clean.junk.myview.PullToRefreshLayout>
         </LinearLayout>
 
 

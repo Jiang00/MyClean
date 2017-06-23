@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A1"
+    android:background="@drawable/backg_b"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="24dp" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -24,19 +24,19 @@
             android:gravity="center"
             android:text="@string/notifi_t"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/s17"
-            app:typeface="eos_clean.otf" />
+            android:textSize="@dimen/s16"
+            app:typeface="lyp_text.otf" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/d33"
+            android:layout_marginTop="@dimen/d15"
             android:gravity="center"
             android:text="@string/notifi_m"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s17"
-            app:typeface="eos_clean.otf" />
+            android:textColor="@color/C1"
+            android:textSize="@dimen/s13"
+            app:typeface="lyp_text.otf" />
 
         <com.sample.lottie.LottieAnimationView
             android:id="@+id/notifi_info_lot"
@@ -58,10 +58,9 @@
             android:layout_width="@dimen/d301"
             android:layout_height="@dimen/d33"
             android:layout_centerInParent="true"
-            android:background="@drawable/shape_a8"
+            android:background="@drawable/shape_a7"
             android:text="@string/notifi_info_2"
             android:textColor="#ffffff"
-            android:textSize="@dimen/s16"
-            android:visibility="invisible" />
+            android:textSize="@dimen/s16" />
     </RelativeLayout>
 </FrameLayout>

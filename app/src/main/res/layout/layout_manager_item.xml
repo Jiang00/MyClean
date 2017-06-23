@@ -24,16 +24,16 @@
         android:layout_toRightOf="@id/junk_item_rl"
         android:orientation="vertical">
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/junk_item_lable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="app标题"
             android:textColor="@color/B2"
             android:textSize="@dimen/s14"
-            app:typeface="eos_clean.otf" />
+            app:typeface="lyp_text.otf" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             android:text="app标题"
             android:textColor="@color/B3"
             android:textSize="@dimen/s11"
-            app:typeface="eos_clean.otf" />
+            app:typeface="lyp_text.otf" />
     </LinearLayout>
 
     <ImageView
@@ -54,7 +54,7 @@
         android:layout_marginRight="@dimen/d8"
         android:src="@mipmap/ram_passed" />
 
-    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
         android:id="@+id/size_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,5 +63,5 @@
         android:text="size"
         android:textColor="@color/B3"
         android:textSize="@dimen/s11"
-        app:typeface="eos_clean.otf" />
+        app:typeface="lyp_text.otf" />
 </RelativeLayout>

@@ -57,7 +57,7 @@
                 android:layout_height="@dimen/d20"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="@dimen/d13"
-                android:background="@drawable/shape_a8"
+                android:background="@drawable/shape_a7"
                 android:gravity="center"
                 android:text="@string/gboost_12"
                 android:textColor="@color/A8"
@@ -84,7 +84,7 @@
                     android:layout_marginLeft="@dimen/d8"
                     android:src="@mipmap/gboost_1" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -92,7 +92,7 @@
                     android:text="@string/gboost_add"
                     android:textColor="@color/B3"
                     android:textSize="@dimen/s14"
-                    app:typeface="eos_clean.otf" />
+                    app:typeface="lyp_text.otf" />
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
@@ -161,14 +161,14 @@
                             android:src="@mipmap/tilte_left" />
                     </FrameLayout>
 
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="@string/gboost_7"
                         android:textColor="@color/A8"
                         android:textSize="@dimen/s17"
-                        app:typeface="eos_clean.otf" />
+                        app:typeface="lyp_text.otf" />
 
                     <ImageView
                         android:id="@+id/add_right"

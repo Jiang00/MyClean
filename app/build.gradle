@@ -4,7 +4,7 @@ android {
     compileSdkVersion COMPILE_SDK_VERSION as int
     buildToolsVersion BUILD_TOOLS_VERSION
     defaultConfig {
-        applicationId "com.eosmobi.cleaner"
+        applicationId "com.mutter.cleaner"
         minSdkVersion MIN_SDK_VERSION as int
         targetSdkVersion TARGET_SDK_VERSION as int
         versionCode VERSION_CODE as int
@@ -205,15 +205,12 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.jaredrummler:android-processes:1.0.8'
-    compile project(path: ':tweenengine')
+//    compile project(path: ':tweenengine')
     compile project(path: ':chargesaver')
     compile project(path: ':baselibrary')
     compile 'com.core:empty:1.2.7'
-//    compile files('libs/gson-2.2.3.jar')
     compile project(':clean')
-    compile 'com.eos:keepalive:1.0.5'
-//    compile 'com.eos.module:eosui:1.2.1'
-    compile project(path: ':pageindicatorview')
+    compile 'com.mutter:keepalive:1.0.6'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'

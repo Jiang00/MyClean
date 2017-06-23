@@ -3,19 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_35"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="@dimen/d33"
-        android:layout_marginRight="@dimen/d33"
         android:background="@drawable/shape_radio"
         android:orientation="vertical">
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,9 +21,9 @@
             android:text="@string/delete_title"
             android:textColor="@color/A6"
             android:textSize="@dimen/s12"
-            app:typeface="eos_clean.otf" />
+            app:typeface="lyp_text.otf" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
             android:id="@+id/message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +32,7 @@
             android:text="@string/delete_message"
             android:textColor="@color/black_70"
             android:textSize="@dimen/s12"
-            app:typeface="eos_clean.otf" />
+            app:typeface="lyp_text.otf" />
 
         <LinearLayout
             android:id="@+id/progress_lin"
@@ -55,14 +52,15 @@
                 android:progress="0"
                 android:progressDrawable="@drawable/pic_progress" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:id="@+id/count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d3"
                 android:text="1/2"
                 android:textColor="@color/B3"
                 android:textSize="@dimen/s9"
-                app:typeface="eos_clean.otf" />
+                app:typeface="lyp_text.otf" />
         </LinearLayout>
 
         <LinearLayout
@@ -73,7 +71,7 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:id="@+id/cancle"
                 android:layout_width="@dimen/d84"
                 android:layout_height="@dimen/d24"
@@ -82,9 +80,9 @@
                 android:text="@string/main_rotate_bad"
                 android:textColor="@color/B3"
                 android:textSize="@dimen/s13"
-                app:typeface="eos_clean.otf" />
+                app:typeface="lyp_text.otf" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
                 android:id="@+id/ok"
                 android:layout_width="@dimen/d84"
                 android:layout_height="@dimen/d24"
@@ -93,7 +91,7 @@
                 android:text="@string/main_rotate_good"
                 android:textColor="@color/A8"
                 android:textSize="@dimen/s13"
-                app:typeface="eos_clean.otf" />
+                app:typeface="lyp_text.otf" />
         </LinearLayout>
     </LinearLayout>
 

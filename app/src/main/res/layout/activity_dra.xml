@@ -5,11 +5,11 @@
     android:id="@+id/main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.supers.clean.junk.activity.MainActivity">
+    tools:context="com.mutter.clean.junk.myActivity.MainActivity">
 
     <include layout="@layout/activity_main" />
 
-    <com.supers.clean.junk.customeview.MainFrameLayout
+    <com.mutter.clean.junk.myview.MainFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.supers.clean.junk.customeview.ListViewForScrollView
+                    <com.mutter.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/side_listView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -98,6 +98,6 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </com.supers.clean.junk.customeview.MainFrameLayout>
+    </com.mutter.clean.junk.myview.MainFrameLayout>
 
 </android.support.v4.widget.DrawerLayout>
