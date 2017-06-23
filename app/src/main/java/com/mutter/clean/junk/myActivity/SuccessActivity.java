@@ -73,6 +73,7 @@ public class SuccessActivity extends BaseActivity {
     private String TAG_CLEAN_2 = "mutter_success_2";
     private String TAG_TITLE = "mutter_icon";
 
+
     private boolean haveAd;
     private boolean animationEnd;
 

@@ -30,7 +30,7 @@ import java.util.ArrayList;
  */
 
 public class UnloadActivity extends BaseActivity {
-    Button bt_quxiao, bt_queren;
+    TextView bt_quxiao, bt_queren;
     ImageView iv_icon;
     TextView tv_size;
     LinearLayout ll_ad;
@@ -52,8 +52,8 @@ public class UnloadActivity extends BaseActivity {
         iv_icon = (ImageView) findViewById(R.id.iv_icon);
         tv_size = (TextView) findViewById(R.id.tv_size);
         title = (TextView) findViewById(R.id.title);
-        bt_queren = (Button) findViewById(R.id.bt_queren);
-        bt_quxiao = (Button) findViewById(R.id.bt_quxiao);
+        bt_queren = (TextView) findViewById(R.id.bt_queren);
+        bt_quxiao = (TextView) findViewById(R.id.bt_quxiao);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         boolean a = false;
         String packageName = getIntent().getStringExtra("packageName");

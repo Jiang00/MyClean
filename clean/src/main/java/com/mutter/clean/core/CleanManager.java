@@ -183,7 +183,7 @@ public class CleanManager {
                 String packageName = info.name;
                 try {
                     ApplicationInfo otherInfo = mContext.getPackageManager().getApplicationInfo(packageName, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES);
-                    if (!Util.isThirdApp(otherInfo) || packageName.equals(mContext.getPackageName()) ) {
+                    if (!Util.isThirdApp(otherInfo) || packageName.equals(mContext.getPackageName())) {
                         continue;
                     }
                     if (ignoreApp.contains(packageName)) {
@@ -632,9 +632,9 @@ public class CleanManager {
 
     public void removeRam(JunkInfo appRam) {
         am.killBackgroundProcesses(appRam.pkg);
-        if (appRam.isSelfBoot) {
-            return;
-        }
+//        if (appRam.isSelfBoot) {
+//            return;
+//        }
         ramSize -= appRam.size;
         if (appRamList != null) {
             appRamList.remove(appRam);

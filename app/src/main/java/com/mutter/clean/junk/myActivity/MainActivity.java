@@ -405,7 +405,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("mutter_start_full");
+            Log.e("ad", "full===");
         } else {
+            Log.e("ad", "native===");
             View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);

@@ -290,7 +290,7 @@ public class GameActivity extends BaseActivity {
         Intent shortcutIntent = new Intent();
         shortcutIntent.setAction(Intent.ACTION_VIEW);
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
-                "com.supers.clean.junk.activity.GameActivity"));
+                "com.mutter.clean.junk.activity.GameActivity"));
         String title = GameActivity.this.getString(R.string.gboost_0);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
