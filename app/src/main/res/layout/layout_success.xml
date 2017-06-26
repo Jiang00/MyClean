@@ -30,6 +30,7 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/success_1"
                 android:layout_width="@dimen/d208"
                 android:layout_height="@dimen/d208"
                 android:layout_gravity="bottom|center_horizontal"
@@ -52,6 +53,7 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="@dimen/d250" />
 
+
             <ImageView
                 android:id="@+id/success_huojian"
                 android:layout_width="@dimen/d208"
@@ -60,6 +62,18 @@
                 android:layout_marginBottom="@dimen/d250"
                 android:src="@mipmap/success_huojian"
                 android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/loading_text"
+                android:layout_width="@dimen/d208"
+                android:layout_height="@dimen/d208"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="@dimen/d250"
+                android:gravity="center"
+                android:text="Loading ad..."
+                android:textColor="@color/A7"
+                android:textSize="35sp"
+                android:visibility="gone" />
 
             <com.fast.clean.junk.myview.SlowScrollView
                 android:id="@+id/scrollView"

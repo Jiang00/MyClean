@@ -26,15 +26,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.client.AdListener;
+import com.android.client.AndroidSdk;
 import com.fast.clean.core.CleanManager;
 import com.fast.clean.entity.JunkInfo;
-import com.fast.clean.mutil.LoadManager;
-import com.fast.clean.mutil.PreData;
-import com.fast.clean.mutil.Util;
-import com.android.client.AndroidSdk;
-import com.twee.module.tweenengine.Tween;
-import com.twee.module.tweenengine.TweenEquations;
-import com.twee.module.tweenengine.TweenManager;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.myview.DrawHookView;
 import com.fast.clean.junk.myview.ImageAccessor;
@@ -42,6 +37,12 @@ import com.fast.clean.junk.myview.SlowScrollView;
 import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.util.UtilGp;
+import com.fast.clean.mutil.LoadManager;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
+import com.twee.module.tweenengine.Tween;
+import com.twee.module.tweenengine.TweenEquations;
+import com.twee.module.tweenengine.TweenManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +78,8 @@ public class SuccessActivity extends BaseActivity {
     TextView power_text;
     TextView main_rotate_good;
 
+    TextView loading_text;
+
     LinearLayout ad_native_2;
     private View nativeView;
     private View native_xiao;
@@ -87,11 +90,8 @@ public class SuccessActivity extends BaseActivity {
     private Handler myHandler;
     private String TAG_CLEAN = "acht_success";
     private String TAG_CLEAN_2 = "acht_success_2";
-    private Animation rotate_set;
 
-    private boolean haveAd;
     private boolean animationEnd;
-    private MyApplication cleanApplication;
 
     @Override
     protected void findId() {
@@ -122,6 +122,7 @@ public class SuccessActivity extends BaseActivity {
         success_progress = (ImageView) findViewById(R.id.success_progress);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
+        loading_text = (TextView) findViewById(R.id.loading_text);
     }
 
     @Override
@@ -224,21 +225,53 @@ public class SuccessActivity extends BaseActivity {
 
             @Override
             public void duogouSc() {
-                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
-                        AndroidSdk.showFullAd("ramboost");
-                    } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
-                        AndroidSdk.showFullAd("junkclean");
-                    } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
-                        AndroidSdk.showFullAd("Rocketclean");
-                    } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
-                        AndroidSdk.showFullAd("cpucooler");
-                    } else {
-                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                    }
-                }
-                startSecondAnimation();
+                //startSecondAnimation();
                 success_drawhook.setListener(null);
+                final int maxShowCount = PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS_MAX_COUNT, 0);
+                int showCount = PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS_COUNT, 0);
+
+                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                    Log.e("rqy", maxShowCount + "--" + showCount);
+                    PreData.putDB(SuccessActivity.this, Constant.FULL_SUCCESS_COUNT, ++showCount);
+                    if (showCount > maxShowCount) {
+                        PreData.putDB(SuccessActivity.this, Constant.NEED_SHOW_FULL_SUCCESS, true);
+                    }
+                    boolean need_show_full_success = PreData.getDB(SuccessActivity.this, Constant.NEED_SHOW_FULL_SUCCESS, false);
+                    if (need_show_full_success) {
+                        int ad_loading_time = PreData.getDB(SuccessActivity.this, Constant.AD_LOADING_TIME, 0);
+                        if (ad_loading_time != 0) {
+                            success_drawhook.setVisibility(View.GONE);
+                            findViewById(R.id.success_1).setVisibility(View.GONE);
+                            findViewById(R.id.success_progress).setVisibility(View.GONE);
+                            loading_text.setVisibility(View.VISIBLE);
+                        }
+                        Log.e("rqy", maxShowCount + "--" + showCount + "--" + need_show_full_success + "--ad_loading_time=" + ad_loading_time);
+
+                        myHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
+                                    AndroidSdk.showFullAd("ramboost");
+                                } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
+                                    AndroidSdk.showFullAd("junkclean");
+                                } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
+                                    AndroidSdk.showFullAd("Rocketclean");
+                                } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+                                    AndroidSdk.showFullAd("cpucooler");
+                                } else {
+                                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                                }
+                                startSecondAnimation();
+                            }
+                        }, ad_loading_time * 1000);
+                    } else {
+                        startSecondAnimation();
+                    }
+
+                } else {
+                    startSecondAnimation();
+                }
+
             }
         });
         if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
@@ -253,20 +286,16 @@ public class SuccessActivity extends BaseActivity {
         translate.setRepeatMode(Animation.REVERSE);
         success_jiantou.startAnimation(translate);
         shendu();
-        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
-
-        } else {
+        if (PreData.getDB(this, Constant.NATIVE_SUCCESS, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 public void run() {
                     addAd();
                 }
             }, 1000);
-
         }
     }
 
     private void shendu() {
-        cleanApplication = (MyApplication) getApplication();
         List<JunkInfo> startList = new ArrayList<>();
         for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
             if (info.isSelfBoot) {
@@ -319,7 +348,6 @@ public class SuccessActivity extends BaseActivity {
             layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
             Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
             ad_native_2.setLayoutParams(layout_ad);
-            haveAd = true;
             ad_native_2.addView(nativeView);
             if (animationEnd) {
                 ad_native_2.setVisibility(View.VISIBLE);
@@ -519,11 +547,9 @@ public class SuccessActivity extends BaseActivity {
                     @Override
                     public void run() {
                         animationEnd = true;
-                        if (haveAd) {
-                            ad_native_2.setVisibility(View.VISIBLE);
-                            scrollView.isTouch = false;
-                            scrollView.smoothScrollToSlow(2000);
-                        }
+                        ad_native_2.setVisibility(View.VISIBLE);
+                        scrollView.isTouch = false;
+                        scrollView.smoothScrollToSlow(2000);
                     }
                 }, 1000);
 
