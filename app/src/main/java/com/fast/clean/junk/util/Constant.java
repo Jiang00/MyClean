@@ -118,4 +118,8 @@ public class Constant {
     public static final String GBOOST_CLEAN = "GBOOST_CLEAN";
     public static final String PHOTO_CLEAN = "PHOTO_CLEAN";
 
+    //广告
+    public static final String AD_CLICK = "AD_CLICK";
+
+
 }

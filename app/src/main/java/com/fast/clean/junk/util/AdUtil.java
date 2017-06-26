@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.fast.clean.junk.BuildConfig;
+import com.fast.clean.mutil.PreData;
 import com.google.android.gms.ads.AdActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -32,7 +33,7 @@ public class AdUtil {
 
     public static void loadFull(final Context context) {
         mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3150670592875039/8705751307");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3150670592875039/8300295307");
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
@@ -55,6 +56,8 @@ public class AdUtil {
             @Override
             public void onAdLeftApplication() {
                 super.onAdLeftApplication();
+                int ad_click = PreData.getDB(context, Constant.AD_CLICK, 0);
+                PreData.putDB(context, Constant.AD_CLICK, ++ad_click);
                 Log.e("adadad", "onAdLeftApplication");
             }
 

@@ -227,7 +227,9 @@ public class SuccessActivity extends BaseActivity {
             public void duogouSc() {
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 1) == 1) {
 //                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                    AdUtil.showFull(SuccessActivity.this.getApplicationContext());
+                    if (PreData.getDB(SuccessActivity.this, Constant.AD_CLICK, 0) <= 2) {
+                        AdUtil.showFull(SuccessActivity.this.getApplicationContext());
+                    }
                 }
                 startSecondAnimation();
                 success_drawhook.setListener(null);
