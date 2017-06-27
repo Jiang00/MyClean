@@ -1,20 +1,15 @@
 package com.fast.clean.junk.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.LayoutRes;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.fast.clean.junk.BuildConfig;
-import com.google.android.gms.ads.AdActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.purchase.InAppPurchase;
-import com.google.android.gms.ads.purchase.InAppPurchaseListener;
 
 /**
  * Created by on 2017/5/24.
