@@ -128,7 +128,6 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         junk_button_user.setOnClickListener(onClickListener);
         junk_button_ram.setOnClickListener(onClickListener);
         junk_button_clean.setOnClickListener(onClickListener);
-
     }
 
     @Override
@@ -200,7 +199,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         if (size > 1024 * 1024 * 100 && size <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A6), getResources().getColor(R.color.A8));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
@@ -209,7 +208,7 @@ public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
         } else if (size > 1024 * 1024 * 200) {
             if (color2) {
                 color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A8), getResources().getColor(R.color.A7));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());

@@ -1,6 +1,7 @@
 package com.supers.clean.junk.activity;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,27 +20,23 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.entity.JunkInfo;
-import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.customeview.DrawHookView;
-import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.customeview.SlowScrollView;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
-import com.twee.module.tweenengine.Tween;
-import com.twee.module.tweenengine.TweenEquations;
-import com.twee.module.tweenengine.TweenManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,26 +48,28 @@ import java.util.List;
 public class SuccessActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    ImageView success_jiantou;
+    //    ImageView success_jiantou;
     TextView success_clean_size;
     TextView success_clean_2;
-    DrawHookView success_drawhook;
     ImageView success_huojian;
+    LinearLayout success_stars;
+    ImageView success_stars1, success_stars2, success_stars4;
     SlowScrollView scrollView;
     LinearLayout main_rotate_all;
-    LinearLayout main_power_button;
-    LinearLayout main_notifi_button;
-    LinearLayout main_file_button;
-    LinearLayout main_cooling_button;
-    LinearLayout main_ram_button;
-    LinearLayout main_junk_button;
-    LinearLayout main_gboost_button;
-    LinearLayout main_picture_button;
+    RelativeLayout main_power_button;
+    RelativeLayout main_notifi_button;
+    RelativeLayout main_file_button;
+    Button main_notifi_button1, main_file_button1;
+    Button junk_button_clean;
+    RelativeLayout main_cooling_button;
+    RelativeLayout main_ram_button;
+    RelativeLayout main_junk_button;
+    RelativeLayout main_gboost_button;
+    RelativeLayout main_picture_button;
     ImageView power_icon;
     TextView power_text;
-    ImageView main_rotate_good;
+    Button main_rotate_good, main_good_refuse;
     //    ImageView delete;
-    ImageView success_progress;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
 
@@ -79,7 +78,7 @@ public class SuccessActivity extends BaseActivity {
     private View native_xiao;
 
     private boolean isdoudong;
-    private TweenManager tweenManager;
+    //    private TweenManager tweenManager;
     private boolean istween;
     private Handler myHandler;
     private String TAG_CLEAN = "eos_success";
@@ -96,27 +95,33 @@ public class SuccessActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
+//        success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
         success_clean_2 = (TextView) findViewById(R.id.success_clean_2);
-        success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
+        success_stars = (LinearLayout) findViewById(R.id.success_stars);
+        success_stars1 = (ImageView) findViewById(R.id.success_stars1);
+        success_stars2 = (ImageView) findViewById(R.id.success_stars2);
+        success_stars4 = (ImageView) findViewById(R.id.success_stars4);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
-        main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
-        main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
-        main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
-        main_cooling_button = (LinearLayout) findViewById(R.id.main_cooling_button);
-        main_ram_button = (LinearLayout) findViewById(R.id.main_ram_button);
-        main_junk_button = (LinearLayout) findViewById(R.id.main_junk_button);
-        main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
-        main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
+        main_power_button = (RelativeLayout) findViewById(R.id.main_power_button);
+        main_notifi_button = (RelativeLayout) findViewById(R.id.main_notifi_button);
+        main_file_button = (RelativeLayout) findViewById(R.id.main_file_button);
+        main_notifi_button1 = (Button) findViewById(R.id.main_notifi_button1);
+        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
+        main_file_button1 = (Button) findViewById(R.id.main_file_button1);
+        main_cooling_button = (RelativeLayout) findViewById(R.id.main_cooling_button);
+        main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
+        main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
+        main_gboost_button = (RelativeLayout) findViewById(R.id.main_gboost_button);
+        main_picture_button = (RelativeLayout) findViewById(R.id.main_picture_button);
         power_text = (TextView) findViewById(R.id.power_text);
-        main_rotate_good = (ImageView) findViewById(R.id.main_rotate_good);
+        main_rotate_good = (Button) findViewById(R.id.main_rotate_good);
+        main_good_refuse = (Button) findViewById(R.id.main_good_refuse);
 //        delete = (ImageView) findViewById(R.id.delete);
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
-        success_progress = (ImageView) findViewById(R.id.success_progress);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
     }
@@ -125,13 +130,13 @@ public class SuccessActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_success);
-        tweenManager = new TweenManager();
-        Tween.registerAccessor(ImageView.class, new ImageAccessor());
+        Log.e("sbutton", "========5=========");
+//        tweenManager = new TweenManager();
+//        Tween.registerAccessor(ImageView.class, new ImageAccessor());
         istween = true;
         setAnimationThread();
         myHandler = new Handler();
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
-        success_progress.startAnimation(rotate);
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
         } else {
@@ -157,9 +162,9 @@ public class SuccessActivity extends BaseActivity {
             main_junk_button.setVisibility(View.GONE);
             main_gboost_button.setVisibility(View.GONE);
         } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
-            main_file_button.setVisibility(View.GONE);
-            main_notifi_button.setVisibility(View.GONE);
             main_ram_button.setVisibility(View.GONE);
+            main_power_button.setVisibility(View.GONE);
+            main_junk_button.setVisibility(View.GONE);
             main_cooling_button.setVisibility(View.GONE);
             main_gboost_button.setVisibility(View.GONE);
             main_picture_button.setVisibility(View.GONE);
@@ -218,17 +223,6 @@ public class SuccessActivity extends BaseActivity {
             main_notifi_button.setVisibility(View.GONE);
         }
         initAnimation();
-        success_drawhook.setListener(new DrawHookView.DrawHookListener() {
-
-            @Override
-            public void duogouSc() {
-                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-                startSecondAnimation();
-                success_drawhook.setListener(null);
-            }
-        });
         if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
@@ -239,7 +233,7 @@ public class SuccessActivity extends BaseActivity {
         translate.setDuration(400);
         translate.setRepeatCount(-1);
         translate.setRepeatMode(Animation.REVERSE);
-        success_jiantou.startAnimation(translate);
+//        success_jiantou.startAnimation(translate);
         shendu();
         if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
 
@@ -265,7 +259,7 @@ public class SuccessActivity extends BaseActivity {
             main_power_button.setVisibility(View.GONE);
         } else {
 
-            power_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
+//            power_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
             String text1 = getString(R.string.power_1, String.valueOf(startList.size())) + " ";
             SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
             ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -286,16 +280,20 @@ public class SuccessActivity extends BaseActivity {
     private void addListener() {
         title_left.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
+        main_good_refuse.setOnClickListener(onClickListener);
+
 //        delete.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
+        main_notifi_button1.setOnClickListener(onClickListener);
+        junk_button_clean.setOnClickListener(onClickListener);
+        main_file_button1.setOnClickListener(onClickListener);
         main_cooling_button.setOnClickListener(onClickListener);
         main_ram_button.setOnClickListener(onClickListener);
         main_junk_button.setOnClickListener(onClickListener);
         main_gboost_button.setOnClickListener(onClickListener);
         main_picture_button.setOnClickListener(onClickListener);
-
     }
 
     private void addAd() {
@@ -389,81 +387,108 @@ public class SuccessActivity extends BaseActivity {
 //    }
 
     public void startFirstAnimation() {
-        Animation animation = AnimationUtils.loadAnimation(SuccessActivity.this, R.anim.huojian_pop);
-        success_huojian.startAnimation(animation);
-        animation.setFillAfter(true);
-        success_huojian.setVisibility(View.VISIBLE);
-        animation.setAnimationListener(new android.view.animation.Animation.AnimationListener() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ObjectAnimator huojian_translation = ObjectAnimator.ofFloat(success_huojian, "translationY", 0f, -2000f);
+//        ObjectAnimator huojian_alpha = ObjectAnimator.ofFloat(success_huojian, "alpha", 0f, 1f);
+//        AnimatorSet animSet1 = new AnimatorSet();
+        huojian_translation.setDuration(1500);
+//        animSet1.play(huojian_translation);
+        huojian_translation.start();
+        final AnimatorSet animSet2 = new AnimatorSet();
+
+//        final ObjectAnimator huojian_translation2 = ObjectAnimator.ofFloat(success_huojian, "translationY", -400f, -600f);
+//        huojian_translation2.setDuration(1000);
+
+        huojian_translation.addListener(new Animator.AnimatorListener() {
             @Override
-            public void onAnimationEnd(android.view.animation.Animation animation) {
-                final float hx = success_huojian.getX();
-                final float hy = success_huojian.getY();
-                isdoudong = true;
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        while (isdoudong) {
-                            if (onDestroyed) {
-                                break;
-                            }
-                            int x = (int) (Math.random() * (16)) - 8;
-                            int y = (int) (Math.random() * (16)) - 8;
-                            try {
-                                Thread.sleep(80);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            Tween.to(success_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1, 1)
-                                    .ease(TweenEquations.easeInQuad).delay(0)
-                                    .start(tweenManager);
-                        }
-                    }
-                }).start();
-                myHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        success_progress.clearAnimation();
-                        success_progress.setVisibility(View.GONE);
-                        isdoudong = false;
-                        ObjectAnimator a = ObjectAnimator.ofFloat(success_huojian, View.TRANSLATION_Y, 0, -2500);
-                        a.setDuration(300);
-                        a.start();
-                        a.addListener(new Animator.AnimatorListener() {
-                            @Override
-                            public void onAnimationCancel(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                success_huojian.setVisibility(View.GONE);
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationStart(Animator animation) {
-
-                            }
-                        });
-                        success_drawhook.startProgress(500);
-                    }
-                }, 1000);
-            }
-
-            @Override
-            public void onAnimationRepeat(android.view.animation.Animation animation) {
+            public void onAnimationStart(Animator animation) {
 
             }
 
             @Override
-            public void onAnimationStart(android.view.animation.Animation animation) {
+            public void onAnimationEnd(Animator animation) {
+//广告
+                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+                //动画结束换内容的
+                startSecondAnimation();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
 
             }
         });
+       /* huojian_translation2.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                success_stars.setVisibility(View.VISIBLE);
+                ObjectAnimator rotate1 = ObjectAnimator.ofFloat(success_stars1, "scaleX", 0f, 1f);
+                ObjectAnimator fadeInOut1 = ObjectAnimator.ofFloat(success_stars1, "alpha", 0f, 1f);
+                ObjectAnimator rotate2 = ObjectAnimator.ofFloat(success_stars2, "scaleX", 0f, 1f);
+                ObjectAnimator fadeInOut2 = ObjectAnimator.ofFloat(success_stars2, "alpha", 0f, 1f);
+                ObjectAnimator rotate4 = ObjectAnimator.ofFloat(success_stars4, "scaleX", 0f, 1f);
+                ObjectAnimator fadeInOut4 = ObjectAnimator.ofFloat(success_stars4, "alpha", 0f, 1f);
+                animSet2.setDuration(500);
+                animSet2.play(rotate1).with(fadeInOut1).with(rotate2).with(fadeInOut2).with(rotate4).with(fadeInOut4);
+                animSet2.start();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });*/
+        /*animSet2.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });*/
     }
 
     private void startSecondAnimation() {
@@ -484,7 +509,6 @@ public class SuccessActivity extends BaseActivity {
                         }
                     }
                 }, 1000);
-
             }
 
             @Override
@@ -508,6 +532,11 @@ public class SuccessActivity extends BaseActivity {
                     break;
                 case R.id.main_rotate_good:
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
+                    UtilGp.rate(SuccessActivity.this);
+                    main_rotate_all.setVisibility(View.GONE);
+                    break;
+                case R.id.main_good_refuse:
+                    PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, false);
                     UtilGp.rate(SuccessActivity.this);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
@@ -537,6 +566,16 @@ public class SuccessActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.main_file_button:
+                    if (TextUtils.equals("file", getIntent().getStringExtra("from"))) {
+                        finish();
+                        return;
+                    }
+                    AdUtil.track("完成页面", "点击进入文件管理", "", 1);
+                    PreData.putDB(SuccessActivity.this, Constant.FILE_CLEAN, true);
+                    jumpTo(FileActivity.class);
+                    onBackPressed();
+                    break;
+                case R.id.main_file_button1:
                     if (TextUtils.equals("file", getIntent().getStringExtra("from"))) {
                         finish();
                         return;
@@ -580,7 +619,24 @@ public class SuccessActivity extends BaseActivity {
                         startActivity(intent6);
                         onBackPressed();
                     }
-
+                    break;
+                case R.id.main_notifi_button1:
+                    AdUtil.track("完成页面", "点击进入通知栏清理", "", 1);
+                    PreData.putDB(SuccessActivity.this, Constant.NOTIFI_CLEAN, true);
+                    if (!Util.isNotificationListenEnabled(SuccessActivity.this)) {
+                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
+                    } else if (!PreData.getDB(SuccessActivity.this, Constant.KEY_NOTIFI, true)) {
+                        Intent intent6 = new Intent(SuccessActivity.this, NotifiInfoActivity.class);
+                        startActivity(intent6);
+                        onBackPressed();
+                    } else {
+                        Intent intent6 = new Intent(SuccessActivity.this, NotifiActivity.class);
+                        startActivity(intent6);
+                        onBackPressed();
+                    }
+                    break;
+                case R.id.junk_button_clean:
+                    onBackPressed();
                     break;
             }
         }
@@ -605,6 +661,15 @@ public class SuccessActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        if (PreData.getDB(this, Constant.POWERACATIVITY, 0) == 0) {
+            main_power_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.FILEACTIVITY, 0) == 0) {
+            main_file_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.NOTIFIACTIVITY, 0) == 0) {
+            main_notifi_button.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -637,8 +702,7 @@ public class SuccessActivity extends BaseActivity {
                         runOnUiThread(new Runnable() {
 
                             public void run() {
-                                tweenManager.update(delta);
-
+//                                tweenManager.update(delta);
                             }
                         });
 

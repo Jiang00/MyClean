@@ -10,7 +10,6 @@ import android.os.Build;
 import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,7 +19,6 @@ import com.android.clean.util.Util;
 import com.my.module.charge.saver.Util.Constants;
 import com.my.module.charge.saver.Util.Utils;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.activity.FileActivity;
 import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.activity.JunkActivity;
 import com.supers.clean.junk.activity.ManagerActivity;
@@ -29,32 +27,40 @@ import com.supers.clean.junk.activity.NotifiInfoActivity;
 import com.supers.clean.junk.activity.PictureActivity;
 import com.supers.clean.junk.activity.PowerActivity;
 import com.supers.clean.junk.activity.RamAvtivity;
-import com.supers.clean.junk.activity.SettingActivity;
 import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.UtilGp;
 
 
 public class SideAdapter extends MybaseAdapter<SideInfo> {
-    private static int idx = 0;
-    private static final int BATTERY = idx++;
-    private static final int FLOAT = idx++;
-    private static final int JUNK = idx++;
-    private static final int RAM = idx++;
-    private static final int MANAGER = idx++;
-    private static final int FILE = idx++;
-    private static final int POWER = idx++;
-    //    private static final int PRIVARY = idx++;
-    private static final int NOTIFI = idx++;
-    private static final int PICTURE = idx++;
-    private static final int GBOOST = idx++;
-    private static final int SETTING = idx++;
-    private static final int ROTATE = idx++;
+    int BATTERY = -1;
+    int FLOAT = -1;
+    int JUNK = -1;
+    int RAM = -1;
+    int POWER = -1;
+    int PICTURE = -1;
+    int GBOOST = -1;
+    int NOTIFI = -1;
+    int MANAGER = -1;
 
     public SideAdapter(Context context) {
         super(context);
+        int idx = 0;
+        BATTERY = idx++;
+        FLOAT = idx++;
+        JUNK = idx++;
+        RAM = idx++;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT&&PreData.getDB(context,Constant.POWERACATIVITY,0)!=0) {
+            POWER = idx++;
+        }
+        PICTURE = idx++;
+        GBOOST = idx++;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT&&PreData.getDB(context,Constant.NOTIFIACTIVITY,0)!=0) {
+            NOTIFI = idx++;
+        }
+        MANAGER = idx++;
+
     }
 
     @Override
@@ -102,17 +108,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            if (position == NOTIFI) {
-                holder.rl_item.setVisibility(View.GONE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(0, 1);
-                convertView.setLayoutParams(param);
-            } else {
-                holder.rl_item.setVisibility(View.VISIBLE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
-                convertView.setLayoutParams(param);
-            }
-        }
+
         if (position == 8) {
             holder.side_divide.setVisibility(View.GONE);
         } else {
@@ -123,7 +119,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
 
     private void onC(int position) {
         if (position == BATTERY) {
-            if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, true)) {
+            if ((boolean) Utils.readData(context, Constants.CHARGE_SAVER_SWITCH, false)) {
                 AdUtil.track("侧边栏", "点击关闭充电屏保", "", 1);
                 Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, false);
             } else {
@@ -150,22 +146,21 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             AdUtil.track("侧边栏", "点击进入ram页面", "", 1);
             Intent intent3 = new Intent(context, RamAvtivity.class);
             ((Activity) context).startActivityForResult(intent3, 1);
-        } else if (position == MANAGER) {
-            AdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
-            Intent intent4 = new Intent(context, ManagerActivity.class);
-            ((Activity) context).startActivityForResult(intent4, 1);
-        } else if (position == FILE) {
-//            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-//            ((Activity) context).startActivityForResult(intent, 1);
-            AdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
-            PreData.putDB(context, Constant.FILE_CLEAN, true);
-            Intent intent5 = new Intent(context, FileActivity.class);
-            ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == POWER) {
             PreData.putDB(context, Constant.DEEP_CLEAN, true);
             AdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, PowerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
+        } else if (position == PICTURE) {
+            AdUtil.track("侧边栏", "点击进入相似图片", "", 1);
+            PreData.putDB(context, Constant.PHOTO_CLEAN, true);
+            Intent intent = new Intent(context, PictureActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
+        } else if (position == GBOOST) {
+            AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
+            PreData.putDB(context, Constant.GBOOST_CLEAN, true);
+            Intent intent = new Intent(context, GBoostActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == NOTIFI) {
             AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
@@ -178,23 +173,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
                 Intent intent6 = new Intent(context, NotifiActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
             }
-        } else if (position == PICTURE) {
-            AdUtil.track("侧边栏", "点击进入相似图片", "", 1);
-            PreData.putDB(context, Constant.PHOTO_CLEAN, true);
-            Intent intent = new Intent(context, PictureActivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
-        } else if (position == GBOOST) {
-            AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
-            PreData.putDB(context, Constant.GBOOST_CLEAN, true);
-            Intent intent = new Intent(context, GBoostActivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
-        } else if (position == SETTING) {
-            AdUtil.track("侧边栏", "点击进入设置页面", "", 1);
-            Intent intent9 = new Intent(context, SettingActivity.class);
-            ((Activity) context).startActivityForResult(intent9, 1);
-        } else if (position == ROTATE) {
-            AdUtil.track("侧边栏", "点击好评", "", 1);
-            UtilGp.rate(context);
+        } else if (position == MANAGER) {
+            AdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
+            Intent intent4 = new Intent(context, ManagerActivity.class);
+            ((Activity) context).startActivityForResult(intent4, 1);
         }
     }
 
@@ -212,5 +194,4 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         TextView tv_name;
         View side_divide;
     }
-
 }

@@ -1,6 +1,6 @@
 package com.my.module.charge.saver.view;
 
-import android.animation.ValueAnimator;
+import android.animation.ObjectAnimator;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -46,9 +46,9 @@ public class BatteryView extends FrameLayout {
 
     private BatteryView batteryView;
     private LinearLayout adLayout;
-    private ImageView icon;
-    private TextView title;
-    private LinearLayout more;
+    //    private ImageView icon;
+//    private TextView title;
+//    private LinearLayout more;
     private LinearLayout switchLayout;
     private CheckBox saverSwitch;
     private TextView time;
@@ -56,14 +56,16 @@ public class BatteryView extends FrameLayout {
     private TextView week;
     private TextView batteryLeft;
     private LinearLayout slide;
+    private ImageView battery_up;
     private TextView currentLevel;
+    private MainWaterView battery_ripple_layout;
     private BubbleLayout bubbleLayout;
 
-    private LottieAnimationView shell;
+    //    private LottieAnimationView shell;
     private LottieAnimationView water;
-    private LottieAnimationView lighting;
+    //    private LottieAnimationView lighting;
     private int halfWidth;
-    private ImageView shutter;
+//    private ImageView shutter;
 
     public interface UnlockListener {
         void onUnlock();
@@ -136,6 +138,7 @@ public class BatteryView extends FrameLayout {
         });
     }
 
+    //设置时间
     public void updateTime() {
         if (time != null && date != null && week != null) {
             try {
@@ -162,27 +165,19 @@ public class BatteryView extends FrameLayout {
         final int curLevel = entry.getLevel();
         currentLevel.setText(curLevel + "%");
         final int le = curLevel % 100;
-
+        // 启动水波纹动画
+        battery_ripple_layout.start();
+        // 设置水波纹位置
+        battery_ripple_layout.upDate(curLevel);
         if (water != null && !water.isAnimating()) {
             initWater();
             water.playAnimation();
-            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    progress = (int) (animation.getAnimatedFraction() * 100);
-                    if (le == 0) {
-                        if (progress == 99) {
-                            progress = 100;
-                            water.pauseAnimation();
-                        }
-                    } else if (progress == le) {
-                        water.pauseAnimation();
-                    }
-                }
-            });
         }
+        ObjectAnimator fadeInOut = ObjectAnimator.ofFloat(battery_up, "alpha", 1f, 0f, 1f, 0f);
+        fadeInOut.setDuration(4000);
+        fadeInOut.start();
 
-        if (lighting != null && entry.isCharging()) {
+       /* if (lighting != null && entry.isCharging()) {
             if (entry.getLevel() == 100) {
                 if (lighting.isAnimating()) {
                     lighting.cancelAnimation();
@@ -207,7 +202,7 @@ public class BatteryView extends FrameLayout {
             }
             slide.setVisibility(VISIBLE);
             lighting.setVisibility(GONE);
-        }
+        }*/
 
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
@@ -228,35 +223,34 @@ public class BatteryView extends FrameLayout {
     }
 
 
-    private void initShell() {
+    /*private void initShell() {
         try {
             shell.setImageAssetsFolder(mContext, "theme://images/shell");
-            shell.setAnimation(mContext, "theme://shell.json");
+            shell.setAnimation(mContext, "theme://data.json");
             shell.loop(true);
             shell.playAnimation();
         } catch (Exception e) {
             shell.setImageAssetsFolder(null, "images/shell");
-            shell.setAnimation(null, "shell.json");
+            shell.setAnimation(null, "data.json");
         }
         shell.loop(true);
         shell.playAnimation();
-    }
+    }*/
 
     private void initWater() {
         try {
-            water.setImageAssetsFolder(mContext, "theme://images/water");
-            water.setAnimation(mContext, "theme://water.json");
+            water.setAnimation(mContext, "theme://data.json");
         } catch (Exception e) {
             if (!water.isAnimating()) {
-                water.setImageAssetsFolder(null, "images/water");
-                water.setAnimation(null, "water.json");
+                water.setAnimation(null, "data.json");
             }
         }
         water.loop(true);
-        water.setSpeed(5.0f);
+//        water.setSpeed(5.0f);
     }
 
-    private void initLighting() {
+
+    /*private void initLighting() {
         try {
             lighting.setImageAssetsFolder(mContext, "theme://images/lighting");
             lighting.setAnimation(mContext, "theme://lighting.json");
@@ -265,7 +259,7 @@ public class BatteryView extends FrameLayout {
             lighting.setAnimation(null, "lighting.json");
         }
         lighting.loop(true);
-    }
+    }*/
 
     @Override
     protected void onFinishInflate() {
@@ -274,17 +268,17 @@ public class BatteryView extends FrameLayout {
             initViews();
             isBindView = true;
 
-//            shell.setAnimation("shell.json");
-//            shell.loop(true);
-//            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
-//                    new OnCompositionLoadedListener() {
-//                        @Override
-//                        public void onCompositionLoaded(LottieComposition composition) {
-//                            shell.setComposition(composition);
-//                        }
-//                    });
-//            shell.playAnimation();
-            initShell();
+            /*shell.setAnimation("data.json");
+            shell.loop(true);
+            LottieComposition.Factory.fromAssetFileName(getContext(), "data.json",
+                    new OnCompositionLoadedListener() {
+                        @Override
+                        public void onCompositionLoaded(LottieComposition composition) {
+                            shell.setComposition(composition);
+                        }
+                    });
+            shell.playAnimation();
+            initShell();*/
 
             updateTime();
 
@@ -338,22 +332,22 @@ public class BatteryView extends FrameLayout {
             });
 
             String titleTxt = (String) Utils.readData(mContext, Constants.CHARGE_SAVER_TITLE, "EOSBATTERY");
-            title.setText(titleTxt);
+//            title.setText(titleTxt);
             int iconId = (int) Utils.readData(mContext, Constants.CHARGE_SAVER_ICON, R.mipmap.battery_inner_icon);
             if (iconId > -1) {
-                icon.setImageResource(iconId);
+//                icon.setImageResource(iconId);
             }
 
-            more.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (switchLayout != null) {
-                        switchLayout.setVisibility(VISIBLE);
-                    }
-                }
-            });
+//            more.setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (switchLayout != null) {
+//                        switchLayout.setVisibility(VISIBLE);
+//                    }
+//                }
+//            });
 
-            if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
+            if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, false)) {
                 if (saverSwitch != null) {
                     saverSwitch.setChecked(true);
                 }
@@ -365,7 +359,7 @@ public class BatteryView extends FrameLayout {
             saverSwitch.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, true)) {
+                    if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, false)) {
                         if (saverSwitch != null) {
                             saverSwitch.setChecked(false);
                             Utils.writeData(mContext, Constants.CHARGE_SAVER_SWITCH, false);
@@ -385,24 +379,26 @@ public class BatteryView extends FrameLayout {
     }
 
     private void initViews() {
-        shutter = (ImageView) findViewById(R.id.battery_shutter);
+//        shutter = (ImageView) findViewById(R.id.battery_shutter);
         bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
+        battery_ripple_layout = (MainWaterView) findViewById(R.id.battery_ripple_layout);
         slide = (LinearLayout) findViewById(R.id.battery_slide);
+        battery_up = (ImageView) findViewById(R.id.battery_up);
         batteryView = (BatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
         adLayout = (LinearLayout) findViewById(R.id.battery_ad_layout);
-        icon = (ImageView) findViewById(R.id.battery_icon);
-        title = (TextView) findViewById(R.id.battery_title);
-        more = (LinearLayout) findViewById(R.id.battery_more);
+//        icon = (ImageView) findViewById(R.id.battery_icon);
+//        title = (TextView) findViewById(R.id.battery_title);
+//        more = (LinearLayout) findViewById(R.id.battery_more);
         time = (TextView) findViewById(R.id.battery_now_time);
         date = (TextView) findViewById(R.id.battery_now_date);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
-        shell = (LottieAnimationView) findViewById(R.id.battery_shell);
+//        shell = (LottieAnimationView) findViewById(R.id.battery_shell);
         water = (LottieAnimationView) findViewById(R.id.battery_electricity);
-        lighting = (LottieAnimationView) findViewById(R.id.battery_lighting);
+//        lighting = (LottieAnimationView) findViewById(R.id.battery_lighting);
     }
 
     public void pauseBubble() {
@@ -446,18 +442,22 @@ public class BatteryView extends FrameLayout {
         if (water != null && water.isAnimating()) {
             water.cancelAnimation();
         }
-        if (lighting != null && lighting.isAnimating()) {
+        /*if (lighting != null && lighting.isAnimating()) {
             lighting.cancelAnimation();
-        }
-        if (shell != null && shell.isAnimating()) {
+        }*/
+       /* if (shell != null && shell.isAnimating()) {
             shell.cancelAnimation();
-        }
+        }*/
         if (bubbleLayout != null) {
             bubbleLayout.destroy();
         }
         if (isBindView) {
             isBindView = false;
         }
+        if (battery_ripple_layout != null) {
+            battery_ripple_layout.stop();
+        }
+
     }
 
     private int analysisJson(JSONObject object) throws JSONException {

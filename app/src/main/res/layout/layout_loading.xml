@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    android:background="@color/A0"
     android:orientation="vertical">
 
     <View
@@ -40,43 +40,121 @@
             android:visibility="invisible" />
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="@dimen/d19"
+        android:layout_height="@dimen/d19"
+        android:layout_marginLeft="@dimen/d39"
+        android:layout_marginTop="@dimen/d67"
+        android:alpha="0.3"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d19"
+        android:layout_height="@dimen/d19"
+        android:layout_marginLeft="@dimen/d275"
+        android:layout_marginTop="@dimen/d237"
+        android:alpha="0.3"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d10"
+        android:layout_height="@dimen/d10"
+        android:layout_marginLeft="@dimen/d56"
+        android:layout_marginTop="@dimen/d288"
+        android:alpha="0.5"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d10"
+        android:layout_height="@dimen/d10"
+        android:layout_marginLeft="@dimen/d65"
+        android:layout_marginTop="@dimen/d465"
+        android:alpha="0.4"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d10"
+        android:layout_height="@dimen/d10"
+        android:layout_marginLeft="@dimen/d327"
+        android:layout_marginTop="@dimen/d44"
+        android:alpha="0.6"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d10"
+        android:layout_height="@dimen/d10"
+        android:layout_marginLeft="@dimen/d345"
+        android:layout_marginTop="@dimen/d196"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d33"
+        android:layout_height="@dimen/d33"
+        android:layout_marginLeft="@dimen/d333"
+        android:layout_marginTop="@dimen/d114"
+        android:alpha="0.7"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d10"
+        android:layout_height="@dimen/d10"
+        android:layout_marginLeft="@dimen/d237"
+        android:layout_marginTop="@dimen/d537"
+        android:alpha="0.3"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d10"
+        android:layout_height="@dimen/d10"
+        android:layout_marginLeft="@dimen/d288"
+        android:layout_marginTop="@dimen/d379"
+        android:alpha="0.3"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d10"
+        android:layout_height="@dimen/d10"
+        android:layout_marginLeft="@dimen/d176"
+        android:layout_marginTop="@dimen/d437"
+        android:alpha="0.3"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d10"
+        android:layout_height="@dimen/d10"
+        android:layout_marginLeft="@dimen/d237"
+        android:layout_marginTop="@dimen/d537"
+        android:alpha="0.3"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d20"
+        android:layout_height="@dimen/d20"
+        android:layout_marginLeft="@dimen/d114"
+        android:layout_marginTop="@dimen/d333"
+        android:src="@mipmap/eos_bubble" />
+
+    <ImageView
+        android:layout_width="@dimen/d107"
+        android:layout_height="@dimen/d107"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/d131"
+        android:src="@mipmap/loading_icon_2" />
 
     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-        android:id="@+id/load_text_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/d17"
-        android:text="@string/loading_2"
-        android:textColor="@color/B3"
-        android:textSize="@dimen/s13"
-        app:typeface="eos_clean.otf" />
+        android:layout_marginBottom="@dimen/d104"
+        android:text="@string/app_name"
+        android:textColor="@color/A1"
+        android:textSize="@dimen/s24"
+        android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/d56"
-        android:layout_above="@id/load_text_3"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="@dimen/d32"
-            android:layout_height="@dimen/d32"
-            android:layout_gravity="center"
-            android:src="@mipmap/loading_icon_1" />
-
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/d10"
-            android:text="@string/app_name"
-            android:textColor="@color/B6"
-            android:textSize="@dimen/s24"
-            android:textStyle="bold"
-            app:typeface="eos_clean.otf" />
-    </LinearLayout>
-
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@mipmap/laoding_button" />
 </RelativeLayout>

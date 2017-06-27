@@ -9,7 +9,7 @@
     <View
         android:id="@+id/view_title_bar"
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="0dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -17,47 +17,49 @@
         android:layout_weight="1">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/d16"
             android:layout_marginRight="@dimen/d16"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d176">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d141"
-                    android:layout_marginTop="@dimen/d50"
-                    android:background="#42a5f5" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
 
                 <RelativeLayout
+                    android:id="@+id/floatball_relativeLayout"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true">
+                    android:layout_height="wrap_content">
+
+               <!--     <com.my.module.charge.saver.view.MainWaterView
+                        android:layout_width="@dimen/d70"
+                        android:layout_height="@dimen/d70" />-->
 
                     <ImageView
-                        android:layout_width="@dimen/d100"
-                        android:layout_height="@dimen/d100"
+                        android:layout_width="@dimen/d70"
+                        android:layout_height="@dimen/d70"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/shape_ffffff_round" />
+                        android:src="@mipmap/float_ball" />
 
                     <ImageView
                         android:id="@+id/float_cricle"
-                        android:layout_width="@dimen/d100"
-                        android:layout_height="@dimen/d100"
+                        android:layout_width="@dimen/d70"
+                        android:layout_height="@dimen/d70"
                         android:layout_centerHorizontal="true"
-                        android:src="@mipmap/float_dialog_2" />
+                        android:src="@mipmap/float_dialog_2"
+                        android:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/float_rotate"
-                        android:layout_width="@dimen/d100"
-                        android:layout_height="@dimen/d100"
+                        android:layout_width="@dimen/d70"
+                        android:layout_height="@dimen/d70"
                         android:layout_centerHorizontal="true"
-                        android:src="@mipmap/float_dialog_3" />
+                        android:src="@mipmap/float_dialog_3"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -65,7 +67,7 @@
                         android:layout_centerInParent="true"
                         android:orientation="vertical">
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:id="@+id/rl_memory"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -77,192 +79,100 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="77"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s30"
-                                app:typeface="eos_clean.otf" />
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s13" />
 
                             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_toRightOf="@id/float_memory"
                                 android:text="%"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s13"
-                                app:typeface="eos_clean.otf" />
-                        </RelativeLayout>
-
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/float_tishi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/float_memory"
-                            android:layout_gravity="center"
-                            android:text="@string/float_jiasu"
-                            android:textColor="@color/A1"
-                            android:textSize="@dimen/s11"
-                            app:typeface="eos_clean.otf" />
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s13" />
+                        </LinearLayout>
                     </LinearLayout>
-
-
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/d10">
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/floatball_relativeLayout"
+                    android:background="@color/A0">
 
                     <LinearLayout
                         android:id="@+id/ll_wifi"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/iv_wifi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@mipmap/float_dialog_4"
+                            android:layout_width="@dimen/d43"
+                            android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_wifi" />
-
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/tv_wifi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_wifi"
-                            android:textColor="@color/A8"
-                            android:textSize="@dimen/s10"
-                            app:typeface="eos_clean.otf" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_liuliang"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/iv_liuliang"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@mipmap/float_dialog_4"
+                            android:layout_width="@dimen/d43"
+                            android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_liuliang" />
-
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/tv_liuliang"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_liuliang"
-                            android:textColor="@color/A8"
-                            android:textSize="@dimen/s10"
-                            app:typeface="eos_clean.otf" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_xianshi"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/iv_xianshi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@mipmap/float_dialog_4"
+                            android:layout_width="@dimen/d43"
+                            android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_liangdu_0" />
-
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/tv_xianshi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_liangdu"
-                            android:textColor="@color/A8"
-                            android:textSize="@dimen/s10"
-                            app:typeface="eos_clean.otf" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_shengyin"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/iv_shengyin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@mipmap/float_dialog_4"
+                            android:layout_width="@dimen/d43"
+                            android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_shengyin" />
-
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/tv_shengyin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_shengyin"
-                            android:textColor="@color/A8"
-                            android:textSize="@dimen/s10"
-                            app:typeface="eos_clean.otf" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_gps"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/iv_gps"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@mipmap/float_dialog_4"
+                            android:layout_width="@dimen/d43"
+                            android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_gps" />
-
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/tv_gps"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_gps"
-                            android:textColor="@color/A8"
-                            android:textSize="@dimen/s10"
-                            app:typeface="eos_clean.otf" />
                     </LinearLayout>
-
                 </LinearLayout>
             </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/ll_ad"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/d288"
                 android:layout_height="wrap_content"
-                android:background="#42a5f5"
-                android:orientation="vertical">
-
-            </LinearLayout>
+                android:background="@color/A0"
+                android:orientation="vertical"></LinearLayout>
         </LinearLayout>
 
     </FrameLayout>
@@ -277,6 +187,5 @@
             android:layout_height="90dp"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom" />
-
     </RelativeLayout>
 </LinearLayout>

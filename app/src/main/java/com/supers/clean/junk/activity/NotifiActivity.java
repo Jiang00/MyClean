@@ -42,6 +42,7 @@ public class NotifiActivity extends Activity {
     TextView white_wu;
     RelativeLayout notifi_button_rl;
     Button notifi_button_clean;
+    TextView notifi_cpu;
 
     private NotifiAdapter adapter;
     private MyApplication myApplication;
@@ -67,6 +68,7 @@ public class NotifiActivity extends Activity {
         white_wu = (TextView) findViewById(R.id.white_wu);
         notifi_button_rl = (RelativeLayout) findViewById(R.id.notifi_button_rl);
         notifi_button_clean = (Button) findViewById(R.id.notifi_button_clean);
+        notifi_cpu = (TextView) findViewById(R.id.notifi_cpu);
     }
 
     private void setTranslucentStatus(boolean on) {

@@ -110,7 +110,7 @@ public class FloatStateView extends View {
                 firstPaint.setColor(getResources().getColor(R.color.A1));
             }
             float textWidth = textPaint.measureText(text);
-            float x = width / 2 - textWidth / 2;
+            float x = width / 2 - textWidth / 2 ;
             Paint.FontMetrics metrics = textPaint.getFontMetrics();
             float dy = -(metrics.descent + metrics.ascent) / 2;
             float y = dy + height / 2;

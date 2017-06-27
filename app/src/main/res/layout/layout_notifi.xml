@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    android:background="@color/A0"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,10 +16,22 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="24dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
+
+    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        android:id="@+id/tishi"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d24"
+        android:background="@color/A4"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/d16"
+        android:text="@string/intercept"
+        android:textColor="@color/A1"
+        android:textSize="@dimen/s12"
+        android:visibility="gone" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -35,17 +47,16 @@
             android:layout_marginRight="16dp"
             android:gravity="center"
             android:text="@string/notifi_nor"
-            android:textColor="#bfbfbf"
-            android:textSize="22sp"
-            android:visibility="invisible"
-            app:typeface="eos_clean.otf" />
+            android:textColor="@color/A3"
+            android:textSize="@dimen/s20"
+            android:visibility="invisible" />
 
 
         <com.supers.clean.junk.customeview.DeleteListView
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_100"
+            android:background="@color/A0"
             android:divider="@drawable/list_divider"
             android:dividerHeight="1dp" />
 
@@ -61,16 +72,19 @@
     <RelativeLayout
         android:id="@+id/notifi_button_rl"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d72">
+        android:layout_height="@dimen/d72"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16">
 
         <Button
             android:id="@+id/notifi_button_clean"
-            android:layout_width="@dimen/d168"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/d40"
             android:layout_centerInParent="true"
-            android:background="@drawable/shape_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@color/A1"
             android:text="@string/notifi_button"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
+            android:textColor="@color/A0"
+            android:textSize="@dimen/s12" />
     </RelativeLayout>
 </LinearLayout>

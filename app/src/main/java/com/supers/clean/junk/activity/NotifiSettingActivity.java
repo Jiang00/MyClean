@@ -27,7 +27,7 @@ import static com.android.clean.db.CleanDBHelper.TableType.Notification;
 
 public class NotifiSettingActivity extends BaseActivity {
     FrameLayout title_left;
-    TextView title_name;
+    TextView title_name, tishi;
     ImageView title_right;
     ListView list_si;
     View view_set;
@@ -44,6 +44,7 @@ public class NotifiSettingActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         list_si = (ListView) findViewById(R.id.list_si);
         title_name = (TextView) findViewById(R.id.title_name);
+        tishi = (TextView) findViewById(R.id.tishi);
         title_right = (ImageView) findViewById(R.id.title_right);
         view_set = findViewById(R.id.view_set);
         notifi_button_rl = (RelativeLayout) findViewById(R.id.notifi_button_rl);
@@ -56,10 +57,11 @@ public class NotifiSettingActivity extends BaseActivity {
         setContentView(R.layout.layout_notifi);
         myApplication = (MyApplication) getApplication();
         title_name.setText(R.string.side_notifi);
+        tishi.setVisibility(View.VISIBLE);
         title_right.setVisibility(View.VISIBLE);
         notifi_button_rl.setVisibility(View.GONE);
         if (PreData.getDB(this, Constant.KEY_NOTIFI, true)) {
-            title_right.setImageResource(R.mipmap.side_check_passed);
+            title_right.setImageResource(R.mipmap.side_check_passed3);
             view_set.setVisibility(View.GONE);
         } else {
             title_right.setImageResource(R.mipmap.side_check_normal);
@@ -98,10 +100,12 @@ public class NotifiSettingActivity extends BaseActivity {
                     if (PreData.getDB(NotifiSettingActivity.this, Constant.KEY_NOTIFI, true)) {
                         PreData.putDB(NotifiSettingActivity.this, Constant.KEY_NOTIFI, false);
                         title_right.setImageResource(R.mipmap.side_check_normal);
+                        tishi.setVisibility(View.GONE);
                         view_set.setVisibility(View.VISIBLE);
                     } else {
                         PreData.putDB(NotifiSettingActivity.this, Constant.KEY_NOTIFI, true);
                         title_right.setImageResource(R.mipmap.side_check_passed);
+                        tishi.setVisibility(View.VISIBLE);
                         view_set.setVisibility(View.GONE);
                     }
                     break;

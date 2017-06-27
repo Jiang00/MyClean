@@ -17,7 +17,7 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
@@ -26,41 +26,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
+        <!--app:tabSelectedTextColor="@color/A0"  设置所在的字体颜色-->
         <android.support.design.widget.TabLayout
             android:id="@+id/view_pager_tab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/d31"
             android:background="@color/A1"
-            app:tabIndicatorColor="@color/B5"
-            app:tabSelectedTextColor="@color/A8"
+            app:tabIndicatorColor="@color/A9"
+            app:tabSelectedTextColor="@color/A0"
             app:tabTextAppearance="@style/tablayout_textSize"
-            app:tabTextColor="@color/white_54" />
+            app:tabTextColor="@color/A0" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/doc_view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/view_pager_tab"
-            android:background="@color/A8" />
+            android:layout_marginBottom="@dimen/d72"
+            android:background="@color/A0" />
 
         <RelativeLayout
             android:id="@+id/manager_clean"
             android:layout_width="match_parent"
             android:layout_height="@dimen/d72"
             android:layout_alignParentBottom="true"
-            android:visibility="gone">
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16">
 
             <Button
                 android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d168"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/d40"
-                android:textAllCaps="false"
                 android:layout_centerInParent="true"
                 android:background="@drawable/shape_button"
                 android:text="@string/ram_button"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/s15" />
+                android:textAllCaps="false"
+                android:textColor="@color/A0"
+                android:textSize="@dimen/s18" />
         </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

@@ -23,6 +23,8 @@ public interface JunkView extends IView {
 
     void addLogdata(long size, List<JunkInfo> list);
 
+    void addRamdata(long size, List<JunkInfo> list);
+
     void addUserdata(long size, List<JunkInfo> list);
 
     void setUnit(long size, TextView textView);

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@color/A0"
     android:orientation="vertical">
 
 
@@ -17,7 +17,7 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
 
@@ -35,9 +35,8 @@
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/s63"
-                app:typeface="eos_clean.otf" />
+                android:textColor="@color/A0"
+                android:textSize="@dimen/s70" />
 
             <LinearLayout
                 android:id="@+id/ll_tv"
@@ -51,22 +50,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KB"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s21"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A0"
+                    android:textSize="@dimen/s14" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/junk_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/junk_title_clean"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
-
+                    android:textColor="@color/A0"
+                    android:textSize="@dimen/s14" />
             </LinearLayout>
-
-
         </LinearLayout>
     </LinearLayout>
 
@@ -74,13 +68,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A10">
+        android:background="@color/A0">
 
         <ListView
             android:id="@+id/junk_list_all"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/A8"
+            android:layout_marginBottom="@dimen/d72"
+            android:background="@color/A0"
             android:divider="@drawable/list_divider"
             android:dividerHeight="1dp" />
 
@@ -91,17 +86,18 @@
 
             <Button
                 android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d168"
-                android:layout_height="@dimen/d40"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d36"
                 android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/ram_button"
-                android:textColor="#ffffff"
+                android:layout_marginBottom="@dimen/d32"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginRight="@dimen/d16"
+                android:background="@drawable/shape_button_a6"
+                android:text="@string/junk_button"
                 android:textAllCaps="false"
-                android:textSize="@dimen/s15"
-                android:visibility="invisible" />
+                android:textColor="@color/A0"
+                android:textSize="@dimen/s18" />
         </RelativeLayout>
     </FrameLayout>
-
-
 </LinearLayout>

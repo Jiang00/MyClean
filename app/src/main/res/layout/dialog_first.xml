@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/B3"
+    android:id="@+id/dialog_frist_liner"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/d280"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/A0"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d24"
+            android:layout_marginTop="@dimen/d24"
+            android:text="Cleaner"
+            android:textColor="@color/A9"
+            android:textSize="@dimen/s16"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d14"
+            android:text="@string/function"
+            android:textColor="@color/A1"
+            android:textSize="@dimen/s18"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d10"
+            android:src="@mipmap/battery" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d10"
+            android:text="@string/screen"
+            android:textColor="@color/A2"
+            android:textSize="@dimen/s16"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d14"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d36"
+                android:src="@mipmap/dot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d14"
+                android:text="@string/battery"
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d36"
+                android:src="@mipmap/dot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d14"
+                android:text="@string/power"
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d36"
+                android:src="@mipmap/dot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d14"
+                android:text="@string/prevent"
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s12" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/frist_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d36"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/d24"
+            android:layout_marginRight="@dimen/d24"
+            android:layout_marginTop="@dimen/d95"
+            android:background="@drawable/shape_button"
+            android:text="@string/enable"
+            android:textColor="@color/A0"
+            android:textSize="@dimen/s16"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d8"
+            android:layout_marginBottom="@dimen/d8"
+            android:text="@string/contain"
+            android:textColor="@color/A4"
+            android:textSize="@dimen/s12" />
+    </LinearLayout>
+</LinearLayout>

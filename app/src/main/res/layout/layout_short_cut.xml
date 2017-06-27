@@ -11,7 +11,7 @@
     <View
         android:id="@+id/view_title_bar"
         android:layout_width="wrap_content"
-        android:layout_height="1dp" />
+        android:layout_height="0dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,29 +19,41 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-
-        <FrameLayout
-            android:id="@+id/short_fl"
-            android:layout_width="@dimen/d90"
-            android:layout_height="@dimen/d90"
+        <RelativeLayout
+            android:id="@+id/short_cut_beijing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@mipmap/short_0">
+            android:background="@mipmap/short_cut_beijing">
 
             <ImageView
-                android:id="@+id/short_huojian"
+                android:id="@+id/short_cut1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@mipmap/short_4" />
+                android:layout_centerInParent="true"
+                android:src="@mipmap/short_cut1" />
 
-            <LinearLayout
-                android:id="@+id/short_xian"
-                android:layout_width="@dimen/d61"
-                android:layout_height="@dimen/d61"
-                android:layout_gravity="center"
-                android:orientation="vertical" />
-        </FrameLayout>
+            <ImageView
+                android:id="@+id/short_cut2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/short_cut2" />
 
+            <ImageView
+                android:id="@+id/short_cut3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/short_cut3" />
+
+            <ImageView
+                android:id="@+id/short_cut4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/short_cut4" />
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/ll_ad"
@@ -51,8 +63,5 @@
             android:layout_marginRight="16dp"
             android:orientation="vertical"
             android:visibility="gone" />
-
     </LinearLayout>
-
-
 </FrameLayout>

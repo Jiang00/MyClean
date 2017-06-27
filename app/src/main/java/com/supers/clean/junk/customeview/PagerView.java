@@ -27,7 +27,6 @@ import java.util.HashMap;
 
 
 public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeListener {
-
     // 三种滑动状态，默认为静止状态
     private static final int MODE_FREE = 0; // 静止状态
     private static final int MODE_DRAG = 1; // 当前页面下，拖动状态
@@ -58,7 +57,7 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
     // 动态设置行数
     private int rowCount = 3;
     // 动态设置列数
-    private int colCount = 4;
+    private int colCount = 5;
     // 每一页的Item总数
     private int itemPerPage = rowCount * colCount;
     // 行间距
@@ -174,7 +173,6 @@ public class PagerView extends ViewGroup implements PagerAdapter.OnDataChangeLis
     private void generateEditData() {
         class Data {
             String name;
-
             public Data(String name) {
                 this.name = name;
             }

@@ -42,6 +42,7 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
             viewHolder.file = (RelativeLayout) convertView.findViewById(R.id.file);
             viewHolder.file_icon = (ImageView) convertView.findViewById(R.id.file_icon);
             viewHolder.file_name = (TextView) convertView.findViewById(R.id.file_name);
+            viewHolder.file_time = (TextView) convertView.findViewById(R.id.file_time);
             viewHolder.file_size = (TextView) convertView.findViewById(R.id.file_size);
             viewHolder.file_check = (ImageView) convertView.findViewById(R.id.file_check);
             convertView.setTag(viewHolder);
@@ -62,11 +63,14 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
             viewHolder.file_icon.setImageResource(R.mipmap.file_video_icon);
         } else if (TextUtils.equals("other", name)) {
             viewHolder.file_icon.setImageResource(R.mipmap.file_other_icon);
+        } else if (TextUtils.equals("picture", name)) {
+            viewHolder.file_icon.setImageResource(R.mipmap.file_picture_icon);
         } else {
             viewHolder.file_icon.setImageDrawable(info.icon);
         }
         viewHolder.file_name.setText(info.name);
         viewHolder.file_size.setText(Util.convertStorage(info.size));
+        viewHolder.file_time.setText(com.android.clean.util.Util.getStrTime(info.date));
         if (info.isChecked) {
             viewHolder.file_check.setImageResource(R.mipmap.ram_passed);
         } else {
@@ -96,7 +100,7 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
     class ViewHolder {
         RelativeLayout file;
         ImageView file_icon;
-        TextView file_name;
+        TextView file_name,file_time;
         TextView file_size;
         ImageView file_check;
     }

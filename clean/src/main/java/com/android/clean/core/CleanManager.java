@@ -27,17 +27,16 @@ import com.android.clean.callback.AppRamCallBack;
 import com.android.clean.callback.FileInfoCallBack;
 import com.android.clean.callback.SystemCacheCallBack;
 import com.android.clean.callback.UninstallResidualCallback;
+import com.android.clean.db.CleanDBHelper;
 import com.android.clean.entity.JunkInfo;
 import com.android.clean.entity.Sizesort;
 import com.android.clean.filemanager.FileCategoryHelper;
-import com.android.clean.filemanager.FileInfo;
 import com.android.clean.filemanager.FileSortHelper;
 import com.android.clean.notification.NotificationCallBack;
 import com.android.clean.notification.NotificationInfo;
 import com.android.clean.notification.NotificationMonitorService;
-import com.android.clean.util.Util;
 import com.android.clean.util.MemoryManager;
-import com.android.clean.db.CleanDBHelper;
+import com.android.clean.util.Util;
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
 
@@ -602,6 +601,7 @@ public class CleanManager {
         return ramSize;
     }
 
+    //APP内存
     public ArrayList<JunkInfo> getAppRamList() {
         return (ArrayList<JunkInfo>) appRamList;
     }

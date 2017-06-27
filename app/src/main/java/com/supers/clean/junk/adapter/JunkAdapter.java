@@ -1,25 +1,19 @@
 package com.supers.clean.junk.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v4.util.LruCache;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.clean.filemanager.FileUtils;
-import com.android.clean.util.LoadManager;
-import com.supers.clean.junk.R;
-import com.android.clean.util.Util;
 import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.activity.JunkActivity;
+import com.android.clean.util.LoadManager;
+import com.android.clean.util.Util;
+import com.supers.clean.junk.R;
 import com.supers.clean.junk.presenter.JunkPresenter;
 
 public class JunkAdapter extends MybaseAdapter<JunkInfo> {
@@ -69,7 +63,6 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
         }
         if (info.type == JunkInfo.TableType.APKFILE) {
             holder.name.setText(info.label);
-//
             holder.icon.setImageDrawable(LoadManager.getInstance(context).getApkIconforPath(info.path));
         } else if (info.type == JunkInfo.TableType.APP) {
             if (info.label == null) {
@@ -84,25 +77,24 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
         }
 
         if (info.isChecked) {
-            holder.checkBox.setImageResource(R.mipmap.junk_passed);
+            holder.checkBox.setImageResource(R.mipmap.ram_passed2);
         } else {
-            holder.checkBox.setImageResource(R.mipmap.junk_normal);
+            holder.checkBox.setImageResource(R.mipmap.ram_normal2);
         }
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
-                    holder.checkBox.setImageResource(R.mipmap.junk_passed);
+                    holder.checkBox.setImageResource(R.mipmap.ram_passed2);
                     junkPresenter.addCleandata(true, info.size);
                 } else {
-                    holder.checkBox.setImageResource(R.mipmap.junk_normal);
+                    holder.checkBox.setImageResource(R.mipmap.ram_normal2);
                     junkPresenter.addCleandata(false, info.size);
                 }
             }
         });
         holder.size.setText(Util.convertStorage(info.size, true));
-
         return convertView;
     }
 
@@ -129,5 +121,4 @@ public class JunkAdapter extends MybaseAdapter<JunkInfo> {
             super.onPostExecute(aVoid);
         }
     }
-
 }

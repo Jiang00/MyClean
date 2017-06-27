@@ -46,7 +46,7 @@
                 android:text="12"
                 android:textColor="@color/A0"
                 android:textSize="@dimen/s51"
-                app:typeface="msyh.ttf" />
+                />
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/main_garbage_company"
@@ -59,7 +59,7 @@
                 android:text="MB"
                 android:textColor="@color/A0"
                 android:textSize="@dimen/s20"
-                app:typeface="msyh.ttf" />
+                />
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/main_garbage_wait_clear"
@@ -70,10 +70,10 @@
                 android:layout_marginTop="@dimen/d7"
                 android:layout_marginLeft="@dimen/d4"
                 android:layout_toRightOf="@id/main_garbage_button"
-                android:text="等待清理"
+                android:text="@string/waiting_cleanup"
                 android:textColor="@color/A0"
                 android:textSize="@dimen/s12"
-                app:typeface="msyh.ttf" />
+                />
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/main_clear_button"
@@ -84,10 +84,10 @@
                 android:layout_marginTop="@dimen/d6"
                 android:background="@mipmap/clear_button"
                 android:gravity="center"
-                android:text="检测中"
+                android:text="@string/in_detection"
                 android:textColor="@color/A0"
                 android:textSize="@dimen/s14"
-                app:typeface="msyh.ttf" />
+                />
         </RelativeLayout>
 
         <ImageView

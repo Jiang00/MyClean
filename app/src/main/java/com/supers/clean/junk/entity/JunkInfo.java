@@ -16,6 +16,7 @@ public class JunkInfo implements Serializable {
     public boolean isChecked;
     public Drawable icon;
     public long size;
+    public long date;
     public String packageName;
     public String label;
     public boolean isWhiteList;

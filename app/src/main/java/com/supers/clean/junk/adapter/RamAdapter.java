@@ -11,12 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.clean.db.CleanDBHelper;
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.R;
-import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.activity.JunkActivity;
-import com.supers.clean.junk.activity.RamAvtivity;
 import com.supers.clean.junk.presenter.RamPresenter;
 
 import java.util.List;
@@ -108,9 +106,9 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
             info.isChecked = false;
         }
         if (info.isChecked) {
-            holder.checkBox.setImageResource(R.mipmap.ram_passed);
+            holder.checkBox.setImageResource(R.mipmap.ram_passed2);
         } else {
-            holder.checkBox.setImageResource(R.mipmap.ram_normal);
+            holder.checkBox.setImageResource(R.mipmap.ram_normal2);
         }
         convertView.setOnClickListener(new View.OnClickListener() {
             boolean isAdd;
@@ -120,13 +118,13 @@ public class RamAdapter extends MybaseAdapter<JunkInfo> {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
                     isAdd = true;
-                    holder.checkBox.setImageResource(R.mipmap.ram_passed);
+                    holder.checkBox.setImageResource(R.mipmap.ram_passed2);
                     ramPresenter.addCleandata(true, info.size);
                 } else {
                     if (!isAdd) {
                         showDialog(holder.icon.getDrawable(), info.label, info.pkg);
                     }
-                    holder.checkBox.setImageResource(R.mipmap.ram_normal);
+                    holder.checkBox.setImageResource(R.mipmap.ram_normal2);
                     ramPresenter.addCleandata(false, info.size);
                 }
             }

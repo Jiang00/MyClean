@@ -60,7 +60,6 @@ public class NotifiInfoActivity extends BaseActivity {
                     startActivity(new Intent(NotifiInfoActivity.this, NotifiActivity.class));
                     onBackPressed();
                 }
-
             }
         });
     }

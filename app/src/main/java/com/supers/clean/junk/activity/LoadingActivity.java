@@ -42,6 +42,7 @@ public class LoadingActivity extends BaseActivity {
         AndroidSdk.onCreate(this, builder);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
+        //添加当前应用的桌面快捷方式
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
         tv_tiaoguo.setVisibility(View.INVISIBLE);
@@ -59,6 +60,7 @@ public class LoadingActivity extends BaseActivity {
         @Override
         public void run() {
             try {
+                //解析json数据,AndroidSdk.getExtraData()获得default.json文件的所有数据字符串
                 JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
                 if (jsonObject.has("full_main")) {
                     PreData.putDB(LoadingActivity.this, Constant.FULL_MAIN, jsonObject.getInt("full_main"));
@@ -111,6 +113,15 @@ public class LoadingActivity extends BaseActivity {
                 }
                 if (jsonObject.has("full_recyclebin")) {
                     PreData.putDB(LoadingActivity.this, Constant.RECYCLEBIN, jsonObject.getInt("full_recyclebin"));
+                }
+                if (jsonObject.has("poweracativity")) {
+                    PreData.putDB(LoadingActivity.this, Constant.POWERACATIVITY, jsonObject.getInt("poweracativity"));
+                }
+                if (jsonObject.has("fileactivity")) {
+                    PreData.putDB(LoadingActivity.this, Constant.FILEACTIVITY, jsonObject.getInt("fileactivity"));
+                }
+                if (jsonObject.has("notifiactivity")) {
+                    PreData.putDB(LoadingActivity.this, Constant.NOTIFIACTIVITY, jsonObject.getInt("notifiactivity"));
                 }
             } catch (Exception e) {
 

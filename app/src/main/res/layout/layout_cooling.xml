@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cooling_backg">
+    android:background="@color/A1">
 
     <LinearLayout
         android:id="@+id/junk_title_backg"
@@ -14,7 +14,7 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
@@ -47,8 +47,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@mipmap/privary_4" />
-
-
     </FrameLayout>
 
     <LinearLayout
@@ -72,7 +70,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
             android:text="@string/cooling_start"
-            android:textColor="@color/A8"
+            android:textColor="@color/A0"
             android:textSize="@dimen/s15"
             app:typeface="eos_clean.otf" />
 
@@ -83,10 +81,8 @@
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
             android:text="40℃"
-            android:textColor="@color/A8"
+            android:textColor="@color/A0"
             android:textSize="@dimen/s30"
             app:typeface="eos_clean.otf" />
     </LinearLayout>
-
-
 </FrameLayout>

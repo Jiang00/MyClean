@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@color/A0"
     android:orientation="vertical">
 
 
@@ -17,13 +17,13 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d95"
+            android:layout_height="@dimen/d120"
             android:orientation="vertical">
 
             <com.my.module.charge.saver.view.CustomerTypefaceTextView
@@ -33,33 +33,30 @@
                 android:layout_marginLeft="@dimen/d16"
                 android:layout_marginTop="@dimen/d27"
                 android:text="Sanxign"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s24"
-                app:typeface="eos_clean.otf" />
+                android:textColor="@color/A0"
+                android:textSize="@dimen/s24" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/d16"
-                android:layout_marginTop="@dimen/d10"
+                android:layout_marginTop="@dimen/d14"
                 android:orientation="horizontal">
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/message_title_1"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s16"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A0"
+                    android:textSize="@dimen/s16" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_android_version"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Android"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s16"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A0"
+                    android:textSize="@dimen/s16" />
             </LinearLayout>
 
         </LinearLayout>
@@ -71,11 +68,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d8"
+        android:background="@color/A4" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A8"
+        android:background="@color/A0"
         android:scrollbars="none">
 
         <LinearLayout
@@ -83,17 +85,33 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/d32"
-                android:background="@color/A10"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/d16"
-                android:text="@string/message_start"
-                android:textColor="@color/B2"
-                android:textSize="@dimen/s10"
-                app:typeface="eos_clean.otf" />
+                android:paddingLeft="@dimen/d16">
+
+                <TextView
+                    android:layout_width="@dimen/d4"
+                    android:layout_height="@dimen/d14"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/A1" />
+
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d32"
+                    android:layout_marginLeft="@dimen/d4"
+                    android:gravity="center_vertical"
+                    android:text="@string/message_start"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s10" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/d16"
+                android:background="@color/B1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -105,9 +123,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_boot_time"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_system_start_time"
@@ -116,8 +133,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/B2"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
@@ -136,9 +153,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_boot_time2"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_system_start_time2"
@@ -147,20 +163,41 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/B2"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
             </RelativeLayout>
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <View
                 android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A4" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/d32"
-                android:background="@color/A10"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/d16"
-                android:text="@string/message_hard"
-                android:textColor="@color/B2"
-                android:textSize="@dimen/s10"
-                app:typeface="eos_clean.otf" />
+                android:paddingLeft="@dimen/d16">
+
+                <TextView
+                    android:layout_width="@dimen/d4"
+                    android:layout_height="@dimen/d14"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/A1" />
+
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d32"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/d4"
+                    android:text="@string/message_hard"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s10" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/d16"
+                android:background="@color/B1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -172,9 +209,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_isRoot"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_isRoot"
@@ -183,8 +219,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="Y"
-                    android:textColor="@color/B2"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
@@ -203,9 +239,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_fenbianlv"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_resolution"
@@ -214,8 +249,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/B2"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
@@ -234,9 +269,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_q_camera"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_q_camera"
@@ -245,8 +279,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/B2"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
@@ -265,9 +299,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_h_camera"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_h_camera"
@@ -276,8 +309,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/B2"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
@@ -296,9 +329,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_imei"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_imei"
@@ -307,8 +339,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/B2"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
@@ -327,9 +359,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_ram"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_ram"
@@ -338,8 +369,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/B2"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
@@ -358,9 +389,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_sd"
-                    android:textColor="@color/B2"
-                    android:textSize="@dimen/s12"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
 
                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/message_sd"
@@ -369,11 +399,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/B2"
-                    app:typeface="eos_clean.otf" />
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
             </RelativeLayout>
-
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

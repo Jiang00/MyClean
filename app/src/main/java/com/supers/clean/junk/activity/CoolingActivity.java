@@ -16,12 +16,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.client.AndroidSdk;
-import com.sample.lottie.LottieAnimationView;
-import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.customeview.FlakeView;
 import com.android.clean.util.PreData;
+import com.android.client.AndroidSdk;
+import com.supers.clean.junk.R;
+import com.supers.clean.junk.customeview.FlakeView;
+import com.supers.clean.junk.util.Constant;
 
 import java.util.Random;
 
@@ -93,9 +92,9 @@ public class CoolingActivity extends BaseActivity {
         startCoolingAni();
 
         animationLine_1 = new AnimatorSet();
-        ObjectAnimator animator_ine_1_x = ObjectAnimator.ofFloat(cooling_kuo, "scaleX", 0, 2f);
+        ObjectAnimator animator_ine_1_x = ObjectAnimator.ofFloat(cooling_kuo, "scaleX", 1f, 0f);
         animator_ine_1_x.setRepeatCount(-1);
-        ObjectAnimator animator_ine_1_y = ObjectAnimator.ofFloat(cooling_kuo, "scaleY", 0, 2f);
+        ObjectAnimator animator_ine_1_y = ObjectAnimator.ofFloat(cooling_kuo, "scaleY", 1f, 0f);
         ObjectAnimator animator_ine_1_r = ObjectAnimator.ofFloat(cooling_kuo, "alpha", 1, 0f);
         animator_ine_1_y.setRepeatCount(-1);
         animator_ine_1_r.setRepeatCount(-1);

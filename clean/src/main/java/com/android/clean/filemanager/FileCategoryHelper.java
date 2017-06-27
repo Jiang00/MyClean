@@ -121,7 +121,6 @@ public class FileCategoryHelper {
 
     public static class CategoryInfo {
         public long count;
-
         public long size;
     }
 
@@ -272,8 +271,8 @@ public class FileCategoryHelper {
         uri = Video.Media.getContentUri(volumeName);
         refreshMediaCategory(FileCategory.Video, uri);
 
-        //uri = Images.Media.getContentUri(volumeName);
-        // refreshMediaCategory(FileCategory.Picture, uri);
+        uri = Images.Media.getContentUri(volumeName);
+        refreshMediaCategory(FileCategory.Picture, uri);
 
         uri = Files.getContentUri(volumeName);//
         // refreshMediaCategory(FileCategory.Theme, uri);
@@ -299,7 +298,6 @@ public class FileCategoryHelper {
             c.close();
             return true;
         }
-
         return false;
     }
 
@@ -383,8 +381,6 @@ public class FileCategoryHelper {
                 Log.e("rqy", "COLUMN_SIZE=" + cursor.getString(FileCategoryHelper.COLUMN_SIZE));
                 Log.e("rqy", "COLUMN_DATE=" + cursor.getString(FileCategoryHelper.COLUMN_DATE));
             } while (cursor.moveToNext());
-
         }
-
     }
 }

@@ -22,25 +22,22 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.clean.callback.AppRamCallBack;
 import com.android.clean.core.CleanManager;
+import com.android.clean.entity.JunkInfo;
+import com.android.clean.util.MemoryManager;
+import com.android.clean.util.PreData;
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.HorizontalListViewAdapter;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.CheckState;
-import com.android.clean.util.Util;
-import com.android.clean.util.MemoryManager;
-import com.android.clean.util.PreData;
-import com.supers.clean.junk.util.SwitchControl;
-import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.task.RamTask;
-import com.supers.clean.junk.task.SimpleTask;
 import com.supers.clean.junk.customeview.HorizontalListView;
+import com.supers.clean.junk.util.AdUtil;
+import com.supers.clean.junk.util.CheckState;
+import com.supers.clean.junk.util.Constant;
+import com.supers.clean.junk.util.SwitchControl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,9 +48,9 @@ public class FloatActivity extends BaseActivity {
     LinearLayout ll_ad;
     LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
-    ImageView float_cricle, float_rotate;
-    TextView float_memory, float_tishi;
-    RelativeLayout rl_memory;
+    ImageView float_rotate,float_cricle;
+    TextView float_memory;
+    LinearLayout rl_memory;
 
     private View nativeView;
     private HorizontalListViewAdapter adapter;
@@ -81,8 +78,8 @@ public class FloatActivity extends BaseActivity {
         float_cricle = (ImageView) findViewById(R.id.float_cricle);
         float_rotate = (ImageView) findViewById(R.id.float_rotate);
         float_memory = (TextView) findViewById(R.id.float_memory);
-        rl_memory = (RelativeLayout) findViewById(R.id.rl_memory);
-        float_tishi = (TextView) findViewById(R.id.float_tishi);
+        rl_memory = (LinearLayout) findViewById(R.id.rl_memory);
+//        float_tishi = (TextView) findViewById(R.id.float_tishi);
     }
 
     @Override
@@ -187,8 +184,6 @@ public class FloatActivity extends BaseActivity {
                         liuLiangd();
                         SwitchControl.setMobileData(FloatActivity.this, !CheckState.networkState(FloatActivity.this, null));
                     }
-
-
                     break;
                 case R.id.ll_xianshi:
                     brightnessSwitchUtils(FloatActivity.this);
@@ -224,14 +219,14 @@ public class FloatActivity extends BaseActivity {
 
         setListAnimation();
         float_cricle.setVisibility(View.INVISIBLE);
-        float_tishi.setVisibility(View.INVISIBLE);
+//        float_tishi.setVisibility(View.INVISIBLE);
         rl_memory.startAnimation(suo);
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
                 float_memory.setText(Util.getMemory(FloatActivity.this) + "");
-                float_tishi.setText(R.string.float_yijiasu);
-                float_tishi.setVisibility(View.VISIBLE);
+//                float_tishi.setText(R.string.float_yijiasu);
+//                float_tishi.setVisibility(View.VISIBLE);
 
                 rl_memory.startAnimation(fang);
             }
@@ -249,7 +244,7 @@ public class FloatActivity extends BaseActivity {
         fang.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
-                float_cricle.setVisibility(View.VISIBLE);
+//                float_cricle.setVisibility(View.VISIBLE);
             }
 
             @Override

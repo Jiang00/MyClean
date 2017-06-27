@@ -226,7 +226,6 @@ public class PictureHuiActivity extends BaseActivity {
                                     notifiActivity();
                                 }
                             });
-
                         }
                     });
                 } else {
@@ -394,9 +393,9 @@ public class PictureHuiActivity extends BaseActivity {
         public void onBindViewHolder(final HuiAdapter.HomeViewHolder holder, final int position) {
             final ImageInfo info = list.get(position);
             if (info.isNormal) {
-                holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                holder.picture_check.setImageResource(R.mipmap.ram_normal);
             } else {
-                holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                holder.picture_check.setImageResource(R.mipmap.ram_passed);
             }
 
             Bitmap cachebitmap = getBitmapFromCache(info.backFilePath);
@@ -437,15 +436,15 @@ public class PictureHuiActivity extends BaseActivity {
                 last = calendar.getTimeInMillis();
             }
 
-            holder.picture_time.setText((Util.millTransFate(RecyclerDbHelper.RECYCLER_AUTO_DELETE_INTERVAL - (time - last)) + 1) + " " + getText(R.string.picture_11));
+            holder.picture_time.setText("剩余" + (Util.millTransFate(RecyclerDbHelper.RECYCLER_AUTO_DELETE_INTERVAL - (time - last)) + 1) + " " + getText(R.string.picture_11));
             holder.picture_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     info.isNormal = !info.isNormal;
                     if (info.isNormal) {
-                        holder.picture_check.setImageResource(R.mipmap.picture_normal);
+                        holder.picture_check.setImageResource(R.mipmap.ram_normal);
                     } else {
-                        holder.picture_check.setImageResource(R.mipmap.picture_passed);
+                        holder.picture_check.setImageResource(R.mipmap.ram_passed);
                     }
                 }
             });

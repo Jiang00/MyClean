@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/A8"
+    android:background="@color/A0"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,7 +16,7 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
@@ -27,7 +27,6 @@
 
         <com.my.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/white_wu"
-            app:typeface="eos_clean.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -43,9 +42,8 @@
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/A8"
+            android:background="@color/A0"
             android:divider="@drawable/list_divider"
             android:dividerHeight="1px" />
     </FrameLayout>
-
 </LinearLayout>

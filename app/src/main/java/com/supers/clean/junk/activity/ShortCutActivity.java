@@ -17,22 +17,21 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.twee.module.tweenengine.Tween;
-import com.twee.module.tweenengine.TweenEquations;
-import com.twee.module.tweenengine.TweenManager;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FlakeViewOnShort;
-import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
+import com.twee.module.tweenengine.TweenManager;
 
 import java.util.List;
 
@@ -45,10 +44,12 @@ public class ShortCutActivity extends BaseActivity {
     private static final int FLAKE_NUM = 3;
 
     FrameLayout short_backg;
-    ImageView short_huojian;
+    //    ImageView short_huojian;
     LinearLayout ll_ad;
-    LinearLayout short_xian;
-    FrameLayout short_fl;
+    //    LinearLayout short_xian;
+//    FrameLayout short_fl;
+    ImageView short_cut2, short_cut3, short_cut4;
+    RelativeLayout short_cut_beijing;
     private Animation rotate;
     private Animation fang;
     private TweenManager tweenManager;
@@ -67,20 +68,24 @@ public class ShortCutActivity extends BaseActivity {
     protected void findId() {
         super.findId();
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
-        short_fl = (FrameLayout) findViewById(R.id.short_fl);
-        short_huojian = (ImageView) findViewById(R.id.short_huojian);
-        short_xian = (LinearLayout) findViewById(R.id.short_xian);
+//        short_fl = (FrameLayout) findViewById(R.id.short_fl);
+        short_cut_beijing = (RelativeLayout) findViewById(R.id.short_cut_beijing);
+        short_cut2 = (ImageView) findViewById(R.id.short_cut2);
+        short_cut3 = (ImageView) findViewById(R.id.short_cut3);
+        short_cut4 = (ImageView) findViewById(R.id.short_cut4);
+//        short_huojian = (ImageView) findViewById(R.id.short_huojian);
+//        short_xian = (LinearLayout) findViewById(R.id.short_xian);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_short_cut);
-        rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
-        fang = AnimationUtils.loadAnimation(this, R.anim.fang);
+//        rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
+//        fang = AnimationUtils.loadAnimation(this, R.anim.fang);
         tweenManager = new TweenManager();
         myHandler = new Handler();
-        Tween.registerAccessor(ImageView.class, new ImageAccessor());
+//        Tween.registerAccessor(ImageView.class, new ImageAccessor());
         istween = true;
         setAnimationThread();
         suo = AnimationUtils.loadAnimation(this, R.anim.suo_short);
@@ -88,7 +93,7 @@ public class ShortCutActivity extends BaseActivity {
         myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startTween();
+//                startTween();
             }
         }, 500);
         new Thread(new Runnable() {
@@ -188,8 +193,8 @@ public class ShortCutActivity extends BaseActivity {
     }
 
     private void startTween() {
-        final float hy = short_huojian.getTop();
-        final float hx = short_huojian.getLeft();
+        final float hy = short_cut2.getTop();
+        final float hx = short_cut2.getLeft();
         isdoudong = true;
         new Thread(new Runnable() {
             @Override
@@ -202,9 +207,10 @@ public class ShortCutActivity extends BaseActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Tween.to(short_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
-                            .ease(TweenEquations.easeInQuad).delay(0)
-                            .start(tweenManager);
+                    //震动的动画
+//                    Tween.to(short_cut2, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
+//                            .ease(TweenEquations.easeInQuad).delay(0)
+//                            .start(tweenManager);
                 }
             }
         }).start();
@@ -247,7 +253,7 @@ public class ShortCutActivity extends BaseActivity {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
         flakeView = new FlakeViewOnShort(this);
-        short_xian.addView(flakeView);
+//        short_xian.addView(flakeView);
         flakeView.setRotation(35);
         myHandler.post(new Runnable() {
             @Override
@@ -261,10 +267,12 @@ public class ShortCutActivity extends BaseActivity {
         myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
+
                 AnimatorSet set = new AnimatorSet();
-                ObjectAnimator translationY = ObjectAnimator.ofFloat(short_huojian, "translationY", 0, -Util.dp2px(90));
-                ObjectAnimator translationX = ObjectAnimator.ofFloat(short_huojian, "translationX", 0, Util.dp2px(90));
-                set.setDuration(100);
+                ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, 360f);
+                ObjectAnimator animator2 = ObjectAnimator.ofFloat(short_cut3, "rotation", 0f, -360f);
+                ObjectAnimator animator3 = ObjectAnimator.ofFloat(short_cut4, "rotation", 0f, 360f);
+                set.setDuration(200);
                 set.addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationCancel(Animator animation) {
@@ -273,9 +281,10 @@ public class ShortCutActivity extends BaseActivity {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        short_fl.startAnimation(suo);
-                        short_huojian.setVisibility(View.GONE);
-                        short_xian.setVisibility(View.GONE);
+                        short_cut_beijing.startAnimation(suo);
+                        short_cut2.setVisibility(View.GONE);
+                        short_cut3.setVisibility(View.GONE);
+                        short_cut4.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -288,12 +297,20 @@ public class ShortCutActivity extends BaseActivity {
 
                     }
                 });
-                set.play(translationX).with(translationY);
+                LinearInterpolator lin = new LinearInterpolator();
+                set.setInterpolator(lin);
+                animator2.setRepeatCount(10);//设置重复次数
+                animator1.setRepeatCount(10);//设置重复次数
+                animator3.setRepeatCount(10);//设置重复次数
+                animator2.setDuration(2000);
+                animator1.setDuration(2000);
+                animator3.setDuration(2000);
+                set.play(animator1).with(animator2).with(animator3);
                 set.start();
                 suo.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        short_fl.setVisibility(View.GONE);
+                        short_cut_beijing.setVisibility(View.GONE);
                         count++;
                         isdoudong = false;
                         show_text();
@@ -310,7 +327,7 @@ public class ShortCutActivity extends BaseActivity {
                     }
                 });
             }
-        }, 4000);
+        }, 500);
 
     }
 

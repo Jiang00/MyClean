@@ -84,10 +84,8 @@ public class GBoostActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case ADD_DATA:
-
                     break;
             }
-
             super.handleMessage(msg);
         }
     };
@@ -143,7 +141,7 @@ public class GBoostActivity extends BaseActivity {
         if (Util.isAccessibilitySettingsOn(this)) {
             gboost_power_check.setImageResource(R.mipmap.side_check_passed);
         } else {
-            gboost_power_check.setImageResource(R.mipmap.side_check_normal);
+            gboost_power_check.setImageResource(R.mipmap.side_check_normal2);
         }
         gboost_power_check.setOnClickListener(clickListener);
         gboost_clean_button.setOnClickListener(clickListener);
@@ -224,13 +222,10 @@ public class GBoostActivity extends BaseActivity {
                                 }
                             }
                         });
-
                     }
                 });
             }
-        }).
-
-                start();
+        }).start();
 
     }
 
@@ -335,7 +330,6 @@ public class GBoostActivity extends BaseActivity {
 
                         @Override
                         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
                         }
 
                         @Override
@@ -548,6 +542,4 @@ public class GBoostActivity extends BaseActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
-
 }

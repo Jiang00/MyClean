@@ -22,8 +22,57 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d120"
+            android:layout_height="wrap_content"
             android:background="@drawable/shape_a1">
+
+            <ImageView
+                android:layout_width="@dimen/d19"
+                android:layout_height="@dimen/d19"
+                android:layout_marginLeft="@dimen/d48"
+                android:layout_marginTop="@dimen/d18"
+                android:src="@mipmap/remnant_stars" />
+
+            <ImageView
+                android:layout_width="@dimen/d8"
+                android:layout_height="@dimen/d8"
+                android:layout_marginLeft="@dimen/d22"
+                android:layout_marginTop="@dimen/d43"
+                android:src="@mipmap/remnant_stars" />
+
+            <ImageView
+                android:layout_width="@dimen/d19"
+                android:layout_height="@dimen/d19"
+                android:layout_marginLeft="@dimen/d70"
+                android:layout_marginTop="@dimen/d70"
+                android:src="@mipmap/remnant_stars" />
+
+            <ImageView
+                android:layout_width="@dimen/d19"
+                android:layout_height="@dimen/d19"
+                android:layout_marginLeft="@dimen/d237"
+                android:layout_marginTop="@dimen/d64"
+                android:src="@mipmap/remnant_stars" />
+
+            <ImageView
+                android:layout_width="@dimen/d19"
+                android:layout_height="@dimen/d19"
+                android:layout_marginLeft="@dimen/d208"
+                android:layout_marginTop="@dimen/d19"
+                android:src="@mipmap/remnant_stars" />
+
+            <ImageView
+                android:id="@+id/aircraft_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/aircraft" />
+
+            <ImageView
+                android:id="@+id/flakyclouds_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/aircraft_imageview"
+                android:background="@mipmap/flakyclouds" />
 
             <ImageView
                 android:id="@+id/iv_cha"
@@ -35,96 +84,80 @@
                 android:src="@mipmap/unload_delete" />
 
             <ImageView
-                android:id="@+id/zhuangshi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d24"
-                android:layout_marginTop="@dimen/d23"
-                android:src="@mipmap/unload_tong" />
-
-            <ImageView
                 android:id="@+id/iv_icon"
                 android:layout_width="@dimen/d30"
                 android:layout_height="@dimen/d30"
-                android:layout_alignRight="@id/zhuangshi"
-                android:layout_alignTop="@id/zhuangshi"
-                android:layout_marginRight="@dimen/d20"
-                android:layout_marginTop="@dimen/d2"
-                android:src="@mipmap/icon" />
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/tv_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:layout_marginTop="@dimen/d50"
-                android:layout_toRightOf="@id/zhuangshi"
-                android:text="158"
-                android:textColor="@color/B9"
-                android:textSize="@dimen/s30"
-                app:typeface="eos_clean.otf" />
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/tv_danwei"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/tv_size"
-                android:layout_marginLeft="@dimen/d6"
-                android:layout_toRightOf="@id/tv_size"
-                android:text="KB "
-                android:textColor="#ffffff"
-                android:textSize="@dimen/s15"
-                app:typeface="eos_clean.otf" />
-
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/tv_size"
-                android:layout_toRightOf="@id/tv_danwei"
-                android:text="@string/unload_canyu"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s15"
-                app:typeface="eos_clean.otf" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d44"
-            android:background="@drawable/shape_ffffff_b"
-            android:orientation="horizontal">
+                android:src="@mipmap/icon"
+                android:visibility="gone" />
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
+                android:id="@+id/remnant_linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/flakyclouds_imageview"
+                android:background="@color/A0"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="-2dp"
+                android:paddingTop="@dimen/d20">
+
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/tv_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="158"
+                    android:textColor="@color/A7"
+                    android:textSize="@dimen/s24" />
+
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/tv_danwei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_size"
+                    android:layout_marginLeft="@dimen/d6"
+                    android:layout_toRightOf="@id/tv_size"
+                    android:text="KB "
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s15" />
+
+                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_size"
+                    android:layout_toRightOf="@id/tv_danwei"
+                    android:text="@string/unload_canyu"
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/remnant_linearLayout"
+                android:background="@color/A0"
+                android:gravity="center"
+                android:paddingBottom="@dimen/d8"
+                android:paddingTop="@dimen/d32">
 
                 <Button
                     android:id="@+id/bt_quxiao"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/d40"
                     android:background="@null"
                     android:text="@string/quxiao"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s17" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
+                    android:textColor="@color/A3"
+                    android:textSize="@dimen/s14" />
 
                 <Button
                     android:id="@+id/bt_queren"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
+                    android:layout_height="@dimen/d40"
+                    android:layout_marginLeft="@dimen/d24"
+                    android:background="@color/A1"
                     android:text="@string/qingli"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s17" />
+                    android:textColor="@color/A0"
+                    android:textSize="@dimen/s14" />
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout

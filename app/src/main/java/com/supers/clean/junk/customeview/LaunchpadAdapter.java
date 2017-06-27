@@ -4,28 +4,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.entity.JunkInfo;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * @author Lody
@@ -70,7 +62,6 @@ public class LaunchpadAdapter extends PagerAdapter<String> {
         super(context, list);
         this.context = context;
         pm = context.getPackageManager();
-
     }
 
 
@@ -95,8 +86,6 @@ public class LaunchpadAdapter extends PagerAdapter<String> {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     public void onPause() {

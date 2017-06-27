@@ -101,6 +101,15 @@ public class SettingActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        if (PreData.getDB(this, Constant.FILEACTIVITY, 0) == 0) {
+            setting_file.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.POWERACATIVITY, 0) == 0) {
+            setting_power.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, Constant.NOTIFIACTIVITY, 0) == 0) {
+            setting_notifi.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -141,7 +150,7 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)) {
+        if ((boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)) {
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
@@ -220,7 +229,7 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_battery:
 
                     //chongdian
-                    if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true)) {
+                    if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false)) {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
                         AdUtil.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_normal);

@@ -25,7 +25,6 @@ import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.FileAdapter;
 import com.supers.clean.junk.entity.JunkInfo;
-import com.android.clean.util.Util;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
 
@@ -66,7 +65,7 @@ public class FileListActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         file_list = (ListView) findViewById(R.id.file_list);
-        file_button_clean = (Button) findViewById(R.id.file_button_clean);
+        file_button_clean = (Button) findViewById(R.id.junk_button_clean1);
         file_clean_rl = (RelativeLayout) findViewById(R.id.file_clean_rl);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
@@ -150,6 +149,8 @@ public class FileListActivity extends BaseActivity {
                     fc = FileCategoryHelper.FileCategory.Music;
                 } else if (TextUtils.equals("video", name)) {
                     fc = FileCategoryHelper.FileCategory.Video;
+                } else if (TextUtils.equals("picture", name)) {
+                    fc = FileCategoryHelper.FileCategory.Picture;
                 } else if (TextUtils.equals("other", name)) {
                     fc = FileCategoryHelper.FileCategory.Other;
                 }
@@ -198,7 +199,7 @@ public class FileListActivity extends BaseActivity {
                 case R.id.title_left:
                     onBackPressed();
                     break;
-                case R.id.file_button_clean:
+                case R.id.junk_button_clean1:
                     ArrayList<JunkInfo> deleteList = new ArrayList<>();
                     for (JunkInfo info : fileList) {
                         if (info.isChecked) {

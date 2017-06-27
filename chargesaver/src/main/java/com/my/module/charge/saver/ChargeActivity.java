@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.my.module.charge.saver.R;
 import com.my.module.charge.saver.entry.BatteryEntry;
 import com.my.module.charge.saver.view.BatteryView;
 
@@ -96,14 +95,11 @@ public class ChargeActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
-
     }
 
     @Override
@@ -147,5 +143,4 @@ public class ChargeActivity extends Activity {
             batteryView.bind(entry);
         }
     }
-
 }

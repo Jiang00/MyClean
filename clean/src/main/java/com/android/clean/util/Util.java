@@ -18,7 +18,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.provider.Settings;
-import android.support.annotation.LayoutRes;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -47,7 +46,7 @@ public class Util {
 
     public static String getStrTime(long time) {
         long a = System.currentTimeMillis();
-        SimpleDateFormat sf = new SimpleDateFormat("yy-MM-dd HH:mm:ss ");
+        SimpleDateFormat sf = new SimpleDateFormat("yy-MM-dd");
         String times = sf.format(new Date(time));
         return times;
     }

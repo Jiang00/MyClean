@@ -34,7 +34,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
         iView.loadFullAd();
 
         allSize = CleanManager.getInstance(context).getApkSize() + CleanManager.getInstance(context).getCacheSize() + CleanManager.getInstance(context).getUnloadSize() + CleanManager.getInstance(context).getLogSize()
-                + CleanManager.getInstance(context).getDataSize();
+                + CleanManager.getInstance(context).getDataSize() + CleanManager.getInstance(context).getRamSize();
         for (JunkInfo info : CleanManager.getInstance(context).getSystemCaches()) {
             if (info.isChecked) {
                 cleanSize += info.size;
@@ -56,6 +56,11 @@ public class JunkPresenter extends BasePresenter<JunkView> {
             }
         }
         for (JunkInfo info : CleanManager.getInstance(context).getUninstallResiduals()) {
+            if (info.isChecked) {
+                cleanSize += info.size;
+            }
+        }
+        for (JunkInfo info : CleanManager.getInstance(context).getAppRamList()) {
             if (info.isChecked) {
                 cleanSize += info.size;
             }
@@ -85,6 +90,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
         addUnloadAdapterData();
         addLogAdapterData();
         addUserAdapterData();
+        addRamAdapterData();
     }
 
     public void addSystemAdapterData() {
@@ -107,6 +113,10 @@ public class JunkPresenter extends BasePresenter<JunkView> {
         iView.addUserdata(CleanManager.getInstance(context).getDataSize(), CleanManager.getInstance(context).getAppCaches());
     }
 
+    public void addRamAdapterData() {
+        iView.addRamdata(CleanManager.getInstance(context).getRamSize(), CleanManager.getInstance(context).getAppRamList());
+    }
+
     @Override
     public void setUnit(long size, TextView textView) {
         super.setUnit(size, textView);
@@ -115,12 +125,11 @@ public class JunkPresenter extends BasePresenter<JunkView> {
     }
 
     public void bleachFile(boolean isZhankai, List<JunkInfo> systemCache, List<JunkInfo> apkFiles, List<JunkInfo> filesOfUnintalledApk,
-                           List<JunkInfo> appJunk, List<JunkInfo> appCache) {
+                           List<JunkInfo> appJunk, List<JunkInfo> appCache, List<JunkInfo> appRam) {
         clearList = new ArrayList<>();
         if (isZhankai) {
             clearList.addAll(CleanManager.getInstance(context).getSystemCaches());
         }
-
 //                adapter1.clear();
         CleanManager.getInstance(context).clearSystemCache();
         for (JunkInfo fileListInfo : apkFiles) {
@@ -158,8 +167,15 @@ public class JunkPresenter extends BasePresenter<JunkView> {
                 }
             }
         }
+        for (JunkInfo fileListInfo : appRam) {
+            if (fileListInfo.isChecked) {
+                CleanManager.getInstance(context).removeRam(fileListInfo);
+                if (isZhankai) {
+                    clearList.add(fileListInfo);
+                }
+            }
+        }
         changeColor(allSize - cleanSize);
         iView.cleanAnimation(isZhankai, clearList, cleanSize);
     }
-
 }

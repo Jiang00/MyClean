@@ -24,14 +24,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.powerclean.CustomerAccessibilityService;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
+import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.PowerWidgetContainer;
-import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.AdUtil;
 import com.supers.clean.junk.util.Constant;
@@ -59,7 +60,7 @@ public class PowerActivity extends BaseActivity {
     private Button containerView_junk_button_clean;
     private PowerWidgetContainer container;
     private int count = 0;
-
+    LottieAnimationView power_clean;
 
     @Override
     protected void findId() {
@@ -69,6 +70,7 @@ public class PowerActivity extends BaseActivity {
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
         power_size = (TextView) findViewById(R.id.power_size);
         junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
+
     }
 
     @Override
@@ -76,6 +78,12 @@ public class PowerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_power);
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        power_clean = (LottieAnimationView) findViewById(R.id.power_clean);
+        power_clean.setAnimation("clean.json");
+        power_clean.setScaleX(2f);
+        power_clean.setScaleY(2f);
+        power_clean.loop(true);
+        power_clean.playAnimation();
         mHandler = new Handler();
         startService(new Intent(this, CustomerAccessibilityService.class).putExtra("isDis", false));
         initData();
@@ -227,7 +235,6 @@ public class PowerActivity extends BaseActivity {
                 .addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationCancel(Animator animation) {
-
                     }
 
                     @Override
@@ -291,7 +298,7 @@ public class PowerActivity extends BaseActivity {
             if (isWidget) {
                 holder.recyc_check.setVisibility(View.GONE);
             } else {
-                holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.power_4 : R.mipmap.power_5);
+                holder.recyc_check.setImageResource(startList.get(position).isChecked ? R.mipmap.ram_passed : R.mipmap.ram_normal);
             }
 
             holder.recyc_icon.setImageDrawable(LoadManager.getInstance(PowerActivity.this).getAppIcon(startList.get(position).pkg));
@@ -352,5 +359,17 @@ public class PowerActivity extends BaseActivity {
                 junk_button_clean.callOnClick();
             }
         }
+    }
+
+    private void initClean() {
+        try {
+            power_clean.setAnimation(this, "theme://clean.json");
+        } catch (Exception e) {
+            if (!power_clean.isAnimating()) {
+                power_clean.setAnimation(null, "clean.json");
+            }
+        }
+        power_clean.loop(true);
+//        water.setSpeed(5.0f);
     }
 }

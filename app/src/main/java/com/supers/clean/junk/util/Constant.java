@@ -97,6 +97,12 @@ public class Constant {
 
     public static final String RECYCLEBIN = "RECYCLEBIN";
 
+    public static final String POWERACATIVITY= "POWERACATIVITY";
+
+    public static final String FILEACTIVITY = "FILEACTIVITY";
+
+    public static final String NOTIFIACTIVITY = "NOTIFIACTIVITY";
+
 //    跳转
 
     public static final int RAM_RESUIL = 20;

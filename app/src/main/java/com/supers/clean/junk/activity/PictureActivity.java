@@ -138,7 +138,7 @@ public class PictureActivity extends BaseActivity {
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         title_name.setText(R.string.side_picture);
         title_right.setVisibility(View.VISIBLE);
-        title_right.setImageResource(R.mipmap.picture_right);
+        title_right.setImageResource(R.mipmap.picture_right2);
         imageHelper = new ImageHelper();
         pagerView = new ArrayList<>();
         picture_recycle.setLayoutManager(new LinearLayoutManager(this));
@@ -171,9 +171,9 @@ public class PictureActivity extends BaseActivity {
     public void bigPicture(final ArrayList<ImageInfo> list) {
         pic_pager_title.setText("1/" + list.size());
         if (list.get(0).isNormal) {
-            pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+            pic_pager_check_iv.setImageResource(R.mipmap.ram_normal);
         } else {
-            pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+            pic_pager_check_iv.setImageResource(R.mipmap.ram_passed);
         }
         pic_pager_check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,9 +181,9 @@ public class PictureActivity extends BaseActivity {
                 int position = picture_pager.getCurrentItem();
                 list.get(position).isNormal = !list.get(position).isNormal;
                 if (list.get(position).isNormal) {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_normal);
                 } else {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_passed);
                 }
                 updateUi();
             }
@@ -272,9 +272,9 @@ public class PictureActivity extends BaseActivity {
                     return;
                 }
                 if (list.get(position).isNormal) {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_normal);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_normal);
                 } else {
-                    pic_pager_check_iv.setImageResource(R.mipmap.picture_passed);
+                    pic_pager_check_iv.setImageResource(R.mipmap.ram_passed);
                 }
             }
 
@@ -393,7 +393,6 @@ public class PictureActivity extends BaseActivity {
                     adapter.notifyDataSetChanged();
                     break;
             }
-
         }
     };
 
@@ -527,7 +526,6 @@ public class PictureActivity extends BaseActivity {
         bigPicture(list);
     }
 
-
     public void updateUi() {
         long size = 0;
         long count = 0;
@@ -543,6 +541,5 @@ public class PictureActivity extends BaseActivity {
         picture_button.setText(getString(R.string.picture_14) + "( " + count + " )");
         picture_size.setText(Util.convertStorage(size, false));
         picture_danwei.setText(Util.convertStorageDanwei(size));
-
     }
 }
