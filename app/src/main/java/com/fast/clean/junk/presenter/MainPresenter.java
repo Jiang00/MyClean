@@ -83,6 +83,7 @@ public class MainPresenter extends BasePresenter<MainView> {
         int memo = (int) (ram_shiyong * 100 / ram_all);
         String ram_size = Util.convertStorage(ram_shiyong, true) + "/" + Util.convertStorage(ram_all, true);
         iView.initRam(memo, ram_size);
+        iView.initHuojian();
         setRotateGone();
     }
 
