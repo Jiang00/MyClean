@@ -26,22 +26,20 @@
         android:gravity="clip_vertical"
         android:orientation="vertical">
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
             android:id="@+id/notifi_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black_87"
-            android:textSize="14sp"
-            app:typeface="eos_clean.otf" />
+            android:textSize="14sp" />
 
-        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
             android:id="@+id/notifi_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:textColor="@color/black_54"
-            android:textSize="11sp"
-            app:typeface="eos_clean.otf" />
+            android:textSize="11sp" />
     </LinearLayout>
 
     <ImageView
@@ -52,15 +50,14 @@
         android:layout_marginRight="16dp"
         android:scaleType="center" />
 
-    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+    <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
         android:id="@+id/notifi_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
-        android:scaleType="center"
-        app:typeface="eos_clean.otf" />
+        android:scaleType="center" />
 
     <FrameLayout
         android:id="@+id/fl"

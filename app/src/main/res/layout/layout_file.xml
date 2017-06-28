@@ -36,7 +36,7 @@
                  android:layout_gravity="bottom"
                  android:src="@mipmap/file_yinying" />
 
-             <com.supers.clean.junk.customeview.FileRoundView
+             <com.supers.clean.customeview.FileRoundView
                  android:id="@+id/file_piechart"
                  android:layout_width="@dimen/d133"
                  android:layout_height="@dimen/d133"
@@ -65,7 +65,7 @@
                      android:layout_height="wrap_content"
                      android:textColor="#8ecaff"
                      android:textSize="@dimen/s12"
-                     app:typeface="eos_clean.otf" />
+                      />
 
                  <com.my.module.charge.saver.view.CustomerTypefaceTextView
                      android:id="@+id/file_sd_all"
@@ -73,7 +73,7 @@
                      android:layout_height="wrap_content"
                      android:textColor="#c1e2ff"
                      android:textSize="@dimen/s10"
-                     app:typeface="eos_clean.otf" />
+                      />
              </LinearLayout>
 
          </FrameLayout>
@@ -112,7 +112,7 @@
                          android:text="@string/file_apk"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                      <com.my.module.charge.saver.view.CustomerTypefaceTextView
                          android:id="@+id/file_apk_size"
@@ -122,7 +122,7 @@
                          android:text="0B"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                  </LinearLayout>
 
@@ -146,7 +146,7 @@
                          android:text="@string/file_zip"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                      <com.my.module.charge.saver.view.CustomerTypefaceTextView
                          android:id="@+id/file_zip_size"
@@ -156,7 +156,7 @@
                          android:text="0B"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                  </LinearLayout>
 
@@ -180,7 +180,7 @@
                          android:text="@string/file_txt"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                      <com.my.module.charge.saver.view.CustomerTypefaceTextView
                          android:id="@+id/file_txt_size"
@@ -190,7 +190,7 @@
                          android:text="0B"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                  </LinearLayout>
 
@@ -215,7 +215,7 @@
                          android:textColor="#818181"
 
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                      <com.my.module.charge.saver.view.CustomerTypefaceTextView
                          android:id="@+id/file_music_size"
@@ -225,7 +225,7 @@
                          android:text="0B"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                  </LinearLayout>
 
@@ -236,12 +236,6 @@
                      android:gravity="center_vertical"
                      android:orientation="horizontal">
 
-                     <ImageView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d5"
-                         android:src="@mipmap/file_video" />
-
                      <com.my.module.charge.saver.view.CustomerTypefaceTextView
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
@@ -249,7 +243,7 @@
                          android:text="@string/file_video"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                      <com.my.module.charge.saver.view.CustomerTypefaceTextView
                          android:id="@+id/file_video_size"
@@ -259,7 +253,7 @@
                          android:text="0B"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                  </LinearLayout>
 
@@ -283,7 +277,7 @@
                          android:text="@string/file_pther"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                      <com.my.module.charge.saver.view.CustomerTypefaceTextView
                          android:id="@+id/file_qita_size"
@@ -293,7 +287,7 @@
                          android:text="0B"
                          android:textColor="#818181"
                          android:textSize="@dimen/s11"
-                         app:typeface="eos_clean.otf" />
+                          />
 
                  </LinearLayout>
 
@@ -338,14 +332,14 @@
                 android:layout_marginLeft="@dimen/d16"
                 android:orientation="vertical">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/file_apk"
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s16" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/file_apk_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -395,14 +389,14 @@
                 android:layout_marginLeft="@dimen/d16"
                 android:orientation="vertical">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/file_zip"
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s16" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/file_zip_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -452,14 +446,14 @@
                 android:layout_marginLeft="@dimen/d16"
                 android:orientation="vertical">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/file_txt"
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s16" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/file_txt_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -509,14 +503,14 @@
                 android:layout_marginLeft="@dimen/d16"
                 android:orientation="vertical">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/file_video"
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s16" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/file_video_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -566,14 +560,14 @@
                 android:layout_marginLeft="@dimen/d16"
                 android:orientation="vertical">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/file_music"
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s16" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/file_music_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -623,14 +617,14 @@
                 android:layout_marginLeft="@dimen/d16"
                 android:orientation="vertical">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/picture"
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s16" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/file_picture_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -680,14 +674,14 @@
                 android:layout_marginLeft="@dimen/d16"
                 android:orientation="vertical">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/file_pther"
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s16" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/file_qita_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

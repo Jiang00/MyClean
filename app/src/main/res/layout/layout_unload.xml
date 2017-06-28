@@ -21,8 +21,9 @@
         android:paddingBottom="@dimen/d90">
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/d280"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@drawable/shape_a1">
 
             <ImageView
@@ -72,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/aircraft_imageview"
+                android:layout_marginTop="@dimen/d_4"
                 android:background="@mipmap/flakyclouds" />
 
             <ImageView
@@ -95,12 +97,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/flakyclouds_imageview"
+                android:layout_marginTop="-2dp"
                 android:background="@color/A0"
                 android:gravity="center_horizontal"
-                android:layout_marginTop="-2dp"
                 android:paddingTop="@dimen/d20">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/tv_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,7 +110,7 @@
                     android:textColor="@color/A7"
                     android:textSize="@dimen/s24" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/tv_danwei"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -119,7 +121,7 @@
                     android:textColor="@color/A2"
                     android:textSize="@dimen/s15" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/tv_size"
@@ -140,8 +142,8 @@
 
                 <Button
                     android:id="@+id/bt_quxiao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/d40"
+                    android:layout_width="@dimen/d112"
+                    android:layout_height="@dimen/d32"
                     android:background="@null"
                     android:text="@string/quxiao"
                     android:textColor="@color/A3"
@@ -149,10 +151,10 @@
 
                 <Button
                     android:id="@+id/bt_queren"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/d40"
+                    android:layout_width="@dimen/d112"
+                    android:layout_height="@dimen/d32"
                     android:layout_marginLeft="@dimen/d24"
-                    android:background="@color/A1"
+                    android:background="@drawable/shape_button"
                     android:text="@string/qingli"
                     android:textColor="@color/A0"
                     android:textSize="@dimen/s14" />

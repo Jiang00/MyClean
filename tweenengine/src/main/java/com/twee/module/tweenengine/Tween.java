@@ -417,7 +417,7 @@ public final class Tween extends BaseTween<Tween> {
 
 	/**
 	 * Sets the easing equation of the tween. Existing equations are located in
-	 * <i>com.eos.module.tweenengine.equations</i> package, but you can of course
+	 * <i>com.bruder.module.tweenengine.equations</i> package, but you can of course
 	 * implement your owns, see {@link TweenEquation}. You can also use the
 	 * {@link TweenEquations} static instances to quickly access all the
 	 * equations. Default equation is Quad.INOUT.

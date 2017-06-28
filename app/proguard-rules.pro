@@ -107,11 +107,9 @@
 -keep class com.android.client.** { *;}
 -keep class com.core.** { *;}
 
--keep class com.supers.clean.junk.entity.** { *; }
--keep class com.supers.clean.junk.presenter.** { *; }
--keep class com.eos.kpa.nativ.** { *; }
-
--keep class com.eos.ui.demo.entries.** { *;}
+-keep class com.supers.clean.entity.** { *; }
+-keep class com.supers.clean.presenter.** { *; }
+-keep class com.bruder.kpa.nativ.** { *; }
 
 -keep class com.sample.lottie.** { *;}
 

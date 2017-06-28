@@ -19,7 +19,13 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.View;
-import com.rd.animation.*;
+
+import com.rd.animation.AbsAnimation;
+import com.rd.animation.AnimationType;
+import com.rd.animation.ColorAnimation;
+import com.rd.animation.FillAnimation;
+import com.rd.animation.ScaleAnimation;
+import com.rd.animation.ValueAnimation;
 import com.rd.pageindicatorview.R;
 import com.rd.utils.DensityUtils;
 import com.rd.utils.IdUtils;

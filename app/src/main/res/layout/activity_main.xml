@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/A0"
     android:orientation="vertical"
-    tools:context="com.supers.clean.junk.activity.MainActivity">
+    tools:context="com.bruder.clean.activity.MainActivity">
 
     <View
         android:id="@+id/view_title_bar"
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,14 +86,14 @@
 
             </LinearLayout>
 
-            <com.supers.clean.junk.customeview.PullToRefreshLayout
+            <com.bruder.clean.customeview.PullToMyRefreshLayout
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <include layout="@layout/layout_load_more" />
 
-                <com.supers.clean.junk.customeview.MyScrollView
+                <com.bruder.clean.customeview.MyMainScrollView
                     android:id="@+id/main_scroll_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -160,7 +160,7 @@
                                             android:layout_marginTop="@dimen/d_27"
                                             android:src="@mipmap/clear4" />
                                         <!--完成提示-->
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_centerHorizontal="true"
@@ -176,7 +176,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center">
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:id="@+id/main_garbage_button"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -185,7 +185,7 @@
                                             android:textColor="@color/A0"
                                             android:textSize="@dimen/s38" />
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:id="@+id/main_garbage_company"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                                             android:textColor="@color/A0"
                                             android:textSize="@dimen/s20" />
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:id="@+id/main_garbage_wait_clear"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
                                             android:textColor="@color/A0"
                                             android:textSize="@dimen/s12" />
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:id="@+id/main_clear_button"
                                             android:layout_width="@dimen/d91"
                                             android:layout_height="@dimen/d30"
@@ -262,7 +262,7 @@
                                             android:layout_height="wrap_content"
                                             android:src="@mipmap/main_junk_button" />
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="@dimen/d4"
@@ -293,7 +293,7 @@
                                     android:layout_height="match_parent"
                                     android:background="?attr/selectableItemBackground">
 
-                                    <com.supers.clean.junk.customeview.CustomRoundCpu
+                                    <com.bruder.clean.customeview.CustomRoundCpuView
                                         android:id="@+id/main_custom_ram"
                                         android:layout_width="@dimen/d160"
                                         android:layout_height="@dimen/d160"
@@ -311,7 +311,7 @@
                                             android:layout_height="wrap_content"
                                             android:src="@mipmap/main_ram_button" />
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="@dimen/d4"
@@ -351,12 +351,12 @@
                                         <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginBottom="@dimen/d8"
                                             android:src="@mipmap/main_manager_button" />
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/d4"
                                             android:text="@string/main_manager_name"
                                             android:textColor="@color/A2"
                                             android:textSize="@dimen/s12" />
@@ -374,7 +374,7 @@
                                     android:layout_width="@dimen/d109"
                                     android:layout_height="@dimen/d98">
 
-                                    <com.supers.clean.junk.customeview.CustomRoundCpu
+                                    <com.bruder.clean.customeview.CustomRoundCpuView
                                         android:id="@+id/main_custom_cpu"
                                         android:layout_width="@dimen/d160"
                                         android:layout_height="@dimen/d160"
@@ -394,7 +394,7 @@
                                             android:layout_height="wrap_content"
                                             android:src="@mipmap/main_cooling_button" />
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="@dimen/d4"
@@ -432,9 +432,10 @@
                                         android:layout_height="wrap_content"
                                         android:src="@mipmap/main_theme_button" />
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d4"
                                         android:text="@string/gboost_0"
                                         android:textColor="@color/A2"
                                         android:textSize="@dimen/s12" />
@@ -453,9 +454,10 @@
                                         android:layout_height="wrap_content"
                                         android:src="@mipmap/picture_main" />
 
-                                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d4"
                                         android:text="@string/side_picture"
                                         android:textColor="@color/A2"
                                         android:textSize="@dimen/s12" />
@@ -501,7 +503,7 @@
                                     android:layout_height="@dimen/d18"
                                     android:src="@mipmap/smilingface" />
 
-                                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d7"
@@ -555,7 +557,7 @@
                             android:layout_marginRight="@dimen/d16">
 
 
-                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
@@ -642,7 +644,7 @@
                                 android:layout_marginLeft="@dimen/d72"
                                 android:orientation="vertical">
 
-                                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                     android:id="@+id/main_msg_power"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -650,7 +652,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s14" />
 
-                                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d6"
@@ -701,7 +703,7 @@
                                 android:layout_marginLeft="@dimen/d72"
                                 android:orientation="vertical">
 
-                                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                     android:id="@+id/main_msg_file"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -709,7 +711,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s14" />
 
-                                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d6"
@@ -760,7 +762,7 @@
                                 android:layout_marginLeft="@dimen/d72"
                                 android:orientation="vertical">
 
-                                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                     android:id="@+id/main_msg_notifi"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -768,7 +770,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s14" />
 
-                                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d6"
@@ -810,7 +812,7 @@
                                 android:layout_marginLeft="@dimen/d16"
                                 android:orientation="horizontal">
 
-                                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
@@ -857,7 +859,7 @@
                                             android:layout_gravity="center"
                                             android:gravity="center">
 
-                                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                                 android:id="@+id/main_msg_ram_percent"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
@@ -865,7 +867,7 @@
                                                 android:textColor="@color/A1"
                                                 android:textSize="23sp" />
 
-                                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="@dimen/d3"
@@ -875,7 +877,7 @@
                                                 android:textSize="14sp" />
                                         </LinearLayout>
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_horizontal"
@@ -899,7 +901,7 @@
                                         android:gravity="center"
                                         android:orientation="vertical">
 
-                                        <com.supers.clean.junk.customeview.CustomRoundCpu
+                                        <com.bruder.clean.customeview.CustomRoundCpuView
                                             android:id="@+id/main_custom_sd"
                                             android:layout_width="@dimen/d160"
                                             android:layout_height="@dimen/d160"
@@ -913,7 +915,7 @@
                                             android:gravity="center"
                                             android:orientation="horizontal">
 
-                                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                                 android:id="@+id/main_msg_sd_percent"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
@@ -921,7 +923,7 @@
                                                 android:textColor="@color/A1"
                                                 android:textSize="23sp" />
 
-                                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                                 android:id="@+id/main_msg_sd_unit"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
@@ -932,7 +934,7 @@
                                                 android:textSize="14sp" />
                                         </LinearLayout>
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="@dimen/d12"
@@ -961,7 +963,7 @@
                                             android:layout_centerInParent="true"
                                             android:gravity="center">
 
-                                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                                 android:id="@+id/main_msg_cpu_percent"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
@@ -969,7 +971,7 @@
                                                 android:textColor="@color/A1"
                                                 android:textSize="23sp" />
 
-                                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="@dimen/d3"
@@ -979,7 +981,7 @@
                                                 android:textSize="14sp" />
                                         </LinearLayout>
 
-                                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="@dimen/d12"
@@ -997,7 +999,7 @@
                                 android:layout_marginTop="@dimen/d9"
                                 android:gravity="center_vertical">
 
-                                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
@@ -1012,7 +1014,7 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/d9"
-                                android:background="@color/A10" />
+                                android:background="@color/A4" />
                         </LinearLayout>
 
                         <!--ad-->
@@ -1111,11 +1113,11 @@
                             android:visibility="gone" />
                     </LinearLayout>
 
-                </com.supers.clean.junk.customeview.MyScrollView>
+                </com.bruder.clean.customeview.MyMainScrollView>
 
                 <include layout="@layout/layout_load_more" />
 
-            </com.supers.clean.junk.customeview.PullToRefreshLayout>
+            </com.bruder.clean.customeview.PullToMyRefreshLayout>
         </LinearLayout>
 
 

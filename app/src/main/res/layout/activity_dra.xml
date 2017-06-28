@@ -5,11 +5,11 @@
     android:id="@+id/main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.supers.clean.junk.activity.MainActivity">
+    tools:context="com.bruder.clean.activity.MainActivity">
 
     <include layout="@layout/activity_main" />
 
-    <com.supers.clean.junk.customeview.MainFrameLayout
+    <com.bruder.clean.customeview.MainMyFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/d24"
@@ -41,13 +41,13 @@
                         android:background="@mipmap/side_title_1"
                         android:orientation="horizontal">
 
-                        <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                             android:id="@+id/side_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/d24"
                             android:layout_marginTop="@dimen/d80"
-                            android:text="Junk Clean"
+                            android:text="Cleaner"
                             android:textColor="@color/A0"
                             android:textSize="@dimen/s16" />
                     </LinearLayout>
@@ -60,7 +60,7 @@
                     android:layout_height="@dimen/d120"
                     android:visibility="gone">
 
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|right"
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.supers.clean.junk.customeview.ListViewForScrollView
+                    <com.bruder.clean.customeview.ListViewForScrollMyView
                         android:id="@+id/side_listView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -99,6 +99,6 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </com.supers.clean.junk.customeview.MainFrameLayout>
+    </com.bruder.clean.customeview.MainMyFrameLayout>
 
 </android.support.v4.widget.DrawerLayout>

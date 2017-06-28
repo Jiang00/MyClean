@@ -35,9 +35,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-               <!--     <com.my.module.charge.saver.view.MainWaterView
+                    <!--     <com.my.module.charge.saver.view.MainWaterView
+                             android:layout_width="@dimen/d70"
+                             android:layout_height="@dimen/d70" />-->
+                   <!-- <com.bruder.clean.myview.PorterDuffXfermodeView
+                        android:id="@+id/porter_duff_xfermode_view"
                         android:layout_width="@dimen/d70"
-                        android:layout_height="@dimen/d70" />-->
+                        android:layout_height="@dimen/d70"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@mipmap/float_ball"/>-->
 
                     <ImageView
                         android:layout_width="@dimen/d70"
@@ -45,13 +51,13 @@
                         android:layout_centerHorizontal="true"
                         android:src="@mipmap/float_ball" />
 
-                    <ImageView
+                   <!-- <ImageView
                         android:id="@+id/float_cricle"
                         android:layout_width="@dimen/d70"
                         android:layout_height="@dimen/d70"
                         android:layout_centerHorizontal="true"
                         android:src="@mipmap/float_dialog_2"
-                        android:visibility="gone" />
+                        android:visibility="gone" />-->
 
                     <ImageView
                         android:id="@+id/float_rotate"
@@ -74,7 +80,7 @@
                             android:layout_gravity="center"
                             android:gravity="center">
 
-                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                 android:id="@+id/float_memory"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -82,7 +88,7 @@
                                 android:textColor="@color/A5"
                                 android:textSize="@dimen/s13" />
 
-                            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_toRightOf="@id/float_memory"
@@ -174,18 +180,5 @@
                 android:background="@color/A0"
                 android:orientation="vertical"></LinearLayout>
         </LinearLayout>
-
     </FrameLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="125dp">
-
-        <com.supers.clean.junk.customeview.HorizontalListView
-            android:id="@+id/horizontal_listview"
-            android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom" />
-    </RelativeLayout>
 </LinearLayout>

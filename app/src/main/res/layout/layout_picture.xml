@@ -33,7 +33,7 @@
                 android:background="@color/A1"
                 android:orientation="horizontal">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/picture_size"
                     android:layout_width="@dimen/d146"
                     android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                     android:layout_gravity="center_vertical"
                     android:orientation="vertical">
 
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                         android:id="@+id/picture_danwei"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                         android:textColor="@color/white_70"
                         android:textSize="@dimen/s21" />
 
-                    <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                    <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                         android:id="@+id/picture_scan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                 android:id="@+id/picture_path"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,26 +109,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:background="@color/A0"
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:src="@mipmap/nodetected" />
+
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/d20"
                     android:gravity="center"
                     android:text="@string/picture_3"
-                    android:textColor="#bfbfbf"
+                    android:textColor="@color/A2"
                     android:textSize="@dimen/s21" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/d10"
                     android:gravity="center"
                     android:text="@string/picture_4"
-                    android:textColor="#1e88e5"
+                    android:textColor="@color/A1"
                     android:textSize="@dimen/s16" />
             </LinearLayout>
 
@@ -183,7 +191,7 @@
                 android:padding="@dimen/d15"
                 android:src="@mipmap/tilte_left" />
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                 android:id="@+id/pic_pager_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -207,7 +215,7 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -233,7 +241,7 @@
                     android:layout_marginLeft="10dp"
                     android:src="@mipmap/ram_normal" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

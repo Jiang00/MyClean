@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.supers.clean.junk">
+    package="com.bruder.clean.junk">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -47,7 +47,7 @@
 
 
     <application
-        android:name=".activity.MyApplication"
+        android:name="com.bruder.clean.activity.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -56,17 +56,17 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.bruder.clean.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="com.eos.clean.main" />
+                <action android:name="com.bruder.clean.main" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".activity.LoadingActivity"
+            android:name="com.bruder.clean.activity.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -87,78 +87,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.CoolingActivity"
+            android:name="com.bruder.clean.activity.CoolActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.JunkActivity"
+            android:name="com.bruder.clean.activity.GarbageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.JunkAndRamActivity"
+            android:name="com.bruder.clean.activity.GarbageAndRamActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ManagerActivity"
+            android:name="com.bruder.clean.activity.AppManagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.MessageActivity"
+            android:name="com.bruder.clean.activity.InformationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.RamAvtivity"
+            android:name="com.bruder.clean.activity.PhoneRamAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SettingActivity"
+            android:name="com.bruder.clean.activity.SetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ThemeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.SuccessActivity"
+            android:name="com.bruder.clean.activity.SuccessingActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.WhiteListAvtivity"
+            android:name="com.bruder.clean.activity.WhiteAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.WhiteListAddActivity"
+            android:name="com.bruder.clean.activity.WhiteAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PowerActivity"
+            android:name="com.bruder.clean.activity.PoweringActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.NotifiInfoActivity"
+            android:name="com.bruder.clean.activity.NotifiIfActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PermissionActivity"
+            android:name="com.bruder.clean.activity.JurisdictionActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name=".activity.NotifiActivity"
+            android:name="com.bruder.clean.activity.NotifingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.NotifiSettingActivity"
+            android:name="com.bruder.clean.activity.NotifiSettActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.FloatActivity"
+            android:name="com.bruder.clean.activity.FloatingActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name=".activity.UnloadActivity"
+            android:name="com.bruder.clean.activity.UnloadingActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name=".activity.PictureActivity"
+            android:name="com.bruder.clean.activity.PicturesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.PictureHuiActivity"
+            android:name="com.bruder.clean.activity.PicturesHuiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.GBoostActivity"
+            android:name="com.bruder.clean.activity.GBoostingActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -171,7 +168,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ShortCutActivity"
+            android:name="com.bruder.clean.activity.ShortCutingActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -181,7 +178,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".broadcast.UnloadBroadcast">
+        <receiver android:name="com.bruder.clean.broadcast.UnloadingBroadcast">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -192,64 +189,22 @@
         </receiver>
 
         <service
-            android:name=".service.FloatService"
+            android:name="com.bruder.clean.myservice.FloatingService"
             android:excludeFromRecents="true" />
         <service
-            android:name=".service.NotificationService"
+            android:name="com.bruder.clean.myservice.NotificationingService"
             android:enabled="true"
             android:excludeFromRecents="true" />
 
         <activity
-            android:name=".activity.TranslateActivity"
-            android:theme="@style/Transparent" />
-        <activity
-            android:name=".activity.ApplockActivity"
+            android:name="com.bruder.clean.activity.FilesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.FileActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.FileListActivity"
+            android:name="com.bruder.clean.activity.FilesListActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".activity.FileDocActivity"
+            android:name="com.bruder.clean.activity.FilesDocActivity"
             android:screenOrientation="portrait" />
-
-        <service
-            android:name=".widget.WidgetService"
-            android:enabled="true" />
-
-        <receiver
-            android:name=".widget.WidgetProvider"
-            android:icon="@drawable/widget_4"
-            android:label="@string/app_name_4_4">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="app.eosmobi.action.widget.ram" />
-                <action android:name="app.eosmobi.action.widget.update" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/ram" />
-        </receiver>
-
-        <receiver
-            android:name=".widget.TempProvider"
-            android:icon="@drawable/widget_temp_preview"
-            android:label="@string/app_name_4_1">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="app.eosmobi.action.widget.temp" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/temp" />
-        </receiver>
-
-        <service
-            android:name=".widget.TempService"
-            android:enabled="true" />
-
     </application>
 
 </manifest>

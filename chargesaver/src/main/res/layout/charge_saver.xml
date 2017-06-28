@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.my.module.charge.saver.view.BatteryView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.my.bruder.charge.saver.view.BatteringView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/battery_charge_save"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/A5"
     android:orientation="vertical">
-
+    <!--com.my.module.charge.saver.view.BatteryView-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <!--match_parent-->
         <!--水波纹-->
-        <com.my.module.charge.saver.view.MainWaterView
+        <com.my.bruder.charge.saver.view.DynamicWave
             android:id="@+id/battery_ripple_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@mipmap/battery_ripple_bj" />
         <!--泡泡动画-->
-        <com.my.module.charge.saver.view.BubbleLayout
+        <com.my.bruder.charge.saver.view.BubblesLayout
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,50 +42,8 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <!-- <RelativeLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="@dimen/top"
-                 android:paddingLeft="@dimen/icon_p">
-                 &lt;!&ndash;充电图片&ndash;&gt;
-                 <ImageView
-                     android:id="@+id/battery_icon"
-                     android:layout_width="15dp"
-                     android:layout_height="15dp"
-                     android:layout_alignParentLeft="true"
-                     android:layout_centerVertical="true"
-                     android:src="@mipmap/battery_inner_icon" />
-                 &lt;!&ndash;标题&ndash;&gt;
-                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                     android:id="@+id/battery_title"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_centerVertical="true"
-                     android:layout_gravity="center_horizontal"
-                     android:layout_marginLeft="@dimen/title_p"
-                     android:layout_toRightOf="@id/battery_icon"
-                     android:text="EOSBATTERY"
-                     android:textColor="@color/white_100"
-                     android:textSize="13sp" />
-                 &lt;!&ndash;更多&ndash;&gt;
-                 <LinearLayout
-                     android:id="@+id/battery_more"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_alignParentRight="true"
-                     android:layout_centerVertical="true"
-                     android:layout_marginRight="@dimen/icon_h"
-                     android:paddingLeft="@dimen/icon_h"
-                     android:paddingRight="@dimen/icon_h">
-
-                     <ImageView
-                         android:layout_width="15dp"
-                         android:layout_height="15dp"
-                         android:src="@mipmap/battery_more" />
-                 </LinearLayout>
-             </RelativeLayout>-->
             <!--时间-->
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                 android:id="@+id/battery_now_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,7 +51,8 @@
                 android:layout_marginTop="60dp"
                 android:text="17:24"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/time_txt" />
+                android:textSize="@dimen/s59"
+                app:typeface="Roboto-Light.ttf" />
             <!--日期和星期-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,55 +61,59 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/battery_now_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="09/03"
                     android:textColor="@color/white_100"
-                    android:textSize="19sp" />
+                    android:textSize="19sp"
+                    app:typeface="Roboto-Light.ttf" />
 
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/battery_now_week"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/week_p"
                     android:text="Fri"
                     android:textColor="@color/white_100"
-                    android:textSize="19sp" />
+                    android:textSize="19sp"
+                    app:typeface="Roboto-Light.ttf" />
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/d37">
-                <!--水面上升动画，内部-->
-                <com.sample.lottie.LottieAnimationView
-                    android:id="@+id/battery_electricity"
-                    android:layout_width="@dimen/d87"
-                    android:layout_height="@dimen/d143"
-                    android:layout_centerInParent="true"
-                    app:lottie_autoPlay="false" />
+                android:layout_marginTop="@dimen/bottom_8">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:layout_centerInParent="true"
                     android:background="@mipmap/battery_shell" />
+
+                <!--闪电动画-->
+                <com.sample.lottie.LottieAnimationView
+                    android:id="@+id/battery_electricity"
+                    android:layout_width="@dimen/d34"
+                    android:layout_height="@dimen/d65"
+                    android:layout_centerInParent="true"
+                    app:lottie_autoPlay="false" />
                 <!--百分之多少-->
-                <com.my.module.charge.saver.view.CustomerTypefaceTextView
+                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                     android:id="@+id/battery_level"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/battery_electricity"
-                    android:layout_marginTop="@dimen/icon_p"
-                    android:gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/d34"
                     android:textColor="@color/white_100"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:typeface="Roboto-Light.ttf" />
             </RelativeLayout>
 
-            <com.my.module.charge.saver.view.CustomerTypefaceTextView
+            <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                 android:id="@+id/battery_now_battery_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -221,13 +184,6 @@
         android:layout_marginBottom="39dp"
         android:gravity="center">
 
-        <!--<com.my.module.charge.saver.view.CustomerTypefaceTextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center_vertical"-->
-        <!--android:text="@string/unlock"-->
-        <!--android:textColor="@color/white_100"-->
-        <!--android:textSize="@dimen/txt_common" />-->
 
         <ImageView
             android:id="@+id/battery_up"
@@ -235,4 +191,4 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/unlock" />
     </LinearLayout>
-</com.my.module.charge.saver.view.BatteryView>
+</com.my.bruder.charge.saver.view.BatteringView>
