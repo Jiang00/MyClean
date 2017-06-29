@@ -79,7 +79,7 @@ public class PowerActivity extends BaseActivity {
         startService(new Intent(this, MyAccessibilityService.class).putExtra("isDis", false));
         initData();
         title_name.setText(R.string.side_power);
-        power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
+        power_size.setText(startList.size() + "");
         mLayoutManager = new GridLayoutManager(this, 4);//设置为一个4列的纵向网格布局
         power_recycler.setLayoutManager(mLayoutManager);
         power_recycler.setAdapter(homeAdapter = new HomeAdapter(false));
@@ -216,11 +216,11 @@ public class PowerActivity extends BaseActivity {
 
     private void animatorView(final View view, final int i) {
         AnimatorSet set = new AnimatorSet();
-        View icon = view.findViewById(R.id.recyc_icon);
+        View recyc_item = view.findViewById(R.id.recyc_item);
 //        ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
 //        ObjectAnimator scaleY = ObjectAnimator.ofFloat(icon, "scaleY", 1f, 0f);
 //        ObjectAnimator rotate = ObjectAnimator.ofFloat(icon, "rotation", 0f, 360f);
-        ObjectAnimator translationX = ObjectAnimator.ofFloat(icon, "translationX", 0f, -360f);
+        ObjectAnimator translationX = ObjectAnimator.ofFloat(recyc_item, "translationX", 0f, -360f);
 
         set.setDuration(2000)
                 .addListener(new Animator.AnimatorListener() {
@@ -233,7 +233,7 @@ public class PowerActivity extends BaseActivity {
                     public void onAnimationEnd(Animator animation) {
                         CleanManager.getInstance(PowerActivity.this).removeRamSelfBoot(startList.get(i));
                         startList.remove(i);
-                        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
+                        containerView_power_size.setText(startList.size() + "");
                         containerAdapter.notifyItemRemoved(i);
                         containerAdapter.reChangesData(i);
                         mHandler.post(runnable);
@@ -256,7 +256,7 @@ public class PowerActivity extends BaseActivity {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
         containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
         containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
-        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
+        containerView_power_size.setText(startList.size() + "");
         containerView_junk_button_clean.setVisibility(View.GONE);
         containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
@@ -297,6 +297,7 @@ public class PowerActivity extends BaseActivity {
             }
 
             holder.recyc_icon.setImageDrawable(LoadManager.getInstance(PowerActivity.this).getAppIcon(startList.get(position).pkg));
+            holder.recyc_name.setText(LoadManager.getInstance(PowerActivity.this).getAppLabel(startList.get(position).pkg));
             holder.recyc_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -321,12 +322,14 @@ public class PowerActivity extends BaseActivity {
             FrameLayout recyc_item;
             ImageView recyc_icon;
             ImageView recyc_check;
+            TextView recyc_name;
 
             public MyViewHolder(View view) {
                 super(view);
                 recyc_item = (FrameLayout) view.findViewById(R.id.recyc_item);
                 recyc_icon = (ImageView) view.findViewById(R.id.recyc_icon);
                 recyc_check = (ImageView) view.findViewById(R.id.recyc_check);
+                recyc_name = (TextView) view.findViewById(R.id.recyc_name);
             }
         }
     }

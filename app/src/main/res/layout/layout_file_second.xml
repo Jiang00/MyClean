@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/A1"
-        android:elevation="@dimen/d4"
         android:orientation="vertical">
 
         <View
@@ -23,8 +22,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:background="@color/white_100">
 
         <LinearLayout
             android:id="@+id/null_ll"
@@ -86,7 +85,7 @@
                     <ListView
                         android:id="@+id/file_list"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:divider="@drawable/list_divider"
                         android:dividerHeight="1px" />
 
@@ -111,7 +110,7 @@
                         android:background="@drawable/shape_button"
                         android:text="@string/junk_button"
                         android:textAllCaps="false"
-                        android:textColor="@color/A7"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s16" />
                 </RelativeLayout>
             </LinearLayout>

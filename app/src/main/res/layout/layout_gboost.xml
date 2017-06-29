@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/A13"
+        android:background="@color/white_100"
         android:orientation="vertical">
 
         <LinearLayout
@@ -23,13 +23,69 @@
                 android:layout_height="24dp" />
 
             <include layout="@layout/layout_title" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d95">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d2"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d10"
+                            android:text="30%"
+                            android:textColor="@color/white_100"
+                            android:textSize="@dimen/s38" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/d6"
+                            android:src="@mipmap/gboost_j" />
+                    </LinearLayout>
+
+
+                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/gboost_power_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/d24"
+                        android:layout_marginTop="@dimen/d10"
+                        android:background="@drawable/shape__a4_l"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/d10"
+                        android:paddingRight="@dimen/d24"
+                        android:text="@string/gboost_kai"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s16"
+                        app:typeface="Roboto-Medium.ttf" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|bottom"
+                    android:src="@mipmap/game_boost" />
+            </FrameLayout>
+
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d280"
-            android:layout_margin="@dimen/d9"
-            android:background="@drawable/shape_ad"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
@@ -42,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d8"
-                    android:src="@mipmap/gboost_1" />
+                    android:src="@mipmap/main_theme_button" />
 
                 <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
@@ -51,209 +107,31 @@
                     android:layout_marginLeft="@dimen/d10"
                     android:text="@string/gboost_1"
                     android:textColor="@color/A8"
-                    android:textSize="@dimen/s14" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/add_games"
-                        android:layout_width="@dimen/d56"
-                        android:layout_height="@dimen/d29"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="@dimen/d8"
-                        android:background="@drawable/shape__a4_r"
-                        android:gravity="center"
-                        android:text="@string/gboost_12"
-                        android:textColor="@color/white_100"
-                        android:textSize="@dimen/s16"
-                        app:typeface="Roboto-Medium.ttf" />
-                </FrameLayout>
+                    android:textSize="@dimen/s15" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/A13" />
+                android:background="@color/A10" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.fast.clean.junk.myview.PagerView
+                <android.support.v7.widget.RecyclerView
                     android:id="@+id/gboost_recyc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
-                <com.rd.PageIndicatorView
-                    android:id="@+id/pageindicatorview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="@dimen/d5"
-                    app:piv_animationType="worm"
-                    app:piv_count="0"
-                    app:piv_interactiveAnimation="true"
-                    app:piv_radius="@dimen/d3"
-                    app:piv_selectedColor="@color/A1"
-                    app:piv_unselectedColor="@color/black_35" />
             </FrameLayout>
 
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d12"
-            android:layout_marginLeft="@dimen/d9"
-            android:layout_marginRight="@dimen/d9"
-            android:background="@drawable/shape_ad"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d48"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:src="@mipmap/gboost_2" />
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="@dimen/d217"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d10"
-                    android:text="@string/gboost_6"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s14"
-                     />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/gboost_power_check"
-                        android:layout_width="@dimen/d56"
-                        android:layout_height="@dimen/d29"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="@dimen/d8"
-                        android:background="@drawable/shape__a4_r"
-                        android:gravity="center"
-                        android:text="@string/gboost_k"
-                        android:textColor="@color/white_100"
-                        android:textSize="@dimen/s16"
-                        app:typeface="Roboto-Medium.ttf" />
-                </FrameLayout>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/A13" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/d46"
-                android:layout_marginTop="@dimen/d33"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/gboost_cpu_szie"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="50%"
-                        android:textColor="@color/A4"
-                        android:textSize="@dimen/s16"
-                         />
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d18"
-                        android:text="@string/gboost_3"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s14"
-                         />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/gboost_ram_size"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1.2G"
-                        android:textColor="@color/A4"
-                        android:textSize="@dimen/s16"
-                         />
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d18"
-                        android:text="@string/gboost_4"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s14"
-                         />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/gboost_network_size"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="100kb/s"
-                        android:textColor="@color/A4"
-                        android:textSize="@dimen/s16"
-                         />
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d18"
-                        android:text="@string/gboost_5"
-                        android:textColor="@color/A8"
-                        android:textSize="@dimen/s14"
-                         />
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/d72"
             android:layout_gravity="bottom"
             android:background="@color/A7">
 
@@ -265,7 +143,7 @@
                 android:background="@drawable/shape_button"
                 android:text="@string/short_cut"
                 android:textAllCaps="false"
-                android:textColor="@color/A7"
+                android:textColor="@color/white_100"
                 android:textSize="@dimen/s16"
                 android:visibility="visible" />
         </RelativeLayout>
@@ -321,8 +199,7 @@
                         android:layout_toRightOf="@id/add_left"
                         android:text="@string/gboost_7"
                         android:textColor="#ffffff"
-                        android:textSize="@dimen/s18"
-                         />
+                        android:textSize="@dimen/s18" />
 
                     <ImageView
                         android:id="@+id/add_right"

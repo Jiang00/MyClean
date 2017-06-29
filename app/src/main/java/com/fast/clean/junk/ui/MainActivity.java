@@ -1,11 +1,9 @@
 package com.fast.clean.junk.ui;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -17,7 +15,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateYAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,30 +22,26 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.fast.clean.junk.myview.LineRam;
-import com.fast.clean.mutil.PreData;
-import com.fast.clean.mutil.Util;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.fast.clean.junk.R;
+import com.fast.clean.junk.adapter.MSideAdapter;
+import com.fast.clean.junk.entity.SideInfo;
+import com.fast.clean.junk.myview.LineRam;
+import com.fast.clean.junk.myview.ListViewForScrollView;
+import com.fast.clean.junk.myview.MyScrollView;
+import com.fast.clean.junk.myview.PullToRefreshLayout;
+import com.fast.clean.junk.presenter.MainPresenter;
+import com.fast.clean.junk.util.AdUtil;
+import com.fast.clean.junk.util.Constant;
+import com.fast.clean.junk.view.MainView;
+import com.fast.clean.mutil.PreData;
+import com.fast.clean.mutil.Util;
 import com.fast.module.charge.saver.Util.Constants;
 import com.fast.module.charge.saver.Util.Utils;
 import com.mingle.circletreveal.CircularRevealCompat;
 import com.mingle.widget.animation.CRAnimation;
 import com.mingle.widget.animation.SimpleAnimListener;
-import com.sample.lottie.LottieAnimationView;
-import com.fast.clean.junk.R;
-import com.fast.clean.junk.adapter.MSideAdapter;
-import com.fast.clean.junk.myview.CpuRoundView;
-import com.fast.clean.junk.myview.RamRoundView;
-import com.fast.clean.junk.myview.ListViewForScrollView;
-import com.fast.clean.junk.myview.MyScrollView;
-import com.fast.clean.junk.myview.PullToRefreshLayout;
-import com.fast.clean.junk.entity.SideInfo;
-import com.fast.clean.junk.presenter.MainPresenter;
-import com.fast.clean.junk.util.AdUtil;
-import com.fast.clean.junk.util.Constant;
-import com.fast.clean.junk.view.MainView;
-import com.twee.module.tweenengine.Tween;
 
 public class MainActivity extends BaseActivity implements MainView, DrawerLayout.DrawerListener {
 
@@ -211,17 +204,21 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
         adapter.clear();
 
+        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
+        adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-        adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+        if (PreData.getDB(this, Constant.FILE_KAIGUAN, 1) == 1) {
+            adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+        }
         adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-//        adapter.addData(new SideInfo(R.string.privary_0, R.mipmap.side_power));//隐私清理
-        adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
-        adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
-        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, true)));//充电屏保
-        adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
-        adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
+        if (PreData.getDB(this, Constant.NOTIFI_KAIGUAN, 1) == 1 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
+        }
+        if (PreData.getDB(this, Constant.PHOTO_KAIGUAN, 1) == 1) {
+            adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
+        }
         adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
         adapter.addData(new SideInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
 
@@ -261,9 +258,25 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_main);
                 main_huojian.startAnimation(animation);
                 main_huojian.setVisibility(View.VISIBLE);
-                Animation animationA = AnimationUtils.loadAnimation(MainActivity.this, R.anim.alpha_main);
-                main_yun.startAnimation(animationA);
-                main_yun.setVisibility(View.VISIBLE);
+                animation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Animation animationA = AnimationUtils.loadAnimation(MainActivity.this, R.anim.alpha_main);
+                        main_yun.startAnimation(animationA);
+                        main_yun.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+                });
+
             }
         });
     }

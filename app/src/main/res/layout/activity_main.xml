@@ -61,7 +61,7 @@
                     <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sma"
+                        android:text="Smart Super Clean for Android"
                         android:textColor="@color/A6"
                         android:textSize="@dimen/s10" />
                 </LinearLayout>
@@ -249,24 +249,28 @@
                                     android:layout_marginTop="@dimen/d4" />
                             </LinearLayout>
 
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="bottom|right"
+                                android:gravity="center_horizontal|bottom"
+                                android:orientation="vertical">
 
-                            <ImageView
-                                android:id="@+id/main_huojian"
-                                android:layout_width="@dimen/d49"
-                                android:layout_height="@dimen/d90"
-                                android:layout_gravity="right"
-                                android:layout_marginRight="@dimen/d53"
-                                android:layout_marginTop="@dimen/d23"
-                                android:src="@mipmap/main_huojian"
-                                android:visibility="invisible" />
+                                <ImageView
+                                    android:id="@+id/main_huojian"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/main_huojian"
+                                    android:visibility="invisible" />
 
-                            <ImageView
-                                android:id="@+id/main_yun"
-                                android:layout_width="@dimen/d240"
-                                android:layout_height="@dimen/d101"
-                                android:layout_gravity="right|bottom"
-                                android:background="@mipmap/main_yun"
-                                android:visibility="invisible" />
+                                <ImageView
+                                    android:id="@+id/main_yun"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@mipmap/main_yun"
+                                    android:visibility="invisible" />
+                            </LinearLayout>
+
 
                             <ImageView
                                 android:layout_width="match_parent"

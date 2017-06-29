@@ -19,49 +19,53 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
-    <ImageView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d225"
-        android:background="@color/A1"
-        android:scaleType="fitXY"
-        android:src="@mipmap/power_1" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/A7"
-        android:orientation="vertical">
+        android:layout_height="@dimen/d95"
+        android:background="@color/A1">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/A13"
-            android:orientation="horizontal"
-            android:paddingBottom="13dp"
-            android:paddingTop="13dp">
+            android:layout_marginLeft="@dimen/d20"
+            android:layout_marginTop="@dimen/d18"
+            android:orientation="vertical">
 
             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/power_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d16"
-                android:text="@string/power_1"
-                android:textColor="@color/A2"
-                android:textSize="@dimen/s14"
-                 />
+                android:text="0"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s38"
+                app:typeface="Roboto-Light.ttf" />
 
             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:singleLine="true"
-                android:text="@string/power_2"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s14"
-                 />
+                android:text="@string/power_i"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s12" />
         </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:src="@mipmap/power_1" />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white_100"
+        android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -85,7 +89,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/d72"
-        android:background="@color/A7">
+        android:background="@color/white_100">
 
         <Button
             android:id="@+id/junk_button_clean"
@@ -95,7 +99,7 @@
             android:background="@drawable/shape_button"
             android:text="@string/junk_button"
             android:textAllCaps="false"
-            android:textColor="@color/A7"
+            android:textColor="@color/white_100"
             android:textSize="@dimen/s16" />
     </RelativeLayout>
 </LinearLayout>

@@ -26,13 +26,10 @@ import org.json.JSONObject;
 
 public class LoadingActivity extends BaseActivity {
     Handler myHandler;
-    TextView tv_tiaoguo;
 
     @Override
     protected void findId() {
         super.findId();
-        tv_tiaoguo = (TextView) findViewById(R.id.tv_tiaoguo);
-        // ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
 
 
@@ -43,7 +40,6 @@ public class LoadingActivity extends BaseActivity {
         setContentView(R.layout.layout_loading);
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
-        tv_tiaoguo.setVisibility(View.INVISIBLE);
         if (PreData.getDB(this, Constant.ROOT_TRAK, true)) {
             AdUtil.track("是否获取root权限", PhoneManager.isRoot() == true ? "是" : "否", "", 1);
             PreData.putDB(this, Constant.ROOT_TRAK, false);
@@ -110,6 +106,15 @@ public class LoadingActivity extends BaseActivity {
                 }
                 if (jsonObject.has("full_recyclebin")) {
                     PreData.putDB(LoadingActivity.this, Constant.RECYCLEBIN, jsonObject.getInt("full_recyclebin"));
+                }
+                if (jsonObject.has("notifi_kaiguan")) {
+                    PreData.putDB(LoadingActivity.this, Constant.NOTIFI_KAIGUAN, jsonObject.getInt("notifi_kaiguan"));
+                }
+                if (jsonObject.has("file_kaiguan")) {
+                    PreData.putDB(LoadingActivity.this, Constant.FILE_KAIGUAN, jsonObject.getInt("file_kaiguan"));
+                }
+                if (jsonObject.has("photo_kaiguan")) {
+                    PreData.putDB(LoadingActivity.this, Constant.PHOTO_KAIGUAN, jsonObject.getInt("photo_kaiguan"));
                 }
             } catch (Exception e) {
 

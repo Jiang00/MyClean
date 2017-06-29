@@ -25,25 +25,26 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d127"
+            android:layout_height="@dimen/d95"
             android:background="@color/A1">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d127"
+                android:layout_height="@dimen/d95"
                 android:orientation="horizontal">
 
                 <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                     android:id="@+id/picture_size"
-                    android:layout_width="@dimen/d146"
+                    android:layout_width="@dimen/d133"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d82"
+                    android:layout_marginLeft="@dimen/d20"
                     android:gravity="center"
                     android:lines="1"
                     android:text="0"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/s60" />
+                    android:textSize="@dimen/s57"
+                    app:typeface="Roboto-Light.ttf" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -52,26 +53,31 @@
                     android:orientation="vertical">
 
                     <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/picture_scan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="@string/picture_scan"
-                        android:textColor="@color/A6"
-                        android:textSize="@dimen/s16"
-                         />
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                         android:id="@+id/picture_danwei"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d4"
                         android:text="MB"
-                        android:textColor="@color/A7"
-                        android:textSize="@dimen/s22"
-                         />
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s30"
+                        app:typeface="Roboto-Light.ttf" />
+
+                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/picture_scan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d1"
+                        android:text="@string/picture_scan"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s17"
+                        app:typeface="Roboto-Light.ttf" />
                 </LinearLayout>
             </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:src="@mipmap/photo" />
 
             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                 android:id="@+id/picture_path"
@@ -82,6 +88,7 @@
                 android:singleLine="true"
                 android:textColor="@color/A6"
                 android:textSize="@dimen/s10" />
+
         </FrameLayout>
 
         <FrameLayout
@@ -137,7 +144,7 @@
                         android:background="@drawable/shape_button"
                         android:text="@string/picture_14"
                         android:textAllCaps="false"
-                        android:textColor="@color/A7"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s16" />
                 </RelativeLayout>
             </LinearLayout>
@@ -158,8 +165,7 @@
                     android:gravity="center"
                     android:text="@string/picture_3"
                     android:textColor="@color/A9"
-                    android:textSize="@dimen/s16"
-                     />
+                    android:textSize="@dimen/s16" />
 
             </LinearLayout>
 
@@ -209,8 +215,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="1/2"
                 android:textColor="@color/A7"
-                android:textSize="@dimen/s16"
-                 />
+                android:textSize="@dimen/s16" />
 
         </LinearLayout>
 
@@ -234,8 +239,7 @@
                     android:layout_marginRight="@dimen/d16"
                     android:text="@string/picture_14"
                     android:textColor="@color/A8"
-                    android:textSize="@dimen/d20"
-                     />
+                    android:textSize="@dimen/d20" />
             </LinearLayout>
 
             <LinearLayout
@@ -261,8 +265,7 @@
                     android:layout_marginRight="@dimen/d16"
                     android:text="@string/picture_13"
                     android:textColor="@color/A8"
-                    android:textSize="@dimen/d20"
-                     />
+                    android:textSize="@dimen/d20" />
             </LinearLayout>
         </RelativeLayout>
     </FrameLayout>

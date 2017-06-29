@@ -182,26 +182,26 @@ public class FileLajiActivity extends BaseActivity implements JunkView {
         }).start();
 
 //        junk_size_all.setText(FileUtil.getFileSize2(allSize));
-
-        if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
-            if (color1) {
-                color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
-                colorAnim.setDuration(2000);
-                colorAnim.setRepeatCount(0);
-                colorAnim.setEvaluator(new ArgbEvaluator());
-                colorAnim.start();
-            }
-        } else if (allSize > 1024 * 1024 * 200) {
-            if (color2) {
-                color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
-                colorAnim.setDuration(2000);
-                colorAnim.setRepeatCount(0);
-                colorAnim.setEvaluator(new ArgbEvaluator());
-                colorAnim.start();
-            }
-        }
+//
+//        if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
+//            if (color1) {
+//                color1 = false;
+//                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A4));
+//                colorAnim.setDuration(2000);
+//                colorAnim.setRepeatCount(0);
+//                colorAnim.setEvaluator(new ArgbEvaluator());
+//                colorAnim.start();
+//            }
+//        } else if (allSize > 1024 * 1024 * 200) {
+//            if (color2) {
+//                color2 = false;
+//                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A4), getResources().getColor(R.color.A2));
+//                colorAnim.setDuration(2000);
+//                colorAnim.setRepeatCount(0);
+//                colorAnim.setEvaluator(new ArgbEvaluator());
+//                colorAnim.start();
+//            }
+//        }
     }
 
     @Override

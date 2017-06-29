@@ -27,6 +27,7 @@ public class FileManagerActivity extends BaseActivity {
     LinearLayout ll_ad;
     private View nativeView;
     TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num, file_qita_num;
+    TextView file_apk_num_d, file_zip_num_d, file_txt_num_d, file_music_num_d, file_video_num_d, file_qita_num_d;
 
     private String TAG_FILE = "acht_file";
     private FileCategoryHelper fileHelper;
@@ -44,6 +45,12 @@ public class FileManagerActivity extends BaseActivity {
         file_music_num = (TextView) findViewById(R.id.file_music_num);
         file_video_num = (TextView) findViewById(R.id.file_video_num);
         file_qita_num = (TextView) findViewById(R.id.file_qita_num);
+        file_apk_num_d = (TextView) findViewById(R.id.file_apk_num_d);
+        file_zip_num_d = (TextView) findViewById(R.id.file_zip_num_d);
+        file_txt_num_d = (TextView) findViewById(R.id.file_txt_num_d);
+        file_music_num_d = (TextView) findViewById(R.id.file_music_num_d);
+        file_video_num_d = (TextView) findViewById(R.id.file_video_num_d);
+        file_qita_num_d = (TextView) findViewById(R.id.file_qita_num_d);
         file_apk_button = (LinearLayout) findViewById(R.id.file_apk_button);
         file_zip_button = (LinearLayout) findViewById(R.id.file_zip_button);
         file_txt_button = (LinearLayout) findViewById(R.id.file_txt_button);
@@ -87,12 +94,18 @@ public class FileManagerActivity extends BaseActivity {
                         musicInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Music);
                         videoInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Video);
                         otherInfo = fileHelper.getCategoryInfo(FileCategoryHelper.FileCategory.Other);
-                        file_apk_num.setText(getString(R.string.file_num, apkInfo.count));
-                        file_zip_num.setText(getString(R.string.file_num, zipInfo.count));
-                        file_txt_num.setText(getString(R.string.file_num, docInfo.count));
-                        file_music_num.setText(getString(R.string.file_num, musicInfo.count));
-                        file_video_num.setText(getString(R.string.file_num, videoInfo.count));
-                        file_qita_num.setText(getString(R.string.file_num, otherInfo.count));
+                        file_apk_num.setText(apkInfo.count + "");
+                        file_zip_num.setText(zipInfo.count + "");
+                        file_txt_num.setText(docInfo.count + "");
+                        file_music_num.setText(musicInfo.count + "");
+                        file_video_num.setText(videoInfo.count + "");
+                        file_qita_num.setText(otherInfo.count + "");
+                        file_apk_num_d.setVisibility(View.VISIBLE);
+                        file_zip_num_d.setVisibility(View.VISIBLE);
+                        file_txt_num_d.setVisibility(View.VISIBLE);
+                        file_music_num_d.setVisibility(View.VISIBLE);
+                        file_video_num_d.setVisibility(View.VISIBLE);
+                        file_qita_num_d.setVisibility(View.VISIBLE);
                         setListener();
                     }
                 });
@@ -108,6 +121,7 @@ public class FileManagerActivity extends BaseActivity {
             nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
             if (ll_ad != null && nativeView != null) {
                 ll_ad.addView(nativeView);
+                ll_ad.setVisibility(View.VISIBLE);
             }
         }
 

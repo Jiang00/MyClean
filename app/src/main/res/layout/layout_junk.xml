@@ -11,7 +11,7 @@
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/A4"
+        android:background="@color/A1"
         android:orientation="vertical">
 
         <View
@@ -21,82 +21,91 @@
 
         <include layout="@layout/layout_title" />
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d127"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/junk_size_all"
-                android:layout_width="@dimen/d146"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d82"
-                android:gravity="center"
-                android:lines="1"
-                android:text="0"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s60"
-                 />
+            android:layout_height="@dimen/d95">
 
             <LinearLayout
-                android:id="@+id/ll_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/junk_size_all"
+                    android:layout_width="@dimen/d133"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:gravity="center_horizontal"
+                    android:lines="1"
+                    android:text="0"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s57"
+                    app:typeface="Roboto-Light.ttf" />
+
+                <LinearLayout
+                    android:id="@+id/ll_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/junk_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="B"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s30"
+                        app:typeface="Roboto-Light.ttf" />
+
+                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/junk_fangxin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d1"
+                        android:text="@string/junk_title_clean"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s17"
+                        app:typeface="Roboto-Light.ttf" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/junk_fangxin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/junk_title_clean"
-                    android:textColor="@color/A6"
-                    android:textSize="@dimen/s16"
-                     />
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/junk_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d4"
-                    android:text="B"
-                    android:textColor="#8affffff"
-                    android:textSize="@dimen/s22"
-                     />
-
-
-            </LinearLayout>
-        </LinearLayout>
+                android:layout_gravity="right|bottom"
+                android:background="@mipmap/laji" />
+        </FrameLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A7"
+        android:background="@color/A5"
         android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="match_parent">
 
             <ListView
                 android:id="@+id/junk_list_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/A7"
                 android:divider="@drawable/list_divider"
-                android:dividerHeight="1px"
+                android:dividerHeight="0px"
                 android:visibility="gone" />
 
             <com.fast.clean.junk.myview.MyScrollView
                 android:id="@+id/junk_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/A7"
+                android:background="@color/white_100"
                 android:scrollbars="none">
 
                 <LinearLayout
@@ -116,28 +125,17 @@
                             android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/junk_system" />
-                            </LinearLayout>
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_system"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textSize="@dimen/s16" />
 
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
@@ -147,9 +145,8 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="@dimen/d16"
                                 android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A13"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -158,7 +155,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/right"
+                                android:rotation="-90"
+                                android:src="@mipmap/junk_right"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -168,9 +166,9 @@
                         android:id="@+id/junk_system_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
+                        android:background="@color/A5"
                         android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:dividerHeight="0px" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_apk"
@@ -184,28 +182,17 @@
                             android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/junk_apk" />
-                            </LinearLayout>
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_apk"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textSize="@dimen/s16" />
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                                 android:id="@+id/junk_apk_size"
@@ -215,9 +202,8 @@
                                 android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A13"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -226,7 +212,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/right"
+                                android:rotation="-90"
+                                android:src="@mipmap/junk_right"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -236,9 +223,9 @@
                         android:id="@+id/junk_apk_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
+                        android:background="@color/A5"
                         android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:dividerHeight="0px" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_unload"
@@ -252,28 +239,17 @@
                             android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/junk_unload" />
-                            </LinearLayout>
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_unload"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textSize="@dimen/s16" />
 
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
@@ -284,9 +260,8 @@
                                 android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A13"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -295,7 +270,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/right"
+                                android:rotation="-90"
+                                android:src="@mipmap/junk_right"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -305,9 +281,9 @@
                         android:id="@+id/junk_unload_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
+                        android:background="@color/A5"
                         android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:dividerHeight="0px" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_log"
@@ -321,28 +297,17 @@
                             android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/junk_log" />
-                            </LinearLayout>
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_log"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textSize="@dimen/s16" />
 
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
@@ -353,9 +318,8 @@
                                 android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A13"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -364,7 +328,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/right"
+                                android:rotation="-90"
+                                android:src="@mipmap/junk_right"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -374,9 +339,9 @@
                         android:id="@+id/junk_log_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
+                        android:background="@color/A5"
                         android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:dividerHeight="0px" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_user"
@@ -390,28 +355,16 @@
                             android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
-                            <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:layout_width="@dimen/d36"
-                                    android:layout_height="@dimen/d36"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/junk_user" />
-                            </LinearLayout>
-
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_user"
                                 android:textColor="@color/A8"
-                                android:textSize="@dimen/s16"
-                                 />
+                                android:textSize="@dimen/s16" />
 
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
@@ -422,9 +375,8 @@
                                 android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s14"
-                                 />
+                                android:textColor="@color/A13"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -433,7 +385,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/right"
+                                android:rotation="-90"
+                                android:src="@mipmap/junk_right"
                                 android:visibility="visible" />
                         </LinearLayout>
 
@@ -443,38 +396,22 @@
                         android:id="@+id/junk_user_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/A7"
+                        android:background="@color/A5"
                         android:divider="@drawable/list_divider"
-                        android:dividerHeight="1px" />
+                        android:dividerHeight="0px" />
                 </LinearLayout>
             </com.fast.clean.junk.myview.MyScrollView>
 
-            <ImageView
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/junk_button_clean"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@mipmap/yinying" />
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@mipmap/button"
+                android:visibility="invisible" />
         </FrameLayout>
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:layout_gravity="bottom"
-            android:background="@color/A7">
-
-            <Button
-                android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d250"
-                android:layout_height="@dimen/d40"
-                android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/junk_button"
-                android:textAllCaps="false"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s16"
-                android:visibility="invisible" />
-        </RelativeLayout>
     </LinearLayout>
 
 

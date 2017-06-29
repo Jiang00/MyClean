@@ -22,37 +22,40 @@
             android:background="#ffffff"
             android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:background="@color/A1" />
-
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d146"
-                android:background="@color/A1"
+                android:layout_height="@dimen/d176"
+                android:background="@mipmap/side_title"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="@dimen/d19"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d32"
-                        android:src="@mipmap/side_icon" />
+                        android:layout_width="@dimen/d67"
+                        android:layout_height="@dimen/d67"
+                        android:src="@mipmap/icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d23"
+                        android:layout_marginTop="@dimen/d8"
                         android:text="@string/app_name"
-                        android:textColor="@color/A7"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s16" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d5"
+                        android:text="Smart Super Clean for Android"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s11" />
                 </LinearLayout>
 
 
@@ -80,7 +83,6 @@
                         android:id="@+id/side_listView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d8"
                         android:divider="#00000000"
                         android:dividerHeight="0dp" />
 

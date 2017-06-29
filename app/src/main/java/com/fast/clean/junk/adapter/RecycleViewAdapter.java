@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.android.view.RoundImageView;
 import com.fast.clean.xsimilarimage.ImageHelper;
 import com.fast.clean.xsimilarimage.ImageInfo;
 import com.fast.clean.junk.R;
@@ -252,13 +253,13 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         }
 
         class HomeViewHolder extends RecyclerView.ViewHolder {
-            ImageView picture_icon;
+            RoundImageView picture_icon;
             ImageView picture_check;
             ImageView picture_best;
 
             public HomeViewHolder(View view) {
                 super(view);
-                picture_icon = (ImageView) view.findViewById(R.id.picture_icon);
+                picture_icon = (RoundImageView) view.findViewById(R.id.picture_icon);
                 picture_check = (ImageView) view.findViewById(R.id.picture_check);
                 picture_best = (ImageView) view.findViewById(R.id.picture_best);
             }

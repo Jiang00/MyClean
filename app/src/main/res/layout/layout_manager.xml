@@ -32,9 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/A1"
-            android:elevation="@dimen/d4"
-            app:tabIndicatorColor="#818797"
-            app:tabSelectedTextColor="@color/A7"
+            app:tabIndicatorColor="@color/A1"
+            app:tabSelectedTextColor="@color/white_100"
             app:tabTextAppearance="@style/tablayout_textSize"
             app:tabTextColor="@color/A6" />
 
@@ -47,7 +46,7 @@
                 android:id="@+id/doc_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A7" />
+                android:background="@color/white_100" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -71,7 +70,7 @@
                 android:background="@drawable/shape_button"
                 android:text="@string/ram_button"
                 android:textAllCaps="false"
-                android:textColor="@color/A7"
+                android:textColor="@color/white_100"
                 android:textSize="@dimen/s16" />
         </RelativeLayout>
     </LinearLayout>

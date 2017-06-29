@@ -37,26 +37,40 @@ import com.fast.clean.junk.util.UtilGp;
 
 
 public class MSideAdapter extends MybaseAdapter<SideInfo> {
-    private static int idx = 0;
 
-    private static final int JUNK = idx++;
-    private static final int RAM = idx++;
-    private static final int MANAGER = idx++;
-    private static final int FILE = idx++;
-    private static final int POWER = idx++;
-    //    private static final int PRIVARY = idx++;
-    private static final int NOTIFI = idx++;
-    private static final int PICTURE = idx++;
+    private int BATTERY = -1;
+    private int FLOAT = -1;
+    private int JUNK = -1;
+    private int RAM = -1;
+    private int MANAGER = -1;
+    private int FILE = -1;
+    private int POWER = -1;
 
-    private static final int BATTERY = idx++;
-    private static final int FLOAT = idx++;
-    private static final int GBOOST = idx++;
-    private static final int SETTING = idx++;
-    private static final int ROTATE = idx++;
+    private int PICTURE = -1;
+    private int NOTIFI = -1;
+    private int SETTING = -1;
+    private int ROTATE = -1;
 
     public MSideAdapter(Context context) {
-
         super(context);
+        int idx = 0;
+        BATTERY = idx++;
+        FLOAT = idx++;
+        JUNK = idx++;
+        RAM = idx++;
+        MANAGER = idx++;
+        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) == 1) {
+            FILE = idx++;
+        }
+        POWER = idx++;
+        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) == 1) {
+            PICTURE = idx++;
+        }
+        if (PreData.getDB(context, Constant.NOTIFI_KAIGUAN, 1) == 1 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            NOTIFI = idx++;
+        }
+        SETTING = idx++;
+        ROTATE = idx++;
     }
 
     @Override
@@ -99,41 +113,12 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
                 onC(position);
             }
         });
-//        convertView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                int action = event.getAction();
-//                switch (action) {
-//                    case MotionEvent.ACTION_DOWN:
-//                        holder.iv_le.setColorFilter(ContextCompat.getColor(context, R.color.A1));
-//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.A1));
-//                        break;
-//                    case MotionEvent.ACTION_CANCEL:
-//                    case MotionEvent.ACTION_UP:
-//                        holder.iv_le.setColorFilter(0);
-//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.B2));
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
         if (position == BATTERY || position == FLOAT) {
             holder.checkBox.setVisibility(View.VISIBLE);
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            if (position == NOTIFI) {
-                holder.rl_item.setVisibility(View.GONE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(0, 1);
-                convertView.setLayoutParams(param);
-            } else {
-                holder.rl_item.setVisibility(View.VISIBLE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
-                convertView.setLayoutParams(param);
-            }
-        }
-        if (position == SETTING) {
+        if (position == JUNK) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);
@@ -199,11 +184,6 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
             AdUtil.track("侧边栏", "点击进入相似图片", "", 1);
             PreData.putDB(context, Constant.PHOTO_CLEAN, true);
             Intent intent = new Intent(context, PictureActivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
-        } else if (position == GBOOST) {
-            AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
-            PreData.putDB(context, Constant.GBOOST_CLEAN, true);
-            Intent intent = new Intent(context, DyxGboostActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {
             AdUtil.track("侧边栏", "点击进入设置页面", "", 1);

@@ -83,7 +83,7 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
                 list_size.remove(softinfo);
                 list_time.remove(softinfo);
                 list_pinlv.remove(softinfo);
-                addCleandata(false, softinfo.size);
+                addCleandata(false, softinfo.allSize);
                 iView.updateAdapter(list_size, list_time, list_pinlv);
             }
         }
@@ -121,7 +121,7 @@ class LastRunsort implements Comparator<JunkInfo> {
 class Sizesort implements Comparator<JunkInfo> {
     public int compare(JunkInfo file1, JunkInfo file2) {
         //大的在上面
-        return file1.size == file2.size ? 0 : (file1.size > file2.size ? -1 : 1);
+        return file1.allSize == file2.allSize ? 0 : (file1.allSize > file2.allSize ? -1 : 1);
     }
 }
 

@@ -186,7 +186,6 @@ public class DocActivity extends BaseActivity {
     }
 
 
-
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_FILE_2, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
@@ -194,6 +193,7 @@ public class DocActivity extends BaseActivity {
             addAd();
         }
     }
+
     private void initDoc() {
         ListView listView_doc = (ListView) view_doc.findViewById(R.id.file_list);
         ListView listView_txt = (ListView) view_txt.findViewById(R.id.file_list);

@@ -22,8 +22,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent">
 
 
         <LinearLayout
@@ -47,8 +46,7 @@
                 android:layout_marginTop="@dimen/d16"
                 android:text="@string/file_null"
                 android:textColor="@color/A9"
-                android:textSize="@dimen/s16"
-                 />
+                android:textSize="@dimen/s16" />
         </LinearLayout>
 
         <FrameLayout
@@ -77,9 +75,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/A1"
-                    android:elevation="@dimen/d4"
-                    app:tabIndicatorColor="#818797"
-                    app:tabSelectedTextColor="@color/A7"
+                    app:tabIndicatorColor="@color/A1"
+                    app:tabSelectedTextColor="@color/white_100"
                     app:tabTextAppearance="@style/tablayout_textSize"
                     app:tabTextColor="@color/A6" />
 
@@ -114,7 +111,7 @@
                         android:background="@drawable/shape_button"
                         android:text="@string/junk_button"
                         android:textAllCaps="false"
-                        android:textColor="@color/A7"
+                        android:textColor="@color/white_100"
                         android:textSize="@dimen/s16" />
                 </RelativeLayout>
             </LinearLayout>

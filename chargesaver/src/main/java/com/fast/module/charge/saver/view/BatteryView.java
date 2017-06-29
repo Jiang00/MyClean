@@ -1,6 +1,5 @@
 package com.fast.module.charge.saver.view;
 
-import android.animation.ValueAnimator;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +23,6 @@ import com.fast.module.charge.saver.Util.ADRequest;
 import com.fast.module.charge.saver.Util.Constants;
 import com.fast.module.charge.saver.Util.Utils;
 import com.fast.module.charge.saver.entry.BatteryEntry;
-import com.sample.lottie.LottieAnimationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,8 +56,6 @@ public class BatteryView extends FrameLayout {
     private TextView currentLevel;
     private BubbleLayout bubbleLayout;
 
-    private LottieAnimationView shell;
-    private LottieAnimationView water;
     private int halfWidth;
     private ImageView shutter;
 
@@ -161,26 +157,6 @@ public class BatteryView extends FrameLayout {
         currentLevel.setText(curLevel + "%");
         final int le = curLevel % 100;
 
-        if (water != null && !water.isAnimating()) {
-            initWater();
-            water.playAnimation();
-            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    progress = (int) (animation.getAnimatedFraction() * 100);
-                    if (le == 0) {
-                        if (progress == 99) {
-                            progress = 100;
-                            water.pauseAnimation();
-                        }
-                    } else if (progress == le) {
-                        water.pauseAnimation();
-                    }
-                }
-            });
-        }
-
-
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
             String str;
@@ -192,40 +168,12 @@ public class BatteryView extends FrameLayout {
             String result = String.format(str, entry.extractHours(leftChargeTime), entry.extractMinutes(leftChargeTime));
             batteryLeft.setText(result);
         }
+
     }
 
     protected int dp2px(float dp) {
         final float scale = getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
-    }
-
-
-    private void initShell() {
-        try {
-            shell.setImageAssetsFolder(mContext, "theme://images/shell");
-            shell.setAnimation(mContext, "theme://shell.json");
-            shell.loop(true);
-            shell.playAnimation();
-        } catch (Exception e) {
-            shell.setImageAssetsFolder(null, "images/shell");
-            shell.setAnimation(null, "shell.json");
-        }
-        shell.loop(true);
-        shell.playAnimation();
-    }
-
-    private void initWater() {
-        try {
-            water.setImageAssetsFolder(mContext, "theme://images/water");
-            water.setAnimation(mContext, "theme://water.json");
-        } catch (Exception e) {
-            if (!water.isAnimating()) {
-                water.setImageAssetsFolder(null, "images/water");
-                water.setAnimation(null, "water.json");
-            }
-        }
-        water.loop(true);
-        water.setSpeed(5.0f);
     }
 
 
@@ -235,18 +183,6 @@ public class BatteryView extends FrameLayout {
         if (!isBindView) {
             initViews();
             isBindView = true;
-
-//            shell.setAnimation("shell.json");
-//            shell.loop(true);
-//            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
-//                    new OnCompositionLoadedListener() {
-//                        @Override
-//                        public void onCompositionLoaded(LottieComposition composition) {
-//                            shell.setComposition(composition);
-//                        }
-//                    });
-//            shell.playAnimation();
-            initShell();
 
             updateTime();
 
@@ -358,8 +294,6 @@ public class BatteryView extends FrameLayout {
         date = (TextView) findViewById(R.id.battery_now_date);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
-        shell = (LottieAnimationView) findViewById(R.id.battery_shell);
-        water = (LottieAnimationView) findViewById(R.id.battery_electricity);
     }
 
     public void pauseBubble() {
@@ -399,12 +333,6 @@ public class BatteryView extends FrameLayout {
         }
         if (isRegisterTimeUpdate) {
             unregisterTimeUpdateReceiver();
-        }
-        if (water != null && water.isAnimating()) {
-            water.cancelAnimation();
-        }
-        if (shell != null && shell.isAnimating()) {
-            shell.cancelAnimation();
         }
         if (bubbleLayout != null) {
             bubbleLayout.destroy();
