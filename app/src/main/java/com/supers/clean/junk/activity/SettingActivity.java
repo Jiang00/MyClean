@@ -78,6 +78,7 @@ public class SettingActivity extends BaseActivity {
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
         fl_lot_setting = (FrameLayout) findViewById(R.id.fl_lot_setting);
         findViewById(R.id.setting_privacy).setOnClickListener(onClickListener);
+        findViewById(R.id.setting_language).setOnClickListener(onClickListener);
     }
 
     @Override
@@ -342,6 +343,11 @@ public class SettingActivity extends BaseActivity {
                     AdUtil.track("设置页面", "隐私清理", "", 1);
                     Intent privacyIntent = new Intent(SettingActivity.this, PrivacyActivity.class);
                     startActivity(privacyIntent);
+                    break;
+                case R.id.setting_language:
+                    AdUtil.track("设置页面", "语言", "", 1);
+                    Intent lagIntent = new Intent(SettingActivity.this, LanguageSettingActivity.class);
+                    startActivity(lagIntent);
                     break;
                 default:
                     break;

@@ -1,12 +1,11 @@
 package com.supers.clean.junk.activity;
 
-import android.app.ActivityManager;
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.notification.NotificationMonitorService;
@@ -20,29 +19,16 @@ import com.eos.module.charge.saver.Util.Utils;
 import com.eos.module.charge.saver.service.BatteryService;
 import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
-import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
-import com.supers.clean.junk.task.SimpleTask;
 import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.TopActivityPkg;
 
-import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.Locale;
 
 /**
  * Created by on 2016/11/29.
  */
 public class MyApplication extends App {
-
-    private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 5;
-
-
-    private ActivityManager am;
-
-    private HandlerThread mThread;
-
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -51,9 +37,42 @@ public class MyApplication extends App {
         mDaemonClient.onAttachBaseContext(base);
     }
 
+    private void changeAppLanguage(String language) {
+        // 本地语言设置
+        Resources res = getResources();
+        Configuration conf = res.getConfiguration();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        if (TextUtils.equals(language, "cn")) {
+            conf.locale = new Locale("zh", "CN");
+        } else if (TextUtils.equals(language, "in")) {
+            conf.locale = new Locale("in", "ID");
+        } else {
+            Locale myLocale = new Locale(language);
+            conf.locale = myLocale;
+        }
+        res.updateConfiguration(conf, dm);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        String language = PreData.getDB(this, BaseActivity.DEFAULT_SYSTEM_LANGUAGE, BaseActivity.DEFAULT_SYSTEM_LANGUAGE);
+
+        if (!TextUtils.equals(language, BaseActivity.DEFAULT_SYSTEM_LANGUAGE)) {
+            changeAppLanguage(language);
+        }
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        String language = PreData.getDB(this, BaseActivity.DEFAULT_SYSTEM_LANGUAGE, BaseActivity.DEFAULT_SYSTEM_LANGUAGE);
+
+        if (!TextUtils.equals(language, BaseActivity.DEFAULT_SYSTEM_LANGUAGE)) {
+            changeAppLanguage(language);
+        }
+
         AndroidSdk.onCreate(this);
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
@@ -87,11 +106,6 @@ public class MyApplication extends App {
         if (!TextUtils.equals(name, getPackageName())) {
             return;
         }
-        am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-
-
-        mThread = new HandlerThread("scan");
-        mThread.start();
 
         if (PreData.getDB(this, Constant.FIRST_INSTALL, true)) {
             PreData.putDB(this, Constant.IS_ACTION_BAR, Util.checkDeviceHasNavigationBar(this));

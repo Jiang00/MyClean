@@ -1,14 +1,22 @@
 package com.supers.clean.junk.activity;
 
 import android.app.Activity;
+import android.app.ActivityManagerNative;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -21,6 +29,8 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JsonData;
 import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.JsonParser;
+
+import java.util.Locale;
 
 /**
  * Created by on 2017/2/28.
@@ -36,9 +46,52 @@ public class BaseActivity extends AppCompatActivity {
     protected boolean onDestroyed = false;
     protected boolean onResume = false;
 
+    protected static final String DEFAULT_SYSTEM_LANGUAGE = "system_language";
+    protected static final String LANGUAGE_CHANGE_ACTION = "language_change_action";
+
+    private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String language = intent.getStringExtra(DEFAULT_SYSTEM_LANGUAGE);
+            if (TextUtils.equals(language, DEFAULT_SYSTEM_LANGUAGE)) {
+                Locale locale = getSystemLanguage();
+                if (locale == null) {
+                    return;
+                }
+                Resources res = getResources();
+                Configuration conf = res.getConfiguration();
+                DisplayMetrics dm = res.getDisplayMetrics();
+                conf.locale = locale;
+                res.updateConfiguration(conf, dm);
+            } else {
+                if (TextUtils.isEmpty(language)) {
+                    return;
+                }
+                changeAppLanguage(language);
+            }
+            languageChange();
+            if (recreateActivity()) {
+                recreate();
+            }
+        }
+    };
+
+    public Locale getSystemLanguage() {
+        try {
+            return ActivityManagerNative.getDefault().getConfiguration().locale;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        lbm.registerReceiver(mBroadcastReceiver, new IntentFilter(LANGUAGE_CHANGE_ACTION));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
@@ -76,6 +129,48 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * see languageChange
+     *
+     * @param language
+     */
+    public void setLanguage(String language) {
+        if (TextUtils.isEmpty(language)) {
+            return;
+        }
+        PreData.putDB(this, DEFAULT_SYSTEM_LANGUAGE, language);
+        LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        Intent lanuguageIntent = new Intent(LANGUAGE_CHANGE_ACTION);
+        lanuguageIntent.putExtra(DEFAULT_SYSTEM_LANGUAGE, language);
+        localBroadcastManager.sendBroadcast(lanuguageIntent);
+    }
+
+    public boolean recreateActivity() {
+        return true;
+    }
+
+
+    public void languageChange() {
+
+    }
+
+
+    private void changeAppLanguage(String language) {
+        // 本地语言设置
+        Resources res = getResources();
+        Configuration conf = res.getConfiguration();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        if (TextUtils.equals(language, "cn")) {
+            conf.locale = new Locale("zh", "CN");
+        } else if (TextUtils.equals(language, "in")) {
+            conf.locale = new Locale("in", "ID");
+        } else {
+            Locale myLocale = new Locale(language);
+            conf.locale = myLocale;
+        }
+        res.updateConfiguration(conf, dm);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -94,6 +189,8 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         onDestroyed = true;
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        lbm.unregisterReceiver(mBroadcastReceiver);
     }
 
     @Override
