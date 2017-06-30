@@ -687,6 +687,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     protected void onPause() {
         super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
         main_huojian.setVisibility(View.INVISIBLE);
         main_yun.setVisibility(View.INVISIBLE);
     }

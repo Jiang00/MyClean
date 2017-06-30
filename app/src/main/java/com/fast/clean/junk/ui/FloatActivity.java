@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -23,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.fast.clean.core.CleanManager;
+import com.fast.clean.junk.myview.WaveProgress;
 import com.fast.clean.mutil.MemoryManager;
 import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
@@ -32,17 +34,16 @@ import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.CheckState;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.util.SwitchControl;
+import com.fast.module.charge.saver.view.WaterView;
 
 import java.util.List;
 
 
 public class FloatActivity extends BaseActivity {
-    TextView float_memory, float_tishi;
-    RelativeLayout rl_memory;
     LinearLayout ll_ad;
     LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
-    ImageView float_cricle, float_rotate;
+    WaveProgress water_memory;
 
     private View nativeView;
     private MyApplication cleanApplication;
@@ -64,11 +65,7 @@ public class FloatActivity extends BaseActivity {
         iv_xianshi = (ImageView) findViewById(R.id.iv_xianshi);
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
-        float_cricle = (ImageView) findViewById(R.id.float_cricle);
-        float_rotate = (ImageView) findViewById(R.id.float_rotate);
-        float_memory = (TextView) findViewById(R.id.float_memory);
-        rl_memory = (RelativeLayout) findViewById(R.id.rl_memory);
-        float_tishi = (TextView) findViewById(R.id.float_tishi);
+        water_memory = (WaveProgress) findViewById(R.id.water_memory);
     }
 
     @Override
@@ -80,7 +77,6 @@ public class FloatActivity extends BaseActivity {
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
-        float_rotate.startAnimation(rotate);
         loadAd();
         initList();
         wifi();
@@ -97,12 +93,12 @@ public class FloatActivity extends BaseActivity {
         ll_xianshi.setOnClickListener(kuaijieListener);
         ll_shengyin.setOnClickListener(kuaijieListener);
         ll_gps.setOnClickListener(kuaijieListener);
-        float_rotate.setOnClickListener(kuaijieListener);
+        water_memory.setOnClickListener(kuaijieListener);
     }
 
     private void initList() {
-        float_memory.setText(Util.getMemory(this) + "%");
-
+//        float_memory.setText(Util.getMemory(this) + "%");
+        water_memory.setProgress(Util.getMemory(this));
     }
 
     private void loadAd() {
@@ -167,7 +163,7 @@ public class FloatActivity extends BaseActivity {
                         e.printStackTrace();
                     }
                     break;
-                case R.id.float_rotate:
+                case R.id.water_memory:
                     startCleanAnimation();
                     break;
             }
@@ -175,53 +171,15 @@ public class FloatActivity extends BaseActivity {
     };
 
     private void startCleanAnimation() {
+        water_memory.stopProgress();
         new Thread(new Runnable() {
             @Override
             public void run() {
-                killAll(FloatActivity.this);
+                int me = killAll(FloatActivity.this);
+                water_memory.startProgress(me);
             }
         }).start();
         CleanManager.getInstance(this).clearRam();
-
-        float_cricle.setVisibility(View.INVISIBLE);
-        float_tishi.setVisibility(View.INVISIBLE);
-        rl_memory.startAnimation(suo);
-        suo.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                float_memory.setText(Util.getMemory(FloatActivity.this) + "%");
-                float_tishi.setText(R.string.float_yijiasu);
-                float_tishi.setVisibility(View.VISIBLE);
-
-                rl_memory.startAnimation(fang);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-        });
-        fang.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                float_cricle.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-        });
     }
 
 

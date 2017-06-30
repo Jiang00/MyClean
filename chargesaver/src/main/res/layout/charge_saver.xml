@@ -3,27 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/battery_charge_save"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/beijing">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <ImageView
-            android:id="@+id/battery_shutter"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@mipmap/beijing" />
-
-        <com.fast.module.charge.saver.view.BubbleLayout
-            android:id="@+id/battery_bubble_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
-    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -131,31 +113,57 @@
 
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/d61"
+            android:layout_height="@dimen/d168"
             android:layout_gravity="center_horizontal|bottom">
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/battery_now_battery_left"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="@dimen/d95"
-                android:text="1h 39min left"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s13"
-                app:typeface="Roboto-Light.ttf" />
+                android:layout_marginTop="@dimen/d15"
+                android:orientation="vertical">
+
+                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/battery_now_battery_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="1h 39min left"
+                    android:textColor="#80ffffff"
+                    android:textSize="@dimen/s13"
+                    app:typeface="Roboto-Light.ttf" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/d10">
+
+                    <com.fast.module.charge.saver.view.WaterView
+                        android:id="@+id/battery_water"
+                        android:layout_width="@dimen/d61"
+                        android:layout_height="@dimen/d61"
+                        android:layout_gravity="center" />
+
+                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/battery_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0%"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s18"
+                        android:visibility="invisible"
+                        app:typeface="Roboto-Light.ttf" />
+                </FrameLayout>
 
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                android:id="@+id/battery_level"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:text="0"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s16"
-                app:typeface="Roboto-Light.ttf" />
+            </LinearLayout>
+
+            <com.fast.module.charge.saver.view.BubbleLayout
+                android:id="@+id/battery_bubble_layout"
+                android:layout_width="@dimen/d50"
+                android:layout_height="@dimen/d67"
+                android:layout_gravity="center_horizontal|bottom" />
 
             <LinearLayout
                 android:id="@+id/battery_slide"
@@ -164,9 +172,10 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginBottom="@dimen/bottom_8"
                 android:gravity="center"
+
                 android:orientation="horizontal"
                 android:paddingTop="@dimen/d8"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                     android:layout_width="wrap_content"

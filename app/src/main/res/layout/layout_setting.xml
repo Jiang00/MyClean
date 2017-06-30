@@ -38,7 +38,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white_100"
+            android:background="@color/A5"
             android:orientation="vertical">
 
 
@@ -51,10 +51,16 @@
                 android:textColor="@color/A8"
                 android:textSize="@dimen/s14" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/A10" />
+
             <RelativeLayout
                 android:id="@+id/setting_tongzhi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_tongzhi"
@@ -63,6 +69,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/tongzhi_iv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -71,6 +78,7 @@
                 </RelativeLayout>
 
                 <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/tongzhi_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -89,16 +97,12 @@
                     android:scaleType="center" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
                 android:id="@+id/setting_tongzhilan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_tongzhilan"
@@ -107,6 +111,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/tongzhilan_iv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -115,6 +120,7 @@
                 </RelativeLayout>
 
                 <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/tongzhilan_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -132,16 +138,12 @@
                     android:layout_marginRight="@dimen/d16" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
                 android:id="@+id/setting_float"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_float"
@@ -150,6 +152,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/float_iv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -158,6 +161,7 @@
                 </RelativeLayout>
 
                 <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/float_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -175,16 +179,12 @@
                     android:layout_marginRight="@dimen/d16" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
                 android:id="@+id/setting_battery"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_battery"
@@ -193,6 +193,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/battery_iv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -208,6 +209,7 @@
                     android:orientation="vertical">
 
                     <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                        android:id="@+id/battery_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/setting_battery"
@@ -219,7 +221,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/battery_8"
                         android:textColor="@color/A9"
-                        android:textSize="@dimen/s16" />
+                        android:textSize="@dimen/s12" />
                 </LinearLayout>
 
 
@@ -233,11 +235,6 @@
             </RelativeLayout>
 
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/setting_yinying" />
-
             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d40"
@@ -247,10 +244,16 @@
                 android:textColor="@color/A8"
                 android:textSize="@dimen/s14" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/A10" />
+
             <RelativeLayout
                 android:id="@+id/setting_picture"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_picture"
@@ -284,17 +287,12 @@
                     android:src="@mipmap/setting_rig" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
-
 
             <RelativeLayout
                 android:id="@+id/setting_hui"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_hui"
@@ -328,16 +326,12 @@
                     android:src="@mipmap/setting_rig" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
-                android:id="@+id/setting_gboost"
+                android:id="@+id/main_msg_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_gboost"
@@ -350,7 +344,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/d16"
-                        android:src="@mipmap/gboost_setting" />
+                        android:src="@mipmap/message_setting" />
                 </RelativeLayout>
 
                 <com.fast.module.charge.saver.view.CustomerTypefaceTextView
@@ -358,7 +352,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_gboost"
-                    android:text="@string/gboost_0"
+                    android:text="@string/main_msg_title"
                     android:textColor="@color/A8"
                     android:textSize="@dimen/s16" />
 
@@ -371,16 +365,12 @@
                     android:src="@mipmap/setting_rig" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
                 android:id="@+id/setting_file"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_file"
@@ -414,16 +404,12 @@
                     android:src="@mipmap/setting_rig" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
                 android:id="@+id/setting_notifi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_notifi"
@@ -457,16 +443,12 @@
                     android:src="@mipmap/setting_rig" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
                 android:id="@+id/setting_power"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_power"
@@ -500,16 +482,12 @@
                     android:src="@mipmap/setting_rig" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
                 android:id="@+id/setting_white"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_white"
@@ -546,16 +524,12 @@
                     android:src="@mipmap/setting_rig" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
                 android:id="@+id/setting_short"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_short"
@@ -589,16 +563,12 @@
                     android:src="@mipmap/setting_rig" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d72"
-                android:background="@color/A13" />
 
             <RelativeLayout
                 android:id="@+id/setting_rotate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white_100">
 
                 <RelativeLayout
                     android:id="@+id/rl_rotate"

@@ -59,14 +59,14 @@ public class BubbleLayout extends View {
         this.bitmap = bitmap;
     }
 
-    public void pause(){
+    public void pause() {
         thread = false;
         if (bubbles != null) {
             bubbles.clear();
         }
     }
 
-    public void reStart(){
+    public void reStart() {
         thread = true;
         starting = false;
         invalidate();
@@ -84,30 +84,16 @@ public class BubbleLayout extends View {
                     while (starting && thread) {
                         Log.d("MyTest", "bubble Thread");
                         Bubble bubble = new Bubble();
-                        int radius = random.nextInt(30);
-                        while (radius == 0) {
-                            radius = random.nextInt(30);
-                        }
-                        float speedY = random.nextFloat() * 5;
-                        while (speedY < 1) {
-                            speedY = random.nextFloat() * 5;
-                        }
-                        float scale = random.nextFloat();
-                        while (scale <= 0.1) {
-                            scale = random.nextFloat() * 5;
-                        }
+                        int radius = random.nextInt(10) + 10;
+                        float speedY = random.nextFloat() + 0.5f;
+                        float scale = random.nextFloat() * 0.2f + 0.6f;
+                        float speedX = random.nextFloat() * 0.2f - 0.1f;
                         bubble.setScale(scale);
                         bubble.setRadius(radius);
                         bubble.setSpeedY(speedY);
                         bubble.setX(random.nextInt(width));
                         bubble.setY(height);
-
-                        float speedX = random.nextFloat() - 0.5f;
-                        while (speedX == 0) {
-                            speedX = random.nextFloat() - 0.5f;
-                        }
-                        bubble.setSpeedX(speedX * 2);
-
+                        bubble.setSpeedX(speedX);
                         if (bitmap != null && !bitmap.isRecycled()) {
                             try {
                                 int width = (int) (bitmap.getWidth() * bubble.getScale());
@@ -125,7 +111,7 @@ public class BubbleLayout extends View {
                         }
                         bubbles.add(bubble);
                         try {
-                            Thread.sleep(random.nextInt(6) * 500);
+                            Thread.sleep(500);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -133,13 +119,12 @@ public class BubbleLayout extends View {
                 }
             }.start();
         }
-        Paint paint = new Paint();
 
-        paint.reset();
-        paint.setColor(0X669999);//灰白色
-        paint.setAlpha(45);//设置不透明度：透明为0，完全不透明为255
         List<Bubble> list = new ArrayList<Bubble>(bubbles);
         //依次绘制气泡
+        Paint paint = new Paint();
+        paint.setColor(0X669999);//灰白色
+        paint.setAlpha(150);//设置不透明度：透明为0，完全不透明为255
         for (Bubble bubble : list) {
             //碰到上边界从数组中移除
             if (bubble.getY() - bubble.getSpeedY() <= 0) {

@@ -20,12 +20,13 @@
     </LinearLayout>
 
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/cooling_fl"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d333"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/d50">
+        android:layout_marginTop="@dimen/d133"
+        android:orientation="vertical">
 
 
         <ImageView
@@ -35,7 +36,16 @@
             android:layout_gravity="center"
             android:src="@mipmap/cooling_1" />
 
-    </FrameLayout>
+        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/d15"
+            android:text="@string/cooling_start"
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/s16" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/cooling_piao"
@@ -59,8 +69,7 @@
             android:layout_marginBottom="5dp"
             android:text="@string/cooling_start"
             android:textColor="@color/A8"
-            android:textSize="@dimen/s15"
-             />
+            android:textSize="@dimen/s15" />
 
         <com.fast.module.charge.saver.view.CustomerTypefaceTextView
             android:id="@+id/cooling_wendu"
@@ -70,8 +79,7 @@
             android:layout_marginBottom="5dp"
             android:text="40℃"
             android:textColor="@color/A8"
-            android:textSize="@dimen/s30"
-             />
+            android:textSize="@dimen/s30" />
     </LinearLayout>
 
 

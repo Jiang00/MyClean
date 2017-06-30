@@ -54,10 +54,10 @@ public class BatteryView extends FrameLayout {
     private TextView week;
     private TextView batteryLeft;
     private TextView currentLevel;
+    private WaterView battery_water;
     private BubbleLayout bubbleLayout;
 
     private int halfWidth;
-    private ImageView shutter;
 
     public interface UnlockListener {
         void onUnlock();
@@ -155,7 +155,7 @@ public class BatteryView extends FrameLayout {
         }
         final int curLevel = entry.getLevel();
         currentLevel.setText(curLevel + "%");
-        final int le = curLevel % 100;
+        battery_water.upDate(50);
 
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
@@ -280,9 +280,9 @@ public class BatteryView extends FrameLayout {
     }
 
     private void initViews() {
-        shutter = (ImageView) findViewById(R.id.battery_shutter);
         bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
+        battery_water = (WaterView) findViewById(R.id.battery_water);
         batteryView = (BatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
@@ -300,11 +300,17 @@ public class BatteryView extends FrameLayout {
         if (bubbleLayout != null) {
             bubbleLayout.pause();
         }
+        if (battery_water != null) {
+            battery_water.stop();
+        }
     }
 
     public void reStartBubble() {
         if (bubbleLayout != null) {
             bubbleLayout.reStart();
+        }
+        if (battery_water != null) {
+            battery_water.start();
         }
     }
 
@@ -313,6 +319,9 @@ public class BatteryView extends FrameLayout {
         super.onAttachedToWindow();
         if (!isRegisterTimeUpdate) {
             registerTimeUpdateReceiver();
+        }
+        if (battery_water != null) {
+            battery_water.start();
         }
         if (!isBindView) {
             isBindView = true;
@@ -339,6 +348,9 @@ public class BatteryView extends FrameLayout {
         }
         if (isBindView) {
             isBindView = false;
+        }
+        if (battery_water != null) {
+            battery_water.stop();
         }
     }
 

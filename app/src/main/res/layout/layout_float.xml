@@ -55,8 +55,7 @@
                         android:text="@string/float_wifi"
                         android:textColor="@color/A8"
                         android:textSize="@dimen/s10"
-                        android:visibility="gone"
-                         />
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -83,8 +82,7 @@
                         android:text="@string/float_liuliang"
                         android:textColor="@color/A8"
                         android:textSize="@dimen/s10"
-                        android:visibility="gone"
-                         />
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -111,8 +109,7 @@
                         android:text="@string/float_liangdu"
                         android:textColor="@color/A8"
                         android:textSize="@dimen/s10"
-                        android:visibility="gone"
-                         />
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -139,8 +136,7 @@
                         android:text="@string/float_shengyin"
                         android:textColor="@color/A8"
                         android:textSize="@dimen/s10"
-                        android:visibility="gone"
-                         />
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -167,72 +163,22 @@
                         android:text="@string/float_gps"
                         android:textColor="@color/A8"
                         android:textSize="@dimen/s10"
-                        android:visibility="gone"
-                         />
+                        android:visibility="gone" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true">
+                android:layout_width="@dimen/d82"
+                android:layout_height="@dimen/d82"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/shape_a1_round">
 
-                <ImageView
-                    android:layout_width="@dimen/d78"
-                    android:layout_height="@dimen/d78"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/shape_ffffff_round" />
-
-                <ImageView
-                    android:id="@+id/float_rotate"
-                    android:layout_width="@dimen/d67"
-                    android:layout_height="@dimen/d67"
-                    android:layout_centerInParent="true"
-                    android:src="@mipmap/float_dialog_3" />
-
-                <ImageView
-                    android:id="@+id/float_cricle"
-                    android:layout_width="@dimen/d67"
-                    android:layout_height="@dimen/d67"
-                    android:layout_centerInParent="true"
-                    android:src="@mipmap/float_dialog_2" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:id="@+id/rl_memory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center">
-
-                        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                            android:id="@+id/float_memory"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="77%"
-                            android:textColor="@color/A1"
-                            android:textSize="@dimen/s20"
-                             />
-                    </RelativeLayout>
-
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                        android:id="@+id/float_tishi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/float_memory"
-                        android:layout_gravity="center"
-                        android:text="@string/float_jiasu"
-                        android:textColor="@color/A1"
-                        android:textSize="@dimen/s8"
-                         />
-                </LinearLayout>
-
+                <com.fast.clean.junk.myview.WaveProgress
+                    android:id="@+id/water_memory"
+                    android:layout_width="@dimen/d50"
+                    android:layout_height="@dimen/d50"
+                    android:layout_centerInParent="true" />
             </RelativeLayout>
 
         </FrameLayout>

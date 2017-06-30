@@ -63,11 +63,11 @@ public class MSideAdapter extends MybaseAdapter<SideInfo> {
             FILE = idx++;
         }
         POWER = idx++;
-        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) == 1) {
-            PICTURE = idx++;
-        }
         if (PreData.getDB(context, Constant.NOTIFI_KAIGUAN, 1) == 1 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             NOTIFI = idx++;
+        }
+        if (PreData.getDB(context, Constant.FILE_KAIGUAN, 1) == 1) {
+            PICTURE = idx++;
         }
         SETTING = idx++;
         ROTATE = idx++;

@@ -68,7 +68,7 @@ public class MyFloatService extends Service {
         hmoes = getLaunchers();
         manager.showFloatCircleView();
         myHandler.removeCallbacks(runnable);
-        myHandler.postDelayed(runnable, 1000);
+        myHandler.post(runnable);
 //        manager.addWindowsView();
         return START_REDELIVER_INTENT;
     }
@@ -81,6 +81,7 @@ public class MyFloatService extends Service {
         }
     };
     String runingGboost;
+
     public List<String> getLaunchers() {
         List<String> packageNames = new ArrayList<String>();
         PackageManager packageManager = this.getPackageManager();
@@ -133,9 +134,6 @@ public class MyFloatService extends Service {
     }
 
 
-
-
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -143,6 +141,7 @@ public class MyFloatService extends Service {
         createFullScreenCheckView();
 
     }
+
     private void createFullScreenCheckView() {
         final LayoutParams layoutParams = new LayoutParams();
         layoutParams.type = LayoutParams.TYPE_PHONE;
@@ -163,7 +162,6 @@ public class MyFloatService extends Service {
                 int viewHeight = mFullScreenCheckView.getHeight();
                 if (viewHeight == dm.widthPixels || viewHeight == dm.heightPixels) {
                     Log.e("full", "==1");
-
                     manager.removeWindowsView();
 
                 } else {

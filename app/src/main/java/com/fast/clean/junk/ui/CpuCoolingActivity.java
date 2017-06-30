@@ -1,5 +1,6 @@
 package com.fast.clean.junk.ui;
 
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,7 +36,7 @@ public class CpuCoolingActivity extends BaseActivity {
     TextView title_name;
     LinearLayout cooling_piao;
     ImageView cooling_xuehua;
-    FrameLayout cooling_fl;
+    LinearLayout cooling_fl;
 
     private FlakeView flakeView;
     private Handler mHandler = new Handler();
@@ -48,8 +50,8 @@ public class CpuCoolingActivity extends BaseActivity {
     };
     private Animation suo;
     private Random random;
-    private Animation rotate_zheng;
     private int time;
+    private ObjectAnimator rotationY;
 
     @Override
     protected void findId() {
@@ -58,7 +60,7 @@ public class CpuCoolingActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
-        cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
+        cooling_fl = (LinearLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
     }
@@ -77,10 +79,12 @@ public class CpuCoolingActivity extends BaseActivity {
         });
         title_name.setText(R.string.main_cooling_name);
 
-        rotate_zheng = AnimationUtils.loadAnimation(this, R.anim.rotate_zheng);
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         mHandler = new Handler();
-        cooling_xuehua.startAnimation(rotate_zheng);
+        rotationY = ObjectAnimator.ofFloat(cooling_xuehua, "rotationY", 0, 90, 0, -90, 0);
+        rotationY.setDuration(3000);
+        rotationY.setInterpolator(new LinearInterpolator());
+        rotationY.start();
         startCoolingAni();
 
 
@@ -88,6 +92,7 @@ public class CpuCoolingActivity extends BaseActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 cooling_fl.setVisibility(View.INVISIBLE);
+                rotationY.cancel();
                 cooling_xuehua.clearAnimation();
                 if (PreData.getDB(CpuCoolingActivity.this, Constant.FULL_COOL, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);

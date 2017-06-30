@@ -19173,10 +19173,11 @@ android.support.v7.app.MAppCompatDelegateImplV11: boolean isSubDecorInstalled()
 android.support.v7.app.MAppCompatDelegateImplV11: void installViewFactory()
 android.support.v7.app.MAppCompatDelegateImplV11: void invalidateOptionsMenu()
 android.support.v7.app.MAppCompatDelegateImplV11: android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback)
-android.support.v7.app.MAppCompatDelegateImplV11: void onMenuModeChange(android.support.v7.internal.view.menu.MenuBuilder)
-android.support.v7.app.MAppCompatDelegateImplV11: boolean onMenuItemSelected(android.support.v7.internal.view.menu.MenuBuilder,android.view.MenuItem)
+android.support.v7.app.MAppCompatDelegateImplV11: void onMenuModeChange(android.support.v7.view.menu.MenuBuilder)
+android.support.v7.app.MAppCompatDelegateImplV11: boolean onMenuItemSelected(android.support.v7.view.menu.MenuBuilder,android.view.MenuItem)
 android.support.v7.app.MAppCompatDelegateImplV11: boolean hasWindowFeature(int)
 android.support.v7.app.MAppCompatDelegateImplV11: boolean requestWindowFeature(int)
+android.support.v7.app.MAppCompatDelegateImplV11: void onDestroy()
 android.support.v7.app.MAppCompatDelegateImplV11: void addContentView(android.view.View,android.view.ViewGroup$LayoutParams)
 android.support.v7.app.MAppCompatDelegateImplV11: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)
 android.support.v7.app.MAppCompatDelegateImplV11: void setContentView(int)
@@ -19184,12 +19185,16 @@ android.support.v7.app.MAppCompatDelegateImplV11: void setContentView(android.vi
 android.support.v7.app.MAppCompatDelegateImplV11: void onPostResume()
 android.support.v7.app.MAppCompatDelegateImplV11: void onStop()
 android.support.v7.app.MAppCompatDelegateImplV11: void onConfigurationChanged(android.content.res.Configuration)
+android.support.v7.app.MAppCompatDelegateImplV11: android.view.View findViewById(int)
 android.support.v7.app.MAppCompatDelegateImplV11: void setSupportActionBar(android.support.v7.widget.Toolbar)
 android.support.v7.app.MAppCompatDelegateImplV11: void initWindowDecorActionBar()
 android.support.v7.app.MAppCompatDelegateImplV11: void onPostCreate(android.os.Bundle)
 android.support.v7.app.MAppCompatDelegateImplV11: void onCreate(android.os.Bundle)
+android.support.v7.app.MAppCompatDelegateImplV11: void onSaveInstanceState(android.os.Bundle)
+android.support.v7.app.MAppCompatDelegateImplV11: boolean applyDayNight()
 android.support.v7.app.MAppCompatDelegateImplV11: boolean isHandleNativeActionModesEnabled()
 android.support.v7.app.MAppCompatDelegateImplV11: void setHandleNativeActionModesEnabled(boolean)
+android.support.v7.app.MAppCompatDelegateImplV11: void setLocalNightMode(int)
 android.support.v7.app.MAppCompatDelegateImplV11: android.view.MenuInflater getMenuInflater()
 android.support.v7.app.MAppCompatDelegateImplV11: android.support.v7.app.ActionBar getSupportActionBar()
 android.support.v7.app.MAppCompatDelegateImplV14
@@ -19198,15 +19203,20 @@ android.support.v7.app.MAppCompatDelegateImplV14: android.support.v7.app.MAppCom
 android.support.v7.app.MAppCompatDelegateImplV14: MAppCompatDelegateImplV14(android.content.Context,android.view.Window,android.support.v7.app.AppCompatCallback)
 android.support.v7.app.MAppCompatDelegateImplV14: android.view.View createView(android.view.View,java.lang.String,android.content.Context,android.util.AttributeSet)
 android.support.v7.app.MAppCompatDelegateImplV14: boolean isSubDecorInstalled()
+android.support.v7.app.MAppCompatDelegateImplV14: void onSaveInstanceState(android.os.Bundle)
+android.support.v7.app.MAppCompatDelegateImplV14: void setLocalNightMode(int)
+android.support.v7.app.MAppCompatDelegateImplV14: boolean applyDayNight()
 android.support.v7.app.MAppCompatDelegateImplV14: boolean isHandleNativeActionModesEnabled()
 android.support.v7.app.MAppCompatDelegateImplV14: void setHandleNativeActionModesEnabled(boolean)
+android.support.v7.app.MAppCompatDelegateImplV14: void onCreate(android.os.Bundle)
 android.support.v7.app.MAppCompatDelegateImplV14: void installViewFactory()
 android.support.v7.app.MAppCompatDelegateImplV14: void invalidateOptionsMenu()
 android.support.v7.app.MAppCompatDelegateImplV14: android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback)
-android.support.v7.app.MAppCompatDelegateImplV14: void onMenuModeChange(android.support.v7.internal.view.menu.MenuBuilder)
-android.support.v7.app.MAppCompatDelegateImplV14: boolean onMenuItemSelected(android.support.v7.internal.view.menu.MenuBuilder,android.view.MenuItem)
+android.support.v7.app.MAppCompatDelegateImplV14: void onMenuModeChange(android.support.v7.view.menu.MenuBuilder)
+android.support.v7.app.MAppCompatDelegateImplV14: boolean onMenuItemSelected(android.support.v7.view.menu.MenuBuilder,android.view.MenuItem)
 android.support.v7.app.MAppCompatDelegateImplV14: boolean hasWindowFeature(int)
 android.support.v7.app.MAppCompatDelegateImplV14: boolean requestWindowFeature(int)
+android.support.v7.app.MAppCompatDelegateImplV14: void onDestroy()
 android.support.v7.app.MAppCompatDelegateImplV14: void addContentView(android.view.View,android.view.ViewGroup$LayoutParams)
 android.support.v7.app.MAppCompatDelegateImplV14: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)
 android.support.v7.app.MAppCompatDelegateImplV14: void setContentView(int)
@@ -19214,10 +19224,10 @@ android.support.v7.app.MAppCompatDelegateImplV14: void setContentView(android.vi
 android.support.v7.app.MAppCompatDelegateImplV14: void onPostResume()
 android.support.v7.app.MAppCompatDelegateImplV14: void onStop()
 android.support.v7.app.MAppCompatDelegateImplV14: void onConfigurationChanged(android.content.res.Configuration)
+android.support.v7.app.MAppCompatDelegateImplV14: android.view.View findViewById(int)
 android.support.v7.app.MAppCompatDelegateImplV14: void setSupportActionBar(android.support.v7.widget.Toolbar)
 android.support.v7.app.MAppCompatDelegateImplV14: void initWindowDecorActionBar()
 android.support.v7.app.MAppCompatDelegateImplV14: void onPostCreate(android.os.Bundle)
-android.support.v7.app.MAppCompatDelegateImplV14: void onCreate(android.os.Bundle)
 android.support.v7.app.MAppCompatDelegateImplV14: android.view.MenuInflater getMenuInflater()
 android.support.v7.app.MAppCompatDelegateImplV14: android.support.v7.app.ActionBar getSupportActionBar()
 android.support.v7.app.MAppCompatDelegateImplV7
@@ -19229,10 +19239,11 @@ android.support.v7.app.MAppCompatDelegateImplV7: boolean isSubDecorInstalled()
 android.support.v7.app.MAppCompatDelegateImplV7: void installViewFactory()
 android.support.v7.app.MAppCompatDelegateImplV7: void invalidateOptionsMenu()
 android.support.v7.app.MAppCompatDelegateImplV7: android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback)
-android.support.v7.app.MAppCompatDelegateImplV7: void onMenuModeChange(android.support.v7.internal.view.menu.MenuBuilder)
-android.support.v7.app.MAppCompatDelegateImplV7: boolean onMenuItemSelected(android.support.v7.internal.view.menu.MenuBuilder,android.view.MenuItem)
+android.support.v7.app.MAppCompatDelegateImplV7: void onMenuModeChange(android.support.v7.view.menu.MenuBuilder)
+android.support.v7.app.MAppCompatDelegateImplV7: boolean onMenuItemSelected(android.support.v7.view.menu.MenuBuilder,android.view.MenuItem)
 android.support.v7.app.MAppCompatDelegateImplV7: boolean hasWindowFeature(int)
 android.support.v7.app.MAppCompatDelegateImplV7: boolean requestWindowFeature(int)
+android.support.v7.app.MAppCompatDelegateImplV7: void onDestroy()
 android.support.v7.app.MAppCompatDelegateImplV7: void addContentView(android.view.View,android.view.ViewGroup$LayoutParams)
 android.support.v7.app.MAppCompatDelegateImplV7: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)
 android.support.v7.app.MAppCompatDelegateImplV7: void setContentView(int)
@@ -19240,12 +19251,16 @@ android.support.v7.app.MAppCompatDelegateImplV7: void setContentView(android.vie
 android.support.v7.app.MAppCompatDelegateImplV7: void onPostResume()
 android.support.v7.app.MAppCompatDelegateImplV7: void onStop()
 android.support.v7.app.MAppCompatDelegateImplV7: void onConfigurationChanged(android.content.res.Configuration)
+android.support.v7.app.MAppCompatDelegateImplV7: android.view.View findViewById(int)
 android.support.v7.app.MAppCompatDelegateImplV7: void setSupportActionBar(android.support.v7.widget.Toolbar)
 android.support.v7.app.MAppCompatDelegateImplV7: void initWindowDecorActionBar()
 android.support.v7.app.MAppCompatDelegateImplV7: void onPostCreate(android.os.Bundle)
 android.support.v7.app.MAppCompatDelegateImplV7: void onCreate(android.os.Bundle)
+android.support.v7.app.MAppCompatDelegateImplV7: void onSaveInstanceState(android.os.Bundle)
+android.support.v7.app.MAppCompatDelegateImplV7: boolean applyDayNight()
 android.support.v7.app.MAppCompatDelegateImplV7: boolean isHandleNativeActionModesEnabled()
 android.support.v7.app.MAppCompatDelegateImplV7: void setHandleNativeActionModesEnabled(boolean)
+android.support.v7.app.MAppCompatDelegateImplV7: void setLocalNightMode(int)
 android.support.v7.app.MAppCompatDelegateImplV7: android.view.MenuInflater getMenuInflater()
 android.support.v7.app.MAppCompatDelegateImplV7: android.support.v7.app.ActionBar getSupportActionBar()
 android.support.v7.app.MAppCompatViewInflater
@@ -31462,6 +31477,7 @@ com.fast.clean.junk.R$color: int A11
 com.fast.clean.junk.R$color: int A12
 com.fast.clean.junk.R$color: int A13
 com.fast.clean.junk.R$color: int A14
+com.fast.clean.junk.R$color: int A15
 com.fast.clean.junk.R$color: int A2
 com.fast.clean.junk.R$color: int A3
 com.fast.clean.junk.R$color: int A4
@@ -31503,8 +31519,10 @@ com.fast.clean.junk.R$color: int background_floating_material_dark
 com.fast.clean.junk.R$color: int background_floating_material_light
 com.fast.clean.junk.R$color: int background_material_dark
 com.fast.clean.junk.R$color: int background_material_light
+com.fast.clean.junk.R$color: int black
 com.fast.clean.junk.R$color: int black_100
 com.fast.clean.junk.R$color: int black_35
+com.fast.clean.junk.R$color: int black_5
 com.fast.clean.junk.R$color: int black_50
 com.fast.clean.junk.R$color: int black_54
 com.fast.clean.junk.R$color: int black_70
@@ -31548,6 +31566,7 @@ com.fast.clean.junk.R$color: int file_zip
 com.fast.clean.junk.R$color: int float_kaiguan
 com.fast.clean.junk.R$color: int foreground_material_dark
 com.fast.clean.junk.R$color: int foreground_material_light
+com.fast.clean.junk.R$color: int fri
 com.fast.clean.junk.R$color: int gboost_1
 com.fast.clean.junk.R$color: int gboost_2
 com.fast.clean.junk.R$color: int gboost_3
@@ -31585,6 +31604,7 @@ com.fast.clean.junk.R$color: int primary_text_disabled_material_light
 com.fast.clean.junk.R$color: int rect
 com.fast.clean.junk.R$color: int ripple_material_dark
 com.fast.clean.junk.R$color: int ripple_material_light
+com.fast.clean.junk.R$color: int sec
 com.fast.clean.junk.R$color: int secondary_text_default_material_dark
 com.fast.clean.junk.R$color: int secondary_text_default_material_light
 com.fast.clean.junk.R$color: int secondary_text_disabled_material_dark
@@ -31916,6 +31936,7 @@ com.fast.clean.junk.R$dimen: int s38
 com.fast.clean.junk.R$dimen: int s48
 com.fast.clean.junk.R$dimen: int s53
 com.fast.clean.junk.R$dimen: int s57
+com.fast.clean.junk.R$dimen: int s58
 com.fast.clean.junk.R$dimen: int s60
 com.fast.clean.junk.R$dimen: int s63
 com.fast.clean.junk.R$dimen: int s8
@@ -32042,6 +32063,7 @@ com.fast.clean.junk.R$drawable: int shape__a4_r
 com.fast.clean.junk.R$drawable: int shape_a1
 com.fast.clean.junk.R$drawable: int shape_a1_l
 com.fast.clean.junk.R$drawable: int shape_a1_r
+com.fast.clean.junk.R$drawable: int shape_a1_round
 com.fast.clean.junk.R$drawable: int shape_a2_r
 com.fast.clean.junk.R$drawable: int shape_a4_s
 com.fast.clean.junk.R$drawable: int shape_ad
@@ -32100,20 +32122,20 @@ com.fast.clean.junk.R$id: int battery_bubble_layout
 com.fast.clean.junk.R$id: int battery_button
 com.fast.clean.junk.R$id: int battery_cha
 com.fast.clean.junk.R$id: int battery_charge_save
-com.fast.clean.junk.R$id: int battery_electricity
 com.fast.clean.junk.R$id: int battery_icon
+com.fast.clean.junk.R$id: int battery_iv
 com.fast.clean.junk.R$id: int battery_level
 com.fast.clean.junk.R$id: int battery_more
 com.fast.clean.junk.R$id: int battery_now_battery_left
 com.fast.clean.junk.R$id: int battery_now_date
 com.fast.clean.junk.R$id: int battery_now_time
 com.fast.clean.junk.R$id: int battery_now_week
-com.fast.clean.junk.R$id: int battery_shell
-com.fast.clean.junk.R$id: int battery_shutter
 com.fast.clean.junk.R$id: int battery_slide
 com.fast.clean.junk.R$id: int battery_switch
 com.fast.clean.junk.R$id: int battery_switch_check
 com.fast.clean.junk.R$id: int battery_title
+com.fast.clean.junk.R$id: int battery_tv
+com.fast.clean.junk.R$id: int battery_water
 com.fast.clean.junk.R$id: int beginning
 com.fast.clean.junk.R$id: int bottom
 com.fast.clean.junk.R$id: int bt
@@ -32201,10 +32223,8 @@ com.fast.clean.junk.R$id: int fill_horizontal
 com.fast.clean.junk.R$id: int fill_vertical
 com.fast.clean.junk.R$id: int fixed
 com.fast.clean.junk.R$id: int fl
-com.fast.clean.junk.R$id: int float_cricle
-com.fast.clean.junk.R$id: int float_memory
-com.fast.clean.junk.R$id: int float_rotate
-com.fast.clean.junk.R$id: int float_tishi
+com.fast.clean.junk.R$id: int float_iv
+com.fast.clean.junk.R$id: int float_tv
 com.fast.clean.junk.R$id: int gboost_clean_button
 com.fast.clean.junk.R$id: int gboost_item_c
 com.fast.clean.junk.R$id: int gboost_item_icon
@@ -32325,6 +32345,7 @@ com.fast.clean.junk.R$id: int main_msg_file
 com.fast.clean.junk.R$id: int main_msg_notifi
 com.fast.clean.junk.R$id: int main_msg_picture
 com.fast.clean.junk.R$id: int main_msg_power
+com.fast.clean.junk.R$id: int main_msg_title
 com.fast.clean.junk.R$id: int main_notifi_button
 com.fast.clean.junk.R$id: int main_picture_button
 com.fast.clean.junk.R$id: int main_power_button
@@ -32372,7 +32393,6 @@ com.fast.clean.junk.R$id: int notifi_button_rl
 com.fast.clean.junk.R$id: int notifi_cooling
 com.fast.clean.junk.R$id: int notifi_cpu
 com.fast.clean.junk.R$id: int notifi_icon
-com.fast.clean.junk.R$id: int notifi_info_lot
 com.fast.clean.junk.R$id: int notifi_info_text
 com.fast.clean.junk.R$id: int notifi_junk_ram
 com.fast.clean.junk.R$id: int notifi_memory
@@ -32440,7 +32460,6 @@ com.fast.clean.junk.R$id: int rl_float
 com.fast.clean.junk.R$id: int rl_gboost
 com.fast.clean.junk.R$id: int rl_hui
 com.fast.clean.junk.R$id: int rl_item
-com.fast.clean.junk.R$id: int rl_memory
 com.fast.clean.junk.R$id: int rl_notifi
 com.fast.clean.junk.R$id: int rl_picture
 com.fast.clean.junk.R$id: int rl_power
@@ -32475,7 +32494,6 @@ com.fast.clean.junk.R$id: int setting_battery_check
 com.fast.clean.junk.R$id: int setting_file
 com.fast.clean.junk.R$id: int setting_float
 com.fast.clean.junk.R$id: int setting_float_check
-com.fast.clean.junk.R$id: int setting_gboost
 com.fast.clean.junk.R$id: int setting_hui
 com.fast.clean.junk.R$id: int setting_notifi
 com.fast.clean.junk.R$id: int setting_picture
@@ -32535,6 +32553,10 @@ com.fast.clean.junk.R$id: int title_left
 com.fast.clean.junk.R$id: int title_name
 com.fast.clean.junk.R$id: int title_right
 com.fast.clean.junk.R$id: int title_template
+com.fast.clean.junk.R$id: int tongzhi_iv
+com.fast.clean.junk.R$id: int tongzhi_tv
+com.fast.clean.junk.R$id: int tongzhilan_iv
+com.fast.clean.junk.R$id: int tongzhilan_tv
 com.fast.clean.junk.R$id: int top
 com.fast.clean.junk.R$id: int topPanel
 com.fast.clean.junk.R$id: int touch_outside
@@ -32557,6 +32579,7 @@ com.fast.clean.junk.R$id: int view_offset_helper
 com.fast.clean.junk.R$id: int view_pager_tab
 com.fast.clean.junk.R$id: int view_set
 com.fast.clean.junk.R$id: int view_title_bar
+com.fast.clean.junk.R$id: int water_memory
 com.fast.clean.junk.R$id: int weak
 com.fast.clean.junk.R$id: int white_wu
 com.fast.clean.junk.R$id: int withText
@@ -32698,6 +32721,7 @@ com.fast.clean.junk.R$mipmap: int battery_2
 com.fast.clean.junk.R$mipmap: int battery_bubble
 com.fast.clean.junk.R$mipmap: int battery_cha
 com.fast.clean.junk.R$mipmap: int battery_inner_icon
+com.fast.clean.junk.R$mipmap: int battery_m
 com.fast.clean.junk.R$mipmap: int battery_more
 com.fast.clean.junk.R$mipmap: int battery_second_back
 com.fast.clean.junk.R$mipmap: int battery_setting_checkbox_close
@@ -32777,9 +32801,11 @@ com.fast.clean.junk.R$mipmap: int main_setting
 com.fast.clean.junk.R$mipmap: int main_theme_button
 com.fast.clean.junk.R$mipmap: int main_yun
 com.fast.clean.junk.R$mipmap: int manager_icon
+com.fast.clean.junk.R$mipmap: int message_setting
 com.fast.clean.junk.R$mipmap: int neicun
 com.fast.clean.junk.R$mipmap: int next_ad_pro
 com.fast.clean.junk.R$mipmap: int notifi_6
+com.fast.clean.junk.R$mipmap: int notifi_animation
 com.fast.clean.junk.R$mipmap: int notifi_check
 com.fast.clean.junk.R$mipmap: int notifi_line
 com.fast.clean.junk.R$mipmap: int notifi_liuliang
@@ -33009,6 +33035,8 @@ com.fast.clean.junk.R$string: int message_title_1
 com.fast.clean.junk.R$string: int notifi
 com.fast.clean.junk.R$string: int notifi_1
 com.fast.clean.junk.R$string: int notifi_2
+com.fast.clean.junk.R$string: int notifi_ani_1
+com.fast.clean.junk.R$string: int notifi_ani_2
 com.fast.clean.junk.R$string: int notifi_button
 com.fast.clean.junk.R$string: int notifi_clean
 com.fast.clean.junk.R$string: int notifi_clean_success
@@ -34157,7 +34185,10 @@ com.fast.clean.junk.myview.FlakeView: void setNumFlakes(int)
 com.fast.clean.junk.myview.FloatStateView
 com.fast.clean.junk.myview.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet)
 com.fast.clean.junk.myview.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet,int)
+com.fast.clean.junk.myview.FloatStateView: void setWaveShiftRatio(float)
+com.fast.clean.junk.myview.FloatStateView: void setBackgroundColor(int)
 com.fast.clean.junk.myview.FloatStateView: void setDragState(int)
+com.fast.clean.junk.myview.FloatStateView: void setWaterLevelRatio(float)
 com.fast.clean.junk.myview.LineRam
 com.fast.clean.junk.myview.LineRam: LineRam(android.content.Context)
 com.fast.clean.junk.myview.LineRam: LineRam(android.content.Context,android.util.AttributeSet)
@@ -34220,6 +34251,32 @@ com.fast.clean.junk.myview.SlowScrollView
 com.fast.clean.junk.myview.SlowScrollView: SlowScrollView(android.content.Context)
 com.fast.clean.junk.myview.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet)
 com.fast.clean.junk.myview.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet,int)
+com.fast.clean.junk.myview.WaveProgress
+com.fast.clean.junk.myview.WaveProgress: WaveProgress(android.content.Context)
+com.fast.clean.junk.myview.WaveProgress: WaveProgress(android.content.Context,android.util.AttributeSet)
+com.fast.clean.junk.myview.WaveProgress: WaveProgress(android.content.Context,android.util.AttributeSet,int)
+com.fast.clean.junk.myview.WaveProgress: float getWaveShiftRatio()
+com.fast.clean.junk.myview.WaveProgress: void setWaveShiftRatio(float)
+com.fast.clean.junk.myview.WaveProgress: float getWaterLevelRatio()
+com.fast.clean.junk.myview.WaveProgress: void setWaterLevelRatio(float)
+com.fast.clean.junk.myview.WaveProgress: float getAmplitudeRatio()
+com.fast.clean.junk.myview.WaveProgress: void setAmplitudeRatio(float)
+com.fast.clean.junk.myview.WaveProgress: float getWaveLengthRatio()
+com.fast.clean.junk.myview.WaveProgress: void setWaveLengthRatio(float)
+com.fast.clean.junk.myview.WaveProgress: void setShapeType(com.fast.clean.junk.myview.WaveProgress$ShapeType)
+com.fast.clean.junk.myview.WaveProgress: void setBackgroundColor(int)
+com.fast.clean.junk.myview.WaveProgress: void setWaveSpeed(int)
+com.fast.clean.junk.myview.WaveProgress: void setProgressMax(int)
+com.fast.clean.junk.myview.WaveProgress: void setProgress(int)
+com.fast.clean.junk.myview.WaveProgress: int getProgress()
+com.fast.clean.junk.myview.WaveProgress$ShapeType
+com.fast.clean.junk.myview.WaveProgress$ShapeType: com.fast.clean.junk.myview.WaveProgress$ShapeType CIRCLE
+com.fast.clean.junk.myview.WaveProgress$ShapeType: com.fast.clean.junk.myview.WaveProgress$ShapeType SQUARE
+com.fast.clean.junk.myview.WaveProgress$ShapeType: com.fast.clean.junk.myview.WaveProgress$ShapeType[] $VALUES
+com.fast.clean.junk.myview.WaveProgress$ShapeType: com.fast.clean.junk.myview.WaveProgress$ShapeType[] values()
+com.fast.clean.junk.myview.WaveProgress$ShapeType: com.fast.clean.junk.myview.WaveProgress$ShapeType valueOf(java.lang.String)
+com.fast.clean.junk.myview.WaveProgress$ShapeType: WaveProgress$ShapeType(java.lang.String,int)
+com.fast.clean.junk.myview.WaveProgress$ShapeType: void <clinit>()
 com.fast.clean.junk.ui.AppManagerActivity
 com.fast.clean.junk.ui.AppManagerActivity: AppManagerActivity()
 com.fast.clean.junk.ui.AppManagerActivity$MyReceiver
@@ -34688,6 +34745,7 @@ com.fast.module.charge.saver.R$color: int background_floating_material_dark
 com.fast.module.charge.saver.R$color: int background_floating_material_light
 com.fast.module.charge.saver.R$color: int background_material_dark
 com.fast.module.charge.saver.R$color: int background_material_light
+com.fast.module.charge.saver.R$color: int black
 com.fast.module.charge.saver.R$color: int bright_foreground_disabled_material_dark
 com.fast.module.charge.saver.R$color: int bright_foreground_disabled_material_light
 com.fast.module.charge.saver.R$color: int bright_foreground_inverse_material_dark
@@ -34712,6 +34770,7 @@ com.fast.module.charge.saver.R$color: int dim_foreground_material_dark
 com.fast.module.charge.saver.R$color: int dim_foreground_material_light
 com.fast.module.charge.saver.R$color: int foreground_material_dark
 com.fast.module.charge.saver.R$color: int foreground_material_light
+com.fast.module.charge.saver.R$color: int fri
 com.fast.module.charge.saver.R$color: int highlighted_text_material_dark
 com.fast.module.charge.saver.R$color: int highlighted_text_material_light
 com.fast.module.charge.saver.R$color: int hint_foreground_material_dark
@@ -34741,6 +34800,7 @@ com.fast.module.charge.saver.R$color: int primary_text_disabled_material_light
 com.fast.module.charge.saver.R$color: int rect
 com.fast.module.charge.saver.R$color: int ripple_material_dark
 com.fast.module.charge.saver.R$color: int ripple_material_light
+com.fast.module.charge.saver.R$color: int sec
 com.fast.module.charge.saver.R$color: int secondary_text_default_material_dark
 com.fast.module.charge.saver.R$color: int secondary_text_default_material_light
 com.fast.module.charge.saver.R$color: int secondary_text_disabled_material_dark
@@ -35046,6 +35106,7 @@ com.fast.module.charge.saver.R$dimen: int s30
 com.fast.module.charge.saver.R$dimen: int s38
 com.fast.module.charge.saver.R$dimen: int s48
 com.fast.module.charge.saver.R$dimen: int s53
+com.fast.module.charge.saver.R$dimen: int s58
 com.fast.module.charge.saver.R$dimen: int s60
 com.fast.module.charge.saver.R$dimen: int s63
 com.fast.module.charge.saver.R$dimen: int s8
@@ -35193,7 +35254,6 @@ com.fast.module.charge.saver.R$id: int basic
 com.fast.module.charge.saver.R$id: int battery_ad_layout
 com.fast.module.charge.saver.R$id: int battery_bubble_layout
 com.fast.module.charge.saver.R$id: int battery_charge_save
-com.fast.module.charge.saver.R$id: int battery_electricity
 com.fast.module.charge.saver.R$id: int battery_icon
 com.fast.module.charge.saver.R$id: int battery_level
 com.fast.module.charge.saver.R$id: int battery_more
@@ -35201,12 +35261,11 @@ com.fast.module.charge.saver.R$id: int battery_now_battery_left
 com.fast.module.charge.saver.R$id: int battery_now_date
 com.fast.module.charge.saver.R$id: int battery_now_time
 com.fast.module.charge.saver.R$id: int battery_now_week
-com.fast.module.charge.saver.R$id: int battery_shell
-com.fast.module.charge.saver.R$id: int battery_shutter
 com.fast.module.charge.saver.R$id: int battery_slide
 com.fast.module.charge.saver.R$id: int battery_switch
 com.fast.module.charge.saver.R$id: int battery_switch_check
 com.fast.module.charge.saver.R$id: int battery_title
+com.fast.module.charge.saver.R$id: int battery_water
 com.fast.module.charge.saver.R$id: int beginning
 com.fast.module.charge.saver.R$id: int bottom
 com.fast.module.charge.saver.R$id: int buttonPanel
@@ -35386,6 +35445,7 @@ com.fast.module.charge.saver.R$layout: int support_simple_spinner_dropdown_item
 com.fast.module.charge.saver.R$mipmap: int ad_right
 com.fast.module.charge.saver.R$mipmap: int battery_bubble
 com.fast.module.charge.saver.R$mipmap: int battery_inner_icon
+com.fast.module.charge.saver.R$mipmap: int battery_m
 com.fast.module.charge.saver.R$mipmap: int battery_more
 com.fast.module.charge.saver.R$mipmap: int battery_second_back
 com.fast.module.charge.saver.R$mipmap: int battery_setting_checkbox_close
@@ -36413,6 +36473,13 @@ com.fast.module.charge.saver.view.IndicatorView: IndicatorView(android.content.C
 com.fast.module.charge.saver.view.IndicatorView: IndicatorView(android.content.Context,android.util.AttributeSet,int)
 com.fast.module.charge.saver.view.IndicatorView: void setViewPager(android.support.v4.view.ViewPager)
 com.fast.module.charge.saver.view.IndicatorView: void setIndicatorState(int)
+com.fast.module.charge.saver.view.WaterView
+com.fast.module.charge.saver.view.WaterView: WaterView(android.content.Context)
+com.fast.module.charge.saver.view.WaterView: WaterView(android.content.Context,android.util.AttributeSet)
+com.fast.module.charge.saver.view.WaterView: WaterView(android.content.Context,android.util.AttributeSet,int)
+com.fast.module.charge.saver.view.WaterView: void setTextSize(int)
+com.fast.module.charge.saver.view.WaterView: void setPratent(int)
+com.fast.module.charge.saver.view.WaterView: void setFloatWaterListener(com.fast.module.charge.saver.view.WaterView$FloatWaterListener)
 com.github.mikephil.charting.animation.Easing$EasingOption
 com.github.mikephil.charting.animation.Easing$EasingOption: com.github.mikephil.charting.animation.Easing$EasingOption Linear
 com.github.mikephil.charting.animation.Easing$EasingOption: com.github.mikephil.charting.animation.Easing$EasingOption EaseInQuad
@@ -36927,6 +36994,7 @@ com.mingle.baselibrary.R$attr: int alertDialogButtonGroupStyle
 com.mingle.baselibrary.R$attr: int alertDialogCenterButtons
 com.mingle.baselibrary.R$attr: int alertDialogStyle
 com.mingle.baselibrary.R$attr: int alertDialogTheme
+com.mingle.baselibrary.R$attr: int allowStacking
 com.mingle.baselibrary.R$attr: int arrowHeadLength
 com.mingle.baselibrary.R$attr: int arrowShaftLength
 com.mingle.baselibrary.R$attr: int autoCompleteTextViewStyle
@@ -36994,6 +37062,7 @@ com.mingle.baselibrary.R$attr: int homeAsUpIndicator
 com.mingle.baselibrary.R$attr: int homeLayout
 com.mingle.baselibrary.R$attr: int icon
 com.mingle.baselibrary.R$attr: int iconifiedByDefault
+com.mingle.baselibrary.R$attr: int imageButtonStyle
 com.mingle.baselibrary.R$attr: int indeterminateProgressStyle
 com.mingle.baselibrary.R$attr: int initialActivityCount
 com.mingle.baselibrary.R$attr: int isLightTheme
@@ -37041,9 +37110,12 @@ com.mingle.baselibrary.R$attr: int queryBackground
 com.mingle.baselibrary.R$attr: int queryHint
 com.mingle.baselibrary.R$attr: int radioButtonStyle
 com.mingle.baselibrary.R$attr: int ratingBarStyle
+com.mingle.baselibrary.R$attr: int ratingBarStyleIndicator
+com.mingle.baselibrary.R$attr: int ratingBarStyleSmall
 com.mingle.baselibrary.R$attr: int searchHintIcon
 com.mingle.baselibrary.R$attr: int searchIcon
 com.mingle.baselibrary.R$attr: int searchViewStyle
+com.mingle.baselibrary.R$attr: int seekBarStyle
 com.mingle.baselibrary.R$attr: int selectableItemBackground
 com.mingle.baselibrary.R$attr: int selectableItemBackgroundBorderless
 com.mingle.baselibrary.R$attr: int showAsAction
@@ -37054,6 +37126,7 @@ com.mingle.baselibrary.R$attr: int spinBars
 com.mingle.baselibrary.R$attr: int spinnerDropDownItemStyle
 com.mingle.baselibrary.R$attr: int spinnerStyle
 com.mingle.baselibrary.R$attr: int splitTrack
+com.mingle.baselibrary.R$attr: int srcCompat
 com.mingle.baselibrary.R$attr: int state_above_anchor
 com.mingle.baselibrary.R$attr: int submitBackground
 com.mingle.baselibrary.R$attr: int subtitle
@@ -37103,6 +37176,7 @@ com.mingle.baselibrary.R$attr: int windowNoTitle
 com.mingle.baselibrary.R$bool: int abc_action_bar_embed_tabs
 com.mingle.baselibrary.R$bool: int abc_action_bar_embed_tabs_pre_jb
 com.mingle.baselibrary.R$bool: int abc_action_bar_expanded_action_views_exclusive
+com.mingle.baselibrary.R$bool: int abc_allow_stacked_button_bar
 com.mingle.baselibrary.R$bool: int abc_config_actionMenuItemAllCaps
 com.mingle.baselibrary.R$bool: int abc_config_allowActionMenuItemTextWithIcon
 com.mingle.baselibrary.R$bool: int abc_config_closeDialogWhenTouchOutside
@@ -37201,6 +37275,10 @@ com.mingle.baselibrary.R$dimen: int abc_config_prefDialogWidth
 com.mingle.baselibrary.R$dimen: int abc_control_corner_material
 com.mingle.baselibrary.R$dimen: int abc_control_inset_material
 com.mingle.baselibrary.R$dimen: int abc_control_padding_material
+com.mingle.baselibrary.R$dimen: int abc_dialog_fixed_height_major
+com.mingle.baselibrary.R$dimen: int abc_dialog_fixed_height_minor
+com.mingle.baselibrary.R$dimen: int abc_dialog_fixed_width_major
+com.mingle.baselibrary.R$dimen: int abc_dialog_fixed_width_minor
 com.mingle.baselibrary.R$dimen: int abc_dialog_list_padding_vertical_material
 com.mingle.baselibrary.R$dimen: int abc_dialog_min_width_major
 com.mingle.baselibrary.R$dimen: int abc_dialog_min_width_minor
@@ -37219,6 +37297,9 @@ com.mingle.baselibrary.R$dimen: int abc_list_item_padding_horizontal_material
 com.mingle.baselibrary.R$dimen: int abc_panel_menu_list_width
 com.mingle.baselibrary.R$dimen: int abc_search_view_preferred_width
 com.mingle.baselibrary.R$dimen: int abc_search_view_text_min_width
+com.mingle.baselibrary.R$dimen: int abc_seekbar_track_background_height_material
+com.mingle.baselibrary.R$dimen: int abc_seekbar_track_progress_height_material
+com.mingle.baselibrary.R$dimen: int abc_select_dialog_padding_start_material
 com.mingle.baselibrary.R$dimen: int abc_switch_padding
 com.mingle.baselibrary.R$dimen: int abc_text_size_body_1_material
 com.mingle.baselibrary.R$dimen: int abc_text_size_body_2_material
@@ -37278,6 +37359,10 @@ com.mingle.baselibrary.R$drawable: int abc_ic_menu_paste_mtrl_am_alpha
 com.mingle.baselibrary.R$drawable: int abc_ic_menu_selectall_mtrl_alpha
 com.mingle.baselibrary.R$drawable: int abc_ic_menu_share_mtrl_alpha
 com.mingle.baselibrary.R$drawable: int abc_ic_search_api_mtrl_alpha
+com.mingle.baselibrary.R$drawable: int abc_ic_star_black_16dp
+com.mingle.baselibrary.R$drawable: int abc_ic_star_black_36dp
+com.mingle.baselibrary.R$drawable: int abc_ic_star_half_black_16dp
+com.mingle.baselibrary.R$drawable: int abc_ic_star_half_black_36dp
 com.mingle.baselibrary.R$drawable: int abc_ic_voice_search_api_mtrl_alpha
 com.mingle.baselibrary.R$drawable: int abc_item_background_holo_dark
 com.mingle.baselibrary.R$drawable: int abc_item_background_holo_light
@@ -37295,6 +37380,15 @@ com.mingle.baselibrary.R$drawable: int abc_list_selector_holo_light
 com.mingle.baselibrary.R$drawable: int abc_menu_hardkey_panel_mtrl_mult
 com.mingle.baselibrary.R$drawable: int abc_popup_background_mtrl_mult
 com.mingle.baselibrary.R$drawable: int abc_ratingbar_full_material
+com.mingle.baselibrary.R$drawable: int abc_ratingbar_indicator_material
+com.mingle.baselibrary.R$drawable: int abc_ratingbar_small_material
+com.mingle.baselibrary.R$drawable: int abc_scrubber_control_off_mtrl_alpha
+com.mingle.baselibrary.R$drawable: int abc_scrubber_control_to_pressed_mtrl_000
+com.mingle.baselibrary.R$drawable: int abc_scrubber_control_to_pressed_mtrl_005
+com.mingle.baselibrary.R$drawable: int abc_scrubber_primary_mtrl_alpha
+com.mingle.baselibrary.R$drawable: int abc_scrubber_track_mtrl_alpha
+com.mingle.baselibrary.R$drawable: int abc_seekbar_thumb_material
+com.mingle.baselibrary.R$drawable: int abc_seekbar_track_material
 com.mingle.baselibrary.R$drawable: int abc_spinner_mtrl_am_alpha
 com.mingle.baselibrary.R$drawable: int abc_spinner_textfield_background_material
 com.mingle.baselibrary.R$drawable: int abc_switch_thumb_material
@@ -37364,6 +37458,8 @@ com.mingle.baselibrary.R$id: int progress_circular
 com.mingle.baselibrary.R$id: int progress_horizontal
 com.mingle.baselibrary.R$id: int radio
 com.mingle.baselibrary.R$id: int screen
+com.mingle.baselibrary.R$id: int scrollIndicatorDown
+com.mingle.baselibrary.R$id: int scrollIndicatorUp
 com.mingle.baselibrary.R$id: int scrollView
 com.mingle.baselibrary.R$id: int search_badge
 com.mingle.baselibrary.R$id: int search_bar
@@ -37380,6 +37476,7 @@ com.mingle.baselibrary.R$id: int shortcut
 com.mingle.baselibrary.R$id: int showCustom
 com.mingle.baselibrary.R$id: int showHome
 com.mingle.baselibrary.R$id: int showTitle
+com.mingle.baselibrary.R$id: int spacer
 com.mingle.baselibrary.R$id: int split_action_bar
 com.mingle.baselibrary.R$id: int src_atop
 com.mingle.baselibrary.R$id: int src_in
@@ -37412,6 +37509,7 @@ com.mingle.baselibrary.R$layout: int abc_action_mode_bar
 com.mingle.baselibrary.R$layout: int abc_action_mode_close_item_material
 com.mingle.baselibrary.R$layout: int abc_activity_chooser_view
 com.mingle.baselibrary.R$layout: int abc_activity_chooser_view_list_item
+com.mingle.baselibrary.R$layout: int abc_alert_dialog_button_bar_material
 com.mingle.baselibrary.R$layout: int abc_alert_dialog_material
 com.mingle.baselibrary.R$layout: int abc_dialog_title_material
 com.mingle.baselibrary.R$layout: int abc_expanded_menu_layout
@@ -37447,6 +37545,8 @@ com.mingle.baselibrary.R$string: int abc_action_menu_overflow_description
 com.mingle.baselibrary.R$string: int abc_action_mode_done
 com.mingle.baselibrary.R$string: int abc_activity_chooser_view_see_all
 com.mingle.baselibrary.R$string: int abc_activitychooserview_choose_application
+com.mingle.baselibrary.R$string: int abc_capital_off
+com.mingle.baselibrary.R$string: int abc_capital_on
 com.mingle.baselibrary.R$string: int abc_search_hint
 com.mingle.baselibrary.R$string: int abc_searchview_description_clear
 com.mingle.baselibrary.R$string: int abc_searchview_description_query
@@ -37574,6 +37674,7 @@ com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_DrawerArrowToggle
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_DrawerArrowToggle_Common
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_DropDownItem_Spinner
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_EditText
+com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_ImageButton
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_Light_ActionBar
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_Light_ActionBar_Solid
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_Light_ActionBar_TabBar
@@ -37592,8 +37693,11 @@ com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_PopupWindow
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_ProgressBar
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_ProgressBar_Horizontal
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_RatingBar
+com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_RatingBar_Indicator
+com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_RatingBar_Small
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_SearchView
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_SearchView_ActionBar
+com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_SeekBar
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_Spinner
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_Spinner_Underlined
 com.mingle.baselibrary.R$style: int Base_Widget_AppCompat_TextView_SpinnerItem
@@ -37621,6 +37725,8 @@ com.mingle.baselibrary.R$style: int RtlOverlay_Widget_AppCompat_Search_DropDown_
 com.mingle.baselibrary.R$style: int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2
 com.mingle.baselibrary.R$style: int RtlOverlay_Widget_AppCompat_Search_DropDown_Query
 com.mingle.baselibrary.R$style: int RtlOverlay_Widget_AppCompat_Search_DropDown_Text
+com.mingle.baselibrary.R$style: int RtlUnderlay_Widget_AppCompat_ActionButton
+com.mingle.baselibrary.R$style: int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
 com.mingle.baselibrary.R$style: int TextAppearance_AppCompat
 com.mingle.baselibrary.R$style: int TextAppearance_AppCompat_Body1
 com.mingle.baselibrary.R$style: int TextAppearance_AppCompat_Body2
@@ -37680,6 +37786,13 @@ com.mingle.baselibrary.R$style: int ThemeOverlay_AppCompat_Dark_ActionBar
 com.mingle.baselibrary.R$style: int ThemeOverlay_AppCompat_Light
 com.mingle.baselibrary.R$style: int Theme_AppCompat
 com.mingle.baselibrary.R$style: int Theme_AppCompat_CompactMenu
+com.mingle.baselibrary.R$style: int Theme_AppCompat_DayNight
+com.mingle.baselibrary.R$style: int Theme_AppCompat_DayNight_DarkActionBar
+com.mingle.baselibrary.R$style: int Theme_AppCompat_DayNight_Dialog
+com.mingle.baselibrary.R$style: int Theme_AppCompat_DayNight_DialogWhenLarge
+com.mingle.baselibrary.R$style: int Theme_AppCompat_DayNight_Dialog_Alert
+com.mingle.baselibrary.R$style: int Theme_AppCompat_DayNight_Dialog_MinWidth
+com.mingle.baselibrary.R$style: int Theme_AppCompat_DayNight_NoActionBar
 com.mingle.baselibrary.R$style: int Theme_AppCompat_Dialog
 com.mingle.baselibrary.R$style: int Theme_AppCompat_DialogWhenLarge
 com.mingle.baselibrary.R$style: int Theme_AppCompat_Dialog_Alert
@@ -37717,6 +37830,7 @@ com.mingle.baselibrary.R$style: int Widget_AppCompat_CompoundButton_Switch
 com.mingle.baselibrary.R$style: int Widget_AppCompat_DrawerArrowToggle
 com.mingle.baselibrary.R$style: int Widget_AppCompat_DropDownItem_Spinner
 com.mingle.baselibrary.R$style: int Widget_AppCompat_EditText
+com.mingle.baselibrary.R$style: int Widget_AppCompat_ImageButton
 com.mingle.baselibrary.R$style: int Widget_AppCompat_Light_ActionBar
 com.mingle.baselibrary.R$style: int Widget_AppCompat_Light_ActionBar_Solid
 com.mingle.baselibrary.R$style: int Widget_AppCompat_Light_ActionBar_Solid_Inverse
@@ -37749,8 +37863,11 @@ com.mingle.baselibrary.R$style: int Widget_AppCompat_PopupWindow
 com.mingle.baselibrary.R$style: int Widget_AppCompat_ProgressBar
 com.mingle.baselibrary.R$style: int Widget_AppCompat_ProgressBar_Horizontal
 com.mingle.baselibrary.R$style: int Widget_AppCompat_RatingBar
+com.mingle.baselibrary.R$style: int Widget_AppCompat_RatingBar_Indicator
+com.mingle.baselibrary.R$style: int Widget_AppCompat_RatingBar_Small
 com.mingle.baselibrary.R$style: int Widget_AppCompat_SearchView
 com.mingle.baselibrary.R$style: int Widget_AppCompat_SearchView_ActionBar
+com.mingle.baselibrary.R$style: int Widget_AppCompat_SeekBar
 com.mingle.baselibrary.R$style: int Widget_AppCompat_Spinner
 com.mingle.baselibrary.R$style: int Widget_AppCompat_Spinner_DropDown
 com.mingle.baselibrary.R$style: int Widget_AppCompat_Spinner_DropDown_ActionBar
@@ -37808,9 +37925,127 @@ com.mingle.baselibrary.R$styleable: int AlertDialog_listItemLayout
 com.mingle.baselibrary.R$styleable: int AlertDialog_listLayout
 com.mingle.baselibrary.R$styleable: int AlertDialog_multiChoiceItemLayout
 com.mingle.baselibrary.R$styleable: int AlertDialog_singleChoiceItemLayout
+com.mingle.baselibrary.R$styleable: int[] AppCompatImageView
+com.mingle.baselibrary.R$styleable: int AppCompatImageView_android_src
+com.mingle.baselibrary.R$styleable: int AppCompatImageView_srcCompat
 com.mingle.baselibrary.R$styleable: int[] AppCompatTextView
 com.mingle.baselibrary.R$styleable: int AppCompatTextView_android_textAppearance
 com.mingle.baselibrary.R$styleable: int AppCompatTextView_textAllCaps
+com.mingle.baselibrary.R$styleable: int[] AppCompatTheme
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarDivider
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarItemBackground
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarPopupTheme
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarSize
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarSplitStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarTabBarStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarTabStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarTabTextStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarTheme
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionBarWidgetTheme
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionDropDownStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionMenuTextAppearance
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionMenuTextColor
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeBackground
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeCloseButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeCloseDrawable
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeCopyDrawable
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeCutDrawable
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeFindDrawable
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModePasteDrawable
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModePopupWindowStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeSelectAllDrawable
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeShareDrawable
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeSplitBackground
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionModeWebSearchDrawable
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionOverflowButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_actionOverflowMenuStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_activityChooserViewStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_alertDialogButtonGroupStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_alertDialogCenterButtons
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_alertDialogStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_alertDialogTheme
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_android_windowAnimationStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_android_windowIsFloating
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_autoCompleteTextViewStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_borderlessButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_buttonBarButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_buttonBarNegativeButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_buttonBarNeutralButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_buttonBarPositiveButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_buttonBarStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_buttonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_buttonStyleSmall
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_checkboxStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_checkedTextViewStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_colorAccent
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_colorButtonNormal
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_colorControlActivated
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_colorControlHighlight
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_colorControlNormal
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_colorPrimary
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_colorPrimaryDark
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_colorSwitchThumbNormal
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_controlBackground
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_dialogPreferredPadding
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_dialogTheme
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_dividerHorizontal
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_dividerVertical
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_dropDownListViewStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_dropdownListPreferredItemHeight
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_editTextBackground
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_editTextColor
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_editTextStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_homeAsUpIndicator
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_imageButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_listChoiceBackgroundIndicator
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_listDividerAlertDialog
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_listPopupWindowStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_listPreferredItemHeight
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_listPreferredItemHeightLarge
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_listPreferredItemHeightSmall
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_listPreferredItemPaddingLeft
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_listPreferredItemPaddingRight
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_panelBackground
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_panelMenuListTheme
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_panelMenuListWidth
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_popupMenuStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_popupWindowStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_radioButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_ratingBarStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_ratingBarStyleIndicator
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_ratingBarStyleSmall
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_searchViewStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_seekBarStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_selectableItemBackground
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_selectableItemBackgroundBorderless
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_spinnerDropDownItemStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_spinnerStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_switchStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_textAppearanceLargePopupMenu
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_textAppearanceListItem
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_textAppearanceListItemSmall
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_textAppearanceSearchResultSubtitle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_textAppearanceSearchResultTitle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_textAppearanceSmallPopupMenu
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_textColorAlertDialogListItem
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_textColorSearchUrl
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_toolbarNavigationButtonStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_toolbarStyle
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowActionBar
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowActionBarOverlay
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowActionModeOverlay
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowFixedHeightMajor
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowFixedHeightMinor
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowFixedWidthMajor
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowFixedWidthMinor
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowMinWidthMajor
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowMinWidthMinor
+com.mingle.baselibrary.R$styleable: int AppCompatTheme_windowNoTitle
+com.mingle.baselibrary.R$styleable: int[] ButtonBarLayout
+com.mingle.baselibrary.R$styleable: int ButtonBarLayout_allowStacking
 com.mingle.baselibrary.R$styleable: int[] CompoundButton
 com.mingle.baselibrary.R$styleable: int CompoundButton_android_button
 com.mingle.baselibrary.R$styleable: int CompoundButton_buttonTint
@@ -37905,6 +38140,7 @@ com.mingle.baselibrary.R$styleable: int SearchView_suggestionRowLayout
 com.mingle.baselibrary.R$styleable: int SearchView_voiceIcon
 com.mingle.baselibrary.R$styleable: int[] Spinner
 com.mingle.baselibrary.R$styleable: int Spinner_android_dropDownWidth
+com.mingle.baselibrary.R$styleable: int Spinner_android_entries
 com.mingle.baselibrary.R$styleable: int Spinner_android_popupBackground
 com.mingle.baselibrary.R$styleable: int Spinner_android_prompt
 com.mingle.baselibrary.R$styleable: int Spinner_popupTheme
@@ -37920,6 +38156,10 @@ com.mingle.baselibrary.R$styleable: int SwitchCompat_switchTextAppearance
 com.mingle.baselibrary.R$styleable: int SwitchCompat_thumbTextPadding
 com.mingle.baselibrary.R$styleable: int SwitchCompat_track
 com.mingle.baselibrary.R$styleable: int[] TextAppearance
+com.mingle.baselibrary.R$styleable: int TextAppearance_android_shadowColor
+com.mingle.baselibrary.R$styleable: int TextAppearance_android_shadowDx
+com.mingle.baselibrary.R$styleable: int TextAppearance_android_shadowDy
+com.mingle.baselibrary.R$styleable: int TextAppearance_android_shadowRadius
 com.mingle.baselibrary.R$styleable: int TextAppearance_android_textColor
 com.mingle.baselibrary.R$styleable: int TextAppearance_android_textSize
 com.mingle.baselibrary.R$styleable: int TextAppearance_android_textStyle
