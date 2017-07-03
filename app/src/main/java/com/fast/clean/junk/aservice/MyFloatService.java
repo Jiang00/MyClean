@@ -100,12 +100,6 @@ public class MyFloatService extends Service {
     }
 
     private void updata() {
-        if (count == 0) {
-            count = 30;
-            int memory = Util.getMemory(this);
-            manager.upDate(memory);
-        }
-        count--;
         manager.upDate(Util.getMemory(MyFloatService.this));
         new Thread(new Runnable() {
             @Override

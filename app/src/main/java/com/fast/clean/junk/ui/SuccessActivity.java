@@ -64,7 +64,7 @@ public class SuccessActivity extends BaseActivity {
     ImageView success_jiantou;
     TextView success_clean_size;
     TextView success_clean_2;
-    DrawHookView success_drawhook;
+    //    DrawHookView success_drawhook;
     ImageView success_huojian;
     SlowScrollView scrollView;
     LinearLayout main_picture_button;
@@ -101,7 +101,7 @@ public class SuccessActivity extends BaseActivity {
         success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
         success_clean_2 = (TextView) findViewById(R.id.success_clean_2);
-        success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
+//        success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
@@ -220,17 +220,17 @@ public class SuccessActivity extends BaseActivity {
             main_notifi_button.setVisibility(View.GONE);
         }
         initAnimation();
-        success_drawhook.setListener(new DrawHookView.DrawHookListener() {
-
-            @Override
-            public void duogouSc() {
-                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-                startSecondAnimation();
-                success_drawhook.setListener(null);
-            }
-        });
+//        success_drawhook.setListener(new DrawHookView.DrawHookListener() {
+//
+//            @Override
+//            public void duogouSc() {
+//                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+//                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+//                }
+//                startSecondAnimation();
+//                success_drawhook.setListener(null);
+//            }
+//        });
         if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
@@ -395,107 +395,37 @@ public class SuccessActivity extends BaseActivity {
 //        rotate_set = AnimationUtils.loadAnimation(this, R.anim.set_success);
 //        success_progress.startAnimation(rotate_set);
         final AnimatorSet set = new AnimatorSet();
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(success_progress, "scaleX", 1f, 1.3f, 1f);
-        scaleX.setDuration(2400);
-        scaleX.setRepeatCount(0);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(success_progress, "scaleY", 1f, 1.3f, 1f);
-        scaleY.setDuration(2400);
-        scaleY.setRepeatCount(0);
         ObjectAnimator rotate = ObjectAnimator.ofFloat(success_progress, "rotation", 0f, 360f);
         rotate.setDuration(600);
-        rotate.setRepeatCount(3);
+        rotate.setRepeatCount(4);
         set.setInterpolator(new LinearInterpolator());
 //        rotate.start();
-        set.playTogether(scaleX, scaleY, rotate);
+        set.playTogether(rotate);
         set.start();
-        Animation animation = AnimationUtils.loadAnimation(SuccessActivity.this, R.anim.huojian_pop);
-        success_huojian.startAnimation(animation);
-        animation.setFillAfter(true);
-        success_huojian.setVisibility(View.VISIBLE);
-        animation.setAnimationListener(new android.view.animation.Animation.AnimationListener() {
+        set.addListener(new Animator.AnimatorListener() {
             @Override
-            public void onAnimationEnd(android.view.animation.Animation animation) {
-                final float hx = success_huojian.getX();
-                final float hy = success_huojian.getY();
-                isdoudong = true;
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        while (isdoudong) {
-                            if (onDestroyed) {
-                                break;
-                            }
-                            int x = (int) (Math.random() * (16)) - 8;
-                            int y = (int) (Math.random() * (16)) - 8;
-                            try {
-                                Thread.sleep(80);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            Tween.to(success_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1, 1)
-                                    .ease(TweenEquations.easeInQuad).delay(0)
-                                    .start(tweenManager);
-                        }
-                    }
-                }).start();
-                set.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        isdoudong = false;
-                        ObjectAnimator a = ObjectAnimator.ofFloat(success_huojian, View.TRANSLATION_Y, 0, -2500);
-                        a.setDuration(300);
-                        a.start();
-                        a.addListener(new Animator.AnimatorListener() {
-                            @Override
-                            public void onAnimationCancel(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                success_huojian.setVisibility(View.GONE);
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationStart(Animator animation) {
-
-                            }
-                        });
-                        success_drawhook.startProgress(500);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-                });
+            public void onAnimationCancel(Animator animation) {
             }
 
             @Override
-            public void onAnimationRepeat(android.view.animation.Animation animation) {
+            public void onAnimationEnd(Animator animation) {
+                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+                startSecondAnimation();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
 
             }
 
             @Override
-            public void onAnimationStart(android.view.animation.Animation animation) {
+            public void onAnimationStart(Animator animation) {
 
             }
         });
+
     }
 
     private void startSecondAnimation() {

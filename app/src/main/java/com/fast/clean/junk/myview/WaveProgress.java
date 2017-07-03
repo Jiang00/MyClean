@@ -407,38 +407,47 @@ public class WaveProgress extends View {
     }
 
     boolean isRun;
-    boolean isStop;
 
     public void stopProgress() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                isStop = true;
                 for (int i = mProgress; i >= 0; i--) {
                     setProgress(i);
-                    if (!isRun && !isStop) {
+                    if (!isRun) {
                         return;
                     }
                     try {
-                        Thread.sleep(50);
+                        Thread.sleep(25);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                }
+                if (stopListener != null) {
+                    stopListener.stopO();
                 }
             }
         }).start();
     }
 
+    StopListener stopListener;
+
+    public void setStopListener(StopListener stopListener) {
+        this.stopListener = stopListener;
+    }
+
+    public interface StopListener {
+        void stopO();
+    }
+
     public void startProgress(final int progress) {
-        isStop = false;
-        final int progressing = mProgress;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = progressing; i <= progress; i++) {
+                for (int i = 0; i <= progress; i++) {
                     setProgress(i);
                     if (!isRun) {
-                        return;
+                        break;
                     }
                     try {
                         Thread.sleep(20);

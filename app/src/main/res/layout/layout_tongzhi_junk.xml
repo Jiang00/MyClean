@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/shape_radio_ffffff"
+    android:background="@color/black_70"
     android:orientation="horizontal">
 
     <FrameLayout
@@ -16,7 +16,7 @@
             android:layout_height="@dimen/d40"
             android:layout_gravity="center"
             android:scaleType="center"
-            android:src="@mipmap/junk_card" />
+            android:src="@mipmap/notifi_junk" />
     </FrameLayout>
 
     <LinearLayout
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/notifi_junk"
-                android:textColor="@color/A8"
+                android:textColor="@color/white_100"
                 android:textSize="@dimen/s15" />
 
             <TextView
@@ -55,20 +55,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/d5"
             android:text="@string/notifi_junk_msg"
-            android:textColor="@color/A9"
-            android:textSize="@dimen/s12" />
+            android:textColor="@color/A7"
+            android:textSize="@dimen/s13" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/tv_jiasu"
-        android:layout_width="65dp"
-        android:layout_height="26dp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/d26"
         android:layout_gravity="center_vertical"
         android:layout_marginRight="16dp"
-        android:background="@drawable/shape__a4_r"
+        android:background="@drawable/shape__a4_round"
         android:gravity="center"
+        android:paddingLeft="@dimen/d10"
+        android:paddingRight="@dimen/d10"
         android:text="@string/notification_button"
-        android:textColor="@color/A7"
+        android:textColor="@color/white_100"
         android:textSize="@dimen/s12" />
 
 </LinearLayout>

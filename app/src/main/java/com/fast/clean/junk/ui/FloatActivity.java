@@ -171,12 +171,17 @@ public class FloatActivity extends BaseActivity {
     };
 
     private void startCleanAnimation() {
+        water_memory.setStopListener(new WaveProgress.StopListener() {
+            @Override
+            public void stopO() {
+                water_memory.startProgress(Util.getMemory(FloatActivity.this));
+            }
+        });
         water_memory.stopProgress();
         new Thread(new Runnable() {
             @Override
             public void run() {
-                int me = killAll(FloatActivity.this);
-                water_memory.startProgress(me);
+                killAll(FloatActivity.this);
             }
         }).start();
         CleanManager.getInstance(this).clearRam();

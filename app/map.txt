@@ -29636,10 +29636,10 @@ com.fast.clean.junk.aservice.MyFloatService -> com.fast.clean.junk.aservice.MyFl
     49:49:android.os.IBinder onBind(android.content.Intent) -> onBind
     58:73:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     86:99:java.util.List getLaunchers() -> a
-    103:134:void updata() -> b
-    139:143:void onCreate() -> onCreate
-    146:178:void createFullScreenCheckView() -> c
-    183:190:void onDestroy() -> onDestroy
+    103:128:void updata() -> b
+    133:137:void onCreate() -> onCreate
+    140:172:void createFullScreenCheckView() -> c
+    177:184:void onDestroy() -> onDestroy
     39:39:void access$000(com.fast.clean.junk.aservice.MyFloatService) -> a
     39:39:com.fast.clean.junk.presenter.GetTopApp access$100(com.fast.clean.junk.aservice.MyFloatService) -> b
     39:39:android.widget.LinearLayout access$200(com.fast.clean.junk.aservice.MyFloatService) -> c
@@ -29649,12 +29649,12 @@ com.fast.clean.junk.aservice.MyFloatService$1 -> com.fast.clean.junk.aservice.My
     79:81:void run() -> run
 com.fast.clean.junk.aservice.MyFloatService$2 -> com.fast.clean.junk.aservice.MyFloatService$2:
     com.fast.clean.junk.aservice.MyFloatService this$0 -> a
-    110:110:void <init>(com.fast.clean.junk.aservice.MyFloatService) -> <init>
-    113:131:void run() -> run
+    104:104:void <init>(com.fast.clean.junk.aservice.MyFloatService) -> <init>
+    107:125:void run() -> run
 com.fast.clean.junk.aservice.MyFloatService$3 -> com.fast.clean.junk.aservice.MyFloatService$3:
     com.fast.clean.junk.aservice.MyFloatService this$0 -> a
-    154:154:void <init>(com.fast.clean.junk.aservice.MyFloatService) -> <init>
-    160:171:void onGlobalLayout() -> onGlobalLayout
+    148:148:void <init>(com.fast.clean.junk.aservice.MyFloatService) -> <init>
+    154:165:void onGlobalLayout() -> onGlobalLayout
 com.fast.clean.junk.aservice.NotificationService -> com.fast.clean.junk.aservice.NotificationService:
     android.os.Handler myHandler -> a
     com.fast.clean.junk.util.PhoneManager phoneManager -> c
@@ -29669,40 +29669,39 @@ com.fast.clean.junk.aservice.NotificationService -> com.fast.clean.junk.aservice
     android.app.Notification notification_1 -> l
     android.app.Notification notification_notifi -> m
     com.fast.clean.junk.ui.MyApplication cleanApplication -> n
-    android.content.Intent notifyIntentMain -> o
-    android.content.Intent notifyIntentRam -> p
-    android.content.Intent notifyIntentCooling -> q
-    android.content.Intent notifyIntentJunkRam -> r
-    android.content.Intent notifyIntentNotifi -> s
-    android.content.Intent notifyIntentGBoost -> t
-    android.graphics.Bitmap bitmap_progress -> u
-    android.graphics.Paint paint_1 -> v
-    int pointX -> w
-    android.graphics.RectF oval -> x
-    int cpuTemp -> y
-    int num -> z
-    long lastTotalRxBytes -> A
-    long lastTimeStamp -> B
+    android.content.Intent notifyIntentRam -> o
+    android.content.Intent notifyIntentCooling -> p
+    android.content.Intent notifyIntentJunkRam -> q
+    android.content.Intent notifyIntentNotifi -> r
+    android.content.Intent notifyIntentGBoost -> s
+    android.graphics.Bitmap bitmap_progress -> t
+    android.graphics.Paint paint_1 -> u
+    int pointX -> v
+    android.graphics.RectF oval -> w
+    int cpuTemp -> x
+    int num -> y
+    long lastTotalRxBytes -> z
+    long lastTimeStamp -> A
     com.fast.clean.notification.NotificationCallBack notificationCallBack -> b
-    java.lang.Runnable runnableW -> C
-    51:232:void <init>() -> <init>
+    java.lang.Runnable runnableW -> B
+    51:226:void <init>() -> <init>
     75:75:android.os.IBinder onBind(android.content.Intent) -> onBind
     80:99:void onCreate() -> onCreate
     127:132:android.graphics.Canvas getCanvas() -> a
-    136:159:void initIntent() -> b
-    164:171:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    176:178:void onstart() -> c
-    187:230:void changZhuTongzhi() -> d
-    265:399:void update() -> e
-    403:419:void tonghzi_two_day() -> f
-    424:427:long getTotalRxBytes() -> g
-    433:448:void tonghzi_Ram() -> h
-    452:467:void tonghzi_cooling() -> i
-    471:487:void tonghzi_junk() -> j
-    492:508:void tonghzi_gboost() -> k
-    512:520:android.graphics.Bitmap screenShot(android.view.View,int) -> a
-    525:544:void tonghzi_notifi() -> l
-    550:556:void onDestroy() -> onDestroy
+    136:156:void initIntent() -> b
+    161:168:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    173:175:void onstart() -> c
+    184:224:void changZhuTongzhi() -> d
+    259:393:void update() -> e
+    397:413:void tonghzi_two_day() -> f
+    418:421:long getTotalRxBytes() -> g
+    427:442:void tonghzi_Ram() -> h
+    446:461:void tonghzi_cooling() -> i
+    465:481:void tonghzi_junk() -> j
+    486:502:void tonghzi_gboost() -> k
+    506:514:android.graphics.Bitmap screenShot(android.view.View,int) -> a
+    519:538:void tonghzi_notifi() -> l
+    544:550:void onDestroy() -> onDestroy
     51:51:void access$000(com.fast.clean.junk.aservice.NotificationService) -> a
     51:51:android.widget.RemoteViews access$100(com.fast.clean.junk.aservice.NotificationService) -> b
     51:51:android.app.Notification access$200(com.fast.clean.junk.aservice.NotificationService) -> c
@@ -29730,13 +29729,13 @@ com.fast.clean.junk.aservice.NotificationService$1 -> com.fast.clean.junk.aservi
     104:122:void notificationChanged(java.util.ArrayList) -> a
 com.fast.clean.junk.aservice.NotificationService$2 -> com.fast.clean.junk.aservice.NotificationService$2:
     com.fast.clean.junk.aservice.NotificationService this$0 -> a
-    232:232:void <init>(com.fast.clean.junk.aservice.NotificationService) -> <init>
-    234:259:void run() -> run
+    226:226:void <init>(com.fast.clean.junk.aservice.NotificationService) -> <init>
+    228:253:void run() -> run
 com.fast.clean.junk.aservice.NotificationService$3 -> com.fast.clean.junk.aservice.NotificationService$3:
     int val$memory -> a
     com.fast.clean.junk.aservice.NotificationService this$0 -> b
-    267:267:void <init>(com.fast.clean.junk.aservice.NotificationService,int) -> <init>
-    270:289:void callbackResult(com.fast.clean.junk.util.RCpuTempReader$ResultCpuTemperature) -> a
+    261:261:void <init>(com.fast.clean.junk.aservice.NotificationService,int) -> <init>
+    264:283:void callbackResult(com.fast.clean.junk.util.RCpuTempReader$ResultCpuTemperature) -> a
 com.fast.clean.junk.broadcast.UnloadBroadcast -> com.fast.clean.junk.broadcast.UnloadBroadcast:
     20:20:void <init>() -> <init>
     31:52:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -29821,22 +29820,13 @@ com.fast.clean.junk.myview.DrawHookView -> com.fast.clean.junk.myview.DrawHookVi
     int move_distance -> i
     com.fast.clean.junk.myview.DrawHookView$DrawHookListener drawHookListener -> a
     android.graphics.Paint paint -> j
-    36:38:void <init>(android.content.Context) -> <init>
     41:42:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     17:48:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     55:61:void onMeasure(int,int) -> onMeasure
     67:78:void init() -> a
     82:125:void onDraw(android.graphics.Canvas) -> onDraw
-    128:145:void startProgress(int) -> a
     152:154:void setProgress(int) -> setProgress
     157:158:void setListener(com.fast.clean.junk.myview.DrawHookView$DrawHookListener) -> setListener
-    15:15:boolean access$000(com.fast.clean.junk.myview.DrawHookView) -> a
-com.fast.clean.junk.myview.DrawHookView$1 -> com.fast.clean.junk.myview.DrawHookView$1:
-    int val$st -> a
-    int val$progress -> b
-    com.fast.clean.junk.myview.DrawHookView this$0 -> c
-    129:129:void <init>(com.fast.clean.junk.myview.DrawHookView,int,int) -> <init>
-    132:142:void run() -> run
 com.fast.clean.junk.myview.DrawHookView$DrawHookListener -> com.fast.clean.junk.myview.DrawHookView$a:
     void duogouSc() -> a
 com.fast.clean.junk.myview.DrawLineMain -> com.fast.clean.junk.myview.DrawLineMain:
@@ -29924,17 +29914,17 @@ com.fast.clean.junk.myview.FloatStateView -> com.fast.clean.junk.myview.FloatSta
     122:159:void createShader() -> e
     169:172:void onMeasure(int,int) -> onMeasure
     178:196:void initPaints() -> f
-    199:204:void setWaveShiftRatio(float) -> setWaveShiftRatio
-    213:251:void onDraw(android.graphics.Canvas) -> onDraw
-    256:257:void setBackgroundColor(int) -> setBackgroundColor
-    260:262:void setDragState(int) -> setDragState
-    265:277:void upDate(int) -> a
-    280:284:void setWaterLevelRatio(float) -> setWaterLevelRatio
-    287:292:void start() -> a
-    295:301:void cancel() -> b
-    305:308:void onAttachedToWindow() -> onAttachedToWindow
-    312:314:void onDetachedFromWindow() -> onDetachedFromWindow
-    318:324:void init() -> g
+    199:203:void setWaveShiftRatio(float) -> setWaveShiftRatio
+    212:250:void onDraw(android.graphics.Canvas) -> onDraw
+    255:256:void setBackgroundColor(int) -> setBackgroundColor
+    259:261:void setDragState(int) -> setDragState
+    264:276:void upDate(int) -> a
+    279:283:void setWaterLevelRatio(float) -> setWaterLevelRatio
+    286:289:void start() -> a
+    292:296:void cancel() -> b
+    300:303:void onAttachedToWindow() -> onAttachedToWindow
+    307:309:void onDetachedFromWindow() -> onDetachedFromWindow
+    313:319:void init() -> g
 com.fast.clean.junk.myview.ImageAccessor -> com.fast.clean.junk.myview.b:
     boolean $assertionsDisabled -> a
     8:8:void <init>() -> <init>
@@ -30318,7 +30308,7 @@ com.fast.clean.junk.myview.WaveProgress -> com.fast.clean.junk.myview.WaveProgre
     android.graphics.Paint textPaint -> B
     android.graphics.Bitmap bitmap -> C
     boolean isRun -> c
-    boolean isStop -> d
+    com.fast.clean.junk.myview.WaveProgress$StopListener stopListener -> d
     94:391:void <init>(android.content.Context) -> <init>
     94:391:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     94:391:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
@@ -30341,25 +30331,25 @@ com.fast.clean.junk.myview.WaveProgress -> com.fast.clean.junk.myview.WaveProgre
     396:397:void setWaveSpeed(int) -> setWaveSpeed
     400:401:void setProgressMax(int) -> setProgressMax
     404:407:void setProgress(int) -> setProgress
-    413:430:void stopProgress() -> a
-    433:451:void startProgress(int) -> a
-    455:455:int getProgress() -> getProgress
-    459:462:void start() -> b
-    465:469:void cancel() -> c
-    473:477:void onAttachedToWindow() -> onAttachedToWindow
-    481:484:void onDetachedFromWindow() -> onDetachedFromWindow
+    412:431:void stopProgress() -> a
+    436:437:void setStopListener(com.fast.clean.junk.myview.WaveProgress$StopListener) -> setStopListener
+    444:460:void startProgress(int) -> a
+    464:464:int getProgress() -> getProgress
+    468:471:void start() -> b
+    474:478:void cancel() -> c
+    482:486:void onAttachedToWindow() -> onAttachedToWindow
+    490:493:void onDetachedFromWindow() -> onDetachedFromWindow
     44:44:int access$000(com.fast.clean.junk.myview.WaveProgress) -> a
     68:68:void <clinit>() -> <clinit>
 com.fast.clean.junk.myview.WaveProgress$1 -> com.fast.clean.junk.myview.WaveProgress$1:
     com.fast.clean.junk.myview.WaveProgress this$0 -> a
-    413:413:void <init>(com.fast.clean.junk.myview.WaveProgress) -> <init>
-    416:428:void run() -> run
+    412:412:void <init>(com.fast.clean.junk.myview.WaveProgress) -> <init>
+    415:429:void run() -> run
 com.fast.clean.junk.myview.WaveProgress$2 -> com.fast.clean.junk.myview.WaveProgress$2:
-    int val$progressing -> a
-    int val$progress -> b
-    com.fast.clean.junk.myview.WaveProgress this$0 -> c
-    435:435:void <init>(com.fast.clean.junk.myview.WaveProgress,int,int) -> <init>
-    438:449:void run() -> run
+    int val$progress -> a
+    com.fast.clean.junk.myview.WaveProgress this$0 -> b
+    444:444:void <init>(com.fast.clean.junk.myview.WaveProgress,int) -> <init>
+    447:458:void run() -> run
 com.fast.clean.junk.myview.WaveProgress$3 -> com.fast.clean.junk.myview.WaveProgress$3:
     int[] $SwitchMap$com$fast$clean$junk$myview$WaveProgress$ShapeType -> a
     330:330:void <clinit>() -> <clinit>
@@ -30371,6 +30361,8 @@ com.fast.clean.junk.myview.WaveProgress$ShapeType -> com.fast.clean.junk.myview.
     72:72:com.fast.clean.junk.myview.WaveProgress$ShapeType valueOf(java.lang.String) -> valueOf
     72:72:void <init>(java.lang.String,int) -> <init>
     72:74:void <clinit>() -> <clinit>
+com.fast.clean.junk.myview.WaveProgress$StopListener -> com.fast.clean.junk.myview.WaveProgress$a:
+    void stopO() -> a
 com.fast.clean.junk.presenter.BasePresenter -> com.fast.clean.junk.c.a:
     java.lang.Object iView -> a
     int cpuTemp -> c
@@ -31417,20 +31409,20 @@ com.fast.clean.junk.ui.FloatActivity -> com.fast.clean.junk.ui.FloatActivity:
     91:97:void addListener() -> b
     101:102:void initList() -> c
     105:123:void loadAd() -> d
-    174:183:void startCleanAnimation() -> e
-    187:202:int killAll(android.content.Context) -> a
-    206:209:long getAvailMemory(android.app.ActivityManager) -> a
-    213:218:void wifi() -> f
-    221:226:void wifiD() -> g
-    229:234:void liuLiang() -> h
-    237:242:void liuLiangd() -> i
-    245:259:void xianshiD() -> j
-    262:267:void shengYin() -> k
-    270:275:void gps() -> l
-    278:289:int getLight() -> m
-    300:358:void brightnessSwitchUtils(android.content.Context) -> b
-    361:369:void changeAppBrightness(android.content.Context,int) -> a
-    374:377:void onResume() -> onResume
+    174:188:void startCleanAnimation() -> e
+    192:207:int killAll(android.content.Context) -> a
+    211:214:long getAvailMemory(android.app.ActivityManager) -> a
+    218:223:void wifi() -> f
+    226:231:void wifiD() -> g
+    234:239:void liuLiang() -> h
+    242:247:void liuLiangd() -> i
+    250:264:void xianshiD() -> j
+    267:272:void shengYin() -> k
+    275:280:void gps() -> l
+    283:294:int getLight() -> m
+    305:363:void brightnessSwitchUtils(android.content.Context) -> b
+    366:374:void changeAppBrightness(android.content.Context,int) -> a
+    379:382:void onResume() -> onResume
     42:42:void access$000(com.fast.clean.junk.ui.FloatActivity) -> a
     42:42:void access$100(com.fast.clean.junk.ui.FloatActivity) -> b
     42:42:void access$200(com.fast.clean.junk.ui.FloatActivity) -> c
@@ -31445,8 +31437,12 @@ com.fast.clean.junk.ui.FloatActivity$2 -> com.fast.clean.junk.ui.FloatActivity$2
     129:170:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.FloatActivity$3 -> com.fast.clean.junk.ui.FloatActivity$3:
     com.fast.clean.junk.ui.FloatActivity this$0 -> a
-    175:175:void <init>(com.fast.clean.junk.ui.FloatActivity) -> <init>
-    178:180:void run() -> run
+    174:174:void <init>(com.fast.clean.junk.ui.FloatActivity) -> <init>
+    177:178:void stopO() -> a
+com.fast.clean.junk.ui.FloatActivity$4 -> com.fast.clean.junk.ui.FloatActivity$4:
+    com.fast.clean.junk.ui.FloatActivity this$0 -> a
+    181:181:void <init>(com.fast.clean.junk.ui.FloatActivity) -> <init>
+    184:185:void run() -> run
 com.fast.clean.junk.ui.LoadingActivity -> com.fast.clean.junk.ui.LoadingActivity:
     android.os.Handler myHandler -> a
     java.lang.Runnable runnable1 -> b
@@ -32362,117 +32358,89 @@ com.fast.clean.junk.ui.SuccessActivity -> com.fast.clean.junk.ui.SuccessActivity
     android.widget.ImageView success_jiantou -> k
     android.widget.TextView success_clean_size -> o
     android.widget.TextView success_clean_2 -> p
-    com.fast.clean.junk.myview.DrawHookView success_drawhook -> q
-    android.widget.ImageView success_huojian -> r
-    com.fast.clean.junk.myview.SlowScrollView scrollView -> s
-    android.widget.LinearLayout main_picture_button -> t
-    android.widget.TextView main_rotate_bad -> u
-    android.widget.ImageView success_progress -> v
-    android.widget.LinearLayout ad_title -> w
-    android.widget.LinearLayout ll_ad_xiao -> x
-    android.widget.ImageView power_icon -> y
-    android.widget.TextView power_text -> z
-    android.widget.TextView main_rotate_good -> A
-    android.widget.LinearLayout ad_native_2 -> B
-    android.view.View nativeView -> D
-    android.view.View native_xiao -> E
-    boolean isdoudong -> F
-    com.twee.module.tweenengine.TweenManager tweenManager -> G
-    boolean istween -> H
-    android.os.Handler myHandler -> I
-    java.lang.String TAG_CLEAN -> J
-    java.lang.String TAG_CLEAN_2 -> K
-    boolean haveAd -> L
-    boolean animationEnd -> M
-    com.fast.clean.junk.ui.MyApplication cleanApplication -> N
-    android.view.View$OnClickListener onClickListener -> C
-    53:534:void <init>() -> <init>
+    android.widget.ImageView success_huojian -> q
+    com.fast.clean.junk.myview.SlowScrollView scrollView -> r
+    android.widget.LinearLayout main_picture_button -> s
+    android.widget.TextView main_rotate_bad -> t
+    android.widget.ImageView success_progress -> u
+    android.widget.LinearLayout ad_title -> v
+    android.widget.LinearLayout ll_ad_xiao -> w
+    android.widget.ImageView power_icon -> x
+    android.widget.TextView power_text -> y
+    android.widget.TextView main_rotate_good -> z
+    android.widget.LinearLayout ad_native_2 -> A
+    android.view.View nativeView -> C
+    android.view.View native_xiao -> D
+    com.twee.module.tweenengine.TweenManager tweenManager -> E
+    boolean istween -> F
+    android.os.Handler myHandler -> G
+    java.lang.String TAG_CLEAN -> H
+    java.lang.String TAG_CLEAN_2 -> I
+    boolean haveAd -> J
+    boolean animationEnd -> K
+    com.fast.clean.junk.ui.MyApplication cleanApplication -> L
+    android.view.View$OnClickListener onClickListener -> B
+    53:464:void <init>() -> <init>
     98:125:void findId() -> a
     129:256:void onCreate(android.os.Bundle) -> onCreate
     259:276:void shendu() -> c
     280:286:void initAnimation() -> d
     289:302:void addListener() -> e
     305:324:void addAd() -> f
-    397:499:void startFirstAnimation() -> b
-    502:532:void startSecondAnimation() -> g
-    626:637:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    641:643:void onResume() -> onResume
-    647:648:void onPause() -> onPause
-    652:654:void onStop() -> onStop
-    658:660:void onBackPressed() -> onBackPressed
-    663:691:void setAnimationThread() -> h
+    397:429:void startFirstAnimation() -> b
+    432:462:void startSecondAnimation() -> g
+    556:567:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    571:573:void onResume() -> onResume
+    577:578:void onPause() -> onPause
+    582:584:void onStop() -> onStop
+    588:590:void onBackPressed() -> onBackPressed
+    593:621:void setAnimationThread() -> h
     53:53:void access$000(com.fast.clean.junk.ui.SuccessActivity) -> a
     53:53:void access$100(com.fast.clean.junk.ui.SuccessActivity) -> b
     53:53:boolean access$202(com.fast.clean.junk.ui.SuccessActivity,boolean) -> a
-    53:53:boolean access$200(com.fast.clean.junk.ui.SuccessActivity) -> c
-    53:53:com.twee.module.tweenengine.TweenManager access$300(com.fast.clean.junk.ui.SuccessActivity) -> d
-    53:53:boolean access$402(com.fast.clean.junk.ui.SuccessActivity,boolean) -> b
+    53:53:boolean access$300(com.fast.clean.junk.ui.SuccessActivity) -> c
+    53:53:android.os.Handler access$400(com.fast.clean.junk.ui.SuccessActivity) -> d
     53:53:boolean access$500(com.fast.clean.junk.ui.SuccessActivity) -> e
-    53:53:android.os.Handler access$600(com.fast.clean.junk.ui.SuccessActivity) -> f
-    53:53:boolean access$700(com.fast.clean.junk.ui.SuccessActivity) -> g
+    53:53:com.twee.module.tweenengine.TweenManager access$600(com.fast.clean.junk.ui.SuccessActivity) -> f
 com.fast.clean.junk.ui.SuccessActivity$1 -> com.fast.clean.junk.ui.SuccessActivity$1:
-    com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    223:223:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    227:232:void duogouSc() -> a
-com.fast.clean.junk.ui.SuccessActivity$2 -> com.fast.clean.junk.ui.SuccessActivity$2:
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
     249:249:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
     251:252:void run() -> run
-com.fast.clean.junk.ui.SuccessActivity$3 -> com.fast.clean.junk.ui.SuccessActivity$3:
+com.fast.clean.junk.ui.SuccessActivity$2 -> com.fast.clean.junk.ui.SuccessActivity$2:
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
     280:280:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
     283:284:void run() -> run
+com.fast.clean.junk.ui.SuccessActivity$3 -> com.fast.clean.junk.ui.SuccessActivity$3:
+    com.fast.clean.junk.ui.SuccessActivity this$0 -> a
+    405:405:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    408:408:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    412:416:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    421:421:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    426:426:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.fast.clean.junk.ui.SuccessActivity$4 -> com.fast.clean.junk.ui.SuccessActivity$4:
-    android.animation.AnimatorSet val$set -> a
-    com.fast.clean.junk.ui.SuccessActivity this$0 -> b
-    415:415:void <init>(com.fast.clean.junk.ui.SuccessActivity,android.animation.AnimatorSet) -> <init>
-    418:487:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    492:492:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    497:497:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    com.fast.clean.junk.ui.SuccessActivity this$0 -> a
+    435:435:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    438:450:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    455:455:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    460:460:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.fast.clean.junk.ui.SuccessActivity$4$1 -> com.fast.clean.junk.ui.SuccessActivity$4$1:
-    float val$hx -> a
-    float val$hy -> b
-    com.fast.clean.junk.ui.SuccessActivity$4 this$1 -> c
-    421:421:void <init>(com.fast.clean.junk.ui.SuccessActivity$4,float,float) -> <init>
-    424:439:void run() -> run
-com.fast.clean.junk.ui.SuccessActivity$4$2 -> com.fast.clean.junk.ui.SuccessActivity$4$2:
     com.fast.clean.junk.ui.SuccessActivity$4 this$1 -> a
-    441:441:void <init>(com.fast.clean.junk.ui.SuccessActivity$4) -> <init>
-    445:445:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    449:475:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    480:480:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    485:485:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-com.fast.clean.junk.ui.SuccessActivity$4$2$1 -> com.fast.clean.junk.ui.SuccessActivity$4$2$1:
-    com.fast.clean.junk.ui.SuccessActivity$4$2 this$2 -> a
-    453:453:void <init>(com.fast.clean.junk.ui.SuccessActivity$4$2) -> <init>
-    457:457:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    461:462:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    467:467:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    472:472:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    438:438:void <init>(com.fast.clean.junk.ui.SuccessActivity$4) -> <init>
+    441:447:void run() -> run
 com.fast.clean.junk.ui.SuccessActivity$5 -> com.fast.clean.junk.ui.SuccessActivity$5:
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    505:505:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    508:520:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    525:525:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    530:530:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.fast.clean.junk.ui.SuccessActivity$5$1 -> com.fast.clean.junk.ui.SuccessActivity$5$1:
-    com.fast.clean.junk.ui.SuccessActivity$5 this$1 -> a
-    508:508:void <init>(com.fast.clean.junk.ui.SuccessActivity$5) -> <init>
-    511:517:void run() -> run
+    464:464:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    467:551:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.SuccessActivity$6 -> com.fast.clean.junk.ui.SuccessActivity$6:
-    com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    534:534:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    537:621:void onClick(android.view.View) -> onClick
-com.fast.clean.junk.ui.SuccessActivity$7 -> com.fast.clean.junk.ui.SuccessActivity$7:
     long lastMillis -> b
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    663:664:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    667:689:void run() -> run
-com.fast.clean.junk.ui.SuccessActivity$7$1 -> com.fast.clean.junk.ui.SuccessActivity$7$1:
+    593:594:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    597:619:void run() -> run
+com.fast.clean.junk.ui.SuccessActivity$6$1 -> com.fast.clean.junk.ui.SuccessActivity$6$1:
     float val$delta -> a
-    com.fast.clean.junk.ui.SuccessActivity$7 this$1 -> b
-    672:672:void <init>(com.fast.clean.junk.ui.SuccessActivity$7,float) -> <init>
-    675:677:void run() -> run
+    com.fast.clean.junk.ui.SuccessActivity$6 this$1 -> b
+    602:602:void <init>(com.fast.clean.junk.ui.SuccessActivity$6,float) -> <init>
+    605:607:void run() -> run
 com.fast.clean.junk.ui.UnloadActivity -> com.fast.clean.junk.ui.UnloadActivity:
     android.widget.TextView tv_size -> a
     android.widget.Button bt_quxiao -> b
@@ -40902,74 +40870,53 @@ com.twee.module.tweenengine.BaseTween -> com.twee.module.tweenengine.a:
     boolean $assertionsDisabled -> e
     17:17:void <init>() -> <init>
     48:60:void reset() -> a
-    74:74:java.lang.Object build() -> b
-    85:88:java.lang.Object start() -> c
-    98:99:java.lang.Object start(com.twee.module.tweenengine.TweenManager) -> a
-    109:110:java.lang.Object delay(float) -> a
-    127:127:void free() -> d
-    254:254:int getRepeatCount() -> e
-    272:273:float getFullDuration() -> f
-    300:300:float getCurrentTime() -> g
-    325:325:boolean isFinished() -> h
-    void forceStartValues() -> i
-    void forceEndValues() -> j
-    358:358:void initializeOverride() -> k
+    127:127:void free() -> b
+    272:273:float getFullDuration() -> c
+    300:300:float getCurrentTime() -> d
+    325:325:boolean isFinished() -> e
+    void forceStartValues() -> f
+    void forceEndValues() -> g
+    358:358:void initializeOverride() -> h
     361:361:void updateOverride(int,int,boolean,float) -> a
-    364:369:void forceToStart() -> l
-    372:377:void forceToEnd(float) -> b
+    364:369:void forceToStart() -> i
+    372:377:void forceToEnd(float) -> a
     380:381:void callCallback(int) -> a
     384:384:boolean isReverse(int) -> b
     388:388:boolean isValid(int) -> c
-    414:430:void update(float) -> c
-    433:443:void initialize() -> m
-    446:468:void testRelaunch() -> n
-    471:538:void updateStep() -> o
-    541:542:void testCompletion() -> p
+    414:430:void update(float) -> b
+    433:443:void initialize() -> j
+    446:468:void testRelaunch() -> k
+    471:538:void updateStep() -> l
+    541:542:void testCompletion() -> m
     17:17:void <clinit>() -> <clinit>
 com.twee.module.tweenengine.Pool -> com.twee.module.tweenengine.b:
     java.util.ArrayList objects -> a
     com.twee.module.tweenengine.Pool$Callback callback -> b
-    java.lang.Object create() -> a
     15:18:void <init>(int,com.twee.module.tweenengine.Pool$Callback) -> <init>
-    21:27:java.lang.Object get() -> b
     31:37:void free(java.lang.Object) -> a
 com.twee.module.tweenengine.Pool$Callback -> com.twee.module.tweenengine.b$a:
     void onPool(java.lang.Object) -> a
-    void onUnPool(java.lang.Object) -> b
 com.twee.module.tweenengine.Timeline -> com.twee.module.tweenengine.Timeline:
     com.twee.module.tweenengine.Pool$Callback poolCallback -> h
     com.twee.module.tweenengine.Pool pool -> f
     java.util.List children -> i
     com.twee.module.tweenengine.Timeline current -> j
     com.twee.module.tweenengine.Timeline parent -> k
-    com.twee.module.tweenengine.Timeline$Modes mode -> l
-    boolean isBuilt -> m
+    boolean isBuilt -> l
     boolean $assertionsDisabled -> g
     105:117:void <init>() -> <init>
     121:127:void reset() -> a
-    234:258:com.twee.module.tweenengine.Timeline build() -> m
-    263:270:com.twee.module.tweenengine.Timeline start() -> n
-    275:281:void free() -> d
+    275:281:void free() -> b
     285:324:void updateOverride(int,int,boolean,float) -> a
-    332:336:void forceStartValues() -> i
-    340:344:void forceEndValues() -> j
-    46:46:java.lang.Object start() -> c
-    46:46:java.lang.Object build() -> b
-    46:46:void <init>(com.twee.module.tweenengine.Timeline$1) -> <init>
+    332:336:void forceStartValues() -> f
+    340:344:void forceEndValues() -> g
     46:56:void <clinit>() -> <clinit>
 com.twee.module.tweenengine.Timeline$1 -> com.twee.module.tweenengine.Timeline$1:
     51:51:void <init>() -> <init>
     52:52:void onPool(com.twee.module.tweenengine.Timeline) -> a
-    53:53:void onUnPool(com.twee.module.tweenengine.Timeline) -> b
-    51:51:void onUnPool(java.lang.Object) -> b
     51:51:void onPool(java.lang.Object) -> a
 com.twee.module.tweenengine.Timeline$2 -> com.twee.module.tweenengine.Timeline$2:
     56:56:void <init>(int,com.twee.module.tweenengine.Pool$Callback) -> <init>
-    57:57:com.twee.module.tweenengine.Timeline create() -> c
-    56:56:java.lang.Object create() -> a
-com.twee.module.tweenengine.Timeline$3 -> com.twee.module.tweenengine.Timeline$3:
-    int[] $SwitchMap$com$twee$module$tweenengine$Timeline$Modes -> a
-    244:244:void <clinit>() -> <clinit>
 com.twee.module.tweenengine.Timeline$Modes -> com.twee.module.tweenengine.Timeline$Modes:
     com.twee.module.tweenengine.Timeline$Modes SEQUENCE -> SEQUENCE
     com.twee.module.tweenengine.Timeline$Modes PARALLEL -> PARALLEL
@@ -41001,284 +40948,31 @@ com.twee.module.tweenengine.Tween -> com.twee.module.tweenengine.c:
     float[] pathBuffer -> z
     boolean $assertionsDisabled -> f
     161:162:void registerAccessor(java.lang.Class,com.twee.module.tweenengine.TweenAccessor) -> a
-    209:213:com.twee.module.tweenengine.Tween to(java.lang.Object,int,float) -> a
     355:369:void <init>() -> <init>
     373:392:void reset() -> a
-    395:401:void setup(java.lang.Object,int,float) -> b
-    404:411:java.lang.Class findTargetClass() -> n
-    443:444:com.twee.module.tweenengine.Tween ease(com.twee.module.tweenengine.TweenEquation) -> a
-    537:541:com.twee.module.tweenengine.Tween target(float,float,float,float) -> a
-    764:765:com.twee.module.tweenengine.Tween path(com.twee.module.tweenengine.TweenPath) -> a
-    830:838:com.twee.module.tweenengine.Tween build() -> m
-    843:844:void free() -> d
-    848:865:void initializeOverride() -> k
+    843:844:void free() -> b
+    848:865:void initializeOverride() -> h
     869:924:void updateOverride(int,int,boolean,float) -> a
-    932:934:void forceStartValues() -> i
-    938:940:void forceEndValues() -> j
-    957:961:void throwCombinedAttrsLimitReached() -> o
-    80:80:java.lang.Object build() -> b
-    80:80:void <init>(com.twee.module.tweenengine.Tween$1) -> <init>
+    932:934:void forceStartValues() -> f
+    938:940:void forceEndValues() -> g
     80:149:void <clinit>() -> <clinit>
 com.twee.module.tweenengine.Tween$1 -> com.twee.module.tweenengine.c$1:
     121:121:void <init>() -> <init>
     122:122:void onPool(com.twee.module.tweenengine.Tween) -> a
-    123:123:void onUnPool(com.twee.module.tweenengine.Tween) -> b
-    121:121:void onUnPool(java.lang.Object) -> b
     121:121:void onPool(java.lang.Object) -> a
 com.twee.module.tweenengine.Tween$2 -> com.twee.module.tweenengine.c$2:
     126:126:void <init>(int,com.twee.module.tweenengine.Pool$Callback) -> <init>
-    127:127:com.twee.module.tweenengine.Tween create() -> c
-    126:126:java.lang.Object create() -> a
 com.twee.module.tweenengine.TweenAccessor -> com.twee.module.tweenengine.d:
     int getValues(java.lang.Object,int,float[]) -> b
     void setValues(java.lang.Object,int,float[]) -> a
 com.twee.module.tweenengine.TweenCallback -> com.twee.module.tweenengine.e:
     void onEvent(int,com.twee.module.tweenengine.BaseTween) -> a
 com.twee.module.tweenengine.TweenEquation -> com.twee.module.tweenengine.f:
-    10:10:void <init>() -> <init>
     float compute(float) -> a
-com.twee.module.tweenengine.TweenEquations -> com.twee.module.tweenengine.g:
-    com.twee.module.tweenengine.equations.Linear easeNone -> a
-    com.twee.module.tweenengine.equations.Quad easeInQuad -> b
-    com.twee.module.tweenengine.equations.Quad easeOutQuad -> c
-    com.twee.module.tweenengine.equations.Quad easeInOutQuad -> d
-    com.twee.module.tweenengine.equations.Cubic easeInCubic -> e
-    com.twee.module.tweenengine.equations.Cubic easeOutCubic -> f
-    com.twee.module.tweenengine.equations.Cubic easeInOutCubic -> g
-    com.twee.module.tweenengine.equations.Quart easeInQuart -> h
-    com.twee.module.tweenengine.equations.Quart easeOutQuart -> i
-    com.twee.module.tweenengine.equations.Quart easeInOutQuart -> j
-    com.twee.module.tweenengine.equations.Quint easeInQuint -> k
-    com.twee.module.tweenengine.equations.Quint easeOutQuint -> l
-    com.twee.module.tweenengine.equations.Quint easeInOutQuint -> m
-    com.twee.module.tweenengine.equations.Circ easeInCirc -> n
-    com.twee.module.tweenengine.equations.Circ easeOutCirc -> o
-    com.twee.module.tweenengine.equations.Circ easeInOutCirc -> p
-    com.twee.module.tweenengine.equations.Sine easeInSine -> q
-    com.twee.module.tweenengine.equations.Sine easeOutSine -> r
-    com.twee.module.tweenengine.equations.Sine easeInOutSine -> s
-    com.twee.module.tweenengine.equations.Expo easeInExpo -> t
-    com.twee.module.tweenengine.equations.Expo easeOutExpo -> u
-    com.twee.module.tweenengine.equations.Expo easeInOutExpo -> v
-    com.twee.module.tweenengine.equations.Back easeInBack -> w
-    com.twee.module.tweenengine.equations.Back easeOutBack -> x
-    com.twee.module.tweenengine.equations.Back easeInOutBack -> y
-    com.twee.module.tweenengine.equations.Bounce easeInBounce -> z
-    com.twee.module.tweenengine.equations.Bounce easeOutBounce -> A
-    com.twee.module.tweenengine.equations.Bounce easeInOutBounce -> B
-    com.twee.module.tweenengine.equations.Elastic easeInElastic -> C
-    com.twee.module.tweenengine.equations.Elastic easeOutElastic -> D
-    com.twee.module.tweenengine.equations.Elastic easeInOutElastic -> E
-    21:51:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.TweenManager -> com.twee.module.tweenengine.h:
+com.twee.module.tweenengine.TweenManager -> com.twee.module.tweenengine.g:
     java.util.ArrayList objects -> a
     boolean isPaused -> b
     20:52:void <init>() -> <init>
-    60:62:com.twee.module.tweenengine.TweenManager add(com.twee.module.tweenengine.BaseTween) -> a
     156:183:void update(float) -> a
-com.twee.module.tweenengine.TweenPath -> com.twee.module.tweenengine.i:
+com.twee.module.tweenengine.TweenPath -> com.twee.module.tweenengine.h:
     float compute(float,float[],int) -> a
-com.twee.module.tweenengine.TweenPaths -> com.twee.module.tweenengine.j:
-    com.twee.module.tweenengine.paths.Linear linear -> a
-    com.twee.module.tweenengine.paths.CatmullRom catmullRom -> b
-    12:13:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Back -> com.twee.module.tweenengine.a.a:
-    com.twee.module.tweenengine.equations.Back IN -> a
-    com.twee.module.tweenengine.equations.Back OUT -> b
-    com.twee.module.tweenengine.equations.Back INOUT -> c
-    float param_s -> d
-    10:53:void <init>() -> <init>
-    11:37:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Back$1 -> com.twee.module.tweenengine.a.a$1:
-    11:11:void <init>() -> <init>
-    14:15:float compute(float) -> a
-    20:20:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Back$2 -> com.twee.module.tweenengine.a.a$2:
-    24:24:void <init>() -> <init>
-    27:28:float compute(float) -> a
-    33:33:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Back$3 -> com.twee.module.tweenengine.a.a$3:
-    37:37:void <init>() -> <init>
-    40:42:float compute(float) -> a
-    47:47:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Bounce -> com.twee.module.tweenengine.a.b:
-    com.twee.module.tweenengine.equations.Bounce IN -> a
-    com.twee.module.tweenengine.equations.Bounce OUT -> b
-    com.twee.module.tweenengine.equations.Bounce INOUT -> c
-    10:10:void <init>() -> <init>
-    11:43:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Bounce$1 -> com.twee.module.tweenengine.a.b$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Bounce$2 -> com.twee.module.tweenengine.a.b$2:
-    23:23:void <init>() -> <init>
-    26:33:float compute(float) -> a
-    39:39:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Bounce$3 -> com.twee.module.tweenengine.a.b$3:
-    43:43:void <init>() -> <init>
-    46:47:float compute(float) -> a
-    52:52:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Circ -> com.twee.module.tweenengine.a.c:
-    com.twee.module.tweenengine.equations.Circ IN -> a
-    com.twee.module.tweenengine.equations.Circ OUT -> b
-    com.twee.module.tweenengine.equations.Circ INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Circ$1 -> com.twee.module.tweenengine.a.c$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Circ$2 -> com.twee.module.tweenengine.a.c$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Circ$3 -> com.twee.module.tweenengine.a.c$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Cubic -> com.twee.module.tweenengine.a.d:
-    com.twee.module.tweenengine.equations.Cubic IN -> a
-    com.twee.module.tweenengine.equations.Cubic OUT -> b
-    com.twee.module.tweenengine.equations.Cubic INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Cubic$1 -> com.twee.module.tweenengine.a.d$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Cubic$2 -> com.twee.module.tweenengine.a.d$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Cubic$3 -> com.twee.module.tweenengine.a.d$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Elastic -> com.twee.module.tweenengine.a.e:
-    com.twee.module.tweenengine.equations.Elastic IN -> a
-    com.twee.module.tweenengine.equations.Elastic OUT -> b
-    com.twee.module.tweenengine.equations.Elastic INOUT -> c
-    float param_a -> d
-    float param_p -> e
-    boolean setA -> f
-    boolean setP -> g
-    10:73:void <init>() -> <init>
-    13:49:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Elastic$1 -> com.twee.module.tweenengine.a.e$1:
-    13:13:void <init>() -> <init>
-    16:22:float compute(float) -> a
-    27:27:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Elastic$2 -> com.twee.module.tweenengine.a.e$2:
-    31:31:void <init>() -> <init>
-    34:40:float compute(float) -> a
-    45:45:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Elastic$3 -> com.twee.module.tweenengine.a.e$3:
-    49:49:void <init>() -> <init>
-    52:59:float compute(float) -> a
-    64:64:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Expo -> com.twee.module.tweenengine.a.f:
-    com.twee.module.tweenengine.equations.Expo IN -> a
-    com.twee.module.tweenengine.equations.Expo OUT -> b
-    com.twee.module.tweenengine.equations.Expo INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Expo$1 -> com.twee.module.tweenengine.a.f$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Expo$2 -> com.twee.module.tweenengine.a.f$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Expo$3 -> com.twee.module.tweenengine.a.f$3:
-    35:35:void <init>() -> <init>
-    38:41:float compute(float) -> a
-    46:46:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Linear -> com.twee.module.tweenengine.a.g:
-    com.twee.module.tweenengine.equations.Linear INOUT -> a
-    10:10:void <init>() -> <init>
-    11:11:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Linear$1 -> com.twee.module.tweenengine.a.g$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quad -> com.twee.module.tweenengine.a.h:
-    com.twee.module.tweenengine.equations.Quad IN -> a
-    com.twee.module.tweenengine.equations.Quad OUT -> b
-    com.twee.module.tweenengine.equations.Quad INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Quad$1 -> com.twee.module.tweenengine.a.h$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quad$2 -> com.twee.module.tweenengine.a.h$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quad$3 -> com.twee.module.tweenengine.a.h$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quart -> com.twee.module.tweenengine.a.i:
-    com.twee.module.tweenengine.equations.Quart IN -> a
-    com.twee.module.tweenengine.equations.Quart OUT -> b
-    com.twee.module.tweenengine.equations.Quart INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Quart$1 -> com.twee.module.tweenengine.a.i$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quart$2 -> com.twee.module.tweenengine.a.i$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quart$3 -> com.twee.module.tweenengine.a.i$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quint -> com.twee.module.tweenengine.a.j:
-    com.twee.module.tweenengine.equations.Quint IN -> a
-    com.twee.module.tweenengine.equations.Quint OUT -> b
-    com.twee.module.tweenengine.equations.Quint INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Quint$1 -> com.twee.module.tweenengine.a.j$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quint$2 -> com.twee.module.tweenengine.a.j$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quint$3 -> com.twee.module.tweenengine.a.j$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Sine -> com.twee.module.tweenengine.a.k:
-    com.twee.module.tweenengine.equations.Sine IN -> a
-    com.twee.module.tweenengine.equations.Sine OUT -> b
-    com.twee.module.tweenengine.equations.Sine INOUT -> c
-    10:10:void <init>() -> <init>
-    13:37:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Sine$1 -> com.twee.module.tweenengine.a.k$1:
-    13:13:void <init>() -> <init>
-    16:16:float compute(float) -> a
-    21:21:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Sine$2 -> com.twee.module.tweenengine.a.k$2:
-    25:25:void <init>() -> <init>
-    28:28:float compute(float) -> a
-    33:33:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Sine$3 -> com.twee.module.tweenengine.a.k$3:
-    37:37:void <init>() -> <init>
-    40:40:float compute(float) -> a
-    45:45:java.lang.String toString() -> toString
-com.twee.module.tweenengine.paths.CatmullRom -> com.twee.module.tweenengine.b.a:
-    8:8:void <init>() -> <init>
-    11:25:float compute(float,float[],int) -> a
-    29:37:float catmullRomSpline(float,float,float,float,float) -> a
-com.twee.module.tweenengine.paths.Linear -> com.twee.module.tweenengine.b.b:
-    8:8:void <init>() -> <init>
-    11:17:float compute(float,float[],int) -> a

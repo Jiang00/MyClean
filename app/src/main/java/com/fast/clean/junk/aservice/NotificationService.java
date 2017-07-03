@@ -58,7 +58,7 @@ public class NotificationService extends Service {
     private Notification notification_notifi;
 
     private MyApplication cleanApplication;
-    private Intent notifyIntentMain, notifyIntentRam, notifyIntentCooling, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
+    private Intent notifyIntentRam, notifyIntentCooling, notifyIntentJunkRam, notifyIntentNotifi, notifyIntentGBoost;
 
     private Bitmap bitmap_progress;
     private Paint paint_1;
@@ -127,15 +127,12 @@ public class NotificationService extends Service {
         Canvas canvas = new Canvas(bitmap_progress);
         canvas.save();
         canvas.translate(0, pointX);
-        canvas.rotate(135, pointX, 0);
+        canvas.rotate(90, pointX, 0);
         canvas.drawColor(Color.BLACK, PorterDuff.Mode.CLEAR);
         return canvas;
     }
 
     private void initIntent() {
-        notifyIntentMain = new Intent(this, MainActivity.class);
-        notifyIntentMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notifyIntentRam = new Intent(this, NeicunAvtivity.class);
         notifyIntentRam.putExtra("from", "notifi");
         notifyIntentRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
@@ -190,19 +187,17 @@ public class NotificationService extends Service {
         int memory = Util.getMemory(this);
         paint_1.setColor(ContextCompat.getColor(this, R.color.A14));
         Canvas canvas = getCanvas();
-        canvas.drawArc(oval, 0, 270, false, paint_1);
+        canvas.drawArc(oval, 0, 360, false, paint_1);
         if (memory > 70) {
             paint_1.setColor(ContextCompat.getColor(this, R.color.A2));
         } else {
             paint_1.setColor(ContextCompat.getColor(this, R.color.A1));
         }
-        canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
+        canvas.drawArc(oval, 0, 360 * memory / 100, false, paint_1);
 
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
         remoteView_1.setTextViewText(R.id.norifi_memory_text, Util.getMemory(this) + "%");
         int requestCode = (int) SystemClock.uptimeMillis();
-        PendingIntent pendIntentMain = PendingIntent.getActivity(this, requestCode,
-                notifyIntentMain, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentRam = PendingIntent.getActivity(this, requestCode,
                 notifyIntentRam, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentCooling = PendingIntent.getActivity(this, requestCode,
@@ -210,7 +205,6 @@ public class NotificationService extends Service {
         PendingIntent pendIntentJunkRam = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_UPDATE_CURRENT);
         notifyIntentJunkRam.putExtra("from2", "twoday");
-        remoteView_1.setOnClickPendingIntent(R.id.notifi_icon, pendIntentMain);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_ram, pendIntentRam);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_cooling, pendIntentCooling);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_junk_ram, pendIntentJunkRam);
@@ -276,13 +270,13 @@ public class NotificationService extends Service {
                 remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
                 paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A14));
                 Canvas canvas = getCanvas();
-                canvas.drawArc(oval, 0, 270, false, paint_1);
+                canvas.drawArc(oval, 0, 360, false, paint_1);
                 if (memory > 70) {
                     paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A2));
                 } else {
-                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A1));
+                    paint_1.setColor(ContextCompat.getColor(NotificationService.this, R.color.A4));
                 }
-                canvas.drawArc(oval, 0, 270 * memory / 100, false, paint_1);
+                canvas.drawArc(oval, 0, 360 * memory / 100, false, paint_1);
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
                 remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
                 mNotifyManager.notify(102, notification_1);

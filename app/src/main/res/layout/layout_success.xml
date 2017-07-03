@@ -29,51 +29,54 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="@dimen/d208"
-                android:layout_height="@dimen/d208"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250"
-                android:src="@mipmap/success_1" />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d67">
+
+                <ImageView
+                    android:layout_width="@dimen/d208"
+                    android:layout_height="@dimen/d208"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/success_1" />
 
 
-            <ImageView
-                android:id="@+id/success_progress"
-                android:layout_width="@dimen/d208"
-                android:layout_height="@dimen/d208"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250"
-                android:src="@mipmap/success_3" />
+                <ImageView
+                    android:id="@+id/success_progress"
+                    android:layout_width="@dimen/d208"
+                    android:layout_height="@dimen/d208"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/success_3" />
 
-            <com.fast.clean.junk.myview.DrawHookView
-                android:id="@+id/success_drawhook"
-                android:layout_width="@dimen/d208"
-                android:layout_height="@dimen/d208"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250" />
+                <!--<com.fast.clean.junk.myview.DrawHookView-->
+                <!--android:id="@+id/success_drawhook"-->
+                <!--android:layout_width="@dimen/d208"-->
+                <!--android:layout_height="@dimen/d208"-->
+                <!--android:layout_gravity="center" />-->
 
-            <ImageView
-                android:id="@+id/success_huojian"
-                android:layout_width="@dimen/d208"
-                android:layout_height="@dimen/d208"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250"
-                android:src="@mipmap/success_huojian"
-                android:visibility="invisible" />
+                <ImageView
+                    android:id="@+id/success_huojian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/success_huojian"
+                    android:visibility="visible" />
+            </FrameLayout>
+
 
             <com.fast.clean.junk.myview.SlowScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A7"
+                android:background="@color/A5"
                 android:fillViewport="true"
                 android:scrollbars="none"
-                android:visibility="invisible">
+                android:visibility="visible">
                 <!--android:visibility="invisible"-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/A13"
                     android:orientation="vertical">
                     <!--tou-->
                     <FrameLayout
@@ -148,32 +151,40 @@
                         android:id="@+id/main_rotate_all"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d9"
+                        android:layout_marginBottom="@dimen/d8"
                         android:layout_marginLeft="@dimen/d8"
                         android:layout_marginRight="@dimen/d8"
                         android:background="@drawable/shape_ffffff_r"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="visible">
 
-
-                        <ImageView
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d84"
-                            android:scaleType="centerCrop"
-                            android:src="@mipmap/main_rotate_2" />
-
-                        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="@dimen/d27"
-                            android:layout_marginTop="@dimen/d20"
-                            android:text="@string/rotate_msg"
-                            android:textColor="@color/A8"
-                            android:textSize="@dimen/s16" />
+                            android:layout_marginTop="@dimen/d18"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/d61"
+                                android:src="@mipmap/main_rotate_2" />
+
+                            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d12"
+                                android:text="@string/rotate_msg"
+                                android:textColor="@color/A8"
+                                android:textSize="@dimen/s15" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d43"
+                            android:layout_marginBottom="@dimen/d8"
+                            android:layout_marginTop="@dimen/d20"
                             android:orientation="horizontal">
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
@@ -189,7 +200,7 @@
 
                             <com.fast.module.charge.saver.view.CustomerTypefaceTextView
                                 android:id="@+id/main_rotate_good"
-                                android:layout_width="@dimen/d176"
+                                android:layout_width="@dimen/d179"
                                 android:layout_height="@dimen/d36"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginLeft="@dimen/d8"

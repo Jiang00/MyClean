@@ -78,7 +78,7 @@ public class FloatStateView extends View {
         super(context, attrs, defStyleAttr);
         this.context = context;
         init();
-
+        initAnimation();
     }
 
     @Override
@@ -93,7 +93,7 @@ public class FloatStateView extends View {
         mViewPaint.setAntiAlias(true);
         mFirstColor = ContextCompat.getColor(context, R.color.fri);
         mSecondColor = ContextCompat.getColor(context, R.color.sec);
-        initAnimation();
+
     }
 
     private void initAnimation() {
@@ -198,7 +198,6 @@ public class FloatStateView extends View {
     public void setWaveShiftRatio(float waveShiftRatio) {
         if (mWaveShiftRatio != waveShiftRatio) {
             mWaveShiftRatio = waveShiftRatio;
-            Log.e("water", mWaveShiftRatio + "===1");
             invalidate();
         }
     }
@@ -284,17 +283,13 @@ public class FloatStateView extends View {
     }
 
     public void start() {
-        Log.e("water", "start");
         if (mAnimatorSet != null) {
-            Log.e("water", "start1");
             mAnimatorSet.start();
         }
     }
 
     public void cancel() {
-        Log.e("water", "cancel");
         if (mAnimatorSet != null) {
-            Log.e("water", "cancel1");
             mAnimatorSet.cancel();
             mAnimatorSet.end();
         }
