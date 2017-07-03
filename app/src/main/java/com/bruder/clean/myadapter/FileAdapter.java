@@ -17,7 +17,6 @@ import com.bruder.clean.junk.R;
 import com.bruder.clean.entity.JunkInfo;
 
 /**
- * Created by Ivy on 2017/4/21.
  */
 
 public class FileAdapter extends MybaseAdapter<JunkInfo> {

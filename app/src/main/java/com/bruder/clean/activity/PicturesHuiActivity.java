@@ -38,7 +38,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by Ivy on 2017/4/28.
  */
 
 public class PicturesHuiActivity extends BaseActivity {
@@ -440,7 +439,7 @@ public class PicturesHuiActivity extends BaseActivity {
                 last = calendar.getTimeInMillis();
             }
 
-            holder.picture_time.setText("剩余" + (Util.millTransFate(RecyclerDbHelper.RECYCLER_AUTO_DELETE_INTERVAL - (time - last)) + 1) + " " + getText(R.string.picture_11));
+            holder.picture_time.setText((Util.millTransFate(RecyclerDbHelper.RECYCLER_AUTO_DELETE_INTERVAL - (time - last)) + 1) + " " + getText(R.string.picture_11) + "(s)");
             holder.picture_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

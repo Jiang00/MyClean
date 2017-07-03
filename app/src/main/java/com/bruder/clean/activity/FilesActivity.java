@@ -18,7 +18,6 @@ import com.cleaner.filemanager.Util;
 import com.cleaner.util.DataPre;
 
 /**
- * Created by Ivy on 2017/4/20.
  */
 
 public class FilesActivity extends BaseActivity {
@@ -30,7 +29,7 @@ public class FilesActivity extends BaseActivity {
     TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num, file_picture_num, file_qita_num;
     LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button, file_picture_button, file_other_button;
     LinearLayout ll_ad;
-    private String TAG_FILE = "bruder_file";
+    private String TAG_FILE = "bruder_file";//
     private FileCategoryHelper fileHelper;
     private View nativeView;
 

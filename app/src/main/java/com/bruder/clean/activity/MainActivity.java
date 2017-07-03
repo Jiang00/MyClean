@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -162,11 +161,11 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     //判断是否是第一次登陆，并弹出对话框提示
     private void isSharedPreferences() {
         // 第一个参数是在手机里的一个文件名，第二个参数是安全性
-        SharedPreferences pref = this.getSharedPreferences("MainActivity", 0);
+        SharedPreferences pref = this.getSharedPreferences(com.cleaner.util.Constant.SHARED_FILE, 0);
         // 取得相应的值，如果没有该值，说明还未写入，用true作为默认值
         isFirstIn = pref.getBoolean("isFirstIn", true);
         if (isFirstIn) {
-            pref = this.getSharedPreferences("MainActivity", 0);
+            pref = this.getSharedPreferences(com.cleaner.util.Constant.SHARED_FILE, 0);
             SharedPreferences.Editor editor = pref.edit();
             editor.putBoolean("isFirstIn", false);
             // editor.commit();若没有对应的文件名，则创建
@@ -181,8 +180,8 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         View view = View.inflate(this, R.layout.dialog_first, null);
         // 绑定id
         TextView frist_button = (TextView) view.findViewById(R.id.frist_button);
-        LinearLayout dialog_frist_liner = (LinearLayout) view.findViewById(R.id.dialog_frist_liner);
-
+//        LinearLayout dialog_frist_liner = (LinearLayout) view.findViewById(R.id.dialog_frist_liner);
+        ImageView main_cancel = (ImageView) view.findViewById(R.id.main_cancel);
         // 点击Enable事件
         frist_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,7 +192,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                 adapter.notifyDataSetChanged();
             }
         });
-        dialog_frist_liner.setOnClickListener(new View.OnClickListener() {
+        main_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog1.dismiss();
@@ -370,7 +369,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     public void initSideData() {
         if (adapter == null) {
             adapter = new SideAdapter(this);
-            side_listView.setAdapter(adapter);
         }
         adapter.clear();
         adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)));//充电屏保
@@ -386,8 +384,10 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
             adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
         }
         adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-
+//        adapter.notifyDataSetChanged();
+        side_listView.setAdapter(adapter);
     }
+
 
     @Override
     public void loadAirAnimator(TranslateAnimation translate) {
@@ -564,9 +564,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                     //通知栏清理
                     UtilAd.track("主页面", "点击进入通知栏清理", "", 1);
                     DataPre.putDB(MainActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!Util.isNotificationListenEnabled(MainActivity.this)) {
-                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!DataPre.getDB(MainActivity.this, Constant.KEY_NOTIFI, true)) {
+                    if (!DataPre.getDB(MainActivity.this, Constant.KEY_NOTIFI, true) || !Util.isNotificationListenEnabled(MainActivity.this)) {
                         Intent intent6 = new Intent(MainActivity.this, NotifiIfActivity.class);
                         startActivityForResult(intent6, 1);
                     } else {
@@ -581,6 +579,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     @Override
     protected void onResume() {
         super.onResume();
+        initSideData();
         if (TransmitValue.isJunk && TransmitValue.isRam && TransmitValue.isCool) {
             main_clear_relativeLayout.setVisibility(View.GONE);
             main_clear_relativeLayout1.setVisibility(View.VISIBLE);
@@ -597,7 +596,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         }
 
         //旋转动画
-        startAnimator(0f, 359f, 0f, -359f);
+        startAnimator(0f, 360f, 0f, -360f);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -633,12 +632,12 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 //                                main_garbage_wait_clear.setVisibility(View.VISIBLE);
                                 main_clear_button.setText(R.string.garbage);
                                 pauseAnimator();
-                                startAnimator(0f, -359f, 0f, 359f);
+                                startAnimator(0f, -360f, 0f, 360f);
                             } else if (allSize == 0) {
                                 pauseAnimator();
                                 main_clear_relativeLayout.setVisibility(View.GONE);
                                 main_clear_relativeLayout1.setVisibility(View.VISIBLE);
-                                startAnimator(0f, -359f, 0f, 359f);
+                                startAnimator(0f, -360f, 0f, 360f);
                             } else {
                                 // 设置大小
                                 String mainGarbageButtonSize = Util.convertStorage(allSize, true);

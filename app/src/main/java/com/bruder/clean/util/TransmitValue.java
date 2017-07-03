@@ -1,7 +1,6 @@
 package com.bruder.clean.util;
 
 /**
- * Created by Ivy on 2017/6/27.
  */
 
 /**

@@ -1,7 +1,6 @@
 package com.bruder.clean.entity;
 
 /**
- * Created by Ivy on 2017/5/22.
  */
 
 public class SideInfo {

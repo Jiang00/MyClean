@@ -12,7 +12,6 @@ import com.bruder.clean.junk.R;
 
 
 /**
- * Created by Ivy on 2017/5/19.
  */
 
 public class JurisdictionActivity extends Activity {

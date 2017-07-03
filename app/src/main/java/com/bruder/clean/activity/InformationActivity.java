@@ -41,7 +41,7 @@ public class InformationActivity extends BaseActivity {
     TextView title_name;
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
-    private String TAG_MESSAGE = "bruder_message";
+    private String TAG_MESSAGE = "bruder_message";//
     private Handler myHandler;
     private TelephonyManager telManager;
 

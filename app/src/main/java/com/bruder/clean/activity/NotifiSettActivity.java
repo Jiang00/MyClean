@@ -22,7 +22,6 @@ import java.util.List;
 import static com.cleaner.sqldb.CleanDBHelper.TableType.Notification;
 
 /**
- * Created by Ivy on 2017/4/13.
  */
 
 public class NotifiSettActivity extends BaseActivity {

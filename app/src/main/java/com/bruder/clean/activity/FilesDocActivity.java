@@ -36,14 +36,13 @@ import com.cleaner.util.DataPre;
 import java.util.ArrayList;
 
 /**
- * Created by Ivy on 2017/4/21.
  */
 
 public class FilesDocActivity extends BaseActivity {
     private static final String TAG = "FilesDocActivity";
     private AlertDialog dialog;
     private FileCategoryHelper.FileCategory fc_clean;
-    private String TAG_FILE_2 = "bruder_file_2";
+    private String TAG_FILE_2 = "bruder_file_2";//
     private View nativeView;
     private LinearLayout ll_ad;
     FrameLayout title_left;

@@ -49,8 +49,8 @@ public class BatteringView extends FrameLayout {
     //    private ImageView icon;
 //    private TextView title;
 //    private LinearLayout more;
-    private LinearLayout switchLayout;
-    private CheckBox saverSwitch;
+//    private LinearLayout switchLayout;
+//    private CheckBox saverSwitch;
     private TextView time;
     private TextView date;
     private TextView week;
@@ -114,6 +114,7 @@ public class BatteringView extends FrameLayout {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 float startX = event.getX();
+                float startY = event.getY();
                 detector.onTouchEvent(event);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
@@ -122,7 +123,7 @@ public class BatteringView extends FrameLayout {
                         if ((event.getX() - startX) > 20 || (startX - event.getX()) > 20) {
                             if ((event.getX() - startX) > halfWidth / 2) {
                                 if (listener != null) {
-                                    listener.onUnlock();
+//                                    listener.onUnlock();
                                 }
                             }
                             return true;
@@ -131,7 +132,16 @@ public class BatteringView extends FrameLayout {
                         }
                     case MotionEvent.ACTION_CANCEL:
                     case MotionEvent.ACTION_UP:
-                        break;
+                        if ((event.getY() - startY) > 20 || (startY - event.getY()) > 20) {
+                            if ((event.getX() - startX) > halfWidth / 2) {
+                                if (listener != null) {
+//                                    listener.onUnlock();
+                                }
+                            }
+                            return true;
+                        } else {
+                            break;
+                        }
                 }
                 return false;
             }
@@ -246,20 +256,7 @@ public class BatteringView extends FrameLayout {
             }
         }
         water.loop(true);
-//        water.setSpeed(5.0f);
     }
-
-
-    /*private void initLighting() {
-        try {
-            lighting.setImageAssetsFolder(mContext, "theme://images/lighting");
-            lighting.setAnimation(mContext, "theme://lighting.json");
-        } catch (Exception e) {
-            lighting.setImageAssetsFolder(null, "images/lighting");
-            lighting.setAnimation(null, "lighting.json");
-        }
-        lighting.loop(true);
-    }*/
 
     @Override
     protected void onFinishInflate() {
@@ -268,29 +265,17 @@ public class BatteringView extends FrameLayout {
             initViews();
             isBindView = true;
 
-            /*shell.setAnimation("data.json");
-            shell.loop(true);
-            LottieComposition.Factory.fromAssetFileName(getContext(), "data.json",
-                    new OnCompositionLoadedListener() {
-                        @Override
-                        public void onCompositionLoaded(LottieComposition composition) {
-                            shell.setComposition(composition);
-                        }
-                    });
-            shell.playAnimation();
-            initShell();*/
-
             updateTime();
 
             showNativeAD();
 
-            halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 1.3f);
+            halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 4f);
             setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    if (switchLayout != null && switchLayout.getVisibility() == View.VISIBLE) {
+                  /*  if (switchLayout != null && switchLayout.getVisibility() == View.VISIBLE) {
                         switchLayout.setVisibility(GONE);
-                    }
+                    }*/
                     detector.onTouchEvent(event);
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         if (distance > halfWidth) {
@@ -312,17 +297,17 @@ public class BatteringView extends FrameLayout {
                 public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                     if (listener != null) {
                         batteryView.setAlpha(1.0f);
-                        listener.onUnlock();
+//                        listener.onUnlock();
                     }
                     return true;
                 }
 
                 @Override
                 public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-                    if (e2.getX() - e1.getX() == distance) {
+                    if (e2.getY() - e1.getY() == distance) {
                         return true;
                     }
-                    distance = e2.getX() - e1.getX();
+                    distance = e1.getY() - e2.getY();
                     if (batteryView != null) {
 //                        batteryView.setTranslationX(distance);
                         batteryView.setAlpha(1 - distance / halfWidth + .2f);
@@ -348,15 +333,15 @@ public class BatteringView extends FrameLayout {
 //            });
 
             if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, false)) {
-                if (saverSwitch != null) {
+               /* if (saverSwitch != null) {
                     saverSwitch.setChecked(true);
-                }
+                }*/
             } else {
-                if (saverSwitch != null) {
+              /*  if (saverSwitch != null) {
                     saverSwitch.setChecked(false);
-                }
+                }*/
             }
-            saverSwitch.setOnClickListener(new OnClickListener() {
+           /* saverSwitch.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if ((Boolean) Utils.readData(mContext, Constants.CHARGE_SAVER_SWITCH, false)) {
@@ -374,7 +359,7 @@ public class BatteringView extends FrameLayout {
                         mContext.sendBroadcast(new Intent(Constants.ACTION_CHARGE_SAVER_SWITCH_STATE));
                     }
                 }
-            });
+            });*/
         }
     }
 
@@ -386,8 +371,8 @@ public class BatteringView extends FrameLayout {
         slide = (LinearLayout) findViewById(R.id.battery_slide);
         battery_up = (ImageView) findViewById(R.id.battery_up);
         batteryView = (BatteringView) findViewById(R.id.battery_charge_save);
-        switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
-        saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
+//        switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
+//        saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
         adLayout = (LinearLayout) findViewById(R.id.battery_ad_layout);
 //        icon = (ImageView) findViewById(R.id.battery_icon);
 //        title = (TextView) findViewById(R.id.battery_title);

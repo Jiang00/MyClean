@@ -61,7 +61,7 @@ public class AppManagerActivity extends BaseActivity implements AppsManagerView 
     public Handler myHandler;
     private ManagerPresenter managerPresenter;
 
-    private String TAG_MANAGER = "bruder_manager";
+    private String TAG_MANAGER = "bruder_manager";//
     private ArrayList<String> titleList;
     private ManagerMyAdapter adapter_size, adapter_time, adapter_pinlv;
     private MyReceiver receiver;

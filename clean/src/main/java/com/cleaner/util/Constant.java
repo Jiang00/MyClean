@@ -92,7 +92,7 @@ public class Constant {
 
     public static final String PICTURE = "PICTURE";
 
-    public static final String RECYCLEBIN = "RECYCLEBIN";
+    public static final String RECYCLEBIN = "RECYCLEBIN";//
 
 //    跳转
 

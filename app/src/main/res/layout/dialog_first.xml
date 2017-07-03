@@ -14,15 +14,31 @@
         android:background="@color/A0"
         android:orientation="vertical">
 
-        <TextView
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/d24"
+            android:layout_marginRight="@dimen/d24"
             android:layout_marginTop="@dimen/d24"
-            android:text="Cleaner"
-            android:textColor="@color/A9"
-            android:textSize="@dimen/s16"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cleaner"
+                android:textColor="@color/A9"
+                android:textSize="@dimen/s16"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/main_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/cancel" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"

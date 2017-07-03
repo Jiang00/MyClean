@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 /**
- * Created by Ivy on 2017/5/19.
  */
 
 public class LoadManager {

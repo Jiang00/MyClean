@@ -19152,13 +19152,6 @@ android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener -> android.
     276:279:void <init>(android.view.View,java.lang.String) -> <init>
     283:296:void onClick(android.view.View) -> onClick
     300:325:void resolveMethod(android.content.Context,java.lang.String) -> resolveMethod
-android.support.v7.app.MAppCompatActivity -> android.support.v7.app.MAppCompatActivity:
-    android.support.v7.app.AppCompatDelegate mDelegate -> mDelegate
-    com.mingle.skin.SkinStyle mSkinStyle -> mSkinStyle
-    10:10:void <init>() -> <init>
-    23:26:android.support.v7.app.AppCompatDelegate getDelegate() -> getDelegate
-    31:35:void onResume() -> onResume
-    39:41:void onPause() -> onPause
 android.support.v7.app.MAppCompatDelegateFactory -> android.support.v7.app.MAppCompatDelegateFactory:
     12:12:void <init>() -> <init>
     22:22:android.support.v7.app.AppCompatDelegate create(android.app.Activity,android.support.v7.app.AppCompatCallback) -> create
@@ -28663,43 +28656,43 @@ com.bruder.clean.activity.FilesActivity -> com.bruder.clean.activity.FilesActivi
     com.cleaner.filemanager.FileCategoryHelper fileHelper -> G
     android.view.View nativeView -> H
     android.view.View$OnClickListener clickListener -> v
-    24:139:void <init>() -> <init>
-    39:46:void onCreate(android.os.Bundle) -> onCreate
-    50:68:void findId() -> b
-    72:80:void initAd() -> a
-    83:91:void setListener() -> c
-    95:96:void onResume() -> onResume
-    99:137:void initData() -> e
-    218:221:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    24:24:com.cleaner.filemanager.FileCategoryHelper access$000(com.bruder.clean.activity.FilesActivity) -> a
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$102(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> a
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$202(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> b
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$302(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> c
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$402(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> d
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$502(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> e
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$602(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> f
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$702(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> g
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$100(com.bruder.clean.activity.FilesActivity) -> b
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$200(com.bruder.clean.activity.FilesActivity) -> c
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$300(com.bruder.clean.activity.FilesActivity) -> d
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$400(com.bruder.clean.activity.FilesActivity) -> e
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$500(com.bruder.clean.activity.FilesActivity) -> f
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$600(com.bruder.clean.activity.FilesActivity) -> g
-    24:24:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$700(com.bruder.clean.activity.FilesActivity) -> h
-    24:24:void access$800(com.bruder.clean.activity.FilesActivity) -> i
-    24:24:android.os.Handler access$900(com.bruder.clean.activity.FilesActivity) -> j
+    23:138:void <init>() -> <init>
+    38:45:void onCreate(android.os.Bundle) -> onCreate
+    49:67:void findId() -> b
+    71:79:void initAd() -> a
+    82:90:void setListener() -> c
+    94:95:void onResume() -> onResume
+    98:136:void initData() -> e
+    217:220:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    23:23:com.cleaner.filemanager.FileCategoryHelper access$000(com.bruder.clean.activity.FilesActivity) -> a
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$102(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> a
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$202(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> b
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$302(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> c
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$402(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> d
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$502(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> e
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$602(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> f
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$702(com.bruder.clean.activity.FilesActivity,com.cleaner.filemanager.FileCategoryHelper$CategoryInfo) -> g
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$100(com.bruder.clean.activity.FilesActivity) -> b
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$200(com.bruder.clean.activity.FilesActivity) -> c
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$300(com.bruder.clean.activity.FilesActivity) -> d
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$400(com.bruder.clean.activity.FilesActivity) -> e
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$500(com.bruder.clean.activity.FilesActivity) -> f
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$600(com.bruder.clean.activity.FilesActivity) -> g
+    23:23:com.cleaner.filemanager.FileCategoryHelper$CategoryInfo access$700(com.bruder.clean.activity.FilesActivity) -> h
+    23:23:void access$800(com.bruder.clean.activity.FilesActivity) -> i
+    23:23:android.os.Handler access$900(com.bruder.clean.activity.FilesActivity) -> j
 com.bruder.clean.activity.FilesActivity$1 -> com.bruder.clean.activity.FilesActivity$1:
     com.bruder.clean.activity.FilesActivity this$0 -> a
-    104:104:void <init>(com.bruder.clean.activity.FilesActivity) -> <init>
-    107:135:void run() -> run
+    103:103:void <init>(com.bruder.clean.activity.FilesActivity) -> <init>
+    106:134:void run() -> run
 com.bruder.clean.activity.FilesActivity$1$1 -> com.bruder.clean.activity.FilesActivity$1$1:
     com.bruder.clean.activity.FilesActivity$1 this$1 -> a
-    108:108:void <init>(com.bruder.clean.activity.FilesActivity$1) -> <init>
-    111:133:void run() -> run
+    107:107:void <init>(com.bruder.clean.activity.FilesActivity$1) -> <init>
+    110:132:void run() -> run
 com.bruder.clean.activity.FilesActivity$2 -> com.bruder.clean.activity.FilesActivity$2:
     com.bruder.clean.activity.FilesActivity this$0 -> a
-    139:139:void <init>(com.bruder.clean.activity.FilesActivity) -> <init>
-    142:210:void onClick(android.view.View) -> onClick
+    138:138:void <init>(com.bruder.clean.activity.FilesActivity) -> <init>
+    141:209:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.FilesDocActivity -> com.bruder.clean.activity.FilesDocActivity:
     android.support.v7.app.AlertDialog dialog -> r
     com.cleaner.filemanager.FileCategoryHelper$FileCategory fc_clean -> s
@@ -28729,64 +28722,64 @@ com.bruder.clean.activity.FilesDocActivity -> com.bruder.clean.activity.FilesDoc
     android.widget.LinearLayout null_ll -> k
     android.widget.FrameLayout file_fl -> p
     android.view.View$OnClickListener clickListener -> q
-    42:238:void <init>() -> <init>
-    70:92:void onCreate(android.os.Bundle) -> onCreate
-    96:106:void findId() -> b
-    109:129:void initCur() -> a
-    132:153:void queryData(com.cleaner.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
-    156:161:void loadAd() -> c
-    164:170:void addAd() -> e
-    173:179:void initDoc() -> f
-    182:229:void initData() -> g
-    232:232:void initPdf() -> h
-    235:235:void initTxt() -> i
-    276:278:void setListenet() -> j
-    282:284:void onBackPressed() -> onBackPressed
-    287:350:void showDia(java.util.ArrayList) -> a
-    42:42:java.util.ArrayList access$000(com.bruder.clean.activity.FilesDocActivity) -> a
-    42:42:void access$100(com.bruder.clean.activity.FilesDocActivity,com.cleaner.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
-    42:42:java.util.ArrayList access$200(com.bruder.clean.activity.FilesDocActivity) -> b
-    42:42:java.util.ArrayList access$300(com.bruder.clean.activity.FilesDocActivity) -> c
-    42:42:android.os.Handler access$400(com.bruder.clean.activity.FilesDocActivity) -> d
-    42:42:java.util.ArrayList access$500(com.bruder.clean.activity.FilesDocActivity) -> e
-    42:42:java.util.ArrayList access$600(com.bruder.clean.activity.FilesDocActivity) -> f
-    42:42:com.cleaner.filemanager.FileCategoryHelper$FileCategory access$702(com.bruder.clean.activity.FilesDocActivity,com.cleaner.filemanager.FileCategoryHelper$FileCategory) -> a
-    42:42:void access$800(com.bruder.clean.activity.FilesDocActivity,java.util.ArrayList) -> a
-    42:42:android.support.v7.app.AlertDialog access$900(com.bruder.clean.activity.FilesDocActivity) -> g
-    42:42:com.cleaner.filemanager.FileCategoryHelper$FileCategory access$700(com.bruder.clean.activity.FilesDocActivity) -> h
+    41:237:void <init>() -> <init>
+    69:91:void onCreate(android.os.Bundle) -> onCreate
+    95:105:void findId() -> b
+    108:128:void initCur() -> a
+    131:152:void queryData(com.cleaner.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
+    155:160:void loadAd() -> c
+    163:169:void addAd() -> e
+    172:178:void initDoc() -> f
+    181:228:void initData() -> g
+    231:231:void initPdf() -> h
+    234:234:void initTxt() -> i
+    275:277:void setListenet() -> j
+    281:283:void onBackPressed() -> onBackPressed
+    286:349:void showDia(java.util.ArrayList) -> a
+    41:41:java.util.ArrayList access$000(com.bruder.clean.activity.FilesDocActivity) -> a
+    41:41:void access$100(com.bruder.clean.activity.FilesDocActivity,com.cleaner.filemanager.FileCategoryHelper$FileCategory,java.util.ArrayList) -> a
+    41:41:java.util.ArrayList access$200(com.bruder.clean.activity.FilesDocActivity) -> b
+    41:41:java.util.ArrayList access$300(com.bruder.clean.activity.FilesDocActivity) -> c
+    41:41:android.os.Handler access$400(com.bruder.clean.activity.FilesDocActivity) -> d
+    41:41:java.util.ArrayList access$500(com.bruder.clean.activity.FilesDocActivity) -> e
+    41:41:java.util.ArrayList access$600(com.bruder.clean.activity.FilesDocActivity) -> f
+    41:41:com.cleaner.filemanager.FileCategoryHelper$FileCategory access$702(com.bruder.clean.activity.FilesDocActivity,com.cleaner.filemanager.FileCategoryHelper$FileCategory) -> a
+    41:41:void access$800(com.bruder.clean.activity.FilesDocActivity,java.util.ArrayList) -> a
+    41:41:android.support.v7.app.AlertDialog access$900(com.bruder.clean.activity.FilesDocActivity) -> g
+    41:41:com.cleaner.filemanager.FileCategoryHelper$FileCategory access$700(com.bruder.clean.activity.FilesDocActivity) -> h
 com.bruder.clean.activity.FilesDocActivity$1 -> com.bruder.clean.activity.FilesDocActivity$1:
     com.bruder.clean.activity.FilesDocActivity this$0 -> a
-    109:109:void <init>(com.bruder.clean.activity.FilesDocActivity) -> <init>
-    112:126:void run() -> run
+    108:108:void <init>(com.bruder.clean.activity.FilesDocActivity) -> <init>
+    111:125:void run() -> run
 com.bruder.clean.activity.FilesDocActivity$1$1 -> com.bruder.clean.activity.FilesDocActivity$1$1:
     com.bruder.clean.activity.FilesDocActivity$1 this$1 -> a
-    115:115:void <init>(com.bruder.clean.activity.FilesDocActivity$1) -> <init>
-    117:124:void run() -> run
+    114:114:void <init>(com.bruder.clean.activity.FilesDocActivity$1) -> <init>
+    116:123:void run() -> run
 com.bruder.clean.activity.FilesDocActivity$2 -> com.bruder.clean.activity.FilesDocActivity$2:
     com.bruder.clean.activity.FilesDocActivity this$0 -> a
-    201:201:void <init>(com.bruder.clean.activity.FilesDocActivity) -> <init>
-    204:204:int getCount() -> getCount
-    209:210:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    215:215:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    220:221:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    225:225:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    200:200:void <init>(com.bruder.clean.activity.FilesDocActivity) -> <init>
+    203:203:int getCount() -> getCount
+    208:209:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    214:214:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    219:220:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    224:224:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.bruder.clean.activity.FilesDocActivity$3 -> com.bruder.clean.activity.FilesDocActivity$3:
     com.bruder.clean.activity.FilesDocActivity this$0 -> a
-    238:238:void <init>(com.bruder.clean.activity.FilesDocActivity) -> <init>
-    241:272:void onClick(android.view.View) -> onClick
+    237:237:void <init>(com.bruder.clean.activity.FilesDocActivity) -> <init>
+    240:271:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.FilesDocActivity$4 -> com.bruder.clean.activity.FilesDocActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.bruder.clean.activity.FilesDocActivity this$0 -> b
-    307:307:void <init>(com.bruder.clean.activity.FilesDocActivity,java.util.ArrayList) -> <init>
-    310:342:void onClick(android.view.View) -> onClick
+    306:306:void <init>(com.bruder.clean.activity.FilesDocActivity,java.util.ArrayList) -> <init>
+    309:341:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.FilesDocActivity$4$1 -> com.bruder.clean.activity.FilesDocActivity$4$1:
     com.bruder.clean.activity.FilesDocActivity$4 this$1 -> a
-    316:316:void <init>(com.bruder.clean.activity.FilesDocActivity$4) -> <init>
-    319:326:void run() -> run
+    315:315:void <init>(com.bruder.clean.activity.FilesDocActivity$4) -> <init>
+    318:325:void run() -> run
 com.bruder.clean.activity.FilesDocActivity$5 -> com.bruder.clean.activity.FilesDocActivity$5:
     com.bruder.clean.activity.FilesDocActivity this$0 -> a
-    344:344:void <init>(com.bruder.clean.activity.FilesDocActivity) -> <init>
-    347:348:void onClick(android.view.View) -> onClick
+    343:343:void <init>(com.bruder.clean.activity.FilesDocActivity) -> <init>
+    346:347:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.FilesListActivity -> com.bruder.clean.activity.FilesListActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -28809,101 +28802,103 @@ com.bruder.clean.activity.FilesListActivity -> com.bruder.clean.activity.FilesLi
     java.lang.String Tag_file_1 -> x
     android.view.View nativeView -> y
     android.view.View$OnClickListener clickListener -> k
-    38:196:void <init>() -> <init>
-    65:77:void findId() -> b
-    81:116:void onCreate(android.os.Bundle) -> onCreate
-    119:129:void loadAd() -> a
-    132:138:void addAd() -> c
-    141:189:void initData() -> e
-    192:194:void setListenet() -> f
-    217:273:void showDia(java.util.ArrayList) -> a
-    277:279:void onBackPressed() -> onBackPressed
-    38:38:java.lang.String access$000(com.bruder.clean.activity.FilesListActivity) -> a
-    38:38:com.cleaner.filemanager.FileCategoryHelper$FileCategory access$102(com.bruder.clean.activity.FilesListActivity,com.cleaner.filemanager.FileCategoryHelper$FileCategory) -> a
-    38:38:com.cleaner.filemanager.FileCategoryHelper$FileCategory access$100(com.bruder.clean.activity.FilesListActivity) -> b
-    38:38:com.cleaner.filemanager.FileCategoryHelper access$200(com.bruder.clean.activity.FilesListActivity) -> c
-    38:38:java.util.ArrayList access$300(com.bruder.clean.activity.FilesListActivity) -> d
-    38:38:com.bruder.clean.myadapter.FileAdapter access$400(com.bruder.clean.activity.FilesListActivity) -> e
-    38:38:android.os.Handler access$500(com.bruder.clean.activity.FilesListActivity) -> f
-    38:38:void access$600(com.bruder.clean.activity.FilesListActivity,java.util.ArrayList) -> a
-    38:38:android.support.v7.app.AlertDialog access$700(com.bruder.clean.activity.FilesListActivity) -> g
+    37:195:void <init>() -> <init>
+    64:76:void findId() -> b
+    80:115:void onCreate(android.os.Bundle) -> onCreate
+    118:128:void loadAd() -> a
+    131:137:void addAd() -> c
+    140:188:void initData() -> e
+    191:193:void setListenet() -> f
+    216:272:void showDia(java.util.ArrayList) -> a
+    276:278:void onBackPressed() -> onBackPressed
+    37:37:java.lang.String access$000(com.bruder.clean.activity.FilesListActivity) -> a
+    37:37:com.cleaner.filemanager.FileCategoryHelper$FileCategory access$102(com.bruder.clean.activity.FilesListActivity,com.cleaner.filemanager.FileCategoryHelper$FileCategory) -> a
+    37:37:com.cleaner.filemanager.FileCategoryHelper$FileCategory access$100(com.bruder.clean.activity.FilesListActivity) -> b
+    37:37:com.cleaner.filemanager.FileCategoryHelper access$200(com.bruder.clean.activity.FilesListActivity) -> c
+    37:37:java.util.ArrayList access$300(com.bruder.clean.activity.FilesListActivity) -> d
+    37:37:com.bruder.clean.myadapter.FileAdapter access$400(com.bruder.clean.activity.FilesListActivity) -> e
+    37:37:android.os.Handler access$500(com.bruder.clean.activity.FilesListActivity) -> f
+    37:37:void access$600(com.bruder.clean.activity.FilesListActivity,java.util.ArrayList) -> a
+    37:37:android.support.v7.app.AlertDialog access$700(com.bruder.clean.activity.FilesListActivity) -> g
 com.bruder.clean.activity.FilesListActivity$1 -> com.bruder.clean.activity.FilesListActivity$1:
     com.bruder.clean.activity.FilesListActivity this$0 -> a
-    120:120:void <init>(com.bruder.clean.activity.FilesListActivity) -> <init>
-    123:124:void run() -> run
+    119:119:void <init>(com.bruder.clean.activity.FilesListActivity) -> <init>
+    122:123:void run() -> run
 com.bruder.clean.activity.FilesListActivity$2 -> com.bruder.clean.activity.FilesListActivity$2:
     com.bruder.clean.activity.FilesListActivity this$0 -> a
-    141:141:void <init>(com.bruder.clean.activity.FilesListActivity) -> <init>
-    144:187:void run() -> run
+    140:140:void <init>(com.bruder.clean.activity.FilesListActivity) -> <init>
+    143:186:void run() -> run
 com.bruder.clean.activity.FilesListActivity$2$1 -> com.bruder.clean.activity.FilesListActivity$2$1:
     com.bruder.clean.activity.FilesListActivity$2 this$1 -> a
-    170:170:void <init>(com.bruder.clean.activity.FilesListActivity$2) -> <init>
-    173:176:void run() -> run
+    169:169:void <init>(com.bruder.clean.activity.FilesListActivity$2) -> <init>
+    172:175:void run() -> run
 com.bruder.clean.activity.FilesListActivity$2$2 -> com.bruder.clean.activity.FilesListActivity$2$2:
     com.bruder.clean.activity.FilesListActivity$2 this$1 -> a
-    179:179:void <init>(com.bruder.clean.activity.FilesListActivity$2) -> <init>
-    182:184:void run() -> run
+    178:178:void <init>(com.bruder.clean.activity.FilesListActivity$2) -> <init>
+    181:183:void run() -> run
 com.bruder.clean.activity.FilesListActivity$3 -> com.bruder.clean.activity.FilesListActivity$3:
     com.bruder.clean.activity.FilesListActivity this$0 -> a
-    196:196:void <init>(com.bruder.clean.activity.FilesListActivity) -> <init>
-    199:213:void onClick(android.view.View) -> onClick
+    195:195:void <init>(com.bruder.clean.activity.FilesListActivity) -> <init>
+    198:212:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.FilesListActivity$4 -> com.bruder.clean.activity.FilesListActivity$4:
     java.util.ArrayList val$deleteList -> a
     com.bruder.clean.activity.FilesListActivity this$0 -> b
-    237:237:void <init>(com.bruder.clean.activity.FilesListActivity,java.util.ArrayList) -> <init>
-    240:265:void onClick(android.view.View) -> onClick
+    236:236:void <init>(com.bruder.clean.activity.FilesListActivity,java.util.ArrayList) -> <init>
+    239:264:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.FilesListActivity$4$1 -> com.bruder.clean.activity.FilesListActivity$4$1:
     com.bruder.clean.activity.FilesListActivity$4 this$1 -> a
-    246:246:void <init>(com.bruder.clean.activity.FilesListActivity$4) -> <init>
-    249:256:void run() -> run
+    245:245:void <init>(com.bruder.clean.activity.FilesListActivity$4) -> <init>
+    248:255:void run() -> run
 com.bruder.clean.activity.FilesListActivity$5 -> com.bruder.clean.activity.FilesListActivity$5:
     com.bruder.clean.activity.FilesListActivity this$0 -> a
-    267:267:void <init>(com.bruder.clean.activity.FilesListActivity) -> <init>
-    270:271:void onClick(android.view.View) -> onClick
+    266:266:void <init>(com.bruder.clean.activity.FilesListActivity) -> <init>
+    269:270:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.FloatingActivity -> com.bruder.clean.activity.FloatingActivity:
-    android.view.View nativeView -> t
-    com.bruder.clean.activity.MyApplication cleanApplication -> u
+    android.view.View nativeView -> v
+    com.bruder.clean.activity.MyApplication cleanApplication -> w
     android.widget.LinearLayout ll_ad -> a
     android.widget.LinearLayout ll_wifi -> b
     android.widget.LinearLayout ll_liuliang -> c
     android.widget.LinearLayout ll_xianshi -> d
     android.widget.LinearLayout ll_shengyin -> e
     android.widget.LinearLayout ll_gps -> f
-    android.os.Handler myHandler -> v
-    java.lang.String TAG_FLAOT -> w
-    android.view.animation.Animation rotate -> x
-    android.view.animation.Animation suo -> y
-    android.view.animation.Animation fang -> z
+    android.os.Handler myHandler -> x
+    java.lang.String TAG_FLAOT -> y
+    android.view.animation.Animation rotate -> z
+    android.view.animation.Animation suo -> A
+    android.view.animation.Animation fang -> B
     android.widget.ImageView iv_wifi -> g
     android.widget.ImageView iv_liuliang -> h
     android.widget.ImageView iv_xianshi -> i
     android.widget.ImageView iv_shengyin -> j
     android.widget.ImageView iv_gps -> k
     android.widget.ImageView float_rotate -> p
-    android.widget.TextView float_memory -> q
-    android.widget.LinearLayout rl_memory -> r
-    android.view.View$OnClickListener kuaijieListener -> s
-    43:123:void <init>() -> <init>
-    59:73:void onCreate(android.os.Bundle) -> onCreate
-    76:94:void loadAd() -> a
-    98:115:void findId() -> b
-    119:121:void initList() -> c
-    170:176:void addListener() -> e
-    180:180:void setListAnimation() -> f
-    183:198:int killAll(android.content.Context) -> a
-    202:250:void startCleanAnimation() -> g
-    253:256:long getAvailMemory(android.app.ActivityManager) -> a
-    260:267:void wifi() -> h
-    270:277:void liuLiang() -> i
-    280:287:void wifiD() -> j
-    290:297:void liuLiangd() -> k
-    300:314:void xianshiD() -> l
-    317:324:void gps() -> m
-    327:334:void shengYin() -> n
-    344:402:void brightnessSwitchUtils(android.content.Context) -> b
-    405:413:void changeAppBrightness(android.content.Context,int) -> a
-    417:420:void onResume() -> onResume
-    423:434:int getLight() -> o
+    android.widget.ImageView float_cricle -> q
+    android.widget.TextView float_memory -> r
+    android.widget.LinearLayout rl_memory -> s
+    android.widget.TextView float_tishi -> t
+    android.view.View$OnClickListener kuaijieListener -> u
+    43:124:void <init>() -> <init>
+    60:74:void onCreate(android.os.Bundle) -> onCreate
+    77:95:void loadAd() -> a
+    99:116:void findId() -> b
+    120:122:void initList() -> c
+    171:177:void addListener() -> e
+    181:181:void setListAnimation() -> f
+    184:199:int killAll(android.content.Context) -> a
+    203:251:void startCleanAnimation() -> g
+    254:257:long getAvailMemory(android.app.ActivityManager) -> a
+    261:268:void wifi() -> h
+    271:278:void liuLiang() -> i
+    281:288:void wifiD() -> j
+    291:298:void liuLiangd() -> k
+    301:315:void xianshiD() -> l
+    318:325:void gps() -> m
+    328:335:void shengYin() -> n
+    345:403:void brightnessSwitchUtils(android.content.Context) -> b
+    406:414:void changeAppBrightness(android.content.Context,int) -> a
+    418:421:void onResume() -> onResume
+    424:435:int getLight() -> o
     43:43:void access$000(com.bruder.clean.activity.FloatingActivity) -> a
     43:43:void access$100(com.bruder.clean.activity.FloatingActivity) -> b
     43:43:void access$200(com.bruder.clean.activity.FloatingActivity) -> c
@@ -28911,28 +28906,28 @@ com.bruder.clean.activity.FloatingActivity -> com.bruder.clean.activity.Floating
     43:43:android.view.animation.Animation access$400(com.bruder.clean.activity.FloatingActivity) -> e
 com.bruder.clean.activity.FloatingActivity$1 -> com.bruder.clean.activity.FloatingActivity$1:
     com.bruder.clean.activity.FloatingActivity this$0 -> a
-    77:77:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
-    80:81:void run() -> run
+    78:78:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
+    81:82:void run() -> run
 com.bruder.clean.activity.FloatingActivity$2 -> com.bruder.clean.activity.FloatingActivity$2:
     com.bruder.clean.activity.FloatingActivity this$0 -> a
-    123:123:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
-    126:165:void onClick(android.view.View) -> onClick
+    124:124:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
+    127:166:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.FloatingActivity$3 -> com.bruder.clean.activity.FloatingActivity$3:
     com.bruder.clean.activity.FloatingActivity this$0 -> a
-    202:202:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
-    205:206:void run() -> run
+    203:203:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
+    206:207:void run() -> run
 com.bruder.clean.activity.FloatingActivity$4 -> com.bruder.clean.activity.FloatingActivity$4:
     com.bruder.clean.activity.FloatingActivity this$0 -> a
-    214:214:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
-    217:222:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    227:227:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    232:232:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    215:215:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
+    218:223:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    228:228:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    233:233:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.bruder.clean.activity.FloatingActivity$5 -> com.bruder.clean.activity.FloatingActivity$5:
     com.bruder.clean.activity.FloatingActivity this$0 -> a
-    234:234:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
-    238:238:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    243:243:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    248:248:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    235:235:void <init>(com.bruder.clean.activity.FloatingActivity) -> <init>
+    238:239:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    244:244:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    249:249:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.bruder.clean.activity.GBoostingActivity -> com.bruder.clean.activity.GBoostingActivity:
     com.bruder.clean.customeview.LaunchpadAdapter adapter -> v
     java.util.ArrayList list -> w
@@ -28964,89 +28959,89 @@ com.bruder.clean.activity.GBoostingActivity -> com.bruder.clean.activity.GBoosti
     android.widget.TextView add_short -> t
     android.os.Handler mHandler -> H
     android.view.View$OnClickListener clickListener -> u
-    59:230:void <init>() -> <init>
-    104:130:void onCreate(android.os.Bundle) -> onCreate
-    133:136:void initList() -> a
-    140:158:void findId() -> b
-    161:228:void addData() -> c
-    292:309:long getCup() -> e
-    313:320:long getNetWork() -> f
-    324:377:void toggleEditAnimation() -> g
-    381:382:long getTotalRxBytes() -> h
-    387:405:void onBackPressed() -> onBackPressed
-    409:449:void onResume() -> onResume
-    452:467:void initData() -> i
-    470:512:void shortGame(boolean) -> a
-    515:524:void upData(java.lang.String) -> b
-    528:536:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    540:541:void onDestroy() -> onDestroy
-    59:59:java.util.ArrayList access$000(com.bruder.clean.activity.GBoostingActivity) -> a
-    59:59:void access$100(com.bruder.clean.activity.GBoostingActivity,boolean) -> a
-    59:59:android.os.Handler access$200(com.bruder.clean.activity.GBoostingActivity) -> b
-    59:59:com.bruder.clean.customeview.LaunchpadAdapter access$302(com.bruder.clean.activity.GBoostingActivity,com.bruder.clean.customeview.LaunchpadAdapter) -> a
-    59:59:com.bruder.clean.customeview.LaunchpadAdapter access$300(com.bruder.clean.activity.GBoostingActivity) -> c
-    59:59:com.bruder.clean.myadapter.AddGameAdapter access$402(com.bruder.clean.activity.GBoostingActivity,com.bruder.clean.myadapter.AddGameAdapter) -> a
-    59:59:com.bruder.clean.myadapter.AddGameAdapter access$400(com.bruder.clean.activity.GBoostingActivity) -> d
-    59:59:void access$500(com.bruder.clean.activity.GBoostingActivity) -> e
-    59:59:void access$600(com.bruder.clean.activity.GBoostingActivity) -> f
-    59:59:boolean access$700(com.bruder.clean.activity.GBoostingActivity) -> g
-    59:59:boolean access$702(com.bruder.clean.activity.GBoostingActivity,boolean) -> b
-    59:59:void access$800(com.bruder.clean.activity.GBoostingActivity,java.lang.String) -> a
-    59:59:long access$900(com.bruder.clean.activity.GBoostingActivity) -> h
-    59:59:long access$1000(com.bruder.clean.activity.GBoostingActivity) -> i
+    58:229:void <init>() -> <init>
+    103:129:void onCreate(android.os.Bundle) -> onCreate
+    132:135:void initList() -> a
+    139:157:void findId() -> b
+    160:227:void addData() -> c
+    291:308:long getCup() -> e
+    312:319:long getNetWork() -> f
+    323:376:void toggleEditAnimation() -> g
+    380:381:long getTotalRxBytes() -> h
+    386:404:void onBackPressed() -> onBackPressed
+    408:448:void onResume() -> onResume
+    451:466:void initData() -> i
+    469:511:void shortGame(boolean) -> a
+    514:523:void upData(java.lang.String) -> b
+    527:535:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    539:540:void onDestroy() -> onDestroy
+    58:58:java.util.ArrayList access$000(com.bruder.clean.activity.GBoostingActivity) -> a
+    58:58:void access$100(com.bruder.clean.activity.GBoostingActivity,boolean) -> a
+    58:58:android.os.Handler access$200(com.bruder.clean.activity.GBoostingActivity) -> b
+    58:58:com.bruder.clean.customeview.LaunchpadAdapter access$302(com.bruder.clean.activity.GBoostingActivity,com.bruder.clean.customeview.LaunchpadAdapter) -> a
+    58:58:com.bruder.clean.customeview.LaunchpadAdapter access$300(com.bruder.clean.activity.GBoostingActivity) -> c
+    58:58:com.bruder.clean.myadapter.AddGameAdapter access$402(com.bruder.clean.activity.GBoostingActivity,com.bruder.clean.myadapter.AddGameAdapter) -> a
+    58:58:com.bruder.clean.myadapter.AddGameAdapter access$400(com.bruder.clean.activity.GBoostingActivity) -> d
+    58:58:void access$500(com.bruder.clean.activity.GBoostingActivity) -> e
+    58:58:void access$600(com.bruder.clean.activity.GBoostingActivity) -> f
+    58:58:boolean access$700(com.bruder.clean.activity.GBoostingActivity) -> g
+    58:58:boolean access$702(com.bruder.clean.activity.GBoostingActivity,boolean) -> b
+    58:58:void access$800(com.bruder.clean.activity.GBoostingActivity,java.lang.String) -> a
+    58:58:long access$900(com.bruder.clean.activity.GBoostingActivity) -> h
+    58:58:long access$1000(com.bruder.clean.activity.GBoostingActivity) -> i
 com.bruder.clean.activity.GBoostingActivity$1 -> com.bruder.clean.activity.GBoostingActivity$1:
     com.bruder.clean.activity.GBoostingActivity this$0 -> a
-    91:91:void <init>(com.bruder.clean.activity.GBoostingActivity) -> <init>
-    94:99:void handleMessage(android.os.Message) -> handleMessage
+    90:90:void <init>(com.bruder.clean.activity.GBoostingActivity) -> <init>
+    93:98:void handleMessage(android.os.Message) -> handleMessage
 com.bruder.clean.activity.GBoostingActivity$2 -> com.bruder.clean.activity.GBoostingActivity$2:
     com.bruder.clean.activity.GBoostingActivity this$0 -> a
-    161:161:void <init>(com.bruder.clean.activity.GBoostingActivity) -> <init>
-    164:225:void run() -> run
+    160:160:void <init>(com.bruder.clean.activity.GBoostingActivity) -> <init>
+    163:224:void run() -> run
 com.bruder.clean.activity.GBoostingActivity$2$1 -> com.bruder.clean.activity.GBoostingActivity$2$1:
     com.bruder.clean.activity.GBoostingActivity$2 this$1 -> a
-    177:177:void <init>(com.bruder.clean.activity.GBoostingActivity$2) -> <init>
-    180:223:void run() -> run
+    176:176:void <init>(com.bruder.clean.activity.GBoostingActivity$2) -> <init>
+    179:222:void run() -> run
 com.bruder.clean.activity.GBoostingActivity$2$1$1 -> com.bruder.clean.activity.GBoostingActivity$2$1$1:
     com.bruder.clean.activity.GBoostingActivity$2$1 this$2 -> a
-    196:196:void <init>(com.bruder.clean.activity.GBoostingActivity$2$1) -> <init>
-    199:200:void onPageChange(int,int) -> a
+    195:195:void <init>(com.bruder.clean.activity.GBoostingActivity$2$1) -> <init>
+    198:199:void onPageChange(int,int) -> a
 com.bruder.clean.activity.GBoostingActivity$2$1$2 -> com.bruder.clean.activity.GBoostingActivity$2$1$2:
     com.bruder.clean.activity.GBoostingActivity$2$1 this$2 -> a
-    202:202:void <init>(com.bruder.clean.activity.GBoostingActivity$2$1) -> <init>
-    205:221:void onClick(java.lang.Object,int) -> a
+    201:201:void <init>(com.bruder.clean.activity.GBoostingActivity$2$1) -> <init>
+    204:220:void onClick(java.lang.Object,int) -> a
 com.bruder.clean.activity.GBoostingActivity$3 -> com.bruder.clean.activity.GBoostingActivity$3:
     com.bruder.clean.activity.GBoostingActivity this$0 -> a
-    230:230:void <init>(com.bruder.clean.activity.GBoostingActivity) -> <init>
-    233:288:void onClick(android.view.View) -> onClick
+    229:229:void <init>(com.bruder.clean.activity.GBoostingActivity) -> <init>
+    232:287:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.GBoostingActivity$3$1 -> com.bruder.clean.activity.GBoostingActivity$3$1:
     com.bruder.clean.activity.GBoostingActivity$3 this$1 -> a
-    270:270:void <init>(com.bruder.clean.activity.GBoostingActivity$3) -> <init>
-    273:275:void run() -> run
+    269:269:void <init>(com.bruder.clean.activity.GBoostingActivity$3) -> <init>
+    272:274:void run() -> run
 com.bruder.clean.activity.GBoostingActivity$4 -> com.bruder.clean.activity.GBoostingActivity$4:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.bruder.clean.activity.GBoostingActivity this$0 -> d
-    344:344:void <init>(com.bruder.clean.activity.GBoostingActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    347:374:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    343:343:void <init>(com.bruder.clean.activity.GBoostingActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    346:373:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.bruder.clean.activity.GBoostingActivity$4$1 -> com.bruder.clean.activity.GBoostingActivity$4$1:
     com.bruder.clean.activity.GBoostingActivity$4 this$1 -> a
-    355:355:void <init>(com.bruder.clean.activity.GBoostingActivity$4) -> <init>
-    358:359:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    363:363:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    368:368:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    354:354:void <init>(com.bruder.clean.activity.GBoostingActivity$4) -> <init>
+    357:358:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    362:362:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    367:367:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.bruder.clean.activity.GBoostingActivity$5 -> com.bruder.clean.activity.GBoostingActivity$5:
     com.bruder.clean.activity.GBoostingActivity this$0 -> a
-    410:410:void <init>(com.bruder.clean.activity.GBoostingActivity) -> <init>
-    413:447:void run() -> run
+    409:409:void <init>(com.bruder.clean.activity.GBoostingActivity) -> <init>
+    412:446:void run() -> run
 com.bruder.clean.activity.GBoostingActivity$5$1 -> com.bruder.clean.activity.GBoostingActivity$5$1:
     int val$cup -> a
     int val$memo -> b
     int val$speed -> c
     long val$size -> d
     com.bruder.clean.activity.GBoostingActivity$5 this$1 -> e
-    419:419:void <init>(com.bruder.clean.activity.GBoostingActivity$5,int,int,int,long) -> <init>
-    422:439:void run() -> run
+    418:418:void <init>(com.bruder.clean.activity.GBoostingActivity$5,int,int,int,long) -> <init>
+    421:438:void run() -> run
 com.bruder.clean.activity.GarbageActivity -> com.bruder.clean.activity.GarbageActivity:
     boolean color1 -> T
     boolean color2 -> U
@@ -29099,27 +29094,27 @@ com.bruder.clean.activity.GarbageActivity -> com.bruder.clean.activity.GarbageAc
     com.bruder.clean.customeview.MyMainScrollView junk_scroll -> Q
     android.widget.ListView junk_list_all -> R
     android.view.View$OnClickListener onClickListener -> S
-    39:586:void <init>() -> <init>
-    63:69:void onCreate(android.os.Bundle) -> onCreate
-    74:74:void loadFullAd() -> a
-    78:118:void findId() -> b
-    123:187:void setColor(long) -> a
-    191:212:void initData(long) -> b
-    216:246:void addApkdata(long,java.util.List) -> a
-    250:281:void addUserdata(long,java.util.List) -> b
-    285:293:void onClick() -> c
-    297:333:void addSystemdata(long,java.util.List) -> c
-    337:367:void addRamdata(long,java.util.List) -> d
-    371:401:void addUnloaddata(long,java.util.List) -> e
-    405:435:void addLogdata(long,java.util.List) -> f
-    439:525:void cleanAnimation(boolean,java.util.List,long) -> a
-    529:530:void setUnit(long,android.widget.TextView) -> a
-    534:569:void setCleanDAta(boolean,long) -> a
-    573:575:void onResume() -> onResume
-    578:584:void startCleanAnimation(android.view.View) -> startCleanAnimation
-    685:687:void onBackPressed() -> onBackPressed
-    691:695:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    699:703:void onDestroy() -> onDestroy
+    39:587:void <init>() -> <init>
+    64:70:void onCreate(android.os.Bundle) -> onCreate
+    75:75:void loadFullAd() -> a
+    79:119:void findId() -> b
+    124:188:void setColor(long) -> a
+    192:213:void initData(long) -> b
+    217:247:void addApkdata(long,java.util.List) -> a
+    251:282:void addUserdata(long,java.util.List) -> b
+    286:294:void onClick() -> c
+    298:334:void addSystemdata(long,java.util.List) -> c
+    338:368:void addRamdata(long,java.util.List) -> d
+    372:402:void addUnloaddata(long,java.util.List) -> e
+    406:436:void addLogdata(long,java.util.List) -> f
+    440:526:void cleanAnimation(boolean,java.util.List,long) -> a
+    530:531:void setUnit(long,android.widget.TextView) -> a
+    535:570:void setCleanDAta(boolean,long) -> a
+    574:576:void onResume() -> onResume
+    579:585:void startCleanAnimation(android.view.View) -> startCleanAnimation
+    698:700:void onBackPressed() -> onBackPressed
+    704:708:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    712:716:void onDestroy() -> onDestroy
     39:39:com.bruder.clean.presenter.JunkPresenter access$000(com.bruder.clean.activity.GarbageActivity) -> a
     39:39:com.bruder.clean.myadapter.JunkAdapter access$100(com.bruder.clean.activity.GarbageActivity) -> b
     39:39:com.bruder.clean.myadapter.JunkAdapter access$200(com.bruder.clean.activity.GarbageActivity) -> c
@@ -29131,128 +29126,128 @@ com.bruder.clean.activity.GarbageActivity -> com.bruder.clean.activity.GarbageAc
 com.bruder.clean.activity.GarbageActivity$1 -> com.bruder.clean.activity.GarbageActivity$1:
     long val$allSize -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    123:123:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
-    126:157:void run() -> run
+    124:124:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
+    127:158:void run() -> run
 com.bruder.clean.activity.GarbageActivity$1$1 -> com.bruder.clean.activity.GarbageActivity$1$1:
     long val$finalI -> a
     com.bruder.clean.activity.GarbageActivity$1 this$1 -> b
-    141:141:void <init>(com.bruder.clean.activity.GarbageActivity$1,long) -> <init>
-    144:146:void run() -> run
+    142:142:void <init>(com.bruder.clean.activity.GarbageActivity$1,long) -> <init>
+    145:147:void run() -> run
 com.bruder.clean.activity.GarbageActivity$1$2 -> com.bruder.clean.activity.GarbageActivity$1$2:
     com.bruder.clean.activity.GarbageActivity$1 this$1 -> a
-    149:149:void <init>(com.bruder.clean.activity.GarbageActivity$1) -> <init>
-    152:155:void run() -> run
+    150:150:void <init>(com.bruder.clean.activity.GarbageActivity$1) -> <init>
+    153:156:void run() -> run
 com.bruder.clean.activity.GarbageActivity$10 -> com.bruder.clean.activity.GarbageActivity$2:
     com.bruder.clean.activity.GarbageActivity this$0 -> a
-    488:488:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
-    491:492:void run() -> run
+    489:489:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
+    492:493:void run() -> run
 com.bruder.clean.activity.GarbageActivity$11 -> com.bruder.clean.activity.GarbageActivity$3:
     com.bruder.clean.activity.GarbageActivity this$0 -> a
-    494:494:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
-    497:498:void run() -> run
+    495:495:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
+    498:499:void run() -> run
 com.bruder.clean.activity.GarbageActivity$12 -> com.bruder.clean.activity.GarbageActivity$4:
     com.bruder.clean.activity.GarbageActivity this$0 -> a
-    500:500:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
-    503:504:void run() -> run
+    501:501:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
+    504:505:void run() -> run
 com.bruder.clean.activity.GarbageActivity$13 -> com.bruder.clean.activity.GarbageActivity$5:
     com.bruder.clean.activity.GarbageActivity this$0 -> a
-    506:506:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
-    509:510:void run() -> run
+    507:507:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
+    510:511:void run() -> run
 com.bruder.clean.activity.GarbageActivity$14 -> com.bruder.clean.activity.GarbageActivity$6:
     com.bruder.clean.activity.GarbageActivity this$0 -> a
-    512:512:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
-    515:516:void run() -> run
+    513:513:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
+    516:517:void run() -> run
 com.bruder.clean.activity.GarbageActivity$15 -> com.bruder.clean.activity.GarbageActivity$7:
     android.os.Bundle val$bundle -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    518:518:void <init>(com.bruder.clean.activity.GarbageActivity,android.os.Bundle) -> <init>
-    521:522:void run() -> run
+    519:519:void <init>(com.bruder.clean.activity.GarbageActivity,android.os.Bundle) -> <init>
+    522:523:void run() -> run
 com.bruder.clean.activity.GarbageActivity$16 -> com.bruder.clean.activity.GarbageActivity$8:
     long val$size -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    535:535:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
-    538:562:void run() -> run
+    536:536:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
+    539:563:void run() -> run
 com.bruder.clean.activity.GarbageActivity$17 -> com.bruder.clean.activity.GarbageActivity$9:
     com.bruder.clean.activity.GarbageActivity this$0 -> a
-    586:586:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
-    589:680:void onClick(android.view.View) -> onClick
+    587:587:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
+    590:693:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.GarbageActivity$2 -> com.bruder.clean.activity.GarbageActivity$10:
     long val$size -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    218:218:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
-    221:244:void run() -> run
+    219:219:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
+    222:245:void run() -> run
 com.bruder.clean.activity.GarbageActivity$2$1 -> com.bruder.clean.activity.GarbageActivity$10$1:
     long val$finalI -> a
     com.bruder.clean.activity.GarbageActivity$2 this$1 -> b
-    236:236:void <init>(com.bruder.clean.activity.GarbageActivity$2,long) -> <init>
-    239:241:void run() -> run
+    237:237:void <init>(com.bruder.clean.activity.GarbageActivity$2,long) -> <init>
+    240:242:void run() -> run
 com.bruder.clean.activity.GarbageActivity$3 -> com.bruder.clean.activity.GarbageActivity$11:
     long val$size -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    252:252:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
-    255:278:void run() -> run
+    253:253:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
+    256:279:void run() -> run
 com.bruder.clean.activity.GarbageActivity$3$1 -> com.bruder.clean.activity.GarbageActivity$11$1:
     long val$finalI -> a
     com.bruder.clean.activity.GarbageActivity$3 this$1 -> b
-    270:270:void <init>(com.bruder.clean.activity.GarbageActivity$3,long) -> <init>
-    273:275:void run() -> run
+    271:271:void <init>(com.bruder.clean.activity.GarbageActivity$3,long) -> <init>
+    274:276:void run() -> run
 com.bruder.clean.activity.GarbageActivity$4 -> com.bruder.clean.activity.GarbageActivity$12:
     long val$size -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    304:304:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
-    307:331:void run() -> run
+    305:305:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
+    308:332:void run() -> run
 com.bruder.clean.activity.GarbageActivity$4$1 -> com.bruder.clean.activity.GarbageActivity$12$1:
     long val$finalI -> a
     com.bruder.clean.activity.GarbageActivity$4 this$1 -> b
-    323:323:void <init>(com.bruder.clean.activity.GarbageActivity$4,long) -> <init>
-    326:328:void run() -> run
+    324:324:void <init>(com.bruder.clean.activity.GarbageActivity$4,long) -> <init>
+    327:329:void run() -> run
 com.bruder.clean.activity.GarbageActivity$5 -> com.bruder.clean.activity.GarbageActivity$13:
     long val$size -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    339:339:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
-    342:365:void run() -> run
+    340:340:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
+    343:366:void run() -> run
 com.bruder.clean.activity.GarbageActivity$5$1 -> com.bruder.clean.activity.GarbageActivity$13$1:
     long val$finalI -> a
     com.bruder.clean.activity.GarbageActivity$5 this$1 -> b
-    357:357:void <init>(com.bruder.clean.activity.GarbageActivity$5,long) -> <init>
-    360:362:void run() -> run
+    358:358:void <init>(com.bruder.clean.activity.GarbageActivity$5,long) -> <init>
+    361:363:void run() -> run
 com.bruder.clean.activity.GarbageActivity$6 -> com.bruder.clean.activity.GarbageActivity$14:
     long val$size -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    373:373:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
-    376:399:void run() -> run
+    374:374:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
+    377:400:void run() -> run
 com.bruder.clean.activity.GarbageActivity$6$1 -> com.bruder.clean.activity.GarbageActivity$14$1:
     long val$finalI -> a
     com.bruder.clean.activity.GarbageActivity$6 this$1 -> b
-    391:391:void <init>(com.bruder.clean.activity.GarbageActivity$6,long) -> <init>
-    394:396:void run() -> run
+    392:392:void <init>(com.bruder.clean.activity.GarbageActivity$6,long) -> <init>
+    395:397:void run() -> run
 com.bruder.clean.activity.GarbageActivity$7 -> com.bruder.clean.activity.GarbageActivity$15:
     long val$size -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    407:407:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
-    410:433:void run() -> run
+    408:408:void <init>(com.bruder.clean.activity.GarbageActivity,long) -> <init>
+    411:434:void run() -> run
 com.bruder.clean.activity.GarbageActivity$7$1 -> com.bruder.clean.activity.GarbageActivity$15$1:
     long val$finalI -> a
     com.bruder.clean.activity.GarbageActivity$7 this$1 -> b
-    425:425:void <init>(com.bruder.clean.activity.GarbageActivity$7,long) -> <init>
-    428:430:void run() -> run
+    426:426:void <init>(com.bruder.clean.activity.GarbageActivity$7,long) -> <init>
+    429:431:void run() -> run
 com.bruder.clean.activity.GarbageActivity$8 -> com.bruder.clean.activity.GarbageActivity$16:
     android.os.Bundle val$bundle -> a
     com.bruder.clean.activity.GarbageActivity this$0 -> b
-    447:447:void <init>(com.bruder.clean.activity.GarbageActivity,android.os.Bundle) -> <init>
-    450:479:void run() -> run
+    448:448:void <init>(com.bruder.clean.activity.GarbageActivity,android.os.Bundle) -> <init>
+    451:480:void run() -> run
 com.bruder.clean.activity.GarbageActivity$8$1 -> com.bruder.clean.activity.GarbageActivity$16$1:
     com.bruder.clean.activity.GarbageActivity$8 this$1 -> a
-    464:464:void <init>(com.bruder.clean.activity.GarbageActivity$8) -> <init>
-    466:470:void run() -> run
+    465:465:void <init>(com.bruder.clean.activity.GarbageActivity$8) -> <init>
+    467:471:void run() -> run
 com.bruder.clean.activity.GarbageActivity$8$2 -> com.bruder.clean.activity.GarbageActivity$16$2:
     com.bruder.clean.activity.GarbageActivity$8 this$1 -> a
-    473:473:void <init>(com.bruder.clean.activity.GarbageActivity$8) -> <init>
-    476:477:void run() -> run
+    474:474:void <init>(com.bruder.clean.activity.GarbageActivity$8) -> <init>
+    477:478:void run() -> run
 com.bruder.clean.activity.GarbageActivity$9 -> com.bruder.clean.activity.GarbageActivity$17:
     com.bruder.clean.activity.GarbageActivity this$0 -> a
-    482:482:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
-    485:486:void run() -> run
+    483:483:void <init>(com.bruder.clean.activity.GarbageActivity) -> <init>
+    486:487:void run() -> run
 com.bruder.clean.activity.GarbageAndRamActivity -> com.bruder.clean.activity.GarbageAndRamActivity:
     android.widget.TextView junk_unit -> a
     android.widget.TextView junk_fangxin -> b
@@ -29514,21 +29509,21 @@ com.bruder.clean.activity.InformationActivity$3 -> com.bruder.clean.activity.Inf
     155:156:void run() -> run
 com.bruder.clean.activity.JurisdictionActivity -> com.bruder.clean.activity.JurisdictionActivity:
     android.widget.ImageView check_jurisdiction -> a
-    18:18:void <init>() -> <init>
-    23:66:void onResume() -> onResume
-    70:80:void onCreate(android.os.Bundle) -> onCreate
-    18:18:android.widget.ImageView access$000(com.bruder.clean.activity.JurisdictionActivity) -> a
+    17:17:void <init>() -> <init>
+    22:65:void onResume() -> onResume
+    69:79:void onCreate(android.os.Bundle) -> onCreate
+    17:17:android.widget.ImageView access$000(com.bruder.clean.activity.JurisdictionActivity) -> a
 com.bruder.clean.activity.JurisdictionActivity$1 -> com.bruder.clean.activity.JurisdictionActivity$1:
     com.bruder.clean.activity.JurisdictionActivity this$0 -> a
-    27:27:void <init>(com.bruder.clean.activity.JurisdictionActivity) -> <init>
-    31:31:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-    35:36:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    41:41:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    46:46:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    26:26:void <init>(com.bruder.clean.activity.JurisdictionActivity) -> <init>
+    30:30:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    34:35:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    40:40:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    45:45:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
 com.bruder.clean.activity.JurisdictionActivity$2 -> com.bruder.clean.activity.JurisdictionActivity$2:
     com.bruder.clean.activity.JurisdictionActivity this$0 -> a
-    74:74:void <init>(com.bruder.clean.activity.JurisdictionActivity) -> <init>
-    77:78:void onClick(android.view.View) -> onClick
+    73:73:void <init>(com.bruder.clean.activity.JurisdictionActivity) -> <init>
+    76:77:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.LoadingActivity -> com.bruder.clean.activity.LoadingActivity:
     android.widget.TextView tv_tiaoguo -> a
     android.os.Handler myHandler -> b
@@ -29620,105 +29615,105 @@ com.bruder.clean.activity.MainActivity -> com.bruder.clean.activity.MainActivity
     com.bruder.clean.customeview.PullToMyRefreshLayout$OnRefreshListener refreshListener -> ag
     android.view.View$OnClickListener onClickListener -> ah
     java.lang.Runnable fullAdRunnale -> ai
-    57:784:void <init>() -> <init>
-    112:160:void onCreate(android.os.Bundle) -> onCreate
-    165:176:void isSharedPreferences() -> j
-    181:227:void isFirstInDialog() -> k
-    231:282:void findId() -> b
-    286:314:void onClick() -> c
-    318:358:void initSd(int,java.lang.String,long) -> a
-    362:366:void initGuard(int,android.view.animation.RotateAnimation) -> a
-    371:390:void initSideData() -> e
+    56:783:void <init>() -> <init>
+    111:159:void onCreate(android.os.Bundle) -> onCreate
+    164:175:void isSharedPreferences() -> j
+    180:226:void isFirstInDialog() -> k
+    230:281:void findId() -> b
+    285:313:void onClick() -> c
+    317:357:void initSd(int,java.lang.String,long) -> a
+    361:365:void initGuard(int,android.view.animation.RotateAnimation) -> a
+    370:389:void initSideData() -> e
     396:396:void loadAirAnimator(android.view.animation.TranslateAnimation) -> a
     400:401:void openDrawer() -> f
     406:407:void setRotateGone() -> g
     411:430:void initCpu(int) -> b
-    583:668:void onResume() -> onResume
-    672:677:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    680:680:void adDelete() -> l
-    684:691:void onDestroy() -> onDestroy
-    703:727:void initRam(int,java.lang.String) -> a
-    731:782:void loadFullAd() -> a
-    793:798:void onPause() -> onPause
-    802:830:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    835:835:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    839:847:void onBackPressed() -> onBackPressed
-    852:852:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    856:864:void onRestart() -> onRestart
-    867:922:void showExitDialog() -> m
-    926:931:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    935:945:void startAnimator(float,float,float,float) -> a
-    949:952:void pauseAnimator() -> h
-    956:957:void endAnimator() -> i
-    57:57:android.support.v7.app.AlertDialog access$000(com.bruder.clean.activity.MainActivity) -> a
-    57:57:com.bruder.clean.myadapter.SideAdapter access$100(com.bruder.clean.activity.MainActivity) -> b
-    57:57:android.os.Handler access$200(com.bruder.clean.activity.MainActivity) -> c
-    57:57:java.lang.String access$300(com.bruder.clean.activity.MainActivity) -> d
-    57:57:com.bruder.clean.presenter.MainPresenter access$400(com.bruder.clean.activity.MainActivity) -> e
-    57:57:long access$502(com.bruder.clean.activity.MainActivity,long) -> a
-    57:57:long access$500(com.bruder.clean.activity.MainActivity) -> f
-    57:57:void access$600(com.bruder.clean.activity.MainActivity) -> g
-    57:57:android.support.v7.app.AlertDialog access$700(com.bruder.clean.activity.MainActivity) -> h
+    581:667:void onResume() -> onResume
+    671:676:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    679:679:void adDelete() -> l
+    683:690:void onDestroy() -> onDestroy
+    702:726:void initRam(int,java.lang.String) -> a
+    730:781:void loadFullAd() -> a
+    792:797:void onPause() -> onPause
+    801:829:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    834:834:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    838:846:void onBackPressed() -> onBackPressed
+    851:851:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    855:863:void onRestart() -> onRestart
+    866:921:void showExitDialog() -> m
+    925:930:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    934:944:void startAnimator(float,float,float,float) -> a
+    948:951:void pauseAnimator() -> h
+    955:956:void endAnimator() -> i
+    56:56:android.support.v7.app.AlertDialog access$000(com.bruder.clean.activity.MainActivity) -> a
+    56:56:com.bruder.clean.myadapter.SideAdapter access$100(com.bruder.clean.activity.MainActivity) -> b
+    56:56:android.os.Handler access$200(com.bruder.clean.activity.MainActivity) -> c
+    56:56:java.lang.String access$300(com.bruder.clean.activity.MainActivity) -> d
+    56:56:com.bruder.clean.presenter.MainPresenter access$400(com.bruder.clean.activity.MainActivity) -> e
+    56:56:long access$502(com.bruder.clean.activity.MainActivity,long) -> a
+    56:56:long access$500(com.bruder.clean.activity.MainActivity) -> f
+    56:56:void access$600(com.bruder.clean.activity.MainActivity) -> g
+    56:56:android.support.v7.app.AlertDialog access$700(com.bruder.clean.activity.MainActivity) -> h
 com.bruder.clean.activity.MainActivity$1 -> com.bruder.clean.activity.MainActivity$1:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    187:187:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    190:194:void onClick(android.view.View) -> onClick
+    186:186:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    189:193:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.MainActivity$10 -> com.bruder.clean.activity.MainActivity$2:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    601:601:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    604:654:void run() -> run
+    600:600:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    603:653:void run() -> run
 com.bruder.clean.activity.MainActivity$10$1 -> com.bruder.clean.activity.MainActivity$2$1:
     long val$finalI -> a
     com.bruder.clean.activity.MainActivity$10 this$1 -> b
-    624:624:void <init>(com.bruder.clean.activity.MainActivity$10,long) -> <init>
-    627:648:void run() -> run
+    623:623:void <init>(com.bruder.clean.activity.MainActivity$10,long) -> <init>
+    626:647:void run() -> run
 com.bruder.clean.activity.MainActivity$11 -> com.bruder.clean.activity.MainActivity$3:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    704:704:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    707:725:void progressUpdate(int) -> a
+    703:703:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    706:724:void progressUpdate(int) -> a
 com.bruder.clean.activity.MainActivity$11$1 -> com.bruder.clean.activity.MainActivity$3$1:
     int val$progress -> a
     com.bruder.clean.activity.MainActivity$11 this$1 -> b
-    707:707:void <init>(com.bruder.clean.activity.MainActivity$11,int) -> <init>
-    715:723:void run() -> run
+    706:706:void <init>(com.bruder.clean.activity.MainActivity$11,int) -> <init>
+    714:722:void run() -> run
 com.bruder.clean.activity.MainActivity$12 -> com.bruder.clean.activity.MainActivity$4:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    771:771:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    774:776:void onClick(android.view.View) -> onClick
+    770:770:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    773:775:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.MainActivity$13 -> com.bruder.clean.activity.MainActivity$5:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    784:784:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    787:788:void run() -> run
+    783:783:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    786:787:void run() -> run
 com.bruder.clean.activity.MainActivity$14 -> com.bruder.clean.activity.MainActivity$6:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    879:879:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    882:888:void onClick(android.view.View) -> onClick
+    878:878:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    881:887:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.MainActivity$15 -> com.bruder.clean.activity.MainActivity$7:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    891:891:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    894:895:void onClick(android.view.View) -> onClick
+    890:890:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    893:894:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.MainActivity$2 -> com.bruder.clean.activity.MainActivity$8:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    196:196:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    199:200:void onClick(android.view.View) -> onClick
+    195:195:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    198:199:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.MainActivity$3 -> com.bruder.clean.activity.MainActivity$9:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    308:308:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    311:311:void onScrollChanged(com.bruder.clean.customeview.MyMainScrollView,int,int,int,int) -> a
+    307:307:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    310:310:void onScrollChanged(com.bruder.clean.customeview.MyMainScrollView,int,int,int,int) -> a
 com.bruder.clean.activity.MainActivity$4 -> com.bruder.clean.activity.MainActivity$10:
     com.bruder.clean.activity.MainActivity this$0 -> a
-    319:319:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    322:322:void run() -> run
+    318:318:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
+    321:321:void run() -> run
 com.bruder.clean.activity.MainActivity$5 -> com.bruder.clean.activity.MainActivity$11:
     java.lang.Runnable val$sdRunable -> a
     com.bruder.clean.activity.MainActivity this$0 -> b
-    324:324:void <init>(com.bruder.clean.activity.MainActivity,java.lang.Runnable) -> <init>
-    327:329:void progressUpdate(int) -> a
+    323:323:void <init>(com.bruder.clean.activity.MainActivity,java.lang.Runnable) -> <init>
+    326:328:void progressUpdate(int) -> a
 com.bruder.clean.activity.MainActivity$6 -> com.bruder.clean.activity.MainActivity$12:
     long val$sd_kongxian -> a
     com.bruder.clean.activity.MainActivity this$0 -> b
-    332:332:void <init>(com.bruder.clean.activity.MainActivity,long) -> <init>
-    336:356:void run() -> run
+    331:331:void <init>(com.bruder.clean.activity.MainActivity,long) -> <init>
+    335:355:void run() -> run
 com.bruder.clean.activity.MainActivity$7 -> com.bruder.clean.activity.MainActivity$13:
     int val$temp -> a
     com.bruder.clean.activity.MainActivity this$0 -> b
@@ -29742,7 +29737,7 @@ com.bruder.clean.activity.MainActivity$8$1 -> com.bruder.clean.activity.MainActi
 com.bruder.clean.activity.MainActivity$9 -> com.bruder.clean.activity.MainActivity$15:
     com.bruder.clean.activity.MainActivity this$0 -> a
     469:469:void <init>(com.bruder.clean.activity.MainActivity) -> <init>
-    473:578:void onClick(android.view.View) -> onClick
+    473:576:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.MyApplication -> com.bruder.clean.activity.MyApplication:
     android.app.ActivityManager am -> a
     android.os.HandlerThread mThread -> b
@@ -29753,19 +29748,19 @@ com.bruder.clean.activity.MyApplication -> com.bruder.clean.activity.MyApplicati
 com.bruder.clean.activity.NotifiIfActivity -> com.bruder.clean.activity.NotifiIfActivity:
     android.widget.Button notifi_info_text -> a
     com.sample.lottie.LottieAnimationView notifi_info_lot -> b
-    22:22:void <init>() -> <init>
-    29:59:void onCreate(android.os.Bundle) -> onCreate
-    63:66:void findId() -> b
-    71:78:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    82:84:void onBackPressed() -> onBackPressed
+    21:21:void <init>() -> <init>
+    28:58:void onCreate(android.os.Bundle) -> onCreate
+    62:65:void findId() -> b
+    70:77:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    81:83:void onBackPressed() -> onBackPressed
 com.bruder.clean.activity.NotifiIfActivity$1 -> com.bruder.clean.activity.NotifiIfActivity$1:
     com.bruder.clean.activity.NotifiIfActivity this$0 -> a
-    36:36:void <init>(com.bruder.clean.activity.NotifiIfActivity) -> <init>
-    39:45:void run() -> run
+    35:35:void <init>(com.bruder.clean.activity.NotifiIfActivity) -> <init>
+    38:44:void run() -> run
 com.bruder.clean.activity.NotifiIfActivity$2 -> com.bruder.clean.activity.NotifiIfActivity$2:
     com.bruder.clean.activity.NotifiIfActivity this$0 -> a
-    47:47:void <init>(com.bruder.clean.activity.NotifiIfActivity) -> <init>
-    50:57:void onClick(android.view.View) -> onClick
+    46:46:void <init>(com.bruder.clean.activity.NotifiIfActivity) -> <init>
+    49:56:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.NotifiSettActivity -> com.bruder.clean.activity.NotifiSettActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -29779,15 +29774,15 @@ com.bruder.clean.activity.NotifiSettActivity -> com.bruder.clean.activity.Notifi
     android.view.View view_set -> j
     android.widget.RelativeLayout notifi_button_rl -> k
     android.view.View$OnClickListener nOnClickListener -> p
-    28:97:void <init>() -> <init>
-    42:71:void onCreate(android.os.Bundle) -> onCreate
-    75:77:void onBackPressed() -> onBackPressed
-    80:82:void setListener() -> a
-    86:95:void findId() -> b
+    27:96:void <init>() -> <init>
+    41:70:void onCreate(android.os.Bundle) -> onCreate
+    74:76:void onBackPressed() -> onBackPressed
+    79:81:void setListener() -> a
+    85:94:void findId() -> b
 com.bruder.clean.activity.NotifiSettActivity$1 -> com.bruder.clean.activity.NotifiSettActivity$1:
     com.bruder.clean.activity.NotifiSettActivity this$0 -> a
-    97:97:void <init>(com.bruder.clean.activity.NotifiSettActivity) -> <init>
-    100:118:void onClick(android.view.View) -> onClick
+    96:96:void <init>(com.bruder.clean.activity.NotifiSettActivity) -> <init>
+    99:117:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.NotifingActivity -> com.bruder.clean.activity.NotifingActivity:
     com.bruder.clean.customeview.DeleteListMyView list_si -> a
     android.widget.TextView white_wu -> b
@@ -29801,40 +29796,40 @@ com.bruder.clean.activity.NotifingActivity -> com.bruder.clean.activity.Notifing
     android.widget.TextView notifi_cpu -> h
     com.cleaner.notification.NotificationCallBack notificationCallBack -> i
     android.view.View$OnClickListener nOnClickListener -> j
-    37:181:void <init>() -> <init>
-    50:59:void setTranslucentStatus(boolean) -> a
-    63:76:void setHideVirtualKey(android.view.Window) -> a
-    79:84:int getStatusHeight(android.app.Activity) -> a
-    88:100:void findId() -> a
-    105:131:void onCreate(android.os.Bundle) -> onCreate
-    134:141:void full() -> b
-    161:179:void setListener() -> c
-    209:213:void onBackPressed() -> onBackPressed
-    217:219:void onDestroy() -> onDestroy
-    222:225:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    228:230:void jumpToActivity(java.lang.Class,int) -> a
-    234:239:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    37:37:com.bruder.clean.myadapter.NotifiMyAdapter access$000(com.bruder.clean.activity.NotifingActivity) -> a
+    36:180:void <init>() -> <init>
+    49:58:void setTranslucentStatus(boolean) -> a
+    62:75:void setHideVirtualKey(android.view.Window) -> a
+    78:83:int getStatusHeight(android.app.Activity) -> a
+    87:99:void findId() -> a
+    104:130:void onCreate(android.os.Bundle) -> onCreate
+    133:140:void full() -> b
+    160:178:void setListener() -> c
+    208:212:void onBackPressed() -> onBackPressed
+    216:218:void onDestroy() -> onDestroy
+    221:224:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
+    227:229:void jumpToActivity(java.lang.Class,int) -> a
+    233:238:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    36:36:com.bruder.clean.myadapter.NotifiMyAdapter access$000(com.bruder.clean.activity.NotifingActivity) -> a
 com.bruder.clean.activity.NotifingActivity$1 -> com.bruder.clean.activity.NotifingActivity$1:
     com.bruder.clean.activity.NotifingActivity this$0 -> a
-    135:135:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
-    138:139:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    134:134:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
+    137:138:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.bruder.clean.activity.NotifingActivity$2 -> com.bruder.clean.activity.NotifingActivity$2:
     com.bruder.clean.activity.NotifingActivity this$0 -> a
-    143:143:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
-    147:156:void notificationChanged(java.util.ArrayList) -> a
+    142:142:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
+    146:155:void notificationChanged(java.util.ArrayList) -> a
 com.bruder.clean.activity.NotifingActivity$3 -> com.bruder.clean.activity.NotifingActivity$3:
     com.bruder.clean.activity.NotifingActivity this$0 -> a
-    164:164:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
-    167:169:void removeItem(com.bruder.clean.customeview.DeleteListMyView$RemoveDirection,int) -> a
+    163:163:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
+    166:168:void removeItem(com.bruder.clean.customeview.DeleteListMyView$RemoveDirection,int) -> a
 com.bruder.clean.activity.NotifingActivity$4 -> com.bruder.clean.activity.NotifingActivity$4:
     com.bruder.clean.activity.NotifingActivity this$0 -> a
-    171:171:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
-    174:177:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    170:170:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
+    173:176:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.bruder.clean.activity.NotifingActivity$5 -> com.bruder.clean.activity.NotifingActivity$5:
     com.bruder.clean.activity.NotifingActivity this$0 -> a
-    181:181:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
-    184:198:void onClick(android.view.View) -> onClick
+    180:180:void <init>(com.bruder.clean.activity.NotifingActivity) -> <init>
+    183:197:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PhoneRamAvtivity -> com.bruder.clean.activity.PhoneRamAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -29932,33 +29927,33 @@ com.bruder.clean.activity.PicturesActivity -> com.bruder.clean.activity.Pictures
     android.support.v4.view.ViewPager picture_pager -> z
     android.os.Handler mHandler -> A
     android.view.View$OnClickListener clickListener -> B
-    47:283:void <init>() -> <init>
-    108:127:void onCreate(android.os.Bundle) -> onCreate
-    131:151:void findId() -> b
-    154:159:void clickListen() -> c
-    162:165:void loadAd() -> e
-    168:281:void bigPicture(java.util.ArrayList) -> a
-    320:393:void initData() -> f
-    397:400:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    404:411:void onBackPressed() -> onBackPressed
-    414:428:void updateUi() -> a
-    431:535:void deleteDialog(java.util.ArrayList) -> c
-    538:540:void showBigPic(java.util.ArrayList) -> b
-    47:47:com.bruder.clean.myadapter.RecycleViewAdapter access$000(com.bruder.clean.activity.PicturesActivity) -> a
-    47:47:void access$100(com.bruder.clean.activity.PicturesActivity) -> b
-    47:47:java.util.ArrayList access$200(com.bruder.clean.activity.PicturesActivity) -> c
-    47:47:android.support.v4.view.PagerAdapter access$300(com.bruder.clean.activity.PicturesActivity) -> d
-    47:47:com.cleaner.similarimage.ImageHelper access$400(com.bruder.clean.activity.PicturesActivity) -> e
-    47:47:void access$500(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList) -> a
-    47:47:com.bruder.clean.myadapter.RecycleViewAdapter access$002(com.bruder.clean.activity.PicturesActivity,com.bruder.clean.myadapter.RecycleViewAdapter) -> a
+    46:282:void <init>() -> <init>
+    107:126:void onCreate(android.os.Bundle) -> onCreate
+    130:150:void findId() -> b
+    153:158:void clickListen() -> c
+    161:164:void loadAd() -> e
+    167:280:void bigPicture(java.util.ArrayList) -> a
+    319:392:void initData() -> f
+    396:399:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    403:410:void onBackPressed() -> onBackPressed
+    413:427:void updateUi() -> a
+    430:534:void deleteDialog(java.util.ArrayList) -> c
+    537:539:void showBigPic(java.util.ArrayList) -> b
+    46:46:com.bruder.clean.myadapter.RecycleViewAdapter access$000(com.bruder.clean.activity.PicturesActivity) -> a
+    46:46:void access$100(com.bruder.clean.activity.PicturesActivity) -> b
+    46:46:java.util.ArrayList access$200(com.bruder.clean.activity.PicturesActivity) -> c
+    46:46:android.support.v4.view.PagerAdapter access$300(com.bruder.clean.activity.PicturesActivity) -> d
+    46:46:com.cleaner.similarimage.ImageHelper access$400(com.bruder.clean.activity.PicturesActivity) -> e
+    46:46:void access$500(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList) -> a
+    46:46:com.bruder.clean.myadapter.RecycleViewAdapter access$002(com.bruder.clean.activity.PicturesActivity,com.bruder.clean.myadapter.RecycleViewAdapter) -> a
 com.bruder.clean.activity.PicturesActivity$1 -> com.bruder.clean.activity.PicturesActivity$1:
     com.bruder.clean.activity.PicturesActivity this$0 -> a
-    77:77:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
-    80:103:void handleMessage(android.os.Message) -> handleMessage
+    76:76:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
+    79:102:void handleMessage(android.os.Message) -> handleMessage
 com.bruder.clean.activity.PicturesActivity$10 -> com.bruder.clean.activity.PicturesActivity$2:
     com.bruder.clean.activity.PicturesActivity this$0 -> a
-    454:454:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
-    457:459:void onClick(android.view.View) -> onClick
+    453:453:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
+    456:458:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PicturesActivity$11 -> com.bruder.clean.activity.PicturesActivity$3:
     android.widget.TextView val$ok -> a
     android.widget.TextView val$cancle -> b
@@ -29967,81 +29962,81 @@ com.bruder.clean.activity.PicturesActivity$11 -> com.bruder.clean.activity.Pictu
     int val$deleteSize -> e
     android.widget.TextView val$count -> f
     com.bruder.clean.activity.PicturesActivity this$0 -> g
-    461:461:void <init>(com.bruder.clean.activity.PicturesActivity,android.widget.TextView,android.widget.TextView,android.widget.LinearLayout,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
-    464:512:void onClick(android.view.View) -> onClick
+    460:460:void <init>(com.bruder.clean.activity.PicturesActivity,android.widget.TextView,android.widget.TextView,android.widget.LinearLayout,android.widget.ProgressBar,int,android.widget.TextView) -> <init>
+    463:511:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PicturesActivity$11$1 -> com.bruder.clean.activity.PicturesActivity$3$1:
     int num -> a
     com.bruder.clean.activity.PicturesActivity$11 this$1 -> b
-    469:470:void <init>(com.bruder.clean.activity.PicturesActivity$11) -> <init>
-    474:481:void deleteItemCallback(long) -> a
-    485:510:void deleteSuccessCallback(java.util.ArrayList) -> a
+    468:469:void <init>(com.bruder.clean.activity.PicturesActivity$11) -> <init>
+    473:480:void deleteItemCallback(long) -> a
+    484:509:void deleteSuccessCallback(java.util.ArrayList) -> a
 com.bruder.clean.activity.PicturesActivity$11$1$1 -> com.bruder.clean.activity.PicturesActivity$3$1$1:
     com.bruder.clean.activity.PicturesActivity$11$1 this$2 -> a
-    474:474:void <init>(com.bruder.clean.activity.PicturesActivity$11$1) -> <init>
-    477:479:void run() -> run
+    473:473:void <init>(com.bruder.clean.activity.PicturesActivity$11$1) -> <init>
+    476:478:void run() -> run
 com.bruder.clean.activity.PicturesActivity$11$1$2 -> com.bruder.clean.activity.PicturesActivity$3$1$2:
     java.util.ArrayList val$list -> a
     com.bruder.clean.activity.PicturesActivity$11$1 this$2 -> b
-    486:486:void <init>(com.bruder.clean.activity.PicturesActivity$11$1,java.util.ArrayList) -> <init>
-    489:508:void run() -> run
+    485:485:void <init>(com.bruder.clean.activity.PicturesActivity$11$1,java.util.ArrayList) -> <init>
+    488:507:void run() -> run
 com.bruder.clean.activity.PicturesActivity$2 -> com.bruder.clean.activity.PicturesActivity$4:
     com.bruder.clean.activity.PicturesActivity this$0 -> a
-    119:119:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
-    122:123:void run() -> run
+    118:118:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
+    121:122:void run() -> run
 com.bruder.clean.activity.PicturesActivity$3 -> com.bruder.clean.activity.PicturesActivity$5:
     java.util.ArrayList val$list -> a
     com.bruder.clean.activity.PicturesActivity this$0 -> b
-    174:174:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList) -> <init>
-    177:185:void onClick(android.view.View) -> onClick
+    173:173:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList) -> <init>
+    176:184:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PicturesActivity$4 -> com.bruder.clean.activity.PicturesActivity$6:
     java.util.ArrayList val$list -> a
     com.bruder.clean.activity.PicturesActivity this$0 -> b
-    188:188:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList) -> <init>
-    191:204:void onClick(android.view.View) -> onClick
+    187:187:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList) -> <init>
+    190:203:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PicturesActivity$5 -> com.bruder.clean.activity.PicturesActivity$7:
     java.util.ArrayList val$list -> a
     int val$finalI -> b
     android.widget.ImageView val$icon -> c
     com.bruder.clean.activity.PicturesActivity this$0 -> d
-    211:211:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList,int,android.widget.ImageView) -> <init>
-    215:223:void run() -> run
+    210:210:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList,int,android.widget.ImageView) -> <init>
+    214:222:void run() -> run
 com.bruder.clean.activity.PicturesActivity$5$1 -> com.bruder.clean.activity.PicturesActivity$7$1:
     android.graphics.Bitmap val$bitma -> a
     com.bruder.clean.activity.PicturesActivity$5 this$1 -> b
-    217:217:void <init>(com.bruder.clean.activity.PicturesActivity$5,android.graphics.Bitmap) -> <init>
-    220:221:void run() -> run
+    216:216:void <init>(com.bruder.clean.activity.PicturesActivity$5,android.graphics.Bitmap) -> <init>
+    219:220:void run() -> run
 com.bruder.clean.activity.PicturesActivity$6 -> com.bruder.clean.activity.PicturesActivity$8:
     com.bruder.clean.activity.PicturesActivity this$0 -> a
-    229:229:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
-    232:232:int getCount() -> getCount
-    237:238:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    243:246:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    250:250:int getItemPosition(java.lang.Object) -> getItemPosition
-    255:255:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    228:228:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
+    231:231:int getCount() -> getCount
+    236:237:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    242:245:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    249:249:int getItemPosition(java.lang.Object) -> getItemPosition
+    254:254:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.bruder.clean.activity.PicturesActivity$7 -> com.bruder.clean.activity.PicturesActivity$9:
     java.util.ArrayList val$list -> a
     com.bruder.clean.activity.PicturesActivity this$0 -> b
-    258:258:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList) -> <init>
-    261:261:void onPageScrolled(int,float,int) -> onPageScrolled
-    265:275:void onPageSelected(int) -> onPageSelected
-    279:279:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    257:257:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList) -> <init>
+    260:260:void onPageScrolled(int,float,int) -> onPageScrolled
+    264:274:void onPageSelected(int) -> onPageSelected
+    278:278:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.bruder.clean.activity.PicturesActivity$8 -> com.bruder.clean.activity.PicturesActivity$10:
     com.bruder.clean.activity.PicturesActivity this$0 -> a
-    283:283:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
-    286:315:void onClick(android.view.View) -> onClick
+    282:282:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
+    285:314:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PicturesActivity$9 -> com.bruder.clean.activity.PicturesActivity$11:
     com.bruder.clean.activity.PicturesActivity this$0 -> a
-    320:320:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
-    323:324:void startQuery() -> a
-    328:343:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
-    347:353:void startAsyncPic(int,java.util.ArrayList) -> a
-    358:358:void endAsyncPic(int,java.util.ArrayList) -> b
-    362:389:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
+    319:319:void <init>(com.bruder.clean.activity.PicturesActivity) -> <init>
+    322:323:void startQuery() -> a
+    327:342:void endQuery(java.util.ArrayList,java.util.ArrayList,long,long) -> a
+    346:352:void startAsyncPic(int,java.util.ArrayList) -> a
+    357:357:void endAsyncPic(int,java.util.ArrayList) -> b
+    361:388:void haveQuerySimilarPic(int,java.util.ArrayList,java.util.ArrayList,long) -> a
 com.bruder.clean.activity.PicturesActivity$9$1 -> com.bruder.clean.activity.PicturesActivity$11$1:
     java.util.ArrayList val$totalSimilarImage -> a
     com.bruder.clean.activity.PicturesActivity$9 this$1 -> b
-    362:362:void <init>(com.bruder.clean.activity.PicturesActivity$9,java.util.ArrayList) -> <init>
-    365:387:void run() -> run
+    361:361:void <init>(com.bruder.clean.activity.PicturesActivity$9,java.util.ArrayList) -> <init>
+    364:386:void run() -> run
 com.bruder.clean.activity.PicturesHuiActivity -> com.bruder.clean.activity.PicturesHuiActivity:
     android.os.Handler mHandler -> q
     java.lang.String TAG_RECYCLE -> r
@@ -30063,26 +30058,26 @@ com.bruder.clean.activity.PicturesHuiActivity -> com.bruder.clean.activity.Pictu
     android.widget.TextView picture_delete -> j
     android.view.View$OnClickListener clickListener -> k
     com.bruder.clean.activity.PicturesHuiActivity$MyCallBack callBack -> p
-    44:126:void <init>() -> <init>
-    66:85:void onCreate(android.os.Bundle) -> onCreate
-    89:99:void findId() -> b
-    102:108:void addAd() -> a
-    111:116:void loadAd() -> c
-    119:124:void addListener() -> e
-    159:168:void notifiActivity() -> f
-    172:279:void dialog(boolean,int) -> a
-    285:289:void onBackPressed() -> onBackPressed
-    44:44:com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter access$000(com.bruder.clean.activity.PicturesHuiActivity) -> a
-    44:44:void access$100(com.bruder.clean.activity.PicturesHuiActivity,boolean,int) -> a
-    44:44:android.os.Handler access$200(com.bruder.clean.activity.PicturesHuiActivity) -> b
-    44:44:android.support.v7.app.AlertDialog access$300(com.bruder.clean.activity.PicturesHuiActivity) -> c
-    44:44:void access$400(com.bruder.clean.activity.PicturesHuiActivity) -> d
-    44:44:boolean access$502(com.bruder.clean.activity.PicturesHuiActivity,boolean) -> a
-    44:44:com.cleaner.similarimage.ImageHelper access$600(com.bruder.clean.activity.PicturesHuiActivity) -> e
+    43:125:void <init>() -> <init>
+    65:84:void onCreate(android.os.Bundle) -> onCreate
+    88:98:void findId() -> b
+    101:107:void addAd() -> a
+    110:115:void loadAd() -> c
+    118:123:void addListener() -> e
+    158:167:void notifiActivity() -> f
+    171:278:void dialog(boolean,int) -> a
+    284:288:void onBackPressed() -> onBackPressed
+    43:43:com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter access$000(com.bruder.clean.activity.PicturesHuiActivity) -> a
+    43:43:void access$100(com.bruder.clean.activity.PicturesHuiActivity,boolean,int) -> a
+    43:43:android.os.Handler access$200(com.bruder.clean.activity.PicturesHuiActivity) -> b
+    43:43:android.support.v7.app.AlertDialog access$300(com.bruder.clean.activity.PicturesHuiActivity) -> c
+    43:43:void access$400(com.bruder.clean.activity.PicturesHuiActivity) -> d
+    43:43:boolean access$502(com.bruder.clean.activity.PicturesHuiActivity,boolean) -> a
+    43:43:com.cleaner.similarimage.ImageHelper access$600(com.bruder.clean.activity.PicturesHuiActivity) -> e
 com.bruder.clean.activity.PicturesHuiActivity$1 -> com.bruder.clean.activity.PicturesHuiActivity$1:
     com.bruder.clean.activity.PicturesHuiActivity this$0 -> a
-    126:126:void <init>(com.bruder.clean.activity.PicturesHuiActivity) -> <init>
-    130:155:void onClick(android.view.View) -> onClick
+    125:125:void <init>(com.bruder.clean.activity.PicturesHuiActivity) -> <init>
+    129:154:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PicturesHuiActivity$2 -> com.bruder.clean.activity.PicturesHuiActivity$2:
     android.widget.TextView val$ok -> a
     android.widget.TextView val$cancle -> b
@@ -30091,125 +30086,125 @@ com.bruder.clean.activity.PicturesHuiActivity$2 -> com.bruder.clean.activity.Pic
     android.widget.ProgressBar val$delete_progress -> e
     boolean val$isrestore -> f
     com.bruder.clean.activity.PicturesHuiActivity this$0 -> g
-    187:187:void <init>(com.bruder.clean.activity.PicturesHuiActivity,android.widget.TextView,android.widget.TextView,android.widget.TextView,int,android.widget.ProgressBar,boolean) -> <init>
-    190:250:void onClick(android.view.View) -> onClick
+    186:186:void <init>(com.bruder.clean.activity.PicturesHuiActivity,android.widget.TextView,android.widget.TextView,android.widget.TextView,int,android.widget.ProgressBar,boolean) -> <init>
+    189:249:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PicturesHuiActivity$2$1 -> com.bruder.clean.activity.PicturesHuiActivity$2$1:
     int num -> a
     com.bruder.clean.activity.PicturesHuiActivity$2 this$1 -> b
-    196:197:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2) -> <init>
-    201:208:void progress() -> a
-    212:220:void success() -> b
+    195:196:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2) -> <init>
+    200:207:void progress() -> a
+    211:219:void success() -> b
 com.bruder.clean.activity.PicturesHuiActivity$2$1$1 -> com.bruder.clean.activity.PicturesHuiActivity$2$1$1:
     com.bruder.clean.activity.PicturesHuiActivity$2$1 this$2 -> a
-    201:201:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2$1) -> <init>
-    204:206:void run() -> run
+    200:200:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2$1) -> <init>
+    203:205:void run() -> run
 com.bruder.clean.activity.PicturesHuiActivity$2$1$2 -> com.bruder.clean.activity.PicturesHuiActivity$2$1$2:
     com.bruder.clean.activity.PicturesHuiActivity$2$1 this$2 -> a
-    213:213:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2$1) -> <init>
-    216:218:void run() -> run
+    212:212:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2$1) -> <init>
+    215:217:void run() -> run
 com.bruder.clean.activity.PicturesHuiActivity$2$2 -> com.bruder.clean.activity.PicturesHuiActivity$2$2:
     int num -> a
     com.bruder.clean.activity.PicturesHuiActivity$2 this$1 -> b
-    223:224:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2) -> <init>
-    228:235:void progress() -> a
-    239:247:void success() -> b
+    222:223:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2) -> <init>
+    227:234:void progress() -> a
+    238:246:void success() -> b
 com.bruder.clean.activity.PicturesHuiActivity$2$2$1 -> com.bruder.clean.activity.PicturesHuiActivity$2$2$1:
     com.bruder.clean.activity.PicturesHuiActivity$2$2 this$2 -> a
-    228:228:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2$2) -> <init>
-    231:233:void run() -> run
+    227:227:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2$2) -> <init>
+    230:232:void run() -> run
 com.bruder.clean.activity.PicturesHuiActivity$2$2$2 -> com.bruder.clean.activity.PicturesHuiActivity$2$2$2:
     com.bruder.clean.activity.PicturesHuiActivity$2$2 this$2 -> a
-    240:240:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2$2) -> <init>
-    243:245:void run() -> run
+    239:239:void <init>(com.bruder.clean.activity.PicturesHuiActivity$2$2) -> <init>
+    242:244:void run() -> run
 com.bruder.clean.activity.PicturesHuiActivity$3 -> com.bruder.clean.activity.PicturesHuiActivity$3:
     com.bruder.clean.activity.PicturesHuiActivity this$0 -> a
-    252:252:void <init>(com.bruder.clean.activity.PicturesHuiActivity) -> <init>
-    255:256:void onClick(android.view.View) -> onClick
+    251:251:void <init>(com.bruder.clean.activity.PicturesHuiActivity) -> <init>
+    254:255:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter -> com.bruder.clean.activity.PicturesHuiActivity$a:
     java.util.ArrayList list -> a
     android.support.v4.util.LruCache lruCache -> b
     com.bruder.clean.activity.PicturesHuiActivity this$0 -> c
-    299:313:void <init>(com.bruder.clean.activity.PicturesHuiActivity,java.util.ArrayList) -> <init>
-    316:340:void restore(com.bruder.clean.activity.PicturesHuiActivity$MyCallBack) -> a
-    343:349:int checkNum() -> a
-    353:374:void delete(com.bruder.clean.activity.PicturesHuiActivity$MyCallBack) -> b
-    377:381:void allPassed(boolean) -> a
-    385:388:com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    398:455:void onBindViewHolder(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder,int) -> a
-    459:459:int getItemCount() -> getItemCount
-    480:487:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
-    495:495:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
-    297:297:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    297:297:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    298:312:void <init>(com.bruder.clean.activity.PicturesHuiActivity,java.util.ArrayList) -> <init>
+    315:339:void restore(com.bruder.clean.activity.PicturesHuiActivity$MyCallBack) -> a
+    342:348:int checkNum() -> a
+    352:373:void delete(com.bruder.clean.activity.PicturesHuiActivity$MyCallBack) -> b
+    376:380:void allPassed(boolean) -> a
+    384:387:com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    397:454:void onBindViewHolder(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder,int) -> a
+    458:458:int getItemCount() -> getItemCount
+    479:486:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
+    494:494:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
+    296:296:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    296:296:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$1 -> com.bruder.clean.activity.PicturesHuiActivity$a$1:
     com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter this$1 -> a
-    299:299:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter,int) -> <init>
-    303:303:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
-    299:299:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+    298:298:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter,int) -> <init>
+    302:302:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    298:298:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
 com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$2 -> com.bruder.clean.activity.PicturesHuiActivity$a$2:
     com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter this$1 -> a
-    318:318:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter) -> <init>
-    321:336:void run() -> run
+    317:317:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter) -> <init>
+    320:335:void run() -> run
 com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$3 -> com.bruder.clean.activity.PicturesHuiActivity$a$3:
     com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter this$1 -> a
-    354:354:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter) -> <init>
-    357:371:void run() -> run
+    353:353:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter) -> <init>
+    356:370:void run() -> run
 com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$4 -> com.bruder.clean.activity.PicturesHuiActivity$a$4:
     com.cleaner.similarimage.ImageInfo val$info -> a
     com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder val$holder -> b
     com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter this$1 -> c
-    409:409:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter,com.cleaner.similarimage.ImageInfo,com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder) -> <init>
-    412:424:void run() -> run
+    408:408:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter,com.cleaner.similarimage.ImageInfo,com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder) -> <init>
+    411:423:void run() -> run
 com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$4$1 -> com.bruder.clean.activity.PicturesHuiActivity$a$4$1:
     android.graphics.Bitmap val$bitma -> a
     com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$4 this$2 -> b
-    415:415:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$4,android.graphics.Bitmap) -> <init>
-    418:421:void run() -> run
+    414:414:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$4,android.graphics.Bitmap) -> <init>
+    417:420:void run() -> run
 com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$5 -> com.bruder.clean.activity.PicturesHuiActivity$a$5:
     com.cleaner.similarimage.ImageInfo val$info -> a
     com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder val$holder -> b
     com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter this$1 -> c
-    444:444:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter,com.cleaner.similarimage.ImageInfo,com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder) -> <init>
-    447:453:void onClick(android.view.View) -> onClick
+    443:443:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter,com.cleaner.similarimage.ImageInfo,com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder) -> <init>
+    446:452:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter$HomeViewHolder -> com.bruder.clean.activity.PicturesHuiActivity$a$a:
     android.widget.ImageView picture_icon -> a
     android.widget.ImageView picture_check -> b
     android.widget.TextView picture_time -> c
     com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter this$1 -> d
-    467:472:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter,android.view.View) -> <init>
+    466:471:void <init>(com.bruder.clean.activity.PicturesHuiActivity$HuiAdapter,android.view.View) -> <init>
 com.bruder.clean.activity.PicturesHuiActivity$MyCallBack -> com.bruder.clean.activity.PicturesHuiActivity$b:
     void progress() -> a
     void success() -> b
 com.bruder.clean.activity.PoweringActivity -> com.bruder.clean.activity.PoweringActivity:
-    android.widget.FrameLayout title_left -> a
+    android.widget.TextView power_size -> a
     android.widget.Button junk_button_clean -> b
     android.os.Handler mHandler -> c
-    android.widget.TextView containerView_power_size -> i
-    android.widget.Button containerView_junk_button_clean -> j
-    com.bruder.clean.customeview.PowerWidgetContainerFrameLayout container -> k
-    int count -> p
-    com.sample.lottie.LottieAnimationView power_clean -> d
-    android.support.v7.widget.GridLayoutManager mLayoutManager -> q
-    com.bruder.clean.activity.PoweringActivity$HomeAdapter homeAdapter -> r
-    com.bruder.clean.activity.PoweringActivity$HomeAdapter containerAdapter -> s
-    com.bruder.clean.activity.MyApplication cleanApplication -> t
+    android.widget.FrameLayout title_left -> d
     android.widget.TextView title_name -> e
     android.support.v7.widget.RecyclerView power_recycler -> f
-    android.widget.TextView power_size -> g
-    java.util.ArrayList startList -> u
-    android.view.View containerView -> v
-    android.support.v7.widget.RecyclerView containerView_recyclerView -> w
+    android.support.v7.widget.GridLayoutManager mLayoutManager -> i
+    com.bruder.clean.activity.PoweringActivity$HomeAdapter homeAdapter -> j
+    com.bruder.clean.activity.PoweringActivity$HomeAdapter containerAdapter -> k
+    com.bruder.clean.activity.MyApplication cleanApplication -> p
+    android.widget.Button containerView_junk_button_clean -> q
+    com.bruder.clean.customeview.PowerWidgetContainerFrameLayout container -> r
+    int count -> s
+    com.sample.lottie.LottieAnimationView power_clean -> g
+    java.util.ArrayList startList -> t
+    android.view.View containerView -> u
+    android.support.v7.widget.RecyclerView containerView_recyclerView -> v
+    android.widget.TextView containerView_power_size -> w
     java.lang.Runnable runnable -> h
-    45:184:void <init>() -> <init>
-    66:158:void onCreate(android.os.Bundle) -> onCreate
-    161:171:void setContainer() -> a
-    175:182:void findId() -> b
-    234:239:void showPackageDetail(java.lang.String) -> b
-    242:273:void animatorView(android.view.View,int) -> a
-    276:283:void initData() -> c
-    346:349:void onBackPressed() -> onBackPressed
-    353:356:void onDestroy() -> onDestroy
-    360:368:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    45:170:void <init>() -> <init>
+    68:157:void onCreate(android.os.Bundle) -> onCreate
+    161:168:void findId() -> b
+    217:227:void setContainer() -> a
+    230:235:void showPackageDetail(java.lang.String) -> b
+    238:270:void animatorView(android.view.View,int) -> a
+    273:280:void initData() -> c
+    342:344:void onBackPressed() -> onBackPressed
+    348:351:void onDestroy() -> onDestroy
+    367:375:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     45:45:android.view.View access$002(com.bruder.clean.activity.PoweringActivity,android.view.View) -> a
     45:45:com.bruder.clean.customeview.PowerWidgetContainerFrameLayout access$102(com.bruder.clean.activity.PoweringActivity,com.bruder.clean.customeview.PowerWidgetContainerFrameLayout) -> a
     45:45:android.view.View access$000(com.bruder.clean.activity.PoweringActivity) -> a
@@ -30226,49 +30221,49 @@ com.bruder.clean.activity.PoweringActivity -> com.bruder.clean.activity.Powering
     45:45:com.bruder.clean.activity.PoweringActivity$HomeAdapter access$1000(com.bruder.clean.activity.PoweringActivity) -> j
 com.bruder.clean.activity.PoweringActivity$1 -> com.bruder.clean.activity.PoweringActivity$1:
     com.bruder.clean.activity.PoweringActivity this$0 -> a
-    86:86:void <init>(com.bruder.clean.activity.PoweringActivity) -> <init>
-    89:121:void onClick(android.view.View) -> onClick
+    87:87:void <init>(com.bruder.clean.activity.PoweringActivity) -> <init>
+    90:122:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PoweringActivity$1$1 -> com.bruder.clean.activity.PoweringActivity$1$1:
     com.bruder.clean.activity.PoweringActivity$1 this$1 -> a
-    99:99:void <init>(com.bruder.clean.activity.PoweringActivity$1) -> <init>
-    102:104:void run() -> run
+    100:100:void <init>(com.bruder.clean.activity.PoweringActivity$1) -> <init>
+    103:105:void run() -> run
 com.bruder.clean.activity.PoweringActivity$2 -> com.bruder.clean.activity.PoweringActivity$2:
     com.bruder.clean.activity.PoweringActivity this$0 -> a
-    123:123:void <init>(com.bruder.clean.activity.PoweringActivity) -> <init>
-    126:127:void onClick(android.view.View) -> onClick
+    124:124:void <init>(com.bruder.clean.activity.PoweringActivity) -> <init>
+    127:128:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PoweringActivity$3 -> com.bruder.clean.activity.PoweringActivity$3:
     com.bruder.clean.activity.PoweringActivity this$0 -> a
-    184:184:void <init>(com.bruder.clean.activity.PoweringActivity) -> <init>
-    187:229:void run() -> run
+    170:170:void <init>(com.bruder.clean.activity.PoweringActivity) -> <init>
+    173:213:void run() -> run
 com.bruder.clean.activity.PoweringActivity$4 -> com.bruder.clean.activity.PoweringActivity$4:
     int val$i -> a
     com.bruder.clean.activity.PoweringActivity this$0 -> b
-    247:247:void <init>(com.bruder.clean.activity.PoweringActivity,int) -> <init>
-    250:250:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    254:260:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    265:265:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    269:269:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    244:244:void <init>(com.bruder.clean.activity.PoweringActivity,int) -> <init>
+    247:247:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    251:257:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    262:262:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    266:266:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.bruder.clean.activity.PoweringActivity$HomeAdapter -> com.bruder.clean.activity.PoweringActivity$a:
     boolean isWidget -> a
     com.bruder.clean.activity.PoweringActivity this$0 -> b
-    288:290:void <init>(com.bruder.clean.activity.PoweringActivity,boolean) -> <init>
-    294:297:com.bruder.clean.activity.PoweringActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    302:316:void onBindViewHolder(com.bruder.clean.activity.PoweringActivity$HomeAdapter$MyViewHolder,int) -> a
-    320:322:void reChangesData(int) -> a
-    326:326:int getItemCount() -> getItemCount
-    285:285:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    285:285:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    285:287:void <init>(com.bruder.clean.activity.PoweringActivity,boolean) -> <init>
+    291:294:com.bruder.clean.activity.PoweringActivity$HomeAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    299:313:void onBindViewHolder(com.bruder.clean.activity.PoweringActivity$HomeAdapter$MyViewHolder,int) -> a
+    317:317:int getItemCount() -> getItemCount
+    322:324:void reChangesData(int) -> a
+    282:282:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    282:282:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.bruder.clean.activity.PoweringActivity$HomeAdapter$1 -> com.bruder.clean.activity.PoweringActivity$a$1:
     int val$position -> a
     com.bruder.clean.activity.PoweringActivity$HomeAdapter this$1 -> b
-    309:309:void <init>(com.bruder.clean.activity.PoweringActivity$HomeAdapter,int) -> <init>
-    312:314:void onClick(android.view.View) -> onClick
+    306:306:void <init>(com.bruder.clean.activity.PoweringActivity$HomeAdapter,int) -> <init>
+    309:311:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.PoweringActivity$HomeAdapter$MyViewHolder -> com.bruder.clean.activity.PoweringActivity$a$a:
     android.widget.FrameLayout recyc_item -> a
     android.widget.ImageView recyc_icon -> b
     android.widget.ImageView recyc_check -> c
     com.bruder.clean.activity.PoweringActivity$HomeAdapter this$1 -> d
-    334:339:void <init>(com.bruder.clean.activity.PoweringActivity$HomeAdapter,android.view.View) -> <init>
+    331:336:void <init>(com.bruder.clean.activity.PoweringActivity$HomeAdapter,android.view.View) -> <init>
 com.bruder.clean.activity.SetActivity -> com.bruder.clean.activity.SetActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -30297,24 +30292,24 @@ com.bruder.clean.activity.SetActivity -> com.bruder.clean.activity.SetActivity:
     android.widget.ImageView setting_battery_check -> z
     android.widget.ImageView setting_unload_check -> A
     android.view.View$OnClickListener onClickListener -> B
-    35:182:void <init>() -> <init>
-    49:70:void onCreate(android.os.Bundle) -> onCreate
-    74:98:void findId() -> b
-    102:112:void onResume() -> onResume
+    34:182:void <init>() -> <init>
+    48:69:void onCreate(android.os.Bundle) -> onCreate
+    73:97:void findId() -> b
+    101:112:void onResume() -> onResume
     116:141:void initData() -> a
     144:158:void initListener() -> c
     162:163:void onPause() -> onPause
     167:180:void addAd() -> e
-    315:317:void onBackPressed() -> onBackPressed
-    321:331:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    313:315:void onBackPressed() -> onBackPressed
+    319:329:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
 com.bruder.clean.activity.SetActivity$1 -> com.bruder.clean.activity.SetActivity$1:
     com.bruder.clean.activity.SetActivity this$0 -> a
-    58:58:void <init>(com.bruder.clean.activity.SetActivity) -> <init>
-    61:62:void run() -> run
+    57:57:void <init>(com.bruder.clean.activity.SetActivity) -> <init>
+    60:61:void run() -> run
 com.bruder.clean.activity.SetActivity$2 -> com.bruder.clean.activity.SetActivity$2:
     com.bruder.clean.activity.SetActivity this$0 -> a
     182:182:void <init>(com.bruder.clean.activity.SetActivity) -> <init>
-    185:310:void onClick(android.view.View) -> onClick
+    185:308:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.ShortCutingActivity -> com.bruder.clean.activity.ShortCutingActivity:
     com.twee.module.tweenengine.TweenManager tweenManager -> g
     boolean istween -> h
@@ -30412,91 +30407,88 @@ com.bruder.clean.activity.SuccessingActivity -> com.bruder.clean.activity.Succes
     android.widget.Button main_file_button1 -> i
     android.widget.TextView success_clean_2 -> j
     android.widget.ImageView success_huojian -> k
-    android.widget.LinearLayout success_stars -> p
-    android.widget.ImageView power_icon -> q
-    android.widget.TextView power_text -> r
-    android.widget.Button main_rotate_good -> s
-    android.widget.Button main_good_refuse -> t
-    android.widget.LinearLayout ad_title -> u
-    android.widget.LinearLayout ll_ad_xiao -> v
-    android.widget.ImageView success_stars1 -> w
-    android.widget.ImageView success_stars2 -> x
-    android.widget.ImageView success_stars4 -> y
-    com.bruder.clean.customeview.MySlowScrollView scrollView -> z
-    android.widget.Button junk_button_clean -> A
-    android.widget.RelativeLayout main_cooling_button -> B
-    android.widget.RelativeLayout main_ram_button -> C
-    android.widget.RelativeLayout main_junk_button -> D
-    android.widget.Button main_junk_button1 -> E
-    android.widget.Button main_cooling_button1 -> F
-    android.widget.Button main_power_button1 -> G
-    android.widget.Button main_picture_button1 -> H
-    android.widget.Button main_gboost_button1 -> I
-    android.widget.Button main_ram_button1 -> J
-    boolean haveAd -> O
-    boolean animationEnd -> P
-    com.bruder.clean.activity.MyApplication cleanApplication -> Q
-    android.widget.LinearLayout ad_native_2 -> K
-    android.view.View nativeView -> R
-    android.view.View native_xiao -> S
-    boolean istween -> T
-    android.os.Handler myHandler -> U
-    java.lang.String TAG_CLEAN -> V
-    java.lang.String TAG_CLEAN_2 -> W
-    android.view.animation.Animation rotate -> X
-    android.widget.RelativeLayout main_gboost_button -> L
-    android.widget.RelativeLayout main_picture_button -> M
-    android.view.View$OnClickListener onClickListener -> N
-    49:395:void <init>() -> <init>
-    90:204:void onCreate(android.os.Bundle) -> onCreate
-    208:245:void findId() -> b
-    248:270:void addListener() -> c
-    273:292:void addAd() -> e
-    295:312:void shendu() -> f
-    316:322:void initAnimation() -> g
-    325:354:void startSecondAnimation() -> h
-    358:393:void startFirstAnimation() -> a
+    android.widget.ImageView power_icon -> p
+    android.widget.TextView power_text -> q
+    android.widget.Button main_rotate_good -> r
+    android.widget.Button main_good_refuse -> s
+    android.widget.LinearLayout ad_title -> t
+    android.widget.LinearLayout ll_ad_xiao -> u
+    com.bruder.clean.customeview.MySlowScrollView scrollView -> v
+    android.widget.Button junk_button_clean -> w
+    android.widget.RelativeLayout main_cooling_button -> x
+    android.widget.RelativeLayout main_ram_button -> y
+    android.widget.RelativeLayout main_junk_button -> z
+    android.widget.Button main_junk_button1 -> A
+    android.widget.Button main_cooling_button1 -> B
+    android.widget.Button main_power_button1 -> C
+    android.widget.Button main_picture_button1 -> D
+    android.widget.Button main_gboost_button1 -> E
+    android.widget.Button main_ram_button1 -> F
+    boolean haveAd -> L
+    boolean animationEnd -> M
+    com.bruder.clean.activity.MyApplication cleanApplication -> N
+    android.widget.LinearLayout ad_native_2 -> G
+    android.view.View nativeView -> O
+    android.view.View native_xiao -> P
+    boolean istween -> Q
+    android.os.Handler myHandler -> R
+    java.lang.String TAG_CLEAN -> S
+    java.lang.String TAG_CLEAN_2 -> T
+    android.view.animation.Animation rotate -> U
+    android.widget.RelativeLayout main_gboost_button -> H
+    android.widget.RelativeLayout main_picture_button -> I
+    com.sample.lottie.LottieAnimationView notifi_info_lot -> J
+    android.view.View$OnClickListener onClickListener -> K
+    50:396:void <init>() -> <init>
+    91:209:void onCreate(android.os.Bundle) -> onCreate
+    213:247:void findId() -> b
+    250:271:void addListener() -> c
+    274:293:void addAd() -> e
+    296:313:void shendu() -> f
+    317:323:void initAnimation() -> g
+    326:355:void startSecondAnimation() -> h
+    359:394:void startFirstAnimation() -> a
     561:572:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
     576:578:void onStop() -> onStop
     582:593:void onResume() -> onResume
     597:598:void onPause() -> onPause
     602:611:void onBackPressed() -> onBackPressed
     614:641:void setAnimationThread() -> i
-    49:49:void access$000(com.bruder.clean.activity.SuccessingActivity) -> a
-    49:49:boolean access$102(com.bruder.clean.activity.SuccessingActivity,boolean) -> a
-    49:49:boolean access$200(com.bruder.clean.activity.SuccessingActivity) -> b
-    49:49:android.os.Handler access$300(com.bruder.clean.activity.SuccessingActivity) -> c
-    49:49:void access$400(com.bruder.clean.activity.SuccessingActivity) -> d
-    49:49:boolean access$500(com.bruder.clean.activity.SuccessingActivity) -> e
+    50:50:void access$000(com.bruder.clean.activity.SuccessingActivity) -> a
+    50:50:boolean access$102(com.bruder.clean.activity.SuccessingActivity,boolean) -> a
+    50:50:boolean access$200(com.bruder.clean.activity.SuccessingActivity) -> b
+    50:50:android.os.Handler access$300(com.bruder.clean.activity.SuccessingActivity) -> c
+    50:50:void access$400(com.bruder.clean.activity.SuccessingActivity) -> d
+    50:50:boolean access$500(com.bruder.clean.activity.SuccessingActivity) -> e
 com.bruder.clean.activity.SuccessingActivity$1 -> com.bruder.clean.activity.SuccessingActivity$1:
     com.bruder.clean.activity.SuccessingActivity this$0 -> a
-    197:197:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
-    199:200:void run() -> run
+    203:203:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
+    205:206:void run() -> run
 com.bruder.clean.activity.SuccessingActivity$2 -> com.bruder.clean.activity.SuccessingActivity$2:
     com.bruder.clean.activity.SuccessingActivity this$0 -> a
-    316:316:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
-    319:320:void run() -> run
+    317:317:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
+    320:321:void run() -> run
 com.bruder.clean.activity.SuccessingActivity$3 -> com.bruder.clean.activity.SuccessingActivity$3:
     com.bruder.clean.activity.SuccessingActivity this$0 -> a
-    328:328:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
-    331:342:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    347:347:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    352:352:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    329:329:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
+    332:343:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    348:348:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    353:353:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.bruder.clean.activity.SuccessingActivity$3$1 -> com.bruder.clean.activity.SuccessingActivity$3$1:
     com.bruder.clean.activity.SuccessingActivity$3 this$1 -> a
-    331:331:void <init>(com.bruder.clean.activity.SuccessingActivity$3) -> <init>
-    334:340:void run() -> run
+    332:332:void <init>(com.bruder.clean.activity.SuccessingActivity$3) -> <init>
+    335:341:void run() -> run
 com.bruder.clean.activity.SuccessingActivity$4 -> com.bruder.clean.activity.SuccessingActivity$4:
     com.bruder.clean.activity.SuccessingActivity this$0 -> a
-    367:367:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
-    371:371:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-    376:381:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    386:386:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    391:391:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    368:368:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
+    372:372:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    377:382:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    387:387:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    392:392:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
 com.bruder.clean.activity.SuccessingActivity$5 -> com.bruder.clean.activity.SuccessingActivity$5:
     com.bruder.clean.activity.SuccessingActivity this$0 -> a
-    395:395:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
-    398:556:void onClick(android.view.View) -> onClick
+    396:396:void <init>(com.bruder.clean.activity.SuccessingActivity) -> <init>
+    399:556:void onClick(android.view.View) -> onClick
 com.bruder.clean.activity.SuccessingActivity$6 -> com.bruder.clean.activity.SuccessingActivity$6:
     long lastMillis -> b
     com.bruder.clean.activity.SuccessingActivity this$0 -> a
@@ -31221,8 +31213,8 @@ com.bruder.clean.entity.SideInfo -> com.bruder.clean.a.b:
     int textId -> a
     int drawableId -> b
     boolean isCheck -> c
-    12:16:void <init>(int,int,boolean) -> <init>
-    18:21:void <init>(int,int) -> <init>
+    11:15:void <init>(int,int,boolean) -> <init>
+    17:20:void <init>(int,int) -> <init>
 com.bruder.clean.junk.R -> com.bruder.clean.b.a:
 com.bruder.clean.junk.R$styleable -> com.bruder.clean.b.a$a:
     int[] ActionBar -> ActionBar
@@ -31862,7 +31854,7 @@ com.bruder.clean.junk.R$styleable -> com.bruder.clean.b.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    5212:14084:void <clinit>() -> <clinit>
+    5143:14015:void <clinit>() -> <clinit>
 com.bruder.clean.myadapter.AddGameAdapter -> com.bruder.clean.c.a:
     java.util.ArrayList game_list -> a
     35:37:void <init>(android.content.Context,java.util.ArrayList) -> <init>
@@ -31883,20 +31875,20 @@ com.bruder.clean.myadapter.AddGameAdapter$ViewHolder -> com.bruder.clean.c.a$a:
     109:109:void <init>(com.bruder.clean.myadapter.AddGameAdapter) -> <init>
 com.bruder.clean.myadapter.FileAdapter -> com.bruder.clean.c.b:
     java.lang.String name -> a
-    27:28:void <init>(android.content.Context) -> <init>
-    31:33:void <init>(android.content.Context,java.lang.String) -> <init>
-    37:97:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    26:27:void <init>(android.content.Context) -> <init>
+    30:32:void <init>(android.content.Context,java.lang.String) -> <init>
+    36:96:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.bruder.clean.myadapter.FileAdapter$1 -> com.bruder.clean.c.b$1:
     com.bruder.clean.entity.JunkInfo val$info -> a
     com.bruder.clean.myadapter.FileAdapter$ViewHolder val$viewHolder -> b
     com.bruder.clean.myadapter.FileAdapter this$0 -> c
-    79:79:void <init>(com.bruder.clean.myadapter.FileAdapter,com.bruder.clean.entity.JunkInfo,com.bruder.clean.myadapter.FileAdapter$ViewHolder) -> <init>
-    82:89:void onClick(android.view.View) -> onClick
+    78:78:void <init>(com.bruder.clean.myadapter.FileAdapter,com.bruder.clean.entity.JunkInfo,com.bruder.clean.myadapter.FileAdapter$ViewHolder) -> <init>
+    81:88:void onClick(android.view.View) -> onClick
 com.bruder.clean.myadapter.FileAdapter$2 -> com.bruder.clean.c.b$2:
     com.bruder.clean.entity.JunkInfo val$info -> a
     com.bruder.clean.myadapter.FileAdapter this$0 -> b
-    91:91:void <init>(com.bruder.clean.myadapter.FileAdapter,com.bruder.clean.entity.JunkInfo) -> <init>
-    94:95:void onClick(android.view.View) -> onClick
+    90:90:void <init>(com.bruder.clean.myadapter.FileAdapter,com.bruder.clean.entity.JunkInfo) -> <init>
+    93:94:void onClick(android.view.View) -> onClick
 com.bruder.clean.myadapter.FileAdapter$ViewHolder -> com.bruder.clean.c.b$a:
     android.widget.RelativeLayout file -> a
     android.widget.ImageView file_icon -> b
@@ -31905,7 +31897,7 @@ com.bruder.clean.myadapter.FileAdapter$ViewHolder -> com.bruder.clean.c.b$a:
     android.widget.TextView file_size -> e
     android.widget.ImageView file_check -> f
     com.bruder.clean.myadapter.FileAdapter this$0 -> g
-    100:100:void <init>(com.bruder.clean.myadapter.FileAdapter) -> <init>
+    99:99:void <init>(com.bruder.clean.myadapter.FileAdapter) -> <init>
 com.bruder.clean.myadapter.JunkAdapter -> com.bruder.clean.c.c:
     com.bruder.clean.presenter.JunkPresenter junkPresenter -> a
     28:37:void <init>(android.content.Context,com.bruder.clean.presenter.JunkPresenter) -> <init>
@@ -32046,8 +32038,8 @@ com.bruder.clean.myadapter.MybaseAdapter -> com.bruder.clean.c.h:
     80:80:java.lang.Object getItem(int) -> getItem
     86:86:long getItemId(int) -> getItemId
 com.bruder.clean.myadapter.NotifiMyAdapter -> com.bruder.clean.c.i:
-    22:24:void <init>(android.content.Context) -> <init>
-    28:62:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    21:23:void <init>(android.content.Context) -> <init>
+    27:61:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.bruder.clean.myadapter.NotifiMyAdapter$ViewHolder -> com.bruder.clean.c.i$a:
     android.widget.FrameLayout frameLayout -> a
     android.widget.ImageView icon -> b
@@ -32055,23 +32047,23 @@ com.bruder.clean.myadapter.NotifiMyAdapter$ViewHolder -> com.bruder.clean.c.i$a:
     android.widget.TextView notifi_text -> d
     android.widget.TextView time -> e
     com.bruder.clean.myadapter.NotifiMyAdapter this$0 -> f
-    66:66:void <init>(com.bruder.clean.myadapter.NotifiMyAdapter) -> <init>
+    65:65:void <init>(com.bruder.clean.myadapter.NotifiMyAdapter) -> <init>
 com.bruder.clean.myadapter.NotifiSettingAdapter -> com.bruder.clean.c.j:
-    21:22:void <init>(android.content.Context) -> <init>
-    26:66:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    20:21:void <init>(android.content.Context) -> <init>
+    25:65:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.bruder.clean.myadapter.NotifiSettingAdapter$1 -> com.bruder.clean.c.j$1:
     com.cleaner.entity.JunkInfo val$info -> a
     com.bruder.clean.myadapter.NotifiSettingAdapter$ViewHolder val$holder -> b
     com.bruder.clean.myadapter.NotifiSettingAdapter this$0 -> c
-    52:52:void <init>(com.bruder.clean.myadapter.NotifiSettingAdapter,com.cleaner.entity.JunkInfo,com.bruder.clean.myadapter.NotifiSettingAdapter$ViewHolder) -> <init>
-    55:64:void onClick(android.view.View) -> onClick
+    51:51:void <init>(com.bruder.clean.myadapter.NotifiSettingAdapter,com.cleaner.entity.JunkInfo,com.bruder.clean.myadapter.NotifiSettingAdapter$ViewHolder) -> <init>
+    54:63:void onClick(android.view.View) -> onClick
 com.bruder.clean.myadapter.NotifiSettingAdapter$ViewHolder -> com.bruder.clean.c.j$a:
     android.widget.RelativeLayout rl_item -> a
     android.widget.ImageView checkBox -> b
     android.widget.ImageView iv_icon -> c
     android.widget.TextView tv_lable -> d
     com.bruder.clean.myadapter.NotifiSettingAdapter this$0 -> e
-    69:69:void <init>(com.bruder.clean.myadapter.NotifiSettingAdapter) -> <init>
+    68:68:void <init>(com.bruder.clean.myadapter.NotifiSettingAdapter) -> <init>
 com.bruder.clean.myadapter.RecycleViewAdapter -> com.bruder.clean.c.k:
     java.util.ArrayList groupList -> a
     com.bruder.clean.activity.PicturesActivity pictureActivity -> c
@@ -32080,73 +32072,73 @@ com.bruder.clean.myadapter.RecycleViewAdapter -> com.bruder.clean.c.k:
     com.bruder.clean.myadapter.RecycleViewAdapter$RecycleViewCallBack deleteCallBack -> f
     android.os.Handler handler -> g
     android.support.v4.util.LruCache lruCache -> b
-    42:150:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList,com.cleaner.similarimage.ImageHelper,android.os.Handler) -> <init>
-    55:56:void upData(java.util.ArrayList) -> a
-    59:67:java.util.ArrayList checkDate() -> a
-    71:95:void delete(com.bruder.clean.myadapter.RecycleViewAdapter$RecycleViewCallBack) -> a
-    98:106:void deleteItem() -> b
-    110:113:com.bruder.clean.myadapter.RecycleViewAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    118:120:void onBindViewHolder(com.bruder.clean.myadapter.RecycleViewAdapter$MyViewHolder,int) -> a
-    123:128:void addItemView(com.bruder.clean.myadapter.RecycleViewAdapter$MyViewHolder,java.util.ArrayList) -> a
-    136:136:int getItemCount() -> getItemCount
-    27:27:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    27:27:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
-    27:27:com.bruder.clean.activity.PicturesActivity access$000(com.bruder.clean.myadapter.RecycleViewAdapter) -> a
-    27:27:com.bruder.clean.myadapter.RecycleViewAdapter$RecycleViewCallBack access$100(com.bruder.clean.myadapter.RecycleViewAdapter) -> b
-    27:27:com.cleaner.similarimage.ImageHelper access$200(com.bruder.clean.myadapter.RecycleViewAdapter) -> c
-    27:27:android.os.Handler access$300(com.bruder.clean.myadapter.RecycleViewAdapter) -> d
+    41:149:void <init>(com.bruder.clean.activity.PicturesActivity,java.util.ArrayList,com.cleaner.similarimage.ImageHelper,android.os.Handler) -> <init>
+    54:55:void upData(java.util.ArrayList) -> a
+    58:66:java.util.ArrayList checkDate() -> a
+    70:94:void delete(com.bruder.clean.myadapter.RecycleViewAdapter$RecycleViewCallBack) -> a
+    97:105:void deleteItem() -> b
+    109:112:com.bruder.clean.myadapter.RecycleViewAdapter$MyViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    117:119:void onBindViewHolder(com.bruder.clean.myadapter.RecycleViewAdapter$MyViewHolder,int) -> a
+    122:127:void addItemView(com.bruder.clean.myadapter.RecycleViewAdapter$MyViewHolder,java.util.ArrayList) -> a
+    135:135:int getItemCount() -> getItemCount
+    26:26:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    26:26:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    26:26:com.bruder.clean.activity.PicturesActivity access$000(com.bruder.clean.myadapter.RecycleViewAdapter) -> a
+    26:26:com.bruder.clean.myadapter.RecycleViewAdapter$RecycleViewCallBack access$100(com.bruder.clean.myadapter.RecycleViewAdapter) -> b
+    26:26:com.cleaner.similarimage.ImageHelper access$200(com.bruder.clean.myadapter.RecycleViewAdapter) -> c
+    26:26:android.os.Handler access$300(com.bruder.clean.myadapter.RecycleViewAdapter) -> d
 com.bruder.clean.myadapter.RecycleViewAdapter$1 -> com.bruder.clean.c.k$1:
     com.bruder.clean.myadapter.RecycleViewAdapter this$0 -> a
-    72:72:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter) -> <init>
-    75:93:void run() -> run
+    71:71:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter) -> <init>
+    74:92:void run() -> run
 com.bruder.clean.myadapter.RecycleViewAdapter$2 -> com.bruder.clean.c.k$2:
     com.bruder.clean.myadapter.RecycleViewAdapter this$0 -> a
-    150:150:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter,int) -> <init>
-    154:154:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
-    150:150:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+    149:149:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter,int) -> <init>
+    153:153:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    149:149:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
 com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter -> com.bruder.clean.c.k$a:
     java.util.ArrayList list -> a
     int bastPosition -> b
     com.bruder.clean.myadapter.RecycleViewAdapter this$0 -> c
-    162:170:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter,java.util.ArrayList) -> <init>
-    174:177:com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
-    182:246:void onBindViewHolder(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder,int) -> a
-    250:250:int getItemCount() -> getItemCount
-    271:278:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
-    286:286:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
-    158:158:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
-    158:158:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
+    161:169:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter,java.util.ArrayList) -> <init>
+    173:176:com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> a
+    181:245:void onBindViewHolder(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder,int) -> a
+    249:249:int getItemCount() -> getItemCount
+    270:277:void addBitmapToCache(java.lang.String,android.graphics.Bitmap) -> a
+    285:285:android.graphics.Bitmap getBitmapFromCache(java.lang.String) -> a
+    157:157:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> onBindViewHolder
+    157:157:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> onCreateViewHolder
 com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$1 -> com.bruder.clean.c.k$a$1:
     com.cleaner.similarimage.ImageInfo val$info -> a
     com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder val$holder -> b
     com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter this$1 -> c
-    200:200:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter,com.cleaner.similarimage.ImageInfo,com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
-    203:214:void run() -> run
+    199:199:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter,com.cleaner.similarimage.ImageInfo,com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
+    202:213:void run() -> run
 com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$1$1 -> com.bruder.clean.c.k$a$1$1:
     android.graphics.Bitmap val$bitmap -> a
     com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$1 this$2 -> b
-    206:206:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$1,android.graphics.Bitmap) -> <init>
-    209:211:void run() -> run
+    205:205:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$1,android.graphics.Bitmap) -> <init>
+    208:210:void run() -> run
 com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$2 -> com.bruder.clean.c.k$a$2:
     com.cleaner.similarimage.ImageInfo val$info -> a
     com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder val$holder -> b
     com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter this$1 -> c
-    220:220:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter,com.cleaner.similarimage.ImageInfo,com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
-    223:234:void onClick(android.view.View) -> onClick
+    219:219:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter,com.cleaner.similarimage.ImageInfo,com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder) -> <init>
+    222:233:void onClick(android.view.View) -> onClick
 com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$3 -> com.bruder.clean.c.k$a$3:
     com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter this$1 -> a
-    237:237:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter) -> <init>
-    240:244:void onClick(android.view.View) -> onClick
+    236:236:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter) -> <init>
+    239:243:void onClick(android.view.View) -> onClick
 com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter$HomeViewHolder -> com.bruder.clean.c.k$a$a:
     android.widget.ImageView picture_icon -> a
     android.widget.ImageView picture_check -> b
     android.widget.ImageView picture_best -> c
     com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter this$1 -> d
-    258:263:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter,android.view.View) -> <init>
+    257:262:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter$HomeAdapter,android.view.View) -> <init>
 com.bruder.clean.myadapter.RecycleViewAdapter$MyViewHolder -> com.bruder.clean.c.k$b:
     android.support.v7.widget.RecyclerView recyclerView -> a
     com.bruder.clean.myadapter.RecycleViewAdapter this$0 -> b
-    143:146:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter,android.view.View) -> <init>
+    142:145:void <init>(com.bruder.clean.myadapter.RecycleViewAdapter,android.view.View) -> <init>
 com.bruder.clean.myadapter.RecycleViewAdapter$RecycleViewCallBack -> com.bruder.clean.c.k$c:
     void deleteItemCallback(long) -> a
     void deleteSuccessCallback(java.util.ArrayList) -> a
@@ -32160,17 +32152,17 @@ com.bruder.clean.myadapter.SideAdapter -> com.bruder.clean.c.l:
     int GBOOST -> k
     int NOTIFI -> l
     int MANAGER -> m
-    37:64:void <init>(android.content.Context) -> <init>
-    68:117:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    121:181:void onC(int) -> b
-    36:36:void access$000(com.bruder.clean.myadapter.SideAdapter,int) -> a
+    36:63:void <init>(android.content.Context) -> <init>
+    67:116:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    120:178:void onC(int) -> b
+    35:35:void access$000(com.bruder.clean.myadapter.SideAdapter,int) -> a
 com.bruder.clean.myadapter.SideAdapter$1 -> com.bruder.clean.c.l$1:
     com.bruder.clean.entity.SideInfo val$info -> a
     com.bruder.clean.myadapter.SideAdapter$ViewHolder val$holder -> b
     int val$position -> c
     com.bruder.clean.myadapter.SideAdapter this$0 -> d
-    94:94:void <init>(com.bruder.clean.myadapter.SideAdapter,com.bruder.clean.entity.SideInfo,com.bruder.clean.myadapter.SideAdapter$ViewHolder,int) -> <init>
-    97:104:void onClick(android.view.View) -> onClick
+    93:93:void <init>(com.bruder.clean.myadapter.SideAdapter,com.bruder.clean.entity.SideInfo,com.bruder.clean.myadapter.SideAdapter$ViewHolder,int) -> <init>
+    96:103:void onClick(android.view.View) -> onClick
 com.bruder.clean.myadapter.SideAdapter$ViewHolder -> com.bruder.clean.c.l$a:
     android.widget.RelativeLayout rl_item -> a
     android.widget.ImageView checkBox -> b
@@ -32178,7 +32170,7 @@ com.bruder.clean.myadapter.SideAdapter$ViewHolder -> com.bruder.clean.c.l$a:
     android.widget.TextView tv_name -> d
     android.view.View side_divide -> e
     com.bruder.clean.myadapter.SideAdapter this$0 -> f
-    190:190:void <init>(com.bruder.clean.myadapter.SideAdapter) -> <init>
+    187:187:void <init>(com.bruder.clean.myadapter.SideAdapter) -> <init>
 com.bruder.clean.myservice.FloatingService -> com.bruder.clean.myservice.FloatingService:
     java.util.List hmoes -> f
     android.app.ActivityManager am -> g
@@ -32252,16 +32244,16 @@ com.bruder.clean.myservice.NotificationingService -> com.bruder.clean.myservice.
     164:171:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     176:226:void changZhuTongzhi() -> c
     229:231:void onstart() -> d
-    269:403:void update() -> e
-    407:408:long getTotalRxBytes() -> f
-    419:434:void tonghzi_cooling() -> g
-    439:454:void tonghzi_Ram() -> h
-    458:474:void tonghzi_two_day() -> i
-    479:495:void tonghzi_junk() -> j
-    500:516:void tonghzi_gboost() -> k
-    519:527:android.graphics.Bitmap screenShot(android.view.View,int) -> a
-    533:539:void onDestroy() -> onDestroy
-    544:562:void tonghzi_notifi() -> l
+    269:402:void update() -> e
+    406:407:long getTotalRxBytes() -> f
+    413:428:void tonghzi_cooling() -> g
+    433:448:void tonghzi_Ram() -> h
+    452:468:void tonghzi_two_day() -> i
+    473:489:void tonghzi_junk() -> j
+    494:510:void tonghzi_gboost() -> k
+    513:521:android.graphics.Bitmap screenShot(android.view.View,int) -> a
+    527:533:void onDestroy() -> onDestroy
+    538:557:void tonghzi_notifi() -> l
     51:51:void access$000(com.bruder.clean.myservice.NotificationingService) -> a
     51:51:android.widget.RemoteViews access$100(com.bruder.clean.myservice.NotificationingService) -> b
     51:51:android.app.Notification access$200(com.bruder.clean.myservice.NotificationingService) -> c
@@ -32545,9 +32537,9 @@ com.bruder.clean.util.ReaderCpuTemp$TryGetFilesTask -> com.bruder.clean.f.e$c:
     42:42:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
     42:42:void <init>(com.bruder.clean.util.ReaderCpuTemp$1) -> <init>
 com.bruder.clean.util.ShortCutUtils -> com.bruder.clean.f.f:
-    30:61:void addShortcut(android.app.Activity) -> a
-    95:105:void addShortcut(android.app.Activity,android.content.Intent,java.lang.String,boolean,android.graphics.Bitmap) -> a
-    108:114:void removeShortcut(android.content.Context,android.content.Intent,java.lang.String) -> a
+    31:62:void addShortcut(android.app.Activity) -> a
+    96:106:void addShortcut(android.app.Activity,android.content.Intent,java.lang.String,boolean,android.graphics.Bitmap) -> a
+    109:115:void removeShortcut(android.content.Context,android.content.Intent,java.lang.String) -> a
 com.bruder.clean.util.SwitchControl -> com.bruder.clean.f.g:
     android.hardware.Camera camera -> a
     87:97:void setMobileData(android.content.Context,boolean) -> a
@@ -33111,34 +33103,34 @@ com.cleaner.callback.UninstallResidualCallback -> com.cleaner.a.e:
     11:11:void <init>() -> <init>
     void loadFinished(java.util.ArrayList,long) -> a
 com.cleaner.entity.JunkInfo -> com.cleaner.entity.JunkInfo:
-    java.lang.String path -> a
-    java.lang.String pkg -> b
-    long size -> c
-    long allSize -> d
-    long date -> e
-    long lastRunTime -> f
-    java.lang.String label -> g
-    boolean isChecked -> h
-    boolean isSelfBoot -> i
-    boolean isnotifiWhiteList -> j
-    boolean isWhiteList -> k
-    com.cleaner.entity.JunkInfo$TableType type -> l
-    21:28:void <init>() -> <init>
-    21:34:void <init>(java.lang.String,java.lang.String,long) -> <init>
-    21:42:void <init>(java.lang.String,java.lang.String,long,long) -> <init>
-    21:50:void <init>(java.lang.String,java.lang.String,java.lang.String,long) -> <init>
+    java.lang.String path -> path
+    java.lang.String pkg -> pkg
+    long size -> size
+    long allSize -> allSize
+    long date -> date
+    long lastRunTime -> lastRunTime
+    java.lang.String label -> label
+    boolean isChecked -> isChecked
+    boolean isSelfBoot -> isSelfBoot
+    boolean isnotifiWhiteList -> isnotifiWhiteList
+    boolean isWhiteList -> isWhiteList
+    com.cleaner.entity.JunkInfo$TableType type -> type
+    20:27:void <init>() -> <init>
+    20:33:void <init>(java.lang.String,java.lang.String,long) -> <init>
+    20:41:void <init>(java.lang.String,java.lang.String,long,long) -> <init>
+    20:49:void <init>(java.lang.String,java.lang.String,java.lang.String,long) -> <init>
 com.cleaner.entity.JunkInfo$TableType -> com.cleaner.entity.JunkInfo$TableType:
     com.cleaner.entity.JunkInfo$TableType APKFILE -> APKFILE
     com.cleaner.entity.JunkInfo$TableType LOGFILE -> LOGFILE
     com.cleaner.entity.JunkInfo$TableType APP -> APP
     com.cleaner.entity.JunkInfo$TableType[] $VALUES -> $VALUES
-    9:9:com.cleaner.entity.JunkInfo$TableType[] values() -> values
-    9:9:com.cleaner.entity.JunkInfo$TableType valueOf(java.lang.String) -> valueOf
-    9:9:void <init>(java.lang.String,int) -> <init>
-    9:10:void <clinit>() -> <clinit>
-com.cleaner.entity.Sizesort -> com.cleaner.entity.a:
+    8:8:com.cleaner.entity.JunkInfo$TableType[] values() -> values
+    8:8:com.cleaner.entity.JunkInfo$TableType valueOf(java.lang.String) -> valueOf
+    8:8:void <init>(java.lang.String,int) -> <init>
+    8:9:void <clinit>() -> <clinit>
+com.cleaner.entity.Sizesort -> com.cleaner.entity.Sizesort:
     14:14:void <init>() -> <init>
-    18:18:int compare(android.app.usage.UsageStats,android.app.usage.UsageStats) -> a
+    18:18:int compare(android.app.usage.UsageStats,android.app.usage.UsageStats) -> compare
     14:14:int compare(java.lang.Object,java.lang.Object) -> compare
 com.cleaner.filemanager.FileCategoryHelper -> com.cleaner.filemanager.FileCategoryHelper:
     java.lang.String APK_EXT -> d
@@ -33230,12 +33222,12 @@ com.cleaner.filemanager.Util$SDCardInfo -> com.cleaner.filemanager.a$a:
     179:179:void <init>() -> <init>
 com.cleaner.filemanager.UtilsFile -> com.cleaner.filemanager.b:
     java.lang.String[][] MIME_MapTable -> a
-    85:137:java.lang.String copyFileToRecycler(java.lang.String,java.lang.String,java.lang.String) -> a
-    141:175:boolean deleteFile(android.content.Context,java.lang.String) -> a
-    180:182:void deleteCo(android.app.Activity,com.cleaner.filemanager.FileCategoryHelper$FileCategory,long) -> a
-    185:201:void openFile(android.content.Context,java.lang.String) -> b
-    210:225:java.lang.String getMIMEType(java.io.File) -> a
-    228:228:void <clinit>() -> <clinit>
+    84:136:java.lang.String copyFileToRecycler(java.lang.String,java.lang.String,java.lang.String) -> a
+    140:174:boolean deleteFile(android.content.Context,java.lang.String) -> a
+    179:181:void deleteCo(android.app.Activity,com.cleaner.filemanager.FileCategoryHelper$FileCategory,long) -> a
+    184:200:void openFile(android.content.Context,java.lang.String) -> b
+    209:224:java.lang.String getMIMEType(java.io.File) -> a
+    227:227:void <clinit>() -> <clinit>
 com.cleaner.heart.CleanManager -> com.cleaner.heart.a:
     com.cleaner.heart.CleanManager mInstance -> a
     android.content.Context mContext -> b
@@ -33290,14 +33282,14 @@ com.cleaner.heart.CleanManager -> com.cleaner.heart.a:
     622:622:java.util.ArrayList getAppList() -> o
     626:626:java.util.ArrayList getApkFiles() -> p
     630:630:java.util.ArrayList getLogFiles() -> q
-    635:643:void removeRam(com.cleaner.entity.JunkInfo) -> a
-    646:651:void removeRamSelfBoot(com.cleaner.entity.JunkInfo) -> b
-    654:658:void clearRam() -> r
-    661:666:void removeAppCache(com.cleaner.entity.JunkInfo) -> c
-    669:673:void removeAppList(com.cleaner.entity.JunkInfo) -> d
-    676:681:void removeFilesOfUnintalledApk(com.cleaner.entity.JunkInfo) -> e
-    684:689:void removeApkFiles(com.cleaner.entity.JunkInfo) -> f
-    692:697:void removeAppLog(com.cleaner.entity.JunkInfo) -> g
+    635:640:void removeRam(com.cleaner.entity.JunkInfo) -> a
+    643:648:void removeRamSelfBoot(com.cleaner.entity.JunkInfo) -> b
+    651:655:void clearRam() -> r
+    658:663:void removeAppCache(com.cleaner.entity.JunkInfo) -> c
+    666:670:void removeAppList(com.cleaner.entity.JunkInfo) -> d
+    673:678:void removeFilesOfUnintalledApk(com.cleaner.entity.JunkInfo) -> e
+    681:686:void removeApkFiles(com.cleaner.entity.JunkInfo) -> f
+    689:694:void removeAppLog(com.cleaner.entity.JunkInfo) -> g
     59:59:void access$000(com.cleaner.heart.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.cleaner.heart.CleanManager$1 -> com.cleaner.heart.a$1:
     com.cleaner.heart.CleanManager this$0 -> a
@@ -33371,17 +33363,17 @@ com.cleaner.notification.NotificationInfo -> com.cleaner.notification.b:
     long time -> e
     int id -> f
     android.widget.RemoteViews remoteViews -> g
-    20:28:void <init>(java.lang.String,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long,int,android.widget.RemoteViews) -> <init>
+    19:27:void <init>(java.lang.String,android.graphics.drawable.Drawable,java.lang.String,java.lang.String,long,int,android.widget.RemoteViews) -> <init>
 com.cleaner.notification.NotificationsMonitorService -> com.cleaner.notification.NotificationsMonitorService:
     android.content.pm.PackageManager pm -> a
-    27:27:void <init>() -> <init>
-    33:34:void onNotificationRemoved(android.service.notification.StatusBarNotification) -> onNotificationRemoved
-    37:38:void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationRemoved
-    42:43:void onNotificationPosted(android.service.notification.StatusBarNotification) -> onNotificationPosted
-    47:62:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    67:136:void analysisSbn(android.service.notification.StatusBarNotification) -> a
-    140:142:void onDestroy() -> onDestroy
-    146:150:void onCreate() -> onCreate
+    26:26:void <init>() -> <init>
+    32:33:void onNotificationRemoved(android.service.notification.StatusBarNotification) -> onNotificationRemoved
+    36:37:void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationRemoved
+    41:42:void onNotificationPosted(android.service.notification.StatusBarNotification) -> onNotificationPosted
+    46:61:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    66:135:void analysisSbn(android.service.notification.StatusBarNotification) -> a
+    139:141:void onDestroy() -> onDestroy
+    145:149:void onCreate() -> onCreate
 com.cleaner.powerclean.CustomerAccessibilitingService -> com.cleaner.powerclean.CustomerAccessibilitingService:
     java.lang.String model -> a
     java.util.Locale locale -> b
@@ -33454,21 +33446,21 @@ com.cleaner.similarimage.MediaScanner -> com.cleaner.c.c:
     java.lang.String filePath -> c
     java.lang.String fileType -> d
     com.cleaner.similarimage.MediaScanner mediaScanner -> e
-    13:29:void <init>(android.content.Context) -> <init>
-    65:69:void scanFile(java.lang.String,java.lang.String) -> a
-    11:11:java.lang.String access$100(com.cleaner.similarimage.MediaScanner) -> a
-    11:11:java.lang.String access$200(com.cleaner.similarimage.MediaScanner) -> b
-    11:11:android.media.MediaScannerConnection access$300(com.cleaner.similarimage.MediaScanner) -> c
-    11:11:java.lang.String access$102(com.cleaner.similarimage.MediaScanner,java.lang.String) -> a
-    11:11:java.lang.String access$202(com.cleaner.similarimage.MediaScanner,java.lang.String) -> b
-    17:17:void <clinit>() -> <clinit>
+    12:28:void <init>(android.content.Context) -> <init>
+    64:68:void scanFile(java.lang.String,java.lang.String) -> a
+    10:10:java.lang.String access$100(com.cleaner.similarimage.MediaScanner) -> a
+    10:10:java.lang.String access$200(com.cleaner.similarimage.MediaScanner) -> b
+    10:10:android.media.MediaScannerConnection access$300(com.cleaner.similarimage.MediaScanner) -> c
+    10:10:java.lang.String access$102(com.cleaner.similarimage.MediaScanner,java.lang.String) -> a
+    10:10:java.lang.String access$202(com.cleaner.similarimage.MediaScanner,java.lang.String) -> b
+    16:16:void <clinit>() -> <clinit>
 com.cleaner.similarimage.MediaScanner$1 -> com.cleaner.c.c$1:
 com.cleaner.similarimage.MediaScanner$PhotoSannerClient -> com.cleaner.c.c$a:
     com.cleaner.similarimage.MediaScanner this$0 -> a
-    38:38:void <init>(com.cleaner.similarimage.MediaScanner) -> <init>
-    43:49:void onMediaScannerConnected() -> onMediaScannerConnected
-    53:54:void onScanCompleted(java.lang.String,android.net.Uri) -> onScanCompleted
-    38:38:void <init>(com.cleaner.similarimage.MediaScanner,com.cleaner.similarimage.MediaScanner$1) -> <init>
+    37:37:void <init>(com.cleaner.similarimage.MediaScanner) -> <init>
+    42:48:void onMediaScannerConnected() -> onMediaScannerConnected
+    52:53:void onScanCompleted(java.lang.String,android.net.Uri) -> onScanCompleted
+    37:37:void <init>(com.cleaner.similarimage.MediaScanner,com.cleaner.similarimage.MediaScanner$1) -> <init>
 com.cleaner.similarimage.RecyclerDbHelper -> com.cleaner.c.d:
     com.cleaner.similarimage.RecyclerDbHelper recyclerDBHelper -> a
     android.content.Context mContext -> b
@@ -33538,12 +33530,12 @@ com.cleaner.util.DataPre -> com.cleaner.d.b:
 com.cleaner.util.LoadManager -> com.cleaner.d.c:
     android.content.pm.PackageManager pm -> a
     com.cleaner.util.LoadManager loadManager -> b
-    18:20:void <init>(android.content.Context) -> <init>
-    23:26:com.cleaner.util.LoadManager getInstance(android.content.Context) -> a
-    31:41:boolean isPkgInstalled(java.lang.String) -> a
-    48:54:android.graphics.drawable.Drawable getAppIcon(java.lang.String) -> b
-    58:75:android.graphics.drawable.Drawable getApkIconforPath(java.lang.String) -> c
-    82:88:java.lang.String getAppLabel(java.lang.String) -> d
+    17:19:void <init>(android.content.Context) -> <init>
+    22:25:com.cleaner.util.LoadManager getInstance(android.content.Context) -> a
+    30:40:boolean isPkgInstalled(java.lang.String) -> a
+    47:53:android.graphics.drawable.Drawable getAppIcon(java.lang.String) -> b
+    57:74:android.graphics.drawable.Drawable getApkIconforPath(java.lang.String) -> c
+    81:87:java.lang.String getAppLabel(java.lang.String) -> d
 com.cleaner.util.MemoryManager -> com.cleaner.d.d:
     29:33:java.lang.String getPhoneInSDCardPath() -> a
     162:180:long getPhoneAllSize() -> b
@@ -35937,9 +35929,6 @@ com.mingle.listener.SingleItemClickListener -> com.mingle.c.c:
     21:24:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.mingle.skin.SkinConfig -> com.mingle.skin.a:
     18:23:com.mingle.skin.SkinStyle getSkinStyle(android.content.Context) -> a
-    31:37:void setSkinStyle(android.content.Context,com.mingle.skin.SkinStyle) -> a
-com.mingle.skin.SkinEnable -> com.mingle.skin.b:
-    void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
 com.mingle.skin.SkinStyle -> com.mingle.skin.SkinStyle:
     com.mingle.skin.SkinStyle Dark -> Dark
     com.mingle.skin.SkinStyle Light -> Light
@@ -35979,21 +35968,14 @@ com.mingle.skin.hepler.ListViewSkinHelper -> com.mingle.skin.a.c:
     13:19:void <init>() -> <init>
     23:42:void init(android.view.View,android.util.AttributeSet) -> a
     46:109:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
-com.mingle.skin.hepler.SkinCompat -> com.mingle.skin.a.d:
-    34:43:void setSkinStyle(android.app.Activity,com.mingle.skin.SkinStyle,com.mingle.skin.hepler.SkinCompat$SkinStyleChangeListener) -> a
-    56:63:void setCurrentTheme(android.app.Activity,com.mingle.skin.hepler.SkinCompat$SkinStyleChangeListener) -> a
-    70:89:void changeSkinStyle(android.view.View,com.mingle.skin.SkinStyle) -> a
-com.mingle.skin.hepler.SkinCompat$SkinStyleChangeListener -> com.mingle.skin.a.d$a:
-    void beforeChange() -> a
-    void afterChange() -> b
-com.mingle.skin.hepler.SkinHelper -> com.mingle.skin.a.e:
+com.mingle.skin.hepler.SkinHelper -> com.mingle.skin.a.d:
     23:23:void <init>() -> <init>
     void init(android.view.View,android.util.AttributeSet) -> a
     void setSkinStyle(com.mingle.skin.SkinStyle) -> a
     31:42:com.mingle.skin.hepler.SkinHelper create(android.view.View) -> b
     47:47:com.mingle.skin.hepler.DefaultViewSkinHelper createDeFault() -> b
     void setCurrentTheme() -> a
-com.mingle.skin.hepler.TextViewSkinHelper -> com.mingle.skin.a.f:
+com.mingle.skin.hepler.TextViewSkinHelper -> com.mingle.skin.a.e:
     int mNightTextColor -> d
     int mNightTextColorRes -> e
     int mNightTextColorHighlight -> f
@@ -36013,7 +35995,7 @@ com.mingle.skin.hepler.TextViewSkinHelper -> com.mingle.skin.a.f:
     17:17:void <init>() -> <init>
     46:103:void init(android.view.View,android.util.AttributeSet) -> a
     107:173:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
-com.mingle.skin.hepler.ViewSkinHelper -> com.mingle.skin.a.g:
+com.mingle.skin.hepler.ViewSkinHelper -> com.mingle.skin.a.f:
     android.view.View mView -> a
     com.mingle.skin.SkinStyle mSkinStyle -> b
     int mLightBackgroundRes -> d
@@ -36093,7 +36075,6 @@ com.mingle.widget.FrameLayout$SLayoutParams -> com.mingle.widget.FrameLayout$a:
     com.mingle.widget.FrameLayout this$0 -> a
     104:108:void <init>(com.mingle.widget.FrameLayout,android.content.Context,android.util.AttributeSet) -> <init>
     111:112:void setSkinHelper(android.view.View) -> a
-    114:115:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
 com.mingle.widget.ImageButton -> com.mingle.widget.ImageButton:
     com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
     com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
@@ -36135,7 +36116,6 @@ com.mingle.widget.LinearLayout$SLayoutParams -> com.mingle.widget.LinearLayout$a
     com.mingle.widget.LinearLayout this$0 -> a
     116:120:void <init>(com.mingle.widget.LinearLayout,android.content.Context,android.util.AttributeSet) -> <init>
     123:124:void setSkinHelper(android.view.View) -> a
-    127:128:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
 com.mingle.widget.ListView -> com.mingle.widget.ListView:
     com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
     com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
@@ -36195,9 +36175,6 @@ com.mingle.widget.RelativeLayout$SLayoutParams -> com.mingle.widget.RelativeLayo
     com.mingle.widget.RelativeLayout this$0 -> a
     104:108:void <init>(com.mingle.widget.RelativeLayout,android.content.Context,android.util.AttributeSet) -> <init>
     111:112:void setSkinHelper(android.view.View) -> a
-    114:115:void setSkinStyle(com.mingle.skin.SkinStyle) -> a
-com.mingle.widget.SLayoutParamsI -> com.mingle.widget.a:
-    void setSkinStyle(com.mingle.skin.SkinStyle) -> a
 com.mingle.widget.Spinner -> com.mingle.widget.Spinner:
     com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
     com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
@@ -36228,13 +36205,13 @@ com.mingle.widget.View -> com.mingle.widget.View:
     63:64:void draw(android.graphics.Canvas) -> draw
     68:69:void superDraw(android.graphics.Canvas) -> a
     80:82:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
-com.mingle.widget.WidgetFactor -> com.mingle.widget.b:
+com.mingle.widget.WidgetFactor -> com.mingle.widget.a:
     com.mingle.widget.WidgetFactor instant -> a
     com.mingle.widget.WidgetFactor$WidgetParser mWidgetParser -> b
     9:9:void <init>() -> <init>
     16:20:com.mingle.widget.WidgetFactor getInstant() -> a
     27:30:android.view.View parseWidget(java.lang.String,android.content.Context,android.util.AttributeSet) -> a
-com.mingle.widget.WidgetFactor$WidgetParser -> com.mingle.widget.b$a:
+com.mingle.widget.WidgetFactor$WidgetParser -> com.mingle.widget.a$a:
     android.view.View parseWidget(java.lang.String,android.content.Context,android.util.AttributeSet) -> a
 com.my.bruder.charge.saver.ADingActivity -> com.my.bruder.charge.saver.ADingActivity:
     12:12:void <init>() -> <init>
@@ -36245,28 +36222,39 @@ com.my.bruder.charge.saver.ADingActivity$1 -> com.my.bruder.charge.saver.ADingAc
     27:27:void <init>(com.my.bruder.charge.saver.ADingActivity) -> <init>
     30:31:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.my.bruder.charge.saver.ChargingActivity -> com.my.bruder.charge.saver.ChargingActivity:
-    com.my.bruder.charge.saver.entry.BatteryEntry entry -> a
-    com.my.bruder.charge.saver.view.BatteringView batteryView -> b
-    android.content.BroadcastReceiver mReceiver -> c
-    20:123:void <init>() -> <init>
-    27:44:void onCreate(android.os.Bundle) -> onCreate
-    48:50:void onBackPressed() -> onBackPressed
-    54:56:void onUserLeaveHint() -> onUserLeaveHint
-    60:71:void doBar() -> b
-    75:76:void onResume() -> onResume
-    80:93:void hideBottomUIMenu() -> a
-    97:104:void onDestroy() -> onDestroy
-    107:116:void batteryChange(android.content.Intent) -> a
-    120:121:void onPause() -> onPause
-    20:20:com.my.bruder.charge.saver.view.BatteringView access$000(com.my.bruder.charge.saver.ChargingActivity) -> a
+    com.my.bruder.charge.saver.entry.BatteryEntry entry -> d
+    com.my.bruder.charge.saver.view.BatteringView batteryView -> e
+    android.widget.LinearLayout battery_more -> a
+    android.widget.LinearLayout battery_more1 -> b
+    android.widget.ImageView setting_battery -> c
+    android.content.BroadcastReceiver mReceiver -> f
+    24:152:void <init>() -> <init>
+    34:51:void onCreate(android.os.Bundle) -> onCreate
+    55:57:void onBackPressed() -> onBackPressed
+    61:63:void onUserLeaveHint() -> onUserLeaveHint
+    67:100:void doBar() -> b
+    104:105:void onResume() -> onResume
+    109:122:void hideBottomUIMenu() -> a
+    126:133:void onDestroy() -> onDestroy
+    136:145:void batteryChange(android.content.Intent) -> a
+    149:150:void onPause() -> onPause
+    24:24:com.my.bruder.charge.saver.view.BatteringView access$000(com.my.bruder.charge.saver.ChargingActivity) -> a
 com.my.bruder.charge.saver.ChargingActivity$1 -> com.my.bruder.charge.saver.ChargingActivity$1:
     com.my.bruder.charge.saver.ChargingActivity this$0 -> a
-    62:62:void <init>(com.my.bruder.charge.saver.ChargingActivity) -> <init>
-    65:67:void onUnlock() -> a
+    71:71:void <init>(com.my.bruder.charge.saver.ChargingActivity) -> <init>
+    74:76:void onClick(android.view.View) -> onClick
 com.my.bruder.charge.saver.ChargingActivity$2 -> com.my.bruder.charge.saver.ChargingActivity$2:
     com.my.bruder.charge.saver.ChargingActivity this$0 -> a
-    123:123:void <init>(com.my.bruder.charge.saver.ChargingActivity) -> <init>
-    126:139:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    78:78:void <init>(com.my.bruder.charge.saver.ChargingActivity) -> <init>
+    81:88:void onClick(android.view.View) -> onClick
+com.my.bruder.charge.saver.ChargingActivity$3 -> com.my.bruder.charge.saver.ChargingActivity$3:
+    com.my.bruder.charge.saver.ChargingActivity this$0 -> a
+    91:91:void <init>(com.my.bruder.charge.saver.ChargingActivity) -> <init>
+    94:96:void onUnlock() -> a
+com.my.bruder.charge.saver.ChargingActivity$4 -> com.my.bruder.charge.saver.ChargingActivity$4:
+    com.my.bruder.charge.saver.ChargingActivity this$0 -> a
+    152:152:void <init>(com.my.bruder.charge.saver.ChargingActivity) -> <init>
+    155:168:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.my.bruder.charge.saver.R -> com.my.bruder.charge.saver.a:
 com.my.bruder.charge.saver.R$anim -> com.my.bruder.charge.saver.a$a:
     int abc_fade_in -> abc_fade_in
@@ -36317,15 +36305,17 @@ com.my.bruder.charge.saver.R$id -> com.my.bruder.charge.saver.a$b:
     int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
     int battery_electricity -> battery_electricity
+    int battery_icon -> battery_icon
     int battery_level -> battery_level
+    int battery_more -> battery_more
+    int battery_more1 -> battery_more1
     int battery_now_battery_left -> battery_now_battery_left
     int battery_now_date -> battery_now_date
     int battery_now_time -> battery_now_time
     int battery_now_week -> battery_now_week
     int battery_ripple_layout -> battery_ripple_layout
     int battery_slide -> battery_slide
-    int battery_switch -> battery_switch
-    int battery_switch_check -> battery_switch_check
+    int battery_title -> battery_title
     int battery_up -> battery_up
     int beginning -> beginning
     int bottom -> bottom
@@ -36410,6 +36400,7 @@ com.my.bruder.charge.saver.R$id -> com.my.bruder.charge.saver.a$b:
     int search_src_text -> search_src_text
     int search_voice_btn -> search_voice_btn
     int select_dialog_listview -> select_dialog_listview
+    int setting_battery -> setting_battery
     int shortcut -> shortcut
     int showCustom -> showCustom
     int showHome -> showHome
@@ -36500,12 +36491,14 @@ com.my.bruder.charge.saver.R$layout -> com.my.bruder.charge.saver.a$c:
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
 com.my.bruder.charge.saver.R$mipmap -> com.my.bruder.charge.saver.a$d:
     int battery_inner_icon -> battery_inner_icon
-    int battery_ripple_bj -> battery_ripple_bj
     int battery_setting_checkbox_close -> battery_setting_checkbox_close
     int battery_setting_checkbox_open -> battery_setting_checkbox_open
     int battery_shell -> battery_shell
     int bruder_bubble1 -> bruder_bubble1
-    int eos_bubble -> eos_bubble
+    int main_menu -> main_menu
+    int notification_title -> notification_title
+    int side_check_normal1 -> side_check_normal1
+    int side_check_passed3 -> side_check_passed3
     int unlock -> unlock
 com.my.bruder.charge.saver.R$string -> com.my.bruder.charge.saver.a$e:
     int abc_action_bar_home_description -> abc_action_bar_home_description
@@ -36538,6 +36531,7 @@ com.my.bruder.charge.saver.R$string -> com.my.bruder.charge.saver.a$e:
     int game -> game
     int internet -> internet
     int ram -> ram
+    int setting_battery -> setting_battery
     int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
     int talk -> talk
     int temp -> temp
@@ -37133,7 +37127,7 @@ com.my.bruder.charge.saver.R$styleable -> com.my.bruder.charge.saver.a$f:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1544:2125:void <clinit>() -> <clinit>
+    1490:2071:void <clinit>() -> <clinit>
 com.my.bruder.charge.saver.Util.ADRequest -> com.my.bruder.charge.saver.Util.a:
     13:13:void <init>() -> <init>
     16:17:void showFullAD() -> a
@@ -37279,49 +37273,44 @@ com.my.bruder.charge.saver.view.BatteringView -> com.my.bruder.charge.saver.view
     com.my.bruder.charge.saver.view.BatteringView$UnlockListener listener -> g
     com.my.bruder.charge.saver.view.BatteringView batteryView -> h
     android.widget.LinearLayout adLayout -> i
-    android.widget.LinearLayout switchLayout -> j
-    android.widget.CheckBox saverSwitch -> k
-    android.widget.TextView time -> l
-    android.widget.TextView date -> m
-    android.widget.TextView week -> n
-    android.widget.TextView batteryLeft -> o
-    android.widget.LinearLayout slide -> p
-    android.widget.ImageView battery_up -> q
-    android.widget.TextView currentLevel -> r
-    com.my.bruder.charge.saver.view.DynamicWave battery_ripple_layout -> s
-    com.my.bruder.charge.saver.view.BubblesLayout bubbleLayout -> t
-    com.sample.lottie.LottieAnimationView water -> u
-    int halfWidth -> v
-    android.content.BroadcastReceiver timerUpdateReceiver -> w
-    android.content.IntentFilter mIntentFilter -> x
-    int progress -> y
-    41:159:void <init>(android.content.Context) -> <init>
-    41:159:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    41:159:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    android.widget.TextView time -> j
+    android.widget.TextView date -> k
+    android.widget.TextView week -> l
+    android.widget.TextView batteryLeft -> m
+    android.widget.LinearLayout slide -> n
+    android.widget.ImageView battery_up -> o
+    android.widget.TextView currentLevel -> p
+    com.my.bruder.charge.saver.view.DynamicWave battery_ripple_layout -> q
+    com.my.bruder.charge.saver.view.BubblesLayout bubbleLayout -> r
+    com.sample.lottie.LottieAnimationView water -> s
+    int halfWidth -> t
+    android.content.BroadcastReceiver timerUpdateReceiver -> u
+    android.content.IntentFilter mIntentFilter -> v
+    int progress -> w
+    41:169:void <init>(android.content.Context) -> <init>
+    41:169:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    41:169:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     88:89:void setUnlockListener(com.my.bruder.charge.saver.view.BatteringView$UnlockListener) -> setUnlockListener
-    101:139:void showNativeAD() -> f
-    143:157:void updateTime() -> a
-    162:218:void bind(com.my.bruder.charge.saver.entry.BatteryEntry) -> a
-    242:250:void initWater() -> g
-    266:379:void onFinishInflate() -> onFinishInflate
-    383:402:void initViews() -> h
-    405:408:void pauseBubble() -> b
-    411:414:void reStartBubble() -> c
-    418:425:void onAttachedToWindow() -> onAttachedToWindow
-    429:461:void onDetachedFromWindow() -> onDetachedFromWindow
-    464:468:int analysisJson(org.json.JSONObject) -> a
-    473:480:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    483:485:void registerTimeUpdateReceiver() -> d
-    488:490:void unregisterTimeUpdateReceiver() -> e
+    101:149:void showNativeAD() -> f
+    153:167:void updateTime() -> a
+    172:228:void bind(com.my.bruder.charge.saver.entry.BatteryEntry) -> a
+    252:259:void initWater() -> g
+    263:364:void onFinishInflate() -> onFinishInflate
+    368:387:void initViews() -> h
+    390:393:void pauseBubble() -> b
+    396:399:void reStartBubble() -> c
+    403:410:void onAttachedToWindow() -> onAttachedToWindow
+    414:446:void onDetachedFromWindow() -> onDetachedFromWindow
+    449:453:int analysisJson(org.json.JSONObject) -> a
+    458:465:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    468:470:void registerTimeUpdateReceiver() -> d
+    473:475:void unregisterTimeUpdateReceiver() -> e
     36:36:android.view.GestureDetector access$000(com.my.bruder.charge.saver.view.BatteringView) -> a
     36:36:int access$100(com.my.bruder.charge.saver.view.BatteringView) -> b
     36:36:com.my.bruder.charge.saver.view.BatteringView$UnlockListener access$200(com.my.bruder.charge.saver.view.BatteringView) -> c
-    36:36:android.widget.LinearLayout access$300(com.my.bruder.charge.saver.view.BatteringView) -> d
-    36:36:float access$400(com.my.bruder.charge.saver.view.BatteringView) -> e
-    36:36:com.my.bruder.charge.saver.view.BatteringView access$500(com.my.bruder.charge.saver.view.BatteringView) -> f
-    36:36:float access$402(com.my.bruder.charge.saver.view.BatteringView,float) -> a
-    36:36:android.content.Context access$600(com.my.bruder.charge.saver.view.BatteringView) -> g
-    36:36:android.widget.CheckBox access$700(com.my.bruder.charge.saver.view.BatteringView) -> h
+    36:36:float access$300(com.my.bruder.charge.saver.view.BatteringView) -> d
+    36:36:com.my.bruder.charge.saver.view.BatteringView access$400(com.my.bruder.charge.saver.view.BatteringView) -> e
+    36:36:float access$302(com.my.bruder.charge.saver.view.BatteringView,float) -> a
 com.my.bruder.charge.saver.view.BatteringView$1 -> com.my.bruder.charge.saver.view.BatteringView$1:
     com.my.bruder.charge.saver.view.BatteringView this$0 -> a
     91:91:void <init>(com.my.bruder.charge.saver.view.BatteringView) -> <init>
@@ -37329,20 +37318,16 @@ com.my.bruder.charge.saver.view.BatteringView$1 -> com.my.bruder.charge.saver.vi
 com.my.bruder.charge.saver.view.BatteringView$2 -> com.my.bruder.charge.saver.view.BatteringView$2:
     com.my.bruder.charge.saver.view.BatteringView this$0 -> a
     113:113:void <init>(com.my.bruder.charge.saver.view.BatteringView) -> <init>
-    116:136:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    116:146:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.my.bruder.charge.saver.view.BatteringView$3 -> com.my.bruder.charge.saver.view.BatteringView$3:
     com.my.bruder.charge.saver.view.BatteringView this$0 -> a
-    288:288:void <init>(com.my.bruder.charge.saver.view.BatteringView) -> <init>
-    291:307:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    273:273:void <init>(com.my.bruder.charge.saver.view.BatteringView) -> <init>
+    279:292:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.my.bruder.charge.saver.view.BatteringView$4 -> com.my.bruder.charge.saver.view.BatteringView$4:
     com.my.bruder.charge.saver.view.BatteringView this$0 -> a
-    310:310:void <init>(com.my.bruder.charge.saver.view.BatteringView) -> <init>
-    313:317:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    322:330:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
-com.my.bruder.charge.saver.view.BatteringView$5 -> com.my.bruder.charge.saver.view.BatteringView$5:
-    com.my.bruder.charge.saver.view.BatteringView this$0 -> a
-    359:359:void <init>(com.my.bruder.charge.saver.view.BatteringView) -> <init>
-    362:376:void onClick(android.view.View) -> onClick
+    295:295:void <init>(com.my.bruder.charge.saver.view.BatteringView) -> <init>
+    298:302:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    307:315:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.my.bruder.charge.saver.view.BatteringView$UnlockListener -> com.my.bruder.charge.saver.view.BatteringView$a:
     void onUnlock() -> a
 com.my.bruder.charge.saver.view.BubblesLayout -> com.my.bruder.charge.saver.view.BubblesLayout:

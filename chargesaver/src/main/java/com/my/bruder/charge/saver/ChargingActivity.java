@@ -13,7 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import com.my.bruder.charge.saver.Util.Constants;
+import com.my.bruder.charge.saver.Util.Utils;
 import com.my.bruder.charge.saver.entry.BatteryEntry;
 import com.my.bruder.charge.saver.view.BatteringView;
 
@@ -21,6 +25,9 @@ public class ChargingActivity extends Activity {
 
     private BatteryEntry entry;
     private BatteringView batteryView;
+    LinearLayout battery_more;
+    LinearLayout battery_more1;
+    ImageView setting_battery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,28 @@ public class ChargingActivity extends Activity {
     private void doBar() {
         try {
             batteryView = (BatteringView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
+            battery_more = (LinearLayout) batteryView.findViewById(R.id.battery_more);
+            battery_more1 = (LinearLayout) batteryView.findViewById(R.id.battery_more1);
+            setting_battery = (ImageView) batteryView.findViewById(R.id.setting_battery);
+            battery_more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    battery_more.setVisibility(View.GONE);
+                    battery_more1.setVisibility(View.VISIBLE);
+                }
+            });
+            setting_battery.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if ((boolean) Utils.readData(ChargingActivity.this, Constants.CHARGE_SAVER_SWITCH, false)) {
+                        Utils.writeData(ChargingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
+                        setting_battery.setImageResource(R.mipmap.side_check_normal1);
+                    } else {
+                        Utils.writeData(ChargingActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                        setting_battery.setImageResource(R.mipmap.side_check_passed3);
+                    }
+                }
+            });
             setContentView(batteryView);
             batteryView.setUnlockListener(new BatteringView.UnlockListener() {
                 @Override

@@ -44,7 +44,7 @@ public class ShortCutingActivity extends BaseActivity {
     private boolean istween;
     private static final int FLAKE_NUM = 3;
     private View nativeView;
-    private String TAG_SHORTCUT = "bruder_shortcut";
+    private String TAG_SHORTCUT = "bruder_shortcut";//
     private FlakeOnShortView flakeView;
     private Animation suo;
     private Dialog dialog;

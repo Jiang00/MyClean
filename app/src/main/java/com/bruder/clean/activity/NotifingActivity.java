@@ -31,7 +31,6 @@ import java.util.ArrayList;
 
 
 /**
- * Created by Ivy on 2017/4/13.
  */
 
 public class NotifingActivity extends Activity {

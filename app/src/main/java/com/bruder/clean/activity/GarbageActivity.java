@@ -53,6 +53,7 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
     private JunkAdapter adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterClear, adapterRam;
     TextView junk_unit;
     ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou, junk_ram_jiantou;
+    private boolean flag1, flag2, flag3, flag4, flag5, flag6;
     ListViewForScrollMyView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list, junk_ram_list;
     Button junk_button_clean;
     MyMainScrollView junk_scroll;
@@ -597,8 +598,10 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
                     }
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
                         UtilAd.track("垃圾页面", "点击收起系统缓存", "", 1);
+                        junk_system_jiantou.setImageResource(R.mipmap.junk_jiantou);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
+                        junk_system_jiantou.setImageResource(R.mipmap.junk_system_jiantou_down);
                         UtilAd.track("垃圾页面", "点击打开系统缓存", "", 1);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
@@ -609,9 +612,11 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
                         UtilAd.track("垃圾页面", "点击收起apk文件", "", 1);
+                        junk_apk_jiaotou.setImageResource(R.mipmap.junk_jiantou);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
                         UtilAd.track("垃圾页面", "点击打开apk文件", "", 1);
+                        junk_apk_jiaotou.setImageResource(R.mipmap.junk_system_jiantou_down);
                         junk_apk_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -621,9 +626,11 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
                         UtilAd.track("垃圾页面", "点击收起unload文件", "", 1);
+                        junk_unload_jiantou.setImageResource(R.mipmap.junk_jiantou);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
                         UtilAd.track("垃圾页面", "点击打开apk文件", "", 1);
+                        junk_unload_jiantou.setImageResource(R.mipmap.junk_system_jiantou_down);
                         junk_unload_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -633,9 +640,11 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
                         UtilAd.track("垃圾页面", "点击收起log文件", "", 1);
+                        junk_log_jiantou.setImageResource(R.mipmap.junk_jiantou);
                         junk_log_list.setVisibility(View.GONE);
                     } else {
                         UtilAd.track("垃圾页面", "点击打开log文件", "", 1);
+                        junk_log_jiantou.setImageResource(R.mipmap.junk_system_jiantou_down);
                         junk_log_list.setVisibility(View.VISIBLE);
                     }
 
@@ -646,9 +655,11 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
                         UtilAd.track("垃圾页面", "点击收起user文件", "", 1);
+                        junk_user_jiantou.setImageResource(R.mipmap.junk_jiantou);
                         junk_user_list.setVisibility(View.GONE);
                     } else {
                         UtilAd.track("垃圾页面", "点击打开user文件", "", 1);
+                        junk_user_jiantou.setImageResource(R.mipmap.junk_system_jiantou_down);
                         junk_user_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -658,9 +669,11 @@ public class GarbageActivity extends BaseActivity implements JunkMyView {
                     }
                     if (junk_ram_list.getVisibility() == View.VISIBLE) {
                         UtilAd.track("垃圾页面", "点击收起ram文件", "", 1);
+                        junk_ram_jiantou.setImageResource(R.mipmap.junk_jiantou);
                         junk_ram_list.setVisibility(View.GONE);
                     } else {
                         UtilAd.track("垃圾页面", "点击打开ram文件", "", 1);
+                        junk_ram_jiantou.setImageResource(R.mipmap.junk_system_jiantou_down);
                         junk_ram_list.setVisibility(View.VISIBLE);
                     }
                     break;

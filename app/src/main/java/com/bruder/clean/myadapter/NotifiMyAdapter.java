@@ -14,7 +14,6 @@ import com.cleaner.util.Util;
 import com.bruder.clean.junk.R;
 
 /**
- * Created by Ivy on 2017/4/17.
  */
 
 public class NotifiMyAdapter extends MybaseAdapter<NotificationInfo> {

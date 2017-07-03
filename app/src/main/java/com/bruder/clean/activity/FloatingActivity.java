@@ -50,9 +50,10 @@ public class FloatingActivity extends BaseActivity {
     private String TAG_FLAOT = "bruder_float";
     private Animation rotate, suo, fang;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
-    ImageView float_rotate;
+    ImageView float_rotate,float_cricle;
     TextView float_memory;
     LinearLayout rl_memory;
+    TextView float_tishi;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,11 +108,11 @@ public class FloatingActivity extends BaseActivity {
         iv_xianshi = (ImageView) findViewById(R.id.iv_xianshi);
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
-//        float_cricle = (ImageView) findViewById(R.id.float_cricle);
+        float_cricle = (ImageView) findViewById(R.id.float_cricle);
         float_rotate = (ImageView) findViewById(R.id.float_rotate);
         float_memory = (TextView) findViewById(R.id.float_memory);
         rl_memory = (LinearLayout) findViewById(R.id.rl_memory);
-//        float_tishi = (TextView) findViewById(R.id.float_tishi);
+        float_tishi = (TextView) findViewById(R.id.float_tishi);
     }
 
     private void initList() {
@@ -208,15 +209,15 @@ public class FloatingActivity extends BaseActivity {
         CleanManager.getInstance(this).clearRam();
 
         setListAnimation();
-//        float_cricle.setVisibility(View.INVISIBLE);
-//        float_tishi.setVisibility(View.INVISIBLE);
+        float_cricle.setVisibility(View.INVISIBLE);
+        float_tishi.setVisibility(View.INVISIBLE);
         rl_memory.startAnimation(suo);
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
                 float_memory.setText(Util.getMemory(FloatingActivity.this) + "");
-//                float_tishi.setText(R.string.float_yijiasu);
-//                float_tishi.setVisibility(View.VISIBLE);
+                float_tishi.setText(R.string.float_yijiasu);
+                float_tishi.setVisibility(View.VISIBLE);
 
                 rl_memory.startAnimation(fang);
             }
@@ -234,7 +235,7 @@ public class FloatingActivity extends BaseActivity {
         fang.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
-//                float_cricle.setVisibility(View.VISIBLE);
+                float_cricle.setVisibility(View.VISIBLE);
             }
 
             @Override

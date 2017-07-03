@@ -41,7 +41,6 @@ import com.cleaner.util.Util;
 import java.util.ArrayList;
 
 /**
- * Created by Ivy on 2017/4/27.
  */
 
 public class PicturesActivity extends BaseActivity {

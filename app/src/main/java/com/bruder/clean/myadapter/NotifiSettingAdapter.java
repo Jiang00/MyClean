@@ -13,7 +13,6 @@ import com.bruder.clean.junk.R;
 import com.cleaner.entity.JunkInfo;
 
 /**
- * Created by Ivy on 2017/4/17.
  */
 
 public class NotifiSettingAdapter extends MybaseAdapter<JunkInfo> {

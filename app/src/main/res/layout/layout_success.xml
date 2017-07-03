@@ -29,44 +29,13 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <!--星星-->
-            <LinearLayout
-                android:id="@+id/success_stars"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
 
-                <ImageView
-                    android:id="@+id/success_stars1"
-                    android:layout_width="@dimen/d25"
-                    android:layout_height="@dimen/d25"
-                    android:layout_marginLeft="@dimen/d220"
-                    android:layout_marginTop="@dimen/d141"
-                    android:src="@mipmap/stars" />
-
-                <ImageView
-                    android:id="@+id/success_stars2"
-                    android:layout_width="@dimen/d15"
-                    android:layout_height="@dimen/d15"
-                    android:layout_marginLeft="@dimen/d120"
-                    android:src="@mipmap/stars" />
-
-                <ImageView
-                    android:id="@+id/success_stars4"
-                    android:layout_width="@dimen/d20"
-                    android:layout_height="@dimen/d20"
-                    android:layout_marginLeft="@dimen/d90"
-                    android:layout_marginTop="@dimen/d22"
-                    android:src="@mipmap/stars" />
-            </LinearLayout>
-
-            <ImageView
+            <com.sample.lottie.LottieAnimationView
                 android:id="@+id/success_huojian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="bottom|center_horizontal"
-                android:src="@mipmap/success_huojian" />
+                android:layout_marginTop="@dimen/d50" />
 
             <com.bruder.clean.customeview.MySlowScrollView
                 android:id="@+id/scrollView"

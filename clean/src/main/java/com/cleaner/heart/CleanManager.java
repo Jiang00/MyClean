@@ -633,9 +633,6 @@ public class CleanManager {
 
     public void removeRam(JunkInfo appRam) {
         am.killBackgroundProcesses(appRam.pkg);
-        if (appRam.isSelfBoot) {
-            return;
-        }
         ramSize -= appRam.size;
         if (appRamList != null) {
             appRamList.remove(appRam);

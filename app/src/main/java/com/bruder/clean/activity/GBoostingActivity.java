@@ -53,7 +53,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ivy on 2017/5/5.
  */
 
 public class GBoostingActivity extends BaseActivity {
@@ -472,7 +471,7 @@ public class GBoostingActivity extends BaseActivity {
         Intent shortcutIntent = new Intent();
         shortcutIntent.setAction(Intent.ACTION_VIEW);
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
-                "com.supers.clean.activity.GBoostingActivity"));
+                "com.bruder.clean.activity.GBoostingActivity"));
         String title = GBoostingActivity.this.getString(R.string.gboost_0);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);

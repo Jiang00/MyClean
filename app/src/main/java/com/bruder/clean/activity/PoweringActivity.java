@@ -43,23 +43,25 @@ import java.util.ArrayList;
  */
 
 public class PoweringActivity extends BaseActivity {
-    FrameLayout title_left;
+
+    TextView power_size;
     Button junk_button_clean;
     Handler mHandler;
-    private TextView containerView_power_size;
+    FrameLayout title_left;
+    TextView title_name;
+    RecyclerView power_recycler;
+    private GridLayoutManager mLayoutManager;
+    private HomeAdapter homeAdapter, containerAdapter;
+    private MyApplication cleanApplication;
     private Button containerView_junk_button_clean;
     private PowerWidgetContainerFrameLayout container;
     private int count = 0;
     LottieAnimationView power_clean;
-    private GridLayoutManager mLayoutManager;
-    private HomeAdapter homeAdapter, containerAdapter;
-    private MyApplication cleanApplication;
-    TextView title_name;
-    RecyclerView power_recycler;
-    TextView power_size;
     private ArrayList<JunkInfo> startList;
     private View containerView;
     private RecyclerView containerView_recyclerView;
+    private TextView containerView_power_size;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,11 +71,10 @@ public class PoweringActivity extends BaseActivity {
         power_clean = (LottieAnimationView) findViewById(R.id.power_clean);
         power_clean.setAnimation("clean.json");
         power_clean.setScaleX(2f);
-        power_clean.setScaleY(2.4f);
+        power_clean.setScaleY(2f);
         power_clean.loop(true);
         power_clean.playAnimation();
         mHandler = new Handler();
-
         startService(new Intent(this, CustomerAccessibilitingService.class).putExtra("isDis", false));
         initData();
         title_name.setText(R.string.side_power);
@@ -140,14 +141,12 @@ public class PoweringActivity extends BaseActivity {
                     if (DataPre.getDB(PoweringActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PoweringActivity.this, NotificationingService.class);
                         intent.setAction("gboost");
-                        //startService
                         startService(intent);
                     }
                 } else {
                     Bundle bundle = new Bundle();
                     bundle.putInt("count", count);
                     bundle.putString("from", "GBoost");
-                    power_clean.cancelAnimation();
                     jumpToActivity(SuccessingActivity.class, bundle, 1);
                 }
                 onBackPressed();
@@ -155,19 +154,6 @@ public class PoweringActivity extends BaseActivity {
             }
             junk_button_clean.callOnClick();
         }
-    }
-
-    private void setContainer() {
-        containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
-        containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
-        containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
-        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
-        containerView_junk_button_clean.setVisibility(View.GONE);
-        containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
-        containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
-        // 设置item动画
-        containerView_recyclerView.setItemAnimator(new DefaultItemAnimator());
-        mHandler.postDelayed(runnable, 100);
     }
 
     @Override
@@ -207,14 +193,13 @@ public class PoweringActivity extends BaseActivity {
                     if (DataPre.getDB(PoweringActivity.this, Constant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(PoweringActivity.this, NotificationingService.class);
                         intent.setAction("gboost");
-//                        startService(intent);
+                        startService(intent);
                     }
 
                 } else {
                     Bundle bundle = new Bundle();
                     bundle.putInt("count", count);
                     bundle.putString("from", "GBoost");
-                    power_clean.cancelAnimation();
                     jumpToActivity(SuccessingActivity.class, bundle, 1);
                 }
                 onBackPressed();
@@ -222,13 +207,24 @@ public class PoweringActivity extends BaseActivity {
                 Bundle bundle = new Bundle();
                 bundle.putInt("count", count);
                 bundle.putString("from", "power");
-                power_clean.cancelAnimation();
                 jumpToActivity(SuccessingActivity.class, bundle, 1);
             }
             container.removeFromWindow();
         }
     };
 
+    private void setContainer() {
+        containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
+        containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
+        containerView_junk_button_clean = (Button) containerView.findViewById(R.id.junk_button_clean);
+        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
+        containerView_junk_button_clean.setVisibility(View.GONE);
+        containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
+        containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
+        // 设置item动画
+        containerView_recyclerView.setItemAnimator(new DefaultItemAnimator());
+        mHandler.postDelayed(runnable, 100);
+    }
 
     private void showPackageDetail(String packageName) {
         Intent intent = new Intent();
@@ -244,30 +240,31 @@ public class PoweringActivity extends BaseActivity {
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(icon, "scaleY", 1f, 0f);
         ObjectAnimator rotate = ObjectAnimator.ofFloat(icon, "rotation", 0f, 360f);
-        set.setDuration(2000).addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationCancel(Animator animation) {
-            }
+        set.setDuration(2000)
+                .addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+                    }
 
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                CleanManager.getInstance(PoweringActivity.this).removeRamSelfBoot(startList.get(i));
-                startList.remove(i);
-                containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
-                containerAdapter.notifyItemRemoved(i);
-                containerAdapter.reChangesData(i);
-//                        mHandler.post(runnable);
-            }
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        CleanManager.getInstance(PoweringActivity.this).removeRamSelfBoot(startList.get(i));
+                        startList.remove(i);
+                        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
+                        containerAdapter.notifyItemRemoved(i);
+                        containerAdapter.reChangesData(i);
+                        mHandler.post(runnable);
+                    }
 
-            @Override
-            public void onAnimationRepeat(Animator animation) {
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
 
-            }
+                    }
 
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
-        });
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                    }
+                });
         set.play(scaleX).with(scaleY).with(rotate);
         set.start();
     }
@@ -315,15 +312,15 @@ public class PoweringActivity extends BaseActivity {
             });
         }
 
+        @Override
+        public int getItemCount() {
+            return startList.size();
+        }
+
         public void reChangesData(int position) {
 
             notifyItemRangeChanged(position, startList.size() - position); //mList是数据
 
-        }
-
-        @Override
-        public int getItemCount() {
-            return startList.size();
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {
@@ -340,10 +337,8 @@ public class PoweringActivity extends BaseActivity {
         }
     }
 
-
     @Override
     public void onBackPressed() {
-        power_clean.cancelAnimation();
         setResult(Constant.POWER_RESUIL);
         finish();
     }
@@ -353,6 +348,18 @@ public class PoweringActivity extends BaseActivity {
         startService(new Intent(this, CustomerAccessibilitingService.class).putExtra("isDis", true));
         super.onDestroy();
 
+    }
+
+    private void initClean() {
+        try {
+            power_clean.setAnimation(this, "theme://clean.json");
+        } catch (Exception e) {
+            if (!power_clean.isAnimating()) {
+                power_clean.setAnimation(null, "clean.json");
+            }
+        }
+        power_clean.loop(true);
+//        water.setSpeed(5.0f);
     }
 
     @Override

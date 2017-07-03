@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +34,7 @@ import com.my.bruder.charge.saver.Util.Utils;
 public class SetActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    private String TAG_SETTING = "bruder_setting";
+    private String TAG_SETTING = "bruder_setting";//
     private Handler myHandler;
     RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_unload, setting_power, setting_file,
             setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
@@ -100,6 +99,7 @@ public class SetActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        initData();
         if (DataPre.getDB(this, Constant.FILEACTIVITY, 0) == 0) {
             setting_file.setVisibility(View.GONE);
         }
@@ -292,9 +292,7 @@ public class SetActivity extends BaseActivity {
                 case R.id.setting_notifi:
                     UtilAd.track("设置页面", "进入通知栏清理", "", 1);
                     DataPre.putDB(SetActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!Util.isNotificationListenEnabled(SetActivity.this)) {
-                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!DataPre.getDB(SetActivity.this, Constant.KEY_NOTIFI, true)) {
+                    if (!DataPre.getDB(SetActivity.this, Constant.KEY_NOTIFI, true) || !Util.isNotificationListenEnabled(SetActivity.this)) {
                         Intent intent6 = new Intent(SetActivity.this, NotifiIfActivity.class);
                         startActivity(intent6);
                     } else {

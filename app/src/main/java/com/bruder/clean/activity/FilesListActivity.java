@@ -32,7 +32,6 @@ import com.cleaner.util.DataPre;
 import java.util.ArrayList;
 
 /**
- * Created by Ivy on 2017/4/21.
  */
 
 public class FilesListActivity extends BaseActivity {
@@ -57,7 +56,7 @@ public class FilesListActivity extends BaseActivity {
     private int nameId;
     private AlertDialog dialog;
     private FileCategoryHelper.FileCategory fc;
-    private String Tag_file_1 = "bruder_file_1";
+    private String Tag_file_1 = "bruder_file_1";//
     private View nativeView;
 
     @Override

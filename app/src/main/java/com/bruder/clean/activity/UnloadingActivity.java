@@ -31,7 +31,7 @@ import java.util.ArrayList;
 
 public class UnloadingActivity extends BaseActivity {
     private View nativeView;
-    private String TAG_UNLOAD = "bruder_unload";
+    private String TAG_UNLOAD = "bruder_unload";//
     LinearLayout ll_ad;
     long size;
     String path;

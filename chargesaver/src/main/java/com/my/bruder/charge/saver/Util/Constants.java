@@ -13,8 +13,8 @@ public class Constants {
 
     public static final String ACTION_CHARGE_SAVER_SWITCH_STATE = "com.bruder.module.charge.saver.switch";
 
-    public static final String TAG_CHARGING = "charging";
-    public static final String TAG_DUCK_CHARGING = "duck_charging";
+    public static final String TAG_CHARGING = "charging";//
+    public static final String TAG_DUCK_CHARGING = "duck_charging";//
 
     public static final float TALK_PARAMETER = 0.6f;
     public static final float INTERNET_PARAMETER = 0.4f;

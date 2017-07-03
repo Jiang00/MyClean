@@ -16,7 +16,6 @@ import com.cleaner.util.Util;
 import com.sample.lottie.LottieAnimationView;
 
 /**
- * Created by Ivy on 2017/4/13.
  */
 
 public class NotifiIfActivity extends BaseActivity {

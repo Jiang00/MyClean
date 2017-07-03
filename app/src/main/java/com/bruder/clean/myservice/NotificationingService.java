@@ -399,18 +399,12 @@ public class NotificationingService extends Service {
                 DataPre.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
             }
         }
-
     }
 
     private long getTotalRxBytes() {
         // 得到整个手机的流量值
         return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
                 : (TrafficStats.getTotalRxBytes());//
-        // // 得到当前应用的流量值
-        // return TrafficStats.getUidRxBytes(getApplicationInfo().uid) ==
-        // TrafficStats.UNSUPPORTED ? 0 : (TrafficStats
-        // .getUidRxBytes(getApplicationInfo().uid) / 1024);// 转为KB
-
     }
 
     //CPU温度
@@ -548,6 +542,7 @@ public class NotificationingService extends Service {
         PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
                 notifyIntentNotifi, PendingIntent.FLAG_CANCEL_CURRENT);
         mBuilder.setContentIntent(pendIntent);
+
         mBuilder.setContent(remoteViewNotifi);
         mBuilder.setAutoCancel(false);
         mBuilder.setOngoing(true);

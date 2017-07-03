@@ -19,709 +19,427 @@
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
-    <!--饼状图和六个块-->
-    <!-- <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="@dimen/d167"
-         android:orientation="horizontal">
 
-         <FrameLayout
-             android:layout_width="@dimen/d167"
-             android:layout_height="@dimen/d167">
-
-             <ImageView
-                 android:id="@+id/file_touying"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="bottom"
-                 android:src="@mipmap/file_yinying" />
-
-             <com.supers.clean.customeview.FileRoundView
-                 android:id="@+id/file_piechart"
-                 android:layout_width="@dimen/d133"
-                 android:layout_height="@dimen/d133"
-                 android:layout_gravity="center" />
-
-             &lt;!&ndash;<com.github.mikephil.charting.charts.PieChart&ndash;&gt;
-             &lt;!&ndash;android:id="@+id/file_piechart"&ndash;&gt;
-             &lt;!&ndash;android:layout_width="@dimen/d133"&ndash;&gt;
-             &lt;!&ndash;android:layout_height="@dimen/d133"&ndash;&gt;
-             &lt;!&ndash;android:layout_gravity="center" />&ndash;&gt;
-
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:gravity="center"
-                 android:orientation="vertical">
-
-                 <ImageView
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:src="@mipmap/file_sd" />
-
-                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                     android:id="@+id/file_sd_shengyu"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:textColor="#8ecaff"
-                     android:textSize="@dimen/s12"
-                      />
-
-                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                     android:id="@+id/file_sd_all"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:textColor="#c1e2ff"
-                     android:textSize="@dimen/s10"
-                      />
-             </LinearLayout>
-
-         </FrameLayout>
-
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:layout_marginBottom="@dimen/d15"
-             android:layout_marginTop="@dimen/d15"
-             android:orientation="horizontal">
-
-             <LinearLayout
-                 android:layout_width="0dp"
-                 android:layout_height="match_parent"
-                 android:layout_marginLeft="@dimen/d15"
-                 android:layout_weight="1"
-                 android:orientation="vertical">
-
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="0dp"
-                     android:layout_weight="1"
-                     android:gravity="center_vertical"
-                     android:orientation="horizontal">
-
-                     <ImageView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d5"
-                         android:src="@mipmap/file_apk" />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="@string/file_apk"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:id="@+id/file_apk_size"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="0B"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                 </LinearLayout>
-
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="0dp"
-                     android:layout_weight="1"
-                     android:gravity="center_vertical"
-                     android:orientation="horizontal">
-
-                     <ImageView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d5"
-                         android:src="@mipmap/file_zip" />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="@string/file_zip"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:id="@+id/file_zip_size"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="0B"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                 </LinearLayout>
-
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="0dp"
-                     android:layout_weight="1"
-                     android:gravity="center_vertical"
-                     android:orientation="horizontal">
-
-                     <ImageView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d5"
-                         android:src="@mipmap/file_txt" />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="@string/file_txt"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:id="@+id/file_txt_size"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="0B"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                 </LinearLayout>
-
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="0dp"
-                     android:layout_weight="1"
-                     android:gravity="center_vertical"
-                     android:orientation="horizontal">
-
-                     <ImageView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d5"
-                         android:src="@mipmap/file_music" />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="@string/file_music"
-                         android:textColor="#818181"
-
-                         android:textSize="@dimen/s11"
-                          />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:id="@+id/file_music_size"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="0B"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                 </LinearLayout>
-
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="0dp"
-                     android:layout_weight="1"
-                     android:gravity="center_vertical"
-                     android:orientation="horizontal">
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="@string/file_video"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:id="@+id/file_video_size"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="0B"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                 </LinearLayout>
-
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="0dp"
-                     android:layout_weight="1"
-                     android:gravity="center_vertical"
-                     android:orientation="horizontal">
-
-                     <ImageView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d5"
-                         android:src="@mipmap/file_other" />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="@string/file_pther"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                         android:id="@+id/file_qita_size"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="@dimen/d4"
-                         android:text="0B"
-                         android:textColor="#818181"
-                         android:textSize="@dimen/s11"
-                          />
-
-                 </LinearLayout>
-
-             </LinearLayout>
-
-             &lt;!&ndash;<LinearLayout&ndash;&gt;
-             &lt;!&ndash;android:layout_width="0dp"&ndash;&gt;
-             &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
-             &lt;!&ndash;android:layout_weight="1"&ndash;&gt;
-             &lt;!&ndash;android:orientation="vertical">&ndash;&gt;
-
-             &lt;!&ndash;&ndash;&gt;
-
-             &lt;!&ndash;</LinearLayout>&ndash;&gt;
-         </LinearLayout>
-
-     </LinearLayout>-->
-
-    <!--八个按钮-->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/file_apk_button"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/file_apk_button" />
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--八个按钮-->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
                 android:orientation="vertical">
 
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/file_apk"
-                    android:textColor="@color/A2"
-                    android:textSize="@dimen/s16" />
+                <LinearLayout
+                    android:id="@+id/file_apk_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:id="@+id/file_apk_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d6"
-                    android:text="dd"
-                    android:textColor="@color/A3"
-                    android:textSize="@dimen/s14" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:src="@mipmap/file_apk_button" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:orientation="vertical">
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/file_apk"
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s16" />
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:id="@+id/file_apk_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="dd"
+                            android:textColor="@color/A3"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@mipmap/more" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d1"
+                    android:layout_marginLeft="@dimen/d72"
+                    android:layout_marginRight="@dimen/d16"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:id="@+id/file_zip_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:src="@mipmap/file_zip_button" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:orientation="vertical">
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/file_zip"
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s16" />
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:id="@+id/file_zip_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="dd"
+                            android:textColor="@color/A3"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@mipmap/more" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d1"
+                    android:layout_marginLeft="@dimen/d72"
+                    android:layout_marginRight="@dimen/d16"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:id="@+id/file_txt_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:src="@mipmap/file_txt_button" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:orientation="vertical">
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/file_txt"
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s16" />
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:id="@+id/file_txt_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="dd"
+                            android:textColor="@color/A3"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@mipmap/more" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d1"
+                    android:layout_marginLeft="@dimen/d72"
+                    android:layout_marginRight="@dimen/d16"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:id="@+id/file_video_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:src="@mipmap/file_video_button" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:orientation="vertical">
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/file_video"
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s16" />
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:id="@+id/file_video_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="dd"
+                            android:textColor="@color/A3"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@mipmap/more" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d1"
+                    android:layout_marginLeft="@dimen/d72"
+                    android:layout_marginRight="@dimen/d16"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:id="@+id/file_music_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:src="@mipmap/file_music_button" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:orientation="vertical">
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/file_music"
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s16" />
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:id="@+id/file_music_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="dd"
+                            android:textColor="@color/A3"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@mipmap/more" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d1"
+                    android:layout_marginLeft="@dimen/d72"
+                    android:layout_marginRight="@dimen/d16"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:id="@+id/file_picture_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:src="@mipmap/file_pictureo_button" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:orientation="vertical">
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/picture"
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s16" />
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:id="@+id/file_picture_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="dd"
+                            android:textColor="@color/A3"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@mipmap/more" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d1"
+                    android:layout_marginLeft="@dimen/d72"
+                    android:layout_marginRight="@dimen/d16"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:id="@+id/file_other_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d72"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:src="@mipmap/file_other_button" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d16"
+                        android:orientation="vertical">
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/file_pther"
+                            android:textColor="@color/A2"
+                            android:textSize="@dimen/s16" />
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:id="@+id/file_qita_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d6"
+                            android:text="dd"
+                            android:textColor="@color/A3"
+                            android:textSize="@dimen/s14" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/d16"
+                        android:src="@mipmap/more" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d1"
+                    android:layout_marginLeft="@dimen/d72"
+                    android:layout_marginRight="@dimen/d16"
+                    android:background="#f1f1f1" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d16"
-                android:src="@mipmap/more" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d1"
-            android:layout_marginLeft="@dimen/d72"
-            android:layout_marginRight="@dimen/d16"
-            android:background="#f1f1f1" />
-
-        <LinearLayout
-            android:id="@+id/file_zip_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/file_zip_button" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/ll_ad"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:orientation="vertical">
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/file_zip"
-                    android:textColor="@color/A2"
-                    android:textSize="@dimen/s16" />
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:id="@+id/file_zip_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d6"
-                    android:text="dd"
-                    android:textColor="@color/A3"
-                    android:textSize="@dimen/s14" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d16"
-                android:src="@mipmap/more" />
+                android:background="@color/white_100"
+                android:orientation="vertical" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d1"
-            android:layout_marginLeft="@dimen/d72"
-            android:layout_marginRight="@dimen/d16"
-            android:background="#f1f1f1" />
-
-        <LinearLayout
-            android:id="@+id/file_txt_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/file_txt_button" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:orientation="vertical">
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/file_txt"
-                    android:textColor="@color/A2"
-                    android:textSize="@dimen/s16" />
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:id="@+id/file_txt_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d6"
-                    android:text="dd"
-                    android:textColor="@color/A3"
-                    android:textSize="@dimen/s14" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d16"
-                android:src="@mipmap/more" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d1"
-            android:layout_marginLeft="@dimen/d72"
-            android:layout_marginRight="@dimen/d16"
-            android:background="#f1f1f1" />
-
-        <LinearLayout
-            android:id="@+id/file_video_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/file_video_button" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:orientation="vertical">
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/file_video"
-                    android:textColor="@color/A2"
-                    android:textSize="@dimen/s16" />
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:id="@+id/file_video_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d6"
-                    android:text="dd"
-                    android:textColor="@color/A3"
-                    android:textSize="@dimen/s14" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d16"
-                android:src="@mipmap/more" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d1"
-            android:layout_marginLeft="@dimen/d72"
-            android:layout_marginRight="@dimen/d16"
-            android:background="#f1f1f1" />
-
-        <LinearLayout
-            android:id="@+id/file_music_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/file_music_button" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:orientation="vertical">
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/file_music"
-                    android:textColor="@color/A2"
-                    android:textSize="@dimen/s16" />
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:id="@+id/file_music_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d6"
-                    android:text="dd"
-                    android:textColor="@color/A3"
-                    android:textSize="@dimen/s14" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d16"
-                android:src="@mipmap/more" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d1"
-            android:layout_marginLeft="@dimen/d72"
-            android:layout_marginRight="@dimen/d16"
-            android:background="#f1f1f1" />
-
-        <LinearLayout
-            android:id="@+id/file_picture_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/file_pictureo_button" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:orientation="vertical">
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/picture"
-                    android:textColor="@color/A2"
-                    android:textSize="@dimen/s16" />
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:id="@+id/file_picture_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d6"
-                    android:text="dd"
-                    android:textColor="@color/A3"
-                    android:textSize="@dimen/s14" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d16"
-                android:src="@mipmap/more" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d1"
-            android:layout_marginLeft="@dimen/d72"
-            android:layout_marginRight="@dimen/d16"
-            android:background="#f1f1f1" />
-
-        <LinearLayout
-            android:id="@+id/file_other_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/file_other_button" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:orientation="vertical">
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/file_pther"
-                    android:textColor="@color/A2"
-                    android:textSize="@dimen/s16" />
-
-                <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                    android:id="@+id/file_qita_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d6"
-                    android:text="dd"
-                    android:textColor="@color/A3"
-                    android:textSize="@dimen/s14" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d16"
-                android:src="@mipmap/more" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d1"
-            android:layout_marginLeft="@dimen/d72"
-            android:layout_marginRight="@dimen/d16"
-            android:background="#f1f1f1" />
-    </LinearLayout>
-
-    <!-- <View
-         android:layout_width="match_parent"
-         android:layout_height="0dp"
-         android:layout_weight="1" />-->
-
-    <LinearLayout
-        android:id="@+id/ll_ad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white_100"
-        android:orientation="vertical" />
-
+    </ScrollView>
 </LinearLayout>

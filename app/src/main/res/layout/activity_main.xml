@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A0"
+    android:background="@color/A4"
     android:orientation="vertical"
     tools:context="com.bruder.clean.activity.MainActivity">
 
@@ -236,6 +236,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/main_6_anniu"
+                            android:background="@color/A0"
                             android:orientation="vertical">
 
                             <LinearLayout
@@ -553,8 +554,9 @@
                             android:id="@+id/main_more"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d48"
-                            android:layout_marginLeft="@dimen/d16"
-                            android:layout_marginRight="@dimen/d16">
+                            android:background="@color/A0"
+                            android:paddingLeft="@dimen/d16"
+                            android:paddingRight="@dimen/d16">
 
 
                             <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -627,7 +629,7 @@
                             android:id="@+id/poweracativity"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d72"
-                            android:background="?attr/selectableItemBackground"
+                            android:background="@color/A0"
                             android:orientation="horizontal">
 
                             <ImageView
@@ -653,7 +655,7 @@
                                     android:textSize="@dimen/s14" />
 
                                 <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/d190"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d6"
                                     android:text="@string/speed"
@@ -686,7 +688,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d72"
                             android:layout_centerVertical="true"
-                            android:background="?attr/selectableItemBackground"
+                            android:background="@color/A0"
                             android:orientation="horizontal">
 
                             <ImageView
@@ -712,7 +714,7 @@
                                     android:textSize="@dimen/s14" />
 
                                 <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/d190"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d6"
                                     android:text="@string/file_main"
@@ -745,7 +747,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d72"
                             android:layout_centerVertical="true"
-                            android:background="?attr/selectableItemBackground"
+                            android:background="@color/A0"
                             android:orientation="horizontal">
 
                             <ImageView
@@ -771,7 +773,7 @@
                                     android:textSize="@dimen/s14" />
 
                                 <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/d190"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/d6"
                                     android:text="@string/notifi_msg_main"
@@ -803,7 +805,7 @@
                             android:id="@+id/main_msg_button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="?attr/selectableItemBackground"
+                            android:background="@color/A0"
                             android:orientation="vertical">
 
                             <LinearLayout

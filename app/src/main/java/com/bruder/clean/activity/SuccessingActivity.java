@@ -38,6 +38,7 @@ import com.cleaner.entity.JunkInfo;
 import com.cleaner.heart.CleanManager;
 import com.cleaner.util.DataPre;
 import com.cleaner.util.Util;
+import com.sample.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,13 +58,12 @@ public class SuccessingActivity extends BaseActivity {
     Button main_notifi_button1, main_file_button1;
     TextView success_clean_2;
     ImageView success_huojian;
-    LinearLayout success_stars;
+    //    LinearLayout success_stars;
     ImageView power_icon;
     TextView power_text;
     Button main_rotate_good, main_good_refuse;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
-    ImageView success_stars1, success_stars2, success_stars4;
     MySlowScrollView scrollView;
     Button junk_button_clean;
     RelativeLayout main_cooling_button;
@@ -78,11 +78,12 @@ public class SuccessingActivity extends BaseActivity {
     private View native_xiao;
     private boolean istween;
     private Handler myHandler;
-    private String TAG_CLEAN = "bruder_success";
-    private String TAG_CLEAN_2 = "bruder_success_2";
+    private String TAG_CLEAN = "bruder_success";//
+    private String TAG_CLEAN_2 = "bruder_success_2";//
     private Animation rotate;
     RelativeLayout main_gboost_button;
     RelativeLayout main_picture_button;
+    LottieAnimationView notifi_info_lot;
 
 
     @Override
@@ -93,6 +94,11 @@ public class SuccessingActivity extends BaseActivity {
         setAnimationThread();
         myHandler = new Handler();
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
+        notifi_info_lot.setImageAssetsFolder("images/success/");
+        notifi_info_lot.setAnimation("success.json");
+        notifi_info_lot.loop(false);
+        notifi_info_lot.setSpeed(0.7f);
+        notifi_info_lot.playAnimation();
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
         } else {
@@ -199,22 +205,18 @@ public class SuccessingActivity extends BaseActivity {
                     addAd();
                 }
             }, 1000);
-
         }
     }
 
     @Override
     protected void findId() {
         super.findId();
+        notifi_info_lot = (LottieAnimationView) findViewById(R.id.success_huojian);
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
         success_clean_2 = (TextView) findViewById(R.id.success_clean_2);
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
-        success_stars = (LinearLayout) findViewById(R.id.success_stars);
-        success_stars1 = (ImageView) findViewById(R.id.success_stars1);
-        success_stars2 = (ImageView) findViewById(R.id.success_stars2);
-        success_stars4 = (ImageView) findViewById(R.id.success_stars4);
         scrollView = (MySlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_power_button = (RelativeLayout) findViewById(R.id.main_power_button);
@@ -249,7 +251,6 @@ public class SuccessingActivity extends BaseActivity {
         main_rotate_good.setOnClickListener(onClickListener);
         main_good_refuse.setOnClickListener(onClickListener);
 
-//        delete.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_power_button1.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
@@ -399,14 +400,15 @@ public class SuccessingActivity extends BaseActivity {
                 case R.id.title_left:
                     onBackPressed();
                     break;
+                // 好评
                 case R.id.main_rotate_good:
                     DataPre.putDB(SuccessingActivity.this, Constant.IS_ROTATE, true);
                     UtilGp.rate(SuccessingActivity.this);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_good_refuse:
-                    DataPre.putDB(SuccessingActivity.this, Constant.IS_ROTATE, false);
-                    UtilGp.rate(SuccessingActivity.this);
+                    DataPre.putDB(SuccessingActivity.this, Constant.IS_ROTATE, true);
+//                    UtilGp.rate(SuccessingActivity.this);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
@@ -522,9 +524,7 @@ public class SuccessingActivity extends BaseActivity {
                 case R.id.main_notifi_button:
                     UtilAd.track("完成页面", "点击进入通知栏清理", "", 1);
                     DataPre.putDB(SuccessingActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!Util.isNotificationListenEnabled(SuccessingActivity.this)) {
-                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!DataPre.getDB(SuccessingActivity.this, Constant.KEY_NOTIFI, true)) {
+                    if (!DataPre.getDB(SuccessingActivity.this, Constant.KEY_NOTIFI, true) || !Util.isNotificationListenEnabled(SuccessingActivity.this)) {
                         Intent intent6 = new Intent(SuccessingActivity.this, NotifiIfActivity.class);
                         startActivity(intent6);
                         onBackPressed();

@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -25,8 +24,8 @@ import com.bruder.clean.activity.PoweringActivity;
 import com.bruder.clean.entity.SideInfo;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.myservice.FloatingService;
-import com.bruder.clean.util.UtilAd;
 import com.bruder.clean.util.Constant;
+import com.bruder.clean.util.UtilAd;
 import com.cleaner.util.DataPre;
 import com.cleaner.util.Util;
 import com.my.bruder.charge.saver.Util.Constants;
@@ -51,12 +50,12 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         FLOAT = idx++;
         JUNK = idx++;
         RAM = idx++;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT&& DataPre.getDB(context,Constant.POWERACATIVITY,0)!=0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(context, Constant.POWERACATIVITY, 0) != 0) {
             POWER = idx++;
         }
         PICTURE = idx++;
         GBOOST = idx++;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT&& DataPre.getDB(context,Constant.NOTIFIACTIVITY,0)!=0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DataPre.getDB(context, Constant.NOTIFIACTIVITY, 0) != 0) {
             NOTIFI = idx++;
         }
         MANAGER = idx++;
@@ -164,9 +163,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == NOTIFI) {
             UtilAd.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             DataPre.putDB(context, Constant.NOTIFI_CLEAN, true);
-            if (!Util.isNotificationListenEnabled(context)) {
-                ((Activity) context).startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-            } else if (!DataPre.getDB(context, Constant.KEY_NOTIFI, true)) {
+             if (!Util.isNotificationListenEnabled(context)||!DataPre.getDB(context, Constant.KEY_NOTIFI, true)) {
                 Intent intent6 = new Intent(context, NotifiIfActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
             } else {

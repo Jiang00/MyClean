@@ -35,37 +35,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <!--     <com.my.module.charge.saver.view.MainWaterView
-                             android:layout_width="@dimen/d70"
-                             android:layout_height="@dimen/d70" />-->
-                   <!-- <com.bruder.clean.myview.PorterDuffXfermodeView
-                        android:id="@+id/porter_duff_xfermode_view"
-                        android:layout_width="@dimen/d70"
-                        android:layout_height="@dimen/d70"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@mipmap/float_ball"/>-->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/float_ball_bj" />
 
                     <ImageView
-                        android:layout_width="@dimen/d70"
-                        android:layout_height="@dimen/d70"
-                        android:layout_centerHorizontal="true"
-                        android:src="@mipmap/float_ball" />
-
-                   <!-- <ImageView
                         android:id="@+id/float_cricle"
-                        android:layout_width="@dimen/d70"
-                        android:layout_height="@dimen/d70"
-                        android:layout_centerHorizontal="true"
-                        android:src="@mipmap/float_dialog_2"
-                        android:visibility="gone" />-->
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/float_ball" />
 
                     <ImageView
                         android:id="@+id/float_rotate"
-                        android:layout_width="@dimen/d70"
-                        android:layout_height="@dimen/d70"
-                        android:layout_centerHorizontal="true"
-                        android:src="@mipmap/float_dialog_3"
-                        android:visibility="gone" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/float_dialog_3" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -85,7 +70,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="77"
-                                android:textColor="@color/A5"
+                                android:textColor="@color/A1"
                                 android:textSize="@dimen/s13" />
 
                             <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
@@ -93,9 +78,19 @@
                                 android:layout_height="wrap_content"
                                 android:layout_toRightOf="@id/float_memory"
                                 android:text="%"
-                                android:textColor="@color/A5"
+                                android:textColor="@color/A1"
                                 android:textSize="@dimen/s13" />
                         </LinearLayout>
+
+                        <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
+                            android:id="@+id/float_tishi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/float_memory"
+                            android:layout_gravity="center"
+                            android:text="@string/float_jiasu"
+                            android:textColor="@color/A1"
+                            android:textSize="@dimen/s11" />
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -103,6 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginLeft="-2dp"
                     android:layout_toRightOf="@id/floatball_relativeLayout"
                     android:background="@color/A0">
 
@@ -114,7 +110,7 @@
 
                         <ImageView
                             android:id="@+id/iv_wifi"
-                            android:layout_width="@dimen/d43"
+                            android:layout_width="@dimen/d48"
                             android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_wifi" />
                     </LinearLayout>
@@ -127,7 +123,7 @@
 
                         <ImageView
                             android:id="@+id/iv_liuliang"
-                            android:layout_width="@dimen/d43"
+                            android:layout_width="@dimen/d48"
                             android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_liuliang" />
                     </LinearLayout>
@@ -140,7 +136,7 @@
 
                         <ImageView
                             android:id="@+id/iv_xianshi"
-                            android:layout_width="@dimen/d43"
+                            android:layout_width="@dimen/d48"
                             android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_liangdu_0" />
                     </LinearLayout>
@@ -153,7 +149,7 @@
 
                         <ImageView
                             android:id="@+id/iv_shengyin"
-                            android:layout_width="@dimen/d43"
+                            android:layout_width="@dimen/d48"
                             android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_shengyin" />
                     </LinearLayout>
@@ -166,7 +162,7 @@
 
                         <ImageView
                             android:id="@+id/iv_gps"
-                            android:layout_width="@dimen/d43"
+                            android:layout_width="@dimen/d48"
                             android:layout_height="@dimen/d48"
                             android:src="@mipmap/float_gps" />
                     </LinearLayout>

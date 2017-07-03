@@ -21,7 +21,6 @@ import com.cleaner.similarimage.RecyclerDbHelper;
 import java.util.ArrayList;
 
 /**
- * Created by Ivy on 2017/4/28.
  */
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.MyViewHolder> {
