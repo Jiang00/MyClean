@@ -46,18 +46,17 @@ public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        if (info.icon != null) {
-            holder.icon.setImageDrawable(info.icon);
-        }
+
         if (!TextUtils.isEmpty(info.title) && !TextUtils.isEmpty(info.subTitle)) {
+            holder.icon.setImageDrawable(info.icon);
             holder.notifi_title.setText(info.title);
             holder.notifi_text.setText(info.subTitle);
             holder.time.setText(Util.getStrTime2(info.time));
-            holder.frameLayout.removeAllViews();
             holder.frameLayout.setVisibility(View.GONE);
             holder.ll_view.setVisibility(View.VISIBLE);
         } else if (info.remoteViews != null) {
             View view = info.remoteViews.apply(context, holder.frameLayout);
+            holder.frameLayout.removeAllViews();
             holder.frameLayout.addView(view);
             holder.frameLayout.setVisibility(View.VISIBLE);
             holder.ll_view.setVisibility(View.GONE);
