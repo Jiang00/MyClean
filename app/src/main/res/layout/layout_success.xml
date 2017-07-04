@@ -55,7 +55,7 @@
             android:layout_height="match_parent"
             android:fillViewport="true"
             android:scrollbars="none"
-            android:visibility="invisible">
+            android:visibility="visible">
             <!--android:visibility="invisible"-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -128,47 +128,55 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/d106"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:layout_marginLeft="@dimen/d36"
-                            android:layout_marginRight="@dimen/d17"
-                            android:src="@mipmap/main_rotate_2" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/d27"
+                                android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="@dimen/d16"
                                 android:text="@string/rotate_1"
                                 android:textColor="@color/A6"
                                 android:textSize="@dimen/s14" />
 
+                            <ImageView
+                                android:id="@+id/main_rotate_cha"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="@dimen/d3"
+                                android:layout_marginTop="@dimen/d3"
+                                android:src="@mipmap/rotate_cha" />
+                        </FrameLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginLeft="@dimen/d36"
+                                android:layout_marginRight="@dimen/d17"
+                                android:src="@mipmap/main_rotate_2" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/d16"
+                                android:layout_gravity="center_vertical"
                                 android:text="@string/rotate_2"
                                 android:textColor="@color/B3"
                                 android:textSize="@dimen/s16" />
                         </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/main_rotate_cha"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/d3"
-                            android:layout_marginTop="@dimen/d3"
-                            android:src="@mipmap/rotate_cha" />
+
                     </LinearLayout>
 
                     <LinearLayout
