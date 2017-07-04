@@ -254,7 +254,6 @@ public class SuccessActivity extends BaseActivity {
         if (startList.size() == 0) {
             main_power_button.setVisibility(View.GONE);
         } else {
-
             power_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
             String text1 = getString(R.string.power_1, String.valueOf(startList.size())) + " ";
             SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
