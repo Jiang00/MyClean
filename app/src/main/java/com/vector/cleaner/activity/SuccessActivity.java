@@ -57,6 +57,7 @@ public class SuccessActivity extends BaseActivity {
     //    DrawHookView success_drawhook;
     ImageView success_huojian;
     SlowScrollView scrollView;
+    LinearLayout success_title;
     LinearLayout main_picture_button;
     TextView main_rotate_bad;
     //    ImageView delete;
@@ -109,6 +110,7 @@ public class SuccessActivity extends BaseActivity {
         success_dong = (FrameLayout) findViewById(R.id.success_dong);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
+        success_title = (LinearLayout) findViewById(R.id.success_title);
     }
 
     @Override
@@ -417,8 +419,8 @@ public class SuccessActivity extends BaseActivity {
 
     private void startSecondAnimation() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate_success);
-        scrollView.startAnimation(animation);
-        scrollView.setVisibility(View.VISIBLE);
+        success_title.startAnimation(animation);
+        success_title.setVisibility(View.VISIBLE);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
