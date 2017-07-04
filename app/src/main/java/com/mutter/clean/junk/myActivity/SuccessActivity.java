@@ -264,17 +264,18 @@ public class SuccessActivity extends BaseActivity {
 
 
     private void initAnimation() {
-        myHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-                startSecondAnimation();
-            }
-        }, 3000);
+        myHandler.postDelayed(runnable, 3000);
     }
 
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            }
+            startSecondAnimation();
+        }
+    };
 
     private void addAd() {
         nativeView = AdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
@@ -518,6 +519,7 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        myHandler.removeCallbacks(runnable);
     }
 
     @Override
