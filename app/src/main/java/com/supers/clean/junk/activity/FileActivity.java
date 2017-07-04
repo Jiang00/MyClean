@@ -159,11 +159,6 @@ public class FileActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.file_apk_button:
-                    if (true){
-                        setLanguage("en");
-                        finish();
-                        break;
-                    }
                     AdUtil.track("文件管理页面", "点击进入安装包页面", "", 1);
                     bundle.putString("name", "apk");
                     bundle.putInt("nameId", R.string.file_apk);
