@@ -82,6 +82,7 @@ public class SuccessActivity extends BaseActivity {
     private boolean haveAd;
     private boolean animationEnd;
     private MyApplication cleanApplication;
+    private AnimatorSet set;
 
     @Override
     protected void findId() {
@@ -382,7 +383,7 @@ public class SuccessActivity extends BaseActivity {
     public void startFirstAnimation() {
 //        rotate_set = AnimationUtils.loadAnimation(this, R.anim.set_success);
 //        success_progress.startAnimation(rotate_set);
-        final AnimatorSet set = new AnimatorSet();
+        set = new AnimatorSet();
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(success_dong, "scaleX", 1, 0f);
         scaleX.setDuration(600);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(success_dong, "scaleY", 1, 0f);
@@ -400,6 +401,7 @@ public class SuccessActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                Log.e("adadad", "succe====");
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
@@ -573,6 +575,8 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        set.removeAllListeners();
+        set.cancel();
     }
 
     @Override
