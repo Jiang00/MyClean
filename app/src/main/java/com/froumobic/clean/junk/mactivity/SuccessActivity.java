@@ -227,32 +227,7 @@ public class SuccessActivity extends MBaseActivity {
                 animator.start();
                 success_text.setVisibility(View.VISIBLE);
                 success_drawhook.setListener(null);
-                animator.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                        }
-
-                        startSecondAnimation();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-                });
-
+                myHandler.postDelayed(runnable, 500);
             }
         });
         if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
@@ -278,6 +253,16 @@ public class SuccessActivity extends MBaseActivity {
 
         }
     }
+
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            }
+            startSecondAnimation();
+        }
+    };
 
     private void shendu() {
         List<JunkInfo> startList = new ArrayList<>();
@@ -501,6 +486,7 @@ public class SuccessActivity extends MBaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        myHandler.removeCallbacks(runnable);
     }
 
     @Override
