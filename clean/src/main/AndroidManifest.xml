@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="com.fast.clean">
+    package="com.vector.mcleaner">
 
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
@@ -9,7 +9,7 @@
 
     <application android:allowBackup="true">
         <service
-            android:name="com.fast.clean.deepclean.MyAccessibilityService"
+            android:name="com.vector.mcleaner.deep.MyAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -21,14 +21,14 @@
         </service>
 
         <service
-            android:name="com.fast.clean.notification.MyNotificationMonitorService"
+            android:name="com.vector.mcleaner.notification.MyNotificationMonitorService"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
 
-        <service android:name="com.fast.clean.core.MyCleanService" />
+        <service android:name="com.vector.mcleaner.manager.MyCleanService" />
 
     </application>
 

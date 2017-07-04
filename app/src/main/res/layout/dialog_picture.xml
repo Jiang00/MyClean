@@ -15,17 +15,15 @@
         android:background="@drawable/shape_radio"
         android:orientation="vertical">
 
-        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+        <com.vector.module.mView.CustomerTypefaceTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="@dimen/d24"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/d24"
             android:text="@string/delete_queren"
             android:textColor="@color/A8"
-            android:textSize="@dimen/s16"
-             />
+            android:textSize="@dimen/s16" />
 
 
         <LinearLayout
@@ -72,27 +70,27 @@
             android:progressDrawable="@drawable/pic_progress"
             android:visibility="gone" />
 
-        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+        <com.vector.module.mView.CustomerTypefaceTextView
             android:id="@+id/message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d24"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/d20"
             android:text="@string/picture_1"
             android:textColor="@color/A8"
-            android:textSize="@dimen/s14"
-             />
+            android:textSize="@dimen/s14" />
 
-        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+        <com.vector.module.mView.CustomerTypefaceTextView
             android:id="@+id/count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="@dimen/d24"
+            android:layout_marginRight="@dimen/d24"
             android:layout_marginTop="@dimen/d13"
             android:text="@string/picture_2"
             android:textColor="@color/A8"
-            android:textSize="@dimen/s12"
-             />
+            android:textSize="@dimen/s12" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -101,7 +99,7 @@
             android:layout_marginTop="@dimen/d27"
             android:orientation="horizontal">
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:id="@+id/ok"
                 android:layout_width="@dimen/d61"
                 android:layout_height="@dimen/d36"
@@ -111,10 +109,9 @@
                 android:gravity="center"
                 android:text="@string/premiss_3"
                 android:textColor="@color/A8"
-                android:textSize="@dimen/s16"
-                 />
+                android:textSize="@dimen/s16" />
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:id="@+id/cancle"
                 android:layout_width="@dimen/d61"
                 android:layout_height="@dimen/d36"
@@ -124,8 +121,7 @@
                 android:gravity="center"
                 android:text="@string/premiss_4"
                 android:textColor="@color/A8"
-                android:textSize="@dimen/s16"
-                 />
+                android:textSize="@dimen/s16" />
         </RelativeLayout>
     </LinearLayout>
 

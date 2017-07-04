@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fast.module.charge.saver">
+    package="com.vector.module">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application>
         <service
-            android:name="com.fast.module.charge.saver.service.BatteryService"
+            android:name=".service.BatteryService"
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
 
-        <receiver android:name="com.fast.module.charge.saver.receiver.StartReceiver">
+        <receiver android:name=".receiver.QidongReceiver">
             <intent-filter android:priority="2147483647">
 
                 <!-- 优先级加最高 -->
@@ -26,11 +26,11 @@
         </receiver>
 
         <activity
-            android:name="com.fast.module.charge.saver.ADActivity"
+            android:name="com.vector.module.ADActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.fast.module.charge.saver.ChargeActivity"
+            android:name="com.vector.module.BatteryActivity"
             android:launchMode="singleInstance"
             android:noHistory="true"
             android:screenOrientation="nosensor"

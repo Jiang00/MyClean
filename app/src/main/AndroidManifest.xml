@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.fast.clean.junk">
+    package="com.vector.cleaner">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -48,7 +48,7 @@
 
 
     <application
-        android:name="com.fast.clean.junk.ui.MyApplication"
+        android:name=".activity.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -57,12 +57,12 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name="com.fast.clean.junk.ui.MainActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name="com.fast.clean.junk.ui.LoadingActivity"
+            android:name=".activity.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -83,75 +83,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.fast.clean.junk.ui.CpuCoolingActivity"
+            android:name=".activity.BatteryCoolingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.FileLajiActivity"
+            android:name=".activity.LajiFileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.FileLajiAndRamActivity"
+            android:name=".activity.LajiAndRamActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.AppManagerActivity"
+            android:name=".activity.AllAppActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.PhoneMessageActivity"
+            android:name=".activity.ShoujiMsgActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.NeicunAvtivity"
+            android:name=".activity.ANeicunAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.SettingActivity"
+            android:name=".activity.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.SuccessActivity"
+            android:name=".activity.SuccessActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.WhiteListAvtivity"
+            android:name=".activity.IgnoreListAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.WhiteListAddActivity"
+            android:name=".activity.IgnoreListAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.PowerActivity"
+            android:name=".activity.DeepActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.NotifiInfoActivity"
+            android:name=".activity.NotifiYindaoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.PermissionActivity"
+            android:name=".activity.PermissionActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name="com.fast.clean.junk.ui.NotifiActivity"
+            android:name=".activity.NotificationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.NotifiSettingActivity"
+            android:name=".activity.NotifiSettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.FloatActivity"
+            android:name=".activity.FloatActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name="com.fast.clean.junk.ui.UnloadActivity"
+            android:name=".activity.UnloadActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name="com.fast.clean.junk.ui.PictureActivity"
+            android:name=".activity.SimilarPhotoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.PictureHuiActivity"
+            android:name=".activity.HuishouActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.DyxGboostActivity"
+            android:name=".activity.DyxGboostActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -164,7 +164,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.fast.clean.junk.ui.ShortCutActivity"
+            android:name=".activity.HuojianActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -174,7 +174,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.fast.clean.junk.broadcast.UnloadBroadcast">
+        <receiver android:name=".broadcast.UnloadBroadcast">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -185,23 +185,23 @@
         </receiver>
 
         <service
-            android:name="com.fast.clean.junk.aservice.MyFloatService"
+            android:name=".aservice.MemoryService"
             android:excludeFromRecents="true" />
         <service
-            android:name="com.fast.clean.junk.aservice.NotificationService"
+            android:name=".aservice.NotificationService"
             android:enabled="true"
             android:excludeFromRecents="true" />
 
         <activity
-            android:name="com.fast.clean.junk.ui.FileManagerActivity"
+            android:name=".activity.FilesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.fast.clean.junk.ui.FileListActivity"
+            android:name=".activity.FileListActivity"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name="com.fast.clean.junk.ui.DocActivity"
+            android:name=".activity.FileDocActivity"
             android:screenOrientation="portrait" />
 
 

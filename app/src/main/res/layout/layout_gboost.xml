@@ -40,7 +40,7 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                        <com.vector.module.mView.CustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -57,7 +57,7 @@
                     </LinearLayout>
 
 
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                    <com.vector.module.mView.CustomerTypefaceTextView
                         android:id="@+id/gboost_power_check"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/d24"
@@ -100,7 +100,7 @@
                     android:layout_marginLeft="@dimen/d8"
                     android:src="@mipmap/main_theme_button" />
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -117,7 +117,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/d5">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/gboost_recyc"
@@ -192,7 +193,7 @@
                             android:src="@mipmap/tilte_left" />
                     </FrameLayout>
 
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                    <com.vector.module.mView.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"

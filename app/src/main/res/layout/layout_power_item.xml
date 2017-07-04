@@ -19,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/recyc_icon"
-                android:layout_width="@dimen/d43"
-                android:layout_height="@dimen/d43"
+                android:layout_width="@dimen/d46"
+                android:layout_height="@dimen/d46"
                 android:layout_margin="@dimen/d8"
                 android:src="@mipmap/icon" />
 
@@ -32,14 +32,15 @@
                 android:layout_marginBottom="@dimen/d5" />
         </FrameLayout>
 
-        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+        <com.vector.module.mView.CustomerTypefaceTextView
             android:id="@+id/recyc_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:lines="1"
             android:textColor="@color/A8"
-            android:textSize="@dimen/s14" />
+            android:textSize="@dimen/s10" />
 
     </LinearLayout>
 </FrameLayout>

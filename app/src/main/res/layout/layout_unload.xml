@@ -39,11 +39,10 @@
                 android:layout_width="@dimen/d65"
                 android:layout_height="@dimen/d65"
                 android:layout_marginLeft="@dimen/d36"
-                android:layout_marginTop="@dimen/d30"
-                android:src="@mipmap/unload_tong" />
+                android:layout_marginTop="@dimen/d30" />
 
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:id="@+id/tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,10 +51,9 @@
                 android:layout_toRightOf="@id/zhuangshi"
                 android:text="158"
                 android:textColor="@color/A2"
-                android:textSize="@dimen/s30"
-                 />
+                android:textSize="@dimen/s30" />
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:id="@+id/tv_danwei"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,18 +62,16 @@
                 android:layout_toRightOf="@id/tv_size"
                 android:text="KB "
                 android:textColor="#ffffff"
-                android:textSize="@dimen/s15"
-                 />
+                android:textSize="@dimen/s15" />
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
                 android:layout_toRightOf="@id/tv_danwei"
                 android:text="@string/unload_canyu"
                 android:textColor="@color/A7"
-                android:textSize="@dimen/s15"
-                 />
+                android:textSize="@dimen/s15" />
         </RelativeLayout>
 
         <LinearLayout

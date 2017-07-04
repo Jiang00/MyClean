@@ -27,14 +27,13 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:id="@+id/message_model"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sanxign"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s24"
-                 />
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s24" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -42,22 +41,20 @@
                 android:layout_marginTop="@dimen/d12"
                 android:orientation="horizontal">
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/message_title_1"
-                    android:textColor="@color/A7"
-                    android:textSize="@dimen/s16"
-                     />
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s16" />
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:id="@+id/message_android_version"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Android"
-                    android:textColor="@color/A7"
-                    android:textSize="@dimen/s16"
-                     />
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s16" />
             </LinearLayout>
 
         </LinearLayout>
@@ -82,74 +79,12 @@
             android:orientation="vertical">
 
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d32"
-                android:background="#f1f1f1"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/d16"
-                android:text="@string/message_start"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s10"
-                 />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d32"
-                android:gravity="center_vertical">
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:text="@string/message_boot_time"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                     />
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/message_system_start_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:text="sun"
-                    android:textColor="@color/A8"
-                     />
-            </RelativeLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d16"
-                android:background="@color/B1" />
+                android:background="@color/A10" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d32"
-                android:gravity="center_vertical">
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:text="@string/message_boot_time2"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                     />
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/message_system_start_time2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:text="sun"
-                    android:textColor="@color/A8"
-                     />
-            </RelativeLayout>
-
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
                 android:background="#f1f1f1"
@@ -157,222 +92,240 @@
                 android:paddingLeft="@dimen/d16"
                 android:text="@string/message_hard"
                 android:textColor="@color/A8"
-                android:textSize="@dimen/s10"
-                 />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d32"
-                android:gravity="center_vertical">
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:text="@string/message_isRoot"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                     />
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/message_isRoot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:text="Y"
-                    android:textColor="@color/A8"
-                     />
-            </RelativeLayout>
+                android:textSize="@dimen/s10" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d16"
-                android:background="@color/B1" />
-
+                android:background="@color/A10" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
                 android:gravity="center_vertical">
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:text="@string/message_q_camera"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                     />
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/message_q_camera"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:text="sun"
-                    android:textColor="@color/A8"
-                     />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d16"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d32"
-                android:gravity="center_vertical">
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:text="@string/message_imei"
-                    android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                     />
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
-                    android:id="@+id/message_imei"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:text="sun"
-                    android:textColor="@color/A8"
-                     />
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d16"
-                android:background="@color/B1" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d32"
-                android:gravity="center_vertical">
-
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_fenbianlv"
                     android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                     />
+                    android:textSize="@dimen/s12" />
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:id="@+id/message_resolution"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
-                     />
+                    android:textColor="@color/A8" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d16"
-                android:background="@color/B1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
                 android:gravity="center_vertical">
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:text="@string/message_isRoot"
+                    android:textColor="@color/A8"
+                    android:textSize="@dimen/s12" />
+
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:id="@+id/message_isRoot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/d16"
+                    android:text="Y"
+                    android:textColor="@color/A8" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d32"
+                android:gravity="center_vertical">
+
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_h_camera"
                     android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                     />
+                    android:textSize="@dimen/s12" />
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:id="@+id/message_h_camera"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
-                     />
+                    android:textColor="@color/A8" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d16"
-                android:background="@color/B1" />
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
                 android:gravity="center_vertical">
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:text="@string/message_q_camera"
+                    android:textColor="@color/A8"
+                    android:textSize="@dimen/s12" />
+
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:id="@+id/message_q_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/d16"
+                    android:text="sun"
+                    android:textColor="@color/A8" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d32"
+                android:gravity="center_vertical">
+
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:text="@string/message_imei"
+                    android:textColor="@color/A8"
+                    android:textSize="@dimen/s12" />
+
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:id="@+id/message_imei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/d16"
+                    android:text="sun"
+                    android:textColor="@color/A8" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d32"
+                android:gravity="center_vertical">
+
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_ram"
                     android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                     />
+                    android:textSize="@dimen/s12" />
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:id="@+id/message_ram"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
-                     />
+                    android:textColor="@color/A8" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d16"
-                android:background="@color/B1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
                 android:gravity="center_vertical">
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_sd"
                     android:textColor="@color/A8"
-                    android:textSize="@dimen/s12"
-                     />
+                    android:textSize="@dimen/s12" />
 
-                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                <com.vector.module.mView.CustomerTypefaceTextView
                     android:id="@+id/message_sd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
-                     />
+                    android:textColor="@color/A8" />
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/A10" />
+
+            <com.vector.module.mView.CustomerTypefaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d32"
+                android:background="#f1f1f1"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/d16"
+                android:text="@string/message_start"
+                android:textColor="@color/A8"
+                android:textSize="@dimen/s10" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/A10" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d32"
+                android:gravity="center_vertical">
+
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:text="@string/message_boot_time"
+                    android:textColor="@color/A8"
+                    android:textSize="@dimen/s12" />
+
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:id="@+id/message_system_start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/d16"
+                    android:text="sun"
+                    android:textColor="@color/A8" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d32"
+                android:gravity="center_vertical">
+
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:text="@string/message_boot_time2"
+                    android:textColor="@color/A8"
+                    android:textSize="@dimen/s12" />
+
+                <com.vector.module.mView.CustomerTypefaceTextView
+                    android:id="@+id/message_system_start_time2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/d16"
+                    android:text="sun"
+                    android:textColor="@color/A8" />
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>

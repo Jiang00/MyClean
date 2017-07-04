@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white_100"
     android:orientation="vertical"
-    tools:context="com.fast.clean.junk.ui.MainActivity">
+    tools:context=".activity.MainActivity">
 
 
     <View
@@ -50,7 +50,7 @@
                     android:layout_toRightOf="@id/iv_title_left"
                     android:orientation="vertical">
 
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                    <com.vector.module.mView.CustomerTypefaceTextView
                         android:id="@+id/tv_title_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                         android:textColor="@color/white_100"
                         android:textSize="@dimen/s18" />
 
-                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                    <com.vector.module.mView.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Smart Super Clean for Android"
@@ -99,7 +99,7 @@
 
             </RelativeLayout>
 
-            <com.fast.clean.junk.myview.PullToRefreshLayout
+            <com.vector.cleaner.myview.PullToRefreshLayout
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -107,7 +107,7 @@
 
                 <include layout="@layout/layout_load_more" />
 
-                <com.fast.clean.junk.myview.MyScrollView
+                <com.vector.cleaner.myview.MyScrollView
                     android:id="@+id/main_scroll_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -141,7 +141,7 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical">
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/main_ram_per"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                                         app:typeface="Roboto-Light.ttf" />
 
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/ram_danwei"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
                                         android:textColor="@color/white_100"
                                         android:textSize="@dimen/s15" />
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignBaseline="@id/main_ram_per"
@@ -174,7 +174,7 @@
                                         android:textSize="@dimen/s15" />
                                 </RelativeLayout>
 
-                                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.vector.module.mView.CustomerTypefaceTextView
                                     android:id="@+id/main_ram_size"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -182,7 +182,7 @@
                                     android:textColor="@color/A7"
                                     android:textSize="@dimen/s11" />
 
-                                <com.fast.clean.junk.myview.LineRam
+                                <com.vector.cleaner.myview.LineRam
                                     android:id="@+id/main_custom_ram"
                                     android:layout_width="@dimen/d100"
                                     android:layout_height="@dimen/d4"
@@ -205,7 +205,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content">
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/main_sd_per"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -214,7 +214,7 @@
                                         android:textSize="@dimen/s38"
                                         app:typeface="Roboto-Light.ttf" />
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/danwei"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
                                         android:textColor="@color/white_100"
                                         android:textSize="@dimen/s15" />
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignBaseline="@id/main_sd_per"
@@ -234,7 +234,7 @@
                                         android:textSize="@dimen/s15" />
                                 </RelativeLayout>
 
-                                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.vector.module.mView.CustomerTypefaceTextView
                                     android:id="@+id/main_sd_size"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -242,7 +242,7 @@
                                     android:textColor="@color/A7"
                                     android:textSize="@dimen/s11" />
 
-                                <com.fast.clean.junk.myview.LineRam
+                                <com.vector.cleaner.myview.LineRam
                                     android:id="@+id/main_custom_sd"
                                     android:layout_width="@dimen/d100"
                                     android:layout_height="@dimen/d4"
@@ -323,7 +323,7 @@
                                             android:layout_height="wrap_content"
                                             android:src="@mipmap/main_junk_button" />
 
-                                        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.vector.module.mView.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="@dimen/d4"
@@ -354,7 +354,7 @@
                                             android:layout_marginBottom="@dimen/d4"
                                             android:src="@mipmap/main_ram_button" />
 
-                                        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.vector.module.mView.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_ram_name"
@@ -380,7 +380,7 @@
                                         android:layout_marginBottom="@dimen/d4"
                                         android:src="@mipmap/main_manager_button" />
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/main_manager_name"
@@ -413,7 +413,7 @@
                                             android:layout_marginBottom="@dimen/d4"
                                             android:src="@mipmap/main_cooling_button" />
 
-                                        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.vector.module.mView.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/main_cooling_name"
@@ -443,7 +443,7 @@
                                             android:layout_marginBottom="@dimen/d4"
                                             android:src="@mipmap/main_power_button" />
 
-                                        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                        <com.vector.module.mView.CustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/side_power"
@@ -468,7 +468,7 @@
                                         android:layout_marginBottom="@dimen/d4"
                                         android:src="@mipmap/main_theme_button" />
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/gboost_0"
@@ -507,7 +507,7 @@
                                     android:layout_marginLeft="@dimen/d61"
                                     android:src="@mipmap/main_rotate_2" />
 
-                                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.vector.module.mView.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
@@ -524,7 +524,7 @@
                                 android:layout_marginTop="@dimen/d20"
                                 android:orientation="horizontal">
 
-                                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.vector.module.mView.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_bad"
                                     android:layout_width="@dimen/d121"
                                     android:layout_height="@dimen/d36"
@@ -535,7 +535,7 @@
                                     android:textColor="@color/A9"
                                     android:textSize="@dimen/s16" />
 
-                                <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                <com.vector.module.mView.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_good"
                                     android:layout_width="@dimen/d179"
                                     android:layout_height="@dimen/d36"
@@ -545,7 +545,7 @@
                                     android:elevation="@dimen/d2"
                                     android:gravity="center"
                                     android:text="@string/rotate_ok"
-                                    android:textColor="@color/A7"
+                                    android:textColor="@color/white_100"
                                     android:textSize="@dimen/s16"
                                     app:typeface="Roboto-Medium.ttf" />
                             </LinearLayout>
@@ -600,7 +600,7 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_power"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -608,7 +608,7 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s15" />
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d6"
@@ -648,7 +648,7 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_notifi"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -656,7 +656,7 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s15" />
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d6"
@@ -695,7 +695,7 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_file"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -703,7 +703,7 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s15" />
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d6"
@@ -743,7 +743,7 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_picture"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -751,7 +751,7 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s15" />
 
-                                    <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+                                    <com.vector.module.mView.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d6"
@@ -778,11 +778,11 @@
 
                     </LinearLayout>
 
-                </com.fast.clean.junk.myview.MyScrollView>
+                </com.vector.cleaner.myview.MyScrollView>
 
                 <include layout="@layout/layout_load_more" />
 
-            </com.fast.clean.junk.myview.PullToRefreshLayout>
+            </com.vector.cleaner.myview.PullToRefreshLayout>
         </LinearLayout>
 
 

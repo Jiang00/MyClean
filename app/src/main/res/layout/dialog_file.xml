@@ -16,6 +16,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d17"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
@@ -23,14 +25,13 @@
                 android:layout_width="@dimen/d40"
                 android:layout_height="@dimen/d40"
                 android:layout_marginLeft="@dimen/d19"
-                android:layout_marginTop="@dimen/d17"
-                android:src="@mipmap/file_apk_icon" />
+                android:src="@mipmap/file_apk_icon"
+                android:visibility="gone" />
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
                 android:layout_marginLeft="@dimen/d6"
                 android:maxLength="20"
                 android:text="@string/delete_queren"
@@ -38,7 +39,7 @@
                 android:textSize="@dimen/s13" />
         </LinearLayout>
 
-        <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+        <com.vector.module.mView.CustomerTypefaceTextView
             android:id="@+id/message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +54,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:id="@+id/ok"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,10 +65,10 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="@dimen/d5"
                 android:text="@string/premiss_3"
-                android:textColor="#6ec8f2"
+                android:textColor="@color/A1"
                 android:textSize="@dimen/s12" />
 
-            <com.fast.module.charge.saver.view.CustomerTypefaceTextView
+            <com.vector.module.mView.CustomerTypefaceTextView
                 android:id="@+id/cancle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,7 +79,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="@dimen/d5"
                 android:text="@string/premiss_4"
-                android:textColor="#6ec8f2"
+                android:textColor="@color/A1"
                 android:textSize="@dimen/s12" />
         </RelativeLayout>
     </LinearLayout>

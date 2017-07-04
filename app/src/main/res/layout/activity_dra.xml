@@ -5,11 +5,11 @@
     android:id="@+id/main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fast.clean.junk.ui.MainActivity">
+    tools:context=".activity.MainActivity">
 
     <include layout="@layout/activity_main" />
 
-    <com.fast.clean.junk.myview.MainFrameLayout
+    <com.vector.cleaner.myview.MainFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -44,7 +44,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d8"
                         android:text="@string/app_name"
                         android:textColor="@color/white_100"
                         android:textSize="@dimen/s16" />
@@ -79,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.fast.clean.junk.myview.ListViewForScrollView
+                    <com.vector.cleaner.myview.ListViewForScrollView
                         android:id="@+id/side_listView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -90,6 +89,6 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </com.fast.clean.junk.myview.MainFrameLayout>
+    </com.vector.cleaner.myview.MainFrameLayout>
 
 </android.support.v4.widget.DrawerLayout>
