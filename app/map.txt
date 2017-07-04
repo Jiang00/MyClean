@@ -29037,33 +29037,38 @@ com.fast.clean.core.CleanManager -> com.fast.clean.core.a:
     321:408:void loadSystemCache(com.fast.clean.callback.SystemCacheCallBack) -> a
     412:444:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
     449:460:java.util.List getUsageStatistics(int) -> a
-    465:485:void clearSystemCache() -> c
-    489:506:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    511:526:void notificationChanged(com.fast.clean.notification.NotificationInfo,boolean) -> a
-    529:536:void clearNotificationInfo() -> d
-    539:549:void addNotificationCallBack(com.fast.clean.notification.NotificationCallBack) -> a
-    552:558:void removeNotificatioCallBack(com.fast.clean.notification.NotificationCallBack) -> b
-    562:562:long getCacheSize() -> e
-    570:570:long getApkSize() -> f
-    574:574:long getUnloadSize() -> g
-    578:578:long getLogSize() -> h
-    582:582:long getDataSize() -> i
-    586:586:long getRamSize() -> j
-    590:590:java.util.ArrayList getAppRamList() -> k
-    594:594:java.util.ArrayList getUninstallResiduals() -> l
-    598:598:java.util.ArrayList getAppCaches() -> m
-    602:602:java.util.ArrayList getSystemCaches() -> n
-    606:606:java.util.ArrayList getAppList() -> o
-    610:610:java.util.ArrayList getApkFiles() -> p
-    614:614:java.util.ArrayList getLogFiles() -> q
-    619:627:void removeRam(com.fast.clean.entity.JunkInfo) -> a
-    630:635:void removeRamSelfBoot(com.fast.clean.entity.JunkInfo) -> b
-    638:642:void clearRam() -> r
-    645:650:void removeAppCache(com.fast.clean.entity.JunkInfo) -> c
-    653:657:void removeAppList(com.fast.clean.entity.JunkInfo) -> d
-    660:665:void removeFilesOfUnintalledApk(com.fast.clean.entity.JunkInfo) -> e
-    668:673:void removeApkFiles(com.fast.clean.entity.JunkInfo) -> f
-    676:681:void removeAppLog(com.fast.clean.entity.JunkInfo) -> g
+    464:466:void linShi() -> c
+    469:489:void clearSystemCache() -> d
+    493:510:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
+    515:530:void notificationChanged(com.fast.clean.notification.NotificationInfo,boolean) -> a
+    533:540:void clearNotificationInfo() -> e
+    543:553:void addNotificationCallBack(com.fast.clean.notification.NotificationCallBack) -> a
+    556:562:void removeNotificatioCallBack(com.fast.clean.notification.NotificationCallBack) -> b
+    566:566:long getCacheSize() -> f
+    574:574:long getApkSize() -> g
+    578:578:long getUnloadSize() -> h
+    582:582:long getLogSize() -> i
+    586:586:long getDataSize() -> j
+    590:590:long getRamSize() -> k
+    594:594:java.util.ArrayList getAppRamList() -> l
+    598:598:java.util.ArrayList getUninstallResiduals() -> m
+    602:602:java.util.ArrayList getAppCaches() -> n
+    606:606:java.util.ArrayList getSystemCaches() -> o
+    610:610:java.util.ArrayList getAppList() -> p
+    614:614:java.util.ArrayList getApkFiles() -> q
+    618:618:java.util.ArrayList getLogFiles() -> r
+    623:631:void removeRam(com.fast.clean.entity.JunkInfo) -> a
+    634:639:void removeRamSelfBoot(com.fast.clean.entity.JunkInfo) -> b
+    642:646:void clearRam() -> s
+    649:654:void removeAppCache(com.fast.clean.entity.JunkInfo) -> c
+    656:660:void removeAppCacheCeshi(com.fast.clean.entity.JunkInfo) -> d
+    663:667:void removeAppList(com.fast.clean.entity.JunkInfo) -> e
+    670:675:void removeFilesOfUnintalledApk(com.fast.clean.entity.JunkInfo) -> f
+    678:682:void removeFilesOfUnintalledApkCeshi(com.fast.clean.entity.JunkInfo) -> g
+    685:690:void removeApkFiles(com.fast.clean.entity.JunkInfo) -> h
+    693:697:void removeApkFilesCeshi(com.fast.clean.entity.JunkInfo) -> i
+    700:705:void removeAppLog(com.fast.clean.entity.JunkInfo) -> j
+    707:711:void removeAppLogCeshi(com.fast.clean.entity.JunkInfo) -> k
     59:59:void access$000(com.fast.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.fast.clean.core.CleanManager$1 -> com.fast.clean.core.a$1:
     com.fast.clean.core.CleanManager this$0 -> a
@@ -29103,8 +29108,8 @@ com.fast.clean.core.CleanManager$8 -> com.fast.clean.core.a$8:
     392:393:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
 com.fast.clean.core.CleanManager$9 -> com.fast.clean.core.a$9:
     com.fast.clean.core.CleanManager this$0 -> a
-    473:473:void <init>(com.fast.clean.core.CleanManager) -> <init>
-    477:478:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
+    477:477:void <init>(com.fast.clean.core.CleanManager) -> <init>
+    481:482:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
 com.fast.clean.core.MyCleanService -> com.fast.clean.core.MyCleanService:
     android.os.Looper mServiceLooper -> a
     com.fast.clean.core.MyCleanService$ServiceHandler mServiceHandler -> b

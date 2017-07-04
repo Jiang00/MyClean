@@ -460,6 +460,10 @@ public class CleanManager {
         return queryUsageStats;
     }
 
+    public void linShi() {
+        systemCaches.clear();
+        systemCacheSize = 0;
+    }
 
     public void clearSystemCache() {
         StatFs stat = new StatFs(Environment.getDataDirectory().getAbsolutePath());
@@ -648,6 +652,12 @@ public class CleanManager {
             appCaches.remove(appCache);
         }
     }
+    public void removeAppCacheCeshi(JunkInfo appCache) {
+        appCacheSize -= appCache.size;
+        if (appCaches != null) {
+            appCaches.remove(appCache);
+        }
+    }
 
     public void removeAppList(JunkInfo appInfo) {
         appListSize -= appInfo.size;
@@ -664,6 +674,13 @@ public class CleanManager {
         }
     }
 
+    public void removeFilesOfUnintalledApkCeshi(JunkInfo uninstallResidual) {
+        uninstallSize -= uninstallResidual.size;
+        if (uninstallResiduals != null) {
+            uninstallResiduals.remove(uninstallResidual);
+        }
+    }
+
     public void removeApkFiles(JunkInfo fileInfo) {
         com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
         apkSize -= fileInfo.size;
@@ -672,8 +689,21 @@ public class CleanManager {
         }
     }
 
+    public void removeApkFilesCeshi(JunkInfo fileInfo) {
+        apkSize -= fileInfo.size;
+        if (apkFiles != null) {
+            apkFiles.remove(fileInfo);
+        }
+    }
+
     public void removeAppLog(JunkInfo fileInfo) {
         com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
+        logSize -= fileInfo.size;
+        if (logFiles != null) {
+            logFiles.remove(fileInfo);
+        }
+    }
+    public void removeAppLogCeshi(JunkInfo fileInfo) {
         logSize -= fileInfo.size;
         if (logFiles != null) {
             logFiles.remove(fileInfo);
