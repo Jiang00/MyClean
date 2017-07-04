@@ -247,23 +247,7 @@ public class SuccessActivity extends BaseActivity {
                         }
                         Log.e("rqy", maxShowCount + "--" + showCount + "--" + need_show_full_success + "--ad_loading_time=" + ad_loading_time);
 
-                        myHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
-                                    AndroidSdk.showFullAd("ramboost");
-                                } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
-                                    AndroidSdk.showFullAd("junkclean");
-                                } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
-                                    AndroidSdk.showFullAd("Rocketclean");
-                                } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
-                                    AndroidSdk.showFullAd("cpucooler");
-                                } else {
-                                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                                }
-                                startSecondAnimation();
-                            }
-                        }, ad_loading_time * 1000);
+                        myHandler.postDelayed(runnable, ad_loading_time * 1000);
                     } else {
                         startSecondAnimation();
                     }
@@ -294,6 +278,25 @@ public class SuccessActivity extends BaseActivity {
             }, 1000);
         }
     }
+
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
+                AndroidSdk.showFullAd("ramboost");
+            } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
+                AndroidSdk.showFullAd("junkclean");
+            } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
+                AndroidSdk.showFullAd("Rocketclean");
+            } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+                AndroidSdk.showFullAd("cpucooler");
+            } else {
+                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            }
+            startSecondAnimation();
+        }
+    };
+
 
     private void shendu() {
         List<JunkInfo> startList = new ArrayList<>();
@@ -686,6 +689,7 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        myHandler.removeCallbacks(runnable);
         istween = false;
     }
 
