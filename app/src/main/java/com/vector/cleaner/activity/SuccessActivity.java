@@ -50,6 +50,7 @@ public class SuccessActivity extends BaseActivity {
     TextView title_name;
     FrameLayout title_left;
     LinearLayout main_rotate_all;
+    ImageView main_rotate_cha;
     LinearLayout main_power_button;
     LinearLayout main_notifi_button;
     LinearLayout main_file_button;
@@ -92,6 +93,7 @@ public class SuccessActivity extends BaseActivity {
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
+        main_rotate_cha = (ImageView) findViewById(R.id.main_rotate_cha);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
         main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
@@ -223,7 +225,7 @@ public class SuccessActivity extends BaseActivity {
 //                success_drawhook.setListener(null);
 //            }
 //        });
-        if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
+        if (PreData.getDB(this, Constant.IS_ROTATE, false) || PreData.getDB(this, Constant.IS__SUCCESS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
 
@@ -266,7 +268,7 @@ public class SuccessActivity extends BaseActivity {
         title_left.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
-//        delete.setOnClickListener(onClickListener);
+        main_rotate_cha.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
@@ -464,6 +466,10 @@ public class SuccessActivity extends BaseActivity {
                     break;
                 case R.id.main_rotate_bad:
                     PreData.putDB(SuccessActivity.this, Constant.IS_ROTATE, true);
+                    main_rotate_all.setVisibility(View.GONE);
+                    break;
+                case R.id.main_rotate_cha:
+                    PreData.putDB(SuccessActivity.this, Constant.IS__SUCCESS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:

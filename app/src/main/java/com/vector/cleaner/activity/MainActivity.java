@@ -52,6 +52,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
     LinearLayout main_manager_button, main_applock_button, main_theme_button;
     LinearLayout main_rotate_all;
+    ImageView main_rotate_cha;
     PullToRefreshLayout main_pull_refresh;
     ImageView iv_title_right;
     ImageView iv_title_left;
@@ -119,6 +120,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_applock_button = (LinearLayout) findViewById(R.id.main_applock_button);
         main_theme_button = (LinearLayout) findViewById(R.id.main_theme_button);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
+        main_rotate_cha = (ImageView) findViewById(R.id.main_rotate_cha);
         main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
@@ -180,6 +182,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_theme_button.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
+        main_rotate_cha.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
         main_notifi_button.setOnClickListener(onClickListener);
         main_file_button.setOnClickListener(onClickListener);
@@ -603,6 +606,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_rotate_bad:
                     AdUtil.track("主页面", "点击好评bad按钮", "", 1);
                     mainPresenter.clickRotate(false);
+                    break;
+                case R.id.main_rotate_cha:
+                    AdUtil.track("主页面", "点击好评叉号", "", 1);
+                    PreData.putDB(MainActivity.this, Constant.IS__MAIN_ROTATE, true);
+                    main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
                     AdUtil.track("主页面", "点击进入深度清理", "", 1);

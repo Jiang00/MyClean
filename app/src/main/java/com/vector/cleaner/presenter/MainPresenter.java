@@ -97,7 +97,7 @@ public class MainPresenter extends BasePresenter<MainView> {
     }
 
     public void setRotateGone() {
-        if (PreData.getDB(context, Constant.IS_ROTATE, false)) {
+        if (PreData.getDB(context, Constant.IS_ROTATE, false) || PreData.getDB(context, Constant.IS__MAIN_ROTATE, false)) {
             iView.setRotateGone();
         }
     }
