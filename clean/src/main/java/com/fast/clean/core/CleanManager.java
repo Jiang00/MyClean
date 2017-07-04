@@ -652,6 +652,7 @@ public class CleanManager {
             appCaches.remove(appCache);
         }
     }
+
     public void removeAppCacheCeshi(JunkInfo appCache) {
         appCacheSize -= appCache.size;
         if (appCaches != null) {
@@ -703,6 +704,7 @@ public class CleanManager {
             logFiles.remove(fileInfo);
         }
     }
+
     public void removeAppLogCeshi(JunkInfo fileInfo) {
         logSize -= fileInfo.size;
         if (logFiles != null) {
