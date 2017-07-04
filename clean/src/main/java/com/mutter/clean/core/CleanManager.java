@@ -238,7 +238,7 @@ public class CleanManager {
         uninstallResidualCallback.loadFinished(uninstallResiduals, uninstallSize);
     }
 
-    public void loadAppCasche(AppCacheCallBack appCacheCallBack) {
+    public void loadAppCache(AppCacheCallBack appCacheCallBack) {
 
         List<PackageInfo> packages = mContext.getPackageManager().getInstalledPackages(0);
         String cacheFilePath = null;
