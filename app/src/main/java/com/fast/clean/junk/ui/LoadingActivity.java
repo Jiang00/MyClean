@@ -81,6 +81,15 @@ public class LoadingActivity extends BaseActivity {
                 if (jsonObject.has("full_success")) {
                     PreData.putDB(LoadingActivity.this, Constant.FULL_SUCCESS, jsonObject.getInt("full_success"));
                 }
+                if (jsonObject.has(Constant.FULL_SUCCESS_MAX_COUNT)) {
+                    PreData.putDB(LoadingActivity.this, Constant.FULL_SUCCESS_MAX_COUNT, jsonObject.getInt(Constant.FULL_SUCCESS_MAX_COUNT));
+                }
+                if (jsonObject.has(Constant.AD_LOADING_TIME)) {
+                    PreData.putDB(LoadingActivity.this, Constant.AD_LOADING_TIME, jsonObject.getInt(Constant.AD_LOADING_TIME));
+                }
+                if (jsonObject.has("native_success")) {
+                    PreData.putDB(LoadingActivity.this, Constant.NATIVE_SUCCESS, jsonObject.getInt("native_success"));
+                }
                 if (jsonObject.has("full_setting")) {
                     PreData.putDB(LoadingActivity.this, Constant.FULL_SETTING, jsonObject.getInt("full_setting"));
                 }

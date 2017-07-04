@@ -118,4 +118,10 @@ public class Constant {
     public static final String GBOOST_CLEAN = "GBOOST_CLEAN";
     public static final String PHOTO_CLEAN = "PHOTO_CLEAN";
 
+    public static final String NATIVE_SUCCESS = "native_success";
+
+    public static final String FULL_SUCCESS_COUNT = "full_suc_count";
+    public static final String FULL_SUCCESS_MAX_COUNT = "full_suc_max_count";
+    public static final String AD_LOADING_TIME = "ad_loading_time" ;
+    public static final String NEED_SHOW_FULL_SUCCESS = "need_show_full_success";
 }
