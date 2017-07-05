@@ -101,7 +101,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.HUOJIAN);
         myHandler = new Handler();
         junkPresenter = new LogRamPresenter(this, this);
         junkPresenter.init();
@@ -224,6 +224,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
             }
         }).start();
     }
+
     @Override
     public void initData(long allSize) {
         title_name.setText(R.string.all_junk_title);
@@ -396,6 +397,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
     public void setUnit(long size, TextView textView) {
         textView.setText(Util.convertStorageDanwei(size));
     }
+
     @Override
     public void addUnloaddata(final long size, List<JunkInfo> list) {
         adapterUnload.addDataList(list);

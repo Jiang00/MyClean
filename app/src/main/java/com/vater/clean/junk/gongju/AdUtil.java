@@ -13,6 +13,10 @@ import com.vater.clean.junk.BuildConfig;
  */
 
 public class AdUtil {
+    public static final String JUNK = "junkclean";
+    public static final String RAM = "ramboost";
+    public static final String HUOJIAN = "rocketboost";
+    public static final String COOLING = "batterycooler";
 
 
     public static View getNativeAdView(String tag, @LayoutRes int layout) {

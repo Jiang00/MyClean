@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.vater.clean.junk.R;
+import com.vater.clean.junk.gongju.AdUtil;
 import com.vater.clean.junk.gongju.Constant;
 import com.vater.clean.junk.myview.FlakeView;
 import com.vater.clean.util.PreData;
@@ -67,7 +68,7 @@ public class BatteryActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AndroidSdk.loadFullAd(AdUtil.COOLING);
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override

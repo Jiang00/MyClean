@@ -64,6 +64,7 @@ public class SuccessActivity extends BaseActivity {
     DrawHookView success_drawhook;
     ImageView success_huojian;
     SlowScrollView scrollView;
+    LinearLayout success;
     LinearLayout main_picture_button;
     LinearLayout main_file_button;
     TextView main_rotate_bad;
@@ -90,6 +91,7 @@ public class SuccessActivity extends BaseActivity {
     private boolean haveAd;
     private boolean animationEnd;
     private MyApplication cleanApplication;
+    private boolean duigousuccess;
 
     @Override
     protected void findId() {
@@ -101,6 +103,7 @@ public class SuccessActivity extends BaseActivity {
         success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
+        success = (LinearLayout) findViewById(R.id.success);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
@@ -220,11 +223,22 @@ public class SuccessActivity extends BaseActivity {
 
             @Override
             public void duogouSc() {
+                success_drawhook.setListener(null);
+                duigousuccess = true;
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
+                        AndroidSdk.showFullAd(AdUtil.RAM);
+                    } else if (TextUtils.equals("junkClean", getIntent().getStringExtra("from"))) {
+                        AndroidSdk.showFullAd(AdUtil.JUNK);
+                    } else if (TextUtils.equals("allJunk", getIntent().getStringExtra("from"))) {
+                        AndroidSdk.showFullAd(AdUtil.HUOJIAN);
+                    } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+                        AndroidSdk.showFullAd(AdUtil.COOLING);
+                    } else {
+                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    }
                 }
                 startSecondAnimation();
-                success_drawhook.setListener(null);
             }
         });
         if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
@@ -320,8 +334,8 @@ public class SuccessActivity extends BaseActivity {
 
     private void startSecondAnimation() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate_success);
-        scrollView.startAnimation(animation);
-        scrollView.setVisibility(View.VISIBLE);
+        success.startAnimation(animation);
+        success.setVisibility(View.VISIBLE);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
@@ -567,8 +581,17 @@ public class SuccessActivity extends BaseActivity {
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (!duigousuccess) {
+            success.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
+        success_drawhook.setListener(null);
     }
 
     @Override

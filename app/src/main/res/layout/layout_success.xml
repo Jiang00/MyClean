@@ -4,63 +4,65 @@
     android:layout_height="match_parent"
     android:background="@color/transparent">
 
-    <LinearLayout
-        android:id="@+id/success"
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/A1"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/rl_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <View
-                android:id="@+id/view_title_bar"
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
-
-            <include layout="@layout/layout_title" />
-        </LinearLayout>
+        android:background="@color/A1">
 
         <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="@dimen/d250">
+
+
+            <ImageView
+                android:layout_width="@dimen/d150"
+                android:layout_height="@dimen/d150"
+                android:src="@mipmap/success_1" />
+
+
+            <ImageView
+                android:id="@+id/success_progress"
+                android:layout_width="@dimen/d150"
+                android:layout_height="@dimen/d150"
+                android:src="@mipmap/success_3" />
+
+            <com.vater.clean.junk.myview.DrawHookView
+                android:id="@+id/success_drawhook"
+                android:layout_width="@dimen/d150"
+                android:layout_height="@dimen/d150" />
+
+            <ImageView
+                android:id="@+id/success_huojian"
+                android:layout_width="@dimen/d150"
+                android:layout_height="@dimen/d150"
+                android:scaleType="center"
+                android:src="@mipmap/success_huojian"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/success"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible">
+            <!--android:visibility="invisible"-->
+            <LinearLayout
+                android:id="@+id/rl_title"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250">
+                android:orientation="vertical">
 
+                <View
+                    android:id="@+id/view_title_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-                <ImageView
-                    android:layout_width="@dimen/d150"
-                    android:layout_height="@dimen/d150"
-                    android:src="@mipmap/success_1" />
-
-
-                <ImageView
-                    android:id="@+id/success_progress"
-                    android:layout_width="@dimen/d150"
-                    android:layout_height="@dimen/d150"
-                    android:src="@mipmap/success_3" />
-
-                <com.vater.clean.junk.myview.DrawHookView
-                    android:id="@+id/success_drawhook"
-                    android:layout_width="@dimen/d150"
-                    android:layout_height="@dimen/d150" />
-
-                <ImageView
-                    android:id="@+id/success_huojian"
-                    android:layout_width="@dimen/d150"
-                    android:layout_height="@dimen/d150"
-                    android:scaleType="center"
-                    android:src="@mipmap/success_huojian"
-                    android:visibility="invisible" />
-            </FrameLayout>
+                <include layout="@layout/layout_title" />
+            </LinearLayout>
 
             <com.vater.clean.junk.myview.SlowScrollView
                 android:id="@+id/scrollView"
@@ -68,9 +70,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/A8"
                 android:fillViewport="true"
-                android:scrollbars="none"
-                android:visibility="invisible">
-                <!--android:visibility="invisible"-->
+                android:scrollbars="none">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -724,6 +725,6 @@
 
                 </LinearLayout>
             </com.vater.clean.junk.myview.SlowScrollView>
-        </FrameLayout>
-    </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
 </FrameLayout>
