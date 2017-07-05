@@ -70,7 +70,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
-        AndroidSdk.loadFullAd("junkclean");
+        AndroidSdk.loadFullAd("ramboost");
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
         ramPresenter.init();
