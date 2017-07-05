@@ -17,6 +17,7 @@ import com.fast.clean.junk.aservice.MyFloatService;
 import com.fast.module.charge.saver.Util.Constants;
 import com.fast.module.charge.saver.Util.Utils;
 import com.fast.module.charge.saver.service.BatteryService;
+import com.google.android.gms.ads.MobileAds;
 import com.squareup.leakcanary.LeakCanary;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.aservice.NotificationService;
@@ -50,6 +51,7 @@ public class MyApplication extends Application {
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/
         //charging
+        MobileAds.initialize(this, "ca-app-pub-3150670592875039~4576066505");
         startService(new Intent(this, BatteryService.class));
 //        Utils.writeData(this, Constants.CHARGE_ON_NOTIFICATION_SWITCH, false);//
 //        Utils.writeData(this, Constants.CHARGE_STATE_NOTIFICATION_SWITCH, false);//

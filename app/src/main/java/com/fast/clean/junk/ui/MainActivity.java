@@ -27,6 +27,7 @@ import com.fast.clean.mutil.PreData;
 import com.fast.clean.mutil.Util;
 import com.fast.module.charge.saver.Util.Constants;
 import com.fast.module.charge.saver.Util.Utils;
+import com.google.android.gms.ads.MobileAds;
 import com.mingle.circletreveal.CircularRevealCompat;
 import com.mingle.widget.animation.CRAnimation;
 import com.mingle.widget.animation.SimpleAnimListener;
@@ -116,7 +117,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_custom_ram = (RamRoundView) findViewById(R.id.main_custom_ram);
         main_ram_per = (TextView) findViewById(R.id.main_ram_per);
         main_ram_size = (TextView) findViewById(R.id.main_ram_size);
-
 
         main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
         main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);

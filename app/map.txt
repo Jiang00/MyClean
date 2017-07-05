@@ -29332,33 +29332,33 @@ com.fast.clean.core.CleanManager -> com.fast.clean.core.a:
     321:408:void loadSystemCache(com.fast.clean.callback.SystemCacheCallBack) -> a
     412:444:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
     449:460:java.util.List getUsageStatistics(int) -> a
-    465:485:void clearSystemCache() -> c
-    489:506:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    511:526:void notificationChanged(com.fast.clean.notification.NotificationInfo,boolean) -> a
-    529:536:void clearNotificationInfo() -> d
-    539:549:void addNotificationCallBack(com.fast.clean.notification.NotificationCallBack) -> a
-    552:558:void removeNotificatioCallBack(com.fast.clean.notification.NotificationCallBack) -> b
-    562:562:long getCacheSize() -> e
-    570:570:long getApkSize() -> f
-    574:574:long getUnloadSize() -> g
-    578:578:long getLogSize() -> h
-    582:582:long getDataSize() -> i
-    586:586:long getRamSize() -> j
-    590:590:java.util.ArrayList getAppRamList() -> k
-    594:594:java.util.ArrayList getUninstallResiduals() -> l
-    598:598:java.util.ArrayList getAppCaches() -> m
-    602:602:java.util.ArrayList getSystemCaches() -> n
-    606:606:java.util.ArrayList getAppList() -> o
-    610:610:java.util.ArrayList getApkFiles() -> p
-    614:614:java.util.ArrayList getLogFiles() -> q
-    623:627:void removeRam(com.fast.clean.entity.JunkInfo) -> a
-    631:635:void removeRamSelfBoot(com.fast.clean.entity.JunkInfo) -> b
-    638:642:void clearRam() -> r
-    646:650:void removeAppCache(com.fast.clean.entity.JunkInfo) -> c
-    653:657:void removeAppList(com.fast.clean.entity.JunkInfo) -> d
-    661:665:void removeFilesOfUnintalledApk(com.fast.clean.entity.JunkInfo) -> e
-    669:673:void removeApkFiles(com.fast.clean.entity.JunkInfo) -> f
-    677:681:void removeAppLog(com.fast.clean.entity.JunkInfo) -> g
+    465:484:void clearSystemCache() -> c
+    488:505:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
+    510:525:void notificationChanged(com.fast.clean.notification.NotificationInfo,boolean) -> a
+    528:535:void clearNotificationInfo() -> d
+    538:548:void addNotificationCallBack(com.fast.clean.notification.NotificationCallBack) -> a
+    551:557:void removeNotificatioCallBack(com.fast.clean.notification.NotificationCallBack) -> b
+    561:561:long getCacheSize() -> e
+    569:569:long getApkSize() -> f
+    573:573:long getUnloadSize() -> g
+    577:577:long getLogSize() -> h
+    581:581:long getDataSize() -> i
+    585:585:long getRamSize() -> j
+    589:589:java.util.ArrayList getAppRamList() -> k
+    593:593:java.util.ArrayList getUninstallResiduals() -> l
+    597:597:java.util.ArrayList getAppCaches() -> m
+    601:601:java.util.ArrayList getSystemCaches() -> n
+    605:605:java.util.ArrayList getAppList() -> o
+    609:609:java.util.ArrayList getApkFiles() -> p
+    613:613:java.util.ArrayList getLogFiles() -> q
+    622:626:void removeRam(com.fast.clean.entity.JunkInfo) -> a
+    630:634:void removeRamSelfBoot(com.fast.clean.entity.JunkInfo) -> b
+    637:641:void clearRam() -> r
+    645:649:void removeAppCache(com.fast.clean.entity.JunkInfo) -> c
+    652:656:void removeAppList(com.fast.clean.entity.JunkInfo) -> d
+    659:664:void removeFilesOfUnintalledApk(com.fast.clean.entity.JunkInfo) -> e
+    668:672:void removeApkFiles(com.fast.clean.entity.JunkInfo) -> f
+    676:680:void removeAppLog(com.fast.clean.entity.JunkInfo) -> g
     59:59:void access$000(com.fast.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.fast.clean.core.CleanManager$1 -> com.fast.clean.core.a$1:
     com.fast.clean.core.CleanManager this$0 -> a
@@ -31736,8 +31736,8 @@ com.fast.clean.junk.ui.MainActivity -> com.fast.clean.junk.ui.MainActivity:
     java.lang.Runnable fullAdRunnale -> Y
     com.fast.clean.junk.myview.PullToRefreshLayout$OnRefreshListener refreshListener -> Z
     android.view.View$OnClickListener onClickListener -> aa
-    47:523:void <init>() -> <init>
-    97:150:void findId() -> a
+    48:523:void <init>() -> <init>
+    98:150:void findId() -> a
     154:179:void onCreate(android.os.Bundle) -> onCreate
     185:210:void onClick() -> c
     214:237:void initCpu(int) -> b
@@ -31759,12 +31759,12 @@ com.fast.clean.junk.ui.MainActivity -> com.fast.clean.junk.ui.MainActivity:
     885:886:void onDrawerOpened(android.view.View) -> onDrawerOpened
     890:891:void onDrawerClosed(android.view.View) -> onDrawerClosed
     896:896:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    47:47:android.os.Handler access$000(com.fast.clean.junk.ui.MainActivity) -> a
-    47:47:void access$100(com.fast.clean.junk.ui.MainActivity) -> b
-    47:47:com.fast.clean.junk.presenter.MainPresenter access$200(com.fast.clean.junk.ui.MainActivity) -> c
-    47:47:int access$300(com.fast.clean.junk.ui.MainActivity) -> d
-    47:47:com.fast.clean.junk.adapter.MSideAdapter access$400(com.fast.clean.junk.ui.MainActivity) -> e
-    47:47:android.support.v7.app.AlertDialog access$500(com.fast.clean.junk.ui.MainActivity) -> f
+    48:48:android.os.Handler access$000(com.fast.clean.junk.ui.MainActivity) -> a
+    48:48:void access$100(com.fast.clean.junk.ui.MainActivity) -> b
+    48:48:com.fast.clean.junk.presenter.MainPresenter access$200(com.fast.clean.junk.ui.MainActivity) -> c
+    48:48:int access$300(com.fast.clean.junk.ui.MainActivity) -> d
+    48:48:com.fast.clean.junk.adapter.MSideAdapter access$400(com.fast.clean.junk.ui.MainActivity) -> e
+    48:48:android.support.v7.app.AlertDialog access$500(com.fast.clean.junk.ui.MainActivity) -> f
 com.fast.clean.junk.ui.MainActivity$1 -> com.fast.clean.junk.ui.MainActivity$1:
     int val$temp -> a
     com.fast.clean.junk.ui.MainActivity this$0 -> b
@@ -31837,10 +31837,10 @@ com.fast.clean.junk.ui.MainActivity$9$1 -> com.fast.clean.junk.ui.MainActivity$1
 com.fast.clean.junk.ui.MyApplication -> com.fast.clean.junk.ui.MyApplication:
     android.os.HandlerThread mThread -> a
     android.app.ActivityManager am -> b
-    28:28:void <init>() -> <init>
-    37:40:void attachBaseContext(android.content.Context) -> attachBaseContext
-    47:97:void onCreate() -> onCreate
-    102:103:void onTerminate() -> onTerminate
+    29:29:void <init>() -> <init>
+    38:41:void attachBaseContext(android.content.Context) -> attachBaseContext
+    48:99:void onCreate() -> onCreate
+    104:105:void onTerminate() -> onTerminate
 com.fast.clean.junk.ui.NeicunAvtivity -> com.fast.clean.junk.ui.NeicunAvtivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView junk_unit -> b
@@ -32952,6 +32952,7 @@ com.fast.clean.mutil.Util -> com.fast.clean.c.e:
     221:231:boolean isStartSelf(android.content.pm.PackageManager,java.lang.String) -> a
     238:276:void doStartApplicationWithPackageName(android.content.Context,java.lang.String) -> a
     279:282:int getMemory(android.content.Context) -> a
+    286:305:void deleteFile(java.lang.String) -> a
     326:334:android.graphics.Bitmap getViewBitmap(android.view.View) -> a
     340:352:java.lang.String getProcessName(android.content.Context) -> b
     357:371:boolean isNotificationListenEnabled(android.content.Context) -> c
