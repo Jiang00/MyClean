@@ -575,8 +575,10 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        set.removeAllListeners();
-        set.cancel();
+        if (set != null) {
+            set.removeAllListeners();
+            set.cancel();
+        }
     }
 
     @Override
