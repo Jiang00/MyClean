@@ -479,7 +479,6 @@ public class CleanManager {
 //                    }
 //            );
         } catch (Exception e) {
-            Log.e("rqy", "clearsystemCache has exception=" + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -657,7 +656,7 @@ public class CleanManager {
     }
 
     public void removeFilesOfUnintalledApk(JunkInfo uninstallResidual) {
-//        com.fast.clean.mutil.Util.deleteFile(uninstallResidual.path);
+        com.fast.clean.mutil.Util.deleteFile(uninstallResidual.path);
         uninstallSize -= uninstallResidual.size;
         if (uninstallResiduals != null) {
             uninstallResiduals.remove(uninstallResidual);
