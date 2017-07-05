@@ -233,7 +233,7 @@ public class FloatActivity extends BaseActivity {
                 continue;
             }
             try {
-                am.killBackgroundProcesses(packageInfo.packageName);
+//                am.killBackgroundProcesses(packageInfo.packageName);
             } catch (Exception e) {
 
             }

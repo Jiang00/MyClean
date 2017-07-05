@@ -172,8 +172,7 @@ public class PowerActivity extends BaseActivity {
             for (int i = 0; i < startList.size(); i++) {
                 if (startList.get(i).isChecked) {
                     count++;
-                    showPackageDetail(startList.get(i).pkg);
-
+//                    showPackageDetail(startList.get(i).pkg);
                     View view = containerView_recyclerView.getChildAt(i);
                     if (view == null) {
                         return;

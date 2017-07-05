@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fast.clean.junk.R;
+import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.junk.util.Constant;
 import com.fast.clean.junk.myview.FlakeView;
 import com.fast.clean.mutil.PreData;
@@ -67,7 +68,7 @@ public class CpuCoolingActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
 //        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
-
+        AdUtil.loadFull(this, AdUtil.COOLING);
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

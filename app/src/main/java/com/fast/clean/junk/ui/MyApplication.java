@@ -46,7 +46,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 //        AndroidSdk.onCreate(this);
-        AdUtil.loadFull(this);
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/

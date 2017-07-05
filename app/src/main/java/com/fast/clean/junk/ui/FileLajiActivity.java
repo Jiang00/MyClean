@@ -96,6 +96,7 @@ public class FileLajiActivity extends BaseActivity implements JunkView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk);
 //        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AdUtil.loadFull(this, AdUtil.JUNK);
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);
         junkPresenter.init();

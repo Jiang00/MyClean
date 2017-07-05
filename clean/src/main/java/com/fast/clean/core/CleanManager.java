@@ -466,18 +466,18 @@ public class CleanManager {
         try {
             systemCaches.clear();
             systemCacheSize = 0;
-            Method mFreeStorageAndNotifyMethod = mContext.getPackageManager().getClass().getMethod(
-                    "freeStorageAndNotify", Long.TYPE, IPackageDataObserver.class);
-            mFreeStorageAndNotifyMethod.invoke(mContext.getPackageManager(),
-                    (long) stat.getBlockCount() * (long) stat.getBlockSize(),
-                    new IPackageDataObserver.Stub() {
-                        @Override
-                        public void onRemoveCompleted(String packageName, boolean succeeded)
-                                throws RemoteException {
-                            Log.e("rqy", "clearsystemCache");
-                        }
-                    }
-            );
+//            Method mFreeStorageAndNotifyMethod = mContext.getPackageManager().getClass().getMethod(
+//                    "freeStorageAndNotify", Long.TYPE, IPackageDataObserver.class);
+//            mFreeStorageAndNotifyMethod.invoke(mContext.getPackageManager(),
+//                    (long) stat.getBlockCount() * (long) stat.getBlockSize(),
+//                    new IPackageDataObserver.Stub() {
+//                        @Override
+//                        public void onRemoveCompleted(String packageName, boolean succeeded)
+//                                throws RemoteException {
+//                            Log.e("rqy", "clearsystemCache");
+//                        }
+//                    }
+//            );
         } catch (Exception e) {
             Log.e("rqy", "clearsystemCache has exception=" + e.getMessage());
             e.printStackTrace();
@@ -616,10 +616,10 @@ public class CleanManager {
 
 
     public void removeRam(JunkInfo appRam) {
-        am.killBackgroundProcesses(appRam.pkg);
-        if (appRam.isSelfBoot) {
-            return;
-        }
+//        am.killBackgroundProcesses(appRam.pkg);
+//        if (appRam.isSelfBoot) {
+//            return;
+//        }
         ramSize -= appRam.size;
         if (appRamList != null) {
             appRamList.remove(appRam);
@@ -627,7 +627,7 @@ public class CleanManager {
     }
 
     public void removeRamSelfBoot(JunkInfo appRam) {
-        am.killBackgroundProcesses(appRam.pkg);
+//        am.killBackgroundProcesses(appRam.pkg);
         ramSize -= appRam.size;
         if (appRamList != null) {
             appRamList.remove(appRam);
@@ -642,7 +642,7 @@ public class CleanManager {
     }
 
     public void removeAppCache(JunkInfo appCache) {
-        com.fast.clean.mutil.Util.deleteFile(appCache.path);
+//        com.fast.clean.mutil.Util.deleteFile(appCache.path);
         appCacheSize -= appCache.size;
         if (appCaches != null) {
             appCaches.remove(appCache);
@@ -657,7 +657,7 @@ public class CleanManager {
     }
 
     public void removeFilesOfUnintalledApk(JunkInfo uninstallResidual) {
-        com.fast.clean.mutil.Util.deleteFile(uninstallResidual.path);
+//        com.fast.clean.mutil.Util.deleteFile(uninstallResidual.path);
         uninstallSize -= uninstallResidual.size;
         if (uninstallResiduals != null) {
             uninstallResiduals.remove(uninstallResidual);
@@ -665,7 +665,7 @@ public class CleanManager {
     }
 
     public void removeApkFiles(JunkInfo fileInfo) {
-        com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
+//        com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
         apkSize -= fileInfo.size;
         if (apkFiles != null) {
             apkFiles.remove(fileInfo);
@@ -673,7 +673,7 @@ public class CleanManager {
     }
 
     public void removeAppLog(JunkInfo fileInfo) {
-        com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
+//        com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
         logSize -= fileInfo.size;
         if (logFiles != null) {
             logFiles.remove(fileInfo);

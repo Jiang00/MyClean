@@ -84,6 +84,7 @@ public class DocActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file_doc);
 //        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AdUtil.loadFull(this, AdUtil.DEF);
         title_name.setText(R.string.file_txt);
         loadAd();
         setListenet();

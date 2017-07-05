@@ -70,6 +70,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
 //        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AdUtil.loadFull(this, AdUtil.RAM);
         ramPresenter = new RamPresenter(this, this);
         myHandler = new Handler();
         ramPresenter.init();

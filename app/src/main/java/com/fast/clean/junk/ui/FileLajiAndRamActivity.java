@@ -101,6 +101,7 @@ public class FileLajiAndRamActivity extends BaseActivity implements JunkRamView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_junk_ram);
 //        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        AdUtil.loadFull(this, AdUtil.HUOJIAN);
         myHandler = new Handler();
         junkPresenter = new JunkRamPresenter(this, this);
         junkPresenter.init();

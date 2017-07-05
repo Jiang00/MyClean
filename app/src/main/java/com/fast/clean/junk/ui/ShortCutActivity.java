@@ -169,7 +169,7 @@ public class ShortCutActivity extends BaseActivity {
             if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.acht")) {
                 continue;
             }
-            am.killBackgroundProcesses(packageInfo.packageName);
+//            am.killBackgroundProcesses(packageInfo.packageName);
             ++count;
         }
         final long afterMem = getAvailMemory(am);

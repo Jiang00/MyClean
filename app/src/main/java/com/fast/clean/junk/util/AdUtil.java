@@ -22,6 +22,11 @@ import com.google.android.gms.ads.purchase.InAppPurchaseListener;
  */
 
 public class AdUtil {
+    public static final int JUNK = 0;
+    public static final int HUOJIAN = 1;
+    public static final int RAM = 2;
+    public static final int COOLING = 3;
+    public static final int DEF = 4;
 
     public static void track(String category, String action, String label, int value) {
         if (BuildConfig.TRACK) {
@@ -86,6 +91,61 @@ public class AdUtil {
             }
         } else {
             loadFull(context);
+        }
+        // Play for a while, then display the New Game Button
+    }
+
+    public static void loadFull(final Context context, final int tag) {
+        mInterstitialAd = new InterstitialAd(context);
+        if (tag == JUNK) {
+            mInterstitialAd.setAdUnitId("ca-app-pub-3150670592875039/1363307700");
+        } else if (tag == HUOJIAN) {
+            mInterstitialAd.setAdUnitId("ca-app-pub-3150670592875039/2840040905");
+        } else if (tag == RAM) {
+            mInterstitialAd.setAdUnitId("ca-app-pub-3150670592875039/9026175304");
+        } else if (tag == COOLING) {
+            mInterstitialAd.setAdUnitId("ca-app-pub-3150670592875039/8886574503");
+        } else {
+            mInterstitialAd.setAdUnitId("ca-app-pub-3150670592875039/6052799709");
+        }
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                Log.e("adadad", tag + "onAdClosed");
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                Log.e("adadad", tag + "onAdLoaded");
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+                Log.e("adadad", tag + "onAdOpened");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                super.onAdLeftApplication();
+                Log.e("adadad", tag + "onAdLeftApplication");
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                Log.e("adadad", tag + "onAdFailedToLoad");
+            }
+        });
+        requestNewInterstitial();
+    }
+
+    public static void showFull() {
+        if (mInterstitialAd != null) {
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            }
         }
         // Play for a while, then display the New Game Button
     }
