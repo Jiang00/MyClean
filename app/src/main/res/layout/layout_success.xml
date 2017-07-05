@@ -4,26 +4,11 @@
     android:layout_height="match_parent"
     android:background="@color/transparent">
 
-    <LinearLayout
-        android:id="@+id/success"
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/A1"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/rl_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <View
-                android:id="@+id/view_title_bar"
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
-
-            <include layout="@layout/layout_title" />
-        </LinearLayout>
+        android:background="@color/A1">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -60,6 +45,28 @@
                 android:layout_marginBottom="@dimen/d250"
                 android:src="@mipmap/success_huojian"
                 android:visibility="invisible" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/success"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible">
+            <!--android:visibility="invisible"-->
+            <LinearLayout
+                android:id="@+id/rl_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/view_title_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <include layout="@layout/layout_title" />
+            </LinearLayout>
 
             <com.fast.clean.junk.myview.SlowScrollView
                 android:id="@+id/scrollView"
@@ -67,9 +74,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/A7"
                 android:fillViewport="true"
-                android:scrollbars="none"
-                android:visibility="invisible">
-                <!--android:visibility="invisible"-->
+                android:scrollbars="none">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -682,6 +688,7 @@
 
                 </LinearLayout>
             </com.fast.clean.junk.myview.SlowScrollView>
-        </FrameLayout>
-    </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
 </FrameLayout>

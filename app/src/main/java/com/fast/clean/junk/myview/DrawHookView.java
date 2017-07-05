@@ -157,6 +157,9 @@ public class DrawHookView extends View {
         this.drawHookListener = drawHookListener;
     }
 
-
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+    }
 }
 

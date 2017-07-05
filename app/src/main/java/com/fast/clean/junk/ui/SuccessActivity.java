@@ -66,6 +66,7 @@ public class SuccessActivity extends BaseActivity {
     DrawHookView success_drawhook;
     ImageView success_huojian;
     SlowScrollView scrollView;
+    LinearLayout success;
     LinearLayout main_picture_button;
     TextView main_rotate_bad;
     //    ImageView delete;
@@ -91,6 +92,7 @@ public class SuccessActivity extends BaseActivity {
     private boolean haveAd;
     private boolean animationEnd;
     private MyApplication cleanApplication;
+    private boolean duigouSuccess;
 
     @Override
     protected void findId() {
@@ -103,6 +105,7 @@ public class SuccessActivity extends BaseActivity {
         success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
         success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (SlowScrollView) findViewById(R.id.scrollView);
+        success = (LinearLayout) findViewById(R.id.success);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
@@ -225,12 +228,13 @@ public class SuccessActivity extends BaseActivity {
 
             @Override
             public void duogouSc() {
+                duigouSuccess = true;
+                success_drawhook.setListener(null);
                 if (PreData.getDB(SuccessActivity.this, Constant.FULL_SUCCESS, 1) == 1) {
 //                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                     AdUtil.showFull();
                 }
                 startSecondAnimation();
-                success_drawhook.setListener(null);
             }
         });
         if (PreData.getDB(this, Constant.IS_ROTATE, false)) {
@@ -329,6 +333,9 @@ public class SuccessActivity extends BaseActivity {
     protected void onRestart() {
         super.onRestart();
         Log.e("adadad", "onRestart");
+        if (!duigouSuccess) {
+            success.setVisibility(View.VISIBLE);
+        }
     }
 
     //    private void addAd() {
@@ -508,8 +515,8 @@ public class SuccessActivity extends BaseActivity {
 
     private void startSecondAnimation() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate_success);
-        scrollView.startAnimation(animation);
-        scrollView.setVisibility(View.VISIBLE);
+        success.startAnimation(animation);
+        success.setVisibility(View.VISIBLE);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
@@ -653,12 +660,15 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        Log.e("duigou", "onPause===");
+        success_drawhook.setListener(null);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         istween = false;
+
     }
 
     @Override

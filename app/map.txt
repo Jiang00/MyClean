@@ -30118,6 +30118,7 @@ com.fast.clean.junk.myview.DrawHookView -> com.fast.clean.junk.myview.DrawHookVi
     128:145:void startProgress(int) -> a
     152:154:void setProgress(int) -> setProgress
     157:158:void setListener(com.fast.clean.junk.myview.DrawHookView$DrawHookListener) -> setListener
+    162:163:void onDetachedFromWindow() -> onDetachedFromWindow
     15:15:boolean access$000(com.fast.clean.junk.myview.DrawHookView) -> a
 com.fast.clean.junk.myview.DrawHookView$1 -> com.fast.clean.junk.myview.DrawHookView$1:
     int val$st -> a
@@ -32577,115 +32578,118 @@ com.fast.clean.junk.ui.SuccessActivity -> com.fast.clean.junk.ui.SuccessActivity
     com.fast.clean.junk.myview.DrawHookView success_drawhook -> q
     android.widget.ImageView success_huojian -> r
     com.fast.clean.junk.myview.SlowScrollView scrollView -> s
-    android.widget.LinearLayout main_picture_button -> t
-    android.widget.TextView main_rotate_bad -> u
-    android.widget.ImageView success_progress -> v
-    android.widget.LinearLayout ad_title -> w
-    android.widget.LinearLayout ll_ad_xiao -> x
-    android.widget.ImageView power_icon -> y
-    android.widget.TextView power_text -> z
-    android.widget.TextView main_rotate_good -> A
-    android.widget.LinearLayout ad_native_2 -> B
-    android.view.View nativeView -> D
-    android.view.View native_xiao -> E
-    boolean isdoudong -> F
-    com.twee.module.tweenengine.TweenManager tweenManager -> G
-    boolean istween -> H
-    android.os.Handler myHandler -> I
-    java.lang.String TAG_CLEAN -> J
-    java.lang.String TAG_CLEAN_2 -> K
-    boolean haveAd -> L
-    boolean animationEnd -> M
-    com.fast.clean.junk.ui.MyApplication cleanApplication -> N
-    android.view.View$OnClickListener onClickListener -> C
-    52:542:void <init>() -> <init>
-    97:124:void findId() -> a
-    128:258:void onCreate(android.os.Bundle) -> onCreate
-    261:278:void shendu() -> c
-    282:288:void initAnimation() -> d
-    291:304:void addListener() -> e
-    307:326:void addAd() -> f
-    330:332:void onRestart() -> onRestart
-    405:507:void startFirstAnimation() -> b
-    510:540:void startSecondAnimation() -> g
-    634:645:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    649:651:void onResume() -> onResume
-    655:656:void onPause() -> onPause
-    660:662:void onStop() -> onStop
-    666:668:void onBackPressed() -> onBackPressed
-    671:699:void setAnimationThread() -> h
-    52:52:void access$000(com.fast.clean.junk.ui.SuccessActivity) -> a
-    52:52:void access$100(com.fast.clean.junk.ui.SuccessActivity) -> b
-    52:52:boolean access$202(com.fast.clean.junk.ui.SuccessActivity,boolean) -> a
-    52:52:boolean access$200(com.fast.clean.junk.ui.SuccessActivity) -> c
-    52:52:com.twee.module.tweenengine.TweenManager access$300(com.fast.clean.junk.ui.SuccessActivity) -> d
-    52:52:boolean access$402(com.fast.clean.junk.ui.SuccessActivity,boolean) -> b
-    52:52:boolean access$500(com.fast.clean.junk.ui.SuccessActivity) -> e
-    52:52:android.os.Handler access$600(com.fast.clean.junk.ui.SuccessActivity) -> f
-    52:52:boolean access$700(com.fast.clean.junk.ui.SuccessActivity) -> g
+    android.widget.LinearLayout success -> t
+    android.widget.LinearLayout main_picture_button -> u
+    android.widget.TextView main_rotate_bad -> v
+    android.widget.ImageView success_progress -> w
+    android.widget.LinearLayout ad_title -> x
+    android.widget.LinearLayout ll_ad_xiao -> y
+    android.widget.ImageView power_icon -> z
+    android.widget.TextView power_text -> A
+    android.widget.TextView main_rotate_good -> B
+    android.widget.LinearLayout ad_native_2 -> C
+    android.view.View nativeView -> E
+    android.view.View native_xiao -> F
+    boolean isdoudong -> G
+    com.twee.module.tweenengine.TweenManager tweenManager -> H
+    boolean istween -> I
+    android.os.Handler myHandler -> J
+    java.lang.String TAG_CLEAN -> K
+    java.lang.String TAG_CLEAN_2 -> L
+    boolean haveAd -> M
+    boolean animationEnd -> N
+    com.fast.clean.junk.ui.MyApplication cleanApplication -> O
+    boolean duigouSuccess -> P
+    android.view.View$OnClickListener onClickListener -> D
+    52:549:void <init>() -> <init>
+    99:127:void findId() -> a
+    131:262:void onCreate(android.os.Bundle) -> onCreate
+    265:282:void shendu() -> c
+    286:292:void initAnimation() -> d
+    295:308:void addListener() -> e
+    311:330:void addAd() -> f
+    334:339:void onRestart() -> onRestart
+    412:514:void startFirstAnimation() -> b
+    517:547:void startSecondAnimation() -> g
+    641:652:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    656:658:void onResume() -> onResume
+    662:665:void onPause() -> onPause
+    669:672:void onStop() -> onStop
+    676:678:void onBackPressed() -> onBackPressed
+    681:709:void setAnimationThread() -> h
+    52:52:boolean access$002(com.fast.clean.junk.ui.SuccessActivity,boolean) -> a
+    52:52:void access$100(com.fast.clean.junk.ui.SuccessActivity) -> a
+    52:52:void access$200(com.fast.clean.junk.ui.SuccessActivity) -> b
+    52:52:boolean access$302(com.fast.clean.junk.ui.SuccessActivity,boolean) -> b
+    52:52:boolean access$300(com.fast.clean.junk.ui.SuccessActivity) -> c
+    52:52:com.twee.module.tweenengine.TweenManager access$400(com.fast.clean.junk.ui.SuccessActivity) -> d
+    52:52:boolean access$502(com.fast.clean.junk.ui.SuccessActivity,boolean) -> c
+    52:52:boolean access$600(com.fast.clean.junk.ui.SuccessActivity) -> e
+    52:52:android.os.Handler access$700(com.fast.clean.junk.ui.SuccessActivity) -> f
+    52:52:boolean access$800(com.fast.clean.junk.ui.SuccessActivity) -> g
 com.fast.clean.junk.ui.SuccessActivity$1 -> com.fast.clean.junk.ui.SuccessActivity$1:
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    224:224:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    228:234:void duogouSc() -> a
+    227:227:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    231:238:void duogouSc() -> a
 com.fast.clean.junk.ui.SuccessActivity$2 -> com.fast.clean.junk.ui.SuccessActivity$2:
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    251:251:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    253:254:void run() -> run
+    255:255:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    257:258:void run() -> run
 com.fast.clean.junk.ui.SuccessActivity$3 -> com.fast.clean.junk.ui.SuccessActivity$3:
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    282:282:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    285:286:void run() -> run
+    286:286:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    289:290:void run() -> run
 com.fast.clean.junk.ui.SuccessActivity$4 -> com.fast.clean.junk.ui.SuccessActivity$4:
     android.animation.AnimatorSet val$set -> a
     com.fast.clean.junk.ui.SuccessActivity this$0 -> b
-    423:423:void <init>(com.fast.clean.junk.ui.SuccessActivity,android.animation.AnimatorSet) -> <init>
-    426:495:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    500:500:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    505:505:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    430:430:void <init>(com.fast.clean.junk.ui.SuccessActivity,android.animation.AnimatorSet) -> <init>
+    433:502:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    507:507:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    512:512:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.fast.clean.junk.ui.SuccessActivity$4$1 -> com.fast.clean.junk.ui.SuccessActivity$4$1:
     float val$hx -> a
     float val$hy -> b
     com.fast.clean.junk.ui.SuccessActivity$4 this$1 -> c
-    429:429:void <init>(com.fast.clean.junk.ui.SuccessActivity$4,float,float) -> <init>
-    432:447:void run() -> run
+    436:436:void <init>(com.fast.clean.junk.ui.SuccessActivity$4,float,float) -> <init>
+    439:454:void run() -> run
 com.fast.clean.junk.ui.SuccessActivity$4$2 -> com.fast.clean.junk.ui.SuccessActivity$4$2:
     com.fast.clean.junk.ui.SuccessActivity$4 this$1 -> a
-    449:449:void <init>(com.fast.clean.junk.ui.SuccessActivity$4) -> <init>
-    453:453:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    457:483:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    488:488:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    493:493:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    456:456:void <init>(com.fast.clean.junk.ui.SuccessActivity$4) -> <init>
+    460:460:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    464:490:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    495:495:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    500:500:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.fast.clean.junk.ui.SuccessActivity$4$2$1 -> com.fast.clean.junk.ui.SuccessActivity$4$2$1:
     com.fast.clean.junk.ui.SuccessActivity$4$2 this$2 -> a
-    461:461:void <init>(com.fast.clean.junk.ui.SuccessActivity$4$2) -> <init>
-    465:465:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    469:470:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    475:475:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    480:480:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    468:468:void <init>(com.fast.clean.junk.ui.SuccessActivity$4$2) -> <init>
+    472:472:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    476:477:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    482:482:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    487:487:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.fast.clean.junk.ui.SuccessActivity$5 -> com.fast.clean.junk.ui.SuccessActivity$5:
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    513:513:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    516:528:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    533:533:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    538:538:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    520:520:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    523:535:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    540:540:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    545:545:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.fast.clean.junk.ui.SuccessActivity$5$1 -> com.fast.clean.junk.ui.SuccessActivity$5$1:
     com.fast.clean.junk.ui.SuccessActivity$5 this$1 -> a
-    516:516:void <init>(com.fast.clean.junk.ui.SuccessActivity$5) -> <init>
-    519:525:void run() -> run
+    523:523:void <init>(com.fast.clean.junk.ui.SuccessActivity$5) -> <init>
+    526:532:void run() -> run
 com.fast.clean.junk.ui.SuccessActivity$6 -> com.fast.clean.junk.ui.SuccessActivity$6:
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    542:542:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    545:629:void onClick(android.view.View) -> onClick
+    549:549:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    552:636:void onClick(android.view.View) -> onClick
 com.fast.clean.junk.ui.SuccessActivity$7 -> com.fast.clean.junk.ui.SuccessActivity$7:
     long lastMillis -> b
     com.fast.clean.junk.ui.SuccessActivity this$0 -> a
-    671:672:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
-    675:697:void run() -> run
+    681:682:void <init>(com.fast.clean.junk.ui.SuccessActivity) -> <init>
+    685:707:void run() -> run
 com.fast.clean.junk.ui.SuccessActivity$7$1 -> com.fast.clean.junk.ui.SuccessActivity$7$1:
     float val$delta -> a
     com.fast.clean.junk.ui.SuccessActivity$7 this$1 -> b
-    680:680:void <init>(com.fast.clean.junk.ui.SuccessActivity$7,float) -> <init>
-    683:685:void run() -> run
+    690:690:void <init>(com.fast.clean.junk.ui.SuccessActivity$7,float) -> <init>
+    693:695:void run() -> run
 com.fast.clean.junk.ui.UnloadActivity -> com.fast.clean.junk.ui.UnloadActivity:
     android.widget.TextView tv_size -> a
     android.widget.Button bt_quxiao -> b
