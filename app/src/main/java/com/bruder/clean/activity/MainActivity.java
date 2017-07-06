@@ -419,7 +419,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                         // 设置硬件信息里的CPU温度
                         main_msg_cpu_percent.setText(String.valueOf(progress));
                         if (main_cooling_h.getVisibility() == View.INVISIBLE) {
-                            main_cooling_h.setText(String.valueOf(temp));
+                            main_cooling_h.setText(String.valueOf(temp) + " ℃");
                             main_cooling_h.setVisibility(View.VISIBLE);
                         }
                     }

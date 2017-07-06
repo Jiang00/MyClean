@@ -1,8 +1,6 @@
 package com.bruder.clean.activity;
 
 import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -57,8 +55,6 @@ public class SuccessingActivity extends BaseActivity {
     RelativeLayout main_file_button;
     Button main_notifi_button1, main_file_button1;
     TextView success_clean_2;
-    ImageView success_huojian;
-    //    LinearLayout success_stars;
     ImageView power_icon;
     TextView power_text;
     Button main_rotate_good, main_good_refuse;
@@ -98,6 +94,32 @@ public class SuccessingActivity extends BaseActivity {
         notifi_info_lot.loop(false);
         notifi_info_lot.setSpeed(0.7f);
         notifi_info_lot.playAnimation();
+        notifi_info_lot.addAnimatorListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                //广告
+                if (DataPre.getDB(SuccessingActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+                //动画结束换内容的
+                startSecondAnimation();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
         } else {
@@ -215,7 +237,6 @@ public class SuccessingActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
         success_clean_2 = (TextView) findViewById(R.id.success_clean_2);
-        success_huojian = (ImageView) findViewById(R.id.success_huojian);
         scrollView = (MySlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_power_button = (RelativeLayout) findViewById(R.id.main_power_button);
@@ -313,12 +334,6 @@ public class SuccessingActivity extends BaseActivity {
 
 
     private void initAnimation() {
-        myHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                startFirstAnimation();
-            }
-        });
     }
 
     private void startSecondAnimation() {
@@ -348,45 +363,6 @@ public class SuccessingActivity extends BaseActivity {
 
             @Override
             public void onAnimationStart(Animation animation) {
-
-            }
-        });
-    }
-
-    public void startFirstAnimation() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        ObjectAnimator huojian_translation = ObjectAnimator.ofFloat(success_huojian, "translationY", 0f, -2000f);
-        huojian_translation.setDuration(1500);
-        huojian_translation.start();
-        final AnimatorSet animSet2 = new AnimatorSet();
-
-        huojian_translation.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-//广告
-                if (DataPre.getDB(SuccessingActivity.this, Constant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-                //动画结束换内容的
-                startSecondAnimation();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
 
             }
         });

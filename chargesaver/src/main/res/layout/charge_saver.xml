@@ -155,20 +155,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/bottom_8">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerInParent="true"
-                    android:background="@mipmap/battery_shell" />
 
                 <!--闪电动画-->
                 <com.sample.lottie.LottieAnimationView
                     android:id="@+id/battery_electricity"
-                    android:layout_width="@dimen/d34"
-                    android:layout_height="@dimen/d65"
+                    android:layout_width="@dimen/d82"
+                    android:layout_height="@dimen/d127"
                     android:layout_centerInParent="true"
-                    android:visibility="gone"
                     app:lottie_autoPlay="false" />
                 <!--百分之多少-->
                 <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView

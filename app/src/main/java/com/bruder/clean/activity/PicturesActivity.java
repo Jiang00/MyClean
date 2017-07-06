@@ -499,6 +499,14 @@ public class PicturesActivity extends BaseActivity {
                                 if (adapter.getItemCount() == 0) {
                                     picture_progressbar.setVisibility(View.GONE);
                                     picture_other.setVisibility(View.VISIBLE);
+                                    picture_other.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            UtilAd.track("相似图片页面", "点击检测其他垃圾", "", 1);
+                                            jumpTo(GarbageActivity.class);
+                                            onBackPressed();
+                                        }
+                                    });
                                 }
                                 Bundle bundle = new Bundle();
                                 bundle.putLong("sizeP", oldSize - allSize);

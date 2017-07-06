@@ -11,7 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -180,7 +179,12 @@ public class BatteringView extends FrameLayout {
         // 设置水波纹位置
         battery_ripple_layout.upDate(curLevel);
         if (water != null && !water.isAnimating()) {
-            initWater();
+//            initWater();
+            water.setImageAssetsFolder("images/battery/");
+            water.setAnimation("battery_electricity.json");
+            water.loop(false);
+            water.setSpeed(0.7f);
+            water.playAnimation();
             water.playAnimation();
         }
         ObjectAnimator fadeInOut = ObjectAnimator.ofFloat(battery_up, "alpha", 1f, 0f, 1f, 0f);
@@ -249,10 +253,10 @@ public class BatteringView extends FrameLayout {
 
     private void initWater() {
         try {
-            water.setAnimation(mContext, "theme://data.json");
+            water.setAnimation(mContext, "theme://battery_electricity.json");
         } catch (Exception e) {
             if (!water.isAnimating()) {
-                water.setAnimation(null, "data.json");
+                water.setAnimation(null, "battery_electricity.json");
             }
         }
         water.loop(true);
