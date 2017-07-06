@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
@@ -109,6 +110,37 @@ public class BatteryActivity extends BaseActivity {
 
             }
         });
+        if (TextUtils.equals("main", getIntent().getStringExtra("from"))) {
+            cooling_text.setVisibility(View.VISIBLE);
+            final int wendu = getIntent().getIntExtra("wendu", 40);
+            cooling_wendu.setText(wendu + "℃");
+            for (int i = 0; i <= time; i++) {
+                cooling_wendu.setText((wendu - i) + "℃");
+            }
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    for (int i = 0; i <= time; i++) {
+                        if (onPause) {
+                            return;
+                        }
+                        final int finalI = i;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                cooling_wendu.setText((wendu - finalI) + "℃");
+                            }
+                        });
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+        }
     }
 
 

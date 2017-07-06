@@ -13,23 +13,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.vater.clean.db.CleanDBHelper;
-import com.vater.clean.util.LoadManager;
-import com.vater.clean.junk.R;
-import com.vater.clean.junk.jiemian.GameActivity;
 import com.vater.clean.entity.JunkInfo;
+import com.vater.clean.junk.R;
 import com.vater.clean.junk.gongju.AdUtil;
+import com.vater.clean.junk.jiemian.GameActivity;
+import com.vater.clean.util.LoadManager;
 
 import java.util.ArrayList;
 
-/**
- */
-
 public class JiaGameAdapter extends MybaseAdapter<JunkInfo> {
     private ArrayList<String> game_list;
-    private Toast toast;
 
     public JiaGameAdapter(Context context, ArrayList<String> game_list) {
         super(context);
@@ -73,7 +68,6 @@ public class JiaGameAdapter extends MybaseAdapter<JunkInfo> {
                     Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
                     shortcutIntent.setClass(context, GameActivity.class);
                     shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-
                 }
                 list.remove(info);
                 notifyDataSetChanged();
@@ -81,7 +75,6 @@ public class JiaGameAdapter extends MybaseAdapter<JunkInfo> {
         });
         holder.iv_icon.setImageDrawable(LoadManager.getInstance(context).getAppIcon(info.pkg));
         holder.tv_lable.setText(info.label);
-
         return convertView;
     }
 

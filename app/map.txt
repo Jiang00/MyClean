@@ -31351,8 +31351,8 @@ com.mingle.widget.LinearLayout -> com.mingle.widget.LinearLayout:
     95:95:android.widget.LinearLayout$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
     100:104:void addView(android.view.View,int,android.view.ViewGroup$LayoutParams) -> addView
     108:108:android.widget.LinearLayout$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
-    27:27:android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
     27:27:android.view.ViewGroup$LayoutParams generateDefaultLayoutParams() -> generateDefaultLayoutParams
+    27:27:android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet) -> generateLayoutParams
 com.mingle.widget.LinearLayout$SLayoutParams -> com.mingle.widget.LinearLayout$a:
     com.mingle.skin.hepler.DefaultViewSkinHelper mSkinHelper -> b
     com.mingle.widget.LinearLayout this$0 -> a
@@ -31371,7 +31371,6 @@ com.mingle.widget.ListView -> com.mingle.widget.ListView:
     73:74:void superDraw(android.graphics.Canvas) -> a
     80:80:com.mingle.widget.animation.CRAnimation circularReveal(int,int,float,float) -> a
     85:86:void setSkinStyle(com.mingle.skin.SkinStyle) -> setSkinStyle
-    22:22:void setAdapter(android.widget.Adapter) -> setAdapter
 com.mingle.widget.MultiAutoCompleteTextView -> com.mingle.widget.MultiAutoCompleteTextView:
     com.mingle.circletreveal.CircleRevealHelper mCircleRevealHelper -> a
     com.mingle.skin.hepler.SkinHelper mSkinHelper -> b
@@ -31743,10 +31742,8 @@ com.rd.PageIndicatorView -> com.rd.PageIndicatorView:
     android.support.v4.view.ViewPager viewPager -> I
     int viewPagerId -> J
     com.rd.RtlMode rtlMode -> K
-    50:98:void <init>(android.content.Context) -> <init>
     50:103:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     50:108:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    50:114:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
     118:120:void onAttachedToWindow() -> onAttachedToWindow
     124:126:void onDetachedFromWindow() -> onDetachedFromWindow
     130:135:android.os.Parcelable onSaveInstanceState() -> onSaveInstanceState
@@ -35952,7 +35949,7 @@ com.vater.clean.junk.jiemian.AllAppActivity -> com.vater.clean.junk.jiemian.AllA
     android.widget.RelativeLayout manager_clean -> b
     android.support.v4.view.ViewPager doc_view_pager -> c
     android.widget.TextView title_name -> d
-    android.widget.Button junk_button_clean -> e
+    android.widget.ImageView junk_button_clean -> e
     android.widget.LinearLayout ll_ad_size -> f
     android.widget.LinearLayout ll_ad_time -> g
     android.widget.LinearLayout ll_ad_pinlv -> h
@@ -35976,60 +35973,58 @@ com.vater.clean.junk.jiemian.AllAppActivity -> com.vater.clean.junk.jiemian.AllA
     android.view.View view_permiss -> F
     android.os.Handler myHandler -> j
     android.view.View$OnClickListener onClickListener -> k
-    48:296:void <init>() -> <init>
-    74:81:void findId() -> a
-    85:95:void onCreate(android.os.Bundle) -> onCreate
-    100:160:void initData(long) -> a
-    164:185:void loadFullAd() -> b
-    189:191:void onClick() -> c
-    258:269:void updateAdapter(java.util.List,java.util.List,java.util.List) -> a
-    272:283:void initList() -> d
-    287:288:void onPause() -> onPause
-    292:294:void onDestroy() -> onDestroy
-    339:347:boolean isNoSwitch() -> e
-    351:356:boolean isNoOption() -> f
-    361:362:void onRestart() -> onRestart
-    366:369:void onResume() -> onResume
-    374:382:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    386:397:void setCleanDAta(long) -> b
-    48:48:java.util.ArrayList access$000(com.vater.clean.junk.jiemian.AllAppActivity) -> a
-    48:48:java.util.ArrayList access$100(com.vater.clean.junk.jiemian.AllAppActivity) -> b
-    48:48:com.vater.clean.junk.shipeiqi.ManagerAdapter access$200(com.vater.clean.junk.jiemian.AllAppActivity) -> c
-    48:48:com.vater.clean.junk.shipeiqi.ManagerAdapter access$300(com.vater.clean.junk.jiemian.AllAppActivity) -> d
-    48:48:com.vater.clean.junk.shipeiqi.ManagerAdapter access$400(com.vater.clean.junk.jiemian.AllAppActivity) -> e
-    48:48:com.vater.clean.junk.presenter.ManagerPresenter access$500(com.vater.clean.junk.jiemian.AllAppActivity) -> f
+    49:271:void <init>() -> <init>
+    75:82:void findId() -> a
+    86:96:void onCreate(android.os.Bundle) -> onCreate
+    101:160:void initData(long) -> a
+    164:184:void loadFullAd() -> b
+    188:190:void onClick() -> c
+    233:244:void updateAdapter(java.util.List,java.util.List,java.util.List) -> a
+    247:258:void initList() -> d
+    262:263:void onPause() -> onPause
+    267:269:void onDestroy() -> onDestroy
+    312:320:boolean isNoSwitch() -> e
+    324:329:boolean isNoOption() -> f
+    334:335:void onRestart() -> onRestart
+    339:344:void onResume() -> onResume
+    349:359:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    363:374:void setCleanDAta(long) -> b
+    49:49:com.vater.clean.junk.shipeiqi.ManagerAdapter access$000(com.vater.clean.junk.jiemian.AllAppActivity) -> a
+    49:49:com.vater.clean.junk.shipeiqi.ManagerAdapter access$100(com.vater.clean.junk.jiemian.AllAppActivity) -> b
+    49:49:com.vater.clean.junk.shipeiqi.ManagerAdapter access$200(com.vater.clean.junk.jiemian.AllAppActivity) -> c
+    49:49:java.util.ArrayList access$300(com.vater.clean.junk.jiemian.AllAppActivity) -> d
+    49:49:java.util.ArrayList access$400(com.vater.clean.junk.jiemian.AllAppActivity) -> e
+    49:49:com.vater.clean.junk.presenter.ManagerPresenter access$500(com.vater.clean.junk.jiemian.AllAppActivity) -> f
 com.vater.clean.junk.jiemian.AllAppActivity$1 -> com.vater.clean.junk.jiemian.AllAppActivity$1:
     com.vater.clean.junk.jiemian.AllAppActivity this$0 -> a
-    130:130:void <init>(com.vater.clean.junk.jiemian.AllAppActivity) -> <init>
-    133:133:void onPageScrolled(int,float,int) -> onPageScrolled
-    137:145:void onPageSelected(int) -> onPageSelected
+    131:131:void <init>(com.vater.clean.junk.jiemian.AllAppActivity) -> <init>
+    134:134:void onPageScrolled(int,float,int) -> onPageScrolled
+    138:145:void onPageSelected(int) -> onPageSelected
     150:150:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.vater.clean.junk.jiemian.AllAppActivity$2 -> com.vater.clean.junk.jiemian.AllAppActivity$2:
     java.util.List val$listsize -> a
-    java.util.List val$listtime -> b
-    java.util.List val$listpinlv -> c
+    java.util.List val$listpinlv -> b
+    java.util.List val$listtime -> c
     com.vater.clean.junk.jiemian.AllAppActivity this$0 -> d
-    258:258:void <init>(com.vater.clean.junk.jiemian.AllAppActivity,java.util.List,java.util.List,java.util.List) -> <init>
-    261:267:void run() -> run
+    233:233:void <init>(com.vater.clean.junk.jiemian.AllAppActivity,java.util.List,java.util.List,java.util.List) -> <init>
+    236:242:void run() -> run
 com.vater.clean.junk.jiemian.AllAppActivity$3 -> com.vater.clean.junk.jiemian.AllAppActivity$3:
     com.vater.clean.junk.jiemian.AllAppActivity this$0 -> a
-    296:296:void <init>(com.vater.clean.junk.jiemian.AllAppActivity) -> <init>
-    299:319:void onClick(android.view.View) -> onClick
+    271:271:void <init>(com.vater.clean.junk.jiemian.AllAppActivity) -> <init>
+    274:293:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.AllAppActivity$MyPagerAdaptre -> com.vater.clean.junk.jiemian.AllAppActivity$a:
-    int mChildCount -> b
     com.vater.clean.junk.jiemian.AllAppActivity this$0 -> a
-    194:195:void <init>(com.vater.clean.junk.jiemian.AllAppActivity) -> <init>
-    199:199:int getCount() -> getCount
-    204:206:void notifyDataSetChanged() -> notifyDataSetChanged
-    210:215:int getItemPosition(java.lang.Object) -> getItemPosition
-    223:234:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    239:239:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    244:245:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    249:249:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    192:192:void <init>(com.vater.clean.junk.jiemian.AllAppActivity) -> <init>
+    197:197:int getCount() -> getCount
+    203:203:int getItemPosition(java.lang.Object) -> getItemPosition
+    209:210:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    215:215:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    220:223:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    227:227:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.vater.clean.junk.jiemian.AllAppActivity$MyReceiver -> com.vater.clean.junk.jiemian.AllAppActivity$MyReceiver:
     com.vater.clean.junk.jiemian.AllAppActivity this$0 -> a
-    323:323:void <init>(com.vater.clean.junk.jiemian.AllAppActivity) -> <init>
-    329:332:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    297:297:void <init>(com.vater.clean.junk.jiemian.AllAppActivity) -> <init>
+    303:305:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.vater.clean.junk.jiemian.BaseActivity -> com.vater.clean.junk.jiemian.BaseActivity:
     android.widget.Toast toast -> a
     boolean onDestroyed -> l
@@ -36072,38 +36067,48 @@ com.vater.clean.junk.jiemian.BatteryActivity -> com.vater.clean.junk.jiemian.Bat
     android.view.animation.Animation rotate_zheng -> p
     java.util.Random random -> q
     int time -> r
-    29:41:void <init>() -> <init>
-    56:64:void findId() -> a
-    68:112:void onCreate(android.os.Bundle) -> onCreate
-    117:121:void onResume() -> onResume
-    126:128:void onPause() -> onPause
-    132:138:void onBackPressed() -> onBackPressed
-    141:159:void startCoolingAni() -> b
-    163:167:void onDestroy() -> onDestroy
-    171:174:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    177:187:void hideSnow() -> c
-    29:29:com.vater.clean.junk.myview.FlakeView access$000(com.vater.clean.junk.jiemian.BatteryActivity) -> a
-    29:29:int access$100(com.vater.clean.junk.jiemian.BatteryActivity) -> b
-    29:29:android.view.animation.Animation access$200(com.vater.clean.junk.jiemian.BatteryActivity) -> c
-    29:29:void access$300(com.vater.clean.junk.jiemian.BatteryActivity) -> d
+    30:42:void <init>() -> <init>
+    57:65:void findId() -> a
+    69:144:void onCreate(android.os.Bundle) -> onCreate
+    149:153:void onResume() -> onResume
+    158:160:void onPause() -> onPause
+    164:170:void onBackPressed() -> onBackPressed
+    173:191:void startCoolingAni() -> b
+    195:199:void onDestroy() -> onDestroy
+    203:206:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    209:219:void hideSnow() -> c
+    30:30:com.vater.clean.junk.myview.FlakeView access$000(com.vater.clean.junk.jiemian.BatteryActivity) -> a
+    30:30:int access$100(com.vater.clean.junk.jiemian.BatteryActivity) -> b
+    30:30:android.view.animation.Animation access$200(com.vater.clean.junk.jiemian.BatteryActivity) -> c
+    30:30:void access$300(com.vater.clean.junk.jiemian.BatteryActivity) -> d
 com.vater.clean.junk.jiemian.BatteryActivity$1 -> com.vater.clean.junk.jiemian.BatteryActivity$1:
     com.vater.clean.junk.jiemian.BatteryActivity this$0 -> a
-    41:41:void <init>(com.vater.clean.junk.jiemian.BatteryActivity) -> <init>
-    44:47:void run() -> run
+    42:42:void <init>(com.vater.clean.junk.jiemian.BatteryActivity) -> <init>
+    45:48:void run() -> run
 com.vater.clean.junk.jiemian.BatteryActivity$2 -> com.vater.clean.junk.jiemian.BatteryActivity$2:
     com.vater.clean.junk.jiemian.BatteryActivity this$0 -> a
-    72:72:void <init>(com.vater.clean.junk.jiemian.BatteryActivity) -> <init>
-    75:76:void onClick(android.view.View) -> onClick
+    73:73:void <init>(com.vater.clean.junk.jiemian.BatteryActivity) -> <init>
+    76:77:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.BatteryActivity$3 -> com.vater.clean.junk.jiemian.BatteryActivity$3:
     com.vater.clean.junk.jiemian.BatteryActivity this$0 -> a
-    87:87:void <init>(com.vater.clean.junk.jiemian.BatteryActivity) -> <init>
-    90:100:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    105:105:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    110:110:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    88:88:void <init>(com.vater.clean.junk.jiemian.BatteryActivity) -> <init>
+    91:101:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    106:106:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    111:111:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.vater.clean.junk.jiemian.BatteryActivity$4 -> com.vater.clean.junk.jiemian.BatteryActivity$4:
+    int val$wendu -> a
+    com.vater.clean.junk.jiemian.BatteryActivity this$0 -> b
+    120:120:void <init>(com.vater.clean.junk.jiemian.BatteryActivity,int) -> <init>
+    124:141:void run() -> run
+com.vater.clean.junk.jiemian.BatteryActivity$4$1 -> com.vater.clean.junk.jiemian.BatteryActivity$4$1:
+    int val$finalI -> a
+    com.vater.clean.junk.jiemian.BatteryActivity$4 this$1 -> b
+    129:129:void <init>(com.vater.clean.junk.jiemian.BatteryActivity$4,int) -> <init>
+    132:133:void run() -> run
+com.vater.clean.junk.jiemian.BatteryActivity$5 -> com.vater.clean.junk.jiemian.BatteryActivity$5:
     com.vater.clean.junk.jiemian.BatteryActivity this$0 -> a
-    145:145:void <init>(com.vater.clean.junk.jiemian.BatteryActivity) -> <init>
-    148:153:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    177:177:void <init>(com.vater.clean.junk.jiemian.BatteryActivity) -> <init>
+    180:185:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.vater.clean.junk.jiemian.DeepActivity -> com.vater.clean.junk.jiemian.DeepActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -36198,7 +36203,7 @@ com.vater.clean.junk.jiemian.DocActivity -> com.vater.clean.junk.jiemian.DocActi
     android.widget.RelativeLayout file_clean_rl -> b
     android.widget.FrameLayout title_left -> c
     android.widget.TextView title_name -> d
-    android.widget.Button file_button_clean -> e
+    android.widget.ImageView file_button_clean -> e
     android.support.v4.view.ViewPager doc_view_pager -> f
     android.support.design.widget.TabLayout view_pager_tab -> g
     android.widget.LinearLayout null_ll -> h
@@ -36285,7 +36290,7 @@ com.vater.clean.junk.jiemian.FileActivity -> com.vater.clean.junk.jiemian.FileAc
     android.widget.LinearLayout ll_ad -> b
     android.widget.TextView title_name -> c
     android.widget.ListView file_list -> d
-    android.widget.Button file_button_clean -> e
+    android.widget.ImageView file_button_clean -> e
     android.widget.ImageView null_icon -> f
     android.widget.FrameLayout title_left -> g
     android.widget.RelativeLayout file_clean_rl -> h
@@ -36363,169 +36368,160 @@ com.vater.clean.junk.jiemian.FileManagerActivity -> com.vater.clean.junk.jiemian
     android.widget.LinearLayout ll_ad -> g
     android.widget.FrameLayout title_left -> h
     android.widget.TextView title_name -> i
-    android.view.View nativeView -> u
+    android.view.View nativeView -> z
     android.widget.TextView file_apk_num -> j
     android.widget.TextView file_zip_num -> k
     android.widget.TextView file_txt_num -> p
     android.widget.TextView file_music_num -> q
     android.widget.TextView file_video_num -> r
     android.widget.TextView file_qita_num -> s
-    java.lang.String TAG_FILE -> v
-    com.vater.clean.filemanager.FileCategoryHelper fileHelper -> w
-    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo apkInfo -> x
-    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo zipInfo -> y
-    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo docInfo -> z
-    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo musicInfo -> A
-    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo videoInfo -> B
-    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo otherInfo -> C
-    android.os.Handler mHandler -> D
-    android.view.View$OnClickListener clickListener -> t
-    22:117:void <init>() -> <init>
-    38:54:void findId() -> a
-    60:63:void onResume() -> onResume
-    66:90:void initData() -> b
-    94:103:void initAd() -> c
-    107:116:void onCreate(android.os.Bundle) -> onCreate
-    183:190:void setListener() -> d
-    194:197:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    22:22:com.vater.clean.filemanager.FileCategoryHelper access$000(com.vater.clean.junk.jiemian.FileManagerActivity) -> a
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$102(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> a
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$202(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> b
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$302(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> c
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$402(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> d
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$502(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> e
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$602(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> f
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$100(com.vater.clean.junk.jiemian.FileManagerActivity) -> b
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$200(com.vater.clean.junk.jiemian.FileManagerActivity) -> c
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$300(com.vater.clean.junk.jiemian.FileManagerActivity) -> d
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$400(com.vater.clean.junk.jiemian.FileManagerActivity) -> e
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$500(com.vater.clean.junk.jiemian.FileManagerActivity) -> f
-    22:22:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$600(com.vater.clean.junk.jiemian.FileManagerActivity) -> g
-    22:22:void access$700(com.vater.clean.junk.jiemian.FileManagerActivity) -> h
-    22:22:android.os.Handler access$800(com.vater.clean.junk.jiemian.FileManagerActivity) -> i
+    android.widget.TextView file_apk_size -> t
+    android.widget.TextView file_txt_size -> u
+    android.widget.TextView file_music_size -> v
+    android.widget.TextView file_video_size -> w
+    android.widget.TextView file_qita_size -> x
+    java.lang.String TAG_FILE -> A
+    com.vater.clean.filemanager.FileCategoryHelper fileHelper -> B
+    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo apkInfo -> C
+    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo zipInfo -> D
+    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo docInfo -> E
+    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo musicInfo -> F
+    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo videoInfo -> G
+    com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo otherInfo -> H
+    android.os.Handler mHandler -> I
+    android.view.View$OnClickListener clickListener -> y
+    23:130:void <init>() -> <init>
+    39:61:void findId() -> a
+    66:69:void onResume() -> onResume
+    72:102:void initData() -> b
+    106:115:void initAd() -> c
+    119:128:void onCreate(android.os.Bundle) -> onCreate
+    196:203:void setListener() -> d
+    207:210:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    23:23:com.vater.clean.filemanager.FileCategoryHelper access$000(com.vater.clean.junk.jiemian.FileManagerActivity) -> a
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$102(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> a
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$202(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> b
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$302(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> c
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$402(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> d
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$502(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> e
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$602(com.vater.clean.junk.jiemian.FileManagerActivity,com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo) -> f
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$100(com.vater.clean.junk.jiemian.FileManagerActivity) -> b
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$200(com.vater.clean.junk.jiemian.FileManagerActivity) -> c
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$300(com.vater.clean.junk.jiemian.FileManagerActivity) -> d
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$400(com.vater.clean.junk.jiemian.FileManagerActivity) -> e
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$500(com.vater.clean.junk.jiemian.FileManagerActivity) -> f
+    23:23:com.vater.clean.filemanager.FileCategoryHelper$CategoryInfo access$600(com.vater.clean.junk.jiemian.FileManagerActivity) -> g
+    23:23:void access$700(com.vater.clean.junk.jiemian.FileManagerActivity) -> h
+    23:23:android.os.Handler access$800(com.vater.clean.junk.jiemian.FileManagerActivity) -> i
 com.vater.clean.junk.jiemian.FileManagerActivity$1 -> com.vater.clean.junk.jiemian.FileManagerActivity$1:
     com.vater.clean.junk.jiemian.FileManagerActivity this$0 -> a
-    66:66:void <init>(com.vater.clean.junk.jiemian.FileManagerActivity) -> <init>
-    69:88:void run() -> run
+    72:72:void <init>(com.vater.clean.junk.jiemian.FileManagerActivity) -> <init>
+    75:100:void run() -> run
 com.vater.clean.junk.jiemian.FileManagerActivity$1$1 -> com.vater.clean.junk.jiemian.FileManagerActivity$1$1:
     com.vater.clean.junk.jiemian.FileManagerActivity$1 this$1 -> a
-    70:70:void <init>(com.vater.clean.junk.jiemian.FileManagerActivity$1) -> <init>
-    73:86:void run() -> run
+    76:76:void <init>(com.vater.clean.junk.jiemian.FileManagerActivity$1) -> <init>
+    79:98:void run() -> run
 com.vater.clean.junk.jiemian.FileManagerActivity$2 -> com.vater.clean.junk.jiemian.FileManagerActivity$2:
     com.vater.clean.junk.jiemian.FileManagerActivity this$0 -> a
-    117:117:void <init>(com.vater.clean.junk.jiemian.FileManagerActivity) -> <init>
-    120:179:void onClick(android.view.View) -> onClick
+    130:130:void <init>(com.vater.clean.junk.jiemian.FileManagerActivity) -> <init>
+    133:192:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.GameActivity -> com.vater.clean.junk.jiemian.GameActivity:
     android.widget.ImageButton clear -> a
     android.widget.EditText search_edit_text -> b
-    com.vater.clean.junk.myview.PagerView gboost_recyc -> c
-    android.widget.TextView gboost_network_size -> d
-    com.rd.PageIndicatorView pageindicatorview -> e
-    android.widget.TextView gboost_ram_size -> f
-    android.widget.FrameLayout title_left -> g
-    android.widget.TextView title_name -> h
-    android.widget.ImageView add_right -> i
-    android.widget.TextView gboost_cpu_szie -> j
-    android.widget.LinearLayout ll_add_game -> k
-    android.widget.ImageView gboost_power_check -> p
-    android.widget.Button gboost_clean_button -> q
-    android.widget.FrameLayout add_left -> r
-    android.widget.ListView list_game -> s
-    com.vater.clean.junk.myview.LaunchpadAdapter adapter -> u
-    java.util.ArrayList list -> v
-    android.os.Handler mHandler -> w
-    com.vater.clean.junk.shipeiqi.JiaGameAdapter whiteListAdapter -> x
-    long total -> y
-    long idle -> z
-    long lastTotalRxBytes -> A
-    java.util.List gboost_add -> B
-    java.util.List listEdit -> C
-    long lastTimeStamp -> D
-    boolean search -> E
-    int screenWidth -> F
-    android.view.View$OnClickListener clickListener -> t
-    58:253:void <init>() -> <init>
-    105:122:void findId() -> a
-    126:150:void onCreate(android.os.Bundle) -> onCreate
-    154:157:void initList() -> b
-    160:230:void addData() -> c
-    233:250:long getCup() -> d
-    313:320:long getNetWork() -> e
-    324:378:void toggleEditAnimation() -> f
-    382:383:long getTotalRxBytes() -> g
-    388:414:void onResume() -> onResume
-    418:436:void onBackPressed() -> onBackPressed
-    439:481:void shortGame(boolean) -> a
-    484:499:void initData() -> h
-    502:511:void upData(java.lang.String) -> b
-    515:517:void onDestroy() -> onDestroy
-    521:529:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    58:58:java.util.ArrayList access$000(com.vater.clean.junk.jiemian.GameActivity) -> a
-    58:58:android.os.Handler access$100(com.vater.clean.junk.jiemian.GameActivity) -> b
-    58:58:com.vater.clean.junk.myview.LaunchpadAdapter access$202(com.vater.clean.junk.jiemian.GameActivity,com.vater.clean.junk.myview.LaunchpadAdapter) -> a
-    58:58:com.vater.clean.junk.myview.LaunchpadAdapter access$200(com.vater.clean.junk.jiemian.GameActivity) -> c
-    58:58:com.vater.clean.junk.shipeiqi.JiaGameAdapter access$302(com.vater.clean.junk.jiemian.GameActivity,com.vater.clean.junk.shipeiqi.JiaGameAdapter) -> a
-    58:58:com.vater.clean.junk.shipeiqi.JiaGameAdapter access$300(com.vater.clean.junk.jiemian.GameActivity) -> d
-    58:58:void access$400(com.vater.clean.junk.jiemian.GameActivity) -> e
-    58:58:void access$500(com.vater.clean.junk.jiemian.GameActivity,boolean) -> a
-    58:58:void access$600(com.vater.clean.junk.jiemian.GameActivity) -> f
-    58:58:boolean access$700(com.vater.clean.junk.jiemian.GameActivity) -> g
-    58:58:boolean access$702(com.vater.clean.junk.jiemian.GameActivity,boolean) -> b
-    58:58:void access$800(com.vater.clean.junk.jiemian.GameActivity,java.lang.String) -> a
-    58:58:long access$900(com.vater.clean.junk.jiemian.GameActivity) -> h
-    58:58:long access$1000(com.vater.clean.junk.jiemian.GameActivity) -> i
+    android.widget.FrameLayout title_left -> c
+    android.widget.TextView title_name -> d
+    android.widget.ImageView add_right -> e
+    android.widget.LinearLayout ll_add_game -> f
+    android.widget.ImageView main_aerobee -> g
+    android.widget.FrameLayout add_left -> h
+    android.widget.ListView list_game -> i
+    android.widget.TextView gboost_item_textview -> j
+    android.widget.GridView gboost_gridview -> k
+    com.vater.clean.junk.myview.GridViewAdAdapter gridViewAdAdapter -> q
+    java.util.ArrayList list -> r
+    android.os.Handler mHandler -> s
+    com.vater.clean.junk.shipeiqi.JiaGameAdapter whiteListAdapter -> t
+    long total -> u
+    long idle -> v
+    long lastTotalRxBytes -> w
+    java.util.List gboost_add -> x
+    java.util.List listEdit -> y
+    long lastTimeStamp -> z
+    boolean search -> A
+    int screenWidth -> B
+    android.view.View$OnClickListener clickListener -> p
+    57:275:void <init>() -> <init>
+    107:125:void findId() -> a
+    129:153:void onCreate(android.os.Bundle) -> onCreate
+    157:159:void initList() -> b
+    162:252:void addData() -> c
+    255:272:long getCup() -> d
+    336:343:long getNetWork() -> e
+    347:400:void toggleEditAnimation() -> f
+    404:405:long getTotalRxBytes() -> g
+    410:436:void onResume() -> onResume
+    440:458:void onBackPressed() -> onBackPressed
+    461:503:void shortGame(boolean) -> a
+    506:521:void initData() -> h
+    524:532:void upData(java.lang.String) -> b
+    536:537:void onDestroy() -> onDestroy
+    541:549:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    57:57:java.util.ArrayList access$000(com.vater.clean.junk.jiemian.GameActivity) -> a
+    57:57:android.os.Handler access$100(com.vater.clean.junk.jiemian.GameActivity) -> b
+    57:57:com.vater.clean.junk.myview.GridViewAdAdapter access$202(com.vater.clean.junk.jiemian.GameActivity,com.vater.clean.junk.myview.GridViewAdAdapter) -> a
+    57:57:com.vater.clean.junk.myview.GridViewAdAdapter access$200(com.vater.clean.junk.jiemian.GameActivity) -> c
+    57:57:com.vater.clean.junk.shipeiqi.JiaGameAdapter access$302(com.vater.clean.junk.jiemian.GameActivity,com.vater.clean.junk.shipeiqi.JiaGameAdapter) -> a
+    57:57:com.vater.clean.junk.shipeiqi.JiaGameAdapter access$300(com.vater.clean.junk.jiemian.GameActivity) -> d
+    57:57:void access$400(com.vater.clean.junk.jiemian.GameActivity) -> e
+    57:57:void access$500(com.vater.clean.junk.jiemian.GameActivity) -> f
+    57:57:void access$600(com.vater.clean.junk.jiemian.GameActivity,boolean) -> a
+    57:57:void access$700(com.vater.clean.junk.jiemian.GameActivity) -> g
+    57:57:boolean access$800(com.vater.clean.junk.jiemian.GameActivity) -> h
+    57:57:boolean access$802(com.vater.clean.junk.jiemian.GameActivity,boolean) -> b
+    57:57:void access$900(com.vater.clean.junk.jiemian.GameActivity,java.lang.String) -> a
+    57:57:long access$1000(com.vater.clean.junk.jiemian.GameActivity) -> i
+    57:57:long access$1100(com.vater.clean.junk.jiemian.GameActivity) -> j
 com.vater.clean.junk.jiemian.GameActivity$1 -> com.vater.clean.junk.jiemian.GameActivity$1:
     com.vater.clean.junk.jiemian.GameActivity this$0 -> a
-    80:80:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
-    83:90:void handleMessage(android.os.Message) -> handleMessage
+    82:82:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    85:92:void handleMessage(android.os.Message) -> handleMessage
 com.vater.clean.junk.jiemian.GameActivity$2 -> com.vater.clean.junk.jiemian.GameActivity$2:
     com.vater.clean.junk.jiemian.GameActivity this$0 -> a
-    165:165:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
-    168:225:void run() -> run
+    167:167:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    170:250:void run() -> run
 com.vater.clean.junk.jiemian.GameActivity$2$1 -> com.vater.clean.junk.jiemian.GameActivity$2$1:
     com.vater.clean.junk.jiemian.GameActivity$2 this$1 -> a
-    176:176:void <init>(com.vater.clean.junk.jiemian.GameActivity$2) -> <init>
-    179:223:void run() -> run
+    178:178:void <init>(com.vater.clean.junk.jiemian.GameActivity$2) -> <init>
+    181:248:void run() -> run
 com.vater.clean.junk.jiemian.GameActivity$2$1$1 -> com.vater.clean.junk.jiemian.GameActivity$2$1$1:
     com.vater.clean.junk.jiemian.GameActivity$2$1 this$2 -> a
-    194:194:void <init>(com.vater.clean.junk.jiemian.GameActivity$2$1) -> <init>
-    197:198:void onPageChange(int,int) -> a
-com.vater.clean.junk.jiemian.GameActivity$2$1$2 -> com.vater.clean.junk.jiemian.GameActivity$2$1$2:
-    com.vater.clean.junk.jiemian.GameActivity$2$1 this$2 -> a
-    200:200:void <init>(com.vater.clean.junk.jiemian.GameActivity$2$1) -> <init>
-    203:220:void onClick(java.lang.Object,int) -> a
+    204:204:void <init>(com.vater.clean.junk.jiemian.GameActivity$2$1) -> <init>
+    207:223:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.vater.clean.junk.jiemian.GameActivity$3 -> com.vater.clean.junk.jiemian.GameActivity$3:
     com.vater.clean.junk.jiemian.GameActivity this$0 -> a
-    253:253:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
-    256:308:void onClick(android.view.View) -> onClick
-com.vater.clean.junk.jiemian.GameActivity$3$1 -> com.vater.clean.junk.jiemian.GameActivity$3$1:
-    com.vater.clean.junk.jiemian.GameActivity$3 this$1 -> a
-    293:293:void <init>(com.vater.clean.junk.jiemian.GameActivity$3) -> <init>
-    296:298:void run() -> run
+    275:275:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    278:331:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.GameActivity$4 -> com.vater.clean.junk.jiemian.GameActivity$4:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.vater.clean.junk.jiemian.GameActivity this$0 -> d
-    344:344:void <init>(com.vater.clean.junk.jiemian.GameActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    347:375:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    367:367:void <init>(com.vater.clean.junk.jiemian.GameActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    370:397:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.vater.clean.junk.jiemian.GameActivity$4$1 -> com.vater.clean.junk.jiemian.GameActivity$4$1:
     com.vater.clean.junk.jiemian.GameActivity$4 this$1 -> a
-    355:355:void <init>(com.vater.clean.junk.jiemian.GameActivity$4) -> <init>
-    358:359:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    364:364:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    369:369:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    378:378:void <init>(com.vater.clean.junk.jiemian.GameActivity$4) -> <init>
+    381:382:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    387:387:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    392:392:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.vater.clean.junk.jiemian.GameActivity$5 -> com.vater.clean.junk.jiemian.GameActivity$5:
     com.vater.clean.junk.jiemian.GameActivity this$0 -> a
-    389:389:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
-    392:412:void run() -> run
+    411:411:void <init>(com.vater.clean.junk.jiemian.GameActivity) -> <init>
+    414:434:void run() -> run
 com.vater.clean.junk.jiemian.GameActivity$5$1 -> com.vater.clean.junk.jiemian.GameActivity$5$1:
-    int val$cup -> a
-    int val$speed -> b
-    long val$size -> c
-    com.vater.clean.junk.jiemian.GameActivity$5 this$1 -> d
-    398:398:void <init>(com.vater.clean.junk.jiemian.GameActivity$5,int,int,long) -> <init>
-    401:404:void run() -> run
+    com.vater.clean.junk.jiemian.GameActivity$5 this$1 -> a
+    420:420:void <init>(com.vater.clean.junk.jiemian.GameActivity$5) -> <init>
+    426:426:void run() -> run
 com.vater.clean.junk.jiemian.IgnoreAddActivity -> com.vater.clean.junk.jiemian.IgnoreAddActivity:
     android.widget.EditText search_edit_text -> a
     android.widget.TextView title_name -> b
@@ -36629,7 +36625,7 @@ com.vater.clean.junk.jiemian.LogActivity -> com.vater.clean.junk.jiemian.LogActi
     android.widget.TextView junk_unload_size -> B
     android.widget.TextView junk_log_size -> C
     android.widget.TextView junk_user_size -> D
-    android.widget.Button junk_button_clean -> E
+    android.widget.ImageView junk_button_clean -> E
     com.vater.clean.junk.myview.MyScrollView junk_scroll -> F
     android.widget.ListView junk_list_all -> G
     com.vater.clean.junk.presenter.LogPresenter junkPresenter -> J
@@ -36643,144 +36639,144 @@ com.vater.clean.junk.jiemian.LogActivity -> com.vater.clean.junk.jiemian.LogActi
     boolean color2 -> R
     android.os.Handler myHandler -> H
     android.view.View$OnClickListener onClickListener -> I
-    39:530:void <init>() -> <init>
-    63:93:void findId() -> a
-    97:103:void onCreate(android.os.Bundle) -> onCreate
-    108:108:void loadFullAd() -> b
-    113:132:void initData(long) -> a
-    137:195:void setColor(long) -> b
-    199:206:void onClick() -> c
-    210:246:void addSystemdata(long,java.util.List) -> a
-    250:281:void addApkdata(long,java.util.List) -> b
-    285:316:void addUnloaddata(long,java.util.List) -> c
-    320:351:void addLogdata(long,java.util.List) -> d
-    355:387:void addUserdata(long,java.util.List) -> e
-    391:392:void setUnit(long,android.widget.TextView) -> a
-    396:432:void setCleanDAta(boolean,long) -> a
-    436:519:void cleanAnimation(boolean,java.util.List,long) -> a
-    522:528:void startCleanAnimation(android.view.View) -> startCleanAnimation
-    622:626:void onDestroy() -> onDestroy
-    630:632:void onResume() -> onResume
-    636:640:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    644:646:void onBackPressed() -> onBackPressed
-    39:39:com.vater.clean.junk.presenter.LogPresenter access$000(com.vater.clean.junk.jiemian.LogActivity) -> a
-    39:39:com.vater.clean.junk.shipeiqi.Log access$100(com.vater.clean.junk.jiemian.LogActivity) -> b
-    39:39:com.vater.clean.junk.shipeiqi.Log access$200(com.vater.clean.junk.jiemian.LogActivity) -> c
-    39:39:com.vater.clean.junk.shipeiqi.Log access$300(com.vater.clean.junk.jiemian.LogActivity) -> d
-    39:39:com.vater.clean.junk.shipeiqi.Log access$400(com.vater.clean.junk.jiemian.LogActivity) -> e
-    39:39:com.vater.clean.junk.shipeiqi.Log access$500(com.vater.clean.junk.jiemian.LogActivity) -> f
-    39:39:com.vater.clean.junk.shipeiqi.Log access$600(com.vater.clean.junk.jiemian.LogActivity) -> g
+    38:529:void <init>() -> <init>
+    62:92:void findId() -> a
+    96:102:void onCreate(android.os.Bundle) -> onCreate
+    107:107:void loadFullAd() -> b
+    112:131:void initData(long) -> a
+    136:194:void setColor(long) -> b
+    198:205:void onClick() -> c
+    209:245:void addSystemdata(long,java.util.List) -> a
+    249:280:void addApkdata(long,java.util.List) -> b
+    284:315:void addUnloaddata(long,java.util.List) -> c
+    319:350:void addLogdata(long,java.util.List) -> d
+    354:386:void addUserdata(long,java.util.List) -> e
+    390:391:void setUnit(long,android.widget.TextView) -> a
+    395:431:void setCleanDAta(boolean,long) -> a
+    435:518:void cleanAnimation(boolean,java.util.List,long) -> a
+    521:527:void startCleanAnimation(android.view.View) -> startCleanAnimation
+    621:625:void onDestroy() -> onDestroy
+    629:631:void onResume() -> onResume
+    635:639:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    643:645:void onBackPressed() -> onBackPressed
+    38:38:com.vater.clean.junk.presenter.LogPresenter access$000(com.vater.clean.junk.jiemian.LogActivity) -> a
+    38:38:com.vater.clean.junk.shipeiqi.Log access$100(com.vater.clean.junk.jiemian.LogActivity) -> b
+    38:38:com.vater.clean.junk.shipeiqi.Log access$200(com.vater.clean.junk.jiemian.LogActivity) -> c
+    38:38:com.vater.clean.junk.shipeiqi.Log access$300(com.vater.clean.junk.jiemian.LogActivity) -> d
+    38:38:com.vater.clean.junk.shipeiqi.Log access$400(com.vater.clean.junk.jiemian.LogActivity) -> e
+    38:38:com.vater.clean.junk.shipeiqi.Log access$500(com.vater.clean.junk.jiemian.LogActivity) -> f
+    38:38:com.vater.clean.junk.shipeiqi.Log access$600(com.vater.clean.junk.jiemian.LogActivity) -> g
 com.vater.clean.junk.jiemian.LogActivity$1 -> com.vater.clean.junk.jiemian.LogActivity$1:
     long val$allSize -> a
     com.vater.clean.junk.jiemian.LogActivity this$0 -> b
-    137:137:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
-    140:171:void run() -> run
+    136:136:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
+    139:170:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$1$1 -> com.vater.clean.junk.jiemian.LogActivity$1$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.LogActivity$1 this$1 -> b
-    155:155:void <init>(com.vater.clean.junk.jiemian.LogActivity$1,long) -> <init>
-    158:160:void run() -> run
+    154:154:void <init>(com.vater.clean.junk.jiemian.LogActivity$1,long) -> <init>
+    157:159:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$1$2 -> com.vater.clean.junk.jiemian.LogActivity$1$2:
     com.vater.clean.junk.jiemian.LogActivity$1 this$1 -> a
-    163:163:void <init>(com.vater.clean.junk.jiemian.LogActivity$1) -> <init>
-    166:169:void run() -> run
+    162:162:void <init>(com.vater.clean.junk.jiemian.LogActivity$1) -> <init>
+    165:168:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$10 -> com.vater.clean.junk.jiemian.LogActivity$2:
     com.vater.clean.junk.jiemian.LogActivity this$0 -> a
-    486:486:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
-    489:490:void run() -> run
+    485:485:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
+    488:489:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$11 -> com.vater.clean.junk.jiemian.LogActivity$3:
     com.vater.clean.junk.jiemian.LogActivity this$0 -> a
-    492:492:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
-    495:496:void run() -> run
+    491:491:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
+    494:495:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$12 -> com.vater.clean.junk.jiemian.LogActivity$4:
     com.vater.clean.junk.jiemian.LogActivity this$0 -> a
-    498:498:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
-    501:502:void run() -> run
+    497:497:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
+    500:501:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$13 -> com.vater.clean.junk.jiemian.LogActivity$5:
     com.vater.clean.junk.jiemian.LogActivity this$0 -> a
-    504:504:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
-    507:508:void run() -> run
+    503:503:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
+    506:507:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$14 -> com.vater.clean.junk.jiemian.LogActivity$6:
     android.os.Bundle val$bundle -> a
     com.vater.clean.junk.jiemian.LogActivity this$0 -> b
-    510:510:void <init>(com.vater.clean.junk.jiemian.LogActivity,android.os.Bundle) -> <init>
-    513:514:void run() -> run
+    509:509:void <init>(com.vater.clean.junk.jiemian.LogActivity,android.os.Bundle) -> <init>
+    512:513:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$15 -> com.vater.clean.junk.jiemian.LogActivity$7:
     com.vater.clean.junk.jiemian.LogActivity this$0 -> a
-    530:530:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
-    533:617:void onClick(android.view.View) -> onClick
+    529:529:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
+    532:616:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.LogActivity$2 -> com.vater.clean.junk.jiemian.LogActivity$8:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogActivity this$0 -> b
-    218:218:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
-    221:244:void run() -> run
+    217:217:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
+    220:243:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$2$1 -> com.vater.clean.junk.jiemian.LogActivity$8$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.LogActivity$2 this$1 -> b
-    237:237:void <init>(com.vater.clean.junk.jiemian.LogActivity$2,long) -> <init>
-    240:241:void run() -> run
+    236:236:void <init>(com.vater.clean.junk.jiemian.LogActivity$2,long) -> <init>
+    239:240:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$3 -> com.vater.clean.junk.jiemian.LogActivity$9:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogActivity this$0 -> b
-    254:254:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
-    257:279:void run() -> run
+    253:253:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
+    256:278:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$3$1 -> com.vater.clean.junk.jiemian.LogActivity$9$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.LogActivity$3 this$1 -> b
-    272:272:void <init>(com.vater.clean.junk.jiemian.LogActivity$3,long) -> <init>
-    275:276:void run() -> run
+    271:271:void <init>(com.vater.clean.junk.jiemian.LogActivity$3,long) -> <init>
+    274:275:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$4 -> com.vater.clean.junk.jiemian.LogActivity$10:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogActivity this$0 -> b
-    289:289:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
-    292:314:void run() -> run
+    288:288:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
+    291:313:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$4$1 -> com.vater.clean.junk.jiemian.LogActivity$10$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.LogActivity$4 this$1 -> b
-    307:307:void <init>(com.vater.clean.junk.jiemian.LogActivity$4,long) -> <init>
-    310:311:void run() -> run
+    306:306:void <init>(com.vater.clean.junk.jiemian.LogActivity$4,long) -> <init>
+    309:310:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$5 -> com.vater.clean.junk.jiemian.LogActivity$11:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogActivity this$0 -> b
-    324:324:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
-    327:349:void run() -> run
+    323:323:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
+    326:348:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$5$1 -> com.vater.clean.junk.jiemian.LogActivity$11$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.LogActivity$5 this$1 -> b
-    342:342:void <init>(com.vater.clean.junk.jiemian.LogActivity$5,long) -> <init>
-    345:346:void run() -> run
+    341:341:void <init>(com.vater.clean.junk.jiemian.LogActivity$5,long) -> <init>
+    344:345:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$6 -> com.vater.clean.junk.jiemian.LogActivity$12:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogActivity this$0 -> b
-    359:359:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
-    362:384:void run() -> run
+    358:358:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
+    361:383:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$6$1 -> com.vater.clean.junk.jiemian.LogActivity$12$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.LogActivity$6 this$1 -> b
-    377:377:void <init>(com.vater.clean.junk.jiemian.LogActivity$6,long) -> <init>
-    380:381:void run() -> run
+    376:376:void <init>(com.vater.clean.junk.jiemian.LogActivity$6,long) -> <init>
+    379:380:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$7 -> com.vater.clean.junk.jiemian.LogActivity$13:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogActivity this$0 -> b
-    397:397:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
-    400:424:void run() -> run
+    396:396:void <init>(com.vater.clean.junk.jiemian.LogActivity,long) -> <init>
+    399:423:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$8 -> com.vater.clean.junk.jiemian.LogActivity$14:
     android.os.Bundle val$bundle -> a
     com.vater.clean.junk.jiemian.LogActivity this$0 -> b
-    444:444:void <init>(com.vater.clean.junk.jiemian.LogActivity,android.os.Bundle) -> <init>
-    447:476:void run() -> run
+    443:443:void <init>(com.vater.clean.junk.jiemian.LogActivity,android.os.Bundle) -> <init>
+    446:475:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$8$1 -> com.vater.clean.junk.jiemian.LogActivity$14$1:
     com.vater.clean.junk.jiemian.LogActivity$8 this$1 -> a
-    461:461:void <init>(com.vater.clean.junk.jiemian.LogActivity$8) -> <init>
-    463:467:void run() -> run
+    460:460:void <init>(com.vater.clean.junk.jiemian.LogActivity$8) -> <init>
+    462:466:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$8$2 -> com.vater.clean.junk.jiemian.LogActivity$14$2:
     com.vater.clean.junk.jiemian.LogActivity$8 this$1 -> a
-    470:470:void <init>(com.vater.clean.junk.jiemian.LogActivity$8) -> <init>
-    473:474:void run() -> run
+    469:469:void <init>(com.vater.clean.junk.jiemian.LogActivity$8) -> <init>
+    472:473:void run() -> run
 com.vater.clean.junk.jiemian.LogActivity$9 -> com.vater.clean.junk.jiemian.LogActivity$15:
     com.vater.clean.junk.jiemian.LogActivity this$0 -> a
-    480:480:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
-    483:484:void run() -> run
+    479:479:void <init>(com.vater.clean.junk.jiemian.LogActivity) -> <init>
+    482:483:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity -> com.vater.clean.junk.jiemian.LogAndRamActivity:
     android.widget.LinearLayout junk_title_backg -> a
     android.widget.TextView junk_size_all -> b
@@ -36812,7 +36808,7 @@ com.vater.clean.junk.jiemian.LogAndRamActivity -> com.vater.clean.junk.jiemian.L
     android.widget.ImageView junk_log_jiantou -> F
     android.widget.ImageView junk_user_jiantou -> G
     android.widget.ImageView junk_ram_jiantou -> H
-    android.widget.Button junk_button_clean -> I
+    android.widget.ImageView junk_button_clean -> I
     com.vater.clean.junk.myview.MyScrollView junk_scroll -> J
     android.widget.ListView junk_list_all -> K
     com.vater.clean.junk.shipeiqi.JunkRamAdapter adapterSystem -> N
@@ -36827,91 +36823,91 @@ com.vater.clean.junk.jiemian.LogAndRamActivity -> com.vater.clean.junk.jiemian.L
     android.os.Handler myHandler -> L
     boolean color1 -> W
     android.view.View$OnClickListener onClickListener -> M
-    40:578:void <init>() -> <init>
-    64:98:void findId() -> a
-    102:108:void onCreate(android.os.Bundle) -> onCreate
-    112:112:void loadFullAd() -> b
-    116:125:void onClick() -> c
-    130:187:void setColor(long) -> b
-    191:226:void addSystemdata(long,java.util.List) -> a
+    39:579:void <init>() -> <init>
+    63:97:void findId() -> a
+    101:107:void onCreate(android.os.Bundle) -> onCreate
+    111:111:void loadFullAd() -> b
+    115:124:void onClick() -> c
+    129:186:void setColor(long) -> b
+    190:225:void addSystemdata(long,java.util.List) -> a
     229:251:void initData(long) -> a
     255:286:void addApkdata(long,java.util.List) -> b
     291:322:void addLogdata(long,java.util.List) -> d
     326:358:void addUserdata(long,java.util.List) -> e
     362:393:void addRamdata(long,java.util.List) -> f
     397:398:void setUnit(long,android.widget.TextView) -> a
-    401:432:void addUnloaddata(long,java.util.List) -> c
-    436:472:void setCleanDAta(boolean,long) -> a
-    476:566:void cleanAnimation(boolean,java.util.List,long) -> a
-    569:575:void startCleanAnimation(android.view.View) -> startCleanAnimation
-    687:689:void onResume() -> onResume
-    693:697:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    701:710:void onBackPressed() -> onBackPressed
-    40:40:com.vater.clean.junk.presenter.LogRamPresenter access$000(com.vater.clean.junk.jiemian.LogAndRamActivity) -> a
-    40:40:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$100(com.vater.clean.junk.jiemian.LogAndRamActivity) -> b
-    40:40:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$200(com.vater.clean.junk.jiemian.LogAndRamActivity) -> c
-    40:40:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$300(com.vater.clean.junk.jiemian.LogAndRamActivity) -> d
-    40:40:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$400(com.vater.clean.junk.jiemian.LogAndRamActivity) -> e
-    40:40:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$500(com.vater.clean.junk.jiemian.LogAndRamActivity) -> f
-    40:40:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$600(com.vater.clean.junk.jiemian.LogAndRamActivity) -> g
-    40:40:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$700(com.vater.clean.junk.jiemian.LogAndRamActivity) -> h
+    402:433:void addUnloaddata(long,java.util.List) -> c
+    437:473:void setCleanDAta(boolean,long) -> a
+    477:567:void cleanAnimation(boolean,java.util.List,long) -> a
+    570:576:void startCleanAnimation(android.view.View) -> startCleanAnimation
+    688:690:void onResume() -> onResume
+    694:698:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    702:711:void onBackPressed() -> onBackPressed
+    39:39:com.vater.clean.junk.presenter.LogRamPresenter access$000(com.vater.clean.junk.jiemian.LogAndRamActivity) -> a
+    39:39:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$100(com.vater.clean.junk.jiemian.LogAndRamActivity) -> b
+    39:39:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$200(com.vater.clean.junk.jiemian.LogAndRamActivity) -> c
+    39:39:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$300(com.vater.clean.junk.jiemian.LogAndRamActivity) -> d
+    39:39:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$400(com.vater.clean.junk.jiemian.LogAndRamActivity) -> e
+    39:39:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$500(com.vater.clean.junk.jiemian.LogAndRamActivity) -> f
+    39:39:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$600(com.vater.clean.junk.jiemian.LogAndRamActivity) -> g
+    39:39:com.vater.clean.junk.shipeiqi.JunkRamAdapter access$700(com.vater.clean.junk.jiemian.LogAndRamActivity) -> h
 com.vater.clean.junk.jiemian.LogAndRamActivity$1 -> com.vater.clean.junk.jiemian.LogAndRamActivity$1:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> b
-    130:130:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,long) -> <init>
-    133:164:void run() -> run
+    129:129:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,long) -> <init>
+    132:163:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$1$1 -> com.vater.clean.junk.jiemian.LogAndRamActivity$1$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity$1 this$1 -> b
-    148:148:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$1,long) -> <init>
-    151:153:void run() -> run
+    147:147:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$1,long) -> <init>
+    150:152:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$1$2 -> com.vater.clean.junk.jiemian.LogAndRamActivity$1$2:
     com.vater.clean.junk.jiemian.LogAndRamActivity$1 this$1 -> a
-    156:156:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$1) -> <init>
-    159:162:void run() -> run
+    155:155:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$1) -> <init>
+    158:161:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$10 -> com.vater.clean.junk.jiemian.LogAndRamActivity$2:
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> a
-    521:521:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
-    524:525:void run() -> run
+    522:522:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
+    525:526:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$11 -> com.vater.clean.junk.jiemian.LogAndRamActivity$3:
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> a
-    527:527:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
-    530:531:void run() -> run
+    528:528:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
+    531:532:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$12 -> com.vater.clean.junk.jiemian.LogAndRamActivity$4:
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> a
-    533:533:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
-    536:537:void run() -> run
+    534:534:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
+    537:538:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$13 -> com.vater.clean.junk.jiemian.LogAndRamActivity$5:
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> a
-    539:539:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
-    542:543:void run() -> run
+    540:540:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
+    543:544:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$14 -> com.vater.clean.junk.jiemian.LogAndRamActivity$6:
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> a
-    545:545:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
-    548:549:void run() -> run
+    546:546:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
+    549:550:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$15 -> com.vater.clean.junk.jiemian.LogAndRamActivity$7:
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> a
-    551:551:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
-    554:555:void run() -> run
+    552:552:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
+    555:556:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$16 -> com.vater.clean.junk.jiemian.LogAndRamActivity$8:
     android.os.Bundle val$bundle -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> b
-    557:557:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,android.os.Bundle) -> <init>
-    560:561:void run() -> run
+    558:558:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,android.os.Bundle) -> <init>
+    561:562:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$17 -> com.vater.clean.junk.jiemian.LogAndRamActivity$9:
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> a
-    578:578:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
-    581:682:void onClick(android.view.View) -> onClick
+    579:579:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity) -> <init>
+    582:683:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.LogAndRamActivity$2 -> com.vater.clean.junk.jiemian.LogAndRamActivity$10:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> b
-    199:199:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,long) -> <init>
-    202:224:void run() -> run
+    198:198:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,long) -> <init>
+    201:223:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$2$1 -> com.vater.clean.junk.jiemian.LogAndRamActivity$10$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity$2 this$1 -> b
-    217:217:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$2,long) -> <init>
-    220:221:void run() -> run
+    216:216:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$2,long) -> <init>
+    219:220:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$3 -> com.vater.clean.junk.jiemian.LogAndRamActivity$11:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> b
@@ -36955,177 +36951,218 @@ com.vater.clean.junk.jiemian.LogAndRamActivity$6$1 -> com.vater.clean.junk.jiemi
 com.vater.clean.junk.jiemian.LogAndRamActivity$7 -> com.vater.clean.junk.jiemian.LogAndRamActivity$15:
     long val$size -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> b
-    405:405:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,long) -> <init>
-    408:430:void run() -> run
+    406:406:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,long) -> <init>
+    409:431:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$7$1 -> com.vater.clean.junk.jiemian.LogAndRamActivity$15$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity$7 this$1 -> b
-    423:423:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$7,long) -> <init>
-    426:427:void run() -> run
+    424:424:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$7,long) -> <init>
+    427:428:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$8 -> com.vater.clean.junk.jiemian.LogAndRamActivity$16:
     long val$cleanSize -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> b
-    437:437:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,long) -> <init>
-    440:464:void run() -> run
+    438:438:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,long) -> <init>
+    441:465:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$9 -> com.vater.clean.junk.jiemian.LogAndRamActivity$17:
     android.os.Bundle val$bundle -> a
     com.vater.clean.junk.jiemian.LogAndRamActivity this$0 -> b
-    484:484:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,android.os.Bundle) -> <init>
-    487:517:void run() -> run
+    485:485:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity,android.os.Bundle) -> <init>
+    488:518:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$9$1 -> com.vater.clean.junk.jiemian.LogAndRamActivity$17$1:
     com.vater.clean.junk.jiemian.LogAndRamActivity$9 this$1 -> a
-    501:501:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$9) -> <init>
-    503:507:void run() -> run
+    502:502:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$9) -> <init>
+    504:508:void run() -> run
 com.vater.clean.junk.jiemian.LogAndRamActivity$9$2 -> com.vater.clean.junk.jiemian.LogAndRamActivity$17$2:
     com.vater.clean.junk.jiemian.LogAndRamActivity$9 this$1 -> a
-    510:510:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$9) -> <init>
-    514:515:void run() -> run
+    511:511:void <init>(com.vater.clean.junk.jiemian.LogAndRamActivity$9) -> <init>
+    515:516:void run() -> run
 com.vater.clean.junk.jiemian.MainActivity -> com.vater.clean.junk.jiemian.MainActivity:
-    android.widget.RelativeLayout main_junk_button -> a
-    android.widget.RelativeLayout main_ram_button -> b
-    android.widget.RelativeLayout main_cooling_button -> c
-    android.widget.LinearLayout main_manager_button -> d
-    android.widget.LinearLayout main_applock_button -> e
-    android.widget.LinearLayout main_theme_button -> f
-    android.widget.LinearLayout main_rotate_all -> g
-    android.widget.TextView main_rotate_good -> h
-    android.widget.TextView main_rotate_bad -> i
-    android.widget.ImageView rotate_cha -> j
-    android.widget.LinearLayout main_msg_button -> k
-    com.vater.clean.junk.myview.MyScrollView main_scroll_view -> p
-    com.vater.clean.junk.myview.PullToRefreshLayout main_pull_refresh -> q
-    android.widget.ImageView iv_title_right -> r
-    android.widget.ImageView iv_title_left -> s
-    android.widget.LinearLayout main_power_button -> t
-    android.widget.LinearLayout main_notifi_button -> u
-    android.widget.LinearLayout main_file_button -> v
-    android.widget.LinearLayout main_gboost_button -> w
-    android.widget.LinearLayout main_picture_button -> x
-    com.mingle.widget.LinearLayout ll_ad_full -> y
-    android.widget.ProgressBar ad_progressbar -> z
-    android.widget.LinearLayout main_battery -> A
-    android.widget.RelativeLayout main_all_cercle -> B
-    android.widget.RelativeLayout main_title -> C
-    android.widget.ImageView lot_ad -> D
-    com.vater.clean.junk.myview.ListViewForScrollView side_listView -> E
-    android.support.v4.widget.DrawerLayout main_drawer -> F
-    android.widget.LinearLayout ll_ad -> G
-    android.widget.LinearLayout ll_ad_side -> H
-    android.widget.LinearLayout ad_native_2 -> I
-    android.widget.LinearLayout ll_ad_s -> J
-    com.vater.clean.junk.myview.MainWaterView main_water -> K
-    com.vater.clean.junk.myview.MainRoundView main_dian -> L
-    android.widget.TextView main_fenshu -> M
-    java.lang.String TAG_START_FULL -> Q
-    java.lang.String TAG_EXIT_FULL -> R
-    java.lang.String TAG_FULL_PULL -> S
-    java.lang.String TAG_MAIN -> T
-    java.lang.String TAG_SIDE -> U
-    java.lang.String TAG_REFRESH -> V
-    android.os.Handler handler -> W
-    com.vater.clean.junk.presenter.MainPresenter mainPresenter -> X
-    com.vater.clean.junk.shipeiqi.CSideAdapter adapter -> Y
-    int temp -> Z
-    android.support.v7.app.AlertDialog dialog -> aa
-    java.lang.Runnable fullAdRunnale -> N
-    com.vater.clean.junk.myview.PullToRefreshLayout$OnRefreshListener refreshListener -> O
-    android.view.View$OnClickListener onClickListener -> P
-    53:445:void <init>() -> <init>
-    103:144:void findId() -> a
-    148:160:void onCreate(android.os.Bundle) -> onCreate
-    166:188:void onClick() -> c
-    192:194:void initCpu(int) -> b
-    201:220:void initSideData() -> d
-    224:256:void initQiu(int,boolean) -> a
-    259:264:void setColorAnimation(android.view.View,int,int) -> a
-    267:296:void setColor(int,boolean) -> b
-    300:371:void loadFullAd() -> b
-    375:376:void setRotateGone() -> e
-    380:381:void openDrawer() -> f
-    605:629:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    633:636:void onRestart() -> onRestart
-    640:642:void onPause() -> onPause
-    646:650:void onResume() -> onResume
-    654:658:void onDestroy() -> onDestroy
-    661:679:void onBackPressed() -> onBackPressed
-    685:685:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    688:710:void adDelete() -> g
-    714:763:void showExitDialog() -> h
-    767:768:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    772:773:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    778:778:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    53:53:void access$000(com.vater.clean.junk.jiemian.MainActivity) -> a
-    53:53:java.lang.String access$100(com.vater.clean.junk.jiemian.MainActivity) -> b
-    53:53:com.vater.clean.junk.presenter.MainPresenter access$200(com.vater.clean.junk.jiemian.MainActivity) -> c
-    53:53:int access$300(com.vater.clean.junk.jiemian.MainActivity) -> d
-    53:53:java.lang.String access$400(com.vater.clean.junk.jiemian.MainActivity) -> e
-    53:53:com.vater.clean.junk.shipeiqi.CSideAdapter access$500(com.vater.clean.junk.jiemian.MainActivity) -> f
-    53:53:android.support.v7.app.AlertDialog access$600(com.vater.clean.junk.jiemian.MainActivity) -> g
+    com.vater.clean.junk.myview.CustomRoundCpu main_custom_cpu -> a
+    com.vater.clean.junk.myview.CustomRoundCpu main_custom_ram -> b
+    com.vater.clean.junk.myview.CustomRoundCpu main_custom_sd -> c
+    android.widget.RelativeLayout main_junk_button -> d
+    android.widget.RelativeLayout main_ram_button -> e
+    android.widget.RelativeLayout main_cooling_button -> f
+    android.widget.LinearLayout main_manager_button -> g
+    android.widget.LinearLayout main_rotate_all -> h
+    android.widget.TextView main_junk_h -> i
+    android.widget.TextView main_rotate_good -> j
+    android.widget.TextView main_rotate_bad -> k
+    android.widget.ImageView main_rotate_close -> p
+    android.widget.LinearLayout main_msg_button -> q
+    com.vater.clean.junk.myview.MyScrollView main_scroll_view -> r
+    com.vater.clean.junk.myview.PullToRefreshLayout main_pull_refresh -> s
+    android.widget.ImageView iv_title_right -> t
+    android.widget.ImageView iv_title_left -> u
+    java.lang.String junkSize -> v
+    java.lang.String junkSize1 -> w
+    android.widget.LinearLayout main_power_button -> x
+    android.widget.TextView main_msg_ram_percent -> y
+    android.widget.TextView main_msg_sd_percent -> z
+    android.widget.TextView main_msg_cpu_percent -> A
+    java.util.ArrayList startList -> af
+    android.widget.LinearLayout main_junk_button2 -> B
+    android.widget.LinearLayout main_cooling_button2 -> C
+    com.mingle.widget.LinearLayout ll_ad_full -> D
+    android.widget.ProgressBar ad_progressbar -> E
+    android.widget.LinearLayout main_battery -> F
+    android.widget.RelativeLayout main_all_cercle -> G
+    android.widget.RelativeLayout main_title -> H
+    android.widget.RelativeLayout main_wave -> I
+    android.widget.ImageView lot_ad -> J
+    com.vater.clean.junk.myview.ListViewForScrollView side_listView -> K
+    android.support.v4.widget.DrawerLayout main_drawer -> L
+    android.widget.LinearLayout ll_ad -> M
+    android.widget.LinearLayout ll_ad_side -> N
+    android.widget.LinearLayout ad_native_2 -> O
+    android.widget.LinearLayout ll_ad_s -> P
+    com.vater.clean.junk.myview.MainWaterView main_water -> Q
+    com.vater.clean.junk.myview.MainRoundView main_dian -> R
+    android.widget.TextView main_fenshu -> S
+    com.vater.clean.junk.myview.VirtuaRingView virtuaRingView -> T
+    android.widget.ImageView main_pointer -> U
+    com.vater.clean.junk.myview.CircleView main_circleview -> V
+    android.widget.TextView power_size -> W
+    android.widget.ImageView main_aerobee -> X
+    java.lang.String TAG_START_FULL -> ag
+    java.lang.String TAG_EXIT_FULL -> ah
+    java.lang.String TAG_FULL_PULL -> ai
+    java.lang.String TAG_MAIN -> aj
+    java.lang.String TAG_SIDE -> ak
+    java.lang.String TAG_REFRESH -> al
+    android.os.Handler handler -> am
+    com.vater.clean.junk.presenter.MainPresenter mainPresenter -> an
+    com.vater.clean.junk.shipeiqi.CSideAdapter adapter -> ao
+    int temp -> ap
+    android.support.v7.app.AlertDialog dialog -> aq
+    android.animation.ObjectAnimator animator -> Y
+    android.animation.ObjectAnimator animator1 -> Z
+    android.animation.ObjectAnimator animator2 -> aa
+    android.animation.AnimatorSet animatorSet -> ab
+    java.lang.Runnable fullAdRunnale -> ac
+    com.vater.clean.junk.myview.PullToRefreshLayout$OnRefreshListener refreshListener -> ad
+    android.view.View$OnClickListener onClickListener -> ae
+    61:559:void <init>() -> <init>
+    124:176:void findId() -> a
+    180:195:void onCreate(android.os.Bundle) -> onCreate
+    201:223:void onClick() -> c
+    227:241:void initCpu(int) -> b
+    248:265:void initSideData() -> d
+    269:317:void initQiu(int,boolean) -> a
+    328:361:void setColor(int,boolean) -> b
+    365:436:void loadFullAd() -> b
+    440:441:void setRotateGone() -> e
+    445:446:void openDrawer() -> f
+    501:529:void initSd(int,java.lang.String,long) -> a
+    533:547:void initRam(int,java.lang.String) -> a
+    729:754:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    758:761:void onRestart() -> onRestart
+    765:767:void onPause() -> onPause
+    771:780:void onResume() -> onResume
+    783:789:void initData() -> g
+    793:797:void onDestroy() -> onDestroy
+    800:818:void onBackPressed() -> onBackPressed
+    824:824:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    827:849:void adDelete() -> h
+    853:902:void showExitDialog() -> i
+    906:907:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    911:912:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    917:917:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    61:61:void access$000(com.vater.clean.junk.jiemian.MainActivity) -> a
+    61:61:java.lang.String access$100(com.vater.clean.junk.jiemian.MainActivity) -> b
+    61:61:com.vater.clean.junk.presenter.MainPresenter access$200(com.vater.clean.junk.jiemian.MainActivity) -> c
+    61:61:int access$300(com.vater.clean.junk.jiemian.MainActivity) -> d
+    61:61:java.lang.String access$400(com.vater.clean.junk.jiemian.MainActivity) -> e
+    61:61:com.vater.clean.junk.shipeiqi.CSideAdapter access$500(com.vater.clean.junk.jiemian.MainActivity) -> f
+    61:61:android.support.v7.app.AlertDialog access$600(com.vater.clean.junk.jiemian.MainActivity) -> g
 com.vater.clean.junk.jiemian.MainActivity$1 -> com.vater.clean.junk.jiemian.MainActivity$1:
-    int val$fenshu -> a
-    com.vater.clean.junk.jiemian.MainActivity this$0 -> b
-    228:228:void <init>(com.vater.clean.junk.jiemian.MainActivity,int) -> <init>
-    232:232:void success() -> a
-    236:244:void update(int) -> a
+    com.vater.clean.junk.jiemian.MainActivity this$0 -> a
+    229:229:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
+    232:239:void progressUpdate(int) -> a
 com.vater.clean.junk.jiemian.MainActivity$1$1 -> com.vater.clean.junk.jiemian.MainActivity$1$1:
-    com.vater.clean.junk.jiemian.MainActivity$1 this$1 -> a
-    238:238:void <init>(com.vater.clean.junk.jiemian.MainActivity$1) -> <init>
-    241:242:void run() -> run
-com.vater.clean.junk.jiemian.MainActivity$2 -> com.vater.clean.junk.jiemian.MainActivity$2:
+    int val$progress -> a
+    com.vater.clean.junk.jiemian.MainActivity$1 this$1 -> b
+    232:232:void <init>(com.vater.clean.junk.jiemian.MainActivity$1,int) -> <init>
+    236:237:void run() -> run
+com.vater.clean.junk.jiemian.MainActivity$10 -> com.vater.clean.junk.jiemian.MainActivity$2:
+    com.vater.clean.junk.jiemian.MainActivity this$0 -> a
+    839:839:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
+    842:844:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
+com.vater.clean.junk.jiemian.MainActivity$11 -> com.vater.clean.junk.jiemian.MainActivity$3:
+    com.vater.clean.junk.jiemian.MainActivity this$0 -> a
+    864:864:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
+    867:869:void onClick(android.view.View) -> onClick
+com.vater.clean.junk.jiemian.MainActivity$12 -> com.vater.clean.junk.jiemian.MainActivity$4:
+    com.vater.clean.junk.jiemian.MainActivity this$0 -> a
+    871:871:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
+    874:875:void onClick(android.view.View) -> onClick
+com.vater.clean.junk.jiemian.MainActivity$2 -> com.vater.clean.junk.jiemian.MainActivity$5:
     int val$fenshu -> a
     com.vater.clean.junk.jiemian.MainActivity this$0 -> b
-    249:249:void <init>(com.vater.clean.junk.jiemian.MainActivity,int) -> <init>
-    252:253:void run() -> run
-com.vater.clean.junk.jiemian.MainActivity$3 -> com.vater.clean.junk.jiemian.MainActivity$3:
+    273:273:void <init>(com.vater.clean.junk.jiemian.MainActivity,int) -> <init>
+    277:277:void success() -> a
+    281:297:void update(int) -> a
+com.vater.clean.junk.jiemian.MainActivity$2$1 -> com.vater.clean.junk.jiemian.MainActivity$5$1:
+    com.vater.clean.junk.jiemian.MainActivity$2 this$1 -> a
+    283:283:void <init>(com.vater.clean.junk.jiemian.MainActivity$2) -> <init>
+    286:295:void run() -> run
+com.vater.clean.junk.jiemian.MainActivity$3 -> com.vater.clean.junk.jiemian.MainActivity$6:
+    int val$fenshu -> a
+    com.vater.clean.junk.jiemian.MainActivity this$0 -> b
+    302:302:void <init>(com.vater.clean.junk.jiemian.MainActivity,int) -> <init>
+    305:314:void run() -> run
+com.vater.clean.junk.jiemian.MainActivity$4 -> com.vater.clean.junk.jiemian.MainActivity$7:
     android.view.animation.Animation val$animation -> a
     com.vater.clean.junk.jiemian.MainActivity this$0 -> b
-    315:315:void <init>(com.vater.clean.junk.jiemian.MainActivity,android.view.animation.Animation) -> <init>
-    318:319:void run() -> run
-com.vater.clean.junk.jiemian.MainActivity$4 -> com.vater.clean.junk.jiemian.MainActivity$4:
+    380:380:void <init>(com.vater.clean.junk.jiemian.MainActivity,android.view.animation.Animation) -> <init>
+    383:384:void run() -> run
+com.vater.clean.junk.jiemian.MainActivity$5 -> com.vater.clean.junk.jiemian.MainActivity$8:
     com.vater.clean.junk.jiemian.MainActivity this$0 -> a
-    391:391:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
-    394:395:void run() -> run
-com.vater.clean.junk.jiemian.MainActivity$5 -> com.vater.clean.junk.jiemian.MainActivity$5:
+    456:456:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
+    459:460:void run() -> run
+com.vater.clean.junk.jiemian.MainActivity$6 -> com.vater.clean.junk.jiemian.MainActivity$9:
     com.vater.clean.junk.jiemian.MainActivity this$0 -> a
-    399:399:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
-    403:403:void onRefresh(com.vater.clean.junk.myview.PullToRefreshLayout) -> a
-    408:431:void onLoadMore(com.vater.clean.junk.myview.PullToRefreshLayout) -> b
-com.vater.clean.junk.jiemian.MainActivity$5$1 -> com.vater.clean.junk.jiemian.MainActivity$5$1:
-    com.vater.clean.junk.jiemian.MainActivity$5 this$1 -> a
-    409:409:void <init>(com.vater.clean.junk.jiemian.MainActivity$5) -> <init>
-    412:424:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    428:429:void onNativeAdLoadFails() -> onNativeAdLoadFails
-com.vater.clean.junk.jiemian.MainActivity$6 -> com.vater.clean.junk.jiemian.MainActivity$6:
-    com.vater.clean.junk.jiemian.MainActivity this$0 -> a
-    445:445:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
-    449:600:void onClick(android.view.View) -> onClick
-com.vater.clean.junk.jiemian.MainActivity$6$1 -> com.vater.clean.junk.jiemian.MainActivity$6$1:
+    464:464:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
+    468:468:void onRefresh(com.vater.clean.junk.myview.PullToRefreshLayout) -> a
+    473:496:void onLoadMore(com.vater.clean.junk.myview.PullToRefreshLayout) -> b
+com.vater.clean.junk.jiemian.MainActivity$6$1 -> com.vater.clean.junk.jiemian.MainActivity$9$1:
     com.vater.clean.junk.jiemian.MainActivity$6 this$1 -> a
-    501:501:void <init>(com.vater.clean.junk.jiemian.MainActivity$6) -> <init>
-    504:527:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    532:532:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    537:537:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.vater.clean.junk.jiemian.MainActivity$6$1$1 -> com.vater.clean.junk.jiemian.MainActivity$6$1$1:
-    com.vater.clean.junk.jiemian.MainActivity$6$1 this$2 -> a
-    504:504:void <init>(com.vater.clean.junk.jiemian.MainActivity$6$1) -> <init>
-    507:518:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
-    522:525:void onNativeAdLoadFails() -> onNativeAdLoadFails
-com.vater.clean.junk.jiemian.MainActivity$6$1$1$1 -> com.vater.clean.junk.jiemian.MainActivity$6$1$1$1:
-    com.vater.clean.junk.jiemian.MainActivity$6$1$1 this$3 -> a
-    510:510:void <init>(com.vater.clean.junk.jiemian.MainActivity$6$1$1) -> <init>
-    513:514:void onClick(android.view.View) -> onClick
-com.vater.clean.junk.jiemian.MainActivity$7 -> com.vater.clean.junk.jiemian.MainActivity$7:
+    474:474:void <init>(com.vater.clean.junk.jiemian.MainActivity$6) -> <init>
+    477:489:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    493:494:void onNativeAdLoadFails() -> onNativeAdLoadFails
+com.vater.clean.junk.jiemian.MainActivity$7 -> com.vater.clean.junk.jiemian.MainActivity$10:
+    long val$sd_kongxian -> a
+    com.vater.clean.junk.jiemian.MainActivity this$0 -> b
+    503:503:void <init>(com.vater.clean.junk.jiemian.MainActivity,long) -> <init>
+    507:527:void run() -> run
+com.vater.clean.junk.jiemian.MainActivity$8 -> com.vater.clean.junk.jiemian.MainActivity$11:
     com.vater.clean.junk.jiemian.MainActivity this$0 -> a
-    700:700:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
-    703:705:void onAnimationEnd(com.mingle.widget.animation.CRAnimation) -> b
-com.vater.clean.junk.jiemian.MainActivity$8 -> com.vater.clean.junk.jiemian.MainActivity$8:
+    535:535:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
+    538:545:void progressUpdate(int) -> a
+com.vater.clean.junk.jiemian.MainActivity$8$1 -> com.vater.clean.junk.jiemian.MainActivity$11$1:
+    int val$progress -> a
+    com.vater.clean.junk.jiemian.MainActivity$8 this$1 -> b
+    538:538:void <init>(com.vater.clean.junk.jiemian.MainActivity$8,int) -> <init>
+    542:543:void run() -> run
+com.vater.clean.junk.jiemian.MainActivity$9 -> com.vater.clean.junk.jiemian.MainActivity$12:
     com.vater.clean.junk.jiemian.MainActivity this$0 -> a
-    725:725:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
-    728:730:void onClick(android.view.View) -> onClick
-com.vater.clean.junk.jiemian.MainActivity$9 -> com.vater.clean.junk.jiemian.MainActivity$9:
-    com.vater.clean.junk.jiemian.MainActivity this$0 -> a
-    732:732:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
-    735:736:void onClick(android.view.View) -> onClick
+    559:559:void <init>(com.vater.clean.junk.jiemian.MainActivity) -> <init>
+    563:724:void onClick(android.view.View) -> onClick
+com.vater.clean.junk.jiemian.MainActivity$9$1 -> com.vater.clean.junk.jiemian.MainActivity$12$1:
+    com.vater.clean.junk.jiemian.MainActivity$9 this$1 -> a
+    622:622:void <init>(com.vater.clean.junk.jiemian.MainActivity$9) -> <init>
+    625:648:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    653:653:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    658:658:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.vater.clean.junk.jiemian.MainActivity$9$1$1 -> com.vater.clean.junk.jiemian.MainActivity$12$1$1:
+    com.vater.clean.junk.jiemian.MainActivity$9$1 this$2 -> a
+    625:625:void <init>(com.vater.clean.junk.jiemian.MainActivity$9$1) -> <init>
+    628:639:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    643:646:void onNativeAdLoadFails() -> onNativeAdLoadFails
+com.vater.clean.junk.jiemian.MainActivity$9$1$1$1 -> com.vater.clean.junk.jiemian.MainActivity$12$1$1$1:
+    com.vater.clean.junk.jiemian.MainActivity$9$1$1 this$3 -> a
+    631:631:void <init>(com.vater.clean.junk.jiemian.MainActivity$9$1$1) -> <init>
+    634:635:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.MyApplication -> com.vater.clean.junk.jiemian.MyApplication:
     android.os.HandlerThread mThread -> a
     android.app.ActivityManager am -> b
@@ -37139,7 +37176,7 @@ com.vater.clean.junk.jiemian.NeicunAvtivity -> com.vater.clean.junk.jiemian.Neic
     android.widget.FrameLayout title_left -> c
     android.widget.TextView junk_unit -> d
     android.widget.TextView junk_fangxin -> e
-    android.widget.Button junk_button_clean -> f
+    android.widget.ImageView junk_button_clean -> f
     android.widget.TextView title_name -> g
     android.widget.TextView junk_size_all -> h
     android.widget.ListView junk_list_all -> i
@@ -37149,58 +37186,58 @@ com.vater.clean.junk.jiemian.NeicunAvtivity -> com.vater.clean.junk.jiemian.Neic
     boolean color2 -> s
     android.os.Handler myHandler -> j
     android.view.View$OnClickListener onClickListener -> k
-    37:268:void <init>() -> <init>
-    57:67:void findId() -> a
-    71:80:void onCreate(android.os.Bundle) -> onCreate
-    85:85:void loadFullAd() -> b
-    90:146:void setColor(int,long) -> a
-    149:158:void setUnit(long,android.widget.TextView) -> a
-    162:165:void onClick() -> c
-    169:181:void initData(long) -> a
-    185:187:void addRamdata(long,java.util.List) -> a
-    191:224:void setCleanDAta(boolean,long) -> a
-    228:266:void cleanAnimation(java.util.List,long) -> a
-    296:298:void onResume() -> onResume
-    302:308:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    312:319:void onBackPressed() -> onBackPressed
-    37:37:com.vater.clean.junk.shipeiqi.RamAdapter access$000(com.vater.clean.junk.jiemian.NeicunAvtivity) -> a
-    37:37:com.vater.clean.junk.presenter.RamPresenter access$100(com.vater.clean.junk.jiemian.NeicunAvtivity) -> b
+    36:267:void <init>() -> <init>
+    56:66:void findId() -> a
+    70:79:void onCreate(android.os.Bundle) -> onCreate
+    84:84:void loadFullAd() -> b
+    89:145:void setColor(int,long) -> a
+    148:157:void setUnit(long,android.widget.TextView) -> a
+    161:164:void onClick() -> c
+    168:180:void initData(long) -> a
+    184:186:void addRamdata(long,java.util.List) -> a
+    190:223:void setCleanDAta(boolean,long) -> a
+    227:265:void cleanAnimation(java.util.List,long) -> a
+    295:297:void onResume() -> onResume
+    301:307:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    311:318:void onBackPressed() -> onBackPressed
+    36:36:com.vater.clean.junk.shipeiqi.RamAdapter access$000(com.vater.clean.junk.jiemian.NeicunAvtivity) -> a
+    36:36:com.vater.clean.junk.presenter.RamPresenter access$100(com.vater.clean.junk.jiemian.NeicunAvtivity) -> b
 com.vater.clean.junk.jiemian.NeicunAvtivity$1 -> com.vater.clean.junk.jiemian.NeicunAvtivity$1:
     long val$allSize -> a
     com.vater.clean.junk.jiemian.NeicunAvtivity this$0 -> b
-    90:90:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity,long) -> <init>
-    93:124:void run() -> run
+    89:89:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity,long) -> <init>
+    92:123:void run() -> run
 com.vater.clean.junk.jiemian.NeicunAvtivity$1$1 -> com.vater.clean.junk.jiemian.NeicunAvtivity$1$1:
     long val$finalI -> a
     com.vater.clean.junk.jiemian.NeicunAvtivity$1 this$1 -> b
-    108:108:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity$1,long) -> <init>
-    111:113:void run() -> run
+    107:107:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity$1,long) -> <init>
+    110:112:void run() -> run
 com.vater.clean.junk.jiemian.NeicunAvtivity$1$2 -> com.vater.clean.junk.jiemian.NeicunAvtivity$1$2:
     com.vater.clean.junk.jiemian.NeicunAvtivity$1 this$1 -> a
-    116:116:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity$1) -> <init>
-    119:122:void run() -> run
+    115:115:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity$1) -> <init>
+    118:121:void run() -> run
 com.vater.clean.junk.jiemian.NeicunAvtivity$2 -> com.vater.clean.junk.jiemian.NeicunAvtivity$2:
     long val$size -> a
     com.vater.clean.junk.jiemian.NeicunAvtivity this$0 -> b
-    192:192:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity,long) -> <init>
-    195:216:void run() -> run
+    191:191:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity,long) -> <init>
+    194:215:void run() -> run
 com.vater.clean.junk.jiemian.NeicunAvtivity$3 -> com.vater.clean.junk.jiemian.NeicunAvtivity$3:
     long val$cleanSize -> a
     com.vater.clean.junk.jiemian.NeicunAvtivity this$0 -> b
-    230:230:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity,long) -> <init>
-    233:264:void run() -> run
+    229:229:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity,long) -> <init>
+    232:263:void run() -> run
 com.vater.clean.junk.jiemian.NeicunAvtivity$3$1 -> com.vater.clean.junk.jiemian.NeicunAvtivity$3$1:
     com.vater.clean.junk.jiemian.NeicunAvtivity$3 this$1 -> a
-    244:244:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity$3) -> <init>
-    246:251:void run() -> run
+    243:243:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity$3) -> <init>
+    245:250:void run() -> run
 com.vater.clean.junk.jiemian.NeicunAvtivity$3$2 -> com.vater.clean.junk.jiemian.NeicunAvtivity$3$2:
     com.vater.clean.junk.jiemian.NeicunAvtivity$3 this$1 -> a
-    254:254:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity$3) -> <init>
-    257:262:void run() -> run
+    253:253:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity$3) -> <init>
+    256:261:void run() -> run
 com.vater.clean.junk.jiemian.NeicunAvtivity$4 -> com.vater.clean.junk.jiemian.NeicunAvtivity$4:
     com.vater.clean.junk.jiemian.NeicunAvtivity this$0 -> a
-    268:268:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity) -> <init>
-    271:291:void onClick(android.view.View) -> onClick
+    267:267:void <init>(com.vater.clean.junk.jiemian.NeicunAvtivity) -> <init>
+    270:290:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.jiemian.NotifiActivity -> com.vater.clean.junk.jiemian.NotifiActivity:
     android.widget.TextView title_name -> a
     android.widget.RelativeLayout notifi_button_rl -> b
@@ -37312,14 +37349,14 @@ com.vater.clean.junk.jiemian.PhoneMessageActivity -> com.vater.clean.junk.jiemia
     android.os.Handler myHandler -> v
     36:45:void <init>() -> <init>
     51:116:void onCreate(android.os.Bundle) -> onCreate
-    121:131:void loadAd() -> d
-    134:144:void addAd() -> e
+    120:130:void loadAd() -> d
+    133:143:void addAd() -> e
     146:151:boolean isW() -> f
-    155:170:void findId() -> a
-    174:178:java.lang.String getResolution() -> b
-    186:190:java.lang.String getPhoneIMEI() -> c
-    196:201:void onResume() -> onResume
-    205:209:void onPause() -> onPause
+    156:171:void findId() -> a
+    175:179:java.lang.String getResolution() -> b
+    187:191:java.lang.String getPhoneIMEI() -> c
+    197:202:void onResume() -> onResume
+    206:210:void onPause() -> onPause
     36:36:boolean access$000(com.vater.clean.junk.jiemian.PhoneMessageActivity) -> a
 com.vater.clean.junk.jiemian.PhoneMessageActivity$1 -> com.vater.clean.junk.jiemian.PhoneMessageActivity$1:
     com.vater.clean.junk.jiemian.PhoneMessageActivity this$0 -> a
@@ -37343,8 +37380,8 @@ com.vater.clean.junk.jiemian.PhoneMessageActivity$2$2 -> com.vater.clean.junk.ji
     100:102:void run() -> run
 com.vater.clean.junk.jiemian.PhoneMessageActivity$3 -> com.vater.clean.junk.jiemian.PhoneMessageActivity$3:
     com.vater.clean.junk.jiemian.PhoneMessageActivity this$0 -> a
-    122:122:void <init>(com.vater.clean.junk.jiemian.PhoneMessageActivity) -> <init>
-    125:126:void run() -> run
+    121:121:void <init>(com.vater.clean.junk.jiemian.PhoneMessageActivity) -> <init>
+    124:125:void run() -> run
 com.vater.clean.junk.jiemian.SettingActivity -> com.vater.clean.junk.jiemian.SettingActivity:
     android.widget.ImageView setting_tongzhi_check -> a
     android.widget.ImageView setting_tongzhilan_check -> b
@@ -38016,6 +38053,68 @@ com.vater.clean.junk.jiemian.XuanfuActivity$8 -> com.vater.clean.junk.jiemian.Xu
     277:277:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
     282:282:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
     287:287:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.vater.clean.junk.myview.CircleView -> com.vater.clean.junk.myview.CircleView:
+    android.content.Context context -> a
+    int width -> b
+    int height -> c
+    android.graphics.Paint mPaintCircle -> d
+    android.os.Handler handler -> e
+    22:39:void <init>(android.content.Context) -> <init>
+    22:51:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    55:59:void onMeasure(int,int) -> onMeasure
+    63:73:void onDraw(android.graphics.Canvas) -> onDraw
+    79:80:int dip2px(android.content.Context,float) -> a
+    14:14:android.os.Handler access$000(com.vater.clean.junk.myview.CircleView) -> a
+com.vater.clean.junk.myview.CircleView$1 -> com.vater.clean.junk.myview.CircleView$1:
+    com.vater.clean.junk.myview.CircleView this$0 -> a
+    22:22:void <init>(com.vater.clean.junk.myview.CircleView) -> <init>
+    26:34:void handleMessage(android.os.Message) -> handleMessage
+com.vater.clean.junk.myview.CircleWaveView -> com.vater.clean.junk.myview.CircleWaveView:
+    float maxWaveRadius -> a
+    long waveTime -> b
+    int waveRate -> c
+    android.graphics.Paint paint -> d
+    int width -> e
+    int height -> f
+    android.content.Context context -> g
+    float[] waveList -> h
+    21:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    38:60:void init() -> a
+    64:70:void onDraw(android.graphics.Canvas) -> onDraw
+    74:78:void onMeasure(int,int) -> onMeasure
+    84:85:int dip2px(android.content.Context,float) -> a
+    19:19:float[] access$000(com.vater.clean.junk.myview.CircleWaveView) -> a
+    19:19:int access$100(com.vater.clean.junk.myview.CircleWaveView) -> b
+com.vater.clean.junk.myview.CircleWaveView$1 -> com.vater.clean.junk.myview.CircleWaveView$1:
+    com.vater.clean.junk.myview.CircleWaveView this$0 -> a
+    45:45:void <init>(com.vater.clean.junk.myview.CircleWaveView) -> <init>
+    48:57:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+com.vater.clean.junk.myview.CustomRoundCpu -> com.vater.clean.junk.myview.CustomRoundCpu:
+    android.content.Context context -> c
+    android.graphics.Paint circlePoint -> d
+    android.graphics.Paint backgPoint -> e
+    float lineWidth -> a
+    int size -> b
+    int progress -> f
+    boolean isRotate -> g
+    com.vater.clean.junk.myview.CustomRoundCpu$CustomRoundListener customRoundListener -> h
+    24:25:void <init>(android.content.Context) -> <init>
+    28:29:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    17:35:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    38:47:void init() -> a
+    52:58:void onMeasure(int,int) -> onMeasure
+    62:93:void onDraw(android.graphics.Canvas) -> onDraw
+    96:115:void startProgress(boolean,int) -> a
+    118:120:void setProgress(int) -> setProgress
+    123:125:void setCustomRoundListener(com.vater.clean.junk.myview.CustomRoundCpu$CustomRoundListener) -> setCustomRoundListener
+    12:12:com.vater.clean.junk.myview.CustomRoundCpu$CustomRoundListener access$000(com.vater.clean.junk.myview.CustomRoundCpu) -> a
+com.vater.clean.junk.myview.CustomRoundCpu$1 -> com.vater.clean.junk.myview.CustomRoundCpu$1:
+    int val$progress -> a
+    com.vater.clean.junk.myview.CustomRoundCpu this$0 -> b
+    98:98:void <init>(com.vater.clean.junk.myview.CustomRoundCpu,int) -> <init>
+    101:112:void run() -> run
+com.vater.clean.junk.myview.CustomRoundCpu$CustomRoundListener -> com.vater.clean.junk.myview.CustomRoundCpu$a:
+    void progressUpdate(int) -> a
 com.vater.clean.junk.myview.DeepWidgetContainer -> com.vater.clean.junk.myview.DeepWidgetContainer:
     android.os.Handler widgetHandler -> a
     android.view.WindowManager$LayoutParams lp -> b
@@ -38139,7 +38238,17 @@ com.vater.clean.junk.myview.FloatStateView -> com.vater.clean.junk.myview.FloatS
     134:136:void setDragState(int) -> setDragState
     139:142:void upDate(int) -> a
     164:170:void init() -> b
-com.vater.clean.junk.myview.ImageAccessor -> com.vater.clean.junk.myview.b:
+com.vater.clean.junk.myview.GridViewAdAdapter -> com.vater.clean.junk.myview.b:
+    android.content.Context context -> a
+    android.content.pm.PackageManager pm -> c
+    java.util.ArrayList list -> d
+    android.view.LayoutInflater mInflater -> b
+    36:41:void <init>(android.content.Context,java.util.ArrayList) -> <init>
+    45:45:int getCount() -> getCount
+    50:50:java.lang.Object getItem(int) -> getItem
+    55:55:long getItemId(int) -> getItemId
+    60:81:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.vater.clean.junk.myview.ImageAccessor -> com.vater.clean.junk.myview.c:
     boolean $assertionsDisabled -> a
     8:8:void <init>() -> <init>
     13:25:void setValues(android.widget.ImageView,int,float[]) -> a
@@ -38147,22 +38256,11 @@ com.vater.clean.junk.myview.ImageAccessor -> com.vater.clean.junk.myview.b:
     8:8:void setValues(java.lang.Object,int,float[]) -> b
     8:8:int getValues(java.lang.Object,int,float[]) -> a
     8:8:void <clinit>() -> <clinit>
-com.vater.clean.junk.myview.LaunchpadAdapter -> com.vater.clean.junk.myview.c:
-    int currentViewTag -> f
-    android.content.Context context -> a
-    int interval_time -> b
-    android.content.pm.PackageManager pm -> g
-    32:66:void <init>(android.content.Context,java.util.ArrayList) -> <init>
-    71:71:int getItemLayoutId(int,java.lang.String) -> a
-    76:90:void onBindView(android.view.View,java.lang.String) -> a
-    25:25:void onBindView(android.view.View,java.lang.Object) -> a
-    25:25:int getItemLayoutId(int,java.lang.Object) -> a
 com.vater.clean.junk.myview.ListViewForScrollView -> com.vater.clean.junk.myview.ListViewForScrollView:
     13:14:void <init>(android.content.Context) -> <init>
     17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     22:24:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     31:34:void onMeasure(int,int) -> onMeasure
-    11:11:void setAdapter(android.widget.Adapter) -> setAdapter
 com.vater.clean.junk.myview.MainFrameLayout -> com.vater.clean.junk.myview.MainFrameLayout:
     13:14:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     18:18:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
@@ -38264,9 +38362,9 @@ com.vater.clean.junk.myview.MyScrollView -> com.vater.clean.junk.myview.MyScroll
 com.vater.clean.junk.myview.MyScrollView$ScrollViewListener -> com.vater.clean.junk.myview.MyScrollView$a:
     void onScrollChanged(com.vater.clean.junk.myview.MyScrollView,int,int,int,int) -> a
 com.vater.clean.junk.myview.PagerAdapter -> com.vater.clean.junk.myview.d:
-    java.util.List mList -> c
-    com.vater.clean.junk.myview.PagerAdapter$OnDataChangeListener mDataChangeListener -> d
-    android.view.LayoutInflater mInflater -> e
+    java.util.List mList -> a
+    com.vater.clean.junk.myview.PagerAdapter$OnDataChangeListener mDataChangeListener -> b
+    android.view.LayoutInflater mInflater -> c
     18:21:void <init>(android.content.Context,java.util.ArrayList) -> <init>
     24:27:android.view.View getView(int) -> a
     int getItemLayoutId(int,java.lang.Object) -> a
@@ -38322,7 +38420,6 @@ com.vater.clean.junk.myview.PagerView -> com.vater.clean.junk.myview.PagerView:
     com.vater.clean.junk.myview.PagerView$OnEnterCreateShortListener onEnterCreateShortListener -> Q
     com.vater.clean.junk.myview.PagerView$OnItemClickListener onItemClickListener -> R
     java.util.ArrayList adViewList -> S
-    42:142:void <init>(android.content.Context) -> <init>
     42:147:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     42:152:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     156:173:void init(android.content.Context) -> a
@@ -38367,7 +38464,7 @@ com.vater.clean.junk.myview.PagerView$1 -> com.vater.clean.junk.myview.PagerView
     527:527:void <init>(com.vater.clean.junk.myview.PagerView) -> <init>
     530:536:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.myview.PagerView$1Adapter -> com.vater.clean.junk.myview.PagerView$a:
-    com.vater.clean.junk.myview.PagerView this$0 -> a
+    com.vater.clean.junk.myview.PagerView this$0 -> d
     211:213:void <init>(com.vater.clean.junk.myview.PagerView,android.content.Context,java.util.ArrayList) -> <init>
     217:217:int getItemLayoutId(int,com.vater.clean.junk.myview.PagerView$1Data) -> a
     222:226:void onBindView(android.view.View,com.vater.clean.junk.myview.PagerView$1Data) -> a
@@ -38482,6 +38579,24 @@ com.vater.clean.junk.myview.SlowScrollView -> com.vater.clean.junk.myview.SlowSc
     50:58:void computeScroll() -> computeScroll
     67:68:void fling(int) -> fling
     74:75:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+com.vater.clean.junk.myview.VirtuaRingView -> com.vater.clean.junk.myview.VirtuaRingView:
+    android.content.Context context -> a
+    int width -> b
+    int height -> c
+    android.graphics.Paint mPaintCircle -> d
+    int num -> e
+    android.os.Handler handler -> f
+    23:40:void <init>(android.content.Context) -> <init>
+    23:53:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    57:61:void onMeasure(int,int) -> onMeasure
+    65:87:void onDraw(android.graphics.Canvas) -> onDraw
+    90:92:void setNum(int) -> setNum
+    98:99:int dip2px(android.content.Context,float) -> a
+    15:15:android.os.Handler access$000(com.vater.clean.junk.myview.VirtuaRingView) -> a
+com.vater.clean.junk.myview.VirtuaRingView$1 -> com.vater.clean.junk.myview.VirtuaRingView$1:
+    com.vater.clean.junk.myview.VirtuaRingView this$0 -> a
+    23:23:void <init>(com.vater.clean.junk.myview.VirtuaRingView) -> <init>
+    27:35:void handleMessage(android.os.Message) -> handleMessage
 com.vater.clean.junk.presenter.BasePresenter -> com.vater.clean.junk.b.a:
     java.lang.Object iView -> a
     int cpuTemp -> c
@@ -38588,24 +38703,24 @@ com.vater.clean.junk.presenter.LogRamPresenter -> com.vater.clean.junk.b.f:
     130:184:void bleachFile(boolean,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> a
 com.vater.clean.junk.presenter.MainPresenter -> com.vater.clean.junk.b.g:
     int cpuTemp -> c
-    27:28:void openDrawer() -> c
-    35:64:void init() -> a
-    23:70:void <init>(com.vater.clean.junk.view.MainView,android.content.Context) -> <init>
-    74:95:void startFenshu(boolean) -> a
-    98:100:void reStart(boolean) -> b
-    103:108:void clickRotate(boolean) -> c
-    111:114:void setRotateGone() -> d
-    118:131:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
-    22:22:int access$002(com.vater.clean.junk.presenter.MainPresenter,int) -> a
-    22:22:int access$000(com.vater.clean.junk.presenter.MainPresenter) -> a
+    28:29:void openDrawer() -> c
+    36:65:void init() -> a
+    24:71:void <init>(com.vater.clean.junk.view.MainView,android.content.Context) -> <init>
+    75:96:void startFenshu(boolean) -> a
+    99:117:void reStart(boolean) -> b
+    120:125:void clickRotate(boolean) -> c
+    128:131:void setRotateGone() -> d
+    135:148:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
+    23:23:int access$002(com.vater.clean.junk.presenter.MainPresenter,int) -> a
+    23:23:int access$000(com.vater.clean.junk.presenter.MainPresenter) -> a
 com.vater.clean.junk.presenter.MainPresenter$1 -> com.vater.clean.junk.b.g$1:
     com.vater.clean.junk.presenter.MainPresenter this$0 -> a
-    37:37:void <init>(com.vater.clean.junk.presenter.MainPresenter) -> <init>
-    41:58:void run() -> run
+    38:38:void <init>(com.vater.clean.junk.presenter.MainPresenter) -> <init>
+    42:59:void run() -> run
 com.vater.clean.junk.presenter.MainPresenter$1$1 -> com.vater.clean.junk.b.g$1$1:
     com.vater.clean.junk.presenter.MainPresenter$1 this$1 -> a
-    47:47:void <init>(com.vater.clean.junk.presenter.MainPresenter$1) -> <init>
-    50:56:void callbackResult(com.vater.clean.junk.gongju.RCpuTempReader$ResultCpuTemperature) -> a
+    48:48:void <init>(com.vater.clean.junk.presenter.MainPresenter$1) -> <init>
+    51:57:void callbackResult(com.vater.clean.junk.gongju.RCpuTempReader$ResultCpuTemperature) -> a
 com.vater.clean.junk.presenter.ManagerPresenter -> com.vater.clean.junk.b.h:
     com.vater.clean.junk.jiemian.MyApplication cleanApplication -> c
     long allSize -> d
@@ -38643,23 +38758,23 @@ com.vater.clean.junk.presenter.Timesort -> com.vater.clean.junk.b.k:
     127:127:int compare(java.lang.Object,java.lang.Object) -> compare
 com.vater.clean.junk.shipeiqi.CSideAdapter -> com.vater.clean.junk.c.a:
     int idx -> a
-    int JUNK -> f
-    int RAM -> g
-    int MANAGER -> h
-    int FILE -> i
-    int POWER -> j
-    int NOTIFI -> k
-    int PICTURE -> l
-    int BATTERY -> m
-    int FLOAT -> n
-    int GBOOST -> o
-    int SETTING -> p
-    int ROTATE -> q
-    59:60:void <init>(android.content.Context) -> <init>
-    64:141:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    145:217:void onC(int) -> b
-    39:39:void access$000(com.vater.clean.junk.shipeiqi.CSideAdapter,int) -> a
-    40:55:void <clinit>() -> <clinit>
+    int BATTERY -> b
+    int FLOAT -> g
+    int JUNK -> h
+    int RAM -> i
+    int MANAGER -> j
+    int FILE -> k
+    int GBOOST -> l
+    int POWER -> m
+    int WHITE -> n
+    int SETTING -> o
+    int ROTATE -> p
+    java.lang.String powerSize -> q
+    55:59:void <init>(android.content.Context) -> <init>
+    63:147:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    151:213:void onC(int) -> b
+    36:36:void access$000(com.vater.clean.junk.shipeiqi.CSideAdapter,int) -> a
+    37:51:void <clinit>() -> <clinit>
 com.vater.clean.junk.shipeiqi.CSideAdapter$1 -> com.vater.clean.junk.c.a$1:
     com.vater.clean.junk.shiti.SideInfo val$info -> a
     com.vater.clean.junk.shipeiqi.CSideAdapter$ViewHolder val$holder -> b
@@ -38669,12 +38784,13 @@ com.vater.clean.junk.shipeiqi.CSideAdapter$1 -> com.vater.clean.junk.c.a$1:
     93:100:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.shipeiqi.CSideAdapter$ViewHolder -> com.vater.clean.junk.c.a$a:
     android.widget.ImageView checkBox -> a
-    android.widget.TextView tv_name -> b
-    android.widget.RelativeLayout rl_item -> c
-    android.view.View side_divide -> d
-    android.widget.ImageView iv_le -> e
-    com.vater.clean.junk.shipeiqi.CSideAdapter this$0 -> f
-    226:226:void <init>(com.vater.clean.junk.shipeiqi.CSideAdapter) -> <init>
+    android.widget.TextView side_deep_h -> b
+    android.widget.TextView tv_name -> c
+    android.widget.RelativeLayout rl_item -> d
+    android.view.View side_divide -> e
+    android.widget.ImageView iv_le -> f
+    com.vater.clean.junk.shipeiqi.CSideAdapter this$0 -> g
+    222:222:void <init>(com.vater.clean.junk.shipeiqi.CSideAdapter) -> <init>
 com.vater.clean.junk.shipeiqi.FileAdapter -> com.vater.clean.junk.c.b:
     java.lang.String name -> a
     26:27:void <init>(android.content.Context) -> <init>
@@ -38719,14 +38835,14 @@ com.vater.clean.junk.shipeiqi.IgnoreListAdapter$ViewHolder -> com.vater.clean.ju
     121:121:void <init>(com.vater.clean.junk.shipeiqi.IgnoreListAdapter) -> <init>
 com.vater.clean.junk.shipeiqi.JiaGameAdapter -> com.vater.clean.junk.c.d:
     java.util.ArrayList game_list -> a
-    35:37:void <init>(android.content.Context,java.util.ArrayList) -> <init>
-    41:85:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    30:30:java.util.ArrayList access$000(com.vater.clean.junk.shipeiqi.JiaGameAdapter) -> a
+    30:32:void <init>(android.content.Context,java.util.ArrayList) -> <init>
+    36:78:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    26:26:java.util.ArrayList access$000(com.vater.clean.junk.shipeiqi.JiaGameAdapter) -> a
 com.vater.clean.junk.shipeiqi.JiaGameAdapter$1 -> com.vater.clean.junk.c.d$1:
     com.vater.clean.entity.JunkInfo val$info -> a
     com.vater.clean.junk.shipeiqi.JiaGameAdapter this$0 -> b
-    60:60:void <init>(com.vater.clean.junk.shipeiqi.JiaGameAdapter,com.vater.clean.entity.JunkInfo) -> <init>
-    63:80:void onClick(android.view.View) -> onClick
+    55:55:void <init>(com.vater.clean.junk.shipeiqi.JiaGameAdapter,com.vater.clean.entity.JunkInfo) -> <init>
+    58:74:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.shipeiqi.JiaGameAdapter$ViewHolder -> com.vater.clean.junk.c.d$a:
     android.widget.TextView tv_lable -> a
     android.widget.ImageView checkBox -> b
@@ -38734,7 +38850,7 @@ com.vater.clean.junk.shipeiqi.JiaGameAdapter$ViewHolder -> com.vater.clean.junk.
     android.widget.RelativeLayout rl_item -> d
     android.widget.ImageView iv_icon -> e
     com.vater.clean.junk.shipeiqi.JiaGameAdapter this$0 -> f
-    109:109:void <init>(com.vater.clean.junk.shipeiqi.JiaGameAdapter) -> <init>
+    102:102:void <init>(com.vater.clean.junk.shipeiqi.JiaGameAdapter) -> <init>
 com.vater.clean.junk.shipeiqi.JunkRamAdapter -> com.vater.clean.junk.c.e:
     com.vater.clean.junk.presenter.LogRamPresenter junkPresenter -> a
     26:35:void <init>(android.content.Context,com.vater.clean.junk.presenter.LogRamPresenter) -> <init>
@@ -38781,19 +38897,26 @@ com.vater.clean.junk.shipeiqi.Log$ViewHolder -> com.vater.clean.junk.c.f$a:
     103:103:void <init>(com.vater.clean.junk.shipeiqi.Log) -> <init>
 com.vater.clean.junk.shipeiqi.ManagerAdapter -> com.vater.clean.junk.c.g:
     com.vater.clean.junk.presenter.ManagerPresenter managerPresenter -> a
-    27:36:void <init>(android.content.Context,com.vater.clean.junk.presenter.ManagerPresenter) -> <init>
-    44:91:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    java.lang.String identification -> b
+    28:38:void <init>(android.content.Context,com.vater.clean.junk.presenter.ManagerPresenter,java.lang.String) -> <init>
+    41:50:void <init>(android.content.Context,com.vater.clean.junk.presenter.ManagerPresenter) -> <init>
+    58:116:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.vater.clean.junk.shipeiqi.ManagerAdapter$1 -> com.vater.clean.junk.c.g$1:
     com.vater.clean.junk.shipeiqi.ManagerAdapter this$0 -> a
-    29:29:void <init>(com.vater.clean.junk.shipeiqi.ManagerAdapter,int) -> <init>
-    33:33:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
-    29:29:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+    31:31:void <init>(com.vater.clean.junk.shipeiqi.ManagerAdapter,int) -> <init>
+    35:35:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    31:31:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
 com.vater.clean.junk.shipeiqi.ManagerAdapter$2 -> com.vater.clean.junk.c.g$2:
+    com.vater.clean.junk.shipeiqi.ManagerAdapter this$0 -> a
+    43:43:void <init>(com.vater.clean.junk.shipeiqi.ManagerAdapter,int) -> <init>
+    47:47:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
+    43:43:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
+com.vater.clean.junk.shipeiqi.ManagerAdapter$3 -> com.vater.clean.junk.c.g$3:
     com.vater.clean.entity.JunkInfo val$info -> a
     com.vater.clean.junk.shipeiqi.ManagerAdapter$ViewHolder val$holder -> b
     com.vater.clean.junk.shipeiqi.ManagerAdapter this$0 -> c
-    76:76:void <init>(com.vater.clean.junk.shipeiqi.ManagerAdapter,com.vater.clean.entity.JunkInfo,com.vater.clean.junk.shipeiqi.ManagerAdapter$ViewHolder) -> <init>
-    79:87:void onClick(android.view.View) -> onClick
+    101:101:void <init>(com.vater.clean.junk.shipeiqi.ManagerAdapter,com.vater.clean.entity.JunkInfo,com.vater.clean.junk.shipeiqi.ManagerAdapter$ViewHolder) -> <init>
+    104:112:void onClick(android.view.View) -> onClick
 com.vater.clean.junk.shipeiqi.ManagerAdapter$ViewHolder -> com.vater.clean.junk.c.g$a:
     android.widget.ImageView icon -> a
     android.widget.TextView time -> b
@@ -38801,12 +38924,12 @@ com.vater.clean.junk.shipeiqi.ManagerAdapter$ViewHolder -> com.vater.clean.junk.
     android.widget.TextView name -> d
     android.widget.TextView size -> e
     com.vater.clean.junk.shipeiqi.ManagerAdapter this$0 -> f
-    94:94:void <init>(com.vater.clean.junk.shipeiqi.ManagerAdapter) -> <init>
+    119:119:void <init>(com.vater.clean.junk.shipeiqi.ManagerAdapter) -> <init>
 com.vater.clean.junk.shipeiqi.MybaseAdapter -> com.vater.clean.junk.c.h:
-    android.view.LayoutInflater inflater -> b
-    java.util.List list -> c
-    android.content.Context context -> d
-    android.support.v4.util.LruCache lruCache -> e
+    android.view.LayoutInflater inflater -> c
+    java.util.List list -> d
+    android.content.Context context -> e
+    android.support.v4.util.LruCache lruCache -> f
     21:26:void <init>(android.content.Context) -> <init>
     29:29:java.lang.Object getData(int) -> a
     34:35:void removeData(java.lang.Object) -> a
@@ -38846,7 +38969,7 @@ com.vater.clean.junk.shipeiqi.NotifiSettingAdapter$ViewHolder -> com.vater.clean
     com.vater.clean.junk.shipeiqi.NotifiSettingAdapter this$0 -> e
     69:69:void <init>(com.vater.clean.junk.shipeiqi.NotifiSettingAdapter) -> <init>
 com.vater.clean.junk.shipeiqi.RamAdapter -> com.vater.clean.junk.c.k:
-    android.support.v7.app.AlertDialog dialog -> f
+    android.support.v7.app.AlertDialog dialog -> b
     java.util.List white_list -> g
     com.vater.clean.junk.presenter.RamPresenter ramPresenter -> a
     33:43:void <init>(android.content.Context,com.vater.clean.junk.presenter.RamPresenter) -> <init>
@@ -39003,6 +39126,8 @@ com.vater.clean.junk.view.MRamView -> com.vater.clean.junk.e.e:
     void cleanAnimation(java.util.List,long) -> a
 com.vater.clean.junk.view.MainView -> com.vater.clean.junk.e.f:
     void initCpu(int) -> b
+    void initSd(int,java.lang.String,long) -> a
+    void initRam(int,java.lang.String) -> a
     void initQiu(int,boolean) -> a
     void setRotateGone() -> e
     void initSideData() -> d
@@ -39041,8 +39166,9 @@ com.vater.clean.util.LoadManager -> com.vater.clean.d.a:
 com.vater.clean.util.MemoryManager -> com.vater.clean.d.b:
     47:51:java.lang.String getPhoneInSDCardPath() -> a
     162:180:long getPhoneAllSize() -> b
+    184:202:long getPhoneAllFreeSize() -> c
     209:213:long getPhoneFreeRamMemory(android.content.Context) -> a
-    221:231:long getPhoneTotalRamMemory() -> c
+    221:231:long getPhoneTotalRamMemory() -> d
 com.vater.clean.util.PreData -> com.vater.clean.d.c:
     int _putCount -> a
     android.content.SharedPreferences db -> b
@@ -39105,25 +39231,25 @@ com.vater.module.charge.saver.BatteryChargeActivity -> com.vater.module.charge.s
     com.vater.module.charge.saver.Mview.BatteryView batteryView -> a
     com.vater.module.charge.saver.entry.BatteryEntry entry -> b
     android.content.BroadcastReceiver mReceiver -> c
-    20:121:void <init>() -> <init>
-    29:31:void onUserLeaveHint() -> onUserLeaveHint
-    36:38:void onBackPressed() -> onBackPressed
-    43:56:void hideBottomUIMenu() -> a
-    60:71:void doBar() -> b
-    76:95:void onCreate(android.os.Bundle) -> onCreate
-    99:101:void onResume() -> onResume
-    105:108:void onPause() -> onPause
-    112:119:void onDestroy() -> onDestroy
-    145:154:void batteryChange(android.content.Intent) -> a
+    20:119:void <init>() -> <init>
+    27:29:void onUserLeaveHint() -> onUserLeaveHint
+    34:36:void onBackPressed() -> onBackPressed
+    41:54:void hideBottomUIMenu() -> a
+    58:69:void doBar() -> b
+    74:93:void onCreate(android.os.Bundle) -> onCreate
+    97:99:void onResume() -> onResume
+    103:106:void onPause() -> onPause
+    110:117:void onDestroy() -> onDestroy
+    143:152:void batteryChange(android.content.Intent) -> a
     20:20:com.vater.module.charge.saver.Mview.BatteryView access$000(com.vater.module.charge.saver.BatteryChargeActivity) -> a
 com.vater.module.charge.saver.BatteryChargeActivity$1 -> com.vater.module.charge.saver.BatteryChargeActivity$1:
     com.vater.module.charge.saver.BatteryChargeActivity this$0 -> a
-    62:62:void <init>(com.vater.module.charge.saver.BatteryChargeActivity) -> <init>
-    65:67:void onUnlock() -> a
+    60:60:void <init>(com.vater.module.charge.saver.BatteryChargeActivity) -> <init>
+    63:65:void onUnlock() -> a
 com.vater.module.charge.saver.BatteryChargeActivity$2 -> com.vater.module.charge.saver.BatteryChargeActivity$2:
     com.vater.module.charge.saver.BatteryChargeActivity this$0 -> a
-    121:121:void <init>(com.vater.module.charge.saver.BatteryChargeActivity) -> <init>
-    124:141:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    119:119:void <init>(com.vater.module.charge.saver.BatteryChargeActivity) -> <init>
+    122:139:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.vater.module.charge.saver.Mview.BatteryView -> com.vater.module.charge.saver.Mview.BatteryView:
     android.content.Context mContext -> a
     android.view.GestureDetector detector -> b
@@ -39141,68 +39267,79 @@ com.vater.module.charge.saver.Mview.BatteryView -> com.vater.module.charge.saver
     android.widget.CheckBox saverSwitch -> n
     android.widget.TextView time -> o
     android.widget.TextView date -> p
-    android.widget.TextView week -> q
-    android.widget.TextView batteryLeft -> r
-    android.widget.TextView currentLevel -> s
-    android.widget.TextView currentLevel_ing -> t
-    com.vater.module.charge.saver.Mview.BubbleLayout bubbleLayout -> u
-    int halfWidth -> v
-    android.widget.ImageView shutter -> w
-    android.content.BroadcastReceiver timerUpdateReceiver -> x
-    android.content.IntentFilter mIntentFilter -> y
-    int progress -> z
-    40:152:void <init>(android.content.Context) -> <init>
-    40:152:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    40:152:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    82:83:void setUnlockListener(com.vater.module.charge.saver.Mview.BatteryView$UnlockListener) -> setUnlockListener
-    95:133:void showNativeAD() -> f
-    136:150:void updateTime() -> a
-    155:180:void bind(com.vater.module.charge.saver.entry.BatteryEntry) -> a
-    188:193:void setCharing(boolean) -> setCharing
-    197:306:void onFinishInflate() -> onFinishInflate
-    309:324:void initViews() -> g
-    327:330:void pauseBubble() -> b
-    333:336:void reStartBubble() -> c
-    340:347:void onAttachedToWindow() -> onAttachedToWindow
-    351:370:void onDetachedFromWindow() -> onDetachedFromWindow
-    373:377:int analysisJson(org.json.JSONObject) -> a
-    382:389:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    392:394:void registerTimeUpdateReceiver() -> d
-    397:399:void unregisterTimeUpdateReceiver() -> e
-    35:35:android.view.GestureDetector access$000(com.vater.module.charge.saver.Mview.BatteryView) -> a
-    35:35:int access$100(com.vater.module.charge.saver.Mview.BatteryView) -> b
-    35:35:com.vater.module.charge.saver.Mview.BatteryView$UnlockListener access$200(com.vater.module.charge.saver.Mview.BatteryView) -> c
-    35:35:android.widget.LinearLayout access$300(com.vater.module.charge.saver.Mview.BatteryView) -> d
-    35:35:float access$400(com.vater.module.charge.saver.Mview.BatteryView) -> e
-    35:35:com.vater.module.charge.saver.Mview.BatteryView access$500(com.vater.module.charge.saver.Mview.BatteryView) -> f
-    35:35:float access$402(com.vater.module.charge.saver.Mview.BatteryView,float) -> a
-    35:35:android.content.Context access$600(com.vater.module.charge.saver.Mview.BatteryView) -> g
-    35:35:android.widget.CheckBox access$700(com.vater.module.charge.saver.Mview.BatteryView) -> h
+    android.widget.TextView day -> q
+    android.widget.TextView week -> r
+    android.widget.TextView batteryLeft -> s
+    android.widget.TextView currentLevel -> t
+    android.widget.TextView currentLevel_ing -> u
+    com.vater.module.charge.saver.Mview.BubbleLayout bubbleLayout -> v
+    com.sample.lottie.LottieAnimationView water -> w
+    int halfWidth -> x
+    android.content.BroadcastReceiver timerUpdateReceiver -> y
+    android.content.IntentFilter mIntentFilter -> z
+    int progress -> A
+    42:158:void <init>(android.content.Context) -> <init>
+    42:158:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    42:158:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    86:87:void setUnlockListener(com.vater.module.charge.saver.Mview.BatteryView$UnlockListener) -> setUnlockListener
+    99:137:void showNativeAD() -> f
+    140:156:void updateTime() -> a
+    161:204:void bind(com.vater.module.charge.saver.entry.BatteryEntry) -> a
+    208:218:void initWater() -> g
+    226:231:void setCharing(boolean) -> setCharing
+    235:346:void onFinishInflate() -> onFinishInflate
+    350:366:void initViews() -> h
+    369:372:void pauseBubble() -> b
+    375:378:void reStartBubble() -> c
+    382:389:void onAttachedToWindow() -> onAttachedToWindow
+    393:415:void onDetachedFromWindow() -> onDetachedFromWindow
+    418:422:int analysisJson(org.json.JSONObject) -> a
+    427:434:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    437:439:void registerTimeUpdateReceiver() -> d
+    442:444:void unregisterTimeUpdateReceiver() -> e
+    37:37:android.view.GestureDetector access$000(com.vater.module.charge.saver.Mview.BatteryView) -> a
+    37:37:int access$100(com.vater.module.charge.saver.Mview.BatteryView) -> b
+    37:37:com.vater.module.charge.saver.Mview.BatteryView$UnlockListener access$200(com.vater.module.charge.saver.Mview.BatteryView) -> c
+    37:37:int access$302(com.vater.module.charge.saver.Mview.BatteryView,int) -> a
+    37:37:int access$300(com.vater.module.charge.saver.Mview.BatteryView) -> d
+    37:37:com.sample.lottie.LottieAnimationView access$400(com.vater.module.charge.saver.Mview.BatteryView) -> e
+    37:37:android.widget.LinearLayout access$500(com.vater.module.charge.saver.Mview.BatteryView) -> f
+    37:37:android.widget.LinearLayout access$600(com.vater.module.charge.saver.Mview.BatteryView) -> g
+    37:37:float access$700(com.vater.module.charge.saver.Mview.BatteryView) -> h
+    37:37:com.vater.module.charge.saver.Mview.BatteryView access$800(com.vater.module.charge.saver.Mview.BatteryView) -> i
+    37:37:float access$702(com.vater.module.charge.saver.Mview.BatteryView,float) -> a
+    37:37:android.content.Context access$900(com.vater.module.charge.saver.Mview.BatteryView) -> j
+    37:37:android.widget.CheckBox access$1000(com.vater.module.charge.saver.Mview.BatteryView) -> k
 com.vater.module.charge.saver.Mview.BatteryView$1 -> com.vater.module.charge.saver.Mview.BatteryView$1:
     com.vater.module.charge.saver.Mview.BatteryView this$0 -> a
-    85:85:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
-    88:89:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    89:89:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
+    92:93:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.vater.module.charge.saver.Mview.BatteryView$2 -> com.vater.module.charge.saver.Mview.BatteryView$2:
     com.vater.module.charge.saver.Mview.BatteryView this$0 -> a
-    107:107:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
-    110:130:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    111:111:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
+    114:134:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.vater.module.charge.saver.Mview.BatteryView$3 -> com.vater.module.charge.saver.Mview.BatteryView$3:
-    com.vater.module.charge.saver.Mview.BatteryView this$0 -> a
-    218:218:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
-    221:237:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    int val$le -> a
+    com.vater.module.charge.saver.Mview.BatteryView this$0 -> b
+    178:178:void <init>(com.vater.module.charge.saver.Mview.BatteryView,int) -> <init>
+    181:190:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.vater.module.charge.saver.Mview.BatteryView$4 -> com.vater.module.charge.saver.Mview.BatteryView$4:
     com.vater.module.charge.saver.Mview.BatteryView this$0 -> a
-    240:240:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
-    243:247:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    252:260:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    256:256:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
+    259:276:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.vater.module.charge.saver.Mview.BatteryView$5 -> com.vater.module.charge.saver.Mview.BatteryView$5:
     com.vater.module.charge.saver.Mview.BatteryView this$0 -> a
-    271:271:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
-    274:277:void onClick(android.view.View) -> onClick
+    279:279:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
+    282:286:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    291:299:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.vater.module.charge.saver.Mview.BatteryView$6 -> com.vater.module.charge.saver.Mview.BatteryView$6:
     com.vater.module.charge.saver.Mview.BatteryView this$0 -> a
-    289:289:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
-    292:303:void onClick(android.view.View) -> onClick
+    310:310:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
+    313:317:void onClick(android.view.View) -> onClick
+com.vater.module.charge.saver.Mview.BatteryView$7 -> com.vater.module.charge.saver.Mview.BatteryView$7:
+    com.vater.module.charge.saver.Mview.BatteryView this$0 -> a
+    329:329:void <init>(com.vater.module.charge.saver.Mview.BatteryView) -> <init>
+    332:343:void onClick(android.view.View) -> onClick
 com.vater.module.charge.saver.Mview.BatteryView$UnlockListener -> com.vater.module.charge.saver.Mview.BatteryView$a:
     void onUnlock() -> a
 com.vater.module.charge.saver.Mview.BubbleLayout -> com.vater.module.charge.saver.Mview.BubbleLayout:
@@ -39318,6 +39455,8 @@ com.vater.module.charge.saver.R$anim -> com.vater.module.charge.saver.a$a:
     int design_snackbar_in -> design_snackbar_in
     int design_snackbar_out -> design_snackbar_out
 com.vater.module.charge.saver.R$color -> com.vater.module.charge.saver.a$b:
+    int B1 -> B1
+    int B2 -> B2
     int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
     int abc_background_cache_hint_selector_material_light -> abc_background_cache_hint_selector_material_light
     int abc_color_highlight_material -> abc_color_highlight_material
@@ -39435,14 +39574,15 @@ com.vater.module.charge.saver.R$id -> com.vater.module.charge.saver.a$c:
     int battery_ad_layout -> battery_ad_layout
     int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
+    int battery_electricity -> battery_electricity
     int battery_icon -> battery_icon
     int battery_level -> battery_level
     int battery_more -> battery_more
     int battery_now_battery_left -> battery_now_battery_left
     int battery_now_date -> battery_now_date
+    int battery_now_day -> battery_now_day
     int battery_now_time -> battery_now_time
     int battery_now_week -> battery_now_week
-    int battery_shutter -> battery_shutter
     int battery_switch -> battery_switch
     int battery_switch_check -> battery_switch_check
     int battery_title -> battery_title
@@ -39618,12 +39758,12 @@ com.vater.module.charge.saver.R$layout -> com.vater.module.charge.saver.a$d:
     int select_dialog_singlechoice_material -> select_dialog_singlechoice_material
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
 com.vater.module.charge.saver.R$mipmap -> com.vater.module.charge.saver.a$e:
-    int battery_beijing -> battery_beijing
     int battery_bubble -> battery_bubble
     int battery_inner_icon -> battery_inner_icon
     int battery_more -> battery_more
-    int battery_setting_checkbox_close -> battery_setting_checkbox_close
-    int battery_setting_checkbox_open -> battery_setting_checkbox_open
+    int jiantou -> jiantou
+    int side_check_closed -> side_check_closed
+    int side_check_passed1 -> side_check_passed1
 com.vater.module.charge.saver.R$string -> com.vater.module.charge.saver.a$f:
     int abc_action_bar_home_description -> abc_action_bar_home_description
     int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
@@ -40251,7 +40391,7 @@ com.vater.module.charge.saver.R$styleable -> com.vater.module.charge.saver.a$g:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1516:2097:void <clinit>() -> <clinit>
+    1532:2113:void <clinit>() -> <clinit>
 com.vater.module.charge.saver.Util.ADRequest -> com.vater.module.charge.saver.Util.a:
     13:13:void <init>() -> <init>
     16:17:void showFullAD() -> a

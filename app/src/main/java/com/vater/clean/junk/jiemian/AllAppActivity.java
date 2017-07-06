@@ -17,26 +17,27 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.vater.clean.entity.JunkInfo;
-import com.vater.clean.util.PreData;
-import com.vater.clean.util.Util;
 import com.android.client.AndroidSdk;
+import com.vater.clean.entity.JunkInfo;
 import com.vater.clean.junk.R;
-import com.vater.clean.junk.shipeiqi.ManagerAdapter;
-import com.vater.clean.junk.presenter.ManagerPresenter;
 import com.vater.clean.junk.gongju.AdUtil;
 import com.vater.clean.junk.gongju.Constant;
+import com.vater.clean.junk.presenter.ManagerPresenter;
+import com.vater.clean.junk.shipeiqi.ManagerAdapter;
 import com.vater.clean.junk.view.AllAppView;
+import com.vater.clean.util.PreData;
+import com.vater.clean.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,7 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
     RelativeLayout manager_clean;
     ViewPager doc_view_pager;
     TextView title_name;
-    Button junk_button_clean;
+    ImageView junk_button_clean;
     LinearLayout ll_ad_size, ll_ad_time, ll_ad_pinlv;
     TextView manager_shouquan;
     TabLayout view_pager_tab;
@@ -75,7 +76,7 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         view_pager_tab = (TabLayout) findViewById(R.id.view_pager_tab);
-        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
+        junk_button_clean = (ImageView) findViewById(R.id.junk_button_clean);
         manager_clean = (RelativeLayout) findViewById(R.id.manager_clean);
         doc_view_pager = (ViewPager) findViewById(R.id.doc_view_pager);
     }
@@ -98,32 +99,32 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
     @Override
     public void initData(long cleanSize) {
         title_name.setText(R.string.main_manager_name);
-        adapter_size = new ManagerAdapter(this, managerPresenter);
-        adapter_time = new ManagerAdapter(this, managerPresenter);
+        adapter_size = new ManagerAdapter(this, managerPresenter, "size");
         adapter_pinlv = new ManagerAdapter(this, managerPresenter);
+        adapter_time = new ManagerAdapter(this, managerPresenter, "time");
         managerPresenter.addAdapterData();
         titleList = new ArrayList<>();
         titleList.add(getString(R.string.manager_sort_size));
-        titleList.add(getString(R.string.manager_sort_time));
         titleList.add(getString(R.string.manager_sort_pinlv));
+        titleList.add(getString(R.string.manager_sort_time));
         view_pager_tab.addTab(view_pager_tab.newTab().setText(titleList.get(0)));
         view_pager_tab.addTab(view_pager_tab.newTab().setText(titleList.get(1)));
         view_pager_tab.addTab(view_pager_tab.newTab().setText(titleList.get(2)));
 
         view_size = LayoutInflater.from(this).inflate(R.layout.layout_manager_listview, null);
-        view_time = LayoutInflater.from(this).inflate(R.layout.layout_manager_listview, null);
         view_pinlv = LayoutInflater.from(this).inflate(R.layout.layout_manager_listview, null);
         view_permiss = LayoutInflater.from(this).inflate(R.layout.layout_manager_permiss, null);
+        view_time = LayoutInflater.from(this).inflate(R.layout.layout_manager_listview, null);
         initList();
         viewList = new ArrayList<>();
         viewList.add(view_size);
-        viewList.add(view_time);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch() && isNoOption()) {
             viewList.add(view_permiss);
         } else {
             viewList.add(view_pinlv);
         }
+        viewList.add(view_time);
         pagerAdapter = new MyPagerAdaptre();
         doc_view_pager.setAdapter(pagerAdapter);
         view_pager_tab.setupWithViewPager(doc_view_pager);
@@ -135,12 +136,11 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
             @Override
             public void onPageSelected(int position) {
                 if (position == 0) {
-//                    adapter_size.notifyDataSetChanged();
+                    adapter_size.notifyDataSetChanged();
                 } else if (position == 1) {
-//                    adapter_time.notifyDataSetChanged();
+                    adapter_pinlv.notifyDataSetChanged();
                 } else {
-//                    adapter_pinlv.notifyDataSetChanged();
-
+                    adapter_time.notifyDataSetChanged();
                 }
             }
 
@@ -153,9 +153,9 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
 //        managerPresenter.addAdapterData();
         String fileSize = Util.convertStorage(cleanSize, true);
         if (TextUtils.isEmpty(fileSize)) {
-            junk_button_clean.setText(getResources().getText(R.string.manager_button));
+//            junk_button_clean.setText(getResources().getText(R.string.manager_button));
         } else {
-            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
+//            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
         }
     }
 
@@ -179,7 +179,6 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
                 ll_ad_time.addView(nativeView2);
             } else {
             }
-
         }
 
     }
@@ -190,47 +189,24 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
         junk_button_clean.setOnClickListener(onClickListener);
     }
 
-
     class MyPagerAdaptre extends PagerAdapter {
-        private int mChildCount = 0;
 
         @Override
         public int getCount() {
+//            Log.e("viewList", "=======viewList=====" + viewList.size());
             return viewList.size();
         }
 
-        @Override
-        public void notifyDataSetChanged() {
-            mChildCount = getCount();
-            super.notifyDataSetChanged();
-        }
 
         @Override
         public int getItemPosition(Object object) {
-            if (mChildCount > 0) {
-                mChildCount--;
-                return POSITION_NONE;
-            }
-
-            return super.getItemPosition(object);
+            return POSITION_NONE;
         }
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
 //            container.addView(viewList.get(position));
-
-            try {
-                if (viewList.get(position).getParent() == null)
-                    ((ViewPager) container).addView(viewList.get(position), 0);
-                else {
-                    ((ViewGroup) viewList.get(position).getParent()).removeView(viewList.get(position));
-                    ((ViewPager) container).addView(viewList.get(position), 0);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-
+            container.addView(viewList.get(position), 0);
             return viewList.get(position);
         }
 
@@ -241,7 +217,9 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView(viewList.get(position));
+            View view = (View) object;
+            container.removeView(view);
+            view = null;
         }
 
         @Override
@@ -250,9 +228,6 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
         }
     }
 
-    ;
-
-
     @Override
     public void updateAdapter(final List<JunkInfo> listsize, final List<JunkInfo> listtime, final List<JunkInfo> listpinlv) {
         myHandler.post(new Runnable() {
@@ -260,10 +235,10 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
             public void run() {
                 adapter_size.upList(listsize);
                 adapter_size.notifyDataSetChanged();
-                adapter_time.upList(listtime);
-                adapter_time.notifyDataSetChanged();
                 adapter_pinlv.upList(listpinlv);
                 adapter_pinlv.notifyDataSetChanged();
+                adapter_time.upList(listtime);
+                adapter_time.notifyDataSetChanged();
             }
         });
     }
@@ -277,8 +252,8 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
         ll_ad_time = (LinearLayout) view_time.findViewById(R.id.ll_ad);
         ll_ad_pinlv = (LinearLayout) view_pinlv.findViewById(R.id.ll_ad);
         listView_size.setAdapter(adapter_size);
-        listView_time.setAdapter(adapter_time);
         listView_pinlv.setAdapter(adapter_pinlv);
+        listView_time.setAdapter(adapter_time);
         manager_shouquan.setOnClickListener(onClickListener);
     }
 
@@ -315,7 +290,6 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
                     }
                     break;
             }
-
         }
     };
 
@@ -328,7 +302,6 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
             // TODO Auto-generated method stub
             String packageName = intent.getData().getSchemeSpecificPart();
             managerPresenter.unloadSuccess(packageName);
-
         }
 
     }
@@ -365,7 +338,9 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-
+        adapter_size.notifyDataSetChanged();
+        adapter_pinlv.notifyDataSetChanged();
+        adapter_time.notifyDataSetChanged();
     }
 
 
@@ -374,8 +349,10 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
         if (requestCode == 100) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch() && isNoOption()) {
             } else {
-                viewList.remove(2);
-                viewList.add(view_pinlv);
+                viewList.remove(1);
+//                pagerAdapter.notifyDataSetChanged();
+                viewList.add(1, view_pinlv);
+                Log.e("viewList", viewList.size() + "===");
                 pagerAdapter.notifyDataSetChanged();
             }
         }
@@ -385,15 +362,15 @@ public class AllAppActivity extends BaseActivity implements AllAppView {
     public void setCleanDAta(long size) {
         String fileSize = Util.convertStorage(size, true);
         if (TextUtils.isEmpty(fileSize)) {
-            junk_button_clean.setText(getResources().getText(R.string.manager_button));
+//            junk_button_clean.setText(getResources().getText(R.string.manager_button));
             manager_clean.setVisibility(View.GONE);
         } else {
-            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
+//            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
             manager_clean.setVisibility(View.VISIBLE);
         }
         adapter_size.notifyDataSetChanged();
-        adapter_time.notifyDataSetChanged();
         adapter_pinlv.notifyDataSetChanged();
+        adapter_time.notifyDataSetChanged();
     }
 
 }

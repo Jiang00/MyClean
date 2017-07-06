@@ -20,7 +20,7 @@
             <View
                 android:id="@+id/view_title_bar"
                 android:layout_width="match_parent"
-                android:layout_height="10dp" />
+                android:layout_height="0dp" />
 
             <include layout="@layout/layout_title" />
         </LinearLayout>
@@ -34,25 +34,23 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="@dimen/d250">
-
-
+                <!--白色圆-->
                 <ImageView
                     android:layout_width="@dimen/d150"
                     android:layout_height="@dimen/d150"
                     android:src="@mipmap/success_1" />
-
-
+                <!--带点圆-->
                 <ImageView
                     android:id="@+id/success_progress"
                     android:layout_width="@dimen/d150"
                     android:layout_height="@dimen/d150"
                     android:src="@mipmap/success_3" />
-
+                <!--画对号-->
                 <com.vater.clean.junk.myview.DrawHookView
                     android:id="@+id/success_drawhook"
                     android:layout_width="@dimen/d150"
                     android:layout_height="@dimen/d150" />
-
+                <!--火箭-->
                 <ImageView
                     android:id="@+id/success_huojian"
                     android:layout_width="@dimen/d150"
@@ -66,7 +64,7 @@
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A8"
+                android:background="@color/A2"
                 android:fillViewport="true"
                 android:scrollbars="none"
                 android:visibility="invisible">
@@ -272,7 +270,7 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/A8" />
+                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--垃圾清理-->
@@ -334,7 +332,7 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/A8" />
+                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--内存加速-->
@@ -397,7 +395,7 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/A8" />
+                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--手机降温-->
@@ -459,7 +457,7 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/A8" />
+                                android:background="@color/A2" />
                         </LinearLayout>
 
 
@@ -523,7 +521,7 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/A8" />
+                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--相似图片-->
@@ -585,7 +583,7 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/A8" />
+                                android:background="@color/A2" />
                         </LinearLayout>
 
 
@@ -651,7 +649,7 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:background="@color/A8" />
+                                android:background="@color/A2" />
                         </LinearLayout>
 
 

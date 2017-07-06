@@ -6,7 +6,6 @@
     android:background="@color/white_100"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
@@ -17,7 +16,7 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
@@ -25,6 +24,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground"
         android:orientation="vertical">
 
         <android.support.design.widget.TabLayout
@@ -32,10 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/A1"
-            app:tabIndicatorColor="@color/A14"
-            app:tabSelectedTextColor="@color/white_100"
+            app:tabIndicatorColor="@color/B3"
+            app:tabSelectedTextColor="@color/B3"
             app:tabTextAppearance="@style/tablayout_textSize"
-            app:tabTextColor="@color/white_100" />
+            app:tabTextColor="#4dffffff" />
+        <!--app:tabSelectedTextColor="#ffffff"选中的颜色
+        app:tabTextColor="#4dffffff"字体颜色
+        app:tabIndicatorColor="@color/A14"线颜色-->
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -46,33 +49,23 @@
                 android:id="@+id/doc_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A7" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@mipmap/yinying" />
+                android:background="?attr/selectableItemBackground" />
         </FrameLayout>
-
 
         <RelativeLayout
             android:id="@+id/manager_clean"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_horizontal"
             android:visibility="gone">
 
-            <Button
+            <ImageView
                 android:id="@+id/junk_button_clean"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/d168"
-                android:layout_height="@dimen/d44"
+                android:layout_width="@dimen/d78"
+                android:layout_height="@dimen/d78"
                 android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/ram_button"
-                android:textAllCaps="false"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s18" />
+                android:src="@mipmap/aerobee" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

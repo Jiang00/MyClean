@@ -13,25 +13,25 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.vater.clean.filemanager.FileCategoryHelper;
 import com.vater.clean.filemanager.FileSortHelper;
 import com.vater.clean.filemanager.FileUtils;
-import com.vater.clean.util.PreData;
-import com.android.client.AndroidSdk;
+import com.vater.clean.filemanager.Util;
 import com.vater.clean.junk.R;
-import com.vater.clean.junk.shipeiqi.FileAdapter;
-import com.vater.clean.junk.shiti.JunkInfo;
 import com.vater.clean.junk.gongju.AdUtil;
 import com.vater.clean.junk.gongju.Constant;
-import com.vater.clean.filemanager.Util;
+import com.vater.clean.junk.shipeiqi.FileAdapter;
+import com.vater.clean.junk.shiti.JunkInfo;
+import com.vater.clean.util.PreData;
 
 import java.util.ArrayList;
 
@@ -45,7 +45,7 @@ public class DocActivity extends BaseActivity {
     RelativeLayout file_clean_rl;
     FrameLayout title_left;
     TextView title_name;
-    Button file_button_clean;
+    ImageView file_button_clean;
     ViewPager doc_view_pager;
     TabLayout view_pager_tab;
     LinearLayout null_ll;
@@ -71,7 +71,7 @@ public class DocActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        file_button_clean = (Button) findViewById(R.id.file_button_clean);
+        file_button_clean = (ImageView) findViewById(R.id.file_button_clean);
         file_clean_rl = (RelativeLayout) findViewById(R.id.file_clean_rl);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         doc_view_pager = (ViewPager) findViewById(R.id.doc_view_pager);

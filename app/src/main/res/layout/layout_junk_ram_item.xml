@@ -8,15 +8,22 @@
 
     <RelativeLayout
         android:id="@+id/junk_item_rl"
-        android:layout_width="@dimen/d90"
-        android:layout_height="@dimen/d60">
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/d56">
+
+        <TextView
+            android:layout_width="@dimen/d1"
+            android:layout_height="@dimen/d56"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/d31"
+            android:background="@color/A2" />
 
         <ImageView
             android:id="@+id/junk_item_icon"
-            android:layout_width="@dimen/d36"
-            android:layout_height="@dimen/d36"
+            android:layout_width="@dimen/d32"
+            android:layout_height="@dimen/d32"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/d36" />
+            android:layout_marginLeft="@dimen/d72" />
     </RelativeLayout>
 
     <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
@@ -24,11 +31,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/d20"
         android:layout_toRightOf="@id/junk_item_rl"
         android:maxLength="15"
         android:text="app标题"
-        android:textColor="@color/A10"
-        android:textSize="@dimen/s15" />
+        android:textColor="#000000"
+        android:textSize="@dimen/s14" />
 
     <ImageView
         android:id="@+id/check_iv"
@@ -36,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/d25"
+        android:layout_marginLeft="@dimen/d16"
         android:layout_marginRight="@dimen/d16"
         android:src="@mipmap/ram_passed" />
 
@@ -47,6 +55,6 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="@color/A10"
-        android:textSize="@dimen/s12" />
+        android:textColor="#000000"
+        android:textSize="@dimen/s14" />
 </RelativeLayout>

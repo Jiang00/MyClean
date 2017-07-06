@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vater.clean.filemanager.FileCategoryHelper;
+import com.vater.clean.filemanager.Util;
 import com.vater.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.vater.clean.junk.R;
@@ -16,7 +17,7 @@ import com.vater.clean.junk.gongju.AdUtil;
 import com.vater.clean.junk.gongju.Constant;
 
 /**
- * Created by  on 2017/4/20.
+ * Created by on 2017/4/20.
  */
 
 public class FileManagerActivity extends BaseActivity {
@@ -27,7 +28,7 @@ public class FileManagerActivity extends BaseActivity {
     TextView title_name;
     private View nativeView;
     TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num, file_qita_num;
-
+    TextView file_apk_size, file_zip_size, file_txt_size, file_music_size, file_video_size, file_qita_size;
     private String TAG_FILE = "vater_file";
     private FileCategoryHelper fileHelper;
     private FileCategoryHelper.CategoryInfo apkInfo, zipInfo, docInfo, musicInfo, videoInfo, otherInfo;
@@ -38,12 +39,18 @@ public class FileManagerActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        file_apk_num = (TextView) findViewById(R.id.file_apk_num);
         file_zip_num = (TextView) findViewById(R.id.file_zip_num);
+        file_apk_num = (TextView) findViewById(R.id.file_apk_num);
         file_txt_num = (TextView) findViewById(R.id.file_txt_num);
         file_music_num = (TextView) findViewById(R.id.file_music_num);
         file_video_num = (TextView) findViewById(R.id.file_video_num);
         file_qita_num = (TextView) findViewById(R.id.file_qita_num);
+
+        file_apk_size = (TextView) findViewById(R.id.file_apk_size);
+        file_txt_size = (TextView) findViewById(R.id.file_txt_size);
+        file_music_size = (TextView) findViewById(R.id.file_music_size);
+        file_video_size = (TextView) findViewById(R.id.file_video_size);
+        file_qita_size = (TextView) findViewById(R.id.file_qita_size);
         file_apk_button = (LinearLayout) findViewById(R.id.file_apk_button);
         file_zip_button = (LinearLayout) findViewById(R.id.file_zip_button);
         file_txt_button = (LinearLayout) findViewById(R.id.file_txt_button);
@@ -52,7 +59,6 @@ public class FileManagerActivity extends BaseActivity {
         file_other_button = (LinearLayout) findViewById(R.id.file_other_button);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
     }
-
 
 
     @Override
@@ -82,6 +88,12 @@ public class FileManagerActivity extends BaseActivity {
                         file_music_num.setText(getString(R.string.file_num, musicInfo.count));
                         file_video_num.setText(getString(R.string.file_num, videoInfo.count));
                         file_qita_num.setText(getString(R.string.file_num, otherInfo.count));
+
+                        file_apk_size.setText(Util.convertStorage(apkInfo.size));
+                        file_txt_size.setText(Util.convertStorage(docInfo.size));
+                        file_music_size.setText(Util.convertStorage(musicInfo.size));
+                        file_video_size.setText(Util.convertStorage(videoInfo.size));
+                        file_qita_size.setText(Util.convertStorage(otherInfo.size));
                         setListener();
                     }
                 });
@@ -114,6 +126,7 @@ public class FileManagerActivity extends BaseActivity {
 
 
     }
+
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

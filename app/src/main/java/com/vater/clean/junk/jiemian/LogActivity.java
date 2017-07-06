@@ -10,25 +10,24 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.vater.clean.util.PreData;
-import com.vater.clean.util.Util;
 import com.android.client.AndroidSdk;
+import com.vater.clean.entity.JunkInfo;
 import com.vater.clean.junk.R;
 import com.vater.clean.junk.gongju.AdUtil;
 import com.vater.clean.junk.gongju.Constant;
-import com.vater.clean.junk.view.JunkView;
-import com.vater.clean.junk.shipeiqi.Log;
-import com.vater.clean.entity.JunkInfo;
 import com.vater.clean.junk.myview.ListViewForScrollView;
 import com.vater.clean.junk.myview.MyScrollView;
 import com.vater.clean.junk.presenter.LogPresenter;
+import com.vater.clean.junk.shipeiqi.Log;
+import com.vater.clean.junk.view.JunkView;
+import com.vater.clean.util.PreData;
+import com.vater.clean.util.Util;
 
 import java.util.List;
 
@@ -48,7 +47,7 @@ public class LogActivity extends BaseActivity implements JunkView {
     TextView junk_size_all;
     TextView junk_unit;
     TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size;
-    Button junk_button_clean;
+    ImageView junk_button_clean;
     MyScrollView junk_scroll;
     ListView junk_list_all;
 

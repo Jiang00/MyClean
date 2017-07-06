@@ -73,9 +73,9 @@ public class MainWaterView extends View {
         canvas.clipPath(path);
         path.addCircle(width / 2, height / 2, width / 2, Path.Direction.CCW);
         canvas.clipPath(path, Region.Op.REPLACE);
-        firstPaint.setColor(getResources().getColor(R.color.A7));
+        firstPaint.setColor(getResources().getColor(R.color.B5));
         canvas.drawPath(firstPath(), firstPaint);
-        firstPaint.setColor(getResources().getColor(R.color.A6));
+        firstPaint.setColor(getResources().getColor(R.color.A10));
         canvas.drawPath(firstPath2(), firstPaint);
         canvas.drawBitmap(bitmap, null, rectF, beijingPaint);
         sin_offset += sin_offset_increment_value;

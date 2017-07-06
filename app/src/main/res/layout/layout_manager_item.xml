@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/junk_item_rl"
         android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d60">
+        android:layout_height="@dimen/d56">
 
         <ImageView
             android:id="@+id/junk_item_icon"
@@ -31,35 +31,18 @@
             android:layout_height="wrap_content"
             android:maxLength="20"
             android:text="app标题"
-            android:textColor="@color/A10"
-            android:textSize="@dimen/s15" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d5"
-            android:orientation="horizontal">
-
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                android:id="@+id/item_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="17-03-16"
-                android:textColor="@color/A10"
-                android:textSize="@dimen/s10" />
-        </LinearLayout>
-
-
+            android:textColor="@color/A5"
+            android:textSize="@dimen/s14" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/check_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/d24"
+        android:layout_height="@dimen/d24"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/d25"
-        android:layout_marginRight="@dimen/d16" />
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d13" />
 
     <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
         android:id="@+id/size_tv"
@@ -68,7 +51,17 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="@color/A10"
+        android:textColor="#b3000000"
+        android:textSize="@dimen/s14" />
+
+    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+        android:id="@+id/item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/check_iv"
+        android:text="17-03-16"
+        android:textColor="#b3000000"
         android:textSize="@dimen/s14" />
 
 </RelativeLayout>

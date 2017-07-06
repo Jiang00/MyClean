@@ -11,25 +11,24 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.vater.clean.util.PreData;
-import com.vater.clean.util.Util;
 import com.android.client.AndroidSdk;
+import com.vater.clean.entity.JunkInfo;
 import com.vater.clean.junk.R;
 import com.vater.clean.junk.gongju.AdUtil;
 import com.vater.clean.junk.gongju.Constant;
-import com.vater.clean.junk.view.LogRamView;
-import com.vater.clean.junk.shipeiqi.JunkRamAdapter;
-import com.vater.clean.entity.JunkInfo;
 import com.vater.clean.junk.myview.ListViewForScrollView;
 import com.vater.clean.junk.myview.MyScrollView;
 import com.vater.clean.junk.presenter.LogRamPresenter;
+import com.vater.clean.junk.shipeiqi.JunkRamAdapter;
+import com.vater.clean.junk.view.LogRamView;
+import com.vater.clean.util.PreData;
+import com.vater.clean.util.Util;
 
 import java.util.List;
 
@@ -49,7 +48,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
     ListViewForScrollView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list, junk_ram_list;
     TextView title_name;
     ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou, junk_ram_jiantou;
-    Button junk_button_clean;
+    ImageView junk_button_clean;
     MyScrollView junk_scroll;
     ListView junk_list_all;
 
@@ -92,7 +91,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
         junk_log_list = (ListViewForScrollView) findViewById(R.id.junk_log_list);
         junk_user_list = (ListViewForScrollView) findViewById(R.id.junk_user_list);
         junk_ram_list = (ListViewForScrollView) findViewById(R.id.junk_ram_list);
-        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
+        junk_button_clean = (ImageView) findViewById(R.id.junk_button_clean);
         junk_scroll = (MyScrollView) findViewById(R.id.junk_scroll);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
     }
@@ -224,6 +223,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
             }
         }).start();
     }
+
     @Override
     public void initData(long allSize) {
         title_name.setText(R.string.all_junk_title);
@@ -396,6 +396,7 @@ public class LogAndRamActivity extends BaseActivity implements LogRamView {
     public void setUnit(long size, TextView textView) {
         textView.setText(Util.convertStorageDanwei(size));
     }
+
     @Override
     public void addUnloaddata(final long size, List<JunkInfo> list) {
         adapterUnload.addDataList(list);

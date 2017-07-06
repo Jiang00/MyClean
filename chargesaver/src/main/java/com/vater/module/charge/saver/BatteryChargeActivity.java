@@ -18,8 +18,6 @@ import com.vater.module.charge.saver.entry.BatteryEntry;
 import com.vater.module.charge.saver.Mview.BatteryView;
 
 public class BatteryChargeActivity extends Activity {
-
-
     private BatteryView batteryView;
     private BatteryEntry entry;
 

@@ -30075,7 +30075,6 @@ com.mingle.widget.ListView: ListView(android.content.Context,android.util.Attrib
 com.mingle.widget.ListView: void setOnClickListener(android.view.View$OnClickListener)
 com.mingle.widget.ListView: void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)
 com.mingle.widget.ListView: void setSkinStyle(com.mingle.skin.SkinStyle)
-com.mingle.widget.ListView: void setAdapter(android.widget.Adapter)
 com.mingle.widget.MultiAutoCompleteTextView
 com.mingle.widget.MultiAutoCompleteTextView: MultiAutoCompleteTextView(android.content.Context,android.util.AttributeSet)
 com.mingle.widget.MultiAutoCompleteTextView: MultiAutoCompleteTextView(android.content.Context,android.util.AttributeSet,int)
@@ -30120,10 +30119,8 @@ com.rd.Orientation: com.rd.Orientation valueOf(java.lang.String)
 com.rd.Orientation: Orientation(java.lang.String,int)
 com.rd.Orientation: void <clinit>()
 com.rd.PageIndicatorView
-com.rd.PageIndicatorView: PageIndicatorView(android.content.Context)
 com.rd.PageIndicatorView: PageIndicatorView(android.content.Context,android.util.AttributeSet)
 com.rd.PageIndicatorView: PageIndicatorView(android.content.Context,android.util.AttributeSet,int)
-com.rd.PageIndicatorView: PageIndicatorView(android.content.Context,android.util.AttributeSet,int,int)
 com.rd.PageIndicatorView: void setCount(int)
 com.rd.PageIndicatorView: int getCount()
 com.rd.PageIndicatorView: void setDynamicCount(boolean)
@@ -35713,6 +35710,7 @@ com.vater.clean.junk.R$color: int A15
 com.vater.clean.junk.R$color: int A16
 com.vater.clean.junk.R$color: int A17
 com.vater.clean.junk.R$color: int A18
+com.vater.clean.junk.R$color: int A1_50
 com.vater.clean.junk.R$color: int A2
 com.vater.clean.junk.R$color: int A3
 com.vater.clean.junk.R$color: int A4
@@ -35721,6 +35719,14 @@ com.vater.clean.junk.R$color: int A6
 com.vater.clean.junk.R$color: int A7
 com.vater.clean.junk.R$color: int A8
 com.vater.clean.junk.R$color: int A9
+com.vater.clean.junk.R$color: int B1
+com.vater.clean.junk.R$color: int B2
+com.vater.clean.junk.R$color: int B3
+com.vater.clean.junk.R$color: int B3_12
+com.vater.clean.junk.R$color: int B3_5
+com.vater.clean.junk.R$color: int B4
+com.vater.clean.junk.R$color: int B5
+com.vater.clean.junk.R$color: int B6
 com.vater.clean.junk.R$color: int abc_background_cache_hint_selector_material_dark
 com.vater.clean.junk.R$color: int abc_background_cache_hint_selector_material_light
 com.vater.clean.junk.R$color: int abc_color_highlight_material
@@ -35948,6 +35954,7 @@ com.vater.clean.junk.R$dimen: int d10
 com.vater.clean.junk.R$dimen: int d100
 com.vater.clean.junk.R$dimen: int d109
 com.vater.clean.junk.R$dimen: int d112
+com.vater.clean.junk.R$dimen: int d116
 com.vater.clean.junk.R$dimen: int d12
 com.vater.clean.junk.R$dimen: int d120
 com.vater.clean.junk.R$dimen: int d1200
@@ -35956,6 +35963,7 @@ com.vater.clean.junk.R$dimen: int d125
 com.vater.clean.junk.R$dimen: int d127
 com.vater.clean.junk.R$dimen: int d129
 com.vater.clean.junk.R$dimen: int d13
+com.vater.clean.junk.R$dimen: int d130
 com.vater.clean.junk.R$dimen: int d133
 com.vater.clean.junk.R$dimen: int d135
 com.vater.clean.junk.R$dimen: int d14
@@ -35966,6 +35974,7 @@ com.vater.clean.junk.R$dimen: int d150
 com.vater.clean.junk.R$dimen: int d1500
 com.vater.clean.junk.R$dimen: int d154
 com.vater.clean.junk.R$dimen: int d155
+com.vater.clean.junk.R$dimen: int d156
 com.vater.clean.junk.R$dimen: int d16
 com.vater.clean.junk.R$dimen: int d160
 com.vater.clean.junk.R$dimen: int d161
@@ -35982,6 +35991,7 @@ com.vater.clean.junk.R$dimen: int d2
 com.vater.clean.junk.R$dimen: int d20
 com.vater.clean.junk.R$dimen: int d200
 com.vater.clean.junk.R$dimen: int d208
+com.vater.clean.junk.R$dimen: int d21
 com.vater.clean.junk.R$dimen: int d210
 com.vater.clean.junk.R$dimen: int d217
 com.vater.clean.junk.R$dimen: int d225
@@ -36001,12 +36011,14 @@ com.vater.clean.junk.R$dimen: int d29
 com.vater.clean.junk.R$dimen: int d3
 com.vater.clean.junk.R$dimen: int d30
 com.vater.clean.junk.R$dimen: int d301
+com.vater.clean.junk.R$dimen: int d31
 com.vater.clean.junk.R$dimen: int d313
 com.vater.clean.junk.R$dimen: int d32
 com.vater.clean.junk.R$dimen: int d33
 com.vater.clean.junk.R$dimen: int d333
 com.vater.clean.junk.R$dimen: int d36
 com.vater.clean.junk.R$dimen: int d37
+com.vater.clean.junk.R$dimen: int d38
 com.vater.clean.junk.R$dimen: int d39
 com.vater.clean.junk.R$dimen: int d4
 com.vater.clean.junk.R$dimen: int d40
@@ -36017,7 +36029,10 @@ com.vater.clean.junk.R$dimen: int d46
 com.vater.clean.junk.R$dimen: int d48
 com.vater.clean.junk.R$dimen: int d5
 com.vater.clean.junk.R$dimen: int d50
+com.vater.clean.junk.R$dimen: int d51
+com.vater.clean.junk.R$dimen: int d52
 com.vater.clean.junk.R$dimen: int d53
+com.vater.clean.junk.R$dimen: int d54
 com.vater.clean.junk.R$dimen: int d56
 com.vater.clean.junk.R$dimen: int d6
 com.vater.clean.junk.R$dimen: int d60
@@ -36033,6 +36048,7 @@ com.vater.clean.junk.R$dimen: int d84
 com.vater.clean.junk.R$dimen: int d9
 com.vater.clean.junk.R$dimen: int d90
 com.vater.clean.junk.R$dimen: int d95
+com.vater.clean.junk.R$dimen: int d_8
 com.vater.clean.junk.R$dimen: int design_appbar_elevation
 com.vater.clean.junk.R$dimen: int design_bottom_sheet_modal_elevation
 com.vater.clean.junk.R$dimen: int design_bottom_sheet_modal_peek_height
@@ -36158,8 +36174,10 @@ com.vater.clean.junk.R$dimen: int s24
 com.vater.clean.junk.R$dimen: int s28
 com.vater.clean.junk.R$dimen: int s30
 com.vater.clean.junk.R$dimen: int s38
+com.vater.clean.junk.R$dimen: int s46
 com.vater.clean.junk.R$dimen: int s48
 com.vater.clean.junk.R$dimen: int s53
+com.vater.clean.junk.R$dimen: int s54
 com.vater.clean.junk.R$dimen: int s60
 com.vater.clean.junk.R$dimen: int s63
 com.vater.clean.junk.R$dimen: int s66
@@ -36271,6 +36289,8 @@ com.vater.clean.junk.R$drawable: int abc_textfield_search_material
 com.vater.clean.junk.R$drawable: int ad_green
 com.vater.clean.junk.R$drawable: int design_fab_background
 com.vater.clean.junk.R$drawable: int design_snackbar_background
+com.vater.clean.junk.R$drawable: int gradient_beijing
+com.vater.clean.junk.R$drawable: int gradient_beijing1
 com.vater.clean.junk.R$drawable: int junk_divider
 com.vater.clean.junk.R$drawable: int list_divider
 com.vater.clean.junk.R$drawable: int normal_rectangle
@@ -36284,6 +36304,8 @@ com.vater.clean.junk.R$drawable: int shape_a1
 com.vater.clean.junk.R$drawable: int shape_a1_r
 com.vater.clean.junk.R$drawable: int shape_ad
 com.vater.clean.junk.R$drawable: int shape_button
+com.vater.clean.junk.R$drawable: int shape_button_a8
+com.vater.clean.junk.R$drawable: int shape_button_b3
 com.vater.clean.junk.R$drawable: int shape_button_ffffff
 com.vater.clean.junk.R$drawable: int shape_dian
 com.vater.clean.junk.R$drawable: int shape_edit_1
@@ -36295,6 +36317,7 @@ com.vater.clean.junk.R$drawable: int shape_ffffff_round
 com.vater.clean.junk.R$drawable: int shape_gb_1
 com.vater.clean.junk.R$drawable: int shape_gb_2
 com.vater.clean.junk.R$drawable: int shape_gb_3
+com.vater.clean.junk.R$drawable: int shape_junk
 com.vater.clean.junk.R$drawable: int shape_pic_hui_1
 com.vater.clean.junk.R$drawable: int shape_pic_hui_2
 com.vater.clean.junk.R$drawable: int shape_radio
@@ -36348,14 +36371,15 @@ com.vater.clean.junk.R$id: int battery_bubble_layout
 com.vater.clean.junk.R$id: int battery_button
 com.vater.clean.junk.R$id: int battery_cha
 com.vater.clean.junk.R$id: int battery_charge_save
+com.vater.clean.junk.R$id: int battery_electricity
 com.vater.clean.junk.R$id: int battery_icon
 com.vater.clean.junk.R$id: int battery_level
 com.vater.clean.junk.R$id: int battery_more
 com.vater.clean.junk.R$id: int battery_now_battery_left
 com.vater.clean.junk.R$id: int battery_now_date
+com.vater.clean.junk.R$id: int battery_now_day
 com.vater.clean.junk.R$id: int battery_now_time
 com.vater.clean.junk.R$id: int battery_now_week
-com.vater.clean.junk.R$id: int battery_shutter
 com.vater.clean.junk.R$id: int battery_switch
 com.vater.clean.junk.R$id: int battery_switch_check
 com.vater.clean.junk.R$id: int battery_title
@@ -36416,6 +36440,7 @@ com.vater.clean.junk.R$id: int expanded_menu
 com.vater.clean.junk.R$id: int file
 com.vater.clean.junk.R$id: int file_apk_button
 com.vater.clean.junk.R$id: int file_apk_num
+com.vater.clean.junk.R$id: int file_apk_size
 com.vater.clean.junk.R$id: int file_button_clean
 com.vater.clean.junk.R$id: int file_check
 com.vater.clean.junk.R$id: int file_clean_rl
@@ -36424,15 +36449,19 @@ com.vater.clean.junk.R$id: int file_icon
 com.vater.clean.junk.R$id: int file_list
 com.vater.clean.junk.R$id: int file_music_button
 com.vater.clean.junk.R$id: int file_music_num
+com.vater.clean.junk.R$id: int file_music_size
 com.vater.clean.junk.R$id: int file_name
 com.vater.clean.junk.R$id: int file_other_button
 com.vater.clean.junk.R$id: int file_progressbar
 com.vater.clean.junk.R$id: int file_qita_num
+com.vater.clean.junk.R$id: int file_qita_size
 com.vater.clean.junk.R$id: int file_size
 com.vater.clean.junk.R$id: int file_txt_button
 com.vater.clean.junk.R$id: int file_txt_num
+com.vater.clean.junk.R$id: int file_txt_size
 com.vater.clean.junk.R$id: int file_video_button
 com.vater.clean.junk.R$id: int file_video_num
+com.vater.clean.junk.R$id: int file_video_size
 com.vater.clean.junk.R$id: int file_zip_button
 com.vater.clean.junk.R$id: int file_zip_num
 com.vater.clean.junk.R$id: int fill
@@ -36444,15 +36473,13 @@ com.vater.clean.junk.R$id: int float_cricle
 com.vater.clean.junk.R$id: int float_memory
 com.vater.clean.junk.R$id: int float_rotate
 com.vater.clean.junk.R$id: int float_tishi
-com.vater.clean.junk.R$id: int gboost_clean_button
-com.vater.clean.junk.R$id: int gboost_cpu_szie
+com.vater.clean.junk.R$id: int gboost_gridview
+com.vater.clean.junk.R$id: int gboost_item_add
+com.vater.clean.junk.R$id: int gboost_item_addname
 com.vater.clean.junk.R$id: int gboost_item_c
 com.vater.clean.junk.R$id: int gboost_item_icon
 com.vater.clean.junk.R$id: int gboost_item_name
-com.vater.clean.junk.R$id: int gboost_network_size
-com.vater.clean.junk.R$id: int gboost_power_check
-com.vater.clean.junk.R$id: int gboost_ram_size
-com.vater.clean.junk.R$id: int gboost_recyc
+com.vater.clean.junk.R$id: int gboost_item_textview
 com.vater.clean.junk.R$id: int goost_container
 com.vater.clean.junk.R$id: int home
 com.vater.clean.junk.R$id: int homeAsUp
@@ -36520,6 +36547,8 @@ com.vater.clean.junk.R$id: int junk_user_size
 com.vater.clean.junk.R$id: int left
 com.vater.clean.junk.R$id: int line1
 com.vater.clean.junk.R$id: int line3
+com.vater.clean.junk.R$id: int linearlayou_add
+com.vater.clean.junk.R$id: int linearlayout_qita
 com.vater.clean.junk.R$id: int listMode
 com.vater.clean.junk.R$id: int list_game
 com.vater.clean.junk.R$id: int list_item
@@ -36546,10 +36575,15 @@ com.vater.clean.junk.R$id: int load_text_3
 com.vater.clean.junk.R$id: int loading_text
 com.vater.clean.junk.R$id: int lot_ad
 com.vater.clean.junk.R$id: int lottie_layer_name
+com.vater.clean.junk.R$id: int main_aerobee
 com.vater.clean.junk.R$id: int main_all_cercle
-com.vater.clean.junk.R$id: int main_applock_button
 com.vater.clean.junk.R$id: int main_battery
+com.vater.clean.junk.R$id: int main_circleview
 com.vater.clean.junk.R$id: int main_cooling_button
+com.vater.clean.junk.R$id: int main_cooling_button2
+com.vater.clean.junk.R$id: int main_custom_cpu
+com.vater.clean.junk.R$id: int main_custom_ram
+com.vater.clean.junk.R$id: int main_custom_sd
 com.vater.clean.junk.R$id: int main_dian
 com.vater.clean.junk.R$id: int main_drawer
 com.vater.clean.junk.R$id: int main_fenshu
@@ -36557,25 +36591,30 @@ com.vater.clean.junk.R$id: int main_file_button
 com.vater.clean.junk.R$id: int main_full_time
 com.vater.clean.junk.R$id: int main_gboost_button
 com.vater.clean.junk.R$id: int main_junk_button
+com.vater.clean.junk.R$id: int main_junk_button2
+com.vater.clean.junk.R$id: int main_junk_h
+com.vater.clean.junk.R$id: int main_junk_iv
 com.vater.clean.junk.R$id: int main_manager_button
-com.vater.clean.junk.R$id: int main_msg_GBoost
 com.vater.clean.junk.R$id: int main_msg_button
-com.vater.clean.junk.R$id: int main_msg_file
-com.vater.clean.junk.R$id: int main_msg_notifi
-com.vater.clean.junk.R$id: int main_msg_picture
+com.vater.clean.junk.R$id: int main_msg_cooling
+com.vater.clean.junk.R$id: int main_msg_cpu_percent
 com.vater.clean.junk.R$id: int main_msg_power
+com.vater.clean.junk.R$id: int main_msg_ram_percent
+com.vater.clean.junk.R$id: int main_msg_sd_percent
 com.vater.clean.junk.R$id: int main_notifi_button
 com.vater.clean.junk.R$id: int main_picture_button
+com.vater.clean.junk.R$id: int main_pointer
 com.vater.clean.junk.R$id: int main_power_button
 com.vater.clean.junk.R$id: int main_pull_refresh
 com.vater.clean.junk.R$id: int main_ram_button
 com.vater.clean.junk.R$id: int main_rotate_all
 com.vater.clean.junk.R$id: int main_rotate_bad
+com.vater.clean.junk.R$id: int main_rotate_close
 com.vater.clean.junk.R$id: int main_rotate_good
 com.vater.clean.junk.R$id: int main_scroll_view
-com.vater.clean.junk.R$id: int main_theme_button
 com.vater.clean.junk.R$id: int main_title
 com.vater.clean.junk.R$id: int main_water
+com.vater.clean.junk.R$id: int main_wave
 com.vater.clean.junk.R$id: int manager_clean
 com.vater.clean.junk.R$id: int manager_permision
 com.vater.clean.junk.R$id: int manager_shouquan
@@ -36624,7 +36663,6 @@ com.vater.clean.junk.R$id: int ok
 com.vater.clean.junk.R$id: int on
 com.vater.clean.junk.R$id: int onclick
 com.vater.clean.junk.R$id: int packed
-com.vater.clean.junk.R$id: int pageindicatorview
 com.vater.clean.junk.R$id: int pager_buttom
 com.vater.clean.junk.R$id: int pager_fl
 com.vater.clean.junk.R$id: int pager_title
@@ -36731,6 +36769,7 @@ com.vater.clean.junk.R$id: int shortcut
 com.vater.clean.junk.R$id: int showCustom
 com.vater.clean.junk.R$id: int showHome
 com.vater.clean.junk.R$id: int showTitle
+com.vater.clean.junk.R$id: int side_deep_h
 com.vater.clean.junk.R$id: int side_divide
 com.vater.clean.junk.R$id: int side_listView
 com.vater.clean.junk.R$id: int size_tv
@@ -36791,6 +36830,7 @@ com.vater.clean.junk.R$id: int view_offset_helper
 com.vater.clean.junk.R$id: int view_pager_tab
 com.vater.clean.junk.R$id: int view_set
 com.vater.clean.junk.R$id: int view_title_bar
+com.vater.clean.junk.R$id: int virtuaringview
 com.vater.clean.junk.R$id: int weak
 com.vater.clean.junk.R$id: int white_wu
 com.vater.clean.junk.R$id: int withText
@@ -36927,16 +36967,19 @@ com.vater.clean.junk.R$layout: int support_simple_spinner_dropdown_item
 com.vater.clean.junk.R$mipmap: int ad
 com.vater.clean.junk.R$mipmap: int ad2
 com.vater.clean.junk.R$mipmap: int ad_delete
+com.vater.clean.junk.R$mipmap: int add
+com.vater.clean.junk.R$mipmap: int aerobee
 com.vater.clean.junk.R$mipmap: int battery_2
-com.vater.clean.junk.R$mipmap: int battery_beijing
 com.vater.clean.junk.R$mipmap: int battery_bubble
 com.vater.clean.junk.R$mipmap: int battery_cha
 com.vater.clean.junk.R$mipmap: int battery_inner_icon
 com.vater.clean.junk.R$mipmap: int battery_more
-com.vater.clean.junk.R$mipmap: int battery_setting_checkbox_close
-com.vater.clean.junk.R$mipmap: int battery_setting_checkbox_open
+com.vater.clean.junk.R$mipmap: int close
 com.vater.clean.junk.R$mipmap: int cooling_0
 com.vater.clean.junk.R$mipmap: int cooling_1
+com.vater.clean.junk.R$mipmap: int cooling_2
+com.vater.clean.junk.R$mipmap: int cooling_3
+com.vater.clean.junk.R$mipmap: int cooling_main
 com.vater.clean.junk.R$mipmap: int cpu_card
 com.vater.clean.junk.R$mipmap: int dian
 com.vater.clean.junk.R$mipmap: int edit_left_drawable
@@ -36976,14 +37019,19 @@ com.vater.clean.junk.R$mipmap: int gboost_short
 com.vater.clean.junk.R$mipmap: int gboost_side
 com.vater.clean.junk.R$mipmap: int hui_num
 com.vater.clean.junk.R$mipmap: int icon
+com.vater.clean.junk.R$mipmap: int jiantou
+com.vater.clean.junk.R$mipmap: int jiantour
 com.vater.clean.junk.R$mipmap: int junk_apk
 com.vater.clean.junk.R$mipmap: int junk_card
 com.vater.clean.junk.R$mipmap: int junk_log
+com.vater.clean.junk.R$mipmap: int junk_main
 com.vater.clean.junk.R$mipmap: int junk_ram
 com.vater.clean.junk.R$mipmap: int junk_system
 com.vater.clean.junk.R$mipmap: int junk_unload
 com.vater.clean.junk.R$mipmap: int junk_user
 com.vater.clean.junk.R$mipmap: int junk_x
+com.vater.clean.junk.R$mipmap: int label
+com.vater.clean.junk.R$mipmap: int label2
 com.vater.clean.junk.R$mipmap: int load_succeed
 com.vater.clean.junk.R$mipmap: int loading
 com.vater.clean.junk.R$mipmap: int loading_1
@@ -37003,6 +37051,7 @@ com.vater.clean.junk.R$mipmap: int main_rotate_2
 com.vater.clean.junk.R$mipmap: int main_setting
 com.vater.clean.junk.R$mipmap: int main_theme_button
 com.vater.clean.junk.R$mipmap: int main_touying
+com.vater.clean.junk.R$mipmap: int main_wave
 com.vater.clean.junk.R$mipmap: int main_yingjian
 com.vater.clean.junk.R$mipmap: int next_ad_pro
 com.vater.clean.junk.R$mipmap: int notifi_6
@@ -37025,6 +37074,7 @@ com.vater.clean.junk.R$mipmap: int pic_dialog_delete
 com.vater.clean.junk.R$mipmap: int picture_main
 com.vater.clean.junk.R$mipmap: int picture_right
 com.vater.clean.junk.R$mipmap: int picture_xing
+com.vater.clean.junk.R$mipmap: int pointer
 com.vater.clean.junk.R$mipmap: int power_1
 com.vater.clean.junk.R$mipmap: int power_2
 com.vater.clean.junk.R$mipmap: int power_6
@@ -37053,8 +37103,10 @@ com.vater.clean.junk.R$mipmap: int short_5
 com.vater.clean.junk.R$mipmap: int short_7
 com.vater.clean.junk.R$mipmap: int short_cut_icon
 com.vater.clean.junk.R$mipmap: int side_charging
+com.vater.clean.junk.R$mipmap: int side_check_closed
 com.vater.clean.junk.R$mipmap: int side_check_normal
 com.vater.clean.junk.R$mipmap: int side_check_passed
+com.vater.clean.junk.R$mipmap: int side_check_passed1
 com.vater.clean.junk.R$mipmap: int side_file
 com.vater.clean.junk.R$mipmap: int side_float
 com.vater.clean.junk.R$mipmap: int side_junk
@@ -37066,6 +37118,8 @@ com.vater.clean.junk.R$mipmap: int side_ram
 com.vater.clean.junk.R$mipmap: int side_rotate
 com.vater.clean.junk.R$mipmap: int side_setting
 com.vater.clean.junk.R$mipmap: int side_title
+com.vater.clean.junk.R$mipmap: int side_wave
+com.vater.clean.junk.R$mipmap: int side_white
 com.vater.clean.junk.R$mipmap: int success_1
 com.vater.clean.junk.R$mipmap: int success_3
 com.vater.clean.junk.R$mipmap: int success_duigou
@@ -37102,6 +37156,7 @@ com.vater.clean.junk.R$string: int add_white
 com.vater.clean.junk.R$string: int all_junk_title
 com.vater.clean.junk.R$string: int app_name
 com.vater.clean.junk.R$string: int appbar_scrolling_view_behavior
+com.vater.clean.junk.R$string: int applock
 com.vater.clean.junk.R$string: int applock_1
 com.vater.clean.junk.R$string: int applock_2
 com.vater.clean.junk.R$string: int applock_3
@@ -37120,6 +37175,7 @@ com.vater.clean.junk.R$string: int battery_5
 com.vater.clean.junk.R$string: int battery_6
 com.vater.clean.junk.R$string: int battery_7
 com.vater.clean.junk.R$string: int battery_8
+com.vater.clean.junk.R$string: int booster
 com.vater.clean.junk.R$string: int bottom_sheet_behavior
 com.vater.clean.junk.R$string: int character_counter_pattern
 com.vater.clean.junk.R$string: int charge_screen_save
@@ -37146,6 +37202,7 @@ com.vater.clean.junk.R$string: int file_pther
 com.vater.clean.junk.R$string: int file_txt
 com.vater.clean.junk.R$string: int file_video
 com.vater.clean.junk.R$string: int file_zip
+com.vater.clean.junk.R$string: int five_stars
 com.vater.clean.junk.R$string: int float_gps
 com.vater.clean.junk.R$string: int float_h_1
 com.vater.clean.junk.R$string: int float_jiasu
@@ -37154,6 +37211,7 @@ com.vater.clean.junk.R$string: int float_liuliang
 com.vater.clean.junk.R$string: int float_shengyin
 com.vater.clean.junk.R$string: int float_wifi
 com.vater.clean.junk.R$string: int float_yijiasu
+com.vater.clean.junk.R$string: int full_marks
 com.vater.clean.junk.R$string: int game
 com.vater.clean.junk.R$string: int gboost_0
 com.vater.clean.junk.R$string: int gboost_1
@@ -37183,6 +37241,7 @@ com.vater.clean.junk.R$string: int junk_title_clean
 com.vater.clean.junk.R$string: int junk_title_scaning
 com.vater.clean.junk.R$string: int junk_unload
 com.vater.clean.junk.R$string: int junk_user
+com.vater.clean.junk.R$string: int like
 com.vater.clean.junk.R$string: int load_fails
 com.vater.clean.junk.R$string: int loading_1
 com.vater.clean.junk.R$string: int loading_2
@@ -37284,6 +37343,7 @@ com.vater.clean.junk.R$string: int power_1
 com.vater.clean.junk.R$string: int power_2
 com.vater.clean.junk.R$string: int power_3
 com.vater.clean.junk.R$string: int power_4
+com.vater.clean.junk.R$string: int power_5
 com.vater.clean.junk.R$string: int premiss_1
 com.vater.clean.junk.R$string: int premiss_2
 com.vater.clean.junk.R$string: int premiss_3
@@ -38408,6 +38468,17 @@ com.vater.clean.junk.jiemian.UnloadActivity
 com.vater.clean.junk.jiemian.UnloadActivity: UnloadActivity()
 com.vater.clean.junk.jiemian.XuanfuActivity
 com.vater.clean.junk.jiemian.XuanfuActivity: XuanfuActivity()
+com.vater.clean.junk.myview.CircleView
+com.vater.clean.junk.myview.CircleView: CircleView(android.content.Context)
+com.vater.clean.junk.myview.CircleView: CircleView(android.content.Context,android.util.AttributeSet)
+com.vater.clean.junk.myview.CircleWaveView
+com.vater.clean.junk.myview.CircleWaveView: CircleWaveView(android.content.Context,android.util.AttributeSet)
+com.vater.clean.junk.myview.CustomRoundCpu
+com.vater.clean.junk.myview.CustomRoundCpu: CustomRoundCpu(android.content.Context)
+com.vater.clean.junk.myview.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet)
+com.vater.clean.junk.myview.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet,int)
+com.vater.clean.junk.myview.CustomRoundCpu: void setProgress(int)
+com.vater.clean.junk.myview.CustomRoundCpu: void setCustomRoundListener(com.vater.clean.junk.myview.CustomRoundCpu$CustomRoundListener)
 com.vater.clean.junk.myview.DeepWidgetContainer
 com.vater.clean.junk.myview.DeepWidgetContainer: void setHandler(android.os.Handler)
 com.vater.clean.junk.myview.DrawHookView
@@ -38427,7 +38498,6 @@ com.vater.clean.junk.myview.ListViewForScrollView
 com.vater.clean.junk.myview.ListViewForScrollView: ListViewForScrollView(android.content.Context)
 com.vater.clean.junk.myview.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
 com.vater.clean.junk.myview.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet,int)
-com.vater.clean.junk.myview.ListViewForScrollView: void setAdapter(android.widget.Adapter)
 com.vater.clean.junk.myview.MainFrameLayout
 com.vater.clean.junk.myview.MainFrameLayout: MainFrameLayout(android.content.Context,android.util.AttributeSet)
 com.vater.clean.junk.myview.MainRoundView
@@ -38454,7 +38524,6 @@ com.vater.clean.junk.myview.MyScrollView: void setScrollViewListener(com.vater.c
 com.vater.clean.junk.myview.MyScrollView: void setXadSuccess(boolean)
 com.vater.clean.junk.myview.MyScrollView: void setSadSuccess(boolean)
 com.vater.clean.junk.myview.PagerView
-com.vater.clean.junk.myview.PagerView: PagerView(android.content.Context)
 com.vater.clean.junk.myview.PagerView: PagerView(android.content.Context,android.util.AttributeSet)
 com.vater.clean.junk.myview.PagerView: PagerView(android.content.Context,android.util.AttributeSet,int)
 com.vater.clean.junk.myview.PagerView: void setBottomLine(int)
@@ -38481,6 +38550,10 @@ com.vater.clean.junk.myview.SlowScrollView
 com.vater.clean.junk.myview.SlowScrollView: SlowScrollView(android.content.Context)
 com.vater.clean.junk.myview.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet)
 com.vater.clean.junk.myview.SlowScrollView: SlowScrollView(android.content.Context,android.util.AttributeSet,int)
+com.vater.clean.junk.myview.VirtuaRingView
+com.vater.clean.junk.myview.VirtuaRingView: VirtuaRingView(android.content.Context)
+com.vater.clean.junk.myview.VirtuaRingView: VirtuaRingView(android.content.Context,android.util.AttributeSet)
+com.vater.clean.junk.myview.VirtuaRingView: void setNum(int)
 com.vater.clean.notification.NotificationMonitorService
 com.vater.clean.notification.NotificationMonitorService: NotificationMonitorService()
 com.vater.module.charge.saver.ADActivity
@@ -38889,6 +38962,8 @@ com.vater.module.charge.saver.R$bool: int abc_config_actionMenuItemAllCaps
 com.vater.module.charge.saver.R$bool: int abc_config_allowActionMenuItemTextWithIcon
 com.vater.module.charge.saver.R$bool: int abc_config_closeDialogWhenTouchOutside
 com.vater.module.charge.saver.R$bool: int abc_config_showMenuShortcutsWhenKeyboardPresent
+com.vater.module.charge.saver.R$color: int B1
+com.vater.module.charge.saver.R$color: int B2
 com.vater.module.charge.saver.R$color: int abc_background_cache_hint_selector_material_dark
 com.vater.module.charge.saver.R$color: int abc_background_cache_hint_selector_material_light
 com.vater.module.charge.saver.R$color: int abc_color_highlight_material
@@ -39066,6 +39141,7 @@ com.vater.module.charge.saver.R$dimen: int d10
 com.vater.module.charge.saver.R$dimen: int d100
 com.vater.module.charge.saver.R$dimen: int d109
 com.vater.module.charge.saver.R$dimen: int d112
+com.vater.module.charge.saver.R$dimen: int d116
 com.vater.module.charge.saver.R$dimen: int d12
 com.vater.module.charge.saver.R$dimen: int d120
 com.vater.module.charge.saver.R$dimen: int d1200
@@ -39074,6 +39150,7 @@ com.vater.module.charge.saver.R$dimen: int d125
 com.vater.module.charge.saver.R$dimen: int d127
 com.vater.module.charge.saver.R$dimen: int d129
 com.vater.module.charge.saver.R$dimen: int d13
+com.vater.module.charge.saver.R$dimen: int d130
 com.vater.module.charge.saver.R$dimen: int d133
 com.vater.module.charge.saver.R$dimen: int d135
 com.vater.module.charge.saver.R$dimen: int d14
@@ -39082,6 +39159,7 @@ com.vater.module.charge.saver.R$dimen: int d146
 com.vater.module.charge.saver.R$dimen: int d15
 com.vater.module.charge.saver.R$dimen: int d154
 com.vater.module.charge.saver.R$dimen: int d155
+com.vater.module.charge.saver.R$dimen: int d156
 com.vater.module.charge.saver.R$dimen: int d16
 com.vater.module.charge.saver.R$dimen: int d160
 com.vater.module.charge.saver.R$dimen: int d161
@@ -39098,6 +39176,7 @@ com.vater.module.charge.saver.R$dimen: int d2
 com.vater.module.charge.saver.R$dimen: int d20
 com.vater.module.charge.saver.R$dimen: int d200
 com.vater.module.charge.saver.R$dimen: int d208
+com.vater.module.charge.saver.R$dimen: int d21
 com.vater.module.charge.saver.R$dimen: int d217
 com.vater.module.charge.saver.R$dimen: int d225
 com.vater.module.charge.saver.R$dimen: int d23
@@ -39115,11 +39194,13 @@ com.vater.module.charge.saver.R$dimen: int d29
 com.vater.module.charge.saver.R$dimen: int d3
 com.vater.module.charge.saver.R$dimen: int d30
 com.vater.module.charge.saver.R$dimen: int d301
+com.vater.module.charge.saver.R$dimen: int d31
 com.vater.module.charge.saver.R$dimen: int d32
 com.vater.module.charge.saver.R$dimen: int d33
 com.vater.module.charge.saver.R$dimen: int d333
 com.vater.module.charge.saver.R$dimen: int d36
 com.vater.module.charge.saver.R$dimen: int d37
+com.vater.module.charge.saver.R$dimen: int d38
 com.vater.module.charge.saver.R$dimen: int d39
 com.vater.module.charge.saver.R$dimen: int d4
 com.vater.module.charge.saver.R$dimen: int d40
@@ -39129,7 +39210,10 @@ com.vater.module.charge.saver.R$dimen: int d46
 com.vater.module.charge.saver.R$dimen: int d48
 com.vater.module.charge.saver.R$dimen: int d5
 com.vater.module.charge.saver.R$dimen: int d50
+com.vater.module.charge.saver.R$dimen: int d51
+com.vater.module.charge.saver.R$dimen: int d52
 com.vater.module.charge.saver.R$dimen: int d53
+com.vater.module.charge.saver.R$dimen: int d54
 com.vater.module.charge.saver.R$dimen: int d56
 com.vater.module.charge.saver.R$dimen: int d6
 com.vater.module.charge.saver.R$dimen: int d61
@@ -39143,6 +39227,7 @@ com.vater.module.charge.saver.R$dimen: int d84
 com.vater.module.charge.saver.R$dimen: int d9
 com.vater.module.charge.saver.R$dimen: int d90
 com.vater.module.charge.saver.R$dimen: int d95
+com.vater.module.charge.saver.R$dimen: int d_8
 com.vater.module.charge.saver.R$dimen: int design_appbar_elevation
 com.vater.module.charge.saver.R$dimen: int design_bottom_sheet_modal_elevation
 com.vater.module.charge.saver.R$dimen: int design_bottom_sheet_modal_peek_height
@@ -39268,8 +39353,10 @@ com.vater.module.charge.saver.R$dimen: int s24
 com.vater.module.charge.saver.R$dimen: int s28
 com.vater.module.charge.saver.R$dimen: int s30
 com.vater.module.charge.saver.R$dimen: int s38
+com.vater.module.charge.saver.R$dimen: int s46
 com.vater.module.charge.saver.R$dimen: int s48
 com.vater.module.charge.saver.R$dimen: int s53
+com.vater.module.charge.saver.R$dimen: int s54
 com.vater.module.charge.saver.R$dimen: int s60
 com.vater.module.charge.saver.R$dimen: int s63
 com.vater.module.charge.saver.R$dimen: int s66
@@ -39381,6 +39468,7 @@ com.vater.module.charge.saver.R$drawable: int abc_textfield_search_material
 com.vater.module.charge.saver.R$drawable: int ad_green
 com.vater.module.charge.saver.R$drawable: int design_fab_background
 com.vater.module.charge.saver.R$drawable: int design_snackbar_background
+com.vater.module.charge.saver.R$drawable: int gradient_beijing1
 com.vater.module.charge.saver.R$drawable: int notification_template_icon_bg
 com.vater.module.charge.saver.R$drawable: int rectangle_back_ad
 com.vater.module.charge.saver.R$drawable: int setting_checkbox_selector
@@ -39414,14 +39502,15 @@ com.vater.module.charge.saver.R$id: int basic
 com.vater.module.charge.saver.R$id: int battery_ad_layout
 com.vater.module.charge.saver.R$id: int battery_bubble_layout
 com.vater.module.charge.saver.R$id: int battery_charge_save
+com.vater.module.charge.saver.R$id: int battery_electricity
 com.vater.module.charge.saver.R$id: int battery_icon
 com.vater.module.charge.saver.R$id: int battery_level
 com.vater.module.charge.saver.R$id: int battery_more
 com.vater.module.charge.saver.R$id: int battery_now_battery_left
 com.vater.module.charge.saver.R$id: int battery_now_date
+com.vater.module.charge.saver.R$id: int battery_now_day
 com.vater.module.charge.saver.R$id: int battery_now_time
 com.vater.module.charge.saver.R$id: int battery_now_week
-com.vater.module.charge.saver.R$id: int battery_shutter
 com.vater.module.charge.saver.R$id: int battery_switch
 com.vater.module.charge.saver.R$id: int battery_switch_check
 com.vater.module.charge.saver.R$id: int battery_title
@@ -39602,12 +39691,12 @@ com.vater.module.charge.saver.R$layout: int select_dialog_item_material
 com.vater.module.charge.saver.R$layout: int select_dialog_multichoice_material
 com.vater.module.charge.saver.R$layout: int select_dialog_singlechoice_material
 com.vater.module.charge.saver.R$layout: int support_simple_spinner_dropdown_item
-com.vater.module.charge.saver.R$mipmap: int battery_beijing
 com.vater.module.charge.saver.R$mipmap: int battery_bubble
 com.vater.module.charge.saver.R$mipmap: int battery_inner_icon
 com.vater.module.charge.saver.R$mipmap: int battery_more
-com.vater.module.charge.saver.R$mipmap: int battery_setting_checkbox_close
-com.vater.module.charge.saver.R$mipmap: int battery_setting_checkbox_open
+com.vater.module.charge.saver.R$mipmap: int jiantou
+com.vater.module.charge.saver.R$mipmap: int side_check_closed
+com.vater.module.charge.saver.R$mipmap: int side_check_passed1
 com.vater.module.charge.saver.R$string: int abc_action_bar_home_description
 com.vater.module.charge.saver.R$string: int abc_action_bar_home_description_format
 com.vater.module.charge.saver.R$string: int abc_action_bar_home_subtitle_description_format

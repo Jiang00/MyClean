@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A1">
+    android:background="@drawable/gradient_beijing1">
 
     <LinearLayout
         android:id="@+id/junk_title_backg"
@@ -14,19 +14,17 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
-
     <FrameLayout
         android:id="@+id/cooling_fl"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d333"
+        android:layout_height="@dimen/d156"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/d50">
-
+        android:layout_marginTop="@dimen/d160">
 
         <ImageView
             android:id="@+id/cooling_xuehua"
@@ -35,6 +33,11 @@
             android:layout_gravity="center"
             android:src="@mipmap/cooling_1" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/cooling_3" />
     </FrameLayout>
 
     <LinearLayout
@@ -48,29 +51,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="@dimen/d90"
-        android:orientation="vertical"
-        android:visibility="invisible">
+        android:layout_marginBottom="@dimen/d120"
+        android:orientation="horizontal">
+        <!-- android:visibility="invisible"-->
 
         <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
             android:text="@string/cooling_start"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s15" />
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s22" />
 
         <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
             android:id="@+id/cooling_wendu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:text="40℃"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s30" />
+            android:layout_marginLeft="@dimen/d10"
+            android:text="30℃"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s28" />
     </LinearLayout>
-
-
 </FrameLayout>

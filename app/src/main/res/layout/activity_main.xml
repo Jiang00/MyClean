@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A8"
+    android:background="@color/A2"
     android:orientation="vertical"
     tools:context="com.vater.clean.junk.jiemian.MainActivity">
 
@@ -13,7 +13,7 @@
     <View
         android:id="@+id/view_title_bar"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="0dp"
         android:background="@color/A1" />
 
     <FrameLayout
@@ -33,14 +33,12 @@
 
                 <ImageView
                     android:id="@+id/iv_title_left"
-                    android:layout_width="@dimen/d36"
-                    android:layout_height="@dimen/d36"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d27"
+                    android:layout_marginLeft="@dimen/d16"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
-                    android:padding="@dimen/d8"
                     android:scaleType="center"
                     android:src="@mipmap/main_menu" />
 
@@ -49,10 +47,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/iv_title_left"
+                    android:layout_marginLeft="@dimen/d52"
                     android:text="@string/app_name"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s18" />
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/s20" />
 
                 <ImageView
                     android:id="@+id/iv_title_right"
@@ -60,10 +58,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginRight="@dimen/d16"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:padding="@dimen/d8"
                     android:scaleType="center"
                     android:src="@mipmap/main_setting" />
 
@@ -81,13 +78,6 @@
                         android:layout_gravity="center"
                         android:scaleType="center"
                         android:src="@mipmap/main_libao" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="AD"
-                        android:textColor="@color/white_100"
-                        android:textSize="@dimen/s8" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -96,7 +86,7 @@
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A8">
+                android:background="@color/A2">
 
                 <include layout="@layout/layout_load_more" />
 
@@ -127,25 +117,8 @@
                         <RelativeLayout
                             android:id="@+id/main_all_cercle"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d313"
+                            android:layout_height="@dimen/d275"
                             android:background="@color/A1">
-
-                            <ImageView
-                                android:layout_width="@dimen/d4"
-                                android:layout_height="@dimen/d4"
-                                android:layout_marginLeft="@dimen/d20"
-                                android:layout_marginTop="@dimen/d95"
-                                android:alpha="0.3"
-                                android:src="@drawable/shape_dian" />
-
-                            <ImageView
-                                android:layout_width="@dimen/d6"
-                                android:layout_height="@dimen/d6"
-                                android:layout_marginLeft="@dimen/d46"
-                                android:layout_marginTop="@dimen/d141"
-                                android:alpha="0.3"
-                                android:src="@drawable/shape_dian" />
-
 
                             <ImageView
                                 android:layout_width="@dimen/d12"
@@ -156,35 +129,35 @@
                                 android:src="@drawable/shape_dian" />
 
                             <ImageView
-                                android:layout_width="@dimen/d4"
-                                android:layout_height="@dimen/d4"
-                                android:layout_marginLeft="@dimen/d275"
-                                android:layout_marginTop="@dimen/d43"
-                                android:alpha="0.3"
-                                android:src="@drawable/shape_dian" />
-
-                            <ImageView
                                 android:layout_width="@dimen/d6"
                                 android:layout_height="@dimen/d6"
                                 android:layout_marginLeft="@dimen/d301"
                                 android:layout_marginTop="@dimen/d82"
                                 android:alpha="0.3"
                                 android:src="@drawable/shape_dian" />
-
-                            <ImageView
-                                android:layout_width="@dimen/d12"
-                                android:layout_height="@dimen/d12"
-                                android:layout_marginLeft="@dimen/d301"
-                                android:layout_marginTop="@dimen/d217"
-                                android:alpha="0.5"
-                                android:src="@drawable/shape_dian" />
-
-
+                            <!--虚环-->
+                            <com.vater.clean.junk.myview.VirtuaRingView
+                                android:id="@+id/virtuaringview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <!--两个外圆-->
+                            <com.vater.clean.junk.myview.CircleView
+                                android:id="@+id/main_circleview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <!--水波纹球-->
                             <com.vater.clean.junk.myview.MainWaterView
                                 android:id="@+id/main_water"
-                                android:layout_width="@dimen/d210"
-                                android:layout_height="@dimen/d210"
+                                android:layout_width="@dimen/d156"
+                                android:layout_height="@dimen/d156"
                                 android:layout_centerInParent="true" />
+                            <!--指针-->
+                            <ImageView
+                                android:id="@+id/main_pointer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/pointer" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -192,21 +165,23 @@
                                 android:layout_below="@id/main_water"
                                 android:layout_centerHorizontal="true"
                                 android:src="@mipmap/main_touying" />
-
+                            <!--球周围进度条-->
                             <com.vater.clean.junk.myview.MainRoundView
                                 android:id="@+id/main_dian"
-                                android:layout_width="@dimen/d250"
-                                android:layout_height="@dimen/d250"
-                                android:layout_centerInParent="true" />
+                                android:layout_width="@dimen/d156"
+                                android:layout_height="@dimen/d156"
+                                android:layout_centerInParent="true"
+                                android:visibility="gone" />
 
                             <TextView
                                 android:id="@+id/main_fenshu"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/d100"
+                                android:layout_height="@dimen/d50"
                                 android:layout_centerInParent="true"
+                                android:gravity="center"
                                 android:text="100"
-                                android:textColor="@color/white_100"
-                                android:textSize="@dimen/s48" />
+                                android:textColor="@color/B3"
+                                android:textSize="@dimen/s46" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -219,184 +194,157 @@
                                 android:paddingRight="@dimen/d14"
                                 android:text="@string/main_button"
                                 android:textColor="@color/white_100"
-                                android:textSize="@dimen/s15" />
-
-
+                                android:textSize="@dimen/s15"
+                                android:visibility="gone" />
+                            <!--扩散-->
+                            <com.vater.clean.junk.myview.CircleWaveView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:alpha="0.02" />
                         </RelativeLayout>
-                        <!--ad-->
-                        <LinearLayout
-                            android:id="@+id/ll_ad"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/d8"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical"
-                            android:visibility="gone" />
-                        <!--六个按钮-->
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d225"
-                            android:layout_marginBottom="@dimen/d8"
-                            android:background="@color/white_100">
 
-                            <LinearLayout
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <!--四个按钮-->
+                            <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="bottom"
-                                android:orientation="vertical">
+                                android:layout_height="@dimen/d200"
+                                android:layout_below="@+id/main_wave"
+                                android:layout_marginTop="@dimen/d_8"
+                                android:background="@color/white_100">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1">
-
-                                    <RelativeLayout
-                                        android:id="@+id/main_junk_button"
-                                        android:layout_width="0dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="1"
-                                        android:background="?attr/selectableItemBackground"
-                                        android:orientation="vertical">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:gravity="center"
-                                            android:orientation="vertical">
-
-                                            <ImageView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="@dimen/d5"
-                                                android:src="@mipmap/main_junk_button" />
-
-                                            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="@string/main_junk_name"
-                                                android:textColor="@color/A9"
-                                                android:textSize="@dimen/s13" />
-                                        </LinearLayout>
-
-                                    </RelativeLayout>
-
-                                    <View
-                                        android:layout_width="1dp"
-                                        android:layout_height="match_parent"
-                                        android:background="@color/A8" />
-
-                                    <RelativeLayout
-                                        android:id="@+id/main_ram_button"
-                                        android:layout_width="0dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="1"
-                                        android:background="?attr/selectableItemBackground">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:gravity="center"
-                                            android:orientation="vertical">
-
-                                            <ImageView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="@dimen/d5"
-                                                android:src="@mipmap/main_ram_button" />
-
-                                            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="@string/main_ram_name"
-                                                android:textColor="@color/A9"
-                                                android:textSize="@dimen/s13" />
-                                        </LinearLayout>
-
-                                    </RelativeLayout>
-
-                                    <View
-                                        android:layout_width="1dp"
-                                        android:layout_height="match_parent"
-                                        android:background="@color/A8" />
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="bottom"
+                                    android:orientation="vertical">
 
                                     <LinearLayout
-                                        android:id="@+id/main_manager_button"
-                                        android:layout_width="0dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="1"
-                                        android:background="?attr/selectableItemBackground"
-                                        android:gravity="center"
-                                        android:orientation="vertical">
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1">
 
-                                        <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginBottom="@dimen/d5"
-                                            android:src="@mipmap/main_manager_button" />
-
-                                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="@string/main_manager_name"
-                                            android:textColor="@color/A9"
-                                            android:textSize="@dimen/s13" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:background="@color/A8" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="0dp"
-                                    android:layout_weight="1">
-
-                                    <RelativeLayout
-                                        android:id="@+id/main_cooling_button"
-                                        android:layout_width="0dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="1"
-                                        android:background="?attr/selectableItemBackground">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
+                                        <RelativeLayout
+                                            android:id="@+id/main_junk_button"
+                                            android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:gravity="center"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackground"
                                             android:orientation="vertical">
 
-                                            <ImageView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginBottom="@dimen/d5"
-                                                android:src="@mipmap/main_cooling_button" />
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_centerInParent="true"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
 
-                                            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="@string/main_cooling_name"
-                                                android:textColor="@color/A9"
-                                                android:textSize="@dimen/s13" />
-                                        </LinearLayout>
+                                                <RelativeLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content">
 
-                                    </RelativeLayout>
+                                                    <ImageView
+                                                        android:id="@+id/main_junk_iv"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_centerInParent="true"
+                                                        android:src="@mipmap/main_junk_button" />
 
-                                    <View
-                                        android:layout_width="1dp"
-                                        android:layout_height="match_parent"
-                                        android:background="@color/A8" />
+                                                    <TextView
+                                                        android:id="@+id/main_junk_h"
+                                                        android:layout_width="@dimen/d36"
+                                                        android:layout_height="@dimen/d16"
+                                                        android:layout_marginLeft="@dimen/d_8"
+                                                        android:layout_toRightOf="@id/main_junk_iv"
+                                                        android:background="@drawable/shape_junk"
+                                                        android:gravity="center"
+                                                        android:textColor="@color/B3"
+                                                        android:textSize="@dimen/s9"
 
-                                    <RelativeLayout
-                                        android:layout_width="0dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="1"
-                                        android:background="?attr/selectableItemBackground">
+                                                        android:visibility="invisible" />
+                                                </RelativeLayout>
+
+                                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/d8"
+                                                    android:text="@string/main_junk_name"
+                                                    android:textColor="#000000"
+                                                    android:textSize="@dimen/s12" />
+                                            </LinearLayout>
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:id="@+id/main_cooling_button"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackground">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_centerInParent="true"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <ImageView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:src="@mipmap/main_cooling_button" />
+
+                                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/d8"
+                                                    android:text="@string/main_cooling_name"
+                                                    android:textColor="#000000"
+                                                    android:textSize="@dimen/s12" />
+                                            </LinearLayout>
+                                        </RelativeLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1">
+
+                                        <RelativeLayout
+                                            android:id="@+id/main_ram_button"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackground">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_centerInParent="true"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <ImageView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:src="@mipmap/main_ram_button" />
+
+                                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/d8"
+                                                    android:text="@string/main_ram_name"
+                                                    android:textColor="#000000"
+                                                    android:textSize="@dimen/s12" />
+                                            </LinearLayout>
+                                        </RelativeLayout>
 
                                         <LinearLayout
-                                            android:id="@+id/main_applock_button"
-                                            android:layout_width="match_parent"
+                                            android:id="@+id/main_manager_button"
+                                            android:layout_width="0dp"
                                             android:layout_height="match_parent"
+                                            android:layout_centerInParent="true"
+                                            android:layout_weight="1"
                                             android:background="?attr/selectableItemBackground"
                                             android:gravity="center"
                                             android:orientation="vertical">
@@ -404,89 +352,114 @@
                                             <ImageView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginBottom="@dimen/d5"
-                                                android:src="@mipmap/main_power_button" />
+                                                android:src="@mipmap/main_manager_button" />
 
                                             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="@string/side_power"
-                                                android:textColor="@color/A9"
-                                                android:textSize="@dimen/s13" />
+                                                android:layout_marginTop="@dimen/d8"
+                                                android:text="@string/main_manager_name"
+                                                android:textColor="#000000"
+                                                android:textSize="@dimen/s12" />
                                         </LinearLayout>
-
-
-                                    </RelativeLayout>
-
-                                    <View
-                                        android:layout_width="1dp"
-                                        android:layout_height="match_parent"
-                                        android:background="@color/A8" />
-
-                                    <LinearLayout
-                                        android:id="@+id/main_theme_button"
-                                        android:layout_width="0dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="1"
-                                        android:background="?attr/selectableItemBackground"
-                                        android:gravity="center"
-                                        android:orientation="vertical">
-
-                                        <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginBottom="@dimen/d5"
-                                            android:src="@mipmap/main_theme_button" />
-
-                                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="@string/gboost_0"
-                                            android:textColor="@color/A9"
-                                            android:textSize="@dimen/s13" />
                                     </LinearLayout>
                                 </LinearLayout>
+                            </RelativeLayout>
 
-                            </LinearLayout>
+                            <RelativeLayout
+                                android:id="@+id/main_wave"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/B3">
 
-                        </FrameLayout>
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d67"
+                                    android:background="@color/A1"
+                                    android:src="@mipmap/main_wave" />
 
+                                <ImageView
+                                    android:id="@+id/main_aerobee"
+                                    android:layout_width="@dimen/d75"
+                                    android:layout_height="@dimen/d75"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d10"
+                                    android:src="@mipmap/aerobee" />
+                                <!-- android:elevation="@dimen/d4"设置投影，dp是高度-->
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d4"
+                            android:background="@color/A2" />
                         <!--好评-->
                         <LinearLayout
                             android:id="@+id/main_rotate_all"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/d8"
                             android:background="@color/white_100"
                             android:orientation="vertical">
 
-                            <FrameLayout
+                            <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="@dimen/d54">
 
                                 <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/d84"
-                                    android:background="@mipmap/main_rotate_2" />
-
-                                <ImageView
-                                    android:id="@+id/rotate_cha"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="right"
-                                    android:padding="@dimen/d15"
-                                    android:src="@mipmap/rotate_cha" />
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@mipmap/label2" />
 
-                            </FrameLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/d38"
+                                    android:text="@string/five_stars"
+                                    android:textColor="@color/A1"
+                                    android:textSize="@dimen/s16" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/A1">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/d90"
+                                    android:layout_centerInParent="true"
+                                    android:src="@mipmap/main_rotate_2" />
+
+                                <ImageView
+                                    android:id="@+id/main_rotate_close"
+                                    android:layout_width="@dimen/d15"
+                                    android:layout_height="@dimen/d15"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="@dimen/d16"
+                                    android:layout_marginTop="@dimen/d10"
+                                    android:src="@mipmap/close" />
+                            </RelativeLayout>
 
                             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_marginBottom="@dimen/d32"
-                                android:layout_marginTop="@dimen/d25"
-                                android:text="@string/rotate_msg"
-                                android:textColor="@color/A9"
+                                android:layout_marginBottom="@dimen/d6"
+                                android:layout_marginTop="@dimen/d12"
+                                android:text="@string/like"
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
+
+                            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginBottom="@dimen/d13"
+                                android:text="@string/full_marks"
+                                android:textColor="@color/A1"
                                 android:textSize="@dimen/s16" />
 
                             <LinearLayout
@@ -497,41 +470,165 @@
 
                                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_bad"
-                                    android:layout_width="@dimen/d121"
+                                    android:layout_width="@dimen/d130"
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_horizontal"
-                                    android:background="@drawable/shape_rotate_bad"
+                                    android:layout_marginLeft="@dimen/d16"
                                     android:gravity="center"
                                     android:text="@string/rotate_cancel"
-                                    android:textColor="@color/A9"
-                                    android:textSize="@dimen/s15" />
+                                    android:textColor="#59000000"
+                                    android:textSize="@dimen/s16" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1" />
 
                                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_good"
-                                    android:layout_width="@dimen/d121"
+                                    android:layout_width="@dimen/d130"
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_horizontal"
-                                    android:layout_marginLeft="@dimen/d67"
+                                    android:layout_marginRight="@dimen/d16"
                                     android:background="@drawable/shape_rotate_good"
                                     android:gravity="center"
                                     android:text="@string/rotate_ok"
                                     android:textColor="@color/white_100"
-                                    android:textSize="@dimen/s15"
-                                    />
+                                    android:textSize="@dimen/s16" />
                             </LinearLayout>
 
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d4"
+                                android:background="@color/A2" />
                         </LinearLayout>
 
-
+                        <!--ad-->
+                        <LinearLayout
+                            android:id="@+id/ll_ad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/d4"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical"
+                            android:visibility="gone" />
                         <!--功能块-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/d8"
                             android:background="@color/white_100"
                             android:orientation="vertical">
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d54">
 
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@mipmap/label" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/d38"
+                                    android:text="@string/applock"
+                                    android:textColor="@color/A1"
+                                    android:textSize="@dimen/s16" />
+                            </RelativeLayout>
+                            <!--垃圾清理-->
+                            <LinearLayout
+                                android:id="@+id/main_junk_button2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d72"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@mipmap/junk_main" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/d20"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/main_junk_name"
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
+
+                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                        android:layout_width="@dimen/d225"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d4"
+                                        android:text="@string/success_8"
+                                        android:textColor="@color/A1_50"
+                                        android:textSize="@dimen/s12" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:background="@color/B4" />
+                            <!--电池降温-->
+                            <LinearLayout
+                                android:id="@+id/main_cooling_button2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d72"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@mipmap/cooling_main" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/d20"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                        android:id="@+id/main_msg_cooling"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/main_cooling_name"
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
+
+                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                        android:layout_width="@dimen/d225"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d3"
+                                        android:text="@string/success_10"
+                                        android:textColor="@color/A1_50"
+                                        android:textSize="@dimen/s12" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:background="@color/B4" />
                             <!--深度清理-->
                             <LinearLayout
                                 android:id="@+id/main_power_button"
@@ -540,24 +637,19 @@
                                 android:background="?attr/selectableItemBackground"
                                 android:orientation="horizontal">
 
-                                <FrameLayout
-                                    android:layout_width="@dimen/d84"
-                                    android:layout_height="match_parent">
-
-                                    <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
-                                        android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
-                                        android:src="@mipmap/power_6" />
-                                </FrameLayout>
-
+                                <ImageView
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@mipmap/power_6" />
 
                                 <LinearLayout
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/d20"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="vertical">
 
                                     <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
@@ -565,310 +657,184 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_power"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
+
+                                    <LinearLayout
+                                        android:layout_width="@dimen/d225"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d2"
+                                        android:orientation="horizontal">
+
+                                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                            android:id="@+id/power_size"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/power_1"
+                                            android:textColor="@color/A1_50"
+                                            android:textSize="@dimen/s12" />
+
+                                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                            android:layout_width="@dimen/d225"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/power_2"
+                                            android:textColor="@color/A1_50"
+                                            android:textSize="@dimen/s12" />
+                                    </LinearLayout>
 
                                     <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/power_3"
-                                        android:textColor="@color/A10"
+                                        android:text="@string/power_5"
+                                        android:textColor="@color/A1_50"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d4"
+                            android:background="@color/A2" />
+
+                        <!--硬件信息-->
+                        <LinearLayout
+                            android:id="@+id/main_msg_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white_100"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d54"
+                                android:background="@color/white_100">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@mipmap/label" />
 
-                            </LinearLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/d38"
+                                    android:text="@string/main_msg_title"
+                                    android:textColor="@color/A1"
+                                    android:textSize="@dimen/s16" />
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A8" />
-                            <!--相似图片-->
+                                <com.vater.clean.junk.myview.CustomRoundCpu
+                                    android:id="@+id/main_custom_cpu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:visibility="gone" />
+
+                                <com.vater.clean.junk.myview.CustomRoundCpu
+                                    android:id="@+id/main_custom_ram"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:visibility="gone" />
+
+                                <com.vater.clean.junk.myview.CustomRoundCpu
+                                    android:id="@+id/main_custom_sd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:visibility="gone" />
+
+                            </RelativeLayout>
+
                             <LinearLayout
-                                android:id="@+id/main_picture_button"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
-                                android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal">
-
-                                <FrameLayout
-                                    android:layout_width="@dimen/d84"
-                                    android:layout_height="match_parent">
-
-                                    <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
-                                        android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
-                                        android:src="@mipmap/picture_main" />
-                                </FrameLayout>
-
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginRight="@dimen/d16"
+                                android:orientation="horizontal"
+                                android:paddingBottom="@dimen/d10">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:id="@+id/main_msg_picture"
+
+                                    <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/side_picture"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
-
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:layout_width="@dimen/d225"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/picture_delete"
-                                        android:textColor="@color/A10"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginBottom="@dimen/d3"
+                                        android:text="@string/main_msg_ram"
+                                        android:textColor="@color/A1"
                                         android:textSize="@dimen/s12" />
+
+                                    <TextView
+                                        android:id="@+id/main_msg_ram_percent"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/d8"
+                                        android:text="100M"
+                                        android:textColor="@color/A6"
+                                        android:textSize="@dimen/s16" />
                                 </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
-                            </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A8" />
-                            <!--通知栏清理-->
-                            <LinearLayout
-                                android:id="@+id/main_notifi_button"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
-                                android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal">
-
-                                <FrameLayout
-                                    android:layout_width="@dimen/d84"
-                                    android:layout_height="match_parent">
-
-                                    <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
-                                        android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
-                                        android:src="@mipmap/notifi_6" />
-                                </FrameLayout>
-
 
                                 <LinearLayout
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:id="@+id/main_msg_notifi"
+
+                                    <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/side_notifi"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
-
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:layout_width="@dimen/d225"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/notifi_msg_main"
-                                        android:textColor="@color/A10"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginBottom="@dimen/d3"
+                                        android:text="@string/main_msg_sd"
+                                        android:textColor="@color/A1"
                                         android:textSize="@dimen/s12" />
+
+                                    <TextView
+                                        android:id="@+id/main_msg_sd_percent"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/d8"
+                                        android:text="100M"
+                                        android:textColor="@color/A6"
+                                        android:textSize="@dimen/s16" />
                                 </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
-                            </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A8" />
-                            <!--文件管理-->
-                            <LinearLayout
-                                android:id="@+id/main_file_button"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
-                                android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal">
-
-                                <FrameLayout
-                                    android:layout_width="@dimen/d84"
-                                    android:layout_height="match_parent">
-
-                                    <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
-                                        android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
-                                        android:src="@mipmap/file_main" />
-                                </FrameLayout>
 
                                 <LinearLayout
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:id="@+id/main_msg_file"
+
+                                    <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/side_file"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
-
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:layout_width="@dimen/d225"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/file_main"
-                                        android:textColor="@color/A10"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginBottom="@dimen/d3"
+                                        android:text="@string/main_msg_cpu"
+                                        android:textColor="@color/A1"
                                         android:textSize="@dimen/s12" />
-                                </LinearLayout>
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
-                            </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A8" />
-
-                            <!--游戏加速-->
-                            <LinearLayout
-                                android:id="@+id/main_gboost_button"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
-                                android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal">
-
-                                <FrameLayout
-                                    android:layout_width="@dimen/d84"
-                                    android:layout_height="match_parent">
-
-                                    <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
-                                        android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
-                                        android:src="@mipmap/gboost_main" />
-                                </FrameLayout>
-
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:gravity="center_vertical"
-                                    android:orientation="vertical">
-
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:id="@+id/main_msg_GBoost"
+                                    <TextView
+                                        android:id="@+id/main_msg_cpu_percent"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/gboost_0"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
-
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:layout_width="@dimen/d225"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/gboost_10"
-                                        android:textColor="@color/A10"
-                                        android:textSize="@dimen/s12" />
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/d8"
+                                        android:text="40℃"
+                                        android:textColor="@color/A6"
+                                        android:textSize="@dimen/s16" />
                                 </LinearLayout>
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
-                            </LinearLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A8" />
-
-                            <!--硬件信息-->
-                            <LinearLayout
-                                android:id="@+id/main_msg_button"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
-                                android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal">
-
-                                <FrameLayout
-                                    android:layout_width="@dimen/d84"
-                                    android:layout_height="match_parent">
-
-                                    <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
-                                        android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
-                                        android:src="@mipmap/main_yingjian" />
-                                </FrameLayout>
-
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:gravity="center_vertical"
-                                    android:orientation="vertical">
-
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/main_msg_title"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
-
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                                        android:layout_width="@dimen/d225"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/main_msg_title"
-                                        android:textColor="@color/A10"
-                                        android:textSize="@dimen/s12" />
-                                </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
                             </LinearLayout>
 
                         </LinearLayout>

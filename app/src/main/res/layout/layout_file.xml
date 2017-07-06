@@ -16,256 +16,385 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="24dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
+    <!--video-->
+    <LinearLayout
+        android:id="@+id/file_video_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <!--六个按钮-->
+        <ImageView
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:src="@mipmap/file_video_button" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d20"
+            android:orientation="vertical">
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d6"
+                android:layout_marginTop="@dimen/d20"
+                android:text="@string/file_video"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s15" />
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:id="@+id/file_video_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d10"
+                android:text="50M"
+                android:textColor="#b3000000"
+                android:textSize="@dimen/s15" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            android:id="@+id/file_video_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="共5项"
+            android:textColor="#66000000"
+            android:textSize="@dimen/s14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:src="@mipmap/jiantour" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/d16"
+        android:background="@color/A2" />
+
+
+    <!--music-->
+    <LinearLayout
+        android:id="@+id/file_music_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:src="@mipmap/file_music_button" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d20"
+            android:orientation="vertical">
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d6"
+                android:layout_marginTop="@dimen/d20"
+                android:text="@string/file_music"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s15" />
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:id="@+id/file_music_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d10"
+                android:text="50M"
+                android:textColor="#b3000000"
+                android:textSize="@dimen/s15" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            android:id="@+id/file_music_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="共5项"
+            android:textColor="#66000000"
+            android:textSize="@dimen/s14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:src="@mipmap/jiantour" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/d16"
+        android:background="@color/A2" />
+    <!--document-->
+    <LinearLayout
+        android:id="@+id/file_txt_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:src="@mipmap/file_txt_button" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d20"
+            android:orientation="vertical">
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d6"
+                android:layout_marginTop="@dimen/d20"
+                android:text="@string/file_txt"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s15" />
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:id="@+id/file_txt_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d10"
+                android:text="50M"
+                android:textColor="#b3000000"
+                android:textSize="@dimen/s15" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            android:id="@+id/file_txt_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="共5项"
+            android:textColor="#66000000"
+            android:textSize="@dimen/s14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:src="@mipmap/jiantour" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/d16"
+        android:background="@color/A2" />
+    <!--apk-->
+    <LinearLayout
+        android:id="@+id/file_apk_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:src="@mipmap/file_apk_button" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d20"
+            android:orientation="vertical">
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d6"
+                android:layout_marginTop="@dimen/d20"
+                android:text="@string/file_apk"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s15" />
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:id="@+id/file_apk_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d10"
+                android:text="50M"
+                android:textColor="#b3000000"
+                android:textSize="@dimen/s15" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            android:id="@+id/file_apk_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="共5项"
+            android:textColor="#66000000"
+            android:textSize="@dimen/s14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:src="@mipmap/jiantour" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/d16"
+        android:background="@color/A2" />
+    <!--other-->
+    <LinearLayout
+        android:id="@+id/file_other_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:src="@mipmap/file_other_button" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d20"
+            android:orientation="vertical">
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d6"
+                android:layout_marginTop="@dimen/d20"
+                android:text="@string/file_pther"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s15" />
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:id="@+id/file_qita_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d10"
+                android:text="50M"
+                android:textColor="#b3000000"
+                android:textSize="@dimen/s15" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            android:id="@+id/file_qita_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="共5项"
+            android:textColor="#66000000"
+            android:textSize="@dimen/s14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d16"
+            android:src="@mipmap/jiantour" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/d16"
+        android:background="@color/A2" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d210"
-        android:orientation="vertical">
-
+        android:layout_height="1px"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <!--zip-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:id="@+id/file_zip_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-            <LinearLayout
-                android:id="@+id/file_apk_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/file_zip_button" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/file_apk_button" />
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d10"
+                android:text="@string/file_zip"
+                android:textColor="@color/A10"
+                android:textSize="@dimen/s10" />
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d9"
-                    android:text="@string/file_apk"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s10" />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/file_apk_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d4"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s9" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/A8" />
-
-            <LinearLayout
-                android:id="@+id/file_zip_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/file_zip_button" />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d10"
-                    android:text="@string/file_zip"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s10"
-                     />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/file_zip_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s9"
-                     />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/A8" />
-
-            <LinearLayout
-                android:id="@+id/file_txt_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/file_txt_button" />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d10"
-                    android:text="@string/file_txt"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s10"
-                     />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/file_txt_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s9"
-                     />
-            </LinearLayout>
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:id="@+id/file_zip_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d5"
+                android:textColor="@color/A10"
+                android:textSize="@dimen/s9" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/A8" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/file_music_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/file_music_button" />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d10"
-                    android:text="@string/file_music"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s10"
-                     />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/file_music_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s9"
-                     />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/A8" />
-
-            <LinearLayout
-                android:id="@+id/file_video_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/file_video_button" />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d10"
-                    android:text="@string/file_video"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s10"
-                     />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/file_video_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s9"
-                     />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/A8" />
-
-            <LinearLayout
-                android:id="@+id/file_other_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/file_other_button" />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d10"
-                    android:text="@string/file_pther"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s10"
-                     />
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/file_qita_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s9"
-                     />
-            </LinearLayout>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/A8" />
     </LinearLayout>
 
 
@@ -273,7 +402,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-
+    <!--ad-->
     <LinearLayout
         android:id="@+id/ll_ad"
         android:layout_width="match_parent"

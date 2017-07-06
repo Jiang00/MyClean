@@ -17,55 +17,54 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d146"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/d10"
+            android:layout_marginTop="@dimen/d10"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:id="@+id/junk_size_all"
-                android:layout_width="@dimen/d146"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d72"
+                android:layout_marginLeft="@dimen/d16"
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
                 android:textColor="#ffffff"
-                android:textSize="@dimen/s66" />
+                android:textSize="@dimen/s60" />
 
             <LinearLayout
                 android:id="@+id/ll_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d2"
                 android:orientation="vertical">
-
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/junk_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/junk_title_clean"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s16" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/junk_fangxin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8"
                     android:text="B"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/B3"
                     android:textSize="@dimen/s20" />
 
+                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    android:id="@+id/junk_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d3"
+                    android:text="@string/junk_title_clean"
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s20" />
             </LinearLayout>
-
-
         </LinearLayout>
     </LinearLayout>
 
@@ -73,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A7"
+        android:background="@color/B3"
         android:orientation="vertical">
 
         <FrameLayout
@@ -85,35 +84,22 @@
                 android:id="@+id/junk_list_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white_100"
+                android:background="@color/B3"
                 android:divider="@drawable/list_divider"
-                android:dividerHeight="1dp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@mipmap/yinying" />
+                android:dividerHeight="1px" />
         </FrameLayout>
 
-
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d72"
-            android:layout_gravity="bottom"
-            android:background="@color/white_100">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
 
-            <Button
+            <ImageView
                 android:id="@+id/junk_button_clean"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/d168"
-                android:layout_height="@dimen/d44"
+                android:layout_width="@dimen/d78"
+                android:layout_height="@dimen/d78"
                 android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/ram_button"
-                android:textAllCaps="false"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s18"
+                android:src="@mipmap/aerobee"
                 android:visibility="invisible" />
         </RelativeLayout>
     </LinearLayout>

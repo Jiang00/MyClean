@@ -6,57 +6,56 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.vater.clean.core.CleanManager;
+import com.vater.clean.junk.R;
 import com.vater.clean.junk.fuwu.XuanfuService;
+import com.vater.clean.junk.gongju.AdUtil;
+import com.vater.clean.junk.gongju.Constant;
+import com.vater.clean.junk.gongju.MUtilGp;
+import com.vater.clean.junk.jiemian.AllAppActivity;
+import com.vater.clean.junk.jiemian.DeepActivity;
+import com.vater.clean.junk.jiemian.FileManagerActivity;
+import com.vater.clean.junk.jiemian.GameActivity;
+import com.vater.clean.junk.jiemian.IgnoreAvtivity;
+import com.vater.clean.junk.jiemian.LogActivity;
+import com.vater.clean.junk.jiemian.NeicunAvtivity;
+import com.vater.clean.junk.jiemian.SettingActivity;
+import com.vater.clean.junk.shiti.SideInfo;
 import com.vater.clean.util.PreData;
 import com.vater.clean.util.Util;
 import com.vater.module.charge.saver.Util.Constants;
 import com.vater.module.charge.saver.Util.Utils;
-import com.vater.clean.junk.R;
-import com.vater.clean.junk.jiemian.FileManagerActivity;
-import com.vater.clean.junk.jiemian.GameActivity;
-import com.vater.clean.junk.jiemian.LogActivity;
-import com.vater.clean.junk.jiemian.AllAppActivity;
-import com.vater.clean.junk.jiemian.NotifiActivity;
-import com.vater.clean.junk.jiemian.NotifiAnimaActivity;
-import com.vater.clean.junk.jiemian.SimerActivity;
-import com.vater.clean.junk.jiemian.DeepActivity;
-import com.vater.clean.junk.jiemian.NeicunAvtivity;
-import com.vater.clean.junk.jiemian.SettingActivity;
-import com.vater.clean.junk.shiti.SideInfo;
-import com.vater.clean.junk.gongju.AdUtil;
-import com.vater.clean.junk.gongju.Constant;
-import com.vater.clean.junk.gongju.MUtilGp;
 
 
 public class CSideAdapter extends MybaseAdapter<SideInfo> {
     private static int idx = 0;
 
+    private static final int BATTERY = idx++;
+    private static final int FLOAT = idx++;
     private static final int JUNK = idx++;
     private static final int RAM = idx++;
     private static final int MANAGER = idx++;
     private static final int FILE = idx++;
+    private static final int GBOOST = idx++;
+
     private static final int POWER = idx++;
     //    private static final int PRIVARY = idx++;
-    private static final int NOTIFI = idx++;
-    private static final int PICTURE = idx++;
-
-    private static final int BATTERY = idx++;
-    private static final int FLOAT = idx++;
-    private static final int GBOOST = idx++;
+    private static final int WHITE = idx++;
     private static final int SETTING = idx++;
     private static final int ROTATE = idx++;
+    private String powerSize;
 
     public CSideAdapter(Context context) {
-
         super(context);
+        long junk_size = CleanManager.getInstance(context).getApkSize() + CleanManager.getInstance(context).getCacheSize() +
+                CleanManager.getInstance(context).getUnloadSize() + CleanManager.getInstance(context).getLogSize() + CleanManager.getInstance(context).getDataSize();
+        powerSize = Util.convertStorage(junk_size, true);
     }
 
     @Override
@@ -74,6 +73,7 @@ public class CSideAdapter extends MybaseAdapter<SideInfo> {
                     .findViewById(R.id.iv_le);
             holder.tv_name = (TextView) convertView
                     .findViewById(R.id.tv_name);
+            holder.side_deep_h = (TextView) convertView.findViewById(R.id.side_deep_h);
             holder.side_divide = convertView
                     .findViewById(R.id.side_divide);
             convertView.setTag(holder);
@@ -122,7 +122,13 @@ public class CSideAdapter extends MybaseAdapter<SideInfo> {
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+        if (position == POWER) {
+            holder.side_deep_h.setVisibility(View.VISIBLE);
+            holder.side_deep_h.setText(powerSize);
+        } else {
+            holder.side_deep_h.setVisibility(View.INVISIBLE);
+        }
+       /* if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             if (position == NOTIFI) {
                 holder.rl_item.setVisibility(View.GONE);
                 AbsListView.LayoutParams param = new AbsListView.LayoutParams(0, 1);
@@ -132,11 +138,11 @@ public class CSideAdapter extends MybaseAdapter<SideInfo> {
                 AbsListView.LayoutParams param = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
                 convertView.setLayoutParams(param);
             }
-        }
-        if (position == SETTING) {
-            holder.side_divide.setVisibility(View.VISIBLE);
-        } else {
+        }*/
+        if (position == BATTERY) {
             holder.side_divide.setVisibility(View.GONE);
+        } else {
+            holder.side_divide.setVisibility(View.VISIBLE);
         }
         return convertView;
     }
@@ -186,20 +192,10 @@ public class CSideAdapter extends MybaseAdapter<SideInfo> {
             AdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, DeepActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
-        } else if (position == NOTIFI) {
-            AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
-            PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
-            if (!Util.isNotificationListenEnabled(context) || !PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
-                Intent intent6 = new Intent(context, NotifiAnimaActivity.class);
-                ((Activity) context).startActivityForResult(intent6, 1);
-            } else {
-                Intent intent6 = new Intent(context, NotifiActivity.class);
-                ((Activity) context).startActivityForResult(intent6, 1);
-            }
-        } else if (position == PICTURE) {
-            AdUtil.track("侧边栏", "点击进入相似图片", "", 1);
+        } else if (position == WHITE) {
+            AdUtil.track("侧边栏", "点击进入白名单", "", 1);
             PreData.putDB(context, Constant.PHOTO_CLEAN, true);
-            Intent intent = new Intent(context, SimerActivity.class);
+            Intent intent = new Intent(context, IgnoreAvtivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == GBOOST) {
             AdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
@@ -225,6 +221,7 @@ public class CSideAdapter extends MybaseAdapter<SideInfo> {
 
     public class ViewHolder {
         ImageView checkBox;
+        TextView side_deep_h;
         TextView tv_name;
         RelativeLayout rl_item;
         View side_divide;

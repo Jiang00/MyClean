@@ -99,6 +99,4 @@ public class FileAdapter extends MybaseAdapter<JunkInfo> {
         });
         return convertView;
     }
-
-
 }

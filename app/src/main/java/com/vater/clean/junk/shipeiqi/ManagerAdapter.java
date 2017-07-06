@@ -18,9 +18,23 @@ import com.vater.clean.junk.presenter.ManagerPresenter;
 public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
     ManagerPresenter managerPresenter;
     AllListener listener;
+    String identification;
 
     public ManagerAdapter(Context context) {
         super(context);
+    }
+
+    public ManagerAdapter(Context context, ManagerPresenter managerPresenter, String identification) {
+        super(context);
+        this.identification = identification;
+        this.managerPresenter = managerPresenter;
+        lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {
+            @Override
+            protected int sizeOf(String key, Bitmap bitmap) {
+                // 返回用户定义的item的大小，默认返回1代表item的数量.重写此方法来衡量每张图片的大小。
+                return bitmap.getByteCount() / 1024;
+            }
+        };
     }
 
     public ManagerAdapter(Context context, ManagerPresenter managerPresenter) {
@@ -63,11 +77,22 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.name.setText(info.label);
-        holder.time.setText(Util.getStrTime3(info.date));
+        if ("time".equals(identification)) {
+            holder.time.setText(Util.getStrTime2(info.date));
+        } else {
+            holder.time.setText(Util.getStrTime3(info.date));
+        }
         holder.size.setText(Util.convertStorage(info.allSize, true));
 
         Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
         holder.icon.setImageDrawable(icon);
+        if ("size".equals(identification)) {
+            holder.time.setVisibility(View.GONE);
+            holder.size.setVisibility(View.VISIBLE);
+        } else {
+            holder.time.setVisibility(View.VISIBLE);
+            holder.size.setVisibility(View.GONE);
+        }
         if (info.isChecked) {
             holder.checkBox.setImageResource(R.mipmap.ram_passed);
         } else {

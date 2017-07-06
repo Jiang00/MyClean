@@ -6,7 +6,6 @@
     android:background="@color/white_100"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
@@ -17,52 +16,53 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d146"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/d10"
+            android:layout_marginTop="@dimen/d10"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-
             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:id="@+id/junk_size_all"
-                android:layout_width="@dimen/d146"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d72"
+                android:layout_marginLeft="@dimen/d16"
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s66" />
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s60" />
 
             <LinearLayout
                 android:id="@+id/ll_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d2"
                 android:orientation="vertical">
-
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/junk_fangxin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/junk_title_clean"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s16" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/junk_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8"
                     android:text="B"
-                    android:textColor="@color/white_100"
+                    android:textColor="@color/B3"
                     android:textSize="@dimen/s20" />
 
+                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    android:id="@+id/junk_fangxin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d3"
+                    android:text="@string/junk_title_clean"
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s20" />
 
             </LinearLayout>
         </LinearLayout>
@@ -72,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/white_100"
+        android:background="@color/B3"
         android:orientation="vertical">
 
         <FrameLayout
@@ -84,16 +84,16 @@
                 android:id="@+id/junk_list_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white_100"
+                android:background="@color/B3"
                 android:divider="@drawable/junk_divider"
-                android:dividerHeight="1dp"
+                android:dividerHeight="1px"
                 android:visibility="gone" />
 
             <com.vater.clean.junk.myview.MyScrollView
                 android:id="@+id/junk_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white_100"
+                android:background="@color/B3"
                 android:scrollbars="none">
 
                 <LinearLayout
@@ -105,12 +105,13 @@
                         android:id="@+id/junk_button_system"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d12"
                         android:background="?attr/selectableItemBackground"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
+                            android:layout_height="@dimen/d51"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -118,8 +119,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d39"
-                                    android:layout_height="@dimen/d39"
+                                    android:layout_width="@dimen/d30"
+                                    android:layout_height="@dimen/d30"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_system" />
@@ -132,8 +133,8 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_system"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s16" />
 
 
                             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
@@ -141,10 +142,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d25"
+                                android:layout_marginRight="@dimen/d16"
                                 android:text="10.0M"
-                                android:textColor="@color/A10"
-                                android:textSize="@dimen/s12" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -156,20 +157,14 @@
                                 android:src="@mipmap/junk_x"
                                 android:visibility="visible" />
                         </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/A8" />
                     </LinearLayout>
 
                     <com.vater.clean.junk.myview.ListViewForScrollView
                         android:id="@+id/junk_system_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white_100"
-                        android:divider="@drawable/junk_divider"
-                        android:dividerHeight="1dp" />
+                        android:background="@color/B3"
+                        android:divider="@drawable/junk_divider" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_apk"
@@ -188,8 +183,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d39"
-                                    android:layout_height="@dimen/d39"
+                                    android:layout_width="@dimen/d30"
+                                    android:layout_height="@dimen/d30"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_apk" />
@@ -202,19 +197,19 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_apk"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s16" />
 
                             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                                 android:id="@+id/junk_apk_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d25"
+                                android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A10"
-                                android:textSize="@dimen/s12" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -226,11 +221,6 @@
                                 android:src="@mipmap/junk_x"
                                 android:visibility="visible" />
                         </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/A8" />
                     </LinearLayout>
 
                     <com.vater.clean.junk.myview.ListViewForScrollView
@@ -238,8 +228,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white_100"
-                        android:divider="@drawable/junk_divider"
-                        android:dividerHeight="1dp" />
+                        android:divider="@drawable/junk_divider" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_unload"
@@ -258,8 +247,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d39"
-                                    android:layout_height="@dimen/d39"
+                                    android:layout_width="@dimen/d30"
+                                    android:layout_height="@dimen/d30"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_unload" />
@@ -272,8 +261,8 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_unload"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s16" />
 
 
                             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
@@ -281,11 +270,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d25"
+                                android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A10"
-                                android:textSize="@dimen/s12" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -297,11 +286,6 @@
                                 android:src="@mipmap/junk_x"
                                 android:visibility="visible" />
                         </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/A8" />
                     </LinearLayout>
 
                     <com.vater.clean.junk.myview.ListViewForScrollView
@@ -309,8 +293,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white_100"
-                        android:divider="@drawable/junk_divider"
-                        android:dividerHeight="1dp" />
+                        android:divider="@drawable/junk_divider" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_log"
@@ -329,8 +312,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d39"
-                                    android:layout_height="@dimen/d39"
+                                    android:layout_width="@dimen/d30"
+                                    android:layout_height="@dimen/d30"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_log" />
@@ -343,8 +326,8 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_log"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s16" />
 
 
                             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
@@ -352,11 +335,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d25"
+                                android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A10"
-                                android:textSize="@dimen/s12" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -368,11 +351,6 @@
                                 android:src="@mipmap/junk_x"
                                 android:visibility="visible" />
                         </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/A8" />
                     </LinearLayout>
 
                     <com.vater.clean.junk.myview.ListViewForScrollView
@@ -380,8 +358,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white_100"
-                        android:divider="@drawable/junk_divider"
-                        android:dividerHeight="1dp" />
+                        android:divider="@drawable/junk_divider" />
 
                     <LinearLayout
                         android:id="@+id/junk_button_user"
@@ -400,8 +377,8 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d39"
-                                    android:layout_height="@dimen/d39"
+                                    android:layout_width="@dimen/d30"
+                                    android:layout_height="@dimen/d30"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_user" />
@@ -414,8 +391,8 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_user"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s16" />
 
 
                             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
@@ -423,11 +400,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d25"
+                                android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A10"
-                                android:textSize="@dimen/s12" />
+                                android:textColor="#b3000000"
+                                android:textSize="@dimen/s14" />
 
 
                             <ImageView
@@ -439,12 +416,6 @@
                                 android:src="@mipmap/junk_x"
                                 android:visibility="visible" />
                         </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/A8" />
-
                     </LinearLayout>
 
                     <com.vater.clean.junk.myview.ListViewForScrollView
@@ -452,39 +423,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white_100"
-                        android:divider="@drawable/junk_divider"
-                        android:dividerHeight="1dp" />
+                        android:divider="@drawable/junk_divider" />
+                    <!--  android:dividerHeight="1px" 高度为1px的横线-->
                 </LinearLayout>
             </com.vater.clean.junk.myview.MyScrollView>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@mipmap/yinying" />
         </FrameLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/d72"
             android:layout_gravity="bottom"
-            android:background="@color/white_100">
+            android:background="@color/B3">
 
-            <Button
+            <ImageView
                 android:id="@+id/junk_button_clean"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/d168"
-                android:layout_height="@dimen/d44"
+                android:layout_width="@dimen/d78"
+                android:layout_height="@dimen/d78"
                 android:layout_centerInParent="true"
-                android:background="@drawable/shape_button"
-                android:text="@string/junk_button"
-                android:textAllCaps="false"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s18"
+                android:src="@mipmap/aerobee"
                 android:visibility="invisible" />
         </RelativeLayout>
     </LinearLayout>
-
-
 </LinearLayout>

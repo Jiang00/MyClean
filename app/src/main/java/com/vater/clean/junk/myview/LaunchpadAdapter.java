@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vater.clean.junk.R;
@@ -25,7 +26,6 @@ import java.util.HashMap;
 public class LaunchpadAdapter extends PagerAdapter<String> {
 
     private static final int LOADING_ANIMAL_TIME = 5000;
-
 
     private FrameLayout parentView;
 
@@ -62,7 +62,6 @@ public class LaunchpadAdapter extends PagerAdapter<String> {
         super(context, list);
         this.context = context;
         pm = context.getPackageManager();
-
     }
 
 
@@ -73,13 +72,20 @@ public class LaunchpadAdapter extends PagerAdapter<String> {
 
     @Override
     public void onBindView(View view, String junkInfo) {
+
+        LinearLayout linearlayou_add = (LinearLayout) view.findViewById(R.id.linearlayou_add);
+        LinearLayout linearlayout_qita = (LinearLayout) view.findViewById(R.id.linearlayout_qita);
         ImageView gboost_item_icon = (ImageView) view.findViewById(R.id.gboost_item_icon);
+        ImageView gboost_item_add = (ImageView) view.findViewById(R.id.gboost_item_add);
         TextView gboost_item_name = (TextView) view.findViewById(R.id.gboost_item_name);
+        TextView gboost_item_addname = (TextView) view.findViewById(R.id.gboost_item_addname);
         if (TextUtils.equals(context.getString(R.string.gboost_7), junkInfo)) {
-            gboost_item_icon.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.gboost_add));
-            gboost_item_name.setText(junkInfo);
+            linearlayout_qita.setVisibility(View.GONE);
+            gboost_item_add.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.gboost_add));
+            gboost_item_addname.setText(junkInfo);
         } else {
             try {
+                linearlayou_add.setVisibility(View.GONE);
                 ApplicationInfo info = pm.getApplicationInfo(junkInfo, 0);
                 gboost_item_icon.setImageDrawable(info.loadIcon(pm));
                 gboost_item_name.setText(info.loadLabel(pm));

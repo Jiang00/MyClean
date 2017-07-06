@@ -10,23 +10,22 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.vater.clean.util.PreData;
-import com.vater.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.vater.clean.junk.R;
-import com.vater.clean.junk.shipeiqi.RamAdapter;
 import com.vater.clean.entity.JunkInfo;
-import com.vater.clean.junk.presenter.RamPresenter;
+import com.vater.clean.junk.R;
 import com.vater.clean.junk.gongju.AdUtil;
 import com.vater.clean.junk.gongju.Constant;
+import com.vater.clean.junk.presenter.RamPresenter;
+import com.vater.clean.junk.shipeiqi.RamAdapter;
 import com.vater.clean.junk.view.MRamView;
+import com.vater.clean.util.PreData;
+import com.vater.clean.util.Util;
 
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
     FrameLayout title_left;
     TextView junk_unit;
     TextView junk_fangxin;
-    Button junk_button_clean;
+    ImageView junk_button_clean;
     TextView title_name;
     TextView junk_size_all;
     ListView junk_list_all;
@@ -62,7 +61,7 @@ public class NeicunAvtivity extends BaseActivity implements MRamView {
         junk_size_all = (TextView) findViewById(R.id.junk_size_all);
         junk_unit = (TextView) findViewById(R.id.junk_unit);
         junk_fangxin = (TextView) findViewById(R.id.junk_fangxin);
-        junk_button_clean = (Button) findViewById(R.id.junk_button_clean);
+        junk_button_clean = (ImageView) findViewById(R.id.junk_button_clean);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
     }
 

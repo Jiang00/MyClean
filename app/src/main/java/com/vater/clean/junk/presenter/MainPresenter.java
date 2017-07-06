@@ -7,11 +7,12 @@ import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
 
 import com.vater.clean.core.CleanManager;
-import com.vater.clean.util.Util;
 import com.vater.clean.junk.gongju.Constant;
-import com.vater.clean.junk.view.MainView;
 import com.vater.clean.junk.gongju.RCpuTempReader;
+import com.vater.clean.junk.view.MainView;
+import com.vater.clean.util.MemoryManager;
 import com.vater.clean.util.PreData;
+import com.vater.clean.util.Util;
 
 import java.lang.reflect.Field;
 
@@ -96,6 +97,22 @@ public class MainPresenter extends BasePresenter<MainView> {
 
     public void reStart(boolean isReStart) {
         startFenshu(isReStart);
+        setRotateGone();
+
+        //SD卡储存
+        long sd_all = MemoryManager.getPhoneAllSize();
+        long sd_kongxian = MemoryManager.getPhoneAllFreeSize();
+        long sd_shiyong = sd_all - sd_kongxian;
+        int sd_me = (int) (sd_shiyong * 100 / sd_all);
+        String sd_size = Util.convertStorage(sd_shiyong, true) + "/" + Util.convertStorage(sd_all, true);
+        iView.initSd(sd_me, sd_size, sd_kongxian);
+        //ram使用
+        long ram_kongxian = MemoryManager.getPhoneFreeRamMemory(context);
+        long ram_all = MemoryManager.getPhoneTotalRamMemory();
+        long ram_shiyong = ram_all - ram_kongxian;
+        int memo = (int) (ram_shiyong * 100 / ram_all);
+        String ram_size = Util.convertStorage(ram_shiyong, true) + "/" + Util.convertStorage(ram_all, true);
+        iView.initRam(memo, ram_size);
         setRotateGone();
     }
 

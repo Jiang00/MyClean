@@ -17,7 +17,7 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
 
@@ -70,7 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A7"
+        android:background="@color/B3"
         android:scrollbars="none">
 
         <LinearLayout
@@ -78,16 +78,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
-                android:background="#f1f1f1"
+                android:background="@color/A2"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/d16"
                 android:text="@string/message_start"
-                android:textColor="@color/A9"
-                android:textSize="@dimen/s10" />
+                android:textColor="#dd1e134b"
+                android:textSize="@dimen/s12" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -99,8 +98,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_boot_time"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/message_system_start_time"
@@ -109,14 +108,15 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A9" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/A8" />
+                android:background="@color/A2" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -128,8 +128,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_boot_time2"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/message_system_start_time2"
@@ -138,18 +138,19 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A9" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
             </RelativeLayout>
 
             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
-                android:background="#f1f1f1"
+                android:background="@color/A2"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/d16"
                 android:text="@string/message_hard"
-                android:textColor="@color/A9"
-                android:textSize="@dimen/s10" />
+                android:textColor="#dd1e134b"
+                android:textSize="@dimen/s12" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -161,8 +162,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_isRoot"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/message_isRoot"
@@ -171,14 +172,15 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="Y"
-                    android:textColor="@color/A9" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/A8" />
+                android:background="@color/A2" />
 
 
             <RelativeLayout
@@ -191,8 +193,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_q_camera"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/message_q_camera"
@@ -201,14 +203,15 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A9" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/A8" />
+                android:background="@color/A2" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -220,8 +223,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_imei"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/message_imei"
@@ -230,14 +233,15 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A9" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/A8" />
+                android:background="@color/A2" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -249,8 +253,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_fenbianlv"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/message_resolution"
@@ -259,14 +263,15 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A9" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/A8" />
+                android:background="@color/A2" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -278,8 +283,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_h_camera"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/message_h_camera"
@@ -288,14 +293,15 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A9" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/A8" />
+                android:background="@color/A2" />
 
 
             <RelativeLayout
@@ -308,8 +314,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_ram"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/message_ram"
@@ -318,14 +324,15 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A9" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="1px"
                 android:layout_marginLeft="@dimen/d16"
-                android:background="@color/A8" />
+                android:background="@color/A2" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -337,8 +344,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_sd"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s12" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/message_sd"
@@ -347,10 +354,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A9" />
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s14" />
             </RelativeLayout>
-
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

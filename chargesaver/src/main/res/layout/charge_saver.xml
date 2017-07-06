@@ -3,26 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/battery_charge_save"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_beijing1">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <ImageView
-            android:id="@+id/battery_shutter"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@mipmap/battery_beijing" />
-
         <com.vater.module.charge.saver.Mview.BubbleLayout
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-
     </FrameLayout>
 
     <LinearLayout
@@ -35,12 +26,11 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical">
-
+            <!--开关-->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top"
-                android:paddingLeft="@dimen/icon_p">
+                android:layout_height="@dimen/d56"
+                android:layout_marginTop="@dimen/d24">
 
                 <ImageView
                     android:id="@+id/battery_icon"
@@ -48,7 +38,8 @@
                     android:layout_height="15dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/battery_inner_icon" />
+                    android:src="@mipmap/battery_inner_icon"
+                    android:visibility="gone" />
 
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/battery_title"
@@ -56,12 +47,12 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="@dimen/title_p"
+                    android:layout_marginLeft="@dimen/d30"
                     android:layout_toRightOf="@id/battery_icon"
-                    android:text="Cleaner"
+                    android:text="Powerful Clean"
                     android:textColor="@color/white_100"
-                    android:textSize="13sp"
-                    app:typeface="Roboto-Light.ttf" />
+                    android:textSize="@dimen/s16"
+                    app:typeface="ROBOTO-REGULAR.TTF" />
 
                 <LinearLayout
                     android:id="@+id/battery_more"
@@ -69,54 +60,107 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d8"
-                    android:padding="@dimen/d8">
+                    android:layout_marginRight="@dimen/d16">
 
                     <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
+                        android:layout_width="@dimen/d24"
+                        android:layout_height="@dimen/d24"
                         android:src="@mipmap/battery_more" />
                 </LinearLayout>
             </RelativeLayout>
-
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                android:id="@+id/battery_now_time"
-                android:layout_width="wrap_content"
+            <!--小时和电池动画-->
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/d20"
-                android:text="17:24"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s60"
-                app:typeface="Roboto-Light.ttf" />
+                android:layout_marginTop="@dimen/d10">
 
+                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    android:id="@+id/battery_now_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d30"
+                    android:text="17:24"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s54"
+                    app:typeface="ROBOTO-REGULAR.TTF" />
+
+                <com.sample.lottie.LottieAnimationView
+                    android:id="@+id/battery_electricity"
+                    android:layout_width="@dimen/d129"
+                    android:layout_height="@dimen/d61"
+                    android:layout_marginLeft="@dimen/d27"
+                    android:layout_marginTop="@dimen/d8"
+                    android:layout_toRightOf="@id/battery_now_time"
+                    app:lottie_autoPlay="false" />
+            </RelativeLayout>
+            <!--月日星期,充电多少-->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/d15"
+                android:layout_marginLeft="@dimen/d40"
+                android:layout_marginTop="@dimen/d12"
                 android:orientation="horizontal">
-
+                <!--月-->
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/battery_now_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="09/03"
+                    android:text="09"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s18"
-                    app:typeface="Roboto-Light.ttf" />
-
+                    app:typeface="ROBOTO-REGULAR.TTF" />
+                <!--日-->
+                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    android:id="@+id/battery_now_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/d12"
+                    android:text="03"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s18"
+                    app:typeface="ROBOTO-REGULAR.TTF" />
+                <!--星期-->
                 <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                     android:id="@+id/battery_now_week"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/week_p"
+                    android:paddingLeft="@dimen/d12"
                     android:text="Fri"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s18"
-                    app:typeface="Roboto-Light.ttf" />
-            </LinearLayout>
+                    app:typeface="ROBOTO-REGULAR.TTF" />
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d46"
+                    android:orientation="horizontal">
+
+                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                        android:id="@+id/currentLevel_ing"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:text="@string/charging_ing"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/s16"
+                        app:typeface="ROBOTO-REGULAR.TTF" />
+
+                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                        android:id="@+id/battery_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="@dimen/d5"
+                        android:text="0%"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/s16"
+                        app:typeface="ROBOTO-REGULAR.TTF" />
+                </LinearLayout>
+            </LinearLayout>
+            <!--充满时间-->
             <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
                 android:id="@+id/battery_now_battery_left"
                 android:layout_width="wrap_content"
@@ -127,9 +171,7 @@
                 android:textColor="@color/white_100"
                 android:textSize="@dimen/s13"
                 android:visibility="gone"
-                app:typeface="Roboto-Light.ttf" />
-
-
+                app:typeface="ROBOTO-REGULAR.TTF" />
         </LinearLayout>
 
         <LinearLayout
@@ -143,33 +185,26 @@
             android:orientation="vertical" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
+            android:layout_gravity="bottom"
             android:layout_marginBottom="@dimen/d61"
+            android:gravity="center"
             android:orientation="horizontal">
 
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                android:id="@+id/currentLevel_ing"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:text="@string/charging_ing"
-                android:textColor="@color/white_100"
-                android:textSize="@dimen/s16"
-                app:typeface="Roboto-Light.ttf" />
-
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                android:id="@+id/battery_level"
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/d20"
-                android:text="0%"
-                android:textColor="@color/charg_3"
-                android:textSize="@dimen/s16"
-                app:typeface="Roboto-Light.ttf" />
+                android:src="@mipmap/jiantou" />
+
+            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d16"
+                android:text="@string/unlock"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s18"
+                app:typeface="ROBOTO-REGULAR.TTF" />
         </LinearLayout>
     </LinearLayout>
 
@@ -202,5 +237,4 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/time_top" />
     </LinearLayout>
-
 </com.vater.module.charge.saver.Mview.BatteryView>

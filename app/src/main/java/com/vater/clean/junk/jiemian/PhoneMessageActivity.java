@@ -116,7 +116,6 @@ public class PhoneMessageActivity extends BaseActivity {
     }
 
 
-
     private void loadAd() {
         if (PreData.getDB(this, Constant.FULL_MESSAGE, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
@@ -142,6 +141,7 @@ public class PhoneMessageActivity extends BaseActivity {
         } else {
         }
     }
+
     private boolean isW() {
         Locale locale = getResources().getConfiguration().locale;
         String language = locale.getLanguage();
@@ -150,6 +150,7 @@ public class PhoneMessageActivity extends BaseActivity {
         else
             return false;
     }
+
     @Override
     protected void findId() {
         super.findId();
