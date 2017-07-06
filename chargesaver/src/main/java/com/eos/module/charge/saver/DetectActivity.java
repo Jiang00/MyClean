@@ -67,6 +67,7 @@ public class DetectActivity extends Activity {
         detect_shiyong.setText(millTransFate(use_time));
         detect_baifen.setText(level + "%");
         int count = 0;
+        detect_ram.setOrientation(LinearLayout.HORIZONTAL);
         for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
             ImageView imageView = new ImageView(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Util.dp2px(15), Util.dp2px(15));
@@ -80,7 +81,7 @@ public class DetectActivity extends Activity {
 //            }
             if (LoadManager.getInstance(this).getAppIcon(info.pkg) != null) {
                 imageView.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
-                detect_ram.addView(imageView,0);
+                detect_ram.addView(imageView, 0);
                 count++;
             }
         }
