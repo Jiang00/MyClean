@@ -35,11 +35,18 @@
             android:name=".ADActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" />
-        <activity android:name=".ChargeActivity"
-            android:screenOrientation="nosensor"
-            android:noHistory="true"
+        <activity
+            android:name=".ChargeActivity"
             android:launchMode="singleInstance"
-            android:theme="@style/CustomTranslate"/>
+            android:noHistory="true"
+            android:screenOrientation="nosensor"
+            android:theme="@style/CustomTranslate" />
+        <activity
+            android:name=".DetectActivity"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
+            android:screenOrientation="nosensor"
+            android:theme="@style/CustomTranslate" />
     </application>
 
 </manifest>

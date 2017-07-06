@@ -94,6 +94,8 @@ public class Util {
         return (int) day;
     }
 
+
+
     public static String millTransFate2(long millisecond) {
         String str = "";
         long day = millisecond / 86400000;

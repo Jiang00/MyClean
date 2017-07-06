@@ -28090,23 +28090,23 @@ com.android.clean.util.Util -> com.android.clean.d.e:
     56:58:java.lang.String getStrTime2(long) -> b
     68:70:java.lang.String getStrTimeHH(long) -> c
     81:94:int millTransFate(long) -> d
-    98:111:java.lang.String millTransFate2(long) -> e
-    116:127:java.lang.String convertStorage(long,boolean) -> a
-    136:149:java.lang.String convertStorageWifi(long) -> f
-    154:163:java.lang.String convertStorageDanwei(long) -> g
-    170:170:int dp2px(int) -> a
-    195:200:boolean isThirdApp(android.content.pm.ApplicationInfo) -> a
-    222:232:boolean isStartSelf(android.content.pm.PackageManager,java.lang.String) -> a
-    239:277:void doStartApplicationWithPackageName(android.content.Context,java.lang.String) -> a
-    280:283:int getMemory(android.content.Context) -> a
-    287:306:void deleteFile(java.lang.String) -> a
-    327:335:android.graphics.Bitmap getViewBitmap(android.view.View) -> a
-    341:353:java.lang.String getProcessName(android.content.Context) -> b
-    358:372:boolean isNotificationListenEnabled(android.content.Context) -> c
-    377:401:boolean isAccessibilitySettingsOn(android.content.Context) -> d
-    405:425:long getFileSize(java.io.File) -> a
-    431:448:boolean checkDeviceHasNavigationBar(android.content.Context) -> e
-    513:531:java.lang.String readFileFromAssets(android.content.Context,java.lang.String) -> b
+    100:113:java.lang.String millTransFate2(long) -> e
+    118:129:java.lang.String convertStorage(long,boolean) -> a
+    138:151:java.lang.String convertStorageWifi(long) -> f
+    156:165:java.lang.String convertStorageDanwei(long) -> g
+    172:172:int dp2px(int) -> a
+    197:202:boolean isThirdApp(android.content.pm.ApplicationInfo) -> a
+    224:234:boolean isStartSelf(android.content.pm.PackageManager,java.lang.String) -> a
+    241:279:void doStartApplicationWithPackageName(android.content.Context,java.lang.String) -> a
+    282:285:int getMemory(android.content.Context) -> a
+    289:308:void deleteFile(java.lang.String) -> a
+    329:337:android.graphics.Bitmap getViewBitmap(android.view.View) -> a
+    343:355:java.lang.String getProcessName(android.content.Context) -> b
+    360:374:boolean isNotificationListenEnabled(android.content.Context) -> c
+    379:403:boolean isAccessibilitySettingsOn(android.content.Context) -> d
+    407:427:long getFileSize(java.io.File) -> a
+    433:450:boolean checkDeviceHasNavigationBar(android.content.Context) -> e
+    515:533:java.lang.String readFileFromAssets(android.content.Context,java.lang.String) -> b
 com.android.client.AdListener -> com.android.client.AdListener:
     void onReceiveReward(boolean,int) -> onReceiveReward
     void onFullAdClosed() -> onFullAdClosed
@@ -35035,6 +35035,22 @@ com.eos.module.charge.saver.ChargeActivity$3 -> com.eos.module.charge.saver.Char
     com.eos.module.charge.saver.ChargeActivity this$0 -> a
     142:142:void <init>(com.eos.module.charge.saver.ChargeActivity) -> <init>
     145:158:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.eos.module.charge.saver.DetectActivity -> com.eos.module.charge.saver.DetectActivity:
+    android.widget.ImageView detect_cha -> a
+    android.widget.TextView detect_zhuangtai -> b
+    android.widget.TextView detect_time -> c
+    android.widget.TextView detect_baifen -> d
+    android.widget.TextView detect_shiyong -> e
+    android.widget.LinearLayout detect_ram -> f
+    23:23:void <init>() -> <init>
+    29:35:void findId() -> b
+    39:66:void onCreate(android.os.Bundle) -> onCreate
+    70:83:java.lang.String millTransFate(long) -> a
+    88:101:void hideBottomUIMenu() -> a
+com.eos.module.charge.saver.DetectActivity$1 -> com.eos.module.charge.saver.DetectActivity$1:
+    com.eos.module.charge.saver.DetectActivity this$0 -> a
+    47:47:void <init>(com.eos.module.charge.saver.DetectActivity) -> <init>
+    50:51:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.R -> com.eos.module.charge.saver.a:
 com.eos.module.charge.saver.R$anim -> com.eos.module.charge.saver.a$a:
     int abc_fade_in -> abc_fade_in
@@ -35054,7 +35070,159 @@ com.eos.module.charge.saver.R$anim -> com.eos.module.charge.saver.a$a:
     int design_fab_out -> design_fab_out
     int design_snackbar_in -> design_snackbar_in
     int design_snackbar_out -> design_snackbar_out
-com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$b:
+com.eos.module.charge.saver.R$color -> com.eos.module.charge.saver.a$b:
+    int A1 -> A1
+    int A10 -> A10
+    int A2 -> A2
+    int A3 -> A3
+    int A4 -> A4
+    int A5 -> A5
+    int A6 -> A6
+    int A6_87 -> A6_87
+    int A7 -> A7
+    int A8 -> A8
+    int A9 -> A9
+    int B1 -> B1
+    int B2 -> B2
+    int B3 -> B3
+    int B4 -> B4
+    int B5 -> B5
+    int B6 -> B6
+    int B7 -> B7
+    int B8 -> B8
+    int B9 -> B9
+    int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
+    int abc_background_cache_hint_selector_material_light -> abc_background_cache_hint_selector_material_light
+    int abc_color_highlight_material -> abc_color_highlight_material
+    int abc_input_method_navigation_guard -> abc_input_method_navigation_guard
+    int abc_primary_text_disable_only_material_dark -> abc_primary_text_disable_only_material_dark
+    int abc_primary_text_disable_only_material_light -> abc_primary_text_disable_only_material_light
+    int abc_primary_text_material_dark -> abc_primary_text_material_dark
+    int abc_primary_text_material_light -> abc_primary_text_material_light
+    int abc_search_url_text -> abc_search_url_text
+    int abc_search_url_text_normal -> abc_search_url_text_normal
+    int abc_search_url_text_pressed -> abc_search_url_text_pressed
+    int abc_search_url_text_selected -> abc_search_url_text_selected
+    int abc_secondary_text_material_dark -> abc_secondary_text_material_dark
+    int abc_secondary_text_material_light -> abc_secondary_text_material_light
+    int accent_material_dark -> accent_material_dark
+    int accent_material_light -> accent_material_light
+    int app_pro -> app_pro
+    int background_floating_material_dark -> background_floating_material_dark
+    int background_floating_material_light -> background_floating_material_light
+    int background_material_dark -> background_material_dark
+    int background_material_light -> background_material_light
+    int black_100 -> black_100
+    int black_35 -> black_35
+    int black_50 -> black_50
+    int black_54 -> black_54
+    int black_70 -> black_70
+    int black_87 -> black_87
+    int bright_foreground_disabled_material_dark -> bright_foreground_disabled_material_dark
+    int bright_foreground_disabled_material_light -> bright_foreground_disabled_material_light
+    int bright_foreground_inverse_material_dark -> bright_foreground_inverse_material_dark
+    int bright_foreground_inverse_material_light -> bright_foreground_inverse_material_light
+    int bright_foreground_material_dark -> bright_foreground_material_dark
+    int bright_foreground_material_light -> bright_foreground_material_light
+    int button_material_dark -> button_material_dark
+    int button_material_light -> button_material_light
+    int design_fab_shadow_end_color -> design_fab_shadow_end_color
+    int design_fab_shadow_mid_color -> design_fab_shadow_mid_color
+    int design_fab_shadow_start_color -> design_fab_shadow_start_color
+    int design_fab_stroke_end_inner_color -> design_fab_stroke_end_inner_color
+    int design_fab_stroke_end_outer_color -> design_fab_stroke_end_outer_color
+    int design_fab_stroke_top_inner_color -> design_fab_stroke_top_inner_color
+    int design_fab_stroke_top_outer_color -> design_fab_stroke_top_outer_color
+    int design_snackbar_background_color -> design_snackbar_background_color
+    int design_textinput_error_color_dark -> design_textinput_error_color_dark
+    int design_textinput_error_color_light -> design_textinput_error_color_light
+    int dim_foreground_disabled_material_dark -> dim_foreground_disabled_material_dark
+    int dim_foreground_disabled_material_light -> dim_foreground_disabled_material_light
+    int dim_foreground_material_dark -> dim_foreground_material_dark
+    int dim_foreground_material_light -> dim_foreground_material_light
+    int file_apk -> file_apk
+    int file_music -> file_music
+    int file_qita -> file_qita
+    int file_shengyu -> file_shengyu
+    int file_txt -> file_txt
+    int file_video -> file_video
+    int file_zip -> file_zip
+    int float_kaiguan -> float_kaiguan
+    int foreground_material_dark -> foreground_material_dark
+    int foreground_material_light -> foreground_material_light
+    int gboost_1 -> gboost_1
+    int gboost_2 -> gboost_2
+    int gboost_3 -> gboost_3
+    int highlighted_text_material_dark -> highlighted_text_material_dark
+    int highlighted_text_material_light -> highlighted_text_material_light
+    int hint_foreground_material_dark -> hint_foreground_material_dark
+    int hint_foreground_material_light -> hint_foreground_material_light
+    int list_progress_green -> list_progress_green
+    int main_back -> main_back
+    int main_circle_backg -> main_circle_backg
+    int main_circle_first -> main_circle_first
+    int main_circle_second -> main_circle_second
+    int main_circle_tired -> main_circle_tired
+    int manager_sort_text -> manager_sort_text
+    int material_blue_grey_800 -> material_blue_grey_800
+    int material_blue_grey_900 -> material_blue_grey_900
+    int material_blue_grey_950 -> material_blue_grey_950
+    int material_deep_teal_200 -> material_deep_teal_200
+    int material_deep_teal_500 -> material_deep_teal_500
+    int material_grey_100 -> material_grey_100
+    int material_grey_300 -> material_grey_300
+    int material_grey_50 -> material_grey_50
+    int material_grey_600 -> material_grey_600
+    int material_grey_800 -> material_grey_800
+    int material_grey_850 -> material_grey_850
+    int material_grey_900 -> material_grey_900
+    int primary_dark_material_dark -> primary_dark_material_dark
+    int primary_dark_material_light -> primary_dark_material_light
+    int primary_material_dark -> primary_material_dark
+    int primary_material_light -> primary_material_light
+    int primary_text_default_material_dark -> primary_text_default_material_dark
+    int primary_text_default_material_light -> primary_text_default_material_light
+    int primary_text_disabled_material_dark -> primary_text_disabled_material_dark
+    int primary_text_disabled_material_light -> primary_text_disabled_material_light
+    int rect -> rect
+    int ripple_material_dark -> ripple_material_dark
+    int ripple_material_light -> ripple_material_light
+    int secondary_text_default_material_dark -> secondary_text_default_material_dark
+    int secondary_text_default_material_light -> secondary_text_default_material_light
+    int secondary_text_disabled_material_dark -> secondary_text_disabled_material_dark
+    int secondary_text_disabled_material_light -> secondary_text_disabled_material_light
+    int shop_color_primary -> shop_color_primary
+    int shop_color_primary_dark -> shop_color_primary_dark
+    int shop_loading_bg -> shop_loading_bg
+    int shop_loading_color -> shop_loading_color
+    int shop_tab_indicator_normal -> shop_tab_indicator_normal
+    int shop_tab_indicator_selected -> shop_tab_indicator_selected
+    int shop_tab_title_normal -> shop_tab_title_normal
+    int shop_tab_title_selected -> shop_tab_title_selected
+    int shop_wallpaper_apply -> shop_wallpaper_apply
+    int shop_wallpaper_apply_bg_line -> shop_wallpaper_apply_bg_line
+    int shop_wallpaper_date -> shop_wallpaper_date
+    int shop_wallpaper_time -> shop_wallpaper_time
+    int switch_thumb_disabled_material_dark -> switch_thumb_disabled_material_dark
+    int switch_thumb_disabled_material_light -> switch_thumb_disabled_material_light
+    int switch_thumb_material_dark -> switch_thumb_material_dark
+    int switch_thumb_material_light -> switch_thumb_material_light
+    int switch_thumb_normal_material_dark -> switch_thumb_normal_material_dark
+    int switch_thumb_normal_material_light -> switch_thumb_normal_material_light
+    int transparent -> transparent
+    int white_100 -> white_100
+    int white_20 -> white_20
+    int white_25 -> white_25
+    int white_40 -> white_40
+    int white_50 -> white_50
+    int white_54 -> white_54
+    int white_60 -> white_60
+    int white_70 -> white_70
+    int white_80 -> white_80
+    int widget_green -> widget_green
+    int widget_red -> widget_red
+    int widget_yellow -> widget_yellow
+com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$c:
     int BOTTOM_LEFT -> BOTTOM_LEFT
     int BOTTOM_RIGHT -> BOTTOM_RIGHT
     int TOP_LEFT -> TOP_LEFT
@@ -35144,6 +35312,14 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$b:
     int design_menu_item_action_area_stub -> design_menu_item_action_area_stub
     int design_menu_item_text -> design_menu_item_text
     int design_navigation_view -> design_navigation_view
+    int detect_ad -> detect_ad
+    int detect_baifen -> detect_baifen
+    int detect_cha -> detect_cha
+    int detect_clean -> detect_clean
+    int detect_ram -> detect_ram
+    int detect_shiyong -> detect_shiyong
+    int detect_time -> detect_time
+    int detect_zhuangtai -> detect_zhuangtai
     int disableHome -> disableHome
     int edit_query -> edit_query
     int end -> end
@@ -35263,7 +35439,7 @@ com.eos.module.charge.saver.R$id -> com.eos.module.charge.saver.a$b:
     int withText -> withText
     int wrap -> wrap
     int wrap_content -> wrap_content
-com.eos.module.charge.saver.R$layout -> com.eos.module.charge.saver.a$c:
+com.eos.module.charge.saver.R$layout -> com.eos.module.charge.saver.a$d:
     int abc_action_bar_title_item -> abc_action_bar_title_item
     int abc_action_bar_up_container -> abc_action_bar_up_container
     int abc_action_bar_view_list_nav_layout -> abc_action_bar_view_list_nav_layout
@@ -35303,6 +35479,7 @@ com.eos.module.charge.saver.R$layout -> com.eos.module.charge.saver.a$c:
     int design_navigation_item_subheader -> design_navigation_item_subheader
     int design_navigation_menu -> design_navigation_menu
     int design_navigation_menu_item -> design_navigation_menu_item
+    int layout_battery_r -> layout_battery_r
     int native_ad -> native_ad
     int native_ad1 -> native_ad1
     int notification_media_action -> notification_media_action
@@ -35333,20 +35510,22 @@ com.eos.module.charge.saver.R$layout -> com.eos.module.charge.saver.a$c:
     int shop_theme_tag -> shop_theme_tag
     int shop_theme_widget -> shop_theme_widget
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
-com.eos.module.charge.saver.R$mipmap -> com.eos.module.charge.saver.a$d:
+com.eos.module.charge.saver.R$mipmap -> com.eos.module.charge.saver.a$e:
     int ad_right -> ad_right
     int battery_inner_icon -> battery_inner_icon
+    int battery_jiance -> battery_jiance
     int battery_more -> battery_more
     int battery_second_back -> battery_second_back
     int battery_setting_checkbox_close -> battery_setting_checkbox_close
     int battery_setting_checkbox_open -> battery_setting_checkbox_open
     int bubble_masked -> bubble_masked
+    int detect_cha -> detect_cha
     int eos_bubble -> eos_bubble
     int game_icon -> game_icon
     int internet_icon -> internet_icon
     int talk_icon -> talk_icon
     int unlock -> unlock
-com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$e:
+com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$f:
     int abc_action_bar_home_description -> abc_action_bar_home_description
     int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
     int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
@@ -35368,12 +35547,22 @@ com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$e:
     int abc_toolbar_collapse_description -> abc_toolbar_collapse_description
     int app_name -> app_name
     int appbar_scrolling_view_behavior -> appbar_scrolling_view_behavior
+    int battery_jiance -> battery_jiance
     int bottom_sheet_behavior -> bottom_sheet_behavior
     int character_counter_pattern -> character_counter_pattern
     int charge_screen_save -> charge_screen_save
     int charging_on_left -> charging_on_left
     int charging_use_left -> charging_use_left
+    int clean -> clean
     int cpu -> cpu
+    int detect_1 -> detect_1
+    int detect_2 -> detect_2
+    int detect_3 -> detect_3
+    int detect_4 -> detect_4
+    int detect_5 -> detect_5
+    int detect_6 -> detect_6
+    int detect_7 -> detect_7
+    int detect_zhuangtai -> detect_zhuangtai
     int game -> game
     int internet -> internet
     int ram -> ram
@@ -35392,7 +35581,7 @@ com.eos.module.charge.saver.R$string -> com.eos.module.charge.saver.a$e:
     int talk -> talk
     int temp -> temp
     int unlock -> unlock
-com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$f:
+com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$g:
     int[] ActionBar -> ActionBar
     int[] ActionBarLayout -> ActionBarLayout
     int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
@@ -35983,7 +36172,7 @@ com.eos.module.charge.saver.R$styleable -> com.eos.module.charge.saver.a$f:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1486:2067:void <clinit>() -> <clinit>
+    1693:2274:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.ADRequest -> com.eos.module.charge.saver.Util.a:
     16:16:void <init>() -> <init>
     19:20:void showFullAD() -> a
@@ -35995,6 +36184,26 @@ com.eos.module.charge.saver.Util.ADRequest$1 -> com.eos.module.charge.saver.Util
     30:33:void onNativeAdClicked(com.android.client.ClientNativeAd) -> onNativeAdClicked
 com.eos.module.charge.saver.Util.ADRequest$ICustomNativeADClicked -> com.eos.module.charge.saver.Util.a$a:
     void onNativeADClicked(com.android.client.ClientNativeAd) -> a
+com.eos.module.charge.saver.Util.DetectData -> com.eos.module.charge.saver.Util.b:
+    int _putCount -> a
+    android.content.SharedPreferences db -> b
+    18:20:android.content.SharedPreferences getDB(android.content.Context) -> a
+    32:50:void saveDB(android.content.SharedPreferences$Editor,boolean) -> a
+    54:73:void putDB(android.content.Context,java.lang.String,java.lang.Object) -> a
+    99:107:int getDB(android.content.Context,java.lang.String,int) -> a
+    111:119:long getDB(android.content.Context,java.lang.String,long) -> a
+    14:15:void <clinit>() -> <clinit>
+com.eos.module.charge.saver.Util.GetTopPackage -> com.eos.module.charge.saver.Util.c:
+    android.content.Context context -> a
+    java.lang.reflect.Field processState -> b
+    java.util.HashMap excludes -> c
+    25:29:void <init>(android.content.Context) -> <init>
+    32:70:java.lang.String execute() -> a
+    74:90:java.lang.String getActivePackages() -> c
+    95:107:java.lang.String getTopPackage() -> d
+    133:200:java.lang.String getForegroundApp() -> b
+    204:214:java.lang.String read(java.lang.String) -> a
+    124:130:void <clinit>() -> <clinit>
 com.eos.module.charge.saver.Util.MyWidgetContainer -> com.eos.module.charge.saver.Util.MyWidgetContainer:
     android.view.WindowManager$LayoutParams lp -> a
     boolean movable -> b
@@ -36013,7 +36222,7 @@ com.eos.module.charge.saver.Util.MyWidgetContainer$IWidgetListener -> com.eos.mo
     boolean onBackPressed() -> a
     boolean onMenuPressed() -> b
     void onClick() -> onClick
-com.eos.module.charge.saver.Util.Utils -> com.eos.module.charge.saver.Util.b:
+com.eos.module.charge.saver.Util.Utils -> com.eos.module.charge.saver.Util.d:
     23:36:void writeData(android.content.Context,java.lang.String,java.lang.Object) -> a
     39:46:java.lang.Object readData(android.content.Context,java.lang.String,java.lang.Object) -> b
     78:88:long getTotalMemory() -> a
@@ -36124,56 +36333,66 @@ com.eos.module.charge.saver.receiver.StartReceiver -> com.eos.module.charge.save
     14:14:void <init>() -> <init>
     17:18:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.eos.module.charge.saver.service.BatteryService -> com.eos.module.charge.saver.service.BatteryService:
-    boolean b -> e
-    com.eos.module.charge.saver.Util.WidgetContainer container -> f
-    com.eos.module.charge.saver.view.BatteryView batteryView -> g
-    com.eos.module.charge.saver.view.DuckView duckView -> h
+    boolean b -> f
+    com.eos.module.charge.saver.Util.WidgetContainer container -> g
+    com.eos.module.charge.saver.view.BatteryView batteryView -> h
+    com.eos.module.charge.saver.view.DuckView duckView -> i
     com.eos.module.charge.saver.entry.BatteryEntry entry -> a
-    android.os.Handler mHandler -> i
-    java.lang.Runnable runnable -> j
-    java.lang.Runnable batteryChangeRunnable -> k
+    com.eos.module.charge.saver.Util.GetTopPackage topPackage -> j
+    java.util.List lunchPackage -> k
+    android.os.Handler mHandler -> l
+    java.lang.Runnable runnable -> m
+    java.lang.Runnable batteryChangeRunnable -> n
     android.content.BroadcastReceiver mReceiver -> b
-    com.eos.module.charge.saver.view.BatteryView$UnlockListener horUnlock -> c
-    com.eos.module.charge.saver.view.DuckView$UnlockListener duckUnlock -> d
-    31:225:void <init>() -> <init>
-    71:75:boolean isScreenOn() -> a
-    99:104:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    108:114:void batteryChange(android.content.Intent) -> a
-    119:119:android.os.IBinder onBind(android.content.Intent) -> onBind
-    124:132:void onCreate() -> onCreate
-    136:143:void onDestroy() -> onDestroy
-    146:211:void showChargeView() -> b
-    31:31:boolean access$000(com.eos.module.charge.saver.service.BatteryService) -> a
-    31:31:void access$100(com.eos.module.charge.saver.service.BatteryService) -> b
-    31:31:com.eos.module.charge.saver.Util.WidgetContainer access$200(com.eos.module.charge.saver.service.BatteryService) -> c
-    31:31:com.eos.module.charge.saver.view.DuckView access$300(com.eos.module.charge.saver.service.BatteryService) -> d
-    31:31:com.eos.module.charge.saver.view.BatteryView access$400(com.eos.module.charge.saver.service.BatteryService) -> e
-    31:31:java.lang.Runnable access$500(com.eos.module.charge.saver.service.BatteryService) -> f
-    31:31:android.os.Handler access$600(com.eos.module.charge.saver.service.BatteryService) -> g
-    31:31:java.lang.Runnable access$700(com.eos.module.charge.saver.service.BatteryService) -> h
-    31:31:com.eos.module.charge.saver.Util.WidgetContainer access$202(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.Util.WidgetContainer) -> a
-    31:31:com.eos.module.charge.saver.view.BatteryView access$402(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.view.BatteryView) -> a
-    31:31:com.eos.module.charge.saver.view.DuckView access$302(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.view.DuckView) -> a
+    java.lang.Runnable runnableDialog -> c
+    com.eos.module.charge.saver.view.BatteryView$UnlockListener horUnlock -> d
+    com.eos.module.charge.saver.view.DuckView$UnlockListener duckUnlock -> e
+    41:327:void <init>() -> <init>
+    83:87:boolean isScreenOn() -> b
+    180:193:java.util.List getLaunchers() -> a
+    198:203:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    207:213:void batteryChange(android.content.Intent) -> a
+    218:218:android.os.IBinder onBind(android.content.Intent) -> onBind
+    223:234:void onCreate() -> onCreate
+    238:245:void onDestroy() -> onDestroy
+    248:313:void showChargeView() -> c
+    41:41:boolean access$000(com.eos.module.charge.saver.service.BatteryService) -> a
+    41:41:void access$100(com.eos.module.charge.saver.service.BatteryService) -> b
+    41:41:com.eos.module.charge.saver.Util.WidgetContainer access$200(com.eos.module.charge.saver.service.BatteryService) -> c
+    41:41:com.eos.module.charge.saver.view.DuckView access$300(com.eos.module.charge.saver.service.BatteryService) -> d
+    41:41:com.eos.module.charge.saver.view.BatteryView access$400(com.eos.module.charge.saver.service.BatteryService) -> e
+    41:41:java.lang.Runnable access$500(com.eos.module.charge.saver.service.BatteryService) -> f
+    41:41:android.os.Handler access$600(com.eos.module.charge.saver.service.BatteryService) -> g
+    41:41:java.lang.Runnable access$700(com.eos.module.charge.saver.service.BatteryService) -> h
+    41:41:com.eos.module.charge.saver.Util.GetTopPackage access$800(com.eos.module.charge.saver.service.BatteryService) -> i
+    41:41:java.util.List access$900(com.eos.module.charge.saver.service.BatteryService) -> j
+    41:41:com.eos.module.charge.saver.Util.WidgetContainer access$202(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.Util.WidgetContainer) -> a
+    41:41:com.eos.module.charge.saver.view.BatteryView access$402(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.view.BatteryView) -> a
+    41:41:com.eos.module.charge.saver.view.DuckView access$302(com.eos.module.charge.saver.service.BatteryService,com.eos.module.charge.saver.view.DuckView) -> a
 com.eos.module.charge.saver.service.BatteryService$1 -> com.eos.module.charge.saver.service.BatteryService$1:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    43:43:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    46:54:void run() -> run
+    55:55:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    58:66:void run() -> run
 com.eos.module.charge.saver.service.BatteryService$2 -> com.eos.module.charge.saver.service.BatteryService$2:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    57:57:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    60:66:void run() -> run
+    69:69:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    72:78:void run() -> run
 com.eos.module.charge.saver.service.BatteryService$3 -> com.eos.module.charge.saver.service.BatteryService$3:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    79:79:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    82:94:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    91:91:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    94:165:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.eos.module.charge.saver.service.BatteryService$4 -> com.eos.module.charge.saver.service.BatteryService$4:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    213:213:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    216:222:void onUnlock() -> a
+    167:167:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    170:176:void run() -> run
 com.eos.module.charge.saver.service.BatteryService$5 -> com.eos.module.charge.saver.service.BatteryService$5:
     com.eos.module.charge.saver.service.BatteryService this$0 -> a
-    225:225:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
-    228:234:void onUnlock() -> a
+    315:315:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    318:324:void onUnlock() -> a
+com.eos.module.charge.saver.service.BatteryService$6 -> com.eos.module.charge.saver.service.BatteryService$6:
+    com.eos.module.charge.saver.service.BatteryService this$0 -> a
+    327:327:void <init>(com.eos.module.charge.saver.service.BatteryService) -> <init>
+    330:336:void onUnlock() -> a
 com.eos.module.charge.saver.view.ADLabel -> com.eos.module.charge.saver.view.ADLabel:
     java.lang.String mTextContent -> a
     int mTextColor -> b
@@ -36250,23 +36469,23 @@ com.eos.module.charge.saver.view.BatteryView -> com.eos.module.charge.saver.view
     92:93:void setUnlockListener(com.eos.module.charge.saver.view.BatteryView$UnlockListener) -> setUnlockListener
     105:143:void showNativeAD() -> f
     146:160:void updateTime() -> a
-    165:229:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
-    238:253:void initBack() -> g
-    257:272:void initShutter() -> h
-    276:291:void initParticle() -> i
-    295:310:void initShell() -> j
-    314:329:void initWater() -> k
-    333:345:void initLighting() -> l
-    349:465:void onFinishInflate() -> onFinishInflate
-    468:486:void initViews() -> m
-    489:492:void pauseBubble() -> b
-    495:498:void reStartBubble() -> c
-    502:509:void onAttachedToWindow() -> onAttachedToWindow
-    513:541:void onDetachedFromWindow() -> onDetachedFromWindow
-    544:548:int analysisJson(org.json.JSONObject) -> a
-    553:560:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    563:565:void registerTimeUpdateReceiver() -> d
-    568:570:void unregisterTimeUpdateReceiver() -> e
+    165:228:void bind(com.eos.module.charge.saver.entry.BatteryEntry) -> a
+    237:252:void initBack() -> g
+    256:271:void initShutter() -> h
+    275:290:void initParticle() -> i
+    294:309:void initShell() -> j
+    313:328:void initWater() -> k
+    332:344:void initLighting() -> l
+    348:464:void onFinishInflate() -> onFinishInflate
+    467:485:void initViews() -> m
+    488:491:void pauseBubble() -> b
+    494:497:void reStartBubble() -> c
+    501:508:void onAttachedToWindow() -> onAttachedToWindow
+    512:540:void onDetachedFromWindow() -> onDetachedFromWindow
+    543:547:int analysisJson(org.json.JSONObject) -> a
+    552:559:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    562:564:void registerTimeUpdateReceiver() -> d
+    567:569:void unregisterTimeUpdateReceiver() -> e
     42:42:android.view.GestureDetector access$000(com.eos.module.charge.saver.view.BatteryView) -> a
     42:42:int access$100(com.eos.module.charge.saver.view.BatteryView) -> b
     42:42:com.eos.module.charge.saver.view.BatteryView$UnlockListener access$200(com.eos.module.charge.saver.view.BatteryView) -> c
@@ -36294,21 +36513,21 @@ com.eos.module.charge.saver.view.BatteryView$3 -> com.eos.module.charge.saver.vi
     178:187:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.eos.module.charge.saver.view.BatteryView$4 -> com.eos.module.charge.saver.view.BatteryView$4:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    374:374:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    377:393:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    373:373:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    376:392:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.eos.module.charge.saver.view.BatteryView$5 -> com.eos.module.charge.saver.view.BatteryView$5:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    396:396:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    399:403:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    408:416:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    395:395:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    398:402:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    407:415:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.eos.module.charge.saver.view.BatteryView$6 -> com.eos.module.charge.saver.view.BatteryView$6:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    427:427:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    430:433:void onClick(android.view.View) -> onClick
+    426:426:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    429:432:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$7 -> com.eos.module.charge.saver.view.BatteryView$7:
     com.eos.module.charge.saver.view.BatteryView this$0 -> a
-    445:445:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
-    448:462:void onClick(android.view.View) -> onClick
+    444:444:void <init>(com.eos.module.charge.saver.view.BatteryView) -> <init>
+    447:461:void onClick(android.view.View) -> onClick
 com.eos.module.charge.saver.view.BatteryView$UnlockListener -> com.eos.module.charge.saver.view.BatteryView$a:
     void onUnlock() -> a
 com.eos.module.charge.saver.view.BubbleLayout -> com.eos.module.charge.saver.view.BubbleLayout:
@@ -42371,6 +42590,26 @@ com.privacy.lock.R$array -> com.privacy.lock.a$b:
     int suo_invade_st_ -> suo_invade_st_
     int suo_ruqinzhe_slot -> suo_ruqinzhe_slot
 com.privacy.lock.R$color -> com.privacy.lock.a$c:
+    int A1 -> A1
+    int A10 -> A10
+    int A2 -> A2
+    int A3 -> A3
+    int A4 -> A4
+    int A5 -> A5
+    int A6 -> A6
+    int A6_87 -> A6_87
+    int A7 -> A7
+    int A8 -> A8
+    int A9 -> A9
+    int B1 -> B1
+    int B2 -> B2
+    int B3 -> B3
+    int B4 -> B4
+    int B5 -> B5
+    int B6 -> B6
+    int B7 -> B7
+    int B8 -> B8
+    int B9 -> B9
     int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
     int abc_background_cache_hint_selector_material_light -> abc_background_cache_hint_selector_material_light
     int abc_color_highlight_material -> abc_color_highlight_material
@@ -42388,10 +42627,17 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int accent_material_dark -> accent_material_dark
     int accent_material_light -> accent_material_light
     int app_list_choose_press_bac -> app_list_choose_press_bac
+    int app_pro -> app_pro
     int background_floating_material_dark -> background_floating_material_dark
     int background_floating_material_light -> background_floating_material_light
     int background_material_dark -> background_material_dark
     int background_material_light -> background_material_light
+    int black_100 -> black_100
+    int black_35 -> black_35
+    int black_50 -> black_50
+    int black_54 -> black_54
+    int black_70 -> black_70
+    int black_87 -> black_87
     int bright_foreground_disabled_material_dark -> bright_foreground_disabled_material_dark
     int bright_foreground_disabled_material_light -> bright_foreground_disabled_material_light
     int bright_foreground_inverse_material_dark -> bright_foreground_inverse_material_dark
@@ -42414,8 +42660,19 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int dim_foreground_disabled_material_light -> dim_foreground_disabled_material_light
     int dim_foreground_material_dark -> dim_foreground_material_dark
     int dim_foreground_material_light -> dim_foreground_material_light
+    int file_apk -> file_apk
+    int file_music -> file_music
+    int file_qita -> file_qita
+    int file_shengyu -> file_shengyu
+    int file_txt -> file_txt
+    int file_video -> file_video
+    int file_zip -> file_zip
+    int float_kaiguan -> float_kaiguan
     int foreground_material_dark -> foreground_material_dark
     int foreground_material_light -> foreground_material_light
+    int gboost_1 -> gboost_1
+    int gboost_2 -> gboost_2
+    int gboost_3 -> gboost_3
     int highlighted_text_material_dark -> highlighted_text_material_dark
     int highlighted_text_material_light -> highlighted_text_material_light
     int hint_foreground_material_dark -> hint_foreground_material_dark
@@ -42423,6 +42680,11 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int leadr_color -> leadr_color
     int list_progress_green -> list_progress_green
     int main_back -> main_back
+    int main_circle_backg -> main_circle_backg
+    int main_circle_first -> main_circle_first
+    int main_circle_second -> main_circle_second
+    int main_circle_tired -> main_circle_tired
+    int manager_sort_text -> manager_sort_text
     int material_blue_grey_800 -> material_blue_grey_800
     int material_blue_grey_900 -> material_blue_grey_900
     int material_blue_grey_950 -> material_blue_grey_950
@@ -42588,6 +42850,17 @@ com.privacy.lock.R$color -> com.privacy.lock.a$c:
     int switch_thumb_normal_material_light -> switch_thumb_normal_material_light
     int transparent -> transparent
     int white_100 -> white_100
+    int white_20 -> white_20
+    int white_25 -> white_25
+    int white_40 -> white_40
+    int white_50 -> white_50
+    int white_54 -> white_54
+    int white_60 -> white_60
+    int white_70 -> white_70
+    int white_80 -> white_80
+    int widget_green -> widget_green
+    int widget_red -> widget_red
+    int widget_yellow -> widget_yellow
 com.privacy.lock.R$drawable -> com.privacy.lock.a$d:
     int abc_ab_share_pack_mtrl_alpha -> abc_ab_share_pack_mtrl_alpha
     int abc_action_bar_item_background_material -> abc_action_bar_item_background_material
@@ -42803,6 +43076,7 @@ com.privacy.lock.R$drawable -> com.privacy.lock.a$d:
     int setting_reset_pattern -> setting_reset_pattern
     int setting_reset_pattern_gray -> setting_reset_pattern_gray
     int shape_ad -> shape_ad
+    int shape_button -> shape_button
     int share_btnbg_clicked -> share_btnbg_clicked
     int share_btnbg_normal -> share_btnbg_normal
     int shop_back -> shop_back
@@ -42936,6 +43210,14 @@ com.privacy.lock.R$id -> com.privacy.lock.a$e:
     int design_menu_item_action_area_stub -> design_menu_item_action_area_stub
     int design_menu_item_text -> design_menu_item_text
     int design_navigation_view -> design_navigation_view
+    int detect_ad -> detect_ad
+    int detect_baifen -> detect_baifen
+    int detect_cha -> detect_cha
+    int detect_clean -> detect_clean
+    int detect_ram -> detect_ram
+    int detect_shiyong -> detect_shiyong
+    int detect_time -> detect_time
+    int detect_zhuangtai -> detect_zhuangtai
     int digital -> digital
     int disableHome -> disableHome
     int dly -> dly
@@ -43187,6 +43469,7 @@ com.privacy.lock.R$layout -> com.privacy.lock.a$f:
     int design_navigation_item_subheader -> design_navigation_item_subheader
     int design_navigation_menu -> design_navigation_menu
     int design_navigation_menu_item -> design_navigation_menu_item
+    int layout_battery_r -> layout_battery_r
     int native_ad -> native_ad
     int native_ad1 -> native_ad1
     int notification_media_action -> notification_media_action
@@ -43282,12 +43565,22 @@ com.privacy.lock.R$string -> com.privacy.lock.a$h:
     int abc_toolbar_collapse_description -> abc_toolbar_collapse_description
     int app_name -> app_name
     int appbar_scrolling_view_behavior -> appbar_scrolling_view_behavior
+    int battery_jiance -> battery_jiance
     int bottom_sheet_behavior -> bottom_sheet_behavior
     int character_counter_pattern -> character_counter_pattern
     int charge_screen_save -> charge_screen_save
     int charging_on_left -> charging_on_left
     int charging_use_left -> charging_use_left
+    int clean -> clean
     int cpu -> cpu
+    int detect_1 -> detect_1
+    int detect_2 -> detect_2
+    int detect_3 -> detect_3
+    int detect_4 -> detect_4
+    int detect_5 -> detect_5
+    int detect_6 -> detect_6
+    int detect_7 -> detect_7
+    int detect_zhuangtai -> detect_zhuangtai
     int ga_logLevel -> ga_logLevel
     int game -> game
     int internet -> internet
@@ -47137,7 +47430,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6319:15380:void <clinit>() -> <clinit>
+    6336:15397:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b

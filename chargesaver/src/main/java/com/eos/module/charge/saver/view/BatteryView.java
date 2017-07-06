@@ -214,7 +214,6 @@ public class BatteryView extends FrameLayout {
             slide.setVisibility(VISIBLE);
             lighting.setVisibility(GONE);
         }
-
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
             String str;
