@@ -38,7 +38,9 @@ import com.cleaner.similarimage.RecyclerDbHelper;
 import com.cleaner.util.DataPre;
 import com.cleaner.util.Util;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  */
@@ -490,7 +492,6 @@ public class PicturesActivity extends BaseActivity {
                                 for (ArrayList<ImageInfo> info : list) {
                                     for (ImageInfo i : info) {
                                         allSize += i.fileSize;
-
                                     }
                                 }
                                 updateUi();

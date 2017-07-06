@@ -85,7 +85,6 @@ public class SuccessingActivity extends BaseActivity {
     RelativeLayout main_picture_button;
     LottieAnimationView notifi_info_lot;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

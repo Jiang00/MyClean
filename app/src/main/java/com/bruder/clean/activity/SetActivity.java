@@ -48,6 +48,7 @@ public class SetActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_setting);
 
+
         myHandler = new Handler();
         title_name.setText(R.string.setting_name);
         title_left.setOnClickListener(onClickListener);
