@@ -120,6 +120,24 @@ public class LoadingActivity extends BaseActivity {
                 if (jsonObject.has("full_recyclebin")) {
                     PreData.putDB(LoadingActivity.this, Constant.RECYCLEBIN, jsonObject.getInt("full_recyclebin"));
                 }
+                if (jsonObject.has("system_cache")) {
+                    PreData.putDB(LoadingActivity.this, com.fast.clean.mutil.Constant.SYSTEM_CACHE, jsonObject.getInt("system_cache"));
+                }
+                if (jsonObject.has("apk_file")) {
+                    PreData.putDB(LoadingActivity.this, com.fast.clean.mutil.Constant.APK_FILE, jsonObject.getInt("apk_file"));
+                }
+                if (jsonObject.has("log_file")) {
+                    PreData.putDB(LoadingActivity.this, com.fast.clean.mutil.Constant.LOG_FILE, jsonObject.getInt("log_file"));
+                }
+                if (jsonObject.has("unload_file")) {
+                    PreData.putDB(LoadingActivity.this, com.fast.clean.mutil.Constant.UNLOAD_FILE, jsonObject.getInt("unload_file"));
+                }
+                if (jsonObject.has("user_cache")) {
+                    PreData.putDB(LoadingActivity.this, com.fast.clean.mutil.Constant.USER_CACHE, jsonObject.getInt("user_cache"));
+                }
+                if (jsonObject.has("ram_kill")) {
+                    PreData.putDB(LoadingActivity.this, com.fast.clean.mutil.Constant.RAM_KILL, jsonObject.getInt("ram_kill"));
+                }
             } catch (Exception e) {
 
             }

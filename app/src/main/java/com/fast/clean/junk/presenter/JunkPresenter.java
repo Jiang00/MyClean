@@ -122,10 +122,10 @@ public class JunkPresenter extends BasePresenter<JunkView> {
         }
 
 //                adapter1.clear();
-        CleanManager.getInstance(context).linShi();
+        CleanManager.getInstance(context).clearSystemCache();
         for (JunkInfo fileListInfo : apkFiles) {
             if (fileListInfo.isChecked) {
-                CleanManager.getInstance(context).removeApkFilesCeshi(fileListInfo);
+                CleanManager.getInstance(context).removeApkFiles(fileListInfo);
                 if (isZhankai) {
                     clearList.add(fileListInfo);
                 }
@@ -134,7 +134,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
 
         for (JunkInfo clearListInfo : filesOfUnintalledApk) {
             if (clearListInfo.isChecked) {
-                CleanManager.getInstance(context).removeFilesOfUnintalledApkCeshi(clearListInfo);
+                CleanManager.getInstance(context).removeFilesOfUnintalledApk(clearListInfo);
                 if (isZhankai) {
                     clearList.add(clearListInfo);
                 }
@@ -143,7 +143,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
 
         for (JunkInfo fileListInfo : appJunk) {
             if (fileListInfo.isChecked) {
-                CleanManager.getInstance(context).removeAppLogCeshi(fileListInfo);
+                CleanManager.getInstance(context).removeAppLog(fileListInfo);
                 if (isZhankai) {
                     clearList.add(fileListInfo);
                 }
@@ -152,7 +152,7 @@ public class JunkPresenter extends BasePresenter<JunkView> {
 
         for (JunkInfo fileListInfo : appCache) {
             if (fileListInfo.isChecked) {
-                CleanManager.getInstance(context).removeAppCacheCeshi(fileListInfo);
+                CleanManager.getInstance(context).removeAppCache(fileListInfo);
                 if (isZhankai) {
                     clearList.add(fileListInfo);
                 }

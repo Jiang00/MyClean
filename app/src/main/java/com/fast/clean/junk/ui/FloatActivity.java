@@ -230,11 +230,14 @@ public class FloatActivity extends BaseActivity {
         final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
         for (PackageInfo packageInfo : installedPackages) {
-            if (packageInfo.packageName.equals(context.getPackageName())) {
+            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.acht")
+                    || packageInfo.packageName.contains("com.google") || packageInfo.packageName.equals("com.android.vending")) {
                 continue;
             }
             try {
-                am.killBackgroundProcesses(packageInfo.packageName);
+                if (PreData.getDB(FloatActivity.this, com.fast.clean.mutil.Constant.RAM_KILL, 0) == 1) {
+                    am.killBackgroundProcesses(packageInfo.packageName);
+                }
             } catch (Exception e) {
 
             }

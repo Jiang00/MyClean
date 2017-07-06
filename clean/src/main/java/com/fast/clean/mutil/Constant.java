@@ -110,4 +110,13 @@ public class Constant {
     public static final String GBOOST_CLEAN = "GBOOST_CLEAN";
     public static final String PHOTO_CLEAN = "PHOTO_CLEAN";
 
+
+    //功能点真假
+    public static final String SYSTEM_CACHE = "SYSTEM_CACHE";
+    public static final String APK_FILE = "APK_FILE";
+    public static final String LOG_FILE = "LOG_FILE";
+    public static final String UNLOAD_FILE = "UNLOAD_FILE";
+    public static final String USER_CACHE = "USER_CACHE";
+    public static final String RAM_KILL = "RAM_KILL";
+
 }

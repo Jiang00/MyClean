@@ -167,10 +167,13 @@ public class ShortCutActivity extends BaseActivity {
             if (onPause) {
                 break;
             }
-            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.acht")) {
+            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.acht")
+                    || packageInfo.packageName.contains("com.google") || packageInfo.packageName.equals("com.android.vending")) {
                 continue;
             }
-            am.killBackgroundProcesses(packageInfo.packageName);
+            if (PreData.getDB(ShortCutActivity.this, com.fast.clean.mutil.Constant.RAM_KILL, 0) == 1) {
+                am.killBackgroundProcesses(packageInfo.packageName);
+            }
             ++count;
         }
         final long afterMem = getAvailMemory(am);
