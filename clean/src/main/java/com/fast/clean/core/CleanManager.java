@@ -482,9 +482,11 @@ public class CleanManager {
                             }
                         }
                 );
+                Log.e("diankaiguan", "system_cache1==");
+            } else {
+                Log.e("diankaiguan", "system_cache0==");
             }
         } catch (Exception e) {
-            Log.e("rqy", "clearsystemCache has exception=" + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -623,6 +625,9 @@ public class CleanManager {
     public void removeRam(JunkInfo appRam) {
         if (PreData.getDB(mContext, Constant.RAM_KILL, 0) == 1) {
             am.killBackgroundProcesses(appRam.pkg);
+            Log.e("diankaiguan", "ram_kill1==");
+        } else {
+            Log.e("diankaiguan", "ram_kill0==");
         }
 //        if (appRam.isSelfBoot) {
 //            return;
@@ -653,6 +658,9 @@ public class CleanManager {
     public void removeAppCache(JunkInfo appCache) {
         if (PreData.getDB(mContext, Constant.USER_CACHE, 0) == 1) {
             com.fast.clean.mutil.Util.deleteFile(appCache.path);
+            Log.e("diankaiguan", "user_cache1==");
+        } else {
+            Log.e("diankaiguan", "user_cache0==");
         }
         appCacheSize -= appCache.size;
         if (appCaches != null) {
@@ -671,6 +679,9 @@ public class CleanManager {
     public void removeFilesOfUnintalledApk(JunkInfo uninstallResidual) {
         if (PreData.getDB(mContext, Constant.UNLOAD_FILE, 0) == 1) {
             com.fast.clean.mutil.Util.deleteFile(uninstallResidual.path);
+            Log.e("diankaiguan", "unload_file1==");
+        } else {
+            Log.e("diankaiguan", "unload_file0==");
         }
         uninstallSize -= uninstallResidual.size;
         if (uninstallResiduals != null) {
@@ -682,6 +693,9 @@ public class CleanManager {
     public void removeApkFiles(JunkInfo fileInfo) {
         if (PreData.getDB(mContext, Constant.APK_FILE, 0) == 1) {
             com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
+            Log.e("diankaiguan", "apk_file1==");
+        } else {
+            Log.e("diankaiguan", "apk_file0==");
         }
         apkSize -= fileInfo.size;
         if (apkFiles != null) {
@@ -693,6 +707,9 @@ public class CleanManager {
     public void removeAppLog(JunkInfo fileInfo) {
         if (PreData.getDB(mContext, Constant.LOG_FILE, 0) == 1) {
             com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
+            Log.e("diankaiguan", "log_file1==");
+        } else {
+            Log.e("diankaiguan", "log_file0==");
         }
         logSize -= fileInfo.size;
         if (logFiles != null) {
