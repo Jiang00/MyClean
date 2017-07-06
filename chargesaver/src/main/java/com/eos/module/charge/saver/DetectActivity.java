@@ -12,9 +12,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.core.CleanManager;
+import com.android.clean.entity.JunkInfo;
+import com.android.clean.util.LoadManager;
+import com.android.clean.util.Util;
 import com.eos.module.charge.saver.Util.Constants;
 import com.eos.module.charge.saver.Util.DetectData;
-import com.eos.module.charge.saver.Util.Utils;
 
 /**
  * Created by Ivy on 2017/7/5.
@@ -63,6 +66,24 @@ public class DetectActivity extends Activity {
         detect_time.setText(millTransFate(chongdian_time));
         detect_shiyong.setText(millTransFate(use_time));
         detect_baifen.setText(level + "%");
+        int count = 0;
+        for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
+            ImageView imageView = new ImageView(this);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Util.dp2px(15), Util.dp2px(15));
+            layoutParams.rightMargin = Util.dp2px(1);
+            imageView.setLayoutParams(layoutParams);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//            if (count == 4) {
+//                imageView.setImageResource(R.mipmap.detect_ram);
+//                detect_ram.addView(imageView, 0);
+//                break;
+//            }
+            if (LoadManager.getInstance(this).getAppIcon(info.pkg) != null) {
+                imageView.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
+                detect_ram.addView(imageView,0);
+                count++;
+            }
+        }
     }
 
     //多少天

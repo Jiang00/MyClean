@@ -168,7 +168,7 @@ public class BatteryService extends Service {
         @Override
         public void run() {
             String packageName = topPackage.execute();
-            if (lunchPackage.contains(packageName)) {
+            if (lunchPackage.contains(packageName) || TextUtils.equals(getPackageName(), packageName)) {
                 startActivity(new Intent(BatteryService.this, DetectActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             } else {
                 mHandler.postDelayed(this, 1000);
