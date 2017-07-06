@@ -37,7 +37,7 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
+public class RJunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     FrameLayout title_left;
     TextView title_name;

@@ -1,6 +1,7 @@
 package com.eos.module.charge.saver;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,6 +29,7 @@ public class DetectActivity extends Activity {
     ImageView detect_cha;
     TextView detect_zhuangtai, detect_time, detect_baifen, detect_shiyong;
     LinearLayout detect_ram;
+    Button detect_clean;
 
     private void findId() {
         detect_cha = (ImageView) findViewById(R.id.detect_cha);
@@ -35,6 +38,7 @@ public class DetectActivity extends Activity {
         detect_baifen = (TextView) findViewById(R.id.detect_baifen);
         detect_shiyong = (TextView) findViewById(R.id.detect_shiyong);
         detect_ram = (LinearLayout) findViewById(R.id.detect_ram);
+        detect_clean = (Button) findViewById(R.id.detect_clean);
     }
 
     @Override
@@ -47,6 +51,13 @@ public class DetectActivity extends Activity {
         long use_time = DetectData.getDB(this, Constants.CONNECTED_LEFT_TIME_LUN, 60 * 60 * 1000l);
         int level = DetectData.getDB(this, Constants.CONNECTED_LEVEL_LUN, 100);
         int zhuangtai = DetectData.getDB(this, Constants.CONNECTED_ZZ, 0);
+        detect_clean.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent().setClassName(DetectActivity.this, "com.supers.clean.junk.activity.RamActivity").putExtra("from", "notifi"));
+            }
+        });
         detect_cha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,11 +85,11 @@ public class DetectActivity extends Activity {
             layoutParams.rightMargin = Util.dp2px(1);
             imageView.setLayoutParams(layoutParams);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//            if (count == 4) {
-//                imageView.setImageResource(R.mipmap.detect_ram);
-//                detect_ram.addView(imageView, 0);
-//                break;
-//            }
+            if (count == 4) {
+                imageView.setImageResource(R.mipmap.detect_ram);
+                detect_ram.addView(imageView, 0);
+                break;
+            }
             if (LoadManager.getInstance(this).getAppIcon(info.pkg) != null) {
                 imageView.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
                 detect_ram.addView(imageView, 0);
