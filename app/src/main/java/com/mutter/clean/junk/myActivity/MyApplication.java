@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 
+import com.android.client.AndroidSdk;
 import com.mutter.clean.core.CleanManager;
 import com.mutter.clean.notifi.NotificationMonitorService;
 import com.mutter.clean.util.PreData;
@@ -27,7 +28,6 @@ import com.squareup.leakcanary.LeakCanary;
 public class MyApplication extends Application {
 
 
-
     private ActivityManager am;
 
     private HandlerThread mThread;
@@ -43,7 +43,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        AndroidSdk.onCreate(this);
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/
