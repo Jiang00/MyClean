@@ -26,7 +26,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.client.AdListener;
 import com.android.client.AndroidSdk;
 import com.fast.clean.core.CleanManager;
 import com.fast.clean.entity.JunkInfo;
@@ -684,13 +683,13 @@ public class SuccessActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        istween = false;
+        myHandler.removeCallbacksAndMessages(null);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        myHandler.removeCallbacks(runnable);
-        istween = false;
     }
 
     @Override

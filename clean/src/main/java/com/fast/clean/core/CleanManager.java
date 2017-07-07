@@ -465,27 +465,27 @@ public class CleanManager {
 
 
     public void clearSystemCache() {
+        systemCaches.clear();
+        systemCacheSize = 0;
+        int system_cache = PreData.getDB(mContext, Constant.SYSTEM_CACHE, 0);
+        Log.e("rqy", "system_cache=" + system_cache);
+        if (system_cache == 0) {
+            return;
+        }
         StatFs stat = new StatFs(Environment.getDataDirectory().getAbsolutePath());
         try {
-            systemCaches.clear();
-            systemCacheSize = 0;
-            if (PreData.getDB(mContext, Constant.SYSTEM_CACHE, 0) == 1) {
-                Method mFreeStorageAndNotifyMethod = mContext.getPackageManager().getClass().getMethod(
-                        "freeStorageAndNotify", Long.TYPE, IPackageDataObserver.class);
-                mFreeStorageAndNotifyMethod.invoke(mContext.getPackageManager(),
-                        (long) stat.getBlockCount() * (long) stat.getBlockSize(),
-                        new IPackageDataObserver.Stub() {
-                            @Override
-                            public void onRemoveCompleted(String packageName, boolean succeeded)
-                                    throws RemoteException {
-                                Log.e("rqy", "clearsystemCache");
-                            }
+            Method mFreeStorageAndNotifyMethod = mContext.getPackageManager().getClass().getMethod(
+                    "freeStorageAndNotify", Long.TYPE, IPackageDataObserver.class);
+            mFreeStorageAndNotifyMethod.invoke(mContext.getPackageManager(),
+                    (long) stat.getBlockCount() * (long) stat.getBlockSize(),
+                    new IPackageDataObserver.Stub() {
+                        @Override
+                        public void onRemoveCompleted(String packageName, boolean succeeded)
+                                throws RemoteException {
+                            Log.e("rqy", "clearsystemCache");
                         }
-                );
-                Log.e("diankaiguan", "system_cache1==");
-            } else {
-                Log.e("diankaiguan", "system_cache0==");
-            }
+                    }
+            );
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -623,11 +623,10 @@ public class CleanManager {
 
 
     public void removeRam(JunkInfo appRam) {
-        if (PreData.getDB(mContext, Constant.RAM_KILL, 0) == 1) {
+        int ram_kill = PreData.getDB(mContext, Constant.RAM_KILL, 0);
+        Log.e("rqy", "removeRam--" + ram_kill);
+        if (ram_kill == 1) {
             am.killBackgroundProcesses(appRam.pkg);
-            Log.e("diankaiguan", "ram_kill1==");
-        } else {
-            Log.e("diankaiguan", "ram_kill0==");
         }
 //        if (appRam.isSelfBoot) {
 //            return;
@@ -639,7 +638,9 @@ public class CleanManager {
     }
 
     public void removeRamSelfBoot(JunkInfo appRam) {
-        if (PreData.getDB(mContext, Constant.RAM_KILL, 0) == 1) {
+        int ram_kill = PreData.getDB(mContext, Constant.RAM_KILL, 0);
+        Log.e("rqy", "removeRamSelfBoot--" + ram_kill);
+        if (ram_kill == 1) {
             am.killBackgroundProcesses(appRam.pkg);
         }
         ramSize -= appRam.size;
@@ -656,11 +657,10 @@ public class CleanManager {
     }
 
     public void removeAppCache(JunkInfo appCache) {
-        if (PreData.getDB(mContext, Constant.USER_CACHE, 0) == 1) {
+        int user_cache = PreData.getDB(mContext, Constant.USER_CACHE, 0);
+        Log.e("rqy", "remove user_cache--" + user_cache);
+        if (user_cache == 1) {
             com.fast.clean.mutil.Util.deleteFile(appCache.path);
-            Log.e("diankaiguan", "user_cache1==");
-        } else {
-            Log.e("diankaiguan", "user_cache0==");
         }
         appCacheSize -= appCache.size;
         if (appCaches != null) {
@@ -677,11 +677,10 @@ public class CleanManager {
     }
 
     public void removeFilesOfUnintalledApk(JunkInfo uninstallResidual) {
-        if (PreData.getDB(mContext, Constant.UNLOAD_FILE, 0) == 1) {
+        int unLoadFile = PreData.getDB(mContext, Constant.UNLOAD_FILE, 0);
+        Log.e("rqy", "unLoadFile=" + unLoadFile);
+        if (unLoadFile == 1) {
             com.fast.clean.mutil.Util.deleteFile(uninstallResidual.path);
-            Log.e("diankaiguan", "unload_file1==");
-        } else {
-            Log.e("diankaiguan", "unload_file0==");
         }
         uninstallSize -= uninstallResidual.size;
         if (uninstallResiduals != null) {
@@ -691,11 +690,10 @@ public class CleanManager {
 
 
     public void removeApkFiles(JunkInfo fileInfo) {
-        if (PreData.getDB(mContext, Constant.APK_FILE, 0) == 1) {
+        int apk_file = PreData.getDB(mContext, Constant.APK_FILE, 0);
+        Log.e("rqy", "apk_file=" + apk_file);
+        if (apk_file == 1) {
             com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
-            Log.e("diankaiguan", "apk_file1==");
-        } else {
-            Log.e("diankaiguan", "apk_file0==");
         }
         apkSize -= fileInfo.size;
         if (apkFiles != null) {
@@ -705,11 +703,10 @@ public class CleanManager {
 
 
     public void removeAppLog(JunkInfo fileInfo) {
-        if (PreData.getDB(mContext, Constant.LOG_FILE, 0) == 1) {
+        int log_file = PreData.getDB(mContext, Constant.LOG_FILE, 0);
+        Log.e("rqy", "log_file=" + log_file);
+        if (log_file == 1) {
             com.fast.clean.mutil.Util.deleteFile(fileInfo.path);
-            Log.e("diankaiguan", "log_file1==");
-        } else {
-            Log.e("diankaiguan", "log_file0==");
         }
         logSize -= fileInfo.size;
         if (logFiles != null) {

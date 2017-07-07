@@ -124,7 +124,7 @@ public class NotifiActivity extends Activity {
         }
 
         setContentView(R.layout.layout_notifi);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        //AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         findId();
         myApplication = (MyApplication) getApplication();
         startService(new Intent(this, MyNotificationMonitorService.class));

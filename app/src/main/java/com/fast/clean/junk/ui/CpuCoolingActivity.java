@@ -67,7 +67,7 @@ public class CpuCoolingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cooling);
-        AndroidSdk.loadFullAd("cpucooler");
+        //AndroidSdk.loadFullAd("cpucooler");
 
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
