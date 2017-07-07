@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 
+import com.android.client.AndroidSdk;
 import com.bruder.clean.junk.R;
 import com.bruder.clean.myservice.FloatingService;
 import com.bruder.clean.myservice.NotificationingService;
@@ -44,7 +45,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        AndroidSdk.onCreate(this);
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/

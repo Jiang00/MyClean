@@ -30,8 +30,7 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        AndroidSdk.Builder builder = new AndroidSdk.Builder();
-        AndroidSdk.onCreate(this, builder);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
         //添加当前应用的桌面快捷方式
