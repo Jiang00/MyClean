@@ -12,7 +12,7 @@ import com.android.clean.util.PreData;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.android.clean.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
 
 

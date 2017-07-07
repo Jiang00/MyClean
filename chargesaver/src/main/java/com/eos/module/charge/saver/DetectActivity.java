@@ -16,10 +16,11 @@ import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
 import com.android.clean.entity.JunkInfo;
+import com.android.clean.util.Constant;
 import com.android.clean.util.LoadManager;
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.eos.module.charge.saver.Util.Constants;
-import com.eos.module.charge.saver.Util.DetectData;
 
 /**
  * Created by Ivy on 2017/7/5.
@@ -30,6 +31,7 @@ public class DetectActivity extends Activity {
     TextView detect_zhuangtai, detect_time, detect_baifen, detect_shiyong;
     LinearLayout detect_ram;
     Button detect_clean;
+    LinearLayout detect_ad;
 
     private void findId() {
         detect_cha = (ImageView) findViewById(R.id.detect_cha);
@@ -38,6 +40,7 @@ public class DetectActivity extends Activity {
         detect_baifen = (TextView) findViewById(R.id.detect_baifen);
         detect_shiyong = (TextView) findViewById(R.id.detect_shiyong);
         detect_ram = (LinearLayout) findViewById(R.id.detect_ram);
+        detect_ad = (LinearLayout) findViewById(R.id.detect_ad);
         detect_clean = (Button) findViewById(R.id.detect_clean);
     }
 
@@ -47,15 +50,15 @@ public class DetectActivity extends Activity {
         hideBottomUIMenu();
         setContentView(R.layout.layout_battery_r);
         findId();
-        long chongdian_time = DetectData.getDB(this, Constants.CONNECTED_TIME_LUN, 60 * 60 * 1000l);
-        long use_time = DetectData.getDB(this, Constants.CONNECTED_LEFT_TIME_LUN, 60 * 60 * 1000l);
-        int level = DetectData.getDB(this, Constants.CONNECTED_LEVEL_LUN, 100);
-        int zhuangtai = DetectData.getDB(this, Constants.CONNECTED_ZZ, 0);
+        long chongdian_time = PreData.getDB(this, Constant.CONNECTED_TIME_LUN, 60 * 60 * 1000l);
+        long use_time = PreData.getDB(this, Constant.CONNECTED_LEFT_TIME_LUN, 60 * 60 * 1000l);
+        int level = PreData.getDB(this, Constant.CONNECTED_LEVEL_LUN, 100);
+        int zhuangtai = PreData.getDB(this, Constant.CONNECTED_ZZ, 0);
         detect_clean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
-                startActivity(new Intent().setClassName(DetectActivity.this, "com.supers.clean.junk.activity.RamActivity").putExtra("from", "notifi"));
+                startActivity(new Intent("eos.ramactivity").putExtra("from", "notifi"));
             }
         });
         detect_cha.setOnClickListener(new View.OnClickListener() {

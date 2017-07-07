@@ -8,7 +8,7 @@ import com.android.clean.db.CleanDBHelper;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.activity.UnloadActivity;
-import com.supers.clean.junk.util.Constant;
+import com.android.clean.util.Constant;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -23,8 +23,8 @@ import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.JunkRamView;
+import com.android.clean.util.Constant;
 import com.supers.clean.junk.adapter.JunkRamAdapter;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
@@ -37,7 +37,7 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class RJunkAndRamActivity extends BaseActivity implements JunkRamView {
+public class JunkAndRamActivity extends BaseActivity implements JunkRamView {
 
     FrameLayout title_left;
     TextView title_name;

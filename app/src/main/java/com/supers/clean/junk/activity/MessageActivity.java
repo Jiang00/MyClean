@@ -25,7 +25,7 @@ import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.android.clean.util.Constant;
 import com.supers.clean.junk.util.CameraUtils;
 import com.android.clean.util.MemoryManager;
 import com.supers.clean.junk.util.PhoneManager;
@@ -132,9 +132,9 @@ public class MessageActivity extends BaseActivity {
         message_imei.setText(getPhoneIMEI());
 
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
-        message_ram.setText(Util.convertStorage(ram_all,true));
+        message_ram.setText(Util.convertStorage(ram_all, true));
         long sd_all = MemoryManager.getPhoneAllSize();
-        message_sd.setText(Util.convertStorage(sd_all,true));
+        message_sd.setText(Util.convertStorage(sd_all, true));
 
     }
 

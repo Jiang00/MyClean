@@ -41,8 +41,8 @@ import com.supers.clean.junk.customeview.LaunchpadAdapter;
 import com.supers.clean.junk.customeview.PagerView;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
 import com.android.clean.util.MemoryManager;
+import com.android.clean.util.Constant;
 import com.supers.clean.junk.util.ShortCutUtils;
 
 import java.io.BufferedReader;

@@ -25,8 +25,8 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.NotifiAdapter;
 import com.supers.clean.junk.customeview.DeleteListView;
 import com.android.clean.util.Util;
-import com.supers.clean.junk.util.Constant;
 import com.android.clean.util.PreData;
+import com.android.clean.util.Constant;
 
 import java.util.ArrayList;
 

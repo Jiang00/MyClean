@@ -27,7 +27,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.android.clean.util.Constant;
 import com.supers.clean.junk.util.ShortCutUtils;
 import com.supers.clean.junk.util.UtilGp;
 
@@ -38,9 +38,9 @@ import com.supers.clean.junk.util.UtilGp;
 public class SettingActivity extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_unload, setting_power, setting_file,
-            setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
-    ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check, setting_unload_check;
+    RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_detect, setting_unload, setting_power, setting_file,
+            setting_picture, setting_wifi, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
+    ImageView setting_tongzhi_check, setting_tongzhilan_check, setting_float_check, setting_battery_check, setting_detect_check, setting_unload_check;
     LinearLayout ll_ad;
     ScrollView setting_scroll;
     FrameLayout fl_lot_setting;
@@ -59,6 +59,7 @@ public class SettingActivity extends BaseActivity {
         setting_tongzhilan = (RelativeLayout) findViewById(R.id.setting_tongzhilan);
         setting_float = (RelativeLayout) findViewById(R.id.setting_float);
         setting_battery = (RelativeLayout) findViewById(R.id.setting_battery);
+        setting_detect = (RelativeLayout) findViewById(R.id.setting_detect);
         setting_unload = (RelativeLayout) findViewById(R.id.setting_unload);
         setting_white = (RelativeLayout) findViewById(R.id.setting_white);
         setting_short = (RelativeLayout) findViewById(R.id.setting_short);
@@ -66,6 +67,7 @@ public class SettingActivity extends BaseActivity {
         setting_notifi = (RelativeLayout) findViewById(R.id.setting_notifi);
         setting_file = (RelativeLayout) findViewById(R.id.setting_file);
         setting_picture = (RelativeLayout) findViewById(R.id.setting_picture);
+        setting_wifi = (RelativeLayout) findViewById(R.id.setting_wifi);
         setting_gboost = (RelativeLayout) findViewById(R.id.setting_gboost);
         setting_hui = (RelativeLayout) findViewById(R.id.setting_hui);
         setting_rotate = (RelativeLayout) findViewById(R.id.setting_rotate);
@@ -73,6 +75,7 @@ public class SettingActivity extends BaseActivity {
         setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
         setting_float_check = (ImageView) findViewById(R.id.setting_float_check);
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
+        setting_detect_check = (ImageView) findViewById(R.id.setting_detect_check);
         setting_unload_check = (ImageView) findViewById(R.id.setting_unload_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
@@ -187,6 +190,11 @@ public class SettingActivity extends BaseActivity {
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
         }
+        if (PreData.getDB(SettingActivity.this, Constant.DETECT_KAIGUAN, true)) {
+            setting_detect_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            setting_detect_check.setImageResource(R.mipmap.side_check_normal);
+        }
         if (PreData.getDB(this, Constant.KEY_UNLOAD, true)) {
             setting_unload_check.setImageResource(R.mipmap.side_check_passed);
         } else {
@@ -199,6 +207,7 @@ public class SettingActivity extends BaseActivity {
         setting_tongzhilan.setOnClickListener(onClickListener);
         setting_float.setOnClickListener(onClickListener);
         setting_battery.setOnClickListener(onClickListener);
+        setting_detect.setOnClickListener(onClickListener);
         setting_unload.setOnClickListener(onClickListener);
         setting_white.setOnClickListener(onClickListener);
         setting_short.setOnClickListener(onClickListener);
@@ -206,6 +215,7 @@ public class SettingActivity extends BaseActivity {
         setting_notifi.setOnClickListener(onClickListener);
         setting_file.setOnClickListener(onClickListener);
         setting_picture.setOnClickListener(onClickListener);
+        setting_wifi.setOnClickListener(onClickListener);
         setting_gboost.setOnClickListener(onClickListener);
         setting_hui.setOnClickListener(onClickListener);
         setting_rotate.setOnClickListener(onClickListener);
@@ -259,7 +269,6 @@ public class SettingActivity extends BaseActivity {
                     }
                     break;
                 case R.id.setting_battery:
-
                     //chongdian
                     if ((boolean) Utils.readData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false)) {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, false);
@@ -269,6 +278,15 @@ public class SettingActivity extends BaseActivity {
                         Utils.writeData(SettingActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
                         AdUtil.track("设置页面", "点击充电屏保开关", "开", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_passed);
+                    }
+                    break;
+                case R.id.setting_detect:
+                    if (PreData.getDB(SettingActivity.this, Constant.DETECT_KAIGUAN, true)) {
+                        AdUtil.track("侧边栏", "点击关闭充电检测", "", 1);
+                        PreData.putDB(SettingActivity.this, Constant.DETECT_KAIGUAN, false);
+                    } else {
+                        AdUtil.track("侧边栏", "点击开启充电检测", "", 1);
+                        PreData.putDB(SettingActivity.this, Constant.DETECT_KAIGUAN, true);
                     }
                     break;
                 case R.id.setting_unload:
@@ -304,6 +322,11 @@ public class SettingActivity extends BaseActivity {
                     PreData.putDB(SettingActivity.this, Constant.FILE_CLEAN, true);
                     Intent intentF = new Intent(SettingActivity.this, FileActivity.class);
                     startActivity(intentF);
+                    break;
+                case R.id.setting_wifi:
+                    AdUtil.track("设置页面", "进入网络管理", "", 1);
+                    Intent intentwifi = new Intent(SettingActivity.this, NetMonitor.class);
+                    startActivity(intentwifi);
                     break;
                 case R.id.setting_picture:
                     AdUtil.track("设置页面", "进入相似图片", "", 1);

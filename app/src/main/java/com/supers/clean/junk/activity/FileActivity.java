@@ -15,8 +15,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FileRoundView;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-
+import com.android.clean.util.Constant;
 /**
  * Created by Ivy on 2017/4/20.
  */

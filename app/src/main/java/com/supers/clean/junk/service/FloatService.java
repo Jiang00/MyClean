@@ -27,8 +27,8 @@ import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.presenter.GetTopApp;
 import com.supers.clean.junk.presenter.FloatStateManager;
-import com.supers.clean.junk.util.Constant;
 import com.android.clean.util.PreData;
+import com.android.clean.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,6 +4,13 @@ package com.android.clean.util;
  */
 
 public class Constant {
+
+
+//    跳转
+
+    public static final int POWER_RESUIL = 25;
+
+
     public static final String SHARED_FILE = "SHARED_FILE";
 
     public static final String WHILT_LIST = "whilt_list";//白名单
@@ -50,6 +57,8 @@ public class Constant {
 
     public static final String ROOT_TRAK = "ROOT_TRAK";
 
+    public static final String FIRST_BATTERY = "FIRST_BATTERY";
+
     public static final String KEY_LOADING_GAI = "KEY_LOADING_GAI";//loading页面广告概率
 
     public static final String FIRST_APPLOCK = "FIRST_APPLOCK";//applock
@@ -94,6 +103,13 @@ public class Constant {
 
     public static final String RECYCLEBIN = "RECYCLEBIN";
 
+    public static final String FULL_START = "FULL_START";
+
+    public static final String FULL_EXIT = "FULL_EXIT";
+
+    public static final String SKIP_TIME = "SKIP_TIME";
+
+
 //    跳转
 
     public static final int RAM_RESUIL = 20;
@@ -109,5 +125,20 @@ public class Constant {
     public static final String FILE_CLEAN = "FILE_CLEAN";
     public static final String GBOOST_CLEAN = "GBOOST_CLEAN";
     public static final String PHOTO_CLEAN = "PHOTO_CLEAN";
+
+    //detect
+    public static final String CONNECTED_TIME = "CONNECTED_TIME";
+    public static final String CONNECTED_LEVEL = "CONNECTED_LEVEL";
+
+    public static final String CONNECTED_LEFT_TIME_LUN = "CONNECTED_LEFT_TIME_LUN";
+    public static final String CONNECTED_TIME_LUN = "CONNECTED_TIME_LUN";
+    public static final String CONNECTED_LEVEL_LUN = "CONNECTED_LEVEL_LUN";
+    public static final String CONNECTED_GUO = "CONNECTED_GUO";
+    public static final String CONNECTED_ZZ = "CONNECTED_ZZ";
+    public static final String CONNECTED_LEFT_TIME_MAIN = "CONNECTED_LEFT_TIME_MAIN";
+    public static final String CONNECTED_TIME_MAIN = "CONNECTED_TIME_MAIN";
+    public static final String CONNECTED_LEVEL_MAIN = "CONNECTED_LEVEL_MAIN";
+
+    public static final String DETECT_KAIGUAN = "DETECT_KAIGUAN";
 
 }

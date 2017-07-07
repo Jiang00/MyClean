@@ -27,8 +27,8 @@ import com.android.clean.util.PreData;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.entity.JsonData;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.JsonParser;
+import com.android.clean.util.Constant;
 
 import java.util.Locale;
 
@@ -89,7 +89,7 @@ public class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
+        AndroidSdk.onCreate(this);
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.registerReceiver(mBroadcastReceiver, new IntentFilter(LANGUAGE_CHANGE_ACTION));
 

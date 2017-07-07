@@ -25,17 +25,7 @@ public class Constants {
     public static final String TYPE_HOR_BAR = "hor_bar";
 
 
-    public static final String CONNECTED_TIME = "CONNECTED_TIME";
-    public static final String CONNECTED_LEVEL = "CONNECTED_LEVEL";
 
-    public static final String CONNECTED_LEFT_TIME_LUN = "CONNECTED_LEFT_TIME_LUN";
-    public static final String CONNECTED_TIME_LUN = "CONNECTED_TIME_LUN";
-    public static final String CONNECTED_LEVEL_LUN = "CONNECTED_LEVEL_LUN";
-    public static final String CONNECTED_GUO = "CONNECTED_GUO";
-    public static final String CONNECTED_ZZ = "CONNECTED_ZZ";
-    public static final String CONNECTED_LEFT_TIME_MAIN = "CONNECTED_LEFT_TIME_MAIN";
-    public static final String CONNECTED_TIME_MAIN = "CONNECTED_TIME_MAIN";
-    public static final String CONNECTED_LEVEL_MAIN = "CONNECTED_LEVEL_MAIN";
 
 
 }

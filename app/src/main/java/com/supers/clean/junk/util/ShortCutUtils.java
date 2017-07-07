@@ -2,22 +2,15 @@ package com.supers.clean.junk.util;
 
 import android.app.Activity;
 import android.content.ComponentName;
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Parcelable;
-import android.text.TextUtils;
 
+import com.android.clean.util.Constant;
 import com.android.clean.util.PreData;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.activity.GBoostActivity;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 
 /**

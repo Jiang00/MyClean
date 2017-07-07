@@ -21,7 +21,7 @@ import com.squareup.leakcanary.LeakCanary;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.service.NotificationService;
-import com.supers.clean.junk.util.Constant;
+import com.android.clean.util.Constant;
 
 import java.util.Locale;
 

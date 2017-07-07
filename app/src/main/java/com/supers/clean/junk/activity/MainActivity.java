@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -29,16 +30,16 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.clean.core.CleanManager;
-import com.android.clean.util.Util;
+import com.android.clean.entity.JunkInfo;
+import com.android.clean.util.Constant;
 import com.android.clean.util.LoadManager;
+import com.android.clean.util.PreData;
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.android.theme.internal.data.Theme;
 import com.android.theme.internal.data.ThemeManager;
-import com.eos.eshop.ShopMaster;
 import com.eos.manager.AppLockPatternEosActivity;
 import com.eos.manager.meta.SecurityMyPref;
 import com.eos.module.charge.saver.Util.Constants;
@@ -59,12 +60,9 @@ import com.supers.clean.junk.customeview.CustomRoundCpu;
 import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.customeview.PullToRefreshLayout;
-import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.presenter.MainPresenter;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.android.clean.util.PreData;
 import com.supers.clean.junk.util.UtilGp;
 import com.supers.clean.junk.view.MainView;
 
@@ -203,6 +201,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         setContentView(R.layout.activity_dra);
         cleanApplication = (MyApplication) getApplication();
         try {
+            from = getIntent().getStringExtra("from");
+            if (TextUtils.equals(from, "detect")) {
+                showDetectDialog();
+            }
+
             String pkg = getIntent().getStringExtra("theme_package_name");
             if (pkg != null) {
                 ThemeManager.applyTheme(this, pkg, false);
@@ -210,7 +213,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 startService(new Intent(this, BatteryService.class).putExtra("show", true));
                 Log.e("jfy", "main=" + pkg);
             }
-            from = getIntent().getStringExtra("from");
             if (TextUtils.equals(from, "translate")) {
                 DialogManager.showCrossDialog(this, AndroidSdk.getExtraData(), "list2", "flight", null);
             }
@@ -390,6 +392,102 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             battery_button.setOnClickListener(onClickListener);
         }
 
+    }
+
+    private void showDetectDialog() {
+        View view = View.inflate(this, R.layout.layout_battery_r, null);
+        ImageView detect_cha = (ImageView) view.findViewById(com.eos.module.charge.saver.R.id.detect_cha);
+        TextView detect_zhuangtai = (TextView) view.findViewById(com.eos.module.charge.saver.R.id.detect_zhuangtai);
+        TextView detect_time = (TextView) view.findViewById(com.eos.module.charge.saver.R.id.detect_time);
+        TextView detect_baifen = (TextView) view.findViewById(com.eos.module.charge.saver.R.id.detect_baifen);
+        TextView detect_shiyong = (TextView) view.findViewById(com.eos.module.charge.saver.R.id.detect_shiyong);
+        LinearLayout detect_ram = (LinearLayout) view.findViewById(com.eos.module.charge.saver.R.id.detect_ram);
+        Button detect_clean = (Button) view.findViewById(com.eos.module.charge.saver.R.id.detect_clean);
+        detect_cha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        detect_clean.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpToActivity(RamAvtivity.class, 1);
+                dialog.dismiss();
+            }
+        });
+        long chongdian_time = PreData.getDB(this, Constant.CONNECTED_TIME_MAIN, 60 * 60 * 1000l);
+        long use_time = PreData.getDB(this, Constant.CONNECTED_LEFT_TIME_MAIN, 60 * 60 * 1000l);
+        int level = PreData.getDB(this, Constant.CONNECTED_LEVEL_MAIN, 100);
+        detect_zhuangtai.setText(com.eos.module.charge.saver.R.string.detect_2);
+        detect_zhuangtai.setTextColor(ContextCompat.getColor(this, com.eos.module.charge.saver.R.color.A3));
+        detect_time.setText(millTransFate(chongdian_time));
+        detect_shiyong.setText(millTransFate(use_time));
+        detect_baifen.setText(level + "%");
+        int count = 0;
+        detect_ram.setOrientation(LinearLayout.HORIZONTAL);
+        for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
+            ImageView imageView = new ImageView(this);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Util.dp2px(15), Util.dp2px(15));
+            layoutParams.rightMargin = Util.dp2px(1);
+            imageView.setLayoutParams(layoutParams);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            if (count == 4) {
+                imageView.setImageResource(com.eos.module.charge.saver.R.mipmap.detect_ram);
+                detect_ram.addView(imageView, 0);
+                break;
+            }
+            if (LoadManager.getInstance(this).getAppIcon(info.pkg) != null) {
+                imageView.setImageDrawable(LoadManager.getInstance(this).getAppIcon(info.pkg));
+                detect_ram.addView(imageView, 0);
+                count++;
+            }
+        }
+
+        dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getRealMetrics(dm);
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.width = dm.widthPixels; //设置宽度
+        lp.height = dm.heightPixels; //设置高度
+        if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
+            int uiOptions =
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                            //布局位于状态栏下方
+                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                            //隐藏导航栏
+                            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+            if (Build.VERSION.SDK_INT >= 19) {
+                uiOptions |= 0x00001000;
+            } else {
+                uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+            }
+            dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        }
+        dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setContentView(view);
+
+    }
+
+    //多少天
+    public static String millTransFate(long millisecond) {
+        String str = "";
+        long day = millisecond / 86400000;
+        long hour = (millisecond % 86400000) / 3600000;
+        long minute = (millisecond % 86400000 % 3600000) / 60000;
+        if (day > 0) {
+            str = String.valueOf(day) + "d";
+        }
+        if (hour > 0) {
+            str += String.valueOf(hour) + "h ";
+        }
+        if (minute > 0) {
+            str += String.valueOf(minute) + "min";
+        }
+        return str;
     }
 
     private boolean addTapTuiguang() {
@@ -628,6 +726,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
         adapter.clear();
         adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, Constants.CHARGE_SAVER_SWITCH, false)));//充电屏保
+        adapter.addData(new SideInfo(R.string.battery_jiance, R.mipmap.side_detect, PreData.getDB(this, Constant.DETECT_KAIGUAN, true)));//充电屏保
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, Constant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速

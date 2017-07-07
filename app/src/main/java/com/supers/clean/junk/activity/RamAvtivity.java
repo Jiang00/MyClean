@@ -25,8 +25,8 @@ import com.supers.clean.junk.adapter.RamAdapter;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.presenter.RamPresenter;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.RamView;
+import com.android.clean.util.Constant;
 
 import java.util.List;
 
@@ -307,12 +307,13 @@ public class RamAvtivity extends BaseActivity implements RamView {
 
     @Override
     public void onBackPressed() {
+        finish();
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
             AdUtil.track("通知栏", "跳转垃圾清页面", "", 1);
             jumpTo(MainActivity.class);
         } else {
             setResult(Constant.RAM_RESUIL);
         }
-        finish();
+
     }
 }

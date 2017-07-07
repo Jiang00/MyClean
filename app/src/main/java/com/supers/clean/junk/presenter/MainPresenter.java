@@ -11,8 +11,8 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 
 import com.android.clean.util.Util;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.view.MainView;
+import com.android.clean.util.Constant;
 import com.supers.clean.junk.util.CpuTempReader;
 import com.android.clean.util.MemoryManager;
 import com.android.clean.util.PreData;

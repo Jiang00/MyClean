@@ -31,13 +31,17 @@ public class GetTopApp {
     public String execute() {
         String packageName = null;
         if (Build.VERSION.SDK_INT > 23 || Build.VERSION.SDK_INT <= 19) {
-            List<ActivityManager.RunningTaskInfo> lst = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
-            if (lst != null && lst.size() > 0) {
-                ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
-                if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
-                    packageName = runningTaskInfo.topActivity.getPackageName();
-                    Log.e("float", "1==" + packageName);
+            try {
+                List<ActivityManager.RunningTaskInfo> lst = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
+                if (lst != null && lst.size() > 0) {
+                    ActivityManager.RunningTaskInfo runningTaskInfo = lst.get(0);
+                    if (runningTaskInfo.numRunning > 0 && runningTaskInfo.topActivity != null) {
+                        packageName = runningTaskInfo.topActivity.getPackageName();
+                        Log.e("float", "1==" + packageName);
+                    }
                 }
+            } catch (Exception e) {
+
             }
         } else {
             try {

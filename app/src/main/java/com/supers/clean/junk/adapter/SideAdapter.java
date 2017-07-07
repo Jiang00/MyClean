@@ -37,20 +37,20 @@ import com.supers.clean.junk.activity.SettingActivity;
 import com.supers.clean.junk.entity.SideInfo;
 import com.supers.clean.junk.service.FloatService;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
+import com.android.clean.util.Constant;
 
 
 public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static int idx = 0;
     private static final int BATTERY = idx++;
+    private static final int DETECT = idx++;
     private static final int FLOAT = idx++;
     private static final int JUNK = idx++;
     private static final int RAM = idx++;
     private static final int MANAGER = idx++;
     private static final int FILE = idx++;
     private static final int POWER = idx++;
-    //private static final int PRIVARY = idx++;
     private static final int LAG_SETTING = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
@@ -133,7 +133,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
 //                return false;
 //            }
 //        });
-        if (position == BATTERY || position == FLOAT) {
+        if (position == BATTERY || position == FLOAT || position == DETECT) {
             holder.checkBox.setVisibility(View.VISIBLE);
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
@@ -165,6 +165,14 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             } else {
                 AdUtil.track("侧边栏", "点击开启充电屏保", "", 1);
                 Utils.writeData(context, Constants.CHARGE_SAVER_SWITCH, true);
+            }
+        } else if (position == DETECT) {
+            if (PreData.getDB(context, Constant.DETECT_KAIGUAN, true)) {
+                AdUtil.track("侧边栏", "点击关闭充电检测", "", 1);
+                PreData.putDB(context, Constant.DETECT_KAIGUAN, false);
+            } else {
+                AdUtil.track("侧边栏", "点击开启充电检测", "", 1);
+                PreData.putDB(context, Constant.DETECT_KAIGUAN, true);
             }
         } else if (position == FLOAT) {
             if (PreData.getDB(context, Constant.FlOAT_SWITCH, true)) {

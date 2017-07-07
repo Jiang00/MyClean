@@ -37,13 +37,6 @@ public class NotificationMonitorService extends NotificationListenerService {
         analysisSbn(sbn);
     }
 
-    public void onNotificationRemoved(StatusBarNotification sbn) {
-        super.onNotificationRemoved(sbn);
-    }
-
-    public void onNotificationRemoved(StatusBarNotification sbn, RankingMap rankingMap) {
-        super.onNotificationRemoved(sbn, rankingMap);
-    }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private void analysisSbn(StatusBarNotification sbn) {

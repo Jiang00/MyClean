@@ -28,20 +28,18 @@ import android.widget.TextView;
 import com.android.clean.callback.AppRamCallBack;
 import com.android.clean.core.CleanManager;
 import com.android.clean.db.CleanDBHelper;
+import com.android.clean.entity.JunkInfo;
+import com.android.clean.util.Constant;
+import com.android.clean.util.MemoryManager;
+import com.android.clean.util.PreData;
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.supers.clean.junk.R;
 import com.supers.clean.junk.adapter.HorizontalListViewAdapter;
-import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
-import com.supers.clean.junk.util.CheckState;
-import com.android.clean.util.Util;
-import com.android.clean.util.MemoryManager;
-import com.android.clean.util.PreData;
-import com.supers.clean.junk.util.SwitchControl;
-import com.android.clean.entity.JunkInfo;
-import com.supers.clean.junk.task.RamTask;
-import com.supers.clean.junk.task.SimpleTask;
 import com.supers.clean.junk.customeview.HorizontalListView;
+import com.supers.clean.junk.util.AdUtil;
+import com.supers.clean.junk.util.CheckState;
+import com.supers.clean.junk.util.SwitchControl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -306,7 +304,7 @@ public class FloatActivity extends BaseActivity {
         final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
         for (PackageInfo packageInfo : installedPackages) {
-            if (packageInfo.packageName.equals(context.getPackageName())) {
+            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.google") || packageInfo.packageName.contains("com.android.vending")) {
                 continue;
             }
             try {

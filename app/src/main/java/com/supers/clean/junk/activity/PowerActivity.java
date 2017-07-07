@@ -34,7 +34,7 @@ import com.supers.clean.junk.customeview.PowerWidgetContainer;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.service.NotificationService;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.android.clean.util.Constant;
 
 import java.util.ArrayList;
 

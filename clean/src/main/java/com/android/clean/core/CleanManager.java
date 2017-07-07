@@ -184,7 +184,8 @@ public class CleanManager {
                 String packageName = info.name;
                 try {
                     ApplicationInfo otherInfo = mContext.getPackageManager().getApplicationInfo(packageName, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES);
-                    if (!Util.isThirdApp(otherInfo) || packageName.equals(mContext.getPackageName()) || packageName.contains("com.eosmobi")) {
+                    if (!Util.isThirdApp(otherInfo) || packageName.equals(mContext.getPackageName()) || packageName.contains("com.eosmobi")
+                            || packageName.contains("com.google") || packageName.contains("com.android.vending")) {
                         continue;
                     }
                     if (ignoreApp.contains(packageName)) {

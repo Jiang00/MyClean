@@ -42,8 +42,8 @@ import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.customeview.SlowScrollView;
 import com.android.clean.entity.JunkInfo;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.UtilGp;
+import com.android.clean.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;

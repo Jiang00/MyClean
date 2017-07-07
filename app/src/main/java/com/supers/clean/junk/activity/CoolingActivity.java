@@ -21,8 +21,8 @@ import com.eos.ui.demo.cross.CrossManager;
 import com.eos.ui.demo.dialog.DialogManager;
 import com.sample.lottie.LottieAnimationView;
 import com.supers.clean.junk.R;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.customeview.FlakeView;
+import com.android.clean.util.Constant;
 import com.android.clean.util.PreData;
 
 import java.util.Random;

@@ -252,7 +252,7 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
         final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
         for (PackageInfo packageInfo : installedPackages) {
-            if (packageInfo.packageName.equals(context.getPackageName())) {
+            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.google") || packageInfo.packageName.contains("com.android.vending")) {
                 continue;
             }
             am.killBackgroundProcesses(packageInfo.packageName);

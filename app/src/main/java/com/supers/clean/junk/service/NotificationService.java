@@ -40,7 +40,7 @@ import com.supers.clean.junk.activity.SuccessActivity;
 import com.supers.clean.junk.activity.TranslateActivity;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.android.clean.util.Constant;
 import com.supers.clean.junk.util.CpuTempReader;
 import com.supers.clean.junk.util.PhoneManager;
 import com.android.clean.util.PreData;

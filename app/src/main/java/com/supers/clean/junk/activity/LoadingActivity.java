@@ -16,8 +16,8 @@ import com.eos.eshop.ShopMaster;
 import com.supers.clean.junk.R;
 import com.android.clean.util.Util;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
 import com.supers.clean.junk.util.PhoneManager;
+import com.android.clean.util.Constant;
 import com.supers.clean.junk.util.ShortCutUtils;
 
 /**

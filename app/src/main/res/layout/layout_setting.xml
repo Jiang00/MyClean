@@ -234,6 +234,65 @@
                 android:background="@color/B1" />
 
             <RelativeLayout
+                android:id="@+id/setting_detect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_detect"
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d72"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/setting_detect" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/rl_detect"
+                    android:orientation="vertical">
+
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/battery_jiance"
+                        android:textColor="@color/A9"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+
+                    <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="@dimen/d5"
+                        android:text="@string/battery_8"
+                        android:textColor="@color/black_50"
+                        android:textSize="@dimen/s14"
+                        app:typeface="eos_clean.otf" />
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/setting_detect_check"
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d56"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="center" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/B1" />
+
+            <RelativeLayout
                 android:id="@+id/setting_unload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -278,6 +337,47 @@
                 android:textColor="@color/A1"
                 android:textSize="@dimen/s13"
                 app:typeface="eos_clean.otf" />
+
+            <RelativeLayout
+                android:id="@+id/setting_wifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rl_wifi"
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d56"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/setting_wifi" />
+                </RelativeLayout>
+
+                <com.eos.module.charge.saver.view.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/rl_wifi"
+                    android:text="@string/wifi_name"
+                    android:textColor="@color/A9"
+                    android:textSize="@dimen/s14"
+                    app:typeface="eos_clean.otf" />
+
+                <ImageView
+                    android:layout_width="@dimen/d72"
+                    android:layout_height="@dimen/d56"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="center"
+                    android:src="@mipmap/setting_rig" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/B1" />
 
             <RelativeLayout
                 android:id="@+id/setting_picture"

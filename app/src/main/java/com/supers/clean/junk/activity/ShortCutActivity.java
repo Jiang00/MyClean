@@ -32,7 +32,7 @@ import com.supers.clean.junk.R;
 import com.supers.clean.junk.customeview.FlakeViewOnShort;
 import com.supers.clean.junk.customeview.ImageAccessor;
 import com.supers.clean.junk.util.AdUtil;
-import com.supers.clean.junk.util.Constant;
+import com.android.clean.util.Constant;
 
 import java.util.List;
 
@@ -168,7 +168,8 @@ public class ShortCutActivity extends BaseActivity {
             if (onPause) {
                 break;
             }
-            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.eosmobi")) {
+            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.eosmobi")
+                    || packageInfo.packageName.contains("com.google") || packageInfo.packageName.contains("com.android.vending")) {
                 continue;
             }
             am.killBackgroundProcesses(packageInfo.packageName);
