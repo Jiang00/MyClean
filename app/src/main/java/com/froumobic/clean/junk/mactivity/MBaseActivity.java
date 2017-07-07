@@ -20,6 +20,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Toast;
 
 import com.android.clean.util.PreData;
+import com.android.client.AndroidSdk;
 import com.froumobic.clean.junk.R;
 import com.froumobic.clean.junk.util.Constant;
 
@@ -37,7 +38,7 @@ public class MBaseActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        AndroidSdk.onCreate(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
 
