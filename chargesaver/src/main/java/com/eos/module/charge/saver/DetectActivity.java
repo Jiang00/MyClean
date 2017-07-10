@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,6 +23,7 @@ import com.android.clean.util.Constant;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
+import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 
 /**
@@ -32,6 +36,7 @@ public class DetectActivity extends Activity {
     LinearLayout detect_ram;
     Button detect_clean;
     LinearLayout detect_ad;
+    private String TAG_DETECT = "detect";
 
     private void findId() {
         detect_cha = (ImageView) findViewById(R.id.detect_cha);
@@ -99,6 +104,32 @@ public class DetectActivity extends Activity {
                 count++;
             }
         }
+        addAd();
+    }
+
+    private void addAd() {
+        View nativeView = getNativeAdView(TAG_DETECT, R.layout.native_ad1);
+        if (detect_ad != null && nativeView != null) {
+            detect_ad.addView(nativeView);
+        }
+    }
+
+    public static View getNativeAdView(String tag, @LayoutRes int layout) {
+        if (!AndroidSdk.hasNativeAd(tag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
+            return null;
+        }
+        View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
+        if (nativeView == null) {
+            return null;
+        }
+
+        if (nativeView != null) {
+            ViewGroup viewParent = (ViewGroup) nativeView.getParent();
+            if (viewParent != null) {
+                viewParent.removeAllViews();
+            }
+        }
+        return nativeView;
     }
 
     //多少天

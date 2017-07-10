@@ -28,6 +28,7 @@ import com.supers.clean.junk.activity.GBoostActivity;
 import com.supers.clean.junk.activity.JunkActivity;
 import com.supers.clean.junk.activity.LanguageSettingActivity;
 import com.supers.clean.junk.activity.ManagerActivity;
+import com.supers.clean.junk.activity.NetMonitor;
 import com.supers.clean.junk.activity.NotifiActivity;
 import com.supers.clean.junk.activity.NotifiInfoActivity;
 import com.supers.clean.junk.activity.PictureActivity;
@@ -51,6 +52,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static final int MANAGER = idx++;
     private static final int FILE = idx++;
     private static final int POWER = idx++;
+    private static final int WIFI = idx++;
     private static final int LAG_SETTING = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
@@ -190,6 +192,10 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
             AdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
             Intent intent2 = new Intent(context, JunkActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
+        } else if (position == WIFI) {
+            AdUtil.track("侧边栏", "点击进入WIFI", "", 1);
+            Intent intent = new Intent(context, NetMonitor.class);
+            ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == RAM) {
             AdUtil.track("侧边栏", "点击进入ram页面", "", 1);
             Intent intent3 = new Intent(context, RamAvtivity.class);

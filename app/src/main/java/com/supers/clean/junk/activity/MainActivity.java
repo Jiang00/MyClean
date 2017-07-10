@@ -121,6 +121,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_SIDE = "eos_side";
     private String TAG_START_FULL = "eos_start_native";
     private String TAG_EXIT_FULL = "eos_exit_native";
+    private String TAG_DETECT = "detect";
 
     private MyApplication cleanApplication;
     private Handler handler = new Handler();
@@ -402,6 +403,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         TextView detect_baifen = (TextView) view.findViewById(com.eos.module.charge.saver.R.id.detect_baifen);
         TextView detect_shiyong = (TextView) view.findViewById(com.eos.module.charge.saver.R.id.detect_shiyong);
         LinearLayout detect_ram = (LinearLayout) view.findViewById(com.eos.module.charge.saver.R.id.detect_ram);
+        LinearLayout detect_ad = (LinearLayout) view.findViewById(com.eos.module.charge.saver.R.id.detect_ad);
         Button detect_clean = (Button) view.findViewById(com.eos.module.charge.saver.R.id.detect_clean);
         detect_cha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -442,6 +444,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 detect_ram.addView(imageView, 0);
                 count++;
             }
+        }
+        View view_ad = AdUtil.getNativeAdView(TAG_DETECT, R.layout.native_ad);
+        if (detect_ad != null && view_ad != null) {
+            detect_ad.addView(view_ad);
         }
 
         dialog = new AlertDialog.Builder(this, R.style.add_dialog).create();
@@ -733,8 +739,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
         adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
         adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-        adapter.addData(new SideInfo(R.string.language, R.mipmap.side_lag_setting));//隐私清理
-        //adapter.addData(new SideInfo(R.string.privacy_clean, R.mipmap.side_privacy_clean));//隐私清理
+        adapter.addData(new SideInfo(R.string.wifi_name, R.mipmap.side_wifi));//wifi
+        adapter.addData(new SideInfo(R.string.language, R.mipmap.side_lag_setting));//yuyan
         adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
         adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
         adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速

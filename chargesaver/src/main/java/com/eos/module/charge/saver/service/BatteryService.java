@@ -107,6 +107,15 @@ public class BatteryService extends Service {
                 }
                 batteryChange(intent);
                 int level = entry.getLevel();
+                if (PreData.getDB(BatteryService.this, Constant.CONNECTED_CHA, false)) {
+                    PreData.putDB(BatteryService.this, Constant.CONNECTED_CHA, false);
+                    long time = System.currentTimeMillis();
+                    if (level == -1) {
+                        level = 100;
+                    }
+                    PreData.putDB(BatteryService.this, Constant.CONNECTED_TIME, time);
+                    PreData.putDB(BatteryService.this, Constant.CONNECTED_LEVEL, level);
+                }
                 if (oldLevel != level && level == 100 && PreData.getDB(BatteryService.this, Constant.DETECT_KAIGUAN, true)) {
                     int connected = (int) PreData.getDB(BatteryService.this, Constant.CONNECTED_LEVEL, 0);
                     PreData.putDB(BatteryService.this, Constant.CONNECTED_GUO, System.currentTimeMillis());
@@ -129,15 +138,7 @@ public class BatteryService extends Service {
                 return;
             }
             if (TextUtils.equals(Intent.ACTION_POWER_CONNECTED, action)) {
-                batteryChange(intent);
-                int level = entry.getLevel();
-                long time = System.currentTimeMillis();
-                if (level == -1) {
-                    level = 100;
-                }
-                PreData.putDB(BatteryService.this, Constant.CONNECTED_TIME, time);
-                PreData.putDB(BatteryService.this, Constant.CONNECTED_LEVEL, level);
-                Log.e("battery", "ACTION_POWER_CONNECTED==" + level);
+                PreData.putDB(BatteryService.this, Constant.CONNECTED_CHA, true);
 
             } else if (TextUtils.equals(Intent.ACTION_POWER_DISCONNECTED, action)) {
                 Log.e("battery", "ACTION_POWER_DISCONNECTED==1");

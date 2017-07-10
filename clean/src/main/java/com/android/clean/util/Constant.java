@@ -127,6 +127,7 @@ public class Constant {
     public static final String PHOTO_CLEAN = "PHOTO_CLEAN";
 
     //detect
+    public static final String CONNECTED_CHA = "CONNECTED_CHA";
     public static final String CONNECTED_TIME = "CONNECTED_TIME";
     public static final String CONNECTED_LEVEL = "CONNECTED_LEVEL";
 
