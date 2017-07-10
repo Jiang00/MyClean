@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -51,7 +52,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public static final String TAG = "MainActivity";
     TextView main_cpu_temp, main_sd_per, main_sd_size, main_ram_per, main_ram_size;
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
-    LinearLayout main_manager_button, main_applock_button, ll_lot_ad, main_theme_button;
+    LinearLayout main_manager_button, main_applock_button, main_theme_button;
+    RelativeLayout ll_lot_ad;
     LinearLayout main_rotate_all;
     TextView main_rotate_good, main_rotate_bad;
     LinearLayout main_msg_button;
@@ -125,7 +127,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
         main_cooling_button = (RelativeLayout) findViewById(R.id.main_cooling_button);
         main_applock_button = (LinearLayout) findViewById(R.id.main_applock_button);
-        ll_lot_ad = (LinearLayout) findViewById(R.id.ll_lot_ad);
+        ll_lot_ad = (RelativeLayout) findViewById(R.id.ll_lot_ad);
         main_theme_button = (LinearLayout) findViewById(R.id.main_theme_button);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
