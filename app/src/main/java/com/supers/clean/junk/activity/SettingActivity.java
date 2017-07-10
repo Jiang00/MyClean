@@ -348,9 +348,7 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_notifi:
                     AdUtil.track("设置页面", "进入通知栏清理", "", 1);
                     PreData.putDB(SettingActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!Util.isNotificationListenEnabled(SettingActivity.this)) {
-                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!PreData.getDB(SettingActivity.this, Constant.KEY_NOTIFI, true)) {
+                    if (!Util.isNotificationListenEnabled(SettingActivity.this) || !PreData.getDB(SettingActivity.this, Constant.KEY_NOTIFI, true)) {
                         Intent intent6 = new Intent(SettingActivity.this, NotifiInfoActivity.class);
                         startActivity(intent6);
                     } else {

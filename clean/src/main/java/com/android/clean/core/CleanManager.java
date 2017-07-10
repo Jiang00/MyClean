@@ -196,6 +196,8 @@ public class CleanManager {
                         appRam.size = (long) processMemoryInfo[0].getTotalPrivateDirty() * 1024;
                         appRam.isSelfBoot = Util.isStartSelf(mContext.getPackageManager(), packageName);
                         appRam.pkg = packageName;
+                        appRam.processName = info.name;
+                        appRam.pid = pid;
                         appRam.type = JunkInfo.TableType.APP;
                         appRamList.add(appRam);
                         ramSize += appRam.size;

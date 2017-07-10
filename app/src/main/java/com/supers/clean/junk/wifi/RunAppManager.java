@@ -8,6 +8,9 @@ import android.net.TrafficStats;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.clean.callback.AppRamCallBack;
+import com.android.clean.core.CleanManager;
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.Util;
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
@@ -73,38 +76,32 @@ public class RunAppManager {
     }
 
     public void loadRunAppInfo() {
-        runAppInfoList.clear();
-        PackageManager pm = mContext.getPackageManager();
-
-        // 保存所有正在运行的应用程序信息
-        List<AndroidAppProcess> listInfo = AndroidProcesses.getRunningAppProcesses();
-        for (AndroidAppProcess info : listInfo) {
-            int pid = info.pid;
-            String processName = info.name;
-            if (processName.equals(mContext.getPackageName())) {
-                continue;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                runAppInfoList.clear();
+                final PackageManager pm = mContext.getPackageManager();
+                CleanManager.getInstance(mContext).loadAppRam(new AppRamCallBack() {
+                    @Override
+                    public void loadFinished(List<JunkInfo> appRamList, List<String> whiteList, long totalSize) {
+                        for (JunkInfo info : appRamList) {
+                            try {
+                                ApplicationInfo applicationInfo = pm.getApplicationInfo(info.pkg, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES);
+                                runAppInfoList.add(getAppInfo(applicationInfo, info.pid, info.processName));
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        lastRunAppInfoList.clear();
+                        lastRunAppInfoList.addAll(runAppInfoList);
+                        lastTime = System.currentTimeMillis();
+                        if (mLoadListener != null) {
+                            mLoadListener.loadFinish(lastRunAppInfoList);
+                        }
+                    }
+                });
             }
-            try {
-                PackageInfo pInfo = pm.getPackageInfo(processName, 0);
-                if ((pInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
-                    continue;
-                }
-                if ((pInfo.applicationInfo.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
-                    continue;
-                }
-                ApplicationInfo applicationInfo = pm.getApplicationInfo(processName, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES);
-                runAppInfoList.add(getAppInfo(applicationInfo, pid, processName));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        //lastRunAppInfoList = runAppInfoList;
-        lastRunAppInfoList.clear();
-        lastRunAppInfoList.addAll(runAppInfoList);
-        lastTime = System.currentTimeMillis();
-        if (mLoadListener != null) {
-            mLoadListener.loadFinish(lastRunAppInfoList);
-        }
+        }).start();
     }
 
     private RunAppInfo getAppInfo(ApplicationInfo app, int pid, String processName) {

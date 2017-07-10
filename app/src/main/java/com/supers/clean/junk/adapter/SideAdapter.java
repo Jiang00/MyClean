@@ -219,9 +219,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == NOTIFI) {
             AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
-            if (!Util.isNotificationListenEnabled(context)) {
-                ((Activity) context).startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-            } else if (!PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
+           if (!Util.isNotificationListenEnabled(context)||!PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
                 Intent intent6 = new Intent(context, NotifiInfoActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
             } else {

@@ -12,6 +12,8 @@ public class JunkInfo {
 
     public String path;
     public String pkg;
+    public String processName;
+    public int pid;
     public long size;
     public long allSize;
     public long date;

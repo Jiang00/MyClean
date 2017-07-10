@@ -76,15 +76,15 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
             mHandler = new Handler();
         }
         mHandler.removeCallbacks(runnableW);
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (mRunAppInfoList.size() < 1) {
-                    iv_empty.setVisibility(View.GONE);
-                    ll_netmon_none.setVisibility(View.VISIBLE);
-                }
-            }
-        }, 2000);
+//        mHandler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (mRunAppInfoList.size() < 1) {
+//                    iv_empty.setVisibility(View.GONE);
+//                    ll_netmon_none.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        }, 2000);
         mWifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
         if (isDataConnected(mContext)) {
             ll_netmon_unconnect.setVisibility(View.GONE);
@@ -189,8 +189,13 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
     @Override
     public void loadFinish(final List<RunAppInfo> lastRunAppInfoList) {
         Log.e("loadFinish", "===0");
+        if (lastRunAppInfoList.size() == 0) {
+            iv_empty.setVisibility(View.GONE);
+            ll_netmon_none.setVisibility(View.VISIBLE);
+            return;
+        }
         if (isWifiConnected(mContext)) {
-            Log.e("loadFinish", "===1");
+            Log.e("loadFinish", "===1==" + lastRunAppInfoList.size());
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -198,7 +203,6 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
                     mRunAppInfoList.addAll(lastRunAppInfoList);
                     iv_empty.setVisibility(View.GONE);
                     mAdapter.refresh(mRunAppInfoList);
-
                 }
             });
         }

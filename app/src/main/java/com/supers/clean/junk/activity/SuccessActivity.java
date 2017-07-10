@@ -623,9 +623,7 @@ public class SuccessActivity extends BaseActivity {
                 case R.id.main_notifi_button:
                     AdUtil.track("完成页面", "点击进入通知栏清理", "", 1);
                     PreData.putDB(SuccessActivity.this, Constant.NOTIFI_CLEAN, true);
-                    if (!Util.isNotificationListenEnabled(SuccessActivity.this)) {
-                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!PreData.getDB(SuccessActivity.this, Constant.KEY_NOTIFI, true)) {
+                    if (!Util.isNotificationListenEnabled(SuccessActivity.this) || !PreData.getDB(SuccessActivity.this, Constant.KEY_NOTIFI, true)) {
                         Intent intent6 = new Intent(SuccessActivity.this, NotifiInfoActivity.class);
                         startActivity(intent6);
                         onBackPressed();

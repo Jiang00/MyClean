@@ -162,12 +162,12 @@ public class BatteryService extends Service {
                 PreData.putDB(BatteryService.this, Constant.CONNECTED_LEFT_TIME_LUN, leftUseTime);
                 if (level == 100) {
                     if ((time_now - PreData.getDB(BatteryService.this, Constant.CONNECTED_GUO, time_now)) > 60 * 60 * 1000) {
-                        PreData.putDB(BatteryService.this, Constant.CONNECTED_ZZ, 0);
+                        PreData.putDB(BatteryService.this, Constant.CONNECTED_ZZ, 2);
                     } else {
                         PreData.putDB(BatteryService.this, Constant.CONNECTED_ZZ, 1);
                     }
                 } else {
-                    PreData.putDB(BatteryService.this, Constant.CONNECTED_ZZ, 2);
+                    PreData.putDB(BatteryService.this, Constant.CONNECTED_ZZ, 0);
                 }
                 mHandler.post(runnableDialog);
             }
