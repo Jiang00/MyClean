@@ -40,6 +40,7 @@ public class MyApplication extends Application {
     }
 
 
+
     private ActivityManager am;
 
     @Override
