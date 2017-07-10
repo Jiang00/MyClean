@@ -50,7 +50,7 @@ public class RunAppManager {
     private LoadListener mLoadListener;
 
     public interface LoadListener {
-        void loadFinish(List<RunAppInfo> lastRunAppInfoList);
+        void loadFinish(List<RunAppInfo> lastRunAppInfoList, boolean isNon);
     }
 
     public List<RunAppInfo> getRunAppInfoList() {
@@ -75,6 +75,8 @@ public class RunAppManager {
         return mRunAppManager;
     }
 
+    boolean isNon;
+
     public void loadRunAppInfo() {
         new Thread(new Runnable() {
             @Override
@@ -84,10 +86,11 @@ public class RunAppManager {
                 CleanManager.getInstance(mContext).loadAppRam(new AppRamCallBack() {
                     @Override
                     public void loadFinished(List<JunkInfo> appRamList, List<String> whiteList, long totalSize) {
+                        isNon = true;
                         for (JunkInfo info : appRamList) {
                             try {
                                 ApplicationInfo applicationInfo = pm.getApplicationInfo(info.pkg, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES);
-                                runAppInfoList.add(getAppInfo(applicationInfo, info.pid, info.processName));
+                                runAppInfoList.add(getAppInfo(applicationInfo, info.pid, info.processName, info.isSelfBoot));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -96,7 +99,7 @@ public class RunAppManager {
                         lastRunAppInfoList.addAll(runAppInfoList);
                         lastTime = System.currentTimeMillis();
                         if (mLoadListener != null) {
-                            mLoadListener.loadFinish(lastRunAppInfoList);
+                            mLoadListener.loadFinish(lastRunAppInfoList, isNon);
                         }
                     }
                 });
@@ -104,13 +107,16 @@ public class RunAppManager {
         }).start();
     }
 
-    private RunAppInfo getAppInfo(ApplicationInfo app, int pid, String processName) {
+    private RunAppInfo getAppInfo(ApplicationInfo app, int pid, String processName, boolean isSelfBoot) {
         long currentTime = System.currentTimeMillis();
         long nowUidRxBytes = TrafficStats.getUidRxBytes(app.uid);
         long nowUidTxBytes = TrafficStats.getUidTxBytes(app.uid);
         if (nowUidRxBytes + nowUidTxBytes == 0 || nowUidRxBytes == -1 || nowUidTxBytes == -1) {
             nowUidRxBytes = getTotalBytesManual(app.uid, true);
             nowUidTxBytes = getTotalBytesManual(app.uid, false);
+        }
+        if (nowUidRxBytes != 0 || nowUidTxBytes != 0) {
+            isNon = false;
         }
         long downUidSpeed = 0;
         long upUidSpeed = 0;
@@ -129,6 +135,7 @@ public class RunAppManager {
         appInfo.setAppLabel((String) app.loadLabel(pm));
         appInfo.setAppIcon(app.loadIcon(pm));
         appInfo.setPkgName(app.packageName);
+        appInfo.setIsSelfBoot(isSelfBoot);
         appInfo.setPid(pid);
         appInfo.setProcessName(processName);
         appInfo.setChecked(true);

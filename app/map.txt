@@ -47456,7 +47456,7 @@ com.supers.clean.junk.R$styleable -> com.supers.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6381:15442:void <clinit>() -> <clinit>
+    6387:15448:void <clinit>() -> <clinit>
 com.supers.clean.junk.activity.ApplockActivity -> com.supers.clean.junk.activity.ApplockActivity:
     android.widget.TextView tv_2 -> a
     android.widget.TextView tv_3 -> b
@@ -48906,55 +48906,66 @@ com.supers.clean.junk.activity.NetMonitor -> com.supers.clean.junk.activity.NetM
     long lastTotalTxBytes -> w
     long lastTimeStamp -> x
     com.supers.clean.junk.activity.NetMonitor$MyAdapter mAdapter -> y
-    java.lang.Runnable runnableW -> z
-    45:134:void <init>() -> <init>
+    long downSpeed -> z
+    long upSpeed -> A
+    java.lang.Runnable runnableW -> B
+    45:136:void <init>() -> <init>
     63:118:void onCreate(android.os.Bundle) -> onCreate
     122:132:void findId() -> a
-    157:162:boolean isWifiConnected(android.content.Context) -> a
-    166:174:boolean isDataConnected(android.content.Context) -> b
-    179:181:void onResume() -> onResume
-    185:187:void onPause() -> onPause
-    191:209:void loadFinish(java.util.List) -> a
-    284:287:void onDestroy() -> onDestroy
-    45:45:long access$000(com.supers.clean.junk.activity.NetMonitor) -> a
-    45:45:long access$100(com.supers.clean.junk.activity.NetMonitor) -> b
-    45:45:long access$200(com.supers.clean.junk.activity.NetMonitor) -> c
-    45:45:android.widget.TextView access$300(com.supers.clean.junk.activity.NetMonitor) -> d
-    45:45:android.widget.TextView access$400(com.supers.clean.junk.activity.NetMonitor) -> e
+    159:164:boolean isWifiConnected(android.content.Context) -> a
+    168:176:boolean isDataConnected(android.content.Context) -> b
+    181:183:void onResume() -> onResume
+    187:189:void onPause() -> onPause
+    193:216:void loadFinish(java.util.List,boolean) -> a
+    295:298:void onDestroy() -> onDestroy
     45:45:long access$002(com.supers.clean.junk.activity.NetMonitor,long) -> a
-    45:45:long access$202(com.supers.clean.junk.activity.NetMonitor,long) -> b
+    45:45:long access$100(com.supers.clean.junk.activity.NetMonitor) -> a
+    45:45:long access$200(com.supers.clean.junk.activity.NetMonitor) -> b
+    45:45:long access$302(com.supers.clean.junk.activity.NetMonitor,long) -> b
+    45:45:long access$400(com.supers.clean.junk.activity.NetMonitor) -> c
+    45:45:long access$000(com.supers.clean.junk.activity.NetMonitor) -> d
+    45:45:android.widget.TextView access$500(com.supers.clean.junk.activity.NetMonitor) -> e
+    45:45:long access$300(com.supers.clean.junk.activity.NetMonitor) -> f
+    45:45:android.widget.TextView access$600(com.supers.clean.junk.activity.NetMonitor) -> g
     45:45:long access$102(com.supers.clean.junk.activity.NetMonitor,long) -> c
-    45:45:java.util.List access$500(com.supers.clean.junk.activity.NetMonitor) -> f
-    45:45:android.widget.ProgressBar access$600(com.supers.clean.junk.activity.NetMonitor) -> g
-    45:45:com.supers.clean.junk.activity.NetMonitor$MyAdapter access$700(com.supers.clean.junk.activity.NetMonitor) -> h
+    45:45:long access$402(com.supers.clean.junk.activity.NetMonitor,long) -> d
+    45:45:long access$202(com.supers.clean.junk.activity.NetMonitor,long) -> e
+    45:45:android.widget.ProgressBar access$700(com.supers.clean.junk.activity.NetMonitor) -> h
+    45:45:android.widget.LinearLayout access$800(com.supers.clean.junk.activity.NetMonitor) -> i
+    45:45:java.util.List access$900(com.supers.clean.junk.activity.NetMonitor) -> j
+    45:45:com.supers.clean.junk.activity.NetMonitor$MyAdapter access$1000(com.supers.clean.junk.activity.NetMonitor) -> k
 com.supers.clean.junk.activity.NetMonitor$1 -> com.supers.clean.junk.activity.NetMonitor$1:
     com.supers.clean.junk.activity.NetMonitor this$0 -> a
     69:69:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
     72:73:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.NetMonitor$2 -> com.supers.clean.junk.activity.NetMonitor$2:
     com.supers.clean.junk.activity.NetMonitor this$0 -> a
-    134:134:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
-    136:153:void run() -> run
+    136:136:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    138:155:void run() -> run
 com.supers.clean.junk.activity.NetMonitor$3 -> com.supers.clean.junk.activity.NetMonitor$3:
+    com.supers.clean.junk.activity.NetMonitor this$0 -> a
+    194:194:void <init>(com.supers.clean.junk.activity.NetMonitor) -> <init>
+    197:199:void run() -> run
+com.supers.clean.junk.activity.NetMonitor$4 -> com.supers.clean.junk.activity.NetMonitor$4:
     java.util.List val$lastRunAppInfoList -> a
     com.supers.clean.junk.activity.NetMonitor this$0 -> b
-    199:199:void <init>(com.supers.clean.junk.activity.NetMonitor,java.util.List) -> <init>
-    202:206:void run() -> run
+    204:204:void <init>(com.supers.clean.junk.activity.NetMonitor,java.util.List) -> <init>
+    207:213:void run() -> run
 com.supers.clean.junk.activity.NetMonitor$MyAdapter -> com.supers.clean.junk.activity.NetMonitor$a:
     android.view.LayoutInflater inflater -> a
     java.util.List list -> b
     com.supers.clean.junk.activity.NetMonitor this$0 -> c
-    216:219:void <init>(com.supers.clean.junk.activity.NetMonitor,android.content.Context,java.util.List) -> <init>
-    222:224:void refresh(java.util.List) -> a
-    228:228:int getCount() -> getCount
-    233:233:java.lang.Object getItem(int) -> getItem
-    238:238:long getItemId(int) -> getItemId
-    245:272:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    223:226:void <init>(com.supers.clean.junk.activity.NetMonitor,android.content.Context,java.util.List) -> <init>
+    229:231:void refresh(java.util.List) -> a
+    235:235:int getCount() -> getCount
+    240:240:java.lang.Object getItem(int) -> getItem
+    245:245:long getItemId(int) -> getItemId
+    252:283:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.supers.clean.junk.activity.NetMonitor$MyAdapter$1 -> com.supers.clean.junk.activity.NetMonitor$a$1:
-    com.supers.clean.junk.wifi.RunAppInfo val$appInfo -> a
+    int val$position -> a
     com.supers.clean.junk.activity.NetMonitor$MyAdapter this$1 -> b
-    262:262:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter,com.supers.clean.junk.wifi.RunAppInfo) -> <init>
-    265:270:void onClick(android.view.View) -> onClick
+    269:269:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter,int) -> <init>
+    272:281:void onClick(android.view.View) -> onClick
 com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder -> com.supers.clean.junk.activity.NetMonitor$a$a:
     android.widget.ImageView iv_netmonitem_icon -> a
     android.widget.TextView tv_netmonitem_name -> b
@@ -48962,7 +48973,7 @@ com.supers.clean.junk.activity.NetMonitor$MyAdapter$ViewHolder -> com.supers.cle
     android.widget.TextView tv_netmonitem_up -> d
     android.widget.Button bt_netmonitem_stop -> e
     com.supers.clean.junk.activity.NetMonitor$MyAdapter this$1 -> f
-    275:275:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter) -> <init>
+    286:286:void <init>(com.supers.clean.junk.activity.NetMonitor$MyAdapter) -> <init>
 com.supers.clean.junk.activity.NotifiActivity -> com.supers.clean.junk.activity.NotifiActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -51817,64 +51828,67 @@ com.supers.clean.junk.wifi.RunAppInfo -> com.supers.clean.junk.d.a:
     java.lang.String appLabel -> a
     android.graphics.drawable.Drawable appIcon -> b
     java.lang.String pkgName -> c
-    int pid -> d
-    java.lang.String processName -> e
-    java.lang.String upspeed -> f
-    java.lang.String downspeed -> g
-    java.lang.Boolean checked -> h
-    long lastRxBytes -> i
-    long lastTxBytes -> j
-    18:19:void <init>() -> <init>
-    22:22:java.lang.String getAppLabel() -> a
-    26:27:void setAppLabel(java.lang.String) -> a
-    30:30:android.graphics.drawable.Drawable getAppIcon() -> b
-    34:35:void setAppIcon(android.graphics.drawable.Drawable) -> a
-    38:38:java.lang.String getPkgName() -> c
-    42:43:void setPkgName(java.lang.String) -> b
-    50:51:void setPid(int) -> a
-    54:54:java.lang.String getProcessName() -> d
-    58:59:void setProcessName(java.lang.String) -> c
-    67:68:void setChecked(java.lang.Boolean) -> a
-    71:71:long getLastRxBytes() -> e
-    75:76:void setLastRxBytes(long) -> a
-    79:79:long getLastTxBytes() -> f
-    83:84:void setLastTxBytes(long) -> b
-    87:87:java.lang.String getUpspeed() -> g
-    91:92:void setUpspeed(java.lang.String) -> d
-    95:95:java.lang.String getDownspeed() -> h
-    99:100:void setDownspeed(java.lang.String) -> e
+    boolean isSelfBoot -> d
+    int pid -> e
+    java.lang.String processName -> f
+    java.lang.String upspeed -> g
+    java.lang.String downspeed -> h
+    java.lang.Boolean checked -> i
+    long lastRxBytes -> j
+    long lastTxBytes -> k
+    19:20:void <init>() -> <init>
+    23:23:java.lang.String getAppLabel() -> a
+    27:28:void setAppLabel(java.lang.String) -> a
+    31:31:boolean getIsSelfBoot() -> b
+    35:36:void setIsSelfBoot(boolean) -> a
+    39:39:android.graphics.drawable.Drawable getAppIcon() -> c
+    43:44:void setAppIcon(android.graphics.drawable.Drawable) -> a
+    47:47:java.lang.String getPkgName() -> d
+    51:52:void setPkgName(java.lang.String) -> b
+    59:60:void setPid(int) -> a
+    67:68:void setProcessName(java.lang.String) -> c
+    76:77:void setChecked(java.lang.Boolean) -> a
+    80:80:long getLastRxBytes() -> e
+    84:85:void setLastRxBytes(long) -> a
+    88:88:long getLastTxBytes() -> f
+    92:93:void setLastTxBytes(long) -> b
+    96:96:java.lang.String getUpspeed() -> g
+    100:101:void setUpspeed(java.lang.String) -> d
+    104:104:java.lang.String getDownspeed() -> h
+    108:109:void setDownspeed(java.lang.String) -> e
 com.supers.clean.junk.wifi.RunAppManager -> com.supers.clean.junk.d.b:
-    com.supers.clean.junk.wifi.RunAppManager mRunAppManager -> a
-    android.content.pm.PackageManager pm -> b
-    android.content.Context mContext -> c
-    java.util.List runAppInfoList -> d
-    long lastTime -> e
-    com.supers.clean.junk.wifi.RunAppManager$LoadListener mLoadListener -> f
-    java.util.List lastRunAppInfoList -> g
+    com.supers.clean.junk.wifi.RunAppManager mRunAppManager -> b
+    android.content.pm.PackageManager pm -> c
+    android.content.Context mContext -> d
+    java.util.List runAppInfoList -> e
+    long lastTime -> f
+    com.supers.clean.junk.wifi.RunAppManager$LoadListener mLoadListener -> g
+    java.util.List lastRunAppInfoList -> h
+    boolean isNon -> a
     43:44:void setLoadListener(com.supers.clean.junk.wifi.RunAppManager$LoadListener) -> a
     47:48:void removeLoadListener() -> a
     38:69:void <init>(android.content.Context) -> <init>
     72:75:com.supers.clean.junk.wifi.RunAppManager getInstance(android.content.Context) -> a
-    79:105:void loadRunAppInfo() -> b
-    108:139:com.supers.clean.junk.wifi.RunAppInfo getAppInfo(android.content.pm.ApplicationInfo,int,java.lang.String) -> a
-    145:189:java.lang.Long getTotalBytesManual(int,java.lang.Boolean) -> a
+    81:108:void loadRunAppInfo() -> b
+    111:146:com.supers.clean.junk.wifi.RunAppInfo getAppInfo(android.content.pm.ApplicationInfo,int,java.lang.String,boolean) -> a
+    152:196:java.lang.Long getTotalBytesManual(int,java.lang.Boolean) -> a
     30:30:java.util.List access$000(com.supers.clean.junk.wifi.RunAppManager) -> a
     30:30:android.content.Context access$100(com.supers.clean.junk.wifi.RunAppManager) -> b
-    30:30:com.supers.clean.junk.wifi.RunAppInfo access$200(com.supers.clean.junk.wifi.RunAppManager,android.content.pm.ApplicationInfo,int,java.lang.String) -> a
+    30:30:com.supers.clean.junk.wifi.RunAppInfo access$200(com.supers.clean.junk.wifi.RunAppManager,android.content.pm.ApplicationInfo,int,java.lang.String,boolean) -> a
     30:30:java.util.List access$300(com.supers.clean.junk.wifi.RunAppManager) -> c
     30:30:long access$402(com.supers.clean.junk.wifi.RunAppManager,long) -> a
     30:30:com.supers.clean.junk.wifi.RunAppManager$LoadListener access$500(com.supers.clean.junk.wifi.RunAppManager) -> d
 com.supers.clean.junk.wifi.RunAppManager$1 -> com.supers.clean.junk.d.b$1:
     com.supers.clean.junk.wifi.RunAppManager this$0 -> a
-    79:79:void <init>(com.supers.clean.junk.wifi.RunAppManager) -> <init>
-    82:103:void run() -> run
+    81:81:void <init>(com.supers.clean.junk.wifi.RunAppManager) -> <init>
+    84:106:void run() -> run
 com.supers.clean.junk.wifi.RunAppManager$1$1 -> com.supers.clean.junk.d.b$1$1:
     android.content.pm.PackageManager val$pm -> a
     com.supers.clean.junk.wifi.RunAppManager$1 this$1 -> b
-    84:84:void <init>(com.supers.clean.junk.wifi.RunAppManager$1,android.content.pm.PackageManager) -> <init>
-    87:101:void loadFinished(java.util.List,java.util.List,long) -> a
+    86:86:void <init>(com.supers.clean.junk.wifi.RunAppManager$1,android.content.pm.PackageManager) -> <init>
+    89:104:void loadFinished(java.util.List,java.util.List,long) -> a
 com.supers.clean.junk.wifi.RunAppManager$LoadListener -> com.supers.clean.junk.d.b$a:
-    void loadFinish(java.util.List) -> a
+    void loadFinish(java.util.List,boolean) -> a
 cz.msebera.android.httpclient.ConnectionClosedException -> cz.msebera.android.httpclient.a:
     47:48:void <init>(java.lang.String) -> <init>
 cz.msebera.android.httpclient.ConnectionReuseStrategy -> cz.msebera.android.httpclient.b:

@@ -10,6 +10,7 @@ public class RunAppInfo {
     private String appLabel;
     private Drawable appIcon;
     private String pkgName;
+    private boolean isSelfBoot;
     private int pid;
     private String processName, upspeed, downspeed;
     private Boolean checked;
@@ -24,6 +25,14 @@ public class RunAppInfo {
 
     public void setAppLabel(String appName) {
         this.appLabel = appName;
+    }
+
+    public boolean getIsSelfBoot() {
+        return isSelfBoot;
+    }
+
+    public void setIsSelfBoot(boolean isSelfBoot) {
+        this.isSelfBoot = isSelfBoot;
     }
 
     public Drawable getAppIcon() {

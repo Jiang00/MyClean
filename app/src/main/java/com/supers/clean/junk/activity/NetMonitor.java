@@ -131,6 +131,8 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
         iv_empty = (ProgressBar) findViewById(R.id.iv_empty);
     }
 
+    private long downSpeed;
+    private long upSpeed;
     private Runnable runnableW = new Runnable() {
         public void run() {
             long nowTotalRxBytes = (TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
@@ -139,9 +141,9 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
                     : (TrafficStats.getTotalTxBytes())); // 获取当前数据总量
             long nowTimeStamp = System.currentTimeMillis(); // 当前时间
             // kb/s
-            long downSpeed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
+            downSpeed = ((nowTotalRxBytes - lastTotalRxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
                     - lastTimeStamp));// 毫秒转换
-            long upSpeed = ((nowTotalTxBytes - lastTotalTxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
+            upSpeed = ((nowTotalTxBytes - lastTotalTxBytes) * 1000 / (nowTimeStamp == lastTimeStamp ? nowTimeStamp : nowTimeStamp
                     - lastTimeStamp));
             tv_netmon_down.setText(Util.convertStorageWifi(downSpeed));
             tv_netmon_up.setText(Util.convertStorageWifi(upSpeed));
@@ -187,19 +189,24 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
     }
 
     @Override
-    public void loadFinish(final List<RunAppInfo> lastRunAppInfoList) {
-        Log.e("loadFinish", "===0");
+    public void loadFinish(final List<RunAppInfo> lastRunAppInfoList, boolean isNon) {
         if (lastRunAppInfoList.size() == 0) {
-            iv_empty.setVisibility(View.GONE);
-            ll_netmon_none.setVisibility(View.VISIBLE);
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    iv_empty.setVisibility(View.GONE);
+                    ll_netmon_none.setVisibility(View.VISIBLE);
+                }
+            });
             return;
         }
         if (isWifiConnected(mContext)) {
-            Log.e("loadFinish", "===1==" + lastRunAppInfoList.size());
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
                     mRunAppInfoList.clear();
+                    lastRunAppInfoList.get(0).setUpspeed(Util.convertStorageWifi(upSpeed));
+                    lastRunAppInfoList.get(0).setDownspeed(Util.convertStorageWifi(downSpeed));
                     mRunAppInfoList.addAll(lastRunAppInfoList);
                     iv_empty.setVisibility(View.GONE);
                     mAdapter.refresh(mRunAppInfoList);
@@ -240,7 +247,7 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
 
         @SuppressLint({"ViewHolder", "InflateParams"})
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             final ViewHolder holder;
             if (convertView == null) {
                 holder = new ViewHolder();
@@ -263,9 +270,13 @@ public class NetMonitor extends BaseActivity implements RunAppManager.LoadListen
                 @Override
                 public void onClick(View v) {
                     AndroidSdk.track("点击网络监控界面停止按钮", "", "", 1);
-                    Intent intent = new Intent(NetMonitor.this, PowerActivity.class);
-                    intent.putExtra("processname", appInfo.getProcessName());
-                    startActivity(intent);
+                    if (list.get(position).getIsSelfBoot()) {
+                        Intent intent = new Intent(NetMonitor.this, PowerActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(NetMonitor.this, RamAvtivity.class);
+                        startActivity(intent);
+                    }
                     finish();
                 }
             });
