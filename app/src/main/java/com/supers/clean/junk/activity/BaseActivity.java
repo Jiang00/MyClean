@@ -70,9 +70,7 @@ public class BaseActivity extends AppCompatActivity {
                 changeAppLanguage(language);
             }
             languageChange();
-            if (recreateActivity()) {
-                recreate();
-            }
+
         }
     };
 
@@ -151,7 +149,6 @@ public class BaseActivity extends AppCompatActivity {
 
 
     public void languageChange() {
-
     }
 
 

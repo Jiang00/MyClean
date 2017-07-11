@@ -284,7 +284,9 @@ public class SettingActivity extends BaseActivity {
                     if (PreData.getDB(SettingActivity.this, Constant.DETECT_KAIGUAN, true)) {
                         AdUtil.track("侧边栏", "点击关闭充电检测", "", 1);
                         PreData.putDB(SettingActivity.this, Constant.DETECT_KAIGUAN, false);
+                        setting_detect_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
+                        setting_detect_check.setImageResource(R.mipmap.side_check_passed);
                         AdUtil.track("侧边栏", "点击开启充电检测", "", 1);
                         PreData.putDB(SettingActivity.this, Constant.DETECT_KAIGUAN, true);
                     }
@@ -368,7 +370,7 @@ public class SettingActivity extends BaseActivity {
                 case R.id.setting_language:
                     AdUtil.track("设置页面", "语言", "", 1);
                     Intent lagIntent = new Intent(SettingActivity.this, LanguageSettingActivity.class);
-                    startActivity(lagIntent);
+                    startActivityForResult(lagIntent, Constant.LANGUAGE_RESUIL);
                     break;
                 default:
                     break;
@@ -387,6 +389,8 @@ public class SettingActivity extends BaseActivity {
                 Intent intent = new Intent(this, NotifiInfoActivity.class);
                 startActivity(intent);
             }
+        } else if (requestCode == Constant.LANGUAGE_RESUIL) {
+            recreate();
         }
     }
 

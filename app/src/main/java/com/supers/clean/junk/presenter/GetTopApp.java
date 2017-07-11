@@ -30,7 +30,7 @@ public class GetTopApp {
 
     public String execute() {
         String packageName = null;
-        if (Build.VERSION.SDK_INT > 23 || Build.VERSION.SDK_INT <= 19) {
+        if ( Build.VERSION.SDK_INT <= 19) {
             try {
                 List<ActivityManager.RunningTaskInfo> lst = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningTasks(1);
                 if (lst != null && lst.size() > 0) {
@@ -45,7 +45,6 @@ public class GetTopApp {
             }
         } else {
             try {
-
                 packageName = getTopPackage();
                 Log.e("float", "2==" + packageName);
                 if (packageName != null) {

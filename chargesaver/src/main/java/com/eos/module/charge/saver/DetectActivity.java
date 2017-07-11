@@ -62,8 +62,8 @@ public class DetectActivity extends Activity {
         detect_clean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
                 startActivity(new Intent("eos.ramactivity").putExtra("from", "notifi"));
+                finish();
             }
         });
         detect_cha.setOnClickListener(new View.OnClickListener() {

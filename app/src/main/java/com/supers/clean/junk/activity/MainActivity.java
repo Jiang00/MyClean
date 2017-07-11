@@ -196,9 +196,20 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_battery = (LinearLayout) findViewById(R.id.main_battery);
     }
 
+    boolean isSave;
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("onSave", true);
+        super.onSaveInstanceState(outState);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            isSave = savedInstanceState.getBoolean("onSave");
+        }
         setContentView(R.layout.activity_dra);
         cleanApplication = (MyApplication) getApplication();
         try {
@@ -225,7 +236,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             main_notifi_button.setVisibility(View.GONE);
         }
         tuiGuang();
-
         arrayList = new ArrayList<>();
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
         main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
@@ -241,7 +251,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_ram_size = (TextView) view.findViewById(R.id.main_ram_size);
         main_air_all = (LinearLayout) view.findViewById(R.id.main_air_all);
         arrayList.add(view);
-
         View viewpager_2 = LayoutInflater.from(this).inflate(R.layout.main_ad, null);
         LinearLayout view_ad = (LinearLayout) viewpager_2.findViewById(R.id.view_ad);
         View adView = AdUtil.getNativeAdView(TAG_HUA, R.layout.native_ad_2);
@@ -519,9 +528,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     public void tuiGuang() {
         super.tuiGuang();
-//        if (true) {
-//            return;
-//        }
+        Log.e("onSave", "==" + isSave);
+        if (isSave) {
+            return;
+        }
         bean = DialogManager.getCrossManager().getCrossData(this, extraData, "list1", "side");
         if (bean != null) {
             tuiguang = bean.pkg;
@@ -740,7 +750,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
         adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
         adapter.addData(new SideInfo(R.string.wifi_name, R.mipmap.side_wifi));//wifi
-        adapter.addData(new SideInfo(R.string.language, R.mipmap.side_lag_setting));//yuyan
+//        adapter.addData(new SideInfo(R.string.language, R.mipmap.side_lag_setting));//yuyan
         adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
         adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片
         adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
@@ -806,7 +816,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("eos_start_full");
         } else {
-            if (TextUtils.equals(from, "translate")) {
+            if (TextUtils.equals(from, "translate") || isSave) {
                 return;
             }
             View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
@@ -1110,6 +1120,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 pagerAdapter.notifyDataSetChanged();
             }
 
+        } else if (requestCode == Constant.LANGUAGE_RESUIL) {
+            recreate();
         }
 
     }

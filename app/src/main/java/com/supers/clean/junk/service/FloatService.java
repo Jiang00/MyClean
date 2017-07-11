@@ -103,9 +103,14 @@ public class FloatService extends Service {
 //                }
                 if (!TextUtils.equals(pkg, runingGboost)) {
                     runingGboost = pkg;
-                    if (PreData.getDB(FloatService.this, Constant.TONGZHILAN_SWITCH, true)) {
+                    if (PreData.getDB(FloatService.this, Constant.TONGZHI_SWITCH, true)) {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(FloatService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
+//                        try {
+//                            Log.e("gboost", gboost_names.get(0) +gboost_names.get(1)+gboost_names.get(2)+ "==" + runingGboost);
+//                        } catch (Exception e) {
+//                        }
                         if (gboost_names.contains(pkg)) {
+
                             Intent intent = new Intent(FloatService.this, NotificationService.class);
                             intent.setAction("gboost");
                             startService(intent);

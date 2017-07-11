@@ -53,7 +53,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
     private static final int FILE = idx++;
     private static final int POWER = idx++;
     private static final int WIFI = idx++;
-    private static final int LAG_SETTING = idx++;
+//    private static final int LAG_SETTING = idx++;
     private static final int NOTIFI = idx++;
     private static final int PICTURE = idx++;
     private static final int GBOOST = idx++;
@@ -219,7 +219,7 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == NOTIFI) {
             AdUtil.track("侧边栏", "点击进入通知栏清理页面", "", 1);
             PreData.putDB(context, Constant.NOTIFI_CLEAN, true);
-           if (!Util.isNotificationListenEnabled(context)||!PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
+            if (!Util.isNotificationListenEnabled(context) || !PreData.getDB(context, Constant.KEY_NOTIFI, true)) {
                 Intent intent6 = new Intent(context, NotifiInfoActivity.class);
                 ((Activity) context).startActivityForResult(intent6, 1);
             } else {
@@ -251,11 +251,12 @@ public class SideAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == ROTATE) {
             AdUtil.track("侧边栏", "点击好评", "", 1);
             UtilGp.rate(context);
-        } else if (position == LAG_SETTING) {
-            AdUtil.track("侧边栏", "点击多语言", "", 1);
-            Intent intent9 = new Intent(context, LanguageSettingActivity.class);
-            ((Activity) context).startActivityForResult(intent9, 1);
         }
+//        else if (position == LAG_SETTING) {
+//            AdUtil.track("侧边栏", "点击多语言", "", 1);
+//            Intent intent9 = new Intent(context, LanguageSettingActivity.class);
+//            ((Activity) context).startActivityForResult(intent9, Constant.LANGUAGE_RESUIL);
+//        }
         /* else if (position == PRIVARY) {
             AdUtil.track("侧边栏", "点击隐私清理", "", 1);
             Intent intent9 = new Intent(context, PrivacyActivity.class);
