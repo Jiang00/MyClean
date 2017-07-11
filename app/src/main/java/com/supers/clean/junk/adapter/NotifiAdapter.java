@@ -51,10 +51,10 @@ public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
             holder.notifi_title.setText(info.title);
             holder.notifi_text.setText(info.subTitle);
             holder.time.setText(Util.getStrTime2(info.time));
-            holder.frameLayout.removeAllViews();
             holder.frameLayout.setVisibility(View.GONE);
         } else if (info.remoteViews != null) {
             View view = info.remoteViews.apply(context, holder.frameLayout);
+            holder.frameLayout.removeAllViews();
             holder.frameLayout.addView(view);
             holder.frameLayout.setVisibility(View.VISIBLE);
         }
