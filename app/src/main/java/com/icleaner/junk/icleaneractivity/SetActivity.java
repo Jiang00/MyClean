@@ -62,19 +62,19 @@ public class SetActivity extends BaseActivity {
         } else {
             addAd();
         }
-        if (PreData.getDB(this, MyConstant.GOODGAME, 0) == 0) {
+        if (PreData.getDB(this, MyConstant.GOODGAME, 1) == 0) {
             setting_gboost.setVisibility(View.GONE);
         }
-        if (PreData.getDB(this, MyConstant.PICTUREX, 0) == 0) {
+        if (PreData.getDB(this, MyConstant.PICTUREX, 1) == 0) {
             setting_picture.setVisibility(View.GONE);
         }
-        if (PreData.getDB(this, MyConstant.POWERACTIVITY, 0) == 0) {
+        if (PreData.getDB(this, MyConstant.POWERACTIVITY, 1) == 0) {
             setting_power.setVisibility(View.GONE);
         }
-        if (PreData.getDB(this, MyConstant.FILEACTIVITY, 0) == 0) {
+        if (PreData.getDB(this, MyConstant.FILEACTIVITY, 1) == 0) {
             setting_file.setVisibility(View.GONE);
         }
-        if (PreData.getDB(this, MyConstant.NOTIFIACTIVITY, 0) == 0) {
+        if (PreData.getDB(this, MyConstant.NOTIFIACTIVITY, 1) == 0) {
             setting_notifi.setVisibility(View.GONE);
         }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {

@@ -72,13 +72,13 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
         JUNK = idx++;
         RAM = idx++;
         MANAGER = idx++;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.FILEACTIVITY, 0) != 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.FILEACTIVITY, 1) != 0) {
             FILE = idx++;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.GOODGAME, 0) != 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.GOODGAME, 1) != 0) {
             GBOOST = idx++;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.POWERACTIVITY, 0) != 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.POWERACTIVITY, 1) != 0) {
             POWER = idx++;
         }
         WHITE = idx++;
