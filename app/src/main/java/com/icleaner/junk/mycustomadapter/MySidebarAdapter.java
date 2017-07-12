@@ -35,7 +35,20 @@ import com.icleaner.module.charge.saver.Utils.Utils;
 
 
 public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
-    private static int idx = 0;
+
+
+    int BATTERY = -1;
+    int FLOAT = -1;
+    int JUNK = -1;
+    int RAM = -1;
+    int MANAGER = -1;
+    int FILE = -1;
+    int GBOOST = -1;
+    int POWER = -1;
+    int WHITE = -1;
+    int SETTING = -1;
+    int ROTATE = -1;
+    /*private static int idx = 0;
 
     private static final int BATTERY = idx++;
     private static final int FLOAT = idx++;
@@ -44,25 +57,33 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
     private static final int MANAGER = idx++;
     private static final int FILE = idx++;
     private static final int GBOOST = idx++;
-
     private static final int POWER = idx++;
-    //    private static final int PRIVARY = idx++;
+    private static final int PRIVARY = idx++;
     private static final int WHITE = idx++;
     private static final int SETTING = idx++;
-    private static final int ROTATE = idx++;
+    private static final int ROTATE = idx++;*/
     private String powerSize;
 
     public MySidebarAdapter(Context context) {
         super(context);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.FILEACTIVITY, 0) == 0) {
-//            FILE = idx++;
+        int idx = 0;
+        BATTERY = idx++;
+        FLOAT = idx++;
+        JUNK = idx++;
+        RAM = idx++;
+        MANAGER = idx++;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.FILEACTIVITY, 0) != 0) {
+            FILE = idx++;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.GOODGAME, 0) == 0) {
-//            GBOOST = idx++;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.GOODGAME, 0) != 0) {
+            GBOOST = idx++;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.POWERACTIVITY, 0) == 0) {
-//            POWER = idx++;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.POWERACTIVITY, 0) != 0) {
+            POWER = idx++;
         }
+        WHITE = idx++;
+        SETTING = idx++;
+        ROTATE = idx++;
 
 
         long junk_size = CleanManager.getInstance(context).getApkSize() + CleanManager.getInstance(context).getCacheSize() +
@@ -138,7 +159,7 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
             holder.side_deep_h.setVisibility(View.VISIBLE);
             holder.side_deep_h.setText(powerSize);
         } else {
-            holder.side_deep_h.setVisibility(View.INVISIBLE);
+            holder.side_deep_h.setVisibility(View.GONE);
         }
        /* if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             if (position == NOTIFI) {

@@ -8,7 +8,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.icleaner.junk.R;
@@ -29,15 +28,9 @@ public class Success_CircleWaveView extends View {
         @Override
         public void handleMessage(Message msg) {
 //            super.handleMessage(msg);
-            if (radius < 0) {
-                strokeWidth = getResources().getDimensionPixelSize(R.dimen.d43);
-                radius = getResources().getDimensionPixelSize(R.dimen.d1);
-                paint.setStrokeWidth(strokeWidth);
-            } else {
-                strokeWidth += getResources().getDimensionPixelSize(R.dimen.d4);
-                radius -= getResources().getDimensionPixelSize(R.dimen.d2);
-                paint.setStrokeWidth(strokeWidth);
-            }
+            strokeWidth += getResources().getDimensionPixelSize(R.dimen.d4);
+            radius -= getResources().getDimensionPixelSize(R.dimen.d2);
+            paint.setStrokeWidth(strokeWidth);
             invalidate();
         }
     };
@@ -50,7 +43,7 @@ public class Success_CircleWaveView extends View {
 
     private void init() {
         paint = new Paint();
-        radius = getResources().getDimensionPixelSize(R.dimen.d43);
+        radius = getResources().getDimensionPixelSize(R.dimen.d44);
         strokeWidth = getResources().getDimensionPixelSize(R.dimen.d1);
         paint.setAntiAlias(true);//设置是否抗锯齿
         paint.setStyle(Paint.Style.STROKE);
@@ -61,10 +54,22 @@ public class Success_CircleWaveView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(getResources().getDimensionPixelSize(R.dimen.d45), getResources().getDimensionPixelSize(R.dimen.d45), radius, paint);//根据进度计算扩散半径
-        Log.e("radius", "=======onDraw======" + radius);
-        if (flag && radius != getResources().getDimensionPixelSize(R.dimen.d1)) {
-            mHamdle.handleMessage(null);
+        if (radius < getResources().getDimensionPixelSize(R.dimen.d3) || strokeWidth > getResources().getDimensionPixelSize(R.dimen.d30)) {
+            paint.setStyle(Paint.Style.FILL);
+            radius = getResources().getDimensionPixelSize(R.dimen.d44);
+            strokeWidth = getResources().getDimensionPixelSize(R.dimen.d1);
+            paint.setStrokeWidth(strokeWidth);
+            canvas.drawCircle(getResources().getDimensionPixelSize(R.dimen.d45), getResources().getDimensionPixelSize(R.dimen.d45), radius, paint);//根据进度计算扩散半径
+        } else {
+            canvas.drawCircle(getResources().getDimensionPixelSize(R.dimen.d45), getResources().getDimensionPixelSize(R.dimen.d45), radius, paint);//根据进度计算扩散半径
+            if (radius > 9 && radius != getResources().getDimensionPixelSize(R.dimen.d4)) {
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                mHamdle.handleMessage(null);
+            }
         }
     }
 

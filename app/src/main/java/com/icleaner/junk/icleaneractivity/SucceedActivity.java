@@ -1,5 +1,6 @@
 package com.icleaner.junk.icleaneractivity;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
@@ -491,20 +492,40 @@ public class SucceedActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 success_cirlewaveview.setVisibility(View.VISIBLE);
-                success_cirlewaveview.startCircleWaveCiew(true);
+//                success_cirlewaveview.startCircleWaveCiew(true);
             }
         }, 1000);
         // 缩放
         new Handler().postDelayed(new Runnable() {
             public void run() {
-//                imageview_beijing.setVisibility(View.VISIBLE);
                 ObjectAnimator animator = ObjectAnimator.ofFloat(success_cirlewaveview, "scaleY", 1f, 1.2f, 1f);
                 ObjectAnimator animator1 = ObjectAnimator.ofFloat(success_cirlewaveview, "scaleX", 1f, 1.2f, 1f);
                 AnimatorSet animSet = new AnimatorSet();
                 animSet.setDuration(500);
                 animSet.play(animator).with(animator1);
                 animSet.start();
+//                imageview_beijing.setVisibility(View.VISIBLE);
+                animSet.addListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
 
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+//                        imageview_beijing.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
             }
         }, 1500);
         // 对勾
