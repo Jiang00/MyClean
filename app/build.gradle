@@ -4,7 +4,7 @@ android {
     compileSdkVersion COMPILE_SDK_VERSION as int
     buildToolsVersion BUILD_TOOLS_VERSION
     defaultConfig {
-        applicationId "com.vater.cleaner"
+        applicationId "com.icleaner.cleaner"
         minSdkVersion MIN_SDK_VERSION as int
         targetSdkVersion TARGET_SDK_VERSION as int
         versionCode VERSION_CODE as int
@@ -211,8 +211,8 @@ dependencies {
     compile 'com.core:empty:1.2.7'
 //    compile files('libs/gson-2.2.3.jar')
     compile project(':clean')
-    compile 'com.vatermobi:keepalive:1.0.6'
-    compile project(path: ':pageindicatorview')
+//    compile 'com.vatermobi:keepalive:1.0.6'
+//    compile project(path: ':pageindicatorview')
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'

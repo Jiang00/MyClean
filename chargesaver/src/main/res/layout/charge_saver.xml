@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.vater.module.charge.saver.Mview.BatteryView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.icleaner.module.charge.saver.protectview.ProtectBatteryView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/battery_charge_save"
     android:layout_width="match_parent"
@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.vater.module.charge.saver.Mview.BubbleLayout
+        <com.icleaner.module.charge.saver.protectview.BubbleLayout
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -41,13 +41,13 @@
                     android:src="@mipmap/battery_inner_icon"
                     android:visibility="gone" />
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:id="@+id/battery_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="@dimen/d30"
+                    android:layout_marginLeft="@dimen/d16"
                     android:layout_toRightOf="@id/battery_icon"
                     android:text="Powerful Clean"
                     android:textColor="@color/white_100"
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/d10">
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:id="@+id/battery_now_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -84,6 +84,14 @@
                     android:textSize="@dimen/s54"
                     app:typeface="ROBOTO-REGULAR.TTF" />
 
+                <ImageView
+                    android:layout_width="@dimen/d129"
+                    android:layout_height="@dimen/d43"
+                    android:layout_marginLeft="@dimen/d27"
+                    android:layout_marginTop="@dimen/d15"
+                    android:layout_toRightOf="@id/battery_now_time"
+                    android:src="@mipmap/battery" />
+                <!--电池动画-->
                 <com.sample.lottie.LottieAnimationView
                     android:id="@+id/battery_electricity"
                     android:layout_width="@dimen/d129"
@@ -91,6 +99,7 @@
                     android:layout_marginLeft="@dimen/d27"
                     android:layout_marginTop="@dimen/d8"
                     android:layout_toRightOf="@id/battery_now_time"
+                    android:visibility="gone"
                     app:lottie_autoPlay="false" />
             </RelativeLayout>
             <!--月日星期,充电多少-->
@@ -101,7 +110,7 @@
                 android:layout_marginTop="@dimen/d12"
                 android:orientation="horizontal">
                 <!--月-->
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:id="@+id/battery_now_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -109,18 +118,27 @@
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s18"
                     app:typeface="ROBOTO-REGULAR.TTF" />
+
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/d6"
+                    android:text="/"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s18"
+                    app:typeface="ROBOTO-REGULAR.TTF" />
                 <!--日-->
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:id="@+id/battery_now_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/d12"
+                    android:paddingLeft="@dimen/d6"
                     android:text="03"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s18"
                     app:typeface="ROBOTO-REGULAR.TTF" />
                 <!--星期-->
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:id="@+id/battery_now_week"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -137,7 +155,7 @@
                     android:layout_marginLeft="@dimen/d46"
                     android:orientation="horizontal">
 
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:id="@+id/currentLevel_ing"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -148,7 +166,7 @@
                         android:textSize="@dimen/s16"
                         app:typeface="ROBOTO-REGULAR.TTF" />
 
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:id="@+id/battery_level"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -161,7 +179,7 @@
                 </LinearLayout>
             </LinearLayout>
             <!--充满时间-->
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/battery_now_battery_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -197,7 +215,7 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/jiantou" />
 
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/d16"
@@ -237,4 +255,4 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/time_top" />
     </LinearLayout>
-</com.vater.module.charge.saver.Mview.BatteryView>
+</com.icleaner.module.charge.saver.protectview.ProtectBatteryView>

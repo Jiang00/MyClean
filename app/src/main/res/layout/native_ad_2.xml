@@ -21,11 +21,26 @@
             android:orientation="horizontal"
             android:tag="ad_choices" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ad" />
+
+        <FrameLayout
+            android:id="@+id/ad_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d146"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d10"
+            android:scaleType="centerCrop"
+            android:tag="ad_image" />
 
         <LinearLayout
             android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/ad_image"
+            android:layout_marginTop="@dimen/d9"
             android:orientation="horizontal">
 
             <ImageView
@@ -53,8 +68,8 @@
                     android:fontFamily="sans-serif-regular"
                     android:singleLine="true"
                     android:tag="ad_title"
-                    android:textColor="#425f78"
-                    android:textSize="@dimen/s17"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s15"
                     tools:text="Your see" />
 
                 <TextView
@@ -66,32 +81,17 @@
                     android:fontFamily="sans-serif-light"
                     android:lines="1"
                     android:tag="ad_desc"
-                    android:textColor="#7a90b3"
+                    android:textColor="@color/A1_50"
                     android:textSize="@dimen/s11"
                     tools:text="Your see Your see Your see Your see" />
 
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ad" />
-
-        <FrameLayout
-            android:id="@+id/ad_image"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d146"
-            android:layout_below="@id/ll"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/d10"
-            android:scaleType="centerCrop"
-            android:tag="ad_image" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/d37"
-            android:layout_below="@id/ad_image"
+            android:layout_below="@id/ll"
             android:layout_marginTop="@dimen/d10"
             android:background="@drawable/select_text_ad"
             android:gravity="center"

@@ -16,7 +16,7 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="24dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
@@ -26,7 +26,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
             android:id="@+id/white_wu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,14 +39,13 @@
             android:textSize="@dimen/s16"
             android:visibility="invisible" />
 
-
         <ListView
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white_100"
             android:divider="@drawable/list_divider"
-            android:dividerHeight="1dp" />
+            android:dividerHeight="1px" />
 
         <View
             android:id="@+id/view_set"
@@ -55,12 +54,6 @@
             android:background="@color/black_50"
             android:clickable="true"
             android:visibility="gone" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@mipmap/yinying" />
     </FrameLayout>
 
     <RelativeLayout
@@ -68,15 +61,12 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/d72">
 
-        <Button
+        <ImageView
             android:id="@+id/notifi_button_clean"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d44"
+            android:layout_width="@dimen/d78"
+            android:layout_height="@dimen/d78"
             android:layout_centerInParent="true"
-            android:background="@drawable/shape_button"
-            android:text="@string/notifi_button"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/s18" />
+            android:src="@mipmap/aerobee"
+            android:visibility="invisible" />
     </RelativeLayout>
 </LinearLayout>

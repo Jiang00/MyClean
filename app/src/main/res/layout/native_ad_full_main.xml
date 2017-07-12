@@ -20,9 +20,10 @@
                 android:id="@+id/ad_delete"
                 android:layout_width="@dimen/d24"
                 android:layout_height="@dimen/d24"
-                android:layout_marginLeft="@dimen/d3"
-                android:layout_marginTop="@dimen/d3"
-                android:src="@mipmap/ad_delete" />
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/d16"
+                android:layout_marginTop="@dimen/d16"
+                android:src="@mipmap/close" />
 
             <FrameLayout
                 android:id="@+id/ad_image"
@@ -99,8 +100,8 @@
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
                     android:tag="ad_title"
-                    android:textColor="@color/A9"
-                    android:textSize="18sp"
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s18"
                     tools:text="Your see" />
 
                 <TextView
@@ -114,7 +115,7 @@
                     android:gravity="center_horizontal"
                     android:lines="3"
                     android:tag="ad_desc"
-                    android:textColor="@color/A9"
+                    android:textColor="@color/B3"
                     android:textSize="@dimen/s12"
                     tools:text="Your seeasd df fsfsfsfsf" />
 
@@ -161,34 +162,31 @@
                     android:layout_marginLeft="@dimen/d16"
                     android:orientation="vertical">
 
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
-                        android:textColor="@color/white_100"
+                        android:textColor="@color/B3"
                         android:textSize="@dimen/s18" />
 
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/loading_2"
-                        android:textColor="@color/white_100"
+                        android:textColor="@color/B3"
                         android:textSize="@dimen/s13" />
 
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:id="@+id/load_text_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:text="@string/loading_3"
-                        android:textColor="@color/white_100"
+                        android:textColor="@color/B3"
                         android:textSize="@dimen/s12" />
                 </LinearLayout>
             </LinearLayout>
-
-
         </LinearLayout>
-
     </LinearLayout>
 </RelativeLayout>
 

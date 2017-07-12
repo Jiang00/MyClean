@@ -12,24 +12,26 @@
 
         <ImageView
             android:id="@+id/chongdian"
-            android:layout_width="@dimen/d40"
-            android:layout_height="@dimen/d40"
-            android:layout_gravity="center"
+            android:layout_width="@dimen/d43"
+            android:layout_height="@dimen/d43"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginRight="@dimen/d13"
             android:scaleType="center"
-            android:src="@mipmap/gboost_main" />
+            android:src="@mipmap/gboost_otifi" />
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
+        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -37,16 +39,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/gboost_0"
-                android:textColor="@color/A9"
+                android:textColor="#000000"
                 android:textSize="@dimen/s15" />
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/d5"
             android:text="@string/gboost_8"
-            android:textColor="@color/A9"
+            android:textColor="#b3000000"
             android:textSize="@dimen/s12" />
     </LinearLayout>
 
@@ -56,10 +58,10 @@
         android:layout_height="@dimen/d27"
         android:layout_gravity="center_vertical"
         android:layout_marginRight="16dp"
-        android:background="@drawable/shape__a4_r"
+        android:background="@mipmap/juxing"
         android:gravity="center"
         android:text="@string/gboost_9"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/s12" />
+        android:textColor="@color/A6"
+        android:textSize="@dimen/s10" />
 
 </LinearLayout>

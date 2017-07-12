@@ -28,7 +28,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/B6"
+            android:background="@color/B3"
             android:orientation="vertical">
 
             <FrameLayout
@@ -41,7 +41,7 @@
                     android:id="@+id/gboost_gridview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/B6"
+                    android:background="@color/B3"
                     android:horizontalSpacing="@dimen/d18"
                     android:numColumns="3"
                     android:paddingLeft="@dimen/d16"
@@ -72,8 +72,8 @@
                      app:piv_selectedColor="@color/A1"
                      app:piv_unselectedColor="@color/black_35" />-->
             </FrameLayout>
-
-            <RelativeLayout
+            <!--加速按钮-->
+            <!--<RelativeLayout
                 android:id="@+id/file_clean_rl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                     android:layout_height="@dimen/d75"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/aerobee" />
-            </RelativeLayout>
+            </RelativeLayout>-->
         </RelativeLayout>
 
         <!-- <LinearLayout
@@ -316,7 +316,7 @@
                             android:src="@mipmap/tilte_left" />
                     </FrameLayout>
 
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"

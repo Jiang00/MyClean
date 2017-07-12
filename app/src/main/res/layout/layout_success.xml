@@ -30,37 +30,73 @@
             android:layout_height="match_parent">
 
             <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="@dimen/d250">
+                android:layout_width="@dimen/d120"
+                android:layout_height="@dimen/d120"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="@dimen/d160">
+
+                <com.icleaner.junk.mycustomview.Success_CircleWaveView
+                    android:id="@+id/success_cirlewaveview"
+                    android:layout_width="@dimen/d90"
+                    android:layout_height="@dimen/d90"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/imageview_beijing"
+                    android:layout_width="@dimen/d90"
+                    android:layout_height="@dimen/d90"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/float_dialog_3"
+                    android:visibility="gone" />
                 <!--白色圆-->
-                <ImageView
-                    android:layout_width="@dimen/d150"
-                    android:layout_height="@dimen/d150"
-                    android:src="@mipmap/success_1" />
+                <!--<ImageView
+                    android:layout_width="@dimen/d90"
+                    android:layout_height="@dimen/d90"
+                    android:src="@mipmap/success_1" />-->
+                <!--画圆形进度条-->
+                <com.icleaner.junk.mycustomview.MainRoundView
+                    android:id="@+id/main_progress"
+                    android:layout_width="@dimen/d90"
+                    android:layout_height="@dimen/d90"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/d20" />
                 <!--带点圆-->
-                <ImageView
-                    android:id="@+id/success_progress"
-                    android:layout_width="@dimen/d150"
-                    android:layout_height="@dimen/d150"
-                    android:src="@mipmap/success_3" />
+                <!--    <ImageView
+                        android:layout_width="@dimen/d90"
+                        android:layout_height="@dimen/d90"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/success_3"
+                        android:visibility="gone" />-->
                 <!--画对号-->
-                <com.vater.clean.junk.myview.DrawHookView
+                <com.icleaner.junk.mycustomview.DrawHookView
                     android:id="@+id/success_drawhook"
-                    android:layout_width="@dimen/d150"
-                    android:layout_height="@dimen/d150" />
+                    android:layout_width="@dimen/d90"
+                    android:layout_height="@dimen/d90"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/d20" />
                 <!--火箭-->
-                <ImageView
-                    android:id="@+id/success_huojian"
-                    android:layout_width="@dimen/d150"
-                    android:layout_height="@dimen/d150"
-                    android:scaleType="center"
-                    android:src="@mipmap/success_huojian"
-                    android:visibility="invisible" />
+                <!--  <ImageView
+                      android:id="@+id/success_huojian"
+                      android:layout_width="@dimen/d90"
+                      android:layout_height="@dimen/d90"
+                      android:scaleType="center"
+                      android:src="@mipmap/success_huojian"
+                      android:visibility="gone" />-->
             </FrameLayout>
 
-            <com.vater.clean.junk.myview.SlowScrollView
+            <TextView
+                android:id="@+id/success_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="@dimen/d275"
+                android:text="@string/success"
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s20"
+                android:visibility="gone" />
+
+            <com.icleaner.junk.mycustomview.MySlowScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -76,9 +112,8 @@
                     <!--tou-->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d146"
-                        android:layout_marginBottom="@dimen/d8"
-                        android:background="@color/A1">
+                        android:layout_height="wrap_content"
+                        android:background="@color/B3">
 
                         <FrameLayout
                             android:layout_width="match_parent"
@@ -88,78 +123,97 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:orientation="horizontal">
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="@dimen/d53"
+                                    android:layout_width="@dimen/d56"
+                                    android:layout_height="@dimen/d56"
+                                    android:layout_marginBottom="@dimen/d8"
+                                    android:layout_marginTop="@dimen/d18"
                                     android:src="@mipmap/success_duigou" />
 
+                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="@dimen/d8"
+                                    android:text="@string/success_title"
+                                    android:textColor="@color/A7"
+                                    android:textSize="@dimen/s14" />
 
-                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:id="@+id/success_clean_size"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d27"
+                                    android:layout_gravity="center_horizontal"
                                     android:text="@string/success_cleaned"
-                                    android:textColor="@color/white_100"
-                                    android:textSize="@dimen/s18" />
+                                    android:textColor="@color/A7"
+                                    android:textSize="@dimen/s12" />
 
+                                <ImageView
+                                    android:id="@+id/success_jiantou"
+                                    android:layout_width="@dimen/d23"
+                                    android:layout_height="@dimen/d31"
+                                    android:layout_gravity="bottom|center_horizontal"
+                                    android:layout_marginBottom="@dimen/d6"
+                                    android:layout_marginTop="@dimen/d12"
+                                    android:src="@mipmap/success_tt" />
                             </LinearLayout>
-
-                            <ImageView
-                                android:id="@+id/success_jiantou"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="bottom|center_horizontal"
-                                android:layout_marginBottom="@dimen/d20"
-                                android:src="@mipmap/success_tt" />
-
                         </FrameLayout>
                     </FrameLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d5"
+                        android:background="@color/A2" />
                     <!--好评-->
                     <LinearLayout
                         android:id="@+id/main_rotate_all"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d8"
-                        android:background="@color/white_100"
+                        android:background="@color/B3"
                         android:orientation="vertical">
 
-
-                        <FrameLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:background="@color/A1">
 
                             <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d84"
-                                android:background="@mipmap/main_rotate_2" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/d90"
+                                android:layout_centerInParent="true"
+                                android:src="@mipmap/main_rotate_2" />
 
                             <ImageView
                                 android:id="@+id/rotate_cha"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right"
-                                android:padding="@dimen/d15"
-                                android:src="@mipmap/rotate_cha" />
+                                android:layout_width="@dimen/d15"
+                                android:layout_height="@dimen/d15"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/d16"
+                                android:layout_marginTop="@dimen/d10"
+                                android:src="@mipmap/close" />
+                        </RelativeLayout>
 
-                        </FrameLayout>
-
-                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="@dimen/d32"
-                            android:layout_marginTop="@dimen/d20"
-                            android:text="@string/rotate_msg"
-                            android:textColor="@color/A9"
+                            android:layout_marginBottom="@dimen/d6"
+                            android:layout_marginTop="@dimen/d12"
+                            android:text="@string/like"
+                            android:textColor="@color/A1"
                             android:textSize="@dimen/s16" />
 
+                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="@dimen/d13"
+                            android:text="@string/full_marks"
+                            android:textColor="@color/A1"
+                            android:textSize="@dimen/s16" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -167,41 +221,49 @@
                             android:gravity="center_horizontal"
                             android:orientation="horizontal">
 
-                            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:id="@+id/main_rotate_bad"
-                                android:layout_width="@dimen/d121"
+                                android:layout_width="@dimen/d130"
                                 android:layout_height="@dimen/d36"
                                 android:layout_gravity="center_horizontal"
-                                android:background="@drawable/shape_rotate_bad"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:gravity="center"
                                 android:text="@string/rotate_cancel"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="#59000000"
+                                android:textSize="@dimen/s16" />
 
-                            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:id="@+id/main_rotate_good"
-                                android:layout_width="@dimen/d121"
+                                android:layout_width="@dimen/d130"
                                 android:layout_height="@dimen/d36"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_marginLeft="@dimen/d67"
+                                android:layout_marginRight="@dimen/d16"
                                 android:background="@drawable/shape_rotate_good"
                                 android:gravity="center"
                                 android:text="@string/rotate_ok"
                                 android:textColor="@color/white_100"
-                                android:textSize="@dimen/s15" />
+                                android:textSize="@dimen/s16" />
                         </LinearLayout>
-
                     </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d5"
+                        android:background="@color/A2" />
 
                     <LinearLayout
                         android:id="@+id/ll_ad_xiao"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d9"
+                        android:layout_marginBottom="@dimen/d5"
                         android:background="@color/white_100"
                         android:orientation="vertical"
                         android:visibility="gone" />
-
 
                     <!--功能块-->
                     <LinearLayout
@@ -220,18 +282,18 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d84"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent">
 
                                     <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
+                                        android:layout_marginLeft="@dimen/d16"
                                         android:src="@mipmap/file_main" />
                                 </FrameLayout>
 
@@ -242,34 +304,26 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_file"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
+                                        android:layout_marginTop="@dimen/d3"
                                         android:text="@string/file_main"
-                                        android:textColor="@color/A10"
+                                        android:textColor="@color/A1_50"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
-
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
+                                android:layout_height="1px"
                                 android:background="@color/A2" />
                         </LinearLayout>
 
@@ -283,19 +337,19 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d84"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent">
 
                                     <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
-                                        android:src="@mipmap/junk_card" />
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:src="@mipmap/junk_main" />
                                 </FrameLayout>
 
                                 <LinearLayout
@@ -305,33 +359,26 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_junk"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/success_8"
-                                        android:textColor="@color/A10"
+                                        android:textColor="@color/A1_50"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
+                                android:layout_height="1px"
                                 android:background="@color/A2" />
                         </LinearLayout>
 
@@ -345,21 +392,20 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d84"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent">
 
                                     <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
+                                        android:layout_marginLeft="@dimen/d16"
                                         android:src="@mipmap/ram_card" />
                                 </FrameLayout>
-
 
                                 <LinearLayout
                                     android:layout_width="0dp"
@@ -368,33 +414,26 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_ram"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/success_9"
-                                        android:textColor="@color/A10"
+                                        android:textColor="@color/A1_50"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
+                                android:layout_height="1px"
                                 android:background="@color/A2" />
                         </LinearLayout>
 
@@ -408,19 +447,19 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d84"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent">
 
                                     <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
-                                        android:src="@mipmap/cpu_card" />
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:src="@mipmap/cooling_main" />
                                 </FrameLayout>
 
                                 <LinearLayout
@@ -430,36 +469,28 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/main_cooling_name"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/success_10"
-                                        android:textColor="@color/A10"
+                                        android:textColor="@color/A1_50"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
+                                android:layout_height="1px"
                                 android:background="@color/A2" />
                         </LinearLayout>
-
 
                         <!--游戏加速-->
                         <LinearLayout
@@ -471,18 +502,18 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d84"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent">
 
                                     <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
+                                        android:layout_marginLeft="@dimen/d16"
                                         android:src="@mipmap/gboost_main" />
                                 </FrameLayout>
 
@@ -494,33 +525,26 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/gboost_0"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/gboost_10"
-                                        android:textColor="@color/A10"
+                                        android:textColor="@color/A1_50"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
+                                android:layout_height="1px"
                                 android:background="@color/A2" />
                         </LinearLayout>
 
@@ -534,18 +558,18 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d84"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent">
 
                                     <ImageView
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
+                                        android:layout_marginLeft="@dimen/d16"
                                         android:src="@mipmap/picture_main" />
                                 </FrameLayout>
 
@@ -556,36 +580,28 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_picture"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/picture_delete"
-                                        android:textColor="@color/A10"
+                                        android:textColor="@color/A1_50"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
+                                android:layout_height="1px"
                                 android:background="@color/A2" />
                         </LinearLayout>
-
 
                         <!--清理通知栏-->
                         <LinearLayout
@@ -597,20 +613,20 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:background="#ffffff"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d84"
+                                    android:layout_width="@dimen/d72"
                                     android:layout_height="match_parent">
 
                                     <ImageView
                                         android:id="@+id/notifi_icon"
-                                        android:layout_width="@dimen/d33"
-                                        android:layout_height="@dimen/d33"
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d25"
+                                        android:layout_marginLeft="@dimen/d16"
                                         android:src="@mipmap/notifi_6" />
                                 </FrameLayout>
 
@@ -621,59 +637,50 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_notifi"
-                                        android:textColor="@color/A9"
-                                        android:textSize="@dimen/s15" />
+                                        android:textColor="@color/A1"
+                                        android:textSize="@dimen/s14" />
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:id="@+id/notifi_text"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/notifi_msg_main"
-                                        android:textColor="@color/A10"
+                                        android:textColor="@color/A1_50"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:src="@mipmap/right" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
+                                android:layout_height="1px"
                                 android:background="@color/A2" />
                         </LinearLayout>
-
 
                         <!--深度清理-->
                         <LinearLayout
                             android:id="@+id/main_power_button"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d72"
+                            android:layout_height="@dimen/d56"
                             android:background="?attr/selectableItemBackground"
                             android:orientation="horizontal">
 
                             <FrameLayout
-                                android:layout_width="@dimen/d84"
+                                android:layout_width="@dimen/d72"
                                 android:layout_height="match_parent">
 
                                 <ImageView
                                     android:id="@+id/power_icon"
-                                    android:layout_width="@dimen/d33"
-                                    android:layout_height="@dimen/d33"
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d25"
+                                    android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/power_6" />
                             </FrameLayout>
-
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -682,30 +689,22 @@
                                 android:gravity="center_vertical"
                                 android:orientation="vertical">
 
-                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/side_power"
-                                    android:textColor="@color/A9"
-                                    android:textSize="@dimen/s15" />
+                                    android:textColor="@color/A1"
+                                    android:textSize="@dimen/s14" />
 
-                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:id="@+id/power_text"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/power_3"
-                                    android:textColor="@color/A10"
+                                    android:textColor="@color/A1_50"
                                     android:textSize="@dimen/s12" />
                             </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/right" />
                         </LinearLayout>
-
                     </LinearLayout>
 
                     <!--大屏native-->
@@ -718,10 +717,8 @@
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
                         android:visibility="gone" />
-
-
                 </LinearLayout>
-            </com.vater.clean.junk.myview.SlowScrollView>
+            </com.icleaner.junk.mycustomview.MySlowScrollView>
         </FrameLayout>
     </LinearLayout>
 </FrameLayout>

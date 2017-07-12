@@ -17,7 +17,7 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
@@ -41,17 +41,6 @@
             android:background="@color/white_100"
             android:orientation="vertical">
 
-
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d26"
-                android:background="@color/A8"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/d16"
-                android:text="@string/setting_kaiguanllei"
-                android:textColor="@color/A10"
-                android:textSize="@dimen/s14" />
-
             <RelativeLayout
                 android:id="@+id/setting_tongzhi"
                 android:layout_width="match_parent"
@@ -64,21 +53,21 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_tongzhi" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_tongzhi"
                     android:text="@string/setting_tongzhi"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
                 <ImageView
                     android:id="@+id/setting_tongzhi_check"
@@ -88,14 +77,16 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/d16"
                     android:scaleType="center" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
-
-            <RelativeLayout
+         <!--   <RelativeLayout
                 android:id="@+id/setting_tongzhilan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -107,10 +98,10 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_tongzhilan" />
                 </RelativeLayout>
 
@@ -120,8 +111,8 @@
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_tongzhilan"
                     android:text="@string/setting_tongzhilan"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
                 <ImageView
                     android:id="@+id/setting_tongzhilan_check"
@@ -130,12 +121,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/d16" />
-            </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
+            </RelativeLayout>-->
 
             <RelativeLayout
                 android:id="@+id/setting_float"
@@ -149,21 +142,21 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_float" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_float"
                     android:text="@string/setting_float"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
                 <ImageView
                     android:id="@+id/setting_float_check"
@@ -172,12 +165,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/d16" />
-            </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/setting_battery"
@@ -191,10 +186,10 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_battery" />
                 </RelativeLayout>
 
@@ -205,21 +200,13 @@
                     android:layout_toRightOf="@id/rl_battery"
                     android:orientation="vertical">
 
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/setting_battery"
-                        android:textColor="@color/A9"
-                        android:textSize="@dimen/s15" />
-
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/battery_8"
-                        android:textColor="@color/A10"
-                        android:textSize="@dimen/s12" />
+                        android:textColor="#c6000000"
+                        android:textSize="@dimen/s14" />
                 </LinearLayout>
-
 
                 <ImageView
                     android:id="@+id/setting_battery_check"
@@ -228,18 +215,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/d16" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
-
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d26"
-                android:background="@color/A8"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:text="@string/setting_gongneng"
-                android:textColor="@color/A9"
-                android:textSize="@dimen/s14" />
 
             <RelativeLayout
                 android:id="@+id/setting_picture"
@@ -253,29 +236,29 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_picture" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_picture"
                     android:text="@string/side_picture"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
-
 
             <RelativeLayout
                 android:id="@+id/setting_hui"
@@ -289,28 +272,29 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_hui" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_hui"
                     android:text="@string/picture_hui"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
 
             <RelativeLayout
                 android:id="@+id/setting_gboost"
@@ -324,28 +308,29 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/gboost_setting" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_gboost"
                     android:text="@string/gboost_0"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
 
             <RelativeLayout
                 android:id="@+id/setting_file"
@@ -359,28 +344,29 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_file" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_file"
                     android:text="@string/side_file"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
 
             <RelativeLayout
                 android:id="@+id/setting_notifi"
@@ -394,28 +380,29 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_notifi" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_notifi"
                     android:text="@string/side_notifi"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
 
             <RelativeLayout
                 android:id="@+id/setting_power"
@@ -429,28 +416,29 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_power" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_power"
                     android:text="@string/side_power"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
 
             <RelativeLayout
                 android:id="@+id/setting_white"
@@ -467,28 +455,29 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_white" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_white"
                     android:text="@string/setting_white"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
 
             <RelativeLayout
                 android:id="@+id/setting_short"
@@ -502,28 +491,29 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_shortcut" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_short"
                     android:text="@string/setting_short"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/A8" />
 
             <RelativeLayout
                 android:id="@+id/setting_rotate"
@@ -537,24 +527,29 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/d30"
+                        android:layout_height="@dimen/d30"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/d25"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/setting_rotate" />
                 </RelativeLayout>
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/rl_rotate"
                     android:text="@string/setting_rotate"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="#c6000000"
+                    android:textSize="@dimen/s14" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:background="@color/A2" />
             </RelativeLayout>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

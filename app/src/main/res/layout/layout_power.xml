@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/A1"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,14 +15,18 @@
         <View
             android:id="@+id/view_title_bar"
             android:layout_width="match_parent"
-            android:layout_height="24dp" />
+            android:layout_height="0dp" />
 
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d196"
+        android:id="@+id/power_imageview"
+        android:layout_width="@dimen/d200"
+        android:layout_height="@dimen/d200"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/d60"
+        android:layout_marginTop="@dimen/d36"
         android:background="@color/A1"
         android:scaleType="center"
         android:src="@mipmap/power_1" />
@@ -35,47 +40,36 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d60"
+            android:layout_height="@dimen/d40"
             android:background="@color/white_100"
             android:orientation="horizontal">
 
-            <FrameLayout
-                android:layout_width="@dimen/d72"
-                android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:src="@mipmap/power_2" />
-
-            </FrameLayout>
-
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/power_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d16"
                 android:text="@string/power_1"
-                android:textColor="@color/A13"
+                android:textColor="#801e134b"
                 android:textSize="@dimen/s14" />
 
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/d5"
                 android:singleLine="true"
                 android:text="@string/power_2"
-                android:textColor="@color/A10"
+                android:textColor="#801e134b"
                 android:textSize="@dimen/s14" />
         </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/A8">
+            android:background="@color/B3">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/power_recycler"
@@ -83,30 +77,19 @@
                 android:layout_height="wrap_content"
                 android:overScrollMode="never"
                 android:scrollbars="none" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@mipmap/yinying" />
         </FrameLayout>
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d72"
-        android:background="@color/white_100">
+        android:layout_height="wrap_content"
+        android:background="@color/B3">
 
-        <Button
+        <ImageView
             android:id="@+id/junk_button_clean"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d44"
+            android:layout_width="@dimen/d100"
+            android:layout_height="@dimen/d100"
             android:layout_centerInParent="true"
-            android:background="@drawable/shape_button"
-            android:text="@string/junk_button"
-            android:textAllCaps="false"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/s18" />
+            android:src="@mipmap/junk_img" />
     </RelativeLayout>
 </LinearLayout>

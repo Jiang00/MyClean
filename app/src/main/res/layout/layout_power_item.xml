@@ -16,23 +16,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-
             <ImageView
                 android:id="@+id/recyc_icon"
-                android:layout_width="@dimen/d46"
-                android:layout_height="@dimen/d46"
-                android:layout_marginBottom="@dimen/d6"
-                android:layout_marginLeft="@dimen/d20"
-                android:layout_marginRight="@dimen/d20"
+                android:layout_width="@dimen/d40"
+                android:layout_height="@dimen/d40"
+                android:layout_marginBottom="@dimen/d16"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginRight="@dimen/d16"
                 android:layout_marginTop="@dimen/d16"
                 android:src="@mipmap/icon" />
 
             <ImageView
                 android:id="@+id/recyc_check"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|bottom"
-                android:layout_marginRight="@dimen/d15"
+                android:layout_width="@dimen/d18"
+                android:layout_height="@dimen/d18"
+                android:layout_gravity="right|top"
+                android:layout_marginRight="@dimen/d9"
+                android:layout_marginTop="@dimen/d9"
                 android:src="@mipmap/ram_normal" />
         </FrameLayout>
 
@@ -45,6 +45,4 @@
             android:textColor="@color/A9"
             android:textSize="@dimen/s8" />
     </LinearLayout>
-
-
 </FrameLayout>

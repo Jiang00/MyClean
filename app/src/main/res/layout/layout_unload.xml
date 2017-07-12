@@ -22,7 +22,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d109"
+            android:layout_height="@dimen/d160"
             android:background="@drawable/shape_a1">
 
             <ImageView
@@ -36,25 +36,25 @@
 
             <ImageView
                 android:id="@+id/zhuangshi"
-                android:layout_width="@dimen/d65"
-                android:layout_height="@dimen/d65"
-                android:layout_marginLeft="@dimen/d36"
-                android:layout_marginTop="@dimen/d30"
+                android:layout_width="@dimen/d116"
+                android:layout_height="@dimen/d112"
+                android:layout_marginLeft="@dimen/d20"
+                android:layout_marginTop="@dimen/d19"
                 android:src="@mipmap/unload_tong" />
 
 
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d18"
-                android:layout_marginTop="@dimen/d50"
+                android:layout_marginLeft="@dimen/d10"
+                android:layout_marginTop="@dimen/d72"
                 android:layout_toRightOf="@id/zhuangshi"
                 android:text="158"
-                android:textColor="@color/A2"
-                android:textSize="@dimen/s30" />
+                android:textColor="@color/A20"
+                android:textSize="@dimen/s14" />
 
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/tv_danwei"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,23 +62,22 @@
                 android:layout_marginLeft="@dimen/d6"
                 android:layout_toRightOf="@id/tv_size"
                 android:text="KB "
-                android:textColor="#ffffff"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/A20"
+                android:textSize="@dimen/s14" />
 
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
                 android:layout_toRightOf="@id/tv_danwei"
                 android:text="@string/unload_canyu"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s14" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d44"
-            android:layout_marginTop="@dimen/d10"
+            android:layout_height="@dimen/d56"
             android:background="@drawable/shape_ffffff_b"
             android:orientation="horizontal">
 
@@ -94,9 +93,15 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:text="@string/quxiao"
-                    android:textColor="@color/A9"
+                    android:textColor="#591e134b"
                     android:textSize="@dimen/s16" />
             </LinearLayout>
+
+            <TextView
+                android:layout_width="@dimen/d2"
+                android:layout_height="@dimen/d32"
+                android:layout_gravity="center_vertical"
+                android:background="@color/A2" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -110,7 +115,7 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:text="@string/qingli"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A1"
                     android:textSize="@dimen/s16" />
             </LinearLayout>
         </LinearLayout>

@@ -9,98 +9,123 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="@dimen/d33"
-        android:layout_marginRight="@dimen/d33"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
+        android:layout_marginTop="@dimen/d190"
         android:background="@drawable/shape_radio"
         android:orientation="vertical">
 
+        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d24"
+            android:text="@string/delete_queren"
+            android:textColor="#000000"
+            android:textSize="@dimen/s16" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d90"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-            <ImageView
+            <ProgressBar
+                android:id="@+id/delete_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d3"
+                android:layout_gravity="center"
+                android:progress="100"
+                android:progressDrawable="@drawable/pic_progress"
+                android:visibility="gone" />
+
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:id="@+id/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d20"
-                android:layout_marginRight="@dimen/d15"
-                android:src="@mipmap/pic_dialog_delete" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d20"
+                android:text="@string/picture_1"
+                android:textColor="#b3000000"
+                android:textSize="@dimen/s12" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
+                android:id="@+id/image_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d16"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-                <ProgressBar
-                    android:id="@+id/delete_progress"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d3"
-                    android:layout_gravity="center"
-                    android:progress="100"
-                    android:progressDrawable="@drawable/pic_progress"
-                    android:visibility="gone" />
+                <ImageView
+                    android:id="@+id/image_1"
+                    android:layout_width="@dimen/d52"
+                    android:layout_height="@dimen/d60" />
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/message"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/picture_1"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s15" />
+                <ImageView
+                    android:id="@+id/image_2"
+                    android:layout_width="@dimen/d52"
+                    android:layout_height="@dimen/d60"
+                    android:layout_marginLeft="@dimen/d19" />
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                    android:id="@+id/count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d12"
-                    android:text="@string/picture_2"
-                    android:textColor="@color/A10"
-                    android:textSize="@dimen/s11" />
+                <ImageView
+                    android:id="@+id/image_3"
+                    android:layout_width="@dimen/d52"
+                    android:layout_height="@dimen/d60"
+                    android:layout_marginLeft="@dimen/d19" />
+
+                <ImageView
+                    android:id="@+id/image_4"
+                    android:layout_width="@dimen/d52"
+                    android:layout_height="@dimen/d60"
+                    android:layout_marginLeft="@dimen/d19" />
             </LinearLayout>
-        </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/A8" />
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:id="@+id/count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d24"
+                android:layout_marginRight="@dimen/d24"
+                android:layout_marginTop="@dimen/d20"
+                android:text="@string/picture_2"
+                android:textColor="#b3000000"
+                android:textSize="@dimen/s12" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/d36"
+            android:layout_marginBottom="@dimen/d8"
+            android:layout_marginTop="@dimen/d24"
             android:orientation="horizontal">
 
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/cancle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/d24"
                 android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:text="@string/premiss_4"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s16" />
+                android:textColor="#591e134b"
+                android:textSize="@dimen/s14" />
 
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/A8" />
-
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/ok"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/d24"
                 android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
+                android:background="@drawable/shape_button_dialog"
                 android:gravity="center"
                 android:text="@string/premiss_3"
-                android:textColor="@color/A13"
-                android:textSize="@dimen/s16" />
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s14" />
         </LinearLayout>
     </LinearLayout>
 

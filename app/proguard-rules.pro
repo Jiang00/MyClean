@@ -107,7 +107,7 @@
 -keep class com.android.client.** { *;}
 -keep class com.core.** { *;}
 
--keep class com.vatermobi.kpa.nativ.** { *; }
+-keep class com.icleanermobi.kpa.nativ.** { *; }
 
 -keep class com.sample.lottie.** { *;}
 

@@ -15,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d90"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageView
@@ -24,55 +24,58 @@
                 android:layout_height="@dimen/d36"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/d44"
-                android:src="@mipmap/file_apk_icon" />
+                android:src="@mipmap/file_apk_icon"
+                android:visibility="gone" />
 
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d20"
+                android:layout_marginBottom="@dimen/d20"
+                android:layout_marginLeft="@dimen/d24"
+                android:layout_marginTop="@dimen/d24"
                 android:text="@string/delete_2"
-                android:textColor="@color/A9"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s16" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/A8" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/d36"
+            android:layout_marginBottom="@dimen/d8"
             android:orientation="horizontal">
 
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                android:id="@+id/ok"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:text="@string/premiss_3"
-                android:textColor="@color/A9"
-                android:textSize="@dimen/s15" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/A8" />
-
-            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/cancle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
+                android:paddingLeft="@dimen/d16"
+                android:paddingRight="@dimen/d16"
                 android:text="@string/premiss_4"
-                android:textColor="@color/A13"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/A1_50"
+                android:textSize="@dimen/s16" />
+
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:id="@+id/ok"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:paddingLeft="@dimen/d16"
+                android:paddingRight="@dimen/d16"
+                android:text="@string/premiss_3"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s16" />
         </LinearLayout>
     </LinearLayout>
 

@@ -31,7 +31,7 @@
                 android:layout_marginLeft="@dimen/d8"
                 android:layout_marginRight="@dimen/d5"
                 android:layout_weight="1"
-                android:gravity="bottom"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
@@ -44,8 +44,8 @@
                     android:fontFamily="sans-serif-regular"
                     android:singleLine="true"
                     android:tag="ad_title"
-                    android:textColor="@color/black_70"
-                    android:textSize="@dimen/s16"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s15"
                     tools:text="Your see" />
 
                 <TextView
@@ -53,11 +53,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/ll"
+                    android:layout_marginTop="@dimen/d4"
                     android:ellipsize="end"
                     android:fontFamily="sans-serif-light"
                     android:lines="2"
                     android:tag="ad_desc"
-                    android:textColor="#b3404040"
+                    android:textColor="@color/A1_50"
                     android:textSize="@dimen/s11"
                     tools:text="Your see Your see Your see Your see" />
 

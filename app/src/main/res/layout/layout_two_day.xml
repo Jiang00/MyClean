@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/chongdian"
-            android:layout_width="@dimen/d40"
-            android:layout_height="@dimen/d40"
+            android:layout_width="@dimen/d43"
+            android:layout_height="@dimen/d43"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
             android:src="@mipmap/icon" />
@@ -24,12 +24,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
+        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -38,9 +38,8 @@
                 android:layout_height="wrap_content"
                 android:lines="1"
                 android:text="@string/notifi_two_day"
-                android:textColor="@color/A9"
+                android:textColor="#000000"
                 android:textSize="@dimen/s15" />
-
         </LinearLayout>
 
         <TextView
@@ -48,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/d5"
             android:text="@string/notifi_two_day_2"
-            android:textColor="@color/A9"
+            android:textColor="#b3000000"
             android:textSize="@dimen/s12" />
     </LinearLayout>
 
@@ -58,10 +57,10 @@
         android:layout_height="@dimen/d27"
         android:layout_gravity="center_vertical"
         android:layout_marginRight="@dimen/d16"
-        android:background="@drawable/shape__a4_r"
+        android:background="@mipmap/juxing"
         android:gravity="center"
         android:text="@string/notification_button"
-        android:textColor="@color/white_100"
+        android:textColor="@color/A6"
         android:textSize="@dimen/s12" />
 
 </LinearLayout>

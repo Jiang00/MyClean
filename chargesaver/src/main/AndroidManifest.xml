@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vater.module.charge.saver">
+    package="com.icleaner.module.charge.saver">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application>
         <service
-            android:name="com.vater.module.charge.saver.service.BatteryService"
+            android:name="com.icleaner.module.charge.saver.protectservice.ServiceBattery"
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
 
-        <receiver android:name="com.vater.module.charge.saver.receiver.StartReceiver">
+        <receiver android:name="com.icleaner.module.charge.saver.receiver.BroadcastReceiverStart">
             <intent-filter android:priority="2147483647">
 
                 <!-- 优先级加最高 -->
@@ -27,11 +27,11 @@
         </receiver>
 
         <activity
-            android:name="com.vater.module.charge.saver.ADActivity"
+            android:name="com.icleaner.module.charge.saver.SetADActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.vater.module.charge.saver.BatteryChargeActivity"
+            android:name="com.icleaner.module.charge.saver.BatteryProtectActivity"
             android:launchMode="singleInstance"
             android:noHistory="true"
             android:screenOrientation="nosensor"

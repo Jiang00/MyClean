@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/A2"
     android:orientation="vertical"
-    tools:context="com.vater.clean.junk.jiemian.MainActivity">
-
+    tools:context="com.icleaner.junk.icleaneractivity.MainActivity">
 
     <View
         android:id="@+id/view_title_bar"
@@ -42,7 +41,7 @@
                     android:scaleType="center"
                     android:src="@mipmap/main_menu" />
 
-                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,7 +81,7 @@
 
             </RelativeLayout>
 
-            <com.vater.clean.junk.myview.PullToRefreshLayout
+            <com.icleaner.junk.mycustomview.PullToRefreshLayout
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -90,7 +89,7 @@
 
                 <include layout="@layout/layout_load_more" />
 
-                <com.vater.clean.junk.myview.MyScrollView
+                <com.icleaner.junk.mycustomview.MyScrollView
                     android:id="@+id/main_scroll_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -126,7 +125,8 @@
                                 android:layout_marginLeft="@dimen/d30"
                                 android:layout_marginTop="@dimen/d217"
                                 android:alpha="0.5"
-                                android:src="@drawable/shape_dian" />
+                                android:src="@drawable/shape_dian"
+                                android:visibility="gone" />
 
                             <ImageView
                                 android:layout_width="@dimen/d6"
@@ -134,19 +134,20 @@
                                 android:layout_marginLeft="@dimen/d301"
                                 android:layout_marginTop="@dimen/d82"
                                 android:alpha="0.3"
-                                android:src="@drawable/shape_dian" />
+                                android:src="@drawable/shape_dian"
+                                android:visibility="gone" />
                             <!--虚环-->
-                            <com.vater.clean.junk.myview.VirtuaRingView
+                            <com.icleaner.junk.mycustomview.VirtuaRingView
                                 android:id="@+id/virtuaringview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                             <!--两个外圆-->
-                            <com.vater.clean.junk.myview.CircleView
+                            <com.icleaner.junk.mycustomview.CircleView
                                 android:id="@+id/main_circleview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                             <!--水波纹球-->
-                            <com.vater.clean.junk.myview.MainWaterView
+                            <com.icleaner.junk.mycustomview.ICleanerWaterView
                                 android:id="@+id/main_water"
                                 android:layout_width="@dimen/d156"
                                 android:layout_height="@dimen/d156"
@@ -154,8 +155,8 @@
                             <!--指针-->
                             <ImageView
                                 android:id="@+id/main_pointer"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/d196"
+                                android:layout_height="@dimen/d196"
                                 android:layout_centerInParent="true"
                                 android:src="@mipmap/pointer" />
 
@@ -164,9 +165,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/main_water"
                                 android:layout_centerHorizontal="true"
-                                android:src="@mipmap/main_touying" />
+                                android:src="@mipmap/main_touying"
+                                android:visibility="gone" />
                             <!--球周围进度条-->
-                            <com.vater.clean.junk.myview.MainRoundView
+                            <com.icleaner.junk.mycustomview.MainRoundView
                                 android:id="@+id/main_dian"
                                 android:layout_width="@dimen/d156"
                                 android:layout_height="@dimen/d156"
@@ -177,7 +179,8 @@
                                 android:id="@+id/main_fenshu"
                                 android:layout_width="@dimen/d100"
                                 android:layout_height="@dimen/d50"
-                                android:layout_centerInParent="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
                                 android:gravity="center"
                                 android:text="100"
                                 android:textColor="@color/B3"
@@ -197,10 +200,10 @@
                                 android:textSize="@dimen/s15"
                                 android:visibility="gone" />
                             <!--扩散-->
-                            <com.vater.clean.junk.myview.CircleWaveView
+                            <com.icleaner.junk.mycustomview.CircleWaveView
+                                android:id="@+id/main_circlewaveview"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:alpha="0.02" />
+                                android:layout_height="wrap_content" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -265,7 +268,7 @@
                                                         android:visibility="invisible" />
                                                 </RelativeLayout>
 
-                                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="@dimen/d8"
@@ -294,7 +297,7 @@
                                                     android:layout_height="wrap_content"
                                                     android:src="@mipmap/main_cooling_button" />
 
-                                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="@dimen/d8"
@@ -329,7 +332,7 @@
                                                     android:layout_height="wrap_content"
                                                     android:src="@mipmap/main_ram_button" />
 
-                                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="@dimen/d8"
@@ -354,7 +357,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:src="@mipmap/main_manager_button" />
 
-                                            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginTop="@dimen/d8"
@@ -443,7 +446,7 @@
                                     android:src="@mipmap/close" />
                             </RelativeLayout>
 
-                            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -453,7 +456,7 @@
                                 android:textColor="@color/A1"
                                 android:textSize="@dimen/s16" />
 
-                            <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -468,7 +471,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal">
 
-                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_bad"
                                     android:layout_width="@dimen/d130"
                                     android:layout_height="@dimen/d36"
@@ -484,7 +487,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1" />
 
-                                <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_good"
                                     android:layout_width="@dimen/d130"
                                     android:layout_height="@dimen/d36"
@@ -561,14 +564,14 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/main_junk_name"
                                         android:textColor="@color/A1"
                                         android:textSize="@dimen/s14" />
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
@@ -606,7 +609,7 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_cooling"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -614,7 +617,7 @@
                                         android:textColor="@color/A1"
                                         android:textSize="@dimen/s14" />
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d3"
@@ -652,7 +655,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_power"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -666,7 +669,7 @@
                                         android:layout_marginTop="@dimen/d2"
                                         android:orientation="horizontal">
 
-                                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                             android:id="@+id/power_size"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -674,7 +677,7 @@
                                             android:textColor="@color/A1_50"
                                             android:textSize="@dimen/s12" />
 
-                                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                             android:layout_width="@dimen/d225"
                                             android:layout_height="wrap_content"
                                             android:text="@string/power_2"
@@ -682,7 +685,7 @@
                                             android:textSize="@dimen/s12" />
                                     </LinearLayout>
 
-                                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:text="@string/power_5"
@@ -725,19 +728,19 @@
                                     android:textColor="@color/A1"
                                     android:textSize="@dimen/s16" />
 
-                                <com.vater.clean.junk.myview.CustomRoundCpu
+                                <com.icleaner.junk.mycustomview.CustomRoundCpu
                                     android:id="@+id/main_custom_cpu"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:visibility="gone" />
 
-                                <com.vater.clean.junk.myview.CustomRoundCpu
+                                <com.icleaner.junk.mycustomview.CustomRoundCpu
                                     android:id="@+id/main_custom_ram"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:visibility="gone" />
 
-                                <com.vater.clean.junk.myview.CustomRoundCpu
+                                <com.icleaner.junk.mycustomview.CustomRoundCpu
                                     android:id="@+id/main_custom_sd"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -852,14 +855,11 @@
                             android:visibility="invisible" />
 
                     </LinearLayout>
-
-                </com.vater.clean.junk.myview.MyScrollView>
+                </com.icleaner.junk.mycustomview.MyScrollView>
 
                 <include layout="@layout/layout_load_more" />
-
-            </com.vater.clean.junk.myview.PullToRefreshLayout>
+            </com.icleaner.junk.mycustomview.PullToRefreshLayout>
         </LinearLayout>
-
 
         <com.mingle.widget.LinearLayout
             android:id="@+id/ll_ad_full"
@@ -869,7 +869,6 @@
             android:clickable="true"
             android:orientation="vertical"
             android:visibility="gone" />
-
 
         <ProgressBar
             android:id="@+id/ad_progressbar"
@@ -884,6 +883,4 @@
 
         <include layout="@layout/layout_battery" />
     </FrameLayout>
-
-
 </LinearLayout>

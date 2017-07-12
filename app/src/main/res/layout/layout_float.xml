@@ -9,219 +9,235 @@
     <View
         android:id="@+id/view_title_bar"
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="0dp" />
 
     <LinearLayout
+        android:id="@+id/float_yidong_linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="@dimen/d16"
-        android:layout_marginRight="@dimen/d16"
         android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d146"
-                android:layout_marginTop="@dimen/d45"
-                android:background="@drawable/shape_a1_r">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@mipmap/float_beijing" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="@dimen/d10">
-
-                    <LinearLayout
-                        android:id="@+id/ll_wifi"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/iv_wifi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/float_wifi" />
-
-                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                            android:id="@+id/tv_wifi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_wifi"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s10" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_liuliang"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/iv_liuliang"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/float_liuliang" />
-
-                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                            android:id="@+id/tv_liuliang"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_liuliang"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s10" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_xianshi"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/iv_xianshi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/float_liangdu_0" />
-
-                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                            android:id="@+id/tv_xianshi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_liangdu"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s10" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_shengyin"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/iv_shengyin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/float_shengyin" />
-
-                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                            android:id="@+id/tv_shengyin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_shengyin"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s10" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_gps"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/iv_gps"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/float_gps" />
-
-                        <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                            android:id="@+id/tv_gps"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d2"
-                            android:lines="1"
-                            android:text="@string/float_gps"
-                            android:textColor="@color/white_100"
-                            android:textSize="@dimen/s10" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </FrameLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:gravity="center_horizontal">
 
-                <ImageView
-                    android:id="@+id/float_rotate"
-                    android:layout_width="@dimen/d78"
-                    android:layout_height="@dimen/d78"
-                    android:layout_centerHorizontal="true"
-                    android:src="@mipmap/float_dialog_1" />
-
-                <ImageView
-                    android:id="@+id/float_cricle"
-                    android:layout_width="@dimen/d67"
-                    android:layout_height="@dimen/d67"
-                    android:layout_centerInParent="true"
-                    android:src="@mipmap/float_dialog_2"
-                    android:visibility="visible" />
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                        android:id="@+id/float_memory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="77%"
-                        android:textColor="@color/A1"
-                        android:textSize="@dimen/s20"
-                        android:visibility="invisible" />
+                    <RelativeLayout
+                        android:id="@+id/float_relativelayout"
+                        android:layout_width="@dimen/d313"
+                        android:layout_height="@dimen/d84"
+                        android:layout_centerVertical="true"
+                        android:background="@color/A1">
 
-                    <com.vater.module.charge.saver.Mview.CustomerTypefaceTextView
-                        android:id="@+id/float_tishi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/float_memory"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/d5"
-                        android:text="@string/float_jiasu"
-                        android:textColor="@color/A1"
-                        android:textSize="@dimen/s8" />
-                </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/ll_wifi"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d84"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/d10"
+                            android:background="@color/A1"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-            </RelativeLayout>
+                            <ImageView
+                                android:id="@+id/iv_wifi"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:src="@mipmap/float_wifi" />
+
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                android:id="@+id/tv_wifi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d8"
+                                android:lines="1"
+                                android:text="@string/float_wifi"
+                                android:textColor="@color/B3"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_liuliang"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d84"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/d21"
+                            android:layout_toRightOf="@id/ll_wifi"
+                            android:background="@color/A1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/iv_liuliang"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:src="@mipmap/float_liuliang" />
+
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                android:id="@+id/tv_liuliang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d8"
+                                android:lines="1"
+                                android:text="@string/float_liuliang"
+                                android:textColor="@color/B3"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_xianshi"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d84"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/d21"
+                            android:layout_toRightOf="@id/ll_liuliang"
+                            android:background="@color/A1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/iv_xianshi"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:src="@mipmap/float_liangdu_0" />
+
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                android:id="@+id/tv_xianshi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d8"
+                                android:lines="1"
+                                android:text="@string/float_liangdu"
+                                android:textColor="@color/B3"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_shengyin"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d84"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/d21"
+                            android:layout_toRightOf="@id/ll_xianshi"
+                            android:background="@color/A1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/iv_shengyin"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:src="@mipmap/float_shengyin" />
+
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                android:id="@+id/tv_shengyin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d8"
+                                android:lines="1"
+                                android:text="@string/float_shengyin"
+                                android:textColor="@color/B3"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_gps"
+                            android:layout_width="@dimen/d36"
+                            android:layout_height="@dimen/d84"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/d15"
+                            android:layout_toRightOf="@id/ll_shengyin"
+                            android:background="@color/A1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/iv_gps"
+                                android:layout_width="@dimen/d36"
+                                android:layout_height="@dimen/d36"
+                                android:src="@mipmap/float_gps" />
+
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                android:id="@+id/tv_gps"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/d8"
+                                android:lines="1"
+                                android:text="@string/float_gps"
+                                android:textColor="@color/B3"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/d84"
+                        android:layout_height="@dimen/d84"
+                        android:layout_marginLeft="@dimen/d_42"
+                        android:layout_toRightOf="@id/float_relativelayout"
+                        android:background="@mipmap/float_beijing">
+
+                        <ImageView
+                            android:layout_width="@dimen/d48"
+                            android:layout_height="@dimen/d48"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/float_dialog_3" />
+
+                        <ImageView
+                            android:id="@+id/float_rotate"
+                            android:layout_width="@dimen/d44"
+                            android:layout_height="@dimen/d44"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/float_dialog_1" />
+
+                        <ImageView
+                            android:id="@+id/float_cricle"
+                            android:layout_width="@dimen/d32"
+                            android:layout_height="@dimen/d32"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/float_dialog_2"
+                            android:visibility="visible" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="vertical">
+
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                android:id="@+id/float_memory"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="77%"
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16"
+                                android:visibility="invisible" />
+
+                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                android:id="@+id/float_tishi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/float_memory"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/d3"
+                                android:text="@string/float_jiasu"
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s8"
+                                android:visibility="gone" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </FrameLayout>
         </FrameLayout>
 
         <LinearLayout
@@ -229,7 +245,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/d10"
-            android:background="@drawable/shape_a1_r"
+            android:background="@color/A1"
             android:orientation="vertical">
 
         </LinearLayout>
