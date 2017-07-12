@@ -85,7 +85,7 @@
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A2">
+                android:background="@color/A7">
 
                 <include layout="@layout/layout_load_more" />
 
@@ -112,6 +112,58 @@
                             android:gravity="center_horizontal"
                             android:orientation="vertical"
                             android:visibility="gone" />
+
+                        <!--环-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d307"
+                            android:background="@color/A1">
+
+                            <ImageView
+                                android:layout_width="@dimen/d234"
+                                android:layout_height="@dimen/d234"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/d8"
+                                android:src="@mipmap/main_clean_qiu" />
+
+                            <ImageView
+                                android:layout_width="@dimen/d234"
+                                android:layout_height="@dimen/d234"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/d8"
+                                android:src="@mipmap/mian_point" />
+                            <!--百分比-->
+                            <TextView
+                                android:id="@+id/main_fenshu_b"
+                                android:layout_width="@dimen/d100"
+                                android:layout_height="@dimen/d50"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center"
+                                android:text="100%"
+                                android:textColor="@color/A7"
+                                android:textSize="@dimen/s30" />
+                            <!--垃圾-->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/main_fenshu_b"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                android:text="@string/main_clean"
+                                android:textColor="@color/A6"
+                                android:textSize="@dimen/s12" />
+                            <!--加速-->
+                            <TextView
+                                android:layout_width="@dimen/d112"
+                                android:layout_height="@dimen/d30"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                android:text="@string/main_clean"
+                                android:textColor="@color/A7"
+                                android:textSize="@dimen/s16" />
+                        </RelativeLayout>
                         <!--球-->
                         <RelativeLayout
                             android:id="@+id/main_all_cercle"
@@ -228,7 +280,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="0dp"
                                         android:layout_weight="1">
-
+                                        <!--垃圾-->
                                         <RelativeLayout
                                             android:id="@+id/main_junk_button"
                                             android:layout_width="0dp"
@@ -278,7 +330,36 @@
                                                     android:textSize="@dimen/s12" />
                                             </LinearLayout>
                                         </RelativeLayout>
+                                        <!--内存-->
+                                        <RelativeLayout
+                                            android:id="@+id/main_ram_button"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackground">
 
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_centerInParent="true"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <ImageView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:src="@mipmap/main_ram_button" />
+
+                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/d8"
+                                                    android:text="@string/main_ram_name"
+                                                    android:textColor="#000000"
+                                                    android:textSize="@dimen/s12" />
+                                            </LinearLayout>
+                                        </RelativeLayout>
+                                        <!--温度-->
                                         <RelativeLayout
                                             android:id="@+id/main_cooling_button"
                                             android:layout_width="0dp"
@@ -314,35 +395,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1">
 
-                                        <RelativeLayout
-                                            android:id="@+id/main_ram_button"
-                                            android:layout_width="0dp"
-                                            android:layout_height="match_parent"
-                                            android:layout_weight="1"
-                                            android:background="?attr/selectableItemBackground">
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:layout_centerInParent="true"
-                                                android:gravity="center"
-                                                android:orientation="vertical">
-
-                                                <ImageView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:src="@mipmap/main_ram_button" />
-
-                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginTop="@dimen/d8"
-                                                    android:text="@string/main_ram_name"
-                                                    android:textColor="#000000"
-                                                    android:textSize="@dimen/s12" />
-                                            </LinearLayout>
-                                        </RelativeLayout>
-
+                                        <!--应用-->
                                         <LinearLayout
                                             android:id="@+id/main_manager_button"
                                             android:layout_width="0dp"
@@ -396,8 +449,8 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d4"
-                            android:background="@color/A2" />
+                            android:layout_height="@dimen/d8"
+                            android:background="@color/A17" />
                         <!--好评-->
                         <LinearLayout
                             android:id="@+id/main_rotate_all"
@@ -408,21 +461,15 @@
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d54">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/label2" />
+                                android:layout_height="@dimen/d42">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:layout_marginLeft="@dimen/d38"
-                                    android:text="@string/five_stars"
-                                    android:textColor="@color/A1"
+                                    android:text="@string/main_like"
+                                    android:textColor="@color/A8"
                                     android:textSize="@dimen/s16" />
                             </RelativeLayout>
 
