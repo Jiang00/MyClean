@@ -68,7 +68,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/iv_title_right"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/lot_ad"
@@ -576,7 +577,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/success_8"
-                                        android:textColor="@color/A1_50"
+                                        android:textColor="@color/A1"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -622,7 +623,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d3"
                                         android:text="@string/success_10"
-                                        android:textColor="@color/A1_50"
+                                        android:textColor="@color/A1"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -674,14 +675,14 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/power_1"
-                                            android:textColor="@color/A1_50"
+                                            android:textColor="@color/A1"
                                             android:textSize="@dimen/s12" />
 
                                         <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                             android:layout_width="@dimen/d225"
                                             android:layout_height="wrap_content"
                                             android:text="@string/power_2"
-                                            android:textColor="@color/A1_50"
+                                            android:textColor="@color/A1"
                                             android:textSize="@dimen/s12" />
                                     </LinearLayout>
 
@@ -689,7 +690,7 @@
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:text="@string/power_5"
-                                        android:textColor="@color/A1_50"
+                                        android:textColor="@color/A1"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
                             </LinearLayout>
