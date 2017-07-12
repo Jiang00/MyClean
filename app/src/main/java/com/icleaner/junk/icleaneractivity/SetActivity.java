@@ -62,6 +62,21 @@ public class SetActivity extends BaseActivity {
         } else {
             addAd();
         }
+        if (PreData.getDB(this, MyConstant.GOODGAME, 0) == 0) {
+            setting_gboost.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.PICTUREX, 0) == 0) {
+            setting_picture.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.POWERACTIVITY, 0) == 0) {
+            setting_power.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.FILEACTIVITY, 0) == 0) {
+            setting_file.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.NOTIFIACTIVITY, 0) == 0) {
+            setting_notifi.setVisibility(View.GONE);
+        }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             setting_notifi.setVisibility(View.GONE);
         }
@@ -242,7 +257,7 @@ public class SetActivity extends BaseActivity {
                 case R.id.setting_notifi:
                     SetAdUtil.track("设置页面", "进入通知栏清理", "", 1);
                     PreData.putDB(SetActivity.this, MyConstant.NOTIFI_CLEAN, true);
-                    if (PreData.getDB(SetActivity.this, MyConstant.KEY_NOTIFI, true)||!MyUtils.isNotificationListenEnabled(SetActivity.this)) {
+                    if (PreData.getDB(SetActivity.this, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(SetActivity.this)) {
                         //通知栏动画
                         Intent intent6 = new Intent(SetActivity.this, NotifingAnimationActivity.class);
                         startActivity(intent6);

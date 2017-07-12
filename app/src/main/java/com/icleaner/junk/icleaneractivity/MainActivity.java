@@ -126,10 +126,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //            main_notifi_button.setVisibility(View.GONE);
         }
 
-        if (PreData.getDB(this, MyConstant.GOODGAME, 1) == 1) {
-            main_gboost_button.setVisibility(View.GONE);
-        }
-
         mainPresenter = new PresenterMain(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
@@ -776,6 +772,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         AndroidSdk.onResumeWithoutTransition(this);
         Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
         initData();
+        if (PreData.getDB(this, MyConstant.GOODGAME, 0) == 0) {
+            main_gboost_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.PICTUREX, 0) == 0) {
+            main_picture_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.POWERACTIVITY, 0) == 0) {
+            main_power_button.setVisibility(View.GONE);
+        }
         power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         // 充电屏保关闭智能充电，刷新无效果，重新调用 initSideData()可以
 //        adapter.notifyDataSetChanged();

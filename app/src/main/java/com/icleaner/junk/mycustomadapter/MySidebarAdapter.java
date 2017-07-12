@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -13,22 +14,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.icleaner.clean.core.CleanManager;
+import com.icleaner.clean.utils.MyUtils;
+import com.icleaner.clean.utils.PreData;
 import com.icleaner.junk.R;
+import com.icleaner.junk.icleaneractivity.AllAppsActivity;
+import com.icleaner.junk.icleaneractivity.DeepingActivity;
+import com.icleaner.junk.icleaneractivity.GoodGameActivity;
+import com.icleaner.junk.icleaneractivity.IgnoresAvtivity;
+import com.icleaner.junk.icleaneractivity.MemoryAvtivity;
+import com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity;
+import com.icleaner.junk.icleaneractivity.RubbishActivity;
+import com.icleaner.junk.icleaneractivity.SetActivity;
+import com.icleaner.junk.mytools.MUtilGp;
 import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.mytools.SetAdUtil;
 import com.icleaner.junk.services.SuspensionBallService;
-import com.icleaner.junk.mytools.MUtilGp;
-import com.icleaner.junk.icleaneractivity.AllAppsActivity;
-import com.icleaner.junk.icleaneractivity.DeepingActivity;
-import com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity;
-import com.icleaner.junk.icleaneractivity.GoodGameActivity;
-import com.icleaner.junk.icleaneractivity.IgnoresAvtivity;
-import com.icleaner.junk.icleaneractivity.RubbishActivity;
-import com.icleaner.junk.icleaneractivity.MemoryAvtivity;
-import com.icleaner.junk.icleaneractivity.SetActivity;
 import com.icleaner.junk.shitis.SideInfo;
-import com.icleaner.clean.utils.PreData;
-import com.icleaner.clean.utils.MyUtils;
 import com.icleaner.module.charge.saver.Utils.BatteryConstants;
 import com.icleaner.module.charge.saver.Utils.Utils;
 
@@ -53,6 +54,17 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
 
     public MySidebarAdapter(Context context) {
         super(context);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.FILEACTIVITY, 0) == 0) {
+//            FILE = idx++;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.GOODGAME, 0) == 0) {
+//            GBOOST = idx++;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.POWERACTIVITY, 0) == 0) {
+//            POWER = idx++;
+        }
+
+
         long junk_size = CleanManager.getInstance(context).getApkSize() + CleanManager.getInstance(context).getCacheSize() +
                 CleanManager.getInstance(context).getUnloadSize() + CleanManager.getInstance(context).getLogSize() + CleanManager.getInstance(context).getDataSize();
         powerSize = MyUtils.convertStorage(junk_size, true);
