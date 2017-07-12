@@ -52,6 +52,26 @@ public class LoadingActivity extends BaseActivity {
         public void run() {
             try {
                 JSONObject jsonObject = new JSONObject(AndroidSdk.getExtraData());
+                if (jsonObject.has("poweractivity")) {
+                    PreData.putDB(LoadingActivity.this, MyConstant.POWERACTIVITY, jsonObject.getInt("poweractivity"));
+                }
+
+                if (jsonObject.has("fileactivity")) {
+                    PreData.putDB(LoadingActivity.this, MyConstant.FILEACTIVITY, jsonObject.getInt("fileactivity"));
+                }
+
+                if (jsonObject.has("notifiactivity")) {
+                    PreData.putDB(LoadingActivity.this, MyConstant.NOTIFIACTIVITY, jsonObject.getInt("notifiactivity"));
+                }
+
+                if (jsonObject.has("goodgame")) {
+                    PreData.putDB(LoadingActivity.this, MyConstant.GOODGAME, jsonObject.getInt("goodgame"));
+                }
+
+                if (jsonObject.has("picturex")) {
+                    PreData.putDB(LoadingActivity.this, MyConstant.PICTUREX, jsonObject.getInt("picturex"));
+                }
+
                 if (jsonObject.has("full_main")) {
                     PreData.putDB(LoadingActivity.this, MyConstant.FULL_MAIN, jsonObject.getInt("full_main"));
                 }

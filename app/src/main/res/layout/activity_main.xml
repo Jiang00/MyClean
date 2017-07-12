@@ -547,7 +547,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/d72"
                                 android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:visibility="gone">
 
                                 <ImageView
                                     android:layout_width="@dimen/d36"
@@ -585,14 +586,126 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1px"
                                 android:layout_marginLeft="@dimen/d16"
-                                android:background="@color/B4" />
+                                android:background="@color/B4"
+                                android:visibility="gone" />
+                            <!--游戏加速-->
+                            <LinearLayout
+                                android:id="@+id/main_gboost_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d56"
+                                    android:orientation="horizontal">
+
+                                    <FrameLayout
+                                        android:layout_width="@dimen/d72"
+                                        android:layout_height="match_parent">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/d36"
+                                            android:layout_height="@dimen/d36"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="@dimen/d16"
+                                            android:src="@mipmap/gboost_main" />
+                                    </FrameLayout>
+
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical">
+
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/gboost_0"
+                                            android:textColor="@color/A1"
+                                            android:textSize="@dimen/s14" />
+
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/d4"
+                                            android:text="@string/gboost_10"
+                                            android:textColor="@color/A1_50"
+                                            android:textSize="@dimen/s12" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:background="@color/A2" />
+                            </LinearLayout>
+
+                            <!--相似图片-->
+                            <LinearLayout
+                                android:id="@+id/main_picture_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d56"
+                                    android:orientation="horizontal">
+
+                                    <FrameLayout
+                                        android:layout_width="@dimen/d72"
+                                        android:layout_height="match_parent">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/d36"
+                                            android:layout_height="@dimen/d36"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="@dimen/d16"
+                                            android:src="@mipmap/picture_main" />
+                                    </FrameLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical">
+
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/side_picture"
+                                            android:textColor="@color/A1"
+                                            android:textSize="@dimen/s14" />
+
+                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/d4"
+                                            android:text="@string/picture_delete"
+                                            android:textColor="@color/A1_50"
+                                            android:textSize="@dimen/s12" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:background="@color/A2" />
+                            </LinearLayout>
                             <!--电池降温-->
                             <LinearLayout
                                 android:id="@+id/main_cooling_button2"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/d72"
                                 android:background="?attr/selectableItemBackground"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:visibility="gone">
 
                                 <ImageView
                                     android:layout_width="@dimen/d36"
@@ -631,7 +744,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="1px"
                                 android:layout_marginLeft="@dimen/d16"
-                                android:background="@color/B4" />
+                                android:background="@color/B4"
+                                android:visibility="gone" />
+
                             <!--深度清理-->
                             <LinearLayout
                                 android:id="@+id/main_power_button"

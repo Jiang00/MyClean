@@ -103,6 +103,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     VirtuaRingView virtuaRingView;
     ImageView main_pointer;
     CircleView main_circleview;
+    LinearLayout main_gboost_button, main_picture_button;
     TextView power_size;
     ImageView main_aerobee;
     LinearLayout main_junk_button2, main_cooling_button2;
@@ -124,6 +125,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
 //            main_notifi_button.setVisibility(View.GONE);
         }
+
+        if (PreData.getDB(this, MyConstant.GOODGAME, 1) == 1) {
+            main_gboost_button.setVisibility(View.GONE);
+        }
+
         mainPresenter = new PresenterMain(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
@@ -173,8 +179,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
 //        main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
 //        main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
-//        main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
-//        main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
+        main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
+        main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
@@ -206,8 +212,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_power_button.setOnClickListener(onClickListener);
 //        main_notifi_button.setOnClickListener(onClickListener);
 //        main_file_button.setOnClickListener(onClickListener);
-//        main_gboost_button.setOnClickListener(onClickListener);
-//        main_picture_button.setOnClickListener(onClickListener);
+        main_gboost_button.setOnClickListener(onClickListener);
+        main_picture_button.setOnClickListener(onClickListener);
         lot_ad.setOnClickListener(onClickListener);
         main_all_cercle.setOnClickListener(onClickListener);
         main_aerobee.setOnClickListener(onClickListener);
@@ -626,16 +632,16 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 //                    PreData.putDB(MainActivity.this, MyConstant.FILE_CLEAN, true);
 //                    mainPresenter.jumpToActivity(PhoneFileManagerActivity.class, 1);
 //                    break;
-               /* case R.id.main_gboost_button:
+                case R.id.main_gboost_button:
                     SetAdUtil.track("主页面", "点击进入游戏加速", "", 1);
                     PreData.putDB(MainActivity.this, MyConstant.GBOOST_CLEAN, true);
                     mainPresenter.jumpToActivity(GoodGameActivity.class, 1);
-                    break;*/
-                /*case R.id.main_picture_button:
+                    break;
+                case R.id.main_picture_button:
                     SetAdUtil.track("主页面", "点击进入相似图片", "", 1);
                     PreData.putDB(MainActivity.this, MyConstant.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(PictActivity.class, 1);
-                    break;*/
+                    break;
 //                case R.id.main_notifi_button:
 //                    SetAdUtil.track("主页面", "点击进入通知栏清理", "", 1);
 //                    PreData.putDB(MainActivity.this, MyConstant.NOTIFI_CLEAN, true);

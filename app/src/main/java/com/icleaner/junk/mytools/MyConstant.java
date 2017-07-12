@@ -103,4 +103,11 @@ public class MyConstant {
     public static final String GBOOST_CLEAN = "GBOOST_CLEAN";
     public static final String PHOTO_CLEAN = "PHOTO_CLEAN";
 
+    public static final String POWERACTIVITY = "POWERACTIVITY";
+    public static final String FILEACTIVITY = "FILEACTIVITY";
+    public static final String NOTIFIACTIVITY = "NOTIFIACTIVITY";
+    public static final String GOODGAME = "GOODGAME";
+    public static final String PICTUREX = "PICTUREX";
+
+
 }
