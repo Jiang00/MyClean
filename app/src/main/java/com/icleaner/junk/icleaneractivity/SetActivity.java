@@ -31,7 +31,7 @@ import com.icleaner.module.charge.saver.Utils.Utils;
  */
 
 public class SetActivity extends BaseActivity {
-    ImageView setting_tongzhi_check, setting_float_check, setting_battery_check,setting_tongzhilan_check;
+    ImageView setting_tongzhi_check, setting_float_check, setting_battery_check, setting_tongzhilan_check;
     FrameLayout title_left;
     ScrollView setting_scroll;
     LinearLayout ll_ad;
@@ -258,7 +258,7 @@ public class SetActivity extends BaseActivity {
                 case R.id.setting_notifi:
                     SetAdUtil.track("设置页面", "进入通知栏清理", "", 1);
                     PreData.putDB(SetActivity.this, MyConstant.NOTIFI_CLEAN, true);
-                    if (PreData.getDB(SetActivity.this, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(SetActivity.this)) {
+                    if (!PreData.getDB(SetActivity.this, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(SetActivity.this)) {
                         //通知栏动画
                         Intent intent6 = new Intent(SetActivity.this, NotifingAnimationActivity.class);
                         startActivity(intent6);
