@@ -6,6 +6,9 @@ import android.content.Intent;
 
 import com.icleaner.clean.mydb.CleanDBHelper;
 import com.icleaner.clean.utils.MyUtils;
+import com.icleaner.clean.utils.PreData;
+import com.icleaner.junk.icleaneractivity.UnloadingResidualActivity;
+import com.icleaner.junk.mytools.MyConstant;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -21,13 +24,13 @@ public class UnloadResidualBroadcast extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-//        if (!PreData.getDB(context, MyConstant.KEY_UNLOAD, true)) {
-//            return;
-//        }
-//        if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
-//            String packageName = intent.getData().getSchemeSpecificPart();
-//            context.startActivity(new Intent(context, UnloadingResidualActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("packageName", packageName));
-//        }
+        if (!PreData.getDB(context, MyConstant.UNLOAD_SWITCH, true)) {
+            return;
+        }
+        if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
+            String packageName = intent.getData().getSchemeSpecificPart();
+            context.startActivity(new Intent(context, UnloadingResidualActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("packageName", packageName));
+        }
         if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED)) {
             new Thread(new Runnable() {
                 @Override

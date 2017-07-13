@@ -17,10 +17,12 @@ import com.android.client.AndroidSdk;
 import com.icleaner.clean.utils.MyUtils;
 import com.icleaner.clean.utils.PreData;
 import com.icleaner.junk.R;
+import com.icleaner.junk.mybroadcasts.UnloadResidualBroadcast;
 import com.icleaner.junk.mytools.MUtilGp;
 import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.mytools.SetAdUtil;
 import com.icleaner.junk.mytools.ShortCutUtils;
+import com.icleaner.junk.services.MyNotificationService;
 import com.icleaner.junk.services.SuspensionBallService;
 import com.icleaner.module.charge.saver.Utils.BatteryConstants;
 import com.icleaner.module.charge.saver.Utils.Utils;
@@ -30,16 +32,17 @@ import com.icleaner.module.charge.saver.Utils.Utils;
  */
 
 public class SetActivity extends BaseActivity {
-    ImageView setting_tongzhi_check, setting_float_check, setting_battery_check;
+    ImageView setting_tongzhi_check, setting_float_check, setting_unload_check, setting_battery_check, setting_tongzhilan_check;
     FrameLayout title_left;
     ScrollView setting_scroll;
     LinearLayout ll_ad;
     private View nativeView;
     TextView title_name;
     private String TAG_SETTING = "icleaner_setting";
+
     private Handler myHandler;
-    RelativeLayout setting_tongzhi, setting_float, setting_battery, setting_power, setting_file,
-            setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
+    RelativeLayout setting_tongzhi, setting_float, setting_battery, setting_power, setting_file, setting_tongzhilan,
+            setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate, setting_unload;
 
 
     @Override
@@ -73,8 +76,9 @@ public class SetActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         setting_tongzhi = (RelativeLayout) findViewById(R.id.setting_tongzhi);
-//        setting_tongzhilan = (RelativeLayout) findViewById(R.id.setting_tongzhilan);
+        setting_tongzhilan = (RelativeLayout) findViewById(R.id.setting_tongzhilan);
         setting_float = (RelativeLayout) findViewById(R.id.setting_float);
+        setting_unload = (RelativeLayout) findViewById(R.id.setting_unload);
         setting_battery = (RelativeLayout) findViewById(R.id.setting_battery);
         setting_white = (RelativeLayout) findViewById(R.id.setting_white);
         setting_short = (RelativeLayout) findViewById(R.id.setting_short);
@@ -86,8 +90,9 @@ public class SetActivity extends BaseActivity {
         setting_hui = (RelativeLayout) findViewById(R.id.setting_hui);
         setting_rotate = (RelativeLayout) findViewById(R.id.setting_rotate);
         setting_tongzhi_check = (ImageView) findViewById(R.id.setting_tongzhi_check);
-//        setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
+        setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
         setting_float_check = (ImageView) findViewById(R.id.setting_float_check);
+        setting_unload_check = (ImageView) findViewById(R.id.setting_unload_check);
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
@@ -104,15 +109,20 @@ public class SetActivity extends BaseActivity {
         } else {
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
         }
-//        if (PreData.getDB(SetActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
-//            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
-//        } else {
-//            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
-//        }
+        if (PreData.getDB(SetActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
+            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
+        }
         if (PreData.getDB(SetActivity.this, MyConstant.FlOAT_SWITCH, true)) {
             setting_float_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
+        }
+        if (PreData.getDB(SetActivity.this, MyConstant.UNLOAD_SWITCH, true)) {
+            setting_unload_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            setting_unload_check.setImageResource(R.mipmap.side_check_normal);
         }
         if ((boolean) Utils.readData(this, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
@@ -128,8 +138,9 @@ public class SetActivity extends BaseActivity {
 
     private void initListener() {
         setting_tongzhi.setOnClickListener(onClickListener);
-//        setting_tongzhilan.setOnClickListener(onClickListener);
+        setting_tongzhilan.setOnClickListener(onClickListener);
         setting_float.setOnClickListener(onClickListener);
+        setting_unload.setOnClickListener(onClickListener);
         setting_battery.setOnClickListener(onClickListener);
         setting_white.setOnClickListener(onClickListener);
         setting_short.setOnClickListener(onClickListener);
@@ -160,7 +171,7 @@ public class SetActivity extends BaseActivity {
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
-              /*  case R.id.setting_tongzhilan:
+                case R.id.setting_tongzhilan:
                     SetAdUtil.track("设置页面", "点击通知栏开关", "", 1);
                     if (PreData.getDB(SetActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
                         PreData.putDB(SetActivity.this, MyConstant.TONGZHILAN_SWITCH, false);
@@ -174,7 +185,7 @@ public class SetActivity extends BaseActivity {
                         intent.setAction("notification");
                         startService(intent);
                     }
-                    break;*/
+                    break;
                 case R.id.setting_float:
                     SetAdUtil.track("设置页面", "点击悬浮球开关", "", 1);
                     if (PreData.getDB(SetActivity.this, MyConstant.FlOAT_SWITCH, true)) {
@@ -187,6 +198,20 @@ public class SetActivity extends BaseActivity {
                         Intent intent1 = new Intent(SetActivity.this, SuspensionBallService.class);
                         setting_float_check.setImageResource(R.mipmap.side_check_passed);
                         startService(intent1);
+                    }
+                    break;
+                case R.id.setting_unload:
+                    SetAdUtil.track("设置页面", "点击卸载残余开关", "", 1);
+                    if (PreData.getDB(SetActivity.this, MyConstant.UNLOAD_SWITCH, true)) {
+                        PreData.putDB(SetActivity.this, MyConstant.UNLOAD_SWITCH, false);
+                        Intent intent1 = new Intent(SetActivity.this, UnloadResidualBroadcast.class);
+                        setting_unload_check.setImageResource(R.mipmap.side_check_normal);
+                        stopService(intent1);
+                    } else {
+                        PreData.putDB(SetActivity.this, MyConstant.UNLOAD_SWITCH, true);
+                        Intent intent1 = new Intent(SetActivity.this, UnloadResidualBroadcast.class);
+                        setting_unload_check.setImageResource(R.mipmap.side_check_passed);
+                        sendBroadcast(intent1);
                     }
                     break;
                 case R.id.setting_battery:
@@ -242,7 +267,7 @@ public class SetActivity extends BaseActivity {
                 case R.id.setting_notifi:
                     SetAdUtil.track("设置页面", "进入通知栏清理", "", 1);
                     PreData.putDB(SetActivity.this, MyConstant.NOTIFI_CLEAN, true);
-                    if (PreData.getDB(SetActivity.this, MyConstant.KEY_NOTIFI, true)||!MyUtils.isNotificationListenEnabled(SetActivity.this)) {
+                    if (PreData.getDB(SetActivity.this, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(SetActivity.this)) {
                         //通知栏动画
                         Intent intent6 = new Intent(SetActivity.this, NotifingAnimationActivity.class);
                         startActivity(intent6);

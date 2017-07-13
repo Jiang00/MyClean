@@ -13,22 +13,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.icleaner.clean.core.CleanManager;
+import com.icleaner.clean.utils.MyUtils;
+import com.icleaner.clean.utils.PreData;
 import com.icleaner.junk.R;
+import com.icleaner.junk.icleaneractivity.DeepingActivity;
+import com.icleaner.junk.icleaneractivity.GoodGameActivity;
+import com.icleaner.junk.icleaneractivity.MemoryAvtivity;
+import com.icleaner.junk.icleaneractivity.MyNotifingActivity;
+import com.icleaner.junk.icleaneractivity.NotifingAnimationActivity;
+import com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity;
+import com.icleaner.junk.icleaneractivity.PictActivity;
+import com.icleaner.junk.icleaneractivity.RubbishActivity;
+import com.icleaner.junk.icleaneractivity.SetActivity;
+import com.icleaner.junk.mytools.MUtilGp;
 import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.mytools.SetAdUtil;
 import com.icleaner.junk.services.SuspensionBallService;
-import com.icleaner.junk.mytools.MUtilGp;
-import com.icleaner.junk.icleaneractivity.AllAppsActivity;
-import com.icleaner.junk.icleaneractivity.DeepingActivity;
-import com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity;
-import com.icleaner.junk.icleaneractivity.GoodGameActivity;
-import com.icleaner.junk.icleaneractivity.IgnoresAvtivity;
-import com.icleaner.junk.icleaneractivity.RubbishActivity;
-import com.icleaner.junk.icleaneractivity.MemoryAvtivity;
-import com.icleaner.junk.icleaneractivity.SetActivity;
 import com.icleaner.junk.shitis.SideInfo;
-import com.icleaner.clean.utils.PreData;
-import com.icleaner.clean.utils.MyUtils;
 import com.icleaner.module.charge.saver.Utils.BatteryConstants;
 import com.icleaner.module.charge.saver.Utils.Utils;
 
@@ -38,15 +39,16 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
 
     private static final int BATTERY = idx++;
     private static final int FLOAT = idx++;
-    private static final int JUNK = idx++;
     private static final int RAM = idx++;
-    private static final int MANAGER = idx++;
+    private static final int JUNK = idx++;
+    private static final int POWER = idx++;
+    private static final int NOTIFI = idx++;
+    //    private static final int MANAGER = idx++;
+    private static final int PICTURE = idx++;
     private static final int FILE = idx++;
     private static final int GBOOST = idx++;
-
-    private static final int POWER = idx++;
     //    private static final int PRIVARY = idx++;
-    private static final int WHITE = idx++;
+//    private static final int WHITE = idx++;
     private static final int SETTING = idx++;
     private static final int ROTATE = idx++;
     private String powerSize;
@@ -122,12 +124,12 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-        if (position == POWER) {
-            holder.side_deep_h.setVisibility(View.VISIBLE);
-            holder.side_deep_h.setText(powerSize);
-        } else {
-            holder.side_deep_h.setVisibility(View.INVISIBLE);
-        }
+//        if (position == POWER) {
+//            holder.side_deep_h.setVisibility(View.VISIBLE);
+//            holder.side_deep_h.setText(powerSize);
+//        } else {
+//            holder.side_deep_h.setVisibility(View.INVISIBLE);
+//        }
        /* if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             if (position == NOTIFI) {
                 holder.rl_item.setVisibility(View.GONE);
@@ -139,10 +141,12 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
                 convertView.setLayoutParams(param);
             }
         }*/
-        if (position == BATTERY) {
-            holder.side_divide.setVisibility(View.GONE);
-        } else {
+        if (position == RAM) {
             holder.side_divide.setVisibility(View.VISIBLE);
+        } else if (position == SETTING) {
+            holder.side_divide.setVisibility(View.VISIBLE);
+        } else {
+            holder.side_divide.setVisibility(View.GONE);
         }
         return convertView;
     }
@@ -177,9 +181,9 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
             SetAdUtil.track("侧边栏", "点击进入ram页面", "", 1);
             Intent intent3 = new Intent(context, MemoryAvtivity.class);
             ((Activity) context).startActivityForResult(intent3, 1);
-        } else if (position == MANAGER) {
-            SetAdUtil.track("侧边栏", "点击进入应用管理页面", "", 1);
-            Intent intent4 = new Intent(context, AllAppsActivity.class);
+        } else if (position == PICTURE) {
+            SetAdUtil.track("侧边栏", "点击进入相似图片页面", "", 1);
+            Intent intent4 = new Intent(context, PictActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
 //            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
@@ -192,11 +196,18 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
             SetAdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
             Intent intent5 = new Intent(context, DeepingActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
-        } else if (position == WHITE) {
-            SetAdUtil.track("侧边栏", "点击进入白名单", "", 1);
-            PreData.putDB(context, MyConstant.PHOTO_CLEAN, true);
-            Intent intent = new Intent(context, IgnoresAvtivity.class);
-            ((Activity) context).startActivityForResult(intent, 1);
+        } else if (position == NOTIFI) {
+            SetAdUtil.track("侧边栏", "点击进入通知栏页面", "", 1);
+            PreData.putDB(context, MyConstant.NOTIFI_CLEAN, true);
+            if (PreData.getDB(context, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(context)) {
+                //通知栏动画
+                Intent intent6 = new Intent(context, NotifingAnimationActivity.class);
+                context.startActivity(intent6);
+            } else {
+                //通知栏
+                Intent intent6 = new Intent(context, MyNotifingActivity.class);
+                context.startActivity(intent6);
+            }
         } else if (position == GBOOST) {
             SetAdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, MyConstant.GBOOST_CLEAN, true);

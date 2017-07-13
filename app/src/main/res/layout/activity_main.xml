@@ -85,7 +85,7 @@
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A7">
+                android:background="@color/A17">
 
                 <include layout="@layout/layout_load_more" />
 
@@ -136,15 +136,16 @@
                             <TextView
                                 android:id="@+id/main_fenshu_b"
                                 android:layout_width="@dimen/d100"
-                                android:layout_height="@dimen/d50"
+                                android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
-                                android:layout_centerVertical="true"
+                                android:layout_marginTop="@dimen/d181"
                                 android:gravity="center"
                                 android:text="100%"
                                 android:textColor="@color/A7"
                                 android:textSize="@dimen/s30" />
                             <!--垃圾-->
                             <TextView
+                                android:id="@+id/main_junk_huan"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/main_fenshu_b"
@@ -154,12 +155,15 @@
                                 android:text="@string/main_clean"
                                 android:textColor="@color/A6"
                                 android:textSize="@dimen/s12" />
-                            <!--加速-->
+                            <!--加速clean-->
                             <TextView
+                                android:id="@+id/main_clean"
                                 android:layout_width="@dimen/d112"
                                 android:layout_height="@dimen/d30"
                                 android:layout_alignParentBottom="true"
                                 android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="@dimen/d28"
+                                android:background="#33ffffff"
                                 android:gravity="center"
                                 android:text="@string/main_clean"
                                 android:textColor="@color/A7"
@@ -250,7 +254,7 @@
                                 android:paddingLeft="@dimen/d14"
                                 android:paddingRight="@dimen/d14"
                                 android:text="@string/main_button"
-                                android:textColor="@color/white_100"
+                                android:textColor="@color/A7"
                                 android:textSize="@dimen/s15"
                                 android:visibility="gone" />
                             <!--扩散-->
@@ -262,14 +266,15 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <!--四个按钮-->
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8">
+                            <!--6个按钮-->
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d200"
+                                android:layout_height="@dimen/d144"
                                 android:layout_below="@+id/main_wave"
-                                android:layout_marginTop="@dimen/d_8"
-                                android:background="@color/white_100">
+                                android:background="@color/A7">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -294,17 +299,17 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:layout_centerInParent="true"
-                                                android:gravity="center"
                                                 android:orientation="vertical">
 
                                                 <RelativeLayout
                                                     android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content">
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/d9">
 
                                                     <ImageView
                                                         android:id="@+id/main_junk_iv"
-                                                        android:layout_width="wrap_content"
-                                                        android:layout_height="wrap_content"
+                                                        android:layout_width="@dimen/d36"
+                                                        android:layout_height="@dimen/d36"
                                                         android:layout_centerInParent="true"
                                                         android:src="@mipmap/main_junk_button" />
 
@@ -318,16 +323,15 @@
                                                         android:gravity="center"
                                                         android:textColor="@color/B3"
                                                         android:textSize="@dimen/s9"
-
                                                         android:visibility="invisible" />
                                                 </RelativeLayout>
 
                                                 <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginTop="@dimen/d8"
+                                                    android:layout_gravity="center_horizontal"
                                                     android:text="@string/main_junk_name"
-                                                    android:textColor="#000000"
+                                                    android:textColor="@color/A9"
                                                     android:textSize="@dimen/s12" />
                                             </LinearLayout>
                                         </RelativeLayout>
@@ -343,20 +347,79 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:layout_centerInParent="true"
-                                                android:gravity="center"
+                                                android:gravity="center_horizontal"
                                                 android:orientation="vertical">
 
                                                 <ImageView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
+                                                    android:layout_width="@dimen/d36"
+                                                    android:layout_height="@dimen/d36"
+                                                    android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_ram_button" />
 
                                                 <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginTop="@dimen/d8"
                                                     android:text="@string/main_ram_name"
-                                                    android:textColor="#000000"
+                                                    android:textColor="@color/A9"
+                                                    android:textSize="@dimen/s12" />
+                                            </LinearLayout>
+                                        </RelativeLayout>
+                                        <!--应用-->
+                                        <LinearLayout
+                                            android:id="@+id/main_manager_button"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_centerInParent="true"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackground"
+                                            android:gravity="center_horizontal"
+                                            android:orientation="vertical">
+
+                                            <ImageView
+                                                android:layout_width="@dimen/d36"
+                                                android:layout_height="@dimen/d36"
+                                                android:layout_marginTop="@dimen/d9"
+                                                android:src="@mipmap/main_manager_button" />
+
+                                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/main_manager_name"
+                                                android:textColor="@color/A9"
+                                                android:textSize="@dimen/s12" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1">
+                                        <!--相似图片-->
+                                        <RelativeLayout
+                                            android:id="@+id/main_picture_button"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="?attr/selectableItemBackground">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_centerInParent="true"
+                                                android:gravity="center_horizontal"
+                                                android:orientation="vertical">
+
+                                                <ImageView
+                                                    android:layout_width="@dimen/d36"
+                                                    android:layout_height="@dimen/d36"
+                                                    android:layout_marginTop="@dimen/d9"
+                                                    android:src="@mipmap/main_picture_button" />
+
+                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="@string/side_picture"
+                                                    android:textColor="@color/A9"
                                                     android:textSize="@dimen/s12" />
                                             </LinearLayout>
                                         </RelativeLayout>
@@ -372,63 +435,63 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:layout_centerInParent="true"
-                                                android:gravity="center"
+                                                android:gravity="center_horizontal"
                                                 android:orientation="vertical">
 
                                                 <ImageView
-                                                    android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
+                                                    android:layout_width="@dimen/d36"
+                                                    android:layout_height="@dimen/d36"
+                                                    android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_cooling_button" />
 
                                                 <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginTop="@dimen/d8"
                                                     android:text="@string/main_cooling_name"
-                                                    android:textColor="#000000"
+                                                    android:textColor="@color/A9"
                                                     android:textSize="@dimen/s12" />
                                             </LinearLayout>
                                         </RelativeLayout>
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="0dp"
-                                        android:layout_weight="1">
-
-                                        <!--应用-->
-                                        <LinearLayout
-                                            android:id="@+id/main_manager_button"
+                                        <!--游戏加速-->
+                                        <RelativeLayout
+                                            android:id="@+id/main_gboost_button"
                                             android:layout_width="0dp"
                                             android:layout_height="match_parent"
-                                            android:layout_centerInParent="true"
                                             android:layout_weight="1"
-                                            android:background="?attr/selectableItemBackground"
-                                            android:gravity="center"
-                                            android:orientation="vertical">
+                                            android:background="?attr/selectableItemBackground">
 
-                                            <ImageView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:src="@mipmap/main_manager_button" />
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_centerInParent="true"
+                                                android:gravity="center_horizontal"
+                                                android:orientation="vertical">
 
-                                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginTop="@dimen/d8"
-                                                android:text="@string/main_manager_name"
-                                                android:textColor="#000000"
-                                                android:textSize="@dimen/s12" />
-                                        </LinearLayout>
+                                                <ImageView
+                                                    android:layout_width="@dimen/d36"
+                                                    android:layout_height="@dimen/d36"
+                                                    android:layout_marginTop="@dimen/d9"
+                                                    android:src="@mipmap/main_gboost_button" />
+
+                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="@string/gboost_0"
+                                                    android:textColor="@color/A9"
+                                                    android:textSize="@dimen/s12" />
+                                            </LinearLayout>
+                                        </RelativeLayout>
+
                                     </LinearLayout>
                                 </LinearLayout>
                             </RelativeLayout>
-
+                            <!--波纹底部-->
                             <RelativeLayout
                                 android:id="@+id/main_wave"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/B3">
+                                android:background="@color/B3"
+                                android:visibility="gone">
 
                                 <ImageView
                                     android:layout_width="match_parent"
@@ -457,7 +520,9 @@
                             android:id="@+id/main_rotate_all"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/white_100"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8"
+                            android:background="@color/A7"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -468,7 +533,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:layout_marginLeft="@dimen/d38"
+                                    android:layout_marginLeft="@dimen/d16"
                                     android:text="@string/main_like"
                                     android:textColor="@color/A8"
                                     android:textSize="@dimen/s16" />
@@ -480,10 +545,10 @@
                                 android:background="@color/A1">
 
                                 <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="@dimen/d90"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d120"
                                     android:layout_centerInParent="true"
-                                    android:src="@mipmap/main_rotate_2" />
+                                    android:background="@mipmap/main_rotate_2" />
 
                                 <ImageView
                                     android:id="@+id/main_rotate_close"
@@ -500,8 +565,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginBottom="@dimen/d6"
-                                android:layout_marginTop="@dimen/d12"
-                                android:text="@string/like"
+                                android:layout_marginTop="@dimen/d21"
+                                android:text="@string/mian_like_tishi1"
                                 android:textColor="@color/A1"
                                 android:textSize="@dimen/s16" />
 
@@ -509,8 +574,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_marginBottom="@dimen/d13"
-                                android:text="@string/full_marks"
+                                android:layout_marginBottom="@dimen/d21"
+                                android:text="@string/mian_like_tishi2"
                                 android:textColor="@color/A1"
                                 android:textSize="@dimen/s16" />
 
@@ -522,37 +587,33 @@
 
                                 <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_bad"
-                                    android:layout_width="@dimen/d130"
-                                    android:layout_height="@dimen/d36"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/d42"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginLeft="@dimen/d16"
+                                    android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="@string/rotate_cancel"
-                                    android:textColor="#59000000"
-                                    android:textSize="@dimen/s16" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1" />
+                                    android:text="@string/main_rotate_cancel"
+                                    android:textColor="@color/A9"
+                                    android:textSize="@dimen/s12" />
 
                                 <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_good"
-                                    android:layout_width="@dimen/d130"
-                                    android:layout_height="@dimen/d36"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/d42"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginRight="@dimen/d16"
-                                    android:background="@drawable/shape_rotate_good"
+                                    android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="@string/rotate_ok"
-                                    android:textColor="@color/white_100"
-                                    android:textSize="@dimen/s16" />
+                                    android:text="@string/main_rotate_ok"
+                                    android:textColor="@color/A1"
+                                    android:textSize="@dimen/s12" />
                             </LinearLayout>
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d4"
-                                android:background="@color/A2" />
+                                android:layout_height="@dimen/d8"
+                                android:background="@color/A17" />
                         </LinearLayout>
 
                         <!--ad-->
@@ -568,31 +629,13 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/white_100"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8"
+                            android:background="@color/A7"
                             android:orientation="vertical">
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/d54">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/label" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginLeft="@dimen/d38"
-                                    android:text="@string/applock"
-                                    android:textColor="@color/A1"
-                                    android:textSize="@dimen/s16" />
-                            </RelativeLayout>
-                            <!--垃圾清理-->
+                            <!--文件-->
                             <LinearLayout
-                                android:id="@+id/main_junk_button2"
+                                android:id="@+id/main_file_button"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/d72"
                                 android:background="?attr/selectableItemBackground"
@@ -603,41 +646,36 @@
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/junk_main" />
+                                    android:src="@mipmap/file_main" />
 
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:layout_marginLeft="@dimen/d20"
+                                    android:layout_marginLeft="@dimen/d16"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="vertical">
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/main_junk_name"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:layout_marginTop="@dimen/d16"
+                                        android:text="@string/side_file"
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d4"
-                                        android:text="@string/success_8"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:layout_marginTop="@dimen/d2"
+                                        android:text="@string/file_main"
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:background="@color/B4" />
-                            <!--电池降温-->
+                            <!--通知栏-->
                             <LinearLayout
-                                android:id="@+id/main_cooling_button2"
+                                android:id="@+id/main_notifi_button"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/d72"
                                 android:background="?attr/selectableItemBackground"
@@ -648,39 +686,35 @@
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/cooling_main" />
+                                    android:src="@mipmap/notifi_6" />
 
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:layout_marginLeft="@dimen/d20"
+                                    android:layout_marginLeft="@dimen/d16"
                                     android:layout_weight="1"
-                                    android:gravity="center_vertical"
                                     android:orientation="vertical">
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_cooling"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/main_cooling_name"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:layout_marginTop="@dimen/d16"
+                                        android:text="@string/side_notifi"
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/d3"
-                                        android:text="@string/success_10"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:layout_marginTop="@dimen/d2"
+                                        android:lines="1"
+                                        android:text="@string/notifi_msg_main"
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:background="@color/B4" />
                             <!--深度清理-->
                             <LinearLayout
                                 android:id="@+id/main_power_button"
@@ -699,8 +733,7 @@
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d20"
+                                    android:layout_marginLeft="@dimen/d16"
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
@@ -708,15 +741,17 @@
                                         android:id="@+id/main_msg_power"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d16"
                                         android:text="@string/side_power"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <LinearLayout
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d2"
-                                        android:orientation="horizontal">
+                                        android:orientation="horizontal"
+                                        android:visibility="gone">
 
                                         <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                             android:id="@+id/power_size"
@@ -724,57 +759,95 @@
                                             android:layout_height="wrap_content"
                                             android:text="@string/power_1"
                                             android:textColor="@color/A1"
-                                            android:textSize="@dimen/s12" />
+                                            android:textSize="@dimen/s14" />
 
                                         <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                             android:layout_width="@dimen/d225"
                                             android:layout_height="wrap_content"
                                             android:text="@string/power_2"
-                                            android:textColor="@color/A1"
-                                            android:textSize="@dimen/s12" />
+                                            android:textColor="@color/A8"
+                                            android:textSize="@dimen/s14" />
                                     </LinearLayout>
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/power_5"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:layout_marginTop="@dimen/d2"
+                                        android:lines="1"
+                                        android:text="@string/power_3"
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
+                            <!--相似图片-->
+                            <LinearLayout
+                                android:id="@+id/main_picture_button2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d72"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:src="@mipmap/main_picture_button" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        android:id="@+id/main_msg_picture"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d16"
+                                        android:text="@string/side_picture"
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
+
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        android:layout_width="@dimen/d225"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/d2"
+                                        android:lines="1"
+                                        android:text="@string/picture_delete"
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d8"
+                                android:background="@color/A17" />
                         </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d4"
-                            android:background="@color/A2" />
-
                         <!--硬件信息-->
                         <LinearLayout
                             android:id="@+id/main_msg_button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/white_100"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8"
+                            android:background="@color/A7"
                             android:orientation="vertical">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d54"
-                                android:background="@color/white_100">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/label" />
+                                android:layout_height="@dimen/d42"
+                                android:background="@color/A7">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:layout_marginLeft="@dimen/d38"
+                                    android:layout_marginLeft="@dimen/d16"
                                     android:text="@string/main_msg_title"
-                                    android:textColor="@color/A1"
+                                    android:textColor="@color/A8"
                                     android:textSize="@dimen/s16" />
 
                                 <com.icleaner.junk.mycustomview.CustomRoundCpu
@@ -802,34 +875,35 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/d16"
                                 android:layout_marginRight="@dimen/d16"
-                                android:orientation="horizontal"
-                                android:paddingBottom="@dimen/d10">
+                                android:orientation="horizontal">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical">
-
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal"
-                                        android:layout_marginBottom="@dimen/d3"
-                                        android:text="@string/main_msg_ram"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
 
                                     <TextView
                                         android:id="@+id/main_msg_ram_percent"
+                                        android:layout_width="@dimen/d66"
+                                        android:layout_height="@dimen/d66"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/d16"
+                                        android:background="@color/A4"
+                                        android:gravity="center"
+                                        android:text="100M"
+                                        android:textColor="@color/A7"
+                                        android:textSize="@dimen/s18" />
+
+                                    <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
-                                        android:layout_marginTop="@dimen/d8"
-                                        android:text="100M"
-                                        android:textColor="@color/A6"
-                                        android:textSize="@dimen/s16" />
+                                        android:layout_marginBottom="@dimen/d16"
+                                        android:layout_marginTop="@dimen/d16"
+                                        android:text="@string/main_msg_ram"
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s12" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -838,25 +912,48 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
+                                    <LinearLayout
+                                        android:layout_width="@dimen/d66"
+                                        android:layout_height="@dimen/d66"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/d16"
+                                        android:background="@color/A3"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/main_msg_sd_percent"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="@dimen/d8"
+                                            android:gravity="center"
+                                            android:text="100"
+                                            android:textColor="@color/A7"
+                                            android:textSize="@dimen/s18" />
+
+                                        <TextView
+                                            android:id="@+id/main_msg_sd_percent_danwei"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="@dimen/d1"
+                                            android:gravity="center"
+                                            android:text="M"
+                                            android:textColor="@color/A6"
+                                            android:textSize="@dimen/s10" />
+                                    </LinearLayout>
+
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
-                                        android:layout_marginBottom="@dimen/d3"
+                                        android:layout_marginBottom="@dimen/d16"
+                                        android:layout_marginTop="@dimen/d16"
                                         android:text="@string/main_msg_sd"
-                                        android:textColor="@color/A1"
+                                        android:textColor="@color/A8"
                                         android:textSize="@dimen/s12" />
-
-                                    <TextView
-                                        android:id="@+id/main_msg_sd_percent"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal"
-                                        android:layout_marginTop="@dimen/d8"
-                                        android:text="100M"
-                                        android:textColor="@color/A6"
-                                        android:textSize="@dimen/s16" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -865,25 +962,28 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal"
-                                        android:layout_marginBottom="@dimen/d3"
-                                        android:text="@string/main_msg_cpu"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
 
                                     <TextView
                                         android:id="@+id/main_msg_cpu_percent"
+                                        android:layout_width="@dimen/d66"
+                                        android:layout_height="@dimen/d66"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/d16"
+                                        android:background="@color/A2"
+                                        android:gravity="center"
+                                        android:text="40℃"
+                                        android:textColor="@color/A7"
+                                        android:textSize="@dimen/s16" />
+
+                                    <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
-                                        android:layout_marginTop="@dimen/d8"
-                                        android:text="40℃"
-                                        android:textColor="@color/A6"
-                                        android:textSize="@dimen/s16" />
+                                        android:layout_marginBottom="@dimen/d16"
+                                        android:layout_marginTop="@dimen/d16"
+                                        android:text="@string/main_msg_cpu"
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s12" />
                                 </LinearLayout>
 
 
@@ -898,7 +998,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/d8"
-                            android:background="@color/white_100"
+                            android:background="@color/A7"
                             android:gravity="center_horizontal"
                             android:orientation="vertical"
                             android:visibility="invisible" />

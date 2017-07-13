@@ -81,12 +81,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     CircleWaveView main_circlewaveview;
     ImageView iv_title_left;
     String junkSize, junkSize1;
+    TextView main_msg_sd_percent_danwei;
     ImageView lot_ad;
     ListViewForScrollView side_listView;
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side, ad_native_2, ll_ad_s;
     ICleanerWaterView main_water;
     MainRoundView main_dian;
+    TextView main_junk_huan;
     private int temp;
     private String from;
     private AlertDialog dialog;
@@ -96,7 +98,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private PresenterMain mainPresenter;
     private MySidebarAdapter adapter;
     private long mExitTime;
-    LinearLayout main_power_button;
+    LinearLayout main_power_button, main_file_button, main_notifi_button, main_picture_button2;
+    RelativeLayout main_gboost_button, main_picture_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_cpu_percent;
     private ArrayList<JunkInfo> startList;
     TextView main_fenshu;
@@ -105,6 +108,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     CircleView main_circleview;
     TextView power_size;
     ImageView main_aerobee;
+    long junk_size;
     LinearLayout main_junk_button2, main_cooling_button2;
     com.mingle.widget.LinearLayout ll_ad_full;
     // icleaner
@@ -122,7 +126,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         setContentView(R.layout.activity_dra);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-//            main_notifi_button.setVisibility(View.GONE);
+            main_notifi_button.setVisibility(View.GONE);
         }
         mainPresenter = new PresenterMain(this, this);
         mainPresenter.init();
@@ -146,10 +150,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_fenshu = (TextView) findViewById(R.id.main_fenshu);
         virtuaRingView = (VirtuaRingView) findViewById(R.id.virtuaringview);
         main_all_cercle = (RelativeLayout) findViewById(R.id.main_all_cercle);
+        main_junk_huan = (TextView) findViewById(R.id.main_junk_huan);
         main_title = (RelativeLayout) findViewById(R.id.main_title);
         main_circlewaveview = (CircleWaveView) findViewById(R.id.main_circlewaveview);
         main_pointer = (ImageView) findViewById(R.id.main_pointer);
         main_circleview = (CircleView) findViewById(R.id.main_circleview);
+        main_msg_sd_percent_danwei = (TextView) findViewById(R.id.main_msg_sd_percent_danwei);
         main_wave = (RelativeLayout) findViewById(R.id.main_wave);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
@@ -160,22 +166,23 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_aerobee = (ImageView) findViewById(R.id.main_aerobee);
 
         main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
-        main_junk_button2 = (LinearLayout) findViewById(R.id.main_junk_button2);
+//        main_junk_button2 = (LinearLayout) findViewById(R.id.main_junk_button2);
         main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
         main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
         main_cooling_button = (RelativeLayout) findViewById(R.id.main_cooling_button);
-        main_cooling_button2 = (LinearLayout) findViewById(R.id.main_cooling_button2);
+//        main_cooling_button2 = (LinearLayout) findViewById(R.id.main_cooling_button2);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
         main_rotate_close = (ImageView) findViewById(R.id.main_rotate_close);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
-//        main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
-//        main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
-//        main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
-//        main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
-        side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
+        main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
+        main_picture_button2 = (LinearLayout) findViewById(R.id.main_picture_button2);
+        main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
+        main_gboost_button = (RelativeLayout) findViewById(R.id.main_gboost_button);
+        main_picture_button = (RelativeLayout) findViewById(R.id.main_picture_button);
+        side_listView = (ListViewForScrollView) findViewById(R.id.side_listview);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
@@ -194,20 +201,21 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         iv_title_right.setOnClickListener(onClickListener);
         iv_title_left.setOnClickListener(onClickListener);
         main_junk_button.setOnClickListener(onClickListener);
-        main_junk_button2.setOnClickListener(onClickListener);
+//        main_junk_button2.setOnClickListener(onClickListener);
         main_ram_button.setOnClickListener(onClickListener);
         main_manager_button.setOnClickListener(onClickListener);
         main_cooling_button.setOnClickListener(onClickListener);
-        main_cooling_button2.setOnClickListener(onClickListener);
+//        main_cooling_button2.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_close.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
-//        main_notifi_button.setOnClickListener(onClickListener);
-//        main_file_button.setOnClickListener(onClickListener);
-//        main_gboost_button.setOnClickListener(onClickListener);
-//        main_picture_button.setOnClickListener(onClickListener);
+        main_notifi_button.setOnClickListener(onClickListener);
+        main_file_button.setOnClickListener(onClickListener);
+        main_gboost_button.setOnClickListener(onClickListener);
+        main_picture_button.setOnClickListener(onClickListener);
+        main_picture_button2.setOnClickListener(onClickListener);
         lot_ad.setOnClickListener(onClickListener);
         main_all_cercle.setOnClickListener(onClickListener);
         main_aerobee.setOnClickListener(onClickListener);
@@ -288,13 +296,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, BatteryConstants.CHARGE_SAVER_SWITCH, false)));//充电屏保
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, MyConstant.FlOAT_SWITCH, true)));//桌面悬浮球
-        adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
-        adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-        adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
-        adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.gboost_side));//游戏加速
+        adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-        adapter.addData(new SideInfo(R.string.white_list_name, R.mipmap.side_white));//白名单
+        adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
+        adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片清理
+        adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+        adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.side_gboost));//游戏加速
+//        adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
+//        adapter.addData(new SideInfo(R.string.white_list_name, R.mipmap.side_white));//白名单
         adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
         adapter.addData(new SideInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
         side_listView.setAdapter(adapter);
@@ -523,10 +533,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     SetAdUtil.track("主页面", "点击垃圾清理按钮", "", 1);
                     mainPresenter.jumpToActivity(RubbishActivity.class, 1);
                     break;
-                case R.id.main_junk_button2:
+               /* case R.id.main_junk_button2:
                     SetAdUtil.track("主页面", "点击垃圾清理按钮", "", 1);
                     mainPresenter.jumpToActivity(RubbishActivity.class, 1);
-                    break;
+                    break;*/
                 case R.id.main_all_cercle:
                     SetAdUtil.track("主页面", "点击垃圾所有按钮", "", 1);
                     mainPresenter.jumpToActivity(RubbishAndRamActivity.class, 1);
@@ -546,13 +556,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     bundle1.putInt("wendu", temp);
                     mainPresenter.jumpToActivity(BatteriesActivity.class, bundle1, 1);
                     break;
-                case R.id.main_cooling_button2:
+               /* case R.id.main_cooling_button2:
                     SetAdUtil.track("主页面", "点击降温按钮", "", 1);
                     Bundle bundle2 = new Bundle();
                     bundle2.putString("from", "main");
                     bundle2.putInt("wendu", temp);
                     mainPresenter.jumpToActivity(BatteriesActivity.class, bundle2, 1);
-                    break;
+                    break;*/
                 case R.id.lot_ad:
                     SetAdUtil.track("主页面", "点击广告礼包", "", 1);
                     Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.tran_left_in);
@@ -621,32 +631,37 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     SetAdUtil.track("主页面", "点击进入深度清理", "", 1);
                     mainPresenter.jumpToActivity(DeepingActivity.class, 1);
                     break;
-//                case R.id.main_file_button:
-//                    SetAdUtil.track("主页面", "点击进入文件管理", "", 1);
-//                    PreData.putDB(MainActivity.this, MyConstant.FILE_CLEAN, true);
-//                    mainPresenter.jumpToActivity(PhoneFileManagerActivity.class, 1);
-//                    break;
-               /* case R.id.main_gboost_button:
+                case R.id.main_file_button:
+                    SetAdUtil.track("主页面", "点击进入文件管理", "", 1);
+                    PreData.putDB(MainActivity.this, MyConstant.FILE_CLEAN, true);
+                    mainPresenter.jumpToActivity(PhoneFileManagerActivity.class, 1);
+                    break;
+                case R.id.main_gboost_button:
                     SetAdUtil.track("主页面", "点击进入游戏加速", "", 1);
                     PreData.putDB(MainActivity.this, MyConstant.GBOOST_CLEAN, true);
                     mainPresenter.jumpToActivity(GoodGameActivity.class, 1);
-                    break;*/
-                /*case R.id.main_picture_button:
+                    break;
+                case R.id.main_picture_button:
                     SetAdUtil.track("主页面", "点击进入相似图片", "", 1);
                     PreData.putDB(MainActivity.this, MyConstant.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(PictActivity.class, 1);
-                    break;*/
-//                case R.id.main_notifi_button:
-//                    SetAdUtil.track("主页面", "点击进入通知栏清理", "", 1);
-//                    PreData.putDB(MainActivity.this, MyConstant.NOTIFI_CLEAN, true);
-//                    if (!MyUtils.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, MyConstant.KEY_NOTIFI, true)) {
-//                        Intent intent6 = new Intent(MainActivity.this, NotifingAnimationActivity.class);
-//                        startActivityForResult(intent6, 1);
-//                    } else {
-//                        Intent intent6 = new Intent(MainActivity.this, MyNotifingActivity.class);
-//                        startActivityForResult(intent6, 1);
-//                    }
-//                    break;
+                    break;
+                case R.id.main_picture_button2:
+                    SetAdUtil.track("主页面", "点击进入相似图片", "", 1);
+                    PreData.putDB(MainActivity.this, MyConstant.PHOTO_CLEAN, true);
+                    mainPresenter.jumpToActivity(PictActivity.class, 1);
+                    break;
+                case R.id.main_notifi_button:
+                    SetAdUtil.track("主页面", "点击进入通知栏清理", "", 1);
+                    PreData.putDB(MainActivity.this, MyConstant.NOTIFI_CLEAN, true);
+                    if (!MyUtils.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, MyConstant.KEY_NOTIFI, true)) {
+                        Intent intent6 = new Intent(MainActivity.this, NotifingAnimationActivity.class);
+                        startActivityForResult(intent6, 1);
+                    } else {
+                        Intent intent6 = new Intent(MainActivity.this, MyNotifingActivity.class);
+                        startActivityForResult(intent6, 1);
+                    }
+                    break;
                 case R.id.battery_button:
                     main_battery.setVisibility(View.GONE);
                     PreData.putDB(MainActivity.this, MyConstant.FIRST_BATTERY, false);
@@ -701,19 +716,30 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 //根据剩余的空间大小来设置单位
                 if (sd_kongxian < 1024) {
                     junkSize = MyUtils.convertStorage(sd_kongxian, false) + "B";
+                    //设置硬件信息里的剩余空间
+                    main_msg_sd_percent.setText(junkSize.substring(0, junkSize.length() - 2));
+                    main_msg_sd_percent_danwei.setText("B");
                 } else if (sd_kongxian < 1048576) {
                     junkSize = MyUtils.convertStorage(sd_kongxian, false) + "KB";
+                    //设置硬件信息里的剩余空间
+                    main_msg_sd_percent.setText(junkSize.substring(0, junkSize.length() - 2));
+                    main_msg_sd_percent_danwei.setText("KB");
                 } else if (sd_kongxian < 1073741824) {
                     junkSize = MyUtils.convertStorage(sd_kongxian, false) + "MB";
+                    //设置硬件信息里的剩余空间
+                    main_msg_sd_percent.setText(junkSize.substring(0, junkSize.length() - 2));
+                    main_msg_sd_percent_danwei.setText("MB");
                 } else {
                     junkSize = MyUtils.convertStorage(sd_kongxian, false) + "GB";
+                    //设置硬件信息里的剩余空间
+                    main_msg_sd_percent.setText(junkSize.substring(0, junkSize.length() - 2));
+                    main_msg_sd_percent_danwei.setText("GB");
                 }
-                //设置硬件信息里的剩余空间
-                main_msg_sd_percent.setText(junkSize);
+                junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
+                        CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
+                // MyUtils.convertStorage(junk_size, true) true返回的带单位，false不带单位
+                main_junk_huan.setText(getResources().getString(R.string.notification_2) + " " + MyUtils.convertStorage(junk_size, true));
                 if (main_junk_h.getVisibility() == View.INVISIBLE) {
-                    long junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
-                            CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
-                    junkSize1 = MyUtils.convertStorage(junk_size, true);
                     if (junk_size > 0) {
                         main_junk_h.setText(MyUtils.convertStorage(junk_size, true));
                         main_junk_h.setVisibility(View.VISIBLE);

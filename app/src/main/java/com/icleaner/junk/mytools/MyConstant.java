@@ -16,6 +16,7 @@ public class MyConstant {
     public static final String IS_ROTATE = "IS_ROTATE";//是否评价
 
     public static final String FlOAT_SWITCH = "FlOAT_SWITCH";//悬浮球
+    public static final String UNLOAD_SWITCH = "UNLOAD_SWITCH";//卸载残余
 
     public static final String TONGZHI_SWITCH = "TONGZHI_SWITCH";//通知开关
 

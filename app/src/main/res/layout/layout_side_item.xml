@@ -4,7 +4,6 @@
     android:id="@+id/rl_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:background="?selectableItemBackground">
 
     <RelativeLayout
@@ -18,8 +17,7 @@
             android:layout_width="@dimen/d24"
             android:layout_height="@dimen/d24"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp" />
-
+            android:layout_marginLeft="@dimen/d16" />
     </RelativeLayout>
 
     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -29,13 +27,13 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/rl"
         android:text="aaaaaaa"
-        android:textColor="@color/A1"
+        android:textColor="@color/A8"
         android:textSize="@dimen/s14" />
 
     <ImageView
         android:id="@+id/iv_check"
-        android:layout_width="@dimen/d36"
-        android:layout_height="@dimen/d36"
+        android:layout_width="@dimen/d30"
+        android:layout_height="@dimen/d30"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/d16"
@@ -52,12 +50,12 @@
         android:gravity="center"
         android:text="100M"
         android:textColor="@color/B3"
-        android:textSize="@dimen/s10" />
+        android:textSize="@dimen/s10"
+        android:visibility="gone" />
 
     <View
         android:id="@+id/side_divide"
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="@dimen/d16"
-        android:background="@color/B4" />
+        android:layout_height="@dimen/d8"
+        android:background="@color/A17" />
 </RelativeLayout>

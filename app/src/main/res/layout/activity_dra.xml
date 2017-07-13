@@ -26,7 +26,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
                 android:background="@color/A1" />
+            <!--侧边栏头部-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d141"
+                android:background="@mipmap/side_wave"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="@dimen/d60"
+                    android:layout_height="@dimen/d60"
+                    android:layout_marginTop="@dimen/d20"
+                    android:src="@mipmap/side_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d6"
+                    android:text="@string/app_name"
+                    android:textColor="@color/A7"
+                    android:textSize="@dimen/s14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d2"
+                    android:text="@string/side_describe"
+                    android:textColor="@color/A6"
+                    android:textSize="@dimen/s10" />
+            </LinearLayout>
+            <!--ad-->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,24 +73,29 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/A17"
                 android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginRight="@dimen/d8"
+                    android:background="@color/A7"
                     android:orientation="vertical">
 
                     <com.icleaner.junk.mycustomview.ListViewForScrollView
                         android:id="@+id/side_listView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:divider="#00000000"
+                        android:divider="@color/A7"
                         android:dividerHeight="0dp" />
 
-                    <ImageView
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d45"
-                        android:background="@mipmap/side_wave" />
+                        android:layout_height="@dimen/d16"
+                        android:background="@color/A17" />
+
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
