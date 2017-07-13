@@ -505,27 +505,6 @@ public class SucceedActivity extends BaseActivity {
                 animSet.play(animator).with(animator1);
                 animSet.start();
 //                imageview_beijing.setVisibility(View.VISIBLE);
-                animSet.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-//                        imageview_beijing.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-                });
             }
         }, 1500);
         // 对勾
@@ -633,6 +612,21 @@ public class SucceedActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        if (PreData.getDB(this, MyConstant.GOODGAME, 1) == 0) {
+            main_gboost_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.PICTUREX, 1) == 0) {
+            main_picture_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.POWERACTIVITY, 1) == 0) {
+            main_power_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.FILEACTIVITY, 1) == 0) {
+            main_file_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, MyConstant.NOTIFIACTIVITY, 1) == 0) {
+            main_notifi_button.setVisibility(View.GONE);
+        }
     }
 
     @Override

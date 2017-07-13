@@ -54,10 +54,11 @@ public class Success_CircleWaveView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (radius < getResources().getDimensionPixelSize(R.dimen.d3) || strokeWidth > getResources().getDimensionPixelSize(R.dimen.d30)) {
+        // d3  d30
+        if (radius < getResources().getDimensionPixelSize(R.dimen.d23) || strokeWidth > getResources().getDimensionPixelSize(R.dimen.d44)) {
             paint.setStyle(Paint.Style.FILL);
             radius = getResources().getDimensionPixelSize(R.dimen.d44);
-            strokeWidth = getResources().getDimensionPixelSize(R.dimen.d1);
+            strokeWidth = getResources().getDimensionPixelSize(R.dimen.d23);
             paint.setStrokeWidth(strokeWidth);
             canvas.drawCircle(getResources().getDimensionPixelSize(R.dimen.d45), getResources().getDimensionPixelSize(R.dimen.d45), radius, paint);//根据进度计算扩散半径
         } else {

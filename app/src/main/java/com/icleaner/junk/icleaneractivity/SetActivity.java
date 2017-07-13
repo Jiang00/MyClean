@@ -21,6 +21,7 @@ import com.icleaner.junk.mytools.MUtilGp;
 import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.mytools.SetAdUtil;
 import com.icleaner.junk.mytools.ShortCutUtils;
+import com.icleaner.junk.services.MyNotificationService;
 import com.icleaner.junk.services.SuspensionBallService;
 import com.icleaner.module.charge.saver.Utils.BatteryConstants;
 import com.icleaner.module.charge.saver.Utils.Utils;
@@ -30,7 +31,7 @@ import com.icleaner.module.charge.saver.Utils.Utils;
  */
 
 public class SetActivity extends BaseActivity {
-    ImageView setting_tongzhi_check, setting_float_check, setting_battery_check;
+    ImageView setting_tongzhi_check, setting_float_check, setting_battery_check,setting_tongzhilan_check;
     FrameLayout title_left;
     ScrollView setting_scroll;
     LinearLayout ll_ad;
@@ -39,7 +40,7 @@ public class SetActivity extends BaseActivity {
     private String TAG_SETTING = "icleaner_setting";
     private Handler myHandler;
     RelativeLayout setting_tongzhi, setting_float, setting_battery, setting_power, setting_file,
-            setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
+            setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate, setting_tongzhilan;
 
 
     @Override
@@ -88,7 +89,7 @@ public class SetActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         setting_tongzhi = (RelativeLayout) findViewById(R.id.setting_tongzhi);
-//        setting_tongzhilan = (RelativeLayout) findViewById(R.id.setting_tongzhilan);
+        setting_tongzhilan = (RelativeLayout) findViewById(R.id.setting_tongzhilan);
         setting_float = (RelativeLayout) findViewById(R.id.setting_float);
         setting_battery = (RelativeLayout) findViewById(R.id.setting_battery);
         setting_white = (RelativeLayout) findViewById(R.id.setting_white);
@@ -101,7 +102,7 @@ public class SetActivity extends BaseActivity {
         setting_hui = (RelativeLayout) findViewById(R.id.setting_hui);
         setting_rotate = (RelativeLayout) findViewById(R.id.setting_rotate);
         setting_tongzhi_check = (ImageView) findViewById(R.id.setting_tongzhi_check);
-//        setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
+        setting_tongzhilan_check = (ImageView) findViewById(R.id.setting_tongzhilan_check);
         setting_float_check = (ImageView) findViewById(R.id.setting_float_check);
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
@@ -119,11 +120,11 @@ public class SetActivity extends BaseActivity {
         } else {
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
         }
-//        if (PreData.getDB(SetActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
-//            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
-//        } else {
-//            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
-//        }
+        if (PreData.getDB(SetActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
+            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
+        }
         if (PreData.getDB(SetActivity.this, MyConstant.FlOAT_SWITCH, true)) {
             setting_float_check.setImageResource(R.mipmap.side_check_passed);
         } else {
@@ -143,7 +144,7 @@ public class SetActivity extends BaseActivity {
 
     private void initListener() {
         setting_tongzhi.setOnClickListener(onClickListener);
-//        setting_tongzhilan.setOnClickListener(onClickListener);
+        setting_tongzhilan.setOnClickListener(onClickListener);
         setting_float.setOnClickListener(onClickListener);
         setting_battery.setOnClickListener(onClickListener);
         setting_white.setOnClickListener(onClickListener);
@@ -175,7 +176,7 @@ public class SetActivity extends BaseActivity {
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
-              /*  case R.id.setting_tongzhilan:
+                case R.id.setting_tongzhilan:
                     SetAdUtil.track("设置页面", "点击通知栏开关", "", 1);
                     if (PreData.getDB(SetActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
                         PreData.putDB(SetActivity.this, MyConstant.TONGZHILAN_SWITCH, false);
@@ -189,7 +190,7 @@ public class SetActivity extends BaseActivity {
                         intent.setAction("notification");
                         startService(intent);
                     }
-                    break;*/
+                    break;
                 case R.id.setting_float:
                     SetAdUtil.track("设置页面", "点击悬浮球开关", "", 1);
                     if (PreData.getDB(SetActivity.this, MyConstant.FlOAT_SWITCH, true)) {
