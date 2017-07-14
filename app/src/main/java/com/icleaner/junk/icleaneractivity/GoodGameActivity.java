@@ -11,6 +11,7 @@ import android.net.TrafficStats;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -32,6 +33,7 @@ import com.icleaner.clean.goodgame.GameBooster;
 import com.icleaner.clean.mydb.CleanDBHelper;
 import com.icleaner.clean.utils.LoadManager;
 import com.icleaner.clean.utils.MemoryManager;
+import com.icleaner.clean.utils.MyUtils;
 import com.icleaner.clean.utils.PreData;
 import com.icleaner.junk.R;
 import com.icleaner.junk.mycustomadapter.JiaGoodGameAdapter;
@@ -65,7 +67,9 @@ public class GoodGameActivity extends BaseActivity {
     private List<JunkInfo> gboost_add, listEdit;
     private long lastTimeStamp;
     LinearLayout ll_add_game;
+    TextView gboost_clean_button;
     FrameLayout add_left;
+    ImageView gboost_power_check;
     ListView list_game;
     EditText search_edit_text;
     FrameLayout title_left;
@@ -93,23 +97,24 @@ public class GoodGameActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_gboost);
+        setContentView(R.layout.layout_gboost1);
         screenWidth = getResources().getDisplayMetrics().widthPixels;
         mHandler = new Handler();
 
         title_left.setOnClickListener(clickListener);
         add_left.setOnClickListener(clickListener);
+        gboost_clean_button.setOnClickListener(clickListener);
         title_name.setText(R.string.gboost_0);
 
         long size = MemoryManager.getPhoneFreeRamMemory(this);
 //        gboost_ram_size.setText(MyUtils.convertStorage(size, true));
 
-//        if (MyUtils.isAccessibilitySettingsOn(this)) {
-//            gboost_power_check.setImageResource(R.mipmap.side_check_passed);
-//        } else {
-//            gboost_power_check.setImageResource(R.mipmap.side_check_normal);
-//        }
-//        gboost_power_check.setOnClickListener(clickListener);
+        if (MyUtils.isAccessibilitySettingsOn(this)) {
+            gboost_power_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            gboost_power_check.setImageResource(R.mipmap.side_check_normal);
+        }
+        gboost_power_check.setOnClickListener(clickListener);
 //        main_aerobee.setOnClickListener(clickListener);
         add_right.setOnClickListener(clickListener);
         clear.setOnClickListener(clickListener);
@@ -132,12 +137,13 @@ public class GoodGameActivity extends BaseActivity {
 //        gboost_ram_size = (TextView) findViewById(R.id.gboost_ram_size);
 //        gboost_network_size = (TextView) findViewById(R.id.gboost_network_size);
 //        gboost_cpu_szie = (TextView) findViewById(R.id.gboost_cpu_szie);
-//        gboost_power_check = (ImageView) findViewById(R.id.gboost_power_check);
+        gboost_power_check = (ImageView) findViewById(R.id.gboost_power_check);
 //        main_aerobee = (ImageView) findViewById(R.id.main_aerobee);
         ll_add_game = (LinearLayout) findViewById(R.id.ll_add_game);
         add_left = (FrameLayout) findViewById(R.id.add_left);
         list_game = (ListView) findViewById(R.id.list_game);
         gboost_item_textview = (TextView) findViewById(R.id.gboost_item_textview);
+        gboost_clean_button = (TextView) findViewById(R.id.gboost_clean_button);
     }
 
     private void addData() {
@@ -188,6 +194,7 @@ public class GoodGameActivity extends BaseActivity {
                                 if (position == 0) {
                                     SetAdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
                                     ll_add_game.setVisibility(View.VISIBLE);
+                                    gboost_clean_button.setVisibility(View.GONE);
                                     whiteListAdapter = new JiaGoodGameAdapter(GoodGameActivity.this, list);
                                     list_game.setAdapter(whiteListAdapter);
                                     initData();
@@ -243,6 +250,7 @@ public class GoodGameActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.add_left:
                     ll_add_game.setVisibility(View.GONE);
+                    gboost_clean_button.setVisibility(View.VISIBLE);
 //                    gboost_recyc.refreshView();
 //                    if (list.size() <= 12) {
 //                        pageindicatorview.setCount(0);
@@ -259,6 +267,12 @@ public class GoodGameActivity extends BaseActivity {
                     initList();
                     shortGame(false);
                     break;
+                case R.id.gboost_clean_button:
+                    SetAdUtil.track("游戏加速页面", "点击一键加速", "", 1);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("from", "GBoost");
+                    jumpToActivity(DeepingActivity.class, bundle, 1);
+                    break;
                 case R.id.title_left:
                     onBackPressed();
                     break;
@@ -269,7 +283,7 @@ public class GoodGameActivity extends BaseActivity {
                     toggleEditAnimation();
                     break;
 
-                /*case R.id.gboost_power_check:
+                case R.id.gboost_power_check:
                     SetAdUtil.track("游戏加速页面", "开启辅助功能", "", 1);
                     try {
                         Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
@@ -285,7 +299,7 @@ public class GoodGameActivity extends BaseActivity {
                             startActivity(transintent);
                         }
                     }, 1500);
-                    break;*/
+                    break;
                 /*case R.id.main_aerobee:
                     SetAdUtil.track("游戏加速页面", "点击一键加速", "", 1);
                     Bundle bundle = new Bundle();
@@ -515,11 +529,11 @@ public class GoodGameActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100 || requestCode == 1) {
-//            if (MyUtils.isAccessibilitySettingsOn(this)) {
-//                gboost_power_check.setImageResource(R.mipmap.side_check_passed);
-//            } else {
-//                gboost_power_check.setImageResource(R.mipmap.side_check_normal);
-//            }
+            if (MyUtils.isAccessibilitySettingsOn(this)) {
+                gboost_power_check.setImageResource(R.mipmap.side_check_passed);
+            } else {
+                gboost_power_check.setImageResource(R.mipmap.side_check_normal);
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/A17"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/A1"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/view_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <include layout="@layout/layout_title" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
+            android:layout_marginLeft="@dimen/d8"
+            android:layout_marginRight="@dimen/d8"
+            android:background="@color/A7">
+
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:id="@+id/tv_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d16"
+                android:text="@string/gboost_10"
+                android:textColor="@color/A8"
+                android:textSize="@dimen/s16" />
+
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/tv_s"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_s"
+                android:text=" 30%"
+                android:textColor="#801e88e5"
+                android:textSize="@dimen/s16"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/gboost_power_check"
+                android:layout_width="@dimen/d30"
+                android:layout_height="@dimen/d30"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/d16"
+                android:src="@mipmap/side_check_passed" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d8"
+            android:layout_marginRight="@dimen/d8"
+            android:background="@drawable/shape_ad"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d43"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d17" />
+
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:text="@string/gboost_1"
+                    android:textColor="#b341434a"
+                    android:textSize="@dimen/s14" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                        android:id="@+id/add_short"
+                        android:layout_width="@dimen/d37"
+                        android:layout_height="@dimen/d20"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="@dimen/d12"
+                        android:background="@drawable/shape_button"
+                        android:gravity="center"
+                        android:text="@string/gboost_12"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/d9"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <GridView
+                        android:id="@+id/gboost_gridview"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d217"
+                        android:background="@color/B3"
+                        android:numColumns="4"
+                        android:scrollbars="none"
+                        android:verticalSpacing="@dimen/d16" />
+                </FrameLayout>
+            </ScrollView>
+
+        </LinearLayout>
+        <!--cpu等-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d9"
+            android:layout_marginRight="@dimen/d9"
+            android:background="@drawable/shape_ad"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d43"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d17" />
+
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:text="@string/gboost_2"
+                    android:textColor="#b341434a"
+                    android:textSize="@dimen/s14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d72"
+                android:layout_marginLeft="@dimen/d17"
+                android:layout_marginRight="@dimen/d17"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gboost_3"
+                        android:textColor="#8041434a"
+                        android:textSize="@dimen/s14" />
+
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                        android:id="@+id/gboost_cpu_szie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="50%"
+                        android:textColor="@color/gboost_1"
+                        android:textSize="@dimen/s14" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="@dimen/d48"
+                    android:layout_gravity="center_vertical"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gboost_4"
+                        android:textColor="#8041434a"
+                        android:textSize="@dimen/s14" />
+
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                        android:id="@+id/gboost_ram_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="1.2G"
+                        android:textColor="@color/gboost_1"
+                        android:textSize="@dimen/s14" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="@dimen/d48"
+                    android:layout_gravity="center_vertical"
+                    android:background="#f1f1f1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gboost_5"
+                        android:textColor="#8041434a"
+                        android:textSize="@dimen/s14" />
+
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                        android:id="@+id/gboost_network_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d10"
+                        android:text="100kb/s"
+                        android:textColor="@color/gboost_1"
+                        android:textSize="@dimen/s14" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!--清理按钮-->
+    <RelativeLayout
+        android:id="@+id/manager_clean"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:id="@+id/gboost_clean_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d48"
+            android:layout_centerInParent="true"
+            android:background="@color/A1"
+            android:gravity="center"
+            android:text="@string/booster1"
+            android:textColor="@color/A7"
+            android:textSize="@dimen/s16" />
+    </RelativeLayout>
+    <!--添加游戏-->
+    <LinearLayout
+        android:id="@+id/ll_add_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/A1"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d24" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/normal_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/add_left"
+                        android:layout_width="@dimen/d72"
+                        android:layout_height="@dimen/d56"
+                        android:layout_centerVertical="true"
+                        android:background="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/d16"
+                            android:src="@mipmap/tilte_left" />
+                    </FrameLayout>
+
+                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/add_left"
+                        android:text="@string/gboost_7"
+                        android:textColor="#ffffff"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/add_right"
+                        android:layout_width="@dimen/d56"
+                        android:layout_height="@dimen/d56"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="center"
+                        android:src="@mipmap/white_add_right" />
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/goost_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d56"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginRight="@dimen/d8"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d42"
+                        android:layout_gravity="center"
+                        android:background="@drawable/shape_radio" />
+
+                    <EditText
+                        android:id="@+id/search_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d42"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/d30"
+                        android:background="@null"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/edit_hint"
+                        android:singleLine="true"
+                        android:textColor="#8a000000"
+                        android:textColorHint="#59000000" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:src="@mipmap/edit_left_drawable" />
+
+                    <ImageButton
+                        android:id="@+id/clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_marginRight="@dimen/d5"
+                        android:background="@mipmap/eidt_cha"
+                        android:padding="@dimen/d5" />
+                </FrameLayout>
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d8"
+            android:layout_marginRight="@dimen/d8"
+            android:layout_marginTop="@dimen/d1"
+            android:background="@color/A17">
+
+            <ListView
+                android:id="@+id/list_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/A7"
+                android:divider="@drawable/list_divider"
+                android:dividerHeight="0dp" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

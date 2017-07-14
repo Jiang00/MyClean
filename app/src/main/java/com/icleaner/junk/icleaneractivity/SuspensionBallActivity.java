@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -40,7 +41,7 @@ import com.twee.module.tweenengine.TweenManager;
 import java.util.List;
 
 public class SuspensionBallActivity extends BaseActivity {
-    //    ImageView float_cricle;
+    ImageView float_cricle1;
     TextView float_memory, float_tishi;
     LinearLayout ll_ad;
     private View nativeView;
@@ -102,6 +103,7 @@ public class SuspensionBallActivity extends BaseActivity {
         ll_xianshi.setOnClickListener(kuaijieListener);
         ll_shengyin.setOnClickListener(kuaijieListener);
         ll_gps.setOnClickListener(kuaijieListener);
+        float_cricle1.setOnClickListener(kuaijieListener);
 //        float_rotate.setOnClickListener(kuaijieListener);
     }
 
@@ -147,6 +149,7 @@ public class SuspensionBallActivity extends BaseActivity {
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
 //        float_cricle = (ImageView) findViewById(R.id.float_cricle);
+        float_cricle1 = (ImageView) findViewById(R.id.float_cricle1);
 //        float_rotate = (ImageView) findViewById(R.id.float_rotate);
         float_memory = (TextView) findViewById(R.id.float_memory);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
@@ -160,10 +163,10 @@ public class SuspensionBallActivity extends BaseActivity {
         x = intent.getIntExtra("paramsx", 0);
         y = intent.getIntExtra("paramsy", 0);
         // x=0是左边，否则右边
-        float curTranslationX = float_yidong_linearlayout.getTranslationX();//TextView的getTranslationX()方法来获取到当前TextView的translationX的位置
-        animator = ObjectAnimator.ofFloat(float_yidong_linearlayout, "translationX", -900f, curTranslationX);
-        animator.setDuration(1000);
-        animator.start();
+//        float curTranslationX = float_yidong_linearlayout.getTranslationX();//TextView的getTranslationX()方法来获取到当前TextView的translationX的位置
+//        animator = ObjectAnimator.ofFloat(float_yidong_linearlayout, "translationX", -900f, curTranslationX);
+//        animator.setDuration(1000);
+//        animator.start();
         cleanApplication = (MyApplication) getApplication();
         myHandler = new Handler();
         rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
@@ -223,10 +226,11 @@ public class SuspensionBallActivity extends BaseActivity {
                         e.printStackTrace();
                     }
                     break;
-//                case R.id.float_rotate:
-//                    float_rotate.setOnClickListener(null);
-//                    startCleanAnimation();
-//                    break;
+                case R.id.float_cricle1:
+//                    float_cricle1.setOnClickListener(null);
+                    Log.e("onclick", "===================");
+                    startCleanAnimation();
+                    break;
             }
         }
     };
@@ -260,43 +264,50 @@ public class SuspensionBallActivity extends BaseActivity {
         }).start();
         CleanManager.getInstance(this).clearRam();
         isdoudong = true;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
 //                final float hx = float_cricle.getX();
 //                final float hy = float_cricle.getY();
-                while (isdoudong) {
-                    int x = (int) (Math.random() * (16)) - 8;
-                    int y = (int) (Math.random() * (16)) - 8;
-                    try {
-                        Thread.sleep(80);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+//                while (isdoudong) {
+//                    int x = (int) (Math.random() * (16)) - 8;
+//                    int y = (int) (Math.random() * (16)) - 8;
+//                    try {
+//                        Thread.sleep(80);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
 //                    Tween.to(float_cricle, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1, 1)
 //                            .ease(TweenEquations.easeInQuad).delay(0)
 //                            .start(tweenManager);
-                }
-            }
-        }).start();
-        float_tishi.setVisibility(View.INVISIBLE);
+//                }
+//            }
+//        }).start();
+        float_cricle1.startAnimation(rotate);
         myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 isdoudong = false;
-//                float_cricle.startAnimation(suo);
+                float_memory.setText(MyUtils.getMemory(SuspensionBallActivity.this) + "%");
+                float_tishi.setText(R.string.float_yijiasu);
+                float_memory.startAnimation(fang);
+                float_tishi.startAnimation(fang);
+                float_memory.setVisibility(View.VISIBLE);
+//                float_cricle.setVisibility(View.GONE);
+                float_tishi.setVisibility(View.VISIBLE);
+//                float_cricle1.startAnimation(suo);
             }
-        }, 1000);
+        }, 1500);
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
                 float_memory.setText(MyUtils.getMemory(SuspensionBallActivity.this) + "%");
                 float_tishi.setText(R.string.float_yijiasu);
-                float_tishi.setVisibility(View.VISIBLE);
                 float_memory.startAnimation(fang);
+                float_tishi.startAnimation(fang);
                 float_memory.setVisibility(View.VISIBLE);
 //                float_cricle.setVisibility(View.GONE);
-                float_tishi.setVisibility(View.GONE);
+                float_tishi.setVisibility(View.VISIBLE);
             }
 
             @Override

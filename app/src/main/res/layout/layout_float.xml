@@ -49,8 +49,8 @@
                     android:layout_marginTop="@dimen/d8"
                     android:lines="1"
                     android:text="@string/float_wifi"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s10" />
+                    android:textColor="@color/A10"
+                    android:textSize="@dimen/s12" />
             </LinearLayout>
 
             <LinearLayout
@@ -75,8 +75,8 @@
                     android:layout_marginTop="@dimen/d8"
                     android:lines="1"
                     android:text="@string/float_liuliang"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s10" />
+                    android:textColor="@color/A10"
+                    android:textSize="@dimen/s12" />
             </LinearLayout>
 
             <LinearLayout
@@ -101,8 +101,8 @@
                     android:layout_marginTop="@dimen/d8"
                     android:lines="1"
                     android:text="@string/float_liangdu"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s10" />
+                    android:textColor="@color/A10"
+                    android:textSize="@dimen/s12" />
             </LinearLayout>
 
             <LinearLayout
@@ -127,8 +127,8 @@
                     android:layout_marginTop="@dimen/d8"
                     android:lines="1"
                     android:text="@string/float_shengyin"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s10" />
+                    android:textColor="@color/A10"
+                    android:textSize="@dimen/s12" />
             </LinearLayout>
 
             <LinearLayout
@@ -154,8 +154,8 @@
                     android:layout_marginTop="@dimen/d8"
                     android:lines="1"
                     android:text="@string/float_gps"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s10" />
+                    android:textColor="@color/A10"
+                    android:textSize="@dimen/s12" />
             </LinearLayout>
         </LinearLayout>
 
@@ -168,6 +168,7 @@
             android:background="@mipmap/float_beijing">
 
             <ImageView
+                android:id="@+id/float_cricle1"
                 android:layout_width="@dimen/d90"
                 android:layout_height="@dimen/d90"
                 android:layout_centerInParent="true"
@@ -197,7 +198,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/float_memory"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/d3"
                 android:text="@string/float_jiasu"
                 android:textColor="@color/A6"
                 android:textSize="@dimen/s10" />
@@ -205,9 +205,10 @@
 
         <LinearLayout
             android:id="@+id/ll_ad"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/d320"
             android:layout_height="wrap_content"
             android:layout_below="@id/float_relativelayout"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/d10"
             android:background="@color/A1"
             android:orientation="vertical">
