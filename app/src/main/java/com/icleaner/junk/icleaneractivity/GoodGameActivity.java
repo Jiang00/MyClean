@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.TrafficStats;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -72,12 +74,14 @@ public class GoodGameActivity extends BaseActivity {
     ImageView gboost_power_check;
     ListView list_game;
     EditText search_edit_text;
+    ImageView gboost_short_iv;
     FrameLayout title_left;
     TextView title_name;
     private static boolean flag = false;
     private JiaGoodGameAdapter whiteListAdapter;
     private boolean search;
     private int screenWidth;
+    TextView gboost_short_add;
     private int width;
     TextView gboost_item_textview;
     GridView gboost_gridview;
@@ -102,6 +106,7 @@ public class GoodGameActivity extends BaseActivity {
         mHandler = new Handler();
 
         title_left.setOnClickListener(clickListener);
+
         add_left.setOnClickListener(clickListener);
         gboost_clean_button.setOnClickListener(clickListener);
         title_name.setText(R.string.gboost_0);
@@ -118,6 +123,7 @@ public class GoodGameActivity extends BaseActivity {
 //        main_aerobee.setOnClickListener(clickListener);
         add_right.setOnClickListener(clickListener);
         clear.setOnClickListener(clickListener);
+        gboost_short_add.setOnClickListener(clickListener);
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
@@ -144,6 +150,8 @@ public class GoodGameActivity extends BaseActivity {
         list_game = (ListView) findViewById(R.id.list_game);
         gboost_item_textview = (TextView) findViewById(R.id.gboost_item_textview);
         gboost_clean_button = (TextView) findViewById(R.id.gboost_clean_button);
+        gboost_short_add = (TextView) findViewById(R.id.gboost_short_add);
+        gboost_short_iv = (ImageView) findViewById(R.id.gboost_short_iv);
     }
 
     private void addData() {
@@ -232,11 +240,33 @@ public class GoodGameActivity extends BaseActivity {
 
                             }
                         });*/
-
+                        initIcon();
                     }
                 });
             }
         }).start();
+    }
+
+    private void initIcon() {
+        View shortcut_view = View.inflate(GoodGameActivity.this, R.layout.layout_gboost_short, null);
+        if (list.size() > 1) {
+            ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
+            iv_1.setImageDrawable(LoadManager.getInstance(GoodGameActivity.this).getAppIcon(list.get(1)));
+        }
+        if (list.size() > 2) {
+            ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
+            iv_2.setImageDrawable(LoadManager.getInstance(GoodGameActivity.this).getAppIcon(list.get(2)));
+        }
+        if (list.size() > 3) {
+            ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
+            iv_3.setImageDrawable(LoadManager.getInstance(GoodGameActivity.this).getAppIcon(list.get(3)));
+        }
+        if (list.size() > 4) {
+            ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
+            iv_4.setImageDrawable(LoadManager.getInstance(GoodGameActivity.this).getAppIcon(list.get(4)));
+        }
+        Bitmap bitmap = MyUtils.getViewBitmap(shortcut_view);
+        gboost_short_iv.setImageBitmap(bitmap);
     }
 
     private void initList() {
@@ -266,6 +296,10 @@ public class GoodGameActivity extends BaseActivity {
 //                    gboost_recyc.scrollBy(2000, 0);
                     initList();
                     shortGame(false);
+                    break;
+                case R.id.gboost_short_add:
+                    SetAdUtil.track("游戏加速页面", "点击添加快捷方式", "", 1);
+                    shortGame(true);
                     break;
                 case R.id.gboost_clean_button:
                     SetAdUtil.track("游戏加速页面", "点击一键加速", "", 1);
@@ -454,6 +488,51 @@ public class GoodGameActivity extends BaseActivity {
 
     //游戏加速快捷键
     private void shortGame(boolean isChuangjian) {
+        search_edit_text.setText("");
+        Log.e("short", "chuangjian1 ");
+        Intent shortcutIntent = new Intent();
+        shortcutIntent.setAction(Intent.ACTION_VIEW);
+        shortcutIntent.setComponent(new ComponentName(getPackageName(),
+                GoodGameActivity.class.getCanonicalName()));
+        String title = GoodGameActivity.this.getString(R.string.gboost_0);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
+            ShortCutUtils.addShortcut(GoodGameActivity.this, shortcutIntent, title, false, bitmap);
+            gboost_short_iv.setImageBitmap(bitmap);
+            return;
+        }
+        if (list.size() > 1 && (!PreData.getDB(GoodGameActivity.this, Constant.GBOOST_SI, false) || isChuangjian)) {
+            View shortcut_view = View.inflate(GoodGameActivity.this, R.layout.layout_gboost_short, null);
+            if (list.size() > 1) {
+                ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
+                iv_1.setImageDrawable(LoadManager.getInstance(GoodGameActivity.this).getAppIcon(list.get(1)));
+            }
+            if (list.size() > 2) {
+                ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
+                iv_2.setImageDrawable(LoadManager.getInstance(GoodGameActivity.this).getAppIcon(list.get(2)));
+            }
+            if (list.size() > 3) {
+                ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
+                iv_3.setImageDrawable(LoadManager.getInstance(GoodGameActivity.this).getAppIcon(list.get(3)));
+            }
+            if (list.size() > 4) {
+                ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
+                iv_4.setImageDrawable(LoadManager.getInstance(GoodGameActivity.this).getAppIcon(list.get(4)));
+                PreData.putDB(GoodGameActivity.this, MyConstant.GBOOST_SI, true);
+            }
+
+            Bitmap bitmap = MyUtils.getViewBitmap(shortcut_view);
+            if (bitmap != null) {
+                Log.e("short", "chuangjian ");
+                ShortCutUtils.removeShortcut(GoodGameActivity.this, shortcutIntent, title);
+                ShortCutUtils.addShortcut(GoodGameActivity.this, shortcutIntent, title, false, bitmap);
+                gboost_short_iv.setImageBitmap(bitmap);
+            }
+        }
+    }
+
+    //游戏加速快捷键
+    private void shortGame1(boolean isChuangjian) {
         if (!flag) {
             search_edit_text.setText("");
             Intent shortcutIntent = new Intent();

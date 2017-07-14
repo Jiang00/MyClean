@@ -400,6 +400,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
 
         }
+
         if (PreData.getDB(this, MyConstant.FIRST_BATTERY, true)) {
             Utils.writeData(MainActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, false);
             main_battery.setVisibility(View.VISIBLE);
@@ -412,28 +413,28 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         if (PreData.getDB(this, MyConstant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("icleaner_start_full");
-
         } else {
-//            View nativeView_full = SetAdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
-//            if (ll_ad_full != null && nativeView_full != null) {
-//                ll_ad_full.addView(nativeView_full);
-//                ll_ad_full.setVisibility(View.VISIBLE);
-//                nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
-//                main_full_time = (TextView) nativeView_full.findViewById(R.id.main_full_time);
-//                LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
-//                loading_text.setOnClickListener(null);
-//                main_full_time.setVisibility(View.VISIBLE);
-//                main_full_time.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        handler.removeCallbacks(fullAdRunnale);
-//                        adDelete();
-//                    }
-//                });
-//                int skip = PreData.getDB(this, MyConstant.SKIP_TIME, 6);
-//                handler.postDelayed(fullAdRunnale, skip * 1000);
-//            } else {
-//            }
+            //loading页面广告
+            View nativeView_full = SetAdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
+            if (ll_ad_full != null && nativeView_full != null) {
+                ll_ad_full.addView(nativeView_full);
+                ll_ad_full.setVisibility(View.VISIBLE);
+                nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
+                main_full_time = (TextView) nativeView_full.findViewById(R.id.main_full_time);
+                LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
+                loading_text.setOnClickListener(null);
+                main_full_time.setVisibility(View.VISIBLE);
+                main_full_time.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        handler.removeCallbacks(fullAdRunnale);
+                        adDelete();
+                    }
+                });
+                int skip = PreData.getDB(this, MyConstant.SKIP_TIME, 6);
+                handler.postDelayed(fullAdRunnale, skip * 1000);
+            } else {
+            }
         }
     }
 
