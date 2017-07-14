@@ -30811,7 +30811,6 @@ com.icleaner.clean.core.CleanManager -> com.icleaner.clean.core.a:
     617:617:java.util.ArrayList getLogFiles() -> q
     623:630:void removeRam(com.icleaner.clean.entity.JunkInfo) -> a
     634:641:void removeRamSelfBoot(com.icleaner.clean.entity.JunkInfo) -> b
-    644:648:void clearRam() -> r
     651:656:void removeAppCache(com.icleaner.clean.entity.JunkInfo) -> c
     659:663:void removeAppList(com.icleaner.clean.entity.JunkInfo) -> d
     666:671:void removeFilesOfUnintalledApk(com.icleaner.clean.entity.JunkInfo) -> e
@@ -31168,13 +31167,12 @@ com.icleaner.clean.utils.MyUtils -> com.icleaner.clean.c.c:
     45:45:void log(java.lang.String,java.lang.String) -> a
     48:51:java.lang.String getStrTime(long) -> a
     55:57:java.lang.String getStrTime2(long) -> b
-    61:63:java.lang.String getStrTime3(long) -> c
-    67:69:java.lang.String getStrTimeHH(long) -> d
-    74:87:java.lang.String millTransFate2(long) -> e
-    92:105:int millTransFate(long) -> f
+    67:69:java.lang.String getStrTimeHH(long) -> c
+    74:87:java.lang.String millTransFate2(long) -> d
+    92:105:int millTransFate(long) -> e
     110:121:java.lang.String convertStorage(long,boolean) -> a
-    130:143:java.lang.String convertStorageWifi(long) -> g
-    148:157:java.lang.String convertStorageDanwei(long) -> h
+    130:143:java.lang.String convertStorageWifi(long) -> f
+    148:157:java.lang.String convertStorageDanwei(long) -> g
     164:164:int dp2px(int) -> a
     189:194:boolean isThirdApp(android.content.pm.ApplicationInfo) -> a
     216:226:boolean isStartSelf(android.content.pm.PackageManager,java.lang.String) -> a
@@ -31251,64 +31249,64 @@ com.icleaner.junk.icleaneractivity.AllAppsActivity -> com.icleaner.junk.icleaner
     android.view.View view_pinlv -> E
     android.view.View view_permiss -> F
     android.os.Handler myHandler -> e
-    android.widget.ImageView junk_button_clean -> f
+    android.widget.TextView junk_button_clean -> f
     android.widget.LinearLayout ll_ad_size -> g
     android.widget.LinearLayout ll_ad_time -> h
     android.widget.LinearLayout ll_ad_pinlv -> i
     android.support.design.widget.TabLayout view_pager_tab -> j
     android.view.View$OnClickListener onClickListener -> k
-    49:262:void <init>() -> <init>
-    72:82:void onCreate(android.os.Bundle) -> onCreate
-    86:93:void findId() -> a
-    97:156:void initData(long) -> a
-    161:163:void onClick() -> b
-    167:187:void loadFullAd() -> c
-    191:202:void updateAdapter(java.util.List,java.util.List,java.util.List) -> a
-    245:246:void onPause() -> onPause
-    249:260:void initList() -> d
-    302:303:void onRestart() -> onRestart
-    307:312:void onResume() -> onResume
-    317:325:boolean isNoSwitch() -> e
-    329:334:boolean isNoOption() -> f
-    339:341:void onDestroy() -> onDestroy
-    345:355:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    359:370:void setCleanDAta(long) -> b
-    49:49:com.icleaner.junk.mycustomadapter.ManagerAdapter access$000(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> a
-    49:49:com.icleaner.junk.mycustomadapter.ManagerAdapter access$100(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> b
-    49:49:com.icleaner.junk.mycustomadapter.ManagerAdapter access$200(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> c
-    49:49:java.util.ArrayList access$300(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> d
-    49:49:java.util.ArrayList access$400(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> e
-    49:49:com.icleaner.junk.mypresenter.ManagerPresenter access$500(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> f
+    48:261:void <init>() -> <init>
+    71:81:void onCreate(android.os.Bundle) -> onCreate
+    85:92:void findId() -> a
+    96:155:void initData(long) -> a
+    160:162:void onClick() -> b
+    166:186:void loadFullAd() -> c
+    190:201:void updateAdapter(java.util.List,java.util.List,java.util.List) -> a
+    244:245:void onPause() -> onPause
+    248:259:void initList() -> d
+    301:302:void onRestart() -> onRestart
+    306:311:void onResume() -> onResume
+    316:324:boolean isNoSwitch() -> e
+    328:333:boolean isNoOption() -> f
+    338:340:void onDestroy() -> onDestroy
+    344:354:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    358:369:void setCleanDAta(long) -> b
+    48:48:com.icleaner.junk.mycustomadapter.ManagerAdapter access$000(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> a
+    48:48:com.icleaner.junk.mycustomadapter.ManagerAdapter access$100(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> b
+    48:48:com.icleaner.junk.mycustomadapter.ManagerAdapter access$200(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> c
+    48:48:java.util.ArrayList access$300(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> d
+    48:48:java.util.ArrayList access$400(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> e
+    48:48:com.icleaner.junk.mypresenter.ManagerPresenter access$500(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> f
 com.icleaner.junk.icleaneractivity.AllAppsActivity$1 -> com.icleaner.junk.icleaneractivity.AllAppsActivity$1:
     com.icleaner.junk.icleaneractivity.AllAppsActivity this$0 -> a
-    127:127:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> <init>
-    130:130:void onPageScrolled(int,float,int) -> onPageScrolled
-    134:141:void onPageSelected(int) -> onPageSelected
-    146:146:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    126:126:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> <init>
+    129:129:void onPageScrolled(int,float,int) -> onPageScrolled
+    133:140:void onPageSelected(int) -> onPageSelected
+    145:145:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
 com.icleaner.junk.icleaneractivity.AllAppsActivity$2 -> com.icleaner.junk.icleaneractivity.AllAppsActivity$2:
     java.util.List val$listsize -> a
-    java.util.List val$listpinlv -> b
-    java.util.List val$listtime -> c
+    java.util.List val$listtime -> b
+    java.util.List val$listpinlv -> c
     com.icleaner.junk.icleaneractivity.AllAppsActivity this$0 -> d
-    191:191:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity,java.util.List,java.util.List,java.util.List) -> <init>
-    194:200:void run() -> run
+    190:190:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity,java.util.List,java.util.List,java.util.List) -> <init>
+    193:199:void run() -> run
 com.icleaner.junk.icleaneractivity.AllAppsActivity$3 -> com.icleaner.junk.icleaneractivity.AllAppsActivity$3:
     com.icleaner.junk.icleaneractivity.AllAppsActivity this$0 -> a
-    262:262:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> <init>
-    265:284:void onClick(android.view.View) -> onClick
+    261:261:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> <init>
+    264:283:void onClick(android.view.View) -> onClick
 com.icleaner.junk.icleaneractivity.AllAppsActivity$MyPagerAdaptre -> com.icleaner.junk.icleaneractivity.AllAppsActivity$a:
     com.icleaner.junk.icleaneractivity.AllAppsActivity this$0 -> a
-    204:204:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> <init>
-    209:209:int getCount() -> getCount
-    215:215:int getItemPosition(java.lang.Object) -> getItemPosition
-    221:222:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-    227:227:java.lang.CharSequence getPageTitle(int) -> getPageTitle
-    232:235:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
-    239:239:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    203:203:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> <init>
+    208:208:int getCount() -> getCount
+    214:214:int getItemPosition(java.lang.Object) -> getItemPosition
+    220:221:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    226:226:java.lang.CharSequence getPageTitle(int) -> getPageTitle
+    231:234:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
+    238:238:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
 com.icleaner.junk.icleaneractivity.AllAppsActivity$MyReceiver -> com.icleaner.junk.icleaneractivity.AllAppsActivity$MyReceiver:
     com.icleaner.junk.icleaneractivity.AllAppsActivity this$0 -> a
-    288:288:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> <init>
-    294:296:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    287:287:void <init>(com.icleaner.junk.icleaneractivity.AllAppsActivity) -> <init>
+    293:295:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.icleaner.junk.icleaneractivity.BaseActivity -> com.icleaner.junk.icleaneractivity.BaseActivity:
     boolean onDestroyed -> l
     boolean onPause -> m
@@ -31340,59 +31338,65 @@ com.icleaner.junk.icleaneractivity.BatteriesActivity -> com.icleaner.junk.iclean
     android.widget.TextView cooling_wendu -> a
     android.widget.FrameLayout title_left -> b
     android.widget.LinearLayout cooling_piao -> c
-    android.widget.FrameLayout cooling_fl -> d
-    android.view.animation.Animation suo -> h
-    android.view.animation.Animation rotate_zheng -> i
-    java.util.Random random -> j
-    int time -> k
-    com.icleaner.junk.mycustomview.FlakeView flakeView -> p
-    android.widget.LinearLayout cooling_text -> e
-    android.widget.ImageView cooling_xuehua -> f
+    android.view.animation.Animation suo -> i
+    android.view.animation.Animation rotate_zheng -> j
+    java.util.Random random -> k
+    int time -> p
+    com.icleaner.junk.mycustomview.FlakeView flakeView -> q
+    android.widget.LinearLayout cooling_text -> d
+    android.widget.ImageView cooling_xuehua -> e
+    android.widget.ImageView cooling_2 -> f
     android.widget.TextView title_name -> g
-    android.os.Handler mHandler -> q
-    java.lang.Runnable runnable -> r
-    30:46:void <init>() -> <init>
-    57:132:void onCreate(android.os.Bundle) -> onCreate
-    136:144:void findId() -> a
-    148:152:void onResume() -> onResume
-    156:162:void onBackPressed() -> onBackPressed
-    166:168:void onPause() -> onPause
-    171:189:void startCoolingAni() -> b
-    193:196:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    199:209:void hideSnow() -> c
-    213:217:void onDestroy() -> onDestroy
-    30:30:com.icleaner.junk.mycustomview.FlakeView access$000(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> a
-    30:30:int access$100(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> b
-    30:30:android.view.animation.Animation access$200(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> c
-    30:30:void access$300(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> d
+    com.icleaner.junk.mycustomview.BatteryScanView cooling_1 -> h
+    android.os.Handler mHandler -> r
+    java.lang.Runnable runnable -> s
+    32:50:void <init>() -> <init>
+    61:137:void onCreate(android.os.Bundle) -> onCreate
+    141:151:void findId() -> a
+    155:159:void onResume() -> onResume
+    163:169:void onBackPressed() -> onBackPressed
+    173:175:void onPause() -> onPause
+    178:245:void startCoolingAni() -> b
+    249:252:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    255:265:void hideSnow() -> c
+    269:273:void onDestroy() -> onDestroy
+    32:32:com.icleaner.junk.mycustomview.FlakeView access$000(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> a
+    32:32:int access$100(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> b
+    32:32:void access$200(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> c
 com.icleaner.junk.icleaneractivity.BatteriesActivity$1 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$1:
     com.icleaner.junk.icleaneractivity.BatteriesActivity this$0 -> a
-    46:46:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
-    49:52:void run() -> run
+    50:50:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
+    53:56:void run() -> run
 com.icleaner.junk.icleaneractivity.BatteriesActivity$2 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$2:
     com.icleaner.junk.icleaneractivity.BatteriesActivity this$0 -> a
-    61:61:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
-    64:65:void onClick(android.view.View) -> onClick
+    65:65:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
+    68:69:void onClick(android.view.View) -> onClick
 com.icleaner.junk.icleaneractivity.BatteriesActivity$3 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$3:
-    com.icleaner.junk.icleaneractivity.BatteriesActivity this$0 -> a
-    76:76:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
-    79:89:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    94:94:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    99:99:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.icleaner.junk.icleaneractivity.BatteriesActivity$4 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$4:
     int val$wendu -> a
     com.icleaner.junk.icleaneractivity.BatteriesActivity this$0 -> b
-    108:108:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity,int) -> <init>
-    112:129:void run() -> run
-com.icleaner.junk.icleaneractivity.BatteriesActivity$4$1 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$4$1:
+    113:113:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity,int) -> <init>
+    117:134:void run() -> run
+com.icleaner.junk.icleaneractivity.BatteriesActivity$3$1 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$3$1:
     int val$finalI -> a
-    com.icleaner.junk.icleaneractivity.BatteriesActivity$4 this$1 -> b
-    117:117:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity$4,int) -> <init>
-    120:121:void run() -> run
+    com.icleaner.junk.icleaneractivity.BatteriesActivity$3 this$1 -> b
+    122:122:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity$3,int) -> <init>
+    125:126:void run() -> run
+com.icleaner.junk.icleaneractivity.BatteriesActivity$4 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$4:
+    com.icleaner.junk.icleaneractivity.BatteriesActivity this$0 -> a
+    197:197:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
+    199:211:void run() -> run
 com.icleaner.junk.icleaneractivity.BatteriesActivity$5 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$5:
     com.icleaner.junk.icleaneractivity.BatteriesActivity this$0 -> a
-    175:175:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
-    178:183:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    213:213:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
+    216:216:void run() -> run
+com.icleaner.junk.icleaneractivity.BatteriesActivity$6 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$6:
+    com.icleaner.junk.icleaneractivity.BatteriesActivity this$0 -> a
+    218:218:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
+    221:226:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+com.icleaner.junk.icleaneractivity.BatteriesActivity$7 -> com.icleaner.junk.icleaneractivity.BatteriesActivity$7:
+    com.icleaner.junk.icleaneractivity.BatteriesActivity this$0 -> a
+    231:231:void <init>(com.icleaner.junk.icleaneractivity.BatteriesActivity) -> <init>
+    236:243:void run() -> run
 com.icleaner.junk.icleaneractivity.DeepingActivity -> com.icleaner.junk.icleaneractivity.DeepingActivity:
     android.widget.FrameLayout title_left -> a
     android.widget.TextView title_name -> b
@@ -31595,7 +31599,7 @@ com.icleaner.junk.icleaneractivity.IgnoresAddActivity -> com.icleaner.junk.iclea
     java.util.List listEdit -> j
     boolean search -> k
     java.util.List whiteList -> p
-    android.widget.ImageView title_right -> d
+    android.widget.LinearLayout title_right -> d
     android.widget.FrameLayout title_left -> e
     android.widget.ListView list_si -> f
     android.widget.ImageButton clear -> g
@@ -31606,7 +31610,7 @@ com.icleaner.junk.icleaneractivity.IgnoresAddActivity -> com.icleaner.junk.iclea
     89:97:void initData() -> b
     101:108:void findId() -> a
     111:165:void toggleEditAnimation() -> c
-    170:172:void onBackPressed() -> onBackPressed
+    169:171:void onBackPressed() -> onBackPressed
     31:31:void access$000(com.icleaner.junk.icleaneractivity.IgnoresAddActivity) -> a
     31:31:boolean access$100(com.icleaner.junk.icleaneractivity.IgnoresAddActivity) -> b
     31:31:void access$200(com.icleaner.junk.icleaneractivity.IgnoresAddActivity) -> c
@@ -32041,7 +32045,7 @@ com.icleaner.junk.icleaneractivity.PhoneDocActivity -> com.icleaner.junk.icleane
     java.util.ArrayList txtList -> A
     java.util.ArrayList pdfList -> B
     android.os.Handler mHandler -> C
-    android.widget.ImageView file_button_clean -> h
+    android.widget.TextView file_button_clean -> h
     android.support.v4.view.ViewPager doc_view_pager -> i
     com.icleaner.clean.filemanager.PhoneFileCategoryHelper$FileCategory fc_clean -> D
     java.lang.String TAG_FILE_2 -> E
@@ -32115,7 +32119,7 @@ com.icleaner.junk.icleaneractivity.PhoneFileActivity -> com.icleaner.junk.iclean
     android.widget.FrameLayout file_fl -> d
     int nameId -> p
     android.widget.ListView file_list -> e
-    android.widget.ImageView file_button_clean -> f
+    android.widget.TextView file_button_clean -> f
     android.widget.ImageView null_icon -> g
     android.widget.FrameLayout title_left -> h
     android.widget.RelativeLayout file_clean_rl -> i
@@ -32183,36 +32187,38 @@ com.icleaner.junk.icleaneractivity.PhoneFileActivity$5 -> com.icleaner.junk.icle
     272:273:void onClick(android.view.View) -> onClick
 com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity -> com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity:
     android.widget.LinearLayout file_apk_button -> a
-    android.widget.LinearLayout file_txt_button -> b
-    android.widget.LinearLayout file_music_button -> c
-    android.widget.LinearLayout file_video_button -> d
-    android.widget.LinearLayout file_other_button -> e
-    android.widget.TextView file_apk_num -> f
-    android.widget.TextView file_txt_num -> g
-    android.widget.TextView file_music_num -> h
-    android.widget.TextView file_video_num -> i
-    android.widget.TextView file_qita_num -> j
-    android.widget.TextView file_apk_size -> k
-    android.widget.TextView file_txt_size -> p
-    android.widget.TextView file_music_size -> q
-    android.widget.TextView file_video_size -> r
-    android.widget.TextView file_qita_size -> s
-    android.widget.LinearLayout ll_ad -> t
-    android.widget.FrameLayout title_left -> u
-    java.lang.String TAG_FILE -> x
-    com.icleaner.clean.filemanager.PhoneFileCategoryHelper fileHelper -> y
-    android.widget.TextView title_name -> v
-    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo apkInfo -> z
-    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo zipInfo -> A
-    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo docInfo -> B
-    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo musicInfo -> C
-    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo videoInfo -> D
-    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo otherInfo -> E
-    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo pictureInfo -> F
-    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo logInfo -> G
-    android.os.Handler mHandler -> H
-    android.view.View nativeView -> I
-    android.view.View$OnClickListener clickListener -> w
+    android.widget.LinearLayout file_zip_button -> b
+    android.widget.LinearLayout file_txt_button -> c
+    android.widget.LinearLayout file_music_button -> d
+    android.widget.LinearLayout file_video_button -> e
+    android.widget.LinearLayout file_other_button -> f
+    android.widget.TextView file_apk_num -> g
+    android.widget.TextView file_txt_num -> h
+    android.widget.TextView file_music_num -> i
+    android.widget.TextView file_video_num -> j
+    android.widget.TextView file_qita_num -> k
+    android.widget.TextView file_apk_size -> p
+    android.widget.TextView file_zip_size -> q
+    android.widget.TextView file_txt_size -> r
+    android.widget.TextView file_music_size -> s
+    android.widget.TextView file_video_size -> t
+    android.widget.TextView file_qita_size -> u
+    android.widget.LinearLayout ll_ad -> v
+    android.widget.FrameLayout title_left -> w
+    java.lang.String TAG_FILE -> z
+    com.icleaner.clean.filemanager.PhoneFileCategoryHelper fileHelper -> A
+    android.widget.TextView title_name -> x
+    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo apkInfo -> B
+    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo zipInfo -> C
+    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo docInfo -> D
+    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo musicInfo -> E
+    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo videoInfo -> F
+    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo otherInfo -> G
+    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo pictureInfo -> H
+    com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo logInfo -> I
+    android.os.Handler mHandler -> J
+    android.view.View nativeView -> K
+    android.view.View$OnClickListener clickListener -> y
     23:127:void <init>() -> <init>
     39:40:void onResume() -> onResume
     43:75:void initData() -> b
@@ -32235,11 +32241,9 @@ com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity -> com.icleaner.junk
     23:23:com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo access$400(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> d
     23:23:com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo access$500(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> e
     23:23:com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo access$800(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> f
-    23:23:void access$900(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> g
-    23:23:android.os.Handler access$1000(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> h
-    23:23:com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo access$200(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> i
-    23:23:com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo access$600(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> j
-    23:23:com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo access$700(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> k
+    23:23:com.icleaner.clean.filemanager.PhoneFileCategoryHelper$CategoryInfo access$200(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> g
+    23:23:void access$900(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> h
+    23:23:android.os.Handler access$1000(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> i
 com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity$1 -> com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity$1:
     com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity this$0 -> a
     43:43:void <init>(com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity) -> <init>
@@ -32996,24 +33000,24 @@ com.icleaner.junk.icleaneractivity.SetActivity -> com.icleaner.junk.icleaneracti
     android.widget.RelativeLayout setting_rotate -> z
     android.widget.RelativeLayout setting_unload -> A
     android.view.View$OnClickListener onClickListener -> B
-    34:157:void <init>() -> <init>
-    50:71:void onCreate(android.os.Bundle) -> onCreate
-    75:99:void findId() -> a
-    103:104:void onResume() -> onResume
-    107:132:void initData() -> b
-    136:137:void onPause() -> onPause
-    140:154:void initListener() -> c
-    289:301:void addAd() -> d
-    305:315:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    319:321:void onBackPressed() -> onBackPressed
+    33:156:void <init>() -> <init>
+    49:70:void onCreate(android.os.Bundle) -> onCreate
+    74:98:void findId() -> a
+    102:103:void onResume() -> onResume
+    106:131:void initData() -> b
+    135:136:void onPause() -> onPause
+    139:153:void initListener() -> c
+    288:300:void addAd() -> d
+    304:314:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    318:320:void onBackPressed() -> onBackPressed
 com.icleaner.junk.icleaneractivity.SetActivity$1 -> com.icleaner.junk.icleaneractivity.SetActivity$1:
     com.icleaner.junk.icleaneractivity.SetActivity this$0 -> a
-    59:59:void <init>(com.icleaner.junk.icleaneractivity.SetActivity) -> <init>
-    62:63:void run() -> run
+    58:58:void <init>(com.icleaner.junk.icleaneractivity.SetActivity) -> <init>
+    61:62:void run() -> run
 com.icleaner.junk.icleaneractivity.SetActivity$2 -> com.icleaner.junk.icleaneractivity.SetActivity$2:
     com.icleaner.junk.icleaneractivity.SetActivity this$0 -> a
-    157:157:void <init>(com.icleaner.junk.icleaneractivity.SetActivity) -> <init>
-    160:285:void onClick(android.view.View) -> onClick
+    156:156:void <init>(com.icleaner.junk.icleaneractivity.SetActivity) -> <init>
+    159:284:void onClick(android.view.View) -> onClick
 com.icleaner.junk.icleaneractivity.ShortCutingActivity -> com.icleaner.junk.icleaneractivity.ShortCutingActivity:
     android.view.animation.Animation rotate -> f
     android.view.animation.Animation fang -> g
@@ -33032,77 +33036,60 @@ com.icleaner.junk.icleaneractivity.ShortCutingActivity -> com.icleaner.junk.icle
     android.widget.LinearLayout ll_ad -> d
     android.widget.FrameLayout short_fl -> e
     android.view.View nativeView -> u
-    42:52:void <init>() -> <init>
-    65:66:void clear(android.content.Context) -> b
-    69:86:long killAll(android.content.Context) -> a
-    91:96:void findId() -> a
-    100:130:void onCreate(android.os.Bundle) -> onCreate
-    133:147:void loadAd() -> b
-    151:179:void setAnimationThread() -> c
-    182:210:void show_text() -> d
-    213:216:long getAvailMemory(android.app.ActivityManager) -> a
-    220:241:void startTween() -> e
-    246:250:void onStop() -> onStop
-    254:337:void onResume() -> onResume
-    341:342:void onPause() -> onPause
-    42:42:void access$000(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> a
-    42:42:void access$100(com.icleaner.junk.icleaneractivity.ShortCutingActivity,android.content.Context) -> a
-    42:42:int access$208(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> b
-    42:42:void access$300(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> c
-    42:42:boolean access$400(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> d
-    42:42:com.twee.module.tweenengine.TweenManager access$500(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> e
-    42:42:boolean access$600(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> f
-    42:42:android.view.animation.Animation access$700(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> g
-    42:42:boolean access$602(com.icleaner.junk.icleaneractivity.ShortCutingActivity,boolean) -> a
+    43:53:void <init>() -> <init>
+    66:67:void clear(android.content.Context) -> b
+    70:87:long killAll(android.content.Context) -> a
+    92:97:void findId() -> a
+    101:125:void onCreate(android.os.Bundle) -> onCreate
+    128:142:void loadAd() -> b
+    146:174:void setAnimationThread() -> c
+    177:220:void show_text() -> d
+    223:226:long getAvailMemory(android.app.ActivityManager) -> a
+    256:260:void onStop() -> onStop
+    264:348:void onResume() -> onResume
+    352:353:void onPause() -> onPause
+    43:43:void access$000(com.icleaner.junk.icleaneractivity.ShortCutingActivity,android.content.Context) -> a
+    43:43:int access$108(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> a
+    43:43:void access$200(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> b
+    43:43:boolean access$300(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> c
+    43:43:com.twee.module.tweenengine.TweenManager access$400(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> d
+    43:43:android.view.animation.Animation access$600(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> e
+    43:43:boolean access$502(com.icleaner.junk.icleaneractivity.ShortCutingActivity,boolean) -> a
 com.icleaner.junk.icleaneractivity.ShortCutingActivity$1 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$1:
     com.icleaner.junk.icleaneractivity.ShortCutingActivity this$0 -> a
-    111:111:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
-    114:115:void run() -> run
+    112:112:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
+    115:123:void run() -> run
+com.icleaner.junk.icleaneractivity.ShortCutingActivity$1$1 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$1$1:
+    com.icleaner.junk.icleaneractivity.ShortCutingActivity$1 this$1 -> a
+    116:116:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity$1) -> <init>
+    119:121:void run() -> run
 com.icleaner.junk.icleaneractivity.ShortCutingActivity$2 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$2:
-    com.icleaner.junk.icleaneractivity.ShortCutingActivity this$0 -> a
-    117:117:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
-    120:128:void run() -> run
-com.icleaner.junk.icleaneractivity.ShortCutingActivity$2$1 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$2$1:
-    com.icleaner.junk.icleaneractivity.ShortCutingActivity$2 this$1 -> a
-    121:121:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity$2) -> <init>
-    124:126:void run() -> run
-com.icleaner.junk.icleaneractivity.ShortCutingActivity$3 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$3:
     long lastMillis -> b
     com.icleaner.junk.icleaneractivity.ShortCutingActivity this$0 -> a
-    151:152:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
-    155:177:void run() -> run
-com.icleaner.junk.icleaneractivity.ShortCutingActivity$3$1 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$3$1:
+    146:147:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
+    150:172:void run() -> run
+com.icleaner.junk.icleaneractivity.ShortCutingActivity$2$1 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$2$1:
     float val$delta -> a
-    com.icleaner.junk.icleaneractivity.ShortCutingActivity$3 this$1 -> b
-    160:160:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity$3,float) -> <init>
-    163:165:void run() -> run
-com.icleaner.junk.icleaneractivity.ShortCutingActivity$4 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$4:
+    com.icleaner.junk.icleaneractivity.ShortCutingActivity$2 this$1 -> b
+    155:155:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity$2,float) -> <init>
+    158:160:void run() -> run
+com.icleaner.junk.icleaneractivity.ShortCutingActivity$3 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$3:
     com.icleaner.junk.icleaneractivity.ShortCutingActivity this$0 -> a
-    203:203:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
-    206:207:void onDismiss(android.content.DialogInterface) -> onDismiss
-com.icleaner.junk.icleaneractivity.ShortCutingActivity$5 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$5:
-    float val$hx -> a
-    float val$hy -> b
-    com.icleaner.junk.icleaneractivity.ShortCutingActivity this$0 -> c
-    223:223:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity,float,float) -> <init>
-    226:238:void run() -> run
-com.icleaner.junk.icleaneractivity.ShortCutingActivity$6 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$6:
+    213:213:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
+    216:217:void onDismiss(android.content.DialogInterface) -> onDismiss
+com.icleaner.junk.icleaneractivity.ShortCutingActivity$5 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$4:
     com.icleaner.junk.icleaneractivity.ShortCutingActivity this$0 -> a
-    256:256:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
-    259:306:void run() -> run
-com.icleaner.junk.icleaneractivity.ShortCutingActivity$6$1 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$6$1:
-    com.icleaner.junk.icleaneractivity.ShortCutingActivity$6 this$1 -> a
-    263:263:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity$6) -> <init>
-    267:267:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    271:273:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    278:278:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    283:283:void onAnimationStart(android.animation.Animator) -> onAnimationStart
-com.icleaner.junk.icleaneractivity.ShortCutingActivity$6$2 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$6$2:
-    com.icleaner.junk.icleaneractivity.ShortCutingActivity$6 this$1 -> a
-    287:287:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity$6) -> <init>
-    290:294:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    299:299:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    304:304:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    274:274:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
+    278:278:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    282:287:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    292:292:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    297:297:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.icleaner.junk.icleaneractivity.ShortCutingActivity$6 -> com.icleaner.junk.icleaneractivity.ShortCutingActivity$5:
+    com.icleaner.junk.icleaneractivity.ShortCutingActivity this$0 -> a
+    301:301:void <init>(com.icleaner.junk.icleaneractivity.ShortCutingActivity) -> <init>
+    304:308:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    313:313:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    318:318:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.icleaner.junk.icleaneractivity.SucceedActivity -> com.icleaner.junk.icleaneractivity.SucceedActivity:
     android.widget.LinearLayout main_gboost_button -> a
     android.widget.FrameLayout title_left -> b
@@ -33219,37 +33206,35 @@ com.icleaner.junk.icleaneractivity.SucceedActivity$9 -> com.icleaner.junk.iclean
     511:511:void <init>(com.icleaner.junk.icleaneractivity.SucceedActivity) -> <init>
     513:515:void run() -> run
 com.icleaner.junk.icleaneractivity.SuspensionBallActivity -> com.icleaner.junk.icleaneractivity.SuspensionBallActivity:
-    android.widget.ImageView float_cricle -> a
-    android.widget.ImageView float_rotate -> b
-    android.widget.TextView float_memory -> c
-    android.widget.TextView float_tishi -> d
-    android.widget.LinearLayout ll_ad -> e
-    android.view.View nativeView -> v
-    com.icleaner.junk.icleaneractivity.MyApplication cleanApplication -> w
-    android.view.animation.Animation rotate -> x
-    android.view.animation.Animation suo -> y
-    android.view.animation.Animation fang -> z
-    android.widget.LinearLayout ll_wifi -> f
-    android.widget.LinearLayout ll_liuliang -> g
-    android.widget.LinearLayout ll_xianshi -> h
-    android.widget.LinearLayout ll_shengyin -> i
-    android.widget.LinearLayout ll_gps -> j
-    android.os.Handler myHandler -> A
-    java.lang.String TAG_FLAOT -> B
-    boolean isdoudong -> C
-    com.twee.module.tweenengine.TweenManager tweenManager -> k
-    boolean istween -> D
-    android.widget.LinearLayout float_yidong_linearlayout -> E
-    int x -> F
-    int y -> G
-    android.content.Intent intent -> H
-    android.animation.ObjectAnimator animator -> I
-    android.widget.ImageView iv_wifi -> p
-    android.widget.ImageView iv_liuliang -> q
-    android.widget.ImageView iv_xianshi -> r
-    android.widget.ImageView iv_shengyin -> s
-    android.widget.ImageView iv_gps -> t
-    android.view.View$OnClickListener kuaijieListener -> u
+    android.widget.TextView float_memory -> a
+    android.widget.TextView float_tishi -> b
+    android.widget.LinearLayout ll_ad -> c
+    android.view.View nativeView -> t
+    com.icleaner.junk.icleaneractivity.MyApplication cleanApplication -> u
+    android.view.animation.Animation rotate -> v
+    android.view.animation.Animation suo -> w
+    android.view.animation.Animation fang -> x
+    android.widget.LinearLayout ll_wifi -> d
+    android.widget.LinearLayout ll_liuliang -> e
+    android.widget.LinearLayout ll_xianshi -> f
+    android.widget.LinearLayout ll_shengyin -> g
+    android.widget.LinearLayout ll_gps -> h
+    android.os.Handler myHandler -> y
+    java.lang.String TAG_FLAOT -> z
+    boolean isdoudong -> A
+    com.twee.module.tweenengine.TweenManager tweenManager -> i
+    boolean istween -> B
+    android.widget.RelativeLayout float_yidong_linearlayout -> C
+    int x -> D
+    int y -> E
+    android.content.Intent intent -> F
+    android.animation.ObjectAnimator animator -> G
+    android.widget.ImageView iv_wifi -> j
+    android.widget.ImageView iv_liuliang -> k
+    android.widget.ImageView iv_xianshi -> p
+    android.widget.ImageView iv_shengyin -> q
+    android.widget.ImageView iv_gps -> r
+    android.view.View$OnClickListener kuaijieListener -> s
     42:185:void <init>() -> <init>
     68:96:void setAnimationThread() -> b
     100:106:void addListener() -> c
@@ -33257,30 +33242,22 @@ com.icleaner.junk.icleaneractivity.SuspensionBallActivity -> com.icleaner.junk.i
     114:132:void loadAd() -> e
     136:153:void findId() -> a
     157:183:void onCreate(android.os.Bundle) -> onCreate
-    235:250:int killAll(android.content.Context) -> a
-    254:327:void startCleanAnimation() -> f
-    330:333:long getAvailMemory(android.app.ActivityManager) -> a
-    337:342:void wifi() -> g
-    346:351:void liuLiangd() -> h
-    354:368:void xianshiD() -> i
-    371:376:void wifiD() -> j
-    379:384:void liuLiang() -> k
-    387:392:void shengYin() -> l
-    395:400:void gps() -> m
-    404:460:void brightnessSwitchUtils(android.content.Context) -> b
-    463:477:int getLight() -> n
-    481:489:void changeAppBrightness(android.content.Context,int) -> a
-    494:497:void onResume() -> onResume
-    501:504:void onPause() -> onPause
+    338:343:void wifi() -> f
+    347:352:void liuLiangd() -> g
+    355:369:void xianshiD() -> h
+    372:378:void wifiD() -> i
+    381:386:void liuLiang() -> j
+    389:394:void shengYin() -> k
+    397:402:void gps() -> l
+    406:462:void brightnessSwitchUtils(android.content.Context) -> a
+    465:479:int getLight() -> m
+    483:491:void changeAppBrightness(android.content.Context,int) -> a
+    496:499:void onResume() -> onResume
+    503:506:void onPause() -> onPause
     42:42:boolean access$000(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> a
     42:42:void access$100(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> b
     42:42:void access$200(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> c
     42:42:void access$300(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> d
-    42:42:void access$400(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> e
-    42:42:boolean access$500(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> f
-    42:42:boolean access$502(com.icleaner.junk.icleaneractivity.SuspensionBallActivity,boolean) -> a
-    42:42:android.view.animation.Animation access$600(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> g
-    42:42:android.view.animation.Animation access$700(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> h
 com.icleaner.junk.icleaneractivity.SuspensionBallActivity$1 -> com.icleaner.junk.icleaneractivity.SuspensionBallActivity$1:
     long lastMillis -> b
     com.icleaner.junk.icleaneractivity.SuspensionBallActivity this$0 -> a
@@ -33298,31 +33275,7 @@ com.icleaner.junk.icleaneractivity.SuspensionBallActivity$2 -> com.icleaner.junk
 com.icleaner.junk.icleaneractivity.SuspensionBallActivity$3 -> com.icleaner.junk.icleaneractivity.SuspensionBallActivity$3:
     com.icleaner.junk.icleaneractivity.SuspensionBallActivity this$0 -> a
     185:185:void <init>(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> <init>
-    188:230:void onClick(android.view.View) -> onClick
-com.icleaner.junk.icleaneractivity.SuspensionBallActivity$4 -> com.icleaner.junk.icleaneractivity.SuspensionBallActivity$4:
-    com.icleaner.junk.icleaneractivity.SuspensionBallActivity this$0 -> a
-    254:254:void <init>(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> <init>
-    257:258:void run() -> run
-com.icleaner.junk.icleaneractivity.SuspensionBallActivity$5 -> com.icleaner.junk.icleaneractivity.SuspensionBallActivity$5:
-    com.icleaner.junk.icleaneractivity.SuspensionBallActivity this$0 -> a
-    262:262:void <init>(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> <init>
-    265:279:void run() -> run
-com.icleaner.junk.icleaneractivity.SuspensionBallActivity$6 -> com.icleaner.junk.icleaneractivity.SuspensionBallActivity$6:
-    com.icleaner.junk.icleaneractivity.SuspensionBallActivity this$0 -> a
-    282:282:void <init>(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> <init>
-    285:287:void run() -> run
-com.icleaner.junk.icleaneractivity.SuspensionBallActivity$7 -> com.icleaner.junk.icleaneractivity.SuspensionBallActivity$7:
-    com.icleaner.junk.icleaneractivity.SuspensionBallActivity this$0 -> a
-    289:289:void <init>(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> <init>
-    292:299:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    304:304:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    309:309:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.icleaner.junk.icleaneractivity.SuspensionBallActivity$8 -> com.icleaner.junk.icleaneractivity.SuspensionBallActivity$8:
-    com.icleaner.junk.icleaneractivity.SuspensionBallActivity this$0 -> a
-    311:311:void <init>(com.icleaner.junk.icleaneractivity.SuspensionBallActivity) -> <init>
-    315:315:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    320:320:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    325:325:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    188:231:void onClick(android.view.View) -> onClick
 com.icleaner.junk.icleaneractivity.UnloadingResidualActivity -> com.icleaner.junk.icleaneractivity.UnloadingResidualActivity:
     android.widget.TextView tv_size -> a
     android.widget.Button bt_quxiao -> b
@@ -33416,20 +33369,20 @@ com.icleaner.junk.mycustomadapter.CustomJunkRamAdapter$ViewHolder -> com.icleane
 com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter -> com.icleaner.junk.b.b:
     android.widget.Toast toast -> a
     31:32:void <init>(android.content.Context) -> <init>
-    36:87:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    91:98:void showToast(java.lang.String) -> a
-    102:117:android.graphics.Bitmap getBitmap(android.graphics.drawable.Drawable) -> a
+    36:88:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    92:99:void showToast(java.lang.String) -> a
+    103:118:android.graphics.Bitmap getBitmap(android.graphics.drawable.Drawable) -> a
 com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter$1 -> com.icleaner.junk.b.b$1:
     com.icleaner.clean.entity.JunkInfo val$info -> a
     com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter this$0 -> b
-    61:61:void <init>(com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter,com.icleaner.clean.entity.JunkInfo) -> <init>
-    64:81:void onClick(android.view.View) -> onClick
+    62:62:void <init>(com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter,com.icleaner.clean.entity.JunkInfo) -> <init>
+    65:82:void onClick(android.view.View) -> onClick
 com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter$ViewHolder -> com.icleaner.junk.b.b$a:
     android.widget.TextView tv_lable -> a
     android.widget.ImageView checkBox -> b
     android.widget.ImageView iv_icon -> c
     com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter this$0 -> d
-    121:121:void <init>(com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter) -> <init>
+    122:122:void <init>(com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter) -> <init>
 com.icleaner.junk.mycustomadapter.JiaGoodGameAdapter -> com.icleaner.junk.b.c:
     java.util.ArrayList game_list -> a
     30:32:void <init>(android.content.Context,java.util.ArrayList) -> <init>
@@ -33472,21 +33425,14 @@ com.icleaner.junk.mycustomadapter.Log$ViewHolder -> com.icleaner.junk.b.d$a:
     103:103:void <init>(com.icleaner.junk.mycustomadapter.Log) -> <init>
 com.icleaner.junk.mycustomadapter.ManagerAdapter -> com.icleaner.junk.b.e:
     com.icleaner.junk.mypresenter.ManagerPresenter managerPresenter -> a
-    java.lang.String identification -> b
-    28:38:void <init>(android.content.Context,com.icleaner.junk.mypresenter.ManagerPresenter,java.lang.String) -> <init>
     41:50:void <init>(android.content.Context,com.icleaner.junk.mypresenter.ManagerPresenter) -> <init>
     58:116:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.icleaner.junk.mycustomadapter.ManagerAdapter$1 -> com.icleaner.junk.b.e$1:
-    com.icleaner.junk.mycustomadapter.ManagerAdapter this$0 -> a
-    31:31:void <init>(com.icleaner.junk.mycustomadapter.ManagerAdapter,int) -> <init>
-    35:35:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
-    31:31:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
-com.icleaner.junk.mycustomadapter.ManagerAdapter$2 -> com.icleaner.junk.b.e$2:
+com.icleaner.junk.mycustomadapter.ManagerAdapter$2 -> com.icleaner.junk.b.e$1:
     com.icleaner.junk.mycustomadapter.ManagerAdapter this$0 -> a
     43:43:void <init>(com.icleaner.junk.mycustomadapter.ManagerAdapter,int) -> <init>
     47:47:int sizeOf(java.lang.String,android.graphics.Bitmap) -> a
     43:43:int sizeOf(java.lang.Object,java.lang.Object) -> sizeOf
-com.icleaner.junk.mycustomadapter.ManagerAdapter$3 -> com.icleaner.junk.b.e$3:
+com.icleaner.junk.mycustomadapter.ManagerAdapter$3 -> com.icleaner.junk.b.e$2:
     com.icleaner.clean.entity.JunkInfo val$info -> a
     com.icleaner.junk.mycustomadapter.ManagerAdapter$ViewHolder val$holder -> b
     com.icleaner.junk.mycustomadapter.ManagerAdapter this$0 -> c
@@ -33502,7 +33448,7 @@ com.icleaner.junk.mycustomadapter.ManagerAdapter$ViewHolder -> com.icleaner.junk
     119:119:void <init>(com.icleaner.junk.mycustomadapter.ManagerAdapter) -> <init>
 com.icleaner.junk.mycustomadapter.MySidebarAdapter -> com.icleaner.junk.b.f:
     int idx -> a
-    int BATTERY -> b
+    int BATTERY -> f
     int FLOAT -> g
     int RAM -> h
     int JUNK -> i
@@ -33536,10 +33482,10 @@ com.icleaner.junk.mycustomadapter.MySidebarAdapter$ViewHolder -> com.icleaner.ju
     com.icleaner.junk.mycustomadapter.MySidebarAdapter this$0 -> g
     233:233:void <init>(com.icleaner.junk.mycustomadapter.MySidebarAdapter) -> <init>
 com.icleaner.junk.mycustomadapter.MybaseAdapter -> com.icleaner.junk.b.g:
-    android.view.LayoutInflater inflater -> c
-    java.util.List list -> d
-    android.content.Context context -> e
-    android.support.v4.util.LruCache lruCache -> f
+    android.view.LayoutInflater inflater -> b
+    java.util.List list -> c
+    android.content.Context context -> d
+    android.support.v4.util.LruCache lruCache -> e
     21:26:void <init>(android.content.Context) -> <init>
     29:29:java.lang.Object getData(int) -> a
     34:35:void removeData(java.lang.Object) -> a
@@ -33603,7 +33549,7 @@ com.icleaner.junk.mycustomadapter.PhoneFileAdapter$ViewHolder -> com.icleaner.ju
     com.icleaner.junk.mycustomadapter.PhoneFileAdapter this$0 -> f
     34:34:void <init>(com.icleaner.junk.mycustomadapter.PhoneFileAdapter) -> <init>
 com.icleaner.junk.mycustomadapter.RamAdapter -> com.icleaner.junk.b.k:
-    android.support.v7.app.AlertDialog dialog -> b
+    android.support.v7.app.AlertDialog dialog -> f
     java.util.List white_list -> g
     com.icleaner.junk.mypresenter.PresenterRam ramPresenter -> a
     33:43:void <init>(android.content.Context,com.icleaner.junk.mypresenter.PresenterRam) -> <init>
@@ -33718,6 +33664,38 @@ com.icleaner.junk.mycustomadapter.RecycleViewAdapter$MyViewHolder -> com.icleane
 com.icleaner.junk.mycustomadapter.RecycleViewAdapter$RecycleViewCallBack -> com.icleaner.junk.b.l$c:
     void deleteItemCallback(long) -> a
     void deleteSuccessCallback(java.util.ArrayList) -> a
+com.icleaner.junk.mycustomview.BatteryScanView -> com.icleaner.junk.mycustomview.BatteryScanView:
+    android.os.Handler mHandler -> a
+    android.graphics.Rect src -> b
+    android.graphics.Rect dst -> c
+    android.graphics.Bitmap battery -> d
+    android.graphics.Bitmap cover -> e
+    android.graphics.Bitmap line -> f
+    int starX -> g
+    int count -> h
+    int curPos -> i
+    int insertPos -> j
+    int lineLeftMargin -> k
+    int batteryLeftMargin -> l
+    int topMargin -> m
+    int height -> n
+    int width -> o
+    java.lang.Runnable mRunnable -> p
+    int times -> q
+    com.icleaner.junk.mycustomview.BatteryScanView$IScanEndListener scanEndListener -> r
+    35:149:void <init>(android.content.Context) -> <init>
+    35:149:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    35:149:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    82:95:void init(android.content.Context) -> a
+    99:108:void draw(android.graphics.Canvas) -> draw
+    112:140:void drawScan() -> a
+    152:153:void setScanCallBack(com.icleaner.junk.mycustomview.BatteryScanView$IScanEndListener) -> setScanCallBack
+com.icleaner.junk.mycustomview.BatteryScanView$1 -> com.icleaner.junk.mycustomview.BatteryScanView$1:
+    com.icleaner.junk.mycustomview.BatteryScanView this$0 -> a
+    142:142:void <init>(com.icleaner.junk.mycustomview.BatteryScanView) -> <init>
+    145:146:void run() -> run
+com.icleaner.junk.mycustomview.BatteryScanView$IScanEndListener -> com.icleaner.junk.mycustomview.BatteryScanView$a:
+    void scanTimes(int) -> a
 com.icleaner.junk.mycustomview.CircleView -> com.icleaner.junk.mycustomview.CircleView:
     android.content.Context context -> a
     int width -> b
@@ -33973,6 +33951,14 @@ com.icleaner.junk.mycustomview.ImageAccessor -> com.icleaner.junk.mycustomview.c
     8:8:void setValues(java.lang.Object,int,float[]) -> a
     8:8:int getValues(java.lang.Object,int,float[]) -> b
     8:8:void <clinit>() -> <clinit>
+com.icleaner.junk.mycustomview.LineView -> com.icleaner.junk.mycustomview.LineView:
+    android.graphics.Paint paint -> a
+    android.content.Context context -> b
+    int width -> c
+    int height -> d
+    25:28:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    32:39:void init() -> a
+    43:45:void onDraw(android.graphics.Canvas) -> onDraw
 com.icleaner.junk.mycustomview.ListViewForScrollView -> com.icleaner.junk.mycustomview.ListViewForScrollView:
     13:14:void <init>(android.content.Context) -> <init>
     17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
@@ -34795,6 +34781,7 @@ com.icleaner.module.charge.saver.R$dimen -> com.icleaner.module.charge.saver.a$c
     int d120 -> d120
     int d1200 -> d1200
     int d121 -> d121
+    int d123 -> d123
     int d125 -> d125
     int d127 -> d127
     int d129 -> d129
@@ -34808,6 +34795,7 @@ com.icleaner.module.charge.saver.R$dimen -> com.icleaner.module.charge.saver.a$c
     int d144 -> d144
     int d146 -> d146
     int d15 -> d15
+    int d152 -> d152
     int d154 -> d154
     int d155 -> d155
     int d156 -> d156
@@ -34830,16 +34818,19 @@ com.icleaner.module.charge.saver.R$dimen -> com.icleaner.module.charge.saver.a$c
     int d208 -> d208
     int d21 -> d21
     int d217 -> d217
+    int d22 -> d22
     int d225 -> d225
     int d23 -> d23
     int d234 -> d234
     int d237 -> d237
     int d24 -> d24
+    int d240 -> d240
     int d243 -> d243
     int d250 -> d250
     int d26 -> d26
     int d261 -> d261
     int d27 -> d27
+    int d270 -> d270
     int d275 -> d275
     int d28 -> d28
     int d280 -> d280
@@ -34880,6 +34871,7 @@ com.icleaner.module.charge.saver.R$dimen -> com.icleaner.module.charge.saver.a$c
     int d72 -> d72
     int d78 -> d78
     int d8 -> d8
+    int d80 -> d80
     int d82 -> d82
     int d84 -> d84
     int d9 -> d9
@@ -35076,6 +35068,7 @@ com.icleaner.module.charge.saver.R$id -> com.icleaner.module.charge.saver.a$d:
     int all -> all
     int always -> always
     int basic -> basic
+    int battay_info_lot -> battay_info_lot
     int battery_ad_layout -> battery_ad_layout
     int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
@@ -35088,6 +35081,7 @@ com.icleaner.module.charge.saver.R$id -> com.icleaner.module.charge.saver.a$d:
     int battery_now_day -> battery_now_day
     int battery_now_time -> battery_now_time
     int battery_now_week -> battery_now_week
+    int battery_now_year -> battery_now_year
     int battery_switch -> battery_switch
     int battery_switch_check -> battery_switch_check
     int battery_title -> battery_title
@@ -35897,7 +35891,7 @@ com.icleaner.module.charge.saver.R$styleable -> com.icleaner.module.charge.saver
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1545:2126:void <clinit>() -> <clinit>
+    1553:2134:void <clinit>() -> <clinit>
 com.icleaner.module.charge.saver.SetADActivity -> com.icleaner.module.charge.saver.SetADActivity:
     12:12:void <init>() -> <init>
     15:18:void onResume() -> onResume
@@ -36129,52 +36123,54 @@ com.icleaner.module.charge.saver.protectview.IndicatorView$OnPageChangeListener 
     void onPageSelected(int) -> a
     void onPageScrollStateChanged(int) -> b
 com.icleaner.module.charge.saver.protectview.ProtectBatteryView -> com.icleaner.module.charge.saver.protectview.ProtectBatteryView:
-    android.content.Context mContext -> a
-    android.view.GestureDetector detector -> b
-    float distance -> c
-    boolean isBindView -> d
-    boolean isRegisterTimeUpdate -> e
-    android.view.View adView -> f
-    com.icleaner.module.charge.saver.protectview.ProtectBatteryView$UnlockListener listener -> g
-    com.icleaner.module.charge.saver.protectview.ProtectBatteryView batteryView -> h
-    android.widget.LinearLayout adLayout -> i
-    android.widget.ImageView icon -> j
-    android.widget.TextView title -> k
-    android.widget.LinearLayout more -> l
-    android.widget.LinearLayout switchLayout -> m
-    android.widget.CheckBox saverSwitch -> n
-    android.widget.TextView time -> o
-    android.widget.TextView date -> p
-    android.widget.TextView day -> q
-    android.widget.TextView week -> r
-    android.widget.TextView batteryLeft -> s
-    android.widget.TextView currentLevel -> t
-    android.widget.TextView currentLevel_ing -> u
-    com.icleaner.module.charge.saver.protectview.BubbleLayout bubbleLayout -> v
-    com.sample.lottie.LottieAnimationView water -> w
-    int halfWidth -> x
-    android.content.BroadcastReceiver timerUpdateReceiver -> y
-    android.content.IntentFilter mIntentFilter -> z
-    int progress -> A
-    42:158:void <init>(android.content.Context) -> <init>
-    42:158:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    42:158:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    86:87:void setUnlockListener(com.icleaner.module.charge.saver.protectview.ProtectBatteryView$UnlockListener) -> setUnlockListener
-    99:137:void showNativeAD() -> f
-    140:156:void updateTime() -> a
-    161:204:void bind(com.icleaner.module.charge.saver.entry.BatteryEntry) -> a
-    208:218:void initWater() -> g
-    226:231:void setCharing(boolean) -> setCharing
-    235:346:void onFinishInflate() -> onFinishInflate
-    350:366:void initViews() -> h
-    369:372:void pauseBubble() -> b
-    375:378:void reStartBubble() -> c
-    382:389:void onAttachedToWindow() -> onAttachedToWindow
-    393:415:void onDetachedFromWindow() -> onDetachedFromWindow
-    418:422:int analysisJson(org.json.JSONObject) -> a
-    427:434:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    437:439:void registerTimeUpdateReceiver() -> d
-    442:444:void unregisterTimeUpdateReceiver() -> e
+    android.content.Context mContext -> b
+    android.view.GestureDetector detector -> c
+    float distance -> d
+    boolean isBindView -> e
+    boolean isRegisterTimeUpdate -> f
+    android.view.View adView -> g
+    com.icleaner.module.charge.saver.protectview.ProtectBatteryView$UnlockListener listener -> h
+    com.icleaner.module.charge.saver.protectview.ProtectBatteryView batteryView -> i
+    android.widget.LinearLayout adLayout -> j
+    android.widget.ImageView icon -> k
+    android.widget.TextView title -> l
+    android.widget.LinearLayout more -> m
+    android.widget.LinearLayout switchLayout -> n
+    android.widget.CheckBox saverSwitch -> o
+    android.widget.TextView time -> p
+    android.widget.TextView date -> q
+    android.widget.TextView battery_now_year -> r
+    android.widget.TextView day -> s
+    android.widget.TextView week -> t
+    android.widget.TextView batteryLeft -> u
+    android.widget.TextView currentLevel -> v
+    android.widget.TextView currentLevel_ing -> w
+    com.icleaner.module.charge.saver.protectview.BubbleLayout bubbleLayout -> x
+    com.sample.lottie.LottieAnimationView water -> y
+    com.sample.lottie.LottieAnimationView battay_info_lot -> a
+    int halfWidth -> z
+    android.content.BroadcastReceiver timerUpdateReceiver -> A
+    android.content.IntentFilter mIntentFilter -> B
+    int progress -> C
+    42:162:void <init>(android.content.Context) -> <init>
+    42:162:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    42:162:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    88:89:void setUnlockListener(com.icleaner.module.charge.saver.protectview.ProtectBatteryView$UnlockListener) -> setUnlockListener
+    101:139:void showNativeAD() -> f
+    142:160:void updateTime() -> a
+    165:215:void bind(com.icleaner.module.charge.saver.entry.BatteryEntry) -> a
+    219:229:void initWater() -> g
+    237:242:void setCharing(boolean) -> setCharing
+    246:357:void onFinishInflate() -> onFinishInflate
+    361:379:void initViews() -> h
+    382:385:void pauseBubble() -> b
+    388:391:void reStartBubble() -> c
+    395:402:void onAttachedToWindow() -> onAttachedToWindow
+    406:428:void onDetachedFromWindow() -> onDetachedFromWindow
+    431:435:int analysisJson(org.json.JSONObject) -> a
+    440:447:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    450:452:void registerTimeUpdateReceiver() -> d
+    455:457:void unregisterTimeUpdateReceiver() -> e
     37:37:android.view.GestureDetector access$000(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> a
     37:37:int access$100(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> b
     37:37:com.icleaner.module.charge.saver.protectview.ProtectBatteryView$UnlockListener access$200(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> c
@@ -36190,34 +36186,34 @@ com.icleaner.module.charge.saver.protectview.ProtectBatteryView -> com.icleaner.
     37:37:android.widget.CheckBox access$1000(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> k
 com.icleaner.module.charge.saver.protectview.ProtectBatteryView$1 -> com.icleaner.module.charge.saver.protectview.ProtectBatteryView$1:
     com.icleaner.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    89:89:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    92:93:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    91:91:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    94:95:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.icleaner.module.charge.saver.protectview.ProtectBatteryView$2 -> com.icleaner.module.charge.saver.protectview.ProtectBatteryView$2:
     com.icleaner.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    111:111:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    114:134:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    113:113:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    116:136:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.icleaner.module.charge.saver.protectview.ProtectBatteryView$3 -> com.icleaner.module.charge.saver.protectview.ProtectBatteryView$3:
     int val$le -> a
     com.icleaner.module.charge.saver.protectview.ProtectBatteryView this$0 -> b
-    178:178:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView,int) -> <init>
-    181:190:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+    189:189:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView,int) -> <init>
+    192:201:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.icleaner.module.charge.saver.protectview.ProtectBatteryView$4 -> com.icleaner.module.charge.saver.protectview.ProtectBatteryView$4:
     com.icleaner.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    256:256:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    259:276:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    267:267:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    270:287:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.icleaner.module.charge.saver.protectview.ProtectBatteryView$5 -> com.icleaner.module.charge.saver.protectview.ProtectBatteryView$5:
     com.icleaner.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    279:279:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    282:286:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    291:299:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    290:290:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    293:297:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    302:310:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.icleaner.module.charge.saver.protectview.ProtectBatteryView$6 -> com.icleaner.module.charge.saver.protectview.ProtectBatteryView$6:
     com.icleaner.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    310:310:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    313:317:void onClick(android.view.View) -> onClick
+    321:321:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    324:328:void onClick(android.view.View) -> onClick
 com.icleaner.module.charge.saver.protectview.ProtectBatteryView$7 -> com.icleaner.module.charge.saver.protectview.ProtectBatteryView$7:
     com.icleaner.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    329:329:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    332:343:void onClick(android.view.View) -> onClick
+    340:340:void <init>(com.icleaner.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    343:354:void onClick(android.view.View) -> onClick
 com.icleaner.module.charge.saver.protectview.ProtectBatteryView$UnlockListener -> com.icleaner.module.charge.saver.protectview.ProtectBatteryView$a:
     void onUnlock() -> a
 com.icleaner.module.charge.saver.receiver.BroadcastReceiverStart -> com.icleaner.module.charge.saver.receiver.BroadcastReceiverStart:
@@ -39677,74 +39673,53 @@ com.twee.module.tweenengine.BaseTween -> com.twee.module.tweenengine.a:
     boolean $assertionsDisabled -> e
     17:17:void <init>() -> <init>
     48:60:void reset() -> a
-    74:74:java.lang.Object build() -> b
-    85:88:java.lang.Object start() -> c
-    98:99:java.lang.Object start(com.twee.module.tweenengine.TweenManager) -> a
-    109:110:java.lang.Object delay(float) -> a
-    127:127:void free() -> d
-    254:254:int getRepeatCount() -> e
-    272:273:float getFullDuration() -> f
-    300:300:float getCurrentTime() -> g
-    325:325:boolean isFinished() -> h
-    void forceStartValues() -> i
-    void forceEndValues() -> j
-    358:358:void initializeOverride() -> k
+    127:127:void free() -> b
+    272:273:float getFullDuration() -> c
+    300:300:float getCurrentTime() -> d
+    325:325:boolean isFinished() -> e
+    void forceStartValues() -> f
+    void forceEndValues() -> g
+    358:358:void initializeOverride() -> h
     361:361:void updateOverride(int,int,boolean,float) -> a
-    364:369:void forceToStart() -> l
-    372:377:void forceToEnd(float) -> b
+    364:369:void forceToStart() -> i
+    372:377:void forceToEnd(float) -> a
     380:381:void callCallback(int) -> a
     384:384:boolean isReverse(int) -> b
     388:388:boolean isValid(int) -> c
-    414:430:void update(float) -> c
-    433:443:void initialize() -> m
-    446:468:void testRelaunch() -> n
-    471:538:void updateStep() -> o
-    541:542:void testCompletion() -> p
+    414:430:void update(float) -> b
+    433:443:void initialize() -> j
+    446:468:void testRelaunch() -> k
+    471:538:void updateStep() -> l
+    541:542:void testCompletion() -> m
     17:17:void <clinit>() -> <clinit>
 com.twee.module.tweenengine.Pool -> com.twee.module.tweenengine.b:
     java.util.ArrayList objects -> a
     com.twee.module.tweenengine.Pool$Callback callback -> b
-    java.lang.Object create() -> a
     15:18:void <init>(int,com.twee.module.tweenengine.Pool$Callback) -> <init>
-    21:27:java.lang.Object get() -> b
     31:37:void free(java.lang.Object) -> a
 com.twee.module.tweenengine.Pool$Callback -> com.twee.module.tweenengine.b$a:
     void onPool(java.lang.Object) -> a
-    void onUnPool(java.lang.Object) -> b
 com.twee.module.tweenengine.Timeline -> com.twee.module.tweenengine.Timeline:
     com.twee.module.tweenengine.Pool$Callback poolCallback -> h
     com.twee.module.tweenengine.Pool pool -> f
     java.util.List children -> i
     com.twee.module.tweenengine.Timeline current -> j
     com.twee.module.tweenengine.Timeline parent -> k
-    com.twee.module.tweenengine.Timeline$Modes mode -> l
-    boolean isBuilt -> m
+    boolean isBuilt -> l
     boolean $assertionsDisabled -> g
     105:117:void <init>() -> <init>
     121:127:void reset() -> a
-    234:258:com.twee.module.tweenengine.Timeline build() -> m
-    263:270:com.twee.module.tweenengine.Timeline start() -> n
-    275:281:void free() -> d
+    275:281:void free() -> b
     285:324:void updateOverride(int,int,boolean,float) -> a
-    332:336:void forceStartValues() -> i
-    340:344:void forceEndValues() -> j
-    46:46:java.lang.Object start() -> c
-    46:46:java.lang.Object build() -> b
-    46:46:void <init>(com.twee.module.tweenengine.Timeline$1) -> <init>
+    332:336:void forceStartValues() -> f
+    340:344:void forceEndValues() -> g
     46:56:void <clinit>() -> <clinit>
 com.twee.module.tweenengine.Timeline$1 -> com.twee.module.tweenengine.Timeline$1:
     51:51:void <init>() -> <init>
     52:52:void onPool(com.twee.module.tweenengine.Timeline) -> a
-    53:53:void onUnPool(com.twee.module.tweenengine.Timeline) -> b
-    51:51:void onUnPool(java.lang.Object) -> b
     51:51:void onPool(java.lang.Object) -> a
 com.twee.module.tweenengine.Timeline$2 -> com.twee.module.tweenengine.Timeline$2:
     56:56:void <init>(int,com.twee.module.tweenengine.Pool$Callback) -> <init>
-    57:57:com.twee.module.tweenengine.Timeline create() -> c
-    56:56:java.lang.Object create() -> a
-com.twee.module.tweenengine.Timeline$3 -> com.twee.module.tweenengine.Timeline$3:
-    int[] $SwitchMap$com$twee$module$tweenengine$Timeline$Modes -> a
-    244:244:void <clinit>() -> <clinit>
 com.twee.module.tweenengine.Timeline$Modes -> com.twee.module.tweenengine.Timeline$Modes:
     com.twee.module.tweenengine.Timeline$Modes SEQUENCE -> SEQUENCE
     com.twee.module.tweenengine.Timeline$Modes PARALLEL -> PARALLEL
@@ -39776,284 +39751,31 @@ com.twee.module.tweenengine.Tween -> com.twee.module.tweenengine.c:
     float[] pathBuffer -> z
     boolean $assertionsDisabled -> f
     161:162:void registerAccessor(java.lang.Class,com.twee.module.tweenengine.TweenAccessor) -> a
-    209:213:com.twee.module.tweenengine.Tween to(java.lang.Object,int,float) -> a
     355:369:void <init>() -> <init>
     373:392:void reset() -> a
-    395:401:void setup(java.lang.Object,int,float) -> b
-    404:411:java.lang.Class findTargetClass() -> n
-    443:444:com.twee.module.tweenengine.Tween ease(com.twee.module.tweenengine.TweenEquation) -> a
-    537:541:com.twee.module.tweenengine.Tween target(float,float,float,float) -> a
-    764:765:com.twee.module.tweenengine.Tween path(com.twee.module.tweenengine.TweenPath) -> a
-    830:838:com.twee.module.tweenengine.Tween build() -> m
-    843:844:void free() -> d
-    848:865:void initializeOverride() -> k
+    843:844:void free() -> b
+    848:865:void initializeOverride() -> h
     869:924:void updateOverride(int,int,boolean,float) -> a
-    932:934:void forceStartValues() -> i
-    938:940:void forceEndValues() -> j
-    957:961:void throwCombinedAttrsLimitReached() -> o
-    80:80:java.lang.Object build() -> b
-    80:80:void <init>(com.twee.module.tweenengine.Tween$1) -> <init>
+    932:934:void forceStartValues() -> f
+    938:940:void forceEndValues() -> g
     80:149:void <clinit>() -> <clinit>
 com.twee.module.tweenengine.Tween$1 -> com.twee.module.tweenengine.c$1:
     121:121:void <init>() -> <init>
     122:122:void onPool(com.twee.module.tweenengine.Tween) -> a
-    123:123:void onUnPool(com.twee.module.tweenengine.Tween) -> b
-    121:121:void onUnPool(java.lang.Object) -> b
     121:121:void onPool(java.lang.Object) -> a
 com.twee.module.tweenengine.Tween$2 -> com.twee.module.tweenengine.c$2:
     126:126:void <init>(int,com.twee.module.tweenengine.Pool$Callback) -> <init>
-    127:127:com.twee.module.tweenengine.Tween create() -> c
-    126:126:java.lang.Object create() -> a
 com.twee.module.tweenengine.TweenAccessor -> com.twee.module.tweenengine.d:
     int getValues(java.lang.Object,int,float[]) -> b
     void setValues(java.lang.Object,int,float[]) -> a
 com.twee.module.tweenengine.TweenCallback -> com.twee.module.tweenengine.e:
     void onEvent(int,com.twee.module.tweenengine.BaseTween) -> a
 com.twee.module.tweenengine.TweenEquation -> com.twee.module.tweenengine.f:
-    10:10:void <init>() -> <init>
     float compute(float) -> a
-com.twee.module.tweenengine.TweenEquations -> com.twee.module.tweenengine.g:
-    com.twee.module.tweenengine.equations.Linear easeNone -> a
-    com.twee.module.tweenengine.equations.Quad easeInQuad -> b
-    com.twee.module.tweenengine.equations.Quad easeOutQuad -> c
-    com.twee.module.tweenengine.equations.Quad easeInOutQuad -> d
-    com.twee.module.tweenengine.equations.Cubic easeInCubic -> e
-    com.twee.module.tweenengine.equations.Cubic easeOutCubic -> f
-    com.twee.module.tweenengine.equations.Cubic easeInOutCubic -> g
-    com.twee.module.tweenengine.equations.Quart easeInQuart -> h
-    com.twee.module.tweenengine.equations.Quart easeOutQuart -> i
-    com.twee.module.tweenengine.equations.Quart easeInOutQuart -> j
-    com.twee.module.tweenengine.equations.Quint easeInQuint -> k
-    com.twee.module.tweenengine.equations.Quint easeOutQuint -> l
-    com.twee.module.tweenengine.equations.Quint easeInOutQuint -> m
-    com.twee.module.tweenengine.equations.Circ easeInCirc -> n
-    com.twee.module.tweenengine.equations.Circ easeOutCirc -> o
-    com.twee.module.tweenengine.equations.Circ easeInOutCirc -> p
-    com.twee.module.tweenengine.equations.Sine easeInSine -> q
-    com.twee.module.tweenengine.equations.Sine easeOutSine -> r
-    com.twee.module.tweenengine.equations.Sine easeInOutSine -> s
-    com.twee.module.tweenengine.equations.Expo easeInExpo -> t
-    com.twee.module.tweenengine.equations.Expo easeOutExpo -> u
-    com.twee.module.tweenengine.equations.Expo easeInOutExpo -> v
-    com.twee.module.tweenengine.equations.Back easeInBack -> w
-    com.twee.module.tweenengine.equations.Back easeOutBack -> x
-    com.twee.module.tweenengine.equations.Back easeInOutBack -> y
-    com.twee.module.tweenengine.equations.Bounce easeInBounce -> z
-    com.twee.module.tweenengine.equations.Bounce easeOutBounce -> A
-    com.twee.module.tweenengine.equations.Bounce easeInOutBounce -> B
-    com.twee.module.tweenengine.equations.Elastic easeInElastic -> C
-    com.twee.module.tweenengine.equations.Elastic easeOutElastic -> D
-    com.twee.module.tweenengine.equations.Elastic easeInOutElastic -> E
-    21:51:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.TweenManager -> com.twee.module.tweenengine.h:
+com.twee.module.tweenengine.TweenManager -> com.twee.module.tweenengine.g:
     java.util.ArrayList objects -> a
     boolean isPaused -> b
     20:52:void <init>() -> <init>
-    60:62:com.twee.module.tweenengine.TweenManager add(com.twee.module.tweenengine.BaseTween) -> a
     156:183:void update(float) -> a
-com.twee.module.tweenengine.TweenPath -> com.twee.module.tweenengine.i:
+com.twee.module.tweenengine.TweenPath -> com.twee.module.tweenengine.h:
     float compute(float,float[],int) -> a
-com.twee.module.tweenengine.TweenPaths -> com.twee.module.tweenengine.j:
-    com.twee.module.tweenengine.paths.Linear linear -> a
-    com.twee.module.tweenengine.paths.CatmullRom catmullRom -> b
-    12:13:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Back -> com.twee.module.tweenengine.a.a:
-    com.twee.module.tweenengine.equations.Back IN -> a
-    com.twee.module.tweenengine.equations.Back OUT -> b
-    com.twee.module.tweenengine.equations.Back INOUT -> c
-    float param_s -> d
-    10:53:void <init>() -> <init>
-    11:37:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Back$1 -> com.twee.module.tweenengine.a.a$1:
-    11:11:void <init>() -> <init>
-    14:15:float compute(float) -> a
-    20:20:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Back$2 -> com.twee.module.tweenengine.a.a$2:
-    24:24:void <init>() -> <init>
-    27:28:float compute(float) -> a
-    33:33:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Back$3 -> com.twee.module.tweenengine.a.a$3:
-    37:37:void <init>() -> <init>
-    40:42:float compute(float) -> a
-    47:47:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Bounce -> com.twee.module.tweenengine.a.b:
-    com.twee.module.tweenengine.equations.Bounce IN -> a
-    com.twee.module.tweenengine.equations.Bounce OUT -> b
-    com.twee.module.tweenengine.equations.Bounce INOUT -> c
-    10:10:void <init>() -> <init>
-    11:43:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Bounce$1 -> com.twee.module.tweenengine.a.b$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Bounce$2 -> com.twee.module.tweenengine.a.b$2:
-    23:23:void <init>() -> <init>
-    26:33:float compute(float) -> a
-    39:39:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Bounce$3 -> com.twee.module.tweenengine.a.b$3:
-    43:43:void <init>() -> <init>
-    46:47:float compute(float) -> a
-    52:52:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Circ -> com.twee.module.tweenengine.a.c:
-    com.twee.module.tweenengine.equations.Circ IN -> a
-    com.twee.module.tweenengine.equations.Circ OUT -> b
-    com.twee.module.tweenengine.equations.Circ INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Circ$1 -> com.twee.module.tweenengine.a.c$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Circ$2 -> com.twee.module.tweenengine.a.c$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Circ$3 -> com.twee.module.tweenengine.a.c$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Cubic -> com.twee.module.tweenengine.a.d:
-    com.twee.module.tweenengine.equations.Cubic IN -> a
-    com.twee.module.tweenengine.equations.Cubic OUT -> b
-    com.twee.module.tweenengine.equations.Cubic INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Cubic$1 -> com.twee.module.tweenengine.a.d$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Cubic$2 -> com.twee.module.tweenengine.a.d$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Cubic$3 -> com.twee.module.tweenengine.a.d$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Elastic -> com.twee.module.tweenengine.a.e:
-    com.twee.module.tweenengine.equations.Elastic IN -> a
-    com.twee.module.tweenengine.equations.Elastic OUT -> b
-    com.twee.module.tweenengine.equations.Elastic INOUT -> c
-    float param_a -> d
-    float param_p -> e
-    boolean setA -> f
-    boolean setP -> g
-    10:73:void <init>() -> <init>
-    13:49:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Elastic$1 -> com.twee.module.tweenengine.a.e$1:
-    13:13:void <init>() -> <init>
-    16:22:float compute(float) -> a
-    27:27:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Elastic$2 -> com.twee.module.tweenengine.a.e$2:
-    31:31:void <init>() -> <init>
-    34:40:float compute(float) -> a
-    45:45:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Elastic$3 -> com.twee.module.tweenengine.a.e$3:
-    49:49:void <init>() -> <init>
-    52:59:float compute(float) -> a
-    64:64:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Expo -> com.twee.module.tweenengine.a.f:
-    com.twee.module.tweenengine.equations.Expo IN -> a
-    com.twee.module.tweenengine.equations.Expo OUT -> b
-    com.twee.module.tweenengine.equations.Expo INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Expo$1 -> com.twee.module.tweenengine.a.f$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Expo$2 -> com.twee.module.tweenengine.a.f$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Expo$3 -> com.twee.module.tweenengine.a.f$3:
-    35:35:void <init>() -> <init>
-    38:41:float compute(float) -> a
-    46:46:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Linear -> com.twee.module.tweenengine.a.g:
-    com.twee.module.tweenengine.equations.Linear INOUT -> a
-    10:10:void <init>() -> <init>
-    11:11:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Linear$1 -> com.twee.module.tweenengine.a.g$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quad -> com.twee.module.tweenengine.a.h:
-    com.twee.module.tweenengine.equations.Quad IN -> a
-    com.twee.module.tweenengine.equations.Quad OUT -> b
-    com.twee.module.tweenengine.equations.Quad INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Quad$1 -> com.twee.module.tweenengine.a.h$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quad$2 -> com.twee.module.tweenengine.a.h$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quad$3 -> com.twee.module.tweenengine.a.h$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quart -> com.twee.module.tweenengine.a.i:
-    com.twee.module.tweenengine.equations.Quart IN -> a
-    com.twee.module.tweenengine.equations.Quart OUT -> b
-    com.twee.module.tweenengine.equations.Quart INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Quart$1 -> com.twee.module.tweenengine.a.i$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quart$2 -> com.twee.module.tweenengine.a.i$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quart$3 -> com.twee.module.tweenengine.a.i$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quint -> com.twee.module.tweenengine.a.j:
-    com.twee.module.tweenengine.equations.Quint IN -> a
-    com.twee.module.tweenengine.equations.Quint OUT -> b
-    com.twee.module.tweenengine.equations.Quint INOUT -> c
-    10:10:void <init>() -> <init>
-    11:35:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Quint$1 -> com.twee.module.tweenengine.a.j$1:
-    11:11:void <init>() -> <init>
-    14:14:float compute(float) -> a
-    19:19:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quint$2 -> com.twee.module.tweenengine.a.j$2:
-    23:23:void <init>() -> <init>
-    26:26:float compute(float) -> a
-    31:31:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Quint$3 -> com.twee.module.tweenengine.a.j$3:
-    35:35:void <init>() -> <init>
-    38:39:float compute(float) -> a
-    44:44:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Sine -> com.twee.module.tweenengine.a.k:
-    com.twee.module.tweenengine.equations.Sine IN -> a
-    com.twee.module.tweenengine.equations.Sine OUT -> b
-    com.twee.module.tweenengine.equations.Sine INOUT -> c
-    10:10:void <init>() -> <init>
-    13:37:void <clinit>() -> <clinit>
-com.twee.module.tweenengine.equations.Sine$1 -> com.twee.module.tweenengine.a.k$1:
-    13:13:void <init>() -> <init>
-    16:16:float compute(float) -> a
-    21:21:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Sine$2 -> com.twee.module.tweenengine.a.k$2:
-    25:25:void <init>() -> <init>
-    28:28:float compute(float) -> a
-    33:33:java.lang.String toString() -> toString
-com.twee.module.tweenengine.equations.Sine$3 -> com.twee.module.tweenengine.a.k$3:
-    37:37:void <init>() -> <init>
-    40:40:float compute(float) -> a
-    45:45:java.lang.String toString() -> toString
-com.twee.module.tweenengine.paths.CatmullRom -> com.twee.module.tweenengine.b.a:
-    8:8:void <init>() -> <init>
-    11:25:float compute(float,float[],int) -> a
-    29:37:float catmullRomSpline(float,float,float,float,float) -> a
-com.twee.module.tweenengine.paths.Linear -> com.twee.module.tweenengine.b.b:
-    8:8:void <init>() -> <init>
-    11:17:float compute(float,float[],int) -> a

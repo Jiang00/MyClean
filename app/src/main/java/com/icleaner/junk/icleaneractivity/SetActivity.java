@@ -17,7 +17,6 @@ import com.android.client.AndroidSdk;
 import com.icleaner.clean.utils.MyUtils;
 import com.icleaner.clean.utils.PreData;
 import com.icleaner.junk.R;
-import com.icleaner.junk.mybroadcasts.UnloadResidualBroadcast;
 import com.icleaner.junk.mytools.MUtilGp;
 import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.mytools.SetAdUtil;
@@ -204,14 +203,14 @@ public class SetActivity extends BaseActivity {
                     SetAdUtil.track("设置页面", "点击卸载残余开关", "", 1);
                     if (PreData.getDB(SetActivity.this, MyConstant.UNLOAD_SWITCH, true)) {
                         PreData.putDB(SetActivity.this, MyConstant.UNLOAD_SWITCH, false);
-                        Intent intent1 = new Intent(SetActivity.this, UnloadResidualBroadcast.class);
+//                        Intent intent1 = new Intent(SetActivity.this, UnloadResidualBroadcast.class);
                         setting_unload_check.setImageResource(R.mipmap.side_check_normal);
-                        stopService(intent1);
+//                        stopService(intent1);
                     } else {
                         PreData.putDB(SetActivity.this, MyConstant.UNLOAD_SWITCH, true);
-                        Intent intent1 = new Intent(SetActivity.this, UnloadResidualBroadcast.class);
+//                        Intent intent1 = new Intent(SetActivity.this, UnloadResidualBroadcast.class);
                         setting_unload_check.setImageResource(R.mipmap.side_check_passed);
-                        sendBroadcast(intent1);
+//                        sendBroadcast(intent1);
                     }
                     break;
                 case R.id.setting_battery:

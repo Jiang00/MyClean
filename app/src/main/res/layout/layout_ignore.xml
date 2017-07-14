@@ -24,7 +24,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/A2">
+        android:background="@color/A17">
 
         <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
             android:id="@+id/white_wu"
@@ -35,7 +35,7 @@
             android:layout_marginRight="@dimen/d16"
             android:gravity="center"
             android:text="@string/white_wu"
-            android:textColor="@color/A1"
+            android:textColor="#26000000"
             android:textSize="@dimen/s16"
             android:visibility="invisible" />
 
@@ -43,9 +43,12 @@
             android:id="@+id/list_si"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_100"
+            android:layout_marginLeft="@dimen/d8"
+            android:layout_marginRight="@dimen/d8"
+            android:background="@color/A7"
             android:divider="@drawable/list_divider"
-            android:dividerHeight="1px" />
+            android:dividerHeight="0px"
+            android:scrollbars="none" />
     </FrameLayout>
 
 </LinearLayout>

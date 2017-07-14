@@ -42,7 +42,7 @@ public class PhoneFileActivity extends BaseActivity {
     FrameLayout file_fl;
     private int nameId;
     ListView file_list;
-    ImageView file_button_clean;
+    TextView file_button_clean;
     ImageView null_icon;
     FrameLayout title_left;
     RelativeLayout file_clean_rl;
@@ -94,7 +94,7 @@ public class PhoneFileActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         file_list = (ListView) findViewById(R.id.file_list);
-        file_button_clean = (ImageView) findViewById(R.id.file_button_clean);
+        file_button_clean = (TextView) findViewById(R.id.file_button_clean);
         file_clean_rl = (RelativeLayout) findViewById(R.id.file_clean_rl);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);

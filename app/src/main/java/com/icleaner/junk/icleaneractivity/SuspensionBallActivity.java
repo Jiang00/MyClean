@@ -20,6 +20,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -34,13 +35,12 @@ import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.mytools.SetAdUtil;
 import com.icleaner.junk.mytools.SwitchControl;
 import com.twee.module.tweenengine.Tween;
-import com.twee.module.tweenengine.TweenEquations;
 import com.twee.module.tweenengine.TweenManager;
 
 import java.util.List;
 
 public class SuspensionBallActivity extends BaseActivity {
-    ImageView float_cricle, float_rotate;
+    //    ImageView float_cricle;
     TextView float_memory, float_tishi;
     LinearLayout ll_ad;
     private View nativeView;
@@ -52,7 +52,7 @@ public class SuspensionBallActivity extends BaseActivity {
     private boolean isdoudong;
     TweenManager tweenManager;
     private boolean istween;
-    private LinearLayout float_yidong_linearlayout;
+    private RelativeLayout float_yidong_linearlayout;
     private int x, y;
     private Intent intent;
     private ObjectAnimator animator;
@@ -102,7 +102,7 @@ public class SuspensionBallActivity extends BaseActivity {
         ll_xianshi.setOnClickListener(kuaijieListener);
         ll_shengyin.setOnClickListener(kuaijieListener);
         ll_gps.setOnClickListener(kuaijieListener);
-        float_rotate.setOnClickListener(kuaijieListener);
+//        float_rotate.setOnClickListener(kuaijieListener);
     }
 
     private void initList() {
@@ -140,14 +140,14 @@ public class SuspensionBallActivity extends BaseActivity {
         ll_xianshi = (LinearLayout) findViewById(R.id.ll_xianshi);
         ll_shengyin = (LinearLayout) findViewById(R.id.ll_shengyin);
         ll_gps = (LinearLayout) findViewById(R.id.ll_gps);
-        float_yidong_linearlayout = (LinearLayout) findViewById(R.id.float_yidong_linearlayout);
+        float_yidong_linearlayout = (RelativeLayout) findViewById(R.id.float_yidong_linearlayout);
         iv_wifi = (ImageView) findViewById(R.id.iv_wifi);
         iv_liuliang = (ImageView) findViewById(R.id.iv_liuliang);
         iv_xianshi = (ImageView) findViewById(R.id.iv_xianshi);
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
-        float_cricle = (ImageView) findViewById(R.id.float_cricle);
-        float_rotate = (ImageView) findViewById(R.id.float_rotate);
+//        float_cricle = (ImageView) findViewById(R.id.float_cricle);
+//        float_rotate = (ImageView) findViewById(R.id.float_rotate);
         float_memory = (TextView) findViewById(R.id.float_memory);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
     }
@@ -188,6 +188,7 @@ public class SuspensionBallActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.ll_wifi:
                     wifiD();
+                    // 开启WiFi
                     SwitchControl.switchWifi(SuspensionBallActivity.this);
                     break;
                 case R.id.ll_liuliang:
@@ -222,10 +223,10 @@ public class SuspensionBallActivity extends BaseActivity {
                         e.printStackTrace();
                     }
                     break;
-                case R.id.float_rotate:
-                    float_rotate.setOnClickListener(null);
-                    startCleanAnimation();
-                    break;
+//                case R.id.float_rotate:
+//                    float_rotate.setOnClickListener(null);
+//                    startCleanAnimation();
+//                    break;
             }
         }
     };
@@ -262,8 +263,8 @@ public class SuspensionBallActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final float hx = float_cricle.getX();
-                final float hy = float_cricle.getY();
+//                final float hx = float_cricle.getX();
+//                final float hy = float_cricle.getY();
                 while (isdoudong) {
                     int x = (int) (Math.random() * (16)) - 8;
                     int y = (int) (Math.random() * (16)) - 8;
@@ -272,9 +273,9 @@ public class SuspensionBallActivity extends BaseActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Tween.to(float_cricle, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1, 1)
-                            .ease(TweenEquations.easeInQuad).delay(0)
-                            .start(tweenManager);
+//                    Tween.to(float_cricle, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1, 1)
+//                            .ease(TweenEquations.easeInQuad).delay(0)
+//                            .start(tweenManager);
                 }
             }
         }).start();
@@ -283,7 +284,7 @@ public class SuspensionBallActivity extends BaseActivity {
             @Override
             public void run() {
                 isdoudong = false;
-                float_cricle.startAnimation(suo);
+//                float_cricle.startAnimation(suo);
             }
         }, 1000);
         suo.setAnimationListener(new Animation.AnimationListener() {
@@ -294,7 +295,7 @@ public class SuspensionBallActivity extends BaseActivity {
                 float_tishi.setVisibility(View.VISIBLE);
                 float_memory.startAnimation(fang);
                 float_memory.setVisibility(View.VISIBLE);
-                float_cricle.setVisibility(View.GONE);
+//                float_cricle.setVisibility(View.GONE);
                 float_tishi.setVisibility(View.GONE);
             }
 
@@ -335,18 +336,18 @@ public class SuspensionBallActivity extends BaseActivity {
 
     private void wifi() {
         if (CheckState.wifiState(this)) {
-            iv_wifi.setAlpha(1f);
+            iv_wifi.setImageResource(R.mipmap.float_wifi);
         } else {
-            iv_wifi.setAlpha(0.2f);
+            iv_wifi.setImageResource(R.mipmap.float_wifi1);
         }
     }
 
 
     private void liuLiangd() {
         if (!CheckState.networkState(this, null)) {
-            iv_liuliang.setAlpha(1f);
+            iv_liuliang.setImageResource(R.mipmap.float_liuliang1);
         } else {
-            iv_liuliang.setAlpha(0.2f);
+            iv_liuliang.setImageResource(R.mipmap.float_liuliang);
         }
     }
 
@@ -369,33 +370,33 @@ public class SuspensionBallActivity extends BaseActivity {
 
     private void wifiD() {
         if (!CheckState.wifiState(this)) {
-            iv_wifi.setAlpha(1f);
+            iv_wifi.setImageResource(R.mipmap.float_wifi);
         } else {
-            iv_wifi.setAlpha(0.2f);
+            iv_wifi.setImageResource(R.mipmap.float_wifi1);
         }
     }
 
     private void liuLiang() {
         if (CheckState.networkState(this, null)) {
-            iv_liuliang.setAlpha(1f);
+            iv_liuliang.setImageResource(R.mipmap.float_liuliang);
         } else {
-            iv_liuliang.setAlpha(0.2f);
+            iv_liuliang.setImageResource(R.mipmap.float_liuliang1);
         }
     }
 
     private void shengYin() {
         if (CheckState.soundState(this)) {
-            iv_shengyin.setAlpha(1f);
+            iv_shengyin.setImageResource(R.mipmap.float_shengyin);
         } else {
-            iv_shengyin.setAlpha(0.2f);
+            iv_shengyin.setImageResource(R.mipmap.float_shengyin1);
         }
     }
 
     private void gps() {
         if (CheckState.gpsState(this)) {
-            iv_gps.setAlpha(1f);
+            iv_gps.setImageResource(R.mipmap.float_gps);
         } else {
-            iv_gps.setAlpha(0.2f);
+            iv_gps.setImageResource(R.mipmap.float_gps1);
         }
     }
 

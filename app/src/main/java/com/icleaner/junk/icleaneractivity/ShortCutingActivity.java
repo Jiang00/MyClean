@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -17,6 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,7 +32,6 @@ import com.icleaner.junk.mycustomview.ImageAccessor;
 import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.mytools.SetAdUtil;
 import com.twee.module.tweenengine.Tween;
-import com.twee.module.tweenengine.TweenEquations;
 import com.twee.module.tweenengine.TweenManager;
 
 import java.util.List;
@@ -108,12 +109,6 @@ public class ShortCutingActivity extends BaseActivity {
         setAnimationThread();
         suo = AnimationUtils.loadAnimation(this, R.anim.suo_short);
 
-        myHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startTween();
-            }
-        }, 500);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -198,6 +193,21 @@ public class ShortCutingActivity extends BaseActivity {
             WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
             lp.width = dm.widthPixels; //设置宽度
             lp.height = dm.heightPixels; //设置高度
+            if (PreData.getDB(this, MyConstant.IS_ACTION_BAR, true)) {
+                int uiOptions =
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                                //布局位于状态栏下方
+                                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                                //隐藏导航栏
+                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+                if (Build.VERSION.SDK_INT >= 19) {
+                    uiOptions |= 0x00001000;
+                } else {
+                    uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;
+                }
+                dialog.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+            }
             window.setAttributes(lp);
             window.setContentView(view);
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -231,9 +241,9 @@ public class ShortCutingActivity extends BaseActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Tween.to(short_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
+                   /* Tween.to(short_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
                             .ease(TweenEquations.easeInQuad).delay(0)
-                            .start(tweenManager);
+                            .start(tweenManager);*/
                 }
             }
         }).start();
@@ -253,59 +263,60 @@ public class ShortCutingActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        new Handler().postDelayed(new Runnable() {
+        LinearInterpolator lir = new LinearInterpolator();
+        AnimatorSet set = new AnimatorSet();
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(short_huojian, "rotation", 0, 360f);
+        ObjectAnimator rotation1 = ObjectAnimator.ofFloat(short_b, "rotation", 0, 360f);
+        set.setInterpolator(lir);
+        rotation.setRepeatCount(3);
+        rotation1.setRepeatCount(3);
+        set.setDuration(500);
+        set.addListener(new Animator.AnimatorListener() {
             @Override
-            public void run() {
-                AnimatorSet set = new AnimatorSet();
-                ObjectAnimator translationY = ObjectAnimator.ofFloat(short_huojian, "translationY", 0, -MyUtils.dp2px(500));
-                ObjectAnimator translationX = ObjectAnimator.ofFloat(short_huojian, "translationX", 0, -MyUtils.dp2px(500));
-                set.setDuration(2000);
-                set.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
+            public void onAnimationCancel(Animator animation) {
 
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        short_fl.startAnimation(suo);
-                        short_huojian.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-                });
-                set.play(translationX).with(translationY);
-                set.start();
-                suo.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        short_fl.setVisibility(View.GONE);
-                        count++;
-                        isdoudong = false;
-                        show_text();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-                });
             }
-        }, 1000);
 
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                short_fl.startAnimation(suo);
+//                count++;
+//                isdoudong = false;
+//                show_text();
+//                short_huojian.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
+        set.play(rotation).with(rotation1);
+        set.start();
+        suo.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                short_fl.setVisibility(View.GONE);
+                count++;
+                isdoudong = false;
+                show_text();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+        });
 //        ObjectAnimator rotation = ObjectAnimator.ofFloat(short_b, "rotation", 0, 360);
 //        rotation.setDuration(1200);
 //        rotation.setInterpolator(new LinearInterpolator());

@@ -77,22 +77,22 @@ public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.name.setText(info.label);
-        if ("time".equals(identification)) {
-            holder.time.setText(MyUtils.getStrTime2(info.date));
-        } else {
-            holder.time.setText(MyUtils.getStrTime3(info.date));
-        }
+//        if ("time".equals(identification)) {
+//            holder.time.setText(MyUtils.getStrTime2(info.date));
+//        } else {
+//            holder.time.setText(MyUtils.getStrTime3(info.date));
+//        }
         holder.size.setText(MyUtils.convertStorage(info.allSize, true));
 
         Drawable icon = LoadManager.getInstance(context).getAppIcon(info.pkg);
         holder.icon.setImageDrawable(icon);
-        if ("size".equals(identification)) {
-            holder.time.setVisibility(View.GONE);
-            holder.size.setVisibility(View.VISIBLE);
-        } else {
-            holder.time.setVisibility(View.VISIBLE);
-            holder.size.setVisibility(View.GONE);
-        }
+//        if ("size".equals(identification)) {
+//            holder.time.setVisibility(View.GONE);
+//            holder.size.setVisibility(View.VISIBLE);
+//        } else {
+//            holder.time.setVisibility(View.VISIBLE);
+//            holder.size.setVisibility(View.GONE);
+//        }
         if (info.isChecked) {
             holder.checkBox.setImageResource(R.mipmap.ram_passed);
         } else {

@@ -29,10 +29,20 @@
             android:id="@+id/junk_item_lable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d8"
             android:maxLength="20"
             android:text="app标题"
-            android:textColor="@color/A5"
-            android:textSize="@dimen/s14" />
+            android:textColor="@color/A8"
+            android:textSize="@dimen/s16" />
+
+        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+            android:id="@+id/item_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d3"
+            android:text="17-03-16"
+            android:textColor="@color/A9"
+            android:textSize="@dimen/s12" />
     </LinearLayout>
 
     <ImageView
@@ -51,17 +61,6 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="#b3000000"
+        android:textColor="@color/A9"
         android:textSize="@dimen/s14" />
-
-    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-        android:id="@+id/item_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/check_iv"
-        android:text="17-03-16"
-        android:textColor="#b3000000"
-        android:textSize="@dimen/s14" />
-
 </RelativeLayout>

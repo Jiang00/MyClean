@@ -54,6 +54,7 @@ public class ProtectBatteryView extends FrameLayout {
     private CheckBox saverSwitch;
     private TextView time;
     private TextView date;
+    private TextView battery_now_year;
     private TextView day;
     private TextView week;
     private TextView batteryLeft;
@@ -61,6 +62,7 @@ public class ProtectBatteryView extends FrameLayout {
     private TextView currentLevel_ing;
     private BubbleLayout bubbleLayout;
     private LottieAnimationView water;
+    LottieAnimationView battay_info_lot;
 
     private int halfWidth;
 //    private ImageView shutter;
@@ -144,6 +146,8 @@ public class ProtectBatteryView extends FrameLayout {
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
                 String str = sdf.format(d);
                 time.setText(str);
+                str = new SimpleDateFormat("YY", Locale.getDefault()).format(d);
+                date.setText(str);
                 str = new SimpleDateFormat("MM", Locale.getDefault()).format(d);
                 date.setText(str);
                 str = new SimpleDateFormat("dd", Locale.getDefault()).format(d);
@@ -171,6 +175,13 @@ public class ProtectBatteryView extends FrameLayout {
             currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_1));
         }
         currentLevel.setText(curLevel + "%");
+
+        battay_info_lot.setImageAssetsFolder("images/");
+        battay_info_lot.setAnimation("particle.json");
+        battay_info_lot.loop(false);
+        battay_info_lot.setSpeed(0.7f);
+        battay_info_lot.playAnimation();
+
 
         if (water != null && !water.isAnimating()) {
             initWater();
@@ -359,10 +370,12 @@ public class ProtectBatteryView extends FrameLayout {
         more = (LinearLayout) findViewById(R.id.battery_more);
         time = (TextView) findViewById(R.id.battery_now_time);
         date = (TextView) findViewById(R.id.battery_now_date);
+        battery_now_year = (TextView) findViewById(R.id.battery_now_year);
         day = (TextView) findViewById(R.id.battery_now_day);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
         water = (LottieAnimationView) findViewById(R.id.battery_electricity);
+        battay_info_lot = (LottieAnimationView) findViewById(R.id.battay_info_lot);
     }
 
     public void pauseBubble() {

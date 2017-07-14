@@ -56,7 +56,7 @@ public class PhoneDocActivity extends BaseActivity {
     private View nativeView;
     private ArrayList<JunkInfo> docList, txtList, pdfList;
     private Handler mHandler;
-    ImageView file_button_clean;
+    TextView file_button_clean;
     ViewPager doc_view_pager;
     private PhoneFileCategoryHelper.FileCategory fc_clean;
     private String TAG_FILE_2 = "icleaner_file_2";
@@ -124,7 +124,7 @@ public class PhoneDocActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        file_button_clean = (ImageView) findViewById(R.id.file_button_clean);
+        file_button_clean = (TextView) findViewById(R.id.file_button_clean);
         file_clean_rl = (RelativeLayout) findViewById(R.id.file_clean_rl);
         file_progressbar = (ProgressBar) findViewById(R.id.file_progressbar);
         doc_view_pager = (ViewPager) findViewById(R.id.doc_view_pager);

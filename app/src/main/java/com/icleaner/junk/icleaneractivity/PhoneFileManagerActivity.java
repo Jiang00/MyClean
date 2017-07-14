@@ -61,7 +61,7 @@ public class PhoneFileManagerActivity extends BaseActivity {
                         file_music_num.setText(getString(R.string.file_num, musicInfo.count));
                         file_video_num.setText(getString(R.string.file_num, videoInfo.count));
                         file_qita_num.setText(getString(R.string.file_num, otherInfo.count));
-
+                        file_zip_size.setText(Util.convertStorage(zipInfo.size));
                         file_apk_size.setText(Util.convertStorage(apkInfo.size));
                         file_txt_size.setText(Util.convertStorage(docInfo.size));
                         file_music_size.setText(Util.convertStorage(musicInfo.size));
@@ -109,14 +109,14 @@ public class PhoneFileManagerActivity extends BaseActivity {
         file_music_num = (TextView) findViewById(R.id.file_music_num);
         file_video_num = (TextView) findViewById(R.id.file_video_num);
         file_qita_num = (TextView) findViewById(R.id.file_qita_num);
-
+        file_zip_size = (TextView) findViewById(R.id.file_zip_size);
         file_apk_size = (TextView) findViewById(R.id.file_apk_size);
         file_txt_size = (TextView) findViewById(R.id.file_txt_size);
         file_music_size = (TextView) findViewById(R.id.file_music_size);
         file_video_size = (TextView) findViewById(R.id.file_video_size);
         file_qita_size = (TextView) findViewById(R.id.file_qita_size);
         file_apk_button = (LinearLayout) findViewById(R.id.file_apk_button);
-//        file_zip_button = (LinearLayout) findViewById(R.id.file_zip_button);
+        file_zip_button = (LinearLayout) findViewById(R.id.file_zip_button);
         file_txt_button = (LinearLayout) findViewById(R.id.file_txt_button);
         file_music_button = (LinearLayout) findViewById(R.id.file_music_button);
         file_video_button = (LinearLayout) findViewById(R.id.file_video_button);
@@ -141,7 +141,7 @@ public class PhoneFileManagerActivity extends BaseActivity {
                     }
                     jumpToActivity(PhoneFileActivity.class, bundle, 1);
                     break;
-                /*case R.id.file_zip_button:
+                case R.id.file_zip_button:
                     if (zipInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
@@ -149,7 +149,7 @@ public class PhoneFileManagerActivity extends BaseActivity {
                     bundle.putString("name", "zip");
                     bundle.putInt("nameId", R.string.file_zip);
                     jumpToActivity(PhoneFileActivity.class, bundle, 1);
-                    break;*/
+                    break;
                 case R.id.file_txt_button:
                     if (docInfo.count == 0) {
                         bundle.putInt("count", 0);
@@ -177,7 +177,7 @@ public class PhoneFileManagerActivity extends BaseActivity {
                     break;
                 case R.id.file_other_button:
                     SetAdUtil.track("文件管理页面", "点击进入其他页面", "", 1);
-                    if (otherInfo.count + zipInfo.count + pictureInfo.count + logInfo.count == 0) {
+                    if (otherInfo.count == 0) {
                         bundle.putInt("count", 0);
                     }
                     bundle.putString("name", "other");
@@ -198,7 +198,7 @@ public class PhoneFileManagerActivity extends BaseActivity {
     private void setListener() {
         title_left.setOnClickListener(clickListener);
         file_apk_button.setOnClickListener(clickListener);
-//        file_zip_button.setOnClickListener(clickListener);
+        file_zip_button.setOnClickListener(clickListener);
         file_txt_button.setOnClickListener(clickListener);
         file_music_button.setOnClickListener(clickListener);
         file_video_button.setOnClickListener(clickListener);

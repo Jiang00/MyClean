@@ -10,10 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.sample.lottie.LottieAnimationView
+            android:id="@+id/battay_info_lot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitEnd" />
+
         <com.icleaner.module.charge.saver.protectview.BubbleLayout
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:visibility="gone" />
     </FrameLayout>
 
     <LinearLayout
@@ -90,25 +97,34 @@
                     android:layout_marginLeft="@dimen/d27"
                     android:layout_marginTop="@dimen/d15"
                     android:layout_toRightOf="@id/battery_now_time"
-                    android:src="@mipmap/battery" />
-                <!--电池动画-->
-                <com.sample.lottie.LottieAnimationView
-                    android:id="@+id/battery_electricity"
-                    android:layout_width="@dimen/d129"
-                    android:layout_height="@dimen/d61"
-                    android:layout_marginLeft="@dimen/d27"
-                    android:layout_marginTop="@dimen/d8"
-                    android:layout_toRightOf="@id/battery_now_time"
-                    android:visibility="gone"
-                    app:lottie_autoPlay="false" />
+                    android:src="@mipmap/battery"
+                    android:visibility="gone" />
             </RelativeLayout>
-            <!--月日星期,充电多少-->
+            <!--年月日星期,充电多少-->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/d40"
                 android:layout_marginTop="@dimen/d12"
                 android:orientation="horizontal">
+                <!--年-->
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:id="@+id/battery_now_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s18"
+                    app:typeface="ROBOTO-REGULAR.TTF" />
+
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/d6"
+                    android:text="/"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s18"
+                    app:typeface="ROBOTO-REGULAR.TTF" />
                 <!--月-->
                 <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:id="@+id/battery_now_date"
@@ -178,6 +194,14 @@
                         app:typeface="ROBOTO-REGULAR.TTF" />
                 </LinearLayout>
             </LinearLayout>
+            <!--电池动画-->
+            <com.sample.lottie.LottieAnimationView
+                android:id="@+id/battery_electricity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d8"
+                app:lottie_autoPlay="false" />
             <!--充满时间-->
             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/battery_now_battery_left"
@@ -224,6 +248,7 @@
                 android:textSize="@dimen/s18"
                 app:typeface="ROBOTO-REGULAR.TTF" />
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

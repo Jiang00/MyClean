@@ -9,16 +9,18 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.icleaner.junk.R;
-import com.icleaner.junk.mytools.MyConstant;
-import com.icleaner.junk.mycustomview.FlakeView;
 import com.icleaner.clean.utils.PreData;
+import com.icleaner.junk.R;
+import com.icleaner.junk.mycustomview.BatteryScanView;
+import com.icleaner.junk.mycustomview.FlakeView;
+import com.icleaner.junk.mytools.MyConstant;
 
 import java.util.Random;
 
@@ -32,7 +34,7 @@ public class BatteriesActivity extends BaseActivity {
     TextView cooling_wendu;
     FrameLayout title_left;
     LinearLayout cooling_piao;
-    FrameLayout cooling_fl;
+    //    FrameLayout cooling_fl;
     private Animation suo;
     private Animation rotate_zheng;
     private Random random;
@@ -40,7 +42,9 @@ public class BatteriesActivity extends BaseActivity {
     private FlakeView flakeView;
     LinearLayout cooling_text;
     ImageView cooling_xuehua;
+    ImageView cooling_2;
     TextView title_name;
+    BatteryScanView cooling_1;
 
     private Handler mHandler = new Handler();
     private Runnable runnable = new Runnable() {
@@ -73,7 +77,8 @@ public class BatteriesActivity extends BaseActivity {
         startCoolingAni();
 
 
-        suo.setAnimationListener(new Animation.AnimationListener() {
+
+     /*   suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationEnd(Animation animation) {
                 cooling_fl.setVisibility(View.INVISIBLE);
@@ -97,7 +102,7 @@ public class BatteriesActivity extends BaseActivity {
             public void onAnimationStart(Animation animation) {
 
             }
-        });
+        });*/
         if (TextUtils.equals("main", getIntent().getStringExtra("from"))) {
             cooling_text.setVisibility(View.VISIBLE);
             final int wendu = getIntent().getIntExtra("wendu", 40);
@@ -138,9 +143,11 @@ public class BatteriesActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
         cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
-        cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
+//        cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
+        cooling_2 = (ImageView) findViewById(R.id.cooling_2);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
+        cooling_1 = (BatteryScanView) findViewById(R.id.cooling_1);
     }
 
     @Override
@@ -172,20 +179,69 @@ public class BatteriesActivity extends BaseActivity {
         time = random.nextInt(5) + 1;
 //        cooling_wendu.setText(time + "℃");
         final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
+//        ObjectAnimator animator = ObjectAnimator.ofFloat(cooling_1, "scaleY", 1f, 0f);
+//        ObjectAnimator animator2 = ObjectAnimator.ofFloat(cooling_1, "scaleX", 1f, 0f);
+//        AnimatorSet animSet = new AnimatorSet();
+//        animSet.setDuration(2000);//设置动画持续时间
+//        animSet.play(animator).with(animator2);
+//        animSet.start();
+
+        ScaleAnimation s = new ScaleAnimation(1f, 1f, 0f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从上往下
+        cooling_2.setAnimation(s);
+        s.setDuration(2000);
+        s.startNow();//开始动画
+        ScaleAnimation s1 = new ScaleAnimation(1f, 1f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 1f);//从上往下
+        cooling_1.setAnimation(s);
+        s1.setDuration(2000);
+//        s1.startNow();//开始动画
+        mHandler.postDelayed(new Runnable() {
+            public void run() {
+                ScaleAnimation s = new ScaleAnimation(1f, 1f, 1f, 0f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从下往上
+//                ObjectAnimator animator = ObjectAnimator.ofFloat(cooling_1, "scaleY", 0f, 1f);
+//                ObjectAnimator animator2 = ObjectAnimator.ofFloat(cooling_1, "scaleX", 0f, 1f);
+//                AnimatorSet animSet = new AnimatorSet();
+//                animSet.setDuration(2000);//设置动画持续时间
+                cooling_2.setAnimation(s);
+//                animSet.play(animator).with(animator2);
+//                animSet.start();
+                s.setDuration(2000);//设置动画持续时间
+                cooling_2.setAnimation(s);
+                s.startNow();//开始动画
+
+            }
+        }, 2000); //延迟2秒跳转
+        mHandler.postDelayed(new Runnable() {
+            public void run() {
+//                cooling_1.setVisibility(View.VISIBLE);
+            }
+        }, 3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 int value = (int) animation.getAnimatedValue();
                 if (value == 20) {
-                    cooling_fl.startAnimation(suo);
+//                    cooling_fl.startAnimation(suo);
                     hideSnow();
                 }
             }
         });
         valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        valueAnimator.setDuration(3000);
+        valueAnimator.setDuration(2000);
         valueAnimator.start();
-
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                cooling_fl.setVisibility(View.INVISIBLE);
+//                cooling_xuehua.clearAnimation();
+                if (PreData.getDB(BatteriesActivity.this, MyConstant.FULL_COOL, 0) == 1) {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+                Bundle bundle = new Bundle();
+                bundle.putInt("wendu", time);
+                bundle.putString("from", "cooling");
+                jumpToActivity(SucceedActivity.class, bundle, 1);
+            }
+        }, 4000);
     }
 
     @Override

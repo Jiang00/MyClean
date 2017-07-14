@@ -8,53 +8,56 @@
     android:orientation="vertical"
     android:visibility="gone">
     <!--android:visibility="gone"-->
+    <!--开关-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/d56">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/d16"
-            android:layout_marginTop="@dimen/d16"
             android:text="@string/app_name"
-            android:textColor="@color/B3"
-            android:textSize="@dimen/s16" />
+            android:textColor="@color/A7"
+            android:textSize="@dimen/s18" />
 
         <LinearLayout
             android:id="@+id/battery_cha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/d16"
-            android:layout_marginTop="@dimen/d16"
-            android:paddingBottom="@dimen/d16"
-            android:paddingLeft="@dimen/d16">
+            android:padding="@dimen/d16">
 
             <ImageView
-                android:layout_width="@dimen/d12"
-                android:layout_height="@dimen/d12"
-                android:layout_gravity="center"
+                android:layout_width="@dimen/d24"
+                android:layout_height="@dimen/d24"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d24"
                 android:src="@mipmap/battery_cha" />
         </LinearLayout>
     </RelativeLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d234"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/battery_2"
+            android:layout_width="@dimen/d150"
+            android:layout_height="@dimen/d200"
+            android:src="@mipmap/battery_2" />
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/d30"
-        android:text="@string/battery_2"
+        android:layout_marginLeft="@dimen/d40"
+        android:layout_marginTop="@dimen/d26"
+        android:text="@string/battery_9"
         android:textColor="@color/B3"
         android:textSize="@dimen/s24" />
-
-    <ImageView
-        android:id="@+id/battery_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/d20"
-        android:src="@mipmap/battery_2" />
 
     <TextView
         android:id="@+id/textView"
@@ -64,84 +67,77 @@
         android:layout_marginTop="@dimen/d20"
         android:text="@string/battery_3"
         android:textColor="@color/B3"
-        android:textSize="@dimen/s20" />
+        android:textSize="@dimen/s20"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/d60"
+        android:layout_marginTop="@dimen/d20"
         android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/d16">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/d40"
+            android:layout_marginRight="@dimen/d12"
+            android:text="1"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s16" />
 
-            <TextView
-                android:layout_width="@dimen/d27"
-                android:layout_height="@dimen/d27"
-                android:layout_marginLeft="@dimen/d36"
-                android:layout_marginRight="@dimen/d17"
-                android:background="@mipmap/battery_yuan"
-                android:gravity="center"
-                android:text="1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/battery_4"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s16" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d27"
-            android:orientation="horizontal">
+            android:text="@string/battery_4"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s16" />
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="@dimen/d27"
-                android:layout_height="@dimen/d27"
-                android:layout_marginLeft="@dimen/d36"
-                android:layout_marginRight="@dimen/d17"
-                android:background="@mipmap/battery_yuan"
-                android:gravity="center"
-                android:text="2" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d20"
+        android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/battery_5"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s16" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d27"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/d40"
+            android:layout_marginRight="@dimen/d12"
+            android:text="2"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s16" />
 
-            <TextView
-                android:layout_width="@dimen/d27"
-                android:layout_height="@dimen/d27"
-                android:layout_marginLeft="@dimen/d36"
-                android:layout_marginRight="@dimen/d17"
-                android:background="@mipmap/battery_yuan"
-                android:gravity="center"
-                android:text="3" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/battery_5"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s16" />
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/battery_6"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s16" />
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d20"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d40"
+            android:layout_marginRight="@dimen/d12"
+            android:text="3"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/battery_6"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s16" />
     </LinearLayout>
 
     <TextView
@@ -149,30 +145,23 @@
         android:layout_height="wrap_content"
         android:layout_weight="1" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/battery_button"
+        android:layout_width="@dimen/d240"
+        android:layout_height="@dimen/d43"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/d28"
+        android:background="@drawable/shape_ffffff_round"
+        android:text="@string/battery_10"
+        android:textColor="@color/A1"
+        android:textSize="@dimen/s16" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/battery_button"
-            android:layout_width="@dimen/d210"
-            android:layout_height="@dimen/d46"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/shape_ffffff_round"
-            android:text="@string/battery_7"
-            android:textColor="@color/A1"
-            android:textSize="@dimen/s20" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/d16"
-            android:layout_marginTop="@dimen/d10"
-            android:text="@string/battery_8"
-            android:textColor="#59ffffff"
-            android:textSize="@dimen/s12" />
-    </LinearLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/d6"
+        android:text="@string/battery_8"
+        android:textColor="#66ffffff"
+        android:textSize="@dimen/s12" />
 </LinearLayout>

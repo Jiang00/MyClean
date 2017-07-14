@@ -11,15 +11,15 @@ import android.view.animation.LinearInterpolator;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.icleaner.clean.core.CleanManager;
+import com.icleaner.clean.entity.JunkInfo;
 import com.icleaner.clean.mydb.CleanDBHelper;
 import com.icleaner.junk.R;
 import com.icleaner.junk.mycustomadapter.IgnoreListViewAdapter;
-import com.icleaner.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class IgnoresAddActivity extends BaseActivity {
     private List<JunkInfo> white_list, listEdit;
     private boolean search;
     private List<String> whiteList;
-    ImageView title_right;
+    LinearLayout title_right;
     FrameLayout title_left;
     ListView list_si;
     ImageButton clear;
@@ -92,7 +92,7 @@ public class IgnoresAddActivity extends BaseActivity {
                 white_list.add(info);
             }
         }
-        adapter.addDataList(white_list);
+        adapter.upList(white_list);
         adapter.notifyDataSetChanged();
     }
 
@@ -101,15 +101,15 @@ public class IgnoresAddActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        title_right = (ImageView) findViewById(R.id.title_right);
+        title_right = (LinearLayout) findViewById(R.id.title_right);
         list_si = (ListView) findViewById(R.id.list_si);
         clear = (ImageButton) findViewById(R.id.clear);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
     }
 
     private void toggleEditAnimation() {
-        final View searchView = findViewById(R.id.search_container);
-        View normalView = findViewById(R.id.normal_bar);
+        final View searchView = findViewById(R.id.search_container);// 翻转标题
+        View normalView = findViewById(R.id.normal_bar);// 标题
 
         final View visibleView, invisibleView;
         if (searchView.getVisibility() == View.GONE) {
@@ -164,11 +164,9 @@ public class IgnoresAddActivity extends BaseActivity {
         vis2invis.start();
     }
 
-
     @Override
     public void onBackPressed() {
         setResult(1);
         finish();
     }
-
 }
