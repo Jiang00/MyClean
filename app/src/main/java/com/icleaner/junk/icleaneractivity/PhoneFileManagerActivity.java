@@ -3,28 +3,35 @@ package com.icleaner.junk.icleaneractivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.icleaner.clean.filemanager.PhoneFileCategoryHelper;
 import com.icleaner.clean.filemanager.Util;
 import com.icleaner.clean.utils.PreData;
-import com.android.client.AndroidSdk;
 import com.icleaner.junk.R;
-import com.icleaner.junk.mytools.SetAdUtil;
+import com.icleaner.junk.interfaceview.MainView;
+import com.icleaner.junk.mycustomview.LineView;
+import com.icleaner.junk.mypresenter.PresenterMain;
 import com.icleaner.junk.mytools.MyConstant;
+import com.icleaner.junk.mytools.SetAdUtil;
 
 /**
  * Created by on 2017/4/20.
  */
 
-public class PhoneFileManagerActivity extends BaseActivity {
+public class PhoneFileManagerActivity extends BaseActivity implements MainView {
     LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button, file_other_button;
     TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num, file_qita_num;
     TextView file_apk_size, file_zip_size, file_txt_size, file_music_size, file_video_size, file_qita_size;
     LinearLayout ll_ad;
+    //    TextView file_textview;
+    ProgressBar delete_progress;
     FrameLayout title_left;
     private String TAG_FILE = "icleaner_file";
     private PhoneFileCategoryHelper fileHelper;
@@ -32,11 +39,27 @@ public class PhoneFileManagerActivity extends BaseActivity {
     private PhoneFileCategoryHelper.CategoryInfo apkInfo, zipInfo, docInfo, musicInfo, videoInfo, otherInfo, pictureInfo, logInfo;
     private Handler mHandler;
     private View nativeView;
-
+    private PresenterMain mainPresenter;
+    TextView file_used, file_total;
+    public String size = null;
+    //    LineView file_lineview;
+    TextView file_used_size;
 
     @Override
     protected void onResume() {
         super.onResume();
+        //3.7G/14.3G
+        Log.e("file", "========" + size.substring(0, 4));
+        String[] arr = size.split("/");
+        file_used.setText(arr[0] + "B ");
+        file_total.setText(arr[1] + "B ");
+        Double.valueOf(arr[1].substring(0, arr[1].length() - 1));
+        double d = Double.valueOf(arr[0].substring(0, arr[0].length() - 1)) / Double.valueOf(arr[1].substring(0, arr[1].length() - 1)) * 100;
+        file_used_size.setText(Double.toString(d).substring(0, 2) + "%");
+//        file_lineview.startDrawLine(100);
+
+        delete_progress.setProgress((int) d);
+        delete_progress.setMax(100);
     }
 
     private void initData() {
@@ -91,6 +114,8 @@ public class PhoneFileManagerActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file);
+        mainPresenter = new PresenterMain(this, this);
+        mainPresenter.init();
         title_name.setText(R.string.side_file);
         fileHelper = new PhoneFileCategoryHelper(this);
         mHandler = new Handler();
@@ -107,10 +132,17 @@ public class PhoneFileManagerActivity extends BaseActivity {
         file_apk_num = (TextView) findViewById(R.id.file_apk_num);
         file_txt_num = (TextView) findViewById(R.id.file_txt_num);
         file_music_num = (TextView) findViewById(R.id.file_music_num);
+        file_used = (TextView) findViewById(R.id.file_used);
+//        file_lineview = (LineView) findViewById(R.id.file_lineview);
+        file_total = (TextView) findViewById(R.id.file_total);
         file_video_num = (TextView) findViewById(R.id.file_video_num);
         file_qita_num = (TextView) findViewById(R.id.file_qita_num);
         file_zip_size = (TextView) findViewById(R.id.file_zip_size);
+        delete_progress = (ProgressBar) findViewById(R.id.delete_progress);
         file_apk_size = (TextView) findViewById(R.id.file_apk_size);
+//        file_textview_used = (TextView) findViewById(R.id.file_textview_used);
+        file_used_size = (TextView) findViewById(R.id.file_used_size);
+//        file_textview = (TextView) findViewById(R.id.file_textview);
         file_txt_size = (TextView) findViewById(R.id.file_txt_size);
         file_music_size = (TextView) findViewById(R.id.file_music_size);
         file_video_size = (TextView) findViewById(R.id.file_video_size);
@@ -205,4 +237,60 @@ public class PhoneFileManagerActivity extends BaseActivity {
         file_other_button.setOnClickListener(clickListener);
     }
 
+    @Override
+    public void loadFullAd() {
+
+    }
+
+    @Override
+    public void onClick() {
+
+    }
+
+    @Override
+    public void initCpu(int temp) {
+
+    }
+
+    @Override
+    public void initSd(final int perent, final String size, final long sd_kongxian) {
+        this.size = size;
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                Log.e("file", "====" + perent + "==size=" + size + "===" + sd_kongxian);
+            }
+        });
+    }
+
+    @Override
+    public void initRam(int percent, String size) {
+
+    }
+
+    @Override
+    public void initQiu(int fenshu, boolean isReStart) {
+
+    }
+
+    @Override
+    public void setRotateGone() {
+
+    }
+
+    @Override
+    public void initSideData() {
+
+    }
+
+    @Override
+    public void openDrawer() {
+
+    }
+
+    @Override
+    public void closeDrawer() {
+
+    }
 }

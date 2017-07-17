@@ -100,6 +100,7 @@ public class SetActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        initData();//刷新
     }
 
     private void initData() {

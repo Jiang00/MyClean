@@ -83,7 +83,7 @@ public class PictHuiActivity extends BaseActivity {
             title_check.setVisibility(View.INVISIBLE);
         } else {
             title_check.setVisibility(View.VISIBLE);
-            gridLayoutManager = new GridLayoutManager(this, 3);
+            gridLayoutManager = new GridLayoutManager(this, 4);
             picture_hui_recyc.setLayoutManager(gridLayoutManager);
             picture_hui_recyc.setAdapter(adapter = new HuiAdapter(imageInfos));
             picture_hui_recyc.setItemAnimator(new DefaultItemAnimator());

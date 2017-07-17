@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A1"
+    android:background="@color/A17"
     android:orientation="vertical">
 
     <LinearLayout
@@ -20,28 +20,83 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/power_imageview"
-        android:layout_width="@dimen/d200"
-        android:layout_height="@dimen/d200"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/d60"
-        android:layout_marginTop="@dimen/d36"
-        android:background="@color/A1"
-        android:scaleType="center"
-        android:src="@mipmap/power_1" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/A1">
+
+        <ImageView
+            android:id="@+id/power_imageview"
+            android:layout_width="@dimen/d190"
+            android:layout_height="@dimen/d150"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/d25"
+            android:layout_marginTop="@dimen/d20"
+            android:background="@color/A1"
+            android:src="@mipmap/power_1" />
+
+        <ImageView
+            android:id="@+id/power_1"
+            android:layout_width="@dimen/d13"
+            android:layout_height="@dimen/d13"
+            android:layout_marginLeft="@dimen/d80"
+            android:layout_marginTop="@dimen/d82"
+            android:src="@mipmap/power_2" />
+
+        <ImageView
+            android:id="@+id/power_2"
+            android:layout_width="@dimen/d19"
+            android:layout_height="@dimen/d19"
+            android:layout_marginLeft="@dimen/d84"
+            android:layout_marginTop="@dimen/d42"
+            android:src="@mipmap/power_3" />
+
+        <ImageView
+            android:id="@+id/power_3"
+            android:layout_width="@dimen/d16"
+            android:layout_height="@dimen/d16"
+            android:layout_marginLeft="@dimen/d225"
+            android:layout_marginTop="@dimen/d36"
+            android:src="@mipmap/power_2" />
+
+        <ImageView
+            android:id="@+id/power_4"
+            android:layout_width="@dimen/d16"
+            android:layout_height="@dimen/d16"
+            android:layout_marginLeft="@dimen/d240"
+            android:layout_marginTop="@dimen/d80"
+            android:src="@mipmap/power_3" />
+
+        <ImageView
+            android:id="@+id/power_5"
+            android:layout_width="@dimen/d16"
+            android:layout_height="@dimen/d16"
+            android:layout_marginLeft="@dimen/d250"
+            android:layout_marginTop="@dimen/d146"
+            android:src="@mipmap/power_2" />
+
+        <ImageView
+            android:id="@+id/power_6"
+            android:layout_width="@dimen/d15"
+            android:layout_height="@dimen/d15"
+            android:layout_marginLeft="@dimen/d127"
+            android:layout_marginTop="@dimen/d146"
+            android:src="@mipmap/power_3" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
         android:layout_weight="1"
         android:background="@color/A7"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d40"
-            android:background="@color/white_100"
+            android:layout_height="@dimen/d56"
+            android:background="@color/A7"
             android:orientation="horizontal">
 
 
@@ -52,7 +107,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/d16"
                 android:text="@string/power_1"
-                android:textColor="#801e134b"
+                android:textColor="@color/A8"
                 android:textSize="@dimen/s14" />
 
             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -62,14 +117,14 @@
                 android:layout_marginLeft="@dimen/d5"
                 android:singleLine="true"
                 android:text="@string/power_2"
-                android:textColor="#801e134b"
+                android:textColor="@color/A8"
                 android:textSize="@dimen/s14" />
         </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/B3">
+            android:background="@color/A7">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/power_recycler"
@@ -81,15 +136,20 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/power_clean"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/B3">
+        android:layout_gravity="bottom">
 
-        <ImageView
+        <TextView
             android:id="@+id/junk_button_clean"
-            android:layout_width="@dimen/d100"
-            android:layout_height="@dimen/d100"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d48"
             android:layout_centerInParent="true"
-            android:src="@mipmap/junk_img" />
+            android:background="@color/A1"
+            android:gravity="center"
+            android:text="@string/power5"
+            android:textColor="@color/A7"
+            android:textSize="@dimen/s16" />
     </RelativeLayout>
 </LinearLayout>

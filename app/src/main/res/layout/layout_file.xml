@@ -44,23 +44,48 @@
                 android:layout_marginLeft="@dimen/d16"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/file_used"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/d32"
-                    android:text="3.16GB Used"
-                    android:textColor="@color/A7"
-                    android:textSize="@dimen/s20" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d32">
 
-                <TextView
-                    android:id="@+id/file_total"
+                    <TextView
+                        android:id="@+id/file_used"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="3.16GB"
+                        android:textColor="@color/A7"
+                        android:textSize="@dimen/s20" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/file_used"
+                        android:textColor="@color/A7"
+                        android:textSize="@dimen/s20" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/d5"
-                    android:text="13.16GB Total"
-                    android:textColor="@color/A6"
-                    android:textSize="@dimen/s16" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d5">
+
+                    <TextView
+                        android:id="@+id/file_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="13.16GB"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s16" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/file_total"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s16" />
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -75,19 +100,23 @@
             android:layout_marginBottom="@dimen/d18"
             android:layout_marginLeft="@dimen/d46">
 
-            <TextView
-                android:id="@+id/file_textview"
+            <ProgressBar
+                android:id="@+id/delete_progress"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="@dimen/d237"
                 android:layout_height="@dimen/d17"
-                android:background="@color/A13" />
-            <!--进度条-->
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@color/A12"
+                android:progressDrawable="@drawable/pic_progress" />
 
             <TextView
                 android:id="@+id/file_used_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/d14"
-                android:layout_toRightOf="@id/file_textview"
+                android:layout_toRightOf="@id/delete_progress"
                 android:text="27%"
                 android:textColor="@color/A6"
                 android:textSize="@dimen/s18" />
@@ -97,7 +126,8 @@
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="wrap_content"

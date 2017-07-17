@@ -17,7 +17,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,14 +25,14 @@ import com.android.client.AndroidSdk;
 import com.icleaner.clean.core.CleanManager;
 import com.icleaner.clean.deepclean.MyServiceCustomerAccessibility;
 import com.icleaner.clean.entity.JunkInfo;
-import com.icleaner.clean.utils.MyUtils;
-import com.icleaner.junk.R;
-import com.icleaner.junk.mytools.MyConstant;
-import com.icleaner.junk.services.MyNotificationService;
-import com.icleaner.junk.mytools.SetAdUtil;
-import com.icleaner.junk.mycustomview.DeepWidgetContainer;
 import com.icleaner.clean.utils.LoadManager;
+import com.icleaner.clean.utils.MyUtils;
 import com.icleaner.clean.utils.PreData;
+import com.icleaner.junk.R;
+import com.icleaner.junk.mycustomview.DeepWidgetContainer;
+import com.icleaner.junk.mytools.MyConstant;
+import com.icleaner.junk.mytools.SetAdUtil;
+import com.icleaner.junk.services.MyNotificationService;
 
 import java.util.ArrayList;
 
@@ -48,18 +47,20 @@ public class DeepingActivity extends BaseActivity {
     private int count = 0;
     TextView power_size;
     RecyclerView power_recycler;
-    ImageView junk_button_clean;
+    TextView junk_button_clean;
     private ArrayList<JunkInfo> startList;
     private View containerView;
     private ImageView power_imageview;
-    private ObjectAnimator animator1;
+    private ObjectAnimator animator1, animator2, animator3, animator4, animator5, animator6;
+    AnimatorSet set;
     private boolean flag = false;
     private RecyclerView containerView_recyclerView;
     private TextView containerView_power_size;
-    private ImageView containerView_junk_button_clean;
+    private TextView containerView_junk_button_clean;
     private GridLayoutManager mLayoutManager;
     Handler mHandler;
     private HomeAdapter homeAdapter, containerAdapter;
+    private ImageView power_1, power_2, power_3, power_4, power_5, power_6;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -156,7 +157,7 @@ public class DeepingActivity extends BaseActivity {
         title_name = (TextView) findViewById(R.id.title_name);
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
         power_size = (TextView) findViewById(R.id.power_size);
-        junk_button_clean = (ImageView) findViewById(R.id.junk_button_clean);
+        junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
     }
 
     Runnable runnable = new Runnable() {
@@ -207,14 +208,26 @@ public class DeepingActivity extends BaseActivity {
     private void setContainer() {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
         containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
-        containerView_junk_button_clean = (ImageView) containerView.findViewById(R.id.junk_button_clean);
+        containerView_junk_button_clean = (TextView) containerView.findViewById(R.id.junk_button_clean);
         power_imageview = (ImageView) containerView.findViewById(R.id.power_imageview);
-        animator1 = ObjectAnimator.ofFloat(power_imageview, "rotation", 0f, 360f);
-        LinearInterpolator lir = new LinearInterpolator();
-        animator1.setDuration(500);
-        animator1.setInterpolator(lir);
-        animator1.setRepeatCount(-1);
+        power_1 = (ImageView) containerView.findViewById(R.id.power_1);
+        power_2 = (ImageView) containerView.findViewById(R.id.power_2);
+        power_3 = (ImageView) containerView.findViewById(R.id.power_3);
+        power_4 = (ImageView) containerView.findViewById(R.id.power_4);
+        power_5 = (ImageView) containerView.findViewById(R.id.power_5);
+        power_6 = (ImageView) containerView.findViewById(R.id.power_6);
+
+        animator1 = ObjectAnimator.ofFloat(power_1, "alpha", 0f, 0f);
+//        animator2 = ObjectAnimator.ofFloat(power_2, "alpha", 1f, 0f, 1f);
+//        animator3 = ObjectAnimator.ofFloat(power_3, "alpha", 1f, 0f, 1f);
+//        animator4 = ObjectAnimator.ofFloat(power_4, "alpha", 1f, 0f, 1f);
+//        animator5 = ObjectAnimator.ofFloat(power_5, "alpha", 1f, 0f, 1f);
+//        animator6 = ObjectAnimator.ofFloat(power_6, "alpha", 1f, 0f, 1f);
         animator1.start();
+//        set = new AnimatorSet();
+//        set.setDuration(2000);
+//        set.play(animator1);//.with(animator2).with(animator3).with(animator4).with(animator5).with(animator6)
+//        startSetAnimator(true);
         containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         containerView_junk_button_clean.setVisibility(View.GONE);
         containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
@@ -349,6 +362,7 @@ public class DeepingActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
+//        endSetAnimator();
     }
 
     @Override
@@ -365,6 +379,18 @@ public class DeepingActivity extends BaseActivity {
 
     private void endAnimator() {
         animator1.pause();
+    }
+
+    private void startSetAnimator(boolean flag) {
+        if (set != null && flag) {
+            set.play(animator1).with(animator2).with(animator3).with(animator4).with(animator5).with(animator6);
+        }
+    }
+
+    private void endSetAnimator() {
+        if (set != null) {
+//            set.cancel();
+        }
     }
 
     @Override

@@ -121,7 +121,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     private void addItemView(MyViewHolder holder, ArrayList<ImageInfo> list) {
         holder.recyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        gridLayoutManager = new MyGridLayoutManager(pictureActivity, 3);
+        gridLayoutManager = new MyGridLayoutManager(pictureActivity, 4);
         holder.recyclerView.setLayoutManager(gridLayoutManager);
         holder.recyclerView.setAdapter(new HomeAdapter(list));
         holder.recyclerView.setItemAnimator(new DefaultItemAnimator());

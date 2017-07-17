@@ -31,31 +31,32 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
-import com.icleaner.junk.mycustomview.ICleanerWaterView;
-import com.icleaner.junk.mytools.MyConstant;
-import com.icleaner.junk.mytools.SetAdUtil;
-import com.mingle.circletreveal.CircularRevealCompat;
-import com.mingle.widget.animation.CRAnimation;
-import com.mingle.widget.animation.SimpleAnimListener;
 import com.icleaner.clean.core.CleanManager;
 import com.icleaner.clean.entity.JunkInfo;
+import com.icleaner.clean.utils.MyUtils;
+import com.icleaner.clean.utils.PreData;
 import com.icleaner.junk.R;
+import com.icleaner.junk.interfaceview.MainView;
+import com.icleaner.junk.mycustomadapter.MySidebarAdapter;
 import com.icleaner.junk.mycustomview.CircleView;
 import com.icleaner.junk.mycustomview.CircleWaveView;
 import com.icleaner.junk.mycustomview.CustomRoundCpu;
+import com.icleaner.junk.mycustomview.ICleanerWaterView;
 import com.icleaner.junk.mycustomview.ListViewForScrollView;
 import com.icleaner.junk.mycustomview.MainRoundView;
 import com.icleaner.junk.mycustomview.MyScrollView;
 import com.icleaner.junk.mycustomview.PullToRefreshLayout;
 import com.icleaner.junk.mycustomview.VirtuaRingView;
+import com.icleaner.junk.mycustomview.YuanHuView;
 import com.icleaner.junk.mypresenter.PresenterMain;
-import com.icleaner.junk.mycustomadapter.MySidebarAdapter;
+import com.icleaner.junk.mytools.MyConstant;
+import com.icleaner.junk.mytools.SetAdUtil;
 import com.icleaner.junk.shitis.SideInfo;
-import com.icleaner.junk.interfaceview.MainView;
-import com.icleaner.clean.utils.PreData;
-import com.icleaner.clean.utils.MyUtils;
 import com.icleaner.module.charge.saver.Utils.BatteryConstants;
 import com.icleaner.module.charge.saver.Utils.Utils;
+import com.mingle.circletreveal.CircularRevealCompat;
+import com.mingle.widget.animation.CRAnimation;
+import com.mingle.widget.animation.SimpleAnimListener;
 
 import java.util.ArrayList;
 
@@ -89,6 +90,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ICleanerWaterView main_water;
     MainRoundView main_dian;
     TextView main_junk_huan;
+    YuanHuView main_yunahuview;
     private int temp;
     private String from;
     private AlertDialog dialog;
@@ -105,6 +107,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     TextView main_fenshu;
     VirtuaRingView virtuaRingView;
     ImageView main_pointer;
+    ImageView main_point;
     CircleView main_circleview;
     TextView power_size;
     ImageView main_aerobee;
@@ -149,11 +152,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_junk_h = (TextView) findViewById(R.id.main_junk_h);
         main_fenshu = (TextView) findViewById(R.id.main_fenshu);
         virtuaRingView = (VirtuaRingView) findViewById(R.id.virtuaringview);
+        main_yunahuview = (YuanHuView) findViewById(R.id.main_yunahuview);
         main_all_cercle = (RelativeLayout) findViewById(R.id.main_all_cercle);
         main_junk_huan = (TextView) findViewById(R.id.main_junk_huan);
         main_title = (RelativeLayout) findViewById(R.id.main_title);
         main_circlewaveview = (CircleWaveView) findViewById(R.id.main_circlewaveview);
         main_pointer = (ImageView) findViewById(R.id.main_pointer);
+        main_point = (ImageView) findViewById(R.id.main_point);
         main_circleview = (CircleView) findViewById(R.id.main_circleview);
         main_msg_sd_percent_danwei = (TextView) findViewById(R.id.main_msg_sd_percent_danwei);
         main_wave = (RelativeLayout) findViewById(R.id.main_wave);
@@ -329,15 +334,15 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            main_fenshu.setText(String.valueOf(fenshu));
+                            main_fenshu.setText(String.valueOf(fenshu) + "%");
                             virtuaRingView.setNum(fenshu * 60 / 100);
-                            animator = ObjectAnimator.ofFloat(main_pointer, "rotation", 0f, fenshu * 60 / 100 * 6);
-                            animator1 = ObjectAnimator.ofFloat(main_circleview, "scaleX", 1f, 1.2f, 1f);
-                            animator2 = ObjectAnimator.ofFloat(main_circleview, "scaleY", 1f, 1.2f, 1f);
-                            animatorSet = new AnimatorSet();
-                            animatorSet.setDuration(2000);
-                            animatorSet.play(animator).with(animator1).with(animator2);
-                            animatorSet.start();
+                            animator = ObjectAnimator.ofFloat(main_point, "rotation", 0f, fenshu * 2.7f - 1);
+//                            animator1 = ObjectAnimator.ofFloat(main_circleview, "scaleX", 1f, 1.2f, 1f);
+//                            animator2 = ObjectAnimator.ofFloat(main_circleview, "scaleY", 1f, 1.2f, 1f);
+                            main_yunahuview.startYuanHuView(fenshu * 2.7f);
+                            animator.setDuration(3000);
+//                            animatorSet.play(animator).with(animator1).with(animator2);
+                            animator.start();
                         }
                     });
                 }
@@ -350,13 +355,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 public void run() {
                     main_fenshu.setText(String.valueOf(fenshu));
                     virtuaRingView.setNum(fenshu * 60 / 100);
-                    animator = ObjectAnimator.ofFloat(main_pointer, "rotation", 0f, fenshu * 60 / 100 * 6);
-                    animator1 = ObjectAnimator.ofFloat(main_circleview, "scaleX", 1f, 1.2f, 1f);
-                    animator2 = ObjectAnimator.ofFloat(main_circleview, "scaleY", 1f, 1.2f, 1f);
-                    animatorSet = new AnimatorSet();
-                    animatorSet.setDuration(2000);
-                    animatorSet.play(animator).with(animator1).with(animator2);
-                    animatorSet.start();
+                    animator = ObjectAnimator.ofFloat(main_point, "rotation", 0f, fenshu * 2.7f - 1);
+//                    animator1 = ObjectAnimator.ofFloat(main_circleview, "scaleX", 1f, 1.2f, 1f);
+//                    animator2 = ObjectAnimator.ofFloat(main_circleview, "scaleY", 1f, 1.2f, 1f);
+                    main_yunahuview.startYuanHuView(fenshu * 2.7f);
+                    animator.setDuration(3000);
+//                            animatorSet.play(animator).with(animator1).with(animator2);
+                    animator.start();
                 }
             });
         }

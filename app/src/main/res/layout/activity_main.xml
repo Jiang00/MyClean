@@ -127,14 +127,22 @@
                                 android:src="@mipmap/main_clean_qiu" />
 
                             <ImageView
+                                android:id="@+id/main_point"
                                 android:layout_width="@dimen/d234"
                                 android:layout_height="@dimen/d234"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="@dimen/d8"
                                 android:src="@mipmap/mian_point" />
+
+                            <com.icleaner.junk.mycustomview.YuanHuView
+                                android:id="@+id/main_yunahuview"
+                                android:layout_width="@dimen/d234"
+                                android:layout_height="@dimen/d234"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/d8" />
                             <!--百分比-->
                             <TextView
-                                android:id="@+id/main_fenshu_b"
+                                android:id="@+id/main_fenshu"
                                 android:layout_width="@dimen/d100"
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
@@ -148,7 +156,7 @@
                                 android:id="@+id/main_junk_huan"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/main_fenshu_b"
+                                android:layout_below="@id/main_fenshu"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="@dimen/d2"
                                 android:gravity="center"
@@ -234,7 +242,7 @@
                                 android:visibility="gone" />
 
                             <TextView
-                                android:id="@+id/main_fenshu"
+                                android:id="@+id/main_fenshu1"
                                 android:layout_width="@dimen/d100"
                                 android:layout_height="@dimen/d50"
                                 android:layout_centerHorizontal="true"

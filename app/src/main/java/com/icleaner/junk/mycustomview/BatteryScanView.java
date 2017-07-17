@@ -81,7 +81,7 @@ public class BatteryScanView extends View {
     private void init(Context context){
         mHandler = new Handler();
         battery = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_1);
-        cover = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_1);
+        cover = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_3);
         line = BitmapFactory.decodeResource(getResources(), R.mipmap.cooling_line);
         count = battery.getHeight() / INTERVAL + 1;
 

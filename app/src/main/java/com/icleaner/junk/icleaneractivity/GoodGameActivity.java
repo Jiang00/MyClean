@@ -496,12 +496,12 @@ public class GoodGameActivity extends BaseActivity {
                 GoodGameActivity.class.getCanonicalName()));
         String title = GoodGameActivity.this.getString(R.string.gboost_0);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.short_7);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.gboost_short);
             ShortCutUtils.addShortcut(GoodGameActivity.this, shortcutIntent, title, false, bitmap);
             gboost_short_iv.setImageBitmap(bitmap);
             return;
         }
-        if (list.size() > 1 && (!PreData.getDB(GoodGameActivity.this, Constant.GBOOST_SI, false) || isChuangjian)) {
+        if (list.size() > 1 && (!PreData.getDB(GoodGameActivity.this, MyConstant.GBOOST_SI, false) || isChuangjian)) {
             View shortcut_view = View.inflate(GoodGameActivity.this, R.layout.layout_gboost_short, null);
             if (list.size() > 1) {
                 ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
@@ -531,7 +531,7 @@ public class GoodGameActivity extends BaseActivity {
         }
     }
 
-    //游戏加速快捷键
+    //游戏加速快捷键（就一个图片）
     private void shortGame1(boolean isChuangjian) {
         if (!flag) {
             search_edit_text.setText("");

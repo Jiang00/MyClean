@@ -20,9 +20,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/d24"
+            android:layout_marginTop="@dimen/d16"
             android:text="@string/delete_queren"
-            android:textColor="#000000"
+            android:textColor="@color/A8"
             android:textSize="@dimen/s16" />
 
         <LinearLayout
@@ -38,17 +38,16 @@
                 android:layout_height="@dimen/d3"
                 android:layout_gravity="center"
                 android:progress="100"
-                android:progressDrawable="@drawable/pic_progress"
-                android:visibility="gone" />
+                android:progressDrawable="@drawable/pic_progress" />
 
             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/d20"
+                android:layout_marginTop="@dimen/d9"
                 android:text="@string/picture_1"
-                android:textColor="#b3000000"
+                android:textColor="@color/A9"
                 android:textSize="@dimen/s12" />
 
             <LinearLayout
@@ -97,35 +96,33 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d36"
-            android:layout_marginBottom="@dimen/d8"
-            android:layout_marginTop="@dimen/d24"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/d16"
+            android:layout_marginTop="@dimen/d18"
+            android:gravity="right"
             android:orientation="horizontal">
 
             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/cancle"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/d24"
-                android:layout_weight="1"
-                android:background="?attr/selectableItemBackground"
+                android:layout_width="@dimen/d70"
+                android:layout_height="@dimen/d24"
+                android:background="@color/A15"
                 android:gravity="center"
                 android:text="@string/premiss_4"
-                android:textColor="#591e134b"
-                android:textSize="@dimen/s14" />
+                android:textColor="@color/A9"
+                android:textSize="@dimen/s15" />
 
             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/ok"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d24"
-                android:layout_weight="1"
-                android:background="@drawable/shape_button_dialog"
+                android:layout_width="@dimen/d70"
+                android:layout_height="@dimen/d24"
+                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
+                android:background="@color/A1"
                 android:gravity="center"
                 android:text="@string/premiss_3"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s14" />
+                android:textColor="@color/A7"
+                android:textSize="@dimen/s16" />
         </LinearLayout>
     </LinearLayout>
 

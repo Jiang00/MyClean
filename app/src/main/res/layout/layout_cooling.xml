@@ -26,38 +26,38 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/d123">
 
-        <TextView
+        <!--<TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/d3"
-            android:background="@color/A7" />
+            android:background="@color/A7"
+            android:visibility="gone" />-->
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/cooling_2"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:background="@mipmap/cooling_2" />
+            android:background="@mipmap/cooling_2" />-->
 
         <com.icleaner.junk.mycustomview.BatteryScanView
             android:id="@+id/cooling_1"
-            android:layout_width="@dimen/d240"
-            android:layout_height="@dimen/d270"
-            android:layout_gravity="center_horizontal" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
-        <ImageView
+        <!--<ImageView
             android:layout_width="@dimen/d240"
             android:layout_height="@dimen/d270"
             android:layout_gravity="center_horizontal"
-            android:src="@mipmap/cooling_1"
-            android:visibility="gone" />
+            android:src="@mipmap/cooling_1" />-->
 
         <!--旋转-->
-        <ImageView
+        <!--<ImageView
             android:id="@+id/cooling_xuehua"
             android:layout_width="@dimen/d240"
             android:layout_height="@dimen/d270"
             android:layout_gravity="center"
             android:src="@mipmap/cooling_1"
-            android:visibility="gone" />
+            android:visibility="gone" />-->
     </FrameLayout>
     <!--飘落的控件-->
     <LinearLayout

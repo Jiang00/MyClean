@@ -8,8 +8,9 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/d72"
         android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="vertical">
 
         <FrameLayout
@@ -18,21 +19,17 @@
 
             <ImageView
                 android:id="@+id/recyc_icon"
-                android:layout_width="@dimen/d40"
-                android:layout_height="@dimen/d40"
-                android:layout_marginBottom="@dimen/d16"
-                android:layout_marginLeft="@dimen/d16"
-                android:layout_marginRight="@dimen/d16"
-                android:layout_marginTop="@dimen/d16"
+                android:layout_width="@dimen/d46"
+                android:layout_height="@dimen/d46"
+                android:layout_marginBottom="@dimen/d4"
+                android:layout_marginRight="@dimen/d4"
                 android:src="@mipmap/icon" />
 
             <ImageView
                 android:id="@+id/recyc_check"
-                android:layout_width="@dimen/d18"
-                android:layout_height="@dimen/d18"
-                android:layout_gravity="right|top"
-                android:layout_marginRight="@dimen/d9"
-                android:layout_marginTop="@dimen/d9"
+                android:layout_width="@dimen/d24"
+                android:layout_height="@dimen/d24"
+                android:layout_gravity="bottom|right"
                 android:src="@mipmap/ram_normal" />
         </FrameLayout>
 
@@ -43,6 +40,7 @@
             android:layout_gravity="center_horizontal"
             android:text="aaaa"
             android:textColor="@color/A9"
-            android:textSize="@dimen/s8" />
+            android:textSize="@dimen/s8"
+            android:visibility="gone" />
     </LinearLayout>
 </FrameLayout>

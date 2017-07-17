@@ -11,7 +11,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -41,8 +40,8 @@ public class BatteriesActivity extends BaseActivity {
     private int time;
     private FlakeView flakeView;
     LinearLayout cooling_text;
-    ImageView cooling_xuehua;
-    ImageView cooling_2;
+//    ImageView cooling_xuehua;
+//    ImageView cooling_2;
     TextView title_name;
     BatteryScanView cooling_1;
 
@@ -73,7 +72,7 @@ public class BatteriesActivity extends BaseActivity {
         rotate_zheng = AnimationUtils.loadAnimation(this, R.anim.rotate_cooling);
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         mHandler = new Handler();
-        cooling_xuehua.startAnimation(rotate_zheng);
+//        cooling_xuehua.startAnimation(rotate_zheng);
         startCoolingAni();
 
 
@@ -142,10 +141,10 @@ public class BatteriesActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
-        cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
+//        cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
 //        cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
-        cooling_2 = (ImageView) findViewById(R.id.cooling_2);
+//        cooling_2 = (ImageView) findViewById(R.id.cooling_2);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
         cooling_1 = (BatteryScanView) findViewById(R.id.cooling_1);
     }
@@ -187,11 +186,11 @@ public class BatteriesActivity extends BaseActivity {
 //        animSet.start();
 
         ScaleAnimation s = new ScaleAnimation(1f, 1f, 0f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从上往下
-        cooling_2.setAnimation(s);
+//        cooling_2.setAnimation(s);
         s.setDuration(2000);
         s.startNow();//开始动画
         ScaleAnimation s1 = new ScaleAnimation(1f, 1f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 1f);//从上往下
-        cooling_1.setAnimation(s);
+//        cooling_1.setAnimation(s);
         s1.setDuration(2000);
 //        s1.startNow();//开始动画
         mHandler.postDelayed(new Runnable() {
@@ -201,11 +200,11 @@ public class BatteriesActivity extends BaseActivity {
 //                ObjectAnimator animator2 = ObjectAnimator.ofFloat(cooling_1, "scaleX", 0f, 1f);
 //                AnimatorSet animSet = new AnimatorSet();
 //                animSet.setDuration(2000);//设置动画持续时间
-                cooling_2.setAnimation(s);
+//                cooling_2.setAnimation(s);
 //                animSet.play(animator).with(animator2);
 //                animSet.start();
                 s.setDuration(2000);//设置动画持续时间
-                cooling_2.setAnimation(s);
+//                cooling_2.setAnimation(s);
                 s.startNow();//开始动画
 
             }

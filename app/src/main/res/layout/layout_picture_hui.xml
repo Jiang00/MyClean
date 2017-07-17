@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/A17"
     android:orientation="vertical">
 
     <LinearLayout
@@ -23,7 +24,33 @@
         android:id="@+id/ll_ad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
         android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d32"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
+        android:background="@color/A7">
+
+        <ImageView
+            android:layout_width="@dimen/d24"
+            android:layout_height="@dimen/d24"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:src="@mipmap/pichuitishi" />
+
+        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/d16"
+            android:text="@string/picture_5"
+            android:textColor="@color/A9"
+            android:textSize="@dimen/s12" />
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -46,69 +73,64 @@
             android:id="@+id/ll_picture"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/A2"
+            android:layout_marginLeft="@dimen/d8"
+            android:layout_marginRight="@dimen/d8"
+            android:background="@color/A7"
             android:orientation="vertical">
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/d48">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/picture_hui_recyc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_marginTop="@dimen/d16"
                     android:scrollbars="none" />
             </FrameLayout>
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d45"
-                android:layout_marginBottom="@dimen/d18"
-                android:background="@color/A2"
-                android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d45"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
 
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                        android:id="@+id/picture_restore"
-                        android:layout_width="@dimen/d160"
-                        android:layout_height="@dimen/d45"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:background="@drawable/shape_pic_hui_1"
-                        android:elevation="@dimen/d2"
-                        android:gravity="center"
-                        android:text="@string/picture_6"
-                        android:textColor="@color/B3"
-                        android:textSize="@dimen/s14" />
-                </FrameLayout>
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:id="@+id/picture_restore"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d48"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_pic_hui_1"
+                    android:elevation="@dimen/d2"
+                    android:gravity="center"
+                    android:text="@string/picture_6"
+                    android:textColor="@color/A7"
+                    android:textSize="@dimen/s16" />
+            </FrameLayout>
 
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                        android:id="@+id/picture_delete"
-                        android:layout_width="@dimen/d160"
-                        android:layout_height="@dimen/d45"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="@dimen/d16"
-                        android:background="@drawable/shape_pic_hui_2"
-                        android:gravity="center"
-                        android:text="@string/picture_7"
-                        android:textColor="@color/B3"
-                        android:textSize="@dimen/s14" />
-                </FrameLayout>
-
-            </LinearLayout>
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:id="@+id/picture_delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d48"
+                    android:layout_gravity="center_vertical"
+                    android:background="#f44336"
+                    android:gravity="center"
+                    android:text="@string/picture_7"
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s16" />
+            </FrameLayout>
         </LinearLayout>
     </FrameLayout>
-
 </LinearLayout>

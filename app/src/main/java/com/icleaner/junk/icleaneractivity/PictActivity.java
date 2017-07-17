@@ -54,7 +54,7 @@ public class PictActivity extends BaseActivity {
     FrameLayout title_left;
     ViewPager picture_pager;
     TextView title_name;
-    ImageView picture_button;
+    TextView picture_button;
     TextView picture_scan;
     ProgressBar picture_progressbar;
     ImageView title_right;
@@ -62,7 +62,7 @@ public class PictActivity extends BaseActivity {
     private PagerAdapter pagerAdapter;
     private ImageHelper imageHelper;
     public long allSize = 0;
-
+    long size;
     public boolean mIsQuerying = false;
     private RecycleViewAdapter adapter;
     FrameLayout pager_fl;
@@ -102,7 +102,7 @@ public class PictActivity extends BaseActivity {
                         Animation animation1 = AnimationUtils.loadAnimation(PictActivity.this, R.anim.translate_notifi);
                         picture_button.startAnimation(animation1);
                         picture_button.setVisibility(View.VISIBLE);
-//                        picture_button.setText(getString(R.string.picture_14) + "( " + msg.arg1 + " )");
+                        updateUi();
                     }
                     break;
                 default:
@@ -128,7 +128,7 @@ public class PictActivity extends BaseActivity {
         picture_path = (TextView) findViewById(R.id.picture_path);
         picture_size = (TextView) findViewById(R.id.picture_size);
         picture_danwei = (TextView) findViewById(R.id.picture_danwei);
-        picture_button = (ImageView) findViewById(R.id.picture_button);
+        picture_button = (TextView) findViewById(R.id.picture_button);
         picture_scan = (TextView) findViewById(R.id.picture_scan);
         picture_progressbar = (ProgressBar) findViewById(R.id.picture_progressbar);
         picture_other = (LinearLayout) findViewById(R.id.picture_other);
@@ -548,7 +548,7 @@ public class PictActivity extends BaseActivity {
                 }
             }
         }
-//        picture_button.setText(getString(R.string.picture_14) + "( " + count + " )");
+        picture_button.setText(getString(R.string.picture_14) + " " + MyUtils.convertStorage(size, true) + "B");
         picture_size.setText(MyUtils.convertStorage(size, false));
         picture_danwei.setText(MyUtils.convertStorageDanwei(size));
 
