@@ -127,20 +127,22 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/A17"
         android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d8"
+            android:layout_marginRight="@dimen/d8"
+            android:background="@color/A7"
             android:orientation="vertical">
             <!--apk-->
             <LinearLayout
                 android:id="@+id/file_apk_button"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d72"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:background="@color/A7"
+                android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -218,9 +220,7 @@
                 android:id="@+id/file_zip_button"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d72"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:background="@color/A7"
+                android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -281,9 +281,7 @@
                 android:id="@+id/file_txt_button"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d72"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:background="@color/A7"
+                android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -362,9 +360,7 @@
                 android:id="@+id/file_music_button"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d72"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:background="@color/A7"
+                android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -444,9 +440,7 @@
                 android:id="@+id/file_video_button"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d72"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:background="@color/A7"
+                android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -527,9 +521,7 @@
                 android:id="@+id/file_other_button"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d72"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:background="@color/A7"
+                android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -612,6 +604,8 @@
                 android:id="@+id/ll_ad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
                 android:background="@color/white_100"
                 android:orientation="vertical" />
         </LinearLayout>

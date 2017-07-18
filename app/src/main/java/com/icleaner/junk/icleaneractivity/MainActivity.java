@@ -71,6 +71,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     TextView main_full_time;
     LinearLayout main_battery;
     RelativeLayout main_all_cercle;
+    LinearLayout main_clean_lin;
     RelativeLayout main_title;
     RelativeLayout main_wave;
     TextView main_rotate_good, main_rotate_bad;
@@ -154,6 +155,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         virtuaRingView = (VirtuaRingView) findViewById(R.id.virtuaringview);
         main_yunahuview = (YuanHuView) findViewById(R.id.main_yunahuview);
         main_all_cercle = (RelativeLayout) findViewById(R.id.main_all_cercle);
+        main_clean_lin = (LinearLayout) findViewById(R.id.main_clean_lin);
         main_junk_huan = (TextView) findViewById(R.id.main_junk_huan);
         main_title = (RelativeLayout) findViewById(R.id.main_title);
         main_circlewaveview = (CircleWaveView) findViewById(R.id.main_circlewaveview);
@@ -223,6 +225,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_picture_button2.setOnClickListener(onClickListener);
         lot_ad.setOnClickListener(onClickListener);
         main_all_cercle.setOnClickListener(onClickListener);
+        main_clean_lin.setOnClickListener(onClickListener);
         main_aerobee.setOnClickListener(onClickListener);
 
     }
@@ -315,6 +318,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         side_listView.setAdapter(adapter);
     }
 
+    float dushu1 = 0;
+
     @Override
     public void initQiu(final int fenshu, boolean isReStart) {
         Log.e("fenshu", fenshu + "===");
@@ -336,13 +341,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         public void run() {
                             main_fenshu.setText(String.valueOf(fenshu) + "%");
                             virtuaRingView.setNum(fenshu * 60 / 100);
-                            animator = ObjectAnimator.ofFloat(main_point, "rotation", 0f, fenshu * 2.7f - 1);
-//                            animator1 = ObjectAnimator.ofFloat(main_circleview, "scaleX", 1f, 1.2f, 1f);
-//                            animator2 = ObjectAnimator.ofFloat(main_circleview, "scaleY", 1f, 1.2f, 1f);
-                            main_yunahuview.startYuanHuView(fenshu * 2.7f);
-                            animator.setDuration(3000);
-//                            animatorSet.play(animator).with(animator1).with(animator2);
-                            animator.start();
                         }
                     });
                 }
@@ -355,17 +353,32 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 public void run() {
                     main_fenshu.setText(String.valueOf(fenshu));
                     virtuaRingView.setNum(fenshu * 60 / 100);
-                    animator = ObjectAnimator.ofFloat(main_point, "rotation", 0f, fenshu * 2.7f - 1);
-//                    animator1 = ObjectAnimator.ofFloat(main_circleview, "scaleX", 1f, 1.2f, 1f);
-//                    animator2 = ObjectAnimator.ofFloat(main_circleview, "scaleY", 1f, 1.2f, 1f);
-                    main_yunahuview.startYuanHuView(fenshu * 2.7f);
-                    animator.setDuration(3000);
-//                            animatorSet.play(animator).with(animator1).with(animator2);
-                    animator.start();
+
                 }
             });
         }
+
+//                    animator1 = ObjectAnimator.ofFloat(main_circleview, "scaleX", 1f, 1.2f, 1f);
+//                    animator2 = ObjectAnimator.ofFloat(main_circleview, "scaleY", 1f, 1.2f, 1f);
+        main_yunahuview.start(fenshu * 2.7f);
+        main_yunahuview.setScanCallBack(new YuanHuView.DrawYuanHuListener() {
+            @Override
+            public void scanDushu(final float dushu) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (dushu == 1) {
+                            dushu1 = 0;
+                        }
+                        animator = ObjectAnimator.ofFloat(main_point, "rotation", dushu1, dushu);
+                        dushu1 = dushu;
+                        animator.start();
+                    }
+                });
+            }
+        });
     }
+
 
     @Override
     public void loadFullAd() {
@@ -544,6 +557,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     mainPresenter.jumpToActivity(RubbishActivity.class, 1);
                     break;*/
                 case R.id.main_all_cercle:
+                    SetAdUtil.track("主页面", "点击垃圾所有按钮", "", 1);
+                    mainPresenter.jumpToActivity(RubbishAndRamActivity.class, 1);
+                    break;
+                case R.id.main_clean_lin:
                     SetAdUtil.track("主页面", "点击垃圾所有按钮", "", 1);
                     mainPresenter.jumpToActivity(RubbishAndRamActivity.class, 1);
                     break;

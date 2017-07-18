@@ -8,7 +8,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.icleaner.junk.R;
@@ -62,7 +61,6 @@ public class Success_CircleWaveView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawCircle(getResources().getDimensionPixelSize(R.dimen.d45), getResources().getDimensionPixelSize(R.dimen.d45), radius, paint);//根据进度计算扩散半径
-        Log.e("radius", "=======onDraw======" + radius);
         if (flag && radius != getResources().getDimensionPixelSize(R.dimen.d1)) {
             mHamdle.handleMessage(null);
         }

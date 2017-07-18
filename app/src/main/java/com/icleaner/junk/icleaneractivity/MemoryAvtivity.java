@@ -42,10 +42,11 @@ public class MemoryAvtivity extends BaseActivity implements CustomRamView {
     private RamAdapter adapterRam;
     TextView junk_unit;
     TextView junk_fangxin;
-    ImageView junk_button_clean;
+    TextView junk_button_clean;
     TextView title_name;
     private boolean color1 = true;
     private boolean color2 = true;
+    private boolean color3 = true;
     public Handler myHandler;
     TextView junk_size_all;
     ListView junk_list_all;
@@ -72,7 +73,7 @@ public class MemoryAvtivity extends BaseActivity implements CustomRamView {
         junk_size_all = (TextView) findViewById(R.id.junk_size_all);
         junk_unit = (TextView) findViewById(R.id.junk_unit);
         junk_fangxin = (TextView) findViewById(R.id.junk_fangxin);
-        junk_button_clean = (ImageView) findViewById(R.id.junk_button_clean);
+        junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
     }
 
@@ -100,7 +101,7 @@ public class MemoryAvtivity extends BaseActivity implements CustomRamView {
                         @Override
                         public void run() {
                             junk_size_all.setText(MyUtils.convertStorage(finalI, false));
-                            setUnit(allSize, junk_fangxin);
+                            setUnit(allSize, junk_unit);
                         }
                     });
                 }
@@ -118,22 +119,32 @@ public class MemoryAvtivity extends BaseActivity implements CustomRamView {
         if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A20), getResources().getColor(R.color.A20));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A21));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-                junk_button_clean.setImageResource(R.mipmap.aerobee1);
+                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A21));
             }
         } else if (allSize > 1024 * 1024 * 200) {
             if (color2) {
                 color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A20), getResources().getColor(R.color.A20));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A21), getResources().getColor(R.color.A22));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-                junk_button_clean.setImageResource(R.mipmap.aerobee1);
+                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A22));
+            }
+        } else {
+            if (color3) {
+                color3 = false;
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A1));
+                colorAnim.setDuration(2000);
+                colorAnim.setRepeatCount(0);
+                colorAnim.setEvaluator(new ArgbEvaluator());
+                colorAnim.start();
+                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A1));
             }
         }
     }
@@ -179,21 +190,21 @@ public class MemoryAvtivity extends BaseActivity implements CustomRamView {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                if (finalI != 0) {
-//                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + MyUtils.convertStorage(finalI, true) + ")");
-//                                }
-//                            }
-//                        });
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (finalI != 0) {
+                                    junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + MyUtils.convertStorage(finalI, true) + ")");
+                                }
+                            }
+                        });
                     }
                 }
             }).start();
         } else {
-//            if (size != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + MyUtils.convertStorage(size, true) + ")");
-//            }
+            if (size != 0) {
+                junk_button_clean.setText(getResources().getText(R.string.ram_button) + "(" + MyUtils.convertStorage(size, true) + ")");
+            }
         }
     }
 

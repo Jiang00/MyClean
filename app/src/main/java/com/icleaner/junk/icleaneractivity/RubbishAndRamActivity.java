@@ -19,16 +19,16 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.icleaner.clean.entity.JunkInfo;
+import com.icleaner.clean.utils.MyUtils;
+import com.icleaner.clean.utils.PreData;
 import com.icleaner.junk.R;
-import com.icleaner.junk.mytools.SetAdUtil;
-import com.icleaner.junk.mytools.MyConstant;
+import com.icleaner.junk.interfaceview.LogHeRamView;
+import com.icleaner.junk.mycustomadapter.CustomJunkRamAdapter;
 import com.icleaner.junk.mycustomview.ListViewForScrollView;
 import com.icleaner.junk.mycustomview.MyScrollView;
 import com.icleaner.junk.mypresenter.LogRamPresenter;
-import com.icleaner.junk.mycustomadapter.CustomJunkRamAdapter;
-import com.icleaner.junk.interfaceview.LogHeRamView;
-import com.icleaner.clean.utils.PreData;
-import com.icleaner.clean.utils.MyUtils;
+import com.icleaner.junk.mytools.MyConstant;
+import com.icleaner.junk.mytools.SetAdUtil;
 
 import java.util.List;
 
@@ -49,13 +49,15 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
     private boolean color2 = true;
     public Handler myHandler;
     private boolean color1 = true;
+    private boolean color3 = true;
     LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user, junk_button_ram;
     ListViewForScrollView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list, junk_ram_list;
     TextView title_name;
     ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou, junk_ram_jiantou;
-    ImageView junk_button_clean;
+    TextView junk_button_clean;
     MyScrollView junk_scroll;
     ListView junk_list_all;
+    ImageView junk_system_check, junk_apk_check, junk_unload_check, junk_log_check, junk_user_check, junk_ram_check;
 
 
     @Override
@@ -115,22 +117,32 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
         if (size > 1024 * 1024 * 100 && size <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A20), getResources().getColor(R.color.A20));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A21));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-                junk_button_clean.setImageResource(R.mipmap.junk_img2);
+                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A21));
             }
         } else if (size > 1024 * 1024 * 200) {
             if (color2) {
                 color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A20), getResources().getColor(R.color.A20));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A21), getResources().getColor(R.color.A22));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-                junk_button_clean.setImageResource(R.mipmap.junk_img2);
+                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A22));
+            }
+        } else {
+            if (color3) {
+                color3 = false;
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A1));
+                colorAnim.setDuration(2000);
+                colorAnim.setRepeatCount(0);
+                colorAnim.setEvaluator(new ArgbEvaluator());
+                colorAnim.start();
+                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A1));
             }
         }
     }
@@ -168,9 +180,15 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
         junk_log_list = (ListViewForScrollView) findViewById(R.id.junk_log_list);
         junk_user_list = (ListViewForScrollView) findViewById(R.id.junk_user_list);
         junk_ram_list = (ListViewForScrollView) findViewById(R.id.junk_ram_list);
-        junk_button_clean = (ImageView) findViewById(R.id.junk_button_clean);
+        junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
         junk_scroll = (MyScrollView) findViewById(R.id.junk_scroll);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
+        junk_system_check = $(R.id.junk_system_check);
+        junk_apk_check = $(R.id.junk_apk_check);
+        junk_unload_check = $(R.id.junk_unload_check);
+        junk_log_check = $(R.id.junk_log_check);
+        junk_user_check = $(R.id.junk_user_check);
+        junk_ram_check = $(R.id.junk_ram_check);
     }
 
     @Override
@@ -455,21 +473,21 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                if (finalI != 0) {
-//                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(finalI, true) + ")");
-//                                }
-//                            }
-//                        });
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (finalI != 0) {
+                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(finalI, true) + ")");
+                                }
+                            }
+                        });
                     }
                 }
             }).start();
         } else {
-//            if (cleanSize != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(cleanSize, true) + ")");
-//            }
+            if (cleanSize != 0) {
+                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(cleanSize, true) + ")");
+            }
         }
 
     }
@@ -484,7 +502,7 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
         view.startAnimation(animation);
     }
 
-
+    int systemCount, systemCount1, apkCount, apkCount1, unloadCount, unloadCount1, logCount, logCount1, userCount, userCount1, ramCount, ramCount1;
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -499,9 +517,53 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
                     }
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起系统缓存", "", 1);
+                        junk_system_check.setImageResource(R.mipmap.ram_normal);
+                        junk_system_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
                         SetAdUtil.track("所有垃圾页面", "点击打开系统缓存", "", 1);
+                        systemCount1 = 0;
+                        if (adapterSystem != null) {//回调函数
+                            adapterSystem.setOnlistener(new CustomJunkRamAdapter.AllListener() {
+
+                                @Override
+                                public void onChecked(boolean check, int position, boolean oncli) {
+                                    if (oncli) {
+                                        systemCount = position;
+                                    } else {
+                                        systemCount = systemCount1;
+                                    }
+                                    if (systemCount < systemCount1 - 1) {
+                                        systemCount = systemCount1 - 1;
+                                    } else if (systemCount > systemCount1) {
+                                        systemCount = systemCount1;
+                                    }
+                                    if (check) {
+                                        systemCount++;
+                                    } else if (!check) {
+                                        if (!oncli) {
+                                            systemCount--;
+                                        }
+                                    }
+                                    systemCount1 = systemCount;
+                                    if (systemCount == adapterSystem.getCount()) {
+                                        junk_system_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (systemCount == 0) {
+                                        junk_system_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_system_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
+                        if (systemCount == adapterSystem.getCount()) {
+                            junk_system_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (systemCount == 0) {
+                            junk_system_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_system_check.setImageResource(R.mipmap.ram_check);
+                        }
+                        junk_system_jiantou.setImageResource(R.mipmap.junk_up);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -511,10 +573,54 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起apk文件", "", 1);
+                        junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                        junk_apk_jiaotou.setImageResource(R.mipmap.junk_x);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
-                        SetAdUtil.track("所有垃圾页面", "点击打开apk文件", "", 1);
+                        apkCount1 = 0;
+                        if (adapterApk != null) {//回调函数
+                            adapterApk.setOnlistener(new CustomJunkRamAdapter.AllListener() {
+
+                                @Override
+                                public void onChecked(boolean check, int position, boolean oncli) {
+                                    if (oncli) {
+                                        apkCount = position;
+                                    } else {
+                                        apkCount = apkCount1;
+                                    }
+                                    if (apkCount < apkCount1 - 1) {
+                                        apkCount = apkCount1 - 1;
+                                    } else if (apkCount > apkCount1) {
+                                        systemCount = systemCount1;
+                                    }
+                                    if (check) {
+                                        apkCount++;
+                                    } else if (!check) {
+                                        if (!oncli) {
+                                            apkCount--;
+                                        }
+                                    }
+                                    apkCount1 = apkCount;
+                                    if (apkCount == adapterApk.getCount()) {
+                                        junk_apk_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (apkCount == 0) {
+                                        junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_apk_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
+                        SetAdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
+                        junk_apk_jiaotou.setImageResource(R.mipmap.junk_up);
                         junk_apk_list.setVisibility(View.VISIBLE);
+                        if (apkCount == adapterApk.getCount()) {
+                            junk_apk_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (apkCount == 0) {
+                            junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_apk_check.setImageResource(R.mipmap.ram_check);
+                        }
                     }
                     break;
                 case R.id.junk_button_unload:
@@ -523,10 +629,54 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起unload文件", "", 1);
+                        junk_unload_check.setImageResource(R.mipmap.ram_normal);
+                        junk_unload_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
-                        SetAdUtil.track("所有垃圾页面", "点击打开apk文件", "", 1);
+                        unloadCount1 = 0;
+                        if (adapterUnload != null) {//回调函数
+                            adapterUnload.setOnlistener(new CustomJunkRamAdapter.AllListener() {
+
+                                @Override
+                                public void onChecked(boolean check, int position, boolean oncli) {
+                                    if (oncli) {
+                                        unloadCount = position;
+                                    } else {
+                                        unloadCount = unloadCount1;
+                                    }
+                                    if (unloadCount < unloadCount1 - 1) {
+                                        unloadCount = unloadCount1 - 1;
+                                    } else if (unloadCount > unloadCount1) {
+                                        unloadCount = unloadCount1;
+                                    }
+                                    if (check) {
+                                        unloadCount++;
+                                    } else if (!check) {
+                                        if (!oncli) {
+                                            unloadCount--;
+                                        }
+                                    }
+                                    unloadCount1 = unloadCount;
+                                    if (unloadCount == adapterUnload.getCount()) {
+                                        junk_unload_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (unloadCount == 0) {
+                                        junk_unload_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_unload_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
+                        SetAdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
+                        junk_unload_jiantou.setImageResource(R.mipmap.junk_up);
                         junk_unload_list.setVisibility(View.VISIBLE);
+                        if (unloadCount == adapterUnload.getCount()) {
+                            junk_unload_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (unloadCount == 0) {
+                            junk_unload_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_unload_check.setImageResource(R.mipmap.ram_check);
+                        }
                     }
                     break;
                 case R.id.junk_button_log:
@@ -535,14 +685,55 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起log文件", "", 1);
-
+                        junk_log_check.setImageResource(R.mipmap.ram_normal);
+                        junk_log_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_log_list.setVisibility(View.GONE);
                     } else {
-                        SetAdUtil.track("所有垃圾页面", "点击打开log文件", "", 1);
+                        logCount1 = 0;
+                        if (adapterLog != null) {//回调函数
+                            adapterLog.setOnlistener(new CustomJunkRamAdapter.AllListener() {
 
+                                @Override
+                                public void onChecked(boolean check, int position, boolean oncli) {
+                                    if (oncli) {
+                                        logCount = position;
+                                    } else {
+                                        logCount = logCount1;
+                                    }
+                                    if (logCount < logCount1 - 1) {
+                                        logCount = logCount1 - 1;
+                                    } else if (logCount > logCount1) {
+                                        logCount = logCount1;
+                                    }
+                                    if (check) {
+                                        logCount++;
+                                    } else if (!check) {
+                                        if (!oncli) {
+                                            logCount--;
+                                        }
+                                    }
+                                    logCount1 = logCount;
+                                    if (logCount == adapterLog.getCount()) {
+                                        junk_log_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (logCount == 0) {
+                                        junk_log_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_log_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
+                        SetAdUtil.track("垃圾页面", "点击打开log文件", "", 1);
+                        junk_log_jiantou.setImageResource(R.mipmap.junk_up);
                         junk_log_list.setVisibility(View.VISIBLE);
+                        if (logCount == adapterLog.getCount()) {
+                            junk_log_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (logCount == 0) {
+                            junk_log_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_log_check.setImageResource(R.mipmap.ram_check);
+                        }
                     }
-
                     break;
                 case R.id.junk_button_user:
                     if (adapterUser.getCount() == 0) {
@@ -550,12 +741,55 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起user文件", "", 1);
-
+                        junk_user_check.setImageResource(R.mipmap.ram_normal);
+                        junk_user_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_user_list.setVisibility(View.GONE);
                     } else {
-                        SetAdUtil.track("所有垃圾页面", "点击打开user文件", "", 1);
+                        userCount1 = 0;
+                        if (adapterUser != null) {//回调函数
+                            adapterUser.setOnlistener(new CustomJunkRamAdapter.AllListener() {
 
+                                @Override
+                                public void onChecked(boolean check, int position, boolean oncli) {
+                                    if (oncli) {
+                                        userCount = position;
+                                    } else {
+                                        userCount = userCount1;
+                                    }
+                                    if (userCount < userCount1 - 1) {
+                                        userCount = userCount1 - 1;
+                                    } else if (userCount > userCount1) {
+                                        userCount = userCount1;
+                                    }
+                                    if (check) {
+                                        userCount++;
+                                    } else if (!check) {
+
+                                        if (!oncli) {
+                                            userCount--;
+                                        }
+                                    }
+                                    userCount1 = userCount;
+                                    if (userCount == adapterUser.getCount()) {
+                                        junk_user_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (userCount == 0) {
+                                        junk_user_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_user_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
+                        SetAdUtil.track("垃圾页面", "点击打开user文件", "", 1);
+                        junk_user_jiantou.setImageResource(R.mipmap.junk_up);
                         junk_user_list.setVisibility(View.VISIBLE);
+                        if (userCount == adapterUser.getCount()) {
+                            junk_user_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (userCount == 0) {
+                            junk_user_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_user_check.setImageResource(R.mipmap.ram_check);
+                        }
                     }
 
                     break;
@@ -566,10 +800,54 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
 
                     if (junk_ram_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收缩ram", "", 1);
+                        junk_ram_check.setImageResource(R.mipmap.ram_normal);
+                        junk_ram_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_ram_list.setVisibility(View.GONE);
                     } else {
+                        ramCount1 = 0;
+                        if (adapterRam != null) {//回调函数
+                            adapterRam.setOnlistener(new CustomJunkRamAdapter.AllListener() {
+
+                                @Override
+                                public void onChecked(boolean check, int position, boolean oncli) {
+                                    if (oncli) {
+                                        ramCount = position;
+                                    } else {
+                                        ramCount = ramCount1;
+                                    }
+                                    if (ramCount < ramCount1 - 1) {
+                                        ramCount = ramCount1 - 1;
+                                    } else if (ramCount > ramCount1) {
+                                        ramCount = ramCount1;
+                                    }
+                                    if (check) {
+                                        ramCount++;
+                                    } else if (!check) {
+                                        if (!oncli) {
+                                            ramCount--;
+                                        }
+                                    }
+                                    ramCount1 = ramCount;
+                                    if (ramCount == adapterRam.getCount()) {
+                                        junk_ram_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (ramCount == 0) {
+                                        junk_ram_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_ram_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
                         SetAdUtil.track("所有垃圾页面", "点击展开ram", "", 1);
+                        junk_ram_jiantou.setImageResource(R.mipmap.junk_up);
                         junk_ram_list.setVisibility(View.VISIBLE);
+                        if (userCount == adapterUser.getCount()) {
+                            junk_ram_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (userCount == 0) {
+                            junk_ram_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_ram_check.setImageResource(R.mipmap.ram_check);
+                        }
                     }
                     break;
                 case R.id.junk_button_clean:
@@ -583,12 +861,8 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
                     } else {
                         junkPresenter.bleachFile(true, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData(), adapterRam.getData());
                     }
-
                     break;
-
-
             }
-
         }
     };
 

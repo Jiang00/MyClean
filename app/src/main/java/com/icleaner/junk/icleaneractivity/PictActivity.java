@@ -24,6 +24,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -36,6 +37,7 @@ import com.icleaner.junk.mytools.MyConstant;
 import com.icleaner.junk.mytools.SetAdUtil;
 import com.icleaner.junk.mycustomadapter.RecycleViewAdapter;
 import com.icleaner.clean.utils.PreData;
+import com.sample.lottie.L;
 
 import java.util.ArrayList;
 
@@ -73,6 +75,7 @@ public class PictActivity extends BaseActivity {
     public ArrayList<ArrayList<ImageInfo>> allList;
     AlertDialog dialog;
     LinearLayout pic_pager_delete;
+    LinearLayout picture_lin;
     ImageView pic_pager_check_iv;
 
 
@@ -88,6 +91,8 @@ public class PictActivity extends BaseActivity {
                     if (adapter == null || adapter.getItemCount() == 0) {
                         picture_progressbar.setVisibility(View.GONE);
                         picture_other.setVisibility(View.VISIBLE);
+                        picture_button.setVisibility(View.GONE);
+                        picture_lin.setVisibility(View.GONE);
                         picture_other.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -129,6 +134,7 @@ public class PictActivity extends BaseActivity {
         picture_size = (TextView) findViewById(R.id.picture_size);
         picture_danwei = (TextView) findViewById(R.id.picture_danwei);
         picture_button = (TextView) findViewById(R.id.picture_button);
+        picture_lin = (LinearLayout) findViewById(R.id.picture_lin);
         picture_scan = (TextView) findViewById(R.id.picture_scan);
         picture_progressbar = (ProgressBar) findViewById(R.id.picture_progressbar);
         picture_other = (LinearLayout) findViewById(R.id.picture_other);
@@ -476,6 +482,8 @@ public class PictActivity extends BaseActivity {
                                 if (adapter.getItemCount() == 0) {
                                     picture_progressbar.setVisibility(View.GONE);
                                     picture_other.setVisibility(View.VISIBLE);
+                                    picture_button.setVisibility(View.GONE);
+                                    picture_lin.setVisibility(View.GONE);
                                     picture_other.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {

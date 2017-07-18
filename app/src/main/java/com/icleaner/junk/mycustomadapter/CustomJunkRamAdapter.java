@@ -39,7 +39,7 @@ public class CustomJunkRamAdapter extends MybaseAdapter<JunkInfo> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final JunkInfo info = getItem(position);
 
         final ViewHolder holder;
@@ -73,8 +73,10 @@ public class CustomJunkRamAdapter extends MybaseAdapter<JunkInfo> {
             holder.icon.setImageResource(R.mipmap.log_file);
         }
         if (info.isChecked) {
+            listener.onChecked(true, position, true);
             holder.checkBox.setImageResource(R.mipmap.ram_passed);
         } else {
+            listener.onChecked(false, position, true);
             holder.checkBox.setImageResource(R.mipmap.ram_normal);
         }
         convertView.setOnClickListener(new View.OnClickListener() {
@@ -82,9 +84,11 @@ public class CustomJunkRamAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
+                    listener.onChecked(true, position, false);
                     holder.checkBox.setImageResource(R.mipmap.ram_passed);
                     junkPresenter.addCleandata(true, info.size);
                 } else {
+                    listener.onChecked(false, position, false);
                     holder.checkBox.setImageResource(R.mipmap.ram_normal);
                     junkPresenter.addCleandata(false, info.size);
                 }
@@ -103,6 +107,6 @@ public class CustomJunkRamAdapter extends MybaseAdapter<JunkInfo> {
     }
 
     public interface AllListener {
-        void onChecked(boolean check);
+        void onChecked(boolean check, int position, boolean oncli);
     }
 }

@@ -96,99 +96,105 @@
                 android:textSize="@dimen/s12" />
         </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="@dimen/d8"
-            android:layout_marginRight="@dimen/d8"
-            android:layout_weight="1"
-            android:background="@color/A7">
 
-            <ProgressBar
-                android:id="@+id/picture_progressbar"
-                style="?android:attr/progressBarStyleInverse"
+        <LinearLayout
+            android:id="@+id/picture_lin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ProgressBar
+                    android:id="@+id/picture_progressbar"
+                    style="?android:attr/progressBarStyleInverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:indeterminateTint="@color/A1"
+                    android:indeterminateTintMode="src_atop" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/picture_recycle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/d48"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8"
+                            android:background="@color/A7"
+                            android:overScrollMode="never"
+                            android:scrollbars="none" />
+
+                        <RelativeLayout
+                            android:id="@+id/manager_clean"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom">
+
+                            <TextView
+                                android:id="@+id/picture_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d48"
+                                android:background="@color/A1"
+                                android:gravity="center"
+                                android:text="@string/picture_14"
+                                android:textColor="@color/A7"
+                                android:textSize="@dimen/s16" />
+                        </RelativeLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+
+        <!--没有相似图片-->
+        <LinearLayout
+            android:id="@+id/picture_other"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d100"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:indeterminateTint="@color/A1"
-                android:indeterminateTintMode="src_atop" />
+                android:src="@mipmap/null_pic" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/picture_recycle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:overScrollMode="never"
-                        android:scrollbars="none" />
-                </FrameLayout>
-
-            </LinearLayout>
-            <!--没有相似图片-->
-            <LinearLayout
-                android:id="@+id/picture_other"
-                android:layout_width="match_parent"
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/d100"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:src="@mipmap/null_pic" />
-
-                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/d25"
-                    android:gravity="center"
-                    android:text="@string/picture_3"
-                    android:textColor="#4d1e134b"
-                    android:textSize="@dimen/s16" />
-
-                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/d12"
-                    android:gravity="center"
-                    android:text="@string/picture_4"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s16" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <RelativeLayout
-            android:id="@+id/manager_clean"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
-
-            <TextView
-                android:id="@+id/picture_button"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d48"
-                android:layout_centerInParent="true"
-                android:background="@color/A1"
+                android:layout_marginTop="@dimen/d25"
                 android:gravity="center"
-                android:text="@string/picture_14"
-                android:textColor="@color/A7"
+                android:text="@string/picture_3"
+                android:textColor="#4d1e134b"
                 android:textSize="@dimen/s16" />
-        </RelativeLayout>
+
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d12"
+                android:gravity="center"
+                android:text="@string/picture_4"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s16" />
+        </LinearLayout>
     </LinearLayout>
 
     <FrameLayout

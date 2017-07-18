@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.icleaner.clean.image.ImageHelper;
 import com.icleaner.clean.image.ImageInfo;
@@ -158,6 +159,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
         ArrayList<ImageInfo> list;
         int bastPosition;
+        String imgTime1, imgTime2 = "first";
 
 
         public HomeAdapter(ArrayList<ImageInfo> list) {
@@ -165,6 +167,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             for (int i = 0; i < list.size(); i++) {
                 if (list.get(i).isNormal) {
                     bastPosition = i;
+                    imgTime1 = list.get(i).tag_datetime;
                     return;
                 }
             }
@@ -185,6 +188,13 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 holder.picture_best.setVisibility(View.VISIBLE);
             } else {
                 holder.picture_best.setVisibility(View.INVISIBLE);
+            }
+            if (imgTime1 != imgTime2) {
+                holder.picture_time.setVisibility(View.VISIBLE);
+                imgTime2 = imgTime1;
+                holder.picture_time.setText(imgTime1.substring(0, 4) + "-" + imgTime1.substring(5, 7)+"-"+imgTime1.substring(8, 11));
+            } else {
+                holder.picture_time.setVisibility(View.INVISIBLE);
             }
             if (info.isNormal) {
                 holder.picture_check.setImageResource(R.mipmap.ram_normal);
@@ -256,12 +266,15 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             ImageView picture_icon;
             ImageView picture_check;
             ImageView picture_best;
+            TextView picture_time, picture_fenge;
 
             public HomeViewHolder(View view) {
                 super(view);
                 picture_icon = (ImageView) view.findViewById(R.id.picture_icon);
                 picture_check = (ImageView) view.findViewById(R.id.picture_check);
                 picture_best = (ImageView) view.findViewById(R.id.picture_best);
+                picture_time = (TextView) view.findViewById(R.id.picture_time);
+                picture_fenge = (TextView) view.findViewById(R.id.picture_fenge);
             }
         }
 

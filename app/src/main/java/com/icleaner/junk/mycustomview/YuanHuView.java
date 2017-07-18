@@ -9,7 +9,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.icleaner.junk.R;
@@ -23,7 +22,7 @@ public class YuanHuView extends View {
     RectF rectF;
     Context context;
     float dushu;
-    float dushuMax = 269;
+    float dushuMax;
 
     public YuanHuView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -32,6 +31,8 @@ public class YuanHuView extends View {
     }
 
     private void init() {
+        dushuMax = 0;
+        dushu = 0;
         paint = new Paint();
         paint.setColor(ContextCompat.getColor(context, R.color.A7));
         paint.setAntiAlias(true);
@@ -49,9 +50,9 @@ public class YuanHuView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawArc(rectF, 136, dushu, false, paint);
-        if (dushu < dushuMax) {
-            handler.handleMessage(null);
-        }
+//        if (dushu < dushuMax) {
+//            handler.handleMessage(null);
+//        }
     }
 
     Handler handler = new Handler() {
@@ -61,16 +62,65 @@ public class YuanHuView extends View {
             dushu += 1;
             if (dushu > dushuMax) {
                 dushu = dushuMax;
-                Log.e("file","====2===");
+            }
+            if (scanEndListener != null) {
+                scanEndListener.scanDushu(dushu);
             }
             invalidate();
         }
     };
 
     public void startYuanHuView(float dushu) {
-        Log.e("file","====1===");
-        dushuMax = dushu - 1;
-        this.dushu = 0;
-        invalidate();
+        if (dushu != 0) {
+            dushuMax = dushu - 1;
+            this.dushu = 0;
+            invalidate();
+        }
+    }
+
+    public void setDuShu(float dushu) {
+        this.dushu = dushu;
+        postInvalidate();
+    }
+
+    boolean isStop;
+
+    public void start(final float dushu) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                for (int i = 0; i < dushu; i++) {
+                    if (isStop) {
+                        return;
+                    }
+                    setDuShu(i);
+                    if (scanEndListener != null) {
+                        scanEndListener.scanDushu(i);
+                    }
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        isStop = true;
+    }
+
+    private YuanHuView.DrawYuanHuListener scanEndListener;
+
+    public void setScanCallBack(YuanHuView.DrawYuanHuListener listener) {
+        this.scanEndListener = listener;
+    }
+
+    public interface DrawYuanHuListener {
+        void scanDushu(float dushu);
     }
 }

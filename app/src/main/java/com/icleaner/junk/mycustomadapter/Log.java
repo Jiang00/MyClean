@@ -19,14 +19,16 @@ import com.icleaner.junk.mypresenter.LogPresenter;
 public class Log extends MybaseAdapter<JunkInfo> {
     LogPresenter junkPresenter;
     AllListener listener;
+    String cleanName;
 
     public Log(Context context) {
         super(context);
     }
 
-    public Log(Context context, LogPresenter junkPresenter) {
+    public Log(Context context, LogPresenter junkPresenter, String cleanName) {
         super(context);
         this.junkPresenter = junkPresenter;
+        this.cleanName = cleanName;
         lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {
             @Override
             protected int sizeOf(String key, Bitmap bitmap) {
@@ -41,7 +43,7 @@ public class Log extends MybaseAdapter<JunkInfo> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final JunkInfo info = getItem(position);
 
         final ViewHolder holder;
@@ -78,8 +80,10 @@ public class Log extends MybaseAdapter<JunkInfo> {
         }
 
         if (info.isChecked) {
+            listener.onChecked(true, cleanName, position, true);
             holder.checkBox.setImageResource(R.mipmap.ram_passed);
         } else {
+            listener.onChecked(false, cleanName, position, true);
             holder.checkBox.setImageResource(R.mipmap.ram_normal);
         }
         convertView.setOnClickListener(new View.OnClickListener() {
@@ -87,9 +91,11 @@ public class Log extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
+                    listener.onChecked(true, cleanName, position, false);
                     holder.checkBox.setImageResource(R.mipmap.ram_passed);
                     junkPresenter.addCleandata(true, info.size);
                 } else {
+                    listener.onChecked(false, cleanName, position, false);
                     holder.checkBox.setImageResource(R.mipmap.ram_normal);
                     junkPresenter.addCleandata(false, info.size);
                 }
@@ -108,7 +114,7 @@ public class Log extends MybaseAdapter<JunkInfo> {
     }
 
     public interface AllListener {
-        void onChecked(boolean check);
+        void onChecked(boolean check, String cleanName, int position, boolean oncli);
     }
 
     class DrawableTask extends AsyncTask<String, Void, Void> {

@@ -6,7 +6,6 @@
     android:background="#ffffff"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:id="@+id/junk_title_backg"
         android:layout_width="match_parent"
@@ -21,63 +20,60 @@
 
         <include layout="@layout/layout_title" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d10"
-            android:layout_marginTop="@dimen/d10"
-            android:gravity="center_vertical"
+            android:layout_height="@dimen/d120"
             android:orientation="horizontal">
 
             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/junk_size_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d60"
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
-                android:textColor="#ffffff"
+                android:textColor="@color/A7"
                 android:textSize="@dimen/s60" />
 
-            <LinearLayout
-                android:id="@+id/ll_tv"
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:id="@+id/junk_unit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d2"
-                android:orientation="vertical">
+                android:layout_alignBottom="@+id/junk_size_all"
+                android:layout_marginBottom="@dimen/d10"
+                android:layout_marginLeft="@dimen/d4"
+                android:layout_toRightOf="@+id/junk_size_all"
+                android:text="B"
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s18" />
 
-                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/junk_fangxin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="B"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s20" />
-
-                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/junk_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d3"
-                    android:text="@string/junk_title_clean"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s20" />
-            </LinearLayout>
-        </LinearLayout>
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:id="@+id/junk_fangxin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/d60"
+                android:text="@string/junk_found"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s14" />
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/B3"
+        android:background="@color/A17"
         android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/d8"
+            android:layout_marginRight="@dimen/d8"
             android:layout_weight="1">
 
             <ListView
@@ -86,23 +82,26 @@
                 android:layout_height="wrap_content"
                 android:background="@color/B3"
                 android:divider="@drawable/list_divider"
-                android:dividerHeight="1px" />
+                android:dividerHeight="0px"
+                android:scrollbars="none" />
         </FrameLayout>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="bottom">
 
-            <ImageView
+            <TextView
                 android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d100"
-                android:layout_height="@dimen/d100"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d48"
                 android:layout_centerInParent="true"
-                android:src="@mipmap/aerobee"
+                android:background="@color/A1"
+                android:gravity="center"
+                android:text="@string/power5"
+                android:textColor="@color/A7"
+                android:textSize="@dimen/s16"
                 android:visibility="invisible" />
         </RelativeLayout>
     </LinearLayout>
-
-
 </LinearLayout>

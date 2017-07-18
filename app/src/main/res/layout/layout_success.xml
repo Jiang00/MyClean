@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:background="@color/A1"
         android:orientation="vertical">
-
+        <!--标题-->
         <LinearLayout
             android:id="@+id/rl_title"
             android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                     android:layout_width="@dimen/d90"
                     android:layout_height="@dimen/d90"
                     android:layout_gravity="center"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/imageview_beijing"
@@ -100,7 +100,7 @@
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A2"
+                android:background="@color/A17"
                 android:fillViewport="true"
                 android:scrollbars="none"
                 android:visibility="invisible">
@@ -118,38 +118,45 @@
                         <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/A1"
                             android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_horizontal"
-                                android:orientation="vertical">
+                                android:layout_height="@dimen/d120"
+                                android:orientation="horizontal">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d56"
-                                    android:layout_height="@dimen/d56"
-                                    android:layout_marginBottom="@dimen/d8"
-                                    android:layout_marginTop="@dimen/d18"
+                                    android:layout_width="@dimen/d70"
+                                    android:layout_height="@dimen/d70"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/d70"
                                     android:src="@mipmap/success_duigou" />
 
-                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginBottom="@dimen/d8"
-                                    android:text="@string/success_title"
-                                    android:textColor="@color/A7"
-                                    android:textSize="@dimen/s14" />
+                                    android:layout_marginLeft="@dimen/d30"
+                                    android:layout_marginTop="@dimen/d37"
+                                    android:orientation="vertical">
 
-                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                    android:id="@+id/success_clean_size"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:text="@string/success_cleaned"
-                                    android:textColor="@color/A7"
-                                    android:textSize="@dimen/s12" />
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        android:id="@+id/success_clean_size"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/success_cleaned"
+                                        android:textColor="@color/A7"
+                                        android:textSize="@dimen/s16" />
+
+                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/d4"
+                                        android:text="@string/success_1"
+                                        android:textColor="@color/A7"
+                                        android:textSize="@dimen/s16" />
+                                </LinearLayout>
 
                                 <ImageView
                                     android:id="@+id/success_jiantou"
@@ -158,20 +165,23 @@
                                     android:layout_gravity="bottom|center_horizontal"
                                     android:layout_marginBottom="@dimen/d6"
                                     android:layout_marginTop="@dimen/d12"
-                                    android:src="@mipmap/success_tt" />
+                                    android:src="@mipmap/success_tt"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </FrameLayout>
                     </FrameLayout>
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/d5"
-                        android:background="@color/A2" />
+                        android:layout_height="@dimen/d8"
+                        android:background="@color/A17" />
                     <!--好评-->
                     <LinearLayout
                         android:id="@+id/main_rotate_all"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:layout_marginRight="@dimen/d8"
                         android:background="@color/B3"
                         android:orientation="vertical">
 
@@ -201,8 +211,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginBottom="@dimen/d6"
-                            android:layout_marginTop="@dimen/d12"
-                            android:text="@string/like"
+                            android:layout_marginTop="@dimen/d21"
+                            android:text="@string/mian_like_tishi1"
                             android:textColor="@color/A1"
                             android:textSize="@dimen/s16" />
 
@@ -210,8 +220,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="@dimen/d13"
-                            android:text="@string/full_marks"
+                            android:layout_marginBottom="@dimen/d21"
+                            android:text="@string/mian_like_tishi2"
                             android:textColor="@color/A1"
                             android:textSize="@dimen/s16" />
 
@@ -223,45 +233,43 @@
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:id="@+id/main_rotate_bad"
-                                android:layout_width="@dimen/d130"
-                                android:layout_height="@dimen/d36"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/d42"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginLeft="@dimen/d16"
+                                android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="@string/rotate_cancel"
-                                android:textColor="#59000000"
-                                android:textSize="@dimen/s16" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
+                                android:text="@string/main_rotate_cancel"
+                                android:textColor="@color/A9"
+                                android:textSize="@dimen/s12" />
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:id="@+id/main_rotate_good"
-                                android:layout_width="@dimen/d130"
-                                android:layout_height="@dimen/d36"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/d42"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginRight="@dimen/d16"
-                                android:background="@drawable/shape_rotate_good"
+                                android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="@string/rotate_ok"
-                                android:textColor="@color/white_100"
-                                android:textSize="@dimen/s16" />
+                                android:text="@string/main_rotate_ok"
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s12" />
                         </LinearLayout>
-                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d5"
-                        android:background="@color/A2" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d8"
+                            android:background="@color/A17" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_ad_xiao"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/d5"
-                        android:background="@color/white_100"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:layout_marginRight="@dimen/d8"
+                        android:background="@color/A7"
                         android:orientation="vertical"
                         android:visibility="gone" />
 
@@ -270,7 +278,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/d8"
-                        android:background="@color/white_100"
+                        android:layout_marginLeft="@dimen/d8"
+                        android:layout_marginRight="@dimen/d8"
+                        android:background="@color/A7"
                         android:orientation="vertical">
                         <!--文件管理-->
                         <LinearLayout
@@ -282,7 +292,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d56"
+                                android:layout_height="@dimen/d72"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
@@ -308,23 +318,18 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_file"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d3"
                                         android:text="@string/file_main"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--垃圾清理-->
@@ -337,7 +342,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d56"
+                                android:layout_height="@dimen/d72"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
@@ -349,7 +354,7 @@
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/junk_main" />
+                                        android:src="@mipmap/main_junk_button" />
                                 </FrameLayout>
 
                                 <LinearLayout
@@ -363,23 +368,18 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_junk"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/success_8"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--内存加速-->
@@ -392,7 +392,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d56"
+                                android:layout_height="@dimen/d72"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
@@ -404,7 +404,7 @@
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/ram_card" />
+                                        android:src="@mipmap/main_ram_button" />
                                 </FrameLayout>
 
                                 <LinearLayout
@@ -418,23 +418,18 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_ram"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/success_9"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--手机降温-->
@@ -447,7 +442,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d56"
+                                android:layout_height="@dimen/d72"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
@@ -459,7 +454,7 @@
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/cooling_main" />
+                                        android:src="@mipmap/main_cooling_button" />
                                 </FrameLayout>
 
                                 <LinearLayout
@@ -473,23 +468,18 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/main_cooling_name"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/success_10"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--游戏加速-->
@@ -502,7 +492,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d56"
+                                android:layout_height="@dimen/d72"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
@@ -514,9 +504,8 @@
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/gboost_main" />
+                                        android:src="@mipmap/main_gboost_button" />
                                 </FrameLayout>
-
 
                                 <LinearLayout
                                     android:layout_width="0dp"
@@ -529,23 +518,18 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/gboost_0"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/gboost_10"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--相似图片-->
@@ -558,7 +542,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d56"
+                                android:layout_height="@dimen/d72"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
@@ -570,7 +554,7 @@
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginLeft="@dimen/d16"
-                                        android:src="@mipmap/picture_main" />
+                                        android:src="@mipmap/main_picture_button" />
                                 </FrameLayout>
 
                                 <LinearLayout
@@ -584,23 +568,18 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_picture"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/picture_delete"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--清理通知栏-->
@@ -613,7 +592,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d56"
+                                android:layout_height="@dimen/d72"
                                 android:background="#ffffff"
                                 android:orientation="horizontal">
 
@@ -641,8 +620,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_notifi"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s14" />
+                                        android:textColor="@color/A8"
+                                        android:textSize="@dimen/s16" />
 
                                     <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:id="@+id/notifi_text"
@@ -650,22 +629,17 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
                                         android:text="@string/notifi_msg_main"
-                                        android:textColor="@color/A1"
-                                        android:textSize="@dimen/s12" />
+                                        android:textColor="@color/A9"
+                                        android:textSize="@dimen/s14" />
                                 </LinearLayout>
                             </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1px"
-                                android:background="@color/A2" />
                         </LinearLayout>
 
                         <!--深度清理-->
                         <LinearLayout
                             android:id="@+id/main_power_button"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d56"
+                            android:layout_height="@dimen/d72"
                             android:background="?attr/selectableItemBackground"
                             android:orientation="horizontal">
 
@@ -693,16 +667,16 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/side_power"
-                                    android:textColor="@color/A1"
-                                    android:textSize="@dimen/s14" />
+                                    android:textColor="@color/A8"
+                                    android:textSize="@dimen/s16" />
 
                                 <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:id="@+id/power_text"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/power_3"
-                                    android:textColor="@color/A1"
-                                    android:textSize="@dimen/s12" />
+                                    android:textColor="@color/A9"
+                                    android:textSize="@dimen/s14" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>

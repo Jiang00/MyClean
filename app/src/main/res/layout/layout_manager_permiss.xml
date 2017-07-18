@@ -9,7 +9,10 @@
         android:id="@+id/manager_permision"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
         android:layout_marginTop="@dimen/d30"
+        android:background="@color/A7"
         android:orientation="horizontal">
 
         <ImageView
@@ -42,9 +45,10 @@
 
             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/manager_shouquan"
-                android:layout_width="@dimen/d70"
-                android:layout_height="@dimen/d24"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="@dimen/d90"
+                android:layout_height="@dimen/d30"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/d16"
                 android:layout_marginTop="@dimen/d30"
                 android:background="@color/A1"
                 android:gravity="center"

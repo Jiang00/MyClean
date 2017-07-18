@@ -182,25 +182,31 @@
                 android:src="@mipmap/float_dialog_2"
                 android:visibility="gone" />
 
-            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                android:id="@+id/float_memory"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:text="77%"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s24" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                android:id="@+id/float_tishi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/float_memory"
-                android:layout_centerHorizontal="true"
-                android:text="@string/float_jiasu"
-                android:textColor="@color/A6"
-                android:textSize="@dimen/s10" />
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:id="@+id/float_memory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="77%"
+                    android:textColor="@color/A7"
+                    android:textSize="@dimen/s24" />
+
+                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                    android:id="@+id/float_tishi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/float_jiasu"
+                    android:textColor="@color/A6"
+                    android:textSize="@dimen/s10" />
+            </LinearLayout>
+
         </RelativeLayout>
 
         <LinearLayout

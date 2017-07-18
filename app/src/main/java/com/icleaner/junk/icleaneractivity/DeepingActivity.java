@@ -45,19 +45,20 @@ public class DeepingActivity extends BaseActivity {
     private DeepWidgetContainer container;
     private MyApplication cleanApplication;
     private int count = 0;
-    TextView power_size;
+//    TextView power_size;
     RecyclerView power_recycler;
     TextView junk_button_clean;
     private ArrayList<JunkInfo> startList;
     private View containerView;
     private ImageView power_imageview;
     private ObjectAnimator animator1, animator2, animator3, animator4, animator5, animator6;
-    AnimatorSet set;
+    AnimatorSet animatorSet;
     private boolean flag = false;
     private RecyclerView containerView_recyclerView;
-    private TextView containerView_power_size;
+//    private TextView containerView_power_size;
     private TextView containerView_junk_button_clean;
     private GridLayoutManager mLayoutManager;
+    ImageView gboost_power_check;
     Handler mHandler;
     private HomeAdapter homeAdapter, containerAdapter;
     private ImageView power_1, power_2, power_3, power_4, power_5, power_6;
@@ -68,13 +69,39 @@ public class DeepingActivity extends BaseActivity {
         setContentView(R.layout.layout_power);
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         mHandler = new Handler();
+        if (MyUtils.isAccessibilitySettingsOn(this)) {
+            gboost_power_check.setImageResource(R.mipmap.side_check_passed);
+        } else {
+            gboost_power_check.setImageResource(R.mipmap.side_check_normal);
+        }
+        gboost_power_check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SetAdUtil.track("深度清理页面", "开启辅助功能", "", 1);
+                try {
+                    Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                    startActivityForResult(intent, 100);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent transintent = new Intent(DeepingActivity.this, PermissingActivity.class);
+                        startActivity(transintent);
+                    }
+                }, 1500);
+            }
+        });
         startService(new Intent(this, MyServiceCustomerAccessibility.class).putExtra("isDis", false));
         initData();
         title_name.setText(R.string.side_power);
-        power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
+//        power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         mLayoutManager = new GridLayoutManager(this, 4);//设置为一个4列的纵向网格布局
         power_recycler.setLayoutManager(mLayoutManager);
         power_recycler.setAdapter(homeAdapter = new HomeAdapter(false));
+
         // 设置item动画
         power_recycler.setItemAnimator(new DefaultItemAnimator());
         junk_button_clean.setOnClickListener(new View.OnClickListener() {
@@ -156,8 +183,9 @@ public class DeepingActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
-        power_size = (TextView) findViewById(R.id.power_size);
+//        power_size = (TextView) findViewById(R.id.power_size);
         junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
+        gboost_power_check = (ImageView) findViewById(R.id.gboost_power_check);
     }
 
     Runnable runnable = new Runnable() {
@@ -177,7 +205,7 @@ public class DeepingActivity extends BaseActivity {
                 }
             }
             junk_button_clean.setBackgroundResource(R.drawable.shape_button_ffffff);
-            power_size.setText(getString(R.string.power_1, 0 + "") + " ");
+//            power_size.setText(getString(R.string.power_1, 0 + "") + " ");
             homeAdapter.notifyDataSetChanged();
             if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
                 if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
@@ -207,7 +235,7 @@ public class DeepingActivity extends BaseActivity {
 
     private void setContainer() {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
-        containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
+//        containerView_power_size = (TextView) containerView.findViewById(R.id.power_size);
         containerView_junk_button_clean = (TextView) containerView.findViewById(R.id.junk_button_clean);
         power_imageview = (ImageView) containerView.findViewById(R.id.power_imageview);
         power_1 = (ImageView) containerView.findViewById(R.id.power_1);
@@ -217,23 +245,16 @@ public class DeepingActivity extends BaseActivity {
         power_5 = (ImageView) containerView.findViewById(R.id.power_5);
         power_6 = (ImageView) containerView.findViewById(R.id.power_6);
 
-        animator1 = ObjectAnimator.ofFloat(power_1, "alpha", 0f, 0f);
-//        animator2 = ObjectAnimator.ofFloat(power_2, "alpha", 1f, 0f, 1f);
-//        animator3 = ObjectAnimator.ofFloat(power_3, "alpha", 1f, 0f, 1f);
-//        animator4 = ObjectAnimator.ofFloat(power_4, "alpha", 1f, 0f, 1f);
-//        animator5 = ObjectAnimator.ofFloat(power_5, "alpha", 1f, 0f, 1f);
-//        animator6 = ObjectAnimator.ofFloat(power_6, "alpha", 1f, 0f, 1f);
-        animator1.start();
-//        set = new AnimatorSet();
-//        set.setDuration(2000);
-//        set.play(animator1);//.with(animator2).with(animator3).with(animator4).with(animator5).with(animator6)
-//        startSetAnimator(true);
-        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
+
+//        animatorSet = new AnimatorSet();
+//        animatorSet.play(animator1).with(animator2).with(animator3).with(animator4).with(animator5).with(animator6);
+//        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         containerView_junk_button_clean.setVisibility(View.GONE);
         containerView_recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         containerView_recyclerView.setAdapter(containerAdapter = new HomeAdapter(true));
         // 设置item动画
         containerView_recyclerView.setItemAnimator(new DefaultItemAnimator());
+        startSetAnimator();
         mHandler.postDelayed(runnable, 100);
     }
 
@@ -256,7 +277,7 @@ public class DeepingActivity extends BaseActivity {
                     public void onAnimationEnd(Animator animation) {
                         CleanManager.getInstance(DeepingActivity.this).removeRamSelfBoot(startList.get(i));
                         startList.remove(i);
-                        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
+//                        containerView_power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
                         containerAdapter.notifyItemRemoved(i);
                         containerAdapter.reChangesData(i);
                         mHandler.post(runnable);
@@ -375,20 +396,45 @@ public class DeepingActivity extends BaseActivity {
                 junk_button_clean.callOnClick();
             }
         }
+        if (requestCode == 100 || requestCode == 1) {
+            if (MyUtils.isAccessibilitySettingsOn(this)) {
+                gboost_power_check.setImageResource(R.mipmap.side_check_passed);
+            } else {
+                gboost_power_check.setImageResource(R.mipmap.side_check_normal);
+            }
+        }
     }
 
     private void endAnimator() {
         animator1.pause();
     }
 
-    private void startSetAnimator(boolean flag) {
-        if (set != null && flag) {
-            set.play(animator1).with(animator2).with(animator3).with(animator4).with(animator5).with(animator6);
-        }
+    private void startSetAnimator() {
+//        if (animatorSet != null && flag) {
+//            animatorSet.play(animator1).with(animator2).with(animator3).with(animator4).with(animator5).with(animator6);
+//        }
+        animator1 = ObjectAnimator.ofFloat(power_1, "alpha", 1f, 0f, 1f);
+        animator2 = ObjectAnimator.ofFloat(power_2, "alpha", 1f, 0f, 1f);
+        animator3 = ObjectAnimator.ofFloat(power_3, "alpha", 1f, 0f, 1f);
+        animator4 = ObjectAnimator.ofFloat(power_4, "alpha", 1f, 0f, 1f);
+        animator5 = ObjectAnimator.ofFloat(power_5, "alpha", 1f, 0f, 1f);
+        animator6 = ObjectAnimator.ofFloat(power_6, "alpha", 1f, 0f, 1f);
+        animator1.setDuration(1500);
+        animator2.setDuration(1500);
+        animator3.setDuration(1500);
+        animator4.setDuration(1500);
+        animator5.setDuration(1500);
+        animator6.setDuration(1500);
+        animator1.start();
+        animator2.start();
+        animator3.start();
+        animator4.start();
+        animator5.start();
+        animator6.start();
     }
 
     private void endSetAnimator() {
-        if (set != null) {
+        if (animatorSet != null) {
 //            set.cancel();
         }
     }
@@ -398,7 +444,7 @@ public class DeepingActivity extends BaseActivity {
         startService(new Intent(this, MyServiceCustomerAccessibility.class).putExtra("isDis", true));
         super.onDestroy();
         if (animator1 != null) {
-            endAnimator();
+//            endAnimator();
         }
     }
 }

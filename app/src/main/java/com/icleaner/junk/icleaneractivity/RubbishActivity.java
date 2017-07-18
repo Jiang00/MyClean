@@ -49,12 +49,14 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
     TextView junk_size_all;
     private boolean color1 = true;
     private boolean color2 = true;
+    private boolean color3 = true;
     public Handler myHandler;
     TextView junk_unit;
     TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size;
-    ImageView junk_button_clean;
+    TextView junk_button_clean;
     MyScrollView junk_scroll;
     ListView junk_list_all;
+    ImageView junk_system_check, junk_apk_check, junk_unload_check, junk_log_check, junk_user_check;
 
 
     @Override
@@ -99,6 +101,12 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
         junk_button_clean = $(R.id.junk_button_clean);
         junk_scroll = $(R.id.junk_scroll);
         junk_list_all = $(R.id.junk_list_all);
+
+        junk_system_check = $(R.id.junk_system_check);
+        junk_apk_check = $(R.id.junk_apk_check);
+        junk_unload_check = $(R.id.junk_unload_check);
+        junk_log_check = $(R.id.junk_log_check);
+        junk_user_check = $(R.id.junk_user_check);
     }
 
     @Override
@@ -150,22 +158,32 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
         if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A20), getResources().getColor(R.color.A20));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A21));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-                junk_button_clean.setImageResource(R.mipmap.junk_img2);
+                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A21));
             }
         } else if (allSize > 1024 * 1024 * 200) {
             if (color2) {
                 color2 = false;
-                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A20), getResources().getColor(R.color.A20));
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A21), getResources().getColor(R.color.A22));
                 colorAnim.setDuration(2000);
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-                junk_button_clean.setImageResource(R.mipmap.junk_img2);
+                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A22));
+            }
+        } else {
+            if (color3) {
+                color3 = false;
+                ValueAnimator colorAnim = ObjectAnimator.ofInt(junk_title_backg, "backgroundColor", getResources().getColor(R.color.A1), getResources().getColor(R.color.A1));
+                colorAnim.setDuration(2000);
+                colorAnim.setRepeatCount(0);
+                colorAnim.setEvaluator(new ArgbEvaluator());
+                colorAnim.start();
+                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A1));
             }
         }
     }
@@ -179,12 +197,13 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
             junkPresenter.jumpToActivity(SucceedActivity.class, bundle, 1);
             return;
         }
-        adapterSystem = new Log(this, junkPresenter);
-        adapterApk = new Log(this, junkPresenter);
-        adapterUnload = new Log(this, junkPresenter);
-        adapterLog = new Log(this, junkPresenter);
-        adapterUser = new Log(this, junkPresenter);
-        adapterClear = new Log(this, junkPresenter);
+        adapterSystem = new Log(this, junkPresenter, "system");
+        adapterApk = new Log(this, junkPresenter, "apk");
+        adapterUnload = new Log(this, junkPresenter, "unload");
+        adapterLog = new Log(this, junkPresenter, "log");
+        adapterUser = new Log(this, junkPresenter, "user");
+        adapterClear = new Log(this, junkPresenter, "clear");
+
         junk_system_list.setAdapter(adapterSystem);
         junk_apk_list.setAdapter(adapterApk);
         junk_unload_list.setAdapter(adapterUnload);
@@ -342,21 +361,21 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                if (finalI != 0) {
-//                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(finalI, true) + ")");
-//                                }
-//                            }
-//                        });
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (finalI != 0) {
+                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(finalI, true) + ")");
+                                }
+                            }
+                        });
                     }
                 }
             }).start();
         } else {
-//            if (size != 0) {
-//                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(size, true) + ")");
-//            }
+            if (size != 0) {
+                junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(size, true) + ")");
+            }
         }
 
     }
@@ -528,6 +547,7 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
         view.startAnimation(animation);
     }
 
+    int systemCount, systemCount1, apkCount, apkCount1, unloadCount, unloadCount1, logCount, logCount1, userCount, userCount1;
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -540,11 +560,56 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
                     if (adapterSystem.getCount() == 0) {
                         break;
                     }
+
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起系统缓存", "", 1);
+                        junk_system_check.setImageResource(R.mipmap.ram_normal);
+                        junk_system_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
+                        systemCount1 = 0;
+                        if (adapterSystem != null) {//回调函数
+                            adapterSystem.setOnlistener(new Log.AllListener() {
+
+                                @Override
+                                public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
+                                    if (oncli) {
+                                        systemCount = position;
+                                    } else {
+                                        systemCount = systemCount1;
+                                    }
+                                    if (systemCount < systemCount1 - 1) {
+                                        systemCount = systemCount1 - 1;
+                                    } else if (systemCount > systemCount1) {
+                                        systemCount = systemCount1;
+                                    }
+                                    if (check && cleanName.equals("system")) {
+                                        systemCount++;
+                                    } else if (!check && cleanName.equals("system")) {
+                                        if (!oncli) {
+                                            systemCount--;
+                                        }
+                                    }
+                                    systemCount1 = systemCount;
+                                    if (systemCount == adapterSystem.getCount()) {
+                                        junk_system_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (systemCount == 0) {
+                                        junk_system_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_system_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
+                        if (systemCount == adapterSystem.getCount()) {
+                            junk_system_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (systemCount == 0) {
+                            junk_system_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_system_check.setImageResource(R.mipmap.ram_check);
+                        }
                         SetAdUtil.track("垃圾页面", "点击打开系统缓存", "", 1);
+                        junk_system_jiantou.setImageResource(R.mipmap.junk_up);
                         junk_system_list.setVisibility(View.VISIBLE);
                     }
                     break;
@@ -554,10 +619,54 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起apk文件", "", 1);
+                        junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                        junk_apk_jiaotou.setImageResource(R.mipmap.junk_x);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
+                        apkCount1 = 0;
+                        if (adapterApk != null) {//回调函数
+                            adapterApk.setOnlistener(new Log.AllListener() {
+
+                                @Override
+                                public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
+                                    if (oncli) {
+                                        apkCount = position;
+                                    } else {
+                                        apkCount = apkCount1;
+                                    }
+                                    if (apkCount < apkCount1 - 1) {
+                                        apkCount = apkCount1 - 1;
+                                    } else if (apkCount > apkCount1) {
+                                        systemCount = systemCount1;
+                                    }
+                                    if (check && cleanName.equals("apk")) {
+                                        apkCount++;
+                                    } else if (!check && cleanName.equals("apk")) {
+                                        if (!oncli) {
+                                            apkCount--;
+                                        }
+                                    }
+                                    apkCount1 = apkCount;
+                                    if (apkCount == adapterApk.getCount()) {
+                                        junk_apk_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (apkCount == 0) {
+                                        junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_apk_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
                         SetAdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
+                        junk_apk_jiaotou.setImageResource(R.mipmap.junk_up);
                         junk_apk_list.setVisibility(View.VISIBLE);
+                        if (apkCount == adapterApk.getCount()) {
+                            junk_apk_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (apkCount == 0) {
+                            junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_apk_check.setImageResource(R.mipmap.ram_check);
+                        }
                     }
                     break;
                 case R.id.junk_button_unload:
@@ -566,10 +675,54 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起unload文件", "", 1);
+                        junk_unload_jiantou.setImageResource(R.mipmap.junk_x);
+                        junk_unload_check.setImageResource(R.mipmap.ram_normal);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
+                        unloadCount1 = 0;
+                        if (adapterUnload != null) {//回调函数
+                            adapterUnload.setOnlistener(new Log.AllListener() {
+
+                                @Override
+                                public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
+                                    if (oncli) {
+                                        unloadCount = position;
+                                    } else {
+                                        unloadCount = unloadCount1;
+                                    }
+                                    if (unloadCount < unloadCount1 - 1) {
+                                        unloadCount = unloadCount1 - 1;
+                                    } else if (unloadCount > unloadCount1) {
+                                        unloadCount = unloadCount1;
+                                    }
+                                    if (check && cleanName.equals("unload")) {
+                                        unloadCount++;
+                                    } else if (!check && cleanName.equals("unload")) {
+                                        if (!oncli) {
+                                            unloadCount--;
+                                        }
+                                    }
+                                    unloadCount1 = unloadCount;
+                                    if (unloadCount == adapterUnload.getCount()) {
+                                        junk_unload_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (unloadCount == 0) {
+                                        junk_unload_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_unload_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
                         SetAdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
+                        junk_unload_jiantou.setImageResource(R.mipmap.junk_up);
                         junk_unload_list.setVisibility(View.VISIBLE);
+                        if (unloadCount == adapterUnload.getCount()) {
+                            junk_unload_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (unloadCount == 0) {
+                            junk_unload_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_unload_check.setImageResource(R.mipmap.ram_check);
+                        }
                     }
                     break;
                 case R.id.junk_button_log:
@@ -578,10 +731,54 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起log文件", "", 1);
+                        junk_log_jiantou.setImageResource(R.mipmap.junk_x);
+                        junk_log_check.setImageResource(R.mipmap.ram_normal);
                         junk_log_list.setVisibility(View.GONE);
                     } else {
+                        logCount1 = 0;
+                        if (adapterLog != null) {//回调函数
+                            adapterLog.setOnlistener(new Log.AllListener() {
+
+                                @Override
+                                public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
+                                    if (oncli) {
+                                        logCount = position;
+                                    } else {
+                                        logCount = logCount1;
+                                    }
+                                    if (logCount < logCount1 - 1) {
+                                        logCount = logCount1 - 1;
+                                    } else if (logCount > logCount1) {
+                                        logCount = logCount1;
+                                    }
+                                    if (check && cleanName.equals("log")) {
+                                        logCount++;
+                                    } else if (!check && cleanName.equals("log")) {
+                                        if (!oncli) {
+                                            logCount--;
+                                        }
+                                    }
+                                    logCount1 = logCount;
+                                    if (logCount == adapterLog.getCount()) {
+                                        junk_log_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (logCount == 0) {
+                                        junk_log_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_log_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
                         SetAdUtil.track("垃圾页面", "点击打开log文件", "", 1);
+                        junk_log_jiantou.setImageResource(R.mipmap.junk_up);
                         junk_log_list.setVisibility(View.VISIBLE);
+                        if (logCount == adapterLog.getCount()) {
+                            junk_log_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (logCount == 0) {
+                            junk_log_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_log_check.setImageResource(R.mipmap.ram_check);
+                        }
                     }
 
                     break;
@@ -591,10 +788,55 @@ public class RubbishActivity extends BaseActivity implements MyGarbageView {
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起user文件", "", 1);
+                        junk_user_jiantou.setImageResource(R.mipmap.junk_x);
+                        junk_user_check.setImageResource(R.mipmap.ram_normal);
                         junk_user_list.setVisibility(View.GONE);
                     } else {
+                        userCount1 = 0;
+                        if (adapterUser != null) {//回调函数
+                            adapterUser.setOnlistener(new Log.AllListener() {
+
+                                @Override
+                                public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
+                                    if (oncli) {
+                                        userCount = position;
+                                    } else {
+                                        userCount = userCount1;
+                                    }
+                                    if (userCount < userCount1 - 1) {
+                                        userCount = userCount1 - 1;
+                                    } else if (userCount > userCount1) {
+                                        userCount = userCount1;
+                                    }
+                                    if (check && cleanName.equals("user")) {
+                                        userCount++;
+                                    } else if (!check && cleanName.equals("user")) {
+
+                                        if (!oncli) {
+                                            userCount--;
+                                        }
+                                    }
+                                    userCount1 = userCount;
+                                    if (userCount == adapterUser.getCount()) {
+                                        junk_user_check.setImageResource(R.mipmap.ram_passed);
+                                    } else if (userCount == 0) {
+                                        junk_user_check.setImageResource(R.mipmap.ram_normal);
+                                    } else {
+                                        junk_user_check.setImageResource(R.mipmap.ram_check);
+                                    }
+                                }
+                            });
+                        }
                         SetAdUtil.track("垃圾页面", "点击打开user文件", "", 1);
+                        junk_user_jiantou.setImageResource(R.mipmap.junk_up);
                         junk_user_list.setVisibility(View.VISIBLE);
+                        if (userCount == adapterUser.getCount()) {
+                            junk_user_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (userCount == 0) {
+                            junk_user_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_user_check.setImageResource(R.mipmap.ram_check);
+                        }
                     }
 
                     break;

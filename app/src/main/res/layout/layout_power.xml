@@ -86,10 +86,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/d8"
         android:layout_marginRight="@dimen/d8"
-        android:layout_weight="1"
         android:background="@color/A7"
         android:orientation="vertical">
 
@@ -97,33 +96,34 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/d56"
             android:background="@color/A7"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
 
             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                android:id="@+id/power_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/d16"
-                android:text="@string/power_1"
+                android:text="@string/power6"
                 android:textColor="@color/A8"
                 android:textSize="@dimen/s14" />
 
-            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d5"
-                android:singleLine="true"
-                android:text="@string/power_2"
-                android:textColor="@color/A8"
-                android:textSize="@dimen/s14" />
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/gboost_power_check"
+                android:layout_width="@dimen/d30"
+                android:layout_height="@dimen/d30"
+                android:layout_marginRight="@dimen/d16"
+                android:src="@mipmap/side_check_passed" />
         </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/A7">
 
             <android.support.v7.widget.RecyclerView
@@ -134,6 +134,11 @@
                 android:scrollbars="none" />
         </FrameLayout>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 
     <RelativeLayout
         android:id="@+id/power_clean"

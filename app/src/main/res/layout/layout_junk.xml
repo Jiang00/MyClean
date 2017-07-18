@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_100"
+    android:background="@color/A17"
     android:orientation="vertical">
 
     <LinearLayout
@@ -20,59 +20,56 @@
 
         <include layout="@layout/layout_title" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d10"
-            android:layout_marginTop="@dimen/d10"
-            android:gravity="center_vertical"
+            android:layout_height="@dimen/d120"
             android:orientation="horizontal">
 
             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/junk_size_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d60"
                 android:gravity="center"
                 android:lines="1"
                 android:text="0"
-                android:textColor="@color/B3"
+                android:textColor="@color/A7"
                 android:textSize="@dimen/s60" />
 
-            <LinearLayout
-                android:id="@+id/ll_tv"
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:id="@+id/junk_unit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/d2"
-                android:orientation="vertical">
+                android:layout_alignBottom="@+id/junk_size_all"
+                android:layout_marginBottom="@dimen/d10"
+                android:layout_marginLeft="@dimen/d4"
+                android:layout_toRightOf="@+id/junk_size_all"
+                android:text="B"
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s18" />
 
-                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/junk_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="B"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s20" />
+            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:id="@+id/junk_fangxin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/d60"
+                android:text="@string/junk_found"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s14" />
 
-                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/junk_fangxin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d3"
-                    android:text="@string/junk_title_clean"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s20" />
-
-            </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
         android:layout_weight="1"
-        android:background="@color/B3"
+        android:background="@color/A17"
         android:orientation="vertical">
 
         <FrameLayout
@@ -105,13 +102,12 @@
                         android:id="@+id/junk_button_system"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d12"
                         android:background="?attr/selectableItemBackground"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d51"
+                            android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -119,42 +115,53 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d30"
-                                    android:layout_height="@dimen/d30"
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_system" />
                             </LinearLayout>
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                android:layout_width="0dp"
+                                android:layout_width="@dimen/d112"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_system"
-                                android:textColor="#b3000000"
+                                android:textColor="@color/A10"
                                 android:textSize="@dimen/s16" />
 
+                            <ImageView
+                                android:id="@+id/junk_system_jiantou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:id="@+id/junk_system_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginRight="@dimen/d16"
                                 android:text="10.0M"
-                                android:textColor="#b3000000"
-                                android:textSize="@dimen/s14" />
-
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
 
                             <ImageView
-                                android:id="@+id/junk_system_jiantou"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:id="@+id/junk_system_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
                                 android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
+                                android:src="@mipmap/ram_normal"
                                 android:visibility="visible" />
                         </LinearLayout>
                     </LinearLayout>
@@ -166,6 +173,11 @@
                         android:background="@color/B3"
                         android:divider="@drawable/junk_divider" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d8"
+                        android:background="@color/A17" />
+
                     <LinearLayout
                         android:id="@+id/junk_button_apk"
                         android:layout_width="match_parent"
@@ -175,7 +187,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
+                            android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -183,22 +195,35 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d30"
-                                    android:layout_height="@dimen/d30"
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_apk" />
                             </LinearLayout>
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                android:layout_width="0dp"
+                                android:layout_width="@dimen/d112"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_apk"
-                                android:textColor="#b3000000"
+                                android:textColor="@color/A10"
                                 android:textSize="@dimen/s16" />
+
+                            <ImageView
+                                android:id="@+id/junk_apk_jiaotou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:id="@+id/junk_apk_size"
@@ -208,18 +233,18 @@
                                 android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="#b3000000"
-                                android:textSize="@dimen/s14" />
-
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
 
                             <ImageView
-                                android:id="@+id/junk_apk_jiaotou"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:id="@+id/junk_apk_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
+                                android:src="@mipmap/ram_normal"
                                 android:visibility="visible" />
+
                         </LinearLayout>
                     </LinearLayout>
 
@@ -230,6 +255,11 @@
                         android:background="@color/white_100"
                         android:divider="@drawable/junk_divider" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d8"
+                        android:background="@color/A17" />
+
                     <LinearLayout
                         android:id="@+id/junk_button_unload"
                         android:layout_width="match_parent"
@@ -239,7 +269,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
+                            android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -247,23 +277,35 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d30"
-                                    android:layout_height="@dimen/d30"
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_unload" />
                             </LinearLayout>
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                android:layout_width="0dp"
+                                android:layout_width="@dimen/d112"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_unload"
-                                android:textColor="#b3000000"
+                                android:textColor="@color/A10"
                                 android:textSize="@dimen/s16" />
 
+                            <ImageView
+                                android:id="@+id/junk_unload_jiantou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:id="@+id/junk_unload_size"
@@ -273,17 +315,16 @@
                                 android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="#b3000000"
-                                android:textSize="@dimen/s14" />
-
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
 
                             <ImageView
-                                android:id="@+id/junk_unload_jiantou"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:id="@+id/junk_unload_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
+                                android:src="@mipmap/ram_normal"
                                 android:visibility="visible" />
                         </LinearLayout>
                     </LinearLayout>
@@ -295,6 +336,11 @@
                         android:background="@color/white_100"
                         android:divider="@drawable/junk_divider" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d8"
+                        android:background="@color/A17" />
+
                     <LinearLayout
                         android:id="@+id/junk_button_log"
                         android:layout_width="match_parent"
@@ -304,7 +350,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
+                            android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -312,23 +358,35 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d30"
-                                    android:layout_height="@dimen/d30"
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_log" />
                             </LinearLayout>
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                android:layout_width="0dp"
+                                android:layout_width="@dimen/d112"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_log"
-                                android:textColor="#b3000000"
+                                android:textColor="@color/A10"
                                 android:textSize="@dimen/s16" />
 
+                            <ImageView
+                                android:id="@+id/junk_log_jiantou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:id="@+id/junk_log_size"
@@ -338,18 +396,18 @@
                                 android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="#b3000000"
-                                android:textSize="@dimen/s14" />
-
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
 
                             <ImageView
-                                android:id="@+id/junk_log_jiantou"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:id="@+id/junk_log_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
+                                android:src="@mipmap/ram_normal"
                                 android:visibility="visible" />
+
                         </LinearLayout>
                     </LinearLayout>
 
@@ -360,6 +418,11 @@
                         android:background="@color/white_100"
                         android:divider="@drawable/junk_divider" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d8"
+                        android:background="@color/A17" />
+
                     <LinearLayout
                         android:id="@+id/junk_button_user"
                         android:layout_width="match_parent"
@@ -369,7 +432,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
+                            android:layout_height="@dimen/d56"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -377,23 +440,35 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d30"
-                                    android:layout_height="@dimen/d30"
+                                    android:layout_width="@dimen/d36"
+                                    android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginLeft="@dimen/d16"
                                     android:src="@mipmap/junk_user" />
                             </LinearLayout>
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-                                android:layout_width="0dp"
+                                android:layout_width="@dimen/d112"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_user"
-                                android:textColor="#b3000000"
+                                android:textColor="@color/A10"
                                 android:textSize="@dimen/s16" />
 
+                            <ImageView
+                                android:id="@+id/junk_user_jiantou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
 
                             <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:id="@+id/junk_user_size"
@@ -403,17 +478,17 @@
                                 android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="#b3000000"
-                                android:textSize="@dimen/s14" />
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
 
 
                             <ImageView
-                                android:id="@+id/junk_user_jiantou"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:id="@+id/junk_user_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
                                 android:layout_gravity="center"
                                 android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
+                                android:src="@mipmap/ram_normal"
                                 android:visibility="visible" />
                         </LinearLayout>
                     </LinearLayout>
@@ -425,23 +500,32 @@
                         android:background="@color/white_100"
                         android:divider="@drawable/junk_divider" />
                     <!--  android:dividerHeight="1px" 高度为1px的横线-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d8"
+                        android:background="@color/A17" />
                 </LinearLayout>
             </com.icleaner.junk.mycustomview.MyScrollView>
         </FrameLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@color/B3">
 
-            <ImageView
-                android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d100"
-                android:layout_height="@dimen/d100"
-                android:layout_centerInParent="true"
-                android:src="@mipmap/junk_img3"
-                android:visibility="invisible" />
-        </RelativeLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:id="@+id/junk_button_clean"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d48"
+            android:layout_centerInParent="true"
+            android:background="@color/A1"
+            android:gravity="center"
+            android:text="@string/power5"
+            android:textColor="@color/A7"
+            android:textSize="@dimen/s16"
+            android:visibility="invisible" />
+    </RelativeLayout>
 </LinearLayout>

@@ -35,9 +35,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginLeft="@dimen/d8"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
+                    android:padding="@dimen/d8"
                     android:scaleType="center"
                     android:src="@mipmap/main_menu" />
 
@@ -57,8 +58,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d16"
+                    android:layout_marginRight="@dimen/d8"
                     android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/d8"
                     android:scaleType="center"
                     android:src="@mipmap/main_setting" />
                 <!--广告按钮-->
@@ -78,7 +80,6 @@
                         android:scaleType="center"
                         android:src="@mipmap/main_libao" />
                 </LinearLayout>
-
             </RelativeLayout>
 
             <com.icleaner.junk.mycustomview.PullToRefreshLayout
@@ -164,18 +165,26 @@
                                 android:textColor="@color/A6"
                                 android:textSize="@dimen/s12" />
                             <!--加速clean-->
-                            <TextView
-                                android:id="@+id/main_clean"
-                                android:layout_width="@dimen/d112"
-                                android:layout_height="@dimen/d30"
+                            <LinearLayout
+                                android:id="@+id/main_clean_lin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginBottom="@dimen/d28"
-                                android:background="#33ffffff"
+                                android:layout_marginBottom="@dimen/d20"
                                 android:gravity="center"
-                                android:text="@string/main_clean"
-                                android:textColor="@color/A7"
-                                android:textSize="@dimen/s16" />
+                                android:padding="@dimen/d8">
+
+                                <TextView
+                                    android:id="@+id/main_clean"
+                                    android:layout_width="@dimen/d112"
+                                    android:layout_height="@dimen/d30"
+                                    android:background="#33ffffff"
+                                    android:gravity="center"
+                                    android:text="@string/main_clean"
+                                    android:textColor="@color/A7"
+                                    android:textSize="@dimen/s16" />
+                            </LinearLayout>
                         </RelativeLayout>
                         <!--球-->
                         <RelativeLayout
@@ -255,7 +264,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/d32"
-                                android:layout_below="@id/main_fenshu"
+                                android:layout_below="@id/main_fenshu1"
                                 android:layout_centerHorizontal="true"
                                 android:background="@drawable/shape_w_b"
                                 android:gravity="center"
@@ -629,7 +638,9 @@
                             android:id="@+id/ll_ad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/d4"
+                            android:layout_marginBottom="@dimen/d8"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8"
                             android:gravity="center_horizontal"
                             android:orientation="vertical"
                             android:visibility="gone" />
@@ -841,7 +852,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/d8"
                             android:layout_marginRight="@dimen/d8"
-                            android:background="@color/A7"
+                            android:background="?attr/selectableItemBackground"
                             android:orientation="vertical">
 
                             <RelativeLayout
@@ -875,14 +886,12 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:visibility="gone" />
-
                             </RelativeLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/d16"
-                                android:layout_marginRight="@dimen/d16"
+                                android:background="@color/A7"
                                 android:orientation="horizontal">
 
                                 <LinearLayout
@@ -952,7 +961,6 @@
                                             android:textSize="@dimen/s10" />
                                     </LinearLayout>
 
-
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -969,7 +977,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical">
-
 
                                     <TextView
                                         android:id="@+id/main_msg_cpu_percent"
@@ -993,10 +1000,12 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s12" />
                                 </LinearLayout>
-
-
                             </LinearLayout>
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d8"
+                                android:background="@color/A17" />
                         </LinearLayout>
 
 
@@ -1006,6 +1015,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/d8"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8"
                             android:background="@color/A7"
                             android:gravity="center_horizontal"
                             android:orientation="vertical"
