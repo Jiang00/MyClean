@@ -21,7 +21,7 @@
             android:src="@mipmap/tilte_left" />
     </FrameLayout>
 
-    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
         android:id="@+id/title_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,16 +38,18 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/d8"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/d8"
         android:scaleType="center"
         android:src="@mipmap/white_list_right"
         android:visibility="invisible" />
 
-    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
         android:id="@+id/title_check"
         android:layout_width="@dimen/d56"
         android:layout_height="@dimen/d56"
         android:layout_alignParentRight="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
         android:text="@string/picture_9"
         android:textColor="@color/B3"

@@ -15,15 +15,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="@dimen/d16"
-        android:layout_marginRight="@dimen/d16"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
         android:background="@drawable/shape_ad"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d160"
-            android:background="@drawable/shape_a1">
+            android:layout_height="@dimen/d234"
+            android:background="@color/A1">
 
             <ImageView
                 android:id="@+id/iv_cha"
@@ -36,88 +36,75 @@
 
             <ImageView
                 android:id="@+id/zhuangshi"
-                android:layout_width="@dimen/d116"
-                android:layout_height="@dimen/d112"
-                android:layout_marginLeft="@dimen/d20"
-                android:layout_marginTop="@dimen/d19"
+                android:layout_width="@dimen/d160"
+                android:layout_height="@dimen/d127"
+                android:layout_centerVertical="true"
                 android:src="@mipmap/unload_tong" />
 
 
-            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d10"
-                android:layout_marginTop="@dimen/d72"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/zhuangshi"
                 android:text="158"
-                android:textColor="@color/A20"
-                android:textSize="@dimen/s14" />
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s21" />
 
-            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/tv_danwei"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
-                android:layout_marginLeft="@dimen/d6"
                 android:layout_toRightOf="@id/tv_size"
                 android:text="KB "
-                android:textColor="@color/A20"
-                android:textSize="@dimen/s14" />
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s21" />
 
-            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
                 android:layout_toRightOf="@id/tv_danwei"
                 android:text="@string/unload_canyu"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s14" />
+                android:textColor="@color/A7"
+                android:textSize="@dimen/s15" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d56"
-            android:background="@drawable/shape_ffffff_b"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <Button
-                    android:id="@+id/bt_quxiao"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@null"
-                    android:text="@string/quxiao"
-                    android:textColor="#591e134b"
-                    android:textSize="@dimen/s16" />
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/A1"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/d8"
+            android:paddingTop="@dimen/d8">
 
             <TextView
-                android:layout_width="@dimen/d2"
-                android:layout_height="@dimen/d32"
-                android:layout_gravity="center_vertical"
-                android:background="@color/A2" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
+            <Button
+                android:id="@+id/bt_quxiao"
+                android:layout_width="@dimen/d70"
+                android:layout_height="@dimen/d24"
+                android:background="@color/A16"
+                android:text="@string/quxiao"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s15" />
 
-                <Button
-                    android:id="@+id/bt_queren"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@null"
-                    android:text="@string/qingli"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s16" />
-            </LinearLayout>
+
+            <Button
+                android:id="@+id/bt_queren"
+                android:layout_width="@dimen/d70"
+                android:layout_height="@dimen/d24"
+                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
+                android:background="@color/A7"
+                android:text="@string/qingli"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s16" />
         </LinearLayout>
     </LinearLayout>
 

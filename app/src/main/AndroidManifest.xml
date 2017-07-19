@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.icleaner.junk">
+    package="com.easy.junk">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -48,7 +48,7 @@
 
 
     <application
-        android:name="com.icleaner.junk.icleaneractivity.MyApplication"
+        android:name="com.easy.junk.easyactivity.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -57,12 +57,12 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.MainActivity"
+            android:name="com.easy.junk.easyactivity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.LoadingActivity"
+            android:name="com.easy.junk.easyactivity.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -83,75 +83,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.BatteriesActivity"
+            android:name="com.easy.junk.easyactivity.BatteriesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.RubbishActivity"
+            android:name="com.easy.junk.easyactivity.RubbishActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.RubbishAndRamActivity"
+            android:name="com.easy.junk.easyactivity.RubbishAndRamActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.AllAppsActivity"
+            android:name="com.easy.junk.easyactivity.AllAppsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.PhonesMessageActivity"
+            android:name="com.easy.junk.easyactivity.PhonesMessageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.MemoryAvtivity"
+            android:name="com.easy.junk.easyactivity.MemoryAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.SetActivity"
+            android:name="com.easy.junk.easyactivity.SetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.SucceedActivity"
+            android:name="com.easy.junk.easyactivity.SucceedActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.IgnoresAvtivity"
+            android:name="com.easy.junk.easyactivity.IgnoresAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.IgnoresAddActivity"
+            android:name="com.easy.junk.easyactivity.IgnoresAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.DeepingActivity"
+            android:name="com.easy.junk.easyactivity.DeepingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.NotifingAnimationActivity"
+            android:name="com.easy.junk.easyactivity.NotifingAnimationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.PermissingActivity"
+            android:name="com.easy.junk.easyactivity.PermissingActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.MyNotifingActivity"
+            android:name="com.easy.junk.easyactivity.MyNotifingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.MyNotifingSettingActivity"
+            android:name="com.easy.junk.easyactivity.MyNotifingSettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.SuspensionBallActivity"
+            android:name="com.easy.junk.easyactivity.SuspensionBallActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.UnloadingResidualActivity"
+            android:name="com.easy.junk.easyactivity.UnloadingResidualActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.PictActivity"
+            android:name="com.easy.junk.easyactivity.PictActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.PictHuiActivity"
+            android:name="com.easy.junk.easyactivity.PictHuiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.GoodGameActivity"
+            android:name="com.easy.junk.easyactivity.GoodGameActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -164,7 +164,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.ShortCutingActivity"
+            android:name="com.easy.junk.easyactivity.ShortCutingActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -174,7 +174,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.icleaner.junk.mybroadcasts.UnloadResidualBroadcast">
+        <receiver android:name="com.easy.junk.easybroadcasts.UnloadResidualBroadcast">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -185,23 +185,23 @@
         </receiver>
 
         <service
-            android:name="com.icleaner.junk.services.SuspensionBallService"
+            android:name="com.easy.junk.easyservices.SuspensionBallService"
             android:excludeFromRecents="true" />
         <service
-            android:name="com.icleaner.junk.services.MyNotificationService"
+            android:name="com.easy.junk.easyservices.MyNotificationService"
             android:enabled="true"
             android:excludeFromRecents="true" />
 
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.PhoneFileManagerActivity"
+            android:name="com.easy.junk.easyactivity.PhoneFileManagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.PhoneFileActivity"
+            android:name="com.easy.junk.easyactivity.PhoneFileActivity"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name="com.icleaner.junk.icleaneractivity.PhoneDocActivity"
+            android:name="com.easy.junk.easyactivity.PhoneDocActivity"
             android:screenOrientation="portrait" />
 
     </application>

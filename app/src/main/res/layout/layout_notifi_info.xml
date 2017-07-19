@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#801e134b"
+    android:background="@color/A1"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,53 +16,54 @@
             android:layout_width="match_parent"
             android:layout_height="0dp" />
 
-        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/d72"
-            android:gravity="center"
-            android:text="@string/notifi_1"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/s17" />
-
-        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/d33"
-            android:gravity="center"
-            android:text="@string/notifi_2"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/s17" />
-
-        <com.sample.lottie.LottieAnimationView
+        <ImageView
             android:id="@+id/notifi_info_lot"
+            android:layout_width="@dimen/d225"
+            android:layout_height="@dimen/d320"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d53"
+            android:src="@mipmap/noti_phone" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="@dimen/d30"
-            android:layout_marginRight="@dimen/d30"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="fitEnd" />
+            android:background="@color/A7"
+            android:orientation="vertical">
 
+            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d36"
+                android:gravity="center"
+                android:text="@string/tongzhi1"
+                android:textColor="@color/A8"
+                android:textSize="@dimen/s15" />
+
+            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/d12"
+                android:gravity="center"
+                android:text="@string/tongzhi2"
+                android:textColor="@color/A8"
+                android:textSize="@dimen/s15" />
+
+            <Button
+                android:id="@+id/notifi_info_text"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="@dimen/d168"
+                android:layout_height="@dimen/d44"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/d36"
+                android:layout_marginTop="@dimen/d36"
+                android:background="@color/A1"
+                android:text="@string/battery_10"
+                android:textColor="@color/A7"
+                android:textSize="@dimen/s15" />
+        </LinearLayout>
     </LinearLayout>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d72"
-        android:layout_gravity="bottom">
-
-        <Button
-            android:id="@+id/notifi_info_text"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="@dimen/d168"
-            android:layout_height="@dimen/d44"
-            android:layout_centerInParent="true"
-            android:background="@drawable/shape_f50"
-            android:text="@string/notifi_info_2"
-            android:textColor="@color/A1"
-            android:textSize="@dimen/s18"
-            android:visibility="invisible" />
-    </RelativeLayout>
 </FrameLayout>

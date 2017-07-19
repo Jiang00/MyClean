@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/A17"
     android:orientation="vertical"
-    tools:context="com.icleaner.junk.icleaneractivity.MainActivity">
+    tools:context="com.easy.junk.easyactivity.MainActivity">
 
     <View
         android:id="@+id/view_title_bar"
@@ -42,7 +42,7 @@
                     android:scaleType="center"
                     android:src="@mipmap/main_menu" />
 
-                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 </LinearLayout>
             </RelativeLayout>
 
-            <com.icleaner.junk.mycustomview.PullToRefreshLayout
+            <com.easy.junk.easycustomview.PullToRefreshLayout
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -90,7 +90,7 @@
 
                 <include layout="@layout/layout_load_more" />
 
-                <com.icleaner.junk.mycustomview.MyScrollView
+                <com.easy.junk.easycustomview.MyScrollView
                     android:id="@+id/main_scroll_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -135,7 +135,7 @@
                                 android:layout_marginTop="@dimen/d8"
                                 android:src="@mipmap/mian_point" />
 
-                            <com.icleaner.junk.mycustomview.YuanHuView
+                            <com.easy.junk.easycustomview.YuanHuView
                                 android:id="@+id/main_yunahuview"
                                 android:layout_width="@dimen/d234"
                                 android:layout_height="@dimen/d234"
@@ -212,17 +212,17 @@
                                 android:src="@drawable/shape_dian"
                                 android:visibility="gone" />
                             <!--虚环-->
-                            <com.icleaner.junk.mycustomview.VirtuaRingView
+                            <com.easy.junk.easycustomview.VirtuaRingView
                                 android:id="@+id/virtuaringview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                             <!--两个外圆-->
-                            <com.icleaner.junk.mycustomview.CircleView
+                            <com.easy.junk.easycustomview.CircleView
                                 android:id="@+id/main_circleview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                             <!--水波纹球-->
-                            <com.icleaner.junk.mycustomview.ICleanerWaterView
+                            <com.easy.junk.easycustomview.ICleanerWaterView
                                 android:id="@+id/main_water"
                                 android:layout_width="@dimen/d156"
                                 android:layout_height="@dimen/d156"
@@ -243,7 +243,7 @@
                                 android:src="@mipmap/main_touying"
                                 android:visibility="gone" />
                             <!--球周围进度条-->
-                            <com.icleaner.junk.mycustomview.MainRoundView
+                            <com.easy.junk.easycustomview.MainRoundView
                                 android:id="@+id/main_dian"
                                 android:layout_width="@dimen/d156"
                                 android:layout_height="@dimen/d156"
@@ -275,7 +275,7 @@
                                 android:textSize="@dimen/s15"
                                 android:visibility="gone" />
                             <!--扩散-->
-                            <com.icleaner.junk.mycustomview.CircleWaveView
+                            <com.easy.junk.easycustomview.CircleWaveView
                                 android:id="@+id/main_circlewaveview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
@@ -343,7 +343,7 @@
                                                         android:visibility="invisible" />
                                                 </RelativeLayout>
 
-                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_gravity="center_horizontal"
@@ -373,7 +373,7 @@
                                                     android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_ram_button" />
 
-                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="@string/main_ram_name"
@@ -398,7 +398,7 @@
                                                 android:layout_marginTop="@dimen/d9"
                                                 android:src="@mipmap/main_manager_button" />
 
-                                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="@string/main_manager_name"
@@ -432,7 +432,7 @@
                                                     android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_picture_button" />
 
-                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="@string/side_picture"
@@ -461,7 +461,7 @@
                                                     android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_cooling_button" />
 
-                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="@string/main_cooling_name"
@@ -490,7 +490,7 @@
                                                     android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_gboost_button" />
 
-                                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="@string/gboost_0"
@@ -550,7 +550,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d8"
                                     android:text="@string/main_like"
                                     android:textColor="@color/A8"
                                     android:textSize="@dimen/s16" />
@@ -572,12 +572,12 @@
                                     android:layout_width="@dimen/d15"
                                     android:layout_height="@dimen/d15"
                                     android:layout_alignParentRight="true"
-                                    android:layout_marginRight="@dimen/d16"
+                                    android:layout_marginRight="@dimen/d8"
                                     android:layout_marginTop="@dimen/d10"
                                     android:src="@mipmap/close" />
                             </RelativeLayout>
 
-                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -587,7 +587,7 @@
                                 android:textColor="@color/A1"
                                 android:textSize="@dimen/s16" />
 
-                            <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -602,24 +602,22 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal">
 
-                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_bad"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/d42"
                                     android:layout_gravity="center_horizontal"
-                                    android:layout_marginLeft="@dimen/d16"
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:text="@string/main_rotate_cancel"
                                     android:textColor="@color/A9"
                                     android:textSize="@dimen/s12" />
 
-                                <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                     android:id="@+id/main_rotate_good"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/d42"
                                     android:layout_gravity="center_horizontal"
-                                    android:layout_marginRight="@dimen/d16"
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:text="@string/main_rotate_ok"
@@ -664,7 +662,7 @@
                                     android:layout_width="@dimen/d36"
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d8"
                                     android:src="@mipmap/file_main" />
 
                                 <LinearLayout
@@ -674,7 +672,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d16"
@@ -682,13 +680,59 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d2"
                                         android:text="@string/file_main"
                                         android:textColor="@color/A9"
                                         android:textSize="@dimen/s14" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <!--垃圾清理-->
+                            <LinearLayout
+                                android:id="@+id/main_junk_button2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/d72"
+                                android:background="?attr/selectableItemBackground"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/d72"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/d36"
+                                        android:layout_height="@dimen/d36"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/d8"
+                                        android:src="@mipmap/main_junk_button" />
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="@dimen/d16"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical">
+
+                                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/side_junk"
+                                            android:textColor="@color/A8"
+                                            android:textSize="@dimen/s16" />
+
+                                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            android:layout_width="@dimen/d225"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/d2"
+                                            android:text="@string/success_8"
+                                            android:textColor="@color/A9"
+                                            android:textSize="@dimen/s14" />
+                                    </LinearLayout>
                                 </LinearLayout>
                             </LinearLayout>
 
@@ -704,7 +748,7 @@
                                     android:layout_width="@dimen/d36"
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d8"
                                     android:src="@mipmap/notifi_6" />
 
                                 <LinearLayout
@@ -714,7 +758,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_cooling"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -723,7 +767,7 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d2"
@@ -746,7 +790,7 @@
                                     android:layout_width="@dimen/d36"
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d8"
                                     android:src="@mipmap/power_6" />
 
                                 <LinearLayout
@@ -756,7 +800,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_power"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -772,7 +816,7 @@
                                         android:orientation="horizontal"
                                         android:visibility="gone">
 
-                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                             android:id="@+id/power_size"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -780,7 +824,7 @@
                                             android:textColor="@color/A1"
                                             android:textSize="@dimen/s14" />
 
-                                        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                             android:layout_width="@dimen/d225"
                                             android:layout_height="wrap_content"
                                             android:text="@string/power_2"
@@ -788,7 +832,7 @@
                                             android:textSize="@dimen/s14" />
                                     </LinearLayout>
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d2"
@@ -810,7 +854,7 @@
                                     android:layout_width="@dimen/d36"
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d8"
                                     android:src="@mipmap/main_picture_button" />
 
                                 <LinearLayout
@@ -820,7 +864,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:id="@+id/main_msg_picture"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -829,7 +873,7 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d2"
@@ -864,24 +908,24 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d8"
                                     android:text="@string/main_msg_title"
                                     android:textColor="@color/A8"
                                     android:textSize="@dimen/s16" />
 
-                                <com.icleaner.junk.mycustomview.CustomRoundCpu
+                                <com.easy.junk.easycustomview.CustomRoundCpu
                                     android:id="@+id/main_custom_cpu"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:visibility="gone" />
 
-                                <com.icleaner.junk.mycustomview.CustomRoundCpu
+                                <com.easy.junk.easycustomview.CustomRoundCpu
                                     android:id="@+id/main_custom_ram"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:visibility="gone" />
 
-                                <com.icleaner.junk.mycustomview.CustomRoundCpu
+                                <com.easy.junk.easycustomview.CustomRoundCpu
                                     android:id="@+id/main_custom_sd"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -1026,10 +1070,10 @@
                 </com.icleaner.junk.mycustomview.MyScrollView>
 
                 <include layout="@layout/layout_load_more" />
-            </com.icleaner.junk.mycustomview.PullToRefreshLayout>
+            </com.easy.junk.easycustomview.PullToRefreshLayout>
         </LinearLayout>
 
-        <com.mingle.widget.LinearLayout
+        <com.mingle.easywidget.LinearLayout
             android:id="@+id/ll_ad_full"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

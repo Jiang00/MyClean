@@ -5,11 +5,11 @@
     android:id="@+id/main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.icleaner.junk.icleaneractivity.MainActivity">
+    tools:context="com.easy.junk.easyactivity.MainActivity">
 
     <include layout="@layout/activity_main" />
 
-    <com.icleaner.junk.mycustomview.MainFrameLayout
+    <com.easy.junk.easycustomview.MainFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -87,7 +87,7 @@
                     android:background="@color/A7"
                     android:orientation="vertical">
 
-                    <com.icleaner.junk.mycustomview.ListViewForScrollView
+                    <com.easy.junk.easycustomview.ListViewForScrollView
                         android:id="@+id/side_listview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -101,5 +101,5 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </com.icleaner.junk.mycustomview.MainFrameLayout>
+    </com.easy.junk.easycustomview.MainFrameLayout>
 </android.support.v4.widget.DrawerLayout>

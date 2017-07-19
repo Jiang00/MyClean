@@ -3,21 +3,19 @@
     android:id="@+id/ll_jiasu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/shape_radio_ffffff"
+    android:background="#273238"
     android:orientation="horizontal">
 
     <FrameLayout
-        android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d65"
+        android:layout_width="@dimen/d56"
+        android:layout_height="@dimen/d56"
         android:layout_gravity="center_vertical">
 
         <ImageView
             android:id="@+id/chongdian"
-            android:layout_width="@dimen/d43"
-            android:layout_height="@dimen/d43"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d16"
-            android:layout_marginRight="@dimen/d13"
+            android:layout_width="@dimen/d42"
+            android:layout_height="@dimen/d42"
+            android:layout_gravity="center"
             android:scaleType="center"
             android:src="@mipmap/ram_card" />
     </FrameLayout>
@@ -40,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/notifi_ram"
-                android:textColor="#000000"
+                android:textColor="@color/A7"
                 android:textSize="@dimen/s15" />
 
             <TextView
@@ -49,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:lines="1"
                 android:text="70%"
-                android:textColor="#000000"
+                android:textColor="@color/A2"
                 android:textSize="@dimen/s15" />
         </LinearLayout>
 
@@ -58,20 +56,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/d5"
             android:text="@string/notifi_ram_msg"
-            android:textColor="#b3000000"
+            android:textColor="@color/A6"
             android:textSize="@dimen/s12" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/tv_jiasu"
-        android:layout_width="@dimen/d65"
-        android:layout_height="@dimen/d26"
+        android:layout_width="@dimen/d78"
+        android:layout_height="@dimen/d28"
         android:layout_gravity="center_vertical"
-        android:layout_marginRight="@dimen/d15"
-        android:background="@mipmap/juxing"
+        android:layout_marginRight="@dimen/d16"
+        android:background="@color/A1"
         android:gravity="center"
         android:text="@string/notification_button"
-        android:textColor="@color/A6"
-        android:textSize="@dimen/s10" />
+        android:textColor="@color/A7"
+        android:textSize="@dimen/s14" />
 
 </LinearLayout>

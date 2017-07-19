@@ -8,8 +8,8 @@
 
     <RelativeLayout
         android:id="@+id/rl"
-        android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d60"
+        android:layout_width="@dimen/d56"
+        android:layout_height="@dimen/d56"
         android:orientation="horizontal">
 
         <ImageView
@@ -17,11 +17,11 @@
             android:layout_width="@dimen/d36"
             android:layout_height="@dimen/d36"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/d16" />
+            android:layout_marginLeft="@dimen/d8" />
     </RelativeLayout>
 
 
-    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
         android:id="@+id/file_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,11 +40,11 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/d25"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="@dimen/d8"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="center" />
 
-    <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
         android:id="@+id/file_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

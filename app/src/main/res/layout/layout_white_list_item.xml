@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:id="@+id/rl"
-        android:layout_width="@dimen/d72"
+        android:layout_width="@dimen/d56"
         android:layout_height="@dimen/d56"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -20,7 +20,7 @@
             android:layout_width="@dimen/d30"
             android:layout_height="@dimen/d30"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/d16" />
+            android:layout_marginLeft="@dimen/d8" />
     </RelativeLayout>
 
     <LinearLayout
@@ -32,7 +32,7 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
-        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
             android:id="@+id/tv_name"
             android:layout_width="@dimen/d200"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             android:textColor="@color/A8"
             android:textSize="@dimen/s16" />
 
-        <com.icleaner.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
             android:id="@+id/tv_zhuangtai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,6 +58,6 @@
         android:layout_height="@dimen/d24"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="@dimen/d8"
         android:src="@mipmap/white_add" />
 </RelativeLayout>

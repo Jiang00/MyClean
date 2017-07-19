@@ -2,17 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/shape_radio_ffffff"
+    android:background="#273238"
     android:orientation="horizontal">
 
     <FrameLayout
-        android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d65"
+        android:layout_width="@dimen/d56"
+        android:layout_height="@dimen/d56"
         android:layout_gravity="center_vertical">
 
         <ImageView
-            android:layout_width="@dimen/d40"
-            android:layout_height="@dimen/d40"
+            android:layout_width="@dimen/d42"
+            android:layout_height="@dimen/d42"
             android:layout_gravity="center"
             android:scaleType="center"
             android:src="@mipmap/notifi_7" />
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0 "
-                android:textColor="#7ec3ff"
+                android:textColor="@color/A2"
                 android:textSize="@dimen/s15" />
 
             <TextView
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:lines="1"
                 android:text="@string/notifi"
-                android:textColor="@color/A9"
+                android:textColor="@color/A7"
                 android:textSize="@dimen/s10" />
         </LinearLayout>
 
@@ -58,14 +58,14 @@
 
     <TextView
         android:id="@+id/tv_jiasu"
-        android:layout_width="@dimen/d65"
-        android:layout_height="@dimen/d27"
+        android:layout_width="@dimen/d78"
+        android:layout_height="@dimen/d28"
         android:layout_gravity="center_vertical"
         android:layout_marginRight="@dimen/d16"
-        android:background="@mipmap/juxing"
+        android:background="@color/A1"
         android:gravity="center"
         android:text="@string/notification_button"
-        android:textColor="@color/A6"
-        android:textSize="@dimen/s12" />
+        android:textColor="@color/A7"
+        android:textSize="@dimen/s14" />
 
 </LinearLayout>

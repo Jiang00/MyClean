@@ -11,23 +11,23 @@ import android.view.InflateException;
 import android.view.View;
 
 import com.mingle.baselibrary.R;
-import com.mingle.widget.Button;
-import com.mingle.widget.CheckBox;
-import com.mingle.widget.CheckedTextView;
-import com.mingle.widget.CompleteTextView;
-import com.mingle.widget.EditText;
-import com.mingle.widget.FrameLayout;
-import com.mingle.widget.ImageButton;
-import com.mingle.widget.ImageView;
-import com.mingle.widget.LinearLayout;
-import com.mingle.widget.ListView;
-import com.mingle.widget.MultiAutoCompleteTextView;
-import com.mingle.widget.RadioButton;
-import com.mingle.widget.RatingBar;
-import com.mingle.widget.RelativeLayout;
-import com.mingle.widget.Spinner;
-import com.mingle.widget.TextView;
-import com.mingle.widget.WidgetFactor;
+import com.mingle.easywidget.Button;
+import com.mingle.easywidget.CheckBox;
+import com.mingle.easywidget.CheckedTextView;
+import com.mingle.easywidget.CompleteTextView;
+import com.mingle.easywidget.EditText;
+import com.mingle.easywidget.FrameLayout;
+import com.mingle.easywidget.ImageButton;
+import com.mingle.easywidget.ImageView;
+import com.mingle.easywidget.LinearLayout;
+import com.mingle.easywidget.ListView;
+import com.mingle.easywidget.MultiAutoCompleteTextView;
+import com.mingle.easywidget.RadioButton;
+import com.mingle.easywidget.RatingBar;
+import com.mingle.easywidget.RelativeLayout;
+import com.mingle.easywidget.Spinner;
+import com.mingle.easywidget.TextView;
+import com.mingle.easywidget.WidgetFactor;
 
 import java.lang.reflect.Constructor;
 import java.util.Map;
@@ -73,7 +73,7 @@ public class MAppCompatViewInflater {
             case "EditText":
                 return new EditText(context, attrs);
             case "View":
-                return new com.mingle.widget.View(context, attrs);
+                return new com.mingle.easywidget.View(context, attrs);
             case "Spinner":
                 return new Spinner(context, attrs);
             case "CheckBox":
