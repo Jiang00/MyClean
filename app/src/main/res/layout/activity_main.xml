@@ -186,100 +186,6 @@
                                     android:textSize="@dimen/s16" />
                             </LinearLayout>
                         </RelativeLayout>
-                        <!--球-->
-                        <RelativeLayout
-                            android:id="@+id/main_all_cercle"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d275"
-                            android:background="@color/A1"
-                            android:visibility="gone">
-
-                            <ImageView
-                                android:layout_width="@dimen/d12"
-                                android:layout_height="@dimen/d12"
-                                android:layout_marginLeft="@dimen/d30"
-                                android:layout_marginTop="@dimen/d217"
-                                android:alpha="0.5"
-                                android:src="@drawable/shape_dian"
-                                android:visibility="gone" />
-
-                            <ImageView
-                                android:layout_width="@dimen/d6"
-                                android:layout_height="@dimen/d6"
-                                android:layout_marginLeft="@dimen/d301"
-                                android:layout_marginTop="@dimen/d82"
-                                android:alpha="0.3"
-                                android:src="@drawable/shape_dian"
-                                android:visibility="gone" />
-                            <!--虚环-->
-                            <com.easy.junk.easycustomview.VirtuaRingView
-                                android:id="@+id/virtuaringview"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <!--两个外圆-->
-                            <com.easy.junk.easycustomview.CircleView
-                                android:id="@+id/main_circleview"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <!--水波纹球-->
-                            <com.easy.junk.easycustomview.ICleanerWaterView
-                                android:id="@+id/main_water"
-                                android:layout_width="@dimen/d156"
-                                android:layout_height="@dimen/d156"
-                                android:layout_centerInParent="true" />
-                            <!--指针-->
-                            <ImageView
-                                android:id="@+id/main_pointer"
-                                android:layout_width="@dimen/d196"
-                                android:layout_height="@dimen/d196"
-                                android:layout_centerInParent="true"
-                                android:src="@mipmap/pointer" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/main_water"
-                                android:layout_centerHorizontal="true"
-                                android:src="@mipmap/main_touying"
-                                android:visibility="gone" />
-                            <!--球周围进度条-->
-                            <com.easy.junk.easycustomview.MainRoundView
-                                android:id="@+id/main_dian"
-                                android:layout_width="@dimen/d156"
-                                android:layout_height="@dimen/d156"
-                                android:layout_centerInParent="true"
-                                android:visibility="gone" />
-
-                            <TextView
-                                android:id="@+id/main_fenshu1"
-                                android:layout_width="@dimen/d100"
-                                android:layout_height="@dimen/d50"
-                                android:layout_centerHorizontal="true"
-                                android:layout_centerVertical="true"
-                                android:gravity="center"
-                                android:text="100"
-                                android:textColor="@color/B3"
-                                android:textSize="@dimen/s46" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/d32"
-                                android:layout_below="@id/main_fenshu1"
-                                android:layout_centerHorizontal="true"
-                                android:background="@drawable/shape_w_b"
-                                android:gravity="center"
-                                android:paddingLeft="@dimen/d14"
-                                android:paddingRight="@dimen/d14"
-                                android:text="@string/main_button"
-                                android:textColor="@color/A7"
-                                android:textSize="@dimen/s15"
-                                android:visibility="gone" />
-                            <!--扩散-->
-                            <com.easy.junk.easycustomview.CircleWaveView
-                                android:id="@+id/main_circlewaveview"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                        </RelativeLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -290,7 +196,6 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/d144"
-                                android:layout_below="@+id/main_wave"
                                 android:background="@color/A7">
 
                                 <LinearLayout
@@ -501,30 +406,6 @@
 
                                     </LinearLayout>
                                 </LinearLayout>
-                            </RelativeLayout>
-                            <!--波纹底部-->
-                            <RelativeLayout
-                                android:id="@+id/main_wave"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/B3"
-                                android:visibility="gone">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/d67"
-                                    android:background="@color/A1"
-                                    android:src="@mipmap/main_wave" />
-
-                                <ImageView
-                                    android:id="@+id/main_aerobee"
-                                    android:layout_width="@dimen/d75"
-                                    android:layout_height="@dimen/d75"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_marginRight="@dimen/d16"
-                                    android:layout_marginTop="@dimen/d10"
-                                    android:src="@mipmap/aerobee" />
-                                <!-- android:elevation="@dimen/d4"设置投影，dp是高度-->
                             </RelativeLayout>
                         </RelativeLayout>
 
@@ -1067,7 +948,7 @@
                             android:visibility="invisible" />
 
                     </LinearLayout>
-                </com.icleaner.junk.mycustomview.MyScrollView>
+                </com.easy.junk.easycustomview.MyScrollView>
 
                 <include layout="@layout/layout_load_more" />
             </com.easy.junk.easycustomview.PullToRefreshLayout>

@@ -91,7 +91,7 @@ public class YuanHuView extends View {
             @Override
             public void run() {
 
-                for (int i = 0, j = 269; i < 270 && j > dushu; ) {
+                for (int i = 0, j = 270; i < 270 && j > dushu - 2; ) {
                     if (isStop) {
                         return;
                     }

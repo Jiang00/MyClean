@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.easy.clean.easyutils.MyUtils;
-import com.easy.junk.easyactivity.SuspensionBallActivity;
+import com.easy.junk.easyactivity.EasyFloatActivity;
 import com.easy.junk.easycustomview.FloatStateView;
 
 /**
@@ -114,7 +114,7 @@ public class FloatStateManager {
         circleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, SuspensionBallActivity.class);
+                Intent intent = new Intent(context, EasyFloatActivity.class);
                 //用Bundle携带数据
                 Bundle bundle = new Bundle();
                 //传递name参数为tinyphp

@@ -83,75 +83,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.easy.junk.easyactivity.BatteriesActivity"
+            android:name="com.easy.junk.easyactivity.EasyBatteriesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.RubbishActivity"
+            android:name="com.easy.junk.easyactivity.EasyRubbishActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.RubbishAndRamActivity"
+            android:name="com.easy.junk.easyactivity.EasyRubbishAndRamActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.AllAppsActivity"
+            android:name="com.easy.junk.easyactivity.EasyApplicationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.PhonesMessageActivity"
+            android:name="com.easy.junk.easyactivity.EasyHardwareActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.MemoryAvtivity"
+            android:name="com.easy.junk.easyactivity.EasyMemoryAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.SetActivity"
+            android:name="com.easy.junk.easyactivity.EasySettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.SucceedActivity"
+            android:name="com.easy.junk.easyactivity.EasySucceedActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.IgnoresAvtivity"
+            android:name="com.easy.junk.easyactivity.EasyWhiteAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.IgnoresAddActivity"
+            android:name="com.easy.junk.easyactivity.EasyWhiteAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.DeepingActivity"
+            android:name="com.easy.junk.easyactivity.EasyDeepingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.NotifingAnimationActivity"
+            android:name="com.easy.junk.easyactivity.EasyNotifingAnimationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.PermissingActivity"
+            android:name="com.easy.junk.easyactivity.EasyPermissingActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name="com.easy.junk.easyactivity.MyNotifingActivity"
+            android:name="com.easy.junk.easyactivity.EasyNotifingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.MyNotifingSettingActivity"
+            android:name="com.easy.junk.easyactivity.EasyNotifingSettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.SuspensionBallActivity"
+            android:name="com.easy.junk.easyactivity.EasyFloatActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name="com.easy.junk.easyactivity.UnloadingResidualActivity"
+            android:name="com.easy.junk.easyactivity.EasyUnloadingResidualActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name="com.easy.junk.easyactivity.PictActivity"
+            android:name="com.easy.junk.easyactivity.EasyPictActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.PictHuiActivity"
+            android:name="com.easy.junk.easyactivity.EasyPictHuiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.GoodGameActivity"
+            android:name="com.easy.junk.easyactivity.EasyGoodGameActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -164,7 +164,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.easy.junk.easyactivity.ShortCutingActivity"
+            android:name="com.easy.junk.easyactivity.EasyShortCutingActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -174,7 +174,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.easy.junk.easybroadcasts.UnloadResidualBroadcast">
+        <receiver android:name="com.easy.junk.easybroadcasts.EasyUnloadResidualBroadcast">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -185,23 +185,23 @@
         </receiver>
 
         <service
-            android:name="com.easy.junk.easyservices.SuspensionBallService"
+            android:name="com.easy.junk.easyservices.EasySuspensionBallService"
             android:excludeFromRecents="true" />
         <service
-            android:name="com.easy.junk.easyservices.MyNotificationService"
+            android:name="com.easy.junk.easyservices.EasyNotificationService"
             android:enabled="true"
             android:excludeFromRecents="true" />
 
         <activity
-            android:name="com.easy.junk.easyactivity.PhoneFileManagerActivity"
+            android:name="com.easy.junk.easyactivity.EasyFileManagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.PhoneFileActivity"
+            android:name="com.easy.junk.easyactivity.EasyFileActivity"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name="com.easy.junk.easyactivity.PhoneDocActivity"
+            android:name="com.easy.junk.easyactivity.EasyDocActivity"
             android:screenOrientation="portrait" />
 
     </application>

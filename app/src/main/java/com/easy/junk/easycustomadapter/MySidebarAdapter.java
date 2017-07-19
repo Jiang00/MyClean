@@ -17,19 +17,19 @@ import com.easy.clean.core.CleanManager;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easyactivity.DeepingActivity;
-import com.easy.junk.easyactivity.GoodGameActivity;
-import com.easy.junk.easyactivity.MemoryAvtivity;
-import com.easy.junk.easyactivity.MyNotifingActivity;
-import com.easy.junk.easyactivity.NotifingAnimationActivity;
-import com.easy.junk.easyactivity.PhoneFileManagerActivity;
-import com.easy.junk.easyactivity.PictActivity;
-import com.easy.junk.easyactivity.RubbishActivity;
-import com.easy.junk.easyactivity.SetActivity;
+import com.easy.junk.easyactivity.EasyDeepingActivity;
+import com.easy.junk.easyactivity.EasyPictActivity;
+import com.easy.junk.easyactivity.EasyGoodGameActivity;
+import com.easy.junk.easyactivity.EasyMemoryAvtivity;
+import com.easy.junk.easyactivity.EasyNotifingActivity;
+import com.easy.junk.easyactivity.EasyNotifingAnimationActivity;
+import com.easy.junk.easyactivity.EasyFileManagerActivity;
+import com.easy.junk.easyactivity.EasyRubbishActivity;
+import com.easy.junk.easyactivity.EasySettingActivity;
 import com.easy.junk.easytools.MUtilGp;
 import com.easy.junk.easytools.MyConstant;
 import com.easy.junk.easytools.SetAdUtil;
-import com.easy.junk.easyservices.SuspensionBallService;
+import com.easy.junk.easyservices.EasySuspensionBallService;
 import com.easy.junk.easymodel.SideInfo;
 import com.easy.module.charge.saver.easyutils.BatteryConstants;
 import com.easy.module.charge.saver.easyutils.Utils;
@@ -194,57 +194,57 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
             if (PreData.getDB(context, MyConstant.FlOAT_SWITCH, true)) {
                 SetAdUtil.track("侧边栏", "点击关闭悬浮窗", "", 1);
                 PreData.putDB(context, MyConstant.FlOAT_SWITCH, false);
-                Intent intent1 = new Intent(context, SuspensionBallService.class);
+                Intent intent1 = new Intent(context, EasySuspensionBallService.class);
                 context.stopService(intent1);
             } else {
                 SetAdUtil.track("侧边栏", "点击开启悬浮窗", "", 1);
                 PreData.putDB(context, MyConstant.FlOAT_SWITCH, true);
-                Intent intent1 = new Intent(context, SuspensionBallService.class);
+                Intent intent1 = new Intent(context, EasySuspensionBallService.class);
                 context.startService(intent1);
             }
         } else if (position == JUNK) {
             SetAdUtil.track("侧边栏", "点击进入垃圾页面", "", 1);
-            Intent intent2 = new Intent(context, RubbishActivity.class);
+            Intent intent2 = new Intent(context, EasyRubbishActivity.class);
             ((Activity) context).startActivityForResult(intent2, 1);
         } else if (position == RAM) {
             SetAdUtil.track("侧边栏", "点击进入ram页面", "", 1);
-            Intent intent3 = new Intent(context, MemoryAvtivity.class);
+            Intent intent3 = new Intent(context, EasyMemoryAvtivity.class);
             ((Activity) context).startActivityForResult(intent3, 1);
         } else if (position == PICTURE) {
             SetAdUtil.track("侧边栏", "点击进入相似图片页面", "", 1);
-            Intent intent4 = new Intent(context, PictActivity.class);
+            Intent intent4 = new Intent(context, EasyPictActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
 //            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
 //            ((Activity) context).startActivityForResult(intent, 1);
             SetAdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
             PreData.putDB(context, MyConstant.FILE_CLEAN, true);
-            Intent intent5 = new Intent(context, PhoneFileManagerActivity.class);
+            Intent intent5 = new Intent(context, EasyFileManagerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == POWER) {
             SetAdUtil.track("侧边栏", "点击进入深度清理页面", "", 1);
-            Intent intent5 = new Intent(context, DeepingActivity.class);
+            Intent intent5 = new Intent(context, EasyDeepingActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == NOTIFI) {
             SetAdUtil.track("侧边栏", "点击进入通知栏页面", "", 1);
             PreData.putDB(context, MyConstant.NOTIFI_CLEAN, true);
             if (PreData.getDB(context, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(context)) {
                 //通知栏动画
-                Intent intent6 = new Intent(context, NotifingAnimationActivity.class);
+                Intent intent6 = new Intent(context, EasyNotifingAnimationActivity.class);
                 context.startActivity(intent6);
             } else {
                 //通知栏
-                Intent intent6 = new Intent(context, MyNotifingActivity.class);
+                Intent intent6 = new Intent(context, EasyNotifingActivity.class);
                 context.startActivity(intent6);
             }
         } else if (position == GBOOST) {
             SetAdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, MyConstant.GBOOST_CLEAN, true);
-            Intent intent = new Intent(context, GoodGameActivity.class);
+            Intent intent = new Intent(context, EasyGoodGameActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {
             SetAdUtil.track("侧边栏", "点击进入设置页面", "", 1);
-            Intent intent9 = new Intent(context, SetActivity.class);
+            Intent intent9 = new Intent(context, EasySettingActivity.class);
             ((Activity) context).startActivityForResult(intent9, 1);
         } else if (position == ROTATE) {
             SetAdUtil.track("侧边栏", "点击好评", "", 1);

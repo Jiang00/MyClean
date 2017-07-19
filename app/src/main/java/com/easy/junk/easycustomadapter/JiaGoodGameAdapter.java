@@ -17,8 +17,8 @@ import android.widget.TextView;
 import com.easy.clean.easydb.CleanDBHelper;
 import com.easy.clean.entity.JunkInfo;
 import com.easy.junk.R;
+import com.easy.junk.easyactivity.EasyGoodGameActivity;
 import com.easy.junk.easytools.SetAdUtil;
-import com.easy.junk.easyactivity.GoodGameActivity;
 import com.easy.clean.easyutils.LoadManager;
 
 import java.util.ArrayList;
@@ -66,7 +66,7 @@ public class JiaGoodGameAdapter extends MybaseAdapter<JunkInfo> {
                     game_list.add(info.pkg);
                     SetAdUtil.track("游戏加速页面", "添加游戏到列表", info.label, 1);
                     Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
-                    shortcutIntent.setClass(context, GoodGameActivity.class);
+                    shortcutIntent.setClass(context, EasyGoodGameActivity.class);
                     shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
                 }
                 list.remove(info);

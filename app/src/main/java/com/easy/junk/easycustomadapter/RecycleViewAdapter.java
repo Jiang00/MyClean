@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.easy.clean.cleanimage.ImageHelper;
 import com.easy.clean.cleanimage.ImageInfo;
 import com.easy.junk.R;
-import com.easy.junk.easyactivity.PictActivity;
+import com.easy.junk.easyactivity.EasyPictActivity;
 import com.easy.junk.easycustomview.MyGridLayoutManager;
 import com.easy.clean.cleanimage.RecyclerDbHelper;
 
@@ -26,7 +26,7 @@ import java.util.ArrayList;
  */
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.MyViewHolder> {
-    private PictActivity pictureActivity;
+    private EasyPictActivity pictureActivity;
     private ImageHelper imageHelper;
     public ArrayList<ArrayList<ImageInfo>> groupList;
     private MyGridLayoutManager gridLayoutManager;
@@ -40,7 +40,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         void deleteSuccessCallback(ArrayList<ArrayList<ImageInfo>> list);
     }
 
-    public RecycleViewAdapter(PictActivity pictureActivity, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, ImageHelper imageHelper, Handler handler) {
+    public RecycleViewAdapter(EasyPictActivity pictureActivity, ArrayList<ArrayList<ImageInfo>> totalSimilarImage, ImageHelper imageHelper, Handler handler) {
         this.handler = handler;
         this.pictureActivity = pictureActivity;
         this.imageHelper = imageHelper;

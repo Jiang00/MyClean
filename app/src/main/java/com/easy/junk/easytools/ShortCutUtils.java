@@ -9,7 +9,7 @@ import android.os.Parcelable;
 
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easyactivity.ShortCutingActivity;
+import com.easy.junk.easyactivity.EasyShortCutingActivity;
 
 public class ShortCutUtils {
 
@@ -30,7 +30,7 @@ public class ShortCutUtils {
                 "com.android.launcher.action.INSTALL_SHORTCUT");
         Intent shortcutIntent = new Intent();
         shortcutIntent.setComponent(new ComponentName(cx.getPackageName(),
-                ShortCutingActivity.class.getName()));
+                EasyShortCutingActivity.class.getName()));
         //设置启动的模式
         shortcutIntent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
                 | Intent.FLAG_ACTIVITY_NEW_TASK);

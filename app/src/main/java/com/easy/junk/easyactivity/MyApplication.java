@@ -14,8 +14,8 @@ import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
 import com.easy.junk.easytools.MyConstant;
-import com.easy.junk.easyservices.MyNotificationService;
-import com.easy.junk.easyservices.SuspensionBallService;
+import com.easy.junk.easyservices.EasyNotificationService;
+import com.easy.junk.easyservices.EasySuspensionBallService;
 import com.easy.module.charge.saver.easyutils.BatteryConstants;
 import com.easy.module.charge.saver.easyutils.Utils;
 import com.easy.module.charge.saver.easyprotectservice.ServiceBattery;
@@ -43,13 +43,13 @@ public class MyApplication extends Application {
         CleanManager.getInstance(this).startLoad();
 
         if (PreData.getDB(this, MyConstant.TONGZHILAN_SWITCH, true)) {
-            Intent intent = new Intent(this, MyNotificationService.class);
+            Intent intent = new Intent(this, EasyNotificationService.class);
             intent.setAction("notification");
             startService(intent);
         }
 
         if (PreData.getDB(this, MyConstant.FlOAT_SWITCH, true)) {
-            Intent intent1 = new Intent(this, SuspensionBallService.class);
+            Intent intent1 = new Intent(this, EasySuspensionBallService.class);
             startService(intent1);
         }
 
