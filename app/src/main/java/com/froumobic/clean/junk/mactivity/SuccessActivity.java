@@ -1,6 +1,5 @@
 package com.froumobic.clean.junk.mactivity;
 
-import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -25,18 +25,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.clean.core.CleanManager;
+import com.android.clean.entity.JunkInfo;
 import com.android.clean.util.LoadManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.sample.lottie.LottieAnimationView;
+import com.android.ui.demo.UiManager;
+import com.android.ui.demo.cross.Builder;
+import com.android.ui.demo.cross.CrossView;
 import com.froumobic.clean.junk.R;
 import com.froumobic.clean.junk.mview.DrawHookView;
 import com.froumobic.clean.junk.mview.SlowScrollView;
-import com.android.clean.entity.JunkInfo;
 import com.froumobic.clean.junk.util.AdUtil;
 import com.froumobic.clean.junk.util.Constant;
 import com.froumobic.clean.junk.util.UtilGp;
+import com.sample.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -361,10 +364,39 @@ public class SuccessActivity extends MBaseActivity {
                 scrollView.smoothScrollToSlow(2000);
             }
         }
-        if (ll_ad_xiao != null && native_xiao != null) {
-            ll_ad_xiao.addView(native_xiao);
-            ll_ad_xiao.setVisibility(View.VISIBLE);
+        int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
+        if (a == 1) {
+            if (ll_ad_xiao != null && native_xiao != null) {
+                ll_ad_xiao.addView(native_xiao);
+                ll_ad_xiao.setVisibility(View.VISIBLE);
+            }
+        } else {
+            try {
+                Log.e("cross", "0" + "-==");
+                UiManager.getCrossView(this, new Builder("cross")
+                                .setServiceData(AndroidSdk.getExtraData())
+                                .setType(Builder.Type.TYPE_SQUARE_272)
+                                .setIsShouldShowDownLoadBtn(true)
+                                .setAdTagImageId(R.mipmap.ad)
+                                .setRootViewBackgroundColor(ContextCompat.getColor(SuccessActivity.this, R.color.white_100))
+                                .setActionBtnBackground(R.drawable.select_text_ad)
+                                .setActionTextColor(getResources().getColor(R.color.white_100))
+                                .setTitleTextColor(getResources().getColor(R.color.B2))
+                                .setSubTitleTextColor(getResources().getColor(R.color.B3))
+                                .setTrackTag("广告位_清理")
+                        , new CrossView.OnDataFinishListener() {
+                            @Override
+                            public void onFinish(CrossView crossView) {
+                                ll_ad_xiao.addView(crossView);
+                                ll_ad_xiao.setVisibility(View.VISIBLE);
+                            }
+                        });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
 

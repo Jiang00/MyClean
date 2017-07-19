@@ -377,7 +377,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d9"
                             android:background="#f5f7fa" />
-
                         <!--好评-->
                         <LinearLayout
                             android:id="@+id/main_rotate_all"
@@ -480,6 +479,7 @@
                                 android:background="#f5f7fa" />
 
                         </LinearLayout>
+
                         <!--ad-->
                         <LinearLayout
                             android:id="@+id/ll_ad"
@@ -1005,10 +1005,89 @@
             android:id="@+id/ll_ad_full"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/A8"
+            android:background="@color/A1"
             android:clickable="true"
             android:orientation="vertical"
-            android:visibility="gone" />
+            android:visibility="gone">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d3"
+                android:layout_marginTop="@dimen/d3">
+
+                <TextView
+                    android:id="@+id/main_full_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/B8"
+                    android:gravity="center"
+                    android:padding="@dimen/d5"
+                    android:text="Skip"
+                    android:textColor="@color/A8"
+                    android:textSize="@dimen/s15"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/ad_delete"
+                    android:layout_width="@dimen/d24"
+                    android:layout_height="@dimen/d24"
+                    android:src="@mipmap/ad_delete" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ad_loading"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:id="@+id/loading_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:clickable="false"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/d32"
+                        android:layout_height="@dimen/d32"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/loading_icon_1" />
+
+                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/d17"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white_100"
+                        android:textSize="@dimen/s16"
+                        android:textStyle="bold"
+                        app:typeface="ljh_1.TTF" />
+                </LinearLayout>
+
+                <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                    android:id="@+id/load_text_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/d16"
+                    android:layout_marginTop="@dimen/d43"
+                    android:clickable="false"
+                    android:text="@string/loading_2"
+                    android:textColor="@color/white_100"
+                    android:textSize="@dimen/s12"
+                    app:typeface="ljh_1.TTF" />
+            </LinearLayout>
+        </com.mingle.widget.LinearLayout>
 
 
         <ProgressBar

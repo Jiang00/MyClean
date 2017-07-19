@@ -3,6 +3,7 @@ package com.froumobic.clean.junk.mactivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -10,9 +11,12 @@ import android.widget.TextView;
 
 import com.android.clean.filemanager.FileCategoryHelper;
 import com.android.clean.util.PreData;
-import com.android.client.AndroidSdk;
-import com.froumobic.clean.junk.R;
 import com.android.clean.util.Util;
+import com.android.client.AndroidSdk;
+import com.android.ui.demo.UiManager;
+import com.android.ui.demo.cross.Builder;
+import com.android.ui.demo.cross.CrossView;
+import com.froumobic.clean.junk.R;
 import com.froumobic.clean.junk.util.AdUtil;
 import com.froumobic.clean.junk.util.Constant;
 
@@ -180,9 +184,34 @@ public class FileActivity extends MBaseActivity {
         if (PreData.getDB(this, Constant.FULL_FILE, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
-            nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
-            if (ll_ad != null && nativeView != null) {
-                ll_ad.addView(nativeView);
+            int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
+            if (a == 1) {
+                nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
+                if (ll_ad != null && nativeView != null) {
+                    ll_ad.addView(nativeView);
+                }
+            } else {
+                try {
+                    UiManager.getCrossView(this, new Builder("cross")
+                                    .setServiceData(AndroidSdk.getExtraData())
+                                    .setType(Builder.Type.TYPE_HORIZONTAL_99)
+                                    .setIsShouldShowDownLoadBtn(true).setAdTagImageId(R.mipmap.ad)
+                                    .setRootViewBackgroundColor(ContextCompat.getColor(FileActivity.this, R.color.white_100))
+                                    .setActionBtnBackground(R.drawable.select_text_ad)
+                                    .setActionTextColor(getResources().getColor(R.color.white_100))
+                                    .setTitleTextColor(getResources().getColor(R.color.B2))
+                                    .setSubTitleTextColor(getResources().getColor(R.color.B3))
+                                    .setTrackTag("广告位_文件管理")
+                            , new CrossView.OnDataFinishListener() {
+                                @Override
+                                public void onFinish(CrossView crossView) {
+                                    ll_ad.addView(crossView);
+                                }
+                            });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    ll_ad.setVisibility(View.GONE);
+                }
             }
         }
 

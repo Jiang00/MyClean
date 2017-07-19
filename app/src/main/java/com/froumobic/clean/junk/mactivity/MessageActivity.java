@@ -16,15 +16,17 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.clean.util.MemoryManager;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
-import com.sample.lottie.LottieAnimationView;
+import com.android.ui.demo.UiManager;
+import com.android.ui.demo.cross.Builder;
+import com.android.ui.demo.cross.CrossView;
 import com.froumobic.clean.junk.R;
 import com.froumobic.clean.junk.util.AdUtil;
-import com.froumobic.clean.junk.util.Constant;
 import com.froumobic.clean.junk.util.CameraUtils;
-import com.android.clean.util.MemoryManager;
+import com.froumobic.clean.junk.util.Constant;
 import com.froumobic.clean.junk.util.PhoneManager;
 
 import java.util.Locale;
@@ -39,8 +41,7 @@ public class MessageActivity extends MBaseActivity {
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
-    FrameLayout fl_lot_message;
-    LottieAnimationView lot_message;
+    LinearLayout tuiguang_msg;
 
     private TelephonyManager telManager;
     private String TAG_MESSAGE = "message";
@@ -63,7 +64,7 @@ public class MessageActivity extends MBaseActivity {
         message_ram = (TextView) findViewById(R.id.message_ram);
         message_sd = (TextView) findViewById(R.id.message_sd);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-        fl_lot_message = (FrameLayout) findViewById(R.id.fl_lot_message);
+        tuiguang_msg = (LinearLayout) findViewById(R.id.tuiguang_msg);
     }
 
     @Override
@@ -147,10 +148,29 @@ public class MessageActivity extends MBaseActivity {
         } else {
             addAd();
         }
+        try {
+            UiManager.getCrossView(this, new Builder("cross")
+                            .setServiceData(AndroidSdk.getExtraData())
+                            .setType(Builder.Type.TYPE_SQUARE_193)
+                            .setIsShouldShowDownLoadBtn(true).setAdTagImageId(R.mipmap.ad)
+                            .setActionBtnBackground(R.drawable.select_text_ad)
+                            .setActionTextColor(getResources().getColor(R.color.white_100))
+                            .setTitleTextColor(getResources().getColor(R.color.B2))
+                            .setSubTitleTextColor(getResources().getColor(R.color.B3))
+                            .setTrackTag("广告位_硬件信息")
+                    , new CrossView.OnDataFinishListener() {
+                        @Override
+                        public void onFinish(CrossView crossView) {
+                            tuiguang_msg.addView(crossView);
+                        }
+                    });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            tuiguang_msg.setVisibility(View.GONE);
+        }
     }
 
-    private void a() {
-    }
 
     private void addAd() {
         View nativeView = AdUtil.getNativeAdView(TAG_MESSAGE, R.layout.native_ad_3);
@@ -163,6 +183,7 @@ public class MessageActivity extends MBaseActivity {
             ll_ad.addView(nativeView);
         } else {
         }
+
     }
 
     private boolean isW() {
@@ -200,16 +221,10 @@ public class MessageActivity extends MBaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        if (lot_message != null) {
-            lot_message.playAnimation();
-        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (lot_message != null) {
-            lot_message.pauseAnimation();
-        }
     }
 }

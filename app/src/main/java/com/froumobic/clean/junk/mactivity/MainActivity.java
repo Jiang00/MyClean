@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
@@ -42,6 +41,9 @@ import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.android.client.ClientNativeAd;
+import com.android.ui.demo.UiManager;
+import com.android.ui.demo.cross.Builder;
+import com.android.ui.demo.cross.CrossView;
 import com.froumobic.clean.junk.R;
 import com.froumobic.clean.junk.adapter.MSideAdapter;
 import com.froumobic.clean.junk.entity.SideInfo;
@@ -96,6 +98,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side;
     com.mingle.widget.LinearLayout ll_ad_full;
+    LinearLayout ll_ad_loading;
     LinearLayout ad_native_2;
     ProgressBar ad_progressbar;
     TextView main_full_time;
@@ -169,6 +172,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
+        ll_ad_loading = (LinearLayout) findViewById(R.id.ll_ad_loading);
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         side_title = (ImageView) findViewById(R.id.side_title);
@@ -559,55 +563,129 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     public void loadFullAd() {
         if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
         } else {
-            View nativeView = AdUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
-            if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                Log.e("aaa", "=====" + layout_ad.height);
-                if (nativeView.getHeight() == Util.dp2px(250)) {
-                    layout_ad.height = Util.dp2px(250);
-                }
-                Log.e("ad_mob", "h=" + nativeView.getHeight() + "w=" + nativeView.getWidth());
-                ll_ad.setLayoutParams(layout_ad);
-                ll_ad.addView(nativeView);
-                ll_ad.setGravity(Gravity.CENTER_HORIZONTAL);
-                main_scroll_view.setScrollY(0);
+            int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
+            if (a == 1) {
+                View nativeView = AdUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
+                if (ll_ad != null && nativeView != null) {
+                    ll_ad.addView(nativeView);
+                    ll_ad.setGravity(Gravity.CENTER_HORIZONTAL);
+                    main_scroll_view.setScrollY(0);
 //                main_scroll_view.fullScroll(ScrollView.FOCUS_UP);
-
+                } else {
+                    ll_ad.setVisibility(View.GONE);
+                }
             } else {
-                ll_ad.setVisibility(View.GONE);
+                try {
+                    Log.e("cross", "0" + "-==");
+                    UiManager.getCrossView(this, new Builder("cross")
+                                    .setServiceData(AndroidSdk.getExtraData())
+                                    .setType(Builder.Type.TYPE_SQUARE_272).setAdTagImageId(R.mipmap.ad)
+                                    .setIsShouldShowDownLoadBtn(true)
+                                    .setRootViewBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.white_100))
+                                    .setActionBtnBackground(R.drawable.select_text_ad)
+                                    .setActionTextColor(getResources().getColor(R.color.white_100))
+                                    .setTitleTextColor(getResources().getColor(R.color.B2))
+                                    .setSubTitleTextColor(getResources().getColor(R.color.B3))
+                                    .setTrackTag("广告位_好评")
+                            , new CrossView.OnDataFinishListener() {
+                                @Override
+                                public void onFinish(CrossView crossView) {
+                                    ll_ad.addView(crossView);
+                                }
+                            });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    ll_ad.setVisibility(View.GONE);
+                }
             }
+
+
             View nativeView_side = AdUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
-            if (ll_ad_side != null && nativeView_side != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad_side.getLayoutParams();
-                layout_ad.height = nativeView_side.getMeasuredHeight();
-                ll_ad_side.setLayoutParams(layout_ad);
+            if (false) {
                 ll_ad_side.addView(nativeView_side);
+            } else {
+                try {
+                    UiManager.getCrossView(this, new Builder("cross")
+                                    .setServiceData(AndroidSdk.getExtraData())
+                                    .setType(Builder.Type.TYPE_SQUARE_193)
+                                    .setIsShouldShowDownLoadBtn(true).setAdTagImageId(R.mipmap.ad)
+                                    .setActionBtnBackground(R.drawable.select_text_ad)
+                                    .setActionTextColor(getResources().getColor(R.color.white_100))
+                                    .setTitleTextColor(getResources().getColor(R.color.B2))
+                                    .setTrackTag("广告位_侧边栏")
+                                    .setSubTitleTextColor(getResources().getColor(R.color.B3))
+                            , new CrossView.OnDataFinishListener() {
+                                @Override
+                                public void onFinish(CrossView crossView) {
+                                    ll_ad_side.addView(crossView);
+                                }
+                            });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
         }
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("start_full");
         } else {
-            View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
-            if (ll_ad_full != null && nativeView_full != null) {
-                ll_ad_full.addView(nativeView_full);
-                ll_ad_full.setVisibility(View.VISIBLE);
-                nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
-                main_full_time = (TextView) nativeView_full.findViewById(R.id.main_full_time);
-                LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
-                loading_text.setOnClickListener(null);
-                main_full_time.setVisibility(View.VISIBLE);
-                main_full_time.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        handler.removeCallbacks(fullAdRunnale);
-                        adDelete();
-                    }
-                });
+            int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
+            if (a == 1) {
+                View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_exit);
+                if (ll_ad_loading != null && nativeView_full != null) {
+                    ll_ad_loading.addView(nativeView_full);
+                    ll_ad_full.setVisibility(View.VISIBLE);
+                    findViewById(R.id.ad_delete).setVisibility(View.GONE);
+                    main_full_time = (TextView) findViewById(R.id.main_full_time);
+                    main_full_time.setVisibility(View.VISIBLE);
+                    main_full_time.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            handler.removeCallbacks(fullAdRunnale);
+                            adDelete();
+                        }
+                    });
+                    int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
+                    Log.e("timead", skip + "-==");
+                    handler.postDelayed(fullAdRunnale, skip * 1000);
+                }
+            } else {
+                try {
+                    UiManager.getCrossView(this, new Builder("cross")
+                                    .setServiceData(AndroidSdk.getExtraData())
+                                    .setType(Builder.Type.TYPE_DIALOG).setAdTagImageId(R.mipmap.ad)
+                                    .setIsShouldShowDownLoadBtn(true)
+                                    .setRootViewBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.A1))
+                                    .setActionBtnBackground(R.drawable.select_text_ad)
+                                    .setActionTextColor(getResources().getColor(R.color.white_100))
+                                    .setTitleTextColor(getResources().getColor(R.color.white_100))
+                                    .setSubTitleTextColor(getResources().getColor(R.color.white_100))
+                                    .setTrackTag("广告位_loading")
+                            , new CrossView.OnDataFinishListener() {
+                                @Override
+                                public void onFinish(CrossView crossView) {
+                                    ll_ad_loading.addView(crossView, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+                                    main_full_time = (TextView) findViewById(R.id.main_full_time);
+                                    main_full_time.setVisibility(View.VISIBLE);
+                                    main_full_time.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            handler.removeCallbacks(fullAdRunnale);
+                                            adDelete();
+                                        }
+                                    });
+                                    ll_ad_full.setVisibility(View.VISIBLE);
+                                    findViewById(R.id.ad_delete).setVisibility(View.GONE);
+                                }
+                            });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
                 Log.e("timead", skip + "-==");
                 handler.postDelayed(fullAdRunnale, skip * 1000);
             }
+
         }
     }
 
@@ -701,23 +779,23 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     ll_ad_full.startAnimation(animation);
                     ll_ad_full.setVisibility(View.VISIBLE);
                     ad_progressbar.setVisibility(View.VISIBLE);
-                    ll_ad_full.removeAllViews();
+                    ll_ad_loading.removeAllViews();
                     animation.setAnimationListener(new Animation.AnimationListener() {
                         @Override
                         public void onAnimationEnd(Animation animation) {
-                            AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_main, new ClientNativeAd.NativeAdLoadListener() {
+                            AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_exit, new ClientNativeAd.NativeAdLoadListener() {
                                 @Override
                                 public void onNativeAdLoadSuccess(View view) {
                                     LinearLayout loading_text = (LinearLayout) view.findViewById(R.id.loading_text);
                                     loading_text.setOnClickListener(null);
-                                    ImageView ad_delete = (ImageView) view.findViewById(R.id.ad_delete);
+                                    ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
                                     ad_delete.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
                                             adDelete();
                                         }
                                     });
-                                    ll_ad_full.addView(view);
+                                    ll_ad_loading.addView(view);
                                     ad_progressbar.setVisibility(View.GONE);
                                 }
 
@@ -922,6 +1000,9 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (ll_ad_full == null) {
             return;
         }
+        if (main_full_time != null) {
+            main_full_time.setVisibility(View.INVISIBLE);
+        }
         if (onPause || !onResume) {
             ll_ad_full.setVisibility(View.GONE);
             return;
@@ -943,15 +1024,43 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
     private void showExitDialog() {
         View view = View.inflate(this, R.layout.dialog_exit, null);
-        LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
+        final LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
-            View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
-            if (nativeExit != null) {
-                ll_ad_exit.addView(nativeExit);
-                ll_ad_exit.setVisibility(View.VISIBLE);
+            int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
+            if (a == 1) {
+                View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
+                if (nativeExit != null) {
+                    ll_ad_exit.addView(nativeExit);
+                    ll_ad_exit.setVisibility(View.VISIBLE);
+                }
+            } else {
+                try {
+                    UiManager.getCrossView(this, new Builder("cross")
+                                    .setServiceData(AndroidSdk.getExtraData())
+                                    .setType(Builder.Type.TYPE_DIALOG)
+                                    .setIsShouldShowDownLoadBtn(true)
+                                    .setAdTagImageId(R.mipmap.ad)
+                                    .setRootViewBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.A1))
+                                    .setActionBtnBackground(R.drawable.select_text_ad)
+                                    .setActionTextColor(getResources().getColor(R.color.white_100))
+                                    .setTitleTextColor(getResources().getColor(R.color.white_100))
+                                    .setSubTitleTextColor(getResources().getColor(R.color.white_100))
+                                    .setTrackTag("广告位_退出")
+                            , new CrossView.OnDataFinishListener() {
+                                @Override
+                                public void onFinish(CrossView crossView) {
+                                    ll_ad_exit.addView(crossView, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+                                    ll_ad_exit.setVisibility(View.VISIBLE);
+                                }
+                            });
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
+
         }
         exit_queren.setOnClickListener(new View.OnClickListener() {
             @Override

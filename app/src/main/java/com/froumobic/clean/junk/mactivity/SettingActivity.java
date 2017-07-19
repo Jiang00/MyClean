@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,11 @@ import android.widget.TextView;
 import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
+import com.android.ui.demo.UiManager;
+import com.android.ui.demo.cross.Builder;
+import com.android.ui.demo.cross.CrossView;
 import com.froumobic.module.charge.saver.Util.Constants;
 import com.froumobic.module.charge.saver.Util.Utils;
-import com.sample.lottie.LottieAnimationView;
 import com.froumobic.clean.junk.R;
 import com.froumobic.clean.junk.service.XuanfuService;
 import com.froumobic.clean.junk.service.NotificationService;
@@ -113,19 +116,40 @@ public class SettingActivity extends MBaseActivity {
 
 
     private void addAd() {
-        nativeView = AdUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
-        if (ll_ad != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-            Log.e("aaa", "=====" + layout_ad.height);
-            if (nativeView.getHeight() == Util.dp2px(250)) {
-                layout_ad.height = Util.dp2px(250);
-            }
-            ll_ad.setLayoutParams(layout_ad);
-            ll_ad.addView(nativeView);
+        int a = (int) (1 + Math.random() * (2));
+        if (a == 1) {
+            nativeView = AdUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
+            if (ll_ad != null && nativeView != null) {
+                ll_ad.addView(nativeView);
 //            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
-            setting_scroll.setScrollY(0);
+                setting_scroll.setScrollY(0);
+            } else {
+            }
         } else {
+            try {
+                UiManager.getCrossView(this, new Builder("cross")
+                                .setServiceData(AndroidSdk.getExtraData())
+                                .setType(Builder.Type.TYPE_HORIZONTAL_76)
+                                .setIsShouldShowDownLoadBtn(true).setAdTagImageId(R.mipmap.ad)
+                                .setRootViewBackgroundColor(ContextCompat.getColor(SettingActivity.this, R.color.white_100))
+                                .setActionBtnBackground(R.drawable.select_text_ad)
+                                .setActionTextColor(ContextCompat.getColor(SettingActivity.this, R.color.white_100))
+                                .setTitleTextColor(ContextCompat.getColor(SettingActivity.this, R.color.B2))
+                                .setSubTitleTextColor(ContextCompat.getColor(SettingActivity.this, R.color.B3))
+                                .setTrackTag("广告位_退出")
+                        , new CrossView.OnDataFinishListener() {
+                            @Override
+                            public void onFinish(CrossView crossView) {
+                                ll_ad.addView(crossView);
+                            }
+                        });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                ll_ad.setVisibility(View.GONE);
+            }
         }
+
     }
 
     private void initData() {

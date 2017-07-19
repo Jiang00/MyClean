@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -27,16 +28,19 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.clean.entity.JunkInfo;
+import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
+import com.android.ui.demo.UiManager;
+import com.android.ui.demo.cross.Builder;
+import com.android.ui.demo.cross.CrossView;
 import com.froumobic.clean.junk.R;
+import com.froumobic.clean.junk.adapter.ManagerAdapter;
+import com.froumobic.clean.junk.presenter.ManagerPresenter;
 import com.froumobic.clean.junk.util.AdUtil;
 import com.froumobic.clean.junk.util.Constant;
 import com.froumobic.clean.junk.view.AppManagerView;
-import com.froumobic.clean.junk.adapter.ManagerAdapter;
-import com.android.clean.util.PreData;
-import com.android.clean.entity.JunkInfo;
-import com.froumobic.clean.junk.presenter.ManagerPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,12 +106,39 @@ public class AppActivity extends MBaseActivity implements AppManagerView {
             nativeView1 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView2 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
             nativeView3 = AdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
-            if (ll_ad_size != null && nativeView1 != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad_size.getLayoutParams();
-                ll_ad_size.setLayoutParams(layout_ad);
-                ll_ad_size.addView(nativeView1);
+            int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
+            if (a == 1) {
+                if (ll_ad_size != null && nativeView1 != null) {
+                    ViewGroup.LayoutParams layout_ad = ll_ad_size.getLayoutParams();
+                    ll_ad_size.setLayoutParams(layout_ad);
+                    ll_ad_size.addView(nativeView1);
+                }
             } else {
+                try {
+                    UiManager.getCrossView(this, new Builder("cross")
+                                    .setServiceData(AndroidSdk.getExtraData())
+                                    .setType(Builder.Type.TYPE_HORIZONTAL_76)
+                                    .setIsShouldShowDownLoadBtn(true).setAdTagImageId(R.mipmap.ad)
+                                    .setRootViewBackgroundColor(ContextCompat.getColor(AppActivity.this, R.color.white_100))
+                                    .setActionBtnBackground(R.drawable.select_text_ad)
+                                    .setActionTextColor(getResources().getColor(R.color.white_100))
+                                    .setTitleTextColor(getResources().getColor(R.color.B2))
+                                    .setSubTitleTextColor(getResources().getColor(R.color.B3))
+                                    .setTrackTag("广告位_应用管理")
+                            , new CrossView.OnDataFinishListener() {
+                                @Override
+                                public void onFinish(CrossView crossView) {
+                                    ll_ad_size.addView(crossView);
+                                }
+                            });
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    ll_ad_size.setVisibility(View.GONE);
+                }
             }
+
+
             if (ll_ad_time != null && nativeView2 != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_time.getLayoutParams();
                 ll_ad_time.setLayoutParams(layout_ad);
@@ -124,6 +155,7 @@ public class AppActivity extends MBaseActivity implements AppManagerView {
         title_left.setOnClickListener(onClickListener);
         junk_button_clean.setOnClickListener(onClickListener);
     }
+
     private void initList() {
         ListView listView_size = (ListView) view_size.findViewById(R.id.file_list);
         ListView listView_time = (ListView) view_time.findViewById(R.id.file_list);
@@ -201,7 +233,6 @@ public class AppActivity extends MBaseActivity implements AppManagerView {
             junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
         }
     }
-
 
 
     class MyPagerAdaptre extends PagerAdapter {
