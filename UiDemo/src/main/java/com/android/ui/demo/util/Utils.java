@@ -1,6 +1,7 @@
 package com.android.ui.demo.util;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -51,12 +52,12 @@ public class Utils {
     }
 
 
-    public static void reactionForAction(Context context, String pkgName){
+    public static void reactionForAction(Context context, String pkgName) {
         if (TextUtils.isEmpty(pkgName)) {
             return;
         }
         if (checkoutISAppHasInstalled(context, pkgName)) {
-            launchApp(context, pkgName);
+            doStartApplicationWithPackageName(context, pkgName);
         } else {
             openPlayStore(context, pkgName);
         }
@@ -71,7 +72,51 @@ public class Utils {
         }
     }
 
-    public static boolean checkoutISAppHasInstalled(Context context, String packageName){
+    //根据包名启动程序
+    public static void doStartApplicationWithPackageName(Context context, String packagename) {
+
+        // 通过包名获取此APP详细信息，包括Activities、services、versioncode、name等等
+        PackageInfo packageinfo = null;
+        try {
+            packageinfo = context.getPackageManager().getPackageInfo(packagename, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (packageinfo == null) {
+            return;
+        }
+
+        // 创建一个类别为CATEGORY_LAUNCHER的该包名的Intent
+        Intent resolveIntent = new Intent(Intent.ACTION_MAIN, null);
+        resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        resolveIntent.setPackage(packageinfo.packageName);
+
+        // 通过getPackageManager()的queryIntentActivities方法遍历
+        List<ResolveInfo> resolveinfoList = context.getPackageManager()
+                .queryIntentActivities(resolveIntent, 0);
+        if (resolveinfoList.size() == 0) {
+            return;
+        }
+        ResolveInfo resolveinfo = resolveinfoList.iterator().next();
+        if (resolveinfo != null) {
+            // packagename = 参数packname
+            String packageName = resolveinfo.activityInfo.packageName;
+            // 这个就是我们要找的该APP的LAUNCHER的Activity[组织形式：packagename.mainActivityname]
+            String className = resolveinfo.activityInfo.name;
+            // LAUNCHER Intent
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+            // 设置ComponentName参数1:packagename参数2:MainActivity路径
+            ComponentName cn = new ComponentName(packageName, className);
+
+            intent.setComponent(cn);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
+    }
+
+    public static boolean checkoutISAppHasInstalled(Context context, String packageName) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
             if (packageInfo != null) {
@@ -83,14 +128,14 @@ public class Utils {
         return false;
     }
 
-    public static int getScreenWidth(Context context){
+    public static int getScreenWidth(Context context) {
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         manager.getDefaultDisplay().getMetrics(outMetrics);
         return outMetrics.widthPixels;
     }
 
-    public static int getScreenHeight(Context context){
+    public static int getScreenHeight(Context context) {
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         manager.getDefaultDisplay().getMetrics(outMetrics);
@@ -113,7 +158,7 @@ public class Utils {
         return (int) (pxValue / scale + 0.5f);
     }
 
-    public static SharedPreferences getSharePreferences(Context context){
+    public static SharedPreferences getSharePreferences(Context context) {
         if (context == null) {
             return null;
         }
@@ -156,7 +201,7 @@ public class Utils {
         editor.apply();
     }
 
-    public static boolean checkoutIsNewVersion(Context context){
+    public static boolean checkoutIsNewVersion(Context context) {
         try {
             PackageManager pm = context.getPackageManager();
             PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);

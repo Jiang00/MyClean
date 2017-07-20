@@ -37,19 +37,21 @@ public class CrossView extends LinearLayout {
     private boolean isShouldForceShowActionButton = false;
     private String pkgName = null;
 
-    public interface OnCrossDialogRequestFinishListener{
+    public interface OnCrossDialogRequestFinishListener {
         void onDialogShow(CrossDialog crossDialog, CrossView crossView);
     }
-    public interface OnDataFinishListener{
+
+    public interface OnDataFinishListener {
         void onFinish(CrossView crossView);
     }
 
-    class MyTask extends AsyncTask<String, String, String>{
+    class MyTask extends AsyncTask<String, String, String> {
         //        private CrossView crossView = null;
         private Bitmap headBitmap;
         private Bitmap iconBitmap;
         private OnDataFinishListener listener = null;
-        public void setOnDataFinishListener(OnDataFinishListener listener){
+
+        public void setOnDataFinishListener(OnDataFinishListener listener) {
             this.listener = listener;
         }
 
@@ -92,7 +94,7 @@ public class CrossView extends LinearLayout {
         }
     }
 
-    public CrossView(Context context, Builder builder, final OnDataFinishListener listener){
+    public CrossView(Context context, Builder builder, final OnDataFinishListener listener) {
         super(context);
         this.mContext = context;
         this.builder = builder;
@@ -108,11 +110,11 @@ public class CrossView extends LinearLayout {
         task.executeOnExecutor(Executors.newSingleThreadExecutor());
     }
 
-    public CrossView(Context context){
+    public CrossView(Context context) {
         super(context);
     }
 
-    public void init(final Context context, final Builder builder){
+    public void init(final Context context, final Builder builder) {
 //        super(context);
         if (context == null || builder == null) {
             return;
@@ -124,7 +126,7 @@ public class CrossView extends LinearLayout {
         } else if (builder.type == Builder.Type.TYPE_48) {
             view = LayoutInflater.from(context).inflate(R.layout.layout_side_item_48, null);
             isShouldForceShowActionButton = false;
-        } else if (builder.type == Builder.Type.TYPE_72){
+        } else if (builder.type == Builder.Type.TYPE_72) {
             view = LayoutInflater.from(context).inflate(R.layout.layout_side_item_72, null);
             isShouldForceShowActionButton = false;
         } else if (builder.type == Builder.Type.TYPE_HORIZONTAL_76) {
@@ -163,7 +165,7 @@ public class CrossView extends LinearLayout {
 
     private JSONObject object;
 
-    private void getJsonObjectData(Context context){
+    private void getJsonObjectData(Context context) {
         object = JsonParser.getSpecifyJsonObject(context, builder.extraData, builder.requestTag);
         if (object != null) {
             pkgName = object.optString("package");
@@ -173,7 +175,7 @@ public class CrossView extends LinearLayout {
         }
     }
 
-    public void initData(final Context context, final Builder builder){
+    public void initData(final Context context, final Builder builder) {
 
         getJsonObjectData(context);
         if (object != null) {
@@ -213,7 +215,7 @@ public class CrossView extends LinearLayout {
         }
     }
 
-    private void setServiceData(JSONObject object, Builder builder){
+    private void setServiceData(JSONObject object, Builder builder) {
         if (adInfo != null && builder.adTagImageId > 0) {
             adInfo.setImageResource(builder.adTagImageId);
         }
@@ -221,7 +223,7 @@ public class CrossView extends LinearLayout {
             String titleText = object.optString("title");
             if (titleText != null) {
                 title.setText(titleText);
-                try{
+                try {
                     title.setTextColor(builder.titleColor);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -241,7 +243,7 @@ public class CrossView extends LinearLayout {
         }
         if (actionBtn != null) {
             if (!isShouldForceShowActionButton) {
-                if (!builder.isShowActionBtn){
+                if (!builder.isShowActionBtn) {
                     actionBtn.setVisibility(GONE);
                     return;
                 }
@@ -270,7 +272,7 @@ public class CrossView extends LinearLayout {
         }
     }
 
-    private void setDefaultData(Builder builder){
+    private void setDefaultData(Builder builder) {
         if (adInfo != null && builder.adTagImageId > 0) {
             adInfo.setImageResource(builder.adTagImageId);
         }
@@ -293,7 +295,7 @@ public class CrossView extends LinearLayout {
         if (subTitle != null) {
             if (builder.subTitleText > 0) {
                 subTitle.setText(builder.subTitleText);
-                try{
+                try {
                     subTitle.setTextColor(builder.subTitleColor);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -336,7 +338,7 @@ public class CrossView extends LinearLayout {
     }
 
     private void changeHeight(ImageView image) {
-        if (image == null){
+        if (image == null) {
             return;
         }
         if (builder.type == Builder.Type.TYPE_SQUARE_272

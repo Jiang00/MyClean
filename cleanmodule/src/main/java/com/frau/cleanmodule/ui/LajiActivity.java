@@ -1,4 +1,4 @@
-package com.froumobic.clean.junk.mactivity;
+package com.frau.cleanmodule.ui;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -17,18 +17,17 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.clean.util.PreData;
-import com.android.clean.util.Util;
-import com.android.client.AndroidSdk;
-import com.froumobic.clean.junk.R;
-import com.froumobic.clean.junk.util.AdUtil;
-import com.froumobic.clean.junk.util.Constant;
-import com.froumobic.clean.junk.view.JunkView;
-import com.froumobic.clean.junk.adapter.JunkAdapter;
-import com.android.clean.entity.JunkInfo;
-import com.froumobic.clean.junk.mview.ListViewForScrollView;
-import com.froumobic.clean.junk.mview.MyScrollView;
-import com.froumobic.clean.junk.presenter.JunkPresenter;
+
+import com.frau.cleanmodule.R;
+import com.frau.cleanmodule.adapter.JunkAdapter;
+import com.frau.cleanmodule.entity.JunkInfo;
+import com.frau.cleanmodule.util.Constant;
+import com.frau.cleanmodule.util.PreData;
+import com.frau.cleanmodule.util.Util;
+import com.frau.cleanmodule.view.JunkPresenter;
+import com.frau.cleanmodule.view.JunkView;
+import com.frau.cleanmodule.view.ListViewForScrollView;
+import com.frau.cleanmodule.view.MyScrollView;
 
 import java.util.List;
 
@@ -101,8 +100,7 @@ public class LajiActivity extends MBaseActivity implements JunkView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_junk);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        setContentView(R.layout.layout_junk_module);
         myHandler = new Handler();
         junkPresenter = new JunkPresenter(this, this);
         junkPresenter.init();
@@ -131,7 +129,8 @@ public class LajiActivity extends MBaseActivity implements JunkView {
         if (allSize <= 0) {
             Bundle bundle = new Bundle();
             bundle.putString("from", "junkClean");
-            junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
+            //跳完成页面
+//            junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
             return;
         }
         adapterSystem = new JunkAdapter(this, junkPresenter);
@@ -479,7 +478,8 @@ public class LajiActivity extends MBaseActivity implements JunkView {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
+                            //跳完成
+//                            junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
                         }
                     });
                 }
@@ -519,7 +519,8 @@ public class LajiActivity extends MBaseActivity implements JunkView {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
+                    //跳完成
+//                    junkPresenter.jumpToActivity(SuccessActivity.class, bundle, 1);
                 }
             }, 700);
 
@@ -539,86 +540,83 @@ public class LajiActivity extends MBaseActivity implements JunkView {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.title_left:
-                    AdUtil.track("垃圾页面", "点击返回", "", 1);
-                    onBackPressed();
-                    break;
-                case R.id.junk_button_system:
-                    if (adapterSystem.getCount() == 0) {
-                        break;
-                    }
-                    if (junk_system_list.getVisibility() == View.VISIBLE) {
-                        AdUtil.track("垃圾页面", "点击收起系统缓存", "", 1);
-                        junk_system_list.setVisibility(View.GONE);
-                    } else {
-                        AdUtil.track("垃圾页面", "点击打开系统缓存", "", 1);
-                        junk_system_list.setVisibility(View.VISIBLE);
-                    }
-                    break;
-                case R.id.junk_button_apk:
-                    if (adapterApk.getCount() == 0) {
-                        break;
-                    }
-                    if (junk_apk_list.getVisibility() == View.VISIBLE) {
-                        AdUtil.track("垃圾页面", "点击收起apk文件", "", 1);
-                        junk_apk_list.setVisibility(View.GONE);
-                    } else {
-                        AdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
-                        junk_apk_list.setVisibility(View.VISIBLE);
-                    }
-                    break;
-                case R.id.junk_button_unload:
-                    if (adapterUnload.getCount() == 0) {
-                        break;
-                    }
-                    if (junk_unload_list.getVisibility() == View.VISIBLE) {
-                        AdUtil.track("垃圾页面", "点击收起unload文件", "", 1);
-                        junk_unload_list.setVisibility(View.GONE);
-                    } else {
-                        AdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
-                        junk_unload_list.setVisibility(View.VISIBLE);
-                    }
-                    break;
-                case R.id.junk_button_log:
-                    if (adapterLog.getCount() == 0) {
-                        break;
-                    }
-                    if (junk_log_list.getVisibility() == View.VISIBLE) {
-                        AdUtil.track("垃圾页面", "点击收起log文件", "", 1);
-                        junk_log_list.setVisibility(View.GONE);
-                    } else {
-                        AdUtil.track("垃圾页面", "点击打开log文件", "", 1);
-                        junk_log_list.setVisibility(View.VISIBLE);
-                    }
+            int i = v.getId();
+            if (i == R.id.title_left) {//                    AdUtil.track("垃圾页面", "点击返回", "", 1);
+                onBackPressed();
 
-                    break;
-                case R.id.junk_button_user:
-                    if (adapterUser.getCount() == 0) {
-                        break;
-                    }
-                    if (junk_user_list.getVisibility() == View.VISIBLE) {
-                        AdUtil.track("垃圾页面", "点击收起user文件", "", 1);
-                        junk_user_list.setVisibility(View.GONE);
-                    } else {
-                        AdUtil.track("垃圾页面", "点击打开user文件", "", 1);
-                        junk_user_list.setVisibility(View.VISIBLE);
-                    }
+            } else if (i == R.id.junk_button_system) {
+                if (adapterSystem.getCount() == 0) {
+                    return;
+                }
+                if (junk_system_list.getVisibility() == View.VISIBLE) {
+//                        AdUtil.track("垃圾页面", "点击收起系统缓存", "", 1);
+                    junk_system_list.setVisibility(View.GONE);
+                } else {
+//                        AdUtil.track("垃圾页面", "点击打开系统缓存", "", 1);
+                    junk_system_list.setVisibility(View.VISIBLE);
+                }
 
-                    break;
-                case R.id.junk_button_clean:
-                    junk_button_clean.setOnClickListener(null);
-                    showToast((String) getText(R.string.toast_ing));
-                    PreData.putDB(LajiActivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
-                    AdUtil.track("垃圾页面", "点击清理", "", 1);
-                    if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
-                            junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
-                        junkPresenter.bleachFile(false, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
-                    } else {
-                        junkPresenter.bleachFile(true, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
-                    }
+            } else if (i == R.id.junk_button_apk) {
+                if (adapterApk.getCount() == 0) {
+                    return;
+                }
+                if (junk_apk_list.getVisibility() == View.VISIBLE) {
+//                        AdUtil.track("垃圾页面", "点击收起apk文件", "", 1);
+                    junk_apk_list.setVisibility(View.GONE);
+                } else {
+//                        AdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
+                    junk_apk_list.setVisibility(View.VISIBLE);
+                }
 
-                    break;
+            } else if (i == R.id.junk_button_unload) {
+                if (adapterUnload.getCount() == 0) {
+                    return;
+                }
+                if (junk_unload_list.getVisibility() == View.VISIBLE) {
+//                        AdUtil.track("垃圾页面", "点击收起unload文件", "", 1);
+                    junk_unload_list.setVisibility(View.GONE);
+                } else {
+//                        AdUtil.track("垃圾页面", "点击打开apk文件", "", 1);
+                    junk_unload_list.setVisibility(View.VISIBLE);
+                }
+
+            } else if (i == R.id.junk_button_log) {
+                if (adapterLog.getCount() == 0) {
+                    return;
+                }
+                if (junk_log_list.getVisibility() == View.VISIBLE) {
+//                        AdUtil.track("垃圾页面", "点击收起log文件", "", 1);
+                    junk_log_list.setVisibility(View.GONE);
+                } else {
+//                        AdUtil.track("垃圾页面", "点击打开log文件", "", 1);
+                    junk_log_list.setVisibility(View.VISIBLE);
+                }
+
+
+            } else if (i == R.id.junk_button_user) {
+                if (adapterUser.getCount() == 0) {
+                    return;
+                }
+                if (junk_user_list.getVisibility() == View.VISIBLE) {
+//                        AdUtil.track("垃圾页面", "点击收起user文件", "", 1);
+                    junk_user_list.setVisibility(View.GONE);
+                } else {
+//                        AdUtil.track("垃圾页面", "点击打开user文件", "", 1);
+                    junk_user_list.setVisibility(View.VISIBLE);
+                }
+
+
+            } else if (i == R.id.junk_button_clean) {
+                junk_button_clean.setOnClickListener(null);
+                showToast((String) getText(R.string.toast_ing));
+                PreData.putDB(LajiActivity.this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
+//                    AdUtil.track("垃圾页面", "点击清理", "", 1);
+                if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
+                        junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
+                    junkPresenter.bleachFile(false, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
+                } else {
+                    junkPresenter.bleachFile(true, adapterSystem.getData(), adapterApk.getData(), adapterUnload.getData(), adapterLog.getData(), adapterUser.getData());
+                }
 
 
             }
@@ -637,7 +635,6 @@ public class LajiActivity extends MBaseActivity implements JunkView {
     @Override
     protected void onResume() {
         super.onResume();
-        AndroidSdk.onResumeWithoutTransition(this);
     }
 
     @Override

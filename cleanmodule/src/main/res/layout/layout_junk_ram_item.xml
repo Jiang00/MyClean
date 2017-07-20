@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:id="@+id/junk_item_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/d40">
+
+        <ImageView
+            android:id="@+id/junk_item_icon"
+            android:layout_width="@dimen/d23"
+            android:layout_height="@dimen/d23"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/d72" />
+    </RelativeLayout>
+
+    <com.frau.cleanmodule.view.CustomerTextView
+        android:id="@+id/junk_item_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/d15"
+        android:layout_toRightOf="@id/junk_item_rl"
+        android:maxLength="15"
+        android:text="app标题"
+        android:textColor="#707070"
+        android:textSize="@dimen/s13"
+        app:typeface="ljh_1.TTF" />
+
+    <ImageView
+        android:id="@+id/check_iv"
+        android:layout_width="@dimen/d18"
+        android:layout_height="@dimen/d18"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/d12"
+        android:layout_marginRight="@dimen/d53"
+        android:src="@mipmap/ram_passed" />
+
+    <com.frau.cleanmodule.view.CustomerTextView
+        android:id="@+id/size_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/check_iv"
+        android:text="size"
+        android:textColor="#bfbfbf"
+        android:textSize="@dimen/s12"
+        app:typeface="ljh_1.TTF" />
+</RelativeLayout>
