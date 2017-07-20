@@ -80,7 +80,7 @@ public class FileActivity extends MBaseActivity {
         title_name.setText(R.string.side_file);
         fileHelper = new FileCategoryHelper(this);
         mHandler = new Handler();
-        initAd();
+
         initData();
     }
 
@@ -168,6 +168,11 @@ public class FileActivity extends MBaseActivity {
         }).start();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initAd();
+    }
 
     private void setListener() {
         title_left.setOnClickListener(clickListener);
@@ -188,6 +193,7 @@ public class FileActivity extends MBaseActivity {
             if (a == 1) {
                 nativeView = AdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
                 if (ll_ad != null && nativeView != null) {
+                    ll_ad.removeAllViews();
                     ll_ad.addView(nativeView);
                 }
             } else {
@@ -205,6 +211,7 @@ public class FileActivity extends MBaseActivity {
                             , new CrossView.OnDataFinishListener() {
                                 @Override
                                 public void onFinish(CrossView crossView) {
+                                    ll_ad.removeAllViews();
                                     ll_ad.addView(crossView);
                                 }
                             });

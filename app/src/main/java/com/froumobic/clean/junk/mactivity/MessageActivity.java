@@ -72,7 +72,7 @@ public class MessageActivity extends MBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_message);
         myHandler = new Handler();
-        loadAd();
+
         title_name.setText(R.string.main_msg_title);
         title_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,6 +161,7 @@ public class MessageActivity extends MBaseActivity {
                     , new CrossView.OnDataFinishListener() {
                         @Override
                         public void onFinish(CrossView crossView) {
+                            tuiguang_msg.removeAllViews();
                             tuiguang_msg.addView(crossView);
                         }
                     });
@@ -180,6 +181,7 @@ public class MessageActivity extends MBaseActivity {
                 layout_ad.height = Util.dp2px(250);
             }
             ll_ad.setLayoutParams(layout_ad);
+            ll_ad.removeAllViews();
             ll_ad.addView(nativeView);
         } else {
         }
@@ -221,6 +223,7 @@ public class MessageActivity extends MBaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
+        loadAd();
     }
 
     @Override

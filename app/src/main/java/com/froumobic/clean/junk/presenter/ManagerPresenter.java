@@ -52,7 +52,6 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         Collections.sort(list_pinlv, new LastRunsort());
         iView.initData(cleanSize);
         iView.onClick();
-        iView.loadFullAd();
     }
 
     public void addCleandata(boolean isAdd, long size) {
@@ -87,8 +86,6 @@ public class ManagerPresenter extends BasePresenter<AppManagerView> {
         if (clearList == null || clearList.size() == 0) {
             return;
         }
-
-
         for (JunkInfo softinfo : clearList) {
             if (softinfo.pkg.equals(packageName)) {
                 CleanManager.getInstance(context).removeAppList(softinfo);

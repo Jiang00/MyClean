@@ -92,6 +92,16 @@ public class SuccessActivity extends MBaseActivity {
         if (lot_success != null) {
             lot_success.playAnimation();
         }
+        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
+
+        } else {
+            myHandler.postDelayed(new Runnable() {
+                public void run() {
+                    addAd();
+                }
+            }, 1000);
+
+        }
     }
 
     @Override
@@ -245,16 +255,7 @@ public class SuccessActivity extends MBaseActivity {
         translate.setRepeatMode(Animation.REVERSE);
         success_jiantou.startAnimation(translate);
         shendu();
-        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
 
-        } else {
-            myHandler.postDelayed(new Runnable() {
-                public void run() {
-                    addAd();
-                }
-            }, 1000);
-
-        }
     }
 
     Runnable runnable = new Runnable() {
@@ -355,8 +356,10 @@ public class SuccessActivity extends MBaseActivity {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight();
             Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
+
             ad_native_2.setLayoutParams(layout_ad);
             haveAd = true;
+            ad_native_2.removeAllViews();
             ad_native_2.addView(nativeView);
             if (animationEnd) {
                 ad_native_2.setVisibility(View.VISIBLE);

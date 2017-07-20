@@ -89,6 +89,15 @@ public class SettingActivity extends MBaseActivity {
         title_left.setOnClickListener(onClickListener);
         initData();
         initListener();
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            setting_notifi.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (PreData.getDB(this, Constant.FULL_SETTING, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
@@ -99,14 +108,6 @@ public class SettingActivity extends MBaseActivity {
         } else {
             addAd();
         }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            setting_notifi.setVisibility(View.GONE);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 
     @Override
@@ -120,6 +121,7 @@ public class SettingActivity extends MBaseActivity {
         if (a == 1) {
             nativeView = AdUtil.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
             if (ll_ad != null && nativeView != null) {
+                ll_ad.removeAllViews();
                 ll_ad.addView(nativeView);
 //            setting_scroll.fullScroll(ScrollView.FOCUS_UP);
                 setting_scroll.setScrollY(0);
@@ -140,6 +142,7 @@ public class SettingActivity extends MBaseActivity {
                         , new CrossView.OnDataFinishListener() {
                             @Override
                             public void onFinish(CrossView crossView) {
+                                ll_ad.removeAllViews();
                                 ll_ad.addView(crossView);
                             }
                         });

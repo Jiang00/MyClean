@@ -567,6 +567,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             if (a == 1) {
                 View nativeView = AdUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
                 if (ll_ad != null && nativeView != null) {
+                    ll_ad.removeAllViews();
                     ll_ad.addView(nativeView);
                     ll_ad.setGravity(Gravity.CENTER_HORIZONTAL);
                     main_scroll_view.setScrollY(0);
@@ -590,6 +591,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                             , new CrossView.OnDataFinishListener() {
                                 @Override
                                 public void onFinish(CrossView crossView) {
+                                    ll_ad.removeAllViews();
                                     ll_ad.addView(crossView);
                                 }
                             });
@@ -602,6 +604,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
             View nativeView_side = AdUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
             if (false) {
+                ll_ad_side.removeAllViews();
                 ll_ad_side.addView(nativeView_side);
             } else {
                 try {
@@ -617,6 +620,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                             , new CrossView.OnDataFinishListener() {
                                 @Override
                                 public void onFinish(CrossView crossView) {
+                                    ll_ad_side.removeAllViews();
                                     ll_ad_side.addView(crossView);
                                 }
                             });
@@ -630,9 +634,10 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             AndroidSdk.showFullAd("start_full");
         } else {
             int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
-            if (a == 1) {
+            if (true) {
                 View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_exit);
                 if (ll_ad_loading != null && nativeView_full != null) {
+                    ll_ad_loading.removeAllViews();
                     ll_ad_loading.addView(nativeView_full);
                     ll_ad_full.setVisibility(View.VISIBLE);
                     findViewById(R.id.ad_delete).setVisibility(View.GONE);
@@ -664,6 +669,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                             , new CrossView.OnDataFinishListener() {
                                 @Override
                                 public void onFinish(CrossView crossView) {
+                                    ll_ad_loading.removeAllViews();
                                     ll_ad_loading.addView(crossView, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
                                     main_full_time = (TextView) findViewById(R.id.main_full_time);
                                     main_full_time.setVisibility(View.VISIBLE);
@@ -968,6 +974,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
         rotateAnimation.setDuration(2000);
         rotateAnimation.setRepeatCount(-1);
+        loadFullAd();
     }
 
     @Override
@@ -1029,7 +1036,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
         if (PreData.getDB(this, Constant.FULL_EXIT, 0) == 0) {
             int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
-            if (a == 1) {
+            if (true) {
                 View nativeExit = AdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_full_exit);
                 if (nativeExit != null) {
                     ll_ad_exit.addView(nativeExit);

@@ -111,6 +111,7 @@ public class AppActivity extends MBaseActivity implements AppManagerView {
                 if (ll_ad_size != null && nativeView1 != null) {
                     ViewGroup.LayoutParams layout_ad = ll_ad_size.getLayoutParams();
                     ll_ad_size.setLayoutParams(layout_ad);
+                    ll_ad_size.removeAllViews();
                     ll_ad_size.addView(nativeView1);
                 }
             } else {
@@ -128,6 +129,7 @@ public class AppActivity extends MBaseActivity implements AppManagerView {
                             , new CrossView.OnDataFinishListener() {
                                 @Override
                                 public void onFinish(CrossView crossView) {
+                                    ll_ad_size.removeAllViews();
                                     ll_ad_size.addView(crossView);
                                 }
                             });
@@ -142,6 +144,7 @@ public class AppActivity extends MBaseActivity implements AppManagerView {
             if (ll_ad_time != null && nativeView2 != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad_time.getLayoutParams();
                 ll_ad_time.setLayoutParams(layout_ad);
+                ll_ad_time.removeAllViews();
                 ll_ad_time.addView(nativeView2);
             } else {
             }
@@ -400,7 +403,7 @@ public class AppActivity extends MBaseActivity implements AppManagerView {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-
+        loadFullAd();
     }
 
     @Override
