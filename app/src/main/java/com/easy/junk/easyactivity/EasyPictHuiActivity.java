@@ -28,7 +28,7 @@ import com.android.client.AndroidSdk;
 import com.easy.junk.R;
 import com.easy.clean.cleanimage.RecyclerDbHelper;
 import com.easy.junk.easytools.SetAdUtil;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -87,7 +87,7 @@ public class EasyPictHuiActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstant.RECYCLEBIN, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.RECYCLEBIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             addAd();

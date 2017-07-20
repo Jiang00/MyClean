@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 
 /**
  */
@@ -28,7 +28,7 @@ public class EasyNotifingAnimationActivity extends BaseActivity {
                 if (!MyUtils.isNotificationListenEnabled(EasyNotifingAnimationActivity.this)) {
                     startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), REQUSETSET);
                 } else {
-                    PreData.putDB(EasyNotifingAnimationActivity.this, MyConstant.KEY_NOTIFI, true);
+                    PreData.putDB(EasyNotifingAnimationActivity.this, EasyConstant.KEY_NOTIFI, true);
                     startActivity(new Intent(EasyNotifingAnimationActivity.this, EasyNotifingActivity.class));
                     onBackPressed();
                 }
@@ -40,7 +40,7 @@ public class EasyNotifingAnimationActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUSETSET) {
             if (MyUtils.isNotificationListenEnabled(EasyNotifingAnimationActivity.this)) {
-                PreData.putDB(EasyNotifingAnimationActivity.this, MyConstant.KEY_NOTIFI, true);
+                PreData.putDB(EasyNotifingAnimationActivity.this, EasyConstant.KEY_NOTIFI, true);
                 startActivity(new Intent(EasyNotifingAnimationActivity.this, EasyNotifingActivity.class));
                 onBackPressed();
             }

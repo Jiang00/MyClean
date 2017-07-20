@@ -7,7 +7,7 @@ import java.util.List;
 /**
  */
 
-public interface CustomRamView extends MyBaseView {
+public interface CustomRamView extends EasyBaseView {
     void initData(long allSize);
 
     void setColor(int memory, long allSize);

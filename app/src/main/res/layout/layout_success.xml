@@ -55,11 +55,6 @@
                     android:layout_gravity="center"
                     android:src="@mipmap/float_dialog_3"
                     android:visibility="gone" />
-                <!--白色圆-->
-                <!--<ImageView
-                    android:layout_width="@dimen/d90"
-                    android:layout_height="@dimen/d90"
-                    android:src="@mipmap/success_1" />-->
                 <!--画圆形进度条-->
                 <com.easy.junk.easycustomview.MainRoundView
                     android:id="@+id/main_progress"
@@ -68,29 +63,6 @@
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/d20"
                     android:visibility="gone" />
-                <!--带点圆-->
-                <!--    <ImageView
-                        android:layout_width="@dimen/d90"
-                        android:layout_height="@dimen/d90"
-                        android:layout_gravity="center"
-                        android:src="@mipmap/success_3"
-                        android:visibility="gone" />-->
-                <!--画对号-->
-                <com.easy.junk.easycustomview.DrawHookView
-                    android:id="@+id/success_drawhook"
-                    android:layout_width="@dimen/d90"
-                    android:layout_height="@dimen/d90"
-                    android:layout_gravity="center"
-                    android:layout_margin="@dimen/d20"
-                    android:visibility="gone" />
-                <!--火箭-->
-                <!--  <ImageView
-                      android:id="@+id/success_huojian"
-                      android:layout_width="@dimen/d90"
-                      android:layout_height="@dimen/d90"
-                      android:scaleType="center"
-                      android:src="@mipmap/success_huojian"
-                      android:visibility="gone" />-->
             </FrameLayout>
 
             <TextView
@@ -104,7 +76,7 @@
                 android:textSize="@dimen/s20"
                 android:visibility="gone" />
 
-            <com.easy.junk.easycustomview.MySlowScrollView
+            <com.easy.junk.easycustomview.EasySlowScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -148,7 +120,7 @@
                                     android:layout_marginTop="@dimen/d37"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:id="@+id/success_clean_size"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -156,7 +128,7 @@
                                         android:textColor="@color/A7"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
@@ -214,7 +186,7 @@
                                 android:src="@mipmap/close" />
                         </RelativeLayout>
 
-                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                        <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -224,22 +196,13 @@
                             android:textColor="@color/A1"
                             android:textSize="@dimen/s16" />
 
-                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="@dimen/d21"
-                            android:text="@string/mian_like_tishi2"
-                            android:textColor="@color/A1"
-                            android:textSize="@dimen/s16" />
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d43"
                             android:gravity="center_horizontal"
                             android:orientation="horizontal">
 
-                            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                            <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                 android:id="@+id/main_rotate_bad"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/d42"
@@ -251,7 +214,7 @@
                                 android:textColor="@color/A9"
                                 android:textSize="@dimen/s12" />
 
-                            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                            <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                 android:id="@+id/main_rotate_good"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/d42"
@@ -300,18 +263,18 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d72"
-                                    android:layout_height="match_parent">
+                                    android:layout_width="@dimen/d56"
+                                    android:layout_height="@dimen/d56">
 
                                     <ImageView
                                         android:layout_width="@dimen/d36"
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d16"
+                                        android:layout_marginLeft="@dimen/d8"
                                         android:src="@mipmap/file_main" />
                                 </FrameLayout>
 
@@ -322,14 +285,14 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_file"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d3"
@@ -350,18 +313,18 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d72"
-                                    android:layout_height="match_parent">
+                                    android:layout_width="@dimen/d56"
+                                    android:layout_height="@dimen/d56">
 
                                     <ImageView
                                         android:layout_width="@dimen/d36"
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d16"
+                                        android:layout_marginLeft="@dimen/d8"
                                         android:src="@mipmap/main_junk_button" />
                                 </FrameLayout>
 
@@ -372,14 +335,14 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_junk"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
@@ -400,18 +363,18 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d72"
-                                    android:layout_height="match_parent">
+                                    android:layout_width="@dimen/d56"
+                                    android:layout_height="@dimen/d56">
 
                                     <ImageView
                                         android:layout_width="@dimen/d36"
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d16"
+                                        android:layout_marginLeft="@dimen/d8"
                                         android:src="@mipmap/main_ram_button" />
                                 </FrameLayout>
 
@@ -422,14 +385,14 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_ram"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
@@ -450,18 +413,18 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d72"
-                                    android:layout_height="match_parent">
+                                    android:layout_width="@dimen/d56"
+                                    android:layout_height="@dimen/d56">
 
                                     <ImageView
                                         android:layout_width="@dimen/d36"
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d16"
+                                        android:layout_marginLeft="@dimen/d8"
                                         android:src="@mipmap/main_cooling_button" />
                                 </FrameLayout>
 
@@ -472,14 +435,14 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/main_cooling_name"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
@@ -500,18 +463,18 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d72"
-                                    android:layout_height="match_parent">
+                                    android:layout_width="@dimen/d56"
+                                    android:layout_height="@dimen/d56">
 
                                     <ImageView
                                         android:layout_width="@dimen/d36"
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d16"
+                                        android:layout_marginLeft="@dimen/d8"
                                         android:src="@mipmap/main_gboost_button" />
                                 </FrameLayout>
 
@@ -522,14 +485,14 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/gboost_0"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
@@ -550,18 +513,18 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d72"
-                                    android:layout_height="match_parent">
+                                    android:layout_width="@dimen/d56"
+                                    android:layout_height="@dimen/d56">
 
                                     <ImageView
                                         android:layout_width="@dimen/d36"
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d16"
+                                        android:layout_marginLeft="@dimen/d8"
                                         android:src="@mipmap/main_picture_button" />
                                 </FrameLayout>
 
@@ -572,14 +535,14 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_picture"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d4"
@@ -600,20 +563,20 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/d72"
+                                android:layout_height="@dimen/d56"
                                 android:background="#ffffff"
                                 android:orientation="horizontal">
 
                                 <FrameLayout
-                                    android:layout_width="@dimen/d72"
-                                    android:layout_height="match_parent">
+                                    android:layout_width="@dimen/d56"
+                                    android:layout_height="@dimen/d56">
 
                                     <ImageView
                                         android:id="@+id/notifi_icon"
                                         android:layout_width="@dimen/d36"
                                         android:layout_height="@dimen/d36"
                                         android:layout_gravity="center_vertical"
-                                        android:layout_marginLeft="@dimen/d16"
+                                        android:layout_marginLeft="@dimen/d8"
                                         android:src="@mipmap/notifi_6" />
                                 </FrameLayout>
 
@@ -624,14 +587,14 @@
                                     android:gravity="center_vertical"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/side_notifi"
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:id="@+id/notifi_text"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -647,20 +610,20 @@
                         <LinearLayout
                             android:id="@+id/main_power_button"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d72"
+                            android:layout_height="@dimen/d56"
                             android:background="?attr/selectableItemBackground"
                             android:orientation="horizontal">
 
                             <FrameLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
+                                android:layout_width="@dimen/d56"
+                                android:layout_height="@dimen/d56">
 
                                 <ImageView
                                     android:id="@+id/power_icon"
                                     android:layout_width="@dimen/d36"
                                     android:layout_height="@dimen/d36"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_marginLeft="@dimen/d8"
                                     android:src="@mipmap/power_6" />
                             </FrameLayout>
 
@@ -671,14 +634,14 @@
                                 android:gravity="center_vertical"
                                 android:orientation="vertical">
 
-                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/side_power"
                                     android:textColor="@color/A8"
                                     android:textSize="@dimen/s16" />
 
-                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                     android:id="@+id/power_text"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -700,7 +663,7 @@
                         android:orientation="vertical"
                         android:visibility="gone" />
                 </LinearLayout>
-            </com.easy.junk.easycustomview.MySlowScrollView>
+            </com.easy.junk.easycustomview.EasySlowScrollView>
         </FrameLayout>
     </LinearLayout>
 </FrameLayout>

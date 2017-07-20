@@ -15,8 +15,8 @@ import com.easy.clean.filemanager.Util;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
 import com.easy.junk.easyinterfaceview.MainView;
-import com.easy.junk.easypresenter.PresenterMain;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easypresenter.EasyPresenterMain;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 
 /**
@@ -24,7 +24,7 @@ import com.easy.junk.easytools.SetAdUtil;
  */
 
 public class EasyFileManagerActivity extends BaseActivity implements MainView {
-    private String TAG_FILE = "easy_file";
+    private String TAG_FILE = "cleanmobi_file";
     LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button, file_other_button;
     TextView file_apk_num, file_zip_num, file_txt_num, file_music_num, file_video_num, file_qita_num;
     TextView file_apk_size, file_zip_size, file_txt_size, file_music_size, file_video_size, file_qita_size;
@@ -34,7 +34,7 @@ public class EasyFileManagerActivity extends BaseActivity implements MainView {
     private PhoneFileCategoryHelper.CategoryInfo apkInfo, zipInfo, docInfo, musicInfo, videoInfo, otherInfo, pictureInfo, logInfo;
     private Handler mHandler;
     private View nativeView;
-    private PresenterMain mainPresenter;
+    private EasyPresenterMain mainPresenter;
     TextView file_used_size;
     ProgressBar delete_progress;
     FrameLayout title_left;
@@ -45,7 +45,7 @@ public class EasyFileManagerActivity extends BaseActivity implements MainView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_file);
-        mainPresenter = new PresenterMain(this, this);
+        mainPresenter = new EasyPresenterMain(this, this);
         mainPresenter.init();
         title_name.setText(R.string.side_file);
         fileHelper = new PhoneFileCategoryHelper(this);
@@ -91,7 +91,7 @@ public class EasyFileManagerActivity extends BaseActivity implements MainView {
 
     private void initAd() {
 
-        if (PreData.getDB(this, MyConstant.FULL_FILE, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_FILE, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             nativeView = SetAdUtil.getNativeAdView(TAG_FILE, R.layout.native_ad_4);

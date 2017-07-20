@@ -42,7 +42,7 @@ public class FlakeView extends View {
     Bitmap droid4;
     Bitmap droid5;
     int numFlakes = 0;  // Current number of flakes
-    ArrayList<Flake> flakes = new ArrayList<>(); // List of current flakes
+    ArrayList<EasyFlake> flakes = new ArrayList<>(); // List of current flakes
 
     // Animator used to drive all separate flake animations. Rather than have potentially
     // hundreds of separate animators, we just use one and then update all flakes for each
@@ -83,7 +83,7 @@ public class FlakeView extends View {
                 float secs = (nowTime - prevTime) / FRAME;
                 prevTime = nowTime;
                 for (int i = 0; i < numFlakes; ++i) {
-                    Flake flake = flakes.get(i);
+                    EasyFlake flake = flakes.get(i);
                     flake.y += (flake.speed * secs);
                     if (flake.y > getHeight()) {
                         // If a flake falls off the bottom, send it back to the top
@@ -113,15 +113,15 @@ public class FlakeView extends View {
         if (numFlakes <= MAX_SNOW) {
             for (int i = 0; i < quantity; ++i) {
                 if (i % 5 == 0)
-                    flakes.add(Flake.createFlake(getWidth(), droid));
+                    flakes.add(EasyFlake.createFlake(getWidth(), droid));
                 else if (i % 5 == 1)
-                    flakes.add(Flake.createFlake(getWidth(), droid2));
+                    flakes.add(EasyFlake.createFlake(getWidth(), droid2));
                 else if (i % 5 == 2)
-                    flakes.add(Flake.createFlake(getWidth(), droid3));
+                    flakes.add(EasyFlake.createFlake(getWidth(), droid3));
                 else if (i % 5 == 3)
-                    flakes.add(Flake.createFlake(getWidth(), droid4));
+                    flakes.add(EasyFlake.createFlake(getWidth(), droid4));
                 else
-                    flakes.add(Flake.createFlake(getWidth(), droid5));
+                    flakes.add(EasyFlake.createFlake(getWidth(), droid5));
             }
             setNumFlakes(numFlakes + quantity);
         }
@@ -170,7 +170,7 @@ public class FlakeView extends View {
         // For each flake: back-translate by half its size (this allows it to rotate around its center),
         // rotate by its current rotation, translate by its location, then draw its bitmap
         for (int i = 0; i < numFlakes; ++i) {
-            Flake flake = flakes.get(i);
+            EasyFlake flake = flakes.get(i);
             m.setTranslate(-flake.width / 2, -flake.height / 2);
             m.postRotate(flake.rotation);
             m.postTranslate(flake.width / 2 + flake.x, flake.height / 2 + flake.y);

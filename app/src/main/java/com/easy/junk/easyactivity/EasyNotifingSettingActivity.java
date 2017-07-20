@@ -14,7 +14,7 @@ import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
 import com.easy.junk.easycustomadapter.NotifiSettingAdapter;
 import com.easy.clean.entity.JunkInfo;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +45,7 @@ public class EasyNotifingSettingActivity extends BaseActivity {
         title_name.setText(R.string.side_notifi);
         title_right.setVisibility(View.VISIBLE);
         notifi_button_rl.setVisibility(View.GONE);
-        if (PreData.getDB(this, MyConstant.KEY_NOTIFI, true)) {
+        if (PreData.getDB(this, EasyConstant.KEY_NOTIFI, true)) {
             title_right.setImageResource(R.mipmap.notifi_check_passed);
             view_set.setVisibility(View.GONE);
         } else {
@@ -93,12 +93,12 @@ public class EasyNotifingSettingActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.title_right:
-                    if (PreData.getDB(EasyNotifingSettingActivity.this, MyConstant.KEY_NOTIFI, true)) {
-                        PreData.putDB(EasyNotifingSettingActivity.this, MyConstant.KEY_NOTIFI, false);
+                    if (PreData.getDB(EasyNotifingSettingActivity.this, EasyConstant.KEY_NOTIFI, true)) {
+                        PreData.putDB(EasyNotifingSettingActivity.this, EasyConstant.KEY_NOTIFI, false);
                         title_right.setImageResource(R.mipmap.side_check_normal);
                         view_set.setVisibility(View.VISIBLE);
                     } else {
-                        PreData.putDB(EasyNotifingSettingActivity.this, MyConstant.KEY_NOTIFI, true);
+                        PreData.putDB(EasyNotifingSettingActivity.this, EasyConstant.KEY_NOTIFI, true);
                         title_right.setImageResource(R.mipmap.notifi_check_passed);
                         view_set.setVisibility(View.GONE);
                     }

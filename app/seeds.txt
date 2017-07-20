@@ -30477,6 +30477,7 @@ com.easy.junk.R$dimen: int d196
 com.easy.junk.R$dimen: int d2
 com.easy.junk.R$dimen: int d20
 com.easy.junk.R$dimen: int d200
+com.easy.junk.R$dimen: int d205
 com.easy.junk.R$dimen: int d208
 com.easy.junk.R$dimen: int d21
 com.easy.junk.R$dimen: int d210
@@ -30860,8 +30861,8 @@ com.easy.junk.R$id: int battery_bubble_layout
 com.easy.junk.R$id: int battery_button
 com.easy.junk.R$id: int battery_cha
 com.easy.junk.R$id: int battery_charge_save
-com.easy.junk.R$id: int battery_electricity
 com.easy.junk.R$id: int battery_icon
+com.easy.junk.R$id: int battery_ke
 com.easy.junk.R$id: int battery_level
 com.easy.junk.R$id: int battery_more
 com.easy.junk.R$id: int battery_now_battery_left
@@ -30873,6 +30874,7 @@ com.easy.junk.R$id: int battery_now_year
 com.easy.junk.R$id: int battery_switch
 com.easy.junk.R$id: int battery_switch_check
 com.easy.junk.R$id: int battery_title
+com.easy.junk.R$id: int batteryview
 com.easy.junk.R$id: int beginning
 com.easy.junk.R$id: int bottom
 com.easy.junk.R$id: int bt
@@ -30900,7 +30902,6 @@ com.easy.junk.R$id: int cooling_piao
 com.easy.junk.R$id: int cooling_text
 com.easy.junk.R$id: int cooling_wendu
 com.easy.junk.R$id: int count
-com.easy.junk.R$id: int currentLevel_ing
 com.easy.junk.R$id: int custom
 com.easy.junk.R$id: int customPanel
 com.easy.junk.R$id: int customerTypefaceTextView
@@ -31316,7 +31317,6 @@ com.easy.junk.R$id: int submit_area
 com.easy.junk.R$id: int success
 com.easy.junk.R$id: int success_cirlewaveview
 com.easy.junk.R$id: int success_clean_size
-com.easy.junk.R$id: int success_drawhook
 com.easy.junk.R$id: int success_huojian
 com.easy.junk.R$id: int success_jiantou
 com.easy.junk.R$id: int success_textview
@@ -31488,6 +31488,7 @@ com.easy.junk.R$mipmap: int battery_bubble
 com.easy.junk.R$mipmap: int battery_cha
 com.easy.junk.R$mipmap: int battery_inner_icon
 com.easy.junk.R$mipmap: int battery_more
+com.easy.junk.R$mipmap: int battery_tou
 com.easy.junk.R$mipmap: int close
 com.easy.junk.R$mipmap: int cooling_0
 com.easy.junk.R$mipmap: int cooling_1
@@ -31528,6 +31529,7 @@ com.easy.junk.R$mipmap: int gboost_add
 com.easy.junk.R$mipmap: int gboost_otifi
 com.easy.junk.R$mipmap: int gboost_setting
 com.easy.junk.R$mipmap: int gboost_short
+com.easy.junk.R$mipmap: int gboost_short1
 com.easy.junk.R$mipmap: int hui_touying
 com.easy.junk.R$mipmap: int icon
 com.easy.junk.R$mipmap: int jiantou
@@ -31814,7 +31816,6 @@ com.easy.junk.R$string: int message_sd
 com.easy.junk.R$string: int message_start
 com.easy.junk.R$string: int message_title_1
 com.easy.junk.R$string: int mian_like_tishi1
-com.easy.junk.R$string: int mian_like_tishi2
 com.easy.junk.R$string: int notifi
 com.easy.junk.R$string: int notifi_1
 com.easy.junk.R$string: int notifi_2
@@ -32662,8 +32663,6 @@ com.easy.junk.R$styleable: int CoordinatorLayout_LayoutParams_layout_anchor
 com.easy.junk.R$styleable: int CoordinatorLayout_LayoutParams_layout_anchorGravity
 com.easy.junk.R$styleable: int CoordinatorLayout_LayoutParams_layout_behavior
 com.easy.junk.R$styleable: int CoordinatorLayout_LayoutParams_layout_keyline
-com.easy.junk.R$styleable: int[] CustomerTypefaceTextView
-com.easy.junk.R$styleable: int CustomerTypefaceTextView_typeface
 com.easy.junk.R$styleable: int[] DesignTheme
 com.easy.junk.R$styleable: int DesignTheme_bottomSheetDialogTheme
 com.easy.junk.R$styleable: int DesignTheme_bottomSheetStyle
@@ -32677,6 +32676,8 @@ com.easy.junk.R$styleable: int DrawerArrowToggle_drawableSize
 com.easy.junk.R$styleable: int DrawerArrowToggle_gapBetweenBars
 com.easy.junk.R$styleable: int DrawerArrowToggle_spinBars
 com.easy.junk.R$styleable: int DrawerArrowToggle_thickness
+com.easy.junk.R$styleable: int[] EasyCustomerTypefaceTextView
+com.easy.junk.R$styleable: int EasyCustomerTypefaceTextView_typeface
 com.easy.junk.R$styleable: int[] FloatingActionButton
 com.easy.junk.R$styleable: int FloatingActionButton_backgroundTint
 com.easy.junk.R$styleable: int FloatingActionButton_backgroundTintMode
@@ -32981,32 +32982,50 @@ com.easy.junk.easyactivity.MyApplication
 com.easy.junk.easyactivity.MyApplication: MyApplication()
 com.easy.junk.easybroadcasts.EasyUnloadResidualBroadcast
 com.easy.junk.easybroadcasts.EasyUnloadResidualBroadcast: EasyUnloadResidualBroadcast()
-com.easy.junk.easycustomview.BatteryScanView
-com.easy.junk.easycustomview.BatteryScanView: BatteryScanView(android.content.Context)
-com.easy.junk.easycustomview.BatteryScanView: BatteryScanView(android.content.Context,android.util.AttributeSet)
-com.easy.junk.easycustomview.BatteryScanView: BatteryScanView(android.content.Context,android.util.AttributeSet,int)
-com.easy.junk.easycustomview.BatteryScanView: void setScanCallBack(com.easy.junk.easycustomview.BatteryScanView$IScanEndListener)
-com.easy.junk.easycustomview.CustomRoundCpu
-com.easy.junk.easycustomview.CustomRoundCpu: CustomRoundCpu(android.content.Context)
-com.easy.junk.easycustomview.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet)
-com.easy.junk.easycustomview.CustomRoundCpu: CustomRoundCpu(android.content.Context,android.util.AttributeSet,int)
-com.easy.junk.easycustomview.CustomRoundCpu: void setProgress(int)
-com.easy.junk.easycustomview.CustomRoundCpu: void setCustomRoundListener(com.easy.junk.easycustomview.CustomRoundCpu$CustomRoundListener)
 com.easy.junk.easycustomview.DeepWidgetContainer
 com.easy.junk.easycustomview.DeepWidgetContainer: void setHandler(android.os.Handler)
 com.easy.junk.easycustomview.DrawHookView
-com.easy.junk.easycustomview.DrawHookView: DrawHookView(android.content.Context)
 com.easy.junk.easycustomview.DrawHookView: DrawHookView(android.content.Context,android.util.AttributeSet)
 com.easy.junk.easycustomview.DrawHookView: DrawHookView(android.content.Context,android.util.AttributeSet,int)
 com.easy.junk.easycustomview.DrawHookView: void setProgress(int)
 com.easy.junk.easycustomview.DrawHookView: void setListener(com.easy.junk.easycustomview.DrawHookView$DrawHookListener)
+com.easy.junk.easycustomview.EasyBatteryScanView
+com.easy.junk.easycustomview.EasyBatteryScanView: EasyBatteryScanView(android.content.Context)
+com.easy.junk.easycustomview.EasyBatteryScanView: EasyBatteryScanView(android.content.Context,android.util.AttributeSet)
+com.easy.junk.easycustomview.EasyBatteryScanView: EasyBatteryScanView(android.content.Context,android.util.AttributeSet,int)
+com.easy.junk.easycustomview.EasyBatteryScanView: void setScanCallBack(com.easy.junk.easycustomview.EasyBatteryScanView$IScanEndListener)
+com.easy.junk.easycustomview.EasyCustomRoundCpu
+com.easy.junk.easycustomview.EasyCustomRoundCpu: EasyCustomRoundCpu(android.content.Context)
+com.easy.junk.easycustomview.EasyCustomRoundCpu: EasyCustomRoundCpu(android.content.Context,android.util.AttributeSet)
+com.easy.junk.easycustomview.EasyCustomRoundCpu: EasyCustomRoundCpu(android.content.Context,android.util.AttributeSet,int)
+com.easy.junk.easycustomview.EasyCustomRoundCpu: void setProgress(int)
+com.easy.junk.easycustomview.EasyCustomRoundCpu: void setCustomRoundListener(com.easy.junk.easycustomview.EasyCustomRoundCpu$CustomRoundListener)
+com.easy.junk.easycustomview.EasyFloatStateView
+com.easy.junk.easycustomview.EasyFloatStateView: EasyFloatStateView(android.content.Context,android.util.AttributeSet)
+com.easy.junk.easycustomview.EasyFloatStateView: EasyFloatStateView(android.content.Context,android.util.AttributeSet,int)
+com.easy.junk.easycustomview.EasyFloatStateView: void setDragState(int)
+com.easy.junk.easycustomview.EasyGridLayoutManager
+com.easy.junk.easycustomview.EasyGridLayoutManager: EasyGridLayoutManager(android.content.Context,android.util.AttributeSet,int,int)
+com.easy.junk.easycustomview.EasyGridLayoutManager: EasyGridLayoutManager(android.content.Context,int)
+com.easy.junk.easycustomview.EasyGridLayoutManager: EasyGridLayoutManager(android.content.Context,int,int,boolean)
+com.easy.junk.easycustomview.EasyScrollView
+com.easy.junk.easycustomview.EasyScrollView: EasyScrollView(android.content.Context,android.util.AttributeSet)
+com.easy.junk.easycustomview.EasyScrollView: EasyScrollView(android.content.Context)
+com.easy.junk.easycustomview.EasyScrollView: EasyScrollView(android.content.Context,android.util.AttributeSet,int)
+com.easy.junk.easycustomview.EasyScrollView: void setScrollViewListener(com.easy.junk.easycustomview.EasyScrollView$ScrollViewListener)
+com.easy.junk.easycustomview.EasyScrollView: void setXadSuccess(boolean)
+com.easy.junk.easycustomview.EasyScrollView: void setSadSuccess(boolean)
+com.easy.junk.easycustomview.EasySlowScrollView
+com.easy.junk.easycustomview.EasySlowScrollView: EasySlowScrollView(android.content.Context)
+com.easy.junk.easycustomview.EasySlowScrollView: EasySlowScrollView(android.content.Context,android.util.AttributeSet)
+com.easy.junk.easycustomview.EasySlowScrollView: EasySlowScrollView(android.content.Context,android.util.AttributeSet,int)
+com.easy.junk.easycustomview.EasyYuanHuView
+com.easy.junk.easycustomview.EasyYuanHuView: EasyYuanHuView(android.content.Context,android.util.AttributeSet)
+com.easy.junk.easycustomview.EasyYuanHuView: void setDuShu(float)
+com.easy.junk.easycustomview.EasyYuanHuView: void setScanCallBack(com.easy.junk.easycustomview.EasyYuanHuView$DrawYuanHuListener)
 com.easy.junk.easycustomview.FlakeView
 com.easy.junk.easycustomview.FlakeView: int getNumFlakes()
 com.easy.junk.easycustomview.FlakeView: void setNumFlakes(int)
-com.easy.junk.easycustomview.FloatStateView
-com.easy.junk.easycustomview.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet)
-com.easy.junk.easycustomview.FloatStateView: FloatStateView(android.content.Context,android.util.AttributeSet,int)
-com.easy.junk.easycustomview.FloatStateView: void setDragState(int)
 com.easy.junk.easycustomview.ListViewForScrollView
 com.easy.junk.easycustomview.ListViewForScrollView: ListViewForScrollView(android.content.Context)
 com.easy.junk.easycustomview.ListViewForScrollView: ListViewForScrollView(android.content.Context,android.util.AttributeSet)
@@ -33019,21 +33038,6 @@ com.easy.junk.easycustomview.MainRoundView: MainRoundView(android.content.Contex
 com.easy.junk.easycustomview.MainRoundView: void setProgress(int)
 com.easy.junk.easycustomview.MainRoundView: MainRoundView(android.content.Context,android.util.AttributeSet,int)
 com.easy.junk.easycustomview.MainRoundView: void setCustomRoundListener(com.easy.junk.easycustomview.MainRoundView$CustomRoundListener)
-com.easy.junk.easycustomview.MyGridLayoutManager
-com.easy.junk.easycustomview.MyGridLayoutManager: MyGridLayoutManager(android.content.Context,android.util.AttributeSet,int,int)
-com.easy.junk.easycustomview.MyGridLayoutManager: MyGridLayoutManager(android.content.Context,int)
-com.easy.junk.easycustomview.MyGridLayoutManager: MyGridLayoutManager(android.content.Context,int,int,boolean)
-com.easy.junk.easycustomview.MyScrollView
-com.easy.junk.easycustomview.MyScrollView: MyScrollView(android.content.Context,android.util.AttributeSet)
-com.easy.junk.easycustomview.MyScrollView: MyScrollView(android.content.Context)
-com.easy.junk.easycustomview.MyScrollView: MyScrollView(android.content.Context,android.util.AttributeSet,int)
-com.easy.junk.easycustomview.MyScrollView: void setScrollViewListener(com.easy.junk.easycustomview.MyScrollView$ScrollViewListener)
-com.easy.junk.easycustomview.MyScrollView: void setXadSuccess(boolean)
-com.easy.junk.easycustomview.MyScrollView: void setSadSuccess(boolean)
-com.easy.junk.easycustomview.MySlowScrollView
-com.easy.junk.easycustomview.MySlowScrollView: MySlowScrollView(android.content.Context)
-com.easy.junk.easycustomview.MySlowScrollView: MySlowScrollView(android.content.Context,android.util.AttributeSet)
-com.easy.junk.easycustomview.MySlowScrollView: MySlowScrollView(android.content.Context,android.util.AttributeSet,int)
 com.easy.junk.easycustomview.PullToRefreshLayout
 com.easy.junk.easycustomview.PullToRefreshLayout: void setOnRefreshListener(com.easy.junk.easycustomview.PullToRefreshLayout$OnRefreshListener)
 com.easy.junk.easycustomview.PullToRefreshLayout: PullToRefreshLayout(android.content.Context)
@@ -33041,10 +33045,6 @@ com.easy.junk.easycustomview.PullToRefreshLayout: PullToRefreshLayout(android.co
 com.easy.junk.easycustomview.PullToRefreshLayout: PullToRefreshLayout(android.content.Context,android.util.AttributeSet,int)
 com.easy.junk.easycustomview.Success_CircleWaveView
 com.easy.junk.easycustomview.Success_CircleWaveView: Success_CircleWaveView(android.content.Context,android.util.AttributeSet)
-com.easy.junk.easycustomview.YuanHuView
-com.easy.junk.easycustomview.YuanHuView: YuanHuView(android.content.Context,android.util.AttributeSet)
-com.easy.junk.easycustomview.YuanHuView: void setDuShu(float)
-com.easy.junk.easycustomview.YuanHuView: void setScanCallBack(com.easy.junk.easycustomview.YuanHuView$DrawYuanHuListener)
 com.easy.junk.easycustomview.YuanHuViewNotifi
 com.easy.junk.easycustomview.YuanHuViewNotifi: YuanHuViewNotifi(android.content.Context,android.util.AttributeSet)
 com.easy.junk.easycustomview.YuanHuViewNotifi: void setDuShu(float)
@@ -33053,8 +33053,10 @@ com.easy.junk.easyservices.EasyNotificationService
 com.easy.junk.easyservices.EasyNotificationService: EasyNotificationService()
 com.easy.junk.easyservices.EasySuspensionBallService
 com.easy.junk.easyservices.EasySuspensionBallService: EasySuspensionBallService()
-com.easy.module.charge.saver.BatteryProtectActivity
-com.easy.module.charge.saver.BatteryProtectActivity: BatteryProtectActivity()
+com.easy.module.charge.saver.EasyBatteryProtectActivity
+com.easy.module.charge.saver.EasyBatteryProtectActivity: EasyBatteryProtectActivity()
+com.easy.module.charge.saver.EasySetADActivity
+com.easy.module.charge.saver.EasySetADActivity: EasySetADActivity()
 com.easy.module.charge.saver.R$anim: int abc_fade_in
 com.easy.module.charge.saver.R$anim: int abc_fade_out
 com.easy.module.charge.saver.R$anim: int abc_grow_fade_in_from_bottom
@@ -33639,6 +33641,7 @@ com.easy.module.charge.saver.R$dimen: int d141
 com.easy.module.charge.saver.R$dimen: int d144
 com.easy.module.charge.saver.R$dimen: int d146
 com.easy.module.charge.saver.R$dimen: int d15
+com.easy.module.charge.saver.R$dimen: int d150
 com.easy.module.charge.saver.R$dimen: int d152
 com.easy.module.charge.saver.R$dimen: int d154
 com.easy.module.charge.saver.R$dimen: int d155
@@ -33660,8 +33663,10 @@ com.easy.module.charge.saver.R$dimen: int d196
 com.easy.module.charge.saver.R$dimen: int d2
 com.easy.module.charge.saver.R$dimen: int d20
 com.easy.module.charge.saver.R$dimen: int d200
+com.easy.module.charge.saver.R$dimen: int d205
 com.easy.module.charge.saver.R$dimen: int d208
 com.easy.module.charge.saver.R$dimen: int d21
+com.easy.module.charge.saver.R$dimen: int d210
 com.easy.module.charge.saver.R$dimen: int d217
 com.easy.module.charge.saver.R$dimen: int d22
 com.easy.module.charge.saver.R$dimen: int d225
@@ -34003,8 +34008,8 @@ com.easy.module.charge.saver.R$id: int battay_info_lot
 com.easy.module.charge.saver.R$id: int battery_ad_layout
 com.easy.module.charge.saver.R$id: int battery_bubble_layout
 com.easy.module.charge.saver.R$id: int battery_charge_save
-com.easy.module.charge.saver.R$id: int battery_electricity
 com.easy.module.charge.saver.R$id: int battery_icon
+com.easy.module.charge.saver.R$id: int battery_ke
 com.easy.module.charge.saver.R$id: int battery_level
 com.easy.module.charge.saver.R$id: int battery_more
 com.easy.module.charge.saver.R$id: int battery_now_battery_left
@@ -34016,6 +34021,7 @@ com.easy.module.charge.saver.R$id: int battery_now_year
 com.easy.module.charge.saver.R$id: int battery_switch
 com.easy.module.charge.saver.R$id: int battery_switch_check
 com.easy.module.charge.saver.R$id: int battery_title
+com.easy.module.charge.saver.R$id: int batteryview
 com.easy.module.charge.saver.R$id: int beginning
 com.easy.module.charge.saver.R$id: int bottom
 com.easy.module.charge.saver.R$id: int buttonPanel
@@ -34030,7 +34036,6 @@ com.easy.module.charge.saver.R$id: int clip_horizontal
 com.easy.module.charge.saver.R$id: int clip_vertical
 com.easy.module.charge.saver.R$id: int collapseActionView
 com.easy.module.charge.saver.R$id: int contentPanel
-com.easy.module.charge.saver.R$id: int currentLevel_ing
 com.easy.module.charge.saver.R$id: int custom
 com.easy.module.charge.saver.R$id: int customPanel
 com.easy.module.charge.saver.R$id: int decor_content_parent
@@ -34198,6 +34203,7 @@ com.easy.module.charge.saver.R$mipmap: int battery_beijing
 com.easy.module.charge.saver.R$mipmap: int battery_bubble
 com.easy.module.charge.saver.R$mipmap: int battery_inner_icon
 com.easy.module.charge.saver.R$mipmap: int battery_more
+com.easy.module.charge.saver.R$mipmap: int battery_tou
 com.easy.module.charge.saver.R$mipmap: int jiantou
 com.easy.module.charge.saver.R$mipmap: int side_check_closed
 com.easy.module.charge.saver.R$mipmap: int side_check_passed1
@@ -34928,8 +34934,6 @@ com.easy.module.charge.saver.R$styleable: int CoordinatorLayout_LayoutParams_lay
 com.easy.module.charge.saver.R$styleable: int CoordinatorLayout_LayoutParams_layout_keyline
 com.easy.module.charge.saver.R$styleable: int CoordinatorLayout_keylines
 com.easy.module.charge.saver.R$styleable: int CoordinatorLayout_statusBarBackground
-com.easy.module.charge.saver.R$styleable: int[] CustomerTypefaceTextView
-com.easy.module.charge.saver.R$styleable: int CustomerTypefaceTextView_typeface
 com.easy.module.charge.saver.R$styleable: int[] DesignTheme
 com.easy.module.charge.saver.R$styleable: int DesignTheme_bottomSheetDialogTheme
 com.easy.module.charge.saver.R$styleable: int DesignTheme_bottomSheetStyle
@@ -34943,6 +34947,8 @@ com.easy.module.charge.saver.R$styleable: int DrawerArrowToggle_drawableSize
 com.easy.module.charge.saver.R$styleable: int DrawerArrowToggle_gapBetweenBars
 com.easy.module.charge.saver.R$styleable: int DrawerArrowToggle_spinBars
 com.easy.module.charge.saver.R$styleable: int DrawerArrowToggle_thickness
+com.easy.module.charge.saver.R$styleable: int[] EasyCustomerTypefaceTextView
+com.easy.module.charge.saver.R$styleable: int EasyCustomerTypefaceTextView_typeface
 com.easy.module.charge.saver.R$styleable: int[] FloatingActionButton
 com.easy.module.charge.saver.R$styleable: int FloatingActionButton_backgroundTint
 com.easy.module.charge.saver.R$styleable: int FloatingActionButton_backgroundTintMode
@@ -35172,23 +35178,24 @@ com.easy.module.charge.saver.R$styleable: int View_android_theme
 com.easy.module.charge.saver.R$styleable: int View_paddingEnd
 com.easy.module.charge.saver.R$styleable: int View_paddingStart
 com.easy.module.charge.saver.R$styleable: int View_theme
-com.easy.module.charge.saver.SetADActivity
-com.easy.module.charge.saver.SetADActivity: SetADActivity()
-com.easy.module.charge.saver.easyprotectservice.ServiceBattery
-com.easy.module.charge.saver.easyprotectservice.ServiceBattery: ServiceBattery()
-com.easy.module.charge.saver.easyreceiver.BroadcastReceiverStart
-com.easy.module.charge.saver.easyreceiver.BroadcastReceiverStart: BroadcastReceiverStart()
+com.easy.module.charge.saver.easyprotectservice.EasyServiceBattery
+com.easy.module.charge.saver.easyprotectservice.EasyServiceBattery: EasyServiceBattery()
+com.easy.module.charge.saver.easyreceiver.EasyBroadcastReceiverStart
+com.easy.module.charge.saver.easyreceiver.EasyBroadcastReceiverStart: EasyBroadcastReceiverStart()
 com.easy.module.charge.saver.easyutils.WidgetContainer
 com.easy.module.charge.saver.easyutils.WidgetContainer: void setWidgetListener(com.easy.module.charge.saver.easyutils.WidgetContainer$IWidgetListener)
+com.easy.module.charge.saver.protectview.BatteryView
+com.easy.module.charge.saver.protectview.BatteryView: BatteryView(android.content.Context,android.util.AttributeSet)
+com.easy.module.charge.saver.protectview.BatteryView: void setDuShu(int)
 com.easy.module.charge.saver.protectview.BubbleLayout
 com.easy.module.charge.saver.protectview.BubbleLayout: BubbleLayout(android.content.Context)
 com.easy.module.charge.saver.protectview.BubbleLayout: BubbleLayout(android.content.Context,android.util.AttributeSet)
 com.easy.module.charge.saver.protectview.BubbleLayout: BubbleLayout(android.content.Context,android.util.AttributeSet,int)
 com.easy.module.charge.saver.protectview.BubbleLayout: void setParticleBitmap(android.graphics.Bitmap)
-com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-com.easy.module.charge.saver.protectview.CustomerTypefaceTextView: CustomerTypefaceTextView(android.content.Context)
-com.easy.module.charge.saver.protectview.CustomerTypefaceTextView: CustomerTypefaceTextView(android.content.Context,android.util.AttributeSet)
-com.easy.module.charge.saver.protectview.CustomerTypefaceTextView: void setTypeface(java.lang.String)
+com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
+com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView: EasyCustomerTypefaceTextView(android.content.Context)
+com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView: EasyCustomerTypefaceTextView(android.content.Context,android.util.AttributeSet)
+com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView: void setTypeface(java.lang.String)
 com.easy.module.charge.saver.protectview.IndicatorView
 com.easy.module.charge.saver.protectview.IndicatorView: void setOnPageChangeListener(com.easy.module.charge.saver.protectview.IndicatorView$OnPageChangeListener)
 com.easy.module.charge.saver.protectview.IndicatorView: IndicatorView(android.content.Context,android.util.AttributeSet)

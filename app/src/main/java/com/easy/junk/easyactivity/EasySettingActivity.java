@@ -17,14 +17,14 @@ import com.android.client.AndroidSdk;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easytools.MUtilGp;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyUtilGp;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.easy.junk.easytools.ShortCutUtils;
 import com.easy.junk.easyservices.EasyNotificationService;
 import com.easy.junk.easyservices.EasySuspensionBallService;
 import com.easy.module.charge.saver.easyutils.BatteryConstants;
-import com.easy.module.charge.saver.easyutils.Utils;
+import com.easy.module.charge.saver.easyutils.EasyUtils;
 
 /**
  * Created by on 2017/3/2.
@@ -54,15 +54,15 @@ public class EasySettingActivity extends BaseActivity {
         initListener();
 
         //深度清理
-        if (PreData.getDB(this, MyConstant.POWERACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, EasyConstant.POWERACTIVITY, 1) == 0) {
             setting_power.setVisibility(View.GONE);
         }
         //文件
-        if (PreData.getDB(this, MyConstant.FILEACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, EasyConstant.FILEACTIVITY, 1) == 0) {
             setting_file.setVisibility(View.GONE);
         }
         //通知栏
-        if (PreData.getDB(this, MyConstant.NOTIFIACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, EasyConstant.NOTIFIACTIVITY, 1) == 0) {
             setting_notifi.setVisibility(View.GONE);
         }
         //通知栏
@@ -71,7 +71,7 @@ public class EasySettingActivity extends BaseActivity {
         }
 
 
-        if (PreData.getDB(this, MyConstant.FULL_SETTING, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_SETTING, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -143,27 +143,27 @@ public class EasySettingActivity extends BaseActivity {
     }
 
     private void initData() {
-        if (PreData.getDB(EasySettingActivity.this, MyConstant.TONGZHI_SWITCH, true)) {
+        if (PreData.getDB(EasySettingActivity.this, EasyConstant.TONGZHI_SWITCH, true)) {
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if (PreData.getDB(EasySettingActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
+        if (PreData.getDB(EasySettingActivity.this, EasyConstant.TONGZHILAN_SWITCH, true)) {
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if (PreData.getDB(EasySettingActivity.this, MyConstant.FlOAT_SWITCH, true)) {
+        if (PreData.getDB(EasySettingActivity.this, EasyConstant.FlOAT_SWITCH, true)) {
             setting_float_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if (PreData.getDB(EasySettingActivity.this, MyConstant.UNLOAD_SWITCH, true)) {
+        if (PreData.getDB(EasySettingActivity.this, EasyConstant.UNLOAD_SWITCH, true)) {
             setting_unload_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_unload_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if ((boolean) Utils.readData(this, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
+        if ((boolean) EasyUtils.readData(this, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
@@ -179,23 +179,23 @@ public class EasySettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_tongzhi:
                     SetAdUtil.track("设置页面", "点击通知开关", "", 1);
-                    if (PreData.getDB(EasySettingActivity.this, MyConstant.TONGZHI_SWITCH, true)) {
-                        PreData.putDB(EasySettingActivity.this, MyConstant.TONGZHI_SWITCH, false);
+                    if (PreData.getDB(EasySettingActivity.this, EasyConstant.TONGZHI_SWITCH, true)) {
+                        PreData.putDB(EasySettingActivity.this, EasyConstant.TONGZHI_SWITCH, false);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
-                        PreData.putDB(EasySettingActivity.this, MyConstant.TONGZHI_SWITCH, true);
+                        PreData.putDB(EasySettingActivity.this, EasyConstant.TONGZHI_SWITCH, true);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
                 case R.id.setting_tongzhilan:
                     SetAdUtil.track("设置页面", "点击通知栏开关", "", 1);
-                    if (PreData.getDB(EasySettingActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
-                        PreData.putDB(EasySettingActivity.this, MyConstant.TONGZHILAN_SWITCH, false);
+                    if (PreData.getDB(EasySettingActivity.this, EasyConstant.TONGZHILAN_SWITCH, true)) {
+                        PreData.putDB(EasySettingActivity.this, EasyConstant.TONGZHILAN_SWITCH, false);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
                         Intent intent = new Intent(EasySettingActivity.this, EasyNotificationService.class);
                         stopService(intent);
                     } else {
-                        PreData.putDB(EasySettingActivity.this, MyConstant.TONGZHILAN_SWITCH, true);
+                        PreData.putDB(EasySettingActivity.this, EasyConstant.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
                         Intent intent = new Intent(EasySettingActivity.this, EasyNotificationService.class);
                         intent.setAction("notification");
@@ -204,13 +204,13 @@ public class EasySettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_float:
                     SetAdUtil.track("设置页面", "点击悬浮球开关", "", 1);
-                    if (PreData.getDB(EasySettingActivity.this, MyConstant.FlOAT_SWITCH, true)) {
-                        PreData.putDB(EasySettingActivity.this, MyConstant.FlOAT_SWITCH, false);
+                    if (PreData.getDB(EasySettingActivity.this, EasyConstant.FlOAT_SWITCH, true)) {
+                        PreData.putDB(EasySettingActivity.this, EasyConstant.FlOAT_SWITCH, false);
                         Intent intent1 = new Intent(EasySettingActivity.this, EasySuspensionBallService.class);
                         setting_float_check.setImageResource(R.mipmap.side_check_normal);
                         stopService(intent1);
                     } else {
-                        PreData.putDB(EasySettingActivity.this, MyConstant.FlOAT_SWITCH, true);
+                        PreData.putDB(EasySettingActivity.this, EasyConstant.FlOAT_SWITCH, true);
                         Intent intent1 = new Intent(EasySettingActivity.this, EasySuspensionBallService.class);
                         setting_float_check.setImageResource(R.mipmap.side_check_passed);
                         startService(intent1);
@@ -218,27 +218,27 @@ public class EasySettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_unload:
                     SetAdUtil.track("设置页面", "点击卸载残余开关", "", 1);
-                    if (PreData.getDB(EasySettingActivity.this, MyConstant.UNLOAD_SWITCH, true)) {
-                        PreData.putDB(EasySettingActivity.this, MyConstant.UNLOAD_SWITCH, false);
+                    if (PreData.getDB(EasySettingActivity.this, EasyConstant.UNLOAD_SWITCH, true)) {
+                        PreData.putDB(EasySettingActivity.this, EasyConstant.UNLOAD_SWITCH, false);
 //                        Intent intent1 = new Intent(EasySettingActivity.this, EasyUnloadResidualBroadcast.class);
                         setting_unload_check.setImageResource(R.mipmap.side_check_normal);
 //                        stopService(intent1);
                     } else {
-                        PreData.putDB(EasySettingActivity.this, MyConstant.UNLOAD_SWITCH, true);
+                        PreData.putDB(EasySettingActivity.this, EasyConstant.UNLOAD_SWITCH, true);
 //                        Intent intent1 = new Intent(EasySettingActivity.this, EasyUnloadResidualBroadcast.class);
                         setting_unload_check.setImageResource(R.mipmap.side_check_passed);
 //                        sendBroadcast(intent1);
                     }
                     break;
                 case R.id.setting_battery:
-                    if ((boolean) Utils.readData(EasySettingActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
-                        Utils.writeData(EasySettingActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, false);
+                    if ((boolean) EasyUtils.readData(EasySettingActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
+                        EasyUtils.writeData(EasySettingActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, false);
                         SetAdUtil.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
-                        Utils.writeData(EasySettingActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, true);
+                        EasyUtils.writeData(EasySettingActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, true);
                         SetAdUtil.track("设置页面", "点击充电屏保开关", "开", 1);
-                        PreData.putDB(EasySettingActivity.this, MyConstant.FIRST_BATTERY, false);
+                        PreData.putDB(EasySettingActivity.this, EasyConstant.FIRST_BATTERY, false);
                         setting_battery_check.setImageResource(R.mipmap.side_check_passed);
                     }
                     break;
@@ -249,7 +249,7 @@ public class EasySettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_short:
                     SetAdUtil.track("设置页面", "添加桌面快捷方式", "", 1);
-                    PreData.putDB(EasySettingActivity.this, MyConstant.KEY_SHORTCUT, true);
+                    PreData.putDB(EasySettingActivity.this, EasyConstant.KEY_SHORTCUT, true);
                     ShortCutUtils.addShortcut(EasySettingActivity.this);
                     break;
                 case R.id.setting_power:
@@ -259,19 +259,19 @@ public class EasySettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_file:
                     SetAdUtil.track("设置页面", "进入文件管理", "", 1);
-                    PreData.putDB(EasySettingActivity.this, MyConstant.FILE_CLEAN, true);
+                    PreData.putDB(EasySettingActivity.this, EasyConstant.FILE_CLEAN, true);
                     Intent intentF = new Intent(EasySettingActivity.this, EasyFileManagerActivity.class);
                     startActivity(intentF);
                     break;
                 case R.id.setting_picture:
                     SetAdUtil.track("设置页面", "进入相似图片", "", 1);
-                    PreData.putDB(EasySettingActivity.this, MyConstant.PHOTO_CLEAN, true);
+                    PreData.putDB(EasySettingActivity.this, EasyConstant.PHOTO_CLEAN, true);
                     Intent intentPic = new Intent(EasySettingActivity.this, EasyPictActivity.class);
                     startActivity(intentPic);
                     break;
                 case R.id.setting_gboost:
                     SetAdUtil.track("设置页面", "进入游戏加速", "", 1);
-                    PreData.putDB(EasySettingActivity.this, MyConstant.GBOOST_CLEAN, true);
+                    PreData.putDB(EasySettingActivity.this, EasyConstant.GBOOST_CLEAN, true);
                     Intent intentGB = new Intent(EasySettingActivity.this, EasyGoodGameActivity.class);
                     startActivity(intentGB);
                     break;
@@ -282,8 +282,8 @@ public class EasySettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_notifi:
                     SetAdUtil.track("设置页面", "进入通知栏清理", "", 1);
-                    PreData.putDB(EasySettingActivity.this, MyConstant.NOTIFI_CLEAN, true);
-                    if (PreData.getDB(EasySettingActivity.this, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(EasySettingActivity.this)) {
+                    PreData.putDB(EasySettingActivity.this, EasyConstant.NOTIFI_CLEAN, true);
+                    if (PreData.getDB(EasySettingActivity.this, EasyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(EasySettingActivity.this)) {
                         //通知栏动画
                         Intent intent6 = new Intent(EasySettingActivity.this, EasyNotifingAnimationActivity.class);
                         startActivity(intent6);
@@ -295,7 +295,7 @@ public class EasySettingActivity extends BaseActivity {
                     break;
                 case R.id.setting_rotate:
                     SetAdUtil.track("设置页面", "好评", "", 1);
-                    MUtilGp.rate(EasySettingActivity.this);
+                    EasyUtilGp.rate(EasySettingActivity.this);
                     break;
             }
         }
@@ -305,7 +305,7 @@ public class EasySettingActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100) {
             if (MyUtils.isNotificationListenEnabled(this)) {
-                PreData.putDB(this, MyConstant.KEY_NOTIFI, true);
+                PreData.putDB(this, EasyConstant.KEY_NOTIFI, true);
                 Intent intent = new Intent(this, EasyNotifingActivity.class);
                 startActivity(intent);
             } else {
@@ -331,7 +331,7 @@ public class EasySettingActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        setResult(MyConstant.SETTING_RESUIL);
+        setResult(EasyConstant.SETTING_RESUIL);
         finish();
     }
 }

@@ -23,9 +23,9 @@ import com.easy.clean.easyutils.PreData;
 import com.android.client.AndroidSdk;
 import com.easy.junk.R;
 import com.easy.junk.easycustomadapter.PhoneFileAdapter;
-import com.easy.junk.easymodel.JunkInfo;
+import com.easy.junk.easymodel.EasyJunkInfo;
 import com.easy.junk.easytools.SetAdUtil;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.clean.filemanager.Util;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 public class EasyFileActivity extends BaseActivity {
 
-    private String Tag_file_1 = "easy_file_1";
+    private String Tag_file_1 = "cleanmobi_file_1";
     public static final String TAG = "EasyFileActivity";
     ProgressBar file_progressbar;
     LinearLayout ll_ad;
@@ -46,7 +46,7 @@ public class EasyFileActivity extends BaseActivity {
     FrameLayout file_fl;
     private int nameId;
     ListView file_list;
-    private ArrayList<JunkInfo> fileList;
+    private ArrayList<EasyJunkInfo> fileList;
     private Handler mHandler;
     private String name;
     RelativeLayout file_clean_rl;
@@ -105,11 +105,11 @@ public class EasyFileActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.file_button_clean:
-                    ArrayList<JunkInfo> deleteList = new ArrayList<>();
+                    ArrayList<EasyJunkInfo> deleteList = new ArrayList<>();
                     if (fileList == null || fileList.size() == 0) {
                         break;
                     }
-                    for (JunkInfo info : fileList) {
+                    for (EasyJunkInfo info : fileList) {
                         if (info.isChecked) {
                             deleteList.add(info);
                         }
@@ -167,7 +167,7 @@ public class EasyFileActivity extends BaseActivity {
                         }
                         long _id = cursor.getLong(PhoneFileCategoryHelper.COLUMN_ID);
                         long size = Long.parseLong(cursor.getString(PhoneFileCategoryHelper.COLUMN_SIZE));
-                        fileList.add(new JunkInfo(_id, null, Util.getNameFromFilepath(cursor.getString(PhoneFileCategoryHelper.COLUMN_PATH)),
+                        fileList.add(new EasyJunkInfo(_id, null, Util.getNameFromFilepath(cursor.getString(PhoneFileCategoryHelper.COLUMN_PATH)),
                                 cursor.getString(PhoneFileCategoryHelper.COLUMN_PATH), size, false));
                     } while (cursor.moveToNext());
                     cursor.close();
@@ -208,7 +208,7 @@ public class EasyFileActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstant.FULL_FILE_1, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_FILE_1, 0) == 1) {
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -220,7 +220,7 @@ public class EasyFileActivity extends BaseActivity {
         }
     }
 
-    private void showDia(final ArrayList<JunkInfo> deleteList) {
+    private void showDia(final ArrayList<EasyJunkInfo> deleteList) {
         if (deleteList.size() == 0) {
             showToast(getString(R.string.delete));
             return;
@@ -240,7 +240,7 @@ public class EasyFileActivity extends BaseActivity {
             public void onClick(View v) {
                 dialog.dismiss();
                 long size = 0;
-                for (JunkInfo info : deleteList) {
+                for (EasyJunkInfo info : deleteList) {
                     size += info.size;
                     UtilsFile.deleteCo(EasyFileActivity.this, fc, info._id);
                 }
@@ -248,7 +248,7 @@ public class EasyFileActivity extends BaseActivity {
                     @Override
                     public void run() {
                         super.run();
-                        for (JunkInfo info : deleteList) {
+                        for (EasyJunkInfo info : deleteList) {
                             boolean deleteSuce = UtilsFile.deleteFile(EasyFileActivity.this, info.path);
                             if (!deleteSuce) {
                                 android.util.Log.e(TAG, "delete fail --" + info.path);

@@ -13,12 +13,12 @@ import com.easy.clean.cleannotification.MyServiceNotificationMonitor;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easyservices.EasyNotificationService;
 import com.easy.junk.easyservices.EasySuspensionBallService;
 import com.easy.module.charge.saver.easyutils.BatteryConstants;
-import com.easy.module.charge.saver.easyutils.Utils;
-import com.easy.module.charge.saver.easyprotectservice.ServiceBattery;
+import com.easy.module.charge.saver.easyutils.EasyUtils;
+import com.easy.module.charge.saver.easyprotectservice.EasyServiceBattery;
 import com.squareup.leakcanary.LeakCanary;
 //import com.vatermobi.kpa.DaemonClient;
 
@@ -36,25 +36,25 @@ public class MyApplication extends Application {
         super.onCreate();
         AndroidSdk.onCreate(this);
         //charging
-        startService(new Intent(this, ServiceBattery.class));
-        Utils.writeData(this, BatteryConstants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
-        Utils.writeData(this, BatteryConstants.CHARGE_SAVER_ICON, R.mipmap.loading_icon_1);
+        startService(new Intent(this, EasyServiceBattery.class));
+        EasyUtils.writeData(this, BatteryConstants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
+        EasyUtils.writeData(this, BatteryConstants.CHARGE_SAVER_ICON, R.mipmap.loading_icon_1);
 
         CleanManager.getInstance(this).startLoad();
 
-        if (PreData.getDB(this, MyConstant.TONGZHILAN_SWITCH, true)) {
+        if (PreData.getDB(this, EasyConstant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, EasyNotificationService.class);
             intent.setAction("notification");
             startService(intent);
         }
 
-        if (PreData.getDB(this, MyConstant.FlOAT_SWITCH, true)) {
+        if (PreData.getDB(this, EasyConstant.FlOAT_SWITCH, true)) {
             Intent intent1 = new Intent(this, EasySuspensionBallService.class);
             startService(intent1);
         }
 
         //启动通知兰清理
-        if (MyUtils.isNotificationListenEnabled(this) && PreData.getDB(this, MyConstant.KEY_NOTIFI, false)) {
+        if (MyUtils.isNotificationListenEnabled(this) && PreData.getDB(this, EasyConstant.KEY_NOTIFI, false)) {
             startService(new Intent(this, MyServiceNotificationMonitor.class));
         }
 
@@ -68,9 +68,9 @@ public class MyApplication extends Application {
         mThread = new HandlerThread("scan");
         mThread.start();
 
-        if (PreData.getDB(this, MyConstant.FIRST_INSTALL, true)) {
-            PreData.putDB(this, MyConstant.IS_ACTION_BAR, MyUtils.checkDeviceHasNavigationBar(this));
-            PreData.putDB(this, MyConstant.FIRST_INSTALL, false);
+        if (PreData.getDB(this, EasyConstant.FIRST_INSTALL, true)) {
+            PreData.putDB(this, EasyConstant.IS_ACTION_BAR, MyUtils.checkDeviceHasNavigationBar(this));
+            PreData.putDB(this, EasyConstant.FIRST_INSTALL, false);
         }
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;

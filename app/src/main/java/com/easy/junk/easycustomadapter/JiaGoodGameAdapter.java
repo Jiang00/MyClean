@@ -23,7 +23,7 @@ import com.easy.clean.easyutils.LoadManager;
 
 import java.util.ArrayList;
 
-public class JiaGoodGameAdapter extends MybaseAdapter<JunkInfo> {
+public class JiaGoodGameAdapter extends EasyBaseAdapter<JunkInfo> {
     private ArrayList<String> game_list;
 
     public JiaGoodGameAdapter(Context context, ArrayList<String> game_list) {

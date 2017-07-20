@@ -18,7 +18,7 @@ import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.clean.entity.JunkInfo;
 import com.easy.junk.R;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 
 import java.io.File;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
  */
 
 public class EasyUnloadingResidualActivity extends BaseActivity {
-    private String TAG_UNLOAD = "easy_unload";
+    private String TAG_UNLOAD = "cleanmobi_unload";
     TextView tv_size;
     Button bt_quxiao, bt_queren;
     private View nativeView;
@@ -65,7 +65,7 @@ public class EasyUnloadingResidualActivity extends BaseActivity {
     };
 
     private void addAd() {
-        if (PreData.getDB(this, MyConstant.FULL_UNLOAD, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_UNLOAD, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {

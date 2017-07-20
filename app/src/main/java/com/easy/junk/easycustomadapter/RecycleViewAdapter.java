@@ -16,7 +16,7 @@ import com.easy.clean.cleanimage.ImageHelper;
 import com.easy.clean.cleanimage.ImageInfo;
 import com.easy.junk.R;
 import com.easy.junk.easyactivity.EasyPictActivity;
-import com.easy.junk.easycustomview.MyGridLayoutManager;
+import com.easy.junk.easycustomview.EasyGridLayoutManager;
 import com.easy.clean.cleanimage.RecyclerDbHelper;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     private EasyPictActivity pictureActivity;
     private ImageHelper imageHelper;
     public ArrayList<ArrayList<ImageInfo>> groupList;
-    private MyGridLayoutManager gridLayoutManager;
+    private EasyGridLayoutManager gridLayoutManager;
     private RecycleViewCallBack deleteCallBack;
     private Handler handler;
 
@@ -122,7 +122,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     private void addItemView(MyViewHolder holder, ArrayList<ImageInfo> list) {
         holder.recyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        gridLayoutManager = new MyGridLayoutManager(pictureActivity, 4);
+        gridLayoutManager = new EasyGridLayoutManager(pictureActivity, 4);
         holder.recyclerView.setLayoutManager(gridLayoutManager);
         holder.recyclerView.setAdapter(new HomeAdapter(list));
         holder.recyclerView.setItemAnimator(new DefaultItemAnimator());

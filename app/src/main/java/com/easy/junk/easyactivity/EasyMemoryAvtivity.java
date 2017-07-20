@@ -20,9 +20,9 @@ import com.android.client.AndroidSdk;
 import com.easy.clean.entity.JunkInfo;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.junk.R;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
-import com.easy.junk.easypresenter.PresenterRam;
+import com.easy.junk.easypresenter.EasyPresenterRam;
 import com.easy.junk.easycustomadapter.RamAdapter;
 import com.easy.junk.easyinterfaceview.CustomRamView;
 import com.easy.clean.easyutils.PreData;
@@ -41,7 +41,7 @@ public class EasyMemoryAvtivity extends BaseActivity implements CustomRamView {
     ImageView title_right;
     LinearLayout junk_title_backg;
     FrameLayout title_left;
-    private PresenterRam ramPresenter;
+    private EasyPresenterRam ramPresenter;
     private RamAdapter adapterRam;
     public Handler myHandler;
     TextView junk_size_all;
@@ -55,7 +55,7 @@ public class EasyMemoryAvtivity extends BaseActivity implements CustomRamView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ram);
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
-        ramPresenter = new PresenterRam(this, this);
+        ramPresenter = new EasyPresenterRam(this, this);
         myHandler = new Handler();
         ramPresenter.init();
         title_right.setImageResource(R.mipmap.ram_white);
@@ -285,7 +285,7 @@ public class EasyMemoryAvtivity extends BaseActivity implements CustomRamView {
                     break;
 
                 case R.id.junk_button_clean:
-                    PreData.putDB(EasyMemoryAvtivity.this, MyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
+                    PreData.putDB(EasyMemoryAvtivity.this, EasyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
                     SetAdUtil.track("ram页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
@@ -299,9 +299,9 @@ public class EasyMemoryAvtivity extends BaseActivity implements CustomRamView {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(MyConstant.RAM_RESUIL);
+            setResult(EasyConstant.RAM_RESUIL);
             onBackPressed();
-        } else if (resultCode == MyConstant.WHITE_RESUIL) {
+        } else if (resultCode == EasyConstant.WHITE_RESUIL) {
             ramPresenter.addAdapterData();
         }
     }
@@ -318,7 +318,7 @@ public class EasyMemoryAvtivity extends BaseActivity implements CustomRamView {
             SetAdUtil.track("通知栏", "跳转垃圾清页面", "", 1);
             jumpTo(MainActivity.class);
         } else {
-            setResult(MyConstant.RAM_RESUIL);
+            setResult(EasyConstant.RAM_RESUIL);
         }
         finish();
     }

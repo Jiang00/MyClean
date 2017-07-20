@@ -15,7 +15,7 @@ import android.view.WindowManager;
 
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.junk.easyactivity.EasyFloatActivity;
-import com.easy.junk.easycustomview.FloatStateView;
+import com.easy.junk.easycustomview.EasyFloatStateView;
 
 /**
  * 浮窗管理者的创建(单例)
@@ -29,7 +29,7 @@ public class FloatStateManager {
     private Context context;
     private WindowManager wm; // 通过这个windowManager来操控浮窗体的显示和隐藏以及位置的改变
 
-    private FloatStateView circleView;
+    private EasyFloatStateView circleView;
     //    private FloatMenuView menuView;
     private WindowManager.LayoutParams params;
     Handler myHandler;
@@ -59,7 +59,7 @@ public class FloatStateManager {
                     if (Math.abs(end - x0) < 50 && Math.abs(endY - y0) < 50) {
                         break;
                     }
-                    circleView.setDragState(FloatStateView.STATE_NORMAL);
+                    circleView.setDragState(EasyFloatStateView.STATE_NORMAL);
                     params.x += dx;
                     params.y += dy;
                     try {
@@ -73,10 +73,10 @@ public class FloatStateManager {
                     float endX = event.getRawX();
                     if (endX > getScreenWidth() / 2) {
                         params.x = getScreenWidth() - circleView.width;
-                        circleView.setDragState(FloatStateView.STATE_RIGHT);
+                        circleView.setDragState(EasyFloatStateView.STATE_RIGHT);
                     } else {
                         params.x = 0;
-                        circleView.setDragState(FloatStateView.STATE_LEFT);
+                        circleView.setDragState(EasyFloatStateView.STATE_LEFT);
                     }
 
                     try {
@@ -106,7 +106,7 @@ public class FloatStateManager {
     private FloatStateManager(final Context context) {
         this.context = context.getApplicationContext();
         wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        circleView = new FloatStateView(context);
+        circleView = new EasyFloatStateView(context);
         circleView.setOnTouchListener(circleViewTouchListener);
         if (myHandler == null) {
             myHandler = new Handler(Looper.getMainLooper());

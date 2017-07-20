@@ -3,12 +3,15 @@ package com.easy.junk.easypresenter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.easy.clean.core.CleanManager;
-import com.easy.junk.easyinterfaceview.CustomAllAppView;
-import com.easy.junk.easyactivity.MyApplication;
 import com.easy.clean.entity.JunkInfo;
+import com.easy.junk.R;
+import com.easy.junk.easyactivity.EasySucceedActivity;
+import com.easy.junk.easyactivity.MyApplication;
+import com.easy.junk.easyinterfaceview.EasyCustomAllAppView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,7 +22,7 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class ManagerPresenter extends PresenterBase<CustomAllAppView> {
+public class ManagerPresenter extends PresenterBase<EasyCustomAllAppView> {
     public static final int SIZE_TYPE = 0;
     public static final int TIME_TYPE = 1;
     public static final int PINLV_TYPE = 2;
@@ -27,11 +30,13 @@ public class ManagerPresenter extends PresenterBase<CustomAllAppView> {
     private long allSize;
     private long cleanSize = 0;
     private ArrayList<JunkInfo> clearList;
+    Context context;
     private ArrayList<JunkInfo> list_size, list_time, list_pinlv;
     private int type;
 
-    public ManagerPresenter(CustomAllAppView iView, Context context) {
+    public ManagerPresenter(EasyCustomAllAppView iView, Context context) {
         super(iView, context);
+        this.context = context;
         cleanApplication = (MyApplication) context.getApplicationContext();
     }
 
@@ -66,13 +71,21 @@ public class ManagerPresenter extends PresenterBase<CustomAllAppView> {
         if (clearList == null || clearList.size() == 0) {
             return;
         }
-
         for (JunkInfo softinfo : clearList) {
             if (softinfo.pkg.equals(packageName)) {
                 CleanManager.getInstance(context).removeAppList(softinfo);
                 list_size.remove(softinfo);
                 list_time.remove(softinfo);
                 list_pinlv.remove(softinfo);
+                if (softinfo.allSize > 0) {
+                    Intent intent1 = new Intent(context, EasySucceedActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putLong("sizeR", softinfo.allSize);
+                    bundle.putString("name", (String) context.getText(R.string.success_title));
+                    bundle.putString("from", "ramSpeed");
+                    intent1.putExtras(bundle);
+                    context.startActivity(intent1);
+                }
                 addCleandata(false, softinfo.allSize);
                 iView.updateAdapter(list_size, list_time, list_pinlv);
             }

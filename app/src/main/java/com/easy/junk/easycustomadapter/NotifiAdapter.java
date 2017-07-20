@@ -16,7 +16,7 @@ import com.easy.junk.R;
 /**
  */
 
-public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
+public class NotifiAdapter extends EasyBaseAdapter<NotificationInfo> {
     public NotifiAdapter(Context context) {
         super(context);
     }

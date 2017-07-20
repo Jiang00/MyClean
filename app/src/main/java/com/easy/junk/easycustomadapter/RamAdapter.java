@@ -15,21 +15,21 @@ import com.easy.clean.easyutils.LoadManager;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.junk.R;
 import com.easy.clean.entity.JunkInfo;
-import com.easy.junk.easypresenter.PresenterRam;
+import com.easy.junk.easypresenter.EasyPresenterRam;
 
 import java.util.List;
 
-public class RamAdapter extends MybaseAdapter<JunkInfo> {
+public class RamAdapter extends EasyBaseAdapter<JunkInfo> {
     private AlertDialog dialog;
     private List<String> white_list;
-    PresenterRam ramPresenter;
+    EasyPresenterRam ramPresenter;
     AllListener listener;
 
     public RamAdapter(Context context) {
         super(context);
     }
 
-    public RamAdapter(Context context, PresenterRam ramPresenter) {
+    public RamAdapter(Context context, EasyPresenterRam ramPresenter) {
         super(context);
         this.ramPresenter = ramPresenter;
         white_list = CleanDBHelper.getInstance(context).getWhiteList(CleanDBHelper.TableType.Ram);

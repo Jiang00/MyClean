@@ -7,6 +7,6 @@ import java.util.List;
 /**
  */
 
-public interface LogHeRamView extends MyGarbageView {
+public interface LogHeRamView extends EasyGarbageView {
     void addRamdata(long size, List<JunkInfo> list);
 }

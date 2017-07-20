@@ -32,7 +32,7 @@ import com.easy.clean.cleanimage.ImageInfo;
 import com.easy.clean.cleanimage.RecyclerDbHelper;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.junk.R;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.easy.junk.easycustomadapter.RecycleViewAdapter;
 import com.easy.clean.easyutils.PreData;
@@ -138,7 +138,7 @@ public class EasyPictActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstant.PICTURE, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.PICTURE, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         }
     }

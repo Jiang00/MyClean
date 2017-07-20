@@ -18,11 +18,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -32,12 +30,11 @@ import com.easy.clean.easyutils.LoadManager;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easycustomview.DrawHookView;
 import com.easy.junk.easycustomview.ImageAccessor;
 import com.easy.junk.easycustomview.MainRoundView;
-import com.easy.junk.easycustomview.MySlowScrollView;
-import com.easy.junk.easytools.MUtilGp;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easycustomview.EasySlowScrollView;
+import com.easy.junk.easytools.EasyUtilGp;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.sample.lottie.LottieAnimationView;
 import com.twee.module.tweenengine.Tween;
@@ -51,52 +48,45 @@ import java.util.List;
  */
 
 public class EasySucceedActivity extends BaseActivity {
-    Button main_notifi_button1, main_file_button1;
-    TextView success_clean_2;
-    Button main_good_refuse;
-    Button junk_button_clean;
-    Button main_junk_button1, main_cooling_button1, main_power_button1, main_picture_button1, main_gboost_button1, main_ram_button1;
-    private Animation rotate;
-
-    private String TAG_CLEAN = "easy_success";
-    private String TAG_CLEAN_2 = "easy_success_2";
     LinearLayout main_gboost_button;
     FrameLayout title_left;
     LinearLayout main_rotate_all;
+    LinearLayout main_power_button;
+    LinearLayout main_notifi_button;
+    LinearLayout main_cooling_button;
+    LinearLayout main_ram_button;
     private boolean haveAd;
     private boolean animationEnd;
     private MyApplication cleanApplication;
     LinearLayout main_junk_button;
     TextView title_name;
-    LinearLayout main_power_button;
-    LinearLayout main_notifi_button;
-    LinearLayout main_cooling_button;
-    LinearLayout main_ram_button;
+    ImageView success_jiantou;
+    MainRoundView mainRoundView;
+    EasySlowScrollView scrollView;
+    LinearLayout main_picture_button;
+    LinearLayout main_file_button;
     TextView success_clean_size;
     TextView success_textview;
     TextView main_rotate_bad;
-    ImageView success_jiantou;
-    MainRoundView mainRoundView;
-    MySlowScrollView scrollView;
-    LinearLayout main_picture_button;
-    LinearLayout main_file_button;
+    ImageView rotate_cha;
+    LinearLayout ad_title;
+    LinearLayout ll_ad_xiao;
+    private String TAG_CLEAN = "cleanmobi_success";
+    private String TAG_CLEAN_2 = "cleanmobi_success_2";
     private Animation rotate_set;
     LinearLayout ad_native_2;
     private View nativeView;
     private View native_xiao;
-    ImageView rotate_cha;
-    LinearLayout ad_title;
-    LinearLayout ll_ad_xiao;
-    private boolean istween;
-    private Handler myHandler;
-    TextView main_rotate_good;
-    LottieAnimationView notifi_info_lot;
-    DrawHookView success_drawhook;
     ImageView imageview_beijing;
     ImageView power_icon;
     TextView power_text;
     private boolean isdoudong;
     private TweenManager tweenManager;
+    private boolean istween;
+    private Handler myHandler;
+    TextView main_rotate_good;
+    LottieAnimationView notifi_info_lot;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -104,15 +94,15 @@ public class EasySucceedActivity extends BaseActivity {
         setContentView(R.layout.layout_success);
 
         //深度清理
-        if (PreData.getDB(this, MyConstant.POWERACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, EasyConstant.POWERACTIVITY, 1) == 0) {
             main_power_button.setVisibility(View.GONE);
         }
         //文件
-        if (PreData.getDB(this, MyConstant.FILEACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, EasyConstant.FILEACTIVITY, 1) == 0) {
             main_file_button.setVisibility(View.GONE);
         }
         //通知栏
-        if (PreData.getDB(this, MyConstant.NOTIFIACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, EasyConstant.NOTIFIACTIVITY, 1) == 0) {
             main_notifi_button.setVisibility(View.GONE);
         }
 
@@ -135,7 +125,7 @@ public class EasySucceedActivity extends BaseActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 //广告
-                if (PreData.getDB(EasySucceedActivity.this, MyConstant.FULL_SUCCESS, 0) == 1) {
+                if (PreData.getDB(EasySucceedActivity.this, EasyConstant.FULL_SUCCESS, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
                 //动画结束换内容的
@@ -157,7 +147,6 @@ public class EasySucceedActivity extends BaseActivity {
         } else {
             title_name.setText(R.string.success_title);
         }
-
         if (TextUtils.equals("ramSpeed", getIntent().getStringExtra("from"))) {
             main_notifi_button.setVisibility(View.GONE);
             main_file_button.setVisibility(View.GONE);
@@ -236,19 +225,7 @@ public class EasySucceedActivity extends BaseActivity {
             main_notifi_button.setVisibility(View.GONE);
         }
         initAnimation();
-        success_drawhook.setListener(new DrawHookView.DrawHookListener() {
-
-            @Override
-            public void duogouSc() {
-                if (PreData.getDB(EasySucceedActivity.this, MyConstant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-                success_textview.setVisibility(View.VISIBLE);
-                startSecondAnimation();
-                success_drawhook.setListener(null);
-            }
-        });
-        if (PreData.getDB(this, MyConstant.IS_ROTATE, false)) {
+        if (PreData.getDB(this, EasyConstant.IS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
 
@@ -260,7 +237,7 @@ public class EasySucceedActivity extends BaseActivity {
         translate.setRepeatMode(Animation.REVERSE);
         success_jiantou.startAnimation(translate);
         shendu();
-        if (PreData.getDB(this, MyConstant.FULL_SUCCESS, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_SUCCESS, 0) == 1) {
 
         } else {
             myHandler.postDelayed(new Runnable() {
@@ -268,7 +245,27 @@ public class EasySucceedActivity extends BaseActivity {
                     addAd();
                 }
             }, 1000);
+        }
+    }
 
+    private void addAd() {
+        nativeView = SetAdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
+        native_xiao = SetAdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+        if (ad_native_2 != null && nativeView != null) {
+            ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
+            layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
+            Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
+            ad_native_2.setLayoutParams(layout_ad);
+            ad_native_2.addView(nativeView);
+            if (animationEnd) {
+                ad_native_2.setVisibility(View.VISIBLE);
+                scrollView.isTouch = false;
+                scrollView.smoothScrollToSlow(2000);
+            }
+        }
+        if (ll_ad_xiao != null && native_xiao != null) {
+            ll_ad_xiao.addView(native_xiao);
+            ll_ad_xiao.setVisibility(View.VISIBLE);
         }
     }
 
@@ -281,10 +278,9 @@ public class EasySucceedActivity extends BaseActivity {
         imageview_beijing = (ImageView) findViewById(R.id.imageview_beijing);
         success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
-        success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
         mainRoundView = (MainRoundView) findViewById(R.id.main_progress);
         success_textview = (TextView) findViewById(R.id.success_textview);
-        scrollView = (MySlowScrollView) findViewById(R.id.scrollView);
+        scrollView = (EasySlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
@@ -304,6 +300,25 @@ public class EasySucceedActivity extends BaseActivity {
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
     }
 
+    private void shendu() {
+        cleanApplication = (MyApplication) getApplication();
+        List<JunkInfo> startList = new ArrayList<>();
+        for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
+            if (info.isSelfBoot) {
+                startList.add(info);
+            }
+        }
+        if (startList.size() == 0) {
+            main_power_button.setVisibility(View.GONE);
+        } else {
+            power_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
+            String text1 = getString(R.string.power_1, String.valueOf(startList.size())) + " ";
+            SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
+            ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            power_text.setText(ss1);
+        }
+    }
+
     private void initAnimation() {
         myHandler.post(new Runnable() {
             @Override
@@ -313,6 +328,21 @@ public class EasySucceedActivity extends BaseActivity {
         });
     }
 
+    private void addListener() {
+        title_left.setOnClickListener(onClickListener);
+        main_rotate_good.setOnClickListener(onClickListener);
+        main_rotate_bad.setOnClickListener(onClickListener);
+        rotate_cha.setOnClickListener(onClickListener);
+        main_power_button.setOnClickListener(onClickListener);
+        main_notifi_button.setOnClickListener(onClickListener);
+        main_file_button.setOnClickListener(onClickListener);
+        main_cooling_button.setOnClickListener(onClickListener);
+        main_ram_button.setOnClickListener(onClickListener);
+        main_junk_button.setOnClickListener(onClickListener);
+        main_gboost_button.setOnClickListener(onClickListener);
+        main_picture_button.setOnClickListener(onClickListener);
+
+    }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -323,18 +353,18 @@ public class EasySucceedActivity extends BaseActivity {
                     break;
                 case R.id.main_rotate_good:
                     SetAdUtil.track("完成页面", "点击好评good", "", 1);
-                    PreData.putDB(EasySucceedActivity.this, MyConstant.IS_ROTATE, true);
-                    MUtilGp.rate(EasySucceedActivity.this);
+                    PreData.putDB(EasySucceedActivity.this, EasyConstant.IS_ROTATE, true);
+                    EasyUtilGp.rate(EasySucceedActivity.this);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_rotate_bad:
                     SetAdUtil.track("完成页面", "点击好评bad", "", 1);
-                    PreData.putDB(EasySucceedActivity.this, MyConstant.IS_ROTATE, true);
+                    PreData.putDB(EasySucceedActivity.this, EasyConstant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.rotate_cha:
                     SetAdUtil.track("完成页面", "点击好评叉号", "", 1);
-                    PreData.putDB(EasySucceedActivity.this, MyConstant.IS_ROTATE, true);
+                    PreData.putDB(EasySucceedActivity.this, EasyConstant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
@@ -367,7 +397,7 @@ public class EasySucceedActivity extends BaseActivity {
                         return;
                     }
                     SetAdUtil.track("完成页面", "点击进入文件管理", "", 1);
-                    PreData.putDB(EasySucceedActivity.this, MyConstant.FILE_CLEAN, true);
+                    PreData.putDB(EasySucceedActivity.this, EasyConstant.FILE_CLEAN, true);
                     jumpTo(EasyFileManagerActivity.class);
                     onBackPressed();
                     break;
@@ -377,7 +407,7 @@ public class EasySucceedActivity extends BaseActivity {
                         return;
                     }
                     SetAdUtil.track("完成页面", "点击进入游戏加速", "", 1);
-                    PreData.putDB(EasySucceedActivity.this, MyConstant.GBOOST_CLEAN, true);
+                    PreData.putDB(EasySucceedActivity.this, EasyConstant.GBOOST_CLEAN, true);
                     jumpTo(EasyGoodGameActivity.class);
                     onBackPressed();
                     break;
@@ -387,16 +417,16 @@ public class EasySucceedActivity extends BaseActivity {
                         return;
                     }
                     SetAdUtil.track("完成页面", "点击进入相似图片", "", 1);
-                    PreData.putDB(EasySucceedActivity.this, MyConstant.PHOTO_CLEAN, true);
+                    PreData.putDB(EasySucceedActivity.this, EasyConstant.PHOTO_CLEAN, true);
                     jumpTo(EasyPictActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_notifi_button:
                     SetAdUtil.track("完成页面", "点击进入通知栏清理", "", 1);
-                    PreData.putDB(EasySucceedActivity.this, MyConstant.NOTIFI_CLEAN, true);
+                    PreData.putDB(EasySucceedActivity.this, EasyConstant.NOTIFI_CLEAN, true);
                     if (!MyUtils.isNotificationListenEnabled(EasySucceedActivity.this)) {
                         startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!PreData.getDB(EasySucceedActivity.this, MyConstant.KEY_NOTIFI, true)) {
+                    } else if (!PreData.getDB(EasySucceedActivity.this, EasyConstant.KEY_NOTIFI, true)) {
                         Intent intent6 = new Intent(EasySucceedActivity.this, EasyNotifingAnimationActivity.class);
                         startActivity(intent6);
                         onBackPressed();
@@ -411,69 +441,11 @@ public class EasySucceedActivity extends BaseActivity {
         }
     };
 
-    private void addAd() {
-        nativeView = SetAdUtil.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = SetAdUtil.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
-        if (ad_native_2 != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
-            layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
-            Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
-            ad_native_2.setLayoutParams(layout_ad);
-            haveAd = true;
-            ad_native_2.addView(nativeView);
-            if (animationEnd) {
-                ad_native_2.setVisibility(View.VISIBLE);
-                scrollView.isTouch = false;
-                scrollView.smoothScrollToSlow(2000);
-            }
-        }
-        if (ll_ad_xiao != null && native_xiao != null) {
-            ll_ad_xiao.addView(native_xiao);
-            ll_ad_xiao.setVisibility(View.VISIBLE);
-        }
-    }
-
-    private void shendu() {
-        cleanApplication = (MyApplication) getApplication();
-        List<JunkInfo> startList = new ArrayList<>();
-        for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
-            if (info.isSelfBoot) {
-                startList.add(info);
-            }
-        }
-        if (startList.size() == 0) {
-            main_power_button.setVisibility(View.GONE);
-        } else {
-
-            power_icon.setImageDrawable(LoadManager.getInstance(this).getAppIcon(startList.get(0).pkg));
-            String text1 = getString(R.string.power_1, String.valueOf(startList.size())) + " ";
-            SpannableString ss1 = new SpannableString(text1 + getString(R.string.power_4));
-            ss1.setSpan(new ForegroundColorSpan(Color.parseColor("#ff3131")), 0, text1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            power_text.setText(ss1);
-        }
-    }
-
-    private void addListener() {
-        title_left.setOnClickListener(onClickListener);
-        main_rotate_good.setOnClickListener(onClickListener);
-        main_rotate_bad.setOnClickListener(onClickListener);
-        rotate_cha.setOnClickListener(onClickListener);
-        main_power_button.setOnClickListener(onClickListener);
-        main_notifi_button.setOnClickListener(onClickListener);
-        main_file_button.setOnClickListener(onClickListener);
-        main_cooling_button.setOnClickListener(onClickListener);
-        main_ram_button.setOnClickListener(onClickListener);
-        main_junk_button.setOnClickListener(onClickListener);
-        main_gboost_button.setOnClickListener(onClickListener);
-        main_picture_button.setOnClickListener(onClickListener);
-
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100) {
             if (MyUtils.isNotificationListenEnabled(EasySucceedActivity.this)) {
-                PreData.putDB(EasySucceedActivity.this, MyConstant.KEY_NOTIFI, true);
+                PreData.putDB(EasySucceedActivity.this, EasyConstant.KEY_NOTIFI, true);
                 Intent intent = new Intent(EasySucceedActivity.this, EasyNotifingActivity.class);
                 startActivity(intent);
             } else {
@@ -536,7 +508,6 @@ public class EasySucceedActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 isdoudong = false;
-                success_drawhook.startProgress(500);
             }
         }, 2000);
     }
@@ -550,12 +521,24 @@ public class EasySucceedActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        if (nativeView != null) {
+            nativeView = null;
+            if (ad_native_2 != null) {
+                ad_native_2.setVisibility(View.GONE);
+            }
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         istween = false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(1);
+        finish();
     }
 
     private void setAnimationThread() {
@@ -588,11 +571,4 @@ public class EasySucceedActivity extends BaseActivity {
             }
         }).start();
     }
-
-    @Override
-    public void onBackPressed() {
-        setResult(1);
-        finish();
-    }
-
 }

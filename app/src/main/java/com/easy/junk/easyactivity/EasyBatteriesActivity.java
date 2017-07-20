@@ -17,9 +17,9 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easycustomview.BatteryScanView;
+import com.easy.junk.easycustomview.EasyBatteryScanView;
 import com.easy.junk.easycustomview.FlakeView;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 
 import java.util.Random;
 
@@ -32,7 +32,7 @@ public class EasyBatteriesActivity extends BaseActivity {
     private static final int FLAKE_NUM = 5;
     LinearLayout cooling_text;
     TextView title_name;
-    BatteryScanView cooling_1;
+    EasyBatteryScanView cooling_1;
     LinearLayout cooling_piao;
     private Animation suo;
     TextView cooling_wendu;
@@ -111,7 +111,7 @@ public class EasyBatteriesActivity extends BaseActivity {
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
-        cooling_1 = (BatteryScanView) findViewById(R.id.cooling_1);
+        cooling_1 = (EasyBatteryScanView) findViewById(R.id.cooling_1);
     }
 
     private void hideSnow() {
@@ -147,7 +147,6 @@ public class EasyBatteriesActivity extends BaseActivity {
                 ScaleAnimation s = new ScaleAnimation(1f, 1f, 1f, 0f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从下往上
                 s.setDuration(2000);//设置动画持续时间
                 s.startNow();//开始动画
-
             }
         }, 2000); //延迟2秒跳转
         mHandler.postDelayed(new Runnable() {
@@ -169,7 +168,7 @@ public class EasyBatteriesActivity extends BaseActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (PreData.getDB(EasyBatteriesActivity.this, MyConstant.FULL_COOL, 0) == 1) {
+                if (PreData.getDB(EasyBatteriesActivity.this, EasyConstant.FULL_COOL, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
                 Bundle bundle = new Bundle();
@@ -193,7 +192,7 @@ public class EasyBatteriesActivity extends BaseActivity {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
             jumpTo(MainActivity.class);
         } else {
-            setResult(MyConstant.COOLING_RESUIL, new Intent().putExtra("wendu", time));
+            setResult(EasyConstant.COOLING_RESUIL, new Intent().putExtra("wendu", time));
         }
         finish();
     }

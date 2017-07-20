@@ -42,7 +42,7 @@
                     android:scaleType="center"
                     android:src="@mipmap/main_menu" />
 
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                     android:id="@+id/tv_title_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
 
                 <include layout="@layout/layout_load_more" />
 
-                <com.easy.junk.easycustomview.MyScrollView
+                <com.easy.junk.easycustomview.EasyScrollView
                     android:id="@+id/main_scroll_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -135,7 +135,7 @@
                                 android:layout_marginTop="@dimen/d8"
                                 android:src="@mipmap/mian_point" />
 
-                            <com.easy.junk.easycustomview.YuanHuView
+                            <com.easy.junk.easycustomview.EasyYuanHuView
                                 android:id="@+id/main_yunahuview"
                                 android:layout_width="@dimen/d234"
                                 android:layout_height="@dimen/d234"
@@ -248,7 +248,7 @@
                                                         android:visibility="invisible" />
                                                 </RelativeLayout>
 
-                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_gravity="center_horizontal"
@@ -278,7 +278,7 @@
                                                     android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_ram_button" />
 
-                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="@string/main_ram_name"
@@ -303,7 +303,7 @@
                                                 android:layout_marginTop="@dimen/d9"
                                                 android:src="@mipmap/main_manager_button" />
 
-                                            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                            <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:text="@string/main_manager_name"
@@ -337,7 +337,7 @@
                                                     android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_picture_button" />
 
-                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="@string/side_picture"
@@ -366,7 +366,7 @@
                                                     android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_cooling_button" />
 
-                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="@string/main_cooling_name"
@@ -395,7 +395,7 @@
                                                     android:layout_marginTop="@dimen/d9"
                                                     android:src="@mipmap/main_gboost_button" />
 
-                                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:text="@string/gboost_0"
@@ -458,7 +458,7 @@
                                     android:src="@mipmap/close" />
                             </RelativeLayout>
 
-                            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                            <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -468,22 +468,13 @@
                                 android:textColor="@color/A1"
                                 android:textSize="@dimen/s16" />
 
-                            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginBottom="@dimen/d21"
-                                android:text="@string/mian_like_tishi2"
-                                android:textColor="@color/A1"
-                                android:textSize="@dimen/s16" />
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/d43"
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal">
 
-                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                     android:id="@+id/main_rotate_bad"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/d42"
@@ -494,7 +485,7 @@
                                     android:textColor="@color/A9"
                                     android:textSize="@dimen/s12" />
 
-                                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                     android:id="@+id/main_rotate_good"
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/d42"
@@ -553,7 +544,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d16"
@@ -561,7 +552,7 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d2"
@@ -599,14 +590,14 @@
                                         android:gravity="center_vertical"
                                         android:orientation="vertical">
 
-                                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/side_junk"
                                             android:textColor="@color/A8"
                                             android:textSize="@dimen/s16" />
 
-                                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                             android:layout_width="@dimen/d225"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="@dimen/d2"
@@ -639,7 +630,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:id="@+id/main_msg_cooling"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -648,7 +639,7 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d2"
@@ -681,7 +672,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:id="@+id/main_msg_power"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -697,7 +688,7 @@
                                         android:orientation="horizontal"
                                         android:visibility="gone">
 
-                                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                             android:id="@+id/power_size"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
@@ -705,7 +696,7 @@
                                             android:textColor="@color/A1"
                                             android:textSize="@dimen/s14" />
 
-                                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                        <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                             android:layout_width="@dimen/d225"
                                             android:layout_height="wrap_content"
                                             android:text="@string/power_2"
@@ -713,7 +704,7 @@
                                             android:textSize="@dimen/s14" />
                                     </LinearLayout>
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d2"
@@ -745,7 +736,7 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:id="@+id/main_msg_picture"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -754,7 +745,7 @@
                                         android:textColor="@color/A8"
                                         android:textSize="@dimen/s16" />
 
-                                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                                    <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                                         android:layout_width="@dimen/d225"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d2"
@@ -794,19 +785,19 @@
                                     android:textColor="@color/A8"
                                     android:textSize="@dimen/s16" />
 
-                                <com.easy.junk.easycustomview.CustomRoundCpu
+                                <com.easy.junk.easycustomview.EasyCustomRoundCpu
                                     android:id="@+id/main_custom_cpu"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:visibility="gone" />
 
-                                <com.easy.junk.easycustomview.CustomRoundCpu
+                                <com.easy.junk.easycustomview.EasyCustomRoundCpu
                                     android:id="@+id/main_custom_ram"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:visibility="gone" />
 
-                                <com.easy.junk.easycustomview.CustomRoundCpu
+                                <com.easy.junk.easycustomview.EasyCustomRoundCpu
                                     android:id="@+id/main_custom_sd"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -948,7 +939,7 @@
                             android:visibility="invisible" />
 
                     </LinearLayout>
-                </com.easy.junk.easycustomview.MyScrollView>
+                </com.easy.junk.easycustomview.EasyScrollView>
 
                 <include layout="@layout/layout_load_more" />
             </com.easy.junk.easycustomview.PullToRefreshLayout>

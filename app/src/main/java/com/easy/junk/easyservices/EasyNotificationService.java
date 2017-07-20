@@ -40,7 +40,7 @@ import com.easy.junk.easyactivity.EasySucceedActivity;
 import com.easy.junk.easyactivity.MainActivity;
 import com.easy.junk.easyactivity.MyApplication;
 import com.easy.junk.easytools.GetCpuTempReader;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.PhonesManager;
 import com.easy.junk.easytools.SetAdUtil;
 
@@ -215,8 +215,8 @@ public class EasyNotificationService extends Service {
         canvas.drawArc(oval, 90, -360 * memory / 100, true, paint1);
         remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
 
-
         remoteView_1.setTextViewText(R.id.norifi_memory_text, MyUtils.getMemory(this) + "");
+
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntentMain = PendingIntent.getActivity(this, requestCode,
                 notifyIntentMain, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -327,6 +327,7 @@ public class EasyNotificationService extends Service {
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
                 notifyIntentCooling, PendingIntent.FLAG_CANCEL_CURRENT);
+        remoteView.setTextViewText(R.id.tv_memory, cpuTemp + "℃");
         mBuilder.setContent(remoteView);
         mBuilder.setContentIntent(pendIntent);
         mBuilder.setAutoCancel(true);
@@ -363,75 +364,77 @@ public class EasyNotificationService extends Service {
                 paint1.setStyle(Paint.Style.FILL);
                 paint1.setColor(ContextCompat.getColor(EasyNotificationService.this, R.color.A23_20));
                 canvas.drawArc(oval, 90, -360 * memory / 100, true, paint1);
+
                 remoteView_1.setImageViewBitmap(R.id.notifi_memory, bitmap_progress);
                 remoteView_1.setTextViewText(R.id.norifi_memory_text, memory + "%");
+                remoteView_1.setTextViewText(R.id.notifi_cpu, cpuTemp + "℃");
                 mNotifyManager.notify(102, notification_1);
             }
         });
         long time = System.currentTimeMillis();
-        if (PreData.getDB(this, MyConstant.TONGZHI_SWITCH, true)) {
+        if (PreData.getDB(this, EasyConstant.TONGZHI_SWITCH, true)) {
             int hh = Integer.parseInt(MyUtils.getStrTimeHH(time));
             //ram
-            if (hh >= 6 && hh < 12 && PreData.getDB(this, MyConstant.KEY_TONGZHI_ZAO_RAM, true)) {
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZHONG_RAM, true);
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_WAN_RAM, true);
+            if (hh >= 6 && hh < 12 && PreData.getDB(this, EasyConstant.KEY_TONGZHI_ZAO_RAM, true)) {
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZHONG_RAM, true);
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_WAN_RAM, true);
                 if (memory > 80) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
                     SetAdUtil.track("通知栏", "内存通知", "展示", 1);
-                    PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZAO_RAM, false);
+                    PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZAO_RAM, false);
                 }
                 return;
-            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, MyConstant.KEY_TONGZHI_ZHONG_RAM, true)) {
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZAO_RAM, true);
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_WAN_RAM, true);
+            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, EasyConstant.KEY_TONGZHI_ZHONG_RAM, true)) {
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZAO_RAM, true);
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_WAN_RAM, true);
                 if (memory > 80) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
                     SetAdUtil.track("通知栏", "内存通知", "展示", 1);
-                    PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZHONG_RAM, false);
+                    PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZHONG_RAM, false);
                 }
                 return;
-            } else if (hh >= 18 && PreData.getDB(this, MyConstant.KEY_TONGZHI_WAN_RAM, true)) {
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZAO_RAM, true);
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZHONG_RAM, true);
+            } else if (hh >= 18 && PreData.getDB(this, EasyConstant.KEY_TONGZHI_WAN_RAM, true)) {
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZAO_RAM, true);
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZHONG_RAM, true);
                 if (memory > 80) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
                     SetAdUtil.track("通知栏", "内存通知", "展示", 1);
-                    PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_WAN_RAM, false);
+                    PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_WAN_RAM, false);
                 }
                 return;
             }
             //cooling
-            if (hh >= 6 && hh < 12 && PreData.getDB(this, MyConstant.KEY_TONGZHI_ZAO_COOLING, true)) {
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZHONG_COOLING, true);
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_WAN_COOLING, true);
+            if (hh >= 6 && hh < 12 && PreData.getDB(this, EasyConstant.KEY_TONGZHI_ZAO_COOLING, true)) {
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZHONG_COOLING, true);
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_WAN_COOLING, true);
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     SetAdUtil.track("通知栏", "降温通知", "展示", 1);
-                    PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZAO_COOLING, false);
+                    PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZAO_COOLING, false);
                 }
                 return;
-            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, MyConstant.KEY_TONGZHI_ZHONG_COOLING, true)) {
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZAO_COOLING, true);
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_WAN_COOLING, true);
+            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, EasyConstant.KEY_TONGZHI_ZHONG_COOLING, true)) {
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZAO_COOLING, true);
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_WAN_COOLING, true);
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     SetAdUtil.track("通知栏", "降温通知", "展示", 1);
-                    PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZHONG_COOLING, false);
+                    PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZHONG_COOLING, false);
                 }
                 return;
-            } else if (hh >= 18 && PreData.getDB(this, MyConstant.KEY_TONGZHI_WAN_COOLING, true)) {
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZAO_COOLING, true);
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZHONG_COOLING, true);
+            } else if (hh >= 18 && PreData.getDB(this, EasyConstant.KEY_TONGZHI_WAN_COOLING, true)) {
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZAO_COOLING, true);
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZHONG_COOLING, true);
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     SetAdUtil.track("通知栏", "降温通知", "展示", 1);
-                    PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_WAN_COOLING, false);
+                    PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_WAN_COOLING, false);
                 }
                 return;
             }
@@ -439,40 +442,40 @@ public class EasyNotificationService extends Service {
             long laji_size = CleanManager.getInstance(this).getApkSize() + CleanManager.getInstance(this).getCacheSize() + CleanManager.getInstance(this).getUnloadSize() + CleanManager.getInstance(this).getLogSize()
                     + CleanManager.getInstance(this).getDataSize() + CleanManager.getInstance(this).getRamSize();
 
-            if (hh >= 6 && hh < 12 && PreData.getDB(this, MyConstant.KEY_TONGZHI_ZAO_JUNK, true)) {
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZHONG_JUNK, true);
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_WAN_JUNK, true);
+            if (hh >= 6 && hh < 12 && PreData.getDB(this, EasyConstant.KEY_TONGZHI_ZAO_JUNK, true)) {
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZHONG_JUNK, true);
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_WAN_JUNK, true);
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
                     SetAdUtil.track("通知栏", "垃圾通知", "展示", 1);
-                    PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZAO_JUNK, false);
+                    PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZAO_JUNK, false);
                 }
-            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, MyConstant.KEY_TONGZHI_ZHONG_JUNK, true)) {
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZAO_JUNK, true);
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_WAN_JUNK, true);
+            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, EasyConstant.KEY_TONGZHI_ZHONG_JUNK, true)) {
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZAO_JUNK, true);
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_WAN_JUNK, true);
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
                     SetAdUtil.track("通知栏", "垃圾通知", "展示", 1);
-                    PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZHONG_JUNK, false);
+                    PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZHONG_JUNK, false);
                 }
-            } else if (hh >= 18 && PreData.getDB(this, MyConstant.KEY_TONGZHI_WAN_JUNK, true)) {
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZAO_JUNK, true);
-                PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_ZHONG_JUNK, true);
+            } else if (hh >= 18 && PreData.getDB(this, EasyConstant.KEY_TONGZHI_WAN_JUNK, true)) {
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZAO_JUNK, true);
+                PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_ZHONG_JUNK, true);
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
                     mNotifyManager.notify(101, notification_junk);
                     SetAdUtil.track("通知栏", "垃圾通知", "展示", 1);
-                    PreData.putDB(EasyNotificationService.this, MyConstant.KEY_TONGZHI_WAN_JUNK, false);
+                    PreData.putDB(EasyNotificationService.this, EasyConstant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }
-            long clean_two_day = PreData.getDB(EasyNotificationService.this, MyConstant.KEY_CLEAN_TIME, 0l);
+            long clean_two_day = PreData.getDB(EasyNotificationService.this, EasyConstant.KEY_CLEAN_TIME, 0l);
             if (MyUtils.millTransFate(time - clean_two_day) > 2) {
                 tonghzi_two_day();
                 mNotifyManager.notify(101, notification_two_day);
                 SetAdUtil.track("通知栏", "两天唤醒", "展示", 1);
-                PreData.putDB(this, MyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
+                PreData.putDB(this, EasyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
             }
         }
 
@@ -554,7 +557,7 @@ public class EasyNotificationService extends Service {
         mBuilder.setAutoCancel(false);
         mBuilder.setOngoing(true);
         mBuilder.setWhen(System.currentTimeMillis());
-        mBuilder.setSmallIcon(R.mipmap.notifi_7);
+        mBuilder.setSmallIcon(R.mipmap.loading_icon);
         notification_notifi = mBuilder.build();
         notification_notifi.flags = Notification.FLAG_INSISTENT;
         notification_notifi.flags |= Notification.FLAG_ONGOING_EVENT;
@@ -565,7 +568,7 @@ public class EasyNotificationService extends Service {
     @Override
     public void onDestroy() {
         // TODO Auto-generated method stub
-        if (!PreData.getDB(this, MyConstant.TONGZHILAN_SWITCH, true)) {
+        if (!PreData.getDB(this, EasyConstant.TONGZHILAN_SWITCH, true)) {
             mNotifyManager.cancel(102);
         }
         myHandler.removeCallbacks(runnableW);

@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.easy.clean.easyutils.PreData;
 import com.android.client.AndroidSdk;
 import com.easy.junk.R;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 
 /**
  * Created by on 2017/2/28.
@@ -41,7 +41,7 @@ public class BaseActivity extends AppCompatActivity {
         } else {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
-        if (PreData.getDB(this, MyConstant.IS_ACTION_BAR, true)) {
+        if (PreData.getDB(this, EasyConstant.IS_ACTION_BAR, true)) {
             full();
         }
 

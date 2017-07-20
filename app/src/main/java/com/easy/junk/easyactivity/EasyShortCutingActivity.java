@@ -29,7 +29,7 @@ import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
 import com.easy.junk.easycustomview.ImageAccessor;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.twee.module.tweenengine.Tween;
 import com.twee.module.tweenengine.TweenManager;
@@ -41,7 +41,7 @@ import java.util.List;
  */
 
 public class EasyShortCutingActivity extends BaseActivity {
-    private String TAG_SHORTCUT = "easy_shortcut";
+    private String TAG_SHORTCUT = "cleanmobi_shortcut";
     private static final int FLAKE_NUM = 3;
     FrameLayout short_backg;
     private int count;
@@ -174,7 +174,7 @@ public class EasyShortCutingActivity extends BaseActivity {
             WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
             lp.width = dm.widthPixels; //设置宽度
             lp.height = dm.heightPixels; //设置高度
-            if (PreData.getDB(this, MyConstant.IS_ACTION_BAR, true)) {
+            if (PreData.getDB(this, EasyConstant.IS_ACTION_BAR, true)) {
                 int uiOptions =
                         View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                                 //布局位于状态栏下方
@@ -208,7 +208,7 @@ public class EasyShortCutingActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstant.FULL_SHORTCUT, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_SHORTCUT, 0) == 1) {
         } else {
             nativeView = SetAdUtil.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
             if (ll_ad != null && nativeView != null) {

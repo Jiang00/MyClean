@@ -15,11 +15,11 @@
         android:background="@drawable/shape_radio"
         android:orientation="vertical">
 
-        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
             android:id="@+id/dialog_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/d16"
             android:layout_marginTop="@dimen/d16"
             android:text="@string/delete_queren"
             android:textColor="@color/A8"
@@ -41,11 +41,11 @@
                 android:progressDrawable="@drawable/pic_progress"
                 android:visibility="gone" />
 
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                 android:id="@+id/message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/d16"
                 android:layout_marginTop="@dimen/d9"
                 android:text="@string/picture_1"
                 android:textColor="@color/A9"
@@ -61,33 +61,37 @@
 
                 <ImageView
                     android:id="@+id/image_1"
-                    android:layout_width="@dimen/d52"
-                    android:layout_height="@dimen/d60" />
+                    android:layout_width="@dimen/d60"
+                    android:layout_height="@dimen/d60"
+                    android:scaleType="fitXY" />
 
                 <ImageView
                     android:id="@+id/image_2"
-                    android:layout_width="@dimen/d52"
+                    android:layout_width="@dimen/d60"
                     android:layout_height="@dimen/d60"
-                    android:layout_marginLeft="@dimen/d19" />
+                    android:layout_marginLeft="@dimen/d19"
+                    android:scaleType="fitXY" />
 
                 <ImageView
                     android:id="@+id/image_3"
-                    android:layout_width="@dimen/d52"
+                    android:layout_width="@dimen/d60"
                     android:layout_height="@dimen/d60"
-                    android:layout_marginLeft="@dimen/d19" />
+                    android:layout_marginLeft="@dimen/d19"
+                    android:scaleType="fitXY" />
 
                 <ImageView
                     android:id="@+id/image_4"
-                    android:layout_width="@dimen/d52"
+                    android:layout_width="@dimen/d60"
                     android:layout_height="@dimen/d60"
-                    android:layout_marginLeft="@dimen/d19" />
+                    android:layout_marginLeft="@dimen/d19"
+                    android:scaleType="fitXY" />
             </LinearLayout>
 
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                 android:id="@+id/count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d24"
+                android:layout_marginLeft="@dimen/d16"
                 android:layout_marginRight="@dimen/d24"
                 android:layout_marginTop="@dimen/d20"
                 android:text="@string/picture_2"
@@ -103,7 +107,7 @@
             android:gravity="right"
             android:orientation="horizontal">
 
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                 android:id="@+id/cancle"
                 android:layout_width="@dimen/d70"
                 android:layout_height="@dimen/d24"
@@ -113,7 +117,7 @@
                 android:textColor="@color/A9"
                 android:textSize="@dimen/s15" />
 
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
                 android:id="@+id/ok"
                 android:layout_width="@dimen/d70"
                 android:layout_height="@dimen/d24"

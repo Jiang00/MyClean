@@ -27,9 +27,9 @@ import com.easy.clean.filemanager.UtilsFile;
 import com.easy.clean.filemanager.Util;
 import com.easy.junk.R;
 import com.easy.junk.easytools.SetAdUtil;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easycustomadapter.PhoneFileAdapter;
-import com.easy.junk.easymodel.JunkInfo;
+import com.easy.junk.easymodel.EasyJunkInfo;
 import com.easy.clean.easyutils.PreData;
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ import java.util.ArrayList;
  */
 
 public class EasyDocActivity extends BaseActivity {
-    private String TAG_FILE_2 = "easy_file_2";
+    private String TAG_FILE_2 = "cleanmobi_file_2";
     private static final String TAG = "EasyDocActivity";
     ProgressBar file_progressbar;
     RelativeLayout file_clean_rl;
@@ -53,7 +53,7 @@ public class EasyDocActivity extends BaseActivity {
     FrameLayout file_fl;
     TextView title_name;
     private View nativeView;
-    private ArrayList<JunkInfo> docList, txtList, pdfList;
+    private ArrayList<EasyJunkInfo> docList, txtList, pdfList;
     private Handler mHandler;
     TextView file_button_clean;
     ViewPager doc_view_pager;
@@ -202,7 +202,7 @@ public class EasyDocActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstant.FULL_FILE_2, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_FILE_2, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             addAd();
@@ -222,24 +222,24 @@ public class EasyDocActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.file_button_clean:
-                    ArrayList<JunkInfo> deleteList = new ArrayList<>();
+                    ArrayList<EasyJunkInfo> deleteList = new ArrayList<>();
                     if (doc_view_pager.getCurrentItem() == 0) {
                         fc_clean = PhoneFileCategoryHelper.FileCategory.Word;
-                        for (JunkInfo info : docList) {
+                        for (EasyJunkInfo info : docList) {
                             if (info.isChecked) {
                                 deleteList.add(info);
                             }
                         }
                     } else if (doc_view_pager.getCurrentItem() == 1) {
                         fc_clean = PhoneFileCategoryHelper.FileCategory.Txt;
-                        for (JunkInfo info : txtList) {
+                        for (EasyJunkInfo info : txtList) {
                             if (info.isChecked) {
                                 deleteList.add(info);
                             }
                         }
                     } else {
                         fc_clean = PhoneFileCategoryHelper.FileCategory.Pdf;
-                        for (JunkInfo info : pdfList) {
+                        for (EasyJunkInfo info : pdfList) {
                             if (info.isChecked) {
                                 deleteList.add(info);
                             }
@@ -251,7 +251,7 @@ public class EasyDocActivity extends BaseActivity {
         }
     };
 
-    private void showDia(final ArrayList<JunkInfo> deleteList) {
+    private void showDia(final ArrayList<EasyJunkInfo> deleteList) {
         if (deleteList.size() == 0) {
             showToast(getString(R.string.delete));
             return;
@@ -271,7 +271,7 @@ public class EasyDocActivity extends BaseActivity {
             public void onClick(View v) {
                 dialog.dismiss();
                 long size = 0;
-                for (JunkInfo info : deleteList) {
+                for (EasyJunkInfo info : deleteList) {
                     size += info.size;
                     UtilsFile.deleteCo(EasyDocActivity.this, fc_clean, info._id);
                 }
@@ -279,7 +279,7 @@ public class EasyDocActivity extends BaseActivity {
                     @Override
                     public void run() {
                         super.run();
-                        for (JunkInfo info : deleteList) {
+                        for (EasyJunkInfo info : deleteList) {
                             boolean deleteSuce = UtilsFile.deleteFile(EasyDocActivity.this, info.path);
                             if (!deleteSuce) {
                                 android.util.Log.e(TAG, "delete fail --" + info.path);
@@ -311,7 +311,7 @@ public class EasyDocActivity extends BaseActivity {
         });
     }
 
-    private void queryData(PhoneFileCategoryHelper.FileCategory fc, ArrayList<JunkInfo> list) {
+    private void queryData(PhoneFileCategoryHelper.FileCategory fc, ArrayList<EasyJunkInfo> list) {
         Cursor cursorDoc = fileHelper.query(fc, FileSortHelper.SortMethod.size);
         if (cursorDoc != null && cursorDoc.moveToFirst()) {
             do {
@@ -328,7 +328,7 @@ public class EasyDocActivity extends BaseActivity {
                 } else if (fc == PhoneFileCategoryHelper.FileCategory.Pdf) {
                     icon = ContextCompat.getDrawable(EasyDocActivity.this, R.mipmap.file_pd_icon);
                 }
-                list.add(new JunkInfo(_id, icon, Util.getNameFromFilepath(cursorDoc.getString(PhoneFileCategoryHelper.COLUMN_PATH)),
+                list.add(new EasyJunkInfo(_id, icon, Util.getNameFromFilepath(cursorDoc.getString(PhoneFileCategoryHelper.COLUMN_PATH)),
                         cursorDoc.getString(PhoneFileCategoryHelper.COLUMN_PATH), size, false));
             } while (cursorDoc.moveToNext());
             cursorDoc.close();

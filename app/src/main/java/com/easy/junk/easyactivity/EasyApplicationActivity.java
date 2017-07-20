@@ -32,10 +32,10 @@ import com.easy.clean.entity.JunkInfo;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easyinterfaceview.CustomAllAppView;
+import com.easy.junk.easyinterfaceview.EasyCustomAllAppView;
 import com.easy.junk.easycustomadapter.ManagerAdapter;
 import com.easy.junk.easypresenter.ManagerPresenter;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 
 import java.util.ArrayList;
@@ -45,8 +45,8 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class EasyApplicationActivity extends BaseActivity implements CustomAllAppView {
-    private String TAG_MANAGER = "easy_manager";
+public class EasyApplicationActivity extends BaseActivity implements EasyCustomAllAppView {
+    private String TAG_MANAGER = "cleanmobi_manager";
     RelativeLayout manager_clean;
     ViewPager doc_view_pager;
     TextView title_name;
@@ -64,6 +64,7 @@ public class EasyApplicationActivity extends BaseActivity implements CustomAllAp
     TabLayout view_pager_tab;
     private MyPagerAdaptre pagerAdapter;
     private View view_size, view_time, view_pinlv, view_permiss;
+    long cleanSize;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,8 @@ public class EasyApplicationActivity extends BaseActivity implements CustomAllAp
         receiver = new MyReceiver();
         filter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
         filter.addDataScheme("package");
+
+        filter.addDataPath("cleansize", (int) cleanSize);
         registerReceiver(receiver, filter);
     }
 
@@ -107,6 +110,7 @@ public class EasyApplicationActivity extends BaseActivity implements CustomAllAp
 
     @Override
     public void initData(long cleanSize) {
+        this.cleanSize = cleanSize;
         title_name.setText(R.string.main_manager_name);
         adapter_size = new ManagerAdapter(this, managerPresenter);
         adapter_time = new ManagerAdapter(this, managerPresenter);
@@ -162,9 +166,9 @@ public class EasyApplicationActivity extends BaseActivity implements CustomAllAp
 //        managerPresenter.addAdapterData();
         String fileSize = MyUtils.convertStorage(cleanSize, true);
         if (TextUtils.isEmpty(fileSize)) {
-//            junk_button_clean.setText(getResources().getText(R.string.manager_button));
+            junk_button_clean.setText(getResources().getText(R.string.manager_button));
         } else {
-//            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
+            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
         }
     }
 
@@ -176,7 +180,7 @@ public class EasyApplicationActivity extends BaseActivity implements CustomAllAp
 
     @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, MyConstant.FULL_MANAGER, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_MANAGER, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             nativeView1 = SetAdUtil.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
@@ -284,12 +288,10 @@ public class EasyApplicationActivity extends BaseActivity implements CustomAllAp
 
         @Override
         public void onReceive(Context context, Intent intent) {
-
-            // TODO Auto-generated method stub
+            Log.e("xiezai", "==========cleanSize=====");
             String packageName = intent.getData().getSchemeSpecificPart();
             managerPresenter.unloadSuccess(packageName);
         }
-
     }
 
     @Override
@@ -347,12 +349,13 @@ public class EasyApplicationActivity extends BaseActivity implements CustomAllAp
     public void setCleanDAta(long size) {
         String fileSize = MyUtils.convertStorage(size, true);
         if (TextUtils.isEmpty(fileSize)) {
-//            junk_button_clean.setText(getResources().getText(R.string.manager_button));
+            junk_button_clean.setText(getResources().getText(R.string.manager_button));
             manager_clean.setVisibility(View.GONE);
         } else {
-//            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
+            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
             manager_clean.setVisibility(View.VISIBLE);
         }
+        cleanSize = size;
         adapter_size.notifyDataSetChanged();
         adapter_time.notifyDataSetChanged();
         adapter_pinlv.notifyDataSetChanged();

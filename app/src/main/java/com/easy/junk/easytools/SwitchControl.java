@@ -156,7 +156,7 @@ public class SwitchControl {
 //            return wifiApState;
             Log.d("TEST", "wifiApState" + wifiApState);
         } catch (Exception e) {
-//            Log.e(TAG,"Cannot get WiFi AP state" + e);
+//            EasyLog.e(TAG,"Cannot get WiFi AP state" + e);
 //            return false;
             e.printStackTrace();
         }
@@ -583,7 +583,7 @@ public class SwitchControl {
                 parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                 mCamera.setParameters(parameters);
             } else {
-//                Log.e(TAG, "FLASH_MODE_OFF not supported");
+//                EasyLog.e(TAG, "FLASH_MODE_OFF not supported");
             }
         }
         mCamera.release();

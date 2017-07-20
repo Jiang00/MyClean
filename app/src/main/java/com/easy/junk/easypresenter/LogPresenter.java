@@ -5,7 +5,7 @@ import android.content.Context;
 import android.widget.TextView;
 
 import com.easy.clean.core.CleanManager;
-import com.easy.junk.easyinterfaceview.MyGarbageView;
+import com.easy.junk.easyinterfaceview.EasyGarbageView;
 import com.easy.junk.easyactivity.MyApplication;
 import com.easy.clean.entity.JunkInfo;
 
@@ -16,13 +16,13 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class LogPresenter extends PresenterBase<MyGarbageView> {
+public class LogPresenter extends PresenterBase<EasyGarbageView> {
     private MyApplication cleanApplication;
     private ArrayList<JunkInfo> clearList;
     private long allSize;
     private long cleanSize;
 
-    public LogPresenter(MyGarbageView iView, Context context) {
+    public LogPresenter(EasyGarbageView iView, Context context) {
         super(iView, context);
         cleanApplication = (MyApplication) ((Activity) context).getApplication();
     }

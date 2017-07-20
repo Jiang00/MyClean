@@ -3,7 +3,7 @@ package com.easy.junk.easyinterfaceview;
 /**
  */
 
-public interface MainView extends MyBaseView {
+public interface MainView extends EasyBaseView {
     void initCpu(int temp);
 
     void initSd(int perent, String size, long sd_kongxian);

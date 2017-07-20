@@ -12,17 +12,17 @@ import com.easy.clean.easyutils.LoadManager;
 import com.easy.junk.R;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.entity.JunkInfo;
-import com.easy.junk.easypresenter.LogRamPresenter;
+import com.easy.junk.easypresenter.EasyLogRamPresenter;
 
-public class CustomJunkRamAdapter extends MybaseAdapter<JunkInfo> {
+public class CustomJunkRamAdapter extends EasyBaseAdapter<JunkInfo> {
     AllListener listener;
-    LogRamPresenter junkPresenter;
+    EasyLogRamPresenter junkPresenter;
 
     public CustomJunkRamAdapter(Context context) {
         super(context);
     }
 
-    public CustomJunkRamAdapter(Context context, LogRamPresenter junkPresenter) {
+    public CustomJunkRamAdapter(Context context, EasyLogRamPresenter junkPresenter) {
         super(context);
         this.junkPresenter = junkPresenter;
         lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {
@@ -73,10 +73,12 @@ public class CustomJunkRamAdapter extends MybaseAdapter<JunkInfo> {
             holder.icon.setImageResource(R.mipmap.log_file);
         }
         if (info.isChecked) {
-            listener.onChecked(true, position, true);
+            if (listener != null)
+                listener.onChecked(true, position, true);
             holder.checkBox.setImageResource(R.mipmap.ram_passed);
         } else {
-            listener.onChecked(false, position, true);
+            if (listener != null)
+                listener.onChecked(false, position, true);
             holder.checkBox.setImageResource(R.mipmap.ram_normal);
         }
         convertView.setOnClickListener(new View.OnClickListener() {
@@ -84,11 +86,13 @@ public class CustomJunkRamAdapter extends MybaseAdapter<JunkInfo> {
             public void onClick(View v) {
                 info.isChecked = !info.isChecked;
                 if (info.isChecked) {
-                    listener.onChecked(true, position, false);
+                    if (listener != null)
+                        listener.onChecked(true, position, false);
                     holder.checkBox.setImageResource(R.mipmap.ram_passed);
                     junkPresenter.addCleandata(true, info.size);
                 } else {
-                    listener.onChecked(false, position, false);
+                    if (listener != null)
+                        listener.onChecked(false, position, false);
                     holder.checkBox.setImageResource(R.mipmap.ram_normal);
                     junkPresenter.addCleandata(false, info.size);
                 }

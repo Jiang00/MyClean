@@ -16,7 +16,7 @@ import com.easy.clean.entity.JunkInfo;
  * Created by  on 2017/4/17.
  */
 
-public class NotifiSettingAdapter extends MybaseAdapter<JunkInfo> {
+public class NotifiSettingAdapter extends EasyBaseAdapter<JunkInfo> {
     public NotifiSettingAdapter(Context context) {
         super(context);
     }

@@ -1,11 +1,9 @@
 package com.easy.module.charge.saver.protectview;
 
-import android.animation.ValueAnimator;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -19,13 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.sample.lottie.LottieAnimationView;
-import com.easy.module.charge.saver.SetADActivity;
+import com.easy.module.charge.saver.EasySetADActivity;
 import com.easy.module.charge.saver.R;
-import com.easy.module.charge.saver.easyutils.ADRequest;
 import com.easy.module.charge.saver.easyutils.BatteryConstants;
-import com.easy.module.charge.saver.easyutils.Utils;
-import com.easy.module.charge.saver.entry.BatteryEntry;
+import com.easy.module.charge.saver.easyutils.EasyADRequest;
+import com.easy.module.charge.saver.easyutils.EasyUtils;
+import com.easy.module.charge.saver.entry.EasyBatteryEntry;
+import com.sample.lottie.LottieAnimationView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,7 +41,6 @@ public class ProtectBatteryView extends FrameLayout {
     private boolean isRegisterTimeUpdate = false;
     private View adView;
     private ProtectBatteryView.UnlockListener listener;
-//    private BatteryChargeView chargeView = null;
 
     private ProtectBatteryView batteryView;
     private LinearLayout adLayout;
@@ -59,10 +56,10 @@ public class ProtectBatteryView extends FrameLayout {
     private TextView week;
     private TextView batteryLeft;
     private TextView currentLevel;
-    private TextView currentLevel_ing;
     private BubbleLayout bubbleLayout;
-    private LottieAnimationView water;
+    private LottieAnimationView battery_ke;
     LottieAnimationView battay_info_lot;
+    BatteryView batteryview;
 
     private int halfWidth;
 //    private ImageView shutter;
@@ -98,7 +95,7 @@ public class ProtectBatteryView extends FrameLayout {
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private void showNativeAD() {
-        adView = new ADRequest().showCustomNativeAD(BatteryConstants.TAG_CHARGING, R.layout.native_ad, null);
+        adView = new EasyADRequest().showCustomNativeAD(BatteryConstants.TAG_CHARGING, R.layout.native_ad, null);
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);
@@ -146,8 +143,9 @@ public class ProtectBatteryView extends FrameLayout {
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
                 String str = sdf.format(d);
                 time.setText(str);
-                str = new SimpleDateFormat("YY", Locale.getDefault()).format(d);
-                date.setText(str);
+
+                str = new SimpleDateFormat("yy", Locale.getDefault()).format(d);
+                battery_now_year.setText(str);
                 str = new SimpleDateFormat("MM", Locale.getDefault()).format(d);
                 date.setText(str);
                 str = new SimpleDateFormat("dd", Locale.getDefault()).format(d);
@@ -161,46 +159,74 @@ public class ProtectBatteryView extends FrameLayout {
 
     private int progress = 0;
 
-    public void bind(BatteryEntry entry) {
+    public void bind(EasyBatteryEntry entry) {
         if (entry == null) {
             return;
         }
         final int curLevel = entry.getLevel();
         final int le = curLevel % 100;
+//        电量颜色
         if (curLevel < 20) {
-            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_3));
+//            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_3));
         } else if (curLevel < 80) {
-            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_2));
+//            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_2));
         } else {
-            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_1));
+//            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_1));
         }
         currentLevel.setText(curLevel + "%");
-
-        battay_info_lot.setImageAssetsFolder("images/");
-        battay_info_lot.setAnimation("particle.json");
-        battay_info_lot.loop(false);
-        battay_info_lot.setSpeed(0.7f);
-        battay_info_lot.playAnimation();
-
-
-        if (water != null && !water.isAnimating()) {
-            initWater();
-            water.playAnimation();
-            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    progress = (int) (animation.getAnimatedFraction() * 100);
-                    if (le == 0) {
-                        if (progress == 99) {
-                            progress = 100;
-                            water.pauseAnimation();
-                        }
-                    } else if (progress == le) {
-                        water.pauseAnimation();
-                    }
-                }
-            });
+        if (le <= 5) {
+            batteryview.start(2);
+        } else if (le > 5 && le <= 10) {
+            batteryview.start(10);
+        } else if (le > 10 && le <= 20) {
+            batteryview.start(20);
+        } else if (le > 20 && le <= 30) {
+            batteryview.start(30);
+        } else if (le > 30 && le <= 40) {
+            batteryview.start(40);
+        } else if (le > 40 && le <= 50) {
+            batteryview.start(50);
+        } else if (le > 50 && le <= 60) {
+            batteryview.start(60);
+        } else if (le > 60 && le <= 70) {
+            batteryview.start(70);
+        } else if (le > 70 && le <= 80) {
+            batteryview.start(80);
+        } else if (le > 80 && le <= 90) {
+            batteryview.start(90);
+        } else if (le > 90 && le <= 95) {
+            batteryview.start(95);
+        } else {
+            batteryview.start(100);
         }
+        if (battay_info_lot != null && !battay_info_lot.isAnimating()) {
+            try {
+                battay_info_lot.setImageAssetsFolder(mContext, "theme://images");
+                battay_info_lot.setAnimation(mContext, "theme://particle.json");
+            } catch (Exception e) {
+                if (!battay_info_lot.isAnimating()) {
+                    battay_info_lot.setImageAssetsFolder(null, "images");
+                    battay_info_lot.setAnimation(null, "particle.json");
+                }
+            }
+            battay_info_lot.loop(true);
+            battay_info_lot.setSpeed(1.0f);
+            battay_info_lot.playAnimation();
+        }
+
+        if (battery_ke != null && !battery_ke.isAnimating()) {
+            try {
+                battery_ke.setAnimation(mContext, "theme://battery_ke.json");
+            } catch (Exception e) {
+                if (!battery_ke.isAnimating()) {
+                    battery_ke.setAnimation(null, "battery_ke.json");
+                }
+            }
+            battery_ke.loop(true);
+            battery_ke.setSpeed(1.0f);//调节速度的
+            battery_ke.playAnimation();
+        }
+
         int leftChargeTime = entry.getLeftTime();
         if (batteryLeft != null) {
             String str;
@@ -214,20 +240,6 @@ public class ProtectBatteryView extends FrameLayout {
         }
     }
 
-    private void initWater() {
-        try {
-            water.setImageAssetsFolder(mContext, "theme://images/battery");
-            water.setAnimation(mContext, "theme://battery.json");
-        } catch (Exception e) {
-            if (!water.isAnimating()) {
-                water.setImageAssetsFolder(null, "images/battery");
-                water.setAnimation(null, "battery.json");
-            }
-        }
-        water.loop(true);
-        water.setSpeed(5.0f);
-    }
-
     protected int dp2px(float dp) {
         final float scale = getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
@@ -235,9 +247,7 @@ public class ProtectBatteryView extends FrameLayout {
 
     public void setCharing(boolean isVisible) {
         if (isVisible) {
-            currentLevel_ing.setVisibility(VISIBLE);
         } else {
-            currentLevel_ing.setVisibility(GONE);
         }
     }
 
@@ -247,18 +257,6 @@ public class ProtectBatteryView extends FrameLayout {
         if (!isBindView) {
             initViews();
             isBindView = true;
-
-//            shell.setAnimation("shell.json");
-//            shell.loop(true);
-//            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
-//                    new OnCompositionLoadedListener() {
-//                        @Override
-//                        public void onCompositionLoaded(LottieComposition composition) {
-//                            shell.setComposition(composition);
-//                        }
-//                    });
-//            shell.playAnimation();
-
             updateTime();
 
             showNativeAD();
@@ -311,9 +309,9 @@ public class ProtectBatteryView extends FrameLayout {
                 }
             });
 
-            String titleTxt = (String) Utils.readData(mContext, BatteryConstants.CHARGE_SAVER_TITLE, "Cleaner");
+            String titleTxt = (String) EasyUtils.readData(mContext, BatteryConstants.CHARGE_SAVER_TITLE, "Cleaner");
             title.setText(titleTxt);
-            int iconId = (int) Utils.readData(mContext, BatteryConstants.CHARGE_SAVER_ICON, R.mipmap.battery_inner_icon);
+            int iconId = (int) EasyUtils.readData(mContext, BatteryConstants.CHARGE_SAVER_ICON, R.mipmap.battery_inner_icon);
             if (iconId > -1) {
                 icon.setImageResource(iconId);
             }
@@ -328,7 +326,7 @@ public class ProtectBatteryView extends FrameLayout {
                 }
             });
 
-            if ((Boolean) Utils.readData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
+            if ((Boolean) EasyUtils.readData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
                 if (saverSwitch != null) {
                     saverSwitch.setChecked(true);
                 }
@@ -340,15 +338,15 @@ public class ProtectBatteryView extends FrameLayout {
             saverSwitch.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ((Boolean) Utils.readData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
+                    if ((Boolean) EasyUtils.readData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true)) {
                         if (saverSwitch != null) {
                             saverSwitch.setChecked(false);
-                            Utils.writeData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, false);
+                            EasyUtils.writeData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, false);
                         }
                     } else {
                         if (saverSwitch != null) {
                             saverSwitch.setChecked(true);
-                            Utils.writeData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true);
+                            EasyUtils.writeData(mContext, BatteryConstants.CHARGE_SAVER_SWITCH, true);
                         }
                     }
                 }
@@ -360,7 +358,6 @@ public class ProtectBatteryView extends FrameLayout {
 //        shutter = (ImageView) findViewById(R.id.battery_shutter);
         bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
-        currentLevel_ing = (TextView) findViewById(R.id.currentLevel_ing);
         batteryView = (ProtectBatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
@@ -374,8 +371,10 @@ public class ProtectBatteryView extends FrameLayout {
         day = (TextView) findViewById(R.id.battery_now_day);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
-        water = (LottieAnimationView) findViewById(R.id.battery_electricity);
         battay_info_lot = (LottieAnimationView) findViewById(R.id.battay_info_lot);
+        batteryview = (BatteryView) findViewById(R.id.batteryview);
+
+        battery_ke = (LottieAnimationView) findViewById(R.id.battery_ke);
     }
 
     public void pauseBubble() {
@@ -408,7 +407,7 @@ public class ProtectBatteryView extends FrameLayout {
             JSONObject object = new JSONObject(AndroidSdk.getExtraData());
             int state = analysisJson(object);
             if (state == 1) {
-                mContext.startActivity(new Intent(mContext, SetADActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                mContext.startActivity(new Intent(mContext, EasySetADActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -416,9 +415,15 @@ public class ProtectBatteryView extends FrameLayout {
         if (isRegisterTimeUpdate) {
             unregisterTimeUpdateReceiver();
         }
-        if (water != null && water.isAnimating()) {
-            water.cancelAnimation();
+
+        if (battery_ke != null && battery_ke.isAnimating()) {
+            battery_ke.cancelAnimation();
         }
+
+        if (battay_info_lot != null && battay_info_lot.isAnimating()) {
+            battay_info_lot.cancelAnimation();
+        }
+
         if (bubbleLayout != null) {
             bubbleLayout.destroy();
         }

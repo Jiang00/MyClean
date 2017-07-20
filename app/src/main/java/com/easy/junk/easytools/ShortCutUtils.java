@@ -50,9 +50,9 @@ public class ShortCutUtils {
             cx.setResult(cx.RESULT_OK, shortcut);
             cx.finish();
         } else {
-            if (PreData.getDB(cx, MyConstant.KEY_SHORTCUT, true)) {
+            if (PreData.getDB(cx, EasyConstant.KEY_SHORTCUT, true)) {
                 cx.sendBroadcast(shortcut);
-                PreData.putDB(cx, MyConstant.KEY_SHORTCUT, false);
+                PreData.putDB(cx, EasyConstant.KEY_SHORTCUT, false);
             }
         }
     }

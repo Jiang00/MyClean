@@ -35,9 +35,10 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/d3"
             android:layout_marginTop="@dimen/d120"
-            android:background="@color/A7" />
+            android:background="@color/A7"
+            android:visibility="gone" />
 
-        <com.easy.junk.easycustomview.BatteryScanView
+        <com.easy.junk.easycustomview.EasyBatteryScanView
             android:id="@+id/cooling_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,7 +77,7 @@
         android:visibility="gone">
         <!-- android:visibility="invisible"-->
 
-        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -84,7 +85,7 @@
             android:textColor="@color/B3"
             android:textSize="@dimen/s22" />
 
-        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.easy.module.charge.saver.protectview.EasyCustomerTypefaceTextView
             android:id="@+id/cooling_wendu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

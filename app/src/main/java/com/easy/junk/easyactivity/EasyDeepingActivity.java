@@ -30,7 +30,7 @@ import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
 import com.easy.junk.easycustomview.DeepWidgetContainer;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.easy.junk.easyservices.EasyNotificationService;
 
@@ -155,7 +155,7 @@ public class EasyDeepingActivity extends BaseActivity {
             if (startList.size() == 0) {
                 if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
                     MyUtils.doStartApplicationWithPackageName(EasyDeepingActivity.this, getIntent().getStringExtra("packageName"));
-                    if (PreData.getDB(EasyDeepingActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
+                    if (PreData.getDB(EasyDeepingActivity.this, EasyConstant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(EasyDeepingActivity.this, EasyNotificationService.class);
                         intent.setAction("gboost");
                         startService(intent);
@@ -195,7 +195,7 @@ public class EasyDeepingActivity extends BaseActivity {
             if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
                 if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
                     MyUtils.doStartApplicationWithPackageName(EasyDeepingActivity.this, getIntent().getStringExtra("packageName"));
-                    if (PreData.getDB(EasyDeepingActivity.this, MyConstant.TONGZHILAN_SWITCH, true)) {
+                    if (PreData.getDB(EasyDeepingActivity.this, EasyConstant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(EasyDeepingActivity.this, EasyNotificationService.class);
                         intent.setAction("gboost");
                         startService(intent);
@@ -366,7 +366,7 @@ public class EasyDeepingActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        setResult(MyConstant.POWER_RESUIL);
+        setResult(EasyConstant.POWER_RESUIL);
         finish();
     }
 

@@ -39,9 +39,9 @@ import com.easy.clean.easyutils.PreData;
 import com.easy.clean.entity.JunkInfo;
 import com.easy.junk.R;
 import com.easy.junk.easycustomadapter.JiaGoodGameAdapter;
-import com.easy.junk.easycustomview.GridViewAdAdapter;
-import com.easy.junk.easycustomview.MyLaunchpadAdapter;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easycustomview.EasyGridViewAdAdapter;
+import com.easy.junk.easycustomview.EasyLaunchpadAdapter;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.easy.junk.easytools.ShortCutUtils;
 
@@ -58,8 +58,8 @@ import java.util.List;
 
 public class EasyGoodGameActivity extends BaseActivity {
     private static final int ADD_DATA = 0;
-    private MyLaunchpadAdapter adapter;
-    private GridViewAdAdapter gridViewAdAdapter;
+    private EasyLaunchpadAdapter adapter;
+    private EasyGridViewAdAdapter gridViewAdAdapter;
     private long lastTotalRxBytes;
     private List<JunkInfo> gboost_add, listEdit;
     private long lastTimeStamp;
@@ -173,7 +173,7 @@ public class EasyGoodGameActivity extends BaseActivity {
     }
 
     private void addData() {
-        if (PreData.getDB(EasyGoodGameActivity.this, MyConstant.GBOOST_LUN, true)) {
+        if (PreData.getDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_LUN, true)) {
             shortGame(false);
         }
         list.addAll(GameBooster.getInstalledGameList(EasyGoodGameActivity.this));
@@ -192,8 +192,8 @@ public class EasyGoodGameActivity extends BaseActivity {
                     @Override
                     public void run() {
                         list.add(0, getString(R.string.gboost_7));
-//                        adapter = new MyLaunchpadAdapter(EasyGoodGameActivity.this, list);
-                        gridViewAdAdapter = new GridViewAdAdapter(EasyGoodGameActivity.this, list);
+//                        adapter = new EasyLaunchpadAdapter(EasyGoodGameActivity.this, list);
+                        gridViewAdAdapter = new EasyGridViewAdAdapter(EasyGoodGameActivity.this, list);
                         gboost_gridview.setAdapter(gridViewAdAdapter);
 //                        gboost_recyc.setAdapter(adapter);
 //                        gboost_recyc.refreshView();
@@ -433,29 +433,29 @@ public class EasyGoodGameActivity extends BaseActivity {
                 EasyGoodGameActivity.class.getCanonicalName()));
         String title = EasyGoodGameActivity.this.getString(R.string.gboost_0);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.gboost_short);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.gboost_short1);
             ShortCutUtils.addShortcut(EasyGoodGameActivity.this, shortcutIntent, title, false, bitmap);
             gboost_short_iv.setImageBitmap(bitmap);
             return;
         }
-        if (list.size() > 1 && (!PreData.getDB(EasyGoodGameActivity.this, MyConstant.GBOOST_SI, false) || isChuangjian)) {
+        if (list.size() > 0 && (!PreData.getDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_SI, false) || isChuangjian)) {
             View shortcut_view = View.inflate(EasyGoodGameActivity.this, R.layout.layout_gboost_short, null);
-            if (list.size() > 1) {
+            if (list.size() > 0) {
                 ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
-                iv_1.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(1)));
+                iv_1.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(0)));
+            }
+            if (list.size() > 1) {
+                ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
+                iv_2.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(1)));
             }
             if (list.size() > 2) {
-                ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
-                iv_2.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(2)));
+                ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
+                iv_3.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(2)));
             }
             if (list.size() > 3) {
-                ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
-                iv_3.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(3)));
-            }
-            if (list.size() > 4) {
                 ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
-                iv_4.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(4)));
-                PreData.putDB(EasyGoodGameActivity.this, MyConstant.GBOOST_SI, true);
+                iv_4.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(3)));
+                PreData.putDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_SI, true);
             }
 
             Bitmap bitmap = MyUtils.getViewBitmap(shortcut_view);
@@ -477,7 +477,7 @@ public class EasyGoodGameActivity extends BaseActivity {
             shortcutIntent.setComponent(new ComponentName(getPackageName(),
                     EasyGoodGameActivity.class.getName()));
             String title = EasyGoodGameActivity.this.getString(R.string.gboost_0);
-            PreData.putDB(EasyGoodGameActivity.this, MyConstant.GBOOST_LUN, true);
+            PreData.putDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_LUN, true);
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.gboost_short);
             ShortCutUtils.addShortcut(EasyGoodGameActivity.this, shortcutIntent, title, flag, bitmap);
         }

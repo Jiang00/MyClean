@@ -33,18 +33,18 @@ import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
 import com.easy.junk.easyinterfaceview.MainView;
-import com.easy.junk.easycustomadapter.MySidebarAdapter;
-import com.easy.junk.easycustomview.CustomRoundCpu;
+import com.easy.junk.easycustomadapter.EasySidebarAdapter;
+import com.easy.junk.easycustomview.EasyCustomRoundCpu;
 import com.easy.junk.easycustomview.ListViewForScrollView;
-import com.easy.junk.easycustomview.MyScrollView;
+import com.easy.junk.easycustomview.EasyScrollView;
 import com.easy.junk.easycustomview.PullToRefreshLayout;
-import com.easy.junk.easycustomview.YuanHuView;
-import com.easy.junk.easypresenter.PresenterMain;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easycustomview.EasyYuanHuView;
+import com.easy.junk.easypresenter.EasyPresenterMain;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.easy.junk.easymodel.SideInfo;
 import com.easy.module.charge.saver.easyutils.BatteryConstants;
-import com.easy.module.charge.saver.easyutils.Utils;
+import com.easy.module.charge.saver.easyutils.EasyUtils;
 import com.mingle.easycircletreveal.CircularRevealCompat;
 import com.mingle.easywidget.animation.CRAnimation;
 import com.mingle.easywidget.animation.SimpleAnimListener;
@@ -54,7 +54,7 @@ import java.util.ArrayList;
 public class MainActivity extends BaseActivity implements MainView, DrawerLayout.DrawerListener {
 
     public static final String TAG = "MainActivity";
-    CustomRoundCpu main_custom_cpu, main_custom_ram, main_custom_sd;
+    EasyCustomRoundCpu main_custom_cpu, main_custom_ram, main_custom_sd;
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
     LinearLayout main_manager_button;
     LinearLayout main_rotate_all;
@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     TextView main_rotate_good, main_rotate_bad;
     ImageView main_rotate_close;
     LinearLayout main_msg_button;
-    MyScrollView main_scroll_view;
+    EasyScrollView main_scroll_view;
     PullToRefreshLayout main_pull_refresh;
     ImageView iv_title_right;
     ImageView iv_title_left;
@@ -77,13 +77,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side, ad_native_2, ll_ad_s;
     TextView main_junk_huan;
-    YuanHuView main_yunahuview;
+    EasyYuanHuView main_yunahuview;
     private int temp;
     private AlertDialog dialog;
     ObjectAnimator animator;
     private Handler handler = new Handler();
-    private PresenterMain mainPresenter;
-    private MySidebarAdapter adapter;
+    private EasyPresenterMain mainPresenter;
+    private EasySidebarAdapter adapter;
     LinearLayout main_power_button, main_file_button, main_notifi_button, main_picture_button2;
     RelativeLayout main_gboost_button, main_picture_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_cpu_percent;
@@ -95,11 +95,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LinearLayout main_junk_button2;
     com.mingle.easywidget.LinearLayout ll_ad_full;
     // easy
-    private String TAG_START_FULL = "easy_start_native";
-    private String TAG_EXIT_FULL = "easy_exit_native";
+    private String TAG_START_FULL = "cleanmobi_start_native";
+    private String TAG_EXIT_FULL = "cleanmobi_exit_native";
     private String TAG_FULL_PULL = "pull_full";
-    private String TAG_MAIN = "easy_main";
-    private String TAG_SIDE = "easy_side";
+    private String TAG_MAIN = "cleanmobi_main";
+    private String TAG_SIDE = "cleanmobi_side";
     private String TAG_REFRESH = "drag";
     ProgressBar ad_progressbar;
 
@@ -107,20 +107,20 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
-        if (PreData.getDB(this, MyConstant.FILEACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, EasyConstant.FILEACTIVITY, 1) == 0) {
             main_file_button.setVisibility(View.GONE);
         }
-        if (PreData.getDB(this, MyConstant.NOTIFIACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, EasyConstant.NOTIFIACTIVITY, 1) == 0) {
             main_notifi_button.setVisibility(View.GONE);
         }
-        if (PreData.getDB(this, MyConstant.POWERACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, EasyConstant.POWERACTIVITY, 1) == 0) {
             main_power_button.setVisibility(View.GONE);
         }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
-        mainPresenter = new PresenterMain(this, this);
+        mainPresenter = new EasyPresenterMain(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
         SetAdUtil.track("主页面", "进入主页面", "", 1);
@@ -131,14 +131,14 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         super.findId();
         main_drawer = (DrawerLayout) findViewById(R.id.main_drawer);
         main_drawer.addDrawerListener(this);
-        main_scroll_view = (MyScrollView) findViewById(R.id.main_scroll_view);
+        main_scroll_view = (EasyScrollView) findViewById(R.id.main_scroll_view);
         main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
         iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
         power_size = (TextView) findViewById(R.id.power_size);
         main_junk_h = (TextView) findViewById(R.id.main_junk_h);
         main_fenshu = (TextView) findViewById(R.id.main_fenshu);
-        main_yunahuview = (YuanHuView) findViewById(R.id.main_yunahuview);
+        main_yunahuview = (EasyYuanHuView) findViewById(R.id.main_yunahuview);
         main_clean_lin = (LinearLayout) findViewById(R.id.main_clean_lin);
         main_junk_huan = (TextView) findViewById(R.id.main_junk_huan);
         main_title = (RelativeLayout) findViewById(R.id.main_title);
@@ -147,9 +147,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
         main_msg_cpu_percent = (TextView) findViewById(R.id.main_msg_cpu_percent);
-        main_custom_cpu = (CustomRoundCpu) findViewById(R.id.main_custom_cpu);
-        main_custom_ram = (CustomRoundCpu) findViewById(R.id.main_custom_ram);
-        main_custom_sd = (CustomRoundCpu) findViewById(R.id.main_custom_sd);
+        main_custom_cpu = (EasyCustomRoundCpu) findViewById(R.id.main_custom_cpu);
+        main_custom_ram = (EasyCustomRoundCpu) findViewById(R.id.main_custom_ram);
+        main_custom_sd = (EasyCustomRoundCpu) findViewById(R.id.main_custom_sd);
 
         main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
         main_junk_button2 = (LinearLayout) findViewById(R.id.main_junk_button2);
@@ -208,7 +208,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void initCpu(final int temp) {
         this.temp = temp;
         main_custom_cpu.startProgress(false, temp);
-        main_custom_cpu.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
+        main_custom_cpu.setCustomRoundListener(new EasyCustomRoundCpu.CustomRoundListener() {
             @Override
             public void progressUpdate(final int progress) {
                 runOnUiThread(new Runnable() {
@@ -236,12 +236,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void initSideData() {
         if (adapter == null) {
-            adapter = new MySidebarAdapter(this);
+            adapter = new EasySidebarAdapter(this);
         }
         adapter.clear();
 
-        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, BatteryConstants.CHARGE_SAVER_SWITCH, false)));//充电屏保
-        adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, MyConstant.FlOAT_SWITCH, true)));//桌面悬浮球
+        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) EasyUtils.readData(this, BatteryConstants.CHARGE_SAVER_SWITCH, false)));//充电屏保
+        adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, EasyConstant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
@@ -278,7 +278,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
 
         main_yunahuview.start(fenshu * 2.7f);
-        main_yunahuview.setScanCallBack(new YuanHuView.DrawYuanHuListener() {
+        main_yunahuview.setScanCallBack(new EasyYuanHuView.DrawYuanHuListener() {
             @Override
             public void scanDushu(final float dushu) {
                 runOnUiThread(new Runnable() {
@@ -299,7 +299,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, MyConstant.FULL_MAIN, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_MAIN, 0) == 1) {
         } else {
             View nativeView = SetAdUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
@@ -336,8 +336,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         }
 
-        if (PreData.getDB(this, MyConstant.FIRST_BATTERY, true)) {
-            Utils.writeData(MainActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, false);
+        if (PreData.getDB(this, EasyConstant.FIRST_BATTERY, true)) {
+            EasyUtils.writeData(MainActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, false);
             main_battery.setVisibility(View.VISIBLE);
             LinearLayout battery_cha = (LinearLayout) findViewById(R.id.battery_cha);
             Button battery_button = (Button) findViewById(R.id.battery_button);
@@ -346,8 +346,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             return;
         }
 
-        if (PreData.getDB(this, MyConstant.FULL_START, 0) == 1) {
-            AndroidSdk.showFullAd("easy_start_full");
+        if (PreData.getDB(this, EasyConstant.FULL_START, 0) == 1) {
+            AndroidSdk.showFullAd("cleanmobi_start_full");
         } else {
             //loading页面广告
             View nativeView_full = SetAdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
@@ -366,7 +366,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         adDelete();
                     }
                 });
-                int skip = PreData.getDB(this, MyConstant.SKIP_TIME, 6);
+                int skip = PreData.getDB(this, EasyConstant.SKIP_TIME, 6);
                 handler.postDelayed(fullAdRunnale, skip * 1000);
             } else {
             }
@@ -481,12 +481,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_rotate_bad:
                     SetAdUtil.track("主页面", "点击好评bad按钮", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstant.IS_ROTATE, true);
+                    PreData.putDB(MainActivity.this, EasyConstant.IS_ROTATE, true);
                     setRotateGone();
                     break;
                 case R.id.main_rotate_close:
                     SetAdUtil.track("主页面", "点击好评close按钮", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstant.IS_ROTATE, true);
+                    PreData.putDB(MainActivity.this, EasyConstant.IS_ROTATE, true);
                     setRotateGone();
                     break;
                 case R.id.main_msg_button:
@@ -499,28 +499,28 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.main_file_button:
                     SetAdUtil.track("主页面", "点击进入文件管理", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstant.FILE_CLEAN, true);
+                    PreData.putDB(MainActivity.this, EasyConstant.FILE_CLEAN, true);
                     mainPresenter.jumpToActivity(EasyFileManagerActivity.class, 1);
                     break;
                 case R.id.main_gboost_button:
                     SetAdUtil.track("主页面", "点击进入游戏加速", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstant.GBOOST_CLEAN, true);
+                    PreData.putDB(MainActivity.this, EasyConstant.GBOOST_CLEAN, true);
                     mainPresenter.jumpToActivity(EasyGoodGameActivity.class, 1);
                     break;
                 case R.id.main_picture_button:
                     SetAdUtil.track("主页面", "点击进入相似图片", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstant.PHOTO_CLEAN, true);
+                    PreData.putDB(MainActivity.this, EasyConstant.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(EasyPictActivity.class, 1);
                     break;
                 case R.id.main_picture_button2:
                     SetAdUtil.track("主页面", "点击进入相似图片", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstant.PHOTO_CLEAN, true);
+                    PreData.putDB(MainActivity.this, EasyConstant.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(EasyPictActivity.class, 1);
                     break;
                 case R.id.main_notifi_button:
                     SetAdUtil.track("主页面", "点击进入通知栏清理", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstant.NOTIFI_CLEAN, true);
-                    if (!MyUtils.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, MyConstant.KEY_NOTIFI, true)) {
+                    PreData.putDB(MainActivity.this, EasyConstant.NOTIFI_CLEAN, true);
+                    if (!MyUtils.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, EasyConstant.KEY_NOTIFI, true)) {
                         Intent intent6 = new Intent(MainActivity.this, EasyNotifingAnimationActivity.class);
                         startActivityForResult(intent6, 1);
                     } else {
@@ -530,8 +530,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     break;
                 case R.id.battery_button:
                     main_battery.setVisibility(View.GONE);
-                    PreData.putDB(MainActivity.this, MyConstant.FIRST_BATTERY, false);
-                    Utils.writeData(MainActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, true);
+                    PreData.putDB(MainActivity.this, EasyConstant.FIRST_BATTERY, false);
+                    EasyUtils.writeData(MainActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, true);
                     initSideData();
                     adapter.notifyDataSetChanged();
                     SetAdUtil.track("主界面", "充电屏保引导", "叉掉", 1);
@@ -546,10 +546,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == MyConstant.SETTING_RESUIL) {
+        if (resultCode == EasyConstant.SETTING_RESUIL) {
             initSideData();
             adapter.notifyDataSetChanged();
-        } else if (resultCode == MyConstant.COOLING_RESUIL) {
+        } else if (resultCode == EasyConstant.COOLING_RESUIL) {
             int wendu = data.getIntExtra("wendu", 0);
             temp -= wendu;
             if (temp == 0) {
@@ -557,17 +557,17 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
         } else if (requestCode == 100) {
             if (MyUtils.isNotificationListenEnabled(MainActivity.this)) {
-                PreData.putDB(MainActivity.this, MyConstant.KEY_NOTIFI, true);
+                PreData.putDB(MainActivity.this, EasyConstant.KEY_NOTIFI, true);
                 Intent intent = new Intent(MainActivity.this, EasyNotifingActivity.class);
                 startActivityForResult(intent, 1);
             } else {
                 Intent intent = new Intent(MainActivity.this, EasyNotifingAnimationActivity.class);
                 startActivityForResult(intent, 1);
             }
-        } else if (resultCode == MyConstant.RAM_RESUIL) {
-        } else if (resultCode == MyConstant.JUNK_RESUIL) {
+        } else if (resultCode == EasyConstant.RAM_RESUIL) {
+        } else if (resultCode == EasyConstant.JUNK_RESUIL) {
             main_junk_h.setVisibility(View.GONE);
-        } else if (resultCode == MyConstant.POWER_RESUIL) {
+        } else if (resultCode == EasyConstant.POWER_RESUIL) {
 
         }
     }
@@ -618,7 +618,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     @Override
     public void initRam(final int percent, final String size) {
         main_custom_ram.startProgress(false, percent);
-        main_custom_ram.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
+        main_custom_ram.setCustomRoundListener(new EasyCustomRoundCpu.CustomRoundListener() {
             @Override
             public void progressUpdate(final int progress) {
                 runOnUiThread(new Runnable() {
@@ -678,8 +678,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (PreData.getDB(this, MyConstant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd("easy_exit_full");
+            if (PreData.getDB(this, EasyConstant.FULL_EXIT, 0) == 1) {
+                AndroidSdk.showFullAd("cleanmobi_exit_full");
             }
             showExitDialog();
         }
@@ -721,7 +721,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
-        if (PreData.getDB(this, MyConstant.FULL_EXIT, 0) == 0) {
+        if (PreData.getDB(this, EasyConstant.FULL_EXIT, 0) == 0) {
             View nativeExit = SetAdUtil.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_2);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
@@ -749,7 +749,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
         lp.width = dm.widthPixels; //设置宽度
         lp.height = dm.heightPixels; //设置高度
-        if (PreData.getDB(this, MyConstant.IS_ACTION_BAR, true)) {
+        if (PreData.getDB(this, EasyConstant.IS_ACTION_BAR, true)) {
             int uiOptions =
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                             //布局位于状态栏下方

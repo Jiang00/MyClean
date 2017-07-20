@@ -24,7 +24,7 @@ import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
 import com.easy.junk.easycustomadapter.NotifiAdapter;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 
 import java.util.ArrayList;
 
@@ -53,7 +53,7 @@ public class EasyNotifingActivity extends Activity {
         } else {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
-        if (PreData.getDB(this, MyConstant.IS_ACTION_BAR, true)) {
+        if (PreData.getDB(this, EasyConstant.IS_ACTION_BAR, true)) {
             full();
         }
         setContentView(R.layout.layout_notifi);
@@ -209,7 +209,7 @@ public class EasyNotifingActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            if (!PreData.getDB(this, MyConstant.KEY_NOTIFI, true)) {
+            if (!PreData.getDB(this, EasyConstant.KEY_NOTIFI, true)) {
                 onBackPressed();
             }
         }

@@ -12,8 +12,8 @@ import com.easy.clean.core.CleanManager;
 import com.easy.clean.easydb.CleanDBHelper;
 import com.easy.clean.entity.JunkInfo;
 import com.easy.junk.R;
-import com.easy.junk.easycustomadapter.IgnoreListViewAdapter;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easycustomadapter.EasyIgnoreListViewAdapter;
+import com.easy.junk.easytools.EasyConstant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import java.util.List;
  */
 
 public class EasyWhiteAvtivity extends BaseActivity {
-    IgnoreListViewAdapter adapter;
+    EasyIgnoreListViewAdapter adapter;
     ListView listView;
     TextView white_wu;
     List<JunkInfo> white_list;
@@ -41,7 +41,7 @@ public class EasyWhiteAvtivity extends BaseActivity {
         title_left.setOnClickListener(clickListener);
         title_right.setOnClickListener(clickListener);
         white_list = new ArrayList<>();
-        adapter = new IgnoreListViewAdapter(this);
+        adapter = new EasyIgnoreListViewAdapter(this);
         listView.setAdapter(adapter);
         initDAta();
     }
@@ -99,7 +99,7 @@ public class EasyWhiteAvtivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        setResult(MyConstant.WHITE_RESUIL);
+        setResult(EasyConstant.WHITE_RESUIL);
         finish();
     }
 }

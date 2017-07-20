@@ -20,13 +20,13 @@ import com.android.client.AndroidSdk;
 import com.easy.clean.entity.JunkInfo;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.junk.R;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easycustomadapter.EasyLog;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.easy.junk.easycustomview.ListViewForScrollView;
-import com.easy.junk.easycustomview.MyScrollView;
+import com.easy.junk.easycustomview.EasyScrollView;
 import com.easy.junk.easypresenter.LogPresenter;
-import com.easy.junk.easycustomadapter.Log;
-import com.easy.junk.easyinterfaceview.MyGarbageView;
+import com.easy.junk.easyinterfaceview.EasyGarbageView;
 import com.easy.clean.easyutils.PreData;
 
 import java.util.List;
@@ -35,7 +35,7 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
+public class EasyRubbishActivity extends BaseActivity implements EasyGarbageView {
 
     ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou;
     ListViewForScrollView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list;
@@ -44,14 +44,14 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
     private boolean color2 = true;
     private boolean color3 = true;
     private LogPresenter junkPresenter;
-    private Log adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterClear;
+    private EasyLog adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterClear;
     FrameLayout title_left;
     TextView title_name;
     LinearLayout junk_title_backg;
     LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user;
     TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size;
     TextView junk_button_clean;
-    MyScrollView junk_scroll;
+    EasyScrollView junk_scroll;
     ListView junk_list_all;
     TextView junk_size_all;
     public Handler myHandler;
@@ -117,12 +117,12 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
             junkPresenter.jumpToActivity(EasySucceedActivity.class, bundle, 1);
             return;
         }
-        adapterSystem = new Log(this, junkPresenter, "system");
-        adapterApk = new Log(this, junkPresenter, "apk");
-        adapterUnload = new Log(this, junkPresenter, "unload");
-        adapterLog = new Log(this, junkPresenter, "log");
-        adapterUser = new Log(this, junkPresenter, "user");
-        adapterClear = new Log(this, junkPresenter, "clear");
+        adapterSystem = new EasyLog(this, junkPresenter, "system");
+        adapterApk = new EasyLog(this, junkPresenter, "apk");
+        adapterUnload = new EasyLog(this, junkPresenter, "unload");
+        adapterLog = new EasyLog(this, junkPresenter, "log");
+        adapterUser = new EasyLog(this, junkPresenter, "user");
+        adapterClear = new EasyLog(this, junkPresenter, "clear");
 
         junk_system_list.setAdapter(adapterSystem);
         junk_apk_list.setAdapter(adapterApk);
@@ -552,13 +552,19 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
 
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起系统缓存", "", 1);
-                        junk_system_check.setImageResource(R.mipmap.ram_normal);
+                        if (systemCount == adapterSystem.getCount()) {
+                            junk_system_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (systemCount == 0) {
+                            junk_system_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_system_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_system_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
                         systemCount1 = 0;
                         if (adapterSystem != null) {//回调函数
-                            adapterSystem.setOnlistener(new Log.AllListener() {
+                            adapterSystem.setOnlistener(new EasyLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -608,13 +614,20 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起apk文件", "", 1);
-                        junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                        if (apkCount == adapterApk.getCount()) {
+                            junk_apk_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (apkCount == 0) {
+                            junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_apk_check.setImageResource(R.mipmap.ram_check);
+                        }
+//                        junk_apk_check.setImageResource(R.mipmap.ram_normal);
                         junk_apk_jiaotou.setImageResource(R.mipmap.junk_x);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
                         apkCount1 = 0;
                         if (adapterApk != null) {//回调函数
-                            adapterApk.setOnlistener(new Log.AllListener() {
+                            adapterApk.setOnlistener(new EasyLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -626,7 +639,7 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
                                     if (apkCount < apkCount1 - 1) {
                                         apkCount = apkCount1 - 1;
                                     } else if (apkCount > apkCount1) {
-                                        systemCount = systemCount1;
+                                        apkCount = apkCount1;
                                     }
                                     if (check && cleanName.equals("apk")) {
                                         apkCount++;
@@ -665,12 +678,18 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起unload文件", "", 1);
                         junk_unload_jiantou.setImageResource(R.mipmap.junk_x);
-                        junk_unload_check.setImageResource(R.mipmap.ram_normal);
+                        if (unloadCount == adapterUnload.getCount()) {
+                            junk_unload_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (unloadCount == 0) {
+                            junk_unload_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_unload_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
                         unloadCount1 = 0;
                         if (adapterUnload != null) {//回调函数
-                            adapterUnload.setOnlistener(new Log.AllListener() {
+                            adapterUnload.setOnlistener(new EasyLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -721,12 +740,18 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起log文件", "", 1);
                         junk_log_jiantou.setImageResource(R.mipmap.junk_x);
-                        junk_log_check.setImageResource(R.mipmap.ram_normal);
+                        if (logCount == adapterLog.getCount()) {
+                            junk_log_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (logCount == 0) {
+                            junk_log_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_log_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_log_list.setVisibility(View.GONE);
                     } else {
                         logCount1 = 0;
                         if (adapterLog != null) {//回调函数
-                            adapterLog.setOnlistener(new Log.AllListener() {
+                            adapterLog.setOnlistener(new EasyLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -778,12 +803,18 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("垃圾页面", "点击收起user文件", "", 1);
                         junk_user_jiantou.setImageResource(R.mipmap.junk_x);
-                        junk_user_check.setImageResource(R.mipmap.ram_normal);
+                        if (userCount == adapterUser.getCount()) {
+                            junk_user_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (userCount == 0) {
+                            junk_user_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_user_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_user_list.setVisibility(View.GONE);
                     } else {
                         userCount1 = 0;
                         if (adapterUser != null) {//回调函数
-                            adapterUser.setOnlistener(new Log.AllListener() {
+                            adapterUser.setOnlistener(new EasyLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -832,7 +863,7 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
                 case R.id.junk_button_clean:
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
-                    PreData.putDB(EasyRubbishActivity.this, MyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
+                    PreData.putDB(EasyRubbishActivity.this, EasyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
                     SetAdUtil.track("垃圾页面", "点击清理", "", 1);
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
                             junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
@@ -848,7 +879,7 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(MyConstant.JUNK_RESUIL);
+            setResult(EasyConstant.JUNK_RESUIL);
             finish();
         }
     }
@@ -861,7 +892,7 @@ public class EasyRubbishActivity extends BaseActivity implements MyGarbageView {
 
     @Override
     public void onBackPressed() {
-        setResult(MyConstant.JUNK_RESUIL);
+        setResult(EasyConstant.JUNK_RESUIL);
         finish();
     }
 

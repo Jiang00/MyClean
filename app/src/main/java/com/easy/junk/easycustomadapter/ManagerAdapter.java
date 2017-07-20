@@ -15,7 +15,7 @@ import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.entity.JunkInfo;
 import com.easy.junk.easypresenter.ManagerPresenter;
 
-public class ManagerAdapter extends MybaseAdapter<JunkInfo> {
+public class ManagerAdapter extends EasyBaseAdapter<JunkInfo> {
     ManagerPresenter managerPresenter;
     AllListener listener;
     String identification;

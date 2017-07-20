@@ -20,7 +20,7 @@ import com.easy.clean.easyutils.MemoryManager;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.android.client.AndroidSdk;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.sample.lottie.LottieAnimationView;
 import com.easy.junk.R;
@@ -142,7 +142,7 @@ public class EasyHardwareActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstant.FULL_MESSAGE, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_MESSAGE, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {

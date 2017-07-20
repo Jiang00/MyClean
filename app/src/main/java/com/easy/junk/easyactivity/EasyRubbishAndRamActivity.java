@@ -25,9 +25,9 @@ import com.easy.junk.R;
 import com.easy.junk.easyinterfaceview.LogHeRamView;
 import com.easy.junk.easycustomadapter.CustomJunkRamAdapter;
 import com.easy.junk.easycustomview.ListViewForScrollView;
-import com.easy.junk.easycustomview.MyScrollView;
-import com.easy.junk.easypresenter.LogRamPresenter;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easycustomview.EasyScrollView;
+import com.easy.junk.easypresenter.EasyLogRamPresenter;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
     LinearLayout junk_title_backg;
     TextView junk_size_all;
     private CustomJunkRamAdapter adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterRam, adapterClear;
-    private LogRamPresenter junkPresenter;
+    private EasyLogRamPresenter junkPresenter;
     TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size, junk_ram_size;
     LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user, junk_button_ram;
     ListViewForScrollView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list, junk_ram_list;
@@ -52,7 +52,7 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
     public Handler myHandler;
     private boolean color1 = true;
     private boolean color3 = true;
-    MyScrollView junk_scroll;
+    EasyScrollView junk_scroll;
     ListView junk_list_all;
     ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou, junk_ram_jiantou;
     TextView junk_button_clean;
@@ -64,7 +64,7 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
         setContentView(R.layout.layout_junk_ram);
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         myHandler = new Handler();
-        junkPresenter = new LogRamPresenter(this, this);
+        junkPresenter = new EasyLogRamPresenter(this, this);
         junkPresenter.init();
     }
 
@@ -214,7 +214,7 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
         junk_user_list = (ListViewForScrollView) findViewById(R.id.junk_user_list);
         junk_ram_list = (ListViewForScrollView) findViewById(R.id.junk_ram_list);
         junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
-        junk_scroll = (MyScrollView) findViewById(R.id.junk_scroll);
+        junk_scroll = (EasyScrollView) findViewById(R.id.junk_scroll);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
         junk_system_check = $(R.id.junk_system_check);
         junk_apk_check = $(R.id.junk_apk_check);
@@ -498,7 +498,13 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
                     }
                     if (junk_system_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起系统缓存", "", 1);
-                        junk_system_check.setImageResource(R.mipmap.ram_normal);
+                        if (systemCount == adapterSystem.getCount()) {
+                            junk_system_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (systemCount == 0) {
+                            junk_system_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_system_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_system_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_system_list.setVisibility(View.GONE);
                     } else {
@@ -554,7 +560,13 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
                     }
                     if (junk_apk_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起apk文件", "", 1);
-                        junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                        if (apkCount == adapterApk.getCount()) {
+                            junk_apk_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (apkCount == 0) {
+                            junk_apk_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_apk_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_apk_jiaotou.setImageResource(R.mipmap.junk_x);
                         junk_apk_list.setVisibility(View.GONE);
                     } else {
@@ -572,7 +584,7 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
                                     if (apkCount < apkCount1 - 1) {
                                         apkCount = apkCount1 - 1;
                                     } else if (apkCount > apkCount1) {
-                                        systemCount = systemCount1;
+                                        apkCount = apkCount1;
                                     }
                                     if (check) {
                                         apkCount++;
@@ -610,7 +622,13 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
                     }
                     if (junk_unload_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起unload文件", "", 1);
-                        junk_unload_check.setImageResource(R.mipmap.ram_normal);
+                        if (unloadCount == adapterUnload.getCount()) {
+                            junk_unload_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (unloadCount == 0) {
+                            junk_unload_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_unload_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_unload_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_unload_list.setVisibility(View.GONE);
                     } else {
@@ -666,7 +684,13 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
                     }
                     if (junk_log_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起log文件", "", 1);
-                        junk_log_check.setImageResource(R.mipmap.ram_normal);
+                        if (logCount == adapterLog.getCount()) {
+                            junk_log_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (logCount == 0) {
+                            junk_log_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_log_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_log_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_log_list.setVisibility(View.GONE);
                     } else {
@@ -722,7 +746,13 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
                     }
                     if (junk_user_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收起user文件", "", 1);
-                        junk_user_check.setImageResource(R.mipmap.ram_normal);
+                        if (userCount == adapterUser.getCount()) {
+                            junk_user_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (userCount == 0) {
+                            junk_user_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_user_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_user_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_user_list.setVisibility(View.GONE);
                     } else {
@@ -781,7 +811,13 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
 
                     if (junk_ram_list.getVisibility() == View.VISIBLE) {
                         SetAdUtil.track("所有垃圾页面", "点击收缩ram", "", 1);
-                        junk_ram_check.setImageResource(R.mipmap.ram_normal);
+                        if (ramCount == adapterRam.getCount()) {
+                            junk_ram_check.setImageResource(R.mipmap.ram_passed);
+                        } else if (ramCount == 0) {
+                            junk_ram_check.setImageResource(R.mipmap.ram_normal);
+                        } else {
+                            junk_ram_check.setImageResource(R.mipmap.ram_check);
+                        }
                         junk_ram_jiantou.setImageResource(R.mipmap.junk_x);
                         junk_ram_list.setVisibility(View.GONE);
                     } else {
@@ -832,7 +868,7 @@ public class EasyRubbishAndRamActivity extends BaseActivity implements LogHeRamV
                     }
                     break;
                 case R.id.junk_button_clean:
-                    PreData.putDB(EasyRubbishAndRamActivity.this, MyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
+                    PreData.putDB(EasyRubbishAndRamActivity.this, EasyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
                     SetAdUtil.track("所有垃圾页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));

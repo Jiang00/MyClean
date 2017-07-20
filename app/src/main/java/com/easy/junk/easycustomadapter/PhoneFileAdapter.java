@@ -14,12 +14,12 @@ import com.easy.clean.filemanager.UtilsFile;
 import com.easy.clean.filemanager.Util;
 import com.easy.clean.easyutils.LoadManager;
 import com.easy.junk.R;
-import com.easy.junk.easymodel.JunkInfo;
+import com.easy.junk.easymodel.EasyJunkInfo;
 
 /**
  */
 
-public class PhoneFileAdapter extends MybaseAdapter<JunkInfo> {
+public class PhoneFileAdapter extends EasyBaseAdapter<EasyJunkInfo> {
     String name;
 
     public PhoneFileAdapter(Context context) {
@@ -41,7 +41,7 @@ public class PhoneFileAdapter extends MybaseAdapter<JunkInfo> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final JunkInfo info = getItem(position);
+        final EasyJunkInfo info = getItem(position);
         final ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();

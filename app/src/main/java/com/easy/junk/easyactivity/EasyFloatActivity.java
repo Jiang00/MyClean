@@ -31,8 +31,8 @@ import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
 import com.easy.junk.easycustomview.ImageAccessor;
-import com.easy.junk.easytools.CheckState;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyCheckState;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easytools.SetAdUtil;
 import com.easy.junk.easytools.SwitchControl;
 import com.twee.module.tweenengine.Tween;
@@ -41,7 +41,7 @@ import com.twee.module.tweenengine.TweenManager;
 import java.util.List;
 
 public class EasyFloatActivity extends BaseActivity {
-    private String TAG_FLAOT = "easy_float";
+    private String TAG_FLAOT = "cleanmobi_float";
     private boolean isdoudong;
     TweenManager tweenManager;
     private boolean istween;
@@ -150,7 +150,7 @@ public class EasyFloatActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstant.FULL_FLOAT, 0) == 1) {
+        if (PreData.getDB(this, EasyConstant.FULL_FLOAT, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -190,7 +190,7 @@ public class EasyFloatActivity extends BaseActivity {
                         }
                     } else {
                         liuLiangd();
-                        SwitchControl.setMobileData(EasyFloatActivity.this, !CheckState.networkState(EasyFloatActivity.this, null));
+                        SwitchControl.setMobileData(EasyFloatActivity.this, !EasyCheckState.networkState(EasyFloatActivity.this, null));
                     }
 
 
@@ -331,7 +331,7 @@ public class EasyFloatActivity extends BaseActivity {
     }
 
     private void wifi() {
-        if (CheckState.wifiState(this)) {
+        if (EasyCheckState.wifiState(this)) {
             iv_wifi.setImageResource(R.mipmap.float_wifi);
         } else {
             iv_wifi.setImageResource(R.mipmap.float_wifi1);
@@ -340,7 +340,7 @@ public class EasyFloatActivity extends BaseActivity {
 
 
     private void liuLiangd() {
-        if (!CheckState.networkState(this, null)) {
+        if (!EasyCheckState.networkState(this, null)) {
             iv_liuliang.setImageResource(R.mipmap.float_liuliang1);
         } else {
             iv_liuliang.setImageResource(R.mipmap.float_liuliang);
@@ -365,7 +365,7 @@ public class EasyFloatActivity extends BaseActivity {
     }
 
     private void wifiD() {
-        if (!CheckState.wifiState(this)) {
+        if (!EasyCheckState.wifiState(this)) {
             iv_wifi.setImageResource(R.mipmap.float_wifi);
         } else {
             iv_wifi.setImageResource(R.mipmap.float_wifi1);
@@ -373,7 +373,7 @@ public class EasyFloatActivity extends BaseActivity {
     }
 
     private void liuLiang() {
-        if (CheckState.networkState(this, null)) {
+        if (EasyCheckState.networkState(this, null)) {
             iv_liuliang.setImageResource(R.mipmap.float_liuliang);
         } else {
             iv_liuliang.setImageResource(R.mipmap.float_liuliang1);
@@ -381,7 +381,7 @@ public class EasyFloatActivity extends BaseActivity {
     }
 
     private void shengYin() {
-        if (CheckState.soundState(this)) {
+        if (EasyCheckState.soundState(this)) {
             iv_shengyin.setImageResource(R.mipmap.float_shengyin);
         } else {
             iv_shengyin.setImageResource(R.mipmap.float_shengyin1);
@@ -389,7 +389,7 @@ public class EasyFloatActivity extends BaseActivity {
     }
 
     private void gps() {
-        if (CheckState.gpsState(this)) {
+        if (EasyCheckState.gpsState(this)) {
             iv_gps.setImageResource(R.mipmap.float_gps);
         } else {
             iv_gps.setImageResource(R.mipmap.float_gps1);

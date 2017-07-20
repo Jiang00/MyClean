@@ -6,11 +6,11 @@
 
     <application>
         <service
-            android:name="com.easy.module.charge.saver.easyprotectservice.ServiceBattery"
+            android:name="com.easy.module.charge.saver.easyprotectservice.EasyServiceBattery"
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
 
-        <receiver android:name="com.easy.module.charge.saver.easyreceiver.BroadcastReceiverStart">
+        <receiver android:name="com.easy.module.charge.saver.easyreceiver.EasyBroadcastReceiverStart">
             <intent-filter android:priority="2147483647">
 
                 <!-- 优先级加最高 -->
@@ -27,11 +27,11 @@
         </receiver>
 
         <activity
-            android:name="com.easy.module.charge.saver.SetADActivity"
+            android:name="com.easy.module.charge.saver.EasySetADActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.easy.module.charge.saver.BatteryProtectActivity"
+            android:name="com.easy.module.charge.saver.EasyBatteryProtectActivity"
             android:launchMode="singleInstance"
             android:noHistory="true"
             android:screenOrientation="nosensor"

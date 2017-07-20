@@ -55,7 +55,7 @@ public class BatteryCpuTempReader {
 
 			if (cachedResult != null) {
 				try {
-					val = OneLineReader.getValue(cachedResult.cpuFilePath);
+					val = EasyOneLineReader.getValue(cachedResult.cpuFilePath);
 				} catch (FileNotFoundException e1) {
 				}
 				if (val != null) {
@@ -72,7 +72,7 @@ public class BatteryCpuTempReader {
 
 			for (String path : CPU_TEMP_FILE_PATHS) {
 				try {
-					val = OneLineReader.getValue(path);
+					val = EasyOneLineReader.getValue(path);
 				} catch (FileNotFoundException e1) {
 					Log.v(TAG, "Not found: " + path);
 					continue;

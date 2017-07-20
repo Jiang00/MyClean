@@ -8,7 +8,7 @@ import com.easy.clean.easydb.CleanDBHelper;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.easyactivity.EasyUnloadingResidualActivity;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,7 +24,7 @@ public class EasyUnloadResidualBroadcast extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (!PreData.getDB(context, MyConstant.UNLOAD_SWITCH, true)) {
+        if (!PreData.getDB(context, EasyConstant.UNLOAD_SWITCH, true)) {
             return;
         }
         if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {

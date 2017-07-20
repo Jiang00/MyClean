@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.easy.junk.easytools.MUtilGp;
+import com.easy.junk.easytools.EasyUtilGp;
 
 /**
  */
 
-public class PresenterBase<T> implements IPresenter {
+public class PresenterBase<T> implements EasyIPresenter {
     T iView;
     private int cpuTemp = 40;
     Context context;
@@ -38,7 +38,7 @@ public class PresenterBase<T> implements IPresenter {
     }
 
     public void goToGooglePlay() {
-        MUtilGp.rate(context);
+        EasyUtilGp.rate(context);
     }
 
     public void setUnit(long size, TextView textView) {

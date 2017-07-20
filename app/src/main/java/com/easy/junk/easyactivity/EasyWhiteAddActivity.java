@@ -19,7 +19,7 @@ import com.easy.clean.core.CleanManager;
 import com.easy.clean.entity.JunkInfo;
 import com.easy.clean.easydb.CleanDBHelper;
 import com.easy.junk.R;
-import com.easy.junk.easycustomadapter.IgnoreListViewAdapter;
+import com.easy.junk.easycustomadapter.EasyIgnoreListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class EasyWhiteAddActivity extends BaseActivity {
     FrameLayout title_left;
     ListView list_si;
     ImageButton clear;
-    IgnoreListViewAdapter adapter;
+    EasyIgnoreListViewAdapter adapter;
     private boolean search;
     private List<String> whiteList;
     LinearLayout title_right;
@@ -51,7 +51,7 @@ public class EasyWhiteAddActivity extends BaseActivity {
         white_list = new ArrayList<>();
         listEdit = new ArrayList<>();
         whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
-        adapter = new IgnoreListViewAdapter(this);
+        adapter = new EasyIgnoreListViewAdapter(this);
         list_si.setAdapter(adapter);
         initData();
     }

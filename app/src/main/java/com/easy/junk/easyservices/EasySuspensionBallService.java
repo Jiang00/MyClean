@@ -24,9 +24,9 @@ import android.widget.LinearLayout;
 import com.easy.clean.easydb.CleanDBHelper;
 import com.easy.junk.R;
 import com.easy.clean.easyutils.MyUtils;
-import com.easy.junk.easypresenter.GetTopApp;
+import com.easy.junk.easypresenter.EasyGetTopApp;
 import com.easy.junk.easypresenter.FloatStateManager;
-import com.easy.junk.easytools.MyConstant;
+import com.easy.junk.easytools.EasyConstant;
 import com.easy.clean.easyutils.PreData;
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class EasySuspensionBallService extends Service {
     private List<String> hmoes;
     private int count = 0;
     private PackageManager pm;
-    private GetTopApp topApp;
+    private EasyGetTopApp topApp;
     private LinearLayout mFullScreenCheckView;
     Handler myHandler;
     String runingGboost;
@@ -73,7 +73,7 @@ public class EasySuspensionBallService extends Service {
         if (am == null)
             am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
 
-        topApp = new GetTopApp(this);
+        topApp = new EasyGetTopApp(this);
         hmoes = getLaunchers();
         manager.showFloatCircleView();
         myHandler.removeCallbacks(runnable);
@@ -156,7 +156,7 @@ public class EasySuspensionBallService extends Service {
                 String pkg = topApp.execute();
                 if (!TextUtils.equals(pkg, runingGboost)) {
                     runingGboost = pkg;
-                    if (PreData.getDB(EasySuspensionBallService.this, MyConstant.TONGZHILAN_SWITCH, true)) {
+                    if (PreData.getDB(EasySuspensionBallService.this, EasyConstant.TONGZHILAN_SWITCH, true)) {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(EasySuspensionBallService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(EasySuspensionBallService.this, EasyNotificationService.class);
