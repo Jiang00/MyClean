@@ -116,32 +116,7 @@ public class EasySucceedActivity extends BaseActivity {
         notifi_info_lot.loop(false);
         notifi_info_lot.setSpeed(0.7f);
         notifi_info_lot.playAnimation();
-        notifi_info_lot.addAnimatorListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                //广告
-                if (PreData.getDB(EasySucceedActivity.this, EasyConstant.FULL_SUCCESS, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-                //动画结束换内容的
-                startSecondAnimation();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
+        notifi_info_lot.addAnimatorListener(lotAnimatorListener);
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
         } else {
@@ -165,6 +140,13 @@ public class EasySucceedActivity extends BaseActivity {
             main_ram_button.setVisibility(View.GONE);
             main_junk_button.setVisibility(View.GONE);
             main_gboost_button.setVisibility(View.GONE);
+        } else if (TextUtils.equals("unloading", getIntent().getStringExtra("from"))) {
+            main_file_button.setVisibility(View.GONE);
+            main_notifi_button.setVisibility(View.GONE);
+            main_ram_button.setVisibility(View.GONE);
+            main_cooling_button.setVisibility(View.GONE);
+            main_gboost_button.setVisibility(View.GONE);
+            main_picture_button.setVisibility(View.GONE);
         } else if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
             main_file_button.setVisibility(View.GONE);
             main_notifi_button.setVisibility(View.GONE);
@@ -254,7 +236,6 @@ public class EasySucceedActivity extends BaseActivity {
         if (ad_native_2 != null && nativeView != null) {
             ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
             layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
-            Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
             ad_native_2.setLayoutParams(layout_ad);
             ad_native_2.addView(nativeView);
             if (animationEnd) {
@@ -268,6 +249,7 @@ public class EasySucceedActivity extends BaseActivity {
             ll_ad_xiao.setVisibility(View.VISIBLE);
         }
     }
+
 
     @Override
     protected void findId() {
@@ -299,6 +281,33 @@ public class EasySucceedActivity extends BaseActivity {
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
     }
+
+    Animator.AnimatorListener lotAnimatorListener = new Animator.AnimatorListener() {
+        @Override
+        public void onAnimationStart(Animator animation) {
+
+        }
+
+        @Override
+        public void onAnimationEnd(Animator animation) {
+            //广告
+            if (PreData.getDB(EasySucceedActivity.this, EasyConstant.FULL_SUCCESS, 0) == 1) {
+                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+            }
+            //动画结束换内容的
+            startSecondAnimation();
+        }
+
+        @Override
+        public void onAnimationCancel(Animator animation) {
+
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+
+        }
+    };
 
     private void shendu() {
         cleanApplication = (MyApplication) getApplication();
@@ -424,12 +433,9 @@ public class EasySucceedActivity extends BaseActivity {
                 case R.id.main_notifi_button:
                     SetAdUtil.track("完成页面", "点击进入通知栏清理", "", 1);
                     PreData.putDB(EasySucceedActivity.this, EasyConstant.NOTIFI_CLEAN, true);
-                    if (!MyUtils.isNotificationListenEnabled(EasySucceedActivity.this)) {
-                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!PreData.getDB(EasySucceedActivity.this, EasyConstant.KEY_NOTIFI, true)) {
+                    if (!PreData.getDB(EasySucceedActivity.this, EasyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(EasySucceedActivity.this)) {
                         Intent intent6 = new Intent(EasySucceedActivity.this, EasyNotifingAnimationActivity.class);
-                        startActivity(intent6);
-                        onBackPressed();
+                        startActivityForResult(intent6, 1);
                     } else {
                         Intent intent6 = new Intent(EasySucceedActivity.this, EasyNotifingActivity.class);
                         startActivity(intent6);
@@ -521,12 +527,14 @@ public class EasySucceedActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (nativeView != null) {
-            nativeView = null;
-            if (ad_native_2 != null) {
-                ad_native_2.setVisibility(View.GONE);
-            }
-        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        notifi_info_lot.removeAnimatorListener(lotAnimatorListener);
+        notifi_info_lot.clearAnimation();
     }
 
     @Override

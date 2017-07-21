@@ -58,7 +58,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
     LinearLayout main_manager_button;
     LinearLayout main_rotate_all;
-    TextView main_junk_h;
     TextView main_full_time;
     LinearLayout main_battery;
     LinearLayout main_clean_lin;
@@ -136,7 +135,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
         power_size = (TextView) findViewById(R.id.power_size);
-        main_junk_h = (TextView) findViewById(R.id.main_junk_h);
         main_fenshu = (TextView) findViewById(R.id.main_fenshu);
         main_yunahuview = (EasyYuanHuView) findViewById(R.id.main_yunahuview);
         main_clean_lin = (LinearLayout) findViewById(R.id.main_clean_lin);
@@ -304,11 +302,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             View nativeView = SetAdUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
                 ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                Log.e("aaa", "=====" + layout_ad.height);
                 if (nativeView.getHeight() == MyUtils.dp2px(250)) {
                     layout_ad.height = MyUtils.dp2px(250);
                 }
-                Log.e("ad_mob", "h=" + nativeView.getHeight() + "w=" + nativeView.getWidth());
                 ll_ad.setLayoutParams(layout_ad);
                 ll_ad.addView(nativeView);
                 ll_ad.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -417,7 +413,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     if (ad_native_2 != null) {
                         ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
                         layout_ad.height = main_scroll_view.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
-                        Log.e("success_ad", "hiegt=" + main_scroll_view.getMeasuredHeight());
                         ad_native_2.setLayoutParams(layout_ad);
                         ad_native_2.addView(view);
                         ad_native_2.setVisibility(View.VISIBLE);
@@ -566,7 +561,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
         } else if (resultCode == EasyConstant.RAM_RESUIL) {
         } else if (resultCode == EasyConstant.JUNK_RESUIL) {
-            main_junk_h.setVisibility(View.GONE);
         } else if (resultCode == EasyConstant.POWER_RESUIL) {
 
         }
@@ -574,7 +568,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void initSd(final int percent, final String size, final long sd_kongxian) {
-        Log.e("main", "=============initSd+");
         main_custom_sd.startProgress(true, percent);
         runOnUiThread(new Runnable() {
             @Override
@@ -605,12 +598,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
                 // MyUtils.convertStorage(junk_size, true) true返回的带单位，false不带单位
                 main_junk_huan.setText(getResources().getString(R.string.notification_2) + " " + MyUtils.convertStorage(junk_size, true));
-                if (main_junk_h.getVisibility() == View.INVISIBLE) {
-                    if (junk_size > 0) {
-                        main_junk_h.setText(MyUtils.convertStorage(junk_size, true));
-                        main_junk_h.setVisibility(View.VISIBLE);
-                    }
-                }
             }
         });
     }
@@ -770,12 +757,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void onDrawerOpened(View drawerView) {
-        Log.e(TAG, "onDrawerOpened");
     }
 
     @Override
     public void onDrawerClosed(View drawerView) {
-        Log.e(TAG, "onDrawerClosed");
     }
 
     @Override

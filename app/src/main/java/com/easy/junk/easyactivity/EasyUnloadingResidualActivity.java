@@ -49,6 +49,7 @@ public class EasyUnloadingResidualActivity extends BaseActivity {
                     bt_queren.setOnClickListener(null);
                     Bundle bundle = new Bundle();
                     bundle.putLong("size", size);
+                    bundle.putString("from", "unloading");
                     Intent intent = new Intent(EasyUnloadingResidualActivity.this, EasySucceedActivity.class);
                     intent.putExtras(bundle);
                     startActivityForResult(intent, 1);

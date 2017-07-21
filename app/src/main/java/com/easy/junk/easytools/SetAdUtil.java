@@ -1,7 +1,6 @@
 package com.easy.junk.easytools;
 
 import android.support.annotation.LayoutRes;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -17,12 +16,10 @@ public class SetAdUtil {
 
     public static View getNativeAdView(String tag, @LayoutRes int layout) {
         if (!AndroidSdk.hasNativeAd(tag, AndroidSdk.NATIVE_AD_TYPE_ALL)) {
-            Log.e("rqy", "getAdView null,because not configuration tag =" + tag);
             return null;
         }
         View nativeView = AndroidSdk.peekNativeAdViewWithLayout(tag, AndroidSdk.NATIVE_AD_TYPE_ALL, layout, null);
         if (nativeView == null) {
-            Log.e("rqy", "getAdView null,because peek native ad = null");
             return null;
         }
 

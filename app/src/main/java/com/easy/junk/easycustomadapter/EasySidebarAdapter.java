@@ -228,7 +228,7 @@ public class EasySidebarAdapter extends EasyBaseAdapter<SideInfo> {
         } else if (position == NOTIFI) {
             SetAdUtil.track("侧边栏", "点击进入通知栏页面", "", 1);
             PreData.putDB(context, EasyConstant.NOTIFI_CLEAN, true);
-            if (PreData.getDB(context, EasyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(context)) {
+            if (!PreData.getDB(context, EasyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(context)) {
                 //通知栏动画
                 Intent intent6 = new Intent(context, EasyNotifingAnimationActivity.class);
                 context.startActivity(intent6);

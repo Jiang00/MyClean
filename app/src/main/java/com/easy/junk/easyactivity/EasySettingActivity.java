@@ -283,7 +283,7 @@ public class EasySettingActivity extends BaseActivity {
                 case R.id.setting_notifi:
                     SetAdUtil.track("设置页面", "进入通知栏清理", "", 1);
                     PreData.putDB(EasySettingActivity.this, EasyConstant.NOTIFI_CLEAN, true);
-                    if (PreData.getDB(EasySettingActivity.this, EasyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(EasySettingActivity.this)) {
+                    if (!PreData.getDB(EasySettingActivity.this, EasyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(EasySettingActivity.this)) {
                         //通知栏动画
                         Intent intent6 = new Intent(EasySettingActivity.this, EasyNotifingAnimationActivity.class);
                         startActivity(intent6);

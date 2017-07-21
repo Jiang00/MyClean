@@ -174,6 +174,7 @@ public class EasyGoodGameActivity extends BaseActivity {
 
     private void addData() {
         if (PreData.getDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_LUN, true)) {
+            PreData.putDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_LUN, false);
             shortGame(false);
         }
         list.addAll(GameBooster.getInstalledGameList(EasyGoodGameActivity.this));
@@ -272,7 +273,8 @@ public class EasyGoodGameActivity extends BaseActivity {
                 case R.id.add_left:
                     ll_add_game.setVisibility(View.GONE);
                     gboost_clean_button.setVisibility(View.VISIBLE);
-                    initList();
+//                    initList();
+                    gridViewAdAdapter.notifyDataSetChanged();
                     shortGame(false);
                     break;
                 case R.id.gboost_short_add:
@@ -343,7 +345,8 @@ public class EasyGoodGameActivity extends BaseActivity {
             case KeyEvent.KEYCODE_BACK:
                 if (ll_add_game.getVisibility() == View.VISIBLE) {
                     ll_add_game.setVisibility(View.GONE);
-                    initList();
+//                    initList();
+                    gridViewAdAdapter.notifyDataSetChanged();
                     shortGame(false);
                 } else {
                     return super.onKeyDown(keyCode, event);
@@ -440,21 +443,21 @@ public class EasyGoodGameActivity extends BaseActivity {
         }
         if (list.size() > 0 && (!PreData.getDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_SI, false) || isChuangjian)) {
             View shortcut_view = View.inflate(EasyGoodGameActivity.this, R.layout.layout_gboost_short, null);
-            if (list.size() > 0) {
-                ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
-                iv_1.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(0)));
-            }
             if (list.size() > 1) {
-                ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
-                iv_2.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(1)));
+                ImageView iv_1 = (ImageView) shortcut_view.findViewById(R.id.iv_1);
+                iv_1.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(1)));
             }
             if (list.size() > 2) {
-                ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
-                iv_3.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(2)));
+                ImageView iv_2 = (ImageView) shortcut_view.findViewById(R.id.iv_2);
+                iv_2.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(2)));
             }
             if (list.size() > 3) {
+                ImageView iv_3 = (ImageView) shortcut_view.findViewById(R.id.iv_3);
+                iv_3.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(3)));
+            }
+            if (list.size() > 4) {
                 ImageView iv_4 = (ImageView) shortcut_view.findViewById(R.id.iv_4);
-                iv_4.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(3)));
+                iv_4.setImageDrawable(LoadManager.getInstance(EasyGoodGameActivity.this).getAppIcon(list.get(4)));
                 PreData.putDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_SI, true);
             }
 
@@ -515,6 +518,7 @@ public class EasyGoodGameActivity extends BaseActivity {
     public void onBackPressed() {
         if (ll_add_game.getVisibility() == View.VISIBLE) {
             ll_add_game.setVisibility(View.GONE);
+            gridViewAdAdapter.notifyDataSetChanged();
             shortGame(false);
         } else {
             finish();

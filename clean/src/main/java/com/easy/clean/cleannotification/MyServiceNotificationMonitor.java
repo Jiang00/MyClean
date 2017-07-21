@@ -10,12 +10,11 @@ import android.os.Bundle;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.easy.clean.core.CleanManager;
-import com.easy.clean.easyutils.PreData;
 import com.easy.clean.easydb.CleanDBHelper;
+import com.easy.clean.easyutils.PreData;
 
 import java.util.List;
 
@@ -91,21 +90,9 @@ public class MyServiceNotificationMonitor extends NotificationListenerService {
                 e.printStackTrace();
             }
         }
-      /*  ArrayList<NotifiInfo> list = myApplication.getNotifiList();
-        for (NotifiInfo info : list) {
-            if (TextUtils.equals(info.pkg, pkg) && info.id == id) {
-                Log.e("notifi", "break");
-                list.remove(info);
-                break;
-            }
-        }
-        list.add(new NotifiInfo(pkg, icon, notificationTitle, notificationText, time, id, re));
-        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(NOTIFI_ACTION));*/
-
         NotificationInfo notifiInfo = new NotificationInfo(pkg, icon, notificationTitle, notificationText, time, id, re);
         CleanManager.getInstance(this).notificationChanged(notifiInfo, true);
 
-        Log.e("notifi", notificationTitle + "=" + notificationText + "=" + notificationSubText);
         if (Build.VERSION.SDK_INT > 21) {
             cancelNotification(sbn.getKey());
         } else {
@@ -119,7 +106,6 @@ public class MyServiceNotificationMonitor extends NotificationListenerService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.e("notifi", "nitifilistenerStartCommand");
         try {
             StatusBarNotification[] sbns = new StatusBarNotification[0];
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
@@ -140,14 +126,12 @@ public class MyServiceNotificationMonitor extends NotificationListenerService {
 
     @Override
     public void onDestroy() {
-        Log.e("notifi", "nitifilistenerDestroy");
         super.onDestroy();
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("notifi", "nitifilistenerCreate");
         pm = getPackageManager();
 
     }

@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -180,7 +179,6 @@ public class FloatStateManager {
                         params.alpha = 0.4f;
                         added = true;
                     } catch (Exception e) {
-                        Log.e("rqy", "exception " + e.getMessage());
                     }
                 }
             });
@@ -196,7 +194,6 @@ public class FloatStateManager {
                         wm.removeView(circleView);
                         added = false;
                     } catch (Exception e) {
-                        Log.e("rqy", "exception" + e.getMessage());
                     }
                 }
             });

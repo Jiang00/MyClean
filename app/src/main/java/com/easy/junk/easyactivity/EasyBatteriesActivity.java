@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -71,7 +70,7 @@ public class EasyBatteriesActivity extends BaseActivity {
         mHandler = new Handler();
         startCoolingAni();
         if (TextUtils.equals("main", getIntent().getStringExtra("from"))) {
-            cooling_text.setVisibility(View.VISIBLE);
+//            cooling_text.setVisibility(View.VISIBLE);
             final int wendu = getIntent().getIntExtra("wendu", 40);
             cooling_wendu.setText(wendu + "℃");
             for (int i = 0; i <= time; i++) {
@@ -137,22 +136,22 @@ public class EasyBatteriesActivity extends BaseActivity {
         random = new Random();
         time = random.nextInt(5) + 1;
         final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
-        ScaleAnimation s = new ScaleAnimation(1f, 1f, 0f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从上往下
-        s.setDuration(2000);
-        s.startNow();//开始动画
-        ScaleAnimation s1 = new ScaleAnimation(1f, 1f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 1f);//从上往下
-        s1.setDuration(2000);
-        mHandler.postDelayed(new Runnable() {
-            public void run() {
-                ScaleAnimation s = new ScaleAnimation(1f, 1f, 1f, 0f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从下往上
-                s.setDuration(2000);//设置动画持续时间
-                s.startNow();//开始动画
-            }
-        }, 2000); //延迟2秒跳转
-        mHandler.postDelayed(new Runnable() {
-            public void run() {
-            }
-        }, 3000);
+//        ScaleAnimation s = new ScaleAnimation(1f, 1f, 0f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从上往下
+//        s.setDuration(2000);
+//        s.startNow();//开始动画
+//        ScaleAnimation s1 = new ScaleAnimation(1f, 1f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 1f);//从上往下
+//        s1.setDuration(2000);
+//        mHandler.postDelayed(new Runnable() {
+//            public void run() {
+//                ScaleAnimation s = new ScaleAnimation(1f, 1f, 1f, 0f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从下往上
+//                s.setDuration(2000);//设置动画持续时间
+//                s.startNow();//开始动画
+//            }
+//        }, 2000); //延迟2秒跳转
+//        mHandler.postDelayed(new Runnable() {
+//            public void run() {
+//            }
+//        }, 3000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

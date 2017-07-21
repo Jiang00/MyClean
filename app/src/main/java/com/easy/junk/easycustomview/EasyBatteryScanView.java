@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -97,18 +98,16 @@ public class EasyBatteryScanView extends View {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        canvas.drawBitmap(battery, batteryLeftMargin, topMargin, null);
-        src = new Rect(0, 0, cover.getWidth(), starX);//xyxy
-        dst = new Rect(batteryLeftMargin, topMargin, cover.getWidth() + batteryLeftMargin, starX + topMargin);//0 145 640+0 0+145
+        Log.e("sdfsd", "========" + width);
+        canvas.drawBitmap(battery, null, new Rect(0, topMargin, width, topMargin + battery.getHeight()), null);
+        src = new Rect(0, 0, cover.getWidth(), starX);
+        dst = new Rect(0, topMargin, width, starX + topMargin);
         canvas.drawBitmap(cover, src, dst, null);
-//        EasyLog.e("canvas", "=======line.getHeight()===" + line.getHeight()+"====");
-        canvas.drawBitmap(line, 0, starX - line.getHeight() + topMargin, null);
-
+        canvas.drawBitmap(line, null, new Rect(0, starX - line.getHeight() + topMargin, width, starX + topMargin), null);
         drawScan();
     }
 
     private void drawScan() {
-
         if (curPos > count) {
             starX -= INTERVAL;
             if (starX <= 0) {
@@ -142,7 +141,7 @@ public class EasyBatteryScanView extends View {
     private Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
-            invalidate();
+            postInvalidate();
         }
     };
 
