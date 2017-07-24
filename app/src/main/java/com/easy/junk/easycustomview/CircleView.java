@@ -45,9 +45,7 @@ public class CircleView extends View {
         mPaintCircle = new Paint();
         mPaintCircle.setAntiAlias(true);//设置是否抗锯齿
         mPaintCircle.setStyle(Paint.Style.STROKE);//设置绘制风格
-        mPaintCircle.setStrokeWidth(dip2px(context, 3));//设置线宽
-
-//        handler.sendEmptyMessage(NEED_INVALIDATE);//向handler发送一个消息，让它开启重绘
+        mPaintCircle.setStrokeWidth(dip2px(context, getResources().getDimension(R.dimen.d2)));//设置线宽
     }
 
     @Override
@@ -61,15 +59,42 @@ public class CircleView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mPaintCircle.setColor(ContextCompat.getColor(context, R.color.B3_5));
-        mPaintCircle.setStrokeWidth(dip2px(context, 1));//设置线宽
-        //画出大圆
-        canvas.drawCircle(width / 2, getResources().getDimensionPixelSize(R.dimen.d138), getResources().getDimensionPixelSize(R.dimen.d130), mPaintCircle);
-        mPaintCircle.setColor(ContextCompat.getColor(context, R.color.B3_12));
-        mPaintCircle.setStrokeWidth(dip2px(context, 2));//设置线宽
-        //画出中心圆
-        canvas.drawCircle(width / 2, getResources().getDimensionPixelSize(R.dimen.d138), getResources().getDimensionPixelSize(R.dimen.d118), mPaintCircle);
+        mPaintCircle.setColor(ContextCompat.getColor(context, R.color.B3));
 
+        canvas.drawCircle(width / 2, getResources().getDimensionPixelSize(R.dimen.d138), getResources().getDimensionPixelSize(R.dimen.d130), mPaintCircle);
+
+    }
+
+    boolean isStop;
+
+    public void start(final float dushu) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                for (int i = 0, j = 269; i < 270 && j > dushu; ) {
+                    if (isStop) {
+                        return;
+                    }
+                    if (i == 269) {
+                        j--;
+                    } else {
+                        i++;
+                    }
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        isStop = true;
     }
 
     /**

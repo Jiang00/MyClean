@@ -28,8 +28,7 @@
             android:id="@+id/title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/title_left"
+            android:layout_centerInParent="true"
             android:text="@string/app_name"
             android:textColor="@color/white_100"
             android:textSize="@dimen/s18" />
@@ -43,10 +42,10 @@
             android:padding="@dimen/d8">
 
             <ImageView
-                android:layout_width="@dimen/d32"
-                android:layout_height="@dimen/d32"
+                android:layout_width="@dimen/d24"
+                android:layout_height="@dimen/d24"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="@dimen/d16"
+                android:layout_marginRight="@dimen/d8"
                 android:gravity="center"
                 android:scaleType="center"
                 android:src="@mipmap/white_add_right" />
@@ -58,13 +57,13 @@
         android:id="@+id/search_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/d56"
-        android:layout_marginLeft="@dimen/d8"
-        android:layout_marginRight="@dimen/d8"
+        android:layout_marginLeft="@dimen/d18"
+        android:layout_marginRight="@dimen/d18"
         android:visibility="gone">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d43"
+            android:layout_height="@dimen/d30"
             android:layout_gravity="center"
             android:background="@drawable/shape_radio" />
 
@@ -73,29 +72,31 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/d43"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/d30"
+            android:layout_marginLeft="@dimen/d28"
+            android:layout_marginRight="@dimen/d18"
             android:background="@null"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:hint="@string/edit_hint"
             android:singleLine="true"
-            android:textColor="#8a000000"
-            android:textColorHint="#59000000" />
+            android:textColor="@color/A5"
+            android:textColorHint="@color/A5"
+            android:textSize="@dimen/s14" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/d18"
+            android:layout_height="@dimen/d18"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/d10"
             android:src="@mipmap/edit_left_drawable" />
 
         <ImageButton
             android:id="@+id/clear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/d11"
+            android:layout_height="@dimen/d11"
             android:layout_gravity="center_vertical|end"
-            android:layout_marginRight="@dimen/d5"
+            android:layout_marginRight="@dimen/d10"
             android:background="@mipmap/eidt_cha"
-            android:padding="@dimen/d5" />
+            android:padding="@dimen/d10" />
     </FrameLayout>
 </RelativeLayout>

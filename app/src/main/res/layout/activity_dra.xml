@@ -22,39 +22,39 @@
             android:background="#ffffff"
             android:orientation="vertical">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:background="@color/A1" />
             <!--侧边栏头部-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d141"
-                android:background="@mipmap/side_wave"
+                android:layout_height="@dimen/d172"
+                android:background="@mipmap/sidebeijing"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/d24" />
+
                 <ImageView
-                    android:layout_width="@dimen/d60"
-                    android:layout_height="@dimen/d60"
-                    android:layout_marginTop="@dimen/d20"
+                    android:layout_width="@dimen/d45"
+                    android:layout_height="@dimen/d45"
+                    android:layout_marginTop="@dimen/d38"
                     android:src="@mipmap/side_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d6"
+                    android:layout_marginTop="@dimen/d8"
                     android:text="@string/app_name"
-                    android:textColor="@color/A7"
-                    android:textSize="@dimen/s14" />
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s13" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d2"
+                    android:layout_marginTop="@dimen/d4"
                     android:text="@string/side_describe"
-                    android:textColor="@color/A6"
-                    android:textSize="@dimen/s10" />
+                    android:textColor="#b3ffffff"
+                    android:textSize="@dimen/s9" />
             </LinearLayout>
             <!--ad-->
             <FrameLayout
@@ -67,8 +67,6 @@
                     android:id="@+id/ll_ad_side"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d8"
                     android:background="@color/A7"
                     android:orientation="vertical" />
             </FrameLayout>
@@ -82,8 +80,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d8"
                     android:background="@color/A7"
                     android:orientation="vertical">
 
@@ -93,11 +89,6 @@
                         android:layout_height="wrap_content"
                         android:divider="@color/A7"
                         android:dividerHeight="0dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d16"
-                        android:background="@color/A17" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

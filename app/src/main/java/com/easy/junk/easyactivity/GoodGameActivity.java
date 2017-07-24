@@ -74,14 +74,12 @@ public class GoodGameActivity extends BaseActivity {
     ImageView gboost_power_check;
     ListView list_game;
     EditText search_edit_text;
-    ImageView gboost_short_iv;
     FrameLayout title_left;
     TextView title_name;
     private static boolean flag = false;
     private JiaGoodGameAdapter whiteListAdapter;
     private boolean search;
     private int screenWidth;
-    TextView gboost_short_add;
     private int width;
     TextView gboost_item_textview;
     GridView gboost_gridview;
@@ -91,7 +89,6 @@ public class GoodGameActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case ADD_DATA:
-
                     break;
             }
             super.handleMessage(msg);
@@ -123,7 +120,6 @@ public class GoodGameActivity extends BaseActivity {
 //        main_aerobee.setOnClickListener(clickListener);
         add_right.setOnClickListener(clickListener);
         clear.setOnClickListener(clickListener);
-        gboost_short_add.setOnClickListener(clickListener);
         gboost_add = new ArrayList<>();
         listEdit = new ArrayList<>();
         initList();
@@ -150,12 +146,11 @@ public class GoodGameActivity extends BaseActivity {
         list_game = (ListView) findViewById(R.id.list_game);
         gboost_item_textview = (TextView) findViewById(R.id.gboost_item_textview);
         gboost_clean_button = (TextView) findViewById(R.id.gboost_clean_button);
-        gboost_short_add = (TextView) findViewById(R.id.gboost_short_add);
-        gboost_short_iv = (ImageView) findViewById(R.id.gboost_short_iv);
     }
 
     private void addData() {
         if (PreData.getDB(GoodGameActivity.this, MyConstant.GBOOST_LUN, true)) {
+            PreData.putDB(GoodGameActivity.this, MyConstant.GBOOST_LUN, true);
             shortGame(false);
         }
         list.addAll(GameBooster.getInstalledGameList(GoodGameActivity.this));
@@ -266,7 +261,6 @@ public class GoodGameActivity extends BaseActivity {
             iv_4.setImageDrawable(LoadManager.getInstance(GoodGameActivity.this).getAppIcon(list.get(4)));
         }
         Bitmap bitmap = MyUtils.getViewBitmap(shortcut_view);
-        gboost_short_iv.setImageBitmap(bitmap);
     }
 
     private void initList() {
@@ -294,12 +288,9 @@ public class GoodGameActivity extends BaseActivity {
 //                        pageindicatorview.setCount(5);
 //                    }
 //                    gboost_recyc.scrollBy(2000, 0);
-                    initList();
+//                    initList();
+                    gridViewAdAdapter.notifyDataSetChanged();
                     shortGame(false);
-                    break;
-                case R.id.gboost_short_add:
-                    SetAdUtil.track("游戏加速页面", "点击添加快捷方式", "", 1);
-                    shortGame(true);
                     break;
                 case R.id.gboost_clean_button:
                     SetAdUtil.track("游戏加速页面", "点击一键加速", "", 1);
@@ -350,7 +341,7 @@ public class GoodGameActivity extends BaseActivity {
             case KeyEvent.KEYCODE_BACK:
                 if (ll_add_game.getVisibility() == View.VISIBLE) {
                     ll_add_game.setVisibility(View.GONE);
-                    initList();
+                    gridViewAdAdapter.notifyDataSetChanged();
                     shortGame(false);
                 } else {
                     return super.onKeyDown(keyCode, event);
@@ -498,7 +489,6 @@ public class GoodGameActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.gboost_short);
             ShortCutUtils.addShortcut(GoodGameActivity.this, shortcutIntent, title, false, bitmap);
-            gboost_short_iv.setImageBitmap(bitmap);
             return;
         }
         if (list.size() > 1 && (!PreData.getDB(GoodGameActivity.this, MyConstant.GBOOST_SI, false) || isChuangjian)) {
@@ -526,7 +516,6 @@ public class GoodGameActivity extends BaseActivity {
                 Log.e("short", "chuangjian ");
                 ShortCutUtils.removeShortcut(GoodGameActivity.this, shortcutIntent, title);
                 ShortCutUtils.addShortcut(GoodGameActivity.this, shortcutIntent, title, false, bitmap);
-                gboost_short_iv.setImageBitmap(bitmap);
             }
         }
     }

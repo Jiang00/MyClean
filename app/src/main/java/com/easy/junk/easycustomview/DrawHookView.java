@@ -47,7 +47,6 @@ public class DrawHookView extends View {
 
     }
 
-
     //绘制
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -74,7 +73,7 @@ public class DrawHookView extends View {
         //消除锯齿
         paint.setAntiAlias(true);
 //        paint.setStrokeCap(Paint.Cap.ROUND);
-        paint.setColor(getResources().getColor(R.color.A1));
+        paint.setColor(getResources().getColor(R.color.B3));
     }
 
     @Override

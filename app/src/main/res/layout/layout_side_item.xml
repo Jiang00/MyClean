@@ -8,16 +8,16 @@
 
     <RelativeLayout
         android:id="@+id/rl"
-        android:layout_width="@dimen/d56"
-        android:layout_height="@dimen/d56"
+        android:layout_width="@dimen/d72"
+        android:layout_height="@dimen/d52"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/iv_le"
-            android:layout_width="@dimen/d24"
-            android:layout_height="@dimen/d24"
+            android:layout_width="@dimen/d32"
+            android:layout_height="@dimen/d32"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/d8" />
+            android:layout_marginLeft="@dimen/d16" />
     </RelativeLayout>
 
     <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -27,16 +27,16 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/rl"
         android:text="aaaaaaa"
-        android:textColor="@color/A8"
+        android:textColor="#040e2d"
         android:textSize="@dimen/s14" />
 
     <ImageView
         android:id="@+id/iv_check"
-        android:layout_width="@dimen/d30"
-        android:layout_height="@dimen/d30"
+        android:layout_width="@dimen/d32"
+        android:layout_height="@dimen/d32"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/d8"
+        android:layout_marginRight="@dimen/d16"
         android:src="@mipmap/side_check_normal" />
 
     <TextView
@@ -56,6 +56,6 @@
     <View
         android:id="@+id/side_divide"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d8"
-        android:background="@color/A17" />
+        android:layout_height="1px"
+        android:background="#26000000" />
 </RelativeLayout>

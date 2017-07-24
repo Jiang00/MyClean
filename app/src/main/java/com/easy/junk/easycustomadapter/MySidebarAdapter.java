@@ -17,6 +17,8 @@ import com.easy.clean.core.CleanManager;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
+import com.easy.junk.easyactivity.AllAppsActivity;
+import com.easy.junk.easyactivity.BatteriesActivity;
 import com.easy.junk.easyactivity.DeepingActivity;
 import com.easy.junk.easyactivity.GoodGameActivity;
 import com.easy.junk.easyactivity.MemoryAvtivity;
@@ -26,11 +28,11 @@ import com.easy.junk.easyactivity.PhoneFileManagerActivity;
 import com.easy.junk.easyactivity.PictActivity;
 import com.easy.junk.easyactivity.RubbishActivity;
 import com.easy.junk.easyactivity.SetActivity;
+import com.easy.junk.easymodel.SideInfo;
+import com.easy.junk.easyservices.SuspensionBallService;
 import com.easy.junk.easytools.MUtilGp;
 import com.easy.junk.easytools.MyConstant;
 import com.easy.junk.easytools.SetAdUtil;
-import com.easy.junk.easyservices.SuspensionBallService;
-import com.easy.junk.easymodel.SideInfo;
 import com.easy.module.charge.saver.easyutils.BatteryConstants;
 import com.easy.module.charge.saver.easyutils.Utils;
 
@@ -38,13 +40,15 @@ import com.easy.module.charge.saver.easyutils.Utils;
 public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
     int BATTERY = -1;
     int FLOAT = -1;
-    int RAM = -1;
     int JUNK = -1;
-    int POWER = -1;
+    int RAM = -1;
     int NOTIFI = -1;
+    int POWER = -1;
     int PICTURE = -1;
+    int MANAGER = -1;
     int FILE = -1;
     int GBOOST = -1;
+    int COOLING = -1;
 
     int SETTING = -1;
     int ROTATE = -1;
@@ -70,20 +74,22 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
         int idx = 0;
         BATTERY = idx++;
         FLOAT = idx++;
-        RAM = idx++;
         JUNK = idx++;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.POWERACTIVITY, 1) != 0) {
-            POWER = idx++;
-        }
+        RAM = idx++;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.NOTIFIACTIVITY, 1) != 0) {
             NOTIFI = idx++;
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstant.POWERACTIVITY, 1) != 0) {
+            POWER = idx++;
+        }
         PICTURE = idx++;
+        MANAGER = idx++;
         FILE = idx++;
         GBOOST = idx++;
+        COOLING = idx++;
         SETTING = idx++;
         ROTATE = idx++;
-        
+
         long junk_size = CleanManager.getInstance(context).getApkSize() + CleanManager.getInstance(context).getCacheSize() +
                 CleanManager.getInstance(context).getUnloadSize() + CleanManager.getInstance(context).getLogSize() + CleanManager.getInstance(context).getDataSize();
         powerSize = MyUtils.convertStorage(junk_size, true);
@@ -170,9 +176,7 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
                 convertView.setLayoutParams(param);
             }
         }*/
-        if (position == RAM) {
-            holder.side_divide.setVisibility(View.VISIBLE);
-        } else if (position == SETTING) {
+        if (position == JUNK) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);
@@ -215,8 +219,6 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
             Intent intent4 = new Intent(context, PictActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
-//            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-//            ((Activity) context).startActivityForResult(intent, 1);
             SetAdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
             PreData.putDB(context, MyConstant.FILE_CLEAN, true);
             Intent intent5 = new Intent(context, PhoneFileManagerActivity.class);
@@ -228,7 +230,7 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
         } else if (position == NOTIFI) {
             SetAdUtil.track("侧边栏", "点击进入通知栏页面", "", 1);
             PreData.putDB(context, MyConstant.NOTIFI_CLEAN, true);
-            if (PreData.getDB(context, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(context)) {
+            if (!PreData.getDB(context, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(context)) {
                 //通知栏动画
                 Intent intent6 = new Intent(context, NotifingAnimationActivity.class);
                 context.startActivity(intent6);
@@ -237,10 +239,18 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
                 Intent intent6 = new Intent(context, MyNotifingActivity.class);
                 context.startActivity(intent6);
             }
+        } else if (position == MANAGER) {
+            SetAdUtil.track("侧边栏", "点击进入应用管理", "", 1);
+            Intent intent = new Intent(context, AllAppsActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == GBOOST) {
             SetAdUtil.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, MyConstant.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, GoodGameActivity.class);
+            ((Activity) context).startActivityForResult(intent, 1);
+        } else if (position == COOLING) {
+            SetAdUtil.track("侧边栏", "点击进入电池降温", "", 1);
+            Intent intent = new Intent(context, BatteriesActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {
             SetAdUtil.track("侧边栏", "点击进入设置页面", "", 1);

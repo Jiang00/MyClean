@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -25,10 +24,10 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.easy.clean.core.CleanManager;
-import com.easy.clean.entity.JunkInfo;
 import com.easy.clean.easyutils.LoadManager;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
+import com.easy.clean.entity.JunkInfo;
 import com.easy.junk.R;
 import com.easy.junk.easycustomview.DrawHookView;
 import com.easy.junk.easycustomview.ImageAccessor;
@@ -452,9 +451,7 @@ public class SucceedActivity extends BaseActivity {
                 case R.id.main_notifi_button:
                     SetAdUtil.track("完成页面", "点击进入通知栏清理", "", 1);
                     PreData.putDB(SucceedActivity.this, MyConstant.NOTIFI_CLEAN, true);
-                    if (!MyUtils.isNotificationListenEnabled(SucceedActivity.this)) {
-                        startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), 100);
-                    } else if (!PreData.getDB(SucceedActivity.this, MyConstant.KEY_NOTIFI, true)) {
+                    if (!PreData.getDB(SucceedActivity.this, MyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(SucceedActivity.this)) {
                         Intent intent6 = new Intent(SucceedActivity.this, NotifingAnimationActivity.class);
                         startActivity(intent6);
                         onBackPressed();

@@ -1,24 +1,30 @@
 package com.easy.junk.easyactivity;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.ScaleAnimation;
+import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easycustomview.BatteryScanView;
+import com.easy.junk.easycustomview.DrawHookView;
 import com.easy.junk.easycustomview.FlakeView;
+import com.easy.junk.easycustomview.Rotate3d;
 import com.easy.junk.easytools.MyConstant;
 
 import java.util.Random;
@@ -40,10 +46,12 @@ public class BatteriesActivity extends BaseActivity {
     private int time;
     private FlakeView flakeView;
     LinearLayout cooling_text;
-//    ImageView cooling_xuehua;
-//    ImageView cooling_2;
+    //    ImageView cooling_xuehua;
+    ImageView cooling_2;
     TextView title_name;
-    BatteryScanView cooling_1;
+    ImageView cooling_xuehua, cooling_dianyuan;
+    ViewGroup mContainer;
+    DrawHookView cooling_drawhookview;
 
     private Handler mHandler = new Handler();
     private Runnable runnable = new Runnable() {
@@ -72,6 +80,10 @@ public class BatteriesActivity extends BaseActivity {
         rotate_zheng = AnimationUtils.loadAnimation(this, R.anim.rotate_cooling);
         suo = AnimationUtils.loadAnimation(this, R.anim.suo);
         mHandler = new Handler();
+
+        cooling_xuehua.setClickable(true);
+        cooling_xuehua.setFocusable(true);
+
 //        cooling_xuehua.startAnimation(rotate_zheng);
         startCoolingAni();
 
@@ -89,14 +101,10 @@ public class BatteriesActivity extends BaseActivity {
                 bundle.putInt("wendu", time);
                 bundle.putString("from", "cooling");
                 jumpToActivity(SucceedActivity.class, bundle, 1);
-
             }
-
             @Override
             public void onAnimationRepeat(Animation animation) {
-
             }
-
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -141,12 +149,14 @@ public class BatteriesActivity extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         cooling_piao = (LinearLayout) findViewById(R.id.cooling_piao);
-//        cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
+        cooling_dianyuan = (ImageView) findViewById(R.id.cooling_dianyuan);
 //        cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
         cooling_text = (LinearLayout) findViewById(R.id.cooling_text);
-//        cooling_2 = (ImageView) findViewById(R.id.cooling_2);
+        cooling_2 = (ImageView) findViewById(R.id.cooling_2);
         cooling_wendu = (TextView) findViewById(R.id.cooling_wendu);
-        cooling_1 = (BatteryScanView) findViewById(R.id.cooling_1);
+        cooling_xuehua = (ImageView) findViewById(R.id.cooling_xuehua);
+        mContainer = (ViewGroup) findViewById(R.id.fl);///找到FrameLayout
+        cooling_drawhookview = (DrawHookView) findViewById(R.id.cooling_drawhookview);
     }
 
     @Override
@@ -167,6 +177,9 @@ public class BatteriesActivity extends BaseActivity {
         finish();
     }
 
+    ObjectAnimator animator1, animator2, animator3, animator4;
+    AnimatorSet animSet;
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -177,70 +190,140 @@ public class BatteriesActivity extends BaseActivity {
         random = new Random();
         time = random.nextInt(5) + 1;
 //        cooling_wendu.setText(time + "℃");
+        LinearInterpolator linearInterpolator = new LinearInterpolator();
+        animator1 = ObjectAnimator.ofFloat(cooling_dianyuan, "rotation", 0f, 360f);
+        animator1.setInterpolator(linearInterpolator);
+        animator1.setDuration(300);
+        animator1.setRepeatCount(5);
+        animator1.start();
+
         final ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 20);
-//        ObjectAnimator animator = ObjectAnimator.ofFloat(cooling_1, "scaleY", 1f, 0f);
-//        ObjectAnimator animator2 = ObjectAnimator.ofFloat(cooling_1, "scaleX", 1f, 0f);
-//        AnimatorSet animSet = new AnimatorSet();
-//        animSet.setDuration(2000);//设置动画持续时间
-//        animSet.play(animator).with(animator2);
-//        animSet.start();
 
-        ScaleAnimation s = new ScaleAnimation(1f, 1f, 0f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从上往下
-//        cooling_2.setAnimation(s);
-        s.setDuration(2000);
-        s.startNow();//开始动画
-        ScaleAnimation s1 = new ScaleAnimation(1f, 1f, 1f, 1f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 1f);//从上往下
-//        cooling_1.setAnimation(s);
-        s1.setDuration(2000);
-//        s1.startNow();//开始动画
-        mHandler.postDelayed(new Runnable() {
-            public void run() {
-                ScaleAnimation s = new ScaleAnimation(1f, 1f, 1f, 0f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0f);//从下往上
-//                ObjectAnimator animator = ObjectAnimator.ofFloat(cooling_1, "scaleY", 0f, 1f);
-//                ObjectAnimator animator2 = ObjectAnimator.ofFloat(cooling_1, "scaleX", 0f, 1f);
-//                AnimatorSet animSet = new AnimatorSet();
-//                animSet.setDuration(2000);//设置动画持续时间
-//                cooling_2.setAnimation(s);
-//                animSet.play(animator).with(animator2);
-//                animSet.start();
-                s.setDuration(2000);//设置动画持续时间
-//                cooling_2.setAnimation(s);
-                s.startNow();//开始动画
+        animSet = new AnimatorSet();
+        animator2 = ObjectAnimator.ofFloat(cooling_2, "scaleY", 1f, 1.5f);
+        animator3 = ObjectAnimator.ofFloat(cooling_2, "scaleX", 1f, 1.5f);
+        animator4 = ObjectAnimator.ofFloat(cooling_2, "alpha", 1f, 0f);
+        animSet.setDuration(1500);
+        animSet.play(animator2).with(animator3).with(animator4);
+        animSet.start();
+        animSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
 
             }
-        }, 2000); //延迟2秒跳转
-        mHandler.postDelayed(new Runnable() {
-            public void run() {
-//                cooling_1.setVisibility(View.VISIBLE);
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (animSet != null) {
+                    animSet.pause();
+                }
+                if (animator1 != null) {
+                    animator1.pause();
+                }
+                cooling_dianyuan.setVisibility(View.GONE);
+                cooling_2.setAlpha(1f);
+                cooling_2.setScaleX(1f);
+                cooling_2.setScaleY(1f);
+                cooling_2.setVisibility(View.VISIBLE);
+                applyRotation(0, 0, 180);//左旋90度
             }
-        }, 3000);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener()
+
+        {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 int value = (int) animation.getAnimatedValue();
                 if (value == 20) {
 //                    cooling_fl.startAnimation(suo);
-                    hideSnow();
+//                    hideSnow();
                 }
             }
         });
-        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-        valueAnimator.setDuration(2000);
-        valueAnimator.start();
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+//        valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+//        valueAnimator.setDuration(2000);
+//        valueAnimator.start();
+      /*  mHandler.postDelayed(new
+
+                                     Runnable() {
+                                         @Override
+                                         public void run() {
 //                cooling_fl.setVisibility(View.INVISIBLE);
 //                cooling_xuehua.clearAnimation();
-                if (PreData.getDB(BatteriesActivity.this, MyConstant.FULL_COOL, 0) == 1) {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                                             if (PreData.getDB(BatteriesActivity.this, MyConstant.FULL_COOL, 0) == 1) {
+                                                 AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                                             }
+                                             Bundle bundle = new Bundle();
+                                             bundle.putInt("wendu", time);
+                                             bundle.putString("from", "cooling");
+//                jumpToActivity(SucceedActivity.class, bundle, 1);
+                                         }
+                                     }, 4000);*/
+    }
+
+    //应用变换的方法，里面将会使用之前写好的Rotate3d类
+    private void applyRotation(int position, float start, float end) {
+        // Find the center of the container
+        //获取FrameLayout的x、y值。这样图片在翻转的时候会以这个x、y值为中心翻转。
+        //这就是为什么我要用FrameLayout的原因。如果直接使用的是父容器RelativeLayout将会以RelativeLayout的中心为轴心
+        //翻转。由于我的图片不是处于RelativeLayout的中心，翻转时就会有差错.效果可以看看下面的图片。
+        //当然，有时候你就想要那样的效果。你也可以在自行调整centerX和centerY的值来达到你想要的效果
+        final float centerX = mContainer.getWidth() / 2.0f;
+        final float centerY = mContainer.getHeight() / 2.0f;
+        final Rotate3d rotation =
+                new Rotate3d(start, end, centerX, centerY, 360, true);
+        rotation.setDuration(1000); //可设置翻转的时间，以ms为单位
+        rotation.setFillAfter(true);
+        rotation.setInterpolator(new AccelerateInterpolator());
+        rotation.setAnimationListener(new DisplayNextView());
+        mContainer.startAnimation(rotation);  //开始翻转前90度
+    }
+
+    /*
+     * 这个类用于监听前90度翻转完成
+     */
+    private final class DisplayNextView implements Animation.AnimationListener {
+        private DisplayNextView() {
+        }
+
+        public void onAnimationStart(Animation animation) {
+        }
+
+        public void onAnimationEnd(Animation animation) {
+            hideSnow();
+            mContainer.setVisibility(View.GONE);
+            cooling_xuehua.setVisibility(View.GONE);
+            cooling_drawhookview.startProgress(500);
+            cooling_drawhookview.setListener(new DrawHookView.DrawHookListener() {
+
+                @Override
+                public void duogouSc() {
+                    cooling_drawhookview.setListener(null);
+                    if (PreData.getDB(BatteriesActivity.this, MyConstant.FULL_COOL, 0) == 1) {
+                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                    }
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("wendu", time);
+                    bundle.putString("from", "cooling");
+                    jumpToActivity(SucceedActivity.class, bundle, 1);
                 }
-                Bundle bundle = new Bundle();
-                bundle.putInt("wendu", time);
-                bundle.putString("from", "cooling");
-                jumpToActivity(SucceedActivity.class, bundle, 1);
-            }
-        }, 4000);
+            });
+        }
+
+        public void onAnimationRepeat(Animation animation) {
+        }
+
     }
 
     @Override
@@ -260,6 +343,12 @@ public class BatteriesActivity extends BaseActivity {
         if (cooling_piao != null) {
             cooling_piao.removeAllViews();
             cooling_piao.setVisibility(View.GONE);
+        }
+        if (animSet != null) {
+            animSet.cancel();
+        }
+        if (animator1 != null) {
+            animator1.cancel();
         }
     }
 

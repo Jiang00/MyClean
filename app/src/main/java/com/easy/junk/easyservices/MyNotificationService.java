@@ -142,7 +142,7 @@ public class MyNotificationService extends Service {
 
     public Canvas getCanvas2() {
         paint1 = new Paint();
-        paint1.setColor(ContextCompat.getColor(this, R.color.A24));
+        paint1.setColor(ContextCompat.getColor(this, R.color.A2));
         paint1.setAntiAlias(true);
         paint1.setStrokeWidth(getResources().getDimensionPixelSize(R.dimen.d2));
         paint1.setStyle(Paint.Style.STROKE);

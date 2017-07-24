@@ -22,49 +22,48 @@
     <FrameLayout
         android:id="@+id/cooling_fl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="match_parent">
 
-
-        <!--<ImageView
-            android:id="@+id/cooling_2"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:background="@mipmap/cooling_2" />-->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d3"
-            android:layout_marginTop="@dimen/d120"
-            android:background="@color/A7" />
-
-        <com.easy.junk.easycustomview.BatteryScanView
-            android:id="@+id/cooling_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <com.easy.junk.easycustomview.DrawHookView
+            android:id="@+id/cooling_drawhookview"
+            android:layout_width="@dimen/d123"
+            android:layout_height="@dimen/d123"
             android:layout_gravity="center" />
 
-        <!--<ImageView
-            android:layout_width="@dimen/d240"
-            android:layout_height="@dimen/d270"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/cooling_1" />-->
-
-        <!--旋转-->
-        <!--<ImageView
-            android:id="@+id/cooling_xuehua"
-            android:layout_width="@dimen/d240"
-            android:layout_height="@dimen/d270"
+        <ImageView
+            android:id="@+id/cooling_2"
+            android:layout_width="@dimen/d130"
+            android:layout_height="@dimen/d130"
             android:layout_gravity="center"
-            android:src="@mipmap/cooling_1"
-            android:visibility="gone" />-->
+            android:background="@mipmap/cooling_2" />
+
+        <ImageView
+            android:id="@+id/cooling_dianyuan"
+            android:layout_width="@dimen/d130"
+            android:layout_height="@dimen/d130"
+            android:layout_gravity="center"
+            android:src="@mipmap/cooling_1" />
+
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="@dimen/d61"
+            android:layout_height="@dimen/d61"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/cooling_xuehua"
+                android:layout_width="@dimen/d61"
+                android:layout_height="@dimen/d61"
+                android:src="@mipmap/cooling_0" />
+        </FrameLayout>
+
     </FrameLayout>
     <!--飘落的控件-->
     <LinearLayout
         android:id="@+id/cooling_piao"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone" />
+        android:orientation="vertical" />
 
     <LinearLayout
         android:id="@+id/cooling_text"

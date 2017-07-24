@@ -56,7 +56,6 @@ public class ShortCutingActivity extends BaseActivity {
     private int count;
     private Handler myHandler;
     ImageView short_huojian;
-    ImageView short_b;
     LinearLayout ll_ad;
     FrameLayout short_fl;
     private View nativeView;
@@ -92,7 +91,6 @@ public class ShortCutingActivity extends BaseActivity {
         super.findId();
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
         short_fl = (FrameLayout) findViewById(R.id.short_fl);
-        short_b = (ImageView) findViewById(R.id.short_b);
         short_huojian = (ImageView) findViewById(R.id.short_huojian);
     }
 
@@ -265,12 +263,10 @@ public class ShortCutingActivity extends BaseActivity {
         AndroidSdk.onResumeWithoutTransition(this);
         LinearInterpolator lir = new LinearInterpolator();
         AnimatorSet set = new AnimatorSet();
-        ObjectAnimator rotation = ObjectAnimator.ofFloat(short_huojian, "rotation", 0, 360f);
-        ObjectAnimator rotation1 = ObjectAnimator.ofFloat(short_b, "rotation", 0, 360f);
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(short_huojian, "rotation", 0, 359f);
         set.setInterpolator(lir);
-        rotation.setRepeatCount(3);
-        rotation1.setRepeatCount(3);
-        set.setDuration(500);
+        rotation.setRepeatCount(6);
+        set.setDuration(200);
         set.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationCancel(Animator animation) {
@@ -296,7 +292,7 @@ public class ShortCutingActivity extends BaseActivity {
 
             }
         });
-        set.play(rotation).with(rotation1);
+        set.play(rotation);
         set.start();
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -317,34 +313,6 @@ public class ShortCutingActivity extends BaseActivity {
 
             }
         });
-//        ObjectAnimator rotation = ObjectAnimator.ofFloat(short_b, "rotation", 0, 360);
-//        rotation.setDuration(1200);
-//        rotation.setInterpolator(new LinearInterpolator());
-//        rotation.setRepeatCount(2);
-//        rotation.start();
-        /*rotation.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-        });*/
-
     }
 
     @Override
