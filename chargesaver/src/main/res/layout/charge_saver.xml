@@ -21,69 +21,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <!--开关-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d68"
+            android:layout_marginTop="@dimen/d18">
+
+            <ImageView
+                android:id="@+id/battery_icon"
+                android:layout_width="@dimen/d15"
+                android:layout_height="@dimen/d15"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d16"
+                android:src="@mipmap/battery_inner_icon" />
+
+            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                android:id="@+id/battery_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/d16"
+                android:layout_toRightOf="@id/battery_icon"
+                android:text="@string/app_name"
+                android:textColor="@color/white_100"
+                android:textSize="@dimen/s13"
+                app:typeface="ROBOTO-REGULAR.TTF" />
+
+            <LinearLayout
+                android:id="@+id/battery_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/d16">
+
+                <ImageView
+                    android:layout_width="@dimen/d24"
+                    android:layout_height="@dimen/d24"
+                    android:src="@mipmap/battery_more" />
+            </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/d161"
             android:orientation="vertical">
-            <!--开关-->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d56"
-                android:layout_marginTop="@dimen/d24">
-
-                <ImageView
-                    android:id="@+id/battery_icon"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:src="@mipmap/battery_inner_icon"
-                    android:visibility="gone" />
-
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/battery_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_toRightOf="@id/battery_icon"
-                    android:text="@string/app_name"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s18"
-                    app:typeface="ROBOTO-REGULAR.TTF" />
-
-                <LinearLayout
-                    android:id="@+id/battery_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d16">
-
-                    <ImageView
-                        android:layout_width="@dimen/d24"
-                        android:layout_height="@dimen/d24"
-                        android:src="@mipmap/battery_more" />
-                </LinearLayout>
-            </RelativeLayout>
             <!--小时和电池动画-->
             <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:id="@+id/battery_now_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d30"
+                android:layout_marginLeft="@dimen/d36"
                 android:text="17:24"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/s70"
+                android:textSize="@dimen/s50"
                 app:typeface="ROBOTO-REGULAR.TTF" />
 
             <ImageView
                 android:layout_width="@dimen/d129"
                 android:layout_height="@dimen/d43"
                 android:layout_marginLeft="@dimen/d27"
-                android:layout_marginTop="@dimen/d15"
                 android:layout_toRightOf="@id/battery_now_time"
                 android:src="@mipmap/battery"
                 android:visibility="gone" />
@@ -91,44 +90,17 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d40"
-                android:layout_marginTop="@dimen/d8"
+                android:layout_marginLeft="@dimen/d36"
+                android:layout_marginTop="@dimen/d12"
                 android:orientation="horizontal">
-                <!--年-->
+                <!--星期-->
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/battery_now_year"
+                    android:id="@+id/battery_now_week"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="17"
+                    android:text="Fri"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/s12"
-                    app:typeface="ROBOTO-REGULAR.TTF" />
-
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/d6"
-                    android:text="/"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s12"
-                    app:typeface="ROBOTO-REGULAR.TTF" />
-                <!--月-->
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/battery_now_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="09"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s12"
-                    app:typeface="ROBOTO-REGULAR.TTF" />
-
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/d6"
-                    android:text="/"
-                    android:textColor="@color/white_100"
-                    android:textSize="@dimen/s12"
+                    android:textSize="@dimen/s18"
                     app:typeface="ROBOTO-REGULAR.TTF" />
                 <!--日-->
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -138,37 +110,25 @@
                     android:paddingLeft="@dimen/d6"
                     android:text="03"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/s12"
+                    android:textSize="@dimen/s18"
                     app:typeface="ROBOTO-REGULAR.TTF" />
-                <!--星期-->
+                <!--月-->
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/battery_now_week"
+                    android:id="@+id/battery_now_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/d12"
-                    android:text="Fri"
+                    android:text="09"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/s12"
+                    android:textSize="@dimen/s18"
                     app:typeface="ROBOTO-REGULAR.TTF" />
+
                 <!--电量-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/d46"
-                    android:orientation="horizontal"
-                    android:visibility="gone">
-
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                        android:id="@+id/currentLevel_ing"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:text="@string/charging_ing"
-                        android:textColor="#ffffff"
-                        android:textSize="@dimen/s16"
-                        app:typeface="ROBOTO-REGULAR.TTF" />
+                    android:orientation="horizontal">
 
                     <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:id="@+id/battery_level"
@@ -205,16 +165,7 @@
                 android:layout_width="@dimen/d70"
                 android:layout_height="@dimen/d121"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/d100"
                 app:lottie_autoPlay="false" />
-
-            <com.sample.lottie.LottieAnimationView
-                android:id="@+id/battay_info_lot"
-                android:layout_width="@dimen/d130"
-                android:layout_height="@dimen/d288"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:scaleType="fitEnd" />
 
             <LinearLayout
                 android:id="@+id/battery_ad_layout"
@@ -233,10 +184,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/d61"
+            android:layout_marginBottom="@dimen/d40"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:visibility="gone">
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -246,13 +196,12 @@
             <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginLeft="@dimen/d15"
                 android:text="@string/unlock"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/s18"
+                android:textSize="@dimen/s24"
                 app:typeface="ROBOTO-REGULAR.TTF" />
         </LinearLayout>
-        <!--粒子-->
     </LinearLayout>
 
     <LinearLayout

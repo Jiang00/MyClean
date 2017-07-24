@@ -64,6 +64,7 @@ public class SuspensionBallActivity extends BaseActivity {
     private static final int LIGHT_100_PERCENT = 255;
     private static final int LIGHT_AUTO = 0;
     private static final int LIGHT_ERR = -1;
+    LinearLayout float_jiashu_jieguo;
 
     private void setAnimationThread() {
         new Thread(new Runnable() {
@@ -153,6 +154,7 @@ public class SuspensionBallActivity extends BaseActivity {
 //        float_rotate = (ImageView) findViewById(R.id.float_rotate);
         float_memory = (TextView) findViewById(R.id.float_memory);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
+        float_jiashu_jieguo = (LinearLayout) findViewById(R.id.float_jiashu_jieguo);
     }
 
     @Override

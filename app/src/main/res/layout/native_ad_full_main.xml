@@ -11,42 +11,52 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d24" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/ad_delete"
-                android:layout_width="@dimen/d24"
-                android:layout_height="@dimen/d24"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d16"
-                android:layout_marginTop="@dimen/d16"
-                android:src="@mipmap/close" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d24">
+
+                <ImageView
+                    android:id="@+id/ad_delete"
+                    android:layout_width="@dimen/d18"
+                    android:layout_height="@dimen/d18"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/d16"
+                    android:src="@mipmap/close" />
+
+                <TextView
+                    android:id="@+id/main_full_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/d16"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/d5"
+                    android:paddingRight="@dimen/d5"
+                    android:text="Skip"
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s12"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
 
             <FrameLayout
                 android:id="@+id/ad_image"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d190"
+                android:layout_height="@dimen/d225"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/d48"
                 android:scaleType="centerCrop"
                 android:tag="ad_image" />
-
-            <TextView
-                android:id="@+id/main_full_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d10"
-                android:layout_marginTop="@dimen/d20"
-                android:background="@color/A12"
-                android:gravity="center"
-                android:padding="@dimen/d5"
-                android:text="Skip"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s15"
-                android:visibility="gone" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -61,10 +71,7 @@
                 android:layout_alignTop="@id/ad_image"
                 android:orientation="horizontal"
                 android:tag="ad_choices" />
-
-
         </RelativeLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -75,14 +82,14 @@
                 android:layout_width="@dimen/d65"
                 android:layout_height="@dimen/d65"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/d2"
+                android:layout_marginTop="@dimen/d10"
                 android:tag="ad_icon" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_ic"
-                android:layout_marginTop="@dimen/d10"
+                android:layout_marginTop="@dimen/d20"
                 android:orientation="vertical">
 
                 <TextView
@@ -100,7 +107,7 @@
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
                     android:tag="ad_title"
-                    android:textColor="@color/B3"
+                    android:textColor="@color/A9"
                     android:textSize="@dimen/s18"
                     tools:text="Your see" />
 
@@ -109,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_ad__desc_text_margin"
                     android:layout_marginRight="@dimen/full_ad__desc_text_margin"
-                    android:layout_marginTop="@dimen/full_ad__desc_text_margin_top"
+                    android:layout_marginTop="@dimen/d10"
                     android:ellipsize="end"
                     android:fontFamily="sans-serif-light"
                     android:gravity="center_horizontal"
@@ -120,20 +127,17 @@
                     tools:text="Your seeasd df fsfsfsfsf" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d50"
-                    android:layout_marginBottom="@dimen/d15"
-                    android:layout_marginLeft="@dimen/full_ad__ac_action_green_margin"
-                    android:layout_marginRight="@dimen/full_ad__ac_action_green_margin"
-                    android:layout_marginTop="@dimen/full_ad_ac_action_green_margin_top"
-                    android:background="@drawable/select_text_ad"
+                    android:layout_width="@dimen/d313"
+                    android:layout_height="@dimen/d43"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/d16"
+                    android:background="@drawable/main_dialong_button"
                     android:gravity="center"
                     android:tag="ad_action"
-                    android:text="Install"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/full_ad__ac_action_green_text_size" />
+                    android:text="Download"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s22" />
             </LinearLayout>
-
         </RelativeLayout>
 
         <LinearLayout
@@ -141,12 +145,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/d48"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
+                android:layout_marginLeft="@dimen/d25"
                 android:clickable="false"
                 android:orientation="horizontal">
 
@@ -165,20 +170,19 @@
                     <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/d8"
                         android:text="@string/app_name"
                         android:textColor="@color/A7"
-                        android:textSize="@dimen/s15" />
+                        android:textSize="@dimen/s16" />
 
                     <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="@dimen/d8"
-                        android:text="@string/side_describe"
+                        android:layout_marginTop="@dimen/d6"
+                        android:text="@string/loading_describe"
                         android:textColor="@color/A17"
-                        android:textSize="@dimen/s14" />
+                        android:textSize="@dimen/s15" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

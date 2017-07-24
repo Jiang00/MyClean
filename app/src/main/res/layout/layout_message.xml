@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sanxign"
-                android:textColor="@color/A7"
+                android:textColor="@color/B3"
                 android:textSize="@dimen/s24" />
 
             <LinearLayout
@@ -45,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/message_title_1"
-                    android:textColor="@color/A7"
+                    android:textColor="@color/B3"
                     android:textSize="@dimen/s16" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Android 5.0"
-                    android:textColor="@color/A7"
+                    android:textColor="@color/B3"
                     android:textSize="@dimen/s16" />
             </LinearLayout>
 
@@ -64,23 +64,19 @@
         android:id="@+id/ll_ad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/d8"
-        android:layout_marginRight="@dimen/d8"
         android:orientation="vertical" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A17"
+        android:background="@color/B3"
         android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/d8"
-            android:layout_marginRight="@dimen/d8"
-            android:background="@color/A7"
+            android:background="@color/B3"
             android:orientation="vertical">
 
             <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -88,7 +84,7 @@
                 android:layout_height="@dimen/d32"
                 android:background="@color/A7"
                 android:gravity="center_vertical"
-                android:paddingLeft="@dimen/d8"
+                android:paddingLeft="@dimen/d16"
                 android:text="@string/message_start"
                 android:textColor="@color/A10"
                 android:textSize="@dimen/s10" />
@@ -101,9 +97,9 @@
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_boot_time"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -111,11 +107,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
             </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/d16"
+                android:background="@color/A7" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -125,9 +127,9 @@
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_boot_time2"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -135,23 +137,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
             </RelativeLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d8"
-                android:background="@color/A17" />
 
             <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d32"
                 android:background="@color/A7"
                 android:gravity="center_vertical"
-                android:paddingLeft="@dimen/d8"
+                android:paddingLeft="@dimen/d16"
                 android:text="@string/message_hard"
                 android:textColor="@color/A10"
                 android:textSize="@dimen/s10" />
@@ -164,9 +161,9 @@
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_isRoot"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -174,16 +171,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:text="Y"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/A7" />
 
 
@@ -195,9 +192,9 @@
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_q_camera"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -205,16 +202,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/A7" />
 
             <RelativeLayout
@@ -225,9 +222,9 @@
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_imei"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -235,16 +232,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/A7" />
 
             <RelativeLayout
@@ -255,9 +252,9 @@
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_fenbianlv"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -265,16 +262,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/A7" />
 
             <RelativeLayout
@@ -285,9 +282,9 @@
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_h_camera"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -295,16 +292,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/A7" />
 
 
@@ -316,9 +313,9 @@
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_ram"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -326,16 +323,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginLeft="@dimen/d16"
                 android:background="@color/A7" />
 
             <RelativeLayout
@@ -346,9 +343,9 @@
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/message_sd"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
 
                 <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
@@ -356,9 +353,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:text="sun"
-                    android:textColor="@color/A8"
+                    android:textColor="@color/A10"
                     android:textSize="@dimen/s12" />
             </RelativeLayout>
         </LinearLayout>

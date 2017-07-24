@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -14,15 +12,15 @@ import android.view.View;
 import com.easy.junk.R;
 
 /**
- * Created by Ivy on 2017/7/17.
  */
 
 public class YuanHuView extends View {
     Paint paint;
+    Paint paintCrile;
     RectF rectF;
     Context context;
     float dushu;
-    float dushuMax;
+    Canvas canvas;
 
     public YuanHuView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -31,52 +29,38 @@ public class YuanHuView extends View {
     }
 
     private void init() {
-        dushuMax = 269;
-        dushuMax = 0;
-        dushu = 0;
         paint = new Paint();
-        paint.setColor(ContextCompat.getColor(context, R.color.A7));
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(getResources().getDimensionPixelSize(R.dimen.d20));
+        paint.setStrokeWidth(getResources().getDimensionPixelSize(R.dimen.d2));
+        paintCrile = new Paint();
+        paintCrile.setStyle(Paint.Style.FILL);
+        paintCrile.setAntiAlias(true);
 
-        rectF = new RectF(getResources().getDimensionPixelSize(R.dimen.d17), getResources().getDimensionPixelSize(R.dimen.d17),
-                getResources().getDimensionPixelSize(R.dimen.d217), getResources().getDimensionPixelSize(R.dimen.d217));
-//        rectF.offset(getResources().getDimensionPixelSize(R.dimen.d4), getResources().getDimensionPixelSize(R.dimen.d4));//左上位置
-        rectF.left = getResources().getDimensionPixelSize(R.dimen.d19);
-        rectF.top = getResources().getDimensionPixelSize(R.dimen.d19);
+        rectF = new RectF(0, 0, getResources().getDimensionPixelSize(R.dimen.d48), getResources().getDimensionPixelSize(R.dimen.d48));
+        rectF.offset(getResources().getDimensionPixelSize(R.dimen.d1), getResources().getDimensionPixelSize(R.dimen.d1));//左上位置
+//        rectF.left = getResources().getDimensionPixelSize(R.dimen.d19);
+//        rectF.top = getResources().getDimensionPixelSize(R.dimen.d19);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawArc(rectF, 136, dushu, false, paint);
-//        if (dushu < dushuMax) {
-//            handler.handleMessage(null);
-//        }
-    }
-
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            dushu += 1;
-            if (dushu > dushuMax) {
-                dushu = dushuMax;
-            }
-            if (scanEndListener != null) {
-                scanEndListener.scanDushu(dushu);
-            }
-            invalidate();
+        this.canvas = canvas;
+//        canvas.restore();
+        if (dushu < 108) {
+            paintCrile.setColor(ContextCompat.getColor(context, R.color.A1_10));
+            paint.setColor(ContextCompat.getColor(context, R.color.A1));
+        } else if (dushu >= 108 && dushu < 228) {
+            paintCrile.setColor(ContextCompat.getColor(context, R.color.A2_10));
+            paint.setColor(ContextCompat.getColor(context, R.color.A2));
+        } else {
+            paintCrile.setColor(ContextCompat.getColor(context, R.color.A3_10));
+            paint.setColor(ContextCompat.getColor(context, R.color.A3));
         }
-    };
-
-    public void startYuanHuView(float dushu) {
-        if (dushu != 0) {
-            dushuMax = dushu - 1;
-            this.dushu = 0;
-            invalidate();
-        }
+        canvas.drawArc(rectF, -90, dushu, false, paint);
+        canvas.drawCircle(getResources().getDimensionPixelSize(R.dimen.d25), getResources().getDimensionPixelSize(R.dimen.d25),
+                getResources().getDimensionPixelSize(R.dimen.d25), paintCrile);
     }
 
     public void setDuShu(float dushu) {
@@ -86,30 +70,18 @@ public class YuanHuView extends View {
 
     boolean isStop;
 
-    public void start(final float dushu) {
+    public void start(final float dushu1) {
         new Thread(new Runnable() {
             @Override
             public void run() {
 
-                for (int i = 0, j = 269; i < 270 && j > dushu; ) {
+                for (int i = 0; i <= dushu1; i++) {
                     if (isStop) {
                         return;
                     }
-                    if (i == 269) {
-                        if (scanEndListener != null) {
-                            scanEndListener.scanDushu(j);
-                        }
-                        setDuShu(j);
-                        j--;
-                    } else {
-                        setDuShu(i);
-                        if (scanEndListener != null) {
-                            scanEndListener.scanDushu(i);
-                        }
-                        i++;
-                    }
+                    setDuShu(i);
                     try {
-                        Thread.sleep(10);
+                        Thread.sleep(20);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -121,6 +93,7 @@ public class YuanHuView extends View {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        canvas = null;
         isStop = true;
     }
 

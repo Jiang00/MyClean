@@ -54,15 +54,15 @@ public class ProtectBatteryView extends FrameLayout {
     private CheckBox saverSwitch;
     private TextView time;
     private TextView date;
-    private TextView battery_now_year;
+    //    private TextView battery_now_year;
     private TextView day;
     private TextView week;
     private TextView batteryLeft;
     private TextView currentLevel;
-    private TextView currentLevel_ing;
+//    private TextView currentLevel_ing;
     private BubbleLayout bubbleLayout;
     private LottieAnimationView water;
-    LottieAnimationView battay_info_lot;
+//    LottieAnimationView battay_info_lot;
 
     private int halfWidth;
 //    private ImageView shutter;
@@ -146,14 +146,12 @@ public class ProtectBatteryView extends FrameLayout {
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
                 String str = sdf.format(d);
                 time.setText(str);
-                str = new SimpleDateFormat("YY", Locale.getDefault()).format(d);
-                date.setText(str);
                 str = new SimpleDateFormat("MM", Locale.getDefault()).format(d);
                 date.setText(str);
                 str = new SimpleDateFormat("dd", Locale.getDefault()).format(d);
-                day.setText(str);
+                day.setText(str + ".");
                 str = new SimpleDateFormat("EEEE").format(d);
-                week.setText(str);
+                week.setText(str + ".");
             } catch (Exception e) {
             }
         }
@@ -176,11 +174,11 @@ public class ProtectBatteryView extends FrameLayout {
         }
         currentLevel.setText(curLevel + "%");
 
-        battay_info_lot.setImageAssetsFolder("images/");
-        battay_info_lot.setAnimation("particle.json");
-        battay_info_lot.loop(false);
-        battay_info_lot.setSpeed(0.7f);
-        battay_info_lot.playAnimation();
+//        battay_info_lot.setImageAssetsFolder("images/");
+//        battay_info_lot.setAnimation("particle.json");
+//        battay_info_lot.loop(false);
+//        battay_info_lot.setSpeed(0.7f);
+//        battay_info_lot.playAnimation();
 
 
         if (water != null && !water.isAnimating()) {
@@ -234,11 +232,11 @@ public class ProtectBatteryView extends FrameLayout {
     }
 
     public void setCharing(boolean isVisible) {
-        if (isVisible) {
-            currentLevel_ing.setVisibility(VISIBLE);
-        } else {
-            currentLevel_ing.setVisibility(GONE);
-        }
+//        if (isVisible) {
+//            currentLevel_ing.setVisibility(VISIBLE);
+//        } else {
+//            currentLevel_ing.setVisibility(GONE);
+//        }
     }
 
     @Override
@@ -360,7 +358,7 @@ public class ProtectBatteryView extends FrameLayout {
 //        shutter = (ImageView) findViewById(R.id.battery_shutter);
         bubbleLayout = (BubbleLayout) findViewById(R.id.battery_bubble_layout);
         currentLevel = (TextView) findViewById(R.id.battery_level);
-        currentLevel_ing = (TextView) findViewById(R.id.currentLevel_ing);
+//        currentLevel_ing = (TextView) findViewById(R.id.currentLevel_ing);
         batteryView = (ProtectBatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
@@ -370,12 +368,12 @@ public class ProtectBatteryView extends FrameLayout {
         more = (LinearLayout) findViewById(R.id.battery_more);
         time = (TextView) findViewById(R.id.battery_now_time);
         date = (TextView) findViewById(R.id.battery_now_date);
-        battery_now_year = (TextView) findViewById(R.id.battery_now_year);
+//        battery_now_year = (TextView) findViewById(R.id.battery_now_year);
         day = (TextView) findViewById(R.id.battery_now_day);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
         water = (LottieAnimationView) findViewById(R.id.battery_electricity);
-        battay_info_lot = (LottieAnimationView) findViewById(R.id.battay_info_lot);
+//        battay_info_lot = (LottieAnimationView) findViewById(R.id.battay_info_lot);
     }
 
     public void pauseBubble() {

@@ -80,7 +80,7 @@
                 android:id="@+id/main_pull_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A17">
+                android:background="@color/A7">
 
                 <include layout="@layout/layout_load_more" />
 
@@ -210,10 +210,25 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="@dimen/d22"
-                                    android:layout_height="@dimen/d22"
-                                    android:src="@mipmap/mian_junk1" />
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d15">
+
+                                    <com.easy.junk.easycustomview.YuanHuView
+                                        android:id="@+id/main_yuanhu1"
+                                        android:layout_width="@dimen/d50"
+                                        android:layout_height="@dimen/d50"
+                                        android:layout_centerInParent="true" />
+
+                                    <ImageView
+                                        android:id="@+id/main_crile1"
+                                        android:layout_width="@dimen/d22"
+                                        android:layout_height="@dimen/d22"
+                                        android:layout_centerInParent="true"
+                                        android:src="@mipmap/mian_junk3" />
+                                </RelativeLayout>
+
 
                                 <TextView
                                     android:id="@+id/main_junk_percentage"
@@ -241,10 +256,24 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="@dimen/d22"
-                                    android:layout_height="@dimen/d22"
-                                    android:src="@mipmap/mian_ram1" />
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d15">
+
+                                    <com.easy.junk.easycustomview.YuanHuView
+                                        android:id="@+id/main_yuanhu2"
+                                        android:layout_width="@dimen/d50"
+                                        android:layout_height="@dimen/d50"
+                                        android:layout_centerInParent="true" />
+
+                                    <ImageView
+                                        android:id="@+id/main_crile2"
+                                        android:layout_width="@dimen/d22"
+                                        android:layout_height="@dimen/d22"
+                                        android:layout_centerInParent="true"
+                                        android:src="@mipmap/mian_ram2" />
+                                </RelativeLayout>
 
                                 <TextView
                                     android:id="@+id/main_ram_percentage"
@@ -272,10 +301,25 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
-                                <ImageView
-                                    android:layout_width="@dimen/d22"
-                                    android:layout_height="@dimen/d22"
-                                    android:src="@mipmap/main_app1" />
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/d15">
+
+                                    <com.easy.junk.easycustomview.YuanHuView
+                                        android:id="@+id/main_yuanhu3"
+                                        android:layout_width="@dimen/d50"
+                                        android:layout_height="@dimen/d50"
+                                        android:layout_centerInParent="true" />
+
+                                    <ImageView
+                                        android:id="@+id/main_crile3"
+                                        android:layout_width="@dimen/d22"
+                                        android:layout_height="@dimen/d22"
+                                        android:layout_centerInParent="true"
+                                        android:src="@mipmap/main_app3" />
+                                </RelativeLayout>
+
 
                                 <TextView
                                     android:id="@+id/main_app_percentage"
@@ -436,7 +480,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="@dimen/d5"
-                                        android:text="@string/main_cooling_name"
+                                        android:text="@string/main_cooltishi"
                                         android:textColor="@color/A6"
                                         android:textSize="@dimen/s13" />
                                 </LinearLayout>
@@ -452,7 +496,7 @@
                                     android:layout_gravity="bottom"
                                     android:layout_marginBottom="@dimen/d13"
                                     android:layout_marginRight="@dimen/d14"
-                                    android:text="cool now"
+                                    android:text="@string/main_coolnow"
                                     android:textColor="@color/A1"
                                     android:textSize="@dimen/s14" />
                             </LinearLayout>
@@ -508,7 +552,7 @@
                                     android:layout_gravity="bottom"
                                     android:layout_marginBottom="@dimen/d13"
                                     android:layout_marginRight="@dimen/d14"
-                                    android:text="clean now"
+                                    android:text="@string/main_cleanup"
                                     android:textColor="@color/A1"
                                     android:textSize="@dimen/s14" />
                             </LinearLayout>
@@ -564,7 +608,7 @@
                                     android:layout_gravity="bottom"
                                     android:layout_marginBottom="@dimen/d13"
                                     android:layout_marginRight="@dimen/d14"
-                                    android:text="clean now"
+                                    android:text="@string/main_cleanup"
                                     android:textColor="@color/A1"
                                     android:textSize="@dimen/s14" />
                             </LinearLayout>
@@ -620,7 +664,7 @@
                                     android:layout_gravity="bottom"
                                     android:layout_marginBottom="@dimen/d13"
                                     android:layout_marginRight="@dimen/d14"
-                                    android:text="speed now"
+                                    android:text="@string/main_speedup"
                                     android:textColor="@color/A1"
                                     android:textSize="@dimen/s14" />
                             </LinearLayout>
@@ -679,7 +723,7 @@
                                     android:layout_gravity="bottom"
                                     android:layout_marginBottom="@dimen/d13"
                                     android:layout_marginRight="@dimen/d14"
-                                    android:text="speed up"
+                                    android:text="@string/main_speedup"
                                     android:textColor="@color/A1"
                                     android:textSize="@dimen/s14" />
                             </LinearLayout>
@@ -733,7 +777,7 @@
                                     android:layout_gravity="bottom"
                                     android:layout_marginBottom="@dimen/d13"
                                     android:layout_marginRight="@dimen/d14"
-                                    android:text="clean now"
+                                    android:text="@string/main_cleanup"
                                     android:textColor="@color/A1"
                                     android:textSize="@dimen/s14" />
                             </LinearLayout>
@@ -944,10 +988,48 @@
                             </LinearLayout>
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d60"
+                            android:layout_marginLeft="@dimen/d8"
+                            android:layout_marginRight="@dimen/d8"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/d1"
+                                android:layout_weight="1"
+                                android:background="@color/A5" />
+
+                            <TextView
+                                android:id="@+id/main_days"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/d8"
+                                android:layout_marginRight="@dimen/d8"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:text="21 days"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s12" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/d1"
+                                android:layout_weight="1"
+                                android:background="@color/A5" />
+                        </LinearLayout>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/d8"
-                            android:background="@color/A17" />
+                            android:background="@color/A7" />
+
+                        <com.easy.junk.easycustomview.DynamicWave
+                            android:id="@+id/mian_water_bottom"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d30" />
 
                         <!--大ad-->
                         <LinearLayout

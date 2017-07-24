@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -35,9 +36,11 @@ import com.easy.clean.entity.JunkInfo;
 import com.easy.junk.R;
 import com.easy.junk.easycustomadapter.MySidebarAdapter;
 import com.easy.junk.easycustomview.CustomRoundCpu;
+import com.easy.junk.easycustomview.DynamicWave;
 import com.easy.junk.easycustomview.ListViewForScrollView;
 import com.easy.junk.easycustomview.MyScrollView;
 import com.easy.junk.easycustomview.PullToRefreshLayout;
+import com.easy.junk.easycustomview.YuanHuView;
 import com.easy.junk.easyinterfaceview.MainView;
 import com.easy.junk.easymodel.SideInfo;
 import com.easy.junk.easypresenter.PresenterMain;
@@ -103,6 +106,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     private String TAG_SIDE = "icleaner_side";
     private String TAG_REFRESH = "drag";
     ProgressBar ad_progressbar;
+    DynamicWave mian_water_bottom;
+    YuanHuView main_yuanhu3, main_yuanhu2, main_yuanhu1;
+    ImageView main_crile3, main_crile2, main_crile1;
+    TextView main_junk_percentage, main_ram_percentage, main_app_percentage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,6 +133,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
         SetAdUtil.track("主页面", "进入主页面", "", 1);
+        mian_water_bottom.upDate(20);
     }
 
     @Override
@@ -151,7 +159,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_custom_cpu = (CustomRoundCpu) findViewById(R.id.main_custom_cpu);
         main_custom_ram = (CustomRoundCpu) findViewById(R.id.main_custom_ram);
         main_custom_sd = (CustomRoundCpu) findViewById(R.id.main_custom_sd);
-
+        mian_water_bottom = (DynamicWave) findViewById(R.id.mian_water_bottom);
 //        main_junk_button2 = (LinearLayout) findViewById(R.id.main_junk_button2);
         main_cooling_button = (LinearLayout) findViewById(R.id.main_cooling_button);
 //        main_cooling_button2 = (LinearLayout) findViewById(R.id.main_cooling_button2);
@@ -175,6 +183,19 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
 //        lot_ad = (ImageView) findViewById(R.id.lot_ad);
         main_battery = (LinearLayout) findViewById(R.id.main_battery);
+
+        main_crile1 = (ImageView) findViewById(R.id.main_crile1);
+        main_crile2 = (ImageView) findViewById(R.id.main_crile2);
+        main_crile3 = (ImageView) findViewById(R.id.main_crile3);
+
+        main_yuanhu1 = (YuanHuView) findViewById(R.id.main_yuanhu1);
+        main_yuanhu2 = (YuanHuView) findViewById(R.id.main_yuanhu2);
+        main_yuanhu3 = (YuanHuView) findViewById(R.id.main_yuanhu3);
+
+        main_junk_percentage = (TextView) findViewById(R.id.main_junk_percentage);
+        main_ram_percentage = (TextView) findViewById(R.id.main_ram_percentage);
+        main_app_percentage = (TextView) findViewById(R.id.main_app_percentage);
+
     }
 
     //初始化监听
@@ -295,37 +316,23 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     public void initQiu(final int fenshu, boolean isReStart) {
         Log.e("fenshu", fenshu + "===");
         setColor(fenshu, isReStart);
-//        if (!isReStart) {
-//            main_water.setPratent(fenshu);
-//            main_water.setFloatWaterListener(new ICleanerWaterView.FloatWaterListener() {
-//                @Override
-//                public void success() {
-//
-//                }
-//
-//                @Override
-//                public void update(int jindu) {
-//                    main_dian.setProgress(jindu);
-//
-//                    runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            main_fenshu.setText(String.valueOf(fenshu) );
-//                        }
-//                    });
-//                }
-//            });
-//        } else {
-//            main_water.upDate(fenshu);
-//            main_dian.setProgress(fenshu);
-//            runOnUiThread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    main_fenshu.setText(String.valueOf(fenshu));
-//
-//                }
-//            });
-//        }
+        if (!isReStart) {
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    main_fenshu.setText(String.valueOf(fenshu));
+                }
+            });
+        } else {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    main_fenshu.setText(String.valueOf(fenshu));
+
+                }
+            });
+        }
     }
 
 
@@ -367,7 +374,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             }
 
         }
-
+        //提示
         if (PreData.getDB(this, MyConstant.FIRST_BATTERY, true)) {
             Utils.writeData(MainActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, false);
             main_battery.setVisibility(View.VISIBLE);
@@ -668,9 +675,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     @Override
     public void initSd(final int percent, final String size, final long sd_kongxian) {
-        Log.e("main", "=============initSd+");
+        Log.e("main", "=============initSd+" + percent);
         final String[] arr = size.split("/");
         main_custom_sd.startProgress(true, percent);
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -679,6 +687,18 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                         CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
                 // MyUtils.convertStorage(junk_size, true) true返回的带单位，false不带单位
                 main_junk_huan.setText(MyUtils.convertStorage(junk_size, true) + "B " + getResources().getString(R.string.main_junk_file));
+                main_junk_percentage.setText(percent + "%");
+                main_yuanhu1.start(percent * 3.6f);
+                if (percent < 30) {
+                    main_crile1.setImageResource(R.mipmap.mian_junk3);
+                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
+                } else if (percent >= 30 && percent < 80) {
+                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
+                    main_crile1.setImageResource(R.mipmap.mian_junk1);
+                } else {
+                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
+                    main_crile1.setImageResource(R.mipmap.mian_junk2);
+                }
             }
         });
     }
@@ -688,16 +708,23 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         // percent内存使用率，size == 756M/1.8G ，使用内存和总内存
         final String[] arr = size.split("/");
         main_custom_ram.startProgress(false, percent);
-        main_custom_ram.setCustomRoundListener(new CustomRoundCpu.CustomRoundListener() {
+        runOnUiThread(new Runnable() {
             @Override
-            public void progressUpdate(final int progress) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        // 设置硬件信息里的已用内存
-                        main_msg_ram_percent.setText(arr[1] + "B " + "B");
-                    }
-                });
+            public void run() {
+                // 设置硬件信息里的内存
+                main_msg_ram_percent.setText(arr[1] + "B " + "B");
+                main_ram_percentage.setText(percent + "%");
+                main_yuanhu2.start(percent * 3.6f);
+                if (percent < 30) {
+                    main_crile2.setImageResource(R.mipmap.mian_ram2);
+                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
+                } else if (percent >= 30 && percent < 80) {
+                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
+                    main_crile2.setImageResource(R.mipmap.mian_ram1);
+                } else {
+                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
+                    main_crile2.setImageResource(R.mipmap.mian_ram3);
+                }
             }
         });
     }
