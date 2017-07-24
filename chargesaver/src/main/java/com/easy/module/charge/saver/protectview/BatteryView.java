@@ -96,7 +96,7 @@ public class BatteryView extends View {
                         heigiht1 = getResources().getDimensionPixelSize(R.dimen.d123);
                         break;
                     default:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d133);
+                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d130);
                         break;
                 }
                 setDuShu(heigiht1);

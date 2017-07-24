@@ -221,7 +221,9 @@ public class EasyGoodGameActivity extends BaseActivity {
                                 if (position == 0) {
                                     SetAdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
                                     ll_add_game.setVisibility(View.VISIBLE);
+                                    Log.e("gboost_clean_button", "=======1=====" + gboost_clean_button.getVisibility());
                                     gboost_clean_button.setVisibility(View.GONE);
+                                    Log.e("gboost_clean_button", "=======2=====" + gboost_clean_button.getVisibility());
                                     whiteListAdapter = new JiaGoodGameAdapter(EasyGoodGameActivity.this, list);
                                     list_game.setAdapter(whiteListAdapter);
                                     initData();
@@ -237,28 +239,6 @@ public class EasyGoodGameActivity extends BaseActivity {
                                 }
                             }
                         });
-                        /*gboost_recyc.setOnItemClickListener(new PagerView.OnItemClickListener() {
-                            @Override
-                            public void onClick(Object o, int pos) {
-                                if (pos == 0) {
-                                    SetAdUtil.track("游戏加速页面", "点击添加游戏", "", 1);
-                                    ll_add_game.setVisibility(View.VISIBLE);
-                                    whiteListAdapter = new JiaGoodGameAdapter(EasyGoodGameActivity.this, list);
-                                    list_game.setAdapter(whiteListAdapter);
-                                    initData();
-                                } else {
-                                    try {
-                                        SetAdUtil.track("游戏加速页面", "点击启动游戏", list.get(pos), 1);
-                                        Bundle bundle = new Bundle();
-                                        bundle.putString("from", "GBoost");
-                                        bundle.putString("packageName", list.get(pos));
-                                        jumpToActivity(EasyDeepingActivity.class, bundle);
-                                    } catch (Exception e) {
-                                    }
-                                }
-
-                            }
-                        });*/
                         initIcon();
                     }
                 });
@@ -345,6 +325,7 @@ public class EasyGoodGameActivity extends BaseActivity {
             case KeyEvent.KEYCODE_BACK:
                 if (ll_add_game.getVisibility() == View.VISIBLE) {
                     ll_add_game.setVisibility(View.GONE);
+                    gboost_clean_button.setVisibility(View.VISIBLE);
 //                    initList();
                     gridViewAdAdapter.notifyDataSetChanged();
                     shortGame(false);
