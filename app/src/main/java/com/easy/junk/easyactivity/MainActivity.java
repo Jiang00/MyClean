@@ -282,6 +282,13 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        if (dushu == -1) {
+                            if (animator != null) {
+                                animator.end();
+                            }
+                            dushu1 = 0;
+                            return;
+                        }
                         if (dushu == 1) {
                             dushu1 = 0;
                         }

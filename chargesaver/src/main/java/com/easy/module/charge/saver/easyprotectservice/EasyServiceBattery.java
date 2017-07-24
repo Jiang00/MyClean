@@ -12,6 +12,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 
@@ -38,6 +39,7 @@ public class EasyServiceBattery extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.e("sdfs", "===3====");
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -200,6 +202,4 @@ public class EasyServiceBattery extends Service {
             }
         }
     };
-
-
 }

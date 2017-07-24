@@ -92,6 +92,9 @@ public class EasyYuanHuView extends View {
 
                 for (int i = 0, j = 270; i < 270 && j > dushu - 2; ) {
                     if (isStop) {
+                        if (scanEndListener != null) {
+                            scanEndListener.scanDushu(-1);
+                        }
                         return;
                     }
                     if (i == 269) {

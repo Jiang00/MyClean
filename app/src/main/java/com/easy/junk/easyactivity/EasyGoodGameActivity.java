@@ -196,25 +196,6 @@ public class EasyGoodGameActivity extends BaseActivity {
 //                        adapter = new EasyLaunchpadAdapter(EasyGoodGameActivity.this, list);
                         gridViewAdAdapter = new EasyGridViewAdAdapter(EasyGoodGameActivity.this, list);
                         gboost_gridview.setAdapter(gridViewAdAdapter);
-//                        gboost_recyc.setAdapter(adapter);
-//                        gboost_recyc.refreshView();
-                       /* if (list.size() <= 12) {
-                            pageindicatorview.setCount(0);
-                        } else if (list.size() <= 24) {
-                            pageindicatorview.setCount(2);
-                        } else if (list.size() <= 36) {
-                            pageindicatorview.setCount(3);
-                        } else if (list.size() <= 48) {
-                            pageindicatorview.setCount(3);
-                        } else {
-                            pageindicatorview.setCount(5);
-                        }*/
-                        /*gboost_recyc.setOnPageChangedListener(new PagerView.OnPageChangedListener() {
-                            @Override
-                            public void onPageChange(int oldPage, int newPage) {
-                                pageindicatorview.setSelection(newPage);
-                            }
-                        });*/
                         gboost_gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -422,6 +403,7 @@ public class EasyGoodGameActivity extends BaseActivity {
             gboost_short_iv.setImageBitmap(bitmap);
             return;
         }
+        Log.e("short", "chuangjian1===" + list.size());
         if (list.size() > 0 && (!PreData.getDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_SI, false) || isChuangjian)) {
             View shortcut_view = View.inflate(EasyGoodGameActivity.this, R.layout.layout_gboost_short, null);
             if (list.size() > 1) {
@@ -450,24 +432,6 @@ public class EasyGoodGameActivity extends BaseActivity {
                 gboost_short_iv.setImageBitmap(bitmap);
             }
         }
-    }
-
-    //游戏加速快捷键（就一个图片）
-    private void shortGame1(boolean isChuangjian) {
-        if (!flag) {
-            search_edit_text.setText("");
-            Intent shortcutIntent = new Intent();
-            shortcutIntent.setAction(Intent.ACTION_VIEW);
-            shortcutIntent.setComponent(new ComponentName(getPackageName(),
-                    EasyGoodGameActivity.class.getName()));
-            String title = EasyGoodGameActivity.this.getString(R.string.gboost_0);
-            PreData.putDB(EasyGoodGameActivity.this, EasyConstant.GBOOST_LUN, true);
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.gboost_short);
-            ShortCutUtils.addShortcut(EasyGoodGameActivity.this, shortcutIntent, title, flag, bitmap);
-        }
-        flag = true;
-
-        return;
     }
 
     @Override
