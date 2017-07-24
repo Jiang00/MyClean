@@ -574,7 +574,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             @Override
             public void onLoadView(View view) {
                 if (view != null) {
-                    main_msg_tuiguang.setText(bean.appName.get(0).content);
+                    if (bean != null && bean.appName != null & bean.appName.get(0) != null && bean.appName.get(0).content != null) {
+                        main_msg_tuiguang.setText(bean.appName.get(0).content);
+                    }
                     ((ImageView) view.findViewById(R.id.cross_default_image)).setScaleType(ImageView.ScaleType.CENTER_CROP);
                     lot_main = ((LottieAnimationView) view.findViewById(R.id.cross_default_lottie));
                     lot_main.setScaleType(ImageView.ScaleType.CENTER_CROP);

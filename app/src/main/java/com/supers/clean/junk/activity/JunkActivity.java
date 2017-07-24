@@ -30,6 +30,7 @@ import com.supers.clean.junk.customeview.ListViewForScrollView;
 import com.supers.clean.junk.customeview.MyScrollView;
 import com.supers.clean.junk.presenter.JunkPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -212,7 +213,9 @@ public class JunkActivity extends BaseActivity implements JunkView {
 
     @Override
     public void addSystemdata(final long size, List<JunkInfo> list) {
-        for (JunkInfo info : list) {
+        List<JunkInfo> list1 = new ArrayList<>();
+        list1.addAll(list);
+        for (JunkInfo info : list1) {
             if (info.size > 0) {
                 info.isChecked = true;
                 adapterSystem.addData(info);

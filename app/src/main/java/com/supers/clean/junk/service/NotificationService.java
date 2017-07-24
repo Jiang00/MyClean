@@ -68,6 +68,7 @@ public class NotificationService extends Service {
 
     private long lastTotalRxBytes = 0; // 最后缓存的字节数
     private long lastTimeStamp = 0; // 当前缓存时间
+    private Canvas canvas;
 
     @Override
     public IBinder onBind(Intent arg0) {
@@ -120,7 +121,13 @@ public class NotificationService extends Service {
 
 
     public Canvas getCanvas() {
-        Canvas canvas = new Canvas(bitmap_progress);
+//        if (!bitmap_progress.isRecycled()) {
+            canvas = null;
+//            bitmap_progress.recycle();
+//            bitmap_progress = null;
+//        }
+        bitmap_progress = Bitmap.createBitmap(Util.dp2px(29), Util.dp2px(29), Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(bitmap_progress);
         canvas.save();
         canvas.translate(0, pointX);
         canvas.rotate(135, pointX, 0);
@@ -406,7 +413,6 @@ public class NotificationService extends Service {
                 PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
             }
         }
-
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)

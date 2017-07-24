@@ -205,8 +205,12 @@ public class CoolingActivity extends BaseActivity {
             public void onAnimationUpdate(ValueAnimator animation) {
                 int value = (int) animation.getAnimatedValue();
                 if (value == 20) {
-                    animationLine_1.cancel();
-                    cooling_fl.startAnimation(suo);
+                    if (animationLine_1 != null) {
+                        animationLine_1.cancel();
+                    }
+                    if (cooling_fl != null) {
+                        cooling_fl.startAnimation(suo);
+                    }
                     hideSnow();
                 }
             }

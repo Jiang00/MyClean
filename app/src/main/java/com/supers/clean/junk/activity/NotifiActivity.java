@@ -142,17 +142,22 @@ public class NotifiActivity extends Activity {
 
     NotificationCallBack notificationCallBack = new NotificationCallBack() {
         @Override
-        public void notificationChanged(ArrayList<NotificationInfo> notificationList) {
+        public void notificationChanged(final ArrayList<NotificationInfo> notificationList) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (notificationList != null && notificationList.size() != 0) {
+                        adapter.upList(notificationList);
+                        adapter.notifyDataSetChanged();
+                        white_wu.setVisibility(View.INVISIBLE);
+                        notifi_button_rl.setVisibility(View.VISIBLE);
+                    } else {
+                        white_wu.setVisibility(View.VISIBLE);
+                        notifi_button_rl.setVisibility(View.GONE);
+                    }
+                }
+            });
 
-            if (notificationList != null && notificationList.size() != 0) {
-                adapter.upList(notificationList);
-                adapter.notifyDataSetChanged();
-                white_wu.setVisibility(View.INVISIBLE);
-                notifi_button_rl.setVisibility(View.VISIBLE);
-            } else {
-                white_wu.setVisibility(View.VISIBLE);
-                notifi_button_rl.setVisibility(View.GONE);
-            }
         }
     };
 

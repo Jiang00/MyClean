@@ -26,6 +26,9 @@ import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.eos.module.charge.saver.Util.Constants;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Ivy on 2017/7/5.
  */
@@ -87,7 +90,13 @@ public class DetectActivity extends Activity {
         detect_baifen.setText(level + "%");
         int count = 0;
         detect_ram.setOrientation(LinearLayout.HORIZONTAL);
-        for (JunkInfo info : CleanManager.getInstance(this).getAppRamList()) {
+        addAd();
+        List<JunkInfo> list = new ArrayList<>();
+        list.addAll(CleanManager.getInstance(this).getAppRamList());
+        if (list.size() == 0) {
+            return;
+        }
+        for (JunkInfo info : list) {
             ImageView imageView = new ImageView(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Util.dp2px(15), Util.dp2px(15));
             layoutParams.rightMargin = Util.dp2px(1);
@@ -104,7 +113,7 @@ public class DetectActivity extends Activity {
                 count++;
             }
         }
-        addAd();
+
     }
 
     private void addAd() {

@@ -53,10 +53,13 @@ public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
             holder.time.setText(Util.getStrTime2(info.time));
             holder.frameLayout.setVisibility(View.GONE);
         } else if (info.remoteViews != null) {
-            View view = info.remoteViews.apply(context, holder.frameLayout);
-            holder.frameLayout.removeAllViews();
-            holder.frameLayout.addView(view);
-            holder.frameLayout.setVisibility(View.VISIBLE);
+            try {
+                View view = info.remoteViews.apply(context, holder.frameLayout);
+                holder.frameLayout.removeAllViews();
+                holder.frameLayout.addView(view);
+                holder.frameLayout.setVisibility(View.VISIBLE);
+            } catch (Exception e) {
+            }
         }
         Log.e("adapter", info.pkg + "=" + info.title);
         return convertView;
