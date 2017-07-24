@@ -341,6 +341,7 @@ public class GoodGameActivity extends BaseActivity {
             case KeyEvent.KEYCODE_BACK:
                 if (ll_add_game.getVisibility() == View.VISIBLE) {
                     ll_add_game.setVisibility(View.GONE);
+
                     gridViewAdAdapter.notifyDataSetChanged();
                     shortGame(false);
                 } else {
