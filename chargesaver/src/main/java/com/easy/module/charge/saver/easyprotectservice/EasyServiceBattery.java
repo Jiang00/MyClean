@@ -39,7 +39,6 @@ public class EasyServiceBattery extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("sdfs", "===3====");
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);

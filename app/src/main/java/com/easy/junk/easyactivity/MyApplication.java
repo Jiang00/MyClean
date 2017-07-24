@@ -8,17 +8,17 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 
 import com.android.client.AndroidSdk;
-import com.easy.clean.core.CleanManager;
 import com.easy.clean.cleannotification.MyServiceNotificationMonitor;
+import com.easy.clean.core.CleanManager;
 import com.easy.clean.easyutils.MyUtils;
 import com.easy.clean.easyutils.PreData;
 import com.easy.junk.R;
-import com.easy.junk.easytools.EasyConstant;
 import com.easy.junk.easyservices.EasyNotificationService;
 import com.easy.junk.easyservices.EasySuspensionBallService;
+import com.easy.junk.easytools.EasyConstant;
+import com.easy.module.charge.saver.easyprotectservice.EasyServiceBattery;
 import com.easy.module.charge.saver.easyutils.BatteryConstants;
 import com.easy.module.charge.saver.easyutils.EasyUtils;
-import com.easy.module.charge.saver.easyprotectservice.EasyServiceBattery;
 import com.squareup.leakcanary.LeakCanary;
 //import com.vatermobi.kpa.DaemonClient;
 

@@ -29,7 +29,6 @@ public class LoadingActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        Log.e("sdfs", "===1====");
         setContentView(R.layout.layout_loading);
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();
@@ -39,7 +38,6 @@ public class LoadingActivity extends BaseActivity {
             PreData.putDB(this, EasyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
         myHandler.removeCallbacks(runnable1);
-        Log.e("sdfs", "===2====");
         myHandler.postDelayed(runnable1, 2000);
     }
 
