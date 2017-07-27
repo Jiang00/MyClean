@@ -11,23 +11,23 @@ import android.view.InflateException;
 import android.view.View;
 
 import com.mingle.baselibrary.R;
-import com.mingle.easywidget.Button;
-import com.mingle.easywidget.CheckBox;
-import com.mingle.easywidget.CheckedTextView;
-import com.mingle.easywidget.CompleteTextView;
-import com.mingle.easywidget.EditText;
-import com.mingle.easywidget.FrameLayout;
-import com.mingle.easywidget.ImageButton;
-import com.mingle.easywidget.ImageView;
-import com.mingle.easywidget.LinearLayout;
-import com.mingle.easywidget.ListView;
-import com.mingle.easywidget.MultiAutoCompleteTextView;
-import com.mingle.easywidget.RadioButton;
-import com.mingle.easywidget.RatingBar;
-import com.mingle.easywidget.RelativeLayout;
-import com.mingle.easywidget.Spinner;
-import com.mingle.easywidget.TextView;
-import com.mingle.easywidget.WidgetFactor;
+import com.mingle.widgetprivacy.Button;
+import com.mingle.widgetprivacy.CheckBox;
+import com.mingle.widgetprivacy.CheckedTextView;
+import com.mingle.widgetprivacy.CompleteTextView;
+import com.mingle.widgetprivacy.EditText;
+import com.mingle.widgetprivacy.FrameLayout;
+import com.mingle.widgetprivacy.ImageButton;
+import com.mingle.widgetprivacy.ImageView;
+import com.mingle.widgetprivacy.LinearLayout;
+import com.mingle.widgetprivacy.ListView;
+import com.mingle.widgetprivacy.MultiAutoCompleteTextView;
+import com.mingle.widgetprivacy.RadioButton;
+import com.mingle.widgetprivacy.RatingBar;
+import com.mingle.widgetprivacy.RelativeLayout;
+import com.mingle.widgetprivacy.Spinner;
+import com.mingle.widgetprivacy.TextView;
+import com.mingle.widgetprivacy.WidgetFactor;
 
 import java.lang.reflect.Constructor;
 import java.util.Map;
@@ -73,7 +73,7 @@ public class MAppCompatViewInflater {
             case "EditText":
                 return new EditText(context, attrs);
             case "View":
-                return new com.mingle.easywidget.View(context, attrs);
+                return new com.mingle.widgetprivacy.View(context, attrs);
             case "Spinner":
                 return new Spinner(context, attrs);
             case "CheckBox":

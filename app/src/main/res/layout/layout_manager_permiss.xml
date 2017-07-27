@@ -5,57 +5,56 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/manager_permision"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/d8"
-        android:layout_marginRight="@dimen/d8"
-        android:layout_marginTop="@dimen/d30"
-        android:background="@color/A7"
+        android:layout_height="@dimen/d90"
+        android:background="@color/B3"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="@dimen/d50"
-            android:layout_height="@dimen/d50"
-            android:layout_marginLeft="@dimen/d26"
+            android:layout_width="@dimen/d54"
+            android:layout_height="@dimen/d54"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/d16"
             android:src="@mipmap/icon" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d18"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/d84"
             android:orientation="vertical">
 
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/premiss_1"
-                android:textColor="#dd000000"
-                android:textSize="@dimen/s16" />
+                android:textColor="@color/A6"
+                android:textSize="@dimen/s14" />
 
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/d16"
-                android:layout_marginTop="@dimen/d1"
+                android:layout_marginTop="@dimen/d7"
                 android:text="@string/premiss_2"
-                android:textColor="#99000000"
-                android:textSize="@dimen/s12" />
-
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                android:id="@+id/manager_shouquan"
-                android:layout_width="@dimen/d90"
-                android:layout_height="@dimen/d30"
-                android:layout_gravity="right"
-                android:layout_marginRight="@dimen/d16"
-                android:layout_marginTop="@dimen/d30"
-                android:background="@color/A1"
-                android:gravity="center"
-                android:text="@string/premiss_5"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s16" />
+                android:textColor="@color/A9"
+                android:textSize="@dimen/s11" />
         </LinearLayout>
 
-    </LinearLayout>
+        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            android:id="@+id/manager_shouquan"
+            android:layout_width="@dimen/d65"
+            android:layout_height="@dimen/d18"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/d18"
+            android:background="@drawable/main_haoping"
+            android:gravity="center"
+            android:text="@string/premiss_5"
+            android:textColor="@color/B3"
+            android:textSize="@dimen/s11" />
+    </RelativeLayout>
 </LinearLayout>

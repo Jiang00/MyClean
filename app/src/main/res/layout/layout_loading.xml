@@ -11,11 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp" />
 
-    <!--<ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/loading_1" />-->
-
     <ImageView
         android:layout_width="@dimen/d68"
         android:layout_height="@dimen/d68"
@@ -23,21 +18,25 @@
         android:layout_marginTop="@dimen/d217"
         android:src="@mipmap/side_icon" />
 
-    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+        android:id="@+id/loading_tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/d22"
         android:text="@string/app_name"
+        android:alpha="0"
         android:textColor="@color/B3"
-        android:textSize="@dimen/s21" />
+        android:textSize="@dimen/s19" />
 
-    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+        android:id="@+id/loading_tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:alpha="0"
         android:layout_marginTop="@dimen/d9"
-        android:text="@string/side_describe"
+        android:text="@string/loading_describe"
         android:textColor="@color/B3"
         android:textSize="@dimen/s15" />
 </LinearLayout>

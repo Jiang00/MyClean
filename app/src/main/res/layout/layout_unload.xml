@@ -15,14 +15,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="@dimen/d8"
-        android:layout_marginRight="@dimen/d8"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d16"
         android:background="@drawable/shape_ad"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d234"
+            android:layout_height="@dimen/d125"
             android:background="@color/A1">
 
             <ImageView
@@ -36,75 +36,74 @@
 
             <ImageView
                 android:id="@+id/zhuangshi"
-                android:layout_width="@dimen/d160"
-                android:layout_height="@dimen/d127"
+                android:layout_width="@dimen/d78"
+                android:layout_height="@dimen/d78"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/unload_tong" />
+                android:layout_marginLeft="@dimen/d30"
+                android:src="@mipmap/unload_icon" />
 
-
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                 android:id="@+id/tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d19"
                 android:layout_toRightOf="@id/zhuangshi"
                 android:text="158"
-                android:textColor="@color/A2"
-                android:textSize="@dimen/s21" />
+                android:textColor="#fffd54"
+                android:textSize="@dimen/s22" />
 
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                 android:id="@+id/tv_danwei"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
                 android:layout_toRightOf="@id/tv_size"
                 android:text="KB "
-                android:textColor="@color/A2"
-                android:textSize="@dimen/s21" />
+                android:textColor="#fffd54"
+                android:textSize="@dimen/s22" />
 
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
                 android:layout_toRightOf="@id/tv_danwei"
                 android:text="@string/unload_canyu"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s13" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/A1"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/d8"
-            android:paddingTop="@dimen/d8">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+            android:layout_height="@dimen/d46"
+            android:background="@color/B3"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/bt_quxiao"
-                android:layout_width="@dimen/d70"
-                android:layout_height="@dimen/d24"
-                android:background="@color/A16"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/B3"
                 android:text="@string/quxiao"
-                android:textColor="@color/A5"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/A6"
+                android:textSize="@dimen/s18" />
 
+            <TextView
+                android:layout_width="@dimen/d1"
+                android:layout_height="@dimen/d39"
+                android:layout_gravity="center_vertical"
+                android:background="@color/A7" />
 
             <Button
                 android:id="@+id/bt_queren"
-                android:layout_width="@dimen/d70"
-                android:layout_height="@dimen/d24"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:background="@color/A7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/B3"
                 android:text="@string/qingli"
                 android:textColor="@color/A1"
-                android:textSize="@dimen/s16" />
+                android:textSize="@dimen/s18" />
         </LinearLayout>
     </LinearLayout>
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A17"
+    android:background="@color/B3"
     android:orientation="vertical">
 
     <LinearLayout
@@ -20,296 +20,452 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d154"
-        android:background="@color/A1"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d46"
-                android:layout_marginTop="@dimen/d22"
-                android:src="@mipmap/file_neicunka" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d32">
-
-                    <TextView
-                        android:id="@+id/file_used"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="3.16GB"
-                        android:textColor="@color/A7"
-                        android:textSize="@dimen/s20" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="@string/file_used"
-                        android:textColor="@color/A7"
-                        android:textSize="@dimen/s20" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5">
-
-                    <TextView
-                        android:id="@+id/file_total"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="13.16GB"
-                        android:textColor="@color/A6"
-                        android:textSize="@dimen/s16" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="@string/file_total"
-                        android:textColor="@color/A6"
-                        android:textSize="@dimen/s16" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d18"
-            android:layout_marginLeft="@dimen/d46">
-
-            <ProgressBar
-                android:id="@+id/delete_progress"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="@dimen/d237"
-                android:layout_height="@dimen/d17"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:background="@color/A12"
-                android:progressDrawable="@drawable/pic_progress" />
-
-            <TextView
-                android:id="@+id/file_used_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/d14"
-                android:layout_toRightOf="@id/delete_progress"
-                android:text="27%"
-                android:textColor="@color/A6"
-                android:textSize="@dimen/s18" />
-        </RelativeLayout>
-
-    </LinearLayout>
-
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/A17"
         android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/d8"
-            android:layout_marginRight="@dimen/d8"
-            android:background="@color/A7"
+            android:background="@color/B3"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d237"
+                android:background="@color/B3"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/d167"
+                    android:layout_height="@dimen/d167"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/d10"
+                    android:src="@mipmap/file_neicunka" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/d32"
+                        android:layout_height="@dimen/d36"
+                        android:layout_marginTop="@dimen/d56"
+                        android:src="@mipmap/file_neicunka1" />
+
+                    <TextView
+                        android:id="@+id/file_used"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/d12"
+                        android:text="3.16GB"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s13" />
+
+                    <TextView
+                        android:id="@+id/file_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/d6"
+                        android:text="13.16GB"
+                        android:textColor="@color/A9"
+                        android:textSize="@dimen/s10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/d14"
+                        android:layout_marginLeft="@dimen/d18"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d7"
+                                android:layout_height="@dimen/d7"
+                                android:src="@mipmap/file_apk" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s11"
+                                android:text="@string/file_apk"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+
+                            <TextView
+                                android:id="@+id/file_apk_size2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s10"
+                                android:text="12M"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d8"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d7"
+                                android:layout_height="@dimen/d7"
+                                android:src="@mipmap/file_zip" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s11"
+                                android:text="@string/file_zip"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+
+                            <TextView
+                                android:id="@+id/file_zip_size2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s10"
+                                android:text="12M"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d18"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d7"
+                                android:layout_height="@dimen/d7"
+                                android:src="@mipmap/file_doc" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s11"
+                                android:text="@string/file_txt"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+
+                            <TextView
+                                android:id="@+id/file_txt_size2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s10"
+                                android:text="12M"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d8"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d7"
+                                android:layout_height="@dimen/d7"
+                                android:src="@mipmap/file_music" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s11"
+                                android:text="@string/file_music"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+
+                            <TextView
+                                android:id="@+id/file_music_size2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s10"
+                                android:text="12M"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/d18"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d7"
+                                android:layout_height="@dimen/d7"
+                                android:src="@mipmap/file_video" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s11"
+                                android:text="@string/file_video"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+
+                            <TextView
+                                android:id="@+id/file_video_size2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s10"
+                                android:text="12M"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d8"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/d7"
+                                android:layout_height="@dimen/d7"
+                                android:src="@mipmap/file_other" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s11"
+                                android:text="@string/file_pther"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+
+                            <TextView
+                                android:id="@+id/file_other_size2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/s10"
+                                android:text="12M"
+                                android:textColor="@color/A5"
+                                android:textSize="@dimen/s10" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A7" />
+
+
             <!--apk-->
             <LinearLayout
                 android:id="@+id/file_apk_button"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d72"
+                android:layout_height="@dimen/d70"
                 android:background="?attr/selectableItemBackground"
-                android:orientation="vertical">
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/d32"
+                    android:layout_height="@dimen/d32"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:src="@mipmap/file_apk_icon" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8">
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d18"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="@dimen/d32"
-                        android:layout_height="@dimen/d32"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d8"
-                        android:src="@mipmap/file_apk_icon" />
-
-                    <LinearLayout
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d24"
-                        android:layout_marginTop="@dimen/d6"
-                        android:orientation="vertical">
+                        android:text="@string/file_apk"
+                        android:textColor="@color/A6"
+                        android:textSize="@dimen/s16" />
 
-                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/file_apk"
-                            android:textColor="@color/A8"
-                            android:textSize="@dimen/s16" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:id="@+id/file_apk_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d6"
+                        android:layout_marginTop="@dimen/d1"
                         android:text="50M"
                         android:textColor="@color/A9"
-                        android:textSize="@dimen/s14" />
-
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                        android:id="@+id/file_apk_num"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="共5项"
-                        android:textColor="#66000000"
-                        android:textSize="@dimen/s14"
-                        android:visibility="gone" />
-
-                    <ImageView
-                        android:layout_width="@dimen/d24"
-                        android:layout_height="@dimen/d24"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d8"
-                        android:src="@mipmap/jiantour" />
+                        android:textSize="@dimen/s13" />
                 </LinearLayout>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginTop="@dimen/d5"
-                    android:text="@string/file_apk_tishi"
+                    android:layout_weight="1" />
+
+                <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                    android:id="@+id/file_apk_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="共5项"
                     android:textColor="@color/A9"
-                    android:textSize="@dimen/s14" />
+                    android:textSize="@dimen/s13" />
+
+                <ImageView
+                    android:layout_width="@dimen/d24"
+                    android:layout_height="@dimen/d24"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d10"
+                    android:layout_marginRight="@dimen/d16"
+                    android:src="@mipmap/jiantour" />
+
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A7" />
             <!--zip-->
             <LinearLayout
                 android:id="@+id/file_zip_button"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d72"
+                android:layout_height="@dimen/d70"
                 android:background="?attr/selectableItemBackground"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/d32"
+                    android:layout_height="@dimen/d32"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:src="@mipmap/file_zip_icon" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8">
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/d18"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="@dimen/d32"
-                        android:layout_height="@dimen/d32"
-                        android:layout_marginLeft="@dimen/d8"
-                        android:src="@mipmap/file_zip_icon" />
-
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d24"
-                        android:layout_marginTop="@dimen/d6"
                         android:text="@string/file_zip"
-                        android:textColor="@color/A8"
+                        android:textColor="@color/A6"
                         android:textSize="@dimen/s16" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:id="@+id/file_zip_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d6"
+                        android:layout_marginTop="@dimen/d1"
                         android:text="50M"
                         android:textColor="@color/A9"
-                        android:textSize="@dimen/s14" />
-
-                    <ImageView
-                        android:layout_width="@dimen/d24"
-                        android:layout_height="@dimen/d24"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d8"
-                        android:src="@mipmap/jiantour" />
+                        android:textSize="@dimen/s13" />
                 </LinearLayout>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginTop="@dimen/d5"
-                    android:text="@string/file_zip_tishi"
+                    android:layout_weight="1" />
+
+                <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                    android:id="@+id/file_zip_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="共5项"
                     android:textColor="@color/A9"
-                    android:textSize="@dimen/s14" />
+                    android:textSize="@dimen/s13" />
+
+                <ImageView
+                    android:layout_width="@dimen/d24"
+                    android:layout_height="@dimen/d24"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/d10"
+                    android:layout_marginRight="@dimen/d16"
+                    android:src="@mipmap/jiantour" />
+
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A7" />
             <!--document-->
             <LinearLayout
                 android:id="@+id/file_txt_button"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d72"
+                android:layout_height="@dimen/d70"
                 android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8">
+                    android:layout_height="@dimen/d70">
 
                     <ImageView
                         android:layout_width="@dimen/d32"
                         android:layout_height="@dimen/d32"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d8"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/file_doc_icon" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d24"
-                        android:layout_marginTop="@dimen/d6"
+                        android:layout_height="@dimen/d70"
+                        android:layout_marginLeft="@dimen/d18"
+                        android:gravity="center_vertical"
                         android:orientation="vertical">
 
-                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/file_office"
-                            android:textColor="@color/A8"
+                            android:textColor="@color/A6"
                             android:textSize="@dimen/s16" />
 
+                        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            android:id="@+id/file_txt_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d1"
+                            android:text="50M"
+                            android:textColor="@color/A9"
+                            android:textSize="@dimen/s13" />
                     </LinearLayout>
 
                     <TextView
@@ -317,78 +473,71 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                        android:id="@+id/file_txt_size"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d6"
-                        android:text="50M"
-                        android:textColor="@color/A9"
-                        android:textSize="@dimen/s14" />
-
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:id="@+id/file_txt_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="共5项"
-                        android:textColor="#66000000"
-                        android:textSize="@dimen/s14"
-                        android:visibility="gone" />
+                        android:textColor="@color/A9"
+                        android:textSize="@dimen/s13" />
 
                     <ImageView
                         android:layout_width="@dimen/d24"
                         android:layout_height="@dimen/d24"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d8"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/jiantour" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginTop="@dimen/d5"
-                    android:text="@string/file_office_tishi"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A7" />
             <!--music-->
             <LinearLayout
                 android:id="@+id/file_music_button"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d72"
+                android:layout_height="@dimen/d70"
                 android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8">
+                    android:layout_marginTop="@dimen/d16">
 
                     <ImageView
                         android:layout_width="@dimen/d32"
                         android:layout_height="@dimen/d32"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d8"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/file_music_icon" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d24"
+                        android:layout_marginLeft="@dimen/d18"
                         android:orientation="vertical">
 
-                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/d6"
                             android:text="@string/file_music"
-                            android:textColor="@color/A8"
+                            android:textColor="@color/A6"
                             android:textSize="@dimen/s16" />
 
+                        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            android:id="@+id/file_music_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d1"
+                            android:text="50M"
+                            android:textColor="@color/A9"
+                            android:textSize="@dimen/s13" />
                     </LinearLayout>
 
                     <TextView
@@ -396,80 +545,72 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                        android:id="@+id/file_music_size"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/d10"
-                        android:layout_marginTop="@dimen/d6"
-                        android:text="50M"
-                        android:textColor="@color/A9"
-                        android:textSize="@dimen/s14" />
-
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:id="@+id/file_music_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="共5项"
-                        android:textColor="#66000000"
-                        android:textSize="@dimen/s14"
-                        android:visibility="gone" />
+                        android:textColor="@color/A9"
+                        android:textSize="@dimen/s13" />
 
                     <ImageView
                         android:layout_width="@dimen/d24"
                         android:layout_height="@dimen/d24"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d8"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/jiantour" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginTop="@dimen/d5"
-                    android:text="@string/file_music_tishi"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A7" />
             <!--video-->
             <LinearLayout
                 android:id="@+id/file_video_button"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d72"
+                android:layout_height="@dimen/d70"
                 android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8">
+                    android:layout_marginTop="@dimen/d16">
 
                     <ImageView
                         android:layout_width="@dimen/d32"
                         android:layout_height="@dimen/d32"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d8"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/file_video_icon" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d24"
-                        android:layout_marginTop="@dimen/d6"
+                        android:layout_marginLeft="@dimen/d18"
                         android:orientation="vertical">
 
-                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                             android:id="@+id/customerTypefaceTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/d6"
                             android:text="@string/file_video"
-                            android:textColor="@color/A8"
+                            android:textColor="@color/A6"
                             android:textSize="@dimen/s16" />
+
+                        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            android:id="@+id/file_video_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d1"
+                            android:text="50M"
+                            android:textColor="@color/A9"
+                            android:textSize="@dimen/s13" />
 
                     </LinearLayout>
 
@@ -478,78 +619,71 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:id="@+id/file_video_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="共5项"
-                        android:textColor="#66000000"
-                        android:textSize="@dimen/s14"
-                        android:visibility="gone" />
-
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                        android:id="@+id/file_video_size"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d6"
-                        android:text="50M"
                         android:textColor="@color/A9"
-                        android:textSize="@dimen/s14" />
+                        android:textSize="@dimen/s13" />
 
                     <ImageView
                         android:layout_width="@dimen/d24"
                         android:layout_height="@dimen/d24"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d8"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/jiantour" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginTop="@dimen/d5"
-                    android:text="@string/file_video_tishi"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d8"
+                android:background="@color/A7" />
             <!--other-->
             <LinearLayout
                 android:id="@+id/file_other_button"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d72"
+                android:layout_height="@dimen/d70"
                 android:background="?attr/selectableItemBackground"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d8">
+                    android:layout_marginTop="@dimen/d16">
 
                     <ImageView
                         android:layout_width="@dimen/d32"
                         android:layout_height="@dimen/d32"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d8"
+                        android:layout_marginLeft="@dimen/d16"
                         android:src="@mipmap/file_other_icon" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/d24"
-                        android:layout_marginTop="@dimen/d6"
+                        android:layout_marginLeft="@dimen/d18"
                         android:orientation="vertical">
 
-                        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/file_pther"
-                            android:textColor="@color/A8"
+                            android:textColor="@color/A6"
                             android:textSize="@dimen/s16" />
 
+                        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            android:id="@+id/file_qita_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d1"
+                            android:text="50M"
+                            android:textColor="@color/A9"
+                            android:textSize="@dimen/s13" />
                     </LinearLayout>
 
                     <TextView
@@ -557,42 +691,24 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                        android:id="@+id/file_qita_size"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d6"
-                        android:text="50M"
-                        android:textColor="@color/A9"
-                        android:textSize="@dimen/s14" />
-
-                    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:id="@+id/file_qita_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="共5项"
-                        android:textColor="#66000000"
-                        android:textSize="@dimen/s14"
-                        android:visibility="gone" />
+                        android:textColor="@color/A9"
+                        android:textSize="@dimen/s13" />
 
                     <ImageView
                         android:layout_width="@dimen/d24"
                         android:layout_height="@dimen/d24"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d16"
-                        android:layout_marginRight="@dimen/d8"
+                        android:layout_marginLeft="@dimen/d10"
+                        android:layout_marginRight="@dimen/d16"
                         android:src="@mipmap/jiantour" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginTop="@dimen/d5"
-                    android:text="@string/file_other_tishi"
-                    android:textColor="@color/A9"
-                    android:textSize="@dimen/s14" />
             </LinearLayout>
 
             <View
@@ -604,8 +720,6 @@
                 android:id="@+id/ll_ad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
                 android:background="@color/white_100"
                 android:orientation="vertical" />
         </LinearLayout>

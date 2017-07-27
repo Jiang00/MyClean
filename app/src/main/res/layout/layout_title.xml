@@ -21,7 +21,7 @@
             android:src="@mipmap/tilte_left" />
     </FrameLayout>
 
-    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
         android:id="@+id/title_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,17 +44,20 @@
         android:src="@mipmap/white_list_right"
         android:visibility="invisible" />
 
-    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+    <LinearLayout
         android:id="@+id/title_check"
         android:layout_width="@dimen/d56"
         android:layout_height="@dimen/d56"
         android:layout_alignParentRight="true"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:gravity="center"
-        android:text="@string/picture_9"
-        android:textColor="@color/B3"
-        android:textSize="@dimen/s16"
-        android:visibility="invisible" />
+        android:visibility="invisible">
+
+        <ImageView
+            android:layout_width="@dimen/d20"
+            android:layout_height="@dimen/d20"
+            android:src="@mipmap/pichucheck" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ad_title"

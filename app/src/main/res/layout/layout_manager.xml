@@ -30,16 +30,16 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/view_pager_tab"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d48"
+            android:layout_height="@dimen/d32"
             android:background="@color/A1"
-            app:tabIndicatorColor="@color/A12"
-            app:tabIndicatorHeight="@dimen/d2"
-            app:tabSelectedTextColor="@color/A7"
+            app:tabSelectedTextColor="@color/B3"
             app:tabTextAppearance="@style/tablayout_textSize"
-            app:tabTextColor="@color/A7" />
+            app:tabTextColor="@color/B3" />
         <!--app:tabSelectedTextColor="#ffffff"选中的颜色
         app:tabTextColor="#4dffffff"字体颜色
-        app:tabIndicatorColor="@color/A14"线颜色-->
+        app:tabIndicatorColor="@color/A14"线颜色
+        app:tabIndicatorColor="@color/A12"
+            app:tabIndicatorHeight="@dimen/d2"-->
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -63,14 +63,15 @@
 
             <TextView
                 android:id="@+id/junk_button_clean"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d48"
+                android:layout_width="@dimen/d176"
+                android:layout_height="@dimen/d42"
                 android:layout_centerInParent="true"
-                android:background="@color/A1"
+                android:layout_marginBottom="@dimen/d27"
+                android:background="@drawable/clean_button_yuan"
                 android:gravity="center"
-                android:text="@string/manager_button"
-                android:textColor="@color/A7"
-                android:textSize="@dimen/s16" />
+                android:text="@string/main_cleanup"
+                android:textColor="@color/B3"
+                android:textSize="@dimen/s17" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

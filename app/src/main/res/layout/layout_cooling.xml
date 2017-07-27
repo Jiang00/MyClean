@@ -24,23 +24,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.easy.junk.easycustomview.DrawHookView
+        <com.privacy.junk.privacycustomview.KuoShan
+            android:id="@+id/cooling_2"
+            android:layout_width="@dimen/d243"
+            android:layout_height="@dimen/d243"
+            android:layout_gravity="center" />
+
+        <com.privacy.junk.privacycustomview.PrivacyDrawHookView
             android:id="@+id/cooling_drawhookview"
             android:layout_width="@dimen/d123"
             android:layout_height="@dimen/d123"
             android:layout_gravity="center" />
 
         <ImageView
-            android:id="@+id/cooling_2"
-            android:layout_width="@dimen/d130"
-            android:layout_height="@dimen/d130"
+            android:layout_width="@dimen/d132"
+            android:layout_height="@dimen/d132"
             android:layout_gravity="center"
-            android:background="@mipmap/cooling_2" />
+            android:src="@mipmap/cooling_2" />
 
         <ImageView
             android:id="@+id/cooling_dianyuan"
-            android:layout_width="@dimen/d130"
-            android:layout_height="@dimen/d130"
+            android:layout_width="@dimen/d132"
+            android:layout_height="@dimen/d132"
             android:layout_gravity="center"
             android:src="@mipmap/cooling_1" />
 
@@ -72,10 +77,10 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="@dimen/d120"
         android:orientation="horizontal"
-        android:visibility="gone">
+        android:visibility="invisible">
         <!-- android:visibility="invisible"-->
 
-        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -83,7 +88,7 @@
             android:textColor="@color/B3"
             android:textSize="@dimen/s22" />
 
-        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:id="@+id/cooling_wendu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

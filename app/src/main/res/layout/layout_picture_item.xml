@@ -2,35 +2,52 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/d8"
+    android:layout_marginBottom="@dimen/d14"
+    android:layout_marginLeft="@dimen/d16"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/picture_time"
+    <LinearLayout
+        android:id="@+id/picture_time2"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d32"
-        android:gravity="center_vertical"
-        android:text="2017-05-09"
-        android:textColor="@color/A8"
-        android:textSize="@dimen/s15" />
+        android:layout_height="@dimen/d40"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/picture_time_yuan"
+            android:layout_width="@dimen/d6"
+            android:layout_height="@dimen/d6"
+            android:src="@mipmap/time_yuan" />
+
+        <TextView
+            android:id="@+id/picture_time"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d40"
+            android:layout_marginLeft="@dimen/d14"
+            android:gravity="center_vertical"
+            android:text="2017-05-09"
+            android:textColor="@color/A6"
+            android:textSize="@dimen/s15" />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/picture_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/picture_time">
+        android:layout_below="@+id/picture_time2">
 
         <ImageView
             android:id="@+id/picture_icon"
-            android:layout_width="@dimen/d80"
-            android:layout_height="@dimen/d80"
+            android:layout_width="@dimen/d100"
+            android:layout_height="@dimen/d100"
+            android:layout_marginTop="@dimen/d2"
             android:scaleType="centerCrop" />
         <!--android:background="@drawable/shape_pic_hui_3"-->
 
         <ImageView
             android:id="@+id/picture_best"
-            android:layout_width="@dimen/d20"
-            android:layout_height="@dimen/d14"
+            android:layout_width="@dimen/d23"
+            android:layout_height="@dimen/d23"
+            android:layout_marginLeft="@dimen/d11"
             android:src="@mipmap/picture_xing" />
 
         <ImageView
@@ -38,6 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
+            android:layout_marginBottom="@dimen/d3"
+            android:layout_marginRight="@dimen/d3"
             android:src="@mipmap/ram_normal" />
     </FrameLayout>
 

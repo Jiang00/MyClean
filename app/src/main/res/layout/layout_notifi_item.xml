@@ -7,16 +7,16 @@
 
     <RelativeLayout
         android:id="@+id/rl"
-        android:layout_width="@dimen/d56"
-        android:layout_height="@dimen/d56"
+        android:layout_width="@dimen/d72"
+        android:layout_height="@dimen/d60"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/iv_le"
-            android:layout_width="@dimen/d30"
-            android:layout_height="@dimen/d30"
+            android:layout_width="@dimen/d36"
+            android:layout_height="@dimen/d36"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/d8" />
+            android:layout_marginLeft="@dimen/d16" />
     </RelativeLayout>
 
     <LinearLayout
@@ -27,30 +27,29 @@
         android:gravity="clip_vertical"
         android:orientation="vertical">
 
-        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:id="@+id/notifi_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s16" />
+            android:textColor="@color/A6"
+            android:textSize="@dimen/s15" />
 
-        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:id="@+id/notifi_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:textColor="@color/A10"
+            android:textColor="@color/A9"
             android:textSize="@dimen/s12" />
     </LinearLayout>
 
-
-    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
         android:id="@+id/notifi_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/d8" />
+        android:layout_marginRight="@dimen/d16" />
 
     <FrameLayout
         android:id="@+id/fl"

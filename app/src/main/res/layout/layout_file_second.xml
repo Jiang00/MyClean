@@ -40,7 +40,7 @@
                 android:layout_gravity="center"
                 android:src="@mipmap/null_apk" />
 
-            <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -68,31 +68,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/A17"
+                android:background="@color/B3"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/ll_ad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d8"
                     android:orientation="vertical" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginLeft="@dimen/d8"
-                    android:layout_marginRight="@dimen/d8"
                     android:layout_weight="1">
 
                     <ListView
                         android:id="@+id/file_list"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/A7"
+                        android:background="@color/B3"
                         android:divider="@drawable/list_divider"
-                        android:dividerHeight="0px"
+                        android:dividerHeight="@dimen/d1"
                         android:scrollbars="none" />
                 </FrameLayout>
 
@@ -105,14 +101,15 @@
 
                     <TextView
                         android:id="@+id/file_button_clean"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d48"
+                        android:layout_width="@dimen/d176"
+                        android:layout_height="@dimen/d42"
                         android:layout_centerInParent="true"
-                        android:background="@color/A1"
+                        android:layout_marginBottom="@dimen/d27"
+                        android:background="@drawable/clean_button_yuan"
                         android:gravity="center"
-                        android:text="@string/manager_button"
-                        android:textColor="@color/A7"
-                        android:textSize="@dimen/s16" />
+                        android:text="@string/main_cleanup"
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s17" />
                 </RelativeLayout>
             </LinearLayout>
         </FrameLayout>

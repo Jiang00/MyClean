@@ -5,11 +5,11 @@
     android:id="@+id/main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.easy.junk.easyactivity.MainActivity">
+    tools:context="com.privacy.junk.activityprivacy.MainActivity">
 
     <include layout="@layout/activity_main" />
 
-    <com.easy.junk.easycustomview.MainFrameLayout
+    <com.privacy.junk.privacycustomview.PrivacyMainFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -46,15 +46,15 @@
                     android:layout_marginTop="@dimen/d8"
                     android:text="@string/app_name"
                     android:textColor="@color/B3"
-                    android:textSize="@dimen/s13" />
+                    android:textSize="@dimen/s15" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d4"
-                    android:text="@string/side_describe1"
+                    android:text="@string/loading_describe"
                     android:textColor="#b3ffffff"
-                    android:textSize="@dimen/s9" />
+                    android:textSize="@dimen/s12" />
             </LinearLayout>
             <!--ad-->
             <FrameLayout
@@ -83,7 +83,7 @@
                     android:background="@color/A7"
                     android:orientation="vertical">
 
-                    <com.easy.junk.easycustomview.ListViewForScrollView
+                    <com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy
                         android:id="@+id/side_listview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -92,5 +92,5 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </com.easy.junk.easycustomview.MainFrameLayout>
+    </com.privacy.junk.privacycustomview.PrivacyMainFrameLayout>
 </android.support.v4.widget.DrawerLayout>

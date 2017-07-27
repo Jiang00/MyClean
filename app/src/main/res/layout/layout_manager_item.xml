@@ -7,42 +7,43 @@
 
     <RelativeLayout
         android:id="@+id/junk_item_rl"
-        android:layout_width="@dimen/d56"
-        android:layout_height="@dimen/d56">
+        android:layout_width="@dimen/d72"
+        android:layout_height="@dimen/d60">
 
         <ImageView
             android:id="@+id/junk_item_icon"
             android:layout_width="@dimen/d36"
             android:layout_height="@dimen/d36"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/d8" />
+            android:layout_marginLeft="@dimen/d16" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/d60"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/junk_item_rl"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:id="@+id/junk_item_lable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d8"
             android:maxLength="20"
             android:text="app标题"
-            android:textColor="@color/A8"
-            android:textSize="@dimen/s16" />
+            android:textColor="@color/A6"
+            android:textSize="@dimen/s15" />
 
-        <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:id="@+id/item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/d3"
             android:text="17-03-16"
             android:textColor="@color/A9"
-            android:textSize="@dimen/s12" />
+            android:textSize="@dimen/s12"
+            android:visibility="gone" />
     </LinearLayout>
 
     <ImageView
@@ -52,15 +53,15 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/d16"
-        android:layout_marginRight="@dimen/d8" />
+        android:layout_marginRight="@dimen/d16" />
 
-    <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
+    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
         android:id="@+id/size_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="@color/A9"
-        android:textSize="@dimen/s14" />
+        android:textColor="@color/A6"
+        android:textSize="@dimen/s12" />
 </RelativeLayout>

@@ -7,40 +7,35 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/d72"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d60"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/recyc_icon"
-                android:layout_width="@dimen/d46"
-                android:layout_height="@dimen/d46"
-                android:layout_marginBottom="@dimen/d4"
-                android:layout_marginRight="@dimen/d4"
-                android:src="@mipmap/icon" />
-
-            <ImageView
-                android:id="@+id/recyc_check"
-                android:layout_width="@dimen/d24"
-                android:layout_height="@dimen/d24"
-                android:layout_gravity="bottom|right"
-                android:src="@mipmap/ram_normal" />
-        </FrameLayout>
+        <ImageView
+            android:id="@+id/recyc_icon"
+            android:layout_width="@dimen/d36"
+            android:layout_height="@dimen/d36"
+            android:layout_marginLeft="@dimen/d16"
+            android:src="@mipmap/icon" />
 
         <TextView
             android:id="@+id/recyc_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
             android:text="aaaa"
-            android:textColor="@color/A9"
-            android:textSize="@dimen/s8"
-            android:visibility="gone" />
+            android:textColor="@color/A6"
+            android:layout_marginLeft="@dimen/d20"
+            android:textSize="@dimen/s15"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/recyc_check"
+            android:layout_width="@dimen/d24"
+            android:layout_height="@dimen/d24"
+            android:layout_marginRight="@dimen/d16"
+            android:src="@mipmap/ram_normal" />
+
     </LinearLayout>
 </FrameLayout>

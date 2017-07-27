@@ -1,8 +1,8 @@
 package android.support.v7.app;
 
-import com.mingle.easyskin.SkinConfig;
-import com.mingle.easyskin.SkinStyle;
-import com.mingle.easyskin.hepler.SkinCompat;
+import com.mingle.privacyskin.SkinConfig;
+import com.mingle.privacyskin.SkinStyle;
+import com.mingle.privacyskin.hepler.SkinCompat;
 
 /**
  * Created by zzz40500 on 15/8/26.

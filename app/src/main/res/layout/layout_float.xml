@@ -18,196 +18,195 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/float_relativelayout"
-            android:layout_width="@dimen/d346"
-            android:layout_height="@dimen/d71"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/d45"
-            android:background="@drawable/main_clean_button">
-
-            <LinearLayout
-                android:id="@+id/ll_wifi"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/d71"
-                android:layout_marginBottom="@dimen/d30"
-                android:layout_marginLeft="@dimen/d82"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_wifi"
-                    android:layout_width="@dimen/d38"
-                    android:layout_height="@dimen/d38"
-                    android:layout_marginTop="@dimen/d13"
-                    android:src="@mipmap/float_wifi" />
-
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:lines="1"
-                    android:text="@string/float_wifi"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s10" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_liuliang"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_liuliang"
-                    android:layout_width="@dimen/d38"
-                    android:layout_height="@dimen/d38"
-                    android:layout_marginTop="@dimen/d13"
-                    android:src="@mipmap/float_liuliang" />
-
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:lines="1"
-                    android:text="@string/float_liuliang"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s10" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_xianshi"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_xianshi"
-                    android:layout_width="@dimen/d38"
-                    android:layout_height="@dimen/d38"
-                    android:layout_marginTop="@dimen/d13"
-                    android:src="@mipmap/float_liangdu_0" />
-
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:lines="1"
-                    android:text="@string/float_liangdu"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s10" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_shengyin"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_shengyin"
-                    android:layout_width="@dimen/d38"
-                    android:layout_height="@dimen/d38"
-                    android:layout_marginTop="@dimen/d13"
-                    android:src="@mipmap/float_shengyin" />
-
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:lines="1"
-                    android:text="@string/float_shengyin"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s10" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_gps"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_gps"
-                    android:layout_width="@dimen/d38"
-                    android:layout_height="@dimen/d38"
-                    android:layout_marginTop="@dimen/d13"
-                    android:src="@mipmap/float_gps" />
-
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d5"
-                    android:lines="1"
-                    android:text="@string/float_gps"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s10" />
-            </LinearLayout>
-        </LinearLayout>
-
         <RelativeLayout
-            android:id="@+id/float_jiashu"
-            android:layout_width="@dimen/d81"
-            android:layout_height="@dimen/d81"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_vertical"
-            android:background="@mipmap/float_beijing">
-
-            <ImageView
-                android:id="@+id/float_cricle1"
-                android:layout_width="@dimen/d54"
-                android:layout_height="@dimen/d54"
-                android:layout_centerInParent="true"
-                android:src="@mipmap/float_dialog_3" />
+            android:id="@+id/flaotr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/float_jiashu_jieguo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:id="@+id/float_relativelayout"
+                android:layout_width="@dimen/d346"
+                android:layout_height="@dimen/d71"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/d16"
+                android:background="@drawable/main_clean_button">
 
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/float_memory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="77%"
-                    android:textColor="@color/A7"
-                    android:textSize="@dimen/s24" />
+                <LinearLayout
+                    android:id="@+id/ll_wifi"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/d71"
+                    android:layout_marginLeft="@dimen/d75"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <com.easy.module.charge.saver.protectview.CustomerTypefaceTextView
-                    android:id="@+id/float_tishi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/float_jiasu"
-                    android:textColor="@color/A6"
-                    android:textSize="@dimen/s10" />
+                    <ImageView
+                        android:id="@+id/iv_wifi"
+                        android:layout_width="@dimen/d38"
+                        android:layout_height="@dimen/d38"
+                        android:src="@mipmap/float_wifi" />
+
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d5"
+                        android:lines="1"
+                        android:text="@string/float_wifi"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_liuliang"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/d71"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_liuliang"
+                        android:layout_width="@dimen/d38"
+                        android:layout_height="@dimen/d38"
+                        android:src="@mipmap/float_liuliang" />
+
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d5"
+                        android:lines="1"
+                        android:text="@string/float_liuliang"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_xianshi"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/d71"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_xianshi"
+                        android:layout_width="@dimen/d38"
+                        android:layout_height="@dimen/d38"
+                        android:src="@mipmap/float_liangdu_0" />
+
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d5"
+                        android:lines="1"
+                        android:text="@string/float_liangdu"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_shengyin"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/d71"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_shengyin"
+                        android:layout_width="@dimen/d38"
+                        android:layout_height="@dimen/d38"
+                        android:src="@mipmap/float_shengyin" />
+
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d5"
+                        android:lines="1"
+                        android:text="@string/float_shengyin"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_gps"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/d71"
+                    android:layout_marginRight="@dimen/d10"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_gps"
+                        android:layout_width="@dimen/d38"
+                        android:layout_height="@dimen/d38"
+                        android:src="@mipmap/float_gps" />
+
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d5"
+                        android:lines="1"
+                        android:text="@string/float_gps"
+                        android:textColor="@color/A1"
+                        android:textSize="@dimen/s10" />
+                </LinearLayout>
             </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/float_jiashu"
+                android:layout_width="@dimen/d81"
+                android:layout_height="@dimen/d81"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/float_beijing">
+
+                <ImageView
+                    android:id="@+id/float_cricle"
+                    android:layout_width="@dimen/d54"
+                    android:layout_height="@dimen/d54"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/float_dialog_3" />
+
+                <LinearLayout
+                    android:id="@+id/float_jiashu_jieguo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                        android:id="@+id/float_memory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="77%"
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s24" />
+
+                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                        android:id="@+id/float_tishi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/float_jiasu"
+                        android:textColor="@color/B3"
+                        android:textSize="@dimen/s10" />
+                </LinearLayout>
+            </RelativeLayout>
         </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/ll_ad"
             android:layout_width="@dimen/d320"
             android:layout_height="wrap_content"
-            android:layout_below="@id/float_relativelayout"
+            android:layout_below="@id/flaotr"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/d10"
             android:background="@color/A1"
-            android:orientation="vertical">
-
-        </LinearLayout>
+            android:orientation="vertical" />
     </RelativeLayout>
 
 </FrameLayout>

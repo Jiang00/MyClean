@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.easy.junk">
+    package="com.privacy.junk">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -48,7 +48,7 @@
 
 
     <application
-        android:name="com.easy.junk.easyactivity.MyApplication"
+        android:name="com.privacy.junk.activityprivacy.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -57,12 +57,12 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name="com.easy.junk.easyactivity.MainActivity"
+            android:name="com.privacy.junk.activityprivacy.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name="com.easy.junk.easyactivity.LoadingActivity"
+            android:name="com.privacy.junk.activityprivacy.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -83,75 +83,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.easy.junk.easyactivity.BatteriesActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyBatteriesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.RubbishActivity"
+            android:name="com.privacy.junk.activityprivacy.RubbishActivityPrivacy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.RubbishAndRamActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyRubbishAndRamActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.AllAppsActivity"
+            android:name="com.privacy.junk.activityprivacy.AllAppsActivityPrivacy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.PhonesMessageActivity"
+            android:name="com.privacy.junk.activityprivacy.PhonesMessageActivityPrivacy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.MemoryAvtivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyMemoryAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.SetActivity"
+            android:name="com.privacy.junk.activityprivacy.SetActivityPrivacy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.SucceedActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacySucceedActivity"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.IgnoresAvtivity"
+            android:name="com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.IgnoresAddActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.DeepingActivity"
+            android:name="com.privacy.junk.activityprivacy.DeepingActivityPrivacy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.NotifingAnimationActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyNotifingAnimationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.PermissingActivity"
+            android:name="com.privacy.junk.activityprivacy.PermissingActivityPrivacy"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name="com.easy.junk.easyactivity.MyNotifingActivity"
+            android:name="com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.MyNotifingSettingActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyNotifingSettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.SuspensionBallActivity"
+            android:name="com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name="com.easy.junk.easyactivity.UnloadingResidualActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyUnloadingResidualActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name="com.easy.junk.easyactivity.PictActivity"
+            android:name="com.privacy.junk.activityprivacy.PictActivityPrivacy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.PictHuiActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyPictHuiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.GoodGameActivity"
+            android:name="com.privacy.junk.activityprivacy.GoodGameActivityPrivacy"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -164,7 +164,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.easy.junk.easyactivity.ShortCutingActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyShortCutingActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -174,7 +174,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.easy.junk.easybroadcasts.UnloadResidualBroadcast">
+        <receiver android:name="com.privacy.junk.privacybroadcasts.UnloadResidualBroadcastPrivacy">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -185,23 +185,23 @@
         </receiver>
 
         <service
-            android:name="com.easy.junk.easyservices.SuspensionBallService"
+            android:name="com.privacy.junk.privacyservices.PrivacySuspensionBallService"
             android:excludeFromRecents="true" />
         <service
-            android:name="com.easy.junk.easyservices.MyNotificationService"
+            android:name="com.privacy.junk.privacyservices.PrivacyNotificationService"
             android:enabled="true"
             android:excludeFromRecents="true" />
 
         <activity
-            android:name="com.easy.junk.easyactivity.PhoneFileManagerActivity"
+            android:name="com.privacy.junk.activityprivacy.FileManagerActivityPrivacy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.easy.junk.easyactivity.PhoneFileActivity"
+            android:name="com.privacy.junk.activityprivacy.PrivacyFileActivity"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name="com.easy.junk.easyactivity.PhoneDocActivity"
+            android:name="com.privacy.junk.activityprivacy.DocActivityPrivacy"
             android:screenOrientation="portrait" />
 
     </application>

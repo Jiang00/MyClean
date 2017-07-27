@@ -17,7 +17,12 @@
     </style>
 
     <style name="tablayout_textSize" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
-        <item name="android:textSize">@dimen/s16</item>
+        <item name="android:textSize">@dimen/s15</item>
+        <item name="tabBackground">@drawable/tab_background</item>
+    </style>
+
+    <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
+        <item name="tabBackground">@drawable/tab_background</item>
     </style>
 
     <style name="dialog_anim" parent="@android:style/Animation">
