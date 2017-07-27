@@ -3,7 +3,9 @@ package com.froumobic.clean.junk.mactivity;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -15,6 +17,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -44,6 +47,9 @@ import com.android.client.ClientNativeAd;
 import com.android.ui.demo.UiManager;
 import com.android.ui.demo.cross.Builder;
 import com.android.ui.demo.cross.CrossView;
+import com.android.ui.demo.entry.CrossItem;
+import com.android.ui.demo.util.JsonParser;
+import com.frau.cleanmodule.cooling.BatteryCoolingActivity;
 import com.froumobic.clean.junk.R;
 import com.froumobic.clean.junk.adapter.MSideAdapter;
 import com.froumobic.clean.junk.entity.SideInfo;
@@ -107,6 +113,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     RoundJindu main_msg_sd_backg;
     RoundJinduRam main_msg_ram_backg;
     FrameLayout main_battery;
+    LinearLayout main_tuiguang;
 
     // LottieAnimationView lot_side;
     ImageView side_title;
@@ -130,6 +137,8 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private View viewpager_3;
     private AlertDialog dialog;
     private ArrayList<View> arrayList;
+    private String TUIGUAN_MAIN = "main_soft";
+    private String TUIGUAN_SIDE = "slide_soft";
 
     @Override
     protected void findId() {
@@ -181,6 +190,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         main_msg_sd_backg = (RoundJindu) findViewById(R.id.main_msg_sd_backg);
         main_msg_ram_backg = (RoundJinduRam) findViewById(R.id.main_msg_ram_backg);
         main_battery = (FrameLayout) findViewById(R.id.main_battery);
+        main_tuiguang = (LinearLayout) findViewById(R.id.main_tuiguang);
 
     }
 
@@ -344,9 +354,93 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             battery_cha.setOnClickListener(onClickListener);
             battery_button.setOnClickListener(onClickListener);
         }
+        tuiguang(TUIGUAN_MAIN, true);
+        tuiguang(TUIGUAN_MAIN, false);
+        tuiguang(TUIGUAN_SIDE, true);
+        tuiguang(TUIGUAN_SIDE, false);
 
     }
 
+
+    private void tuiguang(final String tag, final boolean isSoftCross) {
+        ArrayList<CrossItem> crossItems = JsonParser.getCrossData(this, AndroidSdk.getExtraData(), tag);
+        if (crossItems != null) {
+            for (int i = 0; i < crossItems.size(); i++) {
+                final CrossItem item = crossItems.get(i);
+                View view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
+                ImageView image = (ImageView) view.findViewById(R.id.tuiguang_icon);
+                if (isSoftCross) {
+                    if (TextUtils.equals(item.action, Constant.RAM_CLEAN_ACTION)) {
+                        //内存加速
+//                        image.setImageResource(R.drawable.setting_soft_ram);
+                    } else if (TextUtils.equals(item.action, Constant.JUNK_CLEAN_ACTION)) {
+                        //垃圾清理
+//                        image.setImageResource(R.drawable.setting_soft_junk);
+                    } else if (TextUtils.equals(item.action, Constant.BATTERY_COOL_ACTION)) {
+                        //电池降温
+//                        image.setImageResource(R.drawable.setting_soft_cooling);
+                    } else {
+                        Util.loadImg(this, item.getIconUrl(), R.mipmap.icon, image);
+
+                    }
+                } else {
+                    Util.loadImg(this, item.getIconUrl(), R.mipmap.icon, image);
+                }
+                TextView tuiguang_title = (TextView) view.findViewById(R.id.tuiguang_title);
+                tuiguang_title.setText(item.getTitle());
+
+                final int j = i + 4;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String t = "主界面";
+                        if (tag.equals(TUIGUAN_SIDE)) {
+                            t = "侧边栏";
+                        }
+                        if (isSoftCross) {
+                            if (com.android.ui.demo.util.Utils.checkoutISAppHasInstalled(MainActivity.this, item.getPkgName())) {
+                                try {
+                                    Intent intent = new Intent(item.getAction());
+                                    startActivity(intent);
+                                } catch (Exception e) {
+                                    Log.e("tuiguang", "not find action=" + item.getAction());
+                                    com.android.ui.demo.util.Utils.openPlayStore(MainActivity.this, item.getPkgName());
+                                }
+                            } else {
+                                if (TextUtils.equals(item.action, Constant.RAM_CLEAN_ACTION)) {
+                                    //内存加速
+                                    Intent intent = new Intent(MainActivity.this, RamAvtivity.class);
+                                    startActivity(intent);
+                                    AdUtil.track(tag, t + "1", "", 1);
+                                } else if (TextUtils.equals(item.action, Constant.JUNK_CLEAN_ACTION)) {
+                                    //垃圾清理
+                                    Intent intent = new Intent(MainActivity.this, LajiActivity.class);
+                                    startActivity(intent);
+                                    AdUtil.track(tag, t + "2", "", 1);
+                                } else if (TextUtils.equals(item.action, Constant.BATTERY_COOL_ACTION)) {
+                                    //电池降温
+                                    Intent intent = new Intent(MainActivity.this, BatteryCoolingActivity.class);
+                                    startActivity(intent);
+                                    AdUtil.track(tag, t + "3", "", 1);
+                                } else {
+                                    com.android.ui.demo.util.Utils.openPlayStore(MainActivity.this, item.getPkgName());
+                                }
+                            }
+                        } else {
+                            com.android.ui.demo.util.Utils.reactionForAction(MainActivity.this, item.getPkgName(), item.getAction());
+                            AdUtil.track(tag, t + j, "", 1);
+                        }
+                    }
+                });
+                if (tag.equals(TUIGUAN_MAIN)) {
+                    main_tuiguang.addView(view);
+                } else if (tag.equals(TUIGUAN_SIDE)) {
+                    side_listView.addHeaderView(view);
+                }
+            }
+
+        }
+    }
 
     @Override
     public void startFenshu(final int percent, final boolean isRestart) {

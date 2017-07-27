@@ -124,4 +124,9 @@ public class Constant {
     public static final String SIDE_DEEP = "SIDE_DEEP";
     public static final String SIDE_NOTIFI = "SIDE_NOTIFI";
 
+    //    软推广
+    public static final String RAM_CLEAN_ACTION = "com.fraumobi.clean.RamAvtivity";
+    public static final String JUNK_CLEAN_ACTION = "com.fraumobi.clean.LajiActivity";
+    public static final String BATTERY_COOL_ACTION = "com.android.battery.cooling";
+
 }

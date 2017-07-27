@@ -22,9 +22,11 @@ import android.support.annotation.LayoutRes;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.android.clean.BuildConfig;
 import com.android.clean.powerclean.CustomerAccessibilityService;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -191,6 +193,16 @@ public class Util {
         }
     }
 
+
+    public static void loadImg(Context context, String url, int placeholder, ImageView view) {
+        Log.e("rqy", "url=" + url);
+        if (!TextUtils.isEmpty(url) && !TextUtils.isEmpty(url.trim())) {
+            Picasso.with(context).load(url).placeholder(placeholder).fit().config(Bitmap.Config.RGB_565).into(view);
+        } else {
+            view.setImageResource(placeholder);
+        }
+    }
+
     public static boolean isThirdApp(ApplicationInfo info) {
         if ((info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
             return true;
@@ -334,7 +346,6 @@ public class Util {
         Bitmap bitmap = view.getDrawingCache();
         return bitmap;
     }
-
 
     //获取进程name
     public static String getProcessName(Context context) {

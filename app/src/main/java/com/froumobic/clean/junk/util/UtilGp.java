@@ -158,7 +158,7 @@ public class UtilGp {
     }
 
     public static void launchApp(Context context, String url, Intent i) {
-        i.setData(Uri.parse(url + "&referrer=utm_source%3Dcross_clean"));
+        i.setData(Uri.parse(url ));
         try {
             context.startActivity(i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         } catch (Exception e) {
