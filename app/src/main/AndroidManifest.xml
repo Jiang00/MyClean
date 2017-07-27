@@ -91,7 +91,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.mutter.clean.junk.myActivity.CleanActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.mutter.clean.CleanActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.mutter.clean.junk.myActivity.CleanAndRamActivity"
             android:exported="true"
@@ -104,7 +109,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.mutter.clean.junk.myActivity.RamAvtivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.mutter.clean.RamAvtivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.mutter.clean.junk.myActivity.SettingActivity"
             android:screenOrientation="portrait" />
