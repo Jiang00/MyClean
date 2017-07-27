@@ -60,12 +60,14 @@ public class CoolingActivity extends MBaseActivity {
         cooling_fl = (FrameLayout) findViewById(R.id.cooling_fl);
         fl_lot_cooling = (FrameLayout) findViewById(R.id.fl_lot_cooling);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
             onBackPressed();
         }
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,7 +138,6 @@ public class CoolingActivity extends MBaseActivity {
     }
 
 
-
     private void hideSnow() {
         if (flakeView != null) {
             flakeView.subtractFlakes(FLAKE_NUM);
@@ -149,6 +150,7 @@ public class CoolingActivity extends MBaseActivity {
             cooling_piao.setVisibility(View.GONE);
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -156,6 +158,7 @@ public class CoolingActivity extends MBaseActivity {
         cooling_piao.addView(flakeView);
         mHandler.post(runnable);
     }
+
     @Override
     protected void onPause() {
         super.onPause();

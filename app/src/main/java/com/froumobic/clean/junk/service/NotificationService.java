@@ -122,6 +122,7 @@ public class NotificationService extends Service {
 
 
     public Canvas getCanvas() {
+        bitmap_progress = Bitmap.createBitmap(Util.dp2px(29), Util.dp2px(29), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap_progress);
         canvas.save();
         canvas.translate(0, pointX);

@@ -346,7 +346,8 @@ public class CleanManager {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             usageStatsList = getUsageStatistics(UsageStatsManager.INTERVAL_DAILY);
             System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
-            Collections.sort(usageStatsList, new Sizesort());
+            if (usageStatsList != null)
+                Collections.sort(usageStatsList, new Sizesort());
         } else {
             recentTasks = am.getRecentTasks(10, ActivityManager.RECENT_IGNORE_UNAVAILABLE);
         }
@@ -440,9 +441,11 @@ public class CleanManager {
             appInfo.date = packageInfo.lastUpdateTime;
             appInfo.label = packageInfo.applicationInfo.loadLabel(pm).toString();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                for (int i = 0; i < usageStatsList.size(); i++) {
-                    if (TextUtils.equals(packageInfo.packageName, usageStatsList.get(i).getPackageName())) {
-                        appInfo.lastRunTime = i;
+                if (usageStatsList != null) {
+                    for (int i = 0; i < usageStatsList.size(); i++) {
+                        if (TextUtils.equals(packageInfo.packageName, usageStatsList.get(i).getPackageName())) {
+                            appInfo.lastRunTime = i;
+                        }
                     }
                 }
             } else {
@@ -475,14 +478,19 @@ public class CleanManager {
                 .getSystemService(Context.USAGE_STATS_SERVICE); //Context.USAGE_STATS_SERVICE
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.YEAR, -1);
-        List<UsageStats> queryUsageStats = mUsageStatsManager
-                .queryUsageStats(intervalType, cal.getTimeInMillis(),
-                        System.currentTimeMillis());
-
-        if (queryUsageStats.size() == 0) {
-//            mContext.startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        List<UsageStats> queryUsageStats = null;
+        try {
+            queryUsageStats = mUsageStatsManager
+                    .queryUsageStats(intervalType, cal.getTimeInMillis(),
+                            System.currentTimeMillis());
+        } catch (Exception e) {
         }
-        return queryUsageStats;
+        if (queryUsageStats != null) {
+            return queryUsageStats;
+        } else {
+            return null;
+        }
+
     }
 
 

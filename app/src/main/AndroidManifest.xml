@@ -92,10 +92,16 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.froumobic.clean.junk.mactivity.LajiActivity"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.fraumobi.clean.LajiActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.froumobic.clean.junk.mactivity.LajjiAndRamActivity"
-            android:exported="true"
+
             android:screenOrientation="portrait" />
         <activity
             android:name="com.froumobic.clean.junk.mactivity.AppActivity"
@@ -105,14 +111,20 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.froumobic.clean.junk.mactivity.RamAvtivity"
-            android:screenOrientation="portrait" />
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.fraumobi.clean.RamAvtivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.froumobic.clean.junk.mactivity.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.froumobic.clean.junk.mactivity.SuccessActivity"
             android:hardwareAccelerated="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.froumobic.clean.junk.mactivity.WhiteListAvtivity"
             android:screenOrientation="portrait" />
