@@ -2,19 +2,13 @@ package com.privacy.module.charge.saver.protectview;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.privacy.module.charge.saver.R;
-
-/**
- */
 
 public class PrivacyBatteryView extends View {
     Paint paint;
@@ -23,7 +17,7 @@ public class PrivacyBatteryView extends View {
     int battery;
     Canvas canvas;
 
-    public PrivacyBatteryView(Context context, @Nullable AttributeSet attrs) {
+    public PrivacyBatteryView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         init();
@@ -53,44 +47,15 @@ public class PrivacyBatteryView extends View {
     }
 
     public void start(final float battery) {
-        if (canvas != null) {
-            canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
-        }
-        this.battery = 0;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i <= battery; i++) {
-                    if (isStop) {
-                        return;
-                    }
-                    setDuShu(i);
-                    try {
-                        Thread.sleep(30);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    if (i == battery) {
-                        i = 0;
-                        try {
-                            Thread.sleep(3000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-        }).start();
+        setDuShu((int) battery);
+//        this.battery = 0;
+
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (canvas != null) {
-            canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
-        }
         this.battery = 0;
-        isStop = true;
     }
 
     public void stop() {

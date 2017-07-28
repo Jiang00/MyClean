@@ -76,7 +76,7 @@ public class PrivacyFloatStateView extends View {
         // 文字
         textPaint = new Paint();
         textPaint.setTextSize(MyUtils.dp2px(12));
-        textPaint.setColor(ContextCompat.getColor(mContext, R.color.B3));
+        textPaint.setColor(ContextCompat.getColor(mContext, R.color.A1));
         textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(true);
         Bitmap src = BitmapFactory.decodeResource(getResources(), R.mipmap.icon);

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,12 +18,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.privacy.module.charge.saver.R;
 import com.privacy.module.charge.saver.PrivacySetADActivity;
-import com.privacy.module.charge.saver.privacyutils.PrivacyADRequest;
-import com.privacy.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
-import com.privacy.module.charge.saver.privacyutils.UtilsPrivacy;
+import com.privacy.module.charge.saver.R;
 import com.privacy.module.charge.saver.entry.PrivacyBatteryEntry;
+import com.privacy.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
+import com.privacy.module.charge.saver.privacyutils.PrivacyADRequest;
+import com.privacy.module.charge.saver.privacyutils.UtilsPrivacy;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -153,6 +152,7 @@ public class ProtectBatteryView extends FrameLayout {
                 str = new SimpleDateFormat("EEEE").format(d);
                 week.setText(str + ".");
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -167,9 +167,8 @@ public class ProtectBatteryView extends FrameLayout {
             return;
         }
         final int curLevel = entry.getLevel();
-
         final int le = curLevel % 100;
-        batteryview.start(le);
+        batteryview.start(curLevel);
 
         cdt = new CountDownTimer(1000, 1000) {
 
@@ -191,6 +190,13 @@ public class ProtectBatteryView extends FrameLayout {
                 start();
             }
         }.start();
+//        if (!flag) {
+//            flag = true;
+//            battery_shandian.setColorFilter(ContextCompat.getColor(mContext, R.color.A2));
+//        } else {
+//            flag = false;
+////            battery_shandian.setColorFilter(ContextCompat.getColor(mContext, R.color.A3));
+//        }
 
 //        if (curLevel < 20) {
 //            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_3));
@@ -235,7 +241,11 @@ public class ProtectBatteryView extends FrameLayout {
                 str = getResources().getString(R.string.charging_use_left);
             }
             String result = String.format(str, entry.extractHours(leftChargeTime), entry.extractMinutes(leftChargeTime));
-            batteryLeft.setText(result);
+            if (curLevel == 100) {
+                batteryLeft.setText("100%");
+            } else {
+                batteryLeft.setText(result);
+            }
         }
 
     }
@@ -301,7 +311,6 @@ public class ProtectBatteryView extends FrameLayout {
                         if (distance > halfWidth) {
                             if (unlockListener != null) {
                                 batteryView.setAlpha(1.0f);
-                                Log.e("sdfsdf", "=======onUnlock=====");
                                 unlockListener.onUnlock();
                             }
                         } else {
@@ -452,9 +461,6 @@ public class ProtectBatteryView extends FrameLayout {
         if (isRegisterTimeUpdate) {
             unregisterTimeUpdateReceiver();
         }
-//        if (water != null && water.isAnimating()) {
-//            water.cancelAnimation();
-//        }
         if (bubbleLayout != null) {
             bubbleLayout.destroy();
         }

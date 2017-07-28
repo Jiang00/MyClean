@@ -94,7 +94,6 @@ public class KuoShan extends View {
                         return;
                     }
                     alpha1 -= jianAlphal;
-//                    LogPrivacy.e("dsfsdf", "==============" + alpha1);
                     setRadius(i);
                     try {
                         Thread.sleep(time);

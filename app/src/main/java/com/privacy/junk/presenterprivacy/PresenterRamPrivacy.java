@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 
 import com.privacy.clean.core.CleanManager;
-import com.privacy.junk.interfaceviewprivacy.CustomRamView;
-import com.privacy.junk.activityprivacy.MyApplication;
-import com.privacy.clean.utilsprivacy.MemoryManager;
 import com.privacy.clean.entity.JunkInfo;
+import com.privacy.clean.utilsprivacy.MemoryManager;
+import com.privacy.junk.activityprivacy.MyApplication;
+import com.privacy.junk.interfaceviewprivacy.CustomRamView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +38,7 @@ public class PresenterRamPrivacy extends PresenterBasePrivacy<CustomRamView> {
                 cleanSize += info.size;
             }
         }
+
         iView.initData(allSize);
         iView.setCleanDAta(true, cleanSize);
         changeColor(allSize);
@@ -61,6 +62,7 @@ public class PresenterRamPrivacy extends PresenterBasePrivacy<CustomRamView> {
         }
         iView.setCleanDAta(false, cleanSize);
     }
+
     public void bleachFile(List<JunkInfo> appRam) {
         clearList = new ArrayList<>();
         for (JunkInfo speedUpInfo : appRam) {

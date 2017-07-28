@@ -322,6 +322,12 @@ public class PrivacySucceedActivity extends BaseActivity {
         } else {
             sizeInt = Integer.parseInt(str[0]);
         }
+        String strDanWei = MyUtils.convertStorage(size, true);
+        if ("M".equals(strDanWei.substring(strDanWei.length() - 1, strDanWei.length()))) {
+            sizeInt *= 1024;
+        } else if ("G".equals(strDanWei.substring(strDanWei.length() - 1, strDanWei.length()))) {
+            sizeInt = sizeInt * 1024 * 1024;
+        }
         success_diancirle1.setVisibility(View.GONE);
         objectAnimator = ObjectAnimator.ofFloat(success_diancirle, "rotation", 0f, 360f);
         objectAnimator.setRepeatCount(-1);
@@ -337,80 +343,84 @@ public class PrivacySucceedActivity extends BaseActivity {
             @Override
             public void run() {
                 int time = 100;
-                for (long i = sizeInt; i > -1; ) {
-                    final long finalI = i;
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            clean_size.setText(String.valueOf(finalI));
-                        }
-                    });
-                    time -= 5;
-                    if (time < 30) {
-                        time = 30;
-                    }
-                    try {
-                        Thread.sleep(time);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    if (i == 0) {
-                        endStart = 0;
-                    } else if (i < sizeInt / 15) {
-                        endStart = 0;
-                    }
-                    if (sizeInt > 100) {
-                        i -= sizeInt / 15;
-                    } else {
-                        i--;
-                    }
+//                for (long i = sizeInt; i > -1; i -= sizeInt / 15) {
+//                    Log.e("dsfsdf", "==============" + i);
+//                    final long finalI = i;
+//                    runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            clean_size.setText(String.valueOf(finalI));
+//                        }
+//                    });
+//                    time -= 5;
+//                    if (time < 30) {
+//                        time = 30;
+//                    }
+//                    try {
+//                        Thread.sleep(time);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                    if (i == 0) {
+//                        endStart = 0;
+//                        i = -1;
+//                    } else if (i < sizeInt / 15) {
+//                        endStart = 0;
+//                        i = -1;
+//                    }
+//
+//                }
+//                if (endStart == 0) {
+                if (objectAnimator != null) {
+                    objectAnimator.pause();
                 }
-                if (endStart == 0) {
-                    if (objectAnimator != null) {
-                        objectAnimator.pause();
-                    }
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            success_diancirle.setVisibility(View.GONE);
-                            success_diancirle1.setVisibility(View.VISIBLE);
-                            if (clean_size != null && clean_size.getVisibility() == View.VISIBLE) {
-                                clean_size.setVisibility(View.GONE);
-                            }
-                            success_drawhook.setVisibility(View.VISIBLE);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        success_diancirle.setVisibility(View.GONE);
+                        success_diancirle1.setVisibility(View.VISIBLE);
+                        if (clean_size != null && clean_size.getVisibility() == View.VISIBLE) {
+                            clean_size.setVisibility(View.GONE);
                         }
-                    });
-                    isdoudong = false;
-                    success_drawhook.startProgress(500);
-                    success_drawhook.setListener(new PrivacyDrawHookView.DrawHookListener() {
+                        success_drawhook.setVisibility(View.VISIBLE);
+                    }
+                });
+                isdoudong = false;
+                success_drawhook.startProgress(500);
+                success_drawhook.setListener(new PrivacyDrawHookView.DrawHookListener() {
 
-                        @Override
-                        public void duogouSc() {
-                            if (PreData.getDB(PrivacySucceedActivity.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
-                                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                            }
-                            success_textview.setVisibility(View.VISIBLE);
-                            if (sizeInt1 != 0) {
-                                if ("app".equals(cleanName)) {
-                                    success_textview.setText(getResources().getText(R.string.qingli) + " " + getString(R.string.power_1, String.valueOf(size)));
-                                } else if ("picture".equals(cleanName)) {
-                                    success_textview.setText(getString(R.string.success_4, size));
-                                } else if ("noti".equals(cleanName)) {
-                                    success_textview.setText(getString(R.string.success_6, size));
-                                }
-                            } else {
-                                success_textview.setText(getResources().getText(R.string.qingli) + " " + MyUtils.convertStorage(size, true));
-                            }
-                            //广告
-                            if (PreData.getDB(PrivacySucceedActivity.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
-                                AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                            }
-                            //动画结束换内容的
-                            startSecondAnimation();
-                            success_drawhook.setListener(null);
+                    @Override
+                    public void duogouSc() {
+                        if (PreData.getDB(PrivacySucceedActivity.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
+                            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                         }
-                    });
-                }
+                        success_textview.setVisibility(View.VISIBLE);
+                        if (sizeInt1 != 0) {
+                            if ("app".equals(cleanName)) {
+                                success_textview.setText(getResources().getText(R.string.qingli) + " " + getString(R.string.power_1, String.valueOf(size)));
+                            } else if ("picture".equals(cleanName)) {
+                                success_textview.setText(getString(R.string.success_4, size));
+                            } else if ("noti".equals(cleanName)) {
+                                success_textview.setText(getString(R.string.success_6, size));
+                            }
+                        } else {
+                            success_textview.setText(getResources().getText(R.string.qingli) + " " + MyUtils.convertStorage(size, true));
+                        }
+                        myHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                //广告
+                                if (PreData.getDB(PrivacySucceedActivity.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
+                                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                                }
+                                //动画结束换内容的
+                                startSecondAnimation();
+                                success_drawhook.setListener(null);
+                            }
+                        }, 1000);
+                    }
+                });
+//                }//
             }
         }).start();
     }

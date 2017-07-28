@@ -134,7 +134,7 @@ public class PrivacyDrawHookView extends View {
             public void run() {
                 for (int i = st; i <= progress; i++) {
                     try {
-                        Thread.sleep(10);
+                        Thread.sleep(20);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

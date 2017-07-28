@@ -52,6 +52,7 @@ import com.privacy.junk.toolsprivacy.MyConstantPrivacy;
 import com.privacy.junk.toolsprivacy.SetAdUtilPrivacy;
 import com.privacy.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
 import com.privacy.module.charge.saver.privacyutils.UtilsPrivacy;
+import com.sample.lottie.L;
 
 import java.io.File;
 import java.text.ParseException;
@@ -573,7 +574,8 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                 junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
                         CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
                 // MyUtils.convertStorage(junk_size, true) true返回的带单位，false不带单位
-                main_junk_huan.setText(MyUtils.convertStorage(junk_size, true) + "B " + getResources().getString(R.string.main_junk_file));
+                long ramSize = CleanManager.getInstance(MainActivity.this).getRamSize();
+                main_junk_huan.setText(MyUtils.convertStorage(junk_size + ramSize, true) + "B " + getResources().getString(R.string.main_junk_file));
                 main_junk_percentage.setText(percent + "%");
                 main_yuanhu1.start(percent * 3.6f);
                 if (percent < 30) {
@@ -592,7 +594,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
 
     @Override
     public void initRam(final int percent, final String size) {
-        // percent内存使用率，size == 756M/1.8G ，使用内存和总内存
+        Log.e("sdfsd", "========" + size);
         final String[] arr = size.split("/");
         main_custom_ram.startProgress(false, percent);
         runOnUiThread(new Runnable() {
@@ -617,11 +619,22 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        objectAnimator = ObjectAnimator.ofFloat(main_point, "rotation", 0f, 360f);
+        objectAnimator.setRepeatCount(-1);
+
+        LinearInterpolator lir = new LinearInterpolator();
+        objectAnimator.setInterpolator(lir);
+        objectAnimator.setDuration(400);
+        objectAnimator.start();
+    }
+
+    @Override
     protected void onRestart() {
         super.onRestart();
         mainPresenter.reStart(true);
         initCpu(temp);
-
     }
 
     @Override
@@ -651,13 +664,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         // 充电屏保关闭智能充电，刷新无效果，重新调用 initSideData()可以
 //        adapter.notifyDataSetChanged();
         initSideData();
-        objectAnimator = ObjectAnimator.ofFloat(main_point, "rotation", 0f, 360f);
-        objectAnimator.setRepeatCount(-1);
 
-        LinearInterpolator lir = new LinearInterpolator();
-        objectAnimator.setInterpolator(lir);
-        objectAnimator.setDuration(400);
-        objectAnimator.start();
     }
 
     public void onBackPressed() {

@@ -45,12 +45,12 @@ public class BatteryProtectActivityPrivacy extends Activity {
             batteryView.setUnlockListener(new ProtectBatteryView.UnlockListener() {
                 @Override
                 public void onUnlock() {
-                    Log.e("sdfsdf", "=======batteryView=====");
                     BatteryProtectActivityPrivacy.this.finish();
                     overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
                 }
             });
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -77,6 +77,7 @@ public class BatteryProtectActivityPrivacy extends Activity {
             type = getIntent().getExtras().getString("type");
         } catch (Exception e) {
             type = "bar";
+
         }
         if (TextUtils.equals(type, "bar")) {
             doBar();
@@ -103,7 +104,6 @@ public class BatteryProtectActivityPrivacy extends Activity {
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.e("sdfsdf", "=======onReceive=====");
             if (TextUtils.equals(Intent.ACTION_BATTERY_CHANGED, intent.getAction())) {
                 //检测手机电量情况
                 batteryChange(intent);
