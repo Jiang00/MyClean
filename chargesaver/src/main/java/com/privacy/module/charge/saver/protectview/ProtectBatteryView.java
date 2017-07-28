@@ -160,6 +160,7 @@ public class ProtectBatteryView extends FrameLayout {
     private int progress = 0;
     boolean flag = false;
     int i = 0;
+    CountDownTimer cdt;
 
     public void bind(PrivacyBatteryEntry entry) {
         if (entry == null) {
@@ -170,7 +171,7 @@ public class ProtectBatteryView extends FrameLayout {
         final int le = curLevel % 100;
         batteryview.start(le);
 
-        new CountDownTimer(1000, 1000) {
+        cdt = new CountDownTimer(1000, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -190,13 +191,6 @@ public class ProtectBatteryView extends FrameLayout {
                 start();
             }
         }.start();
-//        if (!flag) {
-//            flag = true;
-//            battery_shandian.setColorFilter(ContextCompat.getColor(mContext, R.color.A2));
-//        } else {
-//            flag = false;
-////            battery_shandian.setColorFilter(ContextCompat.getColor(mContext, R.color.A3));
-//        }
 
 //        if (curLevel < 20) {
 //            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_3));
@@ -440,6 +434,12 @@ public class ProtectBatteryView extends FrameLayout {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        if (batteryview != null) {
+            batteryview.stop();
+        }
+        if (cdt != null) {
+            cdt.cancel();
+        }
         try {
             JSONObject object = new JSONObject(AndroidSdk.getExtraData());
             int state = analysisJson(object);

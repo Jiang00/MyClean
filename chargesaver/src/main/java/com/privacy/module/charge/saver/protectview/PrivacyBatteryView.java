@@ -92,4 +92,8 @@ public class PrivacyBatteryView extends View {
         this.battery = 0;
         isStop = true;
     }
+
+    public void stop() {
+        isStop = true;
+    }
 }

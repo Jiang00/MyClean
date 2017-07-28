@@ -17,11 +17,12 @@ import android.view.LayoutInflater;
 
 import com.privacy.module.charge.saver.BatteryProtectActivityPrivacy;
 import com.privacy.module.charge.saver.R;
-import com.privacy.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
-import com.privacy.module.charge.saver.privacyutils.UtilsPrivacy;
-import com.privacy.module.charge.saver.privacyutils.PrivacyWidgetContainer;
 import com.privacy.module.charge.saver.entry.PrivacyBatteryEntry;
+import com.privacy.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
+import com.privacy.module.charge.saver.privacyutils.PrivacyWidgetContainer;
+import com.privacy.module.charge.saver.privacyutils.UtilsPrivacy;
 import com.privacy.module.charge.saver.protectview.ProtectBatteryView;
+
 
 /**
  * Created by on 2016/10/20.
