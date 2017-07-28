@@ -51,7 +51,7 @@ public class PrivacyRubbishAndRamActivity extends BaseActivity implements Privac
     TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size, junk_ram_size;
     FrameLayout title_left;
     ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou, junk_ram_jiantou;
-    TextView junk_button_clean;
+    TextView junk_button_clean, junk_button_clean2;
     ScrollView junk_scroll;
     ListView junk_list_all;
     TextView junk_unit;
@@ -91,6 +91,7 @@ public class PrivacyRubbishAndRamActivity extends BaseActivity implements Privac
         junk_user_list = (ListViewForScrollViewPrivacy) findViewById(R.id.junk_user_list);
         junk_ram_list = (ListViewForScrollViewPrivacy) findViewById(R.id.junk_ram_list);
         junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
+        junk_button_clean2 = (TextView) findViewById(R.id.junk_button_clean2);
         junk_scroll = (ScrollView) findViewById(R.id.junk_scroll);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
     }
@@ -468,6 +469,7 @@ public class PrivacyRubbishAndRamActivity extends BaseActivity implements Privac
                             public void run() {
                                 if (finalI != 0) {
                                     junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(finalI, true) + ")");
+                                    junk_button_clean2.setText(getResources().getText(R.string.junk_cleansize) + " " + MyUtils.convertStorage(finalI, true));
                                 }
                             }
                         });
@@ -477,11 +479,10 @@ public class PrivacyRubbishAndRamActivity extends BaseActivity implements Privac
         } else {
             if (cleanSize != 0) {
                 junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(cleanSize, true) + ")");
+                junk_button_clean2.setText(getResources().getText(R.string.junk_cleansize) + " " + MyUtils.convertStorage(cleanSize, true));
             }
         }
-
     }
-
 
     public void startCleanAnimation(final View view) {
         Animation animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
@@ -492,7 +493,6 @@ public class PrivacyRubbishAndRamActivity extends BaseActivity implements Privac
         view.startAnimation(animation);
     }
 
-    int systemCount, systemCount1, apkCount, apkCount1, unloadCount, unloadCount1, logCount, logCount1, userCount, userCount1, ramCount, ramCount1;
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

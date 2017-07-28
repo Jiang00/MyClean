@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -40,12 +41,12 @@ public class ProtectBatteryView extends FrameLayout {
     private boolean isBindView = false;
     private boolean isRegisterTimeUpdate = false;
     private View adView;
-    private ProtectBatteryView.UnlockListener listener;
+    private ProtectBatteryView.UnlockListener unlockListener;
 //    private BatteryChargeView chargeView = null;
 
     private ProtectBatteryView batteryView;
     private LinearLayout adLayout;
-//    private ImageView icon;
+    private ImageView icon;
     private TextView title;
     private LinearLayout more;
     private LinearLayout switchLayout;
@@ -84,7 +85,7 @@ public class ProtectBatteryView extends FrameLayout {
     }
 
     public void setUnlockListener(UnlockListener unlockListener) {
-        listener = unlockListener;
+        this.unlockListener = unlockListener;
     }
 
     private BroadcastReceiver timerUpdateReceiver = new BroadcastReceiver() {
@@ -120,8 +121,8 @@ public class ProtectBatteryView extends FrameLayout {
                     case MotionEvent.ACTION_MOVE:
                         if ((event.getX() - startX) > 20 || (startX - event.getX()) > 20) {
                             if ((event.getX() - startX) > halfWidth / 2) {
-                                if (listener != null) {
-                                    listener.onUnlock();
+                                if (unlockListener != null) {
+//                                    unlockListener.onUnlock();
                                 }
                             }
                             return true;
@@ -293,7 +294,7 @@ public class ProtectBatteryView extends FrameLayout {
 
             showNativeAD();
 
-            halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 1.3f);
+            halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 3f);
             setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
@@ -304,13 +305,14 @@ public class ProtectBatteryView extends FrameLayout {
                     detector.onTouchEvent(event);
                     if (event.getAction() == MotionEvent.ACTION_UP) {
                         if (distance > halfWidth) {
-                            if (listener != null) {
-//                                batteryView.setAlpha(1.0f);
-                                listener.onUnlock();
+                            if (unlockListener != null) {
+                                batteryView.setAlpha(1.0f);
+                                Log.e("sdfsdf", "=======onUnlock=====");
+                                unlockListener.onUnlock();
                             }
                         } else {
                             if (batteryView != null) {
-//                                batteryView.setAlpha(1.0f);
+                                batteryView.setAlpha(1.0f);
                             }
                         }
                     }
@@ -320,22 +322,24 @@ public class ProtectBatteryView extends FrameLayout {
             detector = new GestureDetector(mContext, new GestureDetector.SimpleOnGestureListener() {
                 @Override
                 public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                    if (listener != null) {
-//                        batteryView.setAlpha(1.0f);
-                        listener.onUnlock();
+                    if (unlockListener != null) {
+                        batteryView.setAlpha(1.0f);
+//                        unlockListener.onUnlock();
                     }
                     return true;
                 }
 
                 @Override
                 public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-                    if (e2.getX() - e1.getX() == distance) {
+                    //e1.getX()是按下的位置
+                    if (e2.getX() - e1.getX() == 100) {
                         return true;
                     }
+
                     distance = e2.getX() - e1.getX();
                     if (batteryView != null) {
 //                        batteryView.setTranslationX(distance);
-//                        batteryView.setAlpha(1 - distance / halfWidth + .2f);
+                        batteryView.setAlpha(1 - distance / halfWidth + .2f);
                     }
                     return true;
                 }
@@ -343,7 +347,7 @@ public class ProtectBatteryView extends FrameLayout {
 
             String titleTxt = (String) UtilsPrivacy.readData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_TITLE, "Cleaner");
             title.setText(titleTxt);
-            int iconId = (int) UtilsPrivacy.readData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_ICON, R.mipmap.battery_inner_icon);
+            int iconId = (int) UtilsPrivacy.readData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_ICON, R.mipmap.battery_icon1);
             if (iconId > -1) {
 //                icon.setImageResource(iconId);
             }
@@ -395,7 +399,7 @@ public class ProtectBatteryView extends FrameLayout {
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
         adLayout = (LinearLayout) findViewById(R.id.battery_ad_layout);
-//        icon = (ImageView) findViewById(R.id.battery_icon);
+        icon = (ImageView) findViewById(R.id.battery_icon);
         title = (TextView) findViewById(R.id.battery_title);
         more = (LinearLayout) findViewById(R.id.battery_more);
         time = (TextView) findViewById(R.id.battery_now_time);

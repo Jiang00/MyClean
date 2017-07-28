@@ -38,9 +38,9 @@ public class PrivacyYuanHuView extends View {
         paintCrile.setAntiAlias(true);
 
         rectF = new RectF(0, 0, getResources().getDimensionPixelSize(R.dimen.d48), getResources().getDimensionPixelSize(R.dimen.d48));
-        rectF.offset(getResources().getDimensionPixelSize(R.dimen.d1), getResources().getDimensionPixelSize(R.dimen.d1));//左上位置
-//        rectF.left = getResources().getDimensionPixelSize(R.dimen.d19);
-//        rectF.top = getResources().getDimensionPixelSize(R.dimen.d19);
+//        rectF.offset(getResources().getDimensionPixelSize(R.dimen.d1), getResources().getDimensionPixelSize(R.dimen.d1));//左上位置
+        rectF.left = getResources().getDimensionPixelSize(R.dimen.d1);
+        rectF.top = getResources().getDimensionPixelSize(R.dimen.d1);
     }
 
     @Override

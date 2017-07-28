@@ -337,7 +337,7 @@ public class PrivacySucceedActivity extends BaseActivity {
             @Override
             public void run() {
                 int time = 100;
-                for (long i = sizeInt; i > -1; i--) {
+                for (long i = sizeInt; i > -1; ) {
                     final long finalI = i;
                     runOnUiThread(new Runnable() {
                         @Override
@@ -356,6 +356,13 @@ public class PrivacySucceedActivity extends BaseActivity {
                     }
                     if (i == 0) {
                         endStart = 0;
+                    } else if (i < sizeInt / 15) {
+                        endStart = 0;
+                    }
+                    if (sizeInt > 100) {
+                        i -= sizeInt / 15;
+                    } else {
+                        i--;
                     }
                 }
                 if (endStart == 0) {

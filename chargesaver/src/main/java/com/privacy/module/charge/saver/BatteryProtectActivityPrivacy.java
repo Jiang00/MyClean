@@ -21,7 +21,6 @@ public class BatteryProtectActivityPrivacy extends Activity {
     private ProtectBatteryView batteryView;
     private PrivacyBatteryEntry entry;
 
-
     protected void hideBottomUIMenu() {
         try {
             if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) {
@@ -43,10 +42,11 @@ public class BatteryProtectActivityPrivacy extends Activity {
         try {
             batteryView = (ProtectBatteryView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
             setContentView(batteryView);
+            Log.e("sdfsdf", "=======doBar=====");
             batteryView.setUnlockListener(new ProtectBatteryView.UnlockListener() {
                 @Override
                 public void onUnlock() {
-                    Log.e("sdfsdf", "============");
+                    Log.e("sdfsdf", "=======batteryView=====");
                     BatteryProtectActivityPrivacy.this.finish();
                     overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
                 }
@@ -58,6 +58,7 @@ public class BatteryProtectActivityPrivacy extends Activity {
     @Override
     protected void onUserLeaveHint() {
 //        super.onUserLeaveHint();
+        Log.e("sdfsdf", "=======onUserLeaveHint=====");
         this.finish();
         overridePendingTransition(R.anim.charge_exit, R.anim.charge_exit);
     }
@@ -65,6 +66,7 @@ public class BatteryProtectActivityPrivacy extends Activity {
     @Override
     public void onBackPressed() {
 //        super.onBackPressed();
+        Log.e("sdfsdf", "=======onBackPressed=====");
         this.finish();
         overridePendingTransition(R.anim.charge_exit, R.anim.charge_exit);
     }
@@ -72,6 +74,7 @@ public class BatteryProtectActivityPrivacy extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("sdfsdf", "=======onCreate=====");
         hideBottomUIMenu();
         String type;
         try {
@@ -101,15 +104,15 @@ public class BatteryProtectActivityPrivacy extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-
-
     }
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.e("sdfsdf", "=======onReceive=====");
             if (TextUtils.equals(Intent.ACTION_BATTERY_CHANGED, intent.getAction())) {
-                batteryChange(intent);
+                //检测手机电量情况
+//                batteryChange(intent);
             } else if (TextUtils.equals(Intent.ACTION_SCREEN_ON, intent.getAction())) {
                 Log.d("MyTest", "ON  batteryView = " + batteryView);
                 if (batteryView != null) {
@@ -129,6 +132,7 @@ public class BatteryProtectActivityPrivacy extends Activity {
     };
 
     public void batteryChange(Intent intent) {
+        Log.e("sdfsdf", "=======batteryChange=====");
         if (entry == null) {
             entry = new PrivacyBatteryEntry(this, intent);
         } else {
@@ -142,12 +146,10 @@ public class BatteryProtectActivityPrivacy extends Activity {
 
     @Override
     protected void onDestroy() {
+        Log.e("sdfsdf", "=======onDestroy=====");
         batteryView = null;
         super.onDestroy();
-        try {
-            unregisterReceiver(mReceiver);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        unregisterReceiver(mReceiver);
+        Log.e("sdfsdf", "=======Exception1=====");
     }
 }
