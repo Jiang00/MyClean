@@ -674,6 +674,7 @@ public class GarbageAndRamActivity extends BaseActivity implements JunkAndRamVie
 
     @Override
     public void onBackPressed() {
+        setResult(Constant.RAM_JUNK_RESUIL);
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
             if (TextUtils.equals("twoday", getIntent().getStringExtra("from2"))) {
                 UtilAd.track("通知栏", "两天唤醒", "点击", 1);
@@ -694,7 +695,7 @@ public class GarbageAndRamActivity extends BaseActivity implements JunkAndRamVie
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(1);
+            setResult(Constant.RAM_JUNK_RESUIL);
             onBackPressed();
         }
     }

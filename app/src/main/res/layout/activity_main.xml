@@ -71,6 +71,7 @@
                     android:id="@+id/l_title_right"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center_vertical">
 
                     <ImageView
@@ -79,7 +80,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/d16"
                         android:layout_marginRight="@dimen/d16"
-                        android:background="?attr/selectableItemBackgroundBorderless"
                         android:scaleType="center"
                         android:src="@mipmap/main_setting" />
                 </LinearLayout>
@@ -122,49 +122,47 @@
                                 <FrameLayout
                                     android:id="@+id/main_scale_all"
                                     android:layout_width="match_parent"
-                                    android:layout_height="@dimen/main_t"
-                                    android:layout_marginTop="@dimen/d_27">
+                                    android:layout_height="@dimen/main_t">
 
                                     <ImageView
                                         android:id="@+id/clear1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
+                                        android:layout_width="@dimen/d277"
+                                        android:layout_height="@dimen/d277"
+                                        android:layout_gravity="center_horizontal"
                                         android:src="@mipmap/clear1" />
 
                                     <ImageView
                                         android:id="@+id/clear3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
+                                        android:layout_width="@dimen/d277"
+                                        android:layout_height="@dimen/d277"
+                                        android:layout_gravity="center_horizontal"
                                         android:src="@mipmap/clear3" />
 
                                     <ImageView
                                         android:id="@+id/clear2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
+                                        android:layout_width="@dimen/d277"
+                                        android:layout_height="@dimen/d277"
+                                        android:layout_gravity="center_horizontal"
                                         android:src="@mipmap/clear2" />
                                     <!--检测无垃圾-->
                                     <RelativeLayout
                                         android:id="@+id/main_clear_relativeLayout1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
+                                        android:layout_gravity="center_horizontal"
                                         android:visibility="gone">
                                         <!-- android:visibility="gone" -->
                                         <!--完成图片-->
                                         <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="@dimen/d_27"
+                                            android:layout_width="@dimen/d277"
+                                            android:layout_height="@dimen/d277"
                                             android:src="@mipmap/clear4" />
                                         <!--完成提示-->
                                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_centerHorizontal="true"
-                                            android:layout_marginTop="@dimen/d154"
+                                            android:layout_marginTop="@dimen/d183"
                                             android:text="@string/optimum"
                                             android:textColor="@color/A0"
                                             android:textSize="@dimen/s14" />
@@ -174,7 +172,8 @@
                                         android:id="@+id/main_clear_relativeLayout"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_gravity="center">
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="@dimen/d104">
 
                                         <com.my.bruder.charge.saver.view.CustomerTypefaceMyTextView
                                             android:id="@+id/main_garbage_button"
@@ -218,7 +217,6 @@
                                             android:layout_marginTop="@dimen/d8"
                                             android:background="@mipmap/clear_button"
                                             android:gravity="center"
-                                            android:paddingBottom="@dimen/d3"
                                             android:text="@string/in_detection"
                                             android:textColor="@color/A0"
                                             android:textSize="@dimen/s14" />
@@ -226,7 +224,7 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
+                                        android:layout_height="@dimen/d29"
                                         android:layout_gravity="bottom"
                                         android:background="@mipmap/ripple" />
                                 </FrameLayout>
@@ -1029,81 +1027,6 @@
                             android:layout_marginRight="@dimen/d6"
                             android:gravity="center_horizontal"
                             android:orientation="vertical" />
-
-                        <!--守护信息-->
-                        <!-- <FrameLayout
-                             android:id="@+id/main_guard_all"
-                             android:layout_width="match_parent"
-                             android:layout_height="@dimen/d225"
-                             android:background="@color/A10">
-
-                             <ImageView
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_gravity="center_horizontal|bottom"
-                                 android:src="@mipmap/main_guard_1" />
-
-                             <ImageView
-                                 android:id="@+id/main_guard_rotate"
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_gravity="center_horizontal|bottom"
-                                 android:src="@mipmap/main_guard_2" />
-
-                             <RelativeLayout
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_gravity="center"
-                                 android:layout_marginBottom="@dimen/d10"
-                                 android:gravity="center_horizontal">
-
-                                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                     android:id="@+id/main_gurad_app_name"
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:text="@string/app_name"
-                                     android:textColor="@color/B3"
-                                     android:textSize="@dimen/s12"
-                                      />
-
-                                 <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="@dimen/d2"
-                                     android:layout_toRightOf="@id/main_gurad_app_name"
-                                     android:text="@string/main_guard_title"
-                                     android:textColor="@color/B3"
-                                     android:textSize="@dimen/s12"
-                                      />
-
-                                 <LinearLayout
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_below="@id/main_gurad_app_name"
-                                     android:layout_centerHorizontal="true"
-                                     android:gravity="center_vertical"
-                                     android:orientation="horizontal">
-
-                                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                         android:id="@+id/main_gurad_num"
-                                         android:layout_width="wrap_content"
-                                         android:layout_height="wrap_content"
-                                         android:text="11"
-                                         android:textColor="@color/B3"
-                                         android:textSize="@dimen/s20"
-                                          />
-
-                                     <com.my.module.charge.saver.view.CustomerTypefaceTextView
-                                         android:layout_width="wrap_content"
-                                         android:layout_height="wrap_content"
-                                         android:layout_toRightOf="@id/main_gurad_app_name"
-                                         android:text="@string/main_guard_unit"
-                                         android:textColor="@color/B3"
-                                         android:textSize="@dimen/s12"
-                                          />
-                                 </LinearLayout>
-                             </RelativeLayout>
-                         </FrameLayout>-->
 
                         <LinearLayout
                             android:id="@+id/ad_native_2"

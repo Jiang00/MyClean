@@ -48,7 +48,6 @@ public class SetActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_setting);
 
-
         myHandler = new Handler();
         title_name.setText(R.string.setting_name);
         title_left.setOnClickListener(onClickListener);
@@ -163,7 +162,6 @@ public class SetActivity extends BaseActivity {
         super.onPause();
     }
 
-
     private void addAd() {
         nativeView = UtilAd.getNativeAdView(TAG_SETTING, R.layout.native_ad_3);
         if (ll_ad != null && nativeView != null) {
@@ -227,7 +225,6 @@ public class SetActivity extends BaseActivity {
                     }
                     break;
                 case R.id.setting_battery:
-
                     //chongdian
                     if ((boolean) Utils.readData(SetActivity.this, Constants.CHARGE_SAVER_SWITCH, false)) {
                         Utils.writeData(SetActivity.this, Constants.CHARGE_SAVER_SWITCH, false);

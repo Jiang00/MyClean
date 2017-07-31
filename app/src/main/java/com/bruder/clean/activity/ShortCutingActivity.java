@@ -270,70 +270,61 @@ public class ShortCutingActivity extends BaseActivity {
                 }
             }
         });
-        myHandler.postDelayed(new Runnable() {
+        AnimatorSet set = new AnimatorSet();
+        ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, 359f);
+        ObjectAnimator animator2 = ObjectAnimator.ofFloat(short_cut3, "rotation", 0f, -359f);
+        ObjectAnimator animator3 = ObjectAnimator.ofFloat(short_cut4, "rotation", 0f, 359f);
+        set.setDuration(300);
+        set.addListener(new Animator.AnimatorListener() {
             @Override
-            public void run() {
+            public void onAnimationCancel(Animator animation) {
 
-                AnimatorSet set = new AnimatorSet();
-                ObjectAnimator animator1 = ObjectAnimator.ofFloat(short_cut2, "rotation", 0f, 360f);
-                ObjectAnimator animator2 = ObjectAnimator.ofFloat(short_cut3, "rotation", 0f, -360f);
-                ObjectAnimator animator3 = ObjectAnimator.ofFloat(short_cut4, "rotation", 0f, 360f);
-                set.setDuration(200);
-                set.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        short_cut_beijing.startAnimation(suo);
-                        short_cut2.setVisibility(View.GONE);
-                        short_cut3.setVisibility(View.GONE);
-                        short_cut4.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-                });
-                LinearInterpolator lin = new LinearInterpolator();
-                set.setInterpolator(lin);
-                animator2.setRepeatCount(10);//设置重复次数
-                animator1.setRepeatCount(10);//设置重复次数
-                animator3.setRepeatCount(10);//设置重复次数
-                animator2.setDuration(2000);
-                animator1.setDuration(2000);
-                animator3.setDuration(2000);
-                set.play(animator1).with(animator2).with(animator3);
-                set.start();
-                suo.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        short_cut_beijing.setVisibility(View.GONE);
-                        count++;
-                        isdoudong = false;
-                        show_text();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-                });
             }
-        }, 500);
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                short_cut_beijing.startAnimation(suo);
+                short_cut2.setVisibility(View.GONE);
+                short_cut3.setVisibility(View.GONE);
+                short_cut4.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+        });
+        LinearInterpolator lin = new LinearInterpolator();
+        set.setInterpolator(lin);
+        animator2.setRepeatCount(5);//设置重复次数
+        animator1.setRepeatCount(5);//设置重复次数
+        animator3.setRepeatCount(5);//设置重复次数
+        set.play(animator1).with(animator2).with(animator3);
+        set.start();
+        suo.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                short_cut_beijing.setVisibility(View.GONE);
+                count++;
+                isdoudong = false;
+                show_text();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+        });
 
     }
 }

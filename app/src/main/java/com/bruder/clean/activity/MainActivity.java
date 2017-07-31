@@ -62,7 +62,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     private String TAG_SIDE = "bruder_side";
     private String TAG_MAIN = "bruder_main";
     PullToMyRefreshLayout main_pull_refresh;
-    ImageView iv_title_right;
     LinearLayout l_title_left, l_title_right;
     MyMainScrollView main_scroll_view;
     ImageView clear1, clear2, clear3;
@@ -88,7 +87,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     RelativeLayout poweracativity, fileactivity, notifiactivity, main_more;
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side, ad_native_2;
-    LottieAnimationView lot_main;
     TextView main_full_time;
     FrameLayout fl_lot_side;
 
@@ -189,7 +187,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                 dialog1.dismiss();// 隐藏对话框，并释放资源
                 Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
                 initSideData();
-                adapter.notifyDataSetChanged();
+//                adapter.notifyDataSetChanged();
             }
         });
         main_cancel.setOnClickListener(new View.OnClickListener() {
@@ -230,11 +228,9 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         super.findId();
         main_drawer = (DrawerLayout) findViewById(R.id.main_drawer);
         main_drawer.addDrawerListener(this);
-        //main_all_cercle = (FrameLayout) findViewById(R.id.main_all_cercle);
         main_scroll_view = (MyMainScrollView) findViewById(R.id.main_scroll_view);
         main_pull_refresh = (PullToMyRefreshLayout) findViewById(R.id.main_pull_refresh);
         main_scale_all = (FrameLayout) findViewById(R.id.main_scale_all);
-        iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
         l_title_left = (LinearLayout) findViewById(R.id.l_title_left);
         l_title_right = (LinearLayout) findViewById(R.id.l_title_right);
@@ -242,7 +238,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
         main_manager_button = (RelativeLayout) findViewById(R.id.main_manager_button);
         main_cooling_button = (LinearLayout) findViewById(R.id.main_cooling_button);
-//        main_applock_button = (Button) findViewById(R.id.main_applock_button);
         main_theme_button = (LinearLayout) findViewById(R.id.main_theme_button);
         main_junk_h = (TextView) findViewById(R.id.main_junk_h);
         main_ram_h = (TextView) findViewById(R.id.main_ram_h);
@@ -283,7 +278,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     //初始化监听
     public void onClick() {
         main_pull_refresh.setOnRefreshListener(refreshListener);
-        iv_title_right.setOnClickListener(onClickListener);
         iv_title_left.setOnClickListener(onClickListener);
         l_title_left.setOnClickListener(onClickListener);
         l_title_right.setOnClickListener(onClickListener);
@@ -343,10 +337,11 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                 } else {
                     main_msg_sd_unit.setText("GB");
                 }
+                long junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
+                        CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize()
+                        + CleanManager.getInstance(MainActivity.this).getDataSize();
+                allSize = junk_size;
                 if (main_junk_h.getVisibility() == View.INVISIBLE) {
-                    long junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
-                            CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize()
-                            + CleanManager.getInstance(MainActivity.this).getDataSize() + CleanManager.getInstance(MainActivity.this).getRamSize();
                     if (junk_size > 0) {
                         main_junk_h.setText(Util.convertStorage(junk_size, true));
                         main_junk_h.setVisibility(View.VISIBLE);
@@ -358,10 +353,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 
     @Override
     public void initGuard(int num, RotateAnimation rotateAnimation) {
-        if (num != -1) {
-//            main_gurad_num.setText(String.valueOf(num) + " ");//valueOf是将num转换为字符串
-        }
-//        main_guard_rotate.startAnimation(rotateAnimation);
     }
 
     // 菜单
@@ -384,15 +375,12 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
             adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
         }
         adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-//        adapter.notifyDataSetChanged();
         side_listView.setAdapter(adapter);
     }
 
 
     @Override
     public void loadAirAnimator(TranslateAnimation translate) {
-        //小火箭动画
-//        main_air_all.startAnimation(translate);
     }
 
     @Override
@@ -486,11 +474,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                     mainPresenter.openDrawer();
                     UtilAd.track("主页面", "点击进入侧边栏按钮", "", 1);
                     break;
-                case R.id.iv_title_right:
-                    //设置按钮
-                    UtilAd.track("主页面", "点击进入设置页面", "", 1);
-                    mainPresenter.jumpToActivity(SetActivity.class, 1);
-                    break;
                 case R.id.main_clear_relativeLayout:
                     showToast((String) getText(R.string.toast_ing));
                     UtilAd.track("主页面", "点击垃圾清理按钮", "", 1);
@@ -499,8 +482,8 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
                 case R.id.main_clear_button:
                     //垃圾清理按钮
                     showToast((String) getText(R.string.toast_ing));
-                    UtilAd.track("主页面", "点击垃圾清理按钮", "", 1);
-                    mainPresenter.jumpToActivity(GarbageActivity.class, 1);
+                    UtilAd.track("主页面", "点击所有垃圾清理按钮", "", 1);
+                    mainPresenter.jumpToActivity(GarbageAndRamActivity.class, 1);
                     break;
                 //好评上面的六个按钮点击事件
                 case R.id.main_junk_button:
@@ -580,6 +563,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     protected void onResume() {
         super.onResume();
         initSideData();
+//        adapter.notifyDataSetChanged();
         if (TransmitValue.isJunk && TransmitValue.isRam && TransmitValue.isCool) {
             main_clear_relativeLayout.setVisibility(View.GONE);
             main_clear_relativeLayout1.setVisibility(View.VISIBLE);
@@ -594,76 +578,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
             notifiactivity.setVisibility(View.GONE);
             main_more.setVisibility(View.GONE);
         }
-
-        //旋转动画
-        startAnimator(0f, 360f, 0f, -360f);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int time = 100;
-                allSize = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() + CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize()
-                        + CleanManager.getInstance(MainActivity.this).getDataSize() + CleanManager.getInstance(MainActivity.this).getRamSize();
-                for (long i = 0; i <= allSize; i += (allSize / 15)) {
-                    if (allSize == 0) {
-                        i += 15;
-                    }
-                    if (onDestroyed) {
-                        break;
-                    }
-                    final long finalI = i;
-                    time -= 5;
-                    if (time < 30) {
-                        time = 30;
-                    }
-                    try {
-                        Thread.sleep(time);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if ((finalI + allSize / 100) >= allSize && allSize != 0) {
-                                String mainGarbageButtonSize = Util.convertStorage(allSize, true);
-                                main_garbage_button.setText(mainGarbageButtonSize.subSequence(0, mainGarbageButtonSize.length() - 2));
-                                main_garbage_company.setText(mainGarbageButtonSize.subSequence(mainGarbageButtonSize.length() - 2, mainGarbageButtonSize.length()));
-                                Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_notifi);
-//                                main_garbage_wait_clear.startAnimation(animation);
-//                                main_garbage_wait_clear.setVisibility(View.VISIBLE);
-                                main_clear_button.setText(R.string.garbage);
-                                pauseAnimator();
-                                startAnimator(0f, -360f, 0f, 360f);
-                            } else if (allSize == 0) {
-                                pauseAnimator();
-                                main_clear_relativeLayout.setVisibility(View.GONE);
-                                main_clear_relativeLayout1.setVisibility(View.VISIBLE);
-                                startAnimator(0f, -360f, 0f, 360f);
-                            } else {
-                                // 设置大小
-                                String mainGarbageButtonSize = Util.convertStorage(allSize, true);
-                                main_garbage_button.setText(mainGarbageButtonSize.subSequence(0, mainGarbageButtonSize.length() - 2));
-                                main_garbage_company.setText(mainGarbageButtonSize.subSequence(mainGarbageButtonSize.length() - 2, mainGarbageButtonSize.length()));
-                            }
-                        }
-                    });
-                    if (allSize == 0) {
-                        break;
-                    }
-                }
-            }
-        }).start();
-        AndroidSdk.onResumeWithoutTransition(this);
-        Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
-//        if (lot_family != null) {
-//            lot_family.playAnimation();
-//        }
-        if (lot_main != null) {
-            lot_main.playAnimation();
-        }
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
-        rotateAnimation.setDuration(2000);
-        rotateAnimation.setRepeatCount(-1);
-//        main_guard_rotate.startAnimation(rotateAnimation);
     }
 
     @Override
@@ -681,9 +595,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (lot_main != null) {
-            lot_main.clearAnimation();
-        }
         if (lot_side != null) {
             lot_side.clearAnimation();
         }
@@ -790,24 +701,17 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     @Override
     protected void onPause() {
         super.onPause();
-        if (lot_main != null) {
-            lot_main.pauseAnimation();
-        }
         pauseAnimator();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Constant.SETTING_RESUIL) {
-            initSideData();
-            adapter.notifyDataSetChanged();
-        } else if (resultCode == Constant.COOLING_RESUIL) {
+        if (resultCode == Constant.COOLING_RESUIL) {
             int wendu = data.getIntExtra("wendu", 0);
             temp -= wendu;
             if (temp == 0) {
                 temp = 40;
             }
-
             main_cooling_h.setVisibility(View.GONE);
         } else if (requestCode == 100) {
             if (Util.isNotificationListenEnabled(MainActivity.this)) {
@@ -822,8 +726,9 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
             main_ram_h.setVisibility(View.GONE);
         } else if (resultCode == Constant.JUNK_RESUIL) {
             main_junk_h.setVisibility(View.GONE);
-        } else if (resultCode == Constant.POWER_RESUIL) {
-
+        } else if (resultCode == Constant.RAM_JUNK_RESUIL) {
+            main_ram_h.setVisibility(View.GONE);
+            main_junk_h.setVisibility(View.GONE);
         }
 
     }
@@ -851,15 +756,86 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        //旋转动画
+        startAnimator(0f, 360f, 0f, -360f);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                if (allSize == 0) {
+                    allSize = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() + CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize()
+                            + CleanManager.getInstance(MainActivity.this).getDataSize() + CleanManager.getInstance(MainActivity.this).getRamSize();
+                } else {
+                    allSize += CleanManager.getInstance(MainActivity.this).getRamSize();
+                }
+
+                for (long i = 0; i <= allSize; i += (allSize / 15)) {
+//                    if (allSize == 0) {
+//                        i += 15;
+//                    }
+                    if (onDestroyed) {
+                        break;
+                    }
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String mainGarbageButtonSize = Util.convertStorage(finalI, true);
+                            if ((finalI + allSize / 15) >= allSize && allSize != 0) {
+                                main_garbage_button.setText(mainGarbageButtonSize.subSequence(0, mainGarbageButtonSize.length() - 2));
+                                main_garbage_company.setText(mainGarbageButtonSize.subSequence(mainGarbageButtonSize.length() - 2, mainGarbageButtonSize.length()));
+                                Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_notifi);
+//                                main_garbage_wait_clear.startAnimation(animation);
+//                                main_garbage_wait_clear.setVisibility(View.VISIBLE);
+                                main_clear_button.setText(R.string.garbage);
+                                pauseAnimator();
+                                startAnimator(0f, -360f, 0f, 360f);
+                            } else if (allSize == 0) {
+                                pauseAnimator();
+                                main_clear_relativeLayout.setVisibility(View.GONE);
+                                main_clear_relativeLayout1.setVisibility(View.VISIBLE);
+                                startAnimator(0f, -360f, 0f, 360f);
+                            } else {
+                                // 设置大小
+                                main_garbage_button.setText(mainGarbageButtonSize.subSequence(0, mainGarbageButtonSize.length() - 2));
+                                main_garbage_company.setText(mainGarbageButtonSize.subSequence(mainGarbageButtonSize.length() - 2, mainGarbageButtonSize.length()));
+                            }
+                        }
+                    });
+                    if (allSize == 0) {
+                        break;
+                    }
+                }
+            }
+        }).start();
+        AndroidSdk.onResumeWithoutTransition(this);
+        Log.e("ad_mob_l", "h=" + ll_ad.getHeight() + "w=" + ll_ad.getWidth());
+//        if (lot_family != null) {
+//            lot_family.playAnimation();
+//        }
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
+        rotateAnimation.setDuration(2000);
+        rotateAnimation.setRepeatCount(-1);
+//        main_guard_rotate.startAnimation(rotateAnimation);
+    }
+
+    @Override
     protected void onRestart() {
         super.onRestart();
-        /*if (mainPresenter == null) {
-            mainPresenter = new MainPresenter(this, this);
-            mainPresenter.init();
-            mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
-        }*/
         mainPresenter.reStart();
         initCpu(temp);
+
     }
 
     private void showExitDialog() {

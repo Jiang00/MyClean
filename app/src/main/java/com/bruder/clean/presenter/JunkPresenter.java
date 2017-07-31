@@ -34,7 +34,7 @@ public class JunkPresenter extends BasePresenter<JunkMyView> {
         iView.loadFullAd();
 
         allSize = CleanManager.getInstance(context).getApkSize() + CleanManager.getInstance(context).getCacheSize() + CleanManager.getInstance(context).getUnloadSize() + CleanManager.getInstance(context).getLogSize()
-                + CleanManager.getInstance(context).getDataSize() + CleanManager.getInstance(context).getRamSize();
+                + CleanManager.getInstance(context).getDataSize();
         for (JunkInfo info : CleanManager.getInstance(context).getSystemCaches()) {
             if (info.isChecked) {
                 cleanSize += info.size;
@@ -125,7 +125,7 @@ public class JunkPresenter extends BasePresenter<JunkMyView> {
     }
 
     public void bleachFile(boolean isZhankai, List<JunkInfo> systemCache, List<JunkInfo> apkFiles, List<JunkInfo> filesOfUnintalledApk,
-                           List<JunkInfo> appJunk, List<JunkInfo> appCache, List<JunkInfo> appRam) {
+                           List<JunkInfo> appJunk, List<JunkInfo> appCache) {
         clearList = new ArrayList<>();
         if (isZhankai) {
             clearList.addAll(CleanManager.getInstance(context).getSystemCaches());
@@ -167,14 +167,14 @@ public class JunkPresenter extends BasePresenter<JunkMyView> {
                 }
             }
         }
-        for (JunkInfo fileListInfo : appRam) {
-            if (fileListInfo.isChecked) {
-                CleanManager.getInstance(context).removeRam(fileListInfo);
-                if (isZhankai) {
-                    clearList.add(fileListInfo);
-                }
-            }
-        }
+//        for (JunkInfo fileListInfo : appRam) {
+//            if (fileListInfo.isChecked) {
+//                CleanManager.getInstance(context).removeRam(fileListInfo);
+//                if (isZhankai) {
+//                    clearList.add(fileListInfo);
+//                }
+//            }
+//        }
         changeColor(allSize - cleanSize);
         iView.cleanAnimation(isZhankai, clearList, cleanSize);
     }
