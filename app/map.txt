@@ -51564,27 +51564,26 @@ com.supers.clean.junk.service.NotificationService -> com.supers.clean.junk.servi
     int num -> z
     long lastTotalRxBytes -> A
     long lastTimeStamp -> B
-    android.graphics.Canvas canvas -> C
     com.android.clean.notification.NotificationCallBack notificationCallBack -> b
-    java.lang.Runnable runnableW -> D
-    51:241:void <init>() -> <init>
-    75:75:android.os.IBinder onBind(android.content.Intent) -> onBind
-    80:96:void onCreate() -> onCreate
-    125:135:android.graphics.Canvas getCanvas() -> a
-    139:166:void initIntent() -> b
-    171:178:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    187:189:void onstart() -> c
-    193:239:void changZhuTongzhi() -> d
-    274:277:long getTotalRxBytes() -> e
-    283:416:void update() -> f
-    420:435:void tonghzi_Ram() -> g
-    439:454:void tonghzi_cooling() -> h
-    458:474:void tonghzi_junk() -> i
-    478:494:void tonghzi_two_day() -> j
-    498:514:void tonghzi_gboost() -> k
-    518:537:void tonghzi_notifi() -> l
-    540:548:android.graphics.Bitmap screenShot(android.view.View,int) -> a
-    555:561:void onDestroy() -> onDestroy
+    java.lang.Runnable runnableW -> C
+    51:235:void <init>() -> <init>
+    74:74:android.os.IBinder onBind(android.content.Intent) -> onBind
+    79:95:void onCreate() -> onCreate
+    123:129:android.graphics.Canvas getCanvas() -> a
+    133:160:void initIntent() -> b
+    165:172:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    181:183:void onstart() -> c
+    187:233:void changZhuTongzhi() -> d
+    268:271:long getTotalRxBytes() -> e
+    277:410:void update() -> f
+    414:429:void tonghzi_Ram() -> g
+    433:448:void tonghzi_cooling() -> h
+    452:468:void tonghzi_junk() -> i
+    472:488:void tonghzi_two_day() -> j
+    492:508:void tonghzi_gboost() -> k
+    512:531:void tonghzi_notifi() -> l
+    534:542:android.graphics.Bitmap screenShot(android.view.View,int) -> a
+    549:555:void onDestroy() -> onDestroy
     51:51:void access$000(com.supers.clean.junk.service.NotificationService) -> a
     51:51:android.widget.RemoteViews access$100(com.supers.clean.junk.service.NotificationService) -> b
     51:51:android.app.Notification access$200(com.supers.clean.junk.service.NotificationService) -> c
@@ -51608,17 +51607,17 @@ com.supers.clean.junk.service.NotificationService -> com.supers.clean.junk.servi
     51:51:android.graphics.Bitmap access$1500(com.supers.clean.junk.service.NotificationService) -> q
 com.supers.clean.junk.service.NotificationService$1 -> com.supers.clean.junk.service.NotificationService$1:
     com.supers.clean.junk.service.NotificationService this$0 -> a
-    98:98:void <init>(com.supers.clean.junk.service.NotificationService) -> <init>
-    101:119:void notificationChanged(java.util.ArrayList) -> a
+    97:97:void <init>(com.supers.clean.junk.service.NotificationService) -> <init>
+    100:118:void notificationChanged(java.util.ArrayList) -> a
 com.supers.clean.junk.service.NotificationService$2 -> com.supers.clean.junk.service.NotificationService$2:
     com.supers.clean.junk.service.NotificationService this$0 -> a
-    241:241:void <init>(com.supers.clean.junk.service.NotificationService) -> <init>
-    243:268:void run() -> run
+    235:235:void <init>(com.supers.clean.junk.service.NotificationService) -> <init>
+    237:262:void run() -> run
 com.supers.clean.junk.service.NotificationService$3 -> com.supers.clean.junk.service.NotificationService$3:
     int val$memory -> a
     com.supers.clean.junk.service.NotificationService this$0 -> b
-    285:285:void <init>(com.supers.clean.junk.service.NotificationService,int) -> <init>
-    288:307:void callbackResult(com.supers.clean.junk.util.CpuTempReader$ResultCpuTemperature) -> callbackResult
+    279:279:void <init>(com.supers.clean.junk.service.NotificationService,int) -> <init>
+    282:301:void callbackResult(com.supers.clean.junk.util.CpuTempReader$ResultCpuTemperature) -> callbackResult
 com.supers.clean.junk.util.AdUtil -> com.supers.clean.junk.b.a:
     19:21:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
     24:44:android.view.View getNativeAdView(java.lang.String,int) -> a

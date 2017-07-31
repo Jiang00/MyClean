@@ -68,7 +68,6 @@ public class NotificationService extends Service {
 
     private long lastTotalRxBytes = 0; // 最后缓存的字节数
     private long lastTimeStamp = 0; // 当前缓存时间
-    private Canvas canvas;
 
     @Override
     public IBinder onBind(Intent arg0) {
@@ -121,13 +120,7 @@ public class NotificationService extends Service {
 
 
     public Canvas getCanvas() {
-//        if (!bitmap_progress.isRecycled()) {
-            canvas = null;
-//            bitmap_progress.recycle();
-//            bitmap_progress = null;
-//        }
-        bitmap_progress = Bitmap.createBitmap(Util.dp2px(29), Util.dp2px(29), Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap_progress);
+        Canvas canvas = new Canvas(bitmap_progress);
         canvas.save();
         canvas.translate(0, pointX);
         canvas.rotate(135, pointX, 0);
@@ -535,7 +528,6 @@ public class NotificationService extends Service {
         notification_notifi.flags |= Notification.FLAG_NO_CLEAR;
 //        notification_notifi.priority = Notification.PRIORITY_MAX;
     }
-
     public Bitmap screenShot(View view, int size) {
         if (null == view) {
             throw new IllegalArgumentException("parameter can't be null.");
