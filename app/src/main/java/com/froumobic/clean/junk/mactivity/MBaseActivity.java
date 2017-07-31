@@ -12,17 +12,32 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.clean.util.PreData;
+import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
+import com.android.ui.demo.entry.CrossItem;
+import com.android.ui.demo.util.JsonParser;
+import com.frau.cleanmodule.cooling.BatteryCoolingActivity;
 import com.froumobic.clean.junk.R;
+import com.froumobic.clean.junk.util.AdUtil;
 import com.froumobic.clean.junk.util.Constant;
+
+import java.util.ArrayList;
 
 /**
  * Created by on 2017/2/28.
@@ -34,6 +49,15 @@ public class MBaseActivity extends AppCompatActivity {
     protected boolean onPause = false;
     protected boolean onDestroyed = false;
     protected boolean onResume = false;
+
+    protected String TUIGUAN_MAIN = "main";
+    protected String TUIGUAN_MAIN_SOFT = "main_soft";
+    protected String TUIGUAN_SIDE = "slide";
+    protected String TUIGUAN_SIDE_SOFT = "slide_soft";
+    protected String TUIGUAN_SETTING = "setting";
+    protected String TUIGUAN_SETTING_SOFT = "setting_soft";
+    protected String TUIGUAN_SUCCESS = "success";
+    protected String TUIGUAN_SUCCESS_SOFT = "success_soft";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,6 +111,111 @@ public class MBaseActivity extends AppCompatActivity {
         onDestroyed = true;
     }
 
+
+    public void tuiguang(final String tag, final boolean isSoftCross, View viewP) {
+        ArrayList<CrossItem> crossItems = JsonParser.getCrossData(this, AndroidSdk.getExtraData(), tag);
+        if (crossItems != null) {
+            for (int i = 0; i < crossItems.size(); i++) {
+                final CrossItem item = crossItems.get(i);
+                View view = null;
+                final int j = i + 4;
+                String t = "主界面";
+                if (tag.equals(TUIGUAN_MAIN) || tag.equals(TUIGUAN_MAIN_SOFT)) {
+                    t = "主界面";
+                    view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
+                    TextView tuiguang_sub_title = (TextView) view.findViewById(R.id.tuiguang_subtitle);
+                    tuiguang_sub_title.setText(item.getSubTitle());
+                    tuiguangZhanshi(isSoftCross, item, t, j);
+                } else if (tag.equals(TUIGUAN_SIDE) || tag.equals(TUIGUAN_SIDE_SOFT)) {
+                    t = "侧边栏";
+                    view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_side, null);
+                } else if (tag.equals(TUIGUAN_SETTING) || tag.equals(TUIGUAN_SETTING_SOFT)) {
+                    t = "设置";
+                    view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_setting, null);
+                } else if (tag.equals(TUIGUAN_SUCCESS) || tag.equals(TUIGUAN_SETTING_SOFT)) {
+                    t = "清理";
+                    view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
+                    TextView tuiguang_sub_title = (TextView) view.findViewById(R.id.tuiguang_subtitle);
+                    tuiguang_sub_title.setText(item.getSubTitle());
+                }
+                ImageView image = (ImageView) view.findViewById(R.id.tuiguang_icon);
+                Util.loadImg(this, item.getTagIconUrl(), R.mipmap.icon, image);
+                TextView tuiguang_title = (TextView) view.findViewById(R.id.tuiguang_title);
+                tuiguang_title.setText(item.getTitle());
+
+                final String finalT = t;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (isSoftCross) {
+                            if (com.android.ui.demo.util.Utils.checkoutISAppHasInstalled(MBaseActivity.this, item.getPkgName())) {
+                                try {
+                                    Intent intent = new Intent(item.getAction());
+                                    startActivity(intent);
+                                } catch (Exception e) {
+                                    Log.e("tuiguang", "not find action=" + item.getAction());
+                                    com.android.ui.demo.util.Utils.openPlayStore(MBaseActivity.this, item.getPkgName());
+                                }
+                            } else {
+                                if (TextUtils.equals(item.action, Constant.RAM_CLEAN_ACTION)) {
+                                    //内存加速
+                                    Intent intent = new Intent(MBaseActivity.this, RamAvtivity.class);
+                                    startActivity(intent);
+                                    AdUtil.track("交叉推广_广告位", "广告位_" + finalT + "1", "点击" + item.getPkgName(), 1);
+                                } else if (TextUtils.equals(item.action, Constant.JUNK_CLEAN_ACTION)) {
+                                    //垃圾清理
+                                    Intent intent = new Intent(MBaseActivity.this, LajiActivity.class);
+                                    startActivity(intent);
+                                    AdUtil.track("交叉推广_广告位", "广告位_" + finalT + "2", "点击" + item.getPkgName(), 1);
+                                } else if (TextUtils.equals(item.action, Constant.BATTERY_COOL_ACTION)) {
+                                    //电池降温
+                                    Intent intent = new Intent(MBaseActivity.this, BatteryCoolingActivity.class);
+                                    startActivity(intent);
+                                    AdUtil.track("交叉推广_广告位", "广告位_" + finalT + "3", "点击" + item.getPkgName(), 1);
+                                } else {
+                                    com.android.ui.demo.util.Utils.openPlayStore(MBaseActivity.this, item.getPkgName());
+                                }
+                            }
+                        } else {
+                            com.android.ui.demo.util.Utils.reactionForAction(MBaseActivity.this, AndroidSdk.getExtraData(), item.getPkgName(), item.getAction());
+                            AdUtil.track("交叉推广_广告位", "广告位_" + finalT + j, "点击" + item.getPkgName(), 1);
+                        }
+                    }
+                });
+                if (tag.equals(TUIGUAN_SIDE) || tag.equals(TUIGUAN_SIDE_SOFT)) {
+                    ((ListView) viewP).addHeaderView(view);
+                } else {
+                    ((LinearLayout) viewP).addView(view);
+                }
+            }
+
+        }
+
+    }
+
+    public void tuiguangZhanshi(boolean isSoftCross, CrossItem item, String t, int j) {
+        if (isSoftCross) {
+            if (TextUtils.equals(item.action, Constant.RAM_CLEAN_ACTION)) {
+                AdUtil.track("交叉推广_广告位", "广告位_" + t + "1", "展示" + item.pkgName, 1);
+            } else if (TextUtils.equals(item.action, Constant.JUNK_CLEAN_ACTION)) {
+                //垃圾清理
+                Intent intent = new Intent(MBaseActivity.this, LajiActivity.class);
+                startActivity(intent);
+                AdUtil.track("交叉推广_广告位", "广告位_" + t + "2", "展示" + item.pkgName, 1);
+            } else if (TextUtils.equals(item.action, Constant.BATTERY_COOL_ACTION)) {
+                //电池降温
+                Intent intent = new Intent(MBaseActivity.this, BatteryCoolingActivity.class);
+                startActivity(intent);
+                AdUtil.track("交叉推广_广告位", "广告位_" + t + "3", "展示" + item.pkgName, 1);
+            } else {
+                com.android.ui.demo.util.Utils.openPlayStore(MBaseActivity.this, item.getPkgName());
+            }
+        } else {
+            com.android.ui.demo.util.Utils.reactionForAction(MBaseActivity.this, AndroidSdk.getExtraData(), item.getPkgName(), item.getAction());
+            AdUtil.track("交叉推广_广告位", "广告位_" + t + j, "展示" + item.pkgName, 1);
+        }
+    }
 
     public void jumpTo(Class<?> classs) {
         Intent intent = new Intent(this, classs);

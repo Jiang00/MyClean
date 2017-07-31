@@ -133,7 +133,7 @@ public class MessageActivity extends MBaseActivity {
         message_ram.setText(Util.convertStorage(ram_all, true));
         long sd_all = MemoryManager.getPhoneAllSize();
         message_sd.setText(Util.convertStorage(sd_all, true));
-
+        loadAd();
     }
 
 
@@ -223,7 +223,7 @@ public class MessageActivity extends MBaseActivity {
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
-        loadAd();
+
     }
 
     @Override

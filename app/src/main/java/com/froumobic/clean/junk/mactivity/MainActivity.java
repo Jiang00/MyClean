@@ -137,8 +137,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private View viewpager_3;
     private AlertDialog dialog;
     private ArrayList<View> arrayList;
-    private String TUIGUAN_MAIN = "main_soft";
-    private String TUIGUAN_SIDE = "slide_soft";
+
 
     @Override
     protected void findId() {
@@ -354,93 +353,13 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             battery_cha.setOnClickListener(onClickListener);
             battery_button.setOnClickListener(onClickListener);
         }
-        tuiguang(TUIGUAN_MAIN, true);
-        tuiguang(TUIGUAN_MAIN, false);
-        tuiguang(TUIGUAN_SIDE, true);
-        tuiguang(TUIGUAN_SIDE, false);
+        tuiguang(TUIGUAN_MAIN_SOFT, true, main_tuiguang);
+        tuiguang(TUIGUAN_MAIN, false, main_tuiguang);
+        tuiguang(TUIGUAN_SIDE_SOFT, true, side_listView);
+        tuiguang(TUIGUAN_SIDE, false, side_listView);
 
     }
 
-
-    private void tuiguang(final String tag, final boolean isSoftCross) {
-        ArrayList<CrossItem> crossItems = JsonParser.getCrossData(this, AndroidSdk.getExtraData(), tag);
-        if (crossItems != null) {
-            for (int i = 0; i < crossItems.size(); i++) {
-                final CrossItem item = crossItems.get(i);
-                View view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
-                ImageView image = (ImageView) view.findViewById(R.id.tuiguang_icon);
-                if (isSoftCross) {
-                    if (TextUtils.equals(item.action, Constant.RAM_CLEAN_ACTION)) {
-                        //内存加速
-//                        image.setImageResource(R.drawable.setting_soft_ram);
-                    } else if (TextUtils.equals(item.action, Constant.JUNK_CLEAN_ACTION)) {
-                        //垃圾清理
-//                        image.setImageResource(R.drawable.setting_soft_junk);
-                    } else if (TextUtils.equals(item.action, Constant.BATTERY_COOL_ACTION)) {
-                        //电池降温
-//                        image.setImageResource(R.drawable.setting_soft_cooling);
-                    } else {
-                        Util.loadImg(this, item.getIconUrl(), R.mipmap.icon, image);
-
-                    }
-                } else {
-                    Util.loadImg(this, item.getIconUrl(), R.mipmap.icon, image);
-                }
-                TextView tuiguang_title = (TextView) view.findViewById(R.id.tuiguang_title);
-                tuiguang_title.setText(item.getTitle());
-
-                final int j = i + 4;
-                view.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String t = "主界面";
-                        if (tag.equals(TUIGUAN_SIDE)) {
-                            t = "侧边栏";
-                        }
-                        if (isSoftCross) {
-                            if (com.android.ui.demo.util.Utils.checkoutISAppHasInstalled(MainActivity.this, item.getPkgName())) {
-                                try {
-                                    Intent intent = new Intent(item.getAction());
-                                    startActivity(intent);
-                                } catch (Exception e) {
-                                    Log.e("tuiguang", "not find action=" + item.getAction());
-                                    com.android.ui.demo.util.Utils.openPlayStore(MainActivity.this, item.getPkgName());
-                                }
-                            } else {
-                                if (TextUtils.equals(item.action, Constant.RAM_CLEAN_ACTION)) {
-                                    //内存加速
-                                    Intent intent = new Intent(MainActivity.this, RamAvtivity.class);
-                                    startActivity(intent);
-                                    AdUtil.track(tag, t + "1", "", 1);
-                                } else if (TextUtils.equals(item.action, Constant.JUNK_CLEAN_ACTION)) {
-                                    //垃圾清理
-                                    Intent intent = new Intent(MainActivity.this, LajiActivity.class);
-                                    startActivity(intent);
-                                    AdUtil.track(tag, t + "2", "", 1);
-                                } else if (TextUtils.equals(item.action, Constant.BATTERY_COOL_ACTION)) {
-                                    //电池降温
-                                    Intent intent = new Intent(MainActivity.this, BatteryCoolingActivity.class);
-                                    startActivity(intent);
-                                    AdUtil.track(tag, t + "3", "", 1);
-                                } else {
-                                    com.android.ui.demo.util.Utils.openPlayStore(MainActivity.this, item.getPkgName());
-                                }
-                            }
-                        } else {
-                            com.android.ui.demo.util.Utils.reactionForAction(MainActivity.this, item.getPkgName(), item.getAction());
-                            AdUtil.track(tag, t + j, "", 1);
-                        }
-                    }
-                });
-                if (tag.equals(TUIGUAN_MAIN)) {
-                    main_tuiguang.addView(view);
-                } else if (tag.equals(TUIGUAN_SIDE)) {
-                    side_listView.addHeaderView(view);
-                }
-            }
-
-        }
-    }
 
     @Override
     public void startFenshu(final int percent, final boolean isRestart) {
@@ -1068,7 +987,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360, Util.dp2px(115), Util.dp2px(130));
         rotateAnimation.setDuration(2000);
         rotateAnimation.setRepeatCount(-1);
-        loadFullAd();
     }
 
     @Override

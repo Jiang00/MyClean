@@ -72,6 +72,7 @@ public class SuccessActivity extends MBaseActivity {
     FrameLayout main_rotate_bad;
     //    ImageView delete;
     LinearLayout ll_ad_xiao;
+    LinearLayout success_tuiguang;
 
     LinearLayout ad_native_2;
     LottieAnimationView lot_success;
@@ -92,16 +93,7 @@ public class SuccessActivity extends MBaseActivity {
         if (lot_success != null) {
             lot_success.playAnimation();
         }
-        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
 
-        } else {
-            myHandler.postDelayed(new Runnable() {
-                public void run() {
-                    addAd();
-                }
-            }, 1000);
-
-        }
     }
 
     @Override
@@ -131,6 +123,7 @@ public class SuccessActivity extends MBaseActivity {
         power_icon = (ImageView) findViewById(R.id.power_icon);
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
+        success_tuiguang = (LinearLayout) findViewById(R.id.success_tuiguang);
     }
 
     @Override
@@ -255,7 +248,20 @@ public class SuccessActivity extends MBaseActivity {
         translate.setRepeatMode(Animation.REVERSE);
         success_jiantou.startAnimation(translate);
         shendu();
+        tuiguang(TUIGUAN_SUCCESS_SOFT, true, success_tuiguang);
 
+        tuiguang(TUIGUAN_SUCCESS, false, success_tuiguang);
+
+        if (PreData.getDB(this, Constant.FULL_SUCCESS, 0) == 1) {
+
+        } else {
+            myHandler.postDelayed(new Runnable() {
+                public void run() {
+                    addAd();
+                }
+            }, 1000);
+
+        }
     }
 
     Runnable runnable = new Runnable() {

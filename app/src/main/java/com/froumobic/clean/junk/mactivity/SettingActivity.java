@@ -45,6 +45,7 @@ public class SettingActivity extends MBaseActivity {
     LinearLayout ll_ad;
     ScrollView setting_scroll;
     FrameLayout fl_lot_setting;
+    LinearLayout setting_tuiguang;
     private View nativeView;
 
     private String TAG_SETTING = "setting";
@@ -77,6 +78,7 @@ public class SettingActivity extends MBaseActivity {
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
         fl_lot_setting = (FrameLayout) findViewById(R.id.fl_lot_setting);
+        setting_tuiguang = (LinearLayout) findViewById(R.id.setting_tuiguang);
     }
 
     @Override
@@ -93,11 +95,8 @@ public class SettingActivity extends MBaseActivity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             setting_notifi.setVisibility(View.GONE);
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
+        tuiguang(TUIGUAN_SETTING_SOFT, true, setting_tuiguang);
+        tuiguang(TUIGUAN_SETTING, false, setting_tuiguang);
         if (PreData.getDB(this, Constant.FULL_SETTING, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
@@ -108,6 +107,12 @@ public class SettingActivity extends MBaseActivity {
         } else {
             addAd();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     @Override
