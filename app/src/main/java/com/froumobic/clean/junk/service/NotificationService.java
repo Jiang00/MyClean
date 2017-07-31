@@ -126,6 +126,7 @@ public class NotificationService extends Service {
         canvas.save();
         canvas.translate(0, pointX);
         canvas.rotate(135, pointX, 0);
+        canvas.release();
         canvas.drawColor(Color.BLACK, PorterDuff.Mode.CLEAR);
         return canvas;
     }

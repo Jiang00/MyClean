@@ -117,7 +117,7 @@ public class MBaseActivity extends AppCompatActivity {
         if (crossItems != null) {
             for (int i = 0; i < crossItems.size(); i++) {
                 final CrossItem item = crossItems.get(i);
-                View view = null;
+                View view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
                 final int j = i + 4;
                 String t = "主界面";
                 if (tag.equals(TUIGUAN_MAIN) || tag.equals(TUIGUAN_MAIN_SOFT)) {
@@ -132,7 +132,7 @@ public class MBaseActivity extends AppCompatActivity {
                 } else if (tag.equals(TUIGUAN_SETTING) || tag.equals(TUIGUAN_SETTING_SOFT)) {
                     t = "设置";
                     view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_setting, null);
-                } else if (tag.equals(TUIGUAN_SUCCESS) || tag.equals(TUIGUAN_SETTING_SOFT)) {
+                } else if (tag.equals(TUIGUAN_SUCCESS) || tag.equals(TUIGUAN_SUCCESS_SOFT)) {
                     t = "清理";
                     view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
                     TextView tuiguang_sub_title = (TextView) view.findViewById(R.id.tuiguang_subtitle);
