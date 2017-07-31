@@ -120,7 +120,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         arrayList = new ArrayList<>();
         // 获得指定的布局文件，然后通过其对象绑定控件
         View view = LayoutInflater.from(this).inflate(R.layout.main_circle, null);
-//        main_cpu_air_button = (RelativeLayout) view.findViewById(R.id.main_cpu_air_button);
         main_custom_cpu = (CustomRoundCpuView) findViewById(R.id.main_custom_cpu);
         main_garbage_button = (TextView) findViewById(R.id.main_garbage_button);
         main_garbage_wait_clear = (TextView) findViewById(R.id.main_garbage_wait_clear);
@@ -153,6 +152,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         }
         mainPresenter = new MainPresenter(this, this);
         mainPresenter.init();
+        //设置侧边栏滑出距离,从屏幕哪里可以滑出
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
     }
 
@@ -178,7 +178,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         View view = View.inflate(this, R.layout.dialog_first, null);
         // 绑定id
         TextView frist_button = (TextView) view.findViewById(R.id.frist_button);
-//        LinearLayout dialog_frist_liner = (LinearLayout) view.findViewById(R.id.dialog_frist_liner);
         ImageView main_cancel = (ImageView) view.findViewById(R.id.main_cancel);
         // 点击Enable事件
         frist_button.setOnClickListener(new View.OnClickListener() {
@@ -254,9 +253,6 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
         main_msg_sd_unit = (TextView) findViewById(R.id.main_msg_sd_unit);
         main_msg_cpu_percent = (TextView) findViewById(R.id.main_msg_cpu_percent);
-//        main_gurad_num = (TextView) findViewById(R.id.main_gurad_num);
-//        main_guard_rotate = (ImageView) findViewById(R.id.main_guard_rotate);
-//        main_guard_all = (FrameLayout) findViewById(R.id.main_guard_all);
         side_listView = (ListViewForScrollMyView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
 
