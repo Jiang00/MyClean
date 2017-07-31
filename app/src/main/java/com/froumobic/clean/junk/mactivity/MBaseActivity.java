@@ -155,7 +155,7 @@ public class MBaseActivity extends AppCompatActivity {
                                     startActivity(intent);
                                 } catch (Exception e) {
                                     Log.e("tuiguang", "not find action=" + item.getAction());
-                                    com.android.ui.demo.util.Utils.openPlayStore(MBaseActivity.this, item.getPkgName());
+                                    com.android.ui.demo.util.Utils.openPlayStore(MBaseActivity.this, item.getPkgName(), AndroidSdk.getExtraData());
                                 }
                             } else {
                                 if (TextUtils.equals(item.action, Constant.RAM_CLEAN_ACTION)) {
@@ -174,7 +174,7 @@ public class MBaseActivity extends AppCompatActivity {
                                     startActivity(intent);
                                     AdUtil.track("交叉推广_广告位", "广告位_" + finalT + "3", "点击" + item.getPkgName(), 1);
                                 } else {
-                                    com.android.ui.demo.util.Utils.openPlayStore(MBaseActivity.this, item.getPkgName());
+                                    com.android.ui.demo.util.Utils.openPlayStore(MBaseActivity.this, item.getPkgName(), AndroidSdk.getExtraData());
                                 }
                             }
                         } else {
@@ -200,19 +200,12 @@ public class MBaseActivity extends AppCompatActivity {
                 AdUtil.track("交叉推广_广告位", "广告位_" + t + "1", "展示" + item.pkgName, 1);
             } else if (TextUtils.equals(item.action, Constant.JUNK_CLEAN_ACTION)) {
                 //垃圾清理
-                Intent intent = new Intent(MBaseActivity.this, LajiActivity.class);
-                startActivity(intent);
                 AdUtil.track("交叉推广_广告位", "广告位_" + t + "2", "展示" + item.pkgName, 1);
             } else if (TextUtils.equals(item.action, Constant.BATTERY_COOL_ACTION)) {
                 //电池降温
-                Intent intent = new Intent(MBaseActivity.this, BatteryCoolingActivity.class);
-                startActivity(intent);
                 AdUtil.track("交叉推广_广告位", "广告位_" + t + "3", "展示" + item.pkgName, 1);
-            } else {
-                com.android.ui.demo.util.Utils.openPlayStore(MBaseActivity.this, item.getPkgName());
             }
         } else {
-            com.android.ui.demo.util.Utils.reactionForAction(MBaseActivity.this, AndroidSdk.getExtraData(), item.getPkgName(), item.getAction());
             AdUtil.track("交叉推广_广告位", "广告位_" + t + j, "展示" + item.pkgName, 1);
         }
     }

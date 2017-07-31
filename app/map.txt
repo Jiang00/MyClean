@@ -29757,9 +29757,8 @@ com.android.ui.demo.cross.CrossView$1 -> com.android.ui.demo.cross.CrossView$1:
     104:107:void onFinish(com.android.ui.demo.cross.CrossView) -> a
 com.android.ui.demo.cross.CrossView$2 -> com.android.ui.demo.cross.CrossView$2:
     com.android.ui.demo.cross.Builder val$builder -> a
-    android.content.Context val$context -> b
-    com.android.ui.demo.cross.CrossView this$0 -> c
-    203:203:void <init>(com.android.ui.demo.cross.CrossView,com.android.ui.demo.cross.Builder,android.content.Context) -> <init>
+    com.android.ui.demo.cross.CrossView this$0 -> b
+    203:203:void <init>(com.android.ui.demo.cross.CrossView,com.android.ui.demo.cross.Builder) -> <init>
     206:212:void onClick(android.view.View) -> onClick
 com.android.ui.demo.cross.CrossView$MyTask -> com.android.ui.demo.cross.CrossView$a:
     android.graphics.Bitmap headBitmap -> b
@@ -29779,8 +29778,8 @@ com.android.ui.demo.cross.FloatCrossView -> com.android.ui.demo.cross.FloatCross
     int width -> a
     int height -> b
     android.graphics.Bitmap bitmap_normal -> c
-    227:228:void onMeasure(int,int) -> onMeasure
-    235:237:void onDraw(android.graphics.Canvas) -> onDraw
+    232:233:void onMeasure(int,int) -> onMeasure
+    240:242:void onDraw(android.graphics.Canvas) -> onDraw
 com.android.ui.demo.dialog.Builder -> com.android.ui.demo.dialog.Builder:
 com.android.ui.demo.dialog.Builder$DialogType -> com.android.ui.demo.dialog.Builder$DialogType:
     com.android.ui.demo.dialog.Builder$DialogType TYPE_PRAISE_NARROW -> TYPE_PRAISE_NARROW
@@ -29884,24 +29883,24 @@ com.android.ui.demo.util.JsonParser -> com.android.ui.demo.b.a:
     48:104:java.util.ArrayList getCrossData(android.content.Context,java.lang.String,java.lang.String) -> a
     108:150:com.android.ui.demo.entry.CrossItem getSpecifyJsonObject(android.content.Context,java.lang.String,java.lang.String) -> b
 com.android.ui.demo.util.Utils -> com.android.ui.demo.b.b:
-    31:38:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
-    42:54:android.graphics.Bitmap getBitmap(java.lang.String) -> a
-    60:76:void reactionForAction(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
-    80:85:void launchApp(android.content.Context,java.lang.String) -> a
-    89:96:void launchAppByAction(android.content.Context,java.lang.String) -> b
-    100:107:boolean checkoutISAppHasInstalled(android.content.Context,java.lang.String) -> c
-    141:144:android.content.SharedPreferences getSharePreferences(android.content.Context) -> a
-    156:163:void setHavePraise(android.content.Context,boolean) -> a
-    166:170:int getCurrentCrossIndex(android.content.Context,java.lang.String) -> d
-    174:181:void updateCrossIndex(android.content.Context,int,java.lang.String) -> a
-    220:233:void openPlayStore(android.content.Context,java.lang.String) -> e
-    236:236:java.lang.String fixUrl(java.lang.String) -> b
-    240:240:boolean isPlayStoreUrl(java.lang.String) -> c
-    245:248:boolean hasPlayStore(android.content.Context) -> b
-    253:258:void launchPlayStore(android.content.Context,java.lang.String,android.content.Intent) -> a
-    262:270:void launchApp(android.content.Context,android.content.Intent) -> a
-    273:279:void launchBrowser(android.content.Context,java.lang.String,android.content.Intent) -> b
-    282:288:java.lang.String getDefaultBrowserPackageName(android.content.Context,android.content.Intent) -> b
+    30:37:void track(java.lang.String,java.lang.String,java.lang.String,int) -> a
+    41:53:android.graphics.Bitmap getBitmap(java.lang.String) -> a
+    59:68:void reactionForAction(android.content.Context,java.lang.String,java.lang.String,java.lang.String) -> a
+    72:77:void launchApp(android.content.Context,java.lang.String) -> a
+    81:88:void launchAppByAction(android.content.Context,java.lang.String) -> b
+    92:99:boolean checkoutISAppHasInstalled(android.content.Context,java.lang.String) -> c
+    133:136:android.content.SharedPreferences getSharePreferences(android.content.Context) -> a
+    148:155:void setHavePraise(android.content.Context,boolean) -> a
+    158:162:int getCurrentCrossIndex(android.content.Context,java.lang.String) -> d
+    166:173:void updateCrossIndex(android.content.Context,int,java.lang.String) -> a
+    212:235:void openPlayStore(android.content.Context,java.lang.String,java.lang.String) -> a
+    238:238:java.lang.String fixUrl(java.lang.String) -> b
+    242:242:boolean isPlayStoreUrl(java.lang.String) -> c
+    247:250:boolean hasPlayStore(android.content.Context) -> b
+    255:260:void launchPlayStore(android.content.Context,java.lang.String,android.content.Intent) -> a
+    264:272:void launchApp(android.content.Context,android.content.Intent) -> a
+    275:281:void launchBrowser(android.content.Context,java.lang.String,android.content.Intent) -> b
+    284:290:java.lang.String getDefaultBrowserPackageName(android.content.Context,android.content.Intent) -> b
 com.android.ui.demo.util.WrapNullPointException -> com.android.ui.demo.b.c:
     6:7:void <init>(java.lang.String) -> <init>
 com.android.ui.demo.view.ExitView -> com.android.ui.demo.view.ExitView:
@@ -33399,18 +33398,18 @@ com.froumobic.clean.junk.mactivity.MBaseActivity -> com.froumobic.clean.junk.mac
     106:106:void findId() -> a
     110:112:void onDestroy() -> onDestroy
     116:195:void tuiguang(java.lang.String,boolean,android.view.View) -> a
-    198:218:void tuiguangZhanshi(boolean,com.android.ui.demo.entry.CrossItem,java.lang.String,int) -> a
-    221:223:void jumpTo(java.lang.Class) -> a
-    226:229:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
-    232:235:void jumpToActivity(java.lang.Class,android.os.Bundle) -> a
-    238:240:void jumpToActivity(java.lang.Class,int) -> a
-    243:248:int getStatusHeight(android.app.Activity) -> a
-    269:278:void setTranslucentStatus(boolean) -> a
-    281:288:void full() -> b
-    292:305:void setHideVirtualKey(android.view.Window) -> a
-    312:318:void showToast(java.lang.String) -> a
-    322:349:void toggleEditAnimation(int,int) -> a
-    352:352:android.view.View $(int) -> a
+    198:211:void tuiguangZhanshi(boolean,com.android.ui.demo.entry.CrossItem,java.lang.String,int) -> a
+    214:216:void jumpTo(java.lang.Class) -> a
+    219:222:void jumpToActivity(java.lang.Class,android.os.Bundle,int) -> a
+    225:228:void jumpToActivity(java.lang.Class,android.os.Bundle) -> a
+    231:233:void jumpToActivity(java.lang.Class,int) -> a
+    236:241:int getStatusHeight(android.app.Activity) -> a
+    262:271:void setTranslucentStatus(boolean) -> a
+    274:281:void full() -> b
+    285:298:void setHideVirtualKey(android.view.Window) -> a
+    305:311:void showToast(java.lang.String) -> a
+    315:342:void toggleEditAnimation(int,int) -> a
+    345:345:android.view.View $(int) -> a
 com.froumobic.clean.junk.mactivity.MBaseActivity$1 -> com.froumobic.clean.junk.mactivity.MBaseActivity$1:
     boolean val$isSoftCross -> a
     com.android.ui.demo.entry.CrossItem val$item -> b
@@ -33421,15 +33420,15 @@ com.froumobic.clean.junk.mactivity.MBaseActivity$1 -> com.froumobic.clean.junk.m
     151:184:void onClick(android.view.View) -> onClick
 com.froumobic.clean.junk.mactivity.MBaseActivity$2 -> com.froumobic.clean.junk.mactivity.MBaseActivity$2:
     com.froumobic.clean.junk.mactivity.MBaseActivity this$0 -> a
-    282:282:void <init>(com.froumobic.clean.junk.mactivity.MBaseActivity) -> <init>
-    285:286:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
+    275:275:void <init>(com.froumobic.clean.junk.mactivity.MBaseActivity) -> <init>
+    278:279:void onSystemUiVisibilityChange(int) -> onSystemUiVisibilityChange
 com.froumobic.clean.junk.mactivity.MBaseActivity$3 -> com.froumobic.clean.junk.mactivity.MBaseActivity$3:
     android.view.View val$visibleView -> a
     android.view.View val$invisibleView -> b
     android.animation.ObjectAnimator val$invis2vis -> c
     com.froumobic.clean.junk.mactivity.MBaseActivity this$0 -> d
-    340:340:void <init>(com.froumobic.clean.junk.mactivity.MBaseActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    343:346:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    333:333:void <init>(com.froumobic.clean.junk.mactivity.MBaseActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
+    336:339:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.froumobic.clean.junk.mactivity.MainActivity -> com.froumobic.clean.junk.mactivity.MainActivity:
     com.froumobic.clean.junk.mview.MyScrollView main_scroll_view -> a
     com.froumobic.clean.junk.mview.PullToRefreshLayout main_pull_refresh -> b
