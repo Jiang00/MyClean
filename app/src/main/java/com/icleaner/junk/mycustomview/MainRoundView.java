@@ -123,8 +123,5 @@ public class MainRoundView extends View {
                 }
             }
         }).start();
-
     }
-
-
 }

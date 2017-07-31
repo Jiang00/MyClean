@@ -65,8 +65,6 @@ public class CircleWaveView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawCircle(width / 2, getResources().getDimensionPixelSize(R.dimen.d138), radius, paint);//根据进度计算扩散半径
-//        mHamdle.sendEmptyMessage(NEED_INVALIDATE);//向handler发送一个消息，让它开启重绘
-        mHamdle.handleMessage(null);
     }
 
     @Override
@@ -77,9 +75,33 @@ public class CircleWaveView extends View {
         setMeasuredDimension(width, height);
     }
 
-    public void startCircleWaveCiew() {
-        setMeasuredDimension(width, height);
+    private void setRadius(float radius, float strokeWidth) {
+        this.radius = radius;
+        paint.setStrokeWidth(strokeWidth);
+        postInvalidate();
     }
+
+    public void startCircleWaveCiew() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (strokeWidth > getResources().getDimensionPixelSize(R.dimen.d52)) {
+                    strokeWidth = dip2px(context, 1);
+                    radius = getResources().getDimensionPixelSize(R.dimen.d78);
+                } else {
+                    strokeWidth += getResources().getDimensionPixelSize(R.dimen.d4);
+                    radius += getResources().getDimensionPixelSize(R.dimen.d2);
+                }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+
 
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
