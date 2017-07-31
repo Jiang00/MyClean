@@ -61,7 +61,6 @@ public class PresenterMain extends PresenterBase<MainView> {
         reStart(false);
         setRotateGone();
         iView.onClick();
-
     }
 
     public PresenterMain(MainView iView, Context context) {
@@ -100,7 +99,7 @@ public class PresenterMain extends PresenterBase<MainView> {
         setRotateGone();
 
         //SD卡储存
-        long sd_all = MemoryManager.getPhoneAllSize();
+        long sd_all = MemoryManager.getPhoneAllSize();//SD卡总内存
         long sd_kongxian = MemoryManager.getPhoneAllFreeSize();
         long sd_shiyong = sd_all - sd_kongxian;
         int sd_me = (int) (sd_shiyong * 100 / sd_all);

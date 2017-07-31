@@ -48,20 +48,6 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
     int WHITE = -1;
     int SETTING = -1;
     int ROTATE = -1;
-    /*private static int idx = 0;
-
-    private static final int BATTERY = idx++;
-    private static final int FLOAT = idx++;
-    private static final int JUNK = idx++;
-    private static final int RAM = idx++;
-    private static final int MANAGER = idx++;
-    private static final int FILE = idx++;
-    private static final int GBOOST = idx++;
-    private static final int POWER = idx++;
-    private static final int PRIVARY = idx++;
-    private static final int WHITE = idx++;
-    private static final int SETTING = idx++;
-    private static final int ROTATE = idx++;*/
     private String powerSize;
 
     public MySidebarAdapter(Context context) {
@@ -132,24 +118,6 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
                 onC(position);
             }
         });
-//        convertView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                int action = event.getAction();
-//                switch (action) {
-//                    case MotionEvent.ACTION_DOWN:
-//                        holder.iv_le.setColorFilter(ContextCompat.getColor(context, R.color.A1));
-//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.A1));
-//                        break;
-//                    case MotionEvent.ACTION_CANCEL:
-//                    case MotionEvent.ACTION_UP:
-//                        holder.iv_le.setColorFilter(0);
-//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.B2));
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
         if (position == BATTERY || position == FLOAT) {
             holder.checkBox.setVisibility(View.VISIBLE);
         } else {
@@ -161,17 +129,6 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
         } else {
             holder.side_deep_h.setVisibility(View.GONE);
         }
-       /* if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            if (position == NOTIFI) {
-                holder.rl_item.setVisibility(View.GONE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(0, 1);
-                convertView.setLayoutParams(param);
-            } else {
-                holder.rl_item.setVisibility(View.VISIBLE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
-                convertView.setLayoutParams(param);
-            }
-        }*/
         if (position == BATTERY) {
             holder.side_divide.setVisibility(View.GONE);
         } else {
@@ -215,8 +172,6 @@ public class MySidebarAdapter extends MybaseAdapter<SideInfo> {
             Intent intent4 = new Intent(context, AllAppsActivity.class);
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
-//            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-//            ((Activity) context).startActivityForResult(intent, 1);
             SetAdUtil.track("侧边栏", "点击进入文件管理页面", "", 1);
             PreData.putDB(context, MyConstant.FILE_CLEAN, true);
             Intent intent5 = new Intent(context, PhoneFileManagerActivity.class);

@@ -86,7 +86,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side, ad_native_2, ll_ad_s;
     ICleanerWaterView main_water;
-    MainRoundView main_dian;
     private int temp;
     private String from;
     private AlertDialog dialog;
@@ -122,10 +121,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-//            main_notifi_button.setVisibility(View.GONE);
-        }
-
         mainPresenter = new PresenterMain(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
@@ -142,7 +137,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         iv_title_right = (ImageView) findViewById(R.id.iv_title_right);
         iv_title_left = (ImageView) findViewById(R.id.iv_title_left);
         main_water = (ICleanerWaterView) findViewById(R.id.main_water);
-        main_dian = (MainRoundView) findViewById(R.id.main_dian);
         power_size = (TextView) findViewById(R.id.power_size);
         main_junk_h = (TextView) findViewById(R.id.main_junk_h);
         main_fenshu = (TextView) findViewById(R.id.main_fenshu);
@@ -173,8 +167,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_rotate_close = (ImageView) findViewById(R.id.main_rotate_close);
         main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
         main_power_button = (LinearLayout) findViewById(R.id.main_power_button);
-//        main_notifi_button = (LinearLayout) findViewById(R.id.main_notifi_button);
-//        main_file_button = (LinearLayout) findViewById(R.id.main_file_button);
         main_gboost_button = (LinearLayout) findViewById(R.id.main_gboost_button);
         main_picture_button = (LinearLayout) findViewById(R.id.main_picture_button);
         side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
@@ -191,7 +183,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
     //初始化监听
     public void onClick() {
-        //main_scroll_view.setOnTouchListener(scrollViewTouchListener);
         main_pull_refresh.setOnRefreshListener(refreshListener);
         iv_title_right.setOnClickListener(onClickListener);
         iv_title_left.setOnClickListener(onClickListener);
@@ -206,8 +197,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         main_rotate_close.setOnClickListener(onClickListener);
         main_msg_button.setOnClickListener(onClickListener);
         main_power_button.setOnClickListener(onClickListener);
-//        main_notifi_button.setOnClickListener(onClickListener);
-//        main_file_button.setOnClickListener(onClickListener);
         main_gboost_button.setOnClickListener(onClickListener);
         main_picture_button.setOnClickListener(onClickListener);
         lot_ad.setOnClickListener(onClickListener);
@@ -252,33 +241,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             ColorDrawable colordDrawable = (ColorDrawable) background;
             color = colordDrawable.getColor();
         }
-//        if (percent < 40) {
-//            if (!isReStart) {
-//                setColorAnimation(main_all_cercle, ContextCompat.getColor(this, R.color.A1), ContextCompat.getColor(this, R.color.A2));
-//                setColorAnimation(view_title_bar, ContextCompat.getColor(this, R.color.A1), ContextCompat.getColor(this, R.color.A2));
-//                setColorAnimation(main_title, ContextCompat.getColor(this, R.color.A1), ContextCompat.getColor(this, R.color.A2));
-//                setColorAnimation(main_wave, ContextCompat.getColor(this, R.color.A1), ContextCompat.getColor(this, R.color.A2));
-//            }
-//        } else if (percent < 80) {
-//            if (isReStart) {
-//                setColorAnimation(main_all_cercle, color, ContextCompat.getColor(this, R.color.A3));
-//                setColorAnimation(view_title_bar, color, ContextCompat.getColor(this, R.color.A3));
-//                setColorAnimation(main_title, color, ContextCompat.getColor(this, R.color.A3));
-//                setColorAnimation(main_wave, color, ContextCompat.getColor(this, R.color.A3));
-//            } else {
-//                setColorAnimation(main_all_cercle, ContextCompat.getColor(this, R.color.A1), ContextCompat.getColor(this, R.color.A3));
-//                setColorAnimation(view_title_bar, ContextCompat.getColor(this, R.color.A1), ContextCompat.getColor(this, R.color.A3));
-//                setColorAnimation(main_title, ContextCompat.getColor(this, R.color.A1), ContextCompat.getColor(this, R.color.A3));
-//                setColorAnimation(main_wave, ContextCompat.getColor(this, R.color.A1), ContextCompat.getColor(this, R.color.A3));
-//            }
-//        } else {
-//            if (isReStart) {
-//                setColorAnimation(main_all_cercle, color, ContextCompat.getColor(this, R.color.A1));
-//                setColorAnimation(view_title_bar, color, ContextCompat.getColor(this, R.color.A1));
-//                setColorAnimation(main_title, color, ContextCompat.getColor(this, R.color.A1));
-//                setColorAnimation(main_wave, color, ContextCompat.getColor(this, R.color.A1));
-//            }
-//        }
     }
 
     @Override
@@ -287,7 +249,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             adapter = new MySidebarAdapter(this);
         }
         adapter.clear();
-
 
         adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) Utils.readData(this, BatteryConstants.CHARGE_SAVER_SWITCH, false)));//充电屏保
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, MyConstant.FlOAT_SWITCH, true)));//桌面悬浮球
@@ -323,8 +284,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
                 @Override
                 public void update(int jindu) {
-                    main_dian.setProgress(jindu);
-
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -343,7 +302,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             });
         } else {
             main_water.upDate(fenshu);
-            main_dian.setProgress(fenshu);
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -661,7 +619,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                     PreData.putDB(MainActivity.this, MyConstant.FIRST_BATTERY, false);
                     Utils.writeData(MainActivity.this, BatteryConstants.CHARGE_SAVER_SWITCH, true);
                     initSideData();
-                    adapter.notifyDataSetChanged();
+//                    adapter.notifyDataSetChanged();
                     SetAdUtil.track("主界面", "充电屏保引导", "叉掉", 1);
                     break;
                 case R.id.battery_cha:
@@ -676,7 +634,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == MyConstant.SETTING_RESUIL) {
             initSideData();
-            adapter.notifyDataSetChanged();
+//            adapter.notifyDataSetChanged();
         } else if (resultCode == MyConstant.COOLING_RESUIL) {
             int wendu = data.getIntExtra("wendu", 0);
             temp -= wendu;
@@ -757,10 +715,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         initCpu(temp);
     }
 
+
     @Override
     protected void onPause() {
         super.onPause();
         main_water.stop();
+        main_circlewaveview.stop();
     }
 
     private void initData() {
@@ -791,6 +751,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
         // 充电屏保关闭智能充电，刷新无效果，重新调用 initSideData()可以
 //        adapter.notifyDataSetChanged();
+        main_circlewaveview.startCircleWaveCiew();
         initSideData();
     }
 
@@ -918,6 +879,9 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         super.onDestroy();
         if (lot_ad != null) {
             lot_ad.clearAnimation();
+        }
+        if (main_circlewaveview != null) {
+            main_circlewaveview.stop();
         }
     }
 }

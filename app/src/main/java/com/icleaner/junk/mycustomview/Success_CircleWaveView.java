@@ -3,8 +3,6 @@ package com.icleaner.junk.mycustomview;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -23,17 +21,7 @@ public class Success_CircleWaveView extends View {
     private int width;
     private int height;
     private Context context;
-    private boolean flag;
-    Handler mHamdle = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-            strokeWidth += getResources().getDimensionPixelSize(R.dimen.d4);
-            radius -= getResources().getDimensionPixelSize(R.dimen.d2);
-            paint.setStrokeWidth(strokeWidth);
-            invalidate();
-        }
-    };
+    boolean isStop;
 
     public Success_CircleWaveView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -55,23 +43,44 @@ public class Success_CircleWaveView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         // d3  d30
-        if (radius < getResources().getDimensionPixelSize(R.dimen.d23) || strokeWidth > getResources().getDimensionPixelSize(R.dimen.d44)) {
-            paint.setStyle(Paint.Style.FILL);
-            radius = getResources().getDimensionPixelSize(R.dimen.d44);
-            strokeWidth = getResources().getDimensionPixelSize(R.dimen.d23);
-            paint.setStrokeWidth(strokeWidth);
-            canvas.drawCircle(getResources().getDimensionPixelSize(R.dimen.d45), getResources().getDimensionPixelSize(R.dimen.d45), radius, paint);//根据进度计算扩散半径
-        } else {
-            canvas.drawCircle(getResources().getDimensionPixelSize(R.dimen.d45), getResources().getDimensionPixelSize(R.dimen.d45), radius, paint);//根据进度计算扩散半径
-            if (radius > 9 && radius != getResources().getDimensionPixelSize(R.dimen.d4)) {
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        canvas.drawCircle(getResources().getDimensionPixelSize(R.dimen.d50), getResources().getDimensionPixelSize(R.dimen.d50), radius, paint);//根据进度计算扩散半径
+    }
+
+    private void setRadius(float radius, float strokeWidth) {
+        this.radius = radius;
+        paint.setStrokeWidth(strokeWidth);
+        postInvalidate();
+    }
+
+    public void startCircleWaveCiew() {
+        isStop = false;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = getResources().getDimensionPixelSize(R.dimen.d44), j = getResources().getDimensionPixelSize(R.dimen.d1);
+                     i > getResources().getDimensionPixelSize(R.dimen.d22); ) {
+                    if (isStop) {
+                        return;
+                    }
+                    if (i <= getResources().getDimensionPixelSize(R.dimen.d24)) {
+                        i = getResources().getDimensionPixelSize(R.dimen.d22);
+                        j = getResources().getDimensionPixelSize(R.dimen.d44);
+                        setRadius(i, j);
+                    } else {
+                        setRadius(i, j);
+                    }
+
+                    j += getResources().getDimensionPixelSize(R.dimen.d4);
+                    i -= getResources().getDimensionPixelSize(R.dimen.d2);
+
+                    try {
+                        Thread.sleep(30);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-                mHamdle.handleMessage(null);
             }
-        }
+        }).start();
     }
 
     @Override
@@ -82,16 +91,13 @@ public class Success_CircleWaveView extends View {
         setMeasuredDimension(width, height);
     }
 
-    public void startCircleWaveCiew(boolean flag) {
-        this.flag = flag;
-        invalidate();
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        isStop = true;
     }
 
-    /**
-     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
-     */
-    public static int dip2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
+    public void stop() {
+        isStop = true;
     }
 }

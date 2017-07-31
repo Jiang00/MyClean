@@ -1,6 +1,5 @@
 package com.icleaner.junk.icleaneractivity;
 
-import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
@@ -8,7 +7,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -26,22 +24,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.icleaner.clean.utils.MyUtils;
-import com.icleaner.junk.mytools.MyConstant;
-import com.icleaner.junk.mytools.SetAdUtil;
-import com.twee.module.tweenengine.Tween;
-import com.twee.module.tweenengine.TweenManager;
 import com.icleaner.clean.core.CleanManager;
 import com.icleaner.clean.entity.JunkInfo;
+import com.icleaner.clean.utils.LoadManager;
+import com.icleaner.clean.utils.MyUtils;
+import com.icleaner.clean.utils.PreData;
 import com.icleaner.junk.R;
-import com.icleaner.junk.mytools.MUtilGp;
 import com.icleaner.junk.mycustomview.DrawHookView;
 import com.icleaner.junk.mycustomview.ImageAccessor;
 import com.icleaner.junk.mycustomview.MainRoundView;
 import com.icleaner.junk.mycustomview.MySlowScrollView;
 import com.icleaner.junk.mycustomview.Success_CircleWaveView;
-import com.icleaner.clean.utils.LoadManager;
-import com.icleaner.clean.utils.PreData;
+import com.icleaner.junk.mytools.MUtilGp;
+import com.icleaner.junk.mytools.MyConstant;
+import com.icleaner.junk.mytools.SetAdUtil;
+import com.twee.module.tweenengine.Tween;
+import com.twee.module.tweenengine.TweenManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +82,6 @@ public class SucceedActivity extends BaseActivity {
     private View native_xiao;
     DrawHookView success_drawhook;
     //    ImageView success_huojian;
-    ImageView imageview_beijing;
     ImageView power_icon;
     TextView power_text;
     private boolean isdoudong;
@@ -230,7 +227,6 @@ public class SucceedActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        imageview_beijing = (ImageView) findViewById(R.id.imageview_beijing);
         success_jiantou = (ImageView) findViewById(R.id.success_jiantou);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
         success_drawhook = (DrawHookView) findViewById(R.id.success_drawhook);
@@ -490,7 +486,7 @@ public class SucceedActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 success_cirlewaveview.setVisibility(View.VISIBLE);
-//                success_cirlewaveview.startCircleWaveCiew(true);
+                success_cirlewaveview.startCircleWaveCiew();
             }
         }, 1000);
         // 缩放
@@ -502,108 +498,15 @@ public class SucceedActivity extends BaseActivity {
                 animSet.setDuration(500);
                 animSet.play(animator).with(animator1);
                 animSet.start();
-//                imageview_beijing.setVisibility(View.VISIBLE);
             }
-        }, 1500);
+        }, 2000);
         // 对勾
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 isdoudong = false;
                 success_drawhook.startProgress(500);
             }
-        }, 2000);
-//        final ObjectAnimator rotate = ObjectAnimator.ofFloat(success_progress, "rotation", 0f, 360f);
-//        rotate.setDuration(600);
-//        rotate.setRepeatCount(3);
-//        rotate.setInterpolator(new LinearInterpolator());
-//        rotate.start();
-//        Animation animation = AnimationUtils.loadAnimation(SucceedActivity.this, R.anim.huojian_pop);
-//        success_huojian.startAnimation(animation);
-//        animation.setFillAfter(true);
-//        success_huojian.setVisibility(View.VISIBLE);
-//        animation.setAnimationListener(new android.view.animation.Animation.AnimationListener() {
-//            @Override
-//            public void onAnimationEnd(android.view.animation.Animation animation) {
-//                final float hx = success_huojian.getX();
-//                final float hy = success_huojian.getY();
-//                isdoudong = true;
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        while (isdoudong) {
-//                            if (onDestroyed) {
-//                                break;
-//                            }
-//                            int x = (int) (Math.random() * (16)) - 8;
-//                            int y = (int) (Math.random() * (16)) - 8;
-//                            try {
-//                                Thread.sleep(80);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
-//                            Tween.to(success_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1, 1)
-//                                    .ease(TweenEquations.easeInQuad).delay(0)
-//                                    .start(tweenManager);
-//                        }
-//                    }
-//                }).start();
-//                rotate.addListener(new Animator.AnimatorListener() {
-//                    @Override
-//                    public void onAnimationCancel(Animator animation) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onAnimationEnd(Animator animation) {
-//
-//                        ObjectAnimator a = ObjectAnimator.ofFloat(success_huojian, View.TRANSLATION_Y, 0, -2500);
-//                        a.setDuration(300);
-//                        a.start();
-//                        a.addListener(new Animator.AnimatorListener() {
-//                            @Override
-//                            public void onAnimationCancel(Animator animation) {
-//                            }
-//
-//                            @Override
-//                            public void onAnimationEnd(Animator animation) {
-//                                success_progress.setVisibility(View.GONE);
-//                                success_huojian.setVisibility(View.GONE);
-//                            }
-//
-//                            @Override
-//                            public void onAnimationRepeat(Animator animation) {
-//
-//                            }
-//
-//                            @Override
-//                            public void onAnimationStart(Animator animation) {
-//
-//                            }
-//                        });
-//                    }
-
-//                    @Override
-//                    public void onAnimationRepeat(Animator animation) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onAnimationStart(Animator animation) {
-//
-//                    }
-//                });
-//            }
-//
-//            @Override
-//            public void onAnimationRepeat(android.view.animation.Animation animation) {
-//
-//            }
-//
-//            @Override
-//            public void onAnimationStart(android.view.animation.Animation animation) {
-//
-//            }
-//        });
+        }, 2500);
     }
 
     @Override
@@ -630,6 +533,9 @@ public class SucceedActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        if (success_cirlewaveview != null) {
+            success_cirlewaveview.stop();
+        }
     }
 
     @Override

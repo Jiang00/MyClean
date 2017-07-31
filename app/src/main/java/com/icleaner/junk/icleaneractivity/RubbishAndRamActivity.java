@@ -455,14 +455,6 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                if (finalI != 0) {
-//                                    junk_button_clean.setText(getResources().getText(R.string.junk_button) + "(" + MyUtils.convertStorage(finalI, true) + ")");
-//                                }
-//                            }
-//                        });
                     }
                 }
             }).start();
@@ -681,9 +673,7 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
                     junkPresenter.jumpToActivity(SucceedActivity.class, bundle, 1);
                 }
             }, 800);
-
         }
-
     }
 
     @Override
@@ -710,6 +700,7 @@ public class RubbishAndRamActivity extends BaseActivity implements LogHeRamView 
             }
             jumpTo(MainActivity.class);
         }
+        setResult(MyConstant.JUNK_RESUIL);
         finish();
     }
 }

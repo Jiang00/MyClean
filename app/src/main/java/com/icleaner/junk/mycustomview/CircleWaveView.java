@@ -3,8 +3,6 @@ package com.icleaner.junk.mycustomview;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -23,27 +21,7 @@ public class CircleWaveView extends View {
     private int width;
     private int height;
     private Context context;
-    Handler mHamdle = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-            if (strokeWidth > getResources().getDimensionPixelSize(R.dimen.d52)) {
-                strokeWidth = dip2px(context, 1);
-                radius = getResources().getDimensionPixelSize(R.dimen.d78);
-                paint.setStrokeWidth(strokeWidth);
-            } else {
-                strokeWidth += getResources().getDimensionPixelSize(R.dimen.d4);
-                radius += getResources().getDimensionPixelSize(R.dimen.d2);
-                paint.setStrokeWidth(strokeWidth);
-            }
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            invalidate();
-        }
-    };
+    boolean isStop;
 
     public CircleWaveView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -54,7 +32,7 @@ public class CircleWaveView extends View {
     private void init() {
         paint = new Paint();
         radius = getResources().getDimensionPixelSize(R.dimen.d78);
-        strokeWidth = dip2px(context, 1);
+        strokeWidth = getResources().getDimensionPixelSize(R.dimen.d1);
         paint.setAntiAlias(true);//设置是否抗锯齿
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(strokeWidth);
@@ -82,32 +60,41 @@ public class CircleWaveView extends View {
     }
 
     public void startCircleWaveCiew() {
+        isStop = false;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if (strokeWidth > getResources().getDimensionPixelSize(R.dimen.d52)) {
-                    strokeWidth = dip2px(context, 1);
-                    radius = getResources().getDimensionPixelSize(R.dimen.d78);
-                } else {
-                    strokeWidth += getResources().getDimensionPixelSize(R.dimen.d4);
-                    radius += getResources().getDimensionPixelSize(R.dimen.d2);
-                }
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                for (int i = getResources().getDimensionPixelSize(R.dimen.d78), j = getResources().getDimensionPixelSize(R.dimen.d1);
+                     i <= getResources().getDimensionPixelSize(R.dimen.d106); ) {
+                    if (isStop) {
+                        return;
+                    }
+                    setRadius(i, j);
+
+                    j += getResources().getDimensionPixelSize(R.dimen.d4);
+                    i += getResources().getDimensionPixelSize(R.dimen.d2);
+                    if (i >= getResources().getDimensionPixelSize(R.dimen.d106)) {
+                        i = getResources().getDimensionPixelSize(R.dimen.d78);
+                        j = getResources().getDimensionPixelSize(R.dimen.d1);
+                    }
+
+                    try {
+                        Thread.sleep(150);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
-        });
+        }).start();
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        isStop = true;
+    }
 
-
-    /**
-     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
-     */
-    public static int dip2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
+    public void stop() {
+        isStop = true;
     }
 }

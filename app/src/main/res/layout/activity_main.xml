@@ -57,9 +57,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d16"
-                    android:layout_marginRight="@dimen/d16"
                     android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/d16"
                     android:scaleType="center"
                     android:src="@mipmap/main_setting" />
 
@@ -119,23 +118,6 @@
                             android:layout_height="@dimen/d275"
                             android:background="@color/A1">
 
-                            <ImageView
-                                android:layout_width="@dimen/d12"
-                                android:layout_height="@dimen/d12"
-                                android:layout_marginLeft="@dimen/d30"
-                                android:layout_marginTop="@dimen/d217"
-                                android:alpha="0.5"
-                                android:src="@drawable/shape_dian"
-                                android:visibility="gone" />
-
-                            <ImageView
-                                android:layout_width="@dimen/d6"
-                                android:layout_height="@dimen/d6"
-                                android:layout_marginLeft="@dimen/d301"
-                                android:layout_marginTop="@dimen/d82"
-                                android:alpha="0.3"
-                                android:src="@drawable/shape_dian"
-                                android:visibility="gone" />
                             <!--虚环-->
                             <com.icleaner.junk.mycustomview.VirtuaRingView
                                 android:id="@+id/virtuaringview"
@@ -160,21 +142,6 @@
                                 android:layout_centerInParent="true"
                                 android:src="@mipmap/pointer" />
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/main_water"
-                                android:layout_centerHorizontal="true"
-                                android:src="@mipmap/main_touying"
-                                android:visibility="gone" />
-                            <!--球周围进度条-->
-                            <com.icleaner.junk.mycustomview.MainRoundView
-                                android:id="@+id/main_dian"
-                                android:layout_width="@dimen/d156"
-                                android:layout_height="@dimen/d156"
-                                android:layout_centerInParent="true"
-                                android:visibility="gone" />
-
                             <TextView
                                 android:id="@+id/main_fenshu"
                                 android:layout_width="@dimen/d100"
@@ -186,19 +153,6 @@
                                 android:textColor="@color/B3"
                                 android:textSize="@dimen/s46" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/d32"
-                                android:layout_below="@id/main_fenshu"
-                                android:layout_centerHorizontal="true"
-                                android:background="@drawable/shape_w_b"
-                                android:gravity="center"
-                                android:paddingLeft="@dimen/d14"
-                                android:paddingRight="@dimen/d14"
-                                android:text="@string/main_button"
-                                android:textColor="@color/white_100"
-                                android:textSize="@dimen/s15"
-                                android:visibility="gone" />
                             <!--扩散-->
                             <com.icleaner.junk.mycustomview.CircleWaveView
                                 android:id="@+id/main_circlewaveview"
