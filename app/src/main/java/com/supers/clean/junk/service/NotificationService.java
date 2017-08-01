@@ -166,14 +166,10 @@ public class NotificationService extends Service {
         }
         if (intent != null && intent.getAction().equals("gboost")) {
             tonghzi_gboost();
+            mNotifyManager.cancel(101);
             mNotifyManager.notify(101, notification_gboost);
         }
         return super.onStartCommand(intent, flags, startId);
-    }
-
-    private void onCancle() {
-        if (mNotifyManager != null)
-            mNotifyManager.cancel(102);
     }
 
     private void onstart() {
@@ -210,7 +206,6 @@ public class NotificationService extends Service {
                 notifyIntentFlash, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentJunkRam = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_UPDATE_CURRENT);
-        notifyIntentJunkRam.putExtra("from2", "twoday");
         remoteView_1.setOnClickPendingIntent(R.id.notifi_icon, pendIntentMain);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_ram, pendIntentRam);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_cooling, pendIntentCooling);
@@ -308,6 +303,7 @@ public class NotificationService extends Service {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, true);
                 if (memory > 80) {
                     tonghzi_Ram();
+                    mNotifyManager.cancel(101);
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_RAM, false);
@@ -318,6 +314,7 @@ public class NotificationService extends Service {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, true);
                 if (memory > 80) {
                     tonghzi_Ram();
+                    mNotifyManager.cancel(101);
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, false);
@@ -328,6 +325,7 @@ public class NotificationService extends Service {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_RAM, true);
                 if (memory > 80) {
                     tonghzi_Ram();
+                    mNotifyManager.cancel(101);
                     mNotifyManager.notify(101, notification_ram);
                     AdUtil.track("通知栏", "内存通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_RAM, false);
@@ -340,6 +338,7 @@ public class NotificationService extends Service {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, true);
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
+                    mNotifyManager.cancel(101);
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_COOLING, false);
@@ -350,6 +349,7 @@ public class NotificationService extends Service {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, true);
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
+                    mNotifyManager.cancel(101);
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, false);
@@ -360,6 +360,7 @@ public class NotificationService extends Service {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_COOLING, true);
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
+                    mNotifyManager.cancel(101);
                     mNotifyManager.notify(101, notification_cooling);
                     AdUtil.track("通知栏", "降温通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_COOLING, false);
@@ -375,6 +376,7 @@ public class NotificationService extends Service {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, true);
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
+                    mNotifyManager.cancel(101);
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZAO_JUNK, false);
@@ -384,6 +386,7 @@ public class NotificationService extends Service {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, true);
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
+                    mNotifyManager.cancel(101);
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_JUNK, false);
@@ -393,6 +396,7 @@ public class NotificationService extends Service {
                 PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_ZHONG_JUNK, true);
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk();
+                    mNotifyManager.cancel(101);
                     mNotifyManager.notify(101, notification_junk);
                     AdUtil.track("通知栏", "垃圾通知", "展示", 1);
                     PreData.putDB(NotificationService.this, Constant.KEY_TONGZHI_WAN_JUNK, false);
@@ -401,6 +405,7 @@ public class NotificationService extends Service {
             long clean_two_day = PreData.getDB(NotificationService.this, Constant.KEY_CLEAN_TIME, 0l);
             if (Util.millTransFate(time - clean_two_day) > 2) {
                 tonghzi_two_day();
+                mNotifyManager.cancel(101);
                 mNotifyManager.notify(101, notification_two_day);
                 AdUtil.track("通知栏", "两天唤醒", "展示", 1);
                 PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
@@ -454,7 +459,6 @@ public class NotificationService extends Service {
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_CANCEL_CURRENT);
-        notifyIntentJunkRam.putExtra("from2", "junk");
         mBuilder.setContent(remoteView);
         mBuilder.setContentIntent(pendIntent);
         mBuilder.setAutoCancel(true);
@@ -474,7 +478,6 @@ public class NotificationService extends Service {
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_CANCEL_CURRENT);
-        notifyIntentJunkRam.putExtra("from2", "twoday");
         mBuilder.setContent(remoteView);
         mBuilder.setContentIntent(pendIntent);
         mBuilder.setAutoCancel(true);
@@ -494,7 +497,6 @@ public class NotificationService extends Service {
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
                 notifyIntentGBoost, PendingIntent.FLAG_CANCEL_CURRENT);
-        notifyIntentGBoost.putExtra("from", "gboost");
         mBuilder.setContent(remoteView);
         mBuilder.setContentIntent(pendIntent);
         mBuilder.setAutoCancel(true);
@@ -528,6 +530,7 @@ public class NotificationService extends Service {
         notification_notifi.flags |= Notification.FLAG_NO_CLEAR;
 //        notification_notifi.priority = Notification.PRIORITY_MAX;
     }
+
     public Bitmap screenShot(View view, int size) {
         if (null == view) {
             throw new IllegalArgumentException("parameter can't be null.");
