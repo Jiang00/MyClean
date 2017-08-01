@@ -715,11 +715,7 @@ public class LajjiAndRamActivity extends MBaseActivity implements JunkRamView {
     @Override
     public void onBackPressed() {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
-            if (TextUtils.equals("twoday", getIntent().getStringExtra("from2"))) {
-                AdUtil.track("通知栏", "两天唤醒", "点击", 1);
-            } else {
-                AdUtil.track("通知栏", "垃圾通知", "点击", 1);
-            }
+            AdUtil.track("通知栏", "垃圾通知", "点击", 1);
             jumpTo(MainActivity.class);
         }
         setResult(Constant.JUNK_RAM_RESUIL);

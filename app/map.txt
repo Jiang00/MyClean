@@ -33227,7 +33227,7 @@ com.froumobic.clean.junk.mactivity.LajjiAndRamActivity -> com.froumobic.clean.ju
     585:591:void startCleanAnimation(android.view.View) -> startCleanAnimation
     703:705:void onResume() -> onResume
     709:713:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    717:727:void onBackPressed() -> onBackPressed
+    717:723:void onBackPressed() -> onBackPressed
     40:40:com.froumobic.clean.junk.presenter.JunkRamPresenter access$000(com.froumobic.clean.junk.mactivity.LajjiAndRamActivity) -> a
     40:40:com.froumobic.clean.junk.adapter.JunkRamAdapter access$100(com.froumobic.clean.junk.mactivity.LajjiAndRamActivity) -> b
     40:40:com.froumobic.clean.junk.adapter.JunkRamAdapter access$200(com.froumobic.clean.junk.mactivity.LajjiAndRamActivity) -> c
@@ -35048,20 +35048,20 @@ com.froumobic.clean.junk.service.NotificationService -> com.froumobic.clean.junk
     75:75:android.os.IBinder onBind(android.content.Intent) -> onBind
     80:97:void onCreate() -> onCreate
     125:130:android.graphics.Canvas getCanvas() -> a
-    134:157:void initIntent() -> b
-    162:169:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    178:180:void onstart() -> c
-    184:227:void changZhuTongzhi() -> d
-    261:262:long getTotalRxBytes() -> e
-    272:406:void update() -> f
-    410:425:void tonghzi_Ram() -> g
-    429:444:void tonghzi_cooling() -> h
-    448:464:void tonghzi_junk() -> i
-    468:484:void tonghzi_two_day() -> j
-    488:504:void tonghzi_gboost() -> k
-    508:527:void tonghzi_notifi() -> l
-    530:538:android.graphics.Bitmap screenShot(android.view.View,int) -> a
-    545:551:void onDestroy() -> onDestroy
+    134:158:void initIntent() -> b
+    163:170:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    179:181:void onstart() -> c
+    185:227:void changZhuTongzhi() -> d
+    267:268:long getTotalRxBytes() -> e
+    278:412:void update() -> f
+    416:431:void tonghzi_Ram() -> g
+    435:450:void tonghzi_cooling() -> h
+    454:470:void tonghzi_junk() -> i
+    474:489:void tonghzi_two_day() -> j
+    493:508:void tonghzi_gboost() -> k
+    512:531:void tonghzi_notifi() -> l
+    534:542:android.graphics.Bitmap screenShot(android.view.View,int) -> a
+    549:555:void onDestroy() -> onDestroy
     51:51:void access$000(com.froumobic.clean.junk.service.NotificationService) -> a
     51:51:android.widget.RemoteViews access$100(com.froumobic.clean.junk.service.NotificationService) -> b
     51:51:android.app.Notification access$200(com.froumobic.clean.junk.service.NotificationService) -> c
@@ -35075,14 +35075,20 @@ com.froumobic.clean.junk.service.NotificationService -> com.froumobic.clean.junk
     51:51:int access$900(com.froumobic.clean.junk.service.NotificationService) -> k
     51:51:int access$902(com.froumobic.clean.junk.service.NotificationService,int) -> a
     51:51:void access$1000(com.froumobic.clean.junk.service.NotificationService) -> l
-    51:51:android.app.Notification access$1100(com.froumobic.clean.junk.service.NotificationService) -> m
+    51:51:void access$1100(com.froumobic.clean.junk.service.NotificationService) -> m
+    51:51:void access$1200(com.froumobic.clean.junk.service.NotificationService) -> n
+    51:51:void access$1300(com.froumobic.clean.junk.service.NotificationService) -> o
+    51:51:android.app.Notification access$1400(com.froumobic.clean.junk.service.NotificationService) -> p
+    51:51:android.app.Notification access$1500(com.froumobic.clean.junk.service.NotificationService) -> q
+    51:51:android.app.Notification access$1600(com.froumobic.clean.junk.service.NotificationService) -> r
+    51:51:android.app.Notification access$1700(com.froumobic.clean.junk.service.NotificationService) -> s
     51:51:long access$602(com.froumobic.clean.junk.service.NotificationService,long) -> a
     51:51:long access$502(com.froumobic.clean.junk.service.NotificationService,long) -> b
-    51:51:int access$1202(com.froumobic.clean.junk.service.NotificationService,int) -> b
-    51:51:int access$1200(com.froumobic.clean.junk.service.NotificationService) -> n
-    51:51:android.graphics.Paint access$1300(com.froumobic.clean.junk.service.NotificationService) -> o
-    51:51:android.graphics.RectF access$1400(com.froumobic.clean.junk.service.NotificationService) -> p
-    51:51:android.graphics.Bitmap access$1500(com.froumobic.clean.junk.service.NotificationService) -> q
+    51:51:int access$1802(com.froumobic.clean.junk.service.NotificationService,int) -> b
+    51:51:int access$1800(com.froumobic.clean.junk.service.NotificationService) -> t
+    51:51:android.graphics.Paint access$1900(com.froumobic.clean.junk.service.NotificationService) -> u
+    51:51:android.graphics.RectF access$2000(com.froumobic.clean.junk.service.NotificationService) -> v
+    51:51:android.graphics.Bitmap access$2100(com.froumobic.clean.junk.service.NotificationService) -> w
 com.froumobic.clean.junk.service.NotificationService$1 -> com.froumobic.clean.junk.service.NotificationService$1:
     com.froumobic.clean.junk.service.NotificationService this$0 -> a
     99:99:void <init>(com.froumobic.clean.junk.service.NotificationService) -> <init>
@@ -35090,12 +35096,12 @@ com.froumobic.clean.junk.service.NotificationService$1 -> com.froumobic.clean.ju
 com.froumobic.clean.junk.service.NotificationService$2 -> com.froumobic.clean.junk.service.NotificationService$2:
     com.froumobic.clean.junk.service.NotificationService this$0 -> a
     229:229:void <init>(com.froumobic.clean.junk.service.NotificationService) -> <init>
-    231:256:void run() -> run
+    231:262:void run() -> run
 com.froumobic.clean.junk.service.NotificationService$3 -> com.froumobic.clean.junk.service.NotificationService$3:
     int val$memory -> a
     com.froumobic.clean.junk.service.NotificationService this$0 -> b
-    274:274:void <init>(com.froumobic.clean.junk.service.NotificationService,int) -> <init>
-    277:296:void callbackResult(com.froumobic.clean.junk.util.CpuTempReader$ResultCpuTemperature) -> a
+    280:280:void <init>(com.froumobic.clean.junk.service.NotificationService,int) -> <init>
+    283:302:void callbackResult(com.froumobic.clean.junk.util.CpuTempReader$ResultCpuTemperature) -> a
 com.froumobic.clean.junk.service.XuanfuService -> com.froumobic.clean.junk.service.XuanfuService:
     android.content.pm.PackageManager pm -> f
     android.app.ActivityManager am -> g

@@ -126,7 +126,6 @@ public class NotificationService extends Service {
         canvas.save();
         canvas.translate(0, pointX);
         canvas.rotate(135, pointX, 0);
-        canvas.release();
         canvas.drawColor(Color.BLACK, PorterDuff.Mode.CLEAR);
         return canvas;
     }
@@ -147,6 +146,7 @@ public class NotificationService extends Service {
         notifyIntentJunkRam.putExtra("from", "notifi");
         notifyIntentJunkRam.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        notifyIntentJunkRam.putExtra("from2", "junk");
         notifyIntentNotifi = new Intent(this, NotifiActivity.class);
         notifyIntentNotifi.putExtra("from", "notifi");
         notifyIntentNotifi.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
@@ -207,7 +207,6 @@ public class NotificationService extends Service {
                 notifyIntentCooling, PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent pendIntentJunkRam = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_UPDATE_CURRENT);
-        notifyIntentJunkRam.putExtra("from2", "twoday");
         remoteView_1.setOnClickPendingIntent(R.id.notifi_icon, pendIntentMain);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_ram, pendIntentRam);
         remoteView_1.setOnClickPendingIntent(R.id.notifi_cooling, pendIntentCooling);
@@ -452,7 +451,7 @@ public class NotificationService extends Service {
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_CANCEL_CURRENT);
-        notifyIntentJunkRam.putExtra("from2", "junk");
+
         mBuilder.setContent(remoteView);
         mBuilder.setContentIntent(pendIntent);
         mBuilder.setAutoCancel(true);
@@ -472,7 +471,6 @@ public class NotificationService extends Service {
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
                 notifyIntentJunkRam, PendingIntent.FLAG_CANCEL_CURRENT);
-        notifyIntentJunkRam.putExtra("from2", "twoday");
         mBuilder.setContent(remoteView);
         mBuilder.setContentIntent(pendIntent);
         mBuilder.setAutoCancel(true);
@@ -492,7 +490,6 @@ public class NotificationService extends Service {
         int requestCode = (int) SystemClock.uptimeMillis();
         PendingIntent pendIntent = PendingIntent.getActivity(this, requestCode,
                 notifyIntentGBoost, PendingIntent.FLAG_CANCEL_CURRENT);
-        notifyIntentGBoost.putExtra("from", "gboost");
         mBuilder.setContent(remoteView);
         mBuilder.setContentIntent(pendIntent);
         mBuilder.setAutoCancel(true);
