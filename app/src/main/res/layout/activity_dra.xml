@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#ffffff">
+        android:background="@color/A11">
         <!-- android:layout_gravity="start"-->
 
         <LinearLayout
@@ -25,9 +25,8 @@
             <!--侧边栏头部-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d172"
+                android:layout_height="@dimen/d164"
                 android:background="@mipmap/sidebeijing"
-                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <View
@@ -35,24 +34,27 @@
                     android:layout_height="@dimen/d24" />
 
                 <ImageView
-                    android:layout_width="@dimen/d45"
-                    android:layout_height="@dimen/d45"
-                    android:layout_marginTop="@dimen/d38"
-                    android:src="@mipmap/side_icon" />
+                    android:layout_width="@dimen/d40"
+                    android:layout_height="@dimen/d40"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginTop="@dimen/d40"
+                    android:src="@mipmap/side_icon1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d16"
                     android:layout_marginTop="@dimen/d8"
                     android:text="@string/app_name"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s15" />
+                    android:textColor="@color/A5"
+                    android:textSize="@dimen/s16" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d16"
                     android:layout_marginTop="@dimen/d4"
-                    android:text="@string/loading_describe"
+                    android:text="@string/side_miaoshu"
                     android:textColor="#b3ffffff"
                     android:textSize="@dimen/s12" />
             </LinearLayout>
@@ -67,28 +69,29 @@
                     android:id="@+id/ll_ad_side"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/A7"
+                    android:background="@color/A5"
                     android:orientation="vertical" />
             </FrameLayout>
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/A17"
+                android:background="@color/A11"
                 android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/A7"
+                    android:background="@color/A5"
                     android:orientation="vertical">
 
                     <com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy
                         android:id="@+id/side_listview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:divider="@color/A7"
+                        android:divider="@color/A5"
                         android:dividerHeight="0dp" />
+
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

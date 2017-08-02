@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d60"
+        android:layout_height="@dimen/d72"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -17,10 +17,10 @@
 
         <ImageView
             android:id="@+id/iv_le"
-            android:layout_width="@dimen/d36"
-            android:layout_height="@dimen/d36"
+            android:layout_width="@dimen/d42"
+            android:layout_height="@dimen/d42"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/d16" />
+            android:layout_marginLeft="@dimen/d8" />
     </RelativeLayout>
 
     <LinearLayout
@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:lines="1"
             android:text="1111"
-            android:textColor="@color/A6"
-            android:textSize="@dimen/s15" />
+            android:textColor="@color/A2"
+            android:textSize="@dimen/s18" />
 
         <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:id="@+id/tv_zhuangtai"
@@ -54,10 +54,10 @@
 
     <ImageView
         android:id="@+id/iv_check"
-        android:layout_width="@dimen/d20"
-        android:layout_height="@dimen/d20"
+        android:layout_width="@dimen/d24"
+        android:layout_height="@dimen/d24"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/d16"
+        android:layout_marginRight="@dimen/d8"
         android:src="@mipmap/white_add" />
 </RelativeLayout>

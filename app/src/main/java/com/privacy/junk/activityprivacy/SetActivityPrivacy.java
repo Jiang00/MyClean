@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -21,13 +20,12 @@ import com.privacy.junk.R;
 import com.privacy.junk.privacybroadcasts.UnloadResidualBroadcastPrivacy;
 import com.privacy.junk.privacyservices.PrivacyNotificationService;
 import com.privacy.junk.privacyservices.PrivacySuspensionBallService;
-import com.privacy.junk.toolsprivacy.PrivacyUtilGp;
 import com.privacy.junk.toolsprivacy.MyConstantPrivacy;
-import com.privacy.junk.toolsprivacy.SetAdUtilPrivacy;
 import com.privacy.junk.toolsprivacy.PrivacyShortCutUtils;
+import com.privacy.junk.toolsprivacy.PrivacyUtilGp;
+import com.privacy.junk.toolsprivacy.SetAdUtilPrivacy;
 import com.privacy.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
 import com.privacy.module.charge.saver.privacyutils.UtilsPrivacy;
-import com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView;
 
 /**
  * Created by on 2017/3/2.
@@ -44,7 +42,6 @@ public class SetActivityPrivacy extends BaseActivity {
     LinearLayout ll_ad;
     private View nativeView;
     TextView title_name;
-    PrivacyCustomerTypefaceTextView setting_battery_tv, setting_float_tv, setting_tongzhilan_tv, setting_tongzhi_tv, setting_unload_tv;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,14 +53,6 @@ public class SetActivityPrivacy extends BaseActivity {
         title_left.setOnClickListener(onClickListener);
         initData();
         initListener();
-        //游戏
-        if (PreData.getDB(this, MyConstantPrivacy.GOODGAME, 1) == 0) {
-            setting_gboost.setVisibility(View.GONE);
-        }
-        //相似图片
-        if (PreData.getDB(this, MyConstantPrivacy.PICTUREX, 1) == 0) {
-            setting_picture.setVisibility(View.GONE);
-        }
         //深度清理
         if (PreData.getDB(this, MyConstantPrivacy.POWERACTIVITY, 1) == 0) {
             setting_power.setVisibility(View.GONE);
@@ -100,38 +89,28 @@ public class SetActivityPrivacy extends BaseActivity {
     private void initData() {
         if (PreData.getDB(SetActivityPrivacy.this, MyConstantPrivacy.TONGZHI_SWITCH, true)) {
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
-            setting_tongzhi_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
         } else {
             setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
-            setting_tongzhi_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
         }
         if (PreData.getDB(SetActivityPrivacy.this, MyConstantPrivacy.TONGZHILAN_SWITCH, true)) {
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
-            setting_tongzhilan_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
         } else {
             setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
-            setting_tongzhilan_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
         }
         if (PreData.getDB(SetActivityPrivacy.this, MyConstantPrivacy.FlOAT_SWITCH, true)) {
             setting_float_check.setImageResource(R.mipmap.side_check_passed);
-            setting_float_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
         } else {
             setting_float_check.setImageResource(R.mipmap.side_check_normal);
-            setting_float_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
         }
         if (PreData.getDB(SetActivityPrivacy.this, MyConstantPrivacy.UNLOAD_SWITCH, true)) {
             setting_unload_check.setImageResource(R.mipmap.side_check_passed);
-            setting_unload_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
         } else {
             setting_unload_check.setImageResource(R.mipmap.side_check_normal);
-            setting_unload_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
         }
         if ((boolean) UtilsPrivacy.readData(this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true)) {
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
-            setting_battery_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
-            setting_battery_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
         }
     }
 
@@ -167,11 +146,6 @@ public class SetActivityPrivacy extends BaseActivity {
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
 
-        setting_battery_tv = (PrivacyCustomerTypefaceTextView) findViewById(R.id.setting_battery_tv);
-        setting_float_tv = (PrivacyCustomerTypefaceTextView) findViewById(R.id.setting_float_tv);
-        setting_tongzhilan_tv = (PrivacyCustomerTypefaceTextView) findViewById(R.id.setting_tongzhilan_tv);
-        setting_tongzhi_tv = (PrivacyCustomerTypefaceTextView) findViewById(R.id.setting_tongzhi_tv);
-        setting_unload_tv = (PrivacyCustomerTypefaceTextView) findViewById(R.id.setting_unload_tv);
     }
 
     @Override
@@ -210,11 +184,9 @@ public class SetActivityPrivacy extends BaseActivity {
                     if (PreData.getDB(SetActivityPrivacy.this, MyConstantPrivacy.TONGZHI_SWITCH, true)) {
                         PreData.putDB(SetActivityPrivacy.this, MyConstantPrivacy.TONGZHI_SWITCH, false);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_normal);
-                        setting_tongzhi_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
                     } else {
                         PreData.putDB(SetActivityPrivacy.this, MyConstantPrivacy.TONGZHI_SWITCH, true);
                         setting_tongzhi_check.setImageResource(R.mipmap.side_check_passed);
-                        setting_tongzhi_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
                     }
                     break;
                 case R.id.setting_tongzhilan:
@@ -224,11 +196,9 @@ public class SetActivityPrivacy extends BaseActivity {
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_normal);
                         Intent intent = new Intent(SetActivityPrivacy.this, PrivacyNotificationService.class);
                         stopService(intent);
-                        setting_tongzhilan_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
                     } else {
                         PreData.putDB(SetActivityPrivacy.this, MyConstantPrivacy.TONGZHILAN_SWITCH, true);
                         setting_tongzhilan_check.setImageResource(R.mipmap.side_check_passed);
-                        setting_tongzhilan_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
                         Intent intent = new Intent(SetActivityPrivacy.this, PrivacyNotificationService.class);
                         intent.setAction("notification");
                         startService(intent);
@@ -241,12 +211,10 @@ public class SetActivityPrivacy extends BaseActivity {
                         Intent intent1 = new Intent(SetActivityPrivacy.this, PrivacySuspensionBallService.class);
                         setting_float_check.setImageResource(R.mipmap.side_check_normal);
                         stopService(intent1);
-                        setting_float_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
                     } else {
                         PreData.putDB(SetActivityPrivacy.this, MyConstantPrivacy.FlOAT_SWITCH, true);
                         Intent intent1 = new Intent(SetActivityPrivacy.this, PrivacySuspensionBallService.class);
                         setting_float_check.setImageResource(R.mipmap.side_check_passed);
-                        setting_float_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
                         startService(intent1);
                     }
                     break;
@@ -254,7 +222,6 @@ public class SetActivityPrivacy extends BaseActivity {
                     SetAdUtilPrivacy.track("设置页面", "点击卸载残余开关", "", 1);
                     if (PreData.getDB(SetActivityPrivacy.this, MyConstantPrivacy.UNLOAD_SWITCH, true)) {
                         PreData.putDB(SetActivityPrivacy.this, MyConstantPrivacy.UNLOAD_SWITCH, false);
-                        setting_unload_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
                         Intent intent1 = new Intent(SetActivityPrivacy.this, UnloadResidualBroadcastPrivacy.class);
                         setting_unload_check.setImageResource(R.mipmap.side_check_normal);
                         stopService(intent1);
@@ -262,7 +229,6 @@ public class SetActivityPrivacy extends BaseActivity {
                         PreData.putDB(SetActivityPrivacy.this, MyConstantPrivacy.UNLOAD_SWITCH, true);
                         Intent intent1 = new Intent("com.privacy.junk.privacybroadcasts.UnloadResidualBroadcastPrivacy");
                         setting_unload_check.setImageResource(R.mipmap.side_check_passed);
-                        setting_unload_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
                         sendBroadcast(intent1);
                     }
                     break;
@@ -271,13 +237,11 @@ public class SetActivityPrivacy extends BaseActivity {
                         UtilsPrivacy.writeData(SetActivityPrivacy.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, false);
                         SetAdUtilPrivacy.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_normal);
-                        setting_battery_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4_54));
                     } else {
                         UtilsPrivacy.writeData(SetActivityPrivacy.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true);
                         SetAdUtilPrivacy.track("设置页面", "点击充电屏保开关", "开", 1);
                         PreData.putDB(SetActivityPrivacy.this, MyConstantPrivacy.FIRST_BATTERY, false);
                         setting_battery_check.setImageResource(R.mipmap.side_check_passed);
-                        setting_battery_tv.setTextColor(ContextCompat.getColor(SetActivityPrivacy.this, R.color.A4));
                     }
                     break;
                 case R.id.setting_white:

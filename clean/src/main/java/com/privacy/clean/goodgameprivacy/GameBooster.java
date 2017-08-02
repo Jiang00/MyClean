@@ -37,8 +37,6 @@ public class GameBooster {
             }
         } catch (Exception e) {
         }
-
-
         return list;
     }
 

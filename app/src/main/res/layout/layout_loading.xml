@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A1"
+    android:background="@mipmap/loading_beijing"
     android:orientation="vertical">
 
     <View
@@ -12,31 +12,37 @@
         android:layout_height="1dp" />
 
     <ImageView
-        android:layout_width="@dimen/d68"
-        android:layout_height="@dimen/d68"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/d217"
-        android:src="@mipmap/side_icon" />
+        android:id="@+id/loading_icon"
+        android:layout_width="@dimen/d38"
+        android:layout_height="@dimen/d38"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/d25"
+        android:layout_marginLeft="@dimen/d30"
+        android:src="@mipmap/loading_icon" />
 
     <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
         android:id="@+id/loading_tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/d22"
-        android:text="@string/app_name"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/d36"
+        android:layout_marginLeft="@dimen/d4"
+        android:layout_toRightOf="@+id/loading_icon"
         android:alpha="0"
-        android:textColor="@color/B3"
+        android:text="@string/app_name"
+        android:textColor="@color/A5"
         android:textSize="@dimen/s19" />
 
     <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
         android:id="@+id/loading_tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/d21"
+        android:layout_marginLeft="@dimen/d4"
+        android:layout_toRightOf="@+id/loading_icon"
         android:alpha="0"
-        android:layout_marginTop="@dimen/d9"
         android:text="@string/loading_describe"
-        android:textColor="@color/B3"
-        android:textSize="@dimen/s15" />
-</LinearLayout>
+        android:textColor="#99ffffff"
+        android:textSize="@dimen/s12" />
+</RelativeLayout>

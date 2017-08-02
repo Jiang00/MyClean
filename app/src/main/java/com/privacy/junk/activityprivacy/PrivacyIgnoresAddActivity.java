@@ -1,17 +1,11 @@
 package com.privacy.junk.activityprivacy;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,10 +25,8 @@ import java.util.List;
 public class PrivacyIgnoresAddActivity extends BaseActivity {
     EditText search_edit_text;
     TextView title_name;
-    LinearLayout title_right;
     FrameLayout title_left;
     ListView list_si;
-    ImageButton clear;
     IgnoreListViewAdapter adapter;
     private List<JunkInfo> white_list, listEdit;
     private boolean search;
@@ -47,14 +39,37 @@ public class PrivacyIgnoresAddActivity extends BaseActivity {
         setContentView(R.layout.layout_white_list_add);
         title_name.setText(R.string.white_list_add_name);
         title_left.setOnClickListener(clickListener);
-        title_right.setOnClickListener(clickListener);
-        clear.setOnClickListener(clickListener);
         white_list = new ArrayList<>();
         listEdit = new ArrayList<>();
         whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
         adapter = new IgnoreListViewAdapter(this);
         list_si.setAdapter(adapter);
         initData();
+
+        if (search) {
+            initData();
+            search = false;
+        } else {
+            search_edit_text.setText("");
+            search_edit_text.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void afterTextChanged(Editable s) {
+                    upData(s.toString());
+                }
+
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+            });
+            search = true;
+        }
+
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -63,12 +78,6 @@ public class PrivacyIgnoresAddActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.title_left:
                     onBackPressed();
-                    break;
-                case R.id.title_right:
-                    toggleEditAnimation();
-                    break;
-                case R.id.clear:
-                    toggleEditAnimation();
                     break;
             }
         }
@@ -79,67 +88,8 @@ public class PrivacyIgnoresAddActivity extends BaseActivity {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
-        title_right = (LinearLayout) findViewById(R.id.title_right);
         list_si = (ListView) findViewById(R.id.list_si);
-        clear = (ImageButton) findViewById(R.id.clear);
         search_edit_text = (EditText) findViewById(R.id.search_edit_text);
-    }
-
-    private void toggleEditAnimation() {
-        final View searchView = findViewById(R.id.search_container);// 翻转标题
-        View normalView = findViewById(R.id.normal_bar);// 标题
-
-        final View visibleView, invisibleView;
-        if (searchView.getVisibility() == View.GONE) {
-            visibleView = normalView;
-            invisibleView = searchView;
-        } else {
-            visibleView = searchView;
-            invisibleView = normalView;
-//            showSoftKeyboard(AbsActivity.this, null, false);
-        }
-
-        final ObjectAnimator invis2vis = ObjectAnimator.ofFloat(invisibleView, "rotationY", -90, 0);
-        invis2vis.setDuration(500);
-        invis2vis.setInterpolator(new LinearInterpolator());
-        ObjectAnimator vis2invis = ObjectAnimator.ofFloat(visibleView, "rotationY", 0, 90);
-        vis2invis.setDuration(500);
-        vis2invis.setInterpolator(new LinearInterpolator());
-
-        vis2invis.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                visibleView.setVisibility(View.GONE);
-                invisibleView.setVisibility(View.VISIBLE);
-
-                if (search) {
-                    initData();
-                    search = false;
-                } else {
-                    search_edit_text.setText("");
-                    search_edit_text.addTextChangedListener(new TextWatcher() {
-                        @Override
-                        public void afterTextChanged(Editable s) {
-                            upData(s.toString());
-                        }
-
-                        @Override
-                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                        }
-
-                        @Override
-                        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                        }
-                    });
-                    search = true;
-                }
-
-                invis2vis.start();
-            }
-        });
-        vis2invis.start();
     }
 
     private void upData(String string) {

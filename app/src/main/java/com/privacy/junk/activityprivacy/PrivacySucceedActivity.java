@@ -109,14 +109,6 @@ public class PrivacySucceedActivity extends BaseActivity {
         if (PreData.getDB(this, MyConstantPrivacy.NOTIFIACTIVITY, 1) == 0) {
             main_notifi_button.setVisibility(View.GONE);
         }
-        //游戏
-        if (PreData.getDB(this, MyConstantPrivacy.GOODGAME, 1) == 0) {
-            main_gboost_button.setVisibility(View.GONE);
-        }
-        //相似图片
-        if (PreData.getDB(this, MyConstantPrivacy.PICTUREX, 1) == 0) {
-            main_picture_button.setVisibility(View.GONE);
-        }
 
         tweenManager = new TweenManager();
         Tween.registerAccessor(ImageView.class, new PrivacyImageAccessor());

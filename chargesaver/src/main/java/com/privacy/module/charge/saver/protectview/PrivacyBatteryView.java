@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,7 +14,7 @@ public class PrivacyBatteryView extends View {
     Context context;
     boolean isStop = false;
     int battery;
-    Canvas canvas;
+    int w = (int) getResources().getDimension(R.dimen.d152);
 
     public PrivacyBatteryView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -25,20 +24,18 @@ public class PrivacyBatteryView extends View {
 
     private void init() {
         paint = new Paint();
-        paint.setColor(ContextCompat.getColor(context, R.color.A1));
+        paint.setColor(0xff49e7fe);
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL);
     }
 
-    int w = (int) getResources().getDimension(R.dimen.d112);
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.canvas = canvas;
         // 画矩形(RectF)
-        RectF rectf = new RectF(0, 0, w * battery / 100, getResources().getDimension(R.dimen.d54));
-        canvas.drawRect(rectf, paint);
+        RectF rectf = new RectF(0, 0, w * battery / 100, getResources().getDimension(R.dimen.d84));
+//        canvas.drawRect(rectf, paint);
+        canvas.drawRoundRect(rectf, getResources().getDimension(R.dimen.d10), getResources().getDimension(R.dimen.d10), paint);//第二个参数是x半径，第三个参数是y半径
     }
 
     public void setDuShu(int battery) {
@@ -48,8 +45,6 @@ public class PrivacyBatteryView extends View {
 
     public void start(final float battery) {
         setDuShu((int) battery);
-//        this.battery = 0;
-
     }
 
     @Override

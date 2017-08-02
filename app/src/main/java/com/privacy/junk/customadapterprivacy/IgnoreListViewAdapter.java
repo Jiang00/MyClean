@@ -44,20 +44,15 @@ public class IgnoreListViewAdapter extends MybaseAdapter<JunkInfo> {
                     .findViewById(R.id.iv_le);
             holder.tv_lable = (TextView) convertView
                     .findViewById(R.id.tv_name);
-//            holder.tv_zhuangtai = (TextView) convertView
-//                    .findViewById(R.id.tv_zhuangtai);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-//        holder.tv_zhuangtai.setVisibility(View.VISIBLE);
         if (info.isWhiteList) {
             holder.checkBox.setImageResource(R.mipmap.white_jian);
-//            holder.tv_zhuangtai.setVisibility(View.VISIBLE);
         } else {
             holder.checkBox.setImageResource(R.mipmap.white_add);
-//            holder.tv_zhuangtai.setVisibility(View.GONE);
         }
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +117,6 @@ public class IgnoreListViewAdapter extends MybaseAdapter<JunkInfo> {
     public class ViewHolder {
         TextView tv_lable;
         ImageView checkBox;
-        //        TextView tv_zhuangtai;
         ImageView iv_icon;
     }
 }

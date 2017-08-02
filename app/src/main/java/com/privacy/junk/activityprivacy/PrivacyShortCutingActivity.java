@@ -44,7 +44,7 @@ public class PrivacyShortCutingActivity extends BaseActivity {
     private String TAG_SHORTCUT = "cprivacy_shortcut";
     private static final int FLAKE_NUM = 3;
     private Handler myHandler;
-    ImageView short_huojian;
+    ImageView short_huojian, short_huojian1, short_huojian2;
     LinearLayout ll_ad;
     FrameLayout short_fl;
     private View nativeView;
@@ -65,6 +65,8 @@ public class PrivacyShortCutingActivity extends BaseActivity {
         short_backg = (FrameLayout) findViewById(R.id.short_backg);
         short_fl = (FrameLayout) findViewById(R.id.short_fl);
         short_huojian = (ImageView) findViewById(R.id.short_huojian);
+        short_huojian1 = (ImageView) findViewById(R.id.short_huojian1);
+        short_huojian2 = (ImageView) findViewById(R.id.short_huojian2);
     }
 
     @Override
@@ -258,9 +260,11 @@ public class PrivacyShortCutingActivity extends BaseActivity {
         LinearInterpolator lir = new LinearInterpolator();
         AnimatorSet set = new AnimatorSet();
         ObjectAnimator rotation = ObjectAnimator.ofFloat(short_huojian, "rotation", 0, 359f);
+        ObjectAnimator rotation1 = ObjectAnimator.ofFloat(short_huojian1, "rotation", 0, 359f);
         set.setInterpolator(lir);
-        rotation.setRepeatCount(6);
-        set.setDuration(200);
+        rotation.setRepeatCount(5);
+        rotation1.setRepeatCount(5);
+        set.setDuration(300);
         set.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationCancel(Animator animation) {
@@ -269,6 +273,7 @@ public class PrivacyShortCutingActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                short_huojian2.setImageResource(R.mipmap.short_3);
                 short_fl.startAnimation(suo);
             }
 
@@ -282,7 +287,7 @@ public class PrivacyShortCutingActivity extends BaseActivity {
 
             }
         });
-        set.play(rotation);
+        set.play(rotation).with(rotation1);
         set.start();
         suo.setAnimationListener(new Animation.AnimationListener() {
             @Override

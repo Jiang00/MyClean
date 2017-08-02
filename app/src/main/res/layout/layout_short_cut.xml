@@ -20,22 +20,36 @@
 
         <FrameLayout
             android:id="@+id/short_fl"
-            android:layout_width="@dimen/d90"
-            android:layout_height="@dimen/d90"
+            android:layout_width="@dimen/d84"
+            android:layout_height="@dimen/d84"
             android:layout_gravity="center">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d84"
                 android:layout_gravity="center"
                 android:src="@mipmap/short_6" />
 
             <ImageView
                 android:id="@+id/short_huojian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d84"
                 android:layout_gravity="center"
                 android:src="@mipmap/short_1" />
+
+            <ImageView
+                android:id="@+id/short_huojian1"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d84"
+                android:layout_gravity="center"
+                android:src="@mipmap/short_2" />
+
+            <ImageView
+                android:id="@+id/short_huojian2"
+                android:layout_width="@dimen/d84"
+                android:layout_height="@dimen/d84"
+                android:layout_gravity="center"
+                android:src="@mipmap/short_4" />
         </FrameLayout>
     </LinearLayout>
 </FrameLayout>

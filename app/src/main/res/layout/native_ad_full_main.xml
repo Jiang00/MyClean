@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/A1">
+    android:background="@mipmap/loading_beijing">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -140,7 +140,7 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/loading_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -156,36 +156,37 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="@dimen/d45"
-                    android:layout_height="@dimen/d45"
-                    android:src="@mipmap/side_icon" />
+                    android:layout_width="@dimen/d38"
+                    android:layout_height="@dimen/d38"
+                    android:layout_marginTop="@dimen/d5"
+                    android:src="@mipmap/loading_icon" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/d20"
-                    android:layout_marginLeft="@dimen/d16"
+                    android:layout_marginBottom="@dimen/d25"
+                    android:layout_marginLeft="@dimen/d4"
                     android:orientation="vertical">
 
                     <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/app_name"
                         android:layout_marginTop="@dimen/d2"
-                        android:textColor="@color/A7"
-                        android:textSize="@dimen/s16" />
+                        android:text="@string/app_name"
+                        android:textColor="@color/A5"
+                        android:textSize="@dimen/s19" />
 
                     <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="@dimen/d6"
+                        android:layout_marginTop="@dimen/d3"
                         android:text="@string/loading_describe"
-                        android:textColor="@color/A17"
-                        android:textSize="@dimen/s15" />
+                        android:textColor="#99ffffff"
+                        android:textSize="@dimen/s12" />
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
 

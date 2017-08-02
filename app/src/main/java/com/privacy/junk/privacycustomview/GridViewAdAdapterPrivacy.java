@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.privacy.junk.R;
@@ -59,21 +60,21 @@ public class GridViewAdAdapterPrivacy extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = mInflater.inflate(R.layout.layout_gboost_item, null);
         LinearLayout linearlayou_add = (LinearLayout) convertView.findViewById(R.id.linearlayou_add);
-//        LinearLayout linearlayout_qita = (LinearLayout) convertView.findViewById(R.id.linearlayout_qita);
+        RelativeLayout linearlayout_qita = (RelativeLayout) convertView.findViewById(R.id.linearlayout_qita);
         ImageView gboost_item_icon = (ImageView) convertView.findViewById(R.id.gboost_item_icon);
-        ImageView gboost_item_add = (ImageView) convertView.findViewById(R.id.gboost_item_add);
         TextView gboost_item_name = (TextView) convertView.findViewById(R.id.gboost_item_name);
-        TextView gboost_item_addname = (TextView) convertView.findViewById(R.id.gboost_item_addname);
+
+        ImageView gboost_item_add = (ImageView) convertView.findViewById(R.id.gboost_item_add);
         if (TextUtils.equals(context.getString(R.string.gboost_7), list.get(position))) {
-//            linearlayout_qita.setVisibility(View.GONE);
+            linearlayout_qita.setVisibility(View.GONE);
             gboost_item_add.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.gboost_add));
-            gboost_item_addname.setText(list.get(position));
         } else {
             try {
-//                linearlayou_add.setVisibility(View.GONE);
+                linearlayou_add.setVisibility(View.GONE);
+                linearlayout_qita.setVisibility(View.VISIBLE);
                 ApplicationInfo info = pm.getApplicationInfo(list.get(position), 0);
-                gboost_item_add.setImageDrawable(info.loadIcon(pm));
-                gboost_item_addname.setText(info.loadLabel(pm));
+                gboost_item_icon.setImageDrawable(info.loadIcon(pm));
+                gboost_item_name.setText(info.loadLabel(pm));
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }

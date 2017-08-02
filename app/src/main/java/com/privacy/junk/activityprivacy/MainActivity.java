@@ -30,35 +30,33 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
+import com.android.client.ClientNativeAd;
 import com.mingle.privacycircletreveal.CircularRevealCompat;
 import com.mingle.widgetprivacy.animation.CRAnimation;
 import com.mingle.widgetprivacy.animation.SimpleAnimListener;
 import com.privacy.clean.core.CleanManager;
+import com.privacy.clean.entity.JunkInfo;
 import com.privacy.clean.utilsprivacy.MyUtils;
 import com.privacy.clean.utilsprivacy.PreData;
-import com.privacy.clean.entity.JunkInfo;
 import com.privacy.junk.R;
 import com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter;
-import com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu;
-import com.privacy.junk.privacycustomview.DynamicWavePrivacy;
-import com.privacy.junk.privacycustomview.KuoShan;
-import com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy;
-import com.privacy.junk.privacycustomview.ScrollView;
-import com.privacy.junk.privacycustomview.PrivacyYuanHuView;
 import com.privacy.junk.interfaceviewprivacy.MainViewPrivacy;
-import com.privacy.junk.privacymodel.SideInfo;
 import com.privacy.junk.presenterprivacy.PrivacyPresenterMain;
+import com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy;
+import com.privacy.junk.privacycustomview.MainYuanHuView;
+import com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu;
+import com.privacy.junk.privacycustomview.PrivacyYuanHuView;
+import com.privacy.junk.privacycustomview.PullToRefreshLayout;
+import com.privacy.junk.privacycustomview.ScrollView;
+import com.privacy.junk.privacymodel.SideInfo;
 import com.privacy.junk.toolsprivacy.MyConstantPrivacy;
 import com.privacy.junk.toolsprivacy.SetAdUtilPrivacy;
 import com.privacy.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
 import com.privacy.module.charge.saver.privacyutils.UtilsPrivacy;
-import com.sample.lottie.L;
 
 import java.io.File;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -72,26 +70,23 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     private String TAG_REFRESH = "drag";
     public static final String TAG = "MainActivity";
     PrivacyCustomRoundCpu main_custom_cpu, main_custom_ram, main_custom_sd;
-    LinearLayout main_cooling_button;
-    PrivacyYuanHuView main_yuanhu3, main_yuanhu2, main_yuanhu1;
-    ImageView main_crile3, main_crile2, main_crile1;
-    TextView main_junk_percentage, main_ram_percentage, main_app_percentage;
-    KuoShan main_quan;
+    RelativeLayout main_cooling_button;
     ObjectAnimator objectAnimator;
-    TextView main_days;
     ScrollView main_scroll_view;
-    TextView main_phone;
     LinearLayout iv_title_right;
     LinearLayout iv_title_left;
     ListViewForScrollViewPrivacy side_listView;
     DrawerLayout main_drawer;
+    TextView main_msg_sd_percent_danwei;
     LinearLayout ll_ad, ll_ad_side, ad_native_2, ll_ad_s;
-    LinearLayout main_junk_button, main_ram_button2, main_cooling_button2;
+    RelativeLayout main_junk_button;
     LinearLayout ll_ad_full;
     LinearLayout main_rotate_all;
     TextView main_full_time;
+    MainYuanHuView main_yunahuan;
     private PrivacySidebarAdapter adapter;
-    RelativeLayout main_power_button, main_file_button, main_notifi_button, main_picture_button2;
+    RelativeLayout main_power_button, main_file_button, main_notifi_button, main_picture_button2, main_picture_button, main_ram_button;
+    LinearLayout main_manager_button;
     RelativeLayout main_gboost_button;
     TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_cpu_percent;
     private ArrayList<JunkInfo> startList;
@@ -110,7 +105,9 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     ImageView main_rotate_close;
     LinearLayout main_msg_button;
     ProgressBar ad_progressbar;
-    DynamicWavePrivacy mian_water_bottom;
+    PullToRefreshLayout main_pull_refresh;
+    String junkSize;
+    PrivacyYuanHuView main_msg_ram_yuanhu, main_msg_sd_yuanhu, main_msg_cpu_yuanhu;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -125,29 +122,14 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         if (PreData.getDB(this, MyConstantPrivacy.POWERACTIVITY, 1) == 0) {
             main_power_button.setVisibility(View.GONE);
         }
-        //游戏
-        if (PreData.getDB(this, MyConstantPrivacy.GOODGAME, 1) == 0) {
-            main_gboost_button.setVisibility(View.GONE);
-        }
-        //相似图片
-        if (PreData.getDB(this, MyConstantPrivacy.PICTUREX, 1) == 0) {
-            main_picture_button2.setVisibility(View.GONE);
-        }
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
-        main_phone.setText(Build.MODEL);
         mainPresenter = new PrivacyPresenterMain(this, this);
         mainPresenter.init();
         mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
         SetAdUtilPrivacy.track("主页面", "进入主页面", "", 1);
-        mian_water_bottom.upDate(40);
-        main_quan.start(getResources().getDimensionPixelSize(com.privacy.module.charge.saver.R.dimen.d134),
-                getResources().getDimensionPixelSize(com.privacy.module.charge.saver.R.dimen.d98)
-                , getResources().getDimensionPixelSize(com.privacy.module.charge.saver.R.dimen.d1), 35, 0.3f);//圆扩散
-        //守护时间
-        main_days.setText(getString(R.string.main_day, getMonthSpace(getAnZhuangTime(), new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date()))));
     }
 
     @Override
@@ -159,18 +141,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
             public void run() {
                 // 设置硬件信息里的CPU温度
                 main_msg_cpu_percent.setText(String.valueOf(temp) + "℃");
-                main_app_percentage.setText(temp + "℃");
-                main_yuanhu3.start(temp * 3.6f);
-                if (temp < 30) {
-                    main_crile3.setImageResource(R.mipmap.main_cpu1);
-                    main_app_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
-                } else if (temp >= 30 && temp < 80) {
-                    main_app_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
-                    main_crile3.setImageResource(R.mipmap.main_cpu2);
-                } else {
-                    main_app_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
-                    main_crile3.setImageResource(R.mipmap.main_cpu3);
-                }
+                main_msg_cpu_yuanhu.setDuShu(temp * 3.6f, ContextCompat.getColor(MainActivity.this, R.color.A9), 225);
             }
         });
     }
@@ -193,20 +164,19 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         iv_title_left = (LinearLayout) findViewById(R.id.iv_title_left);
         main_fenshu = (TextView) findViewById(R.id.main_fenshu);
         main_clean_lin = (LinearLayout) findViewById(R.id.main_clean_lin);
+        main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
         main_junk_huan = (TextView) findViewById(R.id.main_junk_huan);
         main_title = (RelativeLayout) findViewById(R.id.main_title);
+        main_msg_sd_percent_danwei = (TextView) findViewById(R.id.main_msg_sd_percent_danwei);
         main_point = (ImageView) findViewById(R.id.main_point);
-        main_phone = (TextView) findViewById(R.id.main_phone);
         main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
         main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
         main_msg_cpu_percent = (TextView) findViewById(R.id.main_msg_cpu_percent);
         main_custom_cpu = (PrivacyCustomRoundCpu) findViewById(R.id.main_custom_cpu);
         main_custom_ram = (PrivacyCustomRoundCpu) findViewById(R.id.main_custom_ram);
         main_custom_sd = (PrivacyCustomRoundCpu) findViewById(R.id.main_custom_sd);
-        mian_water_bottom = (DynamicWavePrivacy) findViewById(R.id.mian_water_bottom);
-        main_junk_button = (LinearLayout) findViewById(R.id.main_junk_button);
-        main_cooling_button = (LinearLayout) findViewById(R.id.main_cooling_button);
-        main_cooling_button2 = (LinearLayout) findViewById(R.id.main_cooling_button2);
+        main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
+        main_cooling_button = (RelativeLayout) findViewById(R.id.main_cooling_button);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
         main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
@@ -215,6 +185,9 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         main_power_button = (RelativeLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (RelativeLayout) findViewById(R.id.main_notifi_button);
         main_picture_button2 = (RelativeLayout) findViewById(R.id.main_picture_button2);
+        main_picture_button = (RelativeLayout) findViewById(R.id.main_picture_button);
+        main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
+        main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
         main_file_button = (RelativeLayout) findViewById(R.id.main_file_button);
         main_gboost_button = (RelativeLayout) findViewById(R.id.main_gboost_button);
         side_listView = (ListViewForScrollViewPrivacy) findViewById(R.id.side_listview);
@@ -224,32 +197,21 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         ll_ad_s = (LinearLayout) findViewById(R.id.ll_ad_s);
         ll_ad_full = (com.mingle.widgetprivacy.LinearLayout) findViewById(R.id.ll_ad_full);
         ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
-        main_ram_button2 = (LinearLayout) findViewById(R.id.main_ram_button2);
-        main_quan = (KuoShan) findViewById(R.id.main_quan);
         main_battery = (LinearLayout) findViewById(R.id.main_battery);
 
-        main_crile1 = (ImageView) findViewById(R.id.main_crile1);
-        main_crile2 = (ImageView) findViewById(R.id.main_crile2);
-        main_crile3 = (ImageView) findViewById(R.id.main_crile3);
-
-        main_yuanhu1 = (PrivacyYuanHuView) findViewById(R.id.main_yuanhu1);
-        main_yuanhu2 = (PrivacyYuanHuView) findViewById(R.id.main_yuanhu2);
-        main_yuanhu3 = (PrivacyYuanHuView) findViewById(R.id.main_yuanhu3);
-
-        main_junk_percentage = (TextView) findViewById(R.id.main_junk_percentage);
-        main_ram_percentage = (TextView) findViewById(R.id.main_ram_percentage);
-        main_app_percentage = (TextView) findViewById(R.id.main_app_percentage);
-        main_days = (TextView) findViewById(R.id.main_days);
-
+        main_msg_ram_yuanhu = (PrivacyYuanHuView) findViewById(R.id.main_msg_ram_yuanhu);
+        main_msg_sd_yuanhu = (PrivacyYuanHuView) findViewById(R.id.main_msg_sd_yuanhu);
+        main_msg_cpu_yuanhu = (PrivacyYuanHuView) findViewById(R.id.main_msg_cpu_yuanhu);
+        main_yunahuan = (MainYuanHuView) findViewById(R.id.main_yunahuan);
     }
 
     //初始化监听
     public void onClick() {
+        main_pull_refresh.setOnRefreshListener(refreshListener);
         iv_title_right.setOnClickListener(onClickListener);
         iv_title_left.setOnClickListener(onClickListener);
         main_junk_button.setOnClickListener(onClickListener);
         main_cooling_button.setOnClickListener(onClickListener);
-        main_cooling_button2.setOnClickListener(onClickListener);
         main_rotate_good.setOnClickListener(onClickListener);
         main_rotate_bad.setOnClickListener(onClickListener);
         main_rotate_close.setOnClickListener(onClickListener);
@@ -259,10 +221,47 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         main_file_button.setOnClickListener(onClickListener);
         main_gboost_button.setOnClickListener(onClickListener);
         main_picture_button2.setOnClickListener(onClickListener);
+        main_picture_button.setOnClickListener(onClickListener);
+        main_ram_button.setOnClickListener(onClickListener);
+        main_manager_button.setOnClickListener(onClickListener);
         main_clean_lin.setOnClickListener(onClickListener);
-        main_ram_button2.setOnClickListener(onClickListener);
 
     }
+
+    //上拉刷新监听
+    PullToRefreshLayout.OnRefreshListener refreshListener = new PullToRefreshLayout.OnRefreshListener() {
+        // 下拉刷新操作
+        @Override
+        public void onRefresh(PullToRefreshLayout pullToRefreshLayout) {
+        }
+
+        //上拉加载操作
+        @Override
+        public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {
+            SetAdUtilPrivacy.track("主页面", "刷新成功", "", 1);
+            AndroidSdk.loadNativeAd(TAG_FULL_PULL, R.layout.native_ad_full, new ClientNativeAd.NativeAdLoadListener() {
+                @Override
+                public void onNativeAdLoadSuccess(View view) {
+                    main_pull_refresh.loadmoreFinish(PullToRefreshLayout.SUCCEED);
+                    main_scroll_view.setXadSuccess(true);
+                    if (ad_native_2 != null) {
+                        ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
+                        layout_ad.height = main_scroll_view.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
+                        ad_native_2.setLayoutParams(layout_ad);
+                        ad_native_2.addView(view);
+                        ad_native_2.setVisibility(View.VISIBLE);
+                        main_scroll_view.isTouch = false;
+                        main_scroll_view.smoothScrollToSlow(2000);
+                    }
+                }
+
+                @Override
+                public void onNativeAdLoadFails() {
+                    main_pull_refresh.loadmoreFinish(PullToRefreshLayout.FAIL);
+                }
+            });
+        }
+    };
 
     private void setColor(int percent, boolean isReStart) {
     }
@@ -276,26 +275,31 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
 
         adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) UtilsPrivacy.readData(this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, false)));//充电屏保
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, MyConstantPrivacy.FlOAT_SWITCH, true)));//桌面悬浮球
-        adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
-        adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
-        adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
+        adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, MyConstantPrivacy.POWERACTIVITY, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, MyConstantPrivacy.NOTIFIACTIVITY, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
+        }
         adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片清理
-        adapter.addData(new SideInfo(R.string.side_manager, R.mipmap.side_manager));//应用管理
-        adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, MyConstantPrivacy.FILEACTIVITY, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
+        }
         adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.side_gboost));//游戏加速
-//        adapter.addData(new SideInfo(R.string.white_list_name, R.mipmap.side_white));//白名单
-        adapter.addData(new SideInfo(R.string.main_cooling_name, R.mipmap.side_cooling));//电池降温
         adapter.addData(new SideInfo(R.string.side_setting, R.mipmap.side_setting));//设置
         adapter.addData(new SideInfo(R.string.side_rotate, R.mipmap.side_rotate));//好评
         side_listView.setAdapter(adapter);
     }
 
     int mainFenShu;
+    long finalI2;
 
     @Override
     public void initQiu(final int fenshu, boolean isReStart) {
         setColor(fenshu, isReStart);
+        finalI2 = fenshu;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -320,6 +324,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                             main_fenshu.setText(String.valueOf(finalI));
                         }
                     });
+
                     if (i == fenshu) {
                         mainFenShu = i;
                         if (objectAnimator != null) {
@@ -401,7 +406,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                 ll_ad_full.setVisibility(View.VISIBLE);
                 nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
                 main_full_time = (TextView) nativeView_full.findViewById(R.id.main_full_time);
-                LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
+                RelativeLayout loading_text = (RelativeLayout) nativeView_full.findViewById(R.id.loading_text);
                 loading_text.setOnClickListener(null);
                 main_full_time.setVisibility(View.VISIBLE);
                 main_full_time.setOnClickListener(new View.OnClickListener() {
@@ -453,23 +458,12 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     SetAdUtilPrivacy.track("主页面", "点击垃圾所有按钮", "", 1);
                     mainPresenter.jumpToActivity(PrivacyRubbishAndRamActivity.class, 1);
                     break;
-                case R.id.main_ram_button2:
-                    SetAdUtilPrivacy.track("主页面", "点击ram清理按钮", "", 1);
-                    mainPresenter.jumpToActivity(PrivacyMemoryAvtivity.class, 1);
-                    break;
                 case R.id.main_cooling_button:
                     SetAdUtilPrivacy.track("主页面", "点击降温按钮", "", 1);
                     Bundle bundle1 = new Bundle();
                     bundle1.putString("from", "main");
                     bundle1.putInt("wendu", temp);
                     mainPresenter.jumpToActivity(PrivacyBatteriesActivity.class, bundle1, 1);
-                    break;
-                case R.id.main_cooling_button2:
-                    SetAdUtilPrivacy.track("主页面", "点击降温按钮", "", 1);
-                    Bundle bundle2 = new Bundle();
-                    bundle2.putString("from", "main");
-                    bundle2.putInt("wendu", temp);
-                    mainPresenter.jumpToActivity(PrivacyBatteriesActivity.class, bundle2, 1);
                     break;
                 case R.id.main_rotate_good:
                     SetAdUtilPrivacy.track("主页面", "点击好评good按钮", "", 1);
@@ -508,6 +502,19 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     PreData.putDB(MainActivity.this, MyConstantPrivacy.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(PictActivityPrivacy.class, 1);
                     break;
+                case R.id.main_picture_button:
+                    SetAdUtilPrivacy.track("主页面", "点击进入相似图片", "", 1);
+                    PreData.putDB(MainActivity.this, MyConstantPrivacy.PHOTO_CLEAN, true);
+                    mainPresenter.jumpToActivity(PictActivityPrivacy.class, 1);
+                    break;
+                case R.id.main_ram_button:
+                    SetAdUtilPrivacy.track("主页面", "点击进入相似图片", "", 1);
+                    mainPresenter.jumpToActivity(PrivacyMemoryAvtivity.class, 1);
+                    break;
+                case R.id.main_manager_button:
+                    SetAdUtilPrivacy.track("主页面", "点击进入应用管理", "", 1);
+                    mainPresenter.jumpToActivity(AllAppsActivityPrivacy.class, 1);
+                    break;
                 case R.id.main_notifi_button:
                     SetAdUtilPrivacy.track("主页面", "点击进入通知栏清理", "", 1);
                     PreData.putDB(MainActivity.this, MyConstantPrivacy.NOTIFI_CLEAN, true);
@@ -525,11 +532,13 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     UtilsPrivacy.writeData(MainActivity.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true);
                     initSideData();
                     adapter.notifyDataSetChanged();
-                    SetAdUtilPrivacy.track("主界面", "充电屏保引导", "叉掉", 1);
+                    SetAdUtilPrivacy.track("主界面", "充电屏保引导", "打开", 1);
                     break;
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);
-                    SetAdUtilPrivacy.track("主界面", "充电屏保引导", "打开", 1);
+                    PreData.putDB(MainActivity.this, MyConstantPrivacy.FIRST_BATTERY, false);
+                    UtilsPrivacy.writeData(MainActivity.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, false);
+                    SetAdUtilPrivacy.track("主界面", "充电屏保引导", "叉掉", 1);
                     break;
             }
         }
@@ -565,55 +574,55 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     @Override
     public void initSd(final int percent, final String size, final long sd_kongxian) {
         final String[] arr = size.split("/");
+
         main_custom_sd.startProgress(true, percent);
 
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                main_msg_sd_percent.setText(arr[1] + "B ");
+                //根据剩余的空间大小来设置单位
+                if (sd_kongxian < 1024) {
+                    junkSize = MyUtils.convertStorage(sd_kongxian, false) + "B";
+                    //设置硬件信息里的剩余空间
+                    main_msg_sd_percent.setText(junkSize.substring(0, junkSize.length() - 2));
+                    main_msg_sd_percent_danwei.setText("B");
+                } else if (sd_kongxian < 1048576) {
+                    junkSize = MyUtils.convertStorage(sd_kongxian, false) + "KB";
+                    //设置硬件信息里的剩余空间
+                    main_msg_sd_percent.setText(junkSize.substring(0, junkSize.length() - 2));
+                    main_msg_sd_percent_danwei.setText("KB");
+                } else if (sd_kongxian < 1073741824) {
+                    junkSize = MyUtils.convertStorage(sd_kongxian, false) + "MB";
+                    //设置硬件信息里的剩余空间
+                    main_msg_sd_percent.setText(junkSize.substring(0, junkSize.length() - 2));
+                    main_msg_sd_percent_danwei.setText("MB");
+                } else {
+                    junkSize = MyUtils.convertStorage(sd_kongxian, false) + "GB";
+                    //设置硬件信息里的剩余空间
+                    main_msg_sd_percent.setText(junkSize.substring(0, junkSize.length() - 2));
+                    main_msg_sd_percent_danwei.setText("GB");
+                }
+                main_msg_sd_yuanhu.setDuShu((100 - percent) * 3.6f, ContextCompat.getColor(MainActivity.this, R.color.A7), 135);
+
                 junk_size = CleanManager.getInstance(MainActivity.this).getApkSize() + CleanManager.getInstance(MainActivity.this).getCacheSize() +
                         CleanManager.getInstance(MainActivity.this).getUnloadSize() + CleanManager.getInstance(MainActivity.this).getLogSize() + CleanManager.getInstance(MainActivity.this).getDataSize();
                 // MyUtils.convertStorage(junk_size, true) true返回的带单位，false不带单位
                 long ramSize = CleanManager.getInstance(MainActivity.this).getRamSize();
-                main_junk_huan.setText(MyUtils.convertStorage(junk_size + ramSize, true) + "B " + getResources().getString(R.string.main_junk_file));
-                main_junk_percentage.setText(percent + "%");
-                main_yuanhu1.start(percent * 3.6f);
-                if (percent < 30) {
-                    main_crile1.setImageResource(R.mipmap.mian_junk3);
-                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
-                } else if (percent >= 30 && percent < 80) {
-                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
-                    main_crile1.setImageResource(R.mipmap.mian_junk1);
-                } else {
-                    main_junk_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
-                    main_crile1.setImageResource(R.mipmap.mian_junk2);
-                }
+                main_junk_huan.setText(getResources().getString(R.string.main_junk_file) + " " + MyUtils.convertStorage(junk_size + ramSize, true) + "B");
             }
         });
     }
 
     @Override
     public void initRam(final int percent, final String size) {
-        Log.e("sdfsd", "========" + size);
-        final String[] arr = size.split("/");
+        Log.e("sdfsd", "========" + size + "===" + percent);
         main_custom_ram.startProgress(false, percent);
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 // 设置硬件信息里的内存
-                main_msg_ram_percent.setText(arr[1] + "B " + "B");
-                main_ram_percentage.setText(percent + "%");
-                main_yuanhu2.start(percent * 3.6f);
-                if (percent < 30) {
-                    main_crile2.setImageResource(R.mipmap.mian_ram2);
-                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A1));
-                } else if (percent >= 30 && percent < 80) {
-                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A2));
-                    main_crile2.setImageResource(R.mipmap.mian_ram1);
-                } else {
-                    main_ram_percentage.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.A3));
-                    main_crile2.setImageResource(R.mipmap.mian_ram3);
-                }
+                main_msg_ram_percent.setText(String.valueOf(percent) + "%");
+                main_msg_ram_yuanhu.setDuShu(percent * 3.6f, ContextCompat.getColor(MainActivity.this, R.color.A1), 90);
             }
         });
     }
@@ -621,12 +630,11 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     @Override
     protected void onStart() {
         super.onStart();
-        objectAnimator = ObjectAnimator.ofFloat(main_point, "rotation", 0f, 360f);
-        objectAnimator.setRepeatCount(-1);
+        objectAnimator = ObjectAnimator.ofFloat(main_point, "rotation", 0f, finalI2 * 2.4f);
 
         LinearInterpolator lir = new LinearInterpolator();
         objectAnimator.setInterpolator(lir);
-        objectAnimator.setDuration(400);
+        objectAnimator.setDuration(2000);
         objectAnimator.start();
     }
 
@@ -808,22 +816,5 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
             e.printStackTrace();
         }
         return str;
-    }
-
-    public static int getMonthSpace(String date1, String date2) {
-        int result = 0;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-        Calendar c1 = Calendar.getInstance();
-        Calendar c2 = Calendar.getInstance();
-
-        try {
-            c1.setTime(sdf.parse(date1));
-            c2.setTime(sdf.parse(date2));
-            result = c2.get(Calendar.MONTH) - c1.get(Calendar.MONTH);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return result == 0 ? 1 : Math.abs(result);
     }
 }

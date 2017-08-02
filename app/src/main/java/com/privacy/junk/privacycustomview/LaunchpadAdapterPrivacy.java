@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.privacy.junk.R;
@@ -74,15 +75,13 @@ public class LaunchpadAdapterPrivacy extends PagerAdapter<String> {
     public void onBindView(View view, String junkInfo) {
 
         LinearLayout linearlayou_add = (LinearLayout) view.findViewById(R.id.linearlayou_add);
-        LinearLayout linearlayout_qita = (LinearLayout) view.findViewById(R.id.linearlayout_qita);
+        RelativeLayout linearlayout_qita = (RelativeLayout) view.findViewById(R.id.linearlayout_qita);
         ImageView gboost_item_icon = (ImageView) view.findViewById(R.id.gboost_item_icon);
         ImageView gboost_item_add = (ImageView) view.findViewById(R.id.gboost_item_add);
         TextView gboost_item_name = (TextView) view.findViewById(R.id.gboost_item_name);
-        TextView gboost_item_addname = (TextView) view.findViewById(R.id.gboost_item_addname);
         if (TextUtils.equals(context.getString(R.string.gboost_7), junkInfo)) {
             linearlayout_qita.setVisibility(View.GONE);
             gboost_item_add.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.gboost_add));
-            gboost_item_addname.setText(junkInfo);
         } else {
             try {
                 linearlayou_add.setVisibility(View.GONE);

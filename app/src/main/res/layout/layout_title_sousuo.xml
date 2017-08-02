@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/A1">
     <!--a添加白名单标题-->
     <RelativeLayout
         android:id="@+id/normal_bar"
@@ -11,7 +12,7 @@
 
         <FrameLayout
             android:id="@+id/title_left"
-            android:layout_width="@dimen/d72"
+            android:layout_width="@dimen/d56"
             android:layout_height="@dimen/d56"
             android:layout_centerVertical="true"
             android:background="?attr/selectableItemBackground">
@@ -28,75 +29,10 @@
             android:id="@+id/title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/app_name"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/s18" />
-
-        <LinearLayout
-            android:id="@+id/title_right"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:padding="@dimen/d8">
-
-            <ImageView
-                android:layout_width="@dimen/d24"
-                android:layout_height="@dimen/d24"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="@dimen/d8"
-                android:gravity="center"
-                android:scaleType="center"
-                android:src="@mipmap/white_add_right" />
-        </LinearLayout>
-    </RelativeLayout>
-
-    <!--点击搜索按钮后的标题-->
-    <FrameLayout
-        android:id="@+id/search_container"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d56"
-        android:layout_marginLeft="@dimen/d18"
-        android:layout_marginRight="@dimen/d18"
-        android:visibility="gone">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d30"
-            android:layout_gravity="center"
-            android:background="@drawable/shape_radio" />
-
-        <EditText
-            android:id="@+id/search_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d43"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/d28"
-            android:layout_marginRight="@dimen/d18"
-            android:background="@null"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:hint="@string/edit_hint"
-            android:singleLine="true"
+            android:layout_marginLeft="@dimen/d56"
+            android:text="@string/app_name"
             android:textColor="@color/A5"
-            android:textColorHint="@color/A5"
-            android:textSize="@dimen/s14" />
-
-        <ImageView
-            android:layout_width="@dimen/d18"
-            android:layout_height="@dimen/d18"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d10"
-            android:src="@mipmap/edit_left_drawable" />
-
-        <ImageButton
-            android:id="@+id/clear"
-            android:layout_width="@dimen/d11"
-            android:layout_height="@dimen/d11"
-            android:layout_gravity="center_vertical|end"
-            android:layout_marginRight="@dimen/d10"
-            android:background="@mipmap/eidt_cha"
-            android:padding="@dimen/d10" />
-    </FrameLayout>
+            android:textSize="@dimen/s18" />
+    </RelativeLayout>
 </RelativeLayout>

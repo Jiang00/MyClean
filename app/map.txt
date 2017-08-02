@@ -31858,7 +31858,6 @@ com.privacy.clean.core.CleanManager -> com.privacy.clean.core.a:
     617:617:java.util.ArrayList getLogFiles() -> q
     623:630:void removeRam(com.privacy.clean.entity.JunkInfo) -> a
     634:641:void removeRamSelfBoot(com.privacy.clean.entity.JunkInfo) -> b
-    644:648:void clearRam() -> r
     651:656:void removeAppCache(com.privacy.clean.entity.JunkInfo) -> c
     659:663:void removeAppList(com.privacy.clean.entity.JunkInfo) -> d
     666:671:void removeFilesOfUnintalledApk(com.privacy.clean.entity.JunkInfo) -> e
@@ -32067,7 +32066,7 @@ com.privacy.clean.filemanager.UtilsFile -> com.privacy.clean.filemanager.b:
     210:225:java.lang.String getMIMEType(java.io.File) -> a
     228:228:void <clinit>() -> <clinit>
 com.privacy.clean.goodgameprivacy.GameBooster -> com.privacy.clean.b.a:
-    24:42:java.util.ArrayList getInstalledGameList(android.app.Activity) -> a
+    24:40:java.util.ArrayList getInstalledGameList(android.app.Activity) -> a
 com.privacy.clean.privacydb.CleanDBHelper -> com.privacy.clean.privacydb.CleanDBHelper:
     com.privacy.clean.privacydb.CleanDBHelper cleanDBHelper -> a
     android.content.Context mContext -> b
@@ -32555,107 +32554,71 @@ com.privacy.junk.activityprivacy.FileManagerActivityPrivacy$3 -> com.privacy.jun
     273:273:void <init>(com.privacy.junk.activityprivacy.FileManagerActivityPrivacy,int,java.lang.String,long) -> <init>
     277:278:void run() -> run
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy:
-    com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy gridViewAdAdapter -> r
-    java.util.ArrayList list -> s
-    android.widget.ImageButton clear -> a
-    android.widget.ImageView add_right -> b
-    long total -> t
-    long idle -> u
-    long lastTotalRxBytes -> v
-    java.util.List gboost_add -> w
-    java.util.List listEdit -> x
-    long lastTimeStamp -> y
-    android.widget.LinearLayout ll_add_game -> c
-    android.widget.TextView gboost_clean_button -> d
-    android.widget.FrameLayout add_left -> e
-    android.widget.ImageView gboost_power_check -> f
-    android.widget.ListView list_game -> g
-    android.widget.EditText search_edit_text -> h
-    android.widget.FrameLayout title_left -> i
-    android.widget.TextView title_name -> j
-    com.privacy.junk.customadapterprivacy.PrivacyJiaGoodGameAdapter whiteListAdapter -> z
-    boolean search -> A
-    int screenWidth -> B
-    android.widget.TextView gboost_item_textview -> k
-    android.widget.GridView gboost_gridview -> p
-    android.os.Handler mHandler -> C
-    android.view.View$OnClickListener clickListener -> q
-    59:221:void <init>() -> <init>
-    99:123:void onCreate(android.os.Bundle) -> onCreate
-    127:140:void findId() -> a
-    143:193:void addData() -> b
-    217:219:void initList() -> c
-    290:301:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-    305:322:long getCup() -> d
-    326:379:void toggleEditAnimation() -> e
-    382:389:long getNetWork() -> f
-    394:395:long getTotalRxBytes() -> g
-    400:429:void onResume() -> onResume
-    476:485:void shortGame1(boolean) -> a
-    489:495:void onBackPressed() -> onBackPressed
-    498:513:void initData() -> h
-    516:524:void upData(java.lang.String) -> b
-    528:529:void onDestroy() -> onDestroy
-    533:541:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    59:59:java.util.ArrayList access$000(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> a
-    59:59:android.os.Handler access$100(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> b
-    59:59:com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy access$202(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy) -> a
-    59:59:com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy access$200(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> c
-    59:59:com.privacy.junk.customadapterprivacy.PrivacyJiaGoodGameAdapter access$302(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,com.privacy.junk.customadapterprivacy.PrivacyJiaGoodGameAdapter) -> a
-    59:59:com.privacy.junk.customadapterprivacy.PrivacyJiaGoodGameAdapter access$300(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> d
-    59:59:void access$400(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> e
-    59:59:void access$500(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,boolean) -> a
-    59:59:void access$600(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> f
-    59:59:boolean access$700(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> g
-    59:59:boolean access$702(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,boolean) -> b
-    59:59:void access$800(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,java.lang.String) -> a
-    59:59:long access$900(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> h
-    59:59:long access$1000(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> i
+    com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy gridViewAdAdapter -> k
+    java.util.ArrayList list -> p
+    java.util.List gboost_add -> q
+    java.util.List listEdit -> r
+    android.widget.LinearLayout ll_add_game -> a
+    android.widget.FrameLayout add_left -> b
+    android.widget.ListView list_game -> c
+    android.widget.EditText search_edit_text -> d
+    android.widget.TextView game_size -> e
+    android.widget.FrameLayout title_left -> f
+    android.widget.TextView title_name -> g
+    com.privacy.junk.customadapterprivacy.PrivacyJiaGoodGameAdapter whiteListAdapter -> s
+    boolean search -> t
+    android.widget.TextView gboost_item_textview -> h
+    android.widget.GridView gboost_gridview -> i
+    android.os.Handler mHandler -> u
+    android.view.View$OnClickListener clickListener -> j
+    42:179:void <init>() -> <init>
+    72:107:void onCreate(android.os.Bundle) -> onCreate
+    111:121:void findId() -> a
+    124:172:void addData() -> b
+    175:177:void initList() -> c
+    198:208:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    213:217:void onResume() -> onResume
+    221:229:void shortGame1(boolean) -> a
+    233:239:void onBackPressed() -> onBackPressed
+    242:257:void initData() -> d
+    260:268:void upData(java.lang.String) -> b
+    272:273:void onDestroy() -> onDestroy
+    277:278:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    42:42:void access$000(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,java.lang.String) -> a
+    42:42:java.util.ArrayList access$100(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> a
+    42:42:android.os.Handler access$200(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> b
+    42:42:com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy access$302(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy) -> a
+    42:42:com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy access$300(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> c
+    42:42:com.privacy.junk.customadapterprivacy.PrivacyJiaGoodGameAdapter access$402(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,com.privacy.junk.customadapterprivacy.PrivacyJiaGoodGameAdapter) -> a
+    42:42:com.privacy.junk.customadapterprivacy.PrivacyJiaGoodGameAdapter access$400(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> d
+    42:42:void access$500(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> e
+    42:42:void access$600(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,boolean) -> a
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$1:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy this$0 -> a
-    86:86:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
-    89:94:void handleMessage(android.os.Message) -> handleMessage
+    59:59:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
+    62:67:void handleMessage(android.os.Message) -> handleMessage
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy this$0 -> a
-    148:148:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
-    151:191:void run() -> run
-com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1:
-    com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2 this$1 -> a
-    159:159:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2) -> <init>
-    162:189:void run() -> run
-com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1$1:
-    com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1 this$2 -> a
-    166:166:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$2$1) -> <init>
-    169:186:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    89:89:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
+    92:93:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    98:98:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    103:103:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy this$0 -> a
-    221:221:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
-    224:285:void onClick(android.view.View) -> onClick
+    129:129:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
+    132:170:void run() -> run
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3$1:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3 this$1 -> a
-    270:270:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3) -> <init>
-    273:275:void run() -> run
+    140:140:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3) -> <init>
+    143:168:void run() -> run
+com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3$1$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3$1$1:
+    com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3$1 this$2 -> a
+    147:147:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$3$1) -> <init>
+    150:166:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4:
-    android.view.View val$visibleView -> a
-    android.view.View val$invisibleView -> b
-    android.animation.ObjectAnimator val$invis2vis -> c
-    com.privacy.junk.activityprivacy.GoodGameActivityPrivacy this$0 -> d
-    346:346:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    349:376:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4$1:
-    com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4 this$1 -> a
-    357:357:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$4) -> <init>
-    360:361:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    366:366:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    371:371:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
-com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5:
     com.privacy.junk.activityprivacy.GoodGameActivityPrivacy this$0 -> a
-    404:404:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
-    407:427:void run() -> run
-com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5$1 -> com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5$1:
-    com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5 this$1 -> a
-    413:413:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy$5) -> <init>
-    419:419:void run() -> run
+    179:179:void <init>(com.privacy.junk.activityprivacy.GoodGameActivityPrivacy) -> <init>
+    182:193:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy -> com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy:
     com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter adapter -> a
     android.widget.TextView white_wu -> b
@@ -32703,165 +32666,170 @@ com.privacy.junk.activityprivacy.LoadingActivity$2 -> com.privacy.junk.activityp
     95:95:void <init>(com.privacy.junk.activityprivacy.LoadingActivity) -> <init>
     100:178:void run() -> run
 com.privacy.junk.activityprivacy.MainActivity -> com.privacy.junk.activityprivacy.MainActivity:
-    java.lang.String TAG_START_FULL -> ai
-    java.lang.String TAG_EXIT_FULL -> aj
-    java.lang.String TAG_FULL_PULL -> ak
-    java.lang.String TAG_MAIN -> al
-    java.lang.String TAG_SIDE -> am
-    java.lang.String TAG_REFRESH -> an
+    java.lang.String TAG_START_FULL -> af
+    java.lang.String TAG_EXIT_FULL -> ag
+    java.lang.String TAG_FULL_PULL -> ah
+    java.lang.String TAG_MAIN -> ai
+    java.lang.String TAG_SIDE -> aj
+    java.lang.String TAG_REFRESH -> ak
     com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu main_custom_cpu -> a
     com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu main_custom_ram -> b
     com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu main_custom_sd -> c
-    android.widget.LinearLayout main_cooling_button -> d
-    com.privacy.junk.privacycustomview.PrivacyYuanHuView main_yuanhu3 -> e
-    com.privacy.junk.privacycustomview.PrivacyYuanHuView main_yuanhu2 -> f
-    com.privacy.junk.privacycustomview.PrivacyYuanHuView main_yuanhu1 -> g
-    android.widget.ImageView main_crile3 -> h
-    android.widget.ImageView main_crile2 -> i
-    android.widget.ImageView main_crile1 -> j
-    android.widget.TextView main_junk_percentage -> k
-    android.widget.TextView main_ram_percentage -> p
-    android.widget.TextView main_app_percentage -> q
-    com.privacy.junk.privacycustomview.KuoShan main_quan -> r
-    android.animation.ObjectAnimator objectAnimator -> s
-    android.widget.TextView main_days -> t
-    com.privacy.junk.privacycustomview.ScrollView main_scroll_view -> u
-    android.widget.TextView main_phone -> v
-    android.widget.LinearLayout iv_title_right -> w
-    android.widget.LinearLayout iv_title_left -> x
-    com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy side_listView -> y
-    android.support.v4.widget.DrawerLayout main_drawer -> z
-    android.widget.LinearLayout ll_ad -> A
-    android.widget.LinearLayout ll_ad_side -> B
-    android.widget.LinearLayout ad_native_2 -> C
-    android.widget.LinearLayout ll_ad_s -> D
-    android.widget.LinearLayout main_junk_button -> E
-    android.widget.LinearLayout main_ram_button2 -> F
-    android.widget.LinearLayout main_cooling_button2 -> G
-    android.widget.LinearLayout ll_ad_full -> H
-    android.widget.LinearLayout main_rotate_all -> I
-    android.widget.TextView main_full_time -> J
-    com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter adapter -> ao
-    android.widget.RelativeLayout main_power_button -> K
-    android.widget.RelativeLayout main_file_button -> L
-    android.widget.RelativeLayout main_notifi_button -> M
-    android.widget.RelativeLayout main_picture_button2 -> N
-    android.widget.RelativeLayout main_gboost_button -> O
-    android.widget.TextView main_msg_ram_percent -> P
-    android.widget.TextView main_msg_sd_percent -> Q
-    android.widget.TextView main_msg_cpu_percent -> R
-    java.util.ArrayList startList -> ap
-    android.widget.TextView main_fenshu -> S
-    android.widget.ImageView main_point -> T
-    long junk_size -> U
-    android.widget.LinearLayout main_battery -> V
-    android.widget.LinearLayout main_clean_lin -> W
-    android.widget.RelativeLayout main_title -> X
-    android.widget.TextView main_junk_huan -> Y
-    int temp -> aq
-    android.support.v7.app.AlertDialog dialog -> ar
-    android.os.Handler handler -> as
-    com.privacy.junk.presenterprivacy.PrivacyPresenterMain mainPresenter -> at
-    android.widget.TextView main_rotate_good -> Z
-    android.widget.TextView main_rotate_bad -> aa
-    android.widget.ImageView main_rotate_close -> ab
-    android.widget.LinearLayout main_msg_button -> ac
-    android.widget.ProgressBar ad_progressbar -> ad
-    com.privacy.junk.privacycustomview.DynamicWavePrivacy mian_water_bottom -> ae
-    int mainFenShu -> af
-    java.lang.Runnable fullAdRunnale -> ag
-    android.view.View$OnClickListener onClickListener -> ah
-    65:435:void <init>() -> <init>
-    117:151:void onCreate(android.os.Bundle) -> onCreate
-    155:176:void initCpu(int) -> b
-    188:244:void findId() -> a
-    248:265:void onClick() -> c
-    268:268:void setColor(int,boolean) -> b
-    272:292:void initSideData() -> e
-    298:332:void initQiu(int,boolean) -> a
-    337:338:void openDrawer() -> f
-    349:419:void loadFullAd() -> b
-    423:424:void setRotateGone() -> d
-    540:563:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    567:593:void initSd(int,java.lang.String,long) -> a
-    597:619:void initRam(int,java.lang.String) -> a
-    623:631:void onStart() -> onStart
-    635:638:void onRestart() -> onRestart
-    642:646:void onPause() -> onPause
-    649:655:void initData() -> h
-    660:668:void onResume() -> onResume
-    671:689:void onBackPressed() -> onBackPressed
-    695:695:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
-    698:719:void adDelete() -> i
-    723:773:void showExitDialog() -> j
-    777:778:void onDrawerOpened(android.view.View) -> onDrawerOpened
-    782:783:void onDrawerClosed(android.view.View) -> onDrawerClosed
-    788:788:void onDrawerStateChanged(int) -> onDrawerStateChanged
-    792:796:void onDestroy() -> onDestroy
-    799:810:java.lang.String getAnZhuangTime() -> g
-    814:827:int getMonthSpace(java.lang.String,java.lang.String) -> a
-    65:65:android.os.Handler access$000(com.privacy.junk.activityprivacy.MainActivity) -> a
-    65:65:void access$100(com.privacy.junk.activityprivacy.MainActivity) -> b
-    65:65:com.privacy.junk.presenterprivacy.PrivacyPresenterMain access$200(com.privacy.junk.activityprivacy.MainActivity) -> c
-    65:65:int access$300(com.privacy.junk.activityprivacy.MainActivity) -> d
-    65:65:com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter access$400(com.privacy.junk.activityprivacy.MainActivity) -> e
-    65:65:android.support.v7.app.AlertDialog access$500(com.privacy.junk.activityprivacy.MainActivity) -> f
+    android.widget.RelativeLayout main_cooling_button -> d
+    android.animation.ObjectAnimator objectAnimator -> e
+    com.privacy.junk.privacycustomview.ScrollView main_scroll_view -> f
+    android.widget.LinearLayout iv_title_right -> g
+    android.widget.LinearLayout iv_title_left -> h
+    com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy side_listView -> i
+    android.support.v4.widget.DrawerLayout main_drawer -> j
+    android.widget.TextView main_msg_sd_percent_danwei -> k
+    android.widget.LinearLayout ll_ad -> p
+    android.widget.LinearLayout ll_ad_side -> q
+    android.widget.LinearLayout ad_native_2 -> r
+    android.widget.LinearLayout ll_ad_s -> s
+    android.widget.RelativeLayout main_junk_button -> t
+    android.widget.LinearLayout ll_ad_full -> u
+    android.widget.LinearLayout main_rotate_all -> v
+    android.widget.TextView main_full_time -> w
+    com.privacy.junk.privacycustomview.MainYuanHuView main_yunahuan -> x
+    com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter adapter -> al
+    android.widget.RelativeLayout main_power_button -> y
+    android.widget.RelativeLayout main_file_button -> z
+    android.widget.RelativeLayout main_notifi_button -> A
+    android.widget.RelativeLayout main_picture_button2 -> B
+    android.widget.RelativeLayout main_picture_button -> C
+    android.widget.RelativeLayout main_ram_button -> D
+    android.widget.LinearLayout main_manager_button -> E
+    android.widget.RelativeLayout main_gboost_button -> F
+    android.widget.TextView main_msg_ram_percent -> G
+    android.widget.TextView main_msg_sd_percent -> H
+    android.widget.TextView main_msg_cpu_percent -> I
+    java.util.ArrayList startList -> am
+    android.widget.TextView main_fenshu -> J
+    android.widget.ImageView main_point -> K
+    long junk_size -> L
+    android.widget.LinearLayout main_battery -> M
+    android.widget.LinearLayout main_clean_lin -> N
+    android.widget.RelativeLayout main_title -> O
+    android.widget.TextView main_junk_huan -> P
+    int temp -> an
+    android.support.v7.app.AlertDialog dialog -> ao
+    android.os.Handler handler -> ap
+    com.privacy.junk.presenterprivacy.PrivacyPresenterMain mainPresenter -> aq
+    android.widget.TextView main_rotate_good -> Q
+    android.widget.TextView main_rotate_bad -> R
+    android.widget.ImageView main_rotate_close -> S
+    android.widget.LinearLayout main_msg_button -> T
+    android.widget.ProgressBar ad_progressbar -> U
+    com.privacy.junk.privacycustomview.PullToRefreshLayout main_pull_refresh -> V
+    java.lang.String junkSize -> W
+    com.privacy.junk.privacycustomview.PrivacyYuanHuView main_msg_ram_yuanhu -> X
+    com.privacy.junk.privacycustomview.PrivacyYuanHuView main_msg_sd_yuanhu -> Y
+    com.privacy.junk.privacycustomview.PrivacyYuanHuView main_msg_cpu_yuanhu -> Z
+    com.privacy.junk.privacycustomview.PullToRefreshLayout$OnRefreshListener refreshListener -> aa
+    int mainFenShu -> ab
+    long finalI2 -> ac
+    java.lang.Runnable fullAdRunnale -> ad
+    android.view.View$OnClickListener onClickListener -> ae
+    63:440:void <init>() -> <init>
+    114:133:void onCreate(android.os.Bundle) -> onCreate
+    137:147:void initCpu(int) -> b
+    159:206:void findId() -> a
+    210:229:void onClick() -> c
+    267:267:void setColor(int,boolean) -> b
+    271:294:void initSideData() -> e
+    301:337:void initQiu(int,boolean) -> a
+    342:343:void openDrawer() -> f
+    354:424:void loadFullAd() -> b
+    428:429:void setRotateGone() -> d
+    549:572:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    576:614:void initSd(int,java.lang.String,long) -> a
+    618:628:void initRam(int,java.lang.String) -> a
+    632:639:void onStart() -> onStart
+    643:646:void onRestart() -> onRestart
+    650:654:void onPause() -> onPause
+    657:663:void initData() -> g
+    668:676:void onResume() -> onResume
+    679:697:void onBackPressed() -> onBackPressed
+    703:703:void onDrawerSlide(android.view.View,float) -> onDrawerSlide
+    706:727:void adDelete() -> h
+    731:781:void showExitDialog() -> i
+    785:786:void onDrawerOpened(android.view.View) -> onDrawerOpened
+    790:791:void onDrawerClosed(android.view.View) -> onDrawerClosed
+    796:796:void onDrawerStateChanged(int) -> onDrawerStateChanged
+    800:804:void onDestroy() -> onDestroy
+    63:63:java.lang.String access$000(com.privacy.junk.activityprivacy.MainActivity) -> a
+    63:63:android.os.Handler access$100(com.privacy.junk.activityprivacy.MainActivity) -> b
+    63:63:void access$200(com.privacy.junk.activityprivacy.MainActivity) -> c
+    63:63:com.privacy.junk.presenterprivacy.PrivacyPresenterMain access$300(com.privacy.junk.activityprivacy.MainActivity) -> d
+    63:63:int access$400(com.privacy.junk.activityprivacy.MainActivity) -> e
+    63:63:com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter access$500(com.privacy.junk.activityprivacy.MainActivity) -> f
+    63:63:android.support.v7.app.AlertDialog access$600(com.privacy.junk.activityprivacy.MainActivity) -> g
 com.privacy.junk.activityprivacy.MainActivity$1 -> com.privacy.junk.activityprivacy.MainActivity$1:
     int val$temp -> a
     com.privacy.junk.activityprivacy.MainActivity this$0 -> b
-    157:157:void <init>(com.privacy.junk.activityprivacy.MainActivity,int) -> <init>
-    161:174:void run() -> run
+    139:139:void <init>(com.privacy.junk.activityprivacy.MainActivity,int) -> <init>
+    143:145:void run() -> run
 com.privacy.junk.activityprivacy.MainActivity$10 -> com.privacy.junk.activityprivacy.MainActivity$2:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    734:734:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    737:739:void onClick(android.view.View) -> onClick
+    718:718:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    721:723:void onAnimationEnd(com.mingle.widgetprivacy.animation.CRAnimation) -> b
 com.privacy.junk.activityprivacy.MainActivity$11 -> com.privacy.junk.activityprivacy.MainActivity$3:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    741:741:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    744:745:void onClick(android.view.View) -> onClick
-com.privacy.junk.activityprivacy.MainActivity$2 -> com.privacy.junk.activityprivacy.MainActivity$4:
+    742:742:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    745:747:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.MainActivity$12 -> com.privacy.junk.activityprivacy.MainActivity$4:
+    com.privacy.junk.activityprivacy.MainActivity this$0 -> a
+    749:749:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    752:753:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.MainActivity$2 -> com.privacy.junk.activityprivacy.MainActivity$5:
+    com.privacy.junk.activityprivacy.MainActivity this$0 -> a
+    232:232:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    236:236:void onRefresh(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> a
+    241:263:void onLoadMore(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> b
+com.privacy.junk.activityprivacy.MainActivity$2$1 -> com.privacy.junk.activityprivacy.MainActivity$5$1:
+    com.privacy.junk.activityprivacy.MainActivity$2 this$1 -> a
+    242:242:void <init>(com.privacy.junk.activityprivacy.MainActivity$2) -> <init>
+    245:256:void onNativeAdLoadSuccess(android.view.View) -> onNativeAdLoadSuccess
+    260:261:void onNativeAdLoadFails() -> onNativeAdLoadFails
+com.privacy.junk.activityprivacy.MainActivity$3 -> com.privacy.junk.activityprivacy.MainActivity$6:
     int val$fenshu -> a
     com.privacy.junk.activityprivacy.MainActivity this$0 -> b
-    299:299:void <init>(com.privacy.junk.activityprivacy.MainActivity,int) -> <init>
-    302:330:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$2$1 -> com.privacy.junk.activityprivacy.MainActivity$4$1:
+    303:303:void <init>(com.privacy.junk.activityprivacy.MainActivity,int) -> <init>
+    306:335:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$3$1 -> com.privacy.junk.activityprivacy.MainActivity$6$1:
     long val$finalI -> a
-    com.privacy.junk.activityprivacy.MainActivity$2 this$1 -> b
-    317:317:void <init>(com.privacy.junk.activityprivacy.MainActivity$2,long) -> <init>
-    320:321:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$3 -> com.privacy.junk.activityprivacy.MainActivity$5:
+    com.privacy.junk.activityprivacy.MainActivity$3 this$1 -> b
+    321:321:void <init>(com.privacy.junk.activityprivacy.MainActivity$3,long) -> <init>
+    324:325:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$4 -> com.privacy.junk.activityprivacy.MainActivity$7:
     android.view.animation.Animation val$animation -> a
     com.privacy.junk.activityprivacy.MainActivity this$0 -> b
-    362:362:void <init>(com.privacy.junk.activityprivacy.MainActivity,android.view.animation.Animation) -> <init>
-    365:366:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$4 -> com.privacy.junk.activityprivacy.MainActivity$6:
+    367:367:void <init>(com.privacy.junk.activityprivacy.MainActivity,android.view.animation.Animation) -> <init>
+    370:371:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$5 -> com.privacy.junk.activityprivacy.MainActivity$8:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    407:407:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    410:412:void onClick(android.view.View) -> onClick
-com.privacy.junk.activityprivacy.MainActivity$5 -> com.privacy.junk.activityprivacy.MainActivity$7:
+    412:412:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    415:417:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.MainActivity$6 -> com.privacy.junk.activityprivacy.MainActivity$9:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    426:426:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    429:430:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$6 -> com.privacy.junk.activityprivacy.MainActivity$8:
+    431:431:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    434:435:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$7 -> com.privacy.junk.activityprivacy.MainActivity$10:
     com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    435:435:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    439:535:void onClick(android.view.View) -> onClick
-com.privacy.junk.activityprivacy.MainActivity$7 -> com.privacy.junk.activityprivacy.MainActivity$9:
-    java.lang.String[] val$arr -> a
+    440:440:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
+    444:544:void onClick(android.view.View) -> onClick
+com.privacy.junk.activityprivacy.MainActivity$8 -> com.privacy.junk.activityprivacy.MainActivity$11:
+    long val$sd_kongxian -> a
     int val$percent -> b
     com.privacy.junk.activityprivacy.MainActivity this$0 -> c
-    570:570:void <init>(com.privacy.junk.activityprivacy.MainActivity,java.lang.String[],int) -> <init>
-    573:591:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$8 -> com.privacy.junk.activityprivacy.MainActivity$10:
-    java.lang.String[] val$arr -> a
-    int val$percent -> b
-    com.privacy.junk.activityprivacy.MainActivity this$0 -> c
-    600:600:void <init>(com.privacy.junk.activityprivacy.MainActivity,java.lang.String[],int) -> <init>
-    604:617:void run() -> run
-com.privacy.junk.activityprivacy.MainActivity$9 -> com.privacy.junk.activityprivacy.MainActivity$11:
-    com.privacy.junk.activityprivacy.MainActivity this$0 -> a
-    710:710:void <init>(com.privacy.junk.activityprivacy.MainActivity) -> <init>
-    713:715:void onAnimationEnd(com.mingle.widgetprivacy.animation.CRAnimation) -> b
+    580:580:void <init>(com.privacy.junk.activityprivacy.MainActivity,long,int) -> <init>
+    584:612:void run() -> run
+com.privacy.junk.activityprivacy.MainActivity$9 -> com.privacy.junk.activityprivacy.MainActivity$12:
+    int val$percent -> a
+    com.privacy.junk.activityprivacy.MainActivity this$0 -> b
+    620:620:void <init>(com.privacy.junk.activityprivacy.MainActivity,int) -> <init>
+    624:626:void run() -> run
 com.privacy.junk.activityprivacy.MyApplication -> com.privacy.junk.activityprivacy.MyApplication:
     android.os.HandlerThread mThread -> a
     android.app.ActivityManager am -> b
@@ -33124,76 +33092,52 @@ com.privacy.junk.activityprivacy.PictActivityPrivacy$9 -> com.privacy.junk.activ
     374:374:void <init>(com.privacy.junk.activityprivacy.PictActivityPrivacy) -> <init>
     377:402:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity:
-    android.widget.ImageView cooling_xuehua -> a
-    android.widget.ImageView cooling_dianyuan -> b
-    android.view.ViewGroup mContainer -> c
-    android.widget.LinearLayout cooling_text -> d
-    com.privacy.junk.privacycustomview.KuoShan cooling_2 -> e
-    android.os.Handler mHandler -> p
-    android.widget.TextView title_name -> f
-    com.privacy.junk.privacycustomview.PrivacyDrawHookView cooling_drawhookview -> g
-    android.widget.TextView cooling_wendu -> h
-    android.widget.FrameLayout title_left -> i
-    java.util.Random random -> q
-    int time -> r
-    android.animation.ObjectAnimator animator1 -> j
-    com.privacy.junk.privacycustomview.FlakeViewPrivacy flakeView -> s
-    android.widget.LinearLayout cooling_piao -> k
-    android.view.animation.Animation suo -> t
-    android.view.animation.Animation rotate_zheng -> u
-    java.lang.Runnable runnable -> v
-    35:54:void <init>() -> <init>
-    65:115:void onCreate(android.os.Bundle) -> onCreate
-    119:130:void findId() -> a
-    134:136:void onPause() -> onPause
-    140:144:void onResume() -> onResume
-    147:185:void startCoolingAni() -> b
-    189:195:void onBackPressed() -> onBackPressed
-    204:213:void applyRotation(int,float,float) -> a
-    253:256:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    259:272:void hideSnow() -> c
-    276:280:void onDestroy() -> onDestroy
-    35:35:com.privacy.junk.privacycustomview.FlakeViewPrivacy access$000(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> a
-    35:35:int access$100(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> b
-    35:35:void access$200(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,int,float,float) -> a
-    35:35:void access$400(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> c
+    android.widget.ImageView cooling_dianyuan -> a
+    android.widget.ImageView cooling_dianyuan1 -> b
+    android.widget.LinearLayout cooling_text -> c
+    android.widget.TextView title_name -> d
+    android.widget.TextView cooling_wendu -> e
+    android.widget.FrameLayout title_left -> f
+    java.util.Random random -> k
+    int time -> p
+    android.animation.ObjectAnimator animator1 -> g
+    android.animation.ObjectAnimator animator2 -> h
+    android.view.animation.Animation suo -> q
+    android.view.animation.Animation rotate_zheng -> r
+    android.animation.AnimatorSet animatorSet -> i
+    android.widget.RelativeLayout cooling_fl -> j
+    30:30:void <init>() -> <init>
+    47:93:void onCreate(android.os.Bundle) -> onCreate
+    97:105:void findId() -> a
+    109:111:void onPause() -> onPause
+    115:116:void onResume() -> onResume
+    119:162:void startCoolingAni() -> b
+    166:172:void onBackPressed() -> onBackPressed
+    176:179:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    182:191:void hideSnow() -> c
+    195:196:void onDestroy() -> onDestroy
+    30:30:int access$000(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> a
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$1 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$1:
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    54:54:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    57:60:void run() -> run
+    51:51:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
+    54:55:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$2 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$2:
-    com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    69:69:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    72:73:void onClick(android.view.View) -> onClick
-com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3:
     int val$wendu -> a
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> b
-    92:92:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,int) -> <init>
-    96:113:void run() -> run
-com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3$1 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3$1:
+    70:70:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,int) -> <init>
+    74:91:void run() -> run
+com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$2$1 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$2$1:
     int val$finalI -> a
-    com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3 this$1 -> b
-    101:101:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3,int) -> <init>
-    104:105:void run() -> run
-com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$4 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$4:
+    com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$2 this$1 -> b
+    79:79:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$2,int) -> <init>
+    82:83:void run() -> run
+com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$3:
     com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    161:161:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    164:170:void run() -> run
-com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$5 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$5:
-    com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    175:175:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    178:183:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
-com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$DisplayNextView -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$a:
-    com.privacy.junk.activityprivacy.PrivacyBatteriesActivity this$0 -> a
-    219:220:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
-    223:223:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-    226:244:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    247:247:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    218:218:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity,com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$1) -> <init>
-com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$DisplayNextView$1 -> com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$a$1:
-    com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$DisplayNextView this$1 -> a
-    230:230:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity$DisplayNextView) -> <init>
-    234:242:void duogouSc() -> a
+    134:134:void <init>(com.privacy.junk.activityprivacy.PrivacyBatteriesActivity) -> <init>
+    138:138:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    143:150:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    155:155:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    160:160:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
 com.privacy.junk.activityprivacy.PrivacyFileActivity -> com.privacy.junk.activityprivacy.PrivacyFileActivity:
     java.lang.String Tag_file_1 -> p
     android.widget.ProgressBar file_progressbar -> a
@@ -33270,45 +33214,31 @@ com.privacy.junk.activityprivacy.PrivacyFileActivity$5 -> com.privacy.junk.activ
 com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity -> com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity:
     android.widget.EditText search_edit_text -> a
     android.widget.TextView title_name -> b
-    android.widget.LinearLayout title_right -> c
-    android.widget.FrameLayout title_left -> d
-    android.widget.ListView list_si -> e
-    android.widget.ImageButton clear -> f
-    com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter adapter -> g
-    java.util.List white_list -> i
-    java.util.List listEdit -> j
-    boolean search -> k
-    java.util.List whiteList -> p
-    android.view.View$OnClickListener clickListener -> h
-    31:60:void <init>() -> <init>
-    46:58:void onCreate(android.os.Bundle) -> onCreate
-    79:86:void findId() -> a
-    89:143:void toggleEditAnimation() -> b
-    146:154:void upData(java.lang.String) -> b
-    157:165:void initData() -> c
-    169:171:void onBackPressed() -> onBackPressed
-    31:31:void access$000(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> a
-    31:31:boolean access$100(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> b
-    31:31:void access$200(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> c
-    31:31:boolean access$102(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,boolean) -> a
-    31:31:void access$300(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,java.lang.String) -> a
+    android.widget.FrameLayout title_left -> c
+    android.widget.ListView list_si -> d
+    com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter adapter -> e
+    java.util.List white_list -> g
+    java.util.List listEdit -> h
+    boolean search -> i
+    java.util.List whiteList -> j
+    android.view.View$OnClickListener clickListener -> f
+    25:75:void <init>() -> <init>
+    38:73:void onCreate(android.os.Bundle) -> onCreate
+    88:93:void findId() -> a
+    96:104:void upData(java.lang.String) -> b
+    107:115:void initData() -> b
+    119:121:void onBackPressed() -> onBackPressed
+    25:25:void access$000(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,java.lang.String) -> a
 com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$1 -> com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$1:
     com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity this$0 -> a
-    60:60:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> <init>
-    63:74:void onClick(android.view.View) -> onClick
+    54:54:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> <init>
+    57:58:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    63:63:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    68:68:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2 -> com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2:
-    android.view.View val$visibleView -> a
-    android.view.View val$invisibleView -> b
-    android.animation.ObjectAnimator val$invis2vis -> c
-    com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity this$0 -> d
-    109:109:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity,android.view.View,android.view.View,android.animation.ObjectAnimator) -> <init>
-    112:140:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2$1 -> com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2$1:
-    com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2 this$1 -> a
-    120:120:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity$2) -> <init>
-    123:124:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    129:129:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    134:134:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity this$0 -> a
+    75:75:void <init>(com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity) -> <init>
+    78:83:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PrivacyMemoryAvtivity -> com.privacy.junk.activityprivacy.PrivacyMemoryAvtivity:
     boolean color1 -> q
     boolean color2 -> r
@@ -33763,34 +33693,36 @@ com.privacy.junk.activityprivacy.PrivacyRubbishAndRamActivity$9 -> com.privacy.j
     496:496:void <init>(com.privacy.junk.activityprivacy.PrivacyRubbishAndRamActivity) -> <init>
     499:589:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity:
-    java.lang.String TAG_SHORTCUT -> e
-    android.os.Handler myHandler -> f
+    java.lang.String TAG_SHORTCUT -> g
+    android.os.Handler myHandler -> h
     android.widget.ImageView short_huojian -> a
-    android.widget.LinearLayout ll_ad -> b
-    android.widget.FrameLayout short_fl -> c
-    android.view.View nativeView -> g
-    boolean isdoudong -> h
-    long size -> i
-    android.app.Dialog dialog -> j
-    android.view.animation.Animation rotate -> k
-    android.view.animation.Animation fang -> p
-    com.twee.module.tweenengine.TweenManager tweenManager -> q
-    boolean istween -> r
-    android.view.animation.Animation suo -> s
-    android.widget.FrameLayout short_backg -> d
-    int count -> t
+    android.widget.ImageView short_huojian1 -> b
+    android.widget.ImageView short_huojian2 -> c
+    android.widget.LinearLayout ll_ad -> d
+    android.widget.FrameLayout short_fl -> e
+    android.view.View nativeView -> i
+    boolean isdoudong -> j
+    long size -> k
+    android.app.Dialog dialog -> p
+    android.view.animation.Animation rotate -> q
+    android.view.animation.Animation fang -> r
+    com.twee.module.tweenengine.TweenManager tweenManager -> s
+    boolean istween -> t
+    android.view.animation.Animation suo -> u
+    android.widget.FrameLayout short_backg -> f
+    int count -> v
     43:44:void <init>() -> <init>
-    64:68:void findId() -> a
-    72:96:void onCreate(android.os.Bundle) -> onCreate
-    99:100:void clear(android.content.Context) -> b
-    103:120:long killAll(android.content.Context) -> a
-    124:138:void loadAd() -> b
-    142:170:void setAnimationThread() -> c
-    173:216:void show_text() -> d
-    240:243:long getAvailMemory(android.app.ActivityManager) -> a
-    248:252:void onStop() -> onStop
-    256:306:void onResume() -> onResume
-    310:311:void onPause() -> onPause
+    64:70:void findId() -> a
+    74:98:void onCreate(android.os.Bundle) -> onCreate
+    101:102:void clear(android.content.Context) -> b
+    105:122:long killAll(android.content.Context) -> a
+    126:140:void loadAd() -> b
+    144:172:void setAnimationThread() -> c
+    175:218:void show_text() -> d
+    242:245:long getAvailMemory(android.app.ActivityManager) -> a
+    250:254:void onStop() -> onStop
+    258:311:void onResume() -> onResume
+    315:316:void onPause() -> onPause
     43:43:void access$000(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity,android.content.Context) -> a
     43:43:int access$108(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> a
     43:43:void access$200(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> b
@@ -33800,39 +33732,39 @@ com.privacy.junk.activityprivacy.PrivacyShortCutingActivity -> com.privacy.junk.
     43:43:boolean access$502(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity,boolean) -> a
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$1 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$1:
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
-    83:83:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
-    86:94:void run() -> run
+    85:85:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
+    88:96:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$1$1 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$1$1:
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$1 this$1 -> a
-    87:87:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$1) -> <init>
-    90:92:void run() -> run
+    89:89:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$1) -> <init>
+    92:94:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$2 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$2:
     long lastMillis -> b
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
-    142:143:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
-    146:168:void run() -> run
+    144:145:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
+    148:170:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$2$1 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$2$1:
     float val$delta -> a
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$2 this$1 -> b
-    151:151:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$2,float) -> <init>
-    154:156:void run() -> run
+    153:153:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$2,float) -> <init>
+    156:158:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$3 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$3:
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
-    209:209:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
-    212:213:void onDismiss(android.content.DialogInterface) -> onDismiss
+    211:211:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
+    214:215:void onDismiss(android.content.DialogInterface) -> onDismiss
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$5 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$4:
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
-    264:264:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
-    268:268:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
-    272:273:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
-    278:278:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
-    283:283:void onAnimationStart(android.animation.Animator) -> onAnimationStart
+    268:268:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
+    272:272:void onAnimationCancel(android.animation.Animator) -> onAnimationCancel
+    276:278:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+    283:283:void onAnimationRepeat(android.animation.Animator) -> onAnimationRepeat
+    288:288:void onAnimationStart(android.animation.Animator) -> onAnimationStart
 com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$6 -> com.privacy.junk.activityprivacy.PrivacyShortCutingActivity$5:
     com.privacy.junk.activityprivacy.PrivacyShortCutingActivity this$0 -> a
-    287:287:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
-    290:294:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    299:299:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    304:304:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    292:292:void <init>(com.privacy.junk.activityprivacy.PrivacyShortCutingActivity) -> <init>
+    295:299:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    304:304:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    309:309:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.privacy.junk.activityprivacy.PrivacySucceedActivity -> com.privacy.junk.activityprivacy.PrivacySucceedActivity:
     java.lang.String TAG_CLEAN -> K
     java.lang.String TAG_CLEAN_2 -> L
@@ -33877,22 +33809,22 @@ com.privacy.junk.activityprivacy.PrivacySucceedActivity -> com.privacy.junk.acti
     android.view.View nativeView -> T
     android.view.View native_xiao -> U
     android.view.View$OnClickListener onClickListener -> J
-    51:493:void <init>() -> <init>
-    97:269:void onCreate(android.os.Bundle) -> onCreate
-    272:291:void addAd() -> c
-    294:311:void shendu() -> d
-    314:426:void startSizeAni(long,java.lang.String) -> a
-    430:465:void findId() -> a
-    468:481:void addListener() -> e
-    484:490:void initAnimation() -> f
-    590:601:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    604:634:void startSecondAnimation() -> g
-    638:640:void onResume() -> onResume
-    643:657:void startFirstAnimation() -> b
-    661:662:void onPause() -> onPause
-    666:668:void onStop() -> onStop
-    672:674:void onBackPressed() -> onBackPressed
-    677:705:void setAnimationThread() -> h
+    51:485:void <init>() -> <init>
+    97:261:void onCreate(android.os.Bundle) -> onCreate
+    264:283:void addAd() -> c
+    286:303:void shendu() -> d
+    306:418:void startSizeAni(long,java.lang.String) -> a
+    422:457:void findId() -> a
+    460:473:void addListener() -> e
+    476:482:void initAnimation() -> f
+    582:593:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    596:626:void startSecondAnimation() -> g
+    630:632:void onResume() -> onResume
+    635:649:void startFirstAnimation() -> b
+    653:654:void onPause() -> onPause
+    658:660:void onStop() -> onStop
+    664:666:void onBackPressed() -> onBackPressed
+    669:697:void setAnimationThread() -> h
     51:51:void access$000(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> a
     51:51:boolean access$102(com.privacy.junk.activityprivacy.PrivacySucceedActivity,boolean) -> a
     51:51:void access$200(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> b
@@ -33903,58 +33835,58 @@ com.privacy.junk.activityprivacy.PrivacySucceedActivity -> com.privacy.junk.acti
     51:51:com.twee.module.tweenengine.TweenManager access$700(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> f
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$1:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    262:262:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    264:265:void run() -> run
+    254:254:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    256:257:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$2 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$2:
     java.lang.String val$cleanName -> a
     long val$size -> b
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> c
-    342:342:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity,java.lang.String,long) -> <init>
-    345:424:void run() -> run
+    334:334:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity,java.lang.String,long) -> <init>
+    337:416:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$1:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity$2 this$1 -> a
-    377:377:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$2) -> <init>
-    380:386:void run() -> run
+    369:369:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$2) -> <init>
+    372:378:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity$2 this$1 -> a
-    390:390:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$2) -> <init>
-    394:421:void duogouSc() -> a
+    382:382:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$2) -> <init>
+    386:413:void duogouSc() -> a
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2$1:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2 this$2 -> a
-    409:409:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2) -> <init>
-    413:419:void run() -> run
+    401:401:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$2$2) -> <init>
+    405:411:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$3 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$3:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    484:484:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    487:488:void run() -> run
+    476:476:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    479:480:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$4 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$4:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    493:493:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    496:585:void onClick(android.view.View) -> onClick
+    485:485:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    488:577:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$5 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$5:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    607:607:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    610:622:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    627:627:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    632:632:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    599:599:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    602:614:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    619:619:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    624:624:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$5$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$5$1:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity$5 this$1 -> a
-    610:610:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$5) -> <init>
-    613:619:void run() -> run
+    602:602:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$5) -> <init>
+    605:611:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$6 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$6:
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    643:643:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    647:655:void run() -> run
+    635:635:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    639:647:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$7 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$7:
     long lastMillis -> b
     com.privacy.junk.activityprivacy.PrivacySucceedActivity this$0 -> a
-    677:678:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
-    681:703:void run() -> run
+    669:670:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity) -> <init>
+    673:695:void run() -> run
 com.privacy.junk.activityprivacy.PrivacySucceedActivity$7$1 -> com.privacy.junk.activityprivacy.PrivacySucceedActivity$7$1:
     float val$delta -> a
     com.privacy.junk.activityprivacy.PrivacySucceedActivity$7 this$1 -> b
-    686:686:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$7,float) -> <init>
-    689:691:void run() -> run
+    678:678:void <init>(com.privacy.junk.activityprivacy.PrivacySucceedActivity$7,float) -> <init>
+    681:683:void run() -> run
 com.privacy.junk.activityprivacy.PrivacyUnloadingResidualActivity -> com.privacy.junk.activityprivacy.PrivacyUnloadingResidualActivity:
     java.lang.String TAG_UNLOAD -> j
     android.widget.TextView tv_size -> a
@@ -34168,7 +34100,7 @@ com.privacy.junk.activityprivacy.RubbishActivityPrivacy$9 -> com.privacy.junk.ac
     436:436:void <init>(com.privacy.junk.activityprivacy.RubbishActivityPrivacy) -> <init>
     439:440:void run() -> run
 com.privacy.junk.activityprivacy.SetActivityPrivacy -> com.privacy.junk.activityprivacy.SetActivityPrivacy:
-    java.lang.String TAG_SETTING -> H
+    java.lang.String TAG_SETTING -> C
     android.widget.ImageView setting_tongzhi_check -> a
     android.widget.ImageView setting_float_check -> b
     android.widget.ImageView setting_unload_check -> c
@@ -34176,7 +34108,7 @@ com.privacy.junk.activityprivacy.SetActivityPrivacy -> com.privacy.junk.activity
     android.widget.ImageView setting_tongzhilan_check -> e
     android.widget.FrameLayout title_left -> f
     android.widget.ScrollView setting_scroll -> g
-    android.os.Handler myHandler -> I
+    android.os.Handler myHandler -> D
     android.widget.RelativeLayout setting_tongzhi -> h
     android.widget.RelativeLayout setting_float -> i
     android.widget.RelativeLayout setting_battery -> j
@@ -34192,158 +34124,110 @@ com.privacy.junk.activityprivacy.SetActivityPrivacy -> com.privacy.junk.activity
     android.widget.RelativeLayout setting_rotate -> x
     android.widget.RelativeLayout setting_unload -> y
     android.widget.LinearLayout ll_ad -> z
-    android.view.View nativeView -> J
+    android.view.View nativeView -> E
     android.widget.TextView title_name -> A
-    com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView setting_battery_tv -> B
-    com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView setting_float_tv -> C
-    com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView setting_tongzhilan_tv -> D
-    com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView setting_tongzhi_tv -> E
-    com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView setting_unload_tv -> F
-    android.view.View$OnClickListener onClickListener -> G
-    36:201:void <init>() -> <init>
-    51:98:void onCreate(android.os.Bundle) -> onCreate
-    101:136:void initData() -> b
-    140:141:void onPause() -> onPause
-    145:175:void findId() -> a
-    179:181:void onResume() -> onResume
-    184:198:void initListener() -> c
-    344:354:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    357:369:void addAd() -> d
-    373:375:void onBackPressed() -> onBackPressed
+    android.view.View$OnClickListener onClickListener -> B
+    34:175:void <init>() -> <init>
+    48:87:void onCreate(android.os.Bundle) -> onCreate
+    90:115:void initData() -> b
+    119:120:void onPause() -> onPause
+    124:149:void findId() -> a
+    153:155:void onResume() -> onResume
+    158:172:void initListener() -> c
+    308:318:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    321:333:void addAd() -> d
+    337:339:void onBackPressed() -> onBackPressed
 com.privacy.junk.activityprivacy.SetActivityPrivacy$1 -> com.privacy.junk.activityprivacy.SetActivityPrivacy$1:
     com.privacy.junk.activityprivacy.SetActivityPrivacy this$0 -> a
-    86:86:void <init>(com.privacy.junk.activityprivacy.SetActivityPrivacy) -> <init>
-    89:90:void run() -> run
+    75:75:void <init>(com.privacy.junk.activityprivacy.SetActivityPrivacy) -> <init>
+    78:79:void run() -> run
 com.privacy.junk.activityprivacy.SetActivityPrivacy$2 -> com.privacy.junk.activityprivacy.SetActivityPrivacy$2:
     com.privacy.junk.activityprivacy.SetActivityPrivacy this$0 -> a
-    201:201:void <init>(com.privacy.junk.activityprivacy.SetActivityPrivacy) -> <init>
-    204:339:void onClick(android.view.View) -> onClick
+    175:175:void <init>(com.privacy.junk.activityprivacy.SetActivityPrivacy) -> <init>
+    178:303:void onClick(android.view.View) -> onClick
 com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy:
-    android.widget.ImageView float_cricle -> a
-    android.widget.TextView float_memory -> b
-    android.widget.TextView float_tishi -> c
-    android.widget.LinearLayout ll_ad -> d
-    android.view.View nativeView -> v
-    android.widget.LinearLayout float_jiashu_jieguo -> e
-    com.privacy.junk.activityprivacy.MyApplication cleanApplication -> w
-    android.view.animation.Animation rotate -> x
-    android.view.animation.Animation suo -> y
-    android.view.animation.Animation fang -> z
-    android.widget.LinearLayout ll_wifi -> f
-    android.widget.LinearLayout ll_liuliang -> g
-    android.widget.LinearLayout ll_xianshi -> h
-    android.widget.LinearLayout ll_shengyin -> i
-    android.widget.LinearLayout ll_gps -> j
-    android.os.Handler myHandler -> A
-    boolean istween -> B
-    android.widget.RelativeLayout float_yidong_linearlayout -> C
-    android.content.Intent intent -> D
-    android.widget.ImageView iv_wifi -> k
-    android.widget.ImageView iv_liuliang -> p
-    android.widget.ImageView iv_xianshi -> q
-    android.widget.ImageView iv_shengyin -> r
-    android.widget.ImageView iv_gps -> s
-    java.lang.String TAG_FLAOT -> E
-    boolean isdoudong -> F
-    com.twee.module.tweenengine.TweenManager tweenManager -> t
-    android.view.View$OnClickListener kuaijieListener -> u
-    42:179:void <init>() -> <init>
-    68:87:void onCreate(android.os.Bundle) -> onCreate
-    90:92:void initList() -> b
-    95:113:void loadAd() -> c
-    116:144:void setAnimationThread() -> d
-    148:155:void addListener() -> e
-    159:177:void findId() -> a
-    230:245:int killAll(android.content.Context) -> a
-    249:338:void startCleanAnimation() -> f
-    341:344:long getAvailMemory(android.app.ActivityManager) -> a
-    348:353:void wifi() -> g
-    357:362:void liuLiangd() -> h
-    365:379:void xianshiD() -> i
-    382:387:void wifiD() -> j
-    390:395:void liuLiang() -> k
-    398:403:void shengYin() -> l
-    406:411:void gps() -> m
-    415:471:void brightnessSwitchUtils(android.content.Context) -> b
-    474:482:void changeAppBrightness(android.content.Context,int) -> a
-    487:490:void onResume() -> onResume
-    493:507:int getLight() -> n
-    512:515:void onPause() -> onPause
-    42:42:boolean access$000(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> a
-    42:42:void access$100(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> b
-    42:42:void access$200(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> c
-    42:42:void access$300(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> d
-    42:42:void access$400(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> e
-    42:42:android.view.animation.Animation access$500(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> f
-    42:42:android.view.animation.Animation access$600(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> g
-    42:42:android.os.Handler access$700(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> h
+    android.widget.LinearLayout ll_ad -> a
+    android.view.View nativeView -> r
+    com.privacy.junk.activityprivacy.MyApplication cleanApplication -> s
+    android.view.animation.Animation rotate -> t
+    android.view.animation.Animation suo -> u
+    android.view.animation.Animation fang -> v
+    android.widget.LinearLayout ll_wifi -> b
+    android.widget.LinearLayout ll_liuliang -> c
+    android.widget.LinearLayout ll_xianshi -> d
+    android.widget.LinearLayout ll_shengyin -> e
+    android.widget.LinearLayout ll_gps -> f
+    android.os.Handler myHandler -> w
+    boolean istween -> x
+    android.widget.RelativeLayout float_yidong_linearlayout -> y
+    android.content.Intent intent -> z
+    android.widget.ImageView iv_wifi -> g
+    android.widget.ImageView iv_liuliang -> h
+    android.widget.ImageView iv_xianshi -> i
+    android.widget.ImageView iv_shengyin -> j
+    android.widget.ImageView iv_gps -> k
+    java.lang.String TAG_FLAOT -> A
+    boolean isdoudong -> B
+    com.twee.module.tweenengine.TweenManager tweenManager -> p
+    android.view.View$OnClickListener kuaijieListener -> q
+    41:169:void <init>() -> <init>
+    64:83:void onCreate(android.os.Bundle) -> onCreate
+    87:87:void initList() -> b
+    90:108:void loadAd() -> c
+    111:139:void setAnimationThread() -> d
+    143:149:void addListener() -> e
+    153:167:void findId() -> a
+    254:259:void wifi() -> f
+    263:268:void liuLiangd() -> g
+    271:285:void xianshiD() -> h
+    288:293:void wifiD() -> i
+    296:301:void liuLiang() -> j
+    304:309:void shengYin() -> k
+    312:317:void gps() -> l
+    321:377:void brightnessSwitchUtils(android.content.Context) -> a
+    380:388:void changeAppBrightness(android.content.Context,int) -> a
+    393:396:void onResume() -> onResume
+    399:413:int getLight() -> m
+    418:421:void onPause() -> onPause
+    41:41:boolean access$000(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> a
+    41:41:void access$100(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> b
+    41:41:void access$200(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> c
+    41:41:void access$300(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> d
 com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$1 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$1:
     com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy this$0 -> a
-    96:96:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> <init>
-    99:100:void run() -> run
+    91:91:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> <init>
+    94:95:void run() -> run
 com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$2 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$2:
     long lastMillis -> b
     com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy this$0 -> a
-    116:117:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> <init>
-    120:142:void run() -> run
+    111:112:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> <init>
+    115:137:void run() -> run
 com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$2$1 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$2$1:
     float val$delta -> a
     com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$2 this$1 -> b
-    125:125:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$2,float) -> <init>
-    128:130:void run() -> run
+    120:120:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$2,float) -> <init>
+    123:125:void run() -> run
 com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$3 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$3:
     com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy this$0 -> a
-    179:179:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> <init>
-    182:225:void onClick(android.view.View) -> onClick
-com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$4 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$4:
-    com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy this$0 -> a
-    249:249:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> <init>
-    252:253:void run() -> run
-com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5:
-    com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy this$0 -> a
-    258:258:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> <init>
-    262:262:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-    266:331:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    336:336:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1:
-    com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5 this$1 -> a
-    267:267:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5) -> <init>
-    270:319:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    324:324:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    329:329:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1:
-    com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1 this$2 -> a
-    278:278:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1) -> <init>
-    282:307:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    312:312:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
-    317:317:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1$1 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1$1:
-    com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1 this$3 -> a
-    282:282:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1) -> <init>
-    285:305:void run() -> run
-com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1$1$1 -> com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1$1$1:
-    com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1$1 this$4 -> a
-    287:287:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy$5$1$1$1) -> <init>
-    291:291:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
-    295:298:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-    303:303:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    169:169:void <init>(com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy) -> <init>
+    172:211:void onClick(android.view.View) -> onClick
 com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter -> com.privacy.junk.a.a:
     android.widget.Toast toast -> a
     31:32:void <init>(android.content.Context) -> <init>
-    36:88:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    92:99:void showToast(java.lang.String) -> a
-    103:118:android.graphics.Bitmap getBitmap(android.graphics.drawable.Drawable) -> a
+    36:83:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    87:94:void showToast(java.lang.String) -> a
+    98:113:android.graphics.Bitmap getBitmap(android.graphics.drawable.Drawable) -> a
 com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter$1 -> com.privacy.junk.a.a$1:
     com.privacy.clean.entity.JunkInfo val$info -> a
     com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter this$0 -> b
-    62:62:void <init>(com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter,com.privacy.clean.entity.JunkInfo) -> <init>
-    65:82:void onClick(android.view.View) -> onClick
+    57:57:void <init>(com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter,com.privacy.clean.entity.JunkInfo) -> <init>
+    60:77:void onClick(android.view.View) -> onClick
 com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter$ViewHolder -> com.privacy.junk.a.a$a:
     android.widget.TextView tv_lable -> a
     android.widget.ImageView checkBox -> b
     android.widget.ImageView iv_icon -> c
     com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter this$0 -> d
-    122:122:void <init>(com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter) -> <init>
+    117:117:void <init>(com.privacy.junk.customadapterprivacy.IgnoreListViewAdapter) -> <init>
 com.privacy.junk.customadapterprivacy.LogPrivacy -> com.privacy.junk.a.b:
     com.privacy.junk.presenterprivacy.LogPresenterPrivacy junkPresenter -> a
     26:35:void <init>(android.content.Context,com.privacy.junk.presenterprivacy.LogPresenterPrivacy) -> <init>
@@ -34499,38 +34383,35 @@ com.privacy.junk.customadapterprivacy.PrivacyNotifiSettingAdapter$ViewHolder -> 
 com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter -> com.privacy.junk.a.j:
     int BATTERY -> a
     int FLOAT -> f
-    int JUNK -> g
-    int RAM -> h
-    int NOTIFI -> i
-    int POWER -> j
+    int RAM -> g
+    int JUNK -> h
+    int POWER -> i
+    int NOTIFI -> j
     int PICTURE -> k
-    int MANAGER -> l
-    int FILE -> m
-    int GBOOST -> n
-    int COOLING -> o
-    int SETTING -> p
-    int ROTATE -> q
-    java.lang.String powerSize -> r
-    41:90:void <init>(android.content.Context) -> <init>
-    94:178:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    182:257:void onC(int) -> b
-    40:40:void access$000(com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter,int) -> a
+    int FILE -> l
+    int GBOOST -> m
+    int SETTING -> n
+    int ROTATE -> o
+    java.lang.String powerSize -> p
+    39:80:void <init>(android.content.Context) -> <init>
+    84:161:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    165:232:void onC(int) -> b
+    38:38:void access$000(com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter,int) -> a
 com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter$1 -> com.privacy.junk.a.j$1:
     com.privacy.junk.privacymodel.SideInfo val$info -> a
     com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter$ViewHolder val$holder -> b
     int val$position -> c
     com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter this$0 -> d
-    121:121:void <init>(com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter,com.privacy.junk.privacymodel.SideInfo,com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter$ViewHolder,int) -> <init>
-    124:131:void onClick(android.view.View) -> onClick
+    110:110:void <init>(com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter,com.privacy.junk.privacymodel.SideInfo,com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter$ViewHolder,int) -> <init>
+    113:120:void onClick(android.view.View) -> onClick
 com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter$ViewHolder -> com.privacy.junk.a.j$a:
     android.widget.ImageView checkBox -> a
-    android.widget.TextView side_deep_h -> b
-    android.widget.TextView tv_name -> c
-    android.widget.RelativeLayout rl_item -> d
-    android.view.View side_divide -> e
-    android.widget.ImageView iv_le -> f
-    com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter this$0 -> g
-    266:266:void <init>(com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter) -> <init>
+    android.widget.TextView tv_name -> b
+    android.widget.RelativeLayout rl_item -> c
+    android.view.View side_divide -> d
+    android.widget.ImageView iv_le -> e
+    com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter this$0 -> f
+    241:241:void <init>(com.privacy.junk.customadapterprivacy.PrivacySidebarAdapter) -> <init>
 com.privacy.junk.customadapterprivacy.RamAdapter -> com.privacy.junk.a.k:
     android.support.v7.app.AlertDialog dialog -> f
     java.util.List white_list -> g
@@ -34908,9 +34789,8 @@ com.privacy.junk.privacycustomview.DynamicWavePrivacy -> com.privacy.junk.privac
     86:117:void onDraw(android.graphics.Canvas) -> onDraw
     121:130:void resetPositonY() -> a
     135:153:void onSizeChanged(int,int,int,int) -> onSizeChanged
-    156:160:void upDate(int) -> a
     174:176:void onDetachedFromWindow() -> onDetachedFromWindow
-    197:197:int dpToPx(int) -> b
+    197:197:int dpToPx(int) -> a
 com.privacy.junk.privacycustomview.FlakeViewPrivacy -> com.privacy.junk.privacycustomview.FlakeViewPrivacy:
     android.graphics.Bitmap droid2 -> a
     android.graphics.Bitmap droid -> b
@@ -34923,33 +34803,25 @@ com.privacy.junk.privacycustomview.FlakeViewPrivacy -> com.privacy.junk.privacyc
     long startTime -> i
     long prevTime -> j
     int frames -> k
-    android.graphics.Paint textPaint -> l
-    float fps -> m
-    android.graphics.Matrix m -> n
-    java.lang.String fpsString -> o
-    java.lang.String numFlakesString -> p
-    44:100:void <init>(android.content.Context) -> <init>
+    float fps -> l
+    android.graphics.Matrix m -> m
+    java.lang.String fpsString -> n
+    java.lang.String numFlakesString -> o
     103:106:int getNumFlakes() -> getNumFlakes
     113:128:void addFlakes(int) -> a
     131:133:void setNumFlakes(int) -> setNumFlakes
-    140:148:void subtractFlakes(int) -> b
     152:164:void onSizeChanged(int,int,int,int) -> onSizeChanged
     168:193:void onDraw(android.graphics.Canvas) -> onDraw
-    198:203:void pause() -> a
-com.privacy.junk.privacycustomview.FlakeViewPrivacy$1 -> com.privacy.junk.privacycustomview.FlakeViewPrivacy$1:
-    com.privacy.junk.privacycustomview.FlakeViewPrivacy this$0 -> a
-    78:78:void <init>(com.privacy.junk.privacycustomview.FlakeViewPrivacy) -> <init>
-    82:96:void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
 com.privacy.junk.privacycustomview.GridViewAdAdapterPrivacy -> com.privacy.junk.privacycustomview.a:
     android.content.Context context -> a
     android.content.pm.PackageManager pm -> c
     java.util.ArrayList list -> d
     android.view.LayoutInflater mInflater -> b
-    36:41:void <init>(android.content.Context,java.util.ArrayList) -> <init>
-    45:45:int getCount() -> getCount
-    50:50:java.lang.Object getItem(int) -> getItem
-    55:55:long getItemId(int) -> getItemId
-    60:81:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    37:42:void <init>(android.content.Context,java.util.ArrayList) -> <init>
+    46:46:int getCount() -> getCount
+    51:51:java.lang.Object getItem(int) -> getItem
+    56:56:long getItemId(int) -> getItemId
+    61:82:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.privacy.junk.privacycustomview.KuoShan -> com.privacy.junk.privacycustomview.KuoShan:
     android.graphics.Paint paint -> a
     int radius -> b
@@ -34983,6 +34855,16 @@ com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy -> com.privacy.j
     17:18:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     22:24:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     31:34:void onMeasure(int,int) -> onMeasure
+com.privacy.junk.privacycustomview.MainYuanHuView -> com.privacy.junk.privacycustomview.MainYuanHuView:
+    android.graphics.Paint paint -> a
+    android.graphics.RectF rectF -> b
+    android.graphics.RectF rectF1 -> c
+    android.content.Context context -> d
+    android.graphics.Canvas canvas -> e
+    22:25:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    28:42:void init() -> a
+    46:53:void onDraw(android.graphics.Canvas) -> onDraw
+    64:66:void onDetachedFromWindow() -> onDetachedFromWindow
 com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu -> com.privacy.junk.privacycustomview.PrivacyCustomRoundCpu:
     android.content.Context context -> c
     android.graphics.Paint circlePoint -> d
@@ -35065,13 +34947,13 @@ com.privacy.junk.privacycustomview.PrivacyFloatStateView -> com.privacy.junk.pri
     boolean isStart -> c
     40:41:void <init>(android.content.Context) -> <init>
     44:45:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    29:123:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    61:64:void onMeasure(int,int) -> onMeasure
-    71:86:void initPaints() -> a
-    95:119:void onDraw(android.graphics.Canvas) -> onDraw
-    134:136:void setDragState(int) -> setDragState
-    139:142:void upDate(int) -> a
-    164:170:void init() -> b
+    29:121:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    61:63:void onMeasure(int,int) -> onMeasure
+    69:84:void initPaints() -> a
+    93:117:void onDraw(android.graphics.Canvas) -> onDraw
+    132:134:void setDragState(int) -> setDragState
+    137:140:void upDate(int) -> a
+    162:168:void init() -> b
 com.privacy.junk.privacycustomview.PrivacyGridLayoutManager -> com.privacy.junk.privacycustomview.PrivacyGridLayoutManager:
     boolean isScrollEnabled -> a
     12:16:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
@@ -35127,32 +35009,92 @@ com.privacy.junk.privacycustomview.PrivacyYuanHuView -> com.privacy.junk.privacy
     android.content.Context context -> d
     float dushu -> e
     android.graphics.Canvas canvas -> f
-    boolean isStop -> g
-    com.privacy.junk.privacycustomview.PrivacyYuanHuView$DrawYuanHuListener scanEndListener -> h
+    int startDuShu -> g
     26:29:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    32:44:void init() -> a
-    48:64:void onDraw(android.graphics.Canvas) -> onDraw
-    67:69:void setDuShu(float) -> setDuShu
-    74:91:void start(float) -> a
-    95:98:void onDetachedFromWindow() -> onDetachedFromWindow
-    103:104:void setScanCallBack(com.privacy.junk.privacycustomview.PrivacyYuanHuView$DrawYuanHuListener) -> setScanCallBack
-com.privacy.junk.privacycustomview.PrivacyYuanHuView$1 -> com.privacy.junk.privacycustomview.PrivacyYuanHuView$1:
-    float val$dushu1 -> a
-    com.privacy.junk.privacycustomview.PrivacyYuanHuView this$0 -> b
-    74:74:void <init>(com.privacy.junk.privacycustomview.PrivacyYuanHuView,float) -> <init>
-    78:89:void run() -> run
-com.privacy.junk.privacycustomview.PrivacyYuanHuView$DrawYuanHuListener -> com.privacy.junk.privacycustomview.PrivacyYuanHuView$a:
-com.privacy.junk.privacycustomview.Rotate3d -> com.privacy.junk.privacycustomview.d:
-    float mFromDegrees -> a
-    float mToDegrees -> b
-    float mCenterX -> c
-    float mCenterY -> d
-    float mDepthZ -> e
-    boolean mReverse -> f
-    android.graphics.Camera mCamera -> g
-    19:26:void <init>(float,float,float,float,float,boolean) -> <init>
-    30:32:void initialize(int,int,int,int) -> initialize
-    36:54:void applyTransformation(float,android.view.animation.Transformation) -> applyTransformation
+    32:46:void init() -> a
+    50:55:void onDraw(android.graphics.Canvas) -> onDraw
+    58:62:void setDuShu(float,int,int) -> a
+    67:69:void onDetachedFromWindow() -> onDetachedFromWindow
+com.privacy.junk.privacycustomview.PullToRefreshLayout -> com.privacy.junk.privacycustomview.PullToRefreshLayout:
+    int state -> d
+    com.privacy.junk.privacycustomview.PullToRefreshLayout$OnRefreshListener mListener -> e
+    float downY -> f
+    float lastY -> g
+    float pullDownY -> a
+    float pullUpY -> h
+    float refreshDist -> i
+    float loadmoreDist -> j
+    com.privacy.junk.privacycustomview.PullToRefreshLayout$MyTimer timer -> k
+    float MOVE_SPEED -> b
+    boolean isLayout -> l
+    boolean isTouch -> m
+    float radio -> n
+    android.view.animation.RotateAnimation rotateAnimation -> o
+    android.view.animation.RotateAnimation refreshingAnimation -> p
+    android.view.View refreshView -> q
+    android.view.View loadmoreView -> r
+    android.view.View pullView -> s
+    android.view.View refreshingView -> t
+    android.view.View refreshStateImageView -> u
+    android.view.View pullUpView -> v
+    android.view.View loadingView -> w
+    android.view.View loadStateImageView -> x
+    android.view.View pullableView -> y
+    int mEvents -> z
+    boolean canPullDown -> A
+    boolean canPullUp -> B
+    android.content.Context mContext -> C
+    android.os.Handler updateHandler -> c
+    166:167:void setOnRefreshListener(com.privacy.junk.privacycustomview.PullToRefreshLayout$OnRefreshListener) -> setOnRefreshListener
+    43:172:void <init>(android.content.Context) -> <init>
+    43:177:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    43:182:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    226:236:void initView(android.content.Context) -> a
+    239:240:void hide() -> a
+    248:278:void loadmoreFinish(int) -> a
+    281:324:void changeState(int) -> b
+    330:332:void releasePull() -> b
+    341:460:boolean dispatchTouchEvent(android.view.MotionEvent) -> dispatchTouchEvent
+    523:535:void initView() -> c
+    539:564:void onLayout(boolean,int,int,int,int) -> onLayout
+    28:28:float access$000(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> a
+    28:28:boolean access$100(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> b
+    28:28:int access$200(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> c
+    28:28:float access$300(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> d
+    28:28:com.privacy.junk.privacycustomview.PullToRefreshLayout$MyTimer access$400(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> e
+    28:28:float access$500(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> f
+    28:28:float access$002(com.privacy.junk.privacycustomview.PullToRefreshLayout,float) -> a
+    28:28:android.view.View access$600(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> g
+    28:28:void access$700(com.privacy.junk.privacycustomview.PullToRefreshLayout,int) -> a
+    28:28:android.view.View access$800(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> h
+    28:28:void access$900(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> i
+com.privacy.junk.privacycustomview.PullToRefreshLayout$1 -> com.privacy.junk.privacycustomview.PullToRefreshLayout$1:
+    com.privacy.junk.privacycustomview.PullToRefreshLayout this$0 -> a
+    113:113:void <init>(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> <init>
+    118:161:void handleMessage(android.os.Message) -> handleMessage
+com.privacy.junk.privacycustomview.PullToRefreshLayout$3 -> com.privacy.junk.privacycustomview.PullToRefreshLayout$2:
+    com.privacy.junk.privacycustomview.PullToRefreshLayout this$0 -> a
+    267:267:void <init>(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> <init>
+    270:272:void handleMessage(android.os.Message) -> handleMessage
+com.privacy.junk.privacycustomview.PullToRefreshLayout$MyTimer -> com.privacy.junk.privacycustomview.PullToRefreshLayout$a:
+    android.os.Handler handler -> b
+    java.util.Timer timer -> c
+    com.privacy.junk.privacycustomview.PullToRefreshLayout$MyTimer$MyTask mTask -> d
+    com.privacy.junk.privacycustomview.PullToRefreshLayout this$0 -> a
+    571:574:void <init>(com.privacy.junk.privacycustomview.PullToRefreshLayout,android.os.Handler) -> <init>
+    577:583:void schedule(long) -> a
+    586:590:void cancel() -> a
+com.privacy.junk.privacycustomview.PullToRefreshLayout$MyTimer$MyTask -> com.privacy.junk.privacycustomview.PullToRefreshLayout$a$a:
+    android.os.Handler handler -> b
+    com.privacy.junk.privacycustomview.PullToRefreshLayout$MyTimer this$1 -> a
+    595:597:void <init>(com.privacy.junk.privacycustomview.PullToRefreshLayout$MyTimer,android.os.Handler) -> <init>
+    601:602:void run() -> run
+com.privacy.junk.privacycustomview.PullToRefreshLayout$OnRefreshListener -> com.privacy.junk.privacycustomview.PullToRefreshLayout$b:
+    void onRefresh(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> a
+    void onLoadMore(com.privacy.junk.privacycustomview.PullToRefreshLayout) -> b
+com.privacy.junk.privacycustomview.Pullable -> com.privacy.junk.privacycustomview.d:
+    boolean canPullDown() -> a
+    boolean canPullUp() -> b
 com.privacy.junk.privacycustomview.ScrollView -> com.privacy.junk.privacycustomview.ScrollView:
     android.widget.Scroller mScroller -> e
     android.content.Context context -> a
@@ -35167,8 +35109,12 @@ com.privacy.junk.privacycustomview.ScrollView -> com.privacy.junk.privacycustomv
     47:48:void setScrollViewListener(com.privacy.junk.privacycustomview.ScrollView$ScrollViewListener) -> setScrollViewListener
     59:63:void onScrollChanged(int,int,int,int) -> onScrollChanged
     67:67:boolean dispatchTouchEvent(android.view.MotionEvent) -> dispatchTouchEvent
+    77:77:boolean canPullDown() -> a
     85:86:void setXadSuccess(boolean) -> setXadSuccess
     89:90:void setSadSuccess(boolean) -> setSadSuccess
+    93:99:boolean canPullUp() -> b
+    104:107:void smoothScrollToSlow(int) -> a
+    129:132:void smoothScrollBySlow(int,int,int) -> a
     139:147:void computeScroll() -> computeScroll
     151:152:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
 com.privacy.junk.privacycustomview.ScrollView$ScrollViewListener -> com.privacy.junk.privacycustomview.ScrollView$a:
@@ -35451,100 +35397,7 @@ com.privacy.module.charge.saver.R$anim -> com.privacy.module.charge.saver.a$a:
     int design_fab_out -> design_fab_out
     int design_snackbar_in -> design_snackbar_in
     int design_snackbar_out -> design_snackbar_out
-com.privacy.module.charge.saver.R$color -> com.privacy.module.charge.saver.a$b:
-    int A1 -> A1
-    int A2 -> A2
-    int A3 -> A3
-    int B1 -> B1
-    int B2 -> B2
-    int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
-    int abc_background_cache_hint_selector_material_light -> abc_background_cache_hint_selector_material_light
-    int abc_color_highlight_material -> abc_color_highlight_material
-    int abc_input_method_navigation_guard -> abc_input_method_navigation_guard
-    int abc_primary_text_disable_only_material_dark -> abc_primary_text_disable_only_material_dark
-    int abc_primary_text_disable_only_material_light -> abc_primary_text_disable_only_material_light
-    int abc_primary_text_material_dark -> abc_primary_text_material_dark
-    int abc_primary_text_material_light -> abc_primary_text_material_light
-    int abc_search_url_text -> abc_search_url_text
-    int abc_search_url_text_normal -> abc_search_url_text_normal
-    int abc_search_url_text_pressed -> abc_search_url_text_pressed
-    int abc_search_url_text_selected -> abc_search_url_text_selected
-    int abc_secondary_text_material_dark -> abc_secondary_text_material_dark
-    int abc_secondary_text_material_light -> abc_secondary_text_material_light
-    int accent_material_dark -> accent_material_dark
-    int accent_material_light -> accent_material_light
-    int background_floating_material_dark -> background_floating_material_dark
-    int background_floating_material_light -> background_floating_material_light
-    int background_material_dark -> background_material_dark
-    int background_material_light -> background_material_light
-    int bright_foreground_disabled_material_dark -> bright_foreground_disabled_material_dark
-    int bright_foreground_disabled_material_light -> bright_foreground_disabled_material_light
-    int bright_foreground_inverse_material_dark -> bright_foreground_inverse_material_dark
-    int bright_foreground_inverse_material_light -> bright_foreground_inverse_material_light
-    int bright_foreground_material_dark -> bright_foreground_material_dark
-    int bright_foreground_material_light -> bright_foreground_material_light
-    int button_material_dark -> button_material_dark
-    int button_material_light -> button_material_light
-    int charg_1 -> charg_1
-    int charg_2 -> charg_2
-    int charg_3 -> charg_3
-    int design_fab_shadow_end_color -> design_fab_shadow_end_color
-    int design_fab_shadow_mid_color -> design_fab_shadow_mid_color
-    int design_fab_shadow_start_color -> design_fab_shadow_start_color
-    int design_fab_stroke_end_inner_color -> design_fab_stroke_end_inner_color
-    int design_fab_stroke_end_outer_color -> design_fab_stroke_end_outer_color
-    int design_fab_stroke_top_inner_color -> design_fab_stroke_top_inner_color
-    int design_fab_stroke_top_outer_color -> design_fab_stroke_top_outer_color
-    int design_snackbar_background_color -> design_snackbar_background_color
-    int design_textinput_error_color_dark -> design_textinput_error_color_dark
-    int design_textinput_error_color_light -> design_textinput_error_color_light
-    int dim_foreground_disabled_material_dark -> dim_foreground_disabled_material_dark
-    int dim_foreground_disabled_material_light -> dim_foreground_disabled_material_light
-    int dim_foreground_material_dark -> dim_foreground_material_dark
-    int dim_foreground_material_light -> dim_foreground_material_light
-    int foreground_material_dark -> foreground_material_dark
-    int foreground_material_light -> foreground_material_light
-    int highlighted_text_material_dark -> highlighted_text_material_dark
-    int highlighted_text_material_light -> highlighted_text_material_light
-    int hint_foreground_material_dark -> hint_foreground_material_dark
-    int hint_foreground_material_light -> hint_foreground_material_light
-    int list_progress_green -> list_progress_green
-    int main_back -> main_back
-    int material_blue_grey_800 -> material_blue_grey_800
-    int material_blue_grey_900 -> material_blue_grey_900
-    int material_blue_grey_950 -> material_blue_grey_950
-    int material_deep_teal_200 -> material_deep_teal_200
-    int material_deep_teal_500 -> material_deep_teal_500
-    int material_grey_100 -> material_grey_100
-    int material_grey_300 -> material_grey_300
-    int material_grey_50 -> material_grey_50
-    int material_grey_600 -> material_grey_600
-    int material_grey_800 -> material_grey_800
-    int material_grey_850 -> material_grey_850
-    int material_grey_900 -> material_grey_900
-    int primary_dark_material_dark -> primary_dark_material_dark
-    int primary_dark_material_light -> primary_dark_material_light
-    int primary_material_dark -> primary_material_dark
-    int primary_material_light -> primary_material_light
-    int primary_text_default_material_dark -> primary_text_default_material_dark
-    int primary_text_default_material_light -> primary_text_default_material_light
-    int primary_text_disabled_material_dark -> primary_text_disabled_material_dark
-    int primary_text_disabled_material_light -> primary_text_disabled_material_light
-    int rect -> rect
-    int ripple_material_dark -> ripple_material_dark
-    int ripple_material_light -> ripple_material_light
-    int secondary_text_default_material_dark -> secondary_text_default_material_dark
-    int secondary_text_default_material_light -> secondary_text_default_material_light
-    int secondary_text_disabled_material_dark -> secondary_text_disabled_material_dark
-    int secondary_text_disabled_material_light -> secondary_text_disabled_material_light
-    int switch_thumb_disabled_material_dark -> switch_thumb_disabled_material_dark
-    int switch_thumb_disabled_material_light -> switch_thumb_disabled_material_light
-    int switch_thumb_material_dark -> switch_thumb_material_dark
-    int switch_thumb_material_light -> switch_thumb_material_light
-    int switch_thumb_normal_material_dark -> switch_thumb_normal_material_dark
-    int switch_thumb_normal_material_light -> switch_thumb_normal_material_light
-    int white_100 -> white_100
-com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
+com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$b:
     int abc_action_bar_content_inset_material -> abc_action_bar_content_inset_material
     int abc_action_bar_default_height_material -> abc_action_bar_default_height_material
     int abc_action_bar_default_padding_end_material -> abc_action_bar_default_padding_end_material
@@ -35670,6 +35523,7 @@ com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
     int d160 -> d160
     int d161 -> d161
     int d162 -> d162
+    int d164 -> d164
     int d167 -> d167
     int d168 -> d168
     int d17 -> d17
@@ -35680,6 +35534,7 @@ com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
     int d181 -> d181
     int d19 -> d19
     int d190 -> d190
+    int d192 -> d192
     int d193 -> d193
     int d196 -> d196
     int d2 -> d2
@@ -35689,8 +35544,10 @@ com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
     int d21 -> d21
     int d217 -> d217
     int d22 -> d22
+    int d220 -> d220
     int d225 -> d225
     int d23 -> d23
+    int d230 -> d230
     int d232 -> d232
     int d234 -> d234
     int d237 -> d237
@@ -35723,6 +35580,7 @@ com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
     int d36 -> d36
     int d37 -> d37
     int d38 -> d38
+    int d384 -> d384
     int d39 -> d39
     int d4 -> d4
     int d40 -> d40
@@ -35731,6 +35589,8 @@ com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
     int d43 -> d43
     int d44 -> d44
     int d46 -> d46
+    int d47 -> d47
+    int d477 -> d477
     int d48 -> d48
     int d5 -> d5
     int d50 -> d50
@@ -35760,6 +35620,7 @@ com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
     int d86 -> d86
     int d9 -> d9
     int d90 -> d90
+    int d92 -> d92
     int d93 -> d93
     int d95 -> d95
     int d98 -> d98
@@ -35889,6 +35750,7 @@ com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
     int s24 -> s24
     int s28 -> s28
     int s30 -> s30
+    int s32 -> s32
     int s38 -> s38
     int s40 -> s40
     int s46 -> s46
@@ -35931,7 +35793,7 @@ com.privacy.module.charge.saver.R$dimen -> com.privacy.module.charge.saver.a$c:
     int txt_title -> txt_title
     int txt_top_4 -> txt_top_4
     int week_p -> week_p
-com.privacy.module.charge.saver.R$id -> com.privacy.module.charge.saver.a$d:
+com.privacy.module.charge.saver.R$id -> com.privacy.module.charge.saver.a$c:
     int BOTTOM_LEFT -> BOTTOM_LEFT
     int BOTTOM_RIGHT -> BOTTOM_RIGHT
     int TOP_LEFT -> TOP_LEFT
@@ -35961,15 +35823,17 @@ com.privacy.module.charge.saver.R$id -> com.privacy.module.charge.saver.a$d:
     int battery_ad_layout -> battery_ad_layout
     int battery_bubble_layout -> battery_bubble_layout
     int battery_charge_save -> battery_charge_save
-    int battery_icon -> battery_icon
+    int battery_charge_time -> battery_charge_time
+    int battery_le -> battery_le
     int battery_more -> battery_more
     int battery_now_battery -> battery_now_battery
     int battery_now_battery_left -> battery_now_battery_left
+    int battery_now_battery_left2 -> battery_now_battery_left2
     int battery_now_date -> battery_now_date
     int battery_now_day -> battery_now_day
     int battery_now_time -> battery_now_time
     int battery_now_week -> battery_now_week
-    int battery_shandian -> battery_shandian
+    int battery_now_year -> battery_now_year
     int battery_switch -> battery_switch
     int battery_switch_check -> battery_switch_check
     int battery_title -> battery_title
@@ -36092,7 +35956,7 @@ com.privacy.module.charge.saver.R$id -> com.privacy.module.charge.saver.a$d:
     int withText -> withText
     int wrap -> wrap
     int wrap_content -> wrap_content
-com.privacy.module.charge.saver.R$layout -> com.privacy.module.charge.saver.a$e:
+com.privacy.module.charge.saver.R$layout -> com.privacy.module.charge.saver.a$d:
     int abc_action_bar_title_item -> abc_action_bar_title_item
     int abc_action_bar_up_container -> abc_action_bar_up_container
     int abc_action_bar_view_list_nav_layout -> abc_action_bar_view_list_nav_layout
@@ -36144,7 +36008,7 @@ com.privacy.module.charge.saver.R$layout -> com.privacy.module.charge.saver.a$e:
     int select_dialog_multichoice_material -> select_dialog_multichoice_material
     int select_dialog_singlechoice_material -> select_dialog_singlechoice_material
     int support_simple_spinner_dropdown_item -> support_simple_spinner_dropdown_item
-com.privacy.module.charge.saver.R$mipmap -> com.privacy.module.charge.saver.a$f:
+com.privacy.module.charge.saver.R$mipmap -> com.privacy.module.charge.saver.a$e:
     int battery -> battery
     int battery_beijing -> battery_beijing
     int battery_bubble -> battery_bubble
@@ -36156,43 +36020,7 @@ com.privacy.module.charge.saver.R$mipmap -> com.privacy.module.charge.saver.a$f:
     int jiantou -> jiantou
     int side_check_normal -> side_check_normal
     int side_check_passed -> side_check_passed
-com.privacy.module.charge.saver.R$string -> com.privacy.module.charge.saver.a$g:
-    int abc_action_bar_home_description -> abc_action_bar_home_description
-    int abc_action_bar_home_description_format -> abc_action_bar_home_description_format
-    int abc_action_bar_home_subtitle_description_format -> abc_action_bar_home_subtitle_description_format
-    int abc_action_bar_up_description -> abc_action_bar_up_description
-    int abc_action_menu_overflow_description -> abc_action_menu_overflow_description
-    int abc_action_mode_done -> abc_action_mode_done
-    int abc_activity_chooser_view_see_all -> abc_activity_chooser_view_see_all
-    int abc_activitychooserview_choose_application -> abc_activitychooserview_choose_application
-    int abc_capital_off -> abc_capital_off
-    int abc_capital_on -> abc_capital_on
-    int abc_search_hint -> abc_search_hint
-    int abc_searchview_description_clear -> abc_searchview_description_clear
-    int abc_searchview_description_query -> abc_searchview_description_query
-    int abc_searchview_description_search -> abc_searchview_description_search
-    int abc_searchview_description_submit -> abc_searchview_description_submit
-    int abc_searchview_description_voice -> abc_searchview_description_voice
-    int abc_shareactionprovider_share_with -> abc_shareactionprovider_share_with
-    int abc_shareactionprovider_share_with_application -> abc_shareactionprovider_share_with_application
-    int abc_toolbar_collapse_description -> abc_toolbar_collapse_description
-    int app_name -> app_name
-    int appbar_scrolling_view_behavior -> appbar_scrolling_view_behavior
-    int bottom_sheet_behavior -> bottom_sheet_behavior
-    int character_counter_pattern -> character_counter_pattern
-    int charge_screen_save -> charge_screen_save
-    int charging_ing -> charging_ing
-    int charging_on_left -> charging_on_left
-    int charging_use_left -> charging_use_left
-    int cpu -> cpu
-    int game -> game
-    int internet -> internet
-    int ram -> ram
-    int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
-    int talk -> talk
-    int temp -> temp
-    int unlock -> unlock
-com.privacy.module.charge.saver.R$styleable -> com.privacy.module.charge.saver.a$h:
+com.privacy.module.charge.saver.R$styleable -> com.privacy.module.charge.saver.a$f:
     int[] ActionBar -> ActionBar
     int[] ActionBarLayout -> ActionBarLayout
     int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
@@ -36783,7 +36611,7 @@ com.privacy.module.charge.saver.R$styleable -> com.privacy.module.charge.saver.a
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1586:2167:void <clinit>() -> <clinit>
+    1601:2182:void <clinit>() -> <clinit>
 com.privacy.module.charge.saver.entry.LevelStepPrivacy -> com.privacy.module.charge.saver.a.a:
     int currentLevel -> a
     int lastLevelUpdateTime -> b
@@ -37004,15 +36832,14 @@ com.privacy.module.charge.saver.protectview.PrivacyBatteryView -> com.privacy.mo
     android.content.Context context -> b
     boolean isStop -> c
     int battery -> d
-    android.graphics.Canvas canvas -> e
-    int w -> f
-    16:33:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    27:31:void init() -> b
-    37:42:void onDraw(android.graphics.Canvas) -> onDraw
-    45:47:void setDuShu(int) -> setDuShu
-    50:53:void start(float) -> a
-    57:59:void onDetachedFromWindow() -> onDetachedFromWindow
-    62:63:void stop() -> a
+    int w -> e
+    15:23:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    26:30:void init() -> b
+    34:39:void onDraw(android.graphics.Canvas) -> onDraw
+    42:44:void setDuShu(int) -> setDuShu
+    47:48:void start(float) -> a
+    52:54:void onDetachedFromWindow() -> onDetachedFromWindow
+    57:58:void stop() -> a
 com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView -> com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView:
     java.lang.String typeface -> a
     android.content.Context mContext -> b
@@ -37030,84 +36857,80 @@ com.privacy.module.charge.saver.protectview.ProtectBatteryView -> com.privacy.mo
     com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener unlockListener -> l
     com.privacy.module.charge.saver.protectview.ProtectBatteryView batteryView -> m
     android.widget.LinearLayout adLayout -> n
-    android.widget.ImageView icon -> o
-    android.widget.TextView title -> p
-    android.widget.LinearLayout more -> q
-    android.widget.LinearLayout switchLayout -> r
-    android.widget.CheckBox saverSwitch -> s
-    android.widget.ImageView battery_shandian -> a
-    android.widget.TextView time -> t
-    android.widget.TextView date -> u
+    android.widget.TextView title -> o
+    android.widget.LinearLayout more -> p
+    android.widget.LinearLayout switchLayout -> q
+    android.widget.CheckBox saverSwitch -> r
+    android.widget.TextView time -> s
+    android.widget.TextView date -> t
+    android.widget.TextView battery_now_year -> u
     android.widget.TextView day -> v
     android.widget.TextView week -> w
     android.widget.TextView batteryLeft -> x
-    com.privacy.module.charge.saver.protectview.BubbleLayoutPrivacy bubbleLayout -> y
-    com.privacy.module.charge.saver.protectview.PrivacyBatteryView batteryview -> b
-    int halfWidth -> z
-    android.content.BroadcastReceiver timerUpdateReceiver -> A
-    android.content.IntentFilter mIntentFilter -> B
-    int progress -> C
-    boolean flag -> c
-    int i -> d
-    android.os.CountDownTimer cdt -> e
-    40:162:void <init>(android.content.Context) -> <init>
-    40:162:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    40:162:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    87:88:void setUnlockListener(com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener) -> setUnlockListener
-    100:138:void showNativeAD() -> f
-    141:158:void updateTime() -> a
-    166:251:void bind(com.privacy.module.charge.saver.entry.PrivacyBatteryEntry) -> a
-    278:278:void setCharing(boolean) -> setCharing
-    282:394:void onFinishInflate() -> onFinishInflate
-    398:418:void initViews() -> g
-    421:424:void pauseBubble() -> b
-    427:430:void reStartBubble() -> c
-    434:441:void onAttachedToWindow() -> onAttachedToWindow
-    445:470:void onDetachedFromWindow() -> onDetachedFromWindow
-    473:477:int analysisJson(org.json.JSONObject) -> a
-    482:489:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    492:494:void registerTimeUpdateReceiver() -> d
-    497:499:void unregisterTimeUpdateReceiver() -> e
-    35:35:android.view.GestureDetector access$000(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> a
-    35:35:int access$100(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> b
-    35:35:com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener access$200(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> c
-    35:35:android.widget.LinearLayout access$300(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> d
-    35:35:android.widget.LinearLayout access$400(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> e
-    35:35:float access$500(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> f
-    35:35:com.privacy.module.charge.saver.protectview.ProtectBatteryView access$600(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> g
-    35:35:float access$502(com.privacy.module.charge.saver.protectview.ProtectBatteryView,float) -> a
-    35:35:android.content.Context access$700(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> h
-    35:35:android.widget.CheckBox access$800(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> i
+    android.widget.TextView batteryLeft1 -> y
+    android.widget.LinearLayout battery_charge_time -> a
+    android.widget.TextView battery_le -> b
+    com.privacy.module.charge.saver.protectview.BubbleLayoutPrivacy bubbleLayout -> z
+    com.privacy.module.charge.saver.protectview.PrivacyBatteryView batteryview -> c
+    int halfWidth -> A
+    android.content.BroadcastReceiver timerUpdateReceiver -> B
+    android.content.IntentFilter mIntentFilter -> C
+    int progress -> D
+    boolean flag -> d
+    int i -> e
+    38:156:void <init>(android.content.Context) -> <init>
+    38:156:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    38:156:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    79:80:void setUnlockListener(com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener) -> setUnlockListener
+    92:130:void showNativeAD() -> f
+    133:152:void updateTime() -> a
+    159:177:void bind(com.privacy.module.charge.saver.entry.PrivacyBatteryEntry) -> a
+    185:185:void setCharing(boolean) -> setCharing
+    189:286:void onFinishInflate() -> onFinishInflate
+    289:306:void initViews() -> g
+    309:312:void pauseBubble() -> b
+    315:318:void reStartBubble() -> c
+    322:329:void onAttachedToWindow() -> onAttachedToWindow
+    333:355:void onDetachedFromWindow() -> onDetachedFromWindow
+    358:362:int analysisJson(org.json.JSONObject) -> a
+    367:374:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    377:379:void registerTimeUpdateReceiver() -> d
+    382:384:void unregisterTimeUpdateReceiver() -> e
+    33:33:android.view.GestureDetector access$000(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> a
+    33:33:int access$100(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> b
+    33:33:com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener access$200(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> c
+    33:33:android.widget.LinearLayout access$300(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> d
+    33:33:android.widget.LinearLayout access$400(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> e
+    33:33:float access$500(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> f
+    33:33:com.privacy.module.charge.saver.protectview.ProtectBatteryView access$600(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> g
+    33:33:float access$502(com.privacy.module.charge.saver.protectview.ProtectBatteryView,float) -> a
+    33:33:android.content.Context access$700(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> h
+    33:33:android.widget.CheckBox access$800(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> i
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$1 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$1:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    90:90:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    93:94:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    82:82:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    85:86:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$2 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$2:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    112:112:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    115:135:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    104:104:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    107:127:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$3 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$3:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    173:173:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView,long,long) -> <init>
-    177:177:void onTick(long) -> onTick
-    181:191:void onFinish() -> onFinish
+    198:198:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    201:218:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$4 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$4:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    302:302:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    305:322:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    221:221:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    224:228:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    234:243:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$5 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$5:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    325:325:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    328:332:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    338:347:boolean onScroll(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onScroll
+    250:250:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    253:257:void onClick(android.view.View) -> onClick
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$6 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$6:
     com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    358:358:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    361:365:void onClick(android.view.View) -> onClick
-com.privacy.module.charge.saver.protectview.ProtectBatteryView$7 -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$7:
-    com.privacy.module.charge.saver.protectview.ProtectBatteryView this$0 -> a
-    377:377:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
-    380:391:void onClick(android.view.View) -> onClick
+    269:269:void <init>(com.privacy.module.charge.saver.protectview.ProtectBatteryView) -> <init>
+    272:283:void onClick(android.view.View) -> onClick
 com.privacy.module.charge.saver.protectview.ProtectBatteryView$UnlockListener -> com.privacy.module.charge.saver.protectview.ProtectBatteryView$a:
     void onUnlock() -> a
 com.privacy.module.charge.saver.receiverprivacy.BroadcastReceiverStartPrivacy -> com.privacy.module.charge.saver.receiverprivacy.BroadcastReceiverStartPrivacy:

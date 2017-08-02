@@ -28,7 +28,7 @@ public class PrivacyFloatStateView extends View {
     private Paint firstPaint;
     public int width = MyUtils.dp2px(30);
     public int height = MyUtils.dp2px(30);
-    private String text = "50%";
+    private String text = "50";
     private int type = 1;
     private int pratent;
     private Bitmap bitmap_normal;
@@ -60,9 +60,7 @@ public class PrivacyFloatStateView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(width, height);
         initPaints();
-
     }
-
 
     /**
      * 初始化画笔

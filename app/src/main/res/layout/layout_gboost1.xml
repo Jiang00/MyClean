@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/B3"
+    android:background="@color/A11"
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,68 +25,38 @@
             <include layout="@layout/layout_title" />
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d66"
-            android:background="@color/B3">
+            android:layout_height="@dimen/d154"
+            android:background="@color/A1"
+            android:gravity="center">
 
             <ImageView
-                android:layout_width="@dimen/d24"
-                android:layout_height="@dimen/d24"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/d16"
-                android:src="@mipmap/goodgame" />
-
-            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                android:id="@+id/tv_s"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/d56"
-                android:text="@string/gboost_speed"
-                android:textColor="@color/A4"
-                android:textSize="@dimen/s14" />
-
-            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/tv_s"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/tv_s"
-                android:text=" 30%"
-                android:textColor="@color/A1"
-                android:textSize="@dimen/s14" />
-
-            <ImageView
-                android:id="@+id/gboost_power_check"
-                android:layout_width="@dimen/d30"
-                android:layout_height="@dimen/d30"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/d16"
-                android:src="@mipmap/side_check_passed" />
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d8"
-            android:background="@color/A7" />
+                android:layout_width="@dimen/d112"
+                android:layout_height="@dimen/d112"
+                android:src="@mipmap/game" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/d70"
-            android:background="@drawable/shape_ad"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/d16"
-                android:layout_marginTop="@dimen/d16"
-                android:text="@string/gboost_1"
-                android:textColor="@color/A4"
-                android:textSize="@dimen/s14" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d48"
+                android:background="@color/A5"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/game_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/d16"
+                    android:text="@string/gboost_13"
+                    android:textColor="@color/A2"
+                    android:textSize="@dimen/s12" />
+            </LinearLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -96,36 +66,25 @@
                     android:id="@+id/gboost_gridview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/B3"
-                    android:numColumns="4"
-                    android:scrollbars="none" />
+                    android:background="@color/A11"
+                    android:horizontalSpacing="@dimen/d8"
+                    android:numColumns="2"
+                    android:paddingBottom="@dimen/d8"
+                    android:paddingLeft="@dimen/d8"
+                    android:paddingRight="@dimen/d8"
+                    android:paddingTop="@dimen/d4"
+                    android:scrollbars="none"
+                    android:verticalSpacing="@dimen/d8" />
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <!--清理按钮-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-        <TextView
-            android:id="@+id/gboost_clean_button"
-            android:layout_width="@dimen/d176"
-            android:layout_height="@dimen/d42"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/d27"
-            android:background="@drawable/clean_button_yuan"
-            android:gravity="center"
-            android:text="@string/main_cleanup"
-            android:textColor="@color/B3"
-            android:textSize="@dimen/s17" />
-    </RelativeLayout>
     <!--添加游戏-->
     <LinearLayout
         android:id="@+id/ll_add_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/A11"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -150,14 +109,14 @@
 
                     <FrameLayout
                         android:id="@+id/add_left"
-                        android:layout_width="@dimen/d72"
+                        android:layout_width="@dimen/d56"
                         android:layout_height="@dimen/d56"
                         android:layout_centerVertical="true"
                         android:background="?attr/selectableItemBackground">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/d24"
+                            android:layout_height="@dimen/d24"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/d16"
                             android:src="@mipmap/tilte_left" />
@@ -166,84 +125,69 @@
                     <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/add_left"
                         android:text="@string/gboost_7"
                         android:textColor="#ffffff"
                         android:textSize="@dimen/s18" />
-
-                    <ImageView
-                        android:id="@+id/add_right"
-                        android:layout_width="@dimen/d56"
-                        android:layout_height="@dimen/d56"
-                        android:layout_alignParentRight="true"
-                        android:scaleType="center"
-                        android:src="@mipmap/white_add_right" />
                 </RelativeLayout>
 
-                <!--点击搜索按钮后的标题-->
-                <FrameLayout
-                    android:id="@+id/goost_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d56"
-                    android:layout_marginLeft="@dimen/d18"
-                    android:layout_marginRight="@dimen/d18"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d30"
-                        android:layout_gravity="center"
-                        android:background="@drawable/shape_radio" />
-
-                    <EditText
-                        android:id="@+id/search_edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d43"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/d28"
-                        android:layout_marginRight="@dimen/d18"
-                        android:background="@null"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:hint="@string/edit_hint"
-                        android:singleLine="true"
-                        android:textColor="@color/A5"
-                        android:textColorHint="@color/A5"
-                        android:textSize="@dimen/s14" />
-
-                    <ImageView
-                        android:layout_width="@dimen/d18"
-                        android:layout_height="@dimen/d18"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/d10"
-                        android:src="@mipmap/edit_left_drawable" />
-
-                    <ImageButton
-                        android:id="@+id/clear"
-                        android:layout_width="@dimen/d11"
-                        android:layout_height="@dimen/d11"
-                        android:layout_gravity="center_vertical|end"
-                        android:layout_marginRight="@dimen/d10"
-                        android:background="@mipmap/eidt_cha"
-                        android:padding="@dimen/d10" />
-                </FrameLayout>
             </FrameLayout>
         </LinearLayout>
+        <!--点击搜索按钮后的标题-->
+        <FrameLayout
+            android:id="@+id/search_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d56"
+            android:background="@color/A5"
+            android:visibility="visible">
+
+            <ImageView
+                android:layout_width="@dimen/d333"
+                android:layout_height="@dimen/d48"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_radio" />
+
+            <EditText
+                android:id="@+id/search_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d48"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/d28"
+                android:layout_marginRight="@dimen/d42"
+                android:background="@null"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/edit_hint"
+                android:singleLine="true"
+                android:textColor="@color/A2"
+                android:textColorHint="@color/A5"
+                android:textSize="@dimen/s14" />
+
+            <ImageView
+                android:layout_width="@dimen/d32"
+                android:layout_height="@dimen/d32"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="@dimen/d16"
+                android:src="@mipmap/edit_left_drawable" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d8"
+            android:layout_marginRight="@dimen/d8"
             android:layout_marginTop="@dimen/d3"
-            android:background="@color/B3">
+            android:background="@color/A11">
 
             <ListView
                 android:id="@+id/list_game"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d4"
                 android:background="@color/B3"
-                android:divider="@drawable/list_divider"
-                android:dividerHeight="0dp"
+                android:divider="@color/B1"
+                android:dividerHeight="1px"
                 android:scrollbars="none" />
         </LinearLayout>
     </LinearLayout>

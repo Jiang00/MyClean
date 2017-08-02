@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.CountDownTimer;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -41,30 +39,24 @@ public class ProtectBatteryView extends FrameLayout {
     private boolean isRegisterTimeUpdate = false;
     private View adView;
     private ProtectBatteryView.UnlockListener unlockListener;
-//    private BatteryChargeView chargeView = null;
-
     private ProtectBatteryView batteryView;
     private LinearLayout adLayout;
-    private ImageView icon;
     private TextView title;
     private LinearLayout more;
     private LinearLayout switchLayout;
     private CheckBox saverSwitch;
-    ImageView battery_shandian;
     private TextView time;
     private TextView date;
-    //    private TextView battery_now_year;
+    private TextView battery_now_year;
     private TextView day;
     private TextView week;
-    private TextView batteryLeft;
-    //    private TextView currentLevel_ing;
+    private TextView batteryLeft, batteryLeft1;
+    LinearLayout battery_charge_time;
+    TextView battery_le;
     private BubbleLayoutPrivacy bubbleLayout;
     PrivacyBatteryView batteryview;
-//    private LottieAnimationView water;
-//    LottieAnimationView battay_info_lot;
 
     private int halfWidth;
-//    private ImageView shutter;
 
     public interface UnlockListener {
         void onUnlock();
@@ -145,12 +137,14 @@ public class ProtectBatteryView extends FrameLayout {
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
                 String str = sdf.format(d);
                 time.setText(str);
+                str = new SimpleDateFormat("yy", Locale.getDefault()).format(d);
+                battery_now_year.setText(str + "/");
                 str = new SimpleDateFormat("MM", Locale.getDefault()).format(d);
-                date.setText(str);
+                date.setText(str + "/");
                 str = new SimpleDateFormat("dd", Locale.getDefault()).format(d);
-                day.setText(str + ".");
+                day.setText(str);
                 str = new SimpleDateFormat("EEEE").format(d);
-                week.setText(str + ".");
+                week.setText(str);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -160,108 +154,26 @@ public class ProtectBatteryView extends FrameLayout {
     private int progress = 0;
     boolean flag = false;
     int i = 0;
-    CountDownTimer cdt;
 
     public void bind(PrivacyBatteryEntry entry) {
         if (entry == null) {
             return;
         }
         final int curLevel = entry.getLevel();
-        final int le = curLevel % 100;
         batteryview.start(curLevel);
-
-        cdt = new CountDownTimer(1000, 1000) {
-
-            @Override
-            public void onTick(long millisUntilFinished) {
-            }
-
-            @Override
-            public void onFinish() {
-                if (i == 0) {
-                    battery_shandian.setImageResource(R.mipmap.battery_shandian1);
-                } else {
-                    battery_shandian.setImageResource(R.mipmap.battery_shandian);
-                }
-                i++;
-                if (i == 2) {
-                    i = 0;
-                }
-                start();
-            }
-        }.start();
-//        if (!flag) {
-//            flag = true;
-//            battery_shandian.setColorFilter(ContextCompat.getColor(mContext, R.color.A2));
-//        } else {
-//            flag = false;
-////            battery_shandian.setColorFilter(ContextCompat.getColor(mContext, R.color.A3));
-//        }
-
-//        if (curLevel < 20) {
-//            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_3));
-//        } else if (curLevel < 80) {
-//            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_2));
-//        } else {
-//            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_1));
-//        }
-//        currentLevel.setText(curLevel + "%");
-
-//        battay_info_lot.setImageAssetsFolder("images/");
-//        battay_info_lot.setAnimation("particle.json");
-//        battay_info_lot.loop(false);
-//        battay_info_lot.setSpeed(0.7f);
-//        battay_info_lot.playAnimation();
-
-
-        //        if (water != null && !water.isAnimating()) {
-//            initWater();
-//            water.playAnimation();
-//            water.addAnimatorUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//                @Override
-//                public void onAnimationUpdate(ValueAnimator animation) {
-//                    progress = (int) (animation.getAnimatedFraction() * 100);
-//                    if (le == 0) {
-//                        if (progress == 99) {
-//                            progress = 100;
-//                            water.pauseAnimation();
-//                        }
-//                    } else if (progress == le) {
-//                        water.pauseAnimation();
-//                    }
-//                }
-//            });
-//        }
+        battery_le.setText(String.valueOf(curLevel));
         int leftChargeTime = entry.getLeftTime();
-        if (batteryLeft != null) {
-            String str;
-            if (entry.isCharging()) {
-                str = getResources().getString(R.string.charging_on_left);
-            } else {
-                str = getResources().getString(R.string.charging_use_left);
-            }
-            String result = String.format(str, entry.extractHours(leftChargeTime), entry.extractMinutes(leftChargeTime));
+        if (batteryLeft != null && batteryLeft1 != null) {
             if (curLevel == 100) {
-                batteryLeft.setText("100%");
+                if (battery_charge_time != null) {
+                    battery_charge_time.setVisibility(GONE);
+                }
             } else {
-                batteryLeft.setText(result);
+                batteryLeft.setText(entry.extractHours(leftChargeTime) + "");
+                batteryLeft1.setText(entry.extractMinutes(leftChargeTime) + "");
             }
         }
 
-    }
-
-    private void initWater() {
-//        try {
-//            water.setImageAssetsFolder(mContext, "theme://images/battery");
-//            water.setAnimation(mContext, "theme://battery.json");
-//        } catch (Exception e) {
-//            if (!water.isAnimating()) {
-//                water.setImageAssetsFolder(null, "images/battery");
-//                water.setAnimation(null, "battery.json");
-//            }
-//        }
-//        water.loop(true);
-//        water.setSpeed(5.0f);
     }
 
     protected int dp2px(float dp) {
@@ -270,11 +182,6 @@ public class ProtectBatteryView extends FrameLayout {
     }
 
     public void setCharing(boolean isVisible) {
-//        if (isVisible) {
-//            currentLevel_ing.setVisibility(VISIBLE);
-//        } else {
-//            currentLevel_ing.setVisibility(GONE);
-//        }
     }
 
     @Override
@@ -283,17 +190,6 @@ public class ProtectBatteryView extends FrameLayout {
         if (!isBindView) {
             initViews();
             isBindView = true;
-//            shell.setAnimation("shell.json");
-//            shell.loop(true);
-//            LottieComposition.Factory.fromAssetFileName(getContext(), "shell.json",
-//                    new OnCompositionLoadedListener() {
-//                        @Override
-//                        public void onCompositionLoaded(LottieComposition composition) {
-//                            shell.setComposition(composition);
-//                        }
-//                    });
-//            shell.playAnimation();
-
             updateTime();
 
             showNativeAD();
@@ -350,10 +246,6 @@ public class ProtectBatteryView extends FrameLayout {
 
             String titleTxt = (String) UtilsPrivacy.readData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_TITLE, "Cleaner");
             title.setText(titleTxt);
-            int iconId = (int) UtilsPrivacy.readData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_ICON, R.mipmap.battery_icon1);
-            if (iconId > -1) {
-//                icon.setImageResource(iconId);
-            }
 
             more.setOnClickListener(new OnClickListener() {
                 @Override
@@ -394,26 +286,22 @@ public class ProtectBatteryView extends FrameLayout {
     }
 
     private void initViews() {
-//        shutter = (ImageView) findViewById(R.id.battery_shutter);
         bubbleLayout = (BubbleLayoutPrivacy) findViewById(R.id.battery_bubble_layout);
-//        currentLevel = (TextView) findViewById(R.id.battery_level);
-//        currentLevel_ing = (TextView) findViewById(R.id.currentLevel_ing);
         batteryView = (ProtectBatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
         adLayout = (LinearLayout) findViewById(R.id.battery_ad_layout);
-        icon = (ImageView) findViewById(R.id.battery_icon);
         title = (TextView) findViewById(R.id.battery_title);
         more = (LinearLayout) findViewById(R.id.battery_more);
         time = (TextView) findViewById(R.id.battery_now_time);
         date = (TextView) findViewById(R.id.battery_now_date);
-//        battery_now_year = (TextView) findViewById(R.id.battery_now_year);
+        battery_charge_time = (LinearLayout) findViewById(R.id.battery_charge_time);
+        battery_now_year = (TextView) findViewById(R.id.battery_now_year);
         day = (TextView) findViewById(R.id.battery_now_day);
         week = (TextView) findViewById(R.id.battery_now_week);
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
-//        water = (LottieAnimationView) findViewById(R.id.battery_electricity);
-//        battay_info_lot = (LottieAnimationView) findViewById(R.id.battay_info_lot);
-        battery_shandian = (ImageView) findViewById(R.id.battery_shandian);
+        batteryLeft1 = (TextView) findViewById(R.id.battery_now_battery_left2);
+        battery_le = (TextView) findViewById(R.id.battery_le);
         batteryview = (PrivacyBatteryView) findViewById(R.id.batteryview);
     }
 
@@ -445,9 +333,6 @@ public class ProtectBatteryView extends FrameLayout {
         super.onDetachedFromWindow();
         if (batteryview != null) {
             batteryview.stop();
-        }
-        if (cdt != null) {
-            cdt.cancel();
         }
         try {
             JSONObject object = new JSONObject(AndroidSdk.getExtraData());

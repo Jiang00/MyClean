@@ -17,21 +17,19 @@ import com.privacy.clean.core.CleanManager;
 import com.privacy.clean.utilsprivacy.MyUtils;
 import com.privacy.clean.utilsprivacy.PreData;
 import com.privacy.junk.R;
-import com.privacy.junk.activityprivacy.AllAppsActivityPrivacy;
+import com.privacy.junk.activityprivacy.DeepingActivityPrivacy;
+import com.privacy.junk.activityprivacy.FileManagerActivityPrivacy;
 import com.privacy.junk.activityprivacy.GoodGameActivityPrivacy;
 import com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy;
-import com.privacy.junk.activityprivacy.PrivacyBatteriesActivity;
-import com.privacy.junk.activityprivacy.DeepingActivityPrivacy;
+import com.privacy.junk.activityprivacy.PictActivityPrivacy;
 import com.privacy.junk.activityprivacy.PrivacyMemoryAvtivity;
 import com.privacy.junk.activityprivacy.PrivacyNotifingAnimationActivity;
-import com.privacy.junk.activityprivacy.FileManagerActivityPrivacy;
-import com.privacy.junk.activityprivacy.PictActivityPrivacy;
 import com.privacy.junk.activityprivacy.RubbishActivityPrivacy;
 import com.privacy.junk.activityprivacy.SetActivityPrivacy;
 import com.privacy.junk.privacymodel.SideInfo;
 import com.privacy.junk.privacyservices.PrivacySuspensionBallService;
-import com.privacy.junk.toolsprivacy.PrivacyUtilGp;
 import com.privacy.junk.toolsprivacy.MyConstantPrivacy;
+import com.privacy.junk.toolsprivacy.PrivacyUtilGp;
 import com.privacy.junk.toolsprivacy.SetAdUtilPrivacy;
 import com.privacy.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
 import com.privacy.module.charge.saver.privacyutils.UtilsPrivacy;
@@ -40,15 +38,13 @@ import com.privacy.module.charge.saver.privacyutils.UtilsPrivacy;
 public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
     int BATTERY = -1;
     int FLOAT = -1;
-    int JUNK = -1;
     int RAM = -1;
-    int NOTIFI = -1;
+    int JUNK = -1;
     int POWER = -1;
+    int NOTIFI = -1;
     int PICTURE = -1;
-    int MANAGER = -1;
     int FILE = -1;
     int GBOOST = -1;
-    int COOLING = -1;
 
     int SETTING = -1;
     int ROTATE = -1;
@@ -60,27 +56,21 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
         int idx = 0;
         BATTERY = idx++;
         FLOAT = idx++;
-        JUNK = idx++;
         RAM = idx++;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstantPrivacy.NOTIFIACTIVITY, 1) != 0) {
-            NOTIFI = idx++;
-        }
+        JUNK = idx++;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstantPrivacy.POWERACTIVITY, 1) != 0) {
             POWER = idx++;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstantPrivacy.PICTUREX, 1) != 0) {
-            PICTURE = idx++;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstantPrivacy.NOTIFIACTIVITY, 1) != 0) {
+            NOTIFI = idx++;
         }
+        PICTURE = idx++;
 
-        MANAGER = idx++;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstantPrivacy.FILEACTIVITY, 1) != 0) {
             FILE = idx++;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstantPrivacy.GOODGAME, 1) != 0) {
-            GBOOST = idx++;
-        }
+        GBOOST = idx++;
 
-        COOLING = idx++;
         SETTING = idx++;
         ROTATE = idx++;
 
@@ -104,7 +94,6 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
                     .findViewById(R.id.iv_le);
             holder.tv_name = (TextView) convertView
                     .findViewById(R.id.tv_name);
-            holder.side_deep_h = (TextView) convertView.findViewById(R.id.side_deep_h);
             holder.side_divide = convertView
                     .findViewById(R.id.side_divide);
             convertView.setTag(holder);
@@ -153,12 +142,6 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-//        if (position == POWER) {
-//            holder.side_deep_h.setVisibility(View.VISIBLE);
-//            holder.side_deep_h.setText(powerSize);
-//        } else {
-//            holder.side_deep_h.setVisibility(View.INVISIBLE);
-//        }
        /* if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             if (position == NOTIFI) {
                 holder.rl_item.setVisibility(View.GONE);
@@ -170,7 +153,7 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
                 convertView.setLayoutParams(param);
             }
         }*/
-        if (position == JUNK) {
+        if (position == RAM || position == SETTING) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {
             holder.side_divide.setVisibility(View.GONE);
@@ -233,18 +216,10 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
                 Intent intent6 = new Intent(context, MyNotifingActivityPrivacy.class);
                 context.startActivity(intent6);
             }
-        } else if (position == MANAGER) {
-            SetAdUtilPrivacy.track("侧边栏", "点击进入应用管理", "", 1);
-            Intent intent = new Intent(context, AllAppsActivityPrivacy.class);
-            ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == GBOOST) {
             SetAdUtilPrivacy.track("侧边栏", "点击进入游戏加速", "", 1);
             PreData.putDB(context, MyConstantPrivacy.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, GoodGameActivityPrivacy.class);
-            ((Activity) context).startActivityForResult(intent, 1);
-        } else if (position == COOLING) {
-            SetAdUtilPrivacy.track("侧边栏", "点击进入电池降温", "", 1);
-            Intent intent = new Intent(context, PrivacyBatteriesActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {
             SetAdUtilPrivacy.track("侧边栏", "点击进入设置页面", "", 1);
@@ -265,7 +240,6 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
 
     public class ViewHolder {
         ImageView checkBox;
-        TextView side_deep_h;
         TextView tv_name;
         RelativeLayout rl_item;
         View side_divide;

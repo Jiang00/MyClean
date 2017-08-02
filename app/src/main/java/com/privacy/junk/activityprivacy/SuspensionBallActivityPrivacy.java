@@ -21,7 +21,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.privacy.clean.core.CleanManager;
@@ -40,8 +39,6 @@ import com.twee.module.tweenengine.TweenManager;
 import java.util.List;
 
 public class SuspensionBallActivityPrivacy extends BaseActivity {
-    ImageView float_cricle;
-    TextView float_memory, float_tishi;
     LinearLayout ll_ad;
     private View nativeView;
     private static final int LIGHT_NORMAL = 64;
@@ -49,7 +46,6 @@ public class SuspensionBallActivityPrivacy extends BaseActivity {
     private static final int LIGHT_100_PERCENT = 255;
     private static final int LIGHT_AUTO = 0;
     private static final int LIGHT_ERR = -1;
-    LinearLayout float_jiashu_jieguo;
     private MyApplication cleanApplication;
     private Animation rotate, suo, fang;
     LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
@@ -87,7 +83,6 @@ public class SuspensionBallActivityPrivacy extends BaseActivity {
     }
 
     private void initList() {
-        float_memory.setText(MyUtils.getMemory(this) + "%");
 
     }
 
@@ -150,7 +145,6 @@ public class SuspensionBallActivityPrivacy extends BaseActivity {
         ll_xianshi.setOnClickListener(kuaijieListener);
         ll_shengyin.setOnClickListener(kuaijieListener);
         ll_gps.setOnClickListener(kuaijieListener);
-        float_cricle.setOnClickListener(kuaijieListener);
 //        float_rotate.setOnClickListener(kuaijieListener);
     }
 
@@ -169,11 +163,7 @@ public class SuspensionBallActivityPrivacy extends BaseActivity {
         iv_xianshi = (ImageView) findViewById(R.id.iv_xianshi);
         iv_shengyin = (ImageView) findViewById(R.id.iv_shengyin);
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
-        float_cricle = (ImageView) findViewById(R.id.float_cricle);
 //        float_rotate = (ImageView) findViewById(R.id.float_rotate);
-        float_memory = (TextView) findViewById(R.id.float_memory);
-        float_tishi = (TextView) findViewById(R.id.float_tishi);
-        float_jiashu_jieguo = (LinearLayout) findViewById(R.id.float_jiashu_jieguo);
     }
 
     View.OnClickListener kuaijieListener = new View.OnClickListener() {
@@ -217,10 +207,6 @@ public class SuspensionBallActivityPrivacy extends BaseActivity {
                         e.printStackTrace();
                     }
                     break;
-                case R.id.float_cricle:
-//                    float_cricle1.setOnClickListener(null);
-                    startCleanAnimation();
-                    break;
             }
         }
     };
@@ -254,87 +240,7 @@ public class SuspensionBallActivityPrivacy extends BaseActivity {
         }).start();
         CleanManager.getInstance(this).clearRam();
         isdoudong = true;
-        float_cricle.startAnimation(rotate);
-        rotate.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
 
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                float_cricle.startAnimation(suo);
-                suo.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        float_cricle.setVisibility(View.GONE);
-                        float_jiashu_jieguo.setVisibility(View.VISIBLE);
-                        float_memory.setText(MyUtils.getMemory(SuspensionBallActivityPrivacy.this) + "%");
-                        float_tishi.setText(R.string.float_yijiasu);
-                        float_memory.startAnimation(fang);
-                        float_tishi.startAnimation(fang);
-                        float_memory.setVisibility(View.VISIBLE);
-                        float_tishi.setVisibility(View.VISIBLE);
-                        fang.setAnimationListener(new Animation.AnimationListener() {
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-
-                                myHandler.postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        float_memory.startAnimation(suo);
-                                        float_tishi.startAnimation(suo);
-                                        suo.setAnimationListener(new Animation.AnimationListener() {
-                                            @Override
-                                            public void onAnimationStart(Animation animation) {
-
-                                            }
-
-                                            @Override
-                                            public void onAnimationEnd(Animation animation) {
-                                                float_jiashu_jieguo.setVisibility(View.GONE);
-                                                float_cricle.setVisibility(View.VISIBLE);
-                                                float_cricle.startAnimation(fang);
-                                            }
-
-                                            @Override
-                                            public void onAnimationRepeat(Animation animation) {
-
-                                            }
-                                        });
-                                    }
-                                }, 1000);
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-                });
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
     }
 
     private long getAvailMemory(ActivityManager am) {
