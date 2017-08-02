@@ -18,7 +18,7 @@ import com.easy.module.charge.saver.R;
 public class BatteryView extends View {
     Paint paint;
     Context context;
-    int heigiht, heigiht1;
+    int heigiht;
     int heigihtMax;
     Rect rect;
     Canvas canvas;
@@ -50,7 +50,7 @@ public class BatteryView extends View {
     boolean isStop;
 
     public void setDuShu(int heigiht) {
-        this.heigiht = heigiht;
+        this.heigiht = heigihtMax * heigiht / 100;
         postInvalidate();
     }
 
@@ -61,45 +61,7 @@ public class BatteryView extends View {
                 if (isStop) {
                     return;
                 }
-                switch (dushu) {
-                    case 2:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d6);
-                        break;
-                    case 10:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d13);
-                        break;
-                    case 20:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d26);
-                        break;
-                    case 30:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d39);
-                        break;
-                    case 40:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d52);
-                        break;
-                    case 50:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d65);
-                        break;
-                    case 60:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d78);
-                        break;
-                    case 70:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d90);
-                        break;
-                    case 80:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d100);
-                        break;
-                    case 90:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d116);
-                        break;
-                    case 95:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d123);
-                        break;
-                    default:
-                        heigiht1 = getResources().getDimensionPixelSize(R.dimen.d130);
-                        break;
-                }
-                setDuShu(heigiht1);
+                setDuShu(dushu);
             }
         }).start();
 

@@ -167,39 +167,8 @@ public class ProtectBatteryView extends FrameLayout {
         final int curLevel = entry.getLevel();
         final int le = curLevel % 100;
 //        电量颜色
-        if (curLevel < 20) {
-//            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_3));
-        } else if (curLevel < 80) {
-//            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_2));
-        } else {
-//            currentLevel.setTextColor(ContextCompat.getColor(mContext, R.color.charg_1));
-        }
         currentLevel.setText(curLevel + "%");
-        if (le <= 5) {
-            batteryview.start(2);
-        } else if (le > 5 && le <= 10) {
-            batteryview.start(10);
-        } else if (le > 10 && le <= 20) {
-            batteryview.start(20);
-        } else if (le > 20 && le <= 30) {
-            batteryview.start(30);
-        } else if (le > 30 && le <= 40) {
-            batteryview.start(40);
-        } else if (le > 40 && le <= 50) {
-            batteryview.start(50);
-        } else if (le > 50 && le <= 60) {
-            batteryview.start(60);
-        } else if (le > 60 && le <= 70) {
-            batteryview.start(70);
-        } else if (le > 70 && le <= 80) {
-            batteryview.start(80);
-        } else if (le > 80 && le <= 90) {
-            batteryview.start(90);
-        } else if (le > 90 && le <= 95) {
-            batteryview.start(95);
-        } else {
-            batteryview.start(100);
-        }
+        batteryview.start(curLevel);
         if (battay_info_lot != null && !battay_info_lot.isAnimating()) {
             try {
                 battay_info_lot.setImageAssetsFolder(mContext, "theme://images");

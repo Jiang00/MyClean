@@ -242,8 +242,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, EasyConstant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
-        adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
-        adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(MainActivity.this, EasyConstant.POWERACTIVITY, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(MainActivity.this, EasyConstant.NOTIFIACTIVITY, 1) != 0) {
+            adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
+        }
         adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片清理
         adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
         adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.side_gboost));//游戏加速
