@@ -123,7 +123,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     private void addItemView(MyViewHolder holder, ArrayList<ImageInfo> list) {
         holder.recyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        gridLayoutManager = new PrivacyGridLayoutManager(pictureActivity, 3);
+        gridLayoutManager = new PrivacyGridLayoutManager(pictureActivity, 4);
         holder.recyclerView.setLayoutManager(gridLayoutManager);
         holder.recyclerView.setAdapter(new HomeAdapter(list));
         holder.recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -198,23 +198,31 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 imgTime2 = imgTime1;
                 holder.picture_time.setText(imgTime1.substring(0, 4) + "-" + imgTime1.substring(5, 7) + "-" + imgTime1.substring(8, 11));
             } else {
-                if (position < 3) {
+                if (position < 4) {
                     holder.picture_time2.setVisibility(View.INVISIBLE);
                 } else {
                     holder.picture_time2.setVisibility(View.GONE);
                 }
             }
             if (info.isNormal) {
-                holder.picture_check.setImageResource(R.mipmap.ram_normal);
+                holder.picture_check.setImageResource(R.mipmap.pic_normal);
             } else {
-                holder.picture_check.setImageResource(R.mipmap.ram_passed);
+                holder.picture_check.setImageResource(R.mipmap.pic_passed);
             }
 //            HomeAdapter.LoadImage imageLoad = new HomeAdapter.LoadImage(holder);
 //            imageLoad.execute(info.path, info.name);
 
             Bitmap cachebitmap = getBitmapFromCache(info.name);
             if (cachebitmap != null) {
-                holder.picture_icon.setImageBitmap(cachebitmap);
+                if (info.isNormal) {
+                    holder.picture_icon1.setVisibility(View.GONE);
+                    holder.picture_icon.setImageBitmap(cachebitmap);
+                    holder.picture_icon1.setImageBitmap(cachebitmap);
+                } else {
+                    holder.picture_icon.setVisibility(View.GONE);
+                    holder.picture_icon1.setImageBitmap(cachebitmap);
+                    holder.picture_icon.setImageBitmap(cachebitmap);
+                }
             } else {
                 new Thread(new Runnable() {
                     @Override
@@ -226,8 +234,15 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                                 @Override
                                 public void run() {
                                     addBitmapToCache(info.name, bitmap);
-
-                                    holder.picture_icon.setImageBitmap(bitmap);
+                                    if (info.isNormal) {
+                                        holder.picture_icon1.setVisibility(View.GONE);
+                                        holder.picture_icon.setImageBitmap(bitmap);
+                                        holder.picture_icon1.setImageBitmap(bitmap);
+                                    } else {
+                                        holder.picture_icon.setVisibility(View.GONE);
+                                        holder.picture_icon.setImageBitmap(bitmap);
+                                        holder.picture_icon1.setImageBitmap(bitmap);
+                                    }
                                 }
                             });
                         }
@@ -237,6 +252,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             }
 
             holder.picture_icon.setTag(info.name);
+            holder.picture_icon1.setTag(info.name);
             holder.picture_check.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -246,10 +262,13 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                     info.isNormal = !info.isNormal;
                     pictureActivity.updateUi();
                     if (info.isNormal) {
-
-                        holder.picture_check.setImageResource(R.mipmap.ram_normal);
+                        holder.picture_icon1.setVisibility(View.GONE);
+                        holder.picture_icon.setVisibility(View.VISIBLE);
+                        holder.picture_check.setImageResource(R.mipmap.pic_normal);
                     } else {
-                        holder.picture_check.setImageResource(R.mipmap.ram_passed);
+                        holder.picture_icon.setVisibility(View.GONE);
+                        holder.picture_icon1.setVisibility(View.VISIBLE);
+                        holder.picture_check.setImageResource(R.mipmap.pic_passed);
                     }
 
                 }
@@ -272,9 +291,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         }
 
         class HomeViewHolder extends RecyclerView.ViewHolder {
-            ImageView picture_icon;
+            ImageView picture_icon, picture_icon1;
             ImageView picture_check;
-            ImageView picture_best, picture_time_yuan;
+            ImageView picture_best;
             TextView picture_time, picture_fenge;
             LinearLayout picture_time2;
 
@@ -282,10 +301,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             public HomeViewHolder(View view) {
                 super(view);
                 picture_icon = (ImageView) view.findViewById(R.id.picture_icon);
+                picture_icon1 = (ImageView) view.findViewById(R.id.picture_icon1);
                 picture_check = (ImageView) view.findViewById(R.id.picture_check);
                 picture_best = (ImageView) view.findViewById(R.id.picture_best);
                 picture_time = (TextView) view.findViewById(R.id.picture_time);
-                picture_time_yuan = (ImageView) view.findViewById(R.id.picture_time_yuan);
                 picture_fenge = (TextView) view.findViewById(R.id.picture_fenge);
                 picture_time2 = (LinearLayout) view.findViewById(R.id.picture_time2);
             }

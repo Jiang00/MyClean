@@ -17,6 +17,7 @@ public class MainYuanHuView extends View {
     float dushu;
     Canvas canvas;
     int startDuShu;
+    boolean isStop;
 
     public MainYuanHuView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -45,23 +46,110 @@ public class MainYuanHuView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         this.canvas = canvas;
-        canvas.drawArc(rectF, 150, 100, false, paint);
-        canvas.drawArc(rectF1, 150, 190, false, paint);
+        canvas.drawArc(rectF, 150, dushu, false, paint);
+        if (dushu <= 39) {
+            canvas.drawArc(rectF1, 150, dushu, false, paint);
+        } else if (dushu <= 79) {
+            canvas.drawArc(rectF1, 150, 39, false, paint);
+            canvas.drawArc(rectF1, 190, dushu - 40, false, paint);
+        } else if (dushu <= 119.5) {
+            canvas.drawArc(rectF1, 150, 39, false, paint);
+            canvas.drawArc(rectF1, 190, 39, false, paint);
+            canvas.drawArc(rectF1, 230.5f, dushu - 80, false, paint);
+        } else if (dushu <= 160) {
+            canvas.drawArc(rectF1, 150, 39, false, paint);
+            canvas.drawArc(rectF1, 190, 39, false, paint);
+            canvas.drawArc(rectF1, 230.5f, 39, false, paint);
+            canvas.drawArc(rectF1, 271, dushu - 120, false, paint);
+        } else if (dushu <= 199.5) {
+            canvas.drawArc(rectF1, 150, 39, false, paint);
+            canvas.drawArc(rectF1, 190, 39, false, paint);
+            canvas.drawArc(rectF1, 230.5f, 39f, false, paint);
+            canvas.drawArc(rectF1, 271, 39, false, paint);
+            canvas.drawArc(rectF1, 311.5f, dushu - 160, false, paint);
+        } else {
+            canvas.drawArc(rectF1, 150, 39, false, paint);
+            canvas.drawArc(rectF1, 190, 39, false, paint);
+            canvas.drawArc(rectF1, 230.5f, 39f, false, paint);
+            canvas.drawArc(rectF1, 271, 39, false, paint);
+            canvas.drawArc(rectF1, 311.5f, 38, false, paint);
+            canvas.drawArc(rectF1, 351.5f, dushu - 201.5f, false, paint);
+        }
+
         paint.setColor(0x8affffff);
         canvas.drawArc(rectF, 150, 240, false, paint);
-        canvas.drawArc(rectF1, 150, 240, false, paint);
+
+        canvas.drawArc(rectF1, 150, 39, false, paint);
+        canvas.drawArc(rectF1, 190, 39, false, paint);
+        canvas.drawArc(rectF1, 230.5f, 39, false, paint);
+        canvas.drawArc(rectF1, 271, 39, false, paint);
+        canvas.drawArc(rectF1, 311.5f, 38, false, paint);
+        canvas.drawArc(rectF1, 351.5f, 38.5f, false, paint);
     }
 
-    public void setDuShu(float dushu, int startDuShu) {
+    public void setDuShu(float dushu) {
         this.dushu = dushu;
-        this.startDuShu = startDuShu;
         postInvalidate();
     }
 
+    public void start(final float dushu) {
+        this.dushu = 0;
+        isStop = false;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (float i = 0, j = 240; i <= 240 && j >= dushu; ) {
+                    if (isStop) {
+                        if (scanEndListener != null) {
+                            scanEndListener.scanDushu(-1);
+                        }
+                        return;
+                    }
+                    if (i == 240) {
+                        if (scanEndListener != null) {
+                            scanEndListener.scanDushu(j);
+                        }
+                        setDuShu(j);
+                        j--;
+                    } else {
+                        setDuShu(i);
+                        if (scanEndListener != null) {
+                            scanEndListener.scanDushu(i);
+                        }
+                        i++;
+                    }
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (scanEndListener != null) {
+                    scanEndListener.scanDushu(-2);
+                }
+            }
+        }).start();
+    }
+
+    public void stop() {
+        canvas = null;
+        isStop = true;
+    }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         canvas = null;
+        isStop = true;
+    }
+
+    private MainYuanHuView.DrawYuanHuListener scanEndListener;
+
+    public void setScanCallBack(MainYuanHuView.DrawYuanHuListener listener) {
+        this.scanEndListener = listener;
+    }
+
+    public interface DrawYuanHuListener {
+        void scanDushu(float dushu);
     }
 }

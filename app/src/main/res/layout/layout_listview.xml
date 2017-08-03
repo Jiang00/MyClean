@@ -2,20 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/B3"
+    android:background="@color/A11"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/ll_ad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
         android:orientation="vertical" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d4" />
 
     <ListView
         android:id="@+id/file_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@drawable/list_divider"
-        android:dividerHeight="@dimen/d1"
+        android:layout_marginLeft="@dimen/d8"
+        android:layout_marginRight="@dimen/d8"
+        android:background="@color/A5"
+        android:divider="@color/B1"
+        android:dividerHeight="1px"
         android:scrollbars="none" />
 </LinearLayout>

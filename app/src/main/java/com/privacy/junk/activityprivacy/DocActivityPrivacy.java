@@ -321,11 +321,11 @@ public class DocActivityPrivacy extends BaseActivity {
                 long size = Long.parseLong(cursorDoc.getString(PhoneFileCategoryHelper.COLUMN_SIZE));
                 Drawable icon = null;
                 if (fc == PhoneFileCategoryHelper.FileCategory.Word) {
-                    icon = ContextCompat.getDrawable(DocActivityPrivacy.this, R.mipmap.file_doc_icon2);
+                    icon = ContextCompat.getDrawable(DocActivityPrivacy.this, R.mipmap.file_doc_icon);
                 } else if (fc == PhoneFileCategoryHelper.FileCategory.Txt) {
-                    icon = ContextCompat.getDrawable(DocActivityPrivacy.this, R.mipmap.file_txt_icon);
+                    icon = ContextCompat.getDrawable(DocActivityPrivacy.this, R.mipmap.file_doc_icon);
                 } else if (fc == PhoneFileCategoryHelper.FileCategory.Pdf) {
-                    icon = ContextCompat.getDrawable(DocActivityPrivacy.this, R.mipmap.file_pd_icon);
+                    icon = ContextCompat.getDrawable(DocActivityPrivacy.this, R.mipmap.file_doc_icon);
                 }
                 list.add(new PrivacyJunkInfo(_id, icon, Util.getNameFromFilepath(cursorDoc.getString(PhoneFileCategoryHelper.COLUMN_PATH)),
                         cursorDoc.getString(PhoneFileCategoryHelper.COLUMN_PATH), size, false));

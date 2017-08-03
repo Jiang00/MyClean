@@ -59,6 +59,7 @@ public class AllAppsActivityPrivacy extends BaseActivity implements PrivacyCusto
     private ArrayList<View> viewList;
     private MyPagerAdaptre pagerAdapter;
     private View view_size, view_time, view_pinlv, view_permiss;
+    TextView appall_size;
     TextView title_name;
     private PrivacyManagerAdapter adapter_size, adapter_time, adapter_pinlv;
     private ManagerPresenter managerPresenter;
@@ -79,7 +80,7 @@ public class AllAppsActivityPrivacy extends BaseActivity implements PrivacyCusto
     }
 
     @Override
-    public void initData(long cleanSize) {
+    public void initData(long cleanSize, final long allSize) {
         title_name.setText(R.string.main_manager_name);
         adapter_size = new PrivacyManagerAdapter(this, managerPresenter);
         adapter_time = new PrivacyManagerAdapter(this, managerPresenter);
@@ -110,6 +111,8 @@ public class AllAppsActivityPrivacy extends BaseActivity implements PrivacyCusto
         pagerAdapter = new MyPagerAdaptre();
         doc_view_pager.setAdapter(pagerAdapter);
         view_pager_tab.setupWithViewPager(doc_view_pager);
+        appall_size = (TextView) view_size.findViewById(R.id.appall_size);
+        appall_size.setText(MyUtils.convertStorage(allSize, true) + "B");
         doc_view_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -118,10 +121,16 @@ public class AllAppsActivityPrivacy extends BaseActivity implements PrivacyCusto
             @Override
             public void onPageSelected(int position) {
                 if (position == 0) {
+                    appall_size = (TextView) view_size.findViewById(R.id.appall_size);
+                    appall_size.setText(MyUtils.convertStorage(allSize, true) + "B");
                     adapter_size.notifyDataSetChanged();
                 } else if (position == 1) {
+                    appall_size = (TextView) view_time.findViewById(R.id.appall_size);
+                    appall_size.setText(MyUtils.convertStorage(allSize, true) + "B");
                     adapter_time.notifyDataSetChanged();
                 } else {
+                    appall_size = (TextView) view_pinlv.findViewById(R.id.appall_size);
+                    appall_size.setText(MyUtils.convertStorage(allSize, true) + "B");
                     adapter_pinlv.notifyDataSetChanged();
                 }
             }
@@ -134,9 +143,9 @@ public class AllAppsActivityPrivacy extends BaseActivity implements PrivacyCusto
 
         String fileSize = MyUtils.convertStorage(cleanSize, true);
         if (TextUtils.isEmpty(fileSize)) {
-//            junk_button_clean.setText(getResources().getText(R.string.manager_button));
+            junk_button_clean.setText(getResources().getText(R.string.manager_button));
         } else {
-//            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
+            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
         }
     }
 
@@ -342,10 +351,10 @@ public class AllAppsActivityPrivacy extends BaseActivity implements PrivacyCusto
     public void setCleanDAta(long size) {
         String fileSize = MyUtils.convertStorage(size, true);
         if (TextUtils.isEmpty(fileSize)) {
-//            junk_button_clean.setText(getResources().getText(R.string.manager_button));
+            junk_button_clean.setText(getResources().getText(R.string.manager_button));
             manager_clean.setVisibility(View.GONE);
         } else {
-//            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
+            junk_button_clean.setText(getResources().getText(R.string.manager_button) + "(" + fileSize + ")");
             manager_clean.setVisibility(View.VISIBLE);
         }
         adapter_size.notifyDataSetChanged();

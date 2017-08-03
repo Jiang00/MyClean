@@ -28,29 +28,23 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/d32"
-        android:background="@color/A7">
-
-        <ImageView
-            android:layout_width="@dimen/d24"
-            android:layout_height="@dimen/d24"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d16"
-            android:src="@mipmap/pichuitishi" />
+        android:layout_height="@dimen/d56"
+        android:background="@color/A5">
 
         <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/d16"
-            android:text="@string/picture_5"
-            android:textColor="@color/A9"
-            android:textSize="@dimen/s12" />
+            android:text="@string/picture_17"
+            android:textColor="@color/A2"
+            android:textSize="@dimen/s11" />
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/A11">
 
         <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:id="@+id/hui_never"
@@ -61,7 +55,7 @@
             android:layout_marginRight="@dimen/d16"
             android:gravity="center"
             android:text="@string/picture_8"
-            android:textColor="@color/A9"
+            android:textColor="@color/A2"
             android:textSize="@dimen/s16"
             android:visibility="gone" />
 
@@ -69,8 +63,7 @@
             android:id="@+id/ll_picture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/d54"
-            android:background="@color/B3"
+            android:layout_marginBottom="@dimen/d100"
             android:orientation="vertical">
 
             <FrameLayout
@@ -81,7 +74,10 @@
                     android:id="@+id/picture_hui_recyc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/d16"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginTop="@dimen/d4"
+                    android:background="@color/A5"
                     android:scrollbars="none" />
             </FrameLayout>
         </LinearLayout>
@@ -89,45 +85,39 @@
         <LinearLayout
             android:id="@+id/pichui_button_lin"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d52"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@color/A1"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/d1"
-                android:layout_weight="1">
+            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                android:id="@+id/picture_delete"
+                android:layout_width="@dimen/d333"
+                android:layout_height="@dimen/d43"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/main_haoping_a9"
+                android:gravity="center"
+                android:text="@string/picture_7"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s16" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d56"
+                android:background="@color/A5"
+                android:gravity="center">
 
                 <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                     android:id="@+id/picture_restore"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d50"
-                    android:layout_gravity="center_vertical"
-                    android:background="@color/B3"
+                    android:layout_width="@dimen/d333"
+                    android:layout_height="@dimen/d43"
+                    android:layout_gravity="center"
+                    android:background="@drawable/main_haoping"
                     android:elevation="@dimen/d2"
                     android:gravity="center"
                     android:text="@string/picture_6"
-                    android:textColor="@color/A1"
-                    android:textSize="@dimen/s19" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                    android:id="@+id/picture_delete"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/d52"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center"
-                    android:text="@string/picture_7"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s19" />
-            </FrameLayout>
+                    android:textColor="@color/A5"
+                    android:textSize="@dimen/s16" />
+            </LinearLayout>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

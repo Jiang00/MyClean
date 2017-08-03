@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.privacy.clean.core.CleanManager;
+import com.privacy.clean.entity.JunkInfo;
+import com.privacy.junk.activityprivacy.MyApplication;
 import com.privacy.junk.activityprivacy.PrivacySucceedActivity;
 import com.privacy.junk.interfaceviewprivacy.PrivacyCustomAllAppView;
-import com.privacy.junk.activityprivacy.MyApplication;
-import com.privacy.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,6 +27,7 @@ public class ManagerPresenter extends PresenterBasePrivacy<PrivacyCustomAllAppVi
     public static final int PINLV_TYPE = 2;
     private MyApplication cleanApplication;
     private long allSize;
+    private long alllAppSize;
     private long cleanSize = 0;
     private ArrayList<JunkInfo> clearList;
     private ArrayList<JunkInfo> list_size, list_time, list_pinlv;
@@ -49,6 +50,7 @@ public class ManagerPresenter extends PresenterBasePrivacy<PrivacyCustomAllAppVi
         ArrayList<JunkInfo> list = CleanManager.getInstance(context).getAppList();
         for (JunkInfo info : list) {
             info.isChecked = false;
+            alllAppSize += info.allSize;
         }
         list_size.addAll(list);
         list_time.addAll(list);
@@ -56,7 +58,7 @@ public class ManagerPresenter extends PresenterBasePrivacy<PrivacyCustomAllAppVi
         Collections.sort(list_size, new Sizesort());
         Collections.sort(list_time, new Timesort());
         Collections.sort(list_pinlv, new LastRunsort());
-        iView.initData(cleanSize);
+        iView.initData(cleanSize, alllAppSize);
         iView.onClick();
         iView.loadFullAd();
     }

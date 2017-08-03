@@ -21,7 +21,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -293,13 +292,59 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         side_listView.setAdapter(adapter);
     }
 
-    int mainFenShu;
-    long finalI2;
-
     @Override
     public void initQiu(final int fenshu, boolean isReStart) {
         setColor(fenshu, isReStart);
-        finalI2 = fenshu;
+        main_yunahuan.start(fenshu * 2.4f);
+        main_yunahuan.setScanCallBack(new MainYuanHuView.DrawYuanHuListener() {
+            @Override
+            public void scanDushu(final float dushu) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (dushu == -1 || dushu == -2) {
+                            if (objectAnimator != null) {
+                                objectAnimator.end();
+                            }
+                            dushu1 = 0;
+                            return;
+                        }
+                        if (dushu == 1) {
+                            dushu1 = 0;
+                        }
+                        mianTemp += 1.2;
+                        objectAnimator = ObjectAnimator.ofFloat(main_point, "rotation", dushu1, dushu);
+                        dushu1 = dushu;
+                        objectAnimator.start();
+                        if (mianTemp == 2.4f) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    main_fenshu.setText(String.valueOf((int) (dushu / 2.4f)));
+                                }
+                            });
+                            mianTemp = 0;
+                        } else if (dushu == -2) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    main_fenshu.setText(String.valueOf(fenshu));
+                                }
+                            });
+                            mianTemp = 0;
+                        } else if (dushu == 240) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    main_fenshu.setText(String.valueOf(100));
+                                }
+                            });
+                            mianTemp = 0;
+                        }
+                    }
+                });
+            }
+        });
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -318,20 +363,9 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            main_fenshu.setText(String.valueOf(finalI));
-                        }
-                    });
 
-                    if (i == fenshu) {
-                        mainFenShu = i;
-                        if (objectAnimator != null) {
-                            objectAnimator.pause();
-                        }
-                    }
                 }
+
             }
         }).start();
     }
@@ -627,15 +661,13 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         });
     }
 
+    float dushu1 = 0;
+    float mianTemp = 0;
+
     @Override
     protected void onStart() {
         super.onStart();
-        objectAnimator = ObjectAnimator.ofFloat(main_point, "rotation", 0f, finalI2 * 2.4f);
 
-        LinearInterpolator lir = new LinearInterpolator();
-        objectAnimator.setInterpolator(lir);
-        objectAnimator.setDuration(2000);
-        objectAnimator.start();
     }
 
     @Override
@@ -650,6 +682,9 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         super.onPause();
         if (objectAnimator != null) {
             objectAnimator.pause();
+        }
+        if (main_yunahuan != null) {
+            main_yunahuan.stop();
         }
     }
 
@@ -672,7 +707,6 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         // 充电屏保关闭智能充电，刷新无效果，重新调用 initSideData()可以
 //        adapter.notifyDataSetChanged();
         initSideData();
-
     }
 
     public void onBackPressed() {

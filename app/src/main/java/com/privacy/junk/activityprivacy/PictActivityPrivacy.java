@@ -55,7 +55,6 @@ public class PictActivityPrivacy extends BaseActivity {
     ViewPager picture_pager;
     TextView title_name;
     TextView picture_button;
-    TextView picture_scan;
     ProgressBar picture_progressbar;
     ImageView title_right;
     TextView picture_path;
@@ -99,9 +98,7 @@ public class PictActivityPrivacy extends BaseActivity {
                                 onBackPressed();
                             }
                         });
-                        picture_scan.setText(R.string.picture_jianyi);
                     } else {
-                        picture_scan.setText(R.string.picture_jianyi);
                         Animation animation1 = AnimationUtils.loadAnimation(PictActivityPrivacy.this, R.anim.translate_notifi);
                         picture_button.startAnimation(animation1);
                         picture_button.setVisibility(View.VISIBLE);
@@ -133,7 +130,6 @@ public class PictActivityPrivacy extends BaseActivity {
         picture_danwei = (TextView) findViewById(R.id.picture_danwei);
         picture_button = (TextView) findViewById(R.id.picture_button);
         picture_lin = (LinearLayout) findViewById(R.id.picture_lin);
-        picture_scan = (TextView) findViewById(R.id.picture_scan);
         picture_progressbar = (ProgressBar) findViewById(R.id.picture_progressbar);
         picture_other = (LinearLayout) findViewById(R.id.picture_other);
         picture_recycle = (RecyclerView) findViewById(R.id.picture_recycle);

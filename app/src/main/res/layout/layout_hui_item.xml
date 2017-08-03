@@ -3,42 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/d16"
-    android:layout_marginTop="@dimen/d16"
     android:orientation="vertical">
-    <FrameLayout
+
+    <RelativeLayout
         android:id="@+id/picture_frame"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/d112"
         android:layout_below="@+id/picture_time2">
 
         <ImageView
             android:id="@+id/picture_icon"
-            android:layout_width="@dimen/d100"
-            android:layout_height="@dimen/d100"
+            android:layout_width="@dimen/d80"
+            android:layout_height="@dimen/d80"
             android:scaleType="centerCrop" />
-        <!--android:background="@drawable/shape_pic_hui_3"-->
+
 
         <ImageView
             android:id="@+id/picture_check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|bottom"
-            android:layout_marginBottom="@dimen/d3"
-            android:layout_marginRight="@dimen/d3"
-            android:src="@mipmap/ram_normal" />
+            android:padding="@dimen/d8"
+            android:src="@mipmap/pic_normal" />
 
         <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:id="@+id/picture_time3"
-            android:layout_width="@dimen/d100"
-            android:layout_height="@dimen/d100"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/d32"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:alpha="0.5"
-            android:background="@mipmap/hui_touying"
-            android:gravity="center_horizontal|bottom"
+            android:gravity="center"
             android:text="000"
-            android:textColor="@color/A7"
+            android:textColor="@color/A2"
             android:textSize="@dimen/s12" />
-    </FrameLayout>
+    </RelativeLayout>
 </RelativeLayout>

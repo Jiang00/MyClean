@@ -114,15 +114,15 @@ public class PrivacyFileActivity extends BaseActivity {
             file_fl.setVisibility(View.GONE);
             null_ll.setVisibility(View.VISIBLE);
             if (TextUtils.equals("apk", name)) {
-                null_icon.setImageResource(R.mipmap.file_null);
+                null_icon.setImageResource(R.mipmap.null_apk);
             } else if (TextUtils.equals("zip", name)) {
-                null_icon.setImageResource(R.mipmap.file_null);
+                null_icon.setImageResource(R.mipmap.null_zip);
             } else if (TextUtils.equals("music", name)) {
-                null_icon.setImageResource(R.mipmap.file_null);
+                null_icon.setImageResource(R.mipmap.null_music);
             } else if (TextUtils.equals("video", name)) {
-                null_icon.setImageResource(R.mipmap.file_null);
+                null_icon.setImageResource(R.mipmap.null_video);
             } else if (TextUtils.equals("other", name)) {
-                null_icon.setImageResource(R.mipmap.file_null);
+                null_icon.setImageResource(R.mipmap.null_other);
             }
             return;
         }

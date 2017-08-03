@@ -62,13 +62,13 @@ public class PrivacyFileAdapter extends MybaseAdapter<PrivacyJunkInfo> {
             }
             viewHolder.file_icon.setImageDrawable(drawable);
         } else if (TextUtils.equals("zip", name)) {
-            viewHolder.file_icon.setImageResource(R.mipmap.zip);
+            viewHolder.file_icon.setImageResource(R.mipmap.file_zip_icon);
         } else if (TextUtils.equals("music", name)) {
-            viewHolder.file_icon.setImageResource(R.mipmap.music);
+            viewHolder.file_icon.setImageResource(R.mipmap.file_music_icon);
         } else if (TextUtils.equals("video", name)) {
-            viewHolder.file_icon.setImageResource(R.mipmap.video);
+            viewHolder.file_icon.setImageResource(R.mipmap.file_video_icon);
         } else if (TextUtils.equals("other", name)) {
-            viewHolder.file_icon.setImageResource(R.mipmap.other);
+            viewHolder.file_icon.setImageResource(R.mipmap.file_other_icon);
         } else {
             viewHolder.file_icon.setImageDrawable(info.icon);
         }

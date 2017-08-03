@@ -8,7 +8,7 @@ import java.util.List;
  */
 
 public interface PrivacyCustomAllAppView extends BaseView {
-    void initData(long allSize);
+    void initData(long cleanSize, long allSize);
 
     void updateAdapter(List<JunkInfo> listsize, List<JunkInfo> listtime, List<JunkInfo> listpinlv);
 
