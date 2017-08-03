@@ -85,7 +85,9 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     RelativeLayout main_all_cercle;
     RelativeLayout main_title;
     RelativeLayout main_junk_button, main_ram_button, main_cooling_button;
-    LinearLayout main_manager_button;
+    ImageView main_button_tuiguang_1_icon, main_button_tuiguang_2_icon;
+    TextView main_button_tuiguang_1_lable, main_button_tuiguang_2_lable;
+    LinearLayout main_manager_button, main_button_tuiguang_1, main_button_tuiguang_2;
     LinearLayout main_junk_text, main_junk_image;
     LinearLayout main_ram_text, main_ram_image;
     LinearLayout main_cooling_text, main_cooling_image;
@@ -160,6 +162,12 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
         main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
         main_cooling_button = (RelativeLayout) findViewById(R.id.main_cooling_button);
+        main_button_tuiguang_1 = (LinearLayout) findViewById(R.id.main_button_tuiguang_1);
+        main_button_tuiguang_2 = (LinearLayout) findViewById(R.id.main_button_tuiguang_2);
+        main_button_tuiguang_1_icon = (ImageView) findViewById(R.id.main_button_tuiguang_1_icon);
+        main_button_tuiguang_1_lable = (TextView) findViewById(R.id.main_button_tuiguang_1_lable);
+        main_button_tuiguang_2_icon = (ImageView) findViewById(R.id.main_button_tuiguang_2_icon);
+        main_button_tuiguang_2_lable = (TextView) findViewById(R.id.main_button_tuiguang_2_lable);
         main_junk_h = (TextView) findViewById(R.id.main_junk_h);
         main_ram_h = (TextView) findViewById(R.id.main_ram_h);
         main_cooling_h = (TextView) findViewById(R.id.main_cooling_h);
@@ -357,7 +365,58 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         tuiguang(TUIGUAN_MAIN, false, main_tuiguang);
         tuiguang(TUIGUAN_SIDE_SOFT, true, side_listView);
         tuiguang(TUIGUAN_SIDE, false, side_listView);
+        tuiguangButton(TUIGUAN_TAB);
+    }
 
+    private void tuiguangButton(String tag) {
+        final ArrayList<CrossItem> crossItems = JsonParser.getCrossData(this, AndroidSdk.getExtraData(), tag);
+        if (crossItems != null && crossItems.size() >= 2) {
+            final int tuiguang_1 = (int) (Math.random() * crossItems.size());
+            int tuiguang_2 = (int) (Math.random() * crossItems.size());
+            while (tuiguang_2 == tuiguang_1) {
+                tuiguang_2 = (int) (Math.random() * crossItems.size());
+            }
+            Util.loadImg(this, crossItems.get(tuiguang_1).getTagIconUrl(), R.mipmap.icon, main_button_tuiguang_1_icon);
+            Util.loadImg(this, crossItems.get(tuiguang_2).getTagIconUrl(), R.mipmap.icon, main_button_tuiguang_2_icon);
+            main_button_tuiguang_1_lable.setText(crossItems.get(tuiguang_1).getTitle());
+            main_button_tuiguang_2_lable.setText(crossItems.get(tuiguang_2).getTitle());
+            AdUtil.track("交叉推广_广告位", "广告位_交叉", "展示" + crossItems.get(tuiguang_1).getPkgName(), 1);
+            AdUtil.track("交叉推广_广告位", "广告位_交叉", "展示" + crossItems.get(tuiguang_2).getPkgName(), 1);
+            main_button_tuiguang_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    com.android.ui.demo.util.Utils.reactionForAction(MainActivity.this, AndroidSdk.getExtraData(), crossItems.get(tuiguang_1).getPkgName(),
+                            crossItems.get(tuiguang_1).getAction());
+                    AdUtil.track("交叉推广_广告位", "广告位_交叉", "点击" + crossItems.get(tuiguang_1).getPkgName(), 1);
+                }
+            });
+            final int finalTuiguang_ = tuiguang_2;
+            main_button_tuiguang_2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    com.android.ui.demo.util.Utils.reactionForAction(MainActivity.this, AndroidSdk.getExtraData(), crossItems.get(finalTuiguang_).getPkgName(),
+                            crossItems.get(finalTuiguang_).getAction());
+                    AdUtil.track("交叉推广_广告位", "广告位_交叉", "点击" + crossItems.get(finalTuiguang_).getPkgName(), 1);
+                }
+            });
+        } else {
+            AdUtil.track("交叉推广_广告位", "广告位_交叉", "展示" + "com.fraumobi.applock", 1);
+            AdUtil.track("交叉推广_广告位", "广告位_交叉", "展示" + "com.fraumobi.galleryvault.lockphoto.hidevideo", 1);
+            main_button_tuiguang_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    com.android.ui.demo.util.Utils.reactionForAction(MainActivity.this, AndroidSdk.getExtraData(), "com.fraumobi.applock", null);
+                    AdUtil.track("交叉推广_广告位", "广告位_交叉", "点击" + "com.fraumobi.applock", 1);
+                }
+            });
+            main_button_tuiguang_2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    com.android.ui.demo.util.Utils.reactionForAction(MainActivity.this, AndroidSdk.getExtraData(), "com.fraumobi.galleryvault.lockphoto.hidevideo", null);
+                    AdUtil.track("交叉推广_广告位", "广告位_交叉", "点击" + "com.fraumobi.galleryvault.lockphoto.hidevideo", 1);
+                }
+            });
+        }
     }
 
 
@@ -805,8 +864,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                             AndroidSdk.loadNativeAd(TAG_START_FULL, R.layout.native_ad_full_exit, new ClientNativeAd.NativeAdLoadListener() {
                                 @Override
                                 public void onNativeAdLoadSuccess(View view) {
-                                    LinearLayout loading_text = (LinearLayout) view.findViewById(R.id.loading_text);
-                                    loading_text.setOnClickListener(null);
                                     ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
                                     ad_delete.setOnClickListener(new View.OnClickListener() {
                                         @Override

@@ -58,6 +58,7 @@ public class MBaseActivity extends AppCompatActivity {
     protected String TUIGUAN_SETTING_SOFT = "setting_soft";
     protected String TUIGUAN_SUCCESS = "success";
     protected String TUIGUAN_SUCCESS_SOFT = "success_soft";
+    protected String TUIGUAN_TAB = "main_tab";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,14 +130,17 @@ public class MBaseActivity extends AppCompatActivity {
                 } else if (tag.equals(TUIGUAN_SIDE) || tag.equals(TUIGUAN_SIDE_SOFT)) {
                     t = "侧边栏";
                     view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_side, null);
+                    tuiguangZhanshi(isSoftCross, item, t, j);
                 } else if (tag.equals(TUIGUAN_SETTING) || tag.equals(TUIGUAN_SETTING_SOFT)) {
                     t = "设置";
                     view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_setting, null);
+                    tuiguangZhanshi(isSoftCross, item, t, j);
                 } else if (tag.equals(TUIGUAN_SUCCESS) || tag.equals(TUIGUAN_SUCCESS_SOFT)) {
                     t = "清理";
                     view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
                     TextView tuiguang_sub_title = (TextView) view.findViewById(R.id.tuiguang_subtitle);
                     tuiguang_sub_title.setText(item.getSubTitle());
+                    tuiguangZhanshi(isSoftCross, item, t, j);
                 }
                 ImageView image = (ImageView) view.findViewById(R.id.tuiguang_icon);
                 Util.loadImg(this, item.getTagIconUrl(), R.mipmap.icon, image);

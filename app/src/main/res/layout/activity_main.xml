@@ -163,8 +163,8 @@
                                         android:orientation="vertical">
 
                                         <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:layout_width="@dimen/d30"
+                                            android:layout_height="@dimen/d30"
                                             android:layout_marginBottom="@dimen/d12"
                                             android:src="@mipmap/main_junk_button" />
 
@@ -227,8 +227,8 @@
                                         android:orientation="vertical">
 
                                         <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:layout_width="@dimen/d30"
+                                            android:layout_height="@dimen/d30"
                                             android:layout_marginBottom="@dimen/d12"
                                             android:src="@mipmap/main_ram_button" />
 
@@ -270,6 +270,36 @@
 
                                 </RelativeLayout>
 
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/B1" />
+
+                                <LinearLayout
+                                    android:id="@+id/main_button_tuiguang_1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/main_button_tuiguang_1_icon"
+                                        android:layout_width="@dimen/d30"
+                                        android:layout_height="@dimen/d30"
+                                        android:layout_marginBottom="@dimen/d12"
+                                        android:src="@mipmap/main_applock_button" />
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:id="@+id/main_button_tuiguang_1_lable"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/main_aopplock_name"
+                                        android:textColor="#bdbdbd"
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="ljh_1.TTF" />
+                                </LinearLayout>
 
                             </LinearLayout>
 
@@ -298,8 +328,8 @@
                                         android:orientation="vertical">
 
                                         <ImageView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:layout_width="@dimen/d30"
+                                            android:layout_height="@dimen/d30"
                                             android:layout_marginBottom="@dimen/d12"
                                             android:src="@mipmap/main_cooling_button" />
 
@@ -356,8 +386,8 @@
                                     android:orientation="vertical">
 
                                     <ImageView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_width="@dimen/d30"
+                                        android:layout_height="@dimen/d30"
                                         android:layout_marginBottom="@dimen/d12"
                                         android:src="@mipmap/main_manager_button" />
 
@@ -365,6 +395,37 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/main_manager_name"
+                                        android:textColor="#bdbdbd"
+                                        android:textSize="@dimen/s12"
+                                        app:typeface="ljh_1.TTF" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/B1" />
+
+                                <LinearLayout
+                                    android:id="@+id/main_button_tuiguang_2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/main_button_tuiguang_2_icon"
+                                        android:layout_width="@dimen/d30"
+                                        android:layout_height="@dimen/d30"
+                                        android:layout_marginBottom="@dimen/d12"
+                                        android:src="@mipmap/main_safe_button" />
+
+                                    <com.froumobic.module.charge.saver.view.CustomerTypefaceTextView
+                                        android:id="@+id/main_button_tuiguang_2_lable"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/main_safe_name"
                                         android:textColor="#bdbdbd"
                                         android:textSize="@dimen/s12"
                                         app:typeface="ljh_1.TTF" />
