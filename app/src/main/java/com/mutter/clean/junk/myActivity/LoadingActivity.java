@@ -41,8 +41,8 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+        AndroidSdk.onCreate(this);
         setContentView(R.layout.layout_loading);
         ShortCutUtils.addShortcut(this);
         myHandler = new Handler();

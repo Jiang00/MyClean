@@ -75,16 +75,20 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <ListView
-            android:id="@+id/junk_list_all"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/d7"
-            android:background="@drawable/shape_ad"
-            android:divider="@drawable/list_divider"
-            android:dividerHeight="0px"
-            android:elevation="@dimen/d2" />
+            android:layout_height="match_parent">
 
+            <ListView
+                android:id="@+id/junk_list_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/d7"
+                android:background="@drawable/shape_ad"
+                android:divider="@drawable/list_divider"
+                android:dividerHeight="0px"
+                android:elevation="@dimen/d2" />
+        </FrameLayout>
 
         <Button
             android:id="@+id/junk_button_clean"
