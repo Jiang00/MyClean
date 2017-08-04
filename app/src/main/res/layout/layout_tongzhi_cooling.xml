@@ -6,8 +6,8 @@
     android:orientation="horizontal">
 
     <FrameLayout
-        android:layout_width="@dimen/d56"
-        android:layout_height="@dimen/d56"
+        android:layout_width="@dimen/d72"
+        android:layout_height="@dimen/d64"
         android:layout_gravity="center_vertical">
 
         <ImageView
@@ -15,7 +15,7 @@
             android:layout_width="@dimen/d40"
             android:layout_height="@dimen/d40"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/d17"
+            android:layout_marginLeft="@dimen/d16"
             android:scaleType="center"
             android:src="@mipmap/cpu_card" />
     </FrameLayout>
@@ -24,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="@dimen/d13"
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:orientation="vertical">
@@ -39,8 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/notifi_cooling"
-                android:textColor="@color/A6"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/A2"
+                android:textSize="@dimen/s14" />
 
             <TextView
                 android:id="@+id/tv_memory"
@@ -48,29 +47,29 @@
                 android:layout_height="wrap_content"
                 android:lines="1"
                 android:text="51℃"
-                android:textColor="@color/A12"
-                android:textSize="@dimen/s15" />
+                android:textColor="@color/A7"
+                android:textSize="@dimen/s14" />
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/d5"
+            android:layout_marginTop="@dimen/d8"
             android:text="@string/notifi_cooling_msg"
-            android:textColor="@color/A9"
-            android:textSize="@dimen/s11" />
+            android:textColor="@color/A3"
+            android:textSize="@dimen/s12" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/tv_jiasu"
-        android:layout_width="@dimen/d62"
-        android:layout_height="@dimen/d24"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="@dimen/d17"
-        android:background="@drawable/normal_rectangle"
+        android:layout_width="@dimen/d65"
+        android:layout_height="@dimen/d26"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/d8"
+        android:layout_marginRight="@dimen/d16"
         android:gravity="center"
         android:text="@string/notifi_jiangwen"
-        android:textColor="@color/B3"
+        android:textColor="@color/A1"
         android:textSize="@dimen/s12" />
 
 </LinearLayout>

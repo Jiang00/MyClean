@@ -17,94 +17,94 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="@dimen/d16"
         android:layout_marginRight="@dimen/d16"
-        android:background="@drawable/shape_ad"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d125"
-            android:background="@color/A1">
+            android:layout_height="@dimen/d141"
+            android:background="@mipmap/unload_bg">
 
             <ImageView
                 android:id="@+id/iv_cha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d8"
+                android:padding="@dimen/d8"
                 android:src="@mipmap/unload_delete" />
 
-            <ImageView
-                android:id="@+id/zhuangshi"
-                android:layout_width="@dimen/d78"
-                android:layout_height="@dimen/d78"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/d30"
-                android:src="@mipmap/unload_icon" />
+            <TextView
+                android:id="@+id/unload_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d24"
+                android:layout_marginTop="@dimen/d24"
+                android:text="@string/setting_unload"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s18" />
 
-            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                 android:id="@+id/tv_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/d19"
-                android:layout_toRightOf="@id/zhuangshi"
+                android:layout_below="@id/unload_tv"
+                android:layout_marginLeft="@dimen/d24"
+                android:layout_marginTop="@dimen/d20"
                 android:text="158"
-                android:textColor="#fffd54"
-                android:textSize="@dimen/s22" />
+                android:textColor="@color/A9"
+                android:textSize="@dimen/s16" />
 
-            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                 android:id="@+id/tv_danwei"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
                 android:layout_toRightOf="@id/tv_size"
                 android:text="KB "
-                android:textColor="#fffd54"
-                android:textSize="@dimen/s22" />
+                android:textColor="@color/A9"
+                android:textSize="@dimen/s16" />
 
-            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_size"
                 android:layout_toRightOf="@id/tv_danwei"
                 android:text="@string/unload_canyu"
                 android:textColor="@color/B3"
-                android:textSize="@dimen/s13" />
+                android:textSize="@dimen/s14" />
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d46"
+            android:layout_height="wrap_content"
             android:background="@color/B3"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/bt_quxiao"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/B3"
-                android:text="@string/quxiao"
-                android:textColor="@color/A6"
-                android:textSize="@dimen/s18" />
-
             <TextView
-                android:layout_width="@dimen/d1"
-                android:layout_height="@dimen/d39"
-                android:layout_gravity="center_vertical"
-                android:background="@color/A7" />
-
-            <Button
                 android:id="@+id/bt_queren"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="@dimen/d75"
+                android:layout_height="@dimen/d20"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
                 android:background="@color/B3"
+                android:gravity="center"
                 android:text="@string/qingli"
                 android:textColor="@color/A1"
-                android:textSize="@dimen/s18" />
-        </LinearLayout>
+                android:textSize="@dimen/s14" />
+
+            <TextView
+                android:id="@+id/bt_quxiao"
+                android:layout_width="@dimen/d75"
+                android:layout_height="@dimen/d20"
+                android:layout_marginBottom="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
+                android:layout_toLeftOf="@id/bt_queren"
+                android:background="@color/B3"
+                android:gravity="center"
+                android:text="@string/quxiao"
+                android:textColor="@color/A4"
+                android:textSize="@dimen/s14" />
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout

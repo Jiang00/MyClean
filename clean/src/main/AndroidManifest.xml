@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="com.privacy.clean">
+    package="com.myboost.clean">
 
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
@@ -9,7 +9,7 @@
 
     <application android:allowBackup="true">
         <service
-            android:name="com.privacy.clean.deepclean.MyServiceCustomerAccessibility"
+            android:name="com.myboost.clean.deepclean.MyServiceCustomerAccessibility"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -21,14 +21,14 @@
         </service>
 
         <service
-            android:name="com.privacy.clean.cleannotification.MyServiceNotificationMonitor"
+            android:name="com.myboost.clean.cleannotification.MyServiceNotificationMonitor"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
 
-        <service android:name="com.privacy.clean.core.CleanService" />
+        <service android:name="com.myboost.clean.core.CleanService" />
 
     </application>
 

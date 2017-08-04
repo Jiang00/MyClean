@@ -8,19 +8,19 @@
 
     <RelativeLayout
         android:id="@+id/junk_item_rl"
-        android:layout_width="@dimen/d72"
-        android:layout_height="@dimen/d60">
+        android:layout_width="@dimen/d64"
+        android:layout_height="@dimen/d56">
 
         <ImageView
             android:id="@+id/junk_item_icon"
-            android:layout_width="@dimen/d35"
-            android:layout_height="@dimen/d35"
+            android:layout_width="@dimen/d40"
+            android:layout_height="@dimen/d40"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/d16"
+            android:layout_marginLeft="@dimen/d8"
             android:src="@mipmap/icon" />
     </RelativeLayout>
 
-    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+    <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
         android:id="@+id/junk_item_lable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,8 +28,8 @@
         android:layout_toRightOf="@id/junk_item_rl"
         android:maxLength="15"
         android:text="app标题"
-        android:textColor="@color/A6"
-        android:textSize="@dimen/s15" />
+        android:textColor="@color/A2"
+        android:textSize="@dimen/s16" />
 
     <ImageView
         android:id="@+id/check_iv"
@@ -37,17 +37,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/d25"
-        android:layout_marginRight="@dimen/d16"
+        android:layout_marginLeft="@dimen/d16"
+        android:layout_marginRight="@dimen/d8"
         android:src="@mipmap/ram_passed" />
 
-    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+    <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
         android:id="@+id/size_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/check_iv"
         android:text="size"
-        android:textColor="@color/A6"
-        android:textSize="@dimen/s15" />
+        android:textColor="@color/A4"
+        android:textSize="@dimen/s16" />
 </RelativeLayout>

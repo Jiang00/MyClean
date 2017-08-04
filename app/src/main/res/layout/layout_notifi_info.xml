@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/A1"
+    android:background="@drawable/gradient_beijing"
     android:orientation="vertical">
 
 
@@ -17,44 +17,68 @@
             android:layout_width="match_parent"
             android:layout_height="0dp" />
 
-        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:layout_width="@dimen/d220"
+            android:layout_height="@dimen/d44"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/d70"
-            android:gravity="center"
-            android:text="@string/notifi_1"
-            android:textColor="@color/A10"
-            android:textSize="@dimen/s18" />
+            android:layout_marginTop="@dimen/d150"
+            android:background="@drawable/main_battery_button">
 
-        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/d10"
-            android:gravity="center"
-            android:text="@string/notifi_2"
-            android:textColor="@color/A10"
-            android:textSize="@dimen/s18" />
+            <ImageView
+                android:layout_width="@dimen/d36"
+                android:layout_height="@dimen/d36"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d8"
+                android:src="@mipmap/notify_anim" />
+
+            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/d16"
+                android:gravity="center"
+                android:text="@string/side_notifi"
+                android:textColor="@color/A1"
+                android:textSize="@dimen/s16" />
+        </LinearLayout>
 
         <ImageView
-            android:id="@+id/notifi_info_lot"
-            android:layout_width="@dimen/d208"
-            android:layout_height="@dimen/d346"
+            android:layout_width="@dimen/d172"
+            android:layout_height="@dimen/d108"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/d50"
+            android:layout_marginTop="@dimen/d11"
             android:src="@mipmap/noti_phone" />
+
+        <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d24"
+            android:gravity="center"
+            android:text="@string/side_notifi"
+            android:textColor="@color/A5"
+            android:textSize="@dimen/s16" />
+
+        <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/d8"
+            android:gravity="center"
+            android:text="@string/notif_describe"
+            android:textColor="@color/A6"
+            android:textSize="@dimen/s12" />
 
         <Button
             android:id="@+id/notifi_info_text"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="@dimen/d162"
-            android:layout_height="@dimen/d34"
+            android:layout_width="@dimen/d250"
+            android:layout_height="@dimen/d40"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/d34"
-            android:background="@drawable/main_clean_button"
-            android:text="@string/gboost_k"
-            android:textColor="@color/A1"
-            android:textSize="@dimen/s18" />
+            android:layout_marginTop="@dimen/d33"
+            android:background="@drawable/main_haoping"
+            android:text="@string/notif_cleannow"
+            android:textColor="@color/A5"
+            android:textSize="@dimen/s15" />
     </LinearLayout>
 </FrameLayout>

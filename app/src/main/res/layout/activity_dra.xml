@@ -5,11 +5,11 @@
     android:id="@+id/main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.privacy.junk.activityprivacy.MainActivity">
+    tools:context="com.myboost.junk.activityprivacy.MainActivity">
 
     <include layout="@layout/activity_main" />
 
-    <com.privacy.junk.privacycustomview.PrivacyMainFrameLayout
+    <com.myboost.junk.privacycustomview.PrivacyMainFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -85,7 +85,7 @@
                     android:background="@color/A5"
                     android:orientation="vertical">
 
-                    <com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy
+                    <com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy
                         android:id="@+id/side_listview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -95,5 +95,5 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </com.privacy.junk.privacycustomview.PrivacyMainFrameLayout>
+    </com.myboost.junk.privacycustomview.PrivacyMainFrameLayout>
 </android.support.v4.widget.DrawerLayout>

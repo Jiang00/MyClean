@@ -22,7 +22,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/d24">
+                android:layout_height="@dimen/d30">
 
                 <ImageView
                     android:id="@+id/ad_delete"
@@ -32,20 +32,15 @@
                     android:layout_marginRight="@dimen/d16"
                     android:src="@mipmap/close" />
 
-                <TextView
+                <ImageView
                     android:id="@+id/main_full_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d16"
-                    android:gravity="center"
-                    android:paddingLeft="@dimen/d5"
-                    android:paddingRight="@dimen/d5"
-                    android:text="Skip"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s12"
-                    android:visibility="visible" />
+                    android:layout_marginRight="@dimen/d8"
+                    android:padding="@dimen/d8"
+                    android:src="@mipmap/close" />
             </RelativeLayout>
 
 
@@ -168,7 +163,7 @@
                     android:layout_marginLeft="@dimen/d4"
                     android:orientation="vertical">
 
-                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                    <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/d2"
@@ -176,7 +171,7 @@
                         android:textColor="@color/A5"
                         android:textSize="@dimen/s19" />
 
-                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                    <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"

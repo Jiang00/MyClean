@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.privacy.junk">
+    package="com.myboost.junk">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -48,7 +48,7 @@
 
 
     <application
-        android:name="com.privacy.junk.activityprivacy.MyApplication"
+        android:name="com.myboost.junk.activityprivacy.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -57,12 +57,12 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name="com.privacy.junk.activityprivacy.MainActivity"
+            android:name="com.myboost.junk.activityprivacy.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name="com.privacy.junk.activityprivacy.LoadingActivity"
+            android:name="com.myboost.junk.activityprivacy.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -83,75 +83,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyBatteriesActivity"
+            android:name="com.myboost.junk.activityprivacy.BatteriesActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.RubbishActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostRubbishActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyRubbishAndRamActivity"
+            android:name="com.myboost.junk.activityprivacy.RubbishAndRamActivityBoost"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.AllAppsActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostAllAppsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PhonesMessageActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostPhonesMessageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyMemoryAvtivity"
+            android:name="com.myboost.junk.activityprivacy.MemoryAvtivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.SetActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostSetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacySucceedActivity"
+            android:name="com.myboost.junk.activityprivacy.SucceedActivityBoost"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.IgnoresAvtivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostIgnoresAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyIgnoresAddActivity"
+            android:name="com.myboost.junk.activityprivacy.IgnoresAddActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.DeepingActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostDeepingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyNotifingAnimationActivity"
+            android:name="com.myboost.junk.activityprivacy.NotifingAnimationActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PermissingActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostPermissingActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.MyNotifingActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostNotifingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyNotifingSettingActivity"
+            android:name="com.myboost.junk.activityprivacy.NotifingSettingActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.SuspensionBallActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostSuspensionBallActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyUnloadingResidualActivity"
+            android:name="com.myboost.junk.activityprivacy.UnloadingResidualActivityBoost"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name="com.privacy.junk.activityprivacy.PictActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostPictActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyPictHuiActivity"
+            android:name="com.myboost.junk.activityprivacy.PictHuiActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.GoodGameActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostGoodGameActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -164,7 +164,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyShortCutingActivity"
+            android:name="com.myboost.junk.activityprivacy.ShortCutingActivityBoost"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -174,7 +174,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.privacy.junk.privacybroadcasts.UnloadResidualBroadcastPrivacy">
+        <receiver android:name="com.myboost.junk.privacybroadcasts.BoostUnloadResidualBroadcast">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -185,23 +185,23 @@
         </receiver>
 
         <service
-            android:name="com.privacy.junk.privacyservices.PrivacySuspensionBallService"
+            android:name="com.myboost.junk.privacyservices.SuspensionBallServiceBoost"
             android:excludeFromRecents="true" />
         <service
-            android:name="com.privacy.junk.privacyservices.PrivacyNotificationService"
+            android:name="com.myboost.junk.privacyservices.NotificationServiceBoost"
             android:enabled="true"
             android:excludeFromRecents="true" />
 
         <activity
-            android:name="com.privacy.junk.activityprivacy.FileManagerActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostFileManagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.privacy.junk.activityprivacy.PrivacyFileActivity"
+            android:name="com.myboost.junk.activityprivacy.FileActivityBoost"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name="com.privacy.junk.activityprivacy.DocActivityPrivacy"
+            android:name="com.myboost.junk.activityprivacy.BoostDocActivity"
             android:screenOrientation="portrait" />
 
     </application>

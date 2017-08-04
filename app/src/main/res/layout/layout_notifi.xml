@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/B3"
+    android:background="@color/A11"
     android:orientation="vertical">
 
     <LinearLayout
@@ -21,54 +21,97 @@
         <include layout="@layout/layout_title" />
     </LinearLayout>
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+        <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
             android:id="@+id/white_wu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:gravity="center"
             android:text="@string/notifi_nor"
-            android:textColor="@color/A9"
+            android:textColor="@color/A4"
             android:textSize="@dimen/s16"
             android:visibility="invisible" />
 
-        <ListView
-            android:id="@+id/list_si"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white_100"
-            android:divider="@drawable/list_divider"
-            android:dividerHeight="@dimen/d1"
-            android:scrollbars="none" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/d4" />
+
+            <RelativeLayout
+                android:id="@+id/notifi_switch_r"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d56"
+                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
+                android:layout_marginTop="@dimen/d4"
+                android:background="@color/A5"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/d8"
+                    android:text="@string/notif_switch"
+                    android:textColor="@color/A1"
+                    android:textSize="@dimen/s16" />
+
+                <ImageView
+                    android:id="@+id/notifi_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/d8"
+                    android:src="@mipmap/side_check_passed" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/list_si"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/notifi_switch_r"
+                android:layout_marginLeft="@dimen/d8"
+                android:layout_marginRight="@dimen/d8"
+                android:background="@color/white_100"
+                android:divider="@drawable/list_divider"
+                android:dividerHeight="1px"
+                android:scrollbars="none" />
+        </LinearLayout>
 
         <View
             android:id="@+id/view_set"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/d60"
             android:background="@color/black_50"
             android:clickable="true"
             android:visibility="gone" />
-    </FrameLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/notifi_button_rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/d56"
+        android:background="@color/A5">
 
         <TextView
             android:id="@+id/notifi_button_clean"
-            android:layout_width="@dimen/d176"
-            android:layout_height="@dimen/d42"
+            android:layout_width="@dimen/d333"
+            android:layout_height="@dimen/d43"
             android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/d27"
-            android:background="@drawable/clean_button_yuan"
+            android:background="@drawable/main_haoping"
             android:gravity="center"
             android:text="@string/main_cleanup"
             android:textColor="@color/B3"

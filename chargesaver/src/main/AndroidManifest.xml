@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.privacy.module.charge.saver">
+    package="com.myboost.module.charge.saver">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application>
         <service
-            android:name="com.privacy.module.charge.saver.privacyprotectservice.PrivacyServiceBattery"
+            android:name="com.myboost.module.charge.saver.privacyprotectservice.PrivacyServiceBattery"
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
 
-        <receiver android:name="com.privacy.module.charge.saver.receiverprivacy.BroadcastReceiverStartPrivacy">
+        <receiver android:name="com.myboost.module.charge.saver.receiverprivacy.BroadcastReceiverStartPrivacy">
             <intent-filter android:priority="2147483647">
 
                 <!-- 优先级加最高 -->
@@ -27,11 +27,11 @@
         </receiver>
 
         <activity
-            android:name="com.privacy.module.charge.saver.PrivacySetADActivity"
+            android:name="com.myboost.module.charge.saver.PrivacySetADActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.privacy.module.charge.saver.BatteryProtectActivityPrivacy"
+            android:name="com.myboost.module.charge.saver.BatteryProtectActivityPrivacy"
             android:launchMode="singleInstance"
             android:noHistory="true"
             android:screenOrientation="nosensor"

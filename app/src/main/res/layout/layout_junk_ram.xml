@@ -23,69 +23,48 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/d146"
+            android:layout_height="@dimen/d120"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/d20">
 
-                <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                     android:id="@+id/junk_size_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginBottom="@dimen/d10"
                     android:gravity="center"
                     android:lines="1"
                     android:text="0"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s66"
-                    app:typeface="ROBOTO-THIN_0.TTF" />
+                    android:textColor="@color/A5"
+                    android:textSize="@dimen/s55" />
 
-                <LinearLayout
+                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                    android:id="@+id/junk_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginBottom="@dimen/d10"
-                    android:layout_marginLeft="@dimen/d14"
+                    android:layout_marginLeft="@dimen/d4"
+                    android:layout_marginTop="@dimen/d33"
                     android:layout_toRightOf="@+id/junk_size_all"
-                    android:orientation="vertical">
+                    android:text="B"
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s18" />
+            </RelativeLayout>
 
-                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                        android:id="@+id/junk_unit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="MB"
-                        android:textColor="@color/B3"
-                        android:textSize="@dimen/s16"
-                        app:typeface="ROBOTO-LIGHT.TTF" />
-
-                    <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                        android:id="@+id/junk_fangxin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/d8"
-                        android:text="@string/picture_tishi"
-                        android:textColor="@color/B3"
-                        android:textSize="@dimen/s14"
-                        app:typeface="ROBOTO-LIGHT.TTF" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                android:id="@+id/junk_button_clean2"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/d20"
+            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                android:id="@+id/junk_fangxin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="#33ffffff"
-                android:gravity="center"
-                android:text="@string/junk_cleansize"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s12"
-                app:typeface="ROBOTO-LIGHT.TTF" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/d16"
+                android:layout_marginRight="@dimen/d60"
+                android:text="@string/junk_found"
+                android:textColor="@color/A6"
+                android:textSize="@dimen/s16" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -93,12 +72,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/A7"
+        android:background="@color/A11"
         android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/d8"
+            android:layout_marginRight="@dimen/d8"
             android:layout_weight="1">
 
             <ListView
@@ -109,7 +90,7 @@
                 android:divider="@drawable/junk_divider"
                 android:visibility="gone" />
 
-            <com.privacy.junk.privacycustomview.ScrollView
+            <com.myboost.junk.privacycustomview.ScrollView
                 android:id="@+id/junk_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,224 +103,91 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d4"
+                        android:background="@color/A11" />
                     <!--系统-->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/d72"
                         android:background="?attr/selectableItemBackground"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
+                            android:layout_height="@dimen/d72"
                             android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
+                                android:layout_width="@dimen/d64"
+                                android:layout_height="match_parent"
+                                android:background="@color/A1"
+                                android:gravity="center">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d34"
-                                    android:layout_height="@dimen/d34"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
                                     android:src="@mipmap/junk_system" />
                             </LinearLayout>
 
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                                android:layout_width="wrap_content"
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                android:layout_width="@dimen/d112"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d4"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_system"
-                                android:textColor="@color/A6"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="@color/A2"
+                                android:textSize="@dimen/s16" />
+
+                            <ImageView
+                                android:id="@+id/junk_system_jiantou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1" />
 
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                                 android:id="@+id/junk_system_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s12" />
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
 
                             <ImageView
-                                android:id="@+id/junk_system_jiantou"
-                                android:layout_width="@dimen/d17"
-                                android:layout_height="@dimen/d17"
+                                android:id="@+id/junk_system_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/d25"
-                                android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:layout_marginRight="@dimen/d8"
+                                android:src="@mipmap/ram_passed"
                                 android:visibility="visible" />
                         </LinearLayout>
                     </LinearLayout>
 
-                    <com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy
+                    <com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy
                         android:id="@+id/junk_system_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/B3"
                         android:divider="@drawable/junk_divider"
-                        android:dividerHeight="@dimen/d1" />
+                        android:dividerHeight="1px" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/d8"
-                        android:background="@color/A7" />
-                    <!--应用缓存-->
-                    <LinearLayout
-                        android:id="@+id/junk_button_user"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackground"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:layout_width="@dimen/d34"
-                                    android:layout_height="@dimen/d34"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/junk_user" />
-                            </LinearLayout>
-
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:gravity="center_vertical"
-                                android:text="@string/junk_user"
-                                android:textColor="@color/A6"
-                                android:textSize="@dimen/s15" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
-
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                                android:id="@+id/junk_user_size"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:gravity="center"
-                                android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s12" />
-
-                            <ImageView
-                                android:id="@+id/junk_user_jiantou"
-                                android:layout_width="@dimen/d17"
-                                android:layout_height="@dimen/d17"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/d25"
-                                android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
-                                android:visibility="visible" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy
-                        android:id="@+id/junk_user_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/B3"
-                        android:divider="@drawable/junk_divider"
-                        android:dividerHeight="@dimen/d1" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d8"
-                        android:background="@color/A7" />
-
-                    <!--应用垃圾-->
-                    <LinearLayout
-                        android:id="@+id/junk_button_log"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackground"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:layout_width="@dimen/d34"
-                                    android:layout_height="@dimen/d34"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
-                                    android:src="@mipmap/junk_log" />
-                            </LinearLayout>
-
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:gravity="center_vertical"
-                                android:text="@string/junk_log"
-                                android:textColor="@color/A6"
-                                android:textSize="@dimen/s15" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
-
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                                android:id="@+id/junk_log_size"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:gravity="center"
-                                android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s12" />
-
-                            <ImageView
-                                android:id="@+id/junk_log_jiantou"
-                                android:layout_width="@dimen/d17"
-                                android:layout_height="@dimen/d17"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/d25"
-                                android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
-                                android:visibility="visible" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy
-                        android:id="@+id/junk_log_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/B3"
-                        android:divider="@drawable/junk_divider"
-                        android:dividerHeight="@dimen/d1" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/d8"
-                        android:background="@color/A7" />
+                        android:background="@color/A11" />
                     <!--apk-->
                     <LinearLayout
                         android:id="@+id/junk_button_apk"
@@ -350,70 +198,79 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
+                            android:layout_height="@dimen/d72"
                             android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
+                                android:layout_width="@dimen/d64"
+                                android:layout_height="match_parent"
+                                android:background="@color/A1"
+                                android:gravity="center">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d34"
-                                    android:layout_height="@dimen/d34"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
                                     android:src="@mipmap/junk_apk" />
                             </LinearLayout>
 
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                                android:layout_width="wrap_content"
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                android:layout_width="@dimen/d112"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d4"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_apk"
-                                android:textColor="@color/A6"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="@color/A2"
+                                android:textSize="@dimen/s16" />
+
+                            <ImageView
+                                android:id="@+id/junk_apk_jiaotou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1" />
 
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                                 android:id="@+id/junk_apk_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s12" />
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
 
                             <ImageView
-                                android:id="@+id/junk_apk_jiaotou"
-                                android:layout_width="@dimen/d17"
-                                android:layout_height="@dimen/d17"
+                                android:id="@+id/junk_apk_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/d25"
-                                android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
+                                android:layout_marginRight="@dimen/d8"
+                                android:src="@mipmap/ram_passed"
                                 android:visibility="visible" />
-
                         </LinearLayout>
                     </LinearLayout>
 
-                    <com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy
+                    <com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy
                         android:id="@+id/junk_apk_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/B3"
                         android:divider="@drawable/junk_divider"
-                        android:dividerHeight="@dimen/d1" />
+                        android:dividerHeight="1px" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/d8"
-                        android:background="@color/A7" />
+                        android:background="@color/A11" />
                     <!--卸载残余-->
                     <LinearLayout
                         android:id="@+id/junk_button_unload"
@@ -424,69 +281,247 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
+                            android:layout_height="@dimen/d72"
                             android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
+                                android:layout_width="@dimen/d64"
+                                android:layout_height="match_parent"
+                                android:background="@color/A1"
+                                android:gravity="center">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d34"
-                                    android:layout_height="@dimen/d34"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
                                     android:src="@mipmap/junk_unload" />
                             </LinearLayout>
 
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                                android:layout_width="wrap_content"
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                android:layout_width="@dimen/d112"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d4"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_unload"
-                                android:textColor="@color/A6"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="@color/A2"
+                                android:textSize="@dimen/s16" />
+
+                            <ImageView
+                                android:id="@+id/junk_unload_jiantou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1" />
 
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                                 android:id="@+id/junk_unload_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s12" />
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
 
                             <ImageView
-                                android:id="@+id/junk_unload_jiantou"
-                                android:layout_width="@dimen/d17"
-                                android:layout_height="@dimen/d17"
+                                android:id="@+id/junk_unload_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/d25"
-                                android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
+                                android:layout_marginRight="@dimen/d8"
+                                android:src="@mipmap/ram_passed"
                                 android:visibility="visible" />
                         </LinearLayout>
                     </LinearLayout>
 
-                    <com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy
+                    <com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy
                         android:id="@+id/junk_unload_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/B3"
                         android:divider="@drawable/junk_divider"
-                        android:dividerHeight="@dimen/d1" />
+                        android:dividerHeight="1px" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/d8"
-                        android:background="@color/A7" />
+                        android:background="@color/A11" />
+                    <!--应用垃圾-->
+                    <LinearLayout
+                        android:id="@+id/junk_button_log"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d72"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/d64"
+                                android:layout_height="match_parent"
+                                android:background="@color/A1"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:src="@mipmap/junk_log" />
+                            </LinearLayout>
+
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                android:layout_width="@dimen/d112"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d4"
+                                android:gravity="center_vertical"
+                                android:text="@string/junk_log"
+                                android:textColor="@color/A2"
+                                android:textSize="@dimen/s16" />
+
+                            <ImageView
+                                android:id="@+id/junk_log_jiantou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                android:id="@+id/junk_log_size"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/d16"
+                                android:gravity="center"
+                                android:text="10.0M"
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
+
+                            <ImageView
+                                android:id="@+id/junk_log_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="@dimen/d8"
+                                android:src="@mipmap/ram_passed"
+                                android:visibility="visible" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy
+                        android:id="@+id/junk_log_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/B3"
+                        android:divider="@drawable/junk_divider"
+                        android:dividerHeight="1px" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d8"
+                        android:background="@color/A11" />
+                    <!--应用缓存-->
+                    <LinearLayout
+                        android:id="@+id/junk_button_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/d72"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/d64"
+                                android:layout_height="match_parent"
+                                android:background="@color/A1"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
+                                    android:src="@mipmap/junk_user" />
+                            </LinearLayout>
+
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                android:layout_width="@dimen/d112"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d4"
+                                android:gravity="center_vertical"
+                                android:text="@string/junk_user"
+                                android:textColor="@color/A2"
+                                android:textSize="@dimen/s16" />
+
+                            <ImageView
+                                android:id="@+id/junk_user_jiantou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                android:id="@+id/junk_user_size"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/d16"
+                                android:gravity="center"
+                                android:text="10.0M"
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
+
+
+                            <ImageView
+                                android:id="@+id/junk_user_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="@dimen/d8"
+                                android:src="@mipmap/ram_passed"
+                                android:visibility="visible" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy
+                        android:id="@+id/junk_user_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/B3"
+                        android:divider="@drawable/junk_divider"
+                        android:dividerHeight="1px" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d8"
+                        android:background="@color/A11" />
                     <!--内存加速-->
                     <LinearLayout
                         android:id="@+id/junk_button_ram"
@@ -497,84 +532,95 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/d60"
+                            android:layout_height="@dimen/d72"
                             android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="@dimen/d72"
-                                android:layout_height="match_parent">
+                                android:layout_width="@dimen/d64"
+                                android:layout_height="match_parent"
+                                android:background="@color/A1"
+                                android:gravity="center">
 
                                 <ImageView
-                                    android:layout_width="@dimen/d34"
-                                    android:layout_height="@dimen/d34"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="@dimen/d16"
+                                    android:layout_width="@dimen/d40"
+                                    android:layout_height="@dimen/d40"
                                     android:src="@mipmap/junk_ram" />
                             </LinearLayout>
 
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                                android:layout_width="wrap_content"
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                android:layout_width="@dimen/d112"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/d4"
                                 android:gravity="center_vertical"
                                 android:text="@string/junk_ram"
-                                android:textColor="@color/A6"
-                                android:textSize="@dimen/s15" />
+                                android:textColor="@color/A2"
+                                android:textSize="@dimen/s16" />
+
+                            <ImageView
+                                android:id="@+id/junk_ram_jiantou"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/d16"
+                                android:src="@mipmap/junk_x"
+                                android:visibility="visible" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1" />
 
-                            <com.privacy.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
                                 android:id="@+id/junk_ram_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/d16"
                                 android:gravity="center"
                                 android:text="10.0M"
-                                android:textColor="@color/A9"
-                                android:textSize="@dimen/s12" />
+                                android:textColor="@color/A1"
+                                android:textSize="@dimen/s16" />
+
 
                             <ImageView
-                                android:id="@+id/junk_ram_jiantou"
-                                android:layout_width="@dimen/d17"
-                                android:layout_height="@dimen/d17"
+                                android:id="@+id/junk_ram_check"
+                                android:layout_width="@dimen/d24"
+                                android:layout_height="@dimen/d24"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/d25"
-                                android:layout_marginRight="@dimen/d16"
-                                android:src="@mipmap/junk_x"
+                                android:layout_marginRight="@dimen/d8"
+                                android:src="@mipmap/ram_passed"
                                 android:visibility="visible" />
                         </LinearLayout>
                     </LinearLayout>
 
-                    <com.privacy.junk.privacycustomview.ListViewForScrollViewPrivacy
+                    <com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy
                         android:id="@+id/junk_ram_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/B3"
                         android:divider="@drawable/junk_divider"
-                        android:dividerHeight="@dimen/d1" />
+                        android:dividerHeight="1px" />
                 </LinearLayout>
-            </com.privacy.junk.privacycustomview.ScrollView>
+            </com.myboost.junk.privacycustomview.ScrollView>
         </FrameLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
+            android:layout_height="@dimen/d56"
+            android:layout_gravity="bottom"
+            android:background="@color/A5">
 
             <TextView
                 android:id="@+id/junk_button_clean"
-                android:layout_width="@dimen/d176"
-                android:layout_height="@dimen/d42"
+                android:layout_width="@dimen/d333"
+                android:layout_height="@dimen/d43"
                 android:layout_centerInParent="true"
-                android:layout_marginBottom="@dimen/d27"
-                android:background="@drawable/clean_button_yuan"
+                android:background="@drawable/main_haoping"
                 android:gravity="center"
-                android:text="@string/main_cleanup"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s17"
+                android:text="@string/junk_button"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s16"
                 android:visibility="invisible" />
         </RelativeLayout>
     </LinearLayout>
