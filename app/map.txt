@@ -31866,6 +31866,8 @@ com.myboost.clean.filemanager.UtilsFile -> com.myboost.clean.filemanager.b:
     184:201:void openFile(android.content.Context,java.lang.String) -> b
     210:225:java.lang.String getMIMEType(java.io.File) -> a
     228:228:void <clinit>() -> <clinit>
+com.myboost.clean.goodgameprivacy.GameBooster -> com.myboost.clean.b.a:
+    24:40:java.util.ArrayList getInstalledGameList(android.app.Activity) -> a
 com.myboost.clean.privacydb.CleanDBHelper -> com.myboost.clean.privacydb.CleanDBHelper:
     com.myboost.clean.privacydb.CleanDBHelper cleanDBHelper -> a
     android.content.Context mContext -> b
@@ -31888,7 +31890,7 @@ com.myboost.clean.privacydb.CleanDBHelper$TableType -> com.myboost.clean.privacy
     36:36:com.myboost.clean.privacydb.CleanDBHelper$TableType valueOf(java.lang.String) -> valueOf
     36:36:void <init>(java.lang.String,int) -> <init>
     36:37:void <clinit>() -> <clinit>
-com.myboost.clean.utilsprivacy.LoadManager -> com.myboost.clean.b.a:
+com.myboost.clean.utilsprivacy.LoadManager -> com.myboost.clean.c.a:
     android.content.pm.PackageManager pm -> a
     com.myboost.clean.utilsprivacy.LoadManager loadManager -> b
     18:20:void <init>(android.content.Context) -> <init>
@@ -31897,13 +31899,13 @@ com.myboost.clean.utilsprivacy.LoadManager -> com.myboost.clean.b.a:
     43:53:boolean isPkgInstalled(java.lang.String) -> b
     58:75:android.graphics.drawable.Drawable getApkIconforPath(java.lang.String) -> c
     82:88:java.lang.String getAppLabel(java.lang.String) -> d
-com.myboost.clean.utilsprivacy.MemoryManager -> com.myboost.clean.b.b:
+com.myboost.clean.utilsprivacy.MemoryManager -> com.myboost.clean.c.b:
     47:51:java.lang.String getPhoneInSDCardPath() -> a
     162:180:long getPhoneAllSize() -> b
     184:202:long getPhoneAllFreeSize() -> c
     209:213:long getPhoneFreeRamMemory(android.content.Context) -> a
     221:231:long getPhoneTotalRamMemory() -> d
-com.myboost.clean.utilsprivacy.MyUtils -> com.myboost.clean.b.c:
+com.myboost.clean.utilsprivacy.MyUtils -> com.myboost.clean.c.c:
     45:45:void log(java.lang.String,java.lang.String) -> a
     48:51:java.lang.String getStrTime(long) -> a
     55:57:java.lang.String getStrTime2(long) -> b
@@ -31925,7 +31927,7 @@ com.myboost.clean.utilsprivacy.MyUtils -> com.myboost.clean.b.c:
     399:419:long getFileSize(java.io.File) -> a
     425:442:boolean checkDeviceHasNavigationBar(android.content.Context) -> e
     507:525:java.lang.String readFileFromAssets(android.content.Context,java.lang.String) -> b
-com.myboost.clean.utilsprivacy.PreData -> com.myboost.clean.b.d:
+com.myboost.clean.utilsprivacy.PreData -> com.myboost.clean.c.d:
     int _putCount -> a
     android.content.SharedPreferences db -> b
     18:20:android.content.SharedPreferences getDB(android.content.Context) -> a
@@ -31935,7 +31937,7 @@ com.myboost.clean.utilsprivacy.PreData -> com.myboost.clean.b.d:
     111:119:long getDB(android.content.Context,java.lang.String,long) -> a
     135:143:boolean getDB(android.content.Context,java.lang.String,boolean) -> a
     14:15:void <clinit>() -> <clinit>
-com.myboost.clean.utilsprivacy.TopActivityPkg -> com.myboost.clean.b.e:
+com.myboost.clean.utilsprivacy.TopActivityPkg -> com.myboost.clean.c.e:
     java.lang.reflect.Field processState -> a
     android.app.ActivityManager mActivityManager -> b
     android.app.usage.UsageStatsManager mUsageStatsManager -> c
@@ -31947,23 +31949,23 @@ com.myboost.clean.utilsprivacy.TopActivityPkg -> com.myboost.clean.b.e:
     119:186:java.lang.String getForegroundApp() -> b
     191:201:java.lang.String read(java.lang.String) -> a
     67:76:void <clinit>() -> <clinit>
-com.myboost.clean.utilsprivacy.TopActivityPkg$1 -> com.myboost.clean.b.e$1:
+com.myboost.clean.utilsprivacy.TopActivityPkg$1 -> com.myboost.clean.c.e$1:
     76:76:void <init>() -> <init>
     81:81:int compare(android.app.usage.UsageStats,android.app.usage.UsageStats) -> a
     76:76:int compare(java.lang.Object,java.lang.Object) -> compare
-com.myboost.clean.zcallback.AppCacheCallBack -> com.myboost.clean.c.a:
+com.myboost.clean.zcallback.AppCacheCallBack -> com.myboost.clean.d.a:
     11:11:void <init>() -> <init>
     void loadFinished(java.util.ArrayList,long) -> a
-com.myboost.clean.zcallback.AppRamCallBack -> com.myboost.clean.c.b:
+com.myboost.clean.zcallback.AppRamCallBack -> com.myboost.clean.d.b:
     11:11:void <init>() -> <init>
     void loadFinished(java.util.List,java.util.List,long) -> a
-com.myboost.clean.zcallback.FileInfoCallBack -> com.myboost.clean.c.c:
+com.myboost.clean.zcallback.FileInfoCallBack -> com.myboost.clean.d.c:
     11:11:void <init>() -> <init>
     void loadFinished(java.util.ArrayList,long) -> a
-com.myboost.clean.zcallback.SystemCacheCallBack -> com.myboost.clean.c.d:
+com.myboost.clean.zcallback.SystemCacheCallBack -> com.myboost.clean.d.d:
     11:11:void <init>() -> <init>
     void loadFinished(java.util.ArrayList,long) -> a
-com.myboost.clean.zcallback.UninstallResidualCallback -> com.myboost.clean.c.e:
+com.myboost.clean.zcallback.UninstallResidualCallback -> com.myboost.clean.d.e:
     11:11:void <init>() -> <init>
     void loadFinished(java.util.ArrayList,long) -> a
 com.myboost.junk.boostactivity.BaseActivity -> com.myboost.junk.boostactivity.BaseActivity:
@@ -32430,54 +32432,54 @@ com.myboost.junk.boostactivity.BoostGoodGameActivity -> com.myboost.junk.boostac
     android.widget.GridView gboost_gridview -> m
     android.os.Handler mHandler -> u
     android.view.View$OnClickListener clickListener -> n
-    41:178:void <init>() -> <init>
-    70:118:void addData() -> b
-    121:123:void initList() -> c
-    127:162:void onCreate(android.os.Bundle) -> onCreate
-    166:176:void findId() -> a
-    197:207:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
-    212:216:void onResume() -> onResume
-    220:228:void shortGame1(boolean) -> a
-    232:238:void onBackPressed() -> onBackPressed
-    241:256:void initData() -> d
-    259:267:void upData(java.lang.String) -> b
-    271:272:void onDestroy() -> onDestroy
-    276:277:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    41:41:java.util.ArrayList access$000(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> a
-    41:41:android.os.Handler access$100(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> b
-    41:41:com.myboost.junk.customviewboost.BoostGridViewAdAdapter access$202(com.myboost.junk.boostactivity.BoostGoodGameActivity,com.myboost.junk.customviewboost.BoostGridViewAdAdapter) -> a
-    41:41:com.myboost.junk.customviewboost.BoostGridViewAdAdapter access$200(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> c
-    41:41:com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter access$302(com.myboost.junk.boostactivity.BoostGoodGameActivity,com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter) -> a
-    41:41:com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter access$300(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> d
-    41:41:void access$400(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> e
-    41:41:void access$500(com.myboost.junk.boostactivity.BoostGoodGameActivity,java.lang.String) -> a
-    41:41:void access$600(com.myboost.junk.boostactivity.BoostGoodGameActivity,boolean) -> a
+    42:179:void <init>() -> <init>
+    71:119:void addData() -> b
+    122:124:void initList() -> c
+    128:163:void onCreate(android.os.Bundle) -> onCreate
+    167:177:void findId() -> a
+    198:208:boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    213:217:void onResume() -> onResume
+    221:229:void shortGame1(boolean) -> a
+    233:239:void onBackPressed() -> onBackPressed
+    242:257:void initData() -> d
+    260:268:void upData(java.lang.String) -> b
+    272:273:void onDestroy() -> onDestroy
+    277:278:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    42:42:java.util.ArrayList access$000(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> a
+    42:42:void access$100(com.myboost.junk.boostactivity.BoostGoodGameActivity,boolean) -> a
+    42:42:android.os.Handler access$200(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> b
+    42:42:com.myboost.junk.customviewboost.BoostGridViewAdAdapter access$302(com.myboost.junk.boostactivity.BoostGoodGameActivity,com.myboost.junk.customviewboost.BoostGridViewAdAdapter) -> a
+    42:42:com.myboost.junk.customviewboost.BoostGridViewAdAdapter access$300(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> c
+    42:42:com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter access$402(com.myboost.junk.boostactivity.BoostGoodGameActivity,com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter) -> a
+    42:42:com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter access$400(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> d
+    42:42:void access$500(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> e
+    42:42:void access$600(com.myboost.junk.boostactivity.BoostGoodGameActivity,java.lang.String) -> a
 com.myboost.junk.boostactivity.BoostGoodGameActivity$1 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$1:
     com.myboost.junk.boostactivity.BoostGoodGameActivity this$0 -> a
-    58:58:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
-    61:66:void handleMessage(android.os.Message) -> handleMessage
+    59:59:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
+    62:67:void handleMessage(android.os.Message) -> handleMessage
 com.myboost.junk.boostactivity.BoostGoodGameActivity$2 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$2:
     com.myboost.junk.boostactivity.BoostGoodGameActivity this$0 -> a
-    75:75:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
-    78:116:void run() -> run
+    71:71:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
+    74:117:void run() -> run
 com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1:
     com.myboost.junk.boostactivity.BoostGoodGameActivity$2 this$1 -> a
-    86:86:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity$2) -> <init>
-    89:114:void run() -> run
+    87:87:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity$2) -> <init>
+    90:115:void run() -> run
 com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1$1 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1$1:
     com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1 this$2 -> a
-    93:93:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1) -> <init>
-    96:112:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    94:94:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity$2$1) -> <init>
+    97:113:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.myboost.junk.boostactivity.BoostGoodGameActivity$3 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$3:
     com.myboost.junk.boostactivity.BoostGoodGameActivity this$0 -> a
-    144:144:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
-    147:148:void afterTextChanged(android.text.Editable) -> afterTextChanged
-    153:153:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
-    158:158:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    145:145:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
+    148:149:void afterTextChanged(android.text.Editable) -> afterTextChanged
+    154:154:void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    159:159:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.myboost.junk.boostactivity.BoostGoodGameActivity$4 -> com.myboost.junk.boostactivity.BoostGoodGameActivity$4:
     com.myboost.junk.boostactivity.BoostGoodGameActivity this$0 -> a
-    178:178:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
-    181:192:void onClick(android.view.View) -> onClick
+    179:179:void <init>(com.myboost.junk.boostactivity.BoostGoodGameActivity) -> <init>
+    182:193:void onClick(android.view.View) -> onClick
 com.myboost.junk.boostactivity.BoostIgnoresAvtivity -> com.myboost.junk.boostactivity.BoostIgnoresAvtivity:
     com.myboost.junk.customadapterboost.IgnoreListViewAdapter adapter -> e
     android.widget.TextView white_wu -> f
@@ -34342,24 +34344,24 @@ com.myboost.junk.boostpresenter.ManagerPresenter -> com.myboost.junk.b.h:
     111:121:void bleachFile(java.util.List) -> a
 com.myboost.junk.boostpresenter.PresenterMainBoost -> com.myboost.junk.b.i:
     int cpuTemp -> c
-    28:29:void openDrawer() -> a
-    36:65:void init() -> b
-    24:71:void <init>(com.myboost.junk.boostinterfaceview.BoostMainView,android.content.Context) -> <init>
-    75:96:void startFenshu(boolean) -> a
-    99:117:void reStart(boolean) -> b
-    120:125:void clickRotate(boolean) -> c
-    128:131:void setRotateGone() -> c
-    135:148:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
+    27:28:void openDrawer() -> a
+    35:64:void init() -> b
+    24:70:void <init>(com.myboost.junk.boostinterfaceview.BoostMainView,android.content.Context) -> <init>
+    74:95:void startFenshu(boolean) -> a
+    98:116:void reStart(boolean) -> b
+    119:124:void clickRotate(boolean) -> c
+    127:130:void setRotateGone() -> c
+    134:147:void setDrawerLeftEdgeSize(android.support.v4.widget.DrawerLayout,float) -> a
     23:23:int access$002(com.myboost.junk.boostpresenter.PresenterMainBoost,int) -> a
     23:23:int access$000(com.myboost.junk.boostpresenter.PresenterMainBoost) -> a
 com.myboost.junk.boostpresenter.PresenterMainBoost$1 -> com.myboost.junk.b.i$1:
     com.myboost.junk.boostpresenter.PresenterMainBoost this$0 -> a
-    38:38:void <init>(com.myboost.junk.boostpresenter.PresenterMainBoost) -> <init>
-    42:59:void run() -> run
+    37:37:void <init>(com.myboost.junk.boostpresenter.PresenterMainBoost) -> <init>
+    41:58:void run() -> run
 com.myboost.junk.boostpresenter.PresenterMainBoost$1$1 -> com.myboost.junk.b.i$1$1:
     com.myboost.junk.boostpresenter.PresenterMainBoost$1 this$1 -> a
-    48:48:void <init>(com.myboost.junk.boostpresenter.PresenterMainBoost$1) -> <init>
-    51:57:void callbackResult(com.myboost.junk.boosttools.GetCpuTempReaderBoost$ResultCpuTemperature) -> a
+    47:47:void <init>(com.myboost.junk.boostpresenter.PresenterMainBoost$1) -> <init>
+    50:56:void callbackResult(com.myboost.junk.boosttools.GetCpuTempReaderBoost$ResultCpuTemperature) -> a
 com.myboost.junk.boostpresenter.Sizesort -> com.myboost.junk.b.j:
     132:132:void <init>() -> <init>
     135:135:int compare(com.myboost.clean.entity.JunkInfo,com.myboost.clean.entity.JunkInfo) -> a
@@ -34757,8 +34759,8 @@ com.myboost.junk.customadapterboost.SidebarAdapterBoost -> com.myboost.junk.d.l:
     int ROTATE -> o
     java.lang.String powerSize -> p
     39:80:void <init>(android.content.Context) -> <init>
-    84:161:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    165:232:void onC(int) -> b
+    84:132:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    136:203:void onC(int) -> b
     38:38:void access$000(com.myboost.junk.customadapterboost.SidebarAdapterBoost,int) -> a
 com.myboost.junk.customadapterboost.SidebarAdapterBoost$1 -> com.myboost.junk.d.l$1:
     com.myboost.junk.mymodelboost.SideInfo val$info -> a
@@ -34774,7 +34776,7 @@ com.myboost.junk.customadapterboost.SidebarAdapterBoost$ViewHolder -> com.myboos
     android.view.View side_divide -> d
     android.widget.ImageView iv_le -> e
     com.myboost.junk.customadapterboost.SidebarAdapterBoost this$0 -> f
-    241:241:void <init>(com.myboost.junk.customadapterboost.SidebarAdapterBoost) -> <init>
+    212:212:void <init>(com.myboost.junk.customadapterboost.SidebarAdapterBoost) -> <init>
 com.myboost.junk.customviewboost.BoostDeepWidgetContainer -> com.myboost.junk.customviewboost.BoostDeepWidgetContainer:
     android.os.Handler widgetHandler -> a
     android.view.WindowManager$LayoutParams lp -> b

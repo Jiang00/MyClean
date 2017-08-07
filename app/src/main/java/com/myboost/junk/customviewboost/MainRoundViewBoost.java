@@ -113,8 +113,5 @@ public class MainRoundViewBoost extends View {
                 }
             }
         }).start();
-
     }
-
-
 }

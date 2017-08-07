@@ -119,40 +119,11 @@ public class SidebarAdapterBoost extends MybaseAdapter<SideInfo> {
                 onC(position);
             }
         });
-//        convertView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                int action = event.getAction();
-//                switch (action) {
-//                    case MotionEvent.ACTION_DOWN:
-//                        holder.iv_le.setColorFilter(ContextCompat.getColor(context, R.color.A1));
-//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.A1));
-//                        break;
-//                    case MotionEvent.ACTION_CANCEL:
-//                    case MotionEvent.ACTION_UP:
-//                        holder.iv_le.setColorFilter(0);
-//                        holder.tv_name.setTextColor(ContextCompat.getColor(context, R.color.B2));
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
         if (position == BATTERY || position == FLOAT) {
             holder.checkBox.setVisibility(View.VISIBLE);
         } else {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
-       /* if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            if (position == NOTIFI) {
-                holder.rl_item.setVisibility(View.GONE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(0, 1);
-                convertView.setLayoutParams(param);
-            } else {
-                holder.rl_item.setVisibility(View.VISIBLE);
-                AbsListView.LayoutParams param = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.WRAP_CONTENT);
-                convertView.setLayoutParams(param);
-            }
-        }*/
         if (position == RAM || position == SETTING) {
             holder.side_divide.setVisibility(View.VISIBLE);
         } else {

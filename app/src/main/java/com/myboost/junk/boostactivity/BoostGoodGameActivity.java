@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.entity.JunkInfo;
+import com.myboost.clean.goodgameprivacy.GameBooster;
 import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.clean.utilsprivacy.LoadManager;
 import com.myboost.clean.utilsprivacy.PreData;
@@ -67,14 +68,14 @@ public class BoostGoodGameActivity extends BaseActivity {
     };
 
     private void addData() {
-        if (PreData.getDB(BoostGoodGameActivity.this, BoostMyConstant.GBOOST_LUN, true)) {
-            PreData.putDB(BoostGoodGameActivity.this, BoostMyConstant.GBOOST_LUN, true);
-            shortGame1(false);
-        }
-//        list.addAll(GameBooster.getInstalledGameList(BoostGoodGameActivity.this));
         new Thread(new Runnable() {
             @Override
             public void run() {
+                if (PreData.getDB(BoostGoodGameActivity.this, BoostMyConstant.GBOOST_LUN, true)) {
+                    PreData.putDB(BoostGoodGameActivity.this, BoostMyConstant.GBOOST_LUN, false);
+                    list.addAll(GameBooster.getInstalledGameList(BoostGoodGameActivity.this));
+                    shortGame1(false);
+                }
                 ArrayList<String> gboost_names = CleanDBHelper.getInstance(BoostGoodGameActivity.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                 for (String pkg : gboost_names) {
                     if (LoadManager.getInstance(BoostGoodGameActivity.this).isPkgInstalled(pkg)) {

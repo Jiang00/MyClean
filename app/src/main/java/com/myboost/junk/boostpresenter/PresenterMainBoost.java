@@ -23,7 +23,6 @@ import java.lang.reflect.Field;
 public class PresenterMainBoost extends BoostPresenterBase<BoostMainView> {
     private int cpuTemp = 40;
 
-
     public void openDrawer() {
         iView.openDrawer();
     }

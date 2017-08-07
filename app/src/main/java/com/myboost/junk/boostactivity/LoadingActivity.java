@@ -52,12 +52,7 @@ public class LoadingActivity extends BaseActivity {
                 if (jsonObject.has("notifiactivity")) {
                     PreData.putDB(LoadingActivity.this, BoostMyConstant.NOTIFIACTIVITY, jsonObject.getInt("notifiactivity"));
                 }
-                if (jsonObject.has("goodgame")) {
-                    PreData.putDB(LoadingActivity.this, BoostMyConstant.GOODGAME, jsonObject.getInt("goodgame"));
-                }
-                if (jsonObject.has("picturex")) {
-                    PreData.putDB(LoadingActivity.this, BoostMyConstant.PICTUREX, jsonObject.getInt("picturex"));
-                }
+
 
                 if (jsonObject.has("full_main")) {
                     PreData.putDB(LoadingActivity.this, BoostMyConstant.FULL_MAIN, jsonObject.getInt("full_main"));
