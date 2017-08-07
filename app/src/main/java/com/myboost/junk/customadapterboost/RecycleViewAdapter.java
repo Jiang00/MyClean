@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.graphics.Bitmap;
 import android.os.Handler;
@@ -17,8 +17,8 @@ import com.myboost.clean.cleanimage.ImageHelper;
 import com.myboost.clean.cleanimage.ImageInfo;
 import com.myboost.clean.cleanimage.RecyclerDbHelper;
 import com.myboost.junk.R;
-import com.myboost.junk.activityprivacy.BoostPictActivity;
-import com.myboost.junk.privacycustomview.PrivacyGridLayoutManager;
+import com.myboost.junk.boostactivity.BoostPictActivity;
+import com.myboost.junk.customviewboost.GridLayoutManagerBoost;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     private BoostPictActivity pictureActivity;
     private ImageHelper imageHelper;
     public ArrayList<ArrayList<ImageInfo>> groupList;
-    private PrivacyGridLayoutManager gridLayoutManager;
+    private GridLayoutManagerBoost gridLayoutManager;
     private RecycleViewCallBack deleteCallBack;
     private Handler handler;
 
@@ -123,7 +123,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     private void addItemView(MyViewHolder holder, ArrayList<ImageInfo> list) {
         holder.recyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-        gridLayoutManager = new PrivacyGridLayoutManager(pictureActivity, 4);
+        gridLayoutManager = new GridLayoutManagerBoost(pictureActivity, 4);
         holder.recyclerView.setLayoutManager(gridLayoutManager);
         holder.recyclerView.setAdapter(new HomeAdapter(list));
         holder.recyclerView.setItemAnimator(new DefaultItemAnimator());

@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -30,14 +30,13 @@ import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.privacycustomview.PrivacyDrawHookView;
-import com.myboost.junk.privacycustomview.PrivacyImageAccessor;
-import com.myboost.junk.privacycustomview.PrivacyMainRoundView;
-import com.myboost.junk.privacycustomview.PrivacySlowScrollView;
-import com.myboost.junk.privacycustomview.RenderingView;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.PrivacyUtilGp;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.customviewboost.ImageAccessorBoost;
+import com.myboost.junk.customviewboost.MainRoundViewBoost;
+import com.myboost.junk.customviewboost.BoostSlowScrollView;
+import com.myboost.junk.customviewboost.RenderingView;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.UtilGpBoost;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 import com.twee.module.tweenengine.Tween;
 import com.twee.module.tweenengine.TweenManager;
 
@@ -49,24 +48,27 @@ import java.util.List;
  */
 
 public class SucceedActivityBoost extends BaseActivity {
-    private String TAG_CLEAN = "cprivacy_success";
-    private String TAG_CLEAN_2 = "cprivacy_success_2";
+    private String TAG_CLEAN = "flashclean_success";
+    private String TAG_CLEAN_2 = "flashclean_success_2";
     RelativeLayout main_gboost_button;
     FrameLayout title_left;
     TextView main_rotate_good;
+    ObjectAnimator animator1, animator2, animator3, animator4, animator5, animator6;
+    FrameLayout success_animator;
+    AnimatorSet animSet, animSet1;
+    BoostSlowScrollView scrollView;
+    long endStart = -1;
     RelativeLayout main_ram_button;
     private boolean haveAd;
     private boolean animationEnd;
     private MyApplication cleanApplication;
     RelativeLayout main_junk_button;
     TextView title_name;
-    PrivacyMainRoundView mainRoundView;
+    MainRoundViewBoost mainRoundView;
     ImageView success_eye_leght, success_eye_right, success_eye_right1;
-    ObjectAnimator animator1, animator2, animator3, animator4, animator5, animator6;
-    FrameLayout success_animator;
-    AnimatorSet animSet, animSet1;
-    PrivacySlowScrollView scrollView;
-    long endStart = -1;
+    RelativeLayout main_power_button;
+    RelativeLayout main_notifi_button;
+    RelativeLayout main_cooling_button;
     ObjectAnimator objectAnimator;
     int sizeInt;
     long sizeInt1;
@@ -74,22 +76,41 @@ public class SucceedActivityBoost extends BaseActivity {
     private boolean istween;
     private Handler myHandler;
     LinearLayout main_rotate_all;
-    RelativeLayout main_power_button;
-    RelativeLayout main_notifi_button;
-    RelativeLayout main_cooling_button;
+    TextView success_clean_size;
+    TextView success_textview;
+    TextView main_rotate_bad;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
     RenderingView success_mouth;
     RelativeLayout main_picture_button;
     RelativeLayout main_file_button;
-    TextView success_clean_size;
-    TextView success_textview;
-    TextView main_rotate_bad;
     ImageView rotate_cha;
     private Animation rotate_set;
     LinearLayout ad_native_2;
     private View nativeView;
     private View native_xiao;
+
+    private void addAd() {
+        nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
+        native_xiao = SetAdUtilPrivacy.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
+        if (ad_native_2 != null && nativeView != null) {
+            ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
+            layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
+            Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
+            ad_native_2.setLayoutParams(layout_ad);
+            haveAd = true;
+            ad_native_2.addView(nativeView);
+            if (animationEnd) {
+                ad_native_2.setVisibility(View.VISIBLE);
+                scrollView.isTouch = false;
+                scrollView.smoothScrollToSlow(2000);
+            }
+        }
+        if (ll_ad_xiao != null && native_xiao != null) {
+            ll_ad_xiao.addView(native_xiao);
+            ll_ad_xiao.setVisibility(View.VISIBLE);
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,20 +118,20 @@ public class SucceedActivityBoost extends BaseActivity {
         setContentView(R.layout.layout_success);
 
         //深度清理
-        if (PreData.getDB(this, MyConstantPrivacy.POWERACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, BoostMyConstant.POWERACTIVITY, 1) == 0) {
             main_power_button.setVisibility(View.GONE);
         }
         //文件
-        if (PreData.getDB(this, MyConstantPrivacy.FILEACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, BoostMyConstant.FILEACTIVITY, 1) == 0) {
             main_file_button.setVisibility(View.GONE);
         }
         //通知栏
-        if (PreData.getDB(this, MyConstantPrivacy.NOTIFIACTIVITY, 1) == 0) {
+        if (PreData.getDB(this, BoostMyConstant.NOTIFIACTIVITY, 1) == 0) {
             main_notifi_button.setVisibility(View.GONE);
         }
 
         tweenManager = new TweenManager();
-        Tween.registerAccessor(ImageView.class, new PrivacyImageAccessor());
+        Tween.registerAccessor(ImageView.class, new ImageAccessorBoost());
         istween = true;
         setAnimationThread();
         myHandler = new Handler();
@@ -119,7 +140,7 @@ public class SucceedActivityBoost extends BaseActivity {
             success_textview.setVisibility(View.GONE);
             //电池降温跳过动画
             //广告
-            if (PreData.getDB(SucceedActivityBoost.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
+            if (PreData.getDB(SucceedActivityBoost.this, BoostMyConstant.FULL_SUCCESS, 0) == 1) {
                 AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
             }
             //动画结束换内容的
@@ -161,7 +182,7 @@ public class SucceedActivityBoost extends BaseActivity {
                                 @Override
                                 public void run() {
                                     //广告
-                                    if (PreData.getDB(SucceedActivityBoost.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
+                                    if (PreData.getDB(SucceedActivityBoost.this, BoostMyConstant.FULL_SUCCESS, 0) == 1) {
                                         AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                                     }
                                     //动画结束换内容的
@@ -294,13 +315,13 @@ public class SucceedActivityBoost extends BaseActivity {
             main_notifi_button.setVisibility(View.GONE);
         }
 
-        if (PreData.getDB(this, MyConstantPrivacy.IS_ROTATE, false)) {
+        if (PreData.getDB(this, BoostMyConstant.IS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
         }
 
         addListener();
         shendu();
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
+        if (PreData.getDB(this, BoostMyConstant.FULL_SUCCESS, 0) == 1) {
 
         } else {
             myHandler.postDelayed(new Runnable() {
@@ -309,28 +330,6 @@ public class SucceedActivityBoost extends BaseActivity {
                 }
             }, 1000);
 
-        }
-    }
-
-    private void addAd() {
-        nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_CLEAN, R.layout.native_ad_full);
-        native_xiao = SetAdUtilPrivacy.getNativeAdView(TAG_CLEAN_2, R.layout.native_ad_2);
-        if (ad_native_2 != null && nativeView != null) {
-            ViewGroup.LayoutParams layout_ad = ad_native_2.getLayoutParams();
-            layout_ad.height = scrollView.getMeasuredHeight() - getResources().getDimensionPixelSize(R.dimen.d9);
-            Log.e("success_ad", "hiegt=" + scrollView.getMeasuredHeight());
-            ad_native_2.setLayoutParams(layout_ad);
-            haveAd = true;
-            ad_native_2.addView(nativeView);
-            if (animationEnd) {
-                ad_native_2.setVisibility(View.VISIBLE);
-                scrollView.isTouch = false;
-                scrollView.smoothScrollToSlow(2000);
-            }
-        }
-        if (ll_ad_xiao != null && native_xiao != null) {
-            ll_ad_xiao.addView(native_xiao);
-            ll_ad_xiao.setVisibility(View.VISIBLE);
         }
     }
 
@@ -351,41 +350,15 @@ public class SucceedActivityBoost extends BaseActivity {
         }
     }
 
-    public void startSizeAni(final long size, final String cleanName) {
-
-        String[] str = MyUtils.convertStorage(size, false).split("\\.");
-        if ("0".equals(str[0])) {
-            sizeInt = (int) size;
-            sizeInt1 = size;
-        } else {
-            sizeInt = Integer.parseInt(str[0]);
-        }
-        String strDanWei = MyUtils.convertStorage(size, true);
-        if ("M".equals(strDanWei.substring(strDanWei.length() - 1, strDanWei.length()))) {
-            sizeInt *= 1024;
-        } else if ("G".equals(strDanWei.substring(strDanWei.length() - 1, strDanWei.length()))) {
-            sizeInt = sizeInt * 1024 * 1024;
-        }
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (objectAnimator != null) {
-                    objectAnimator.pause();
-                }
-            }
-        }).start();
-    }
-
     @Override
     protected void findId() {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
-        mainRoundView = (PrivacyMainRoundView) findViewById(R.id.main_progress);
+        mainRoundView = (MainRoundViewBoost) findViewById(R.id.main_progress);
         success_textview = (TextView) findViewById(R.id.success_textview);
-        scrollView = (PrivacySlowScrollView) findViewById(R.id.scrollView);
+        scrollView = (BoostSlowScrollView) findViewById(R.id.scrollView);
         main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
         main_power_button = (RelativeLayout) findViewById(R.id.main_power_button);
         main_notifi_button = (RelativeLayout) findViewById(R.id.main_notifi_button);
@@ -424,6 +397,32 @@ public class SucceedActivityBoost extends BaseActivity {
 
     }
 
+    public void startSizeAni(final long size, final String cleanName) {
+
+        String[] str = MyUtils.convertStorage(size, false).split("\\.");
+        if ("0".equals(str[0])) {
+            sizeInt = (int) size;
+            sizeInt1 = size;
+        } else {
+            sizeInt = Integer.parseInt(str[0]);
+        }
+        String strDanWei = MyUtils.convertStorage(size, true);
+        if ("M".equals(strDanWei.substring(strDanWei.length() - 1, strDanWei.length()))) {
+            sizeInt *= 1024;
+        } else if ("G".equals(strDanWei.substring(strDanWei.length() - 1, strDanWei.length()))) {
+            sizeInt = sizeInt * 1024 * 1024;
+        }
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (objectAnimator != null) {
+                    objectAnimator.pause();
+                }
+            }
+        }).start();
+    }
+
     private void initAnimation() {
         myHandler.post(new Runnable() {
             @Override
@@ -443,18 +442,18 @@ public class SucceedActivityBoost extends BaseActivity {
                     break;
                 case R.id.main_rotate_good:
                     SetAdUtilPrivacy.track("完成页面", "点击好评good", "", 1);
-                    PreData.putDB(SucceedActivityBoost.this, MyConstantPrivacy.IS_ROTATE, true);
-                    PrivacyUtilGp.rate(SucceedActivityBoost.this);
+                    PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.IS_ROTATE, true);
+                    UtilGpBoost.rate(SucceedActivityBoost.this);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_rotate_bad:
                     SetAdUtilPrivacy.track("完成页面", "点击好评bad", "", 1);
-                    PreData.putDB(SucceedActivityBoost.this, MyConstantPrivacy.IS_ROTATE, true);
+                    PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_rotate_close:
                     SetAdUtilPrivacy.track("完成页面", "点击好评叉号", "", 1);
-                    PreData.putDB(SucceedActivityBoost.this, MyConstantPrivacy.IS_ROTATE, true);
+                    PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.IS_ROTATE, true);
                     main_rotate_all.setVisibility(View.GONE);
                     break;
                 case R.id.main_power_button:
@@ -487,7 +486,7 @@ public class SucceedActivityBoost extends BaseActivity {
                         return;
                     }
                     SetAdUtilPrivacy.track("完成页面", "点击进入文件管理", "", 1);
-                    PreData.putDB(SucceedActivityBoost.this, MyConstantPrivacy.FILE_CLEAN, true);
+                    PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.FILE_CLEAN, true);
                     jumpTo(BoostFileManagerActivity.class);
                     onBackPressed();
                     break;
@@ -497,7 +496,7 @@ public class SucceedActivityBoost extends BaseActivity {
                         return;
                     }
                     SetAdUtilPrivacy.track("完成页面", "点击进入游戏加速", "", 1);
-                    PreData.putDB(SucceedActivityBoost.this, MyConstantPrivacy.GBOOST_CLEAN, true);
+                    PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.GBOOST_CLEAN, true);
                     jumpTo(BoostGoodGameActivity.class);
                     onBackPressed();
                     break;
@@ -507,14 +506,14 @@ public class SucceedActivityBoost extends BaseActivity {
                         return;
                     }
                     SetAdUtilPrivacy.track("完成页面", "点击进入相似图片", "", 1);
-                    PreData.putDB(SucceedActivityBoost.this, MyConstantPrivacy.PHOTO_CLEAN, true);
+                    PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.PHOTO_CLEAN, true);
                     jumpTo(BoostPictActivity.class);
                     onBackPressed();
                     break;
                 case R.id.main_notifi_button:
                     SetAdUtilPrivacy.track("完成页面", "点击进入通知栏清理", "", 1);
-                    PreData.putDB(SucceedActivityBoost.this, MyConstantPrivacy.NOTIFI_CLEAN, true);
-                    if (!PreData.getDB(SucceedActivityBoost.this, MyConstantPrivacy.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(SucceedActivityBoost.this)) {
+                    PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.NOTIFI_CLEAN, true);
+                    if (!PreData.getDB(SucceedActivityBoost.this, BoostMyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(SucceedActivityBoost.this)) {
                         Intent intent6 = new Intent(SucceedActivityBoost.this, NotifingAnimationActivityBoost.class);
                         startActivity(intent6);
                         onBackPressed();
@@ -533,7 +532,7 @@ public class SucceedActivityBoost extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 100) {
             if (MyUtils.isNotificationListenEnabled(SucceedActivityBoost.this)) {
-                PreData.putDB(SucceedActivityBoost.this, MyConstantPrivacy.KEY_NOTIFI, true);
+                PreData.putDB(SucceedActivityBoost.this, BoostMyConstant.KEY_NOTIFI, true);
                 Intent intent = new Intent(SucceedActivityBoost.this, BoostNotifingActivity.class);
                 startActivity(intent);
             } else {

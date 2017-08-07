@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
 
 import java.util.Random;
 
@@ -30,16 +30,16 @@ import java.util.Random;
 public class BatteriesActivityBoost extends BaseActivity {
     ImageView cooling_dianyuan, cooling_dianyuan1;
     LinearLayout cooling_text;
-    TextView title_name;
-    private static final int FLAKE_NUM = 5;
     TextView cooling_wendu;
     FrameLayout title_left;
     private Random random;
+    TextView title_name;
+    private Animation rotate_zheng;
+    RelativeLayout cooling_fl;
+    private static final int FLAKE_NUM = 5;
     private int time;
     ObjectAnimator animator1, animator2;
     private Animation suo;
-    private Animation rotate_zheng;
-    RelativeLayout cooling_fl;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,6 +92,12 @@ public class BatteriesActivityBoost extends BaseActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        hideSnow();
+    }
+
+    @Override
     protected void findId() {
         super.findId();
         title_left = (FrameLayout) findViewById(R.id.title_left);
@@ -103,21 +109,9 @@ public class BatteriesActivityBoost extends BaseActivity {
         cooling_fl = (RelativeLayout) findViewById(R.id.cooling_fl);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        hideSnow();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
     private void startCoolingAni() {
         random = new Random();
         time = random.nextInt(5) + 1;
-//        cooling_wendu.setText(time + "℃");
         LinearInterpolator linearInterpolator = new LinearInterpolator();
         animator1 = ObjectAnimator.ofFloat(cooling_dianyuan, "rotation", 0f, 359f);
         animator2 = ObjectAnimator.ofFloat(cooling_dianyuan1, "rotation", 0f, 359f);
@@ -150,7 +144,7 @@ public class BatteriesActivityBoost extends BaseActivity {
                     animator2.pause();
                 }
 //                cooling_fl.startAnimation(suo);
-                if (PreData.getDB(BatteriesActivityBoost.this, MyConstantPrivacy.FULL_COOL, 0) == 1) {
+                if (PreData.getDB(BatteriesActivityBoost.this, BoostMyConstant.FULL_COOL, 0) == 1) {
                     AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
                 }
                 Bundle bundle = new Bundle();
@@ -172,11 +166,16 @@ public class BatteriesActivityBoost extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public void onBackPressed() {
         if ("notifi".equals(getIntent().getStringExtra("from"))) {
             jumpTo(MainActivity.class);
         } else {
-            setResult(MyConstantPrivacy.COOLING_RESUIL, new Intent().putExtra("wendu", time));
+            setResult(BoostMyConstant.COOLING_RESUIL, new Intent().putExtra("wendu", time));
         }
         finish();
     }

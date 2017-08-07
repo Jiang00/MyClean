@@ -1,4 +1,4 @@
-package com.myboost.junk.interfaceviewprivacy;
+package com.myboost.junk.boostinterfaceview;
 
 import com.myboost.clean.entity.JunkInfo;
 

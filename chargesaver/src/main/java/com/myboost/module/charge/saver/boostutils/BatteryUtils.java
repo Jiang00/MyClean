@@ -1,4 +1,4 @@
-package com.myboost.module.charge.saver.privacyutils;
+package com.myboost.module.charge.saver.boostutils;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -17,11 +17,11 @@ import java.util.Map;
  * Created by on 2016/12/14.
  */
 
-public class UtilsPrivacy {
+public class BatteryUtils {
 
     public static void writeData(Context context, String key, Object value) {
         if (context != null) {
-            SharedPreferences sp = context.getSharedPreferences(BatteryConstantsPrivacy.MODULE_FILL_NAME, Context.MODE_PRIVATE);
+            SharedPreferences sp = context.getSharedPreferences(BoostBatteryConstants.MODULE_FILL_NAME, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
             if (value instanceof Integer) {
                 editor.putInt(key, (int) value).apply();
@@ -37,7 +37,7 @@ public class UtilsPrivacy {
 
     public static Object readData(Context context, String key, Object defaultValue) {
         if (context != null) {
-            SharedPreferences sp = context.getSharedPreferences(BatteryConstantsPrivacy.MODULE_FILL_NAME, Context.MODE_PRIVATE);
+            SharedPreferences sp = context.getSharedPreferences(BoostBatteryConstants.MODULE_FILL_NAME, Context.MODE_PRIVATE);
             Map<String, ?> map = sp.getAll();
             if (map != null && map.containsKey(key)) {
                 return map.get(key);

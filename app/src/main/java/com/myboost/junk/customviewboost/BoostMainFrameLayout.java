@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,8 +8,8 @@ import android.widget.FrameLayout;
 /**
  * Created by on 2017/3/2.
  */
-public class PrivacyMainFrameLayout extends FrameLayout {
-    public PrivacyMainFrameLayout(Context context, AttributeSet attrs) {
+public class BoostMainFrameLayout extends FrameLayout {
+    public BoostMainFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

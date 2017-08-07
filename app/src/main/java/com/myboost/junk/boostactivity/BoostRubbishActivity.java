@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -21,13 +21,13 @@ import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.LogPrivacy;
-import com.myboost.junk.interfaceviewprivacy.GarbageViewPrivacy;
-import com.myboost.junk.presenterprivacy.LogPresenterPrivacy;
-import com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy;
-import com.myboost.junk.privacycustomview.ScrollView;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.customadapterboost.BoostLog;
+import com.myboost.junk.boostinterfaceview.BoostGarbageView;
+import com.myboost.junk.boostpresenter.BoostLogPresenter;
+import com.myboost.junk.customviewboost.BoostListViewForScrollView;
+import com.myboost.junk.customviewboost.ScrollView;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 
 import java.util.List;
 
@@ -35,38 +35,27 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class BoostRubbishActivity extends BaseActivity implements GarbageViewPrivacy {
-
-    ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou;
-    ListViewForScrollViewPrivacy junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list;
-    TextView junk_fangxin;
+public class BoostRubbishActivity extends BaseActivity implements BoostGarbageView {
     private boolean color1 = true;
     private boolean color2 = true;
     private boolean color3 = true;
-    private LogPresenterPrivacy junkPresenter;
-    private LogPrivacy adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterClear;
-    FrameLayout title_left;
-    TextView title_name;
-    LinearLayout junk_title_backg;
+    ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou;
+    BoostListViewForScrollView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list;
+    TextView junk_fangxin;
     LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user;
     TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size;
     TextView junk_button_clean;
     ScrollView junk_scroll;
-    ListView junk_list_all;
-    TextView junk_size_all;
+    private BoostLogPresenter junkPresenter;
+    private BoostLog adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterClear;
+    FrameLayout title_left;
+    TextView title_name;
+    LinearLayout junk_title_backg;
     public Handler myHandler;
     TextView junk_unit;
     ImageView junk_system_check, junk_apk_check, junk_unload_check, junk_log_check, junk_user_check;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_junk);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
-        myHandler = new Handler();
-        junkPresenter = new LogPresenterPrivacy(this, this);
-        junkPresenter.init();
-    }
+    ListView junk_list_all;
+    TextView junk_size_all;
 
     @Override
     protected void findId() {
@@ -109,6 +98,16 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_junk);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        myHandler = new Handler();
+        junkPresenter = new BoostLogPresenter(this, this);
+        junkPresenter.init();
+    }
+
+    @Override
     public void initData(long allSize) {
         title_name.setText(R.string.main_junk_name);
         if (allSize <= 0) {
@@ -117,12 +116,12 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
             junkPresenter.jumpToActivity(SucceedActivityBoost.class, bundle, 1);
             return;
         }
-        adapterSystem = new LogPrivacy(this, junkPresenter, "system");
-        adapterApk = new LogPrivacy(this, junkPresenter, "apk");
-        adapterUnload = new LogPrivacy(this, junkPresenter, "unload");
-        adapterLog = new LogPrivacy(this, junkPresenter, "log");
-        adapterUser = new LogPrivacy(this, junkPresenter, "user");
-        adapterClear = new LogPrivacy(this, junkPresenter, "clear");
+        adapterSystem = new BoostLog(this, junkPresenter, "system");
+        adapterApk = new BoostLog(this, junkPresenter, "apk");
+        adapterUnload = new BoostLog(this, junkPresenter, "unload");
+        adapterLog = new BoostLog(this, junkPresenter, "log");
+        adapterUser = new BoostLog(this, junkPresenter, "user");
+        adapterClear = new BoostLog(this, junkPresenter, "clear");
 
         junk_system_list.setAdapter(adapterSystem);
         junk_apk_list.setAdapter(adapterApk);
@@ -130,6 +129,10 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
         junk_log_list.setAdapter(adapterLog);
         junk_user_list.setAdapter(adapterUser);
         junkPresenter.addAdapterData();
+    }
+
+    @Override
+    public void loadFullAd() {
     }
 
     @Override
@@ -141,10 +144,6 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
         junk_button_unload.setOnClickListener(onClickListener);
         junk_button_user.setOnClickListener(onClickListener);
         junk_button_clean.setOnClickListener(onClickListener);
-    }
-
-    @Override
-    public void loadFullAd() {
     }
 
     @Override
@@ -197,7 +196,6 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-//                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A21));
             }
         } else if (allSize > 1024 * 1024 * 200) {
             if (color2) {
@@ -207,7 +205,6 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-//                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A9));
             }
         } else {
             if (color3) {
@@ -217,7 +214,6 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-//                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A1));
             }
         }
     }
@@ -564,7 +560,7 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
                     } else {
                         systemCount1 = 0;
                         if (adapterSystem != null) {//回调函数
-                            adapterSystem.setOnlistener(new LogPrivacy.AllListener() {
+                            adapterSystem.setOnlistener(new BoostLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -627,7 +623,7 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
                     } else {
                         apkCount1 = 0;
                         if (adapterApk != null) {//回调函数
-                            adapterApk.setOnlistener(new LogPrivacy.AllListener() {
+                            adapterApk.setOnlistener(new BoostLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -689,7 +685,7 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
                     } else {
                         unloadCount1 = 0;
                         if (adapterUnload != null) {//回调函数
-                            adapterUnload.setOnlistener(new LogPrivacy.AllListener() {
+                            adapterUnload.setOnlistener(new BoostLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -751,7 +747,7 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
                     } else {
                         logCount1 = 0;
                         if (adapterLog != null) {//回调函数
-                            adapterLog.setOnlistener(new LogPrivacy.AllListener() {
+                            adapterLog.setOnlistener(new BoostLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -814,7 +810,7 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
                     } else {
                         userCount1 = 0;
                         if (adapterUser != null) {//回调函数
-                            adapterUser.setOnlistener(new LogPrivacy.AllListener() {
+                            adapterUser.setOnlistener(new BoostLog.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, String cleanName, int position, boolean oncli) {
@@ -863,7 +859,7 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
                 case R.id.junk_button_clean:
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));
-                    PreData.putDB(BoostRubbishActivity.this, MyConstantPrivacy.KEY_CLEAN_TIME, System.currentTimeMillis());
+                    PreData.putDB(BoostRubbishActivity.this, BoostMyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
                     SetAdUtilPrivacy.track("垃圾页面", "点击清理", "", 1);
                     if (junk_system_list.getVisibility() == View.GONE && junk_apk_list.getVisibility() == View.GONE && junk_unload_list.getVisibility() == View.GONE &&
                             junk_log_list.getVisibility() == View.GONE && junk_user_list.getVisibility() == View.GONE) {
@@ -879,8 +875,16 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(MyConstantPrivacy.JUNK_RESUIL);
+            setResult(BoostMyConstant.JUNK_RESUIL);
             finish();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
         }
     }
 
@@ -892,15 +896,7 @@ public class BoostRubbishActivity extends BaseActivity implements GarbageViewPri
 
     @Override
     public void onBackPressed() {
-        setResult(MyConstantPrivacy.JUNK_RESUIL);
+        setResult(BoostMyConstant.JUNK_RESUIL);
         finish();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (myHandler != null) {
-            myHandler.removeCallbacksAndMessages(null);
-        }
     }
 }

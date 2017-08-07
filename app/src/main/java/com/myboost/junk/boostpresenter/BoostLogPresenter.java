@@ -1,12 +1,12 @@
-package com.myboost.junk.presenterprivacy;
+package com.myboost.junk.boostpresenter;
 
 import android.app.Activity;
 import android.content.Context;
 import android.widget.TextView;
 
 import com.myboost.clean.core.CleanManager;
-import com.myboost.junk.interfaceviewprivacy.GarbageViewPrivacy;
-import com.myboost.junk.activityprivacy.MyApplication;
+import com.myboost.junk.boostinterfaceview.BoostGarbageView;
+import com.myboost.junk.boostactivity.MyApplication;
 import com.myboost.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
@@ -16,13 +16,13 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class LogPresenterPrivacy extends PresenterBasePrivacy<GarbageViewPrivacy> {
+public class BoostLogPresenter extends BoostPresenterBase<BoostGarbageView> {
     private MyApplication cleanApplication;
     private ArrayList<JunkInfo> clearList;
     private long allSize;
     private long cleanSize;
 
-    public LogPresenterPrivacy(GarbageViewPrivacy iView, Context context) {
+    public BoostLogPresenter(BoostGarbageView iView, Context context) {
         super(iView, context);
         cleanApplication = (MyApplication) ((Activity) context).getApplication();
     }

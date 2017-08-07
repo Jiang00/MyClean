@@ -1,4 +1,4 @@
-package com.myboost.module.charge.saver.privacyprotectservice;
+package com.myboost.module.charge.saver.boostprotectservice;
 
 import android.annotation.TargetApi;
 import android.app.Service;
@@ -15,25 +15,25 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 
-import com.myboost.module.charge.saver.BatteryProtectActivityPrivacy;
+import com.myboost.module.charge.saver.BoostBatteryProtectActivity;
 import com.myboost.module.charge.saver.R;
-import com.myboost.module.charge.saver.entry.PrivacyBatteryEntry;
-import com.myboost.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
-import com.myboost.module.charge.saver.privacyutils.PrivacyWidgetContainer;
-import com.myboost.module.charge.saver.privacyutils.UtilsPrivacy;
+import com.myboost.module.charge.saver.entry.BoostBatteryEntry;
+import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
+import com.myboost.module.charge.saver.boostutils.BoostWidgetContainer;
+import com.myboost.module.charge.saver.boostutils.BatteryUtils;
 import com.myboost.module.charge.saver.protectview.ProtectBatteryView;
 
 
 /**
  * Created by on 2016/10/20.
  */
-public class PrivacyServiceBattery extends Service {
+public class ServiceBatteryBoost extends Service {
     private boolean b = false;
 
 
-    private PrivacyWidgetContainer container;
+    private BoostWidgetContainer container;
     private ProtectBatteryView batteryView = null;
-    public PrivacyBatteryEntry entry;
+    public BoostBatteryEntry entry;
 
     private static final int MSG_SCREEN_ON_DELAYED = 100;
     private static final int MSG_BATTERY_CHANGE_DELAYED = 5000;
@@ -100,7 +100,7 @@ public class PrivacyServiceBattery extends Service {
 
     public void batteryChange(Intent intent) {
         if (entry == null) {
-            entry = new PrivacyBatteryEntry(this, intent);
+            entry = new BoostBatteryEntry(this, intent);
         } else {
             entry.update(intent);
             entry.evaluate();
@@ -130,28 +130,28 @@ public class PrivacyServiceBattery extends Service {
         unregisterReceiver(mReceiver);
         try {
             Intent localIntent = new Intent();
-            localIntent.setClass(this, PrivacyServiceBattery.class);
+            localIntent.setClass(this, ServiceBatteryBoost.class);
             this.startService(localIntent);
         } catch (Exception e) {
         }
     }
 
     private void showChargeView() {
-        boolean isChargeScreenSaver = (boolean) UtilsPrivacy.readData(this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true);
+        boolean isChargeScreenSaver = (boolean) BatteryUtils.readData(this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true);
         if (!isChargeScreenSaver) {
             return;
         }
-        if ((Boolean) UtilsPrivacy.readData(this, BatteryConstantsPrivacy.IS_ACTIVITY, true)) {
+        if ((Boolean) BatteryUtils.readData(this, BoostBatteryConstants.IS_ACTIVITY, true)) {
             if (entry == null || !entry.isCharging()) {
                 return;
             }
             Intent intent = new Intent().addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            if (UtilsPrivacy.readData(this, BatteryConstantsPrivacy.KEY_SAVER_TYPE, BatteryConstantsPrivacy.TYPE_HOR_BAR).equals(BatteryConstantsPrivacy.TYPE_HOR_BAR)) {
+            if (BatteryUtils.readData(this, BoostBatteryConstants.KEY_SAVER_TYPE, BoostBatteryConstants.TYPE_HOR_BAR).equals(BoostBatteryConstants.TYPE_HOR_BAR)) {
                 intent.putExtra("type", "bar");
             } else {
                 intent.putExtra("type", "duck");
             }
-            intent.setClass(this, BatteryProtectActivityPrivacy.class);
+            intent.setClass(this, BoostBatteryProtectActivity.class);
             startActivity(intent);
             return;
         }
@@ -168,13 +168,13 @@ public class PrivacyServiceBattery extends Service {
         }
         try {
             if (container == null) {
-                container = new PrivacyWidgetContainer.Builder()
-                        .setHeight(PrivacyWidgetContainer.MATCH_PARENT)
-                        .setWidth(PrivacyWidgetContainer.MATCH_PARENT)
-                        .setOrientation(PrivacyWidgetContainer.PORTRAIT)
+                container = new BoostWidgetContainer.Builder()
+                        .setHeight(BoostWidgetContainer.MATCH_PARENT)
+                        .setWidth(BoostWidgetContainer.MATCH_PARENT)
+                        .setOrientation(BoostWidgetContainer.PORTRAIT)
                         .build(this);
             }
-            if (UtilsPrivacy.readData(this, BatteryConstantsPrivacy.KEY_SAVER_TYPE, BatteryConstantsPrivacy.TYPE_HOR_BAR).equals(BatteryConstantsPrivacy.TYPE_HOR_BAR)) {
+            if (BatteryUtils.readData(this, BoostBatteryConstants.KEY_SAVER_TYPE, BoostBatteryConstants.TYPE_HOR_BAR).equals(BoostBatteryConstants.TYPE_HOR_BAR)) {
                 if (batteryView == null) {
                     batteryView = (ProtectBatteryView) LayoutInflater.from(this).inflate(R.layout.charge_saver, null);
                     batteryView.bind(entry);
@@ -183,7 +183,7 @@ public class PrivacyServiceBattery extends Service {
                 container.removeAllViews();
                 container.addView(batteryView,
                         container.makeLayoutParams(
-                                PrivacyWidgetContainer.MATCH_PARENT, PrivacyWidgetContainer.MATCH_PARENT, Gravity.CENTER));
+                                BoostWidgetContainer.MATCH_PARENT, BoostWidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
             }
         } catch (Exception e) {

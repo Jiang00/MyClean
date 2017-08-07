@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -20,15 +20,15 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.client.AndroidSdk;
 import com.myboost.clean.cleanimage.ImageHelper;
 import com.myboost.clean.cleanimage.ImageInfo;
+import com.myboost.clean.cleanimage.RecyclerDbHelper;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
-import com.android.client.AndroidSdk;
 import com.myboost.junk.R;
-import com.myboost.clean.cleanimage.RecyclerDbHelper;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,50 +45,26 @@ public class PictHuiActivityBoost extends BaseActivity {
     private String TAG_RECYCLE = "recyclebin";
     private View nativeView;
     private LinearLayout ll_ad;
-    private boolean isRestore;
-    private Handler mHandler;
-    RecyclerView picture_hui_recyc;
-    TextView hui_never;
     GridLayoutManager gridLayoutManager;
     private ImageHelper imageHelper;
     private HuiAdapter adapter;
     TextView title_name;
+    private boolean isRestore;
+    private Handler mHandler;
+    private AlertDialog dialog;
+    TextView picture_delete;
+    MyCallBack callBack;
+    boolean isfalse = true;
+    RecyclerView picture_hui_recyc;
+    TextView hui_never;
     LinearLayout ll_picture;
     TextView picture_restore;
     FrameLayout title_left;
     LinearLayout pichui_button_lin;
     LinearLayout title_check;
-    private AlertDialog dialog;
-    TextView picture_delete;
-    MyCallBack callBack;
-    boolean isfalse = true;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_picture_hui);
-        title_name.setText(R.string.picture_10);
-        imageHelper = new ImageHelper();
-        mHandler = new Handler();
-        ArrayList<ImageInfo> imageInfos = RecyclerDbHelper.getInstance(this).getRecyclerImageList();
-        if (imageInfos.size() == 0) {
-            hui_never.setVisibility(View.VISIBLE);
-            pichui_button_lin.setVisibility(View.GONE);
-            ll_picture.setVisibility(View.INVISIBLE);
-            title_check.setVisibility(View.INVISIBLE);
-        } else {
-            title_check.setVisibility(View.VISIBLE);
-            gridLayoutManager = new GridLayoutManager(this, 4);
-            picture_hui_recyc.setLayoutManager(gridLayoutManager);
-            picture_hui_recyc.setAdapter(adapter = new HuiAdapter(imageInfos));
-            picture_hui_recyc.setItemAnimator(new DefaultItemAnimator());
-        }
-        addListener();
-        loadAd();
-    }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.RECYCLEBIN, 0) == 1) {
+        if (PreData.getDB(this, BoostMyConstant.RECYCLEBIN, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             addAd();
@@ -127,6 +103,30 @@ public class PictHuiActivityBoost extends BaseActivity {
             }
         }
     };
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_picture_hui);
+        title_name.setText(R.string.picture_10);
+        imageHelper = new ImageHelper();
+        mHandler = new Handler();
+        ArrayList<ImageInfo> imageInfos = RecyclerDbHelper.getInstance(this).getRecyclerImageList();
+        if (imageInfos.size() == 0) {
+            hui_never.setVisibility(View.VISIBLE);
+            pichui_button_lin.setVisibility(View.GONE);
+            ll_picture.setVisibility(View.INVISIBLE);
+            title_check.setVisibility(View.INVISIBLE);
+        } else {
+            title_check.setVisibility(View.VISIBLE);
+            gridLayoutManager = new GridLayoutManager(this, 4);
+            picture_hui_recyc.setLayoutManager(gridLayoutManager);
+            picture_hui_recyc.setAdapter(adapter = new HuiAdapter(imageInfos));
+            picture_hui_recyc.setItemAnimator(new DefaultItemAnimator());
+        }
+        addListener();
+        loadAd();
+    }
 
     private void notifiActivity() {
         if (adapter.getItemCount() == 0) {

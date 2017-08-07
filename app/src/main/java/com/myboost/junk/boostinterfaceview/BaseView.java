@@ -1,4 +1,4 @@
-package com.myboost.junk.interfaceviewprivacy;
+package com.myboost.junk.boostinterfaceview;
 
 /**
  */

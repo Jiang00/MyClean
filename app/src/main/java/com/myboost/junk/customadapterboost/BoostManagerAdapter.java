@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,18 +13,18 @@ import com.myboost.clean.utilsprivacy.LoadManager;
 import com.myboost.junk.R;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.entity.JunkInfo;
-import com.myboost.junk.presenterprivacy.ManagerPresenter;
+import com.myboost.junk.boostpresenter.ManagerPresenter;
 
-public class PrivacyManagerAdapter extends MybaseAdapter<JunkInfo> {
+public class BoostManagerAdapter extends MybaseAdapter<JunkInfo> {
     ManagerPresenter managerPresenter;
     AllListener listener;
     String identification;
 
-    public PrivacyManagerAdapter(Context context) {
+    public BoostManagerAdapter(Context context) {
         super(context);
     }
 
-    public PrivacyManagerAdapter(Context context, ManagerPresenter managerPresenter, String identification) {
+    public BoostManagerAdapter(Context context, ManagerPresenter managerPresenter, String identification) {
         super(context);
         this.identification = identification;
         this.managerPresenter = managerPresenter;
@@ -37,7 +37,7 @@ public class PrivacyManagerAdapter extends MybaseAdapter<JunkInfo> {
         };
     }
 
-    public PrivacyManagerAdapter(Context context, ManagerPresenter managerPresenter) {
+    public BoostManagerAdapter(Context context, ManagerPresenter managerPresenter) {
         super(context);
         this.managerPresenter = managerPresenter;
         lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {

@@ -1,19 +1,19 @@
-package com.myboost.module.charge.saver.receiverprivacy;
+package com.myboost.module.charge.saver.boostreceiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.myboost.module.charge.saver.privacyprotectservice.PrivacyServiceBattery;
+import com.myboost.module.charge.saver.boostprotectservice.ServiceBatteryBoost;
 
 
 /**
  * Created by on 2016/12/14.
  */
 
-public class BroadcastReceiverStartPrivacy extends BroadcastReceiver {
+public class BoostBroadcastReceiverStart extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        context.startService(new Intent(context, PrivacyServiceBattery.class));
+        context.startService(new Intent(context, ServiceBatteryBoost.class));
     }
 }

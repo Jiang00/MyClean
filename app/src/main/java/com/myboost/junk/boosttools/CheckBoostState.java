@@ -1,4 +1,4 @@
-package com.myboost.junk.toolsprivacy;
+package com.myboost.junk.boosttools;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 
 /**
  */
-public class CheckState {
+public class CheckBoostState {
 
 
 

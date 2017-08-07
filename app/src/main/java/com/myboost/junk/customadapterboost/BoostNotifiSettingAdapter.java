@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.view.View;
@@ -16,8 +16,8 @@ import com.myboost.clean.entity.JunkInfo;
  * Created by  on 2017/4/17.
  */
 
-public class PrivacyNotifiSettingAdapter extends MybaseAdapter<JunkInfo> {
-    public PrivacyNotifiSettingAdapter(Context context) {
+public class BoostNotifiSettingAdapter extends MybaseAdapter<JunkInfo> {
+    public BoostNotifiSettingAdapter(Context context) {
         super(context);
     }
 

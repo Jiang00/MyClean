@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,18 +12,18 @@ import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.LoadManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.junk.R;
-import com.myboost.junk.presenterprivacy.PrivacyLogRamPresenter;
+import com.myboost.junk.boostpresenter.LogRamPresenterBoost;
 
 
-public class PrivacyCustomJunkRamAdapter extends MybaseAdapter<JunkInfo> {
+public class CustomJunkRamBoostAdapter extends MybaseAdapter<JunkInfo> {
     AllListener listener;
-    PrivacyLogRamPresenter junkPresenter;
+    LogRamPresenterBoost junkPresenter;
 
-    public PrivacyCustomJunkRamAdapter(Context context) {
+    public CustomJunkRamBoostAdapter(Context context) {
         super(context);
     }
 
-    public PrivacyCustomJunkRamAdapter(Context context, PrivacyLogRamPresenter junkPresenter) {
+    public CustomJunkRamBoostAdapter(Context context, LogRamPresenterBoost junkPresenter) {
         super(context);
         this.junkPresenter = junkPresenter;
         lruCache = new LruCache<String, Bitmap>((int) (Runtime.getRuntime().maxMemory() / 1024) / 4) {

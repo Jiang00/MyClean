@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -28,9 +28,9 @@ import com.android.client.AndroidSdk;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.privacycustomview.PrivacyImageAccessor;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.customviewboost.ImageAccessorBoost;
 import com.twee.module.tweenengine.Tween;
 import com.twee.module.tweenengine.TweenManager;
 
@@ -41,23 +41,65 @@ import java.util.List;
  */
 
 public class ShortCutingActivityBoost extends BaseActivity {
-    private String TAG_SHORTCUT = "cprivacy_shortcut";
+    private String TAG_SHORTCUT = "flashclean_shortcut";
     private static final int FLAKE_NUM = 3;
     private Handler myHandler;
-    ImageView short_huojian, short_huojian1, short_huojian2;
-    LinearLayout ll_ad;
-    FrameLayout short_fl;
-    private View nativeView;
-    private boolean isdoudong;
-    private long size;
-    private Dialog dialog;
-    private Animation rotate;
-    private Animation fang;
     private TweenManager tweenManager;
     private boolean istween;
     private Animation suo;
     FrameLayout short_backg;
     private int count;
+    private View nativeView;
+    private boolean isdoudong;
+    private long size;
+    ImageView short_huojian, short_huojian1, short_huojian2;
+    LinearLayout ll_ad;
+    FrameLayout short_fl;
+    private Dialog dialog;
+    private Animation rotate;
+    private Animation fang;
+
+    private void clear(Context context) {
+        size = killAll(context);
+    }
+
+    public long killAll(Context context) {
+        final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        final long beforeMem = getAvailMemory(am);
+        int count = 0;
+        final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
+        for (PackageInfo packageInfo : installedPackages) {
+            if (onPause) {
+                break;
+            }
+            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.flashclean")) {
+                continue;
+            }
+            am.killBackgroundProcesses(packageInfo.packageName);
+            ++count;
+        }
+        final long afterMem = getAvailMemory(am);
+        final long M = (afterMem - beforeMem);
+        final int clearedCount = count;
+        return M;
+    }
+
+    private void loadAd() {
+        if (PreData.getDB(this, BoostMyConstant.FULL_SHORTCUT, 0) == 1) {
+        } else {
+            nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
+            if (ll_ad != null && nativeView != null) {
+                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+                if (nativeView.getHeight() == MyUtils.dp2px(250)) {
+                    layout_ad.height = MyUtils.dp2px(250);
+                }
+                ll_ad.setLayoutParams(layout_ad);
+                ll_ad.addView(nativeView);
+                ll_ad.setVisibility(View.VISIBLE);
+            } else {
+            }
+        }
+    }
 
     @Override
     protected void findId() {
@@ -77,7 +119,7 @@ public class ShortCutingActivityBoost extends BaseActivity {
         fang = AnimationUtils.loadAnimation(this, R.anim.fang);
         tweenManager = new TweenManager();
         myHandler = new Handler();
-        Tween.registerAccessor(ImageView.class, new PrivacyImageAccessor());
+        Tween.registerAccessor(ImageView.class, new ImageAccessorBoost());
         istween = true;
         setAnimationThread();
         suo = AnimationUtils.loadAnimation(this, R.anim.suo_short);
@@ -96,49 +138,6 @@ public class ShortCutingActivityBoost extends BaseActivity {
             }
         }).start();
     }
-
-    private void clear(Context context) {
-        size = killAll(context);
-    }
-
-    public long killAll(Context context) {
-        final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        final long beforeMem = getAvailMemory(am);
-        int count = 0;
-        final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
-        for (PackageInfo packageInfo : installedPackages) {
-            if (onPause) {
-                break;
-            }
-            if (packageInfo.packageName.equals(context.getPackageName()) || packageInfo.packageName.contains("com.cprivacy")) {
-                continue;
-            }
-            am.killBackgroundProcesses(packageInfo.packageName);
-            ++count;
-        }
-        final long afterMem = getAvailMemory(am);
-        final long M = (afterMem - beforeMem);
-        final int clearedCount = count;
-        return M;
-    }
-
-    private void loadAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_SHORTCUT, 0) == 1) {
-        } else {
-            nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_SHORTCUT, R.layout.native_ad1);
-            if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == MyUtils.dp2px(250)) {
-                    layout_ad.height = MyUtils.dp2px(250);
-                }
-                ll_ad.setLayoutParams(layout_ad);
-                ll_ad.addView(nativeView);
-                ll_ad.setVisibility(View.VISIBLE);
-            } else {
-            }
-        }
-    }
-
 
     private void setAnimationThread() {
         new Thread(new Runnable() {
@@ -191,7 +190,7 @@ public class ShortCutingActivityBoost extends BaseActivity {
             WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
             lp.width = dm.widthPixels; //设置宽度
             lp.height = dm.heightPixels; //设置高度
-            if (PreData.getDB(this, MyConstantPrivacy.IS_ACTION_BAR, true)) {
+            if (PreData.getDB(this, BoostMyConstant.IS_ACTION_BAR, true)) {
                 int uiOptions =
                         View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                                 //布局位于状态栏下方

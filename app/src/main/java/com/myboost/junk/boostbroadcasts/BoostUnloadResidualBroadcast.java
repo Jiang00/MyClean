@@ -1,4 +1,4 @@
-package com.myboost.junk.privacybroadcasts;
+package com.myboost.junk.boostbroadcasts;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.content.Intent;
 import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
-import com.myboost.junk.activityprivacy.UnloadingResidualActivityBoost;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
+import com.myboost.junk.boostactivity.UnloadingResidualActivityBoost;
+import com.myboost.junk.boosttools.BoostMyConstant;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,7 +24,7 @@ public class BoostUnloadResidualBroadcast extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (!PreData.getDB(context, MyConstantPrivacy.UNLOAD_SWITCH, true)) {
+        if (!PreData.getDB(context, BoostMyConstant.UNLOAD_SWITCH, true)) {
             return;
         }
         if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {

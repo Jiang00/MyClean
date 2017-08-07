@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.graphics.Bitmap;

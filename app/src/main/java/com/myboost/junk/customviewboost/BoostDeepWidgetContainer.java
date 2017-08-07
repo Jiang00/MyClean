@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -13,7 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-public class DeepWidgetContainerPrivacy extends FrameLayout implements OnClickListener {
+public class BoostDeepWidgetContainer extends FrameLayout implements OnClickListener {
 
     public static final int MATCH_PARENT = WindowManager.LayoutParams.MATCH_PARENT;
     public static final int WRAP_CONTENT = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -30,7 +30,7 @@ public class DeepWidgetContainerPrivacy extends FrameLayout implements OnClickLi
     int screenHeight;
     public Context context;
 
-    public DeepWidgetContainerPrivacy(Context context, Builder builder) {
+    public BoostDeepWidgetContainer(Context context, Builder builder) {
         // TODO Auto-generated constructor stub
         super(context);
         this.context = context;
@@ -120,8 +120,8 @@ public class DeepWidgetContainerPrivacy extends FrameLayout implements OnClickLi
             return this;
         }
 
-        public DeepWidgetContainerPrivacy build(Context context) {
-            return new DeepWidgetContainerPrivacy(context, this);
+        public BoostDeepWidgetContainer build(Context context) {
+            return new BoostDeepWidgetContainer(context, this);
         }
 
         public Builder setOrientation(int orientation) {

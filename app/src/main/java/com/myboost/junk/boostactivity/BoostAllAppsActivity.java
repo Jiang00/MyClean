@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.annotation.TargetApi;
 import android.app.usage.UsageStats;
@@ -17,7 +17,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,11 +31,11 @@ import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.interfaceviewprivacy.PrivacyCustomAllAppView;
-import com.myboost.junk.customadapterprivacy.PrivacyManagerAdapter;
-import com.myboost.junk.presenterprivacy.ManagerPresenter;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boostinterfaceview.CustomAllAppViewBoost;
+import com.myboost.junk.boostpresenter.ManagerPresenter;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.customadapterboost.BoostManagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,46 +44,33 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class BoostAllAppsActivity extends BaseActivity implements PrivacyCustomAllAppView {
-    private String TAG_MANAGER = "cprivacy_manager";
+public class BoostAllAppsActivity extends BaseActivity implements CustomAllAppViewBoost {
+    private String TAG_MANAGER = "flashclean_manager";
     public Handler myHandler;
     TextView junk_button_clean;
-    LinearLayout ll_ad_size, ll_ad_time, ll_ad_pinlv;
-    TabLayout view_pager_tab;
-    private IntentFilter filter;
     FrameLayout title_left;
+    private BoostManagerAdapter adapter_size, adapter_time, adapter_pinlv;
+    private ManagerPresenter managerPresenter;
+    private View nativeView1, nativeView2, nativeView3;
+    private MyReceiver receiver;
     RelativeLayout manager_clean;
     ViewPager doc_view_pager;
     private ArrayList<String> titleList;
+    LinearLayout ll_ad_size, ll_ad_time, ll_ad_pinlv;
+    TabLayout view_pager_tab;
+    private IntentFilter filter;
     private ArrayList<View> viewList;
     private MyPagerAdaptre pagerAdapter;
     private View view_size, view_time, view_pinlv, view_permiss;
     TextView appall_size;
     TextView title_name;
-    private PrivacyManagerAdapter adapter_size, adapter_time, adapter_pinlv;
-    private ManagerPresenter managerPresenter;
-    private View nativeView1, nativeView2, nativeView3;
-    private MyReceiver receiver;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_manager);
-        myHandler = new Handler();
-        managerPresenter = new ManagerPresenter(this, this);
-        managerPresenter.init();
-        receiver = new MyReceiver();
-        filter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
-        filter.addDataScheme("package");
-        registerReceiver(receiver, filter);
-    }
 
     @Override
     public void initData(long cleanSize, final long allSize) {
         title_name.setText(R.string.main_manager_name);
-        adapter_size = new PrivacyManagerAdapter(this, managerPresenter);
-        adapter_time = new PrivacyManagerAdapter(this, managerPresenter);
-        adapter_pinlv = new PrivacyManagerAdapter(this, managerPresenter);
+        adapter_size = new BoostManagerAdapter(this, managerPresenter);
+        adapter_time = new BoostManagerAdapter(this, managerPresenter);
+        adapter_pinlv = new BoostManagerAdapter(this, managerPresenter);
         managerPresenter.addAdapterData();
         titleList = new ArrayList<>();
         titleList.add(getString(R.string.manager_sort_size));
@@ -161,8 +147,27 @@ public class BoostAllAppsActivity extends BaseActivity implements PrivacyCustomA
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_manager);
+        myHandler = new Handler();
+        managerPresenter = new ManagerPresenter(this, this);
+        managerPresenter.init();
+        receiver = new MyReceiver();
+        filter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
+        filter.addDataScheme("package");
+        registerReceiver(receiver, filter);
+    }
+
+    @Override
+    public void onClick() {
+        title_left.setOnClickListener(onClickListener);
+        junk_button_clean.setOnClickListener(onClickListener);
+    }
+
+    @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_MANAGER, 0) == 1) {
+        if (PreData.getDB(this, BoostMyConstant.FULL_MANAGER, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             nativeView1 = SetAdUtilPrivacy.getNativeAdView(TAG_MANAGER, R.layout.native_ad_3);
@@ -181,12 +186,6 @@ public class BoostAllAppsActivity extends BaseActivity implements PrivacyCustomA
             } else {
             }
         }
-    }
-
-    @Override
-    public void onClick() {
-        title_left.setOnClickListener(onClickListener);
-        junk_button_clean.setOnClickListener(onClickListener);
     }
 
     @Override
@@ -339,9 +338,7 @@ public class BoostAllAppsActivity extends BaseActivity implements PrivacyCustomA
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !isNoSwitch() && isNoOption()) {
             } else {
                 viewList.remove(2);
-//                pagerAdapter.notifyDataSetChanged();
                 viewList.add(2, view_pinlv);
-                Log.e("viewList", viewList.size() + "===");
                 pagerAdapter.notifyDataSetChanged();
             }
         }

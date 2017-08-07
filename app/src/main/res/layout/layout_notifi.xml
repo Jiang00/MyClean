@@ -26,7 +26,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+        <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
             android:id="@+id/white_wu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,17 +44,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/d4" />
-
             <RelativeLayout
                 android:id="@+id/notifi_switch_r"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/d56"
-                android:layout_marginLeft="@dimen/d8"
-                android:layout_marginRight="@dimen/d8"
-                android:layout_marginTop="@dimen/d4"
                 android:background="@color/A5"
                 android:visibility="gone">
 
@@ -62,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/d8"
+                    android:layout_marginLeft="@dimen/d16"
                     android:text="@string/notif_switch"
                     android:textColor="@color/A1"
                     android:textSize="@dimen/s16" />
@@ -73,9 +66,13 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/d8"
+                    android:layout_marginRight="@dimen/d16"
                     android:src="@mipmap/side_check_passed" />
             </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/d4" />
 
             <ListView
                 android:id="@+id/list_si"
@@ -94,7 +91,7 @@
             android:id="@+id/view_set"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/d60"
+            android:layout_marginTop="@dimen/d56"
             android:background="@color/black_50"
             android:clickable="true"
             android:visibility="gone" />

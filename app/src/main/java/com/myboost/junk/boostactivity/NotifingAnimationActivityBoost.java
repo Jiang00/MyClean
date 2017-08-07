@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +9,17 @@ import android.widget.Button;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
 
 public class NotifingAnimationActivityBoost extends BaseActivity {
     Button notifi_info_text;
     private static final int REQUSETSET = 110;
+
+    @Override
+    protected void findId() {
+        super.findId();
+        notifi_info_text = (Button) findViewById(R.id.notifi_info_text);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,7 +31,7 @@ public class NotifingAnimationActivityBoost extends BaseActivity {
                 if (!MyUtils.isNotificationListenEnabled(NotifingAnimationActivityBoost.this)) {
                     startActivityForResult(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS), REQUSETSET);
                 } else {
-                    PreData.putDB(NotifingAnimationActivityBoost.this, MyConstantPrivacy.KEY_NOTIFI, true);
+                    PreData.putDB(NotifingAnimationActivityBoost.this, BoostMyConstant.KEY_NOTIFI, true);
                     startActivity(new Intent(NotifingAnimationActivityBoost.this, BoostNotifingActivity.class));
                     onBackPressed();
                 }
@@ -37,17 +43,11 @@ public class NotifingAnimationActivityBoost extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUSETSET) {
             if (MyUtils.isNotificationListenEnabled(NotifingAnimationActivityBoost.this)) {
-                PreData.putDB(NotifingAnimationActivityBoost.this, MyConstantPrivacy.KEY_NOTIFI, true);
+                PreData.putDB(NotifingAnimationActivityBoost.this, BoostMyConstant.KEY_NOTIFI, true);
                 startActivity(new Intent(NotifingAnimationActivityBoost.this, BoostNotifingActivity.class));
                 onBackPressed();
             }
         }
-    }
-
-    @Override
-    protected void findId() {
-        super.findId();
-        notifi_info_text = (Button) findViewById(R.id.notifi_info_text);
     }
 
     @Override

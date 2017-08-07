@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -19,7 +19,7 @@ import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.clean.utilsprivacy.LoadManager;
 import com.myboost.junk.R;
 import com.myboost.clean.entity.JunkInfo;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 
 /**
  */

@@ -1,4 +1,4 @@
-package com.myboost.junk.toolsprivacy;
+package com.myboost.junk.boosttools;
 
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
@@ -7,7 +7,7 @@ import android.hardware.Camera.Size;
 import java.util.List;
 
 //手机摄像头像素
-public class PrivacyGetCameraUtils {
+public class GetCameraUtilsBoost {
 
     public static final int CAMERA_FACING_BACK = 0;
     public static final int CAMERA_FACING_FRONT = 1;

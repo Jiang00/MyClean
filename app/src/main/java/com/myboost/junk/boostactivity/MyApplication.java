@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.app.ActivityManager;
 import android.app.Application;
@@ -13,9 +13,9 @@ import com.myboost.clean.cleannotification.MyServiceNotificationMonitor;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.privacyservices.NotificationServiceBoost;
-import com.myboost.junk.privacyservices.SuspensionBallServiceBoost;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.servicesboost.NotificationServiceBoost;
+import com.myboost.junk.servicesboost.BoostSuspensionBallService;
 import com.myboost.module.charge.saver.boostprotectservice.ServiceBatteryBoost;
 import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
 import com.myboost.module.charge.saver.boostutils.BatteryUtils;
@@ -28,8 +28,8 @@ import com.squareup.leakcanary.LeakCanary;
 public class MyApplication extends Application {
 
     private static final int SCAN_TIME_INTERVAL = 1000 * 60 * 5;
-    private HandlerThread mThread;
     private ActivityManager am;
+    private HandlerThread mThread;
 
     @Override
     public void onCreate() {
@@ -42,19 +42,19 @@ public class MyApplication extends Application {
 
         CleanManager.getInstance(this).startLoad();
 
-        if (PreData.getDB(this, MyConstantPrivacy.TONGZHILAN_SWITCH, true)) {
+        if (PreData.getDB(this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
             Intent intent = new Intent(this, NotificationServiceBoost.class);
             intent.setAction("notification");
             startService(intent);
         }
 
-        if (PreData.getDB(this, MyConstantPrivacy.FlOAT_SWITCH, true)) {
-            Intent intent1 = new Intent(this, SuspensionBallServiceBoost.class);
+        if (PreData.getDB(this, BoostMyConstant.FlOAT_SWITCH, true)) {
+            Intent intent1 = new Intent(this, BoostSuspensionBallService.class);
             startService(intent1);
         }
 
         //启动通知兰清理
-        if (MyUtils.isNotificationListenEnabled(this) && PreData.getDB(this, MyConstantPrivacy.KEY_NOTIFI, false)) {
+        if (MyUtils.isNotificationListenEnabled(this) && PreData.getDB(this, BoostMyConstant.KEY_NOTIFI, false)) {
             startService(new Intent(this, MyServiceNotificationMonitor.class));
         }
 
@@ -68,9 +68,9 @@ public class MyApplication extends Application {
         mThread = new HandlerThread("scan");
         mThread.start();
 
-        if (PreData.getDB(this, MyConstantPrivacy.FIRST_INSTALL, true)) {
-            PreData.putDB(this, MyConstantPrivacy.IS_ACTION_BAR, MyUtils.checkDeviceHasNavigationBar(this));
-            PreData.putDB(this, MyConstantPrivacy.FIRST_INSTALL, false);
+        if (PreData.getDB(this, BoostMyConstant.FIRST_INSTALL, true)) {
+            PreData.putDB(this, BoostMyConstant.IS_ACTION_BAR, MyUtils.checkDeviceHasNavigationBar(this));
+            PreData.putDB(this, BoostMyConstant.FIRST_INSTALL, false);
         }
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;

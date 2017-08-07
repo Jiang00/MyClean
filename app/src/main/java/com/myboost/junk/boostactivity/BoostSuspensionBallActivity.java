@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -22,7 +22,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
@@ -31,12 +30,12 @@ import com.myboost.clean.utilsprivacy.MemoryManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.privacycustomview.ImageAccessor;
-import com.myboost.junk.privacycustomview.PrivacyImageAccessor;
-import com.myboost.junk.toolsprivacy.CheckState;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
-import com.myboost.junk.toolsprivacy.SwitchControl;
+import com.myboost.junk.customviewboost.BoostImageAccessor;
+import com.myboost.junk.customviewboost.ImageAccessorBoost;
+import com.myboost.junk.boosttools.CheckBoostState;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.boosttools.SwitchControl;
 import com.twee.module.tweenengine.Tween;
 import com.twee.module.tweenengine.TweenEquations;
 import com.twee.module.tweenengine.TweenManager;
@@ -48,48 +47,24 @@ public class BoostSuspensionBallActivity extends BaseActivity {
     private View nativeView;
     private static final int LIGHT_NORMAL = 64;
     private static final int LIGHT_50_PERCENT = 127;
+    TweenManager tweenManager;
+    ImageView float_huojian, float_huan;
+    AnimatorSet animSet1;
+    LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
+    private Handler myHandler;
+    private boolean istween;
+    private Intent intent;
     private static final int LIGHT_100_PERCENT = 255;
     private static final int LIGHT_AUTO = 0;
     private static final int LIGHT_ERR = -1;
     private MyApplication cleanApplication;
     private Animation rotate, suo, fang;
-    LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
-    private Handler myHandler;
-    private boolean istween;
-    private Intent intent;
     private ObjectAnimator animator, animator1;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
-    private String TAG_FLAOT = "cprivacy_float";
+    private String TAG_FLAOT = "flashclean_float";
     private boolean isdoudong;
-    TweenManager tweenManager;
-    ImageView float_huojian, float_huan;
-    AnimatorSet animSet1;
     ObjectAnimator animator2, animator11, animator12;
     TextView float_memory, float_tishi;
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_float);
-        intent = getIntent();
-        cleanApplication = (MyApplication) getApplication();
-        myHandler = new Handler();
-        rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
-        suo = AnimationUtils.loadAnimation(this, R.anim.suo_short);
-        fang = AnimationUtils.loadAnimation(this, R.anim.fang);
-        tweenManager = new TweenManager();
-        Tween.registerAccessor(ImageView.class, new PrivacyImageAccessor());
-        istween = true;
-        setAnimationThread();
-//        float_rotate.startAnimation(rotate);
-        loadAd();
-        initList();
-        wifi();
-        shengYin();
-        xianshiD();
-        addListener();
-    }
 
     private void startTween() {
         final float hy = float_huojian.getTop();
@@ -106,7 +81,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Tween.to(float_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
+                    Tween.to(float_huojian, BoostImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
                             .ease(TweenEquations.easeInQuad).delay(0)
                             .start(tweenManager);
                 }
@@ -115,12 +90,34 @@ public class BoostSuspensionBallActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_float);
+        intent = getIntent();
+        cleanApplication = (MyApplication) getApplication();
+        myHandler = new Handler();
+        rotate = AnimationUtils.loadAnimation(this, R.anim.rotate_ni);
+        suo = AnimationUtils.loadAnimation(this, R.anim.suo_short);
+        fang = AnimationUtils.loadAnimation(this, R.anim.fang);
+        tweenManager = new TweenManager();
+        Tween.registerAccessor(ImageView.class, new ImageAccessorBoost());
+        istween = true;
+        setAnimationThread();
+        loadAd();
+        initList();
+        wifi();
+        shengYin();
+        xianshiD();
+        addListener();
+    }
+
     private void initList() {
         float_memory.setText(MyUtils.getMemory(this) + "%");
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_FLOAT, 0) == 1) {
+        if (PreData.getDB(this, BoostMyConstant.FULL_FLOAT, 0) == 1) {
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -171,16 +168,6 @@ public class BoostSuspensionBallActivity extends BaseActivity {
         }).start();
     }
 
-    private void addListener() {
-//        waterView.setFloatWaterListener(floatWaterListener);
-        ll_wifi.setOnClickListener(kuaijieListener);
-        ll_liuliang.setOnClickListener(kuaijieListener);
-        ll_xianshi.setOnClickListener(kuaijieListener);
-        ll_shengyin.setOnClickListener(kuaijieListener);
-        ll_gps.setOnClickListener(kuaijieListener);
-        float_huojian.setOnClickListener(kuaijieListener);
-    }
-
     @Override
     protected void findId() {
         super.findId();
@@ -199,6 +186,15 @@ public class BoostSuspensionBallActivity extends BaseActivity {
         float_huan = (ImageView) findViewById(R.id.float_huan);
         float_memory = (TextView) findViewById(R.id.float_memory);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
+    }
+
+    private void addListener() {
+        ll_wifi.setOnClickListener(kuaijieListener);
+        ll_liuliang.setOnClickListener(kuaijieListener);
+        ll_xianshi.setOnClickListener(kuaijieListener);
+        ll_shengyin.setOnClickListener(kuaijieListener);
+        ll_gps.setOnClickListener(kuaijieListener);
+        float_huojian.setOnClickListener(kuaijieListener);
     }
 
     private void startRamAnimtion() {
@@ -331,7 +327,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
                         }
                     } else {
                         liuLiangd();
-                        SwitchControl.setMobileData(BoostSuspensionBallActivity.this, !CheckState.networkState(BoostSuspensionBallActivity.this, null));
+                        SwitchControl.setMobileData(BoostSuspensionBallActivity.this, !CheckBoostState.networkState(BoostSuspensionBallActivity.this, null));
                     }
 
 
@@ -396,7 +392,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
     }
 
     private void wifi() {
-        if (CheckState.wifiState(this)) {
+        if (CheckBoostState.wifiState(this)) {
             iv_wifi.setImageResource(R.mipmap.float_wifi1);
         } else {
             iv_wifi.setImageResource(R.mipmap.float_wifi);
@@ -405,7 +401,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
 
 
     private void liuLiangd() {
-        if (!CheckState.networkState(this, null)) {
+        if (!CheckBoostState.networkState(this, null)) {
             iv_liuliang.setImageResource(R.mipmap.float_liuliang1);
         } else {
             iv_liuliang.setImageResource(R.mipmap.float_liuliang);
@@ -430,7 +426,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
     }
 
     private void wifiD() {
-        if (!CheckState.wifiState(this)) {
+        if (!CheckBoostState.wifiState(this)) {
             iv_wifi.setImageResource(R.mipmap.float_wifi1);
         } else {
             iv_wifi.setImageResource(R.mipmap.float_wifi);
@@ -438,7 +434,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
     }
 
     private void liuLiang() {
-        if (CheckState.networkState(this, null)) {
+        if (CheckBoostState.networkState(this, null)) {
             iv_liuliang.setImageResource(R.mipmap.float_liuliang1);
         } else {
             iv_liuliang.setImageResource(R.mipmap.float_liuliang);
@@ -446,7 +442,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
     }
 
     private void shengYin() {
-        if (CheckState.soundState(this)) {
+        if (CheckBoostState.soundState(this)) {
             iv_shengyin.setImageResource(R.mipmap.float_shengyin1);
         } else {
             iv_shengyin.setImageResource(R.mipmap.float_shengyin);
@@ -454,7 +450,7 @@ public class BoostSuspensionBallActivity extends BaseActivity {
     }
 
     private void gps() {
-        if (CheckState.gpsState(this)) {
+        if (CheckBoostState.gpsState(this)) {
             iv_gps.setImageResource(R.mipmap.float_gps1);
         } else {
             iv_gps.setImageResource(R.mipmap.float_gps);

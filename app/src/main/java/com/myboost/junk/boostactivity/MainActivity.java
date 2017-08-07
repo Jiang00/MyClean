@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -38,18 +38,18 @@ import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.PrivacySidebarAdapter;
-import com.myboost.junk.interfaceviewprivacy.MainViewPrivacy;
-import com.myboost.junk.presenterprivacy.PrivacyPresenterMain;
-import com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy;
-import com.myboost.junk.privacycustomview.MainYuanHuView;
-import com.myboost.junk.privacycustomview.PrivacyCustomRoundCpu;
-import com.myboost.junk.privacycustomview.PrivacyYuanHuView;
-import com.myboost.junk.privacycustomview.PullToRefreshLayout;
-import com.myboost.junk.privacycustomview.ScrollView;
-import com.myboost.junk.privacymodel.SideInfo;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.customadapterboost.SidebarAdapterBoost;
+import com.myboost.junk.boostinterfaceview.BoostMainView;
+import com.myboost.junk.boostpresenter.PresenterMainBoost;
+import com.myboost.junk.customviewboost.BoostListViewForScrollView;
+import com.myboost.junk.customviewboost.MainYuanHuView;
+import com.myboost.junk.customviewboost.CustomRoundCpuBoost;
+import com.myboost.junk.customviewboost.YuanHuViewBoost;
+import com.myboost.junk.customviewboost.PullToRefreshLayout;
+import com.myboost.junk.customviewboost.ScrollView;
+import com.myboost.junk.mymodelboost.SideInfo;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
 import com.myboost.module.charge.saver.boostutils.BatteryUtils;
 
@@ -59,150 +59,54 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class MainActivity extends BaseActivity implements MainViewPrivacy, DrawerLayout.DrawerListener {
-    // cprivacy
-    private String TAG_START_FULL = "cprivacy_start_native";
-    private String TAG_EXIT_FULL = "cprivacy_exit_native";
+public class MainActivity extends BaseActivity implements BoostMainView, DrawerLayout.DrawerListener {
+    // cprivacy   flashclean
+    private String TAG_START_FULL = "flashclean_start_native";
+    private String TAG_EXIT_FULL = "flashclean_exit_native";
     private String TAG_FULL_PULL = "pull_full";
-    private String TAG_MAIN = "cprivacy_main";
-    private String TAG_SIDE = "cprivacy_side";
+    private String TAG_MAIN = "flashclean_main";
+    private String TAG_SIDE = "flashclean_side";
     private String TAG_REFRESH = "drag";
     public static final String TAG = "MainActivity";
-    PrivacyCustomRoundCpu main_custom_cpu, main_custom_ram, main_custom_sd;
+    CustomRoundCpuBoost main_custom_cpu, main_custom_ram, main_custom_sd;
+    ImageView main_full_time;
+    MainYuanHuView main_yunahuan;
+    private SidebarAdapterBoost adapter;
+    LinearLayout iv_title_left;
+    BoostListViewForScrollView side_listView;
+    DrawerLayout main_drawer;
+    TextView main_msg_sd_percent_danwei;
     RelativeLayout main_cooling_button;
     ObjectAnimator objectAnimator;
     ScrollView main_scroll_view;
     LinearLayout iv_title_right;
-    LinearLayout iv_title_left;
-    ListViewForScrollViewPrivacy side_listView;
-    DrawerLayout main_drawer;
-    TextView main_msg_sd_percent_danwei;
     LinearLayout ll_ad, ll_ad_side, ad_native_2, ll_ad_s;
     RelativeLayout main_junk_button;
     LinearLayout ll_ad_full;
     LinearLayout main_rotate_all;
-    ImageView main_full_time;
-    MainYuanHuView main_yunahuan;
-    private PrivacySidebarAdapter adapter;
-    RelativeLayout main_power_button, main_file_button, main_notifi_button, main_picture_button2, main_picture_button, main_ram_button;
-    LinearLayout main_manager_button;
-    RelativeLayout main_gboost_button;
-    TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_cpu_percent;
     private ArrayList<JunkInfo> startList;
     TextView main_fenshu;
     ImageView main_point;
     long junk_size;
+    RelativeLayout main_power_button, main_file_button, main_notifi_button, main_picture_button2, main_picture_button, main_ram_button;
+    LinearLayout main_manager_button;
+    RelativeLayout main_gboost_button;
+    TextView main_msg_ram_percent, main_msg_sd_percent, main_msg_cpu_percent;
+    private Handler handler = new Handler();
+    private PresenterMainBoost mainPresenter;
+    TextView main_rotate_good, main_rotate_bad;
     LinearLayout main_battery;
     LinearLayout main_clean_lin;
     RelativeLayout main_title;
     TextView main_junk_huan;
     private int temp;
     private AlertDialog dialog;
-    private Handler handler = new Handler();
-    private PrivacyPresenterMain mainPresenter;
-    TextView main_rotate_good, main_rotate_bad;
+    PullToRefreshLayout main_pull_refresh;
+    String junkSize;
+    YuanHuViewBoost main_msg_ram_yuanhu, main_msg_sd_yuanhu, main_msg_cpu_yuanhu;
     ImageView main_rotate_close;
     LinearLayout main_msg_button;
     ProgressBar ad_progressbar;
-    PullToRefreshLayout main_pull_refresh;
-    String junkSize;
-    PrivacyYuanHuView main_msg_ram_yuanhu, main_msg_sd_yuanhu, main_msg_cpu_yuanhu;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dra);
-        if (PreData.getDB(this, MyConstantPrivacy.FILEACTIVITY, 1) == 0) {
-            main_file_button.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, MyConstantPrivacy.NOTIFIACTIVITY, 1) == 0) {
-            main_notifi_button.setVisibility(View.GONE);
-        }
-        if (PreData.getDB(this, MyConstantPrivacy.POWERACTIVITY, 1) == 0) {
-            main_power_button.setVisibility(View.GONE);
-        }
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            main_notifi_button.setVisibility(View.GONE);
-        }
-        mainPresenter = new PrivacyPresenterMain(this, this);
-        mainPresenter.init();
-        mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
-        SetAdUtilPrivacy.track("主页面", "进入主页面", "", 1);
-    }
-
-    @Override
-    public void initCpu(final int temp) {
-        this.temp = temp;
-        main_custom_cpu.startProgress(false, temp);
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // 设置硬件信息里的CPU温度
-                main_msg_cpu_percent.setText(String.valueOf(temp) + "℃");
-                main_msg_cpu_yuanhu.setDuShu(temp * 3.6f, ContextCompat.getColor(MainActivity.this, R.color.A9), 225);
-            }
-        });
-    }
-
-    private void setColorAnimation(View view, int startColor, int endColor) {
-        ValueAnimator colorAnim = ObjectAnimator.ofInt(view, "backgroundColor", startColor, endColor);
-        colorAnim.setDuration(2000);
-        colorAnim.setRepeatCount(0);
-        colorAnim.setEvaluator(new ArgbEvaluator());
-        colorAnim.start();
-    }
-
-    @Override
-    protected void findId() {
-        super.findId();
-        main_drawer = (DrawerLayout) findViewById(R.id.main_drawer);
-        main_drawer.addDrawerListener(this);
-        main_scroll_view = (ScrollView) findViewById(R.id.main_scroll_view);
-        iv_title_right = (LinearLayout) findViewById(R.id.iv_title_right);
-        iv_title_left = (LinearLayout) findViewById(R.id.iv_title_left);
-        main_fenshu = (TextView) findViewById(R.id.main_fenshu);
-        main_clean_lin = (LinearLayout) findViewById(R.id.main_clean_lin);
-        main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
-        main_junk_huan = (TextView) findViewById(R.id.main_junk_huan);
-        main_title = (RelativeLayout) findViewById(R.id.main_title);
-        main_msg_sd_percent_danwei = (TextView) findViewById(R.id.main_msg_sd_percent_danwei);
-        main_point = (ImageView) findViewById(R.id.main_point);
-        main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
-        main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
-        main_msg_cpu_percent = (TextView) findViewById(R.id.main_msg_cpu_percent);
-        main_custom_cpu = (PrivacyCustomRoundCpu) findViewById(R.id.main_custom_cpu);
-        main_custom_ram = (PrivacyCustomRoundCpu) findViewById(R.id.main_custom_ram);
-        main_custom_sd = (PrivacyCustomRoundCpu) findViewById(R.id.main_custom_sd);
-        main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
-        main_cooling_button = (RelativeLayout) findViewById(R.id.main_cooling_button);
-        main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
-        main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
-        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
-        main_rotate_close = (ImageView) findViewById(R.id.main_rotate_close);
-        main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
-        main_power_button = (RelativeLayout) findViewById(R.id.main_power_button);
-        main_notifi_button = (RelativeLayout) findViewById(R.id.main_notifi_button);
-        main_picture_button2 = (RelativeLayout) findViewById(R.id.main_picture_button2);
-        main_picture_button = (RelativeLayout) findViewById(R.id.main_picture_button);
-        main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
-        main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
-        main_file_button = (RelativeLayout) findViewById(R.id.main_file_button);
-        main_gboost_button = (RelativeLayout) findViewById(R.id.main_gboost_button);
-        side_listView = (ListViewForScrollViewPrivacy) findViewById(R.id.side_listview);
-        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-        ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
-        ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
-        ll_ad_s = (LinearLayout) findViewById(R.id.ll_ad_s);
-        ll_ad_full = (com.mingle.widgetprivacy.LinearLayout) findViewById(R.id.ll_ad_full);
-        ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
-        main_battery = (LinearLayout) findViewById(R.id.main_battery);
-
-        main_msg_ram_yuanhu = (PrivacyYuanHuView) findViewById(R.id.main_msg_ram_yuanhu);
-        main_msg_sd_yuanhu = (PrivacyYuanHuView) findViewById(R.id.main_msg_sd_yuanhu);
-        main_msg_cpu_yuanhu = (PrivacyYuanHuView) findViewById(R.id.main_msg_cpu_yuanhu);
-        main_yunahuan = (MainYuanHuView) findViewById(R.id.main_yunahuan);
-    }
 
     //初始化监听
     public void onClick() {
@@ -268,22 +172,22 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
     @Override
     public void initSideData() {
         if (adapter == null) {
-            adapter = new PrivacySidebarAdapter(this);
+            adapter = new SidebarAdapterBoost(this);
         }
         adapter.clear();
 
         adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) BatteryUtils.readData(this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false)));//充电屏保
-        adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, MyConstantPrivacy.FlOAT_SWITCH, true)));//桌面悬浮球
+        adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, BoostMyConstant.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, MyConstantPrivacy.POWERACTIVITY, 1) != 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, BoostMyConstant.POWERACTIVITY, 1) != 0) {
             adapter.addData(new SideInfo(R.string.side_power, R.mipmap.side_power));//深度清理
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, MyConstantPrivacy.NOTIFIACTIVITY, 1) != 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, BoostMyConstant.NOTIFIACTIVITY, 1) != 0) {
             adapter.addData(new SideInfo(R.string.side_notifi, R.mipmap.side_nitifi));//通知栏清理
         }
         adapter.addData(new SideInfo(R.string.side_picture, R.mipmap.side_picture));//相似图片清理
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, MyConstantPrivacy.FILEACTIVITY, 1) != 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(this, BoostMyConstant.FILEACTIVITY, 1) != 0) {
             adapter.addData(new SideInfo(R.string.side_file, R.mipmap.side_file));//文件管理
         }
         adapter.addData(new SideInfo(R.string.gboost_0, R.mipmap.side_gboost));//游戏加速
@@ -368,6 +272,101 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         }).start();
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dra);
+        if (PreData.getDB(this, BoostMyConstant.FILEACTIVITY, 1) == 0) {
+            main_file_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, BoostMyConstant.NOTIFIACTIVITY, 1) == 0) {
+            main_notifi_button.setVisibility(View.GONE);
+        }
+        if (PreData.getDB(this, BoostMyConstant.POWERACTIVITY, 1) == 0) {
+            main_power_button.setVisibility(View.GONE);
+        }
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            main_notifi_button.setVisibility(View.GONE);
+        }
+        mainPresenter = new PresenterMainBoost(this, this);
+        mainPresenter.init();
+        mainPresenter.setDrawerLeftEdgeSize(main_drawer, 0.1f);
+        SetAdUtilPrivacy.track("主页面", "进入主页面", "", 1);
+    }
+
+    @Override
+    public void initCpu(final int temp) {
+        this.temp = temp;
+        main_custom_cpu.startProgress(false, temp);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // 设置硬件信息里的CPU温度
+                main_msg_cpu_percent.setText(String.valueOf(temp) + "℃");
+                main_msg_cpu_yuanhu.setDuShu(temp * 3.6f, ContextCompat.getColor(MainActivity.this, R.color.A9), 225);
+            }
+        });
+    }
+
+    private void setColorAnimation(View view, int startColor, int endColor) {
+        ValueAnimator colorAnim = ObjectAnimator.ofInt(view, "backgroundColor", startColor, endColor);
+        colorAnim.setDuration(2000);
+        colorAnim.setRepeatCount(0);
+        colorAnim.setEvaluator(new ArgbEvaluator());
+        colorAnim.start();
+    }
+
+    @Override
+    protected void findId() {
+        super.findId();
+        main_drawer = (DrawerLayout) findViewById(R.id.main_drawer);
+        main_drawer.addDrawerListener(this);
+        main_scroll_view = (ScrollView) findViewById(R.id.main_scroll_view);
+        iv_title_right = (LinearLayout) findViewById(R.id.iv_title_right);
+        iv_title_left = (LinearLayout) findViewById(R.id.iv_title_left);
+        main_fenshu = (TextView) findViewById(R.id.main_fenshu);
+        main_clean_lin = (LinearLayout) findViewById(R.id.main_clean_lin);
+        main_pull_refresh = (PullToRefreshLayout) findViewById(R.id.main_pull_refresh);
+        main_junk_huan = (TextView) findViewById(R.id.main_junk_huan);
+        main_title = (RelativeLayout) findViewById(R.id.main_title);
+        main_msg_sd_percent_danwei = (TextView) findViewById(R.id.main_msg_sd_percent_danwei);
+        main_point = (ImageView) findViewById(R.id.main_point);
+        main_msg_ram_percent = (TextView) findViewById(R.id.main_msg_ram_percent);
+        main_msg_sd_percent = (TextView) findViewById(R.id.main_msg_sd_percent);
+        main_msg_cpu_percent = (TextView) findViewById(R.id.main_msg_cpu_percent);
+        main_custom_cpu = (CustomRoundCpuBoost) findViewById(R.id.main_custom_cpu);
+        main_custom_ram = (CustomRoundCpuBoost) findViewById(R.id.main_custom_ram);
+        main_custom_sd = (CustomRoundCpuBoost) findViewById(R.id.main_custom_sd);
+        main_junk_button = (RelativeLayout) findViewById(R.id.main_junk_button);
+        main_cooling_button = (RelativeLayout) findViewById(R.id.main_cooling_button);
+        main_rotate_all = (LinearLayout) findViewById(R.id.main_rotate_all);
+        main_rotate_good = (TextView) findViewById(R.id.main_rotate_good);
+        main_rotate_bad = (TextView) findViewById(R.id.main_rotate_bad);
+        main_rotate_close = (ImageView) findViewById(R.id.main_rotate_close);
+        main_msg_button = (LinearLayout) findViewById(R.id.main_msg_button);
+        main_power_button = (RelativeLayout) findViewById(R.id.main_power_button);
+        main_notifi_button = (RelativeLayout) findViewById(R.id.main_notifi_button);
+        main_picture_button2 = (RelativeLayout) findViewById(R.id.main_picture_button2);
+        main_picture_button = (RelativeLayout) findViewById(R.id.main_picture_button);
+        main_ram_button = (RelativeLayout) findViewById(R.id.main_ram_button);
+        main_manager_button = (LinearLayout) findViewById(R.id.main_manager_button);
+        main_file_button = (RelativeLayout) findViewById(R.id.main_file_button);
+        main_gboost_button = (RelativeLayout) findViewById(R.id.main_gboost_button);
+        side_listView = (BoostListViewForScrollView) findViewById(R.id.side_listview);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
+        ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
+        ll_ad_s = (LinearLayout) findViewById(R.id.ll_ad_s);
+        ll_ad_full = (com.mingle.widgetprivacy.LinearLayout) findViewById(R.id.ll_ad_full);
+        ad_progressbar = (ProgressBar) findViewById(R.id.ad_progressbar);
+        main_battery = (LinearLayout) findViewById(R.id.main_battery);
+
+        main_msg_ram_yuanhu = (YuanHuViewBoost) findViewById(R.id.main_msg_ram_yuanhu);
+        main_msg_sd_yuanhu = (YuanHuViewBoost) findViewById(R.id.main_msg_sd_yuanhu);
+        main_msg_cpu_yuanhu = (YuanHuViewBoost) findViewById(R.id.main_msg_cpu_yuanhu);
+        main_yunahuan = (MainYuanHuView) findViewById(R.id.main_yunahuan);
+    }
 
     @Override
     public void openDrawer() {
@@ -383,7 +382,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
 
     @Override
     public void loadFullAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_MAIN, 0) == 1) {
+        if (PreData.getDB(this, BoostMyConstant.FULL_MAIN, 0) == 1) {
         } else {
             View nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
             if (ll_ad != null && nativeView != null) {
@@ -418,7 +417,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
 
         }
         //提示
-        if (PreData.getDB(this, MyConstantPrivacy.FIRST_BATTERY, true)) {
+        if (PreData.getDB(this, BoostMyConstant.FIRST_BATTERY, true)) {
             BatteryUtils.writeData(MainActivity.this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false);
             main_battery.setVisibility(View.VISIBLE);
             LinearLayout battery_cha = (LinearLayout) findViewById(R.id.battery_cha);
@@ -428,8 +427,8 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
             return;
         }
 
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_START, 0) == 1) {
-            AndroidSdk.showFullAd("cprivacy_start_full");
+        if (PreData.getDB(this, BoostMyConstant.FULL_START, 0) == 1) {
+            AndroidSdk.showFullAd("flashclean_start_full");
         } else {
             //loading页面广告
             View nativeView_full = SetAdUtilPrivacy.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
@@ -448,7 +447,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                         adDelete();
                     }
                 });
-                int skip = PreData.getDB(this, MyConstantPrivacy.SKIP_TIME, 6);
+                int skip = PreData.getDB(this, BoostMyConstant.SKIP_TIME, 6);
                 handler.postDelayed(fullAdRunnale, skip * 1000);
             } else {
             }
@@ -503,12 +502,12 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     break;
                 case R.id.main_rotate_bad:
                     SetAdUtilPrivacy.track("主页面", "点击好评bad按钮", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstantPrivacy.IS_ROTATE, true);
+                    PreData.putDB(MainActivity.this, BoostMyConstant.IS_ROTATE, true);
                     setRotateGone();
                     break;
                 case R.id.main_rotate_close:
                     SetAdUtilPrivacy.track("主页面", "点击好评close按钮", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstantPrivacy.IS_ROTATE, true);
+                    PreData.putDB(MainActivity.this, BoostMyConstant.IS_ROTATE, true);
                     setRotateGone();
                     break;
                 case R.id.main_msg_button:
@@ -521,22 +520,22 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     break;
                 case R.id.main_file_button:
                     SetAdUtilPrivacy.track("主页面", "点击进入文件管理", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstantPrivacy.FILE_CLEAN, true);
+                    PreData.putDB(MainActivity.this, BoostMyConstant.FILE_CLEAN, true);
                     mainPresenter.jumpToActivity(BoostFileManagerActivity.class, 1);
                     break;
                 case R.id.main_gboost_button:
                     SetAdUtilPrivacy.track("主页面", "点击进入游戏加速", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstantPrivacy.GBOOST_CLEAN, true);
+                    PreData.putDB(MainActivity.this, BoostMyConstant.GBOOST_CLEAN, true);
                     mainPresenter.jumpToActivity(BoostGoodGameActivity.class, 1);
                     break;
                 case R.id.main_picture_button2:
                     SetAdUtilPrivacy.track("主页面", "点击进入相似图片", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstantPrivacy.PHOTO_CLEAN, true);
+                    PreData.putDB(MainActivity.this, BoostMyConstant.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(BoostPictActivity.class, 1);
                     break;
                 case R.id.main_picture_button:
                     SetAdUtilPrivacy.track("主页面", "点击进入相似图片", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstantPrivacy.PHOTO_CLEAN, true);
+                    PreData.putDB(MainActivity.this, BoostMyConstant.PHOTO_CLEAN, true);
                     mainPresenter.jumpToActivity(BoostPictActivity.class, 1);
                     break;
                 case R.id.main_ram_button:
@@ -549,8 +548,8 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     break;
                 case R.id.main_notifi_button:
                     SetAdUtilPrivacy.track("主页面", "点击进入通知栏清理", "", 1);
-                    PreData.putDB(MainActivity.this, MyConstantPrivacy.NOTIFI_CLEAN, true);
-                    if (!MyUtils.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, MyConstantPrivacy.KEY_NOTIFI, true)) {
+                    PreData.putDB(MainActivity.this, BoostMyConstant.NOTIFI_CLEAN, true);
+                    if (!MyUtils.isNotificationListenEnabled(MainActivity.this) || !PreData.getDB(MainActivity.this, BoostMyConstant.KEY_NOTIFI, true)) {
                         Intent intent6 = new Intent(MainActivity.this, NotifingAnimationActivityBoost.class);
                         startActivityForResult(intent6, 1);
                     } else {
@@ -560,7 +559,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     break;
                 case R.id.battery_button:
                     main_battery.setVisibility(View.GONE);
-                    PreData.putDB(MainActivity.this, MyConstantPrivacy.FIRST_BATTERY, false);
+                    PreData.putDB(MainActivity.this, BoostMyConstant.FIRST_BATTERY, false);
                     BatteryUtils.writeData(MainActivity.this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true);
                     initSideData();
                     adapter.notifyDataSetChanged();
@@ -568,7 +567,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     break;
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);
-                    PreData.putDB(MainActivity.this, MyConstantPrivacy.FIRST_BATTERY, false);
+                    PreData.putDB(MainActivity.this, BoostMyConstant.FIRST_BATTERY, false);
                     BatteryUtils.writeData(MainActivity.this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false);
                     SetAdUtilPrivacy.track("主界面", "充电屏保引导", "叉掉", 1);
                     break;
@@ -578,10 +577,10 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == MyConstantPrivacy.SETTING_RESUIL) {
+        if (resultCode == BoostMyConstant.SETTING_RESUIL) {
             initSideData();
             adapter.notifyDataSetChanged();
-        } else if (resultCode == MyConstantPrivacy.COOLING_RESUIL) {
+        } else if (resultCode == BoostMyConstant.COOLING_RESUIL) {
             int wendu = data.getIntExtra("wendu", 0);
             temp -= wendu;
             if (temp == 0) {
@@ -589,16 +588,16 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
             }
         } else if (requestCode == 100) {
             if (MyUtils.isNotificationListenEnabled(MainActivity.this)) {
-                PreData.putDB(MainActivity.this, MyConstantPrivacy.KEY_NOTIFI, true);
+                PreData.putDB(MainActivity.this, BoostMyConstant.KEY_NOTIFI, true);
                 Intent intent = new Intent(MainActivity.this, BoostNotifingActivity.class);
                 startActivityForResult(intent, 1);
             } else {
                 Intent intent = new Intent(MainActivity.this, NotifingAnimationActivityBoost.class);
                 startActivityForResult(intent, 1);
             }
-        } else if (resultCode == MyConstantPrivacy.RAM_RESUIL) {
-        } else if (resultCode == MyConstantPrivacy.JUNK_RESUIL) {
-        } else if (resultCode == MyConstantPrivacy.POWER_RESUIL) {
+        } else if (resultCode == BoostMyConstant.RAM_RESUIL) {
+        } else if (resultCode == BoostMyConstant.JUNK_RESUIL) {
+        } else if (resultCode == BoostMyConstant.POWER_RESUIL) {
 
         }
     }
@@ -701,9 +700,6 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         super.onResume();
         AndroidSdk.onResumeWithoutTransition(this);
         initData();
-//        power_size.setText(getString(R.string.power_1, startList.size() + "") + " ");
-        // 充电屏保关闭智能充电，刷新无效果，重新调用 initSideData()可以
-//        adapter.notifyDataSetChanged();
         initSideData();
     }
 
@@ -721,8 +717,8 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (PreData.getDB(this, MyConstantPrivacy.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd("cprivacy_exit_full");
+            if (PreData.getDB(this, BoostMyConstant.FULL_EXIT, 0) == 1) {
+                AndroidSdk.showFullAd("flashclean_exit_full");
             }
             showExitDialog();
         }
@@ -764,7 +760,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         LinearLayout ll_ad_exit = (LinearLayout) view.findViewById(R.id.ll_ad_exit);
         TextView exit_queren = (TextView) view.findViewById(R.id.exit_queren);
         TextView exit_quxiao = (TextView) view.findViewById(R.id.exit_quxiao);
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_EXIT, 0) == 0) {
+        if (PreData.getDB(this, BoostMyConstant.FULL_EXIT, 0) == 0) {
             View nativeExit = SetAdUtilPrivacy.getNativeAdView(TAG_EXIT_FULL, R.layout.native_ad_2);
             if (nativeExit != null) {
                 ll_ad_exit.addView(nativeExit);
@@ -793,7 +789,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
         lp.width = dm.widthPixels; //设置宽度
         lp.height = dm.heightPixels; //设置高度
-        if (PreData.getDB(this, MyConstantPrivacy.IS_ACTION_BAR, true)) {
+        if (PreData.getDB(this, BoostMyConstant.IS_ACTION_BAR, true)) {
             int uiOptions =
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                             //布局位于状态栏下方

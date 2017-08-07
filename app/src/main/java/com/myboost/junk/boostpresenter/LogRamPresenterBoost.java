@@ -1,12 +1,12 @@
-package com.myboost.junk.presenterprivacy;
+package com.myboost.junk.boostpresenter;
 
 import android.app.Activity;
 import android.content.Context;
 import android.widget.TextView;
 
 import com.myboost.clean.core.CleanManager;
-import com.myboost.junk.interfaceviewprivacy.PrivacyLogHeRamView;
-import com.myboost.junk.activityprivacy.MyApplication;
+import com.myboost.junk.boostinterfaceview.BoostLogHeRamView;
+import com.myboost.junk.boostactivity.MyApplication;
 import com.myboost.clean.entity.JunkInfo;
 
 import java.util.ArrayList;
@@ -16,13 +16,13 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class PrivacyLogRamPresenter extends PresenterBasePrivacy<PrivacyLogHeRamView> {
+public class LogRamPresenterBoost extends BoostPresenterBase<BoostLogHeRamView> {
     private MyApplication cleanApplication;
     private ArrayList<JunkInfo> clearList;
     private long allSize;
     private long cleanSize;
 
-    public PrivacyLogRamPresenter(PrivacyLogHeRamView iView, Context context) {
+    public LogRamPresenterBoost(BoostLogHeRamView iView, Context context) {
         super(iView, context);
         cleanApplication = (MyApplication) ((Activity) context).getApplication();
     }

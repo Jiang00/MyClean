@@ -1,4 +1,4 @@
-package com.myboost.junk.presenterprivacy;
+package com.myboost.junk.boostpresenter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,9 +8,9 @@ import android.text.TextUtils;
 
 import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.entity.JunkInfo;
-import com.myboost.junk.activityprivacy.MyApplication;
-import com.myboost.junk.activityprivacy.SucceedActivityBoost;
-import com.myboost.junk.interfaceviewprivacy.PrivacyCustomAllAppView;
+import com.myboost.junk.boostactivity.MyApplication;
+import com.myboost.junk.boostactivity.SucceedActivityBoost;
+import com.myboost.junk.boostinterfaceview.CustomAllAppViewBoost;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +21,7 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class ManagerPresenter extends PresenterBasePrivacy<PrivacyCustomAllAppView> {
+public class ManagerPresenter extends BoostPresenterBase<CustomAllAppViewBoost> {
     public static final int SIZE_TYPE = 0;
     public static final int TIME_TYPE = 1;
     public static final int PINLV_TYPE = 2;
@@ -34,7 +34,7 @@ public class ManagerPresenter extends PresenterBasePrivacy<PrivacyCustomAllAppVi
     private int type;
     Context context;
 
-    public ManagerPresenter(PrivacyCustomAllAppView iView, Context context) {
+    public ManagerPresenter(CustomAllAppViewBoost iView, Context context) {
         super(iView, context);
         this.context = context;
         cleanApplication = (MyApplication) context.getApplicationContext();

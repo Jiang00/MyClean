@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,19 +14,19 @@ import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.LoadManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.junk.R;
-import com.myboost.junk.presenterprivacy.LogPresenterPrivacy;
+import com.myboost.junk.boostpresenter.BoostLogPresenter;
 
 
-public class LogPrivacy extends MybaseAdapter<JunkInfo> {
-    LogPresenterPrivacy junkPresenter;
+public class BoostLog extends MybaseAdapter<JunkInfo> {
+    BoostLogPresenter junkPresenter;
     AllListener listener;
     String cleanName;
 
-    public LogPrivacy(Context context) {
+    public BoostLog(Context context) {
         super(context);
     }
 
-    public LogPrivacy(Context context, LogPresenterPrivacy junkPresenter, String cleanName) {
+    public BoostLog(Context context, BoostLogPresenter junkPresenter, String cleanName) {
         super(context);
         this.junkPresenter = junkPresenter;
         this.cleanName = cleanName;

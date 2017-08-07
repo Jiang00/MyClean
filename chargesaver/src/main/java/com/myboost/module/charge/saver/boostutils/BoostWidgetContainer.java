@@ -1,4 +1,4 @@
-package com.myboost.module.charge.saver.privacyutils;
+package com.myboost.module.charge.saver.boostutils;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -15,7 +15,7 @@ import android.widget.FrameLayout;
 /**
  * Created by huale on 2015/2/3.
  */
-public class PrivacyWidgetContainer extends FrameLayout implements View.OnClickListener {
+public class BoostWidgetContainer extends FrameLayout implements View.OnClickListener {
     public static final int MATCH_PARENT = WindowManager.LayoutParams.MATCH_PARENT;
     public static final int WRAP_CONTENT = WindowManager.LayoutParams.WRAP_CONTENT;
 
@@ -27,7 +27,7 @@ public class PrivacyWidgetContainer extends FrameLayout implements View.OnClickL
     boolean movable;
     int screenHeight;
 
-    private PrivacyWidgetContainer(Context context, Builder builder) {
+    private BoostWidgetContainer(Context context, Builder builder) {
         super(context);
 
         this.movable = builder.movable;
@@ -117,8 +117,8 @@ public class PrivacyWidgetContainer extends FrameLayout implements View.OnClickL
             return this;
         }
 
-        public PrivacyWidgetContainer build(Context context) {
-            return new PrivacyWidgetContainer(context, this);
+        public BoostWidgetContainer build(Context context) {
+            return new BoostWidgetContainer(context, this);
         }
     }
 

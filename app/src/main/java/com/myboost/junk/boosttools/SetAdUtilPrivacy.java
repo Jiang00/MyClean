@@ -1,4 +1,4 @@
-package com.myboost.junk.toolsprivacy;
+package com.myboost.junk.boosttools;
 
 import android.support.annotation.LayoutRes;
 import android.util.Log;

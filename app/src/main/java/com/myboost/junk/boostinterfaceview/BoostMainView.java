@@ -1,9 +1,9 @@
-package com.myboost.junk.interfaceviewprivacy;
+package com.myboost.junk.boostinterfaceview;
 
 /**
  */
 
-public interface MainViewPrivacy extends BaseView {
+public interface BoostMainView extends BaseView {
     void initCpu(int temp);
 
     void initSd(int perent, String size, long sd_kongxian);

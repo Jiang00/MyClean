@@ -27,87 +27,85 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_beijing">
 
             <FrameLayout
+                android:id="@+id/success_animator"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="top|center_horizontal">
-
-                <com.myboost.junk.privacycustomview.Success_CircleWaveView
-                    android:id="@+id/success_cirlewaveview"
-                    android:layout_width="@dimen/d90"
-                    android:layout_height="@dimen/d90"
-                    android:layout_gravity="center"
-                    android:visibility="gone" />
+                android:layout_gravity="top|center_horizontal"
+                android:visibility="gone">
 
                 <!--画圆形进度条-->
-                <com.myboost.junk.privacycustomview.PrivacyMainRoundView
+                <com.myboost.junk.customviewboost.MainRoundViewBoost
                     android:id="@+id/main_progress"
-                    android:layout_width="@dimen/d90"
-                    android:layout_height="@dimen/d90"
-                    android:layout_gravity="center"
-                    android:layout_margin="@dimen/d20"
-                    android:visibility="gone" />
+                    android:layout_width="@dimen/d154"
+                    android:layout_height="@dimen/d154"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/d73"
+                    android:visibility="visible" />
 
-                <com.myboost.junk.privacycustomview.KuoShan
-                    android:id="@+id/success_kuoshan"
-                    android:layout_width="@dimen/d243"
-                    android:layout_height="@dimen/d243"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/d52"
-                    android:visibility="gone" />
-                <!--画对号-->
-                <com.myboost.junk.privacycustomview.PrivacyDrawHookView
-                    android:id="@+id/success_drawhook"
-                    android:layout_width="@dimen/d167"
-                    android:layout_height="@dimen/d167"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/d90"
-                    android:visibility="gone" />
-                <!--   带点圆-->
+                <!--背景-->
                 <ImageView
-                    android:id="@+id/success_diancirle"
-                    android:layout_width="@dimen/d167"
-                    android:layout_height="@dimen/d167"
+                    android:layout_width="@dimen/d180"
+                    android:layout_height="@dimen/d180"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/d90"
-                    android:src="@mipmap/success_3"
-                    android:visibility="gone" />
-
+                    android:layout_marginTop="@dimen/d60"
+                    android:src="@mipmap/success_1"
+                    android:visibility="visible" />
+                <!--左眼睛-->
                 <ImageView
-                    android:id="@+id/success_diancirle1"
-                    android:layout_width="@dimen/d167"
-                    android:layout_height="@dimen/d167"
+                    android:id="@+id/success_eye_leght"
+                    android:layout_width="@dimen/d180"
+                    android:layout_height="@dimen/d180"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/d90"
-                    android:src="@mipmap/success_4"
-                    android:visibility="gone" />
-
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
-                    android:id="@+id/clean_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d60"
+                    android:alpha="0"
+                    android:src="@mipmap/success_2"
+                    android:visibility="visible" />
+                <!--右眼睛-->
+                <ImageView
+                    android:id="@+id/success_eye_right1"
+                    android:layout_width="@dimen/d180"
+                    android:layout_height="@dimen/d180"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/d154"
-                    android:text="@string/success_cleaned"
-                    android:textColor="@color/B3"
-                    android:textSize="@dimen/s40"
+                    android:layout_marginTop="@dimen/d60"
+                    android:alpha="0"
+                    android:src="@mipmap/success_5"
+                    android:visibility="visible" />
+                <!--右眼睛，笑-->
+                <ImageView
+                    android:id="@+id/success_eye_right"
+                    android:layout_width="@dimen/d180"
+                    android:layout_height="@dimen/d180"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/d60"
+                    android:alpha="0"
+                    android:src="@mipmap/success_6"
+                    android:visibility="visible" />
+                <!--慢慢显示，嘴巴-->
+                <com.myboost.junk.customviewboost.RenderingView
+                    android:id="@+id/success_mouth"
+                    android:layout_width="@dimen/d180"
+                    android:layout_height="@dimen/d180"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/d60"
                     android:visibility="gone" />
             </FrameLayout>
 
-            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                 android:id="@+id/success_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center_horizontal"
-                android:layout_marginTop="@dimen/d320"
-                android:text="@string/qingli"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s20"
-                android:visibility="gone" />
+                android:layout_marginTop="@dimen/d270"
+                android:text="@string/success"
+                android:textColor="@color/A5"
+                android:textSize="@dimen/s24"
+                android:visibility="visible" />
 
-            <com.myboost.junk.privacycustomview.PrivacySlowScrollView
+            <com.myboost.junk.customviewboost.BoostSlowScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -144,7 +142,7 @@
                                     android:layout_marginRight="@dimen/d8"
                                     android:src="@mipmap/success_duigou" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:id="@+id/success_complete"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -154,7 +152,7 @@
                                     android:textColor="@color/B3"
                                     android:textSize="@dimen/s32" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:id="@+id/success_clean_size"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -203,10 +201,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/d32"
                             android:layout_marginTop="@dimen/d20"
-                            android:gravity="center_horizontal"
+                            android:gravity="center"
                             android:orientation="vertical">
 
-                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/mian_like_tishi1"
@@ -226,7 +224,7 @@
                             android:gravity="center_horizontal"
                             android:orientation="horizontal">
 
-                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                 android:id="@+id/main_rotate_bad"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/d42"
@@ -243,7 +241,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:background="@color/A11" />
 
-                            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                            <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                 android:id="@+id/main_rotate_good"
                                 android:layout_width="0dp"
                                 android:layout_height="@dimen/d42"
@@ -313,7 +311,7 @@
                                 android:background="@color/A5"
                                 android:orientation="vertical">
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -322,7 +320,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s16" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -364,7 +362,7 @@
                                 android:background="@color/A5"
                                 android:orientation="vertical">
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:id="@+id/main_msg_cooling"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -374,7 +372,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s16" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -414,7 +412,7 @@
                                 android:background="@color/A5"
                                 android:orientation="vertical">
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:id="@+id/main_msg_picture"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -424,7 +422,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s16" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -466,7 +464,7 @@
                                 android:background="@color/A5"
                                 android:orientation="vertical">
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:id="@+id/main_msg_power"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -476,7 +474,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s16" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -518,7 +516,7 @@
                                 android:background="@color/A5"
                                 android:orientation="vertical">
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -527,7 +525,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s16" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -565,7 +563,7 @@
                                 android:background="@color/A5"
                                 android:orientation="vertical">
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -574,7 +572,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s16" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="@dimen/d225"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -613,7 +611,7 @@
                                 android:background="@color/A5"
                                 android:orientation="vertical">
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -622,7 +620,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s16" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -662,7 +660,7 @@
                                 android:background="@color/A5"
                                 android:orientation="vertical">
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -671,7 +669,7 @@
                                     android:textColor="@color/A2"
                                     android:textSize="@dimen/s16" />
 
-                                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/d16"
@@ -696,7 +694,7 @@
                         android:orientation="vertical"
                         android:visibility="gone" />
                 </LinearLayout>
-            </com.myboost.junk.privacycustomview.PrivacySlowScrollView>
+            </com.myboost.junk.customviewboost.BoostSlowScrollView>
         </FrameLayout>
     </LinearLayout>
 </FrameLayout>

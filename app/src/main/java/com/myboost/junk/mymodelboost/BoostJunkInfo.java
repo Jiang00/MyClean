@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 
 import java.io.Serializable;
 
-public class PrivacyJunkInfo implements Serializable {
+public class BoostJunkInfo implements Serializable {
     /**
      *
      */
@@ -26,20 +26,20 @@ public class PrivacyJunkInfo implements Serializable {
     public boolean isChecked;
     public Drawable icon;
 
-    public PrivacyJunkInfo(int textrid, int drawableRid, boolean isChecked) {
+    public BoostJunkInfo(int textrid, int drawableRid, boolean isChecked) {
         this.textrid = textrid;
         this.drawableRid = drawableRid;
         this.isChecked = isChecked;
     }
 
-    public PrivacyJunkInfo(Drawable icon, String label, String packageName) {
+    public BoostJunkInfo(Drawable icon, String label, String packageName) {
         this.icon = icon;
         this.label = label;
         this.packageName = packageName;
     }
 
 
-    public PrivacyJunkInfo(long _id, Drawable icon, String name, String path, long size, boolean isChecked) {
+    public BoostJunkInfo(long _id, Drawable icon, String name, String path, long size, boolean isChecked) {
         this._id = _id;
         this.icon = icon;
         this.name = name;
@@ -48,15 +48,15 @@ public class PrivacyJunkInfo implements Serializable {
         this.isChecked = isChecked;
     }
 
-    public PrivacyJunkInfo(int textrid, int drawableRid) {
+    public BoostJunkInfo(int textrid, int drawableRid) {
         this.textrid = textrid;
         this.drawableRid = drawableRid;
     }
 
 
     //time==packagename
-    public PrivacyJunkInfo(String packageName, String name,
-                           boolean isChecked, Drawable icon, long size) {
+    public BoostJunkInfo(String packageName, String name,
+                         boolean isChecked, Drawable icon, long size) {
         super();
         this.name = name;
         this.packageName = packageName;
@@ -65,8 +65,8 @@ public class PrivacyJunkInfo implements Serializable {
         this.size = size;
     }
 
-    public PrivacyJunkInfo(String path, String name, long time,
-                           boolean isChecked, Drawable icon, long size) {
+    public BoostJunkInfo(String path, String name, long time,
+                         boolean isChecked, Drawable icon, long size) {
         super();
         this.path = path;
         this.name = name;
@@ -76,8 +76,8 @@ public class PrivacyJunkInfo implements Serializable {
         this.size = size;
     }
 
-    public PrivacyJunkInfo(Drawable icon, String path, String name, String packageName,
-                           boolean isChecked, long size) {
+    public BoostJunkInfo(Drawable icon, String path, String name, String packageName,
+                         boolean isChecked, long size) {
         super();
         this.path = path;
         this.name = name;
@@ -87,8 +87,8 @@ public class PrivacyJunkInfo implements Serializable {
         this.size = size;
     }
 
-    public PrivacyJunkInfo(boolean isChecked, boolean isWhiteList, Drawable drawable, String name,
-                           long size, String packageName, boolean isStartSelf) {
+    public BoostJunkInfo(boolean isChecked, boolean isWhiteList, Drawable drawable, String name,
+                         long size, String packageName, boolean isStartSelf) {
         super();
         this.isChecked = isChecked;
         this.isWhiteList = isWhiteList;
@@ -99,15 +99,15 @@ public class PrivacyJunkInfo implements Serializable {
         this.isStartSelf = isStartSelf;
     }
 
-    public PrivacyJunkInfo(Drawable drawable, String lable, String packagename, boolean isWhiteList) {
+    public BoostJunkInfo(Drawable drawable, String lable, String packagename, boolean isWhiteList) {
         this.icon = drawable;
         this.label = lable;
         this.packageName = packagename;
         this.isWhiteList = isWhiteList;
     }
 
-    public PrivacyJunkInfo(boolean isChecked, Drawable drawable, String lable,
-                           String packageName, long size) {
+    public BoostJunkInfo(boolean isChecked, Drawable drawable, String lable,
+                         String packageName, long size) {
         super();
         this.isChecked = isChecked;
         this.icon = drawable;
@@ -116,8 +116,8 @@ public class PrivacyJunkInfo implements Serializable {
         this.size = size;
     }
 
-    public PrivacyJunkInfo(boolean isChecked, Drawable drawable, String lable,
-                           String packageName) {
+    public BoostJunkInfo(boolean isChecked, Drawable drawable, String lable,
+                         String packageName) {
         super();
         this.isChecked = isChecked;
         this.icon = drawable;
@@ -125,8 +125,8 @@ public class PrivacyJunkInfo implements Serializable {
         this.packageName = packageName;
     }
 
-    public PrivacyJunkInfo(boolean isChecked, Drawable drawable, String label,
-                           String packageName, long time, long size, boolean isWhiteList, boolean isnotifiWhiteList, long lastRunTime) {
+    public BoostJunkInfo(boolean isChecked, Drawable drawable, String label,
+                         String packageName, long time, long size, boolean isWhiteList, boolean isnotifiWhiteList, long lastRunTime) {
         super();
         this.isChecked = isChecked;
         this.icon = drawable;

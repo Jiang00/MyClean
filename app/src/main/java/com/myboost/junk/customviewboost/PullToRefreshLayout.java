@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.os.AsyncTask;

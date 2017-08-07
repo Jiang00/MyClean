@@ -1,9 +1,9 @@
-package com.myboost.junk.toolsprivacy;
+package com.myboost.junk.boosttools;
 
 /**
  */
 
-public class MyConstantPrivacy {
+public class BoostMyConstant {
 
     public static final String GBOOST_LUN = "GBOOST_LUN";//第一次開啟游戏加速
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.graphics.Bitmap;
 
@@ -23,7 +23,7 @@ import java.util.HashMap;
  * This class represents a single Droidflake, with properties representing its
  * size, rotation, location, and speed.
  */
-public class PrivacyFlake {
+public class BoostFlake {
 
     float speed;
     // These are the unique properties of any flake: its size, rotation, speed,
@@ -42,8 +42,8 @@ public class PrivacyFlake {
      * Creates a new droidflake in the given xRange and with the given bitmap. Parameters of
      * location, size, rotation, and speed are randomly determined.
      */
-    static PrivacyFlake createFlake(float xRange, Bitmap originalBitmap) {
-        PrivacyFlake flake = new PrivacyFlake();
+    static BoostFlake createFlake(float xRange, Bitmap originalBitmap) {
+        BoostFlake flake = new BoostFlake();
         // Size each flake with a width between 5 and 55 and a proportional height
         flake.width = (int) (40 + (float) Math.random() * 50);
         float hwRatio = originalBitmap.getHeight() / originalBitmap.getWidth();
@@ -72,8 +72,8 @@ public class PrivacyFlake {
         return flake;
     }
 
-    static PrivacyFlake createFlake(float xRange, Bitmap originalBitmap, int from) {
-        PrivacyFlake flake = new PrivacyFlake();
+    static BoostFlake createFlake(float xRange, Bitmap originalBitmap, int from) {
+        BoostFlake flake = new BoostFlake();
         // Size each flake with a width between 5 and 55 and a proportional height
 //        flake.width = (int)(2 + (float)Math.random() * 5);
         flake.width = 2;

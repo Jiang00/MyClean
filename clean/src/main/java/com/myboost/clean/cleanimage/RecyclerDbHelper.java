@@ -119,7 +119,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
     }
 
     private String getRecyclerDirectory(String recyclerTime) {
-        return Environment.getExternalStorageDirectory() + "/cprivacybackup/" + recyclerTime + "/";
+        return Environment.getExternalStorageDirectory() + "/flashcleanbackup/" + recyclerTime + "/";
     }
 
     public ArrayList<ImageInfo> getRecyclerImageList() {
@@ -161,7 +161,7 @@ public class RecyclerDbHelper extends SQLiteOpenHelper {
     }
 
     private void deleteOverDateRecyclerFile() {
-        File file = new File(Environment.getExternalStorageDirectory() + "/cprivacybackup");
+        File file = new File(Environment.getExternalStorageDirectory() + "/flashcleanbackup");
         if (file != null && file.exists()) {
             File[] files = file.listFiles();
             for (int i = 0; i < files.length; i++) {

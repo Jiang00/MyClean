@@ -1,9 +1,8 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -15,81 +14,30 @@ import com.myboost.clean.filemanager.PhoneFileCategoryHelper;
 import com.myboost.clean.filemanager.Util;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.interfaceviewprivacy.MainViewPrivacy;
-import com.myboost.junk.presenterprivacy.PrivacyPresenterMain;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boostinterfaceview.BoostMainView;
+import com.myboost.junk.boostpresenter.PresenterMainBoost;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 
 /**
  * Created by on 2017/4/20.
  */
 
-public class BoostFileManagerActivity extends BaseActivity implements MainViewPrivacy {
-    private String TAG_FILE = "cprivacy_file";
-    LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button, file_other_button;
-    FrameLayout title_left;
-    private PhoneFileCategoryHelper fileHelper;
-    TextView title_name;
+public class BoostFileManagerActivity extends BaseActivity implements BoostMainView {
+    private String TAG_FILE = "flashclean_file";
+    private PresenterMainBoost mainPresenter;
+    TextView file_apk_size, file_zip_size, file_txt_size, file_music_size, file_video_size, file_qita_size;
+    LinearLayout ll_ad;
     private PhoneFileCategoryHelper.CategoryInfo apkInfo, zipInfo, docInfo, musicInfo, videoInfo, otherInfo, pictureInfo, logInfo;
     private Handler mHandler;
     TextView file_used;
     public String size = null;
+    LinearLayout file_apk_button, file_zip_button, file_txt_button, file_music_button, file_video_button, file_other_button;
+    FrameLayout title_left;
+    private PhoneFileCategoryHelper fileHelper;
+    TextView title_name;
     private View nativeView;
     ProgressBar delete_progress;
-    private PrivacyPresenterMain mainPresenter;
-    TextView file_apk_size, file_zip_size, file_txt_size, file_music_size, file_video_size, file_qita_size;
-    LinearLayout ll_ad;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_file);
-        mainPresenter = new PrivacyPresenterMain(this, this);
-        mainPresenter.init();
-        title_name.setText(R.string.side_file);
-        fileHelper = new PhoneFileCategoryHelper(this);
-        mHandler = new Handler();
-        initAd();
-        initData();
-    }
-
-    @Override
-    protected void findId() {
-        super.findId();
-        title_left = (FrameLayout) findViewById(R.id.title_left);
-        title_name = (TextView) findViewById(R.id.title_name);
-        file_used = (TextView) findViewById(R.id.file_used);
-        file_zip_size = (TextView) findViewById(R.id.file_zip_size);
-        file_apk_size = (TextView) findViewById(R.id.file_apk_size);
-        delete_progress = (ProgressBar) findViewById(R.id.delete_progress);
-        file_txt_size = (TextView) findViewById(R.id.file_txt_size);
-        file_music_size = (TextView) findViewById(R.id.file_music_size);
-        file_video_size = (TextView) findViewById(R.id.file_video_size);
-        file_qita_size = (TextView) findViewById(R.id.file_qita_size);
-        file_apk_button = (LinearLayout) findViewById(R.id.file_apk_button);
-        file_zip_button = (LinearLayout) findViewById(R.id.file_zip_button);
-        file_txt_button = (LinearLayout) findViewById(R.id.file_txt_button);
-        file_music_button = (LinearLayout) findViewById(R.id.file_music_button);
-        file_video_button = (LinearLayout) findViewById(R.id.file_video_button);
-        file_other_button = (LinearLayout) findViewById(R.id.file_other_button);
-        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        String[] arr = size.split("/");
-
-//        file_total.setText(arr[1] + "B ");
-        Double.valueOf(arr[1].substring(0, arr[1].length() - 1));
-        double d = Double.valueOf(arr[0].substring(0, arr[0].length() - 1)) / Double.valueOf(arr[1].substring(0, arr[1].length() - 1)) * 100;
-
-        file_used.setText(new java.text.DecimalFormat("#.00").format(Double.valueOf(arr[1].substring(0, arr[1].length() - 1)) - Double.valueOf(arr[0].substring(0, arr[0].length() - 1)))
-                + arr[1].substring(arr[1].length() - 1, arr[1].length()) + "B");
-        delete_progress.setProgress((int) d);
-        delete_progress.setMax(100);
-    }
 
     private void initData() {
         new Thread(new Runnable() {
@@ -121,9 +69,58 @@ public class BoostFileManagerActivity extends BaseActivity implements MainViewPr
         }).start();
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_file);
+        mainPresenter = new PresenterMainBoost(this, this);
+        mainPresenter.init();
+        title_name.setText(R.string.side_file);
+        fileHelper = new PhoneFileCategoryHelper(this);
+        mHandler = new Handler();
+        initAd();
+        initData();
+    }
+
+    @Override
+    protected void findId() {
+        super.findId();
+        title_left = (FrameLayout) findViewById(R.id.title_left);
+        title_name = (TextView) findViewById(R.id.title_name);
+        file_used = (TextView) findViewById(R.id.file_used);
+        file_zip_size = (TextView) findViewById(R.id.file_zip_size);
+        file_apk_size = (TextView) findViewById(R.id.file_apk_size);
+        delete_progress = (ProgressBar) findViewById(R.id.delete_progress);
+        file_txt_size = (TextView) findViewById(R.id.file_txt_size);
+        file_music_size = (TextView) findViewById(R.id.file_music_size);
+        file_video_size = (TextView) findViewById(R.id.file_video_size);
+        file_qita_size = (TextView) findViewById(R.id.file_qita_size);
+        file_apk_button = (LinearLayout) findViewById(R.id.file_apk_button);
+        file_zip_button = (LinearLayout) findViewById(R.id.file_zip_button);
+        file_txt_button = (LinearLayout) findViewById(R.id.file_txt_button);
+        file_music_button = (LinearLayout) findViewById(R.id.file_music_button);
+        file_video_button = (LinearLayout) findViewById(R.id.file_video_button);
+        file_other_button = (LinearLayout) findViewById(R.id.file_other_button);
+        ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String[] arr = size.split("/");
+
+        Double.valueOf(arr[1].substring(0, arr[1].length() - 1));
+        double d = Double.valueOf(arr[0].substring(0, arr[0].length() - 1)) / Double.valueOf(arr[1].substring(0, arr[1].length() - 1)) * 100;
+
+        file_used.setText(new java.text.DecimalFormat("#.00").format(Double.valueOf(arr[1].substring(0, arr[1].length() - 1)) - Double.valueOf(arr[0].substring(0, arr[0].length() - 1)))
+                + arr[1].substring(arr[1].length() - 1, arr[1].length()) + "B");
+        delete_progress.setProgress((int) d);
+        delete_progress.setMax(100);
+    }
+
     private void initAd() {
 
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_FILE, 0) == 1) {
+        if (PreData.getDB(this, BoostMyConstant.FULL_FILE, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_FILE, R.layout.native_ad_4);
@@ -233,13 +230,6 @@ public class BoostFileManagerActivity extends BaseActivity implements MainViewPr
     @Override
     public void initSd(final int perent, final String size, final long sd_kongxian) {
         this.size = size;
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-                Log.e("file", "====" + perent + "==size=" + size + "===" + sd_kongxian);
-            }
-        });
     }
 
     @Override

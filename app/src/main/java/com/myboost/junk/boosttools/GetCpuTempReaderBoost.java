@@ -1,4 +1,4 @@
-package com.myboost.junk.toolsprivacy;
+package com.myboost.junk.boosttools;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -7,8 +7,8 @@ import android.util.Log;
 import java.io.FileNotFoundException;
 import java.util.concurrent.Executors;
 
-public class PrivacyGetCpuTempReader {
-    public static final String TAG = PrivacyGetCpuTempReader.class.getSimpleName();
+public class GetCpuTempReaderBoost {
+    public static final String TAG = GetCpuTempReaderBoost.class.getSimpleName();
 
     public static final String[] CPU_TEMP_FILE_PATHS = new String[]{
             "/sys/devices/system/cpu/cpu0/cpufreq/cpu_temp"

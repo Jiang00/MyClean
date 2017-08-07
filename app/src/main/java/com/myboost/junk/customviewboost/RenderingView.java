@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.myboost.junk.privacyservices;
+package com.myboost.junk.servicesboost;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
@@ -33,17 +33,17 @@ import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.activityprivacy.BoostNotifingActivity;
-import com.myboost.junk.activityprivacy.MainActivity;
-import com.myboost.junk.activityprivacy.MyApplication;
-import com.myboost.junk.activityprivacy.BatteriesActivityBoost;
-import com.myboost.junk.activityprivacy.MemoryAvtivityBoost;
-import com.myboost.junk.activityprivacy.RubbishAndRamActivityBoost;
-import com.myboost.junk.activityprivacy.SucceedActivityBoost;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.PhonesManager;
-import com.myboost.junk.toolsprivacy.PrivacyGetCpuTempReader;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boostactivity.BoostNotifingActivity;
+import com.myboost.junk.boostactivity.MainActivity;
+import com.myboost.junk.boostactivity.MyApplication;
+import com.myboost.junk.boostactivity.BatteriesActivityBoost;
+import com.myboost.junk.boostactivity.MemoryAvtivityBoost;
+import com.myboost.junk.boostactivity.RubbishAndRamActivityBoost;
+import com.myboost.junk.boostactivity.SucceedActivityBoost;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.PhonesManager;
+import com.myboost.junk.boosttools.GetCpuTempReaderBoost;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 
 import java.util.ArrayList;
 
@@ -362,9 +362,9 @@ public class NotificationServiceBoost extends Service {
 
         final int memory = MyUtils.getMemory(this);
         //cpu温度
-        PrivacyGetCpuTempReader.getCPUTemp(new PrivacyGetCpuTempReader.TemperatureResultCallback() {
+        GetCpuTempReaderBoost.getCPUTemp(new GetCpuTempReaderBoost.TemperatureResultCallback() {
             @Override
-            public void callbackResult(PrivacyGetCpuTempReader.ResultCpuTemperature result) {
+            public void callbackResult(GetCpuTempReaderBoost.ResultCpuTemperature result) {
                 if (result != null) {
                     cpuTemp = (int) result.getTemperature();
                 } else {
@@ -405,69 +405,69 @@ public class NotificationServiceBoost extends Service {
             }
         });
         long time = System.currentTimeMillis();
-        if (PreData.getDB(this, MyConstantPrivacy.TONGZHI_SWITCH, true)) {
+        if (PreData.getDB(this, BoostMyConstant.TONGZHI_SWITCH, true)) {
             int hh = Integer.parseInt(MyUtils.getStrTimeHH(time));
             //ram
-            if (hh >= 6 && hh < 12 && PreData.getDB(this, MyConstantPrivacy.KEY_TONGZHI_ZAO_RAM, true)) {
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_RAM, true);
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_WAN_RAM, true);
+            if (hh >= 6 && hh < 12 && PreData.getDB(this, BoostMyConstant.KEY_TONGZHI_ZAO_RAM, true)) {
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZHONG_RAM, true);
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_WAN_RAM, true);
                 if (memory > 70) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
                     SetAdUtilPrivacy.track("通知栏", "内存通知", "展示", 1);
-                    PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZAO_RAM, false);
+                    PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZAO_RAM, false);
                 }
                 return;
-            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_RAM, true)) {
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZAO_RAM, true);
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_WAN_RAM, true);
+            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, BoostMyConstant.KEY_TONGZHI_ZHONG_RAM, true)) {
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZAO_RAM, true);
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_WAN_RAM, true);
                 if (memory > 70) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
                     SetAdUtilPrivacy.track("通知栏", "内存通知", "展示", 1);
-                    PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_RAM, false);
+                    PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZHONG_RAM, false);
                 }
                 return;
-            } else if (hh >= 18 && PreData.getDB(this, MyConstantPrivacy.KEY_TONGZHI_WAN_RAM, true)) {
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZAO_RAM, true);
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_RAM, true);
+            } else if (hh >= 18 && PreData.getDB(this, BoostMyConstant.KEY_TONGZHI_WAN_RAM, true)) {
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZAO_RAM, true);
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZHONG_RAM, true);
                 if (memory > 70) {
                     tonghzi_Ram();
                     mNotifyManager.notify(101, notification_ram);
                     SetAdUtilPrivacy.track("通知栏", "内存通知", "展示", 1);
-                    PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_WAN_RAM, false);
+                    PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_WAN_RAM, false);
                 }
                 return;
             }
             //cooling
-            if (hh >= 6 && hh < 12 && PreData.getDB(this, MyConstantPrivacy.KEY_TONGZHI_ZAO_COOLING, true)) {
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_COOLING, true);
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_WAN_COOLING, true);
+            if (hh >= 6 && hh < 12 && PreData.getDB(this, BoostMyConstant.KEY_TONGZHI_ZAO_COOLING, true)) {
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZHONG_COOLING, true);
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_WAN_COOLING, true);
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     SetAdUtilPrivacy.track("通知栏", "降温通知", "展示", 1);
-                    PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZAO_COOLING, false);
+                    PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZAO_COOLING, false);
                 }
                 return;
-            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_COOLING, true)) {
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZAO_COOLING, true);
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_WAN_COOLING, true);
+            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, BoostMyConstant.KEY_TONGZHI_ZHONG_COOLING, true)) {
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZAO_COOLING, true);
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_WAN_COOLING, true);
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     SetAdUtilPrivacy.track("通知栏", "降温通知", "展示", 1);
-                    PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_COOLING, false);
+                    PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZHONG_COOLING, false);
                 }
                 return;
-            } else if (hh >= 18 && PreData.getDB(this, MyConstantPrivacy.KEY_TONGZHI_WAN_COOLING, true)) {
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZAO_COOLING, true);
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_COOLING, true);
+            } else if (hh >= 18 && PreData.getDB(this, BoostMyConstant.KEY_TONGZHI_WAN_COOLING, true)) {
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZAO_COOLING, true);
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZHONG_COOLING, true);
                 if (cpuTemp > 50) {
                     tonghzi_cooling();
                     mNotifyManager.notify(101, notification_cooling);
                     SetAdUtilPrivacy.track("通知栏", "降温通知", "展示", 1);
-                    PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_WAN_COOLING, false);
+                    PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_WAN_COOLING, false);
                 }
                 return;
             }
@@ -475,40 +475,40 @@ public class NotificationServiceBoost extends Service {
             long laji_size = CleanManager.getInstance(this).getApkSize() + CleanManager.getInstance(this).getCacheSize() + CleanManager.getInstance(this).getUnloadSize() + CleanManager.getInstance(this).getLogSize()
                     + CleanManager.getInstance(this).getDataSize() + CleanManager.getInstance(this).getRamSize();
 
-            if (hh >= 6 && hh < 12 && PreData.getDB(this, MyConstantPrivacy.KEY_TONGZHI_ZAO_JUNK, true)) {
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_JUNK, true);
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_WAN_JUNK, true);
+            if (hh >= 6 && hh < 12 && PreData.getDB(this, BoostMyConstant.KEY_TONGZHI_ZAO_JUNK, true)) {
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZHONG_JUNK, true);
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_WAN_JUNK, true);
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk(laji_size);
                     mNotifyManager.notify(101, notification_junk);
                     SetAdUtilPrivacy.track("通知栏", "垃圾通知", "展示", 1);
-                    PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZAO_JUNK, false);
+                    PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZAO_JUNK, false);
                 }
-            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_JUNK, true)) {
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZAO_JUNK, true);
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_WAN_JUNK, true);
+            } else if (hh >= 12 && hh < 18 && PreData.getDB(this, BoostMyConstant.KEY_TONGZHI_ZHONG_JUNK, true)) {
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZAO_JUNK, true);
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_WAN_JUNK, true);
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk(laji_size);
                     mNotifyManager.notify(101, notification_junk);
                     SetAdUtilPrivacy.track("通知栏", "垃圾通知", "展示", 1);
-                    PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_JUNK, false);
+                    PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZHONG_JUNK, false);
                 }
-            } else if (hh >= 18 && PreData.getDB(this, MyConstantPrivacy.KEY_TONGZHI_WAN_JUNK, true)) {
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZAO_JUNK, true);
-                PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_ZHONG_JUNK, true);
+            } else if (hh >= 18 && PreData.getDB(this, BoostMyConstant.KEY_TONGZHI_WAN_JUNK, true)) {
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZAO_JUNK, true);
+                PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_ZHONG_JUNK, true);
                 if (laji_size > 200 * 1024 * 1024) {
                     tonghzi_junk(laji_size);
                     mNotifyManager.notify(101, notification_junk);
                     SetAdUtilPrivacy.track("通知栏", "垃圾通知", "展示", 1);
-                    PreData.putDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_TONGZHI_WAN_JUNK, false);
+                    PreData.putDB(NotificationServiceBoost.this, BoostMyConstant.KEY_TONGZHI_WAN_JUNK, false);
                 }
             }
-            long clean_two_day = PreData.getDB(NotificationServiceBoost.this, MyConstantPrivacy.KEY_CLEAN_TIME, 0l);
+            long clean_two_day = PreData.getDB(NotificationServiceBoost.this, BoostMyConstant.KEY_CLEAN_TIME, 0l);
             if (MyUtils.millTransFate(time - clean_two_day) > 2) {
                 tonghzi_two_day();
                 mNotifyManager.notify(101, notification_two_day);
                 SetAdUtilPrivacy.track("通知栏", "两天唤醒", "展示", 1);
-                PreData.putDB(this, MyConstantPrivacy.KEY_CLEAN_TIME, System.currentTimeMillis());
+                PreData.putDB(this, BoostMyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
             }
         }
     }
@@ -607,7 +607,7 @@ public class NotificationServiceBoost extends Service {
     @Override
     public void onDestroy() {
         // TODO Auto-generated method stub
-        if (!PreData.getDB(this, MyConstantPrivacy.TONGZHILAN_SWITCH, true)) {
+        if (!PreData.getDB(this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
             mNotifyManager.cancel(102);
         }
         myHandler.removeCallbacks(runnableW);

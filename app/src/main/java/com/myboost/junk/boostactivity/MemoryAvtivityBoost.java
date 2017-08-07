@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -20,11 +20,11 @@ import com.android.client.AndroidSdk;
 import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.junk.R;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
-import com.myboost.junk.presenterprivacy.PresenterRamPrivacy;
-import com.myboost.junk.customadapterprivacy.RamAdapter;
-import com.myboost.junk.interfaceviewprivacy.CustomRamView;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.boostpresenter.BoostPresenterRam;
+import com.myboost.junk.customadapterboost.RamAdapter;
+import com.myboost.junk.boostinterfaceview.CustomRamView;
 import com.myboost.clean.utilsprivacy.PreData;
 
 import java.util.List;
@@ -38,29 +38,17 @@ public class MemoryAvtivityBoost extends BaseActivity implements CustomRamView {
     private boolean color2 = true;
     private boolean color3 = true;
     ImageView title_right;
+    TextView junk_button_clean;
+    TextView title_name;
+    private BoostPresenterRam ramPresenter;
+    private RamAdapter adapterRam;
     LinearLayout junk_title_backg;
     FrameLayout title_left;
     TextView junk_unit;
     TextView junk_fangxin;
-    TextView junk_button_clean;
-    TextView title_name;
-    private PresenterRamPrivacy ramPresenter;
-    private RamAdapter adapterRam;
     public Handler myHandler;
     TextView junk_size_all;
     ListView junk_list_all;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_ram);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
-        ramPresenter = new PresenterRamPrivacy(this, this);
-        myHandler = new Handler();
-        ramPresenter.init();
-        title_right.setImageResource(R.mipmap.ram_white);
-        title_right.setVisibility(View.VISIBLE);
-    }
 
     @Override
     public void loadFullAd() {
@@ -86,17 +74,15 @@ public class MemoryAvtivityBoost extends BaseActivity implements CustomRamView {
     }
 
     @Override
-    protected void findId() {
-        super.findId();
-        title_left = (FrameLayout) findViewById(R.id.title_left);
-        title_name = (TextView) findViewById(R.id.title_name);
-        title_right = (ImageView) findViewById(R.id.title_right);
-        junk_title_backg = (LinearLayout) findViewById(R.id.junk_title_backg);
-        junk_size_all = (TextView) findViewById(R.id.junk_size_all);
-        junk_unit = (TextView) findViewById(R.id.junk_unit);
-        junk_fangxin = (TextView) findViewById(R.id.junk_fangxin);
-        junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
-        junk_list_all = (ListView) findViewById(R.id.junk_list_all);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_ram);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        ramPresenter = new BoostPresenterRam(this, this);
+        myHandler = new Handler();
+        ramPresenter.init();
+        title_right.setImageResource(R.mipmap.ram_white);
+        title_right.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -137,7 +123,6 @@ public class MemoryAvtivityBoost extends BaseActivity implements CustomRamView {
                 });
             }
         }).start();
-//        junk_size_all.setText(String.valueOf(memory));
         if (allSize > 1024 * 1024 * 100 && allSize <= 1024 * 1024 * 200) {
             if (color1) {
                 color1 = false;
@@ -146,7 +131,6 @@ public class MemoryAvtivityBoost extends BaseActivity implements CustomRamView {
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-//                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A21));
             }
         } else if (allSize > 1024 * 1024 * 200) {
             if (color2) {
@@ -156,7 +140,6 @@ public class MemoryAvtivityBoost extends BaseActivity implements CustomRamView {
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-//                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A2));
             }
         } else {
             if (color3) {
@@ -166,9 +149,22 @@ public class MemoryAvtivityBoost extends BaseActivity implements CustomRamView {
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-//                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A1));
             }
         }
+    }
+
+    @Override
+    protected void findId() {
+        super.findId();
+        title_left = (FrameLayout) findViewById(R.id.title_left);
+        title_name = (TextView) findViewById(R.id.title_name);
+        title_right = (ImageView) findViewById(R.id.title_right);
+        junk_title_backg = (LinearLayout) findViewById(R.id.junk_title_backg);
+        junk_size_all = (TextView) findViewById(R.id.junk_size_all);
+        junk_unit = (TextView) findViewById(R.id.junk_unit);
+        junk_fangxin = (TextView) findViewById(R.id.junk_fangxin);
+        junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
+        junk_list_all = (ListView) findViewById(R.id.junk_list_all);
     }
 
     @Override
@@ -286,7 +282,7 @@ public class MemoryAvtivityBoost extends BaseActivity implements CustomRamView {
                     break;
 
                 case R.id.junk_button_clean:
-                    PreData.putDB(MemoryAvtivityBoost.this, MyConstantPrivacy.KEY_CLEAN_TIME, System.currentTimeMillis());
+                    PreData.putDB(MemoryAvtivityBoost.this, BoostMyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
                     SetAdUtilPrivacy.track("ram页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     Log.e("aaa", "===ram点击");
@@ -301,9 +297,9 @@ public class MemoryAvtivityBoost extends BaseActivity implements CustomRamView {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            setResult(MyConstantPrivacy.RAM_RESUIL);
+            setResult(BoostMyConstant.RAM_RESUIL);
             onBackPressed();
-        } else if (resultCode == MyConstantPrivacy.WHITE_RESUIL) {
+        } else if (resultCode == BoostMyConstant.WHITE_RESUIL) {
             ramPresenter.addAdapterData();
         }
     }
@@ -320,7 +316,7 @@ public class MemoryAvtivityBoost extends BaseActivity implements CustomRamView {
             SetAdUtilPrivacy.track("通知栏", "跳转垃圾清页面", "", 1);
             jumpTo(MainActivity.class);
         } else {
-            setResult(MyConstantPrivacy.RAM_RESUIL);
+            setResult(BoostMyConstant.RAM_RESUIL);
         }
         finish();
     }

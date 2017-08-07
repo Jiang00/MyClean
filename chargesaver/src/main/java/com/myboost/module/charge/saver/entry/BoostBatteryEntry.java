@@ -10,7 +10,7 @@ import com.android.internal.os.PowerProfile;
 /**
  * Created by song on 16/4/19.
  */
-public class PrivacyBatteryEntry {
+public class BoostBatteryEntry {
     public int status;
     public int scale;
     public int level;
@@ -25,10 +25,10 @@ public class PrivacyBatteryEntry {
     private boolean charging;
     private int averagePercent1ChargingTime;
 
-    LevelStepPrivacy chargingStep;
-    LevelStepPrivacy disChargingStep;
+    LevelStepBoost chargingStep;
+    LevelStepBoost disChargingStep;
 
-    public PrivacyBatteryEntry(Context context, Intent info) {
+    public BoostBatteryEntry(Context context, Intent info) {
         update(info);
         update(context);
         evaluate();
@@ -41,8 +41,8 @@ public class PrivacyBatteryEntry {
         final int chargingCurrent = getElectricCurrent();
         averagePercent1ChargingTime = (capacity / chargingCurrent * 3600) / 100;
 
-        chargingStep = new LevelStepPrivacy();
-        disChargingStep = new LevelStepPrivacy();
+        chargingStep = new LevelStepBoost();
+        disChargingStep = new LevelStepBoost();
 
         chargingStep.start(level);
         disChargingStep.start(level);

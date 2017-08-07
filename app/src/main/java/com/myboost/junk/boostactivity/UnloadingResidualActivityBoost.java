@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,8 +17,8 @@ import com.myboost.clean.utilsprivacy.MemoryManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -28,16 +28,62 @@ import java.util.ArrayList;
  */
 
 public class UnloadingResidualActivityBoost extends BaseActivity {
-    private String TAG_UNLOAD = "cprivacy_unload";
-    TextView tv_size;
-    private ArrayList<JunkInfo> mngList;
+    private String TAG_UNLOAD = "flashclean_unload";
     ImageView iv_cha;
     TextView bt_quxiao, bt_queren;
     private View nativeView;
+    TextView tv_size;
     LinearLayout ll_ad;
     Handler myHandler;
     long size;
+    private ArrayList<JunkInfo> mngList;
     String path;
+
+    View.OnClickListener BtClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.bt_queren:
+                    SetAdUtilPrivacy.track("卸载残余页面", "点击清理", "", 1);
+                    bt_queren.setOnClickListener(null);
+                    Bundle bundle = new Bundle();
+                    bundle.putLong("size", size);
+                    Intent intent = new Intent(UnloadingResidualActivityBoost.this, SucceedActivityBoost.class);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent, 1);
+                    deleteFiles(path);
+                    finish();
+                    break;
+                case R.id.bt_quxiao:
+                case R.id.iv_cha:
+                    SetAdUtilPrivacy.track("卸载残余页面", "点击取消", "", 1);
+                    finish();
+                    break;
+            }
+        }
+    };
+
+    private void addAd() {
+        if (PreData.getDB(this, BoostMyConstant.FULL_UNLOAD, 0) == 1) {
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+
+        } else {
+            nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_4);
+            if (ll_ad != null && nativeView != null) {
+                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
+                if (nativeView.getHeight() == MyUtils.dp2px(250)) {
+                    layout_ad.height = MyUtils.dp2px(250);
+                }
+                ll_ad.setLayoutParams(layout_ad);
+                ll_ad.addView(nativeView);
+            }
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,52 +136,6 @@ public class UnloadingResidualActivityBoost extends BaseActivity {
             return;
         }
         addAd();
-    }
-
-    View.OnClickListener BtClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.bt_queren:
-                    SetAdUtilPrivacy.track("卸载残余页面", "点击清理", "", 1);
-                    bt_queren.setOnClickListener(null);
-                    Bundle bundle = new Bundle();
-                    bundle.putLong("size", size);
-                    Intent intent = new Intent(UnloadingResidualActivityBoost.this, SucceedActivityBoost.class);
-                    intent.putExtras(bundle);
-                    startActivityForResult(intent, 1);
-                    deleteFiles(path);
-                    finish();
-                    break;
-                case R.id.bt_quxiao:
-                case R.id.iv_cha:
-                    SetAdUtilPrivacy.track("卸载残余页面", "点击取消", "", 1);
-                    finish();
-                    break;
-            }
-        }
-    };
-
-    private void addAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_UNLOAD, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-            }, 1000);
-
-        } else {
-            nativeView = SetAdUtilPrivacy.getNativeAdView(TAG_UNLOAD, R.layout.native_ad_4);
-            if (ll_ad != null && nativeView != null) {
-                ViewGroup.LayoutParams layout_ad = ll_ad.getLayoutParams();
-                if (nativeView.getHeight() == MyUtils.dp2px(250)) {
-                    layout_ad.height = MyUtils.dp2px(250);
-                }
-                ll_ad.setLayoutParams(layout_ad);
-                ll_ad.addView(nativeView);
-            }
-        }
     }
 
     public void deleteFiles(String filePath) {

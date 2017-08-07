@@ -20,7 +20,7 @@ import com.myboost.module.charge.saver.R;
  * Created by Switch on 2017/3/10.
  */
 
-public class IndicatorViewPrivacy extends LinearLayout implements ViewPager.OnPageChangeListener {
+public class BoostIndicatorView extends LinearLayout implements ViewPager.OnPageChangeListener {
     /**
      * 需要创建的指示器个数
      */
@@ -93,24 +93,24 @@ public class IndicatorViewPrivacy extends LinearLayout implements ViewPager.OnPa
         this.mListener = listener;
     }
 
-    public IndicatorViewPrivacy(Context context) {
+    public BoostIndicatorView(Context context) {
         this(context, null);
     }
 
-    public IndicatorViewPrivacy(Context context, AttributeSet attrs) {
+    public BoostIndicatorView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public IndicatorViewPrivacy(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BoostIndicatorView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         // 获取自定义属性
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.IndicatorViewPrivacy);
-        normalBp = drawableToBitamp(ta.getDrawable(R.styleable.IndicatorViewPrivacy_normalDrawable));
-        selectBp = drawableToBitamp(ta.getDrawable(R.styleable.IndicatorViewPrivacy_selectDrawable));
-        mInterval = ta.getDimensionPixelOffset(R.styleable.IndicatorViewPrivacy_indicatorInterval, 6);
-        normalColor = ta.getColor(R.styleable.IndicatorViewPrivacy_normalColor, Color.GRAY);
-        selectColor = ta.getColor(R.styleable.IndicatorViewPrivacy_selectColor, Color.RED);
-        mRadius = ta.getInteger(R.styleable.IndicatorViewPrivacy_indicatorRadius, 6);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.BoostIndicatorView);
+        normalBp = drawableToBitamp(ta.getDrawable(R.styleable.BoostIndicatorView_normalDrawable));
+        selectBp = drawableToBitamp(ta.getDrawable(R.styleable.BoostIndicatorView_selectDrawable));
+        mInterval = ta.getDimensionPixelOffset(R.styleable.BoostIndicatorView_indicatorInterval, 6);
+        normalColor = ta.getColor(R.styleable.BoostIndicatorView_normalColor, Color.GRAY);
+        selectColor = ta.getColor(R.styleable.BoostIndicatorView_selectColor, Color.RED);
+        mRadius = ta.getInteger(R.styleable.BoostIndicatorView_indicatorRadius, 6);
         ta.recycle();
         // 初始化
         init();

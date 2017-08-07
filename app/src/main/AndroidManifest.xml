@@ -48,7 +48,7 @@
 
 
     <application
-        android:name="com.myboost.junk.activityprivacy.MyApplication"
+        android:name="com.myboost.junk.boostactivity.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/icon"
@@ -57,12 +57,12 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme,android:supportsRtl,android:icon">
         <activity
-            android:name="com.myboost.junk.activityprivacy.MainActivity"
+            android:name="com.myboost.junk.boostactivity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
 
         <activity
-            android:name="com.myboost.junk.activityprivacy.LoadingActivity"
+            android:name="com.myboost.junk.boostactivity.LoadingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -83,75 +83,75 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.myboost.junk.activityprivacy.BatteriesActivityBoost"
+            android:name="com.myboost.junk.boostactivity.BatteriesActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostRubbishActivity"
+            android:name="com.myboost.junk.boostactivity.BoostRubbishActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.RubbishAndRamActivityBoost"
+            android:name="com.myboost.junk.boostactivity.RubbishAndRamActivityBoost"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostAllAppsActivity"
+            android:name="com.myboost.junk.boostactivity.BoostAllAppsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostPhonesMessageActivity"
+            android:name="com.myboost.junk.boostactivity.BoostPhonesMessageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.MemoryAvtivityBoost"
+            android:name="com.myboost.junk.boostactivity.MemoryAvtivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostSetActivity"
+            android:name="com.myboost.junk.boostactivity.BoostSetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.SucceedActivityBoost"
+            android:name="com.myboost.junk.boostactivity.SucceedActivityBoost"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostIgnoresAvtivity"
+            android:name="com.myboost.junk.boostactivity.BoostIgnoresAvtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.IgnoresAddActivityBoost"
+            android:name="com.myboost.junk.boostactivity.IgnoresAddActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostDeepingActivity"
+            android:name="com.myboost.junk.boostactivity.BoostDeepingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.NotifingAnimationActivityBoost"
+            android:name="com.myboost.junk.boostactivity.NotifingAnimationActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostPermissingActivity"
+            android:name="com.myboost.junk.boostactivity.BoostPermissingActivity"
             android:allowTaskReparenting="true"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostNotifingActivity"
+            android:name="com.myboost.junk.boostactivity.BoostNotifingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.NotifingSettingActivityBoost"
+            android:name="com.myboost.junk.boostactivity.NotifingSettingActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostSuspensionBallActivity"
+            android:name="com.myboost.junk.boostactivity.BoostSuspensionBallActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.UnloadingResidualActivityBoost"
+            android:name="com.myboost.junk.boostactivity.UnloadingResidualActivityBoost"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
 
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostPictActivity"
+            android:name="com.myboost.junk.boostactivity.BoostPictActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.PictHuiActivityBoost"
+            android:name="com.myboost.junk.boostactivity.PictHuiActivityBoost"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostGoodGameActivity"
+            android:name="com.myboost.junk.boostactivity.BoostGoodGameActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -164,7 +164,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.myboost.junk.activityprivacy.ShortCutingActivityBoost"
+            android:name="com.myboost.junk.boostactivity.ShortCutingActivityBoost"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent">
@@ -174,7 +174,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.myboost.junk.privacybroadcasts.BoostUnloadResidualBroadcast">
+        <receiver android:name="com.myboost.junk.boostbroadcasts.BoostUnloadResidualBroadcast">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -185,23 +185,23 @@
         </receiver>
 
         <service
-            android:name="com.myboost.junk.privacyservices.SuspensionBallServiceBoost"
+            android:name="com.myboost.junk.servicesboost.BoostSuspensionBallService"
             android:excludeFromRecents="true" />
         <service
-            android:name="com.myboost.junk.privacyservices.NotificationServiceBoost"
+            android:name="com.myboost.junk.servicesboost.NotificationServiceBoost"
             android:enabled="true"
             android:excludeFromRecents="true" />
 
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostFileManagerActivity"
+            android:name="com.myboost.junk.boostactivity.BoostFileManagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.myboost.junk.activityprivacy.FileActivityBoost"
+            android:name="com.myboost.junk.boostactivity.FileActivityBoost"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name="com.myboost.junk.activityprivacy.BoostDocActivity"
+            android:name="com.myboost.junk.boostactivity.BoostDocActivity"
             android:screenOrientation="portrait" />
 
     </application>

@@ -1,4 +1,4 @@
-package com.myboost.junk.toolsprivacy;
+package com.myboost.junk.boosttools;
 
 import java.io.BufferedReader;
 import java.io.File;

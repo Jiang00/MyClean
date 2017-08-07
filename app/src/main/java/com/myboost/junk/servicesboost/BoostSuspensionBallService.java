@@ -36,7 +36,7 @@ import java.util.List;
  * Created by on 2017/3/7.
  */
 
-public class SuspensionBallServiceBoost extends Service {
+public class BoostSuspensionBallService extends Service {
     private ActivityManager am;
     private GetTopApp topApp;
     private int count = 0;
@@ -58,7 +58,7 @@ public class SuspensionBallServiceBoost extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = FloatStateManagerBoost.getInstance(SuspensionBallServiceBoost.this);
+        manager = FloatStateManagerBoost.getInstance(BoostSuspensionBallService.this);
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -88,7 +88,7 @@ public class SuspensionBallServiceBoost extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mana = (WindowManager) SuspensionBallServiceBoost.this.getSystemService(Context.WINDOW_SERVICE);
+        mana = (WindowManager) BoostSuspensionBallService.this.getSystemService(Context.WINDOW_SERVICE);
         createFullScreenCheckView();
 
     }
@@ -135,23 +135,23 @@ public class SuspensionBallServiceBoost extends Service {
             manager.upDate(memory);
         }
         count--;
-        manager.upDate(MyUtils.getMemory(SuspensionBallServiceBoost.this));
+        manager.upDate(MyUtils.getMemory(BoostSuspensionBallService.this));
         new Thread(new Runnable() {
             @Override
             public void run() {
                 String pkg = topApp.execute();
 //                if (hmoes.contains(pkg)) {
-//                    manager.upDate(MyUtils.getMemory(SuspensionBallServiceBoost.this));
+//                    manager.upDate(MyUtils.getMemory(BoostSuspensionBallService.this));
 //                    manager.addWindowsView();
 //                } else {
 //                    manager.removeWindowsView();
 //                }
                 if (!TextUtils.equals(pkg, runingGboost)) {
                     runingGboost = pkg;
-                    if (PreData.getDB(SuspensionBallServiceBoost.this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
-                        ArrayList<String> gboost_names = CleanDBHelper.getInstance(SuspensionBallServiceBoost.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
+                    if (PreData.getDB(BoostSuspensionBallService.this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
+                        ArrayList<String> gboost_names = CleanDBHelper.getInstance(BoostSuspensionBallService.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
-                            Intent intent = new Intent(SuspensionBallServiceBoost.this, NotificationServiceBoost.class);
+                            Intent intent = new Intent(BoostSuspensionBallService.this, NotificationServiceBoost.class);
                             intent.setAction("gboost");
                             startService(intent);
                         }

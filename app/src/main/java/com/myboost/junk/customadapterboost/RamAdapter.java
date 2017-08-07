@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,21 +15,21 @@ import com.myboost.clean.utilsprivacy.LoadManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.junk.R;
 import com.myboost.clean.entity.JunkInfo;
-import com.myboost.junk.presenterprivacy.PresenterRamPrivacy;
+import com.myboost.junk.boostpresenter.BoostPresenterRam;
 
 import java.util.List;
 
 public class RamAdapter extends MybaseAdapter<JunkInfo> {
     private AlertDialog dialog;
     private List<String> white_list;
-    PresenterRamPrivacy ramPresenter;
+    BoostPresenterRam ramPresenter;
     AllListener listener;
 
     public RamAdapter(Context context) {
         super(context);
     }
 
-    public RamAdapter(Context context, PresenterRamPrivacy ramPresenter) {
+    public RamAdapter(Context context, BoostPresenterRam ramPresenter) {
         super(context);
         this.ramPresenter = ramPresenter;
         white_list = CleanDBHelper.getInstance(context).getWhiteList(CleanDBHelper.TableType.Ram);

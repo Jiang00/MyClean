@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -23,8 +23,8 @@ import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.NotifiAdapterPrivacy;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
+import com.myboost.junk.customadapterboost.NotifiBoostAdapter;
+import com.myboost.junk.boosttools.BoostMyConstant;
 
 import java.util.ArrayList;
 
@@ -33,38 +33,15 @@ import java.util.ArrayList;
  */
 
 public class BoostNotifingActivity extends Activity {
-    private NotifiAdapterPrivacy adapter;
+    private NotifiBoostAdapter adapter;
     private MyApplication myApplication;
     TextView title_name;
-    RelativeLayout notifi_button_rl;
-    FrameLayout title_left;
     TextView white_wu;
     TextView notifi_button_clean;
     ImageView title_right;
+    RelativeLayout notifi_button_rl;
+    FrameLayout title_left;
     ListView list_si;
-
-    public int getStatusHeight(Activity activity) {
-        int result = 0;
-        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            result = getResources().getDimensionPixelSize(resourceId);
-        }
-        return result;
-    }
-
-    protected void findId() {
-        View view_title_bar = findViewById(R.id.view_title_bar);
-        ViewGroup.LayoutParams linearParams = view_title_bar.getLayoutParams();
-        linearParams.height = getStatusHeight(this);
-        view_title_bar.setLayoutParams(linearParams);
-        title_left = (FrameLayout) findViewById(R.id.title_left);
-        list_si = (ListView) findViewById(R.id.list_si);
-        title_name = (TextView) findViewById(R.id.title_name);
-        title_right = (ImageView) findViewById(R.id.title_right);
-        white_wu = (TextView) findViewById(R.id.white_wu);
-        notifi_button_rl = (RelativeLayout) findViewById(R.id.notifi_button_rl);
-        notifi_button_clean = (TextView) findViewById(R.id.notifi_button_clean);
-    }
 
     private void full() {
         setHideVirtualKey(getWindow());
@@ -115,7 +92,7 @@ public class BoostNotifingActivity extends Activity {
         } else {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
-        if (PreData.getDB(this, MyConstantPrivacy.IS_ACTION_BAR, true)) {
+        if (PreData.getDB(this, BoostMyConstant.IS_ACTION_BAR, true)) {
             full();
         }
 
@@ -128,11 +105,34 @@ public class BoostNotifingActivity extends Activity {
         title_right.setImageResource(R.mipmap.notify_more);
         title_right.setVisibility(View.VISIBLE);
         setListener();
-        adapter = new NotifiAdapterPrivacy(this);
+        adapter = new NotifiBoostAdapter(this);
         list_si.setAdapter(adapter);
 
         CleanManager.getInstance(this).addNotificationCallBack(notificationCallBack);
 
+    }
+
+    public int getStatusHeight(Activity activity) {
+        int result = 0;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
+    protected void findId() {
+        View view_title_bar = findViewById(R.id.view_title_bar);
+        ViewGroup.LayoutParams linearParams = view_title_bar.getLayoutParams();
+        linearParams.height = getStatusHeight(this);
+        view_title_bar.setLayoutParams(linearParams);
+        title_left = (FrameLayout) findViewById(R.id.title_left);
+        list_si = (ListView) findViewById(R.id.list_si);
+        title_name = (TextView) findViewById(R.id.title_name);
+        title_right = (ImageView) findViewById(R.id.title_right);
+        white_wu = (TextView) findViewById(R.id.white_wu);
+        notifi_button_rl = (RelativeLayout) findViewById(R.id.notifi_button_rl);
+        notifi_button_clean = (TextView) findViewById(R.id.notifi_button_clean);
     }
 
     NotificationCallBack notificationCallBack = new NotificationCallBack() {
@@ -156,13 +156,6 @@ public class BoostNotifingActivity extends Activity {
         title_left.setOnClickListener(nOnClickListener);
         title_right.setOnClickListener(nOnClickListener);
         notifi_button_clean.setOnClickListener(nOnClickListener);
-//        list_si.setRemoveListener(new DeleteListView.RemoveListener() {
-//            @Override
-//            public void removeItem(DeleteListView.RemoveDirection direction, int position) {
-//                NotificationInfo info = adapter.getItem(position);
-//                CleanManager.getInstance(BoostNotifingActivity.this).notificationChanged(info, false);
-//            }
-//        });
         list_si.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -228,7 +221,7 @@ public class BoostNotifingActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == 1) {
-            if (!PreData.getDB(this, MyConstantPrivacy.KEY_NOTIFI, true)) {
+            if (!PreData.getDB(this, BoostMyConstant.KEY_NOTIFI, true)) {
                 onBackPressed();
             }
         }

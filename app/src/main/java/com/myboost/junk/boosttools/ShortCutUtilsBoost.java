@@ -1,4 +1,4 @@
-package com.myboost.junk.toolsprivacy;
+package com.myboost.junk.boosttools;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -9,9 +9,9 @@ import android.os.Parcelable;
 
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.activityprivacy.ShortCutingActivityBoost;
+import com.myboost.junk.boostactivity.ShortCutingActivityBoost;
 
-public class PrivacyShortCutUtils {
+public class ShortCutUtilsBoost {
 
     // Action 添加Shortcut
     public static final String ACTION_ADD_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
@@ -50,9 +50,9 @@ public class PrivacyShortCutUtils {
             cx.setResult(cx.RESULT_OK, shortcut);
             cx.finish();
         } else {
-            if (PreData.getDB(cx, MyConstantPrivacy.KEY_SHORTCUT, true)) {
+            if (PreData.getDB(cx, BoostMyConstant.KEY_SHORTCUT, true)) {
                 cx.sendBroadcast(shortcut);
-                PreData.putDB(cx, MyConstantPrivacy.KEY_SHORTCUT, false);
+                PreData.putDB(cx, BoostMyConstant.KEY_SHORTCUT, false);
             }
         }
     }

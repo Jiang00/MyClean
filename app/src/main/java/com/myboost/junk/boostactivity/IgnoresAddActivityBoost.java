@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,7 +13,7 @@ import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.IgnoreListViewAdapter;
+import com.myboost.junk.customadapterboost.IgnoreListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,14 +24,33 @@ import java.util.List;
 
 public class IgnoresAddActivityBoost extends BaseActivity {
     EditText search_edit_text;
-    TextView title_name;
-    FrameLayout title_left;
     ListView list_si;
     IgnoreListViewAdapter adapter;
     private List<JunkInfo> white_list, listEdit;
+    TextView title_name;
+    FrameLayout title_left;
     private boolean search;
     private List<String> whiteList;
 
+    View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.title_left:
+                    onBackPressed();
+                    break;
+            }
+        }
+    };
+
+    @Override
+    protected void findId() {
+        super.findId();
+        title_left = (FrameLayout) findViewById(R.id.title_left);
+        title_name = (TextView) findViewById(R.id.title_name);
+        list_si = (ListView) findViewById(R.id.list_si);
+        search_edit_text = (EditText) findViewById(R.id.search_edit_text);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,26 +89,6 @@ public class IgnoresAddActivityBoost extends BaseActivity {
             search = true;
         }
 
-    }
-
-    View.OnClickListener clickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.title_left:
-                    onBackPressed();
-                    break;
-            }
-        }
-    };
-
-    @Override
-    protected void findId() {
-        super.findId();
-        title_left = (FrameLayout) findViewById(R.id.title_left);
-        title_name = (TextView) findViewById(R.id.title_name);
-        list_si = (ListView) findViewById(R.id.list_si);
-        search_edit_text = (EditText) findViewById(R.id.search_edit_text);
     }
 
     private void upData(String string) {

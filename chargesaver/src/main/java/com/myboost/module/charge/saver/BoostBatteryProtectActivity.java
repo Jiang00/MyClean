@@ -14,12 +14,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.myboost.module.charge.saver.entry.PrivacyBatteryEntry;
+import com.myboost.module.charge.saver.entry.BoostBatteryEntry;
 import com.myboost.module.charge.saver.protectview.ProtectBatteryView;
 
-public class BatteryProtectActivityPrivacy extends Activity {
+public class BoostBatteryProtectActivity extends Activity {
     private ProtectBatteryView batteryView;
-    private PrivacyBatteryEntry entry;
+    private BoostBatteryEntry entry;
 
     protected void hideBottomUIMenu() {
         try {
@@ -45,7 +45,7 @@ public class BatteryProtectActivityPrivacy extends Activity {
             batteryView.setUnlockListener(new ProtectBatteryView.UnlockListener() {
                 @Override
                 public void onUnlock() {
-                    BatteryProtectActivityPrivacy.this.finish();
+                    BoostBatteryProtectActivity.this.finish();
                     overridePendingTransition(android.R.anim.fade_in, R.anim.charge_exit);
                 }
             });
@@ -127,7 +127,7 @@ public class BatteryProtectActivityPrivacy extends Activity {
 
     public void batteryChange(Intent intent) {
         if (entry == null) {
-            entry = new PrivacyBatteryEntry(this, intent);
+            entry = new BoostBatteryEntry(this, intent);
         } else {
             entry.update(intent);
             entry.evaluate();

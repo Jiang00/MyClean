@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +9,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.myboost.clean.core.CleanManager;
-import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.clean.entity.JunkInfo;
+import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.IgnoreListViewAdapter;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.customadapterboost.IgnoreListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,27 +25,12 @@ import java.util.List;
 public class BoostIgnoresAvtivity extends BaseActivity {
     IgnoreListViewAdapter adapter;
     TextView white_wu;
-    List<JunkInfo> white_list;
-    ListView listView;
-    TextView title_name;
     ImageView title_right;
     private List<String> whiteList;
     FrameLayout title_left;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_ignore);
-        title_name.setText(R.string.white_list_name);
-        title_right.setVisibility(View.VISIBLE);
-        title_left.setOnClickListener(clickListener);
-        title_right.setOnClickListener(clickListener);
-
-        white_list = new ArrayList<>();
-        adapter = new IgnoreListViewAdapter(this);
-        listView.setAdapter(adapter);
-        initDAta();
-    }
+    List<JunkInfo> white_list;
+    ListView listView;
+    TextView title_name;
 
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
@@ -62,6 +47,28 @@ public class BoostIgnoresAvtivity extends BaseActivity {
         }
     };
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_ignore);
+        title_name.setText(R.string.white_list_name);
+        title_right.setVisibility(View.VISIBLE);
+        title_left.setOnClickListener(clickListener);
+        title_right.setOnClickListener(clickListener);
+
+        white_list = new ArrayList<>();
+        adapter = new IgnoreListViewAdapter(this);
+        listView.setAdapter(adapter);
+        initDAta();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 1) {
+            initDAta();
+        }
+    }
 
     private void initDAta() {
         whiteList = CleanDBHelper.getInstance(this).getWhiteList(CleanDBHelper.TableType.Ram);
@@ -92,16 +99,8 @@ public class BoostIgnoresAvtivity extends BaseActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == 1) {
-            initDAta();
-        }
-    }
-
-    @Override
     public void onBackPressed() {
-        setResult(MyConstantPrivacy.WHITE_RESUIL);
+        setResult(BoostMyConstant.WHITE_RESUIL);
         finish();
     }
 }

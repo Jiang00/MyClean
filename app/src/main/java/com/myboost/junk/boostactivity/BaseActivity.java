@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.android.client.AndroidSdk;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
 
 /**
  * Created by on 2017/2/28.
@@ -27,10 +27,10 @@ import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
 public class BaseActivity extends AppCompatActivity {
     protected String extraData;
     private Toast toast;
-    protected boolean onDestroyed = false;
-    View view_title_bar;
     protected boolean onPause = false;
     protected boolean onResume = false;
+    protected boolean onDestroyed = false;
+    View view_title_bar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,9 +42,12 @@ public class BaseActivity extends AppCompatActivity {
         } else {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
-        if (PreData.getDB(this, MyConstantPrivacy.IS_ACTION_BAR, true)) {
+        if (PreData.getDB(this, BoostMyConstant.IS_ACTION_BAR, true)) {
             full();
         }
+    }
+
+    protected void findId() {
 
     }
 
@@ -56,24 +59,6 @@ public class BaseActivity extends AppCompatActivity {
         linearParams.height = getStatusHeight(this);
         view_title_bar.setLayoutParams(linearParams);
         findId();
-    }
-
-    protected void findId() {
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        onPause = false;
-        onResume = true;
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        onPause = true;
-        onResume = false;
     }
 
     public int getStatusHeight(Activity activity) {
@@ -104,6 +89,20 @@ public class BaseActivity extends AppCompatActivity {
     public void jumpTo(Class<?> classs) {
         Intent intent = new Intent(this, classs);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onPause = false;
+        onResume = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        onPause = true;
+        onResume = false;
     }
 
     public void jumpToActivity(Class<?> classs, Bundle bundle, int requestCode) {

@@ -1,10 +1,10 @@
-package com.myboost.module.charge.saver.privacyutils;
+package com.myboost.module.charge.saver.boostutils;
 
 /**
  * Created by on 2016/10/27.
  */
 
-public class BatteryConstantsPrivacy {
+public class BoostBatteryConstants {
     public static final String MODULE_FILL_NAME = "battery_charge_saver";
     public static final String CHARGE_SAVER_SWITCH = "_ChargeSaver_";
     public static final String CHARGE_SAVER_TITLE = "_charge_saver_title_";

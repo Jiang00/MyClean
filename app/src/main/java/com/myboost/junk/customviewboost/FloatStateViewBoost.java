@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,7 +18,7 @@ import com.myboost.junk.R;
 /**
  * Created by chengyuan on 16/8/12.
  */
-public class PrivacyFloatStateView extends View {
+public class FloatStateViewBoost extends View {
 
     public static final int STATE_NORMAL = 0;
     public static final int STATE_LEFT = 1;
@@ -36,15 +36,15 @@ public class PrivacyFloatStateView extends View {
     private Bitmap bitmap_right;
 
 
-    public PrivacyFloatStateView(Context context) {
+    public FloatStateViewBoost(Context context) {
         this(context, null);
     }
 
-    public PrivacyFloatStateView(Context context, AttributeSet attrs) {
+    public FloatStateViewBoost(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public PrivacyFloatStateView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FloatStateViewBoost(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
 

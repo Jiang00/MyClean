@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -16,8 +16,8 @@ import com.myboost.junk.R;
 /**
  */
 
-public class NotifiAdapterPrivacy extends MybaseAdapter<NotificationInfo> {
-    public NotifiAdapterPrivacy(Context context) {
+public class NotifiBoostAdapter extends MybaseAdapter<NotificationInfo> {
+    public NotifiBoostAdapter(Context context) {
         super(context);
     }
 

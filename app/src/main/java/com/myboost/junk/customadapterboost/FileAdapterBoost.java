@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -14,19 +14,19 @@ import com.myboost.clean.filemanager.UtilsFile;
 import com.myboost.clean.filemanager.Util;
 import com.myboost.clean.utilsprivacy.LoadManager;
 import com.myboost.junk.R;
-import com.myboost.junk.privacymodel.PrivacyJunkInfo;
+import com.myboost.junk.mymodelboost.BoostJunkInfo;
 
 /**
  */
 
-public class PrivacyFileAdapter extends MybaseAdapter<PrivacyJunkInfo> {
+public class FileAdapterBoost extends MybaseAdapter<BoostJunkInfo> {
     String name;
 
-    public PrivacyFileAdapter(Context context) {
+    public FileAdapterBoost(Context context) {
         super(context);
     }
 
-    public PrivacyFileAdapter(Context context, String name) {
+    public FileAdapterBoost(Context context, String name) {
         super(context);
         this.name = name;
     }
@@ -41,7 +41,7 @@ public class PrivacyFileAdapter extends MybaseAdapter<PrivacyJunkInfo> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final PrivacyJunkInfo info = getItem(position);
+        final BoostJunkInfo info = getItem(position);
         final ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();

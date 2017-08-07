@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -13,7 +13,7 @@ import com.myboost.junk.R;
 /**
  */
 
-public class PrivacyYuanHuView extends View {
+public class YuanHuViewBoost extends View {
     Paint paint;
     Paint paintCrile;
     RectF rectF;
@@ -22,7 +22,7 @@ public class PrivacyYuanHuView extends View {
     Canvas canvas;
     int startDuShu;
 
-    public PrivacyYuanHuView(Context context, @Nullable AttributeSet attrs) {
+    public YuanHuViewBoost(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         init();

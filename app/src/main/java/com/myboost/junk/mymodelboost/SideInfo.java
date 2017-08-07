@@ -1,4 +1,4 @@
-package com.myboost.junk.privacymodel;
+package com.myboost.junk.mymodelboost;
 
 /**
  * Created by on 2017/5/22.

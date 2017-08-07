@@ -1,4 +1,4 @@
-package com.myboost.junk.presenterprivacy;
+package com.myboost.junk.boostpresenter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.myboost.clean.utilsprivacy.MyUtils;
-import com.myboost.junk.activityprivacy.BoostSuspensionBallActivity;
-import com.myboost.junk.privacycustomview.PrivacyFloatStateView;
+import com.myboost.junk.boostactivity.BoostSuspensionBallActivity;
+import com.myboost.junk.customviewboost.FloatStateViewBoost;
 
 /**
  * 浮窗管理者的创建(单例)
@@ -25,11 +25,11 @@ import com.myboost.junk.privacycustomview.PrivacyFloatStateView;
  * <p>
  * Created by chengyuan on 16/8/12.
  */
-public class PrivacyFloatStateManager {
+public class FloatStateManagerBoost {
     private Context context;
     private WindowManager wm; // 通过这个windowManager来操控浮窗体的显示和隐藏以及位置的改变
 
-    private PrivacyFloatStateView circleView;
+    private FloatStateViewBoost circleView;
     //    private FloatMenuView menuView;
     private WindowManager.LayoutParams params;
     Handler myHandler;
@@ -59,7 +59,7 @@ public class PrivacyFloatStateManager {
                     if (Math.abs(end - x0) < 50 && Math.abs(endY - y0) < 50) {
                         break;
                     }
-                    circleView.setDragState(PrivacyFloatStateView.STATE_NORMAL);
+                    circleView.setDragState(FloatStateViewBoost.STATE_NORMAL);
                     params.x += dx;
                     params.y += dy;
                     try {
@@ -73,10 +73,10 @@ public class PrivacyFloatStateManager {
                     float endX = event.getRawX();
                     if (endX > getScreenWidth() / 2) {
                         params.x = getScreenWidth() - circleView.width;
-                        circleView.setDragState(PrivacyFloatStateView.STATE_RIGHT);
+                        circleView.setDragState(FloatStateViewBoost.STATE_RIGHT);
                     } else {
                         params.x = 0;
-                        circleView.setDragState(PrivacyFloatStateView.STATE_LEFT);
+                        circleView.setDragState(FloatStateViewBoost.STATE_LEFT);
                     }
 
                     try {
@@ -103,10 +103,10 @@ public class PrivacyFloatStateManager {
         }
     };
 
-    private PrivacyFloatStateManager(final Context context) {
+    private FloatStateManagerBoost(final Context context) {
         this.context = context.getApplicationContext();
         wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        circleView = new PrivacyFloatStateView(context);
+        circleView = new FloatStateViewBoost(context);
         circleView.setOnTouchListener(circleViewTouchListener);
         if (myHandler == null) {
             myHandler = new Handler(Looper.getMainLooper());
@@ -128,7 +128,7 @@ public class PrivacyFloatStateManager {
         });
     }
 
-    private static PrivacyFloatStateManager instance;
+    private static FloatStateManagerBoost instance;
 
     public int getScreenWidth() {
         return wm.getDefaultDisplay().getWidth();
@@ -138,9 +138,9 @@ public class PrivacyFloatStateManager {
         return wm.getDefaultDisplay().getHeight();
     }
 
-    public static PrivacyFloatStateManager getInstance(Context context) {
+    public static FloatStateManagerBoost getInstance(Context context) {
         if (instance == null) {
-            instance = new PrivacyFloatStateManager(context);
+            instance = new FloatStateManagerBoost(context);
         }
         return instance;
     }

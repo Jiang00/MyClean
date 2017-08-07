@@ -1,4 +1,4 @@
-package com.myboost.junk.presenterprivacy;
+package com.myboost.junk.boostpresenter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,9 +8,9 @@ import android.util.DisplayMetrics;
 
 import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.PrivacyGetCpuTempReader;
-import com.myboost.junk.interfaceviewprivacy.MainViewPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.GetCpuTempReaderBoost;
+import com.myboost.junk.boostinterfaceview.BoostMainView;
 import com.myboost.clean.utilsprivacy.MemoryManager;
 import com.myboost.clean.utilsprivacy.PreData;
 
@@ -20,7 +20,7 @@ import java.lang.reflect.Field;
  * Created by on 2017/3/2.
  */
 
-public class PrivacyPresenterMain extends PresenterBasePrivacy<MainViewPrivacy> {
+public class PresenterMainBoost extends BoostPresenterBase<BoostMainView> {
     private int cpuTemp = 40;
 
 
@@ -45,9 +45,9 @@ public class PrivacyPresenterMain extends PresenterBasePrivacy<MainViewPrivacy> 
                 }
 
                 //cpu温度
-                PrivacyGetCpuTempReader.getCPUTemp(new PrivacyGetCpuTempReader.TemperatureResultCallback() {
+                GetCpuTempReaderBoost.getCPUTemp(new GetCpuTempReaderBoost.TemperatureResultCallback() {
                     @Override
-                    public void callbackResult(PrivacyGetCpuTempReader.ResultCpuTemperature result) {
+                    public void callbackResult(GetCpuTempReaderBoost.ResultCpuTemperature result) {
                         if (result != null) {
                             cpuTemp = (int) result.getTemperature();
                         } else {
@@ -64,7 +64,7 @@ public class PrivacyPresenterMain extends PresenterBasePrivacy<MainViewPrivacy> 
 
     }
 
-    public PrivacyPresenterMain(MainViewPrivacy iView, Context context) {
+    public PresenterMainBoost(BoostMainView iView, Context context) {
         super(iView, context);
         this.iView = iView;
         this.context = context;
@@ -120,12 +120,12 @@ public class PrivacyPresenterMain extends PresenterBasePrivacy<MainViewPrivacy> 
         if (isGood) {
             goToGooglePlay();
         }
-        PreData.putDB(context, MyConstantPrivacy.IS_ROTATE, true);
+        PreData.putDB(context, BoostMyConstant.IS_ROTATE, true);
         setRotateGone();
     }
 
     public void setRotateGone() {
-        if (PreData.getDB(context, MyConstantPrivacy.IS_ROTATE, false)) {
+        if (PreData.getDB(context, BoostMyConstant.IS_ROTATE, false)) {
             iView.setRotateGone();
         }
     }

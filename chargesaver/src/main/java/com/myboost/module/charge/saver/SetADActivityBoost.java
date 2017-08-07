@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.Window;
 
 import com.android.client.AndroidSdk;
-import com.myboost.module.charge.saver.privacyutils.PrivacyADRequest;
+import com.myboost.module.charge.saver.boostutils.BoostADRequest;
 
-public class PrivacySetADActivity extends Activity {
+public class SetADActivityBoost extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
         AndroidSdk.onResume(this);
-        PrivacyADRequest.showFullAD();
+        BoostADRequest.showFullAD();
     }
 
     @Override
@@ -26,7 +26,7 @@ public class PrivacySetADActivity extends Activity {
         getWindow().getDecorView().setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                PrivacySetADActivity.this.finish();
+                SetADActivityBoost.this.finish();
                 return true;
             }
         });

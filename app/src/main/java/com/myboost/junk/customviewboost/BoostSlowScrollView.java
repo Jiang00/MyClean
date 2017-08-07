@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -10,21 +10,21 @@ import android.widget.Scroller;
  * Created by on 2017/1/12.
  */
 
-public class PrivacySlowScrollView extends ScrollView {
+public class BoostSlowScrollView extends ScrollView {
 
     private Scroller mScroller;
 
-    public PrivacySlowScrollView(Context context) {
+    public BoostSlowScrollView(Context context) {
         super(context);
         mScroller = new Scroller(context);
     }
 
-    public PrivacySlowScrollView(Context context, AttributeSet attrs) {
+    public BoostSlowScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mScroller = new Scroller(context);
     }
 
-    public PrivacySlowScrollView(Context context, AttributeSet attrs, int defStyle) {
+    public BoostSlowScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mScroller = new Scroller(context);
     }

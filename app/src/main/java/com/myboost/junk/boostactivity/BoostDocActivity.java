@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -27,10 +27,10 @@ import com.myboost.clean.filemanager.PhoneFileCategoryHelper;
 import com.myboost.clean.filemanager.Util;
 import com.myboost.clean.filemanager.UtilsFile;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.PrivacyFileAdapter;
-import com.myboost.junk.privacymodel.PrivacyJunkInfo;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.customadapterboost.FileAdapterBoost;
+import com.myboost.junk.mymodelboost.BoostJunkInfo;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 
 import java.util.ArrayList;
 
@@ -38,82 +38,30 @@ import java.util.ArrayList;
  */
 
 public class BoostDocActivity extends BaseActivity {
-    private String TAG_FILE_2 = "cprivacy_file_2";
+    private String TAG_FILE_2 = "flashclean_file_2";
     private static final String TAG = "BoostDocActivity";
     ProgressBar file_progressbar;
     RelativeLayout file_clean_rl;
-    private View nativeView;
-    private ArrayList<PrivacyJunkInfo> docList, txtList, pdfList;
     private Handler mHandler;
     TextView file_button_clean;
     ViewPager doc_view_pager;
     FrameLayout title_left;
+    private View nativeView;
+    private ArrayList<BoostJunkInfo> docList, txtList, pdfList;
+    private View view_txt;
+    private View view_doc;
+    private View view_pdf;
+    private LinearLayout ll_ad;
     TabLayout view_pager_tab;
     LinearLayout null_ll;
     FrameLayout file_fl;
-    PrivacyFileAdapter adapter_doc, adapter_txt, adapter_pdf;
+    FileAdapterBoost adapter_doc, adapter_txt, adapter_pdf;
+    private PhoneFileCategoryHelper.FileCategory fc_clean;
     private AlertDialog dialog;
     TextView title_name;
     private PhoneFileCategoryHelper fileHelper;
     private ArrayList<String> titleList;
     private ArrayList<View> viewList;
-    private PhoneFileCategoryHelper.FileCategory fc_clean;
-    private View view_txt;
-    private View view_doc;
-    private View view_pdf;
-    private LinearLayout ll_ad;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_file_doc);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
-        title_name.setText(R.string.file_txt);
-        loadAd();
-        setListenet();
-        if (0 == getIntent().getIntExtra("count", 1)) {
-            null_ll.setVisibility(View.VISIBLE);
-            file_fl.setVisibility(View.GONE);
-            return;
-        }
-        mHandler = new Handler();
-        fileHelper = new PhoneFileCategoryHelper(this);
-        adapter_doc = new PrivacyFileAdapter(this);
-        adapter_txt = new PrivacyFileAdapter(this);
-        adapter_pdf = new PrivacyFileAdapter(this);
-        docList = new ArrayList<>();
-        txtList = new ArrayList<>();
-        pdfList = new ArrayList<>();
-        viewList = new ArrayList<>();
-        initData();
-
-    }
-
-    private void initCur() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                queryData(PhoneFileCategoryHelper.FileCategory.Word, docList);
-                queryData(PhoneFileCategoryHelper.FileCategory.Txt, txtList);
-                queryData(PhoneFileCategoryHelper.FileCategory.Pdf, pdfList);
-                mHandler.post(new Runnable() {
-                    public void run() {
-                        file_progressbar.setVisibility(View.GONE);
-                        adapter_doc.upList(docList);
-                        adapter_doc.notifyDataSetChanged();
-                        adapter_txt.upList(txtList);
-                        adapter_txt.notifyDataSetChanged();
-                        adapter_pdf.upList(pdfList);
-                        adapter_pdf.notifyDataSetChanged();
-                    }
-                });
-            }
-        }).start();
-
-    }
-
-    private void initPdf() {
-    }
 
     private void initData() {
         initCur();
@@ -179,6 +127,58 @@ public class BoostDocActivity extends BaseActivity {
         file_fl = (FrameLayout) findViewById(R.id.file_fl);
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_file_doc);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        title_name.setText(R.string.file_txt);
+        loadAd();
+        setListenet();
+        if (0 == getIntent().getIntExtra("count", 1)) {
+            null_ll.setVisibility(View.VISIBLE);
+            file_fl.setVisibility(View.GONE);
+            return;
+        }
+        mHandler = new Handler();
+        fileHelper = new PhoneFileCategoryHelper(this);
+        adapter_doc = new FileAdapterBoost(this);
+        adapter_txt = new FileAdapterBoost(this);
+        adapter_pdf = new FileAdapterBoost(this);
+        docList = new ArrayList<>();
+        txtList = new ArrayList<>();
+        pdfList = new ArrayList<>();
+        viewList = new ArrayList<>();
+        initData();
+
+    }
+
+    private void initCur() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                queryData(PhoneFileCategoryHelper.FileCategory.Word, docList);
+                queryData(PhoneFileCategoryHelper.FileCategory.Txt, txtList);
+                queryData(PhoneFileCategoryHelper.FileCategory.Pdf, pdfList);
+                mHandler.post(new Runnable() {
+                    public void run() {
+                        file_progressbar.setVisibility(View.GONE);
+                        adapter_doc.upList(docList);
+                        adapter_doc.notifyDataSetChanged();
+                        adapter_txt.upList(txtList);
+                        adapter_txt.notifyDataSetChanged();
+                        adapter_pdf.upList(pdfList);
+                        adapter_pdf.notifyDataSetChanged();
+                    }
+                });
+            }
+        }).start();
+
+    }
+
+    private void initPdf() {
+    }
+
     private void initDoc() {
         ListView listView_doc = (ListView) view_doc.findViewById(R.id.file_list);
         ListView listView_txt = (ListView) view_txt.findViewById(R.id.file_list);
@@ -201,7 +201,7 @@ public class BoostDocActivity extends BaseActivity {
     }
 
     private void loadAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_FILE_2, 0) == 1) {
+        if (PreData.getDB(this, BoostMyConstant.FULL_FILE_2, 0) == 1) {
             AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
         } else {
             addAd();
@@ -221,24 +221,24 @@ public class BoostDocActivity extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.file_button_clean:
-                    ArrayList<PrivacyJunkInfo> deleteList = new ArrayList<>();
+                    ArrayList<BoostJunkInfo> deleteList = new ArrayList<>();
                     if (doc_view_pager.getCurrentItem() == 0) {
                         fc_clean = PhoneFileCategoryHelper.FileCategory.Word;
-                        for (PrivacyJunkInfo info : docList) {
+                        for (BoostJunkInfo info : docList) {
                             if (info.isChecked) {
                                 deleteList.add(info);
                             }
                         }
                     } else if (doc_view_pager.getCurrentItem() == 1) {
                         fc_clean = PhoneFileCategoryHelper.FileCategory.Txt;
-                        for (PrivacyJunkInfo info : txtList) {
+                        for (BoostJunkInfo info : txtList) {
                             if (info.isChecked) {
                                 deleteList.add(info);
                             }
                         }
                     } else {
                         fc_clean = PhoneFileCategoryHelper.FileCategory.Pdf;
-                        for (PrivacyJunkInfo info : pdfList) {
+                        for (BoostJunkInfo info : pdfList) {
                             if (info.isChecked) {
                                 deleteList.add(info);
                             }
@@ -250,7 +250,7 @@ public class BoostDocActivity extends BaseActivity {
         }
     };
 
-    private void showDia(final ArrayList<PrivacyJunkInfo> deleteList) {
+    private void showDia(final ArrayList<BoostJunkInfo> deleteList) {
         if (deleteList.size() == 0) {
             showToast(getString(R.string.delete));
             return;
@@ -270,7 +270,7 @@ public class BoostDocActivity extends BaseActivity {
             public void onClick(View v) {
                 dialog.dismiss();
                 long size = 0;
-                for (PrivacyJunkInfo info : deleteList) {
+                for (BoostJunkInfo info : deleteList) {
                     size += info.size;
                     UtilsFile.deleteCo(BoostDocActivity.this, fc_clean, info._id);
                 }
@@ -278,7 +278,7 @@ public class BoostDocActivity extends BaseActivity {
                     @Override
                     public void run() {
                         super.run();
-                        for (PrivacyJunkInfo info : deleteList) {
+                        for (BoostJunkInfo info : deleteList) {
                             boolean deleteSuce = UtilsFile.deleteFile(BoostDocActivity.this, info.path);
                             if (!deleteSuce) {
                                 android.util.Log.e(TAG, "delete fail --" + info.path);
@@ -310,7 +310,7 @@ public class BoostDocActivity extends BaseActivity {
         });
     }
 
-    private void queryData(PhoneFileCategoryHelper.FileCategory fc, ArrayList<PrivacyJunkInfo> list) {
+    private void queryData(PhoneFileCategoryHelper.FileCategory fc, ArrayList<BoostJunkInfo> list) {
         Cursor cursorDoc = fileHelper.query(fc, FileSortHelper.SortMethod.size);
         if (cursorDoc != null && cursorDoc.moveToFirst()) {
             do {
@@ -327,7 +327,7 @@ public class BoostDocActivity extends BaseActivity {
                 } else if (fc == PhoneFileCategoryHelper.FileCategory.Pdf) {
                     icon = ContextCompat.getDrawable(BoostDocActivity.this, R.mipmap.file_doc_icon);
                 }
-                list.add(new PrivacyJunkInfo(_id, icon, Util.getNameFromFilepath(cursorDoc.getString(PhoneFileCategoryHelper.COLUMN_PATH)),
+                list.add(new BoostJunkInfo(_id, icon, Util.getNameFromFilepath(cursorDoc.getString(PhoneFileCategoryHelper.COLUMN_PATH)),
                         cursorDoc.getString(PhoneFileCategoryHelper.COLUMN_PATH), size, false));
             } while (cursorDoc.moveToNext());
             cursorDoc.close();

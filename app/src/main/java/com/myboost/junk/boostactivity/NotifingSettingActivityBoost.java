@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,12 +9,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.myboost.clean.core.CleanManager;
+import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.PrivacyNotifiSettingAdapter;
-import com.myboost.clean.entity.JunkInfo;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.customadapterboost.BoostNotifiSettingAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,14 +28,19 @@ import static com.myboost.clean.privacydb.CleanDBHelper.TableType.Notification;
 public class NotifingSettingActivityBoost extends BaseActivity {
     FrameLayout title_left;
     TextView title_name;
-    ImageView notifi_switch;
-    ListView list_si;
-    View view_set;
     List<String> isnotifiWhiteList = CleanDBHelper.getInstance(this).getWhiteList(Notification);
     RelativeLayout notifi_button_rl, notifi_switch_r;
     MyApplication myApplication;
-    PrivacyNotifiSettingAdapter adapter;
+    ImageView notifi_switch;
+    ListView list_si;
+    View view_set;
+    BoostNotifiSettingAdapter adapter;
     ArrayList<JunkInfo> list;
+
+    private void setListener() {
+        title_left.setOnClickListener(nOnClickListener);
+        notifi_switch.setOnClickListener(nOnClickListener);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,14 +51,14 @@ public class NotifingSettingActivityBoost extends BaseActivity {
         notifi_switch.setVisibility(View.VISIBLE);
         notifi_button_rl.setVisibility(View.GONE);
         notifi_switch_r.setVisibility(View.VISIBLE);
-        if (PreData.getDB(this, MyConstantPrivacy.KEY_NOTIFI, true)) {
+        if (PreData.getDB(this, BoostMyConstant.KEY_NOTIFI, true)) {
             notifi_switch.setImageResource(R.mipmap.side_check_passed);
             view_set.setVisibility(View.GONE);
         } else {
             notifi_switch.setImageResource(R.mipmap.notifi_check_normal);
             view_set.setVisibility(View.VISIBLE);
         }
-        adapter = new PrivacyNotifiSettingAdapter(this);
+        adapter = new BoostNotifiSettingAdapter(this);
         list = CleanManager.getInstance(this).getAppList();
         ArrayList<JunkInfo> listSoft = new ArrayList<>();
         for (JunkInfo info : list) {
@@ -82,11 +87,6 @@ public class NotifingSettingActivityBoost extends BaseActivity {
         notifi_switch_r = (RelativeLayout) findViewById(R.id.notifi_switch_r);
     }
 
-    private void setListener() {
-        title_left.setOnClickListener(nOnClickListener);
-        notifi_switch.setOnClickListener(nOnClickListener);
-    }
-
     View.OnClickListener nOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -95,12 +95,12 @@ public class NotifingSettingActivityBoost extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.notifi_switch:
-                    if (PreData.getDB(NotifingSettingActivityBoost.this, MyConstantPrivacy.KEY_NOTIFI, true)) {
-                        PreData.putDB(NotifingSettingActivityBoost.this, MyConstantPrivacy.KEY_NOTIFI, false);
+                    if (PreData.getDB(NotifingSettingActivityBoost.this, BoostMyConstant.KEY_NOTIFI, true)) {
+                        PreData.putDB(NotifingSettingActivityBoost.this, BoostMyConstant.KEY_NOTIFI, false);
                         notifi_switch.setImageResource(R.mipmap.notifi_check_normal);
                         view_set.setVisibility(View.VISIBLE);
                     } else {
-                        PreData.putDB(NotifingSettingActivityBoost.this, MyConstantPrivacy.KEY_NOTIFI, true);
+                        PreData.putDB(NotifingSettingActivityBoost.this, BoostMyConstant.KEY_NOTIFI, true);
                         notifi_switch.setImageResource(R.mipmap.side_check_passed);
                         view_set.setVisibility(View.GONE);
                     }

@@ -48,7 +48,7 @@
                     android:layout_height="@dimen/d36"
                     android:src="@mipmap/float_wifi" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d27"
@@ -73,7 +73,7 @@
                     android:layout_height="@dimen/d36"
                     android:src="@mipmap/float_liuliang1" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d27"
@@ -98,7 +98,7 @@
                     android:layout_height="@dimen/d36"
                     android:src="@mipmap/float_liangdu_0" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d27"
@@ -123,7 +123,7 @@
                     android:layout_height="@dimen/d36"
                     android:src="@mipmap/float_shengyin" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d27"
@@ -148,7 +148,7 @@
                     android:layout_height="@dimen/d36"
                     android:src="@mipmap/float_gps" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/d27"
@@ -192,77 +192,25 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:id="@+id/float_memory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="77%"
-                    android:textColor="@color/A3"
+                    android:textColor="@color/A5"
                     android:textSize="@dimen/s24"
                     android:visibility="gone" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:id="@+id/float_tishi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/float_yijiasu"
-                    android:textColor="@color/A4"
+                    android:textColor="#b3ffffff"
                     android:textSize="@dimen/s10"
                     android:visibility="gone" />
             </LinearLayout>
-
-            <RelativeLayout
-                android:id="@+id/float_relativelayout2"
-                android:layout_width="@dimen/d84"
-                android:layout_height="@dimen/d84"
-                android:layout_centerInParent="true">
-
-                <ImageView
-                    android:id="@+id/float_xing1"
-                    android:layout_width="@dimen/d8"
-                    android:layout_height="@dimen/d8"
-                    android:layout_marginLeft="@dimen/d60"
-                    android:layout_marginTop="@dimen/d24"
-                    android:src="@mipmap/float_xing" />
-
-                <ImageView
-                    android:id="@+id/float_xing2"
-                    android:layout_width="@dimen/d8"
-                    android:layout_height="@dimen/d8"
-                    android:layout_marginLeft="@dimen/d18"
-                    android:layout_marginTop="@dimen/d44"
-                    android:src="@mipmap/float_xing" />
-
-                <ImageView
-                    android:id="@+id/float_guang1"
-                    android:layout_width="@dimen/d20"
-                    android:layout_height="@dimen/d20"
-                    android:layout_marginLeft="@dimen/d18"
-                    android:src="@mipmap/float_guang" />
-
-                <ImageView
-                    android:id="@+id/float_guang2"
-                    android:layout_width="@dimen/d20"
-                    android:layout_height="@dimen/d20"
-                    android:layout_marginLeft="@dimen/d36"
-                    android:src="@mipmap/float_guang" />
-
-                <ImageView
-                    android:id="@+id/float_guang3"
-                    android:layout_width="@dimen/d20"
-                    android:layout_height="@dimen/d20"
-                    android:layout_marginLeft="@dimen/d70"
-                    android:src="@mipmap/float_guang" />
-
-                <ImageView
-                    android:id="@+id/float_guang4"
-                    android:layout_width="@dimen/d20"
-                    android:layout_height="@dimen/d20"
-                    android:layout_marginLeft="@dimen/d62"
-                    android:src="@mipmap/float_guang" />
-            </RelativeLayout>
-
         </RelativeLayout>
 
         <LinearLayout

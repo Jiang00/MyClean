@@ -1,11 +1,11 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.widget.ImageView;
 
 import com.twee.module.tweenengine.TweenAccessor;
 
 
-public class ImageAccessor implements TweenAccessor<ImageView> {
+public class BoostImageAccessor implements TweenAccessor<ImageView> {
 	public static final int BOUNCE_EFFECT = 1;
 
 	@Override

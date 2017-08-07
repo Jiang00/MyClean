@@ -1,4 +1,4 @@
-package com.myboost.junk.presenterprivacy;
+package com.myboost.junk.boostpresenter;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class BubbleLayoutPrivacy extends View {
+public class BubbleLayoutBoost extends View {
 
     private List<Bubble> bubbles = new ArrayList<Bubble>();
     private Random random = new Random();//生成随机数
@@ -25,17 +25,17 @@ public class BubbleLayoutPrivacy extends View {
     private Bitmap bitmap = null;
     private Bitmap dstBitmap;
 
-    public BubbleLayoutPrivacy(Context context) {
+    public BubbleLayoutBoost(Context context) {
         super(context);
         init();
     }
 
-    public BubbleLayoutPrivacy(Context context, AttributeSet attrs) {
+    public BubbleLayoutBoost(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public BubbleLayoutPrivacy(Context context, AttributeSet attrs, int defStyle) {
+    public BubbleLayoutBoost(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }

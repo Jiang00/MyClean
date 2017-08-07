@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,7 +15,7 @@ import com.myboost.junk.R;
 /**
  */
 
-public class PrivacyMainRoundView extends View {
+public class MainRoundViewBoost extends View {
 
     private Context context;
     private Paint circlePoint;
@@ -28,11 +28,11 @@ public class PrivacyMainRoundView extends View {
     private Bitmap bitmap;
     private Matrix mMatrix;
 
-    public PrivacyMainRoundView(Context context) {
+    public MainRoundViewBoost(Context context) {
         this(context, null);
     }
 
-    public PrivacyMainRoundView(Context context, AttributeSet attrs) {
+    public MainRoundViewBoost(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
@@ -41,7 +41,7 @@ public class PrivacyMainRoundView extends View {
         postInvalidate();
     }
 
-    public PrivacyMainRoundView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MainRoundViewBoost(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
         init();

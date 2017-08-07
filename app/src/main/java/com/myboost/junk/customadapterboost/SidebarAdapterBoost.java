@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,25 +17,25 @@ import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.activityprivacy.BoostDeepingActivity;
-import com.myboost.junk.activityprivacy.BoostNotifingActivity;
-import com.myboost.junk.activityprivacy.BoostPictActivity;
-import com.myboost.junk.activityprivacy.BoostFileManagerActivity;
-import com.myboost.junk.activityprivacy.BoostGoodGameActivity;
-import com.myboost.junk.activityprivacy.MemoryAvtivityBoost;
-import com.myboost.junk.activityprivacy.NotifingAnimationActivityBoost;
-import com.myboost.junk.activityprivacy.BoostRubbishActivity;
-import com.myboost.junk.activityprivacy.BoostSetActivity;
-import com.myboost.junk.privacymodel.SideInfo;
-import com.myboost.junk.privacyservices.SuspensionBallServiceBoost;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.PrivacyUtilGp;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boostactivity.BoostDeepingActivity;
+import com.myboost.junk.boostactivity.BoostNotifingActivity;
+import com.myboost.junk.boostactivity.BoostPictActivity;
+import com.myboost.junk.boostactivity.BoostFileManagerActivity;
+import com.myboost.junk.boostactivity.BoostGoodGameActivity;
+import com.myboost.junk.boostactivity.MemoryAvtivityBoost;
+import com.myboost.junk.boostactivity.NotifingAnimationActivityBoost;
+import com.myboost.junk.boostactivity.BoostRubbishActivity;
+import com.myboost.junk.boostactivity.BoostSetActivity;
+import com.myboost.junk.mymodelboost.SideInfo;
+import com.myboost.junk.servicesboost.BoostSuspensionBallService;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.UtilGpBoost;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
 import com.myboost.module.charge.saver.boostutils.BatteryUtils;
 
 
-public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
+public class SidebarAdapterBoost extends MybaseAdapter<SideInfo> {
     int BATTERY = -1;
     int FLOAT = -1;
     int RAM = -1;
@@ -51,22 +51,22 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
 
     private String powerSize;
 
-    public PrivacySidebarAdapter(Context context) {
+    public SidebarAdapterBoost(Context context) {
         super(context);
         int idx = 0;
         BATTERY = idx++;
         FLOAT = idx++;
         RAM = idx++;
         JUNK = idx++;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstantPrivacy.POWERACTIVITY, 1) != 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, BoostMyConstant.POWERACTIVITY, 1) != 0) {
             POWER = idx++;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstantPrivacy.NOTIFIACTIVITY, 1) != 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, BoostMyConstant.NOTIFIACTIVITY, 1) != 0) {
             NOTIFI = idx++;
         }
         PICTURE = idx++;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, MyConstantPrivacy.FILEACTIVITY, 1) != 0) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && PreData.getDB(context, BoostMyConstant.FILEACTIVITY, 1) != 0) {
             FILE = idx++;
         }
         GBOOST = idx++;
@@ -168,19 +168,19 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
                 BatteryUtils.writeData(context, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false);
             } else {
                 SetAdUtilPrivacy.track("侧边栏", "点击开启充电屏保", "", 1);
-                PreData.putDB(context, MyConstantPrivacy.FIRST_BATTERY, false);
+                PreData.putDB(context, BoostMyConstant.FIRST_BATTERY, false);
                 BatteryUtils.writeData(context, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true);
             }
         } else if (position == FLOAT) {
-            if (PreData.getDB(context, MyConstantPrivacy.FlOAT_SWITCH, true)) {
+            if (PreData.getDB(context, BoostMyConstant.FlOAT_SWITCH, true)) {
                 SetAdUtilPrivacy.track("侧边栏", "点击关闭悬浮窗", "", 1);
-                PreData.putDB(context, MyConstantPrivacy.FlOAT_SWITCH, false);
-                Intent intent1 = new Intent(context, SuspensionBallServiceBoost.class);
+                PreData.putDB(context, BoostMyConstant.FlOAT_SWITCH, false);
+                Intent intent1 = new Intent(context, BoostSuspensionBallService.class);
                 context.stopService(intent1);
             } else {
                 SetAdUtilPrivacy.track("侧边栏", "点击开启悬浮窗", "", 1);
-                PreData.putDB(context, MyConstantPrivacy.FlOAT_SWITCH, true);
-                Intent intent1 = new Intent(context, SuspensionBallServiceBoost.class);
+                PreData.putDB(context, BoostMyConstant.FlOAT_SWITCH, true);
+                Intent intent1 = new Intent(context, BoostSuspensionBallService.class);
                 context.startService(intent1);
             }
         } else if (position == JUNK) {
@@ -197,7 +197,7 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
             ((Activity) context).startActivityForResult(intent4, 1);
         } else if (position == FILE) {
             SetAdUtilPrivacy.track("侧边栏", "点击进入文件管理页面", "", 1);
-            PreData.putDB(context, MyConstantPrivacy.FILE_CLEAN, true);
+            PreData.putDB(context, BoostMyConstant.FILE_CLEAN, true);
             Intent intent5 = new Intent(context, BoostFileManagerActivity.class);
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == POWER) {
@@ -206,8 +206,8 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
             ((Activity) context).startActivityForResult(intent5, 1);
         } else if (position == NOTIFI) {
             SetAdUtilPrivacy.track("侧边栏", "点击进入通知栏页面", "", 1);
-            PreData.putDB(context, MyConstantPrivacy.NOTIFI_CLEAN, true);
-            if (!PreData.getDB(context, MyConstantPrivacy.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(context)) {
+            PreData.putDB(context, BoostMyConstant.NOTIFI_CLEAN, true);
+            if (!PreData.getDB(context, BoostMyConstant.KEY_NOTIFI, true) || !MyUtils.isNotificationListenEnabled(context)) {
                 //通知栏动画
                 Intent intent6 = new Intent(context, NotifingAnimationActivityBoost.class);
                 context.startActivity(intent6);
@@ -218,7 +218,7 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
             }
         } else if (position == GBOOST) {
             SetAdUtilPrivacy.track("侧边栏", "点击进入游戏加速", "", 1);
-            PreData.putDB(context, MyConstantPrivacy.GBOOST_CLEAN, true);
+            PreData.putDB(context, BoostMyConstant.GBOOST_CLEAN, true);
             Intent intent = new Intent(context, BoostGoodGameActivity.class);
             ((Activity) context).startActivityForResult(intent, 1);
         } else if (position == SETTING) {
@@ -227,7 +227,7 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
             ((Activity) context).startActivityForResult(intent9, 1);
         } else if (position == ROTATE) {
             SetAdUtilPrivacy.track("侧边栏", "点击好评", "", 1);
-            PrivacyUtilGp.rate(context);
+            UtilGpBoost.rate(context);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -21,16 +21,15 @@ import android.widget.TextView;
 
 import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.entity.JunkInfo;
-import com.myboost.clean.goodgameprivacy.GameBooster;
 import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.clean.utilsprivacy.LoadManager;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.PrivacyJiaGoodGameAdapter;
-import com.myboost.junk.privacycustomview.GridViewAdAdapterPrivacy;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.PrivacyShortCutUtils;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.boosttools.ShortCutUtilsBoost;
+import com.myboost.junk.customadapterboost.JiaBoostGoodGameAdapter;
+import com.myboost.junk.customviewboost.BoostGridViewAdAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,19 +40,19 @@ import java.util.List;
 
 public class BoostGoodGameActivity extends BaseActivity {
     private static final int ADD_DATA = 0;
-    private GridViewAdAdapterPrivacy gridViewAdAdapter;
+    private BoostGridViewAdAdapter gridViewAdAdapter;
     private ArrayList<String> list;
     private List<JunkInfo> gboost_add, listEdit;
     LinearLayout ll_add_game;
     FrameLayout add_left;
     ListView list_game;
     EditText search_edit_text;
+    private JiaBoostGoodGameAdapter whiteListAdapter;
+    private boolean search;
+    TextView gboost_item_textview;
     TextView game_size;
     FrameLayout title_left;
     TextView title_name;
-    private PrivacyJiaGoodGameAdapter whiteListAdapter;
-    private boolean search;
-    TextView gboost_item_textview;
     GridView gboost_gridview;
 
     private Handler mHandler = new Handler() {
@@ -66,6 +65,62 @@ public class BoostGoodGameActivity extends BaseActivity {
             super.handleMessage(msg);
         }
     };
+
+    private void addData() {
+        if (PreData.getDB(BoostGoodGameActivity.this, BoostMyConstant.GBOOST_LUN, true)) {
+            PreData.putDB(BoostGoodGameActivity.this, BoostMyConstant.GBOOST_LUN, true);
+            shortGame1(false);
+        }
+//        list.addAll(GameBooster.getInstalledGameList(BoostGoodGameActivity.this));
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ArrayList<String> gboost_names = CleanDBHelper.getInstance(BoostGoodGameActivity.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
+                for (String pkg : gboost_names) {
+                    if (LoadManager.getInstance(BoostGoodGameActivity.this).isPkgInstalled(pkg)) {
+                        list.add(pkg);
+                    }
+                }
+                Message msg = mHandler.obtainMessage();
+                msg.what = ADD_DATA;
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        list.add(0, getString(R.string.gboost_7));
+                        game_size.setText(getString(R.string.gboost_13, list.size() - 1));
+                        gridViewAdAdapter = new BoostGridViewAdAdapter(BoostGoodGameActivity.this, list);
+                        gboost_gridview.setAdapter(gridViewAdAdapter);
+                        gboost_gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                if (position == 0) {
+                                    SetAdUtilPrivacy.track("游戏加速页面", "点击添加游戏", "", 1);
+                                    ll_add_game.setVisibility(View.VISIBLE);
+                                    whiteListAdapter = new JiaBoostGoodGameAdapter(BoostGoodGameActivity.this, list);
+                                    list_game.setAdapter(whiteListAdapter);
+                                    initData();
+                                } else {
+                                    try {
+                                        SetAdUtilPrivacy.track("游戏加速页面", "点击启动游戏", list.get(position), 1);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("from", "GBoost");
+                                        bundle.putString("packageName", list.get(position));
+                                        jumpToActivity(BoostDeepingActivity.class, bundle);
+                                    } catch (Exception e) {
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        }).start();
+    }
+
+    private void initList() {
+        list = new ArrayList<>();
+        addData();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -120,62 +175,6 @@ public class BoostGoodGameActivity extends BaseActivity {
         game_size = (TextView) findViewById(R.id.game_size);
     }
 
-    private void addData() {
-        if (PreData.getDB(BoostGoodGameActivity.this, MyConstantPrivacy.GBOOST_LUN, true)) {
-            PreData.putDB(BoostGoodGameActivity.this, MyConstantPrivacy.GBOOST_LUN, true);
-            shortGame1(false);
-        }
-        list.addAll(GameBooster.getInstalledGameList(BoostGoodGameActivity.this));
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                ArrayList<String> gboost_names = CleanDBHelper.getInstance(BoostGoodGameActivity.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
-                for (String pkg : gboost_names) {
-                    if (LoadManager.getInstance(BoostGoodGameActivity.this).isPkgInstalled(pkg)) {
-                        list.add(pkg);
-                    }
-                }
-                Message msg = mHandler.obtainMessage();
-                msg.what = ADD_DATA;
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        list.add(0, getString(R.string.gboost_7));
-                        game_size.setText(getString(R.string.gboost_13, list.size() - 1));
-                        gridViewAdAdapter = new GridViewAdAdapterPrivacy(BoostGoodGameActivity.this, list);
-                        gboost_gridview.setAdapter(gridViewAdAdapter);
-                        gboost_gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                if (position == 0) {
-                                    SetAdUtilPrivacy.track("游戏加速页面", "点击添加游戏", "", 1);
-                                    ll_add_game.setVisibility(View.VISIBLE);
-                                    whiteListAdapter = new PrivacyJiaGoodGameAdapter(BoostGoodGameActivity.this, list);
-                                    list_game.setAdapter(whiteListAdapter);
-                                    initData();
-                                } else {
-                                    try {
-                                        SetAdUtilPrivacy.track("游戏加速页面", "点击启动游戏", list.get(position), 1);
-                                        Bundle bundle = new Bundle();
-                                        bundle.putString("from", "GBoost");
-                                        bundle.putString("packageName", list.get(position));
-                                        jumpToActivity(BoostDeepingActivity.class, bundle);
-                                    } catch (Exception e) {
-                                    }
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-        }).start();
-    }
-
-    private void initList() {
-        list = new ArrayList<>();
-        addData();
-    }
-
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -223,9 +222,9 @@ public class BoostGoodGameActivity extends BaseActivity {
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
                 BoostGoodGameActivity.class.getName()));
         String title = BoostGoodGameActivity.this.getString(R.string.gboost_0);
-        PreData.putDB(BoostGoodGameActivity.this, MyConstantPrivacy.GBOOST_LUN, true);
+        PreData.putDB(BoostGoodGameActivity.this, BoostMyConstant.GBOOST_LUN, true);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.gboost_short);
-        PrivacyShortCutUtils.addShortcut(BoostGoodGameActivity.this, shortcutIntent, title, false, bitmap);
+        ShortCutUtilsBoost.addShortcut(BoostGoodGameActivity.this, shortcutIntent, title, false, bitmap);
     }
 
     @Override

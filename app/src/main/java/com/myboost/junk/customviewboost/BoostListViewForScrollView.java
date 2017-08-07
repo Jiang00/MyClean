@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,17 +8,17 @@ import android.widget.ListView;
  */
 
 
-public class ListViewForScrollViewPrivacy extends ListView {
-    public ListViewForScrollViewPrivacy(Context context) {
+public class BoostListViewForScrollView extends ListView {
+    public BoostListViewForScrollView(Context context) {
         super(context);
     }
 
-    public ListViewForScrollViewPrivacy(Context context, AttributeSet attrs) {
+    public BoostListViewForScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ListViewForScrollViewPrivacy(Context context, AttributeSet attrs,
-                                        int defStyle) {
+    public BoostListViewForScrollView(Context context, AttributeSet attrs,
+                                      int defStyle) {
         super(context, attrs, defStyle);
 
     }

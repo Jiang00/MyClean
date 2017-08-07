@@ -1,4 +1,4 @@
-package com.myboost.junk.presenterprivacy;
+package com.myboost.junk.boostpresenter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.content.Context;
 import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.MemoryManager;
-import com.myboost.junk.activityprivacy.MyApplication;
-import com.myboost.junk.interfaceviewprivacy.CustomRamView;
+import com.myboost.junk.boostactivity.MyApplication;
+import com.myboost.junk.boostinterfaceview.CustomRamView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +16,13 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class PresenterRamPrivacy extends PresenterBasePrivacy<CustomRamView> {
+public class BoostPresenterRam extends BoostPresenterBase<CustomRamView> {
     private MyApplication cleanApplication;
     private long allSize;
     private ArrayList<JunkInfo> clearList;
     private long cleanSize;
 
-    public PresenterRamPrivacy(CustomRamView iView, Context context) {
+    public BoostPresenterRam(CustomRamView iView, Context context) {
         super(iView, context);
         cleanApplication = (MyApplication) ((Activity) context).getApplication();
     }

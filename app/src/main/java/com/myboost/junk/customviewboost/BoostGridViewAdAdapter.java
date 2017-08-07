@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -22,7 +22,7 @@ import java.util.HashMap;
 /**
  * @author Lody
  */
-public class GridViewAdAdapterPrivacy extends BaseAdapter {
+public class BoostGridViewAdAdapter extends BaseAdapter {
     public Context context;
     public static final int MSG_START_AD_ANIMAL = 100;
 
@@ -33,7 +33,7 @@ public class GridViewAdAdapterPrivacy extends BaseAdapter {
     private ArrayList<String> list;
     protected LayoutInflater mInflater;
 
-    public GridViewAdAdapterPrivacy(Context context, ArrayList<String> list) {
+    public BoostGridViewAdAdapter(Context context, ArrayList<String> list) {
         super();
         this.mInflater = LayoutInflater.from(context);
         this.context = context;

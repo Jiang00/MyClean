@@ -1,4 +1,4 @@
-package com.myboost.module.charge.saver.privacyutils;
+package com.myboost.module.charge.saver.boostutils;
 
 import java.io.BufferedReader;
 import java.io.File;

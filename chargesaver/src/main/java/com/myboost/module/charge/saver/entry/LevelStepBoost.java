@@ -3,7 +3,7 @@ package com.myboost.module.charge.saver.entry;
 /**
  * Created by song on 16/4/19.
  */
-public class LevelStepPrivacy {
+public class LevelStepBoost {
     private int currentLevel;
     private int lastLevelUpdateTime;
 

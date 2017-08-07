@@ -1,4 +1,4 @@
-package com.myboost.junk.toolsprivacy;
+package com.myboost.junk.boosttools;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -37,7 +37,7 @@ import java.util.UUID;
 
 /**
  */
-public class PrivacyUtilGp {
+public class UtilGpBoost {
 
 
     private static final String KEY_MIUI_VERSION_CODE = "ro.miui.ui.version.code";
@@ -109,7 +109,7 @@ public class PrivacyUtilGp {
     }
 
     public static void rate(Context context) {
-        PrivacyUtilGp.openPlayStore(context, context.getPackageName());
+        UtilGpBoost.openPlayStore(context, context.getPackageName());
     }
 
     public static void showSoftKeyboard(Activity activity, View view, boolean show) {

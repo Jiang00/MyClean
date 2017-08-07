@@ -12,24 +12,24 @@ import com.myboost.module.charge.saver.R;
  * Created by on 2016/10/27.
  */
 
-public class PrivacyCustomerTypefaceTextView extends android.support.v7.widget.AppCompatTextView {
+public class CustomerTypefaceTextViewBoost extends android.support.v7.widget.AppCompatTextView {
     String typeface = null;
 
     Context mContext;
 
-    public PrivacyCustomerTypefaceTextView(Context context) {
+    public CustomerTypefaceTextViewBoost(Context context) {
         super(context, null);
     }
 
-    public PrivacyCustomerTypefaceTextView(Context context, AttributeSet attrs) {
+    public CustomerTypefaceTextViewBoost(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
         obtainAttributes(attrs);
     }
 
     private void obtainAttributes(AttributeSet attrs) {
-        TypedArray ta = mContext.obtainStyledAttributes(attrs, R.styleable.PrivacyCustomerTypefaceTextView);
-        typeface = ta.getString(R.styleable.PrivacyCustomerTypefaceTextView_typeface);
+        TypedArray ta = mContext.obtainStyledAttributes(attrs, R.styleable.CustomerTypefaceTextViewBoost);
+        typeface = ta.getString(R.styleable.CustomerTypefaceTextViewBoost_typeface);
         ta.recycle();
         if (!TextUtils.isEmpty(typeface)) {
             Typeface tf = Typeface.createFromAsset(mContext.getAssets(), typeface);

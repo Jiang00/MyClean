@@ -1,4 +1,4 @@
-package com.myboost.junk.privacycustomview;
+package com.myboost.junk.customviewboost;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.myboost.junk.R;
 
-public class PrivacyCustomRoundCpu extends View {
+public class CustomRoundCpuBoost extends View {
 
     private Context context;
     private Paint circlePoint;
@@ -20,15 +20,15 @@ public class PrivacyCustomRoundCpu extends View {
     private boolean isRotate;
     private CustomRoundListener customRoundListener;
 
-    public PrivacyCustomRoundCpu(Context context) {
+    public CustomRoundCpuBoost(Context context) {
         this(context, null);
     }
 
-    public PrivacyCustomRoundCpu(Context context, AttributeSet attrs) {
+    public CustomRoundCpuBoost(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public PrivacyCustomRoundCpu(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomRoundCpuBoost(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
         init();

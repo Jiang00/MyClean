@@ -16,12 +16,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
-import com.myboost.module.charge.saver.PrivacySetADActivity;
+import com.myboost.module.charge.saver.SetADActivityBoost;
 import com.myboost.module.charge.saver.R;
-import com.myboost.module.charge.saver.entry.PrivacyBatteryEntry;
-import com.myboost.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
-import com.myboost.module.charge.saver.privacyutils.PrivacyADRequest;
-import com.myboost.module.charge.saver.privacyutils.UtilsPrivacy;
+import com.myboost.module.charge.saver.entry.BoostBatteryEntry;
+import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
+import com.myboost.module.charge.saver.boostutils.BoostADRequest;
+import com.myboost.module.charge.saver.boostutils.BatteryUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,8 +53,8 @@ public class ProtectBatteryView extends FrameLayout {
     private TextView batteryLeft, batteryLeft1;
     LinearLayout battery_charge_time;
     TextView battery_le;
-    private BubbleLayoutPrivacy bubbleLayout;
-    PrivacyBatteryView batteryview;
+    private BubbleLayoutBoost bubbleLayout;
+    BoostBatteryView batteryview;
 
     private int halfWidth;
 
@@ -89,7 +89,7 @@ public class ProtectBatteryView extends FrameLayout {
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private void showNativeAD() {
-        adView = new PrivacyADRequest().showCustomNativeAD(BatteryConstantsPrivacy.TAG_CHARGING, R.layout.native_ad, null);
+        adView = new BoostADRequest().showCustomNativeAD(BoostBatteryConstants.TAG_CHARGING, R.layout.native_ad, null);
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);
@@ -155,7 +155,7 @@ public class ProtectBatteryView extends FrameLayout {
     boolean flag = false;
     int i = 0;
 
-    public void bind(PrivacyBatteryEntry entry) {
+    public void bind(BoostBatteryEntry entry) {
         if (entry == null) {
             return;
         }
@@ -244,7 +244,7 @@ public class ProtectBatteryView extends FrameLayout {
                 }
             });
 
-            String titleTxt = (String) UtilsPrivacy.readData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_TITLE, "Cleaner");
+            String titleTxt = (String) BatteryUtils.readData(mContext, BoostBatteryConstants.CHARGE_SAVER_TITLE, "Cleaner");
             title.setText(titleTxt);
 
             more.setOnClickListener(new OnClickListener() {
@@ -257,7 +257,7 @@ public class ProtectBatteryView extends FrameLayout {
                 }
             });
 
-            if ((Boolean) UtilsPrivacy.readData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true)) {
+            if ((Boolean) BatteryUtils.readData(mContext, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true)) {
                 if (saverSwitch != null) {
                     saverSwitch.setChecked(true);
                 }
@@ -269,15 +269,15 @@ public class ProtectBatteryView extends FrameLayout {
             saverSwitch.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ((Boolean) UtilsPrivacy.readData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true)) {
+                    if ((Boolean) BatteryUtils.readData(mContext, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true)) {
                         if (saverSwitch != null) {
                             saverSwitch.setChecked(false);
-                            UtilsPrivacy.writeData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, false);
+                            BatteryUtils.writeData(mContext, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false);
                         }
                     } else {
                         if (saverSwitch != null) {
                             saverSwitch.setChecked(true);
-                            UtilsPrivacy.writeData(mContext, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true);
+                            BatteryUtils.writeData(mContext, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true);
                         }
                     }
                 }
@@ -286,7 +286,7 @@ public class ProtectBatteryView extends FrameLayout {
     }
 
     private void initViews() {
-        bubbleLayout = (BubbleLayoutPrivacy) findViewById(R.id.battery_bubble_layout);
+        bubbleLayout = (BubbleLayoutBoost) findViewById(R.id.battery_bubble_layout);
         batteryView = (ProtectBatteryView) findViewById(R.id.battery_charge_save);
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
@@ -302,7 +302,7 @@ public class ProtectBatteryView extends FrameLayout {
         batteryLeft = (TextView) findViewById(R.id.battery_now_battery_left);
         batteryLeft1 = (TextView) findViewById(R.id.battery_now_battery_left2);
         battery_le = (TextView) findViewById(R.id.battery_le);
-        batteryview = (PrivacyBatteryView) findViewById(R.id.batteryview);
+        batteryview = (BoostBatteryView) findViewById(R.id.batteryview);
     }
 
     public void pauseBubble() {
@@ -338,7 +338,7 @@ public class ProtectBatteryView extends FrameLayout {
             JSONObject object = new JSONObject(AndroidSdk.getExtraData());
             int state = analysisJson(object);
             if (state == 1) {
-                mContext.startActivity(new Intent(mContext, PrivacySetADActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                mContext.startActivity(new Intent(mContext, SetADActivityBoost.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         } catch (Exception e) {
             e.printStackTrace();

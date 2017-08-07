@@ -1,4 +1,4 @@
-package com.myboost.module.charge.saver.privacyutils;
+package com.myboost.module.charge.saver.boostutils;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,7 @@ import com.myboost.module.charge.saver.R;
 /**
  * Created by on 2016/11/9.
  */
-public class PrivacyADRequest {
+public class BoostADRequest {
 
     public static void showFullAD() {
         AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);

@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -31,11 +31,11 @@ import com.myboost.clean.cleanimage.ImageHelper;
 import com.myboost.clean.cleanimage.ImageInfo;
 import com.myboost.clean.cleanimage.RecyclerDbHelper;
 import com.myboost.clean.utilsprivacy.MyUtils;
-import com.myboost.junk.R;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
-import com.myboost.junk.customadapterprivacy.RecycleViewAdapter;
 import com.myboost.clean.utilsprivacy.PreData;
+import com.myboost.junk.R;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.customadapterboost.RecycleViewAdapter;
 
 import java.util.ArrayList;
 
@@ -46,35 +46,33 @@ import java.util.ArrayList;
 public class BoostPictActivity extends BaseActivity {
     private static final int PICTHRE_PATH = 0;
     private static final int PICTHRE_SUCC = 1;
-
-    TextView picture_danwei;
-    TextView picture_size;
-    LinearLayout picture_other;
-    RecyclerView picture_recycle;
     FrameLayout title_left;
     ViewPager picture_pager;
     TextView title_name;
     TextView picture_button;
+    TextView picture_danwei;
+    TextView picture_size;
+    LinearLayout picture_other;
+    RecyclerView picture_recycle;
+    long size;
+    public boolean mIsQuerying = false;
+    private RecycleViewAdapter adapter;
+    FrameLayout pager_fl;
     ProgressBar picture_progressbar;
     ImageView title_right;
     TextView picture_path;
     private PagerAdapter pagerAdapter;
     private ImageHelper imageHelper;
     public long allSize = 0;
-    long size;
-    public boolean mIsQuerying = false;
-    private RecycleViewAdapter adapter;
-    FrameLayout pager_fl;
+    AlertDialog dialog;
+    LinearLayout pic_pager_delete;
+    LinearLayout picture_lin;
+    ImageView pic_pager_check_iv;
     ImageView pic_pager_left;
     LinearLayout pic_pager_check;
     TextView pic_pager_title;
     private ArrayList<View> pagerView;
     public ArrayList<ArrayList<ImageInfo>> allList;
-    AlertDialog dialog;
-    LinearLayout pic_pager_delete;
-    LinearLayout picture_lin;
-    ImageView pic_pager_check_iv;
-
 
     Handler mHandler = new Handler() {
         @Override
@@ -113,12 +111,6 @@ public class BoostPictActivity extends BaseActivity {
     };
 
 
-    private void loadAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.PICTURE, 0) == 1) {
-            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-        }
-    }
-
     @Override
     protected void findId() {
         super.findId();
@@ -143,29 +135,11 @@ public class BoostPictActivity extends BaseActivity {
 
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_picture);
-        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
-        title_name.setText(R.string.side_picture);
-        title_right.setVisibility(View.VISIBLE);
-        title_right.setImageResource(R.mipmap.picture_right);
-        imageHelper = new ImageHelper();
-        pagerView = new ArrayList<>();
-        picture_recycle.setLayoutManager(new LinearLayoutManager(this));
-
-        picture_recycle.setItemAnimator(new DefaultItemAnimator());
-        clickListen();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                initData();
-            }
-        }).start();
-        loadAd();
+    private void loadAd() {
+        if (PreData.getDB(this, BoostMyConstant.PICTURE, 0) == 1) {
+            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        }
     }
-
 
     public void bigPicture(final ArrayList<ImageInfo> list) {
         pic_pager_title.setText("1/" + list.size());
@@ -288,6 +262,29 @@ public class BoostPictActivity extends BaseActivity {
         title_right.setOnClickListener(clickListener);
         picture_button.setOnClickListener(clickListener);
         pic_pager_left.setOnClickListener(clickListener);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_picture);
+        AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
+        title_name.setText(R.string.side_picture);
+        title_right.setVisibility(View.VISIBLE);
+        title_right.setImageResource(R.mipmap.picture_right);
+        imageHelper = new ImageHelper();
+        pagerView = new ArrayList<>();
+        picture_recycle.setLayoutManager(new LinearLayoutManager(this));
+
+        picture_recycle.setItemAnimator(new DefaultItemAnimator());
+        clickListen();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                initData();
+            }
+        }).start();
+        loadAd();
     }
 
     private void initData() {

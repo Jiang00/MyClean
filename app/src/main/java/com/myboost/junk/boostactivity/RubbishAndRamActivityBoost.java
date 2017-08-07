@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -22,13 +22,13 @@ import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.PrivacyCustomJunkRamAdapter;
-import com.myboost.junk.interfaceviewprivacy.PrivacyLogHeRamView;
-import com.myboost.junk.presenterprivacy.PrivacyLogRamPresenter;
-import com.myboost.junk.privacycustomview.ListViewForScrollViewPrivacy;
-import com.myboost.junk.privacycustomview.ScrollView;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.customadapterboost.CustomJunkRamBoostAdapter;
+import com.myboost.junk.boostinterfaceview.BoostLogHeRamView;
+import com.myboost.junk.boostpresenter.LogRamPresenterBoost;
+import com.myboost.junk.customviewboost.BoostListViewForScrollView;
+import com.myboost.junk.customviewboost.ScrollView;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 
 import java.util.List;
 
@@ -36,27 +36,53 @@ import java.util.List;
  * Created by on 2017/3/2.
  */
 
-public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyLogHeRamView {
+public class RubbishAndRamActivityBoost extends BaseActivity implements BoostLogHeRamView {
     FrameLayout title_left;
     TextView junk_unit;
     TextView junk_fangxin;
-    LinearLayout junk_title_backg;
-    TextView junk_size_all;
-    private PrivacyCustomJunkRamAdapter adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterRam, adapterClear;
-    private PrivacyLogRamPresenter junkPresenter;
-    TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size, junk_ram_size;
-    LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user, junk_button_ram;
-    ListViewForScrollViewPrivacy junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list, junk_ram_list;
-    TextView title_name;
     private boolean color2 = true;
     public Handler myHandler;
     private boolean color1 = true;
+    private CustomJunkRamBoostAdapter adapterSystem, adapterApk, adapterUnload, adapterLog, adapterUser, adapterRam, adapterClear;
+    private LogRamPresenterBoost junkPresenter;
+    LinearLayout junk_title_backg;
+    TextView junk_size_all;
+    TextView junk_system_size, junk_apk_size, junk_unload_size, junk_log_size, junk_user_size, junk_ram_size;
+    LinearLayout junk_button_system, junk_button_apk, junk_button_unload, junk_button_log, junk_button_user, junk_button_ram;
+    BoostListViewForScrollView junk_system_list, junk_apk_list, junk_unload_list, junk_log_list, junk_user_list, junk_ram_list;
+    TextView title_name;
+    ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou, junk_ram_jiantou;
+    TextView junk_button_clean;
     private boolean color3 = true;
     ScrollView junk_scroll;
     ListView junk_list_all;
-    ImageView junk_system_jiantou, junk_apk_jiaotou, junk_unload_jiantou, junk_log_jiantou, junk_user_jiantou, junk_ram_jiantou;
-    TextView junk_button_clean;
     ImageView junk_system_check, junk_apk_check, junk_unload_check, junk_log_check, junk_user_check, junk_ram_check;
+
+    @Override
+    public void initData(long allSize) {
+        title_name.setText(R.string.all_junk_title);
+        if (allSize <= 0) {
+            Bundle bundle = new Bundle();
+            bundle.putString("from", "allJunk");
+            junkPresenter.jumpToActivity(SucceedActivityBoost.class, bundle, 1);
+            return;
+        }
+        adapterSystem = new CustomJunkRamBoostAdapter(this, junkPresenter);
+        adapterApk = new CustomJunkRamBoostAdapter(this, junkPresenter);
+        adapterUnload = new CustomJunkRamBoostAdapter(this, junkPresenter);
+        adapterLog = new CustomJunkRamBoostAdapter(this, junkPresenter);
+        adapterUser = new CustomJunkRamBoostAdapter(this, junkPresenter);
+        adapterRam = new CustomJunkRamBoostAdapter(this, junkPresenter);
+        adapterClear = new CustomJunkRamBoostAdapter(this, junkPresenter);
+        junk_system_list.setAdapter(adapterSystem);
+        junk_apk_list.setAdapter(adapterApk);
+        junk_unload_list.setAdapter(adapterUnload);
+        junk_log_list.setAdapter(adapterLog);
+        junk_user_list.setAdapter(adapterUser);
+        junk_ram_list.setAdapter(adapterRam);
+        junkPresenter.setUnit(allSize, junk_unit);
+        junkPresenter.addAdapterData();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,7 +90,7 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
         setContentView(R.layout.layout_junk_ram);
         AndroidSdk.loadFullAd(AndroidSdk.FULL_TAG_PAUSE);
         myHandler = new Handler();
-        junkPresenter = new PrivacyLogRamPresenter(this, this);
+        junkPresenter = new LogRamPresenterBoost(this, this);
         junkPresenter.init();
     }
 
@@ -79,32 +105,6 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
         junk_button_ram.setOnClickListener(onClickListener);
         junk_button_clean.setOnClickListener(onClickListener);
 
-    }
-
-    @Override
-    public void initData(long allSize) {
-        title_name.setText(R.string.all_junk_title);
-        if (allSize <= 0) {
-            Bundle bundle = new Bundle();
-            bundle.putString("from", "allJunk");
-            junkPresenter.jumpToActivity(SucceedActivityBoost.class, bundle, 1);
-            return;
-        }
-        adapterSystem = new PrivacyCustomJunkRamAdapter(this, junkPresenter);
-        adapterApk = new PrivacyCustomJunkRamAdapter(this, junkPresenter);
-        adapterUnload = new PrivacyCustomJunkRamAdapter(this, junkPresenter);
-        adapterLog = new PrivacyCustomJunkRamAdapter(this, junkPresenter);
-        adapterUser = new PrivacyCustomJunkRamAdapter(this, junkPresenter);
-        adapterRam = new PrivacyCustomJunkRamAdapter(this, junkPresenter);
-        adapterClear = new PrivacyCustomJunkRamAdapter(this, junkPresenter);
-        junk_system_list.setAdapter(adapterSystem);
-        junk_apk_list.setAdapter(adapterApk);
-        junk_unload_list.setAdapter(adapterUnload);
-        junk_log_list.setAdapter(adapterLog);
-        junk_user_list.setAdapter(adapterUser);
-        junk_ram_list.setAdapter(adapterRam);
-        junkPresenter.setUnit(allSize, junk_unit);
-        junkPresenter.addAdapterData();
     }
 
     @Override
@@ -145,7 +145,6 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                 });
             }
         }).start();
-//        junk_size_all.setText(MyUtils.getFileSize2(size));
 
         if (size > 1024 * 1024 * 100 && size <= 1024 * 1024 * 200) {
             if (color1) {
@@ -155,7 +154,6 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-//                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A21));
             }
         } else if (size > 1024 * 1024 * 200) {
             if (color2) {
@@ -165,7 +163,6 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-//                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A9));
             }
         } else {
             if (color3) {
@@ -175,9 +172,45 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                 colorAnim.setRepeatCount(0);
                 colorAnim.setEvaluator(new ArgbEvaluator());
                 colorAnim.start();
-//                junk_button_clean.setBackgroundColor(getResources().getColor(R.color.A1));
             }
         }
+    }
+
+    @Override
+    public void loadFullAd() {
+    }
+
+    @Override
+    public void addApkdata(final long size, List<JunkInfo> list) {
+        adapterApk.addDataList(list);
+        junk_apk_list.setVisibility(View.GONE);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time = 100;
+                for (long i = 0; i <= size; i += (size / 15)) {
+                    final long finalI = i;
+                    time -= 5;
+                    if (time < 30) {
+                        time = 30;
+                    }
+                    if (onDestroyed) {
+                        break;
+                    }
+                    try {
+                        Thread.sleep(time);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            junk_apk_size.setText(MyUtils.convertStorage(finalI, true));
+                        }
+                    });
+                }
+            }
+        }).start();
     }
 
     @Override
@@ -207,12 +240,12 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
         junk_log_jiantou = (ImageView) findViewById(R.id.junk_log_jiantou);
         junk_user_jiantou = (ImageView) findViewById(R.id.junk_user_jiantou);
         junk_ram_jiantou = (ImageView) findViewById(R.id.junk_ram_jiantou);
-        junk_system_list = (ListViewForScrollViewPrivacy) findViewById(R.id.junk_system_list);
-        junk_apk_list = (ListViewForScrollViewPrivacy) findViewById(R.id.junk_apk_list);
-        junk_unload_list = (ListViewForScrollViewPrivacy) findViewById(R.id.junk_unload_list);
-        junk_log_list = (ListViewForScrollViewPrivacy) findViewById(R.id.junk_log_list);
-        junk_user_list = (ListViewForScrollViewPrivacy) findViewById(R.id.junk_user_list);
-        junk_ram_list = (ListViewForScrollViewPrivacy) findViewById(R.id.junk_ram_list);
+        junk_system_list = (BoostListViewForScrollView) findViewById(R.id.junk_system_list);
+        junk_apk_list = (BoostListViewForScrollView) findViewById(R.id.junk_apk_list);
+        junk_unload_list = (BoostListViewForScrollView) findViewById(R.id.junk_unload_list);
+        junk_log_list = (BoostListViewForScrollView) findViewById(R.id.junk_log_list);
+        junk_user_list = (BoostListViewForScrollView) findViewById(R.id.junk_user_list);
+        junk_ram_list = (BoostListViewForScrollView) findViewById(R.id.junk_ram_list);
         junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
         junk_scroll = (ScrollView) findViewById(R.id.junk_scroll);
         junk_list_all = (ListView) findViewById(R.id.junk_list_all);
@@ -222,45 +255,6 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
         junk_log_check = $(R.id.junk_log_check);
         junk_user_check = $(R.id.junk_user_check);
         junk_ram_check = $(R.id.junk_ram_check);
-    }
-
-    @Override
-    public void loadFullAd() {
-    }
-
-    @Override
-    public void addApkdata(final long size, List<JunkInfo> list) {
-        adapterApk.addDataList(list);
-        junk_apk_list.setVisibility(View.GONE);
-//        junk_apk_size.setText(MyUtils.getFileSizeKongge(size));
-//        junkPresenter.setUnit(size, junk_apk_unit);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int time = 100;
-                for (long i = 0; i <= size; i += (size / 15)) {
-                    final long finalI = i;
-                    time -= 5;
-                    if (time < 30) {
-                        time = 30;
-                    }
-                    if (onDestroyed) {
-                        break;
-                    }
-                    try {
-                        Thread.sleep(time);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            junk_apk_size.setText(MyUtils.convertStorage(finalI, true));
-                        }
-                    });
-                }
-            }
-        }).start();
     }
 
     @Override
@@ -307,8 +301,6 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
     public void addUserdata(final long size, List<JunkInfo> list) {
         adapterUser.addDataList(list);
         junk_user_list.setVisibility(View.GONE);
-//        junk_user_size.setText(MyUtils.getFileSizeKongge(size));
-//        junkPresenter.setUnit(size, junk_user_unit);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -511,7 +503,7 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                         SetAdUtilPrivacy.track("所有垃圾页面", "点击打开系统缓存", "", 1);
                         systemCount1 = 0;
                         if (adapterSystem != null) {//回调函数
-                            adapterSystem.setOnlistener(new PrivacyCustomJunkRamAdapter.AllListener() {
+                            adapterSystem.setOnlistener(new CustomJunkRamBoostAdapter.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, int position, boolean oncli) {
@@ -572,7 +564,7 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                     } else {
                         apkCount1 = 0;
                         if (adapterApk != null) {//回调函数
-                            adapterApk.setOnlistener(new PrivacyCustomJunkRamAdapter.AllListener() {
+                            adapterApk.setOnlistener(new CustomJunkRamBoostAdapter.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, int position, boolean oncli) {
@@ -634,7 +626,7 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                     } else {
                         unloadCount1 = 0;
                         if (adapterUnload != null) {//回调函数
-                            adapterUnload.setOnlistener(new PrivacyCustomJunkRamAdapter.AllListener() {
+                            adapterUnload.setOnlistener(new CustomJunkRamBoostAdapter.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, int position, boolean oncli) {
@@ -696,7 +688,7 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                     } else {
                         logCount1 = 0;
                         if (adapterLog != null) {//回调函数
-                            adapterLog.setOnlistener(new PrivacyCustomJunkRamAdapter.AllListener() {
+                            adapterLog.setOnlistener(new CustomJunkRamBoostAdapter.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, int position, boolean oncli) {
@@ -758,7 +750,7 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                     } else {
                         userCount1 = 0;
                         if (adapterUser != null) {//回调函数
-                            adapterUser.setOnlistener(new PrivacyCustomJunkRamAdapter.AllListener() {
+                            adapterUser.setOnlistener(new CustomJunkRamBoostAdapter.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, int position, boolean oncli) {
@@ -823,7 +815,7 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                     } else {
                         ramCount1 = 0;
                         if (adapterRam != null) {//回调函数
-                            adapterRam.setOnlistener(new PrivacyCustomJunkRamAdapter.AllListener() {
+                            adapterRam.setOnlistener(new CustomJunkRamBoostAdapter.AllListener() {
 
                                 @Override
                                 public void onChecked(boolean check, int position, boolean oncli) {
@@ -868,7 +860,7 @@ public class RubbishAndRamActivityBoost extends BaseActivity implements PrivacyL
                     }
                     break;
                 case R.id.junk_button_clean:
-                    PreData.putDB(RubbishAndRamActivityBoost.this, MyConstantPrivacy.KEY_CLEAN_TIME, System.currentTimeMillis());
+                    PreData.putDB(RubbishAndRamActivityBoost.this, BoostMyConstant.KEY_CLEAN_TIME, System.currentTimeMillis());
                     SetAdUtilPrivacy.track("所有垃圾页面", "点击清理", "", 1);
                     junk_button_clean.setOnClickListener(null);
                     showToast((String) getText(R.string.toast_ing));

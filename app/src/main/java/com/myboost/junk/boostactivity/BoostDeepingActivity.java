@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -24,15 +24,15 @@ import android.widget.TextView;
 import com.android.client.AndroidSdk;
 import com.myboost.clean.core.CleanManager;
 import com.myboost.clean.deepclean.MyServiceCustomerAccessibility;
+import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.LoadManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
-import com.myboost.clean.entity.JunkInfo;
 import com.myboost.junk.R;
-import com.myboost.junk.privacycustomview.DeepWidgetContainerPrivacy;
-import com.myboost.junk.privacyservices.NotificationServiceBoost;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.customviewboost.BoostDeepWidgetContainer;
+import com.myboost.junk.servicesboost.NotificationServiceBoost;
 
 import java.util.ArrayList;
 
@@ -45,21 +45,75 @@ public class BoostDeepingActivity extends BaseActivity {
     private HomeAdapter homeAdapter, containerAdapter;
     private ArrayList<JunkInfo> startList;
     private View containerView;
-    private ImageView power_imageview;
     private boolean flag = false;
+    private ImageView power_1, power_2, power_3, power_4;
+    private ObjectAnimator animator1, animator2, animator3, animator4;
+    AnimatorSet animatorSet;
+    TextView title_name;
+    private BoostDeepWidgetContainer container;
+    private RecyclerView containerView_recyclerView;
+    private TextView containerView_junk_button_clean;
+    ImageView gboost_power_check;
     private MyApplication cleanApplication;
     private int count = 0;
     RecyclerView power_recycler;
     TextView junk_button_clean;
     FrameLayout title_left;
-    private ImageView power_1, power_2, power_3, power_4;
-    private ObjectAnimator animator1, animator2, animator3, animator4;
-    AnimatorSet animatorSet;
-    TextView title_name;
-    private DeepWidgetContainerPrivacy container;
-    private RecyclerView containerView_recyclerView;
-    private TextView containerView_junk_button_clean;
-    ImageView gboost_power_check;
+
+
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            for (int i = 0; i < startList.size(); i++) {
+                if (startList.get(i).isChecked) {
+                    count++;
+                    showPackageDetail(startList.get(i).pkg);
+
+                    View view = containerView_recyclerView.getChildAt(i);
+                    if (view == null) {
+                        return;
+                    }
+                    animatorView(view, i);
+                    return;
+                }
+            }
+            junk_button_clean.setBackgroundResource(R.drawable.shape_button_ffffff);
+            homeAdapter.notifyDataSetChanged();
+            if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
+                if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
+                    MyUtils.doStartApplicationWithPackageName(BoostDeepingActivity.this, getIntent().getStringExtra("packageName"));
+                    if (PreData.getDB(BoostDeepingActivity.this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
+                        Intent intent = new Intent(BoostDeepingActivity.this, NotificationServiceBoost.class);
+                        intent.setAction("gboost");
+                        startService(intent);
+                    }
+
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("count", count);
+                    bundle.putString("from", "GBoost");
+                    jumpToActivity(SucceedActivityBoost.class, bundle, 1);
+                }
+                onBackPressed();
+            } else {
+                Bundle bundle = new Bundle();
+                bundle.putInt("count", count);
+                bundle.putString("from", "power");
+                jumpToActivity(SucceedActivityBoost.class, bundle, 1);
+            }
+            container.removeFromWindow();
+        }
+    };
+
+    @Override
+    protected void findId() {
+        super.findId();
+        title_left = (FrameLayout) findViewById(R.id.title_left);
+        title_name = (TextView) findViewById(R.id.title_name);
+        power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
+        junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
+        gboost_power_check = (ImageView) findViewById(R.id.gboost_power_check);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -127,13 +181,13 @@ public class BoostDeepingActivity extends BaseActivity {
                 junk_button_clean.setOnClickListener(null);
 //                showPackageDetail(startList.get(0).packageName);
                 containerView = View.inflate(BoostDeepingActivity.this, R.layout.layout_power, null);
-                container = new DeepWidgetContainerPrivacy.Builder()
-                        .setHeight(DeepWidgetContainerPrivacy.MATCH_PARENT)
-                        .setWidth(DeepWidgetContainerPrivacy.MATCH_PARENT)
-                        .setOrientation(DeepWidgetContainerPrivacy.PORTRAIT)
+                container = new BoostDeepWidgetContainer.Builder()
+                        .setHeight(BoostDeepWidgetContainer.MATCH_PARENT)
+                        .setWidth(BoostDeepWidgetContainer.MATCH_PARENT)
+                        .setOrientation(BoostDeepWidgetContainer.PORTRAIT)
                         .build(BoostDeepingActivity.this.getApplicationContext());
-                container.addView(containerView, container.makeLayoutParams(DeepWidgetContainerPrivacy.MATCH_PARENT,
-                        DeepWidgetContainerPrivacy.MATCH_PARENT, Gravity.CENTER));
+                container.addView(containerView, container.makeLayoutParams(BoostDeepWidgetContainer.MATCH_PARENT,
+                        BoostDeepWidgetContainer.MATCH_PARENT, Gravity.CENTER));
                 container.addToWindow();
                 setContainer();
 
@@ -156,7 +210,7 @@ public class BoostDeepingActivity extends BaseActivity {
             if (startList.size() == 0) {
                 if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
                     MyUtils.doStartApplicationWithPackageName(BoostDeepingActivity.this, getIntent().getStringExtra("packageName"));
-                    if (PreData.getDB(BoostDeepingActivity.this, MyConstantPrivacy.TONGZHILAN_SWITCH, true)) {
+                    if (PreData.getDB(BoostDeepingActivity.this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
                         Intent intent = new Intent(BoostDeepingActivity.this, NotificationServiceBoost.class);
                         intent.setAction("gboost");
                         startService(intent);
@@ -174,65 +228,9 @@ public class BoostDeepingActivity extends BaseActivity {
         }
     }
 
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            for (int i = 0; i < startList.size(); i++) {
-                if (startList.get(i).isChecked) {
-                    count++;
-                    showPackageDetail(startList.get(i).pkg);
-
-                    View view = containerView_recyclerView.getChildAt(i);
-                    if (view == null) {
-                        return;
-                    }
-                    animatorView(view, i);
-                    return;
-                }
-            }
-            junk_button_clean.setBackgroundResource(R.drawable.shape_button_ffffff);
-            homeAdapter.notifyDataSetChanged();
-            if (TextUtils.equals("GBoost", getIntent().getStringExtra("from"))) {
-                if (!TextUtils.isEmpty(getIntent().getStringExtra("packageName"))) {
-                    MyUtils.doStartApplicationWithPackageName(BoostDeepingActivity.this, getIntent().getStringExtra("packageName"));
-                    if (PreData.getDB(BoostDeepingActivity.this, MyConstantPrivacy.TONGZHILAN_SWITCH, true)) {
-                        Intent intent = new Intent(BoostDeepingActivity.this, NotificationServiceBoost.class);
-                        intent.setAction("gboost");
-                        startService(intent);
-                    }
-
-                } else {
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("count", count);
-                    bundle.putString("from", "GBoost");
-                    jumpToActivity(SucceedActivityBoost.class, bundle, 1);
-                }
-                onBackPressed();
-            } else {
-                Bundle bundle = new Bundle();
-                bundle.putInt("count", count);
-                bundle.putString("from", "power");
-                jumpToActivity(SucceedActivityBoost.class, bundle, 1);
-            }
-            container.removeFromWindow();
-        }
-    };
-
-    @Override
-    protected void findId() {
-        super.findId();
-        title_left = (FrameLayout) findViewById(R.id.title_left);
-        title_name = (TextView) findViewById(R.id.title_name);
-        power_recycler = (RecyclerView) findViewById(R.id.power_recycler);
-        junk_button_clean = (TextView) findViewById(R.id.junk_button_clean);
-        gboost_power_check = (ImageView) findViewById(R.id.gboost_power_check);
-    }
-
     private void animatorView(final View view, final int i) {
         AnimatorSet set = new AnimatorSet();
         View icon = view.findViewById(R.id.recyc_icon);
-//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(icon, "scaleX", 1f, 0f);
-//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(icon, "scaleY", 1f, 0f);
         ObjectAnimator rotate = ObjectAnimator.ofFloat(icon, "rotation", 0f, 360f);
         ObjectAnimator translationX = ObjectAnimator.ofFloat(icon, "translationX", 0f, -360f);
 
@@ -276,7 +274,6 @@ public class BoostDeepingActivity extends BaseActivity {
     private void setContainer() {
         containerView_recyclerView = (RecyclerView) containerView.findViewById(R.id.power_recycler);
         containerView_junk_button_clean = (TextView) containerView.findViewById(R.id.junk_button_clean);
-        power_imageview = (ImageView) containerView.findViewById(R.id.power_imageview);
 
         power_1 = (ImageView) containerView.findViewById(R.id.power_1);
         power_2 = (ImageView) containerView.findViewById(R.id.power_2);
@@ -371,7 +368,7 @@ public class BoostDeepingActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        setResult(MyConstantPrivacy.POWER_RESUIL);
+        setResult(BoostMyConstant.POWER_RESUIL);
         finish();
     }
 

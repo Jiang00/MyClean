@@ -1,4 +1,4 @@
-package com.myboost.junk.presenterprivacy;
+package com.myboost.junk.boostpresenter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,17 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.myboost.junk.toolsprivacy.PrivacyUtilGp;
+import com.myboost.junk.boosttools.UtilGpBoost;
 
 /**
  */
 
-public class PresenterBasePrivacy<T> implements PrivacyIPresenter {
+public class BoostPresenterBase<T> implements IPresenterBoost {
     T iView;
     private int cpuTemp = 40;
     Context context;
 
-    public PresenterBasePrivacy(T iView, Context context) {
+    public BoostPresenterBase(T iView, Context context) {
         this.iView = iView;
         this.context = context;
     }
@@ -38,7 +38,7 @@ public class PresenterBasePrivacy<T> implements PrivacyIPresenter {
     }
 
     public void goToGooglePlay() {
-        PrivacyUtilGp.rate(context);
+        UtilGpBoost.rate(context);
     }
 
     public void setUnit(long size, TextView textView) {

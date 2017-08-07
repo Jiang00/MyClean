@@ -1,4 +1,4 @@
-package com.myboost.junk.customadapterprivacy;
+package com.myboost.junk.customadapterboost;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,16 +17,16 @@ import android.widget.TextView;
 import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.clean.entity.JunkInfo;
 import com.myboost.junk.R;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
-import com.myboost.junk.activityprivacy.BoostGoodGameActivity;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.boostactivity.BoostGoodGameActivity;
 import com.myboost.clean.utilsprivacy.LoadManager;
 
 import java.util.ArrayList;
 
-public class PrivacyJiaGoodGameAdapter extends MybaseAdapter<JunkInfo> {
+public class JiaBoostGoodGameAdapter extends MybaseAdapter<JunkInfo> {
     private ArrayList<String> game_list;
 
-    public PrivacyJiaGoodGameAdapter(Context context, ArrayList<String> game_list) {
+    public JiaBoostGoodGameAdapter(Context context, ArrayList<String> game_list) {
         super(context);
         this.game_list = game_list;
     }

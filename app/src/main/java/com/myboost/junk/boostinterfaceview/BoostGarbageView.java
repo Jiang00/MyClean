@@ -1,4 +1,4 @@
-package com.myboost.junk.interfaceviewprivacy;
+package com.myboost.junk.boostinterfaceview;
 
 import android.widget.TextView;
 
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  */
 
-public interface GarbageViewPrivacy extends BaseView {
+public interface BoostGarbageView extends BaseView {
     void initData(long allSize);
 
     void setColor(long allSize);

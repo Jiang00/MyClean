@@ -9,14 +9,14 @@ import android.view.View;
 
 import com.myboost.module.charge.saver.R;
 
-public class PrivacyBatteryView extends View {
+public class BoostBatteryView extends View {
     Paint paint;
     Context context;
     boolean isStop = false;
     int battery;
     int w = (int) getResources().getDimension(R.dimen.d167);
 
-    public PrivacyBatteryView(Context context, AttributeSet attrs) {
+    public BoostBatteryView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         init();

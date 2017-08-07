@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,17 +16,17 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.myboost.clean.filemanager.PhoneFileCategoryHelper;
+import com.android.client.AndroidSdk;
 import com.myboost.clean.filemanager.FileSortHelper;
+import com.myboost.clean.filemanager.PhoneFileCategoryHelper;
+import com.myboost.clean.filemanager.Util;
 import com.myboost.clean.filemanager.UtilsFile;
 import com.myboost.clean.utilsprivacy.PreData;
-import com.android.client.AndroidSdk;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterprivacy.PrivacyFileAdapter;
-import com.myboost.junk.privacymodel.PrivacyJunkInfo;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.clean.filemanager.Util;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.customadapterboost.FileAdapterBoost;
+import com.myboost.junk.mymodelboost.BoostJunkInfo;
 
 import java.util.ArrayList;
 
@@ -34,24 +34,24 @@ import java.util.ArrayList;
  */
 
 public class FileActivityBoost extends BaseActivity {
-    private String Tag_file_1 = "cprivacy_file_1";
+    private String Tag_file_1 = "flashclean_file_1";
     public static final String TAG = "FileActivityBoost";
     ProgressBar file_progressbar;
     LinearLayout ll_ad;
     TextView title_name;
-    RelativeLayout file_clean_rl;
-    private PhoneFileCategoryHelper fileHelper;
-    private PrivacyFileAdapter adapter;
-    private ArrayList<PrivacyJunkInfo> fileList;
+    private AlertDialog dialog;
+    private PhoneFileCategoryHelper.FileCategory fc;
+    private View nativeView;
+    private ArrayList<BoostJunkInfo> fileList;
     private Handler mHandler;
     private String name;
+    RelativeLayout file_clean_rl;
+    private PhoneFileCategoryHelper fileHelper;
+    private FileAdapterBoost adapter;
     FrameLayout file_fl;
     private int nameId;
     ListView file_list;
     TextView file_button_clean;
-    private AlertDialog dialog;
-    private PhoneFileCategoryHelper.FileCategory fc;
-    private View nativeView;
     LinearLayout null_ll;
     ImageView null_icon;
     FrameLayout title_left;
@@ -64,11 +64,11 @@ public class FileActivityBoost extends BaseActivity {
                     onBackPressed();
                     break;
                 case R.id.file_button_clean:
-                    ArrayList<PrivacyJunkInfo> deleteList = new ArrayList<>();
+                    ArrayList<BoostJunkInfo> deleteList = new ArrayList<>();
                     if (fileList == null || fileList.size() == 0) {
                         break;
                     }
-                    for (PrivacyJunkInfo info : fileList) {
+                    for (BoostJunkInfo info : fileList) {
                         if (info.isChecked) {
                             deleteList.add(info);
                         }
@@ -78,6 +78,75 @@ public class FileActivityBoost extends BaseActivity {
             }
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        setResult(1);
+        finish();
+    }
+
+    private void initData() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Cursor cursor = null;
+                if (TextUtils.equals("apk", name)) {
+                    fc = PhoneFileCategoryHelper.FileCategory.Apk;
+                } else if (TextUtils.equals("zip", name)) {
+                    fc = PhoneFileCategoryHelper.FileCategory.Zip;
+                } else if (TextUtils.equals("music", name)) {
+                    fc = PhoneFileCategoryHelper.FileCategory.Music;
+                } else if (TextUtils.equals("video", name)) {
+                    fc = PhoneFileCategoryHelper.FileCategory.Video;
+                } else if (TextUtils.equals("other", name)) {
+                    fc = PhoneFileCategoryHelper.FileCategory.Other;
+                }
+
+                cursor = fileHelper.query(fc, FileSortHelper.SortMethod.size);
+                if (cursor != null && cursor.moveToFirst()) {
+                    do {
+                        if (onDestroyed) {
+                            return;
+                        }
+                        long _id = cursor.getLong(PhoneFileCategoryHelper.COLUMN_ID);
+                        long size = Long.parseLong(cursor.getString(PhoneFileCategoryHelper.COLUMN_SIZE));
+                        fileList.add(new BoostJunkInfo(_id, null, Util.getNameFromFilepath(cursor.getString(PhoneFileCategoryHelper.COLUMN_PATH)),
+                                cursor.getString(PhoneFileCategoryHelper.COLUMN_PATH), size, false));
+                    } while (cursor.moveToNext());
+                    cursor.close();
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            file_progressbar.setVisibility(View.GONE);
+                            adapter.upList(fileList);
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                } else {
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            file_progressbar.setVisibility(View.GONE);
+
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
+    private void loadAd() {
+        if (PreData.getDB(this, BoostMyConstant.FULL_FILE_1, 0) == 1) {
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+        } else {
+            addAd();
+        }
+    }
 
     @Override
     protected void findId() {
@@ -129,79 +198,10 @@ public class FileActivityBoost extends BaseActivity {
         fileHelper = new PhoneFileCategoryHelper(this);
         fileList = new ArrayList<>();
         initData();
-        adapter = new PrivacyFileAdapter(this, name);
+        adapter = new FileAdapterBoost(this, name);
         file_list.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-    }
-
-    @Override
-    public void onBackPressed() {
-        setResult(1);
-        finish();
-    }
-
-    private void initData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Cursor cursor = null;
-                if (TextUtils.equals("apk", name)) {
-                    fc = PhoneFileCategoryHelper.FileCategory.Apk;
-                } else if (TextUtils.equals("zip", name)) {
-                    fc = PhoneFileCategoryHelper.FileCategory.Zip;
-                } else if (TextUtils.equals("music", name)) {
-                    fc = PhoneFileCategoryHelper.FileCategory.Music;
-                } else if (TextUtils.equals("video", name)) {
-                    fc = PhoneFileCategoryHelper.FileCategory.Video;
-                } else if (TextUtils.equals("other", name)) {
-                    fc = PhoneFileCategoryHelper.FileCategory.Other;
-                }
-
-                cursor = fileHelper.query(fc, FileSortHelper.SortMethod.size);
-                if (cursor != null && cursor.moveToFirst()) {
-                    do {
-                        if (onDestroyed) {
-                            return;
-                        }
-                        long _id = cursor.getLong(PhoneFileCategoryHelper.COLUMN_ID);
-                        long size = Long.parseLong(cursor.getString(PhoneFileCategoryHelper.COLUMN_SIZE));
-                        fileList.add(new PrivacyJunkInfo(_id, null, Util.getNameFromFilepath(cursor.getString(PhoneFileCategoryHelper.COLUMN_PATH)),
-                                cursor.getString(PhoneFileCategoryHelper.COLUMN_PATH), size, false));
-                    } while (cursor.moveToNext());
-                    cursor.close();
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            file_progressbar.setVisibility(View.GONE);
-                            adapter.upList(fileList);
-                            adapter.notifyDataSetChanged();
-                        }
-                    });
-                } else {
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            file_progressbar.setVisibility(View.GONE);
-
-                        }
-                    });
-                }
-            }
-        }).start();
-    }
-
-    private void loadAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_FILE_1, 0) == 1) {
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-            }, 1000);
-        } else {
-            addAd();
-        }
     }
 
     private void setListenet() {
@@ -218,7 +218,7 @@ public class FileActivityBoost extends BaseActivity {
         }
     }
 
-    private void showDia(final ArrayList<PrivacyJunkInfo> deleteList) {
+    private void showDia(final ArrayList<BoostJunkInfo> deleteList) {
         if (deleteList.size() == 0) {
             showToast(getString(R.string.delete));
             return;
@@ -238,7 +238,7 @@ public class FileActivityBoost extends BaseActivity {
             public void onClick(View v) {
                 dialog.dismiss();
                 long size = 0;
-                for (PrivacyJunkInfo info : deleteList) {
+                for (BoostJunkInfo info : deleteList) {
                     size += info.size;
                     UtilsFile.deleteCo(FileActivityBoost.this, fc, info._id);
                 }
@@ -246,7 +246,7 @@ public class FileActivityBoost extends BaseActivity {
                     @Override
                     public void run() {
                         super.run();
-                        for (PrivacyJunkInfo info : deleteList) {
+                        for (BoostJunkInfo info : deleteList) {
                             boolean deleteSuce = UtilsFile.deleteFile(FileActivityBoost.this, info.path);
                             if (!deleteSuce) {
                                 android.util.Log.e(TAG, "delete fail --" + info.path);

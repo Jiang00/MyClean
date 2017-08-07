@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <!--泡泡-->
-        <com.myboost.module.charge.saver.protectview.BubbleLayoutPrivacy
+        <com.myboost.module.charge.saver.protectview.BubbleLayoutBoost
             android:id="@+id/battery_bubble_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -26,7 +26,7 @@
             android:layout_height="@dimen/d56"
             android:layout_marginTop="@dimen/d24">
 
-            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                 android:id="@+id/battery_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <!--小时和电池动画-->
-            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                 android:id="@+id/battery_now_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
                 <!--年-->
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:id="@+id/battery_now_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s16" />
                 <!--月-->
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:id="@+id/battery_now_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s16" />
                 <!--日-->
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:id="@+id/battery_now_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s16" />
                 <!--星期-->
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:id="@+id/battery_now_week"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.myboost.module.charge.saver.protectview.PrivacyBatteryView
+            <com.myboost.module.charge.saver.protectview.BoostBatteryView
                 android:id="@+id/batteryview"
                 android:layout_width="@dimen/d167"
                 android:layout_height="@dimen/d84"
@@ -134,7 +134,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/d30">
                 <!--电量-->
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:id="@+id/battery_le"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/d82"
@@ -143,7 +143,7 @@
                     android:textColor="#78fff9"
                     android:textSize="@dimen/s40" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/d82"
                     android:layout_marginLeft="@dimen/d8"
@@ -163,14 +163,14 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/d24">
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/charging_time_title"
                     android:textColor="@color/white_100"
                     android:textSize="@dimen/s14" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:id="@+id/battery_now_battery_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -178,14 +178,14 @@
                     android:textColor="#51dcff"
                     android:textSize="@dimen/s30" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/charging_time_h"
                     android:textColor="#51dcff"
                     android:textSize="@dimen/s14" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:id="@+id/battery_now_battery_left2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
                     android:textColor="#51dcff"
                     android:textSize="@dimen/s30" />
 
-                <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+                <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/charging_time_m"
@@ -231,7 +231,7 @@
                 android:layout_height="@dimen/d18"
                 android:src="@mipmap/jiantou" />
 
-            <com.myboost.module.charge.saver.protectview.PrivacyCustomerTypefaceTextView
+            <com.myboost.module.charge.saver.protectview.CustomerTypefaceTextViewBoost
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/d15"

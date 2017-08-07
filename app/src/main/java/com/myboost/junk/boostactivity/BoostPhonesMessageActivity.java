@@ -1,4 +1,4 @@
-package com.myboost.junk.activityprivacy;
+package com.myboost.junk.boostactivity;
 
 import android.Manifest;
 import android.content.Context;
@@ -20,12 +20,12 @@ import com.myboost.clean.utilsprivacy.MemoryManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.android.client.AndroidSdk;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
-import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
+import com.myboost.junk.boosttools.BoostMyConstant;
+import com.myboost.junk.boosttools.SetAdUtilPrivacy;
 import com.sample.lottie.LottieAnimationView;
 import com.myboost.junk.R;
-import com.myboost.junk.toolsprivacy.PrivacyGetCameraUtils;
-import com.myboost.junk.toolsprivacy.PhonesManager;
+import com.myboost.junk.boosttools.GetCameraUtilsBoost;
+import com.myboost.junk.boosttools.PhonesManager;
 
 import java.util.Locale;
 
@@ -34,15 +34,28 @@ import java.util.Locale;
  */
 
 public class BoostPhonesMessageActivity extends BaseActivity {
-    private String TAG_MESSAGE = "cprivacy_message";
+    private String TAG_MESSAGE = "flashclean_message";
     TextView title_name;
+    FrameLayout title_left;
+    private Handler myHandler;
+    LottieAnimationView lot_message;
+    private TelephonyManager telManager;
     TextView message_model, message_android_version, message_system_start_time, message_system_start_time2, message_isRoot, message_resolution,
             message_q_camera, message_h_camera, message_imei, message_ram, message_sd;
     LinearLayout ll_ad;
-    LottieAnimationView lot_message;
-    private TelephonyManager telManager;
-    FrameLayout title_left;
-    private Handler myHandler;
+
+    private void loadAd() {
+        if (PreData.getDB(this, BoostMyConstant.FULL_MESSAGE, 0) == 1) {
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                }
+            }, 1000);
+        } else {
+            addAd();
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,8 +87,8 @@ public class BoostPhonesMessageActivity extends BaseActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final String q = PrivacyGetCameraUtils.getCameraPixels(PrivacyGetCameraUtils.HasFrontCamera());
-                final String h = PrivacyGetCameraUtils.getCameraPixels(PrivacyGetCameraUtils.HasBackCamera());
+                final String q = GetCameraUtilsBoost.getCameraPixels(GetCameraUtilsBoost.HasFrontCamera());
+                final String h = GetCameraUtilsBoost.getCameraPixels(GetCameraUtilsBoost.HasBackCamera());
 
                 if (isW()) {
                     try {
@@ -123,19 +136,6 @@ public class BoostPhonesMessageActivity extends BaseActivity {
             ll_ad.setLayoutParams(layout_ad);
             ll_ad.addView(nativeView);
         } else {
-        }
-    }
-
-    private void loadAd() {
-        if (PreData.getDB(this, MyConstantPrivacy.FULL_MESSAGE, 0) == 1) {
-            myHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                }
-            }, 1000);
-        } else {
-            addAd();
         }
     }
 
