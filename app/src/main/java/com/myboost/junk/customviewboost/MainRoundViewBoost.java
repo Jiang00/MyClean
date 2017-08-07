@@ -91,16 +91,6 @@ public class PrivacyMainRoundView extends View {
         canvas.save();
         canvas.rotate(-90, size / 2, size / 2);
         canvas.drawArc(rect, 0, progress * 360 / 100, false, circlePoint);
-//        Path path = new Path();
-//        path.addArc(rect, 0, progress * 360 / 100);
-//        float[] pos = new float[2]; // 当前点的实际位置
-//        float[] tan = new float[2]; // 当前点的tangent值,
-//        PathMeasure measure = new PathMeasure(path, false);
-//        measure.getPosTan(measure.getLength() * 1, pos, tan);
-//        mMatrix.reset();
-//        int a = bitmap.getWidth() / 2;
-//        mMatrix.postTranslate(pos[0] - bitmap.getWidth() / 2, pos[1] - bitmap.getHeight() / 2);
-//        canvas.drawBitmap(bitmap, mMatrix, circlePoint);
         canvas.restore();
     }
 

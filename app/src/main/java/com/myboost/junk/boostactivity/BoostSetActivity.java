@@ -24,8 +24,8 @@ import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
 import com.myboost.junk.toolsprivacy.PrivacyShortCutUtils;
 import com.myboost.junk.toolsprivacy.PrivacyUtilGp;
 import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
-import com.myboost.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
-import com.myboost.module.charge.saver.privacyutils.UtilsPrivacy;
+import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
+import com.myboost.module.charge.saver.boostutils.BatteryUtils;
 
 /**
  * Created by on 2017/3/2.
@@ -107,7 +107,7 @@ public class BoostSetActivity extends BaseActivity {
         } else {
             setting_unload_check.setImageResource(R.mipmap.side_check_normal);
         }
-        if ((boolean) UtilsPrivacy.readData(this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true)) {
+        if ((boolean) BatteryUtils.readData(this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true)) {
             setting_battery_check.setImageResource(R.mipmap.side_check_passed);
         } else {
             setting_battery_check.setImageResource(R.mipmap.side_check_normal);
@@ -233,12 +233,12 @@ public class BoostSetActivity extends BaseActivity {
                     }
                     break;
                 case R.id.setting_battery:
-                    if ((boolean) UtilsPrivacy.readData(BoostSetActivity.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true)) {
-                        UtilsPrivacy.writeData(BoostSetActivity.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, false);
+                    if ((boolean) BatteryUtils.readData(BoostSetActivity.this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true)) {
+                        BatteryUtils.writeData(BoostSetActivity.this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false);
                         SetAdUtilPrivacy.track("设置页面", "点击充电屏保开关", "关", 1);
                         setting_battery_check.setImageResource(R.mipmap.side_check_normal);
                     } else {
-                        UtilsPrivacy.writeData(BoostSetActivity.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true);
+                        BatteryUtils.writeData(BoostSetActivity.this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true);
                         SetAdUtilPrivacy.track("设置页面", "点击充电屏保开关", "开", 1);
                         PreData.putDB(BoostSetActivity.this, MyConstantPrivacy.FIRST_BATTERY, false);
                         setting_battery_check.setImageResource(R.mipmap.side_check_passed);

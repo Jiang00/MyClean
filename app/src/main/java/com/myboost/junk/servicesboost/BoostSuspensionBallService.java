@@ -1,4 +1,4 @@
-package com.myboost.junk.privacyservices;
+package com.myboost.junk.servicesboost;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
@@ -24,9 +24,9 @@ import android.widget.LinearLayout;
 import com.myboost.clean.privacydb.CleanDBHelper;
 import com.myboost.junk.R;
 import com.myboost.clean.utilsprivacy.MyUtils;
-import com.myboost.junk.presenterprivacy.GetTopApp;
-import com.myboost.junk.presenterprivacy.PrivacyFloatStateManager;
-import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
+import com.myboost.junk.boostpresenter.GetTopApp;
+import com.myboost.junk.boostpresenter.FloatStateManagerBoost;
+import com.myboost.junk.boosttools.BoostMyConstant;
 import com.myboost.clean.utilsprivacy.PreData;
 
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ public class SuspensionBallServiceBoost extends Service {
     }
 
     Handler myHandler;
-    PrivacyFloatStateManager manager;
+    FloatStateManagerBoost manager;
     WindowManager mana;
 
     @Override
@@ -58,7 +58,7 @@ public class SuspensionBallServiceBoost extends Service {
         if (myHandler == null) {
             myHandler = new Handler();
         }
-        manager = PrivacyFloatStateManager.getInstance(SuspensionBallServiceBoost.this);
+        manager = FloatStateManagerBoost.getInstance(SuspensionBallServiceBoost.this);
         if (pm == null)
             pm = getPackageManager();
         if (am == null)
@@ -148,7 +148,7 @@ public class SuspensionBallServiceBoost extends Service {
 //                }
                 if (!TextUtils.equals(pkg, runingGboost)) {
                     runingGboost = pkg;
-                    if (PreData.getDB(SuspensionBallServiceBoost.this, MyConstantPrivacy.TONGZHILAN_SWITCH, true)) {
+                    if (PreData.getDB(SuspensionBallServiceBoost.this, BoostMyConstant.TONGZHILAN_SWITCH, true)) {
                         ArrayList<String> gboost_names = CleanDBHelper.getInstance(SuspensionBallServiceBoost.this).getWhiteList(CleanDBHelper.TableType.GameBoost);
                         if (gboost_names.contains(pkg)) {
                             Intent intent = new Intent(SuspensionBallServiceBoost.this, NotificationServiceBoost.class);

@@ -98,7 +98,7 @@ public class MainYuanHuView extends View {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (float i = 0, j = 240; i <= 240 && j >= dushu; ) {
+                for (float i = 0, j = 240; i <= 240 && j >= (int) dushu; ) {
                     if (isStop) {
                         if (scanEndListener != null) {
                             scanEndListener.scanDushu(-1);

@@ -14,7 +14,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -32,12 +31,14 @@ import com.myboost.clean.utilsprivacy.MemoryManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
+import com.myboost.junk.privacycustomview.ImageAccessor;
 import com.myboost.junk.privacycustomview.PrivacyImageAccessor;
 import com.myboost.junk.toolsprivacy.CheckState;
 import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
 import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
 import com.myboost.junk.toolsprivacy.SwitchControl;
 import com.twee.module.tweenengine.Tween;
+import com.twee.module.tweenengine.TweenEquations;
 import com.twee.module.tweenengine.TweenManager;
 
 import java.util.List;
@@ -55,15 +56,15 @@ public class BoostSuspensionBallActivity extends BaseActivity {
     LinearLayout ll_wifi, ll_liuliang, ll_xianshi, ll_shengyin, ll_gps;
     private Handler myHandler;
     private boolean istween;
-    private RelativeLayout float_relativelayout2;
     private Intent intent;
-    private ObjectAnimator animator;
+    private ObjectAnimator animator, animator1;
     ImageView iv_wifi, iv_liuliang, iv_xianshi, iv_shengyin, iv_gps;
     private String TAG_FLAOT = "cprivacy_float";
     private boolean isdoudong;
     TweenManager tweenManager;
-    ImageView float_huojian, float_huan, float_xing1, float_xing2, float_guang1, float_guang2, float_guang3, float_guang4;
-    AnimatorSet animSet, animSet1;
+    ImageView float_huojian, float_huan;
+    AnimatorSet animSet1;
+    ObjectAnimator animator2, animator11, animator12;
     TextView float_memory, float_tishi;
 
 
@@ -80,7 +81,6 @@ public class BoostSuspensionBallActivity extends BaseActivity {
         tweenManager = new TweenManager();
         Tween.registerAccessor(ImageView.class, new PrivacyImageAccessor());
         istween = true;
-
         setAnimationThread();
 //        float_rotate.startAnimation(rotate);
         loadAd();
@@ -89,6 +89,30 @@ public class BoostSuspensionBallActivity extends BaseActivity {
         shengYin();
         xianshiD();
         addListener();
+    }
+
+    private void startTween() {
+        final float hy = float_huojian.getTop();
+        final float hx = float_huojian.getLeft();
+        isdoudong = true;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (isdoudong) {
+                    int x = (int) (Math.random() * (10)) - 5;
+                    int y = (int) (Math.random() * (10)) - 5;
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Tween.to(float_huojian, ImageAccessor.BOUNCE_EFFECT, 0.08f).target(hx + x, hy + y, 1f, 1)
+                            .ease(TweenEquations.easeInQuad).delay(0)
+                            .start(tweenManager);
+                }
+            }
+        }).start();
+
     }
 
     private void initList() {
@@ -166,7 +190,6 @@ public class BoostSuspensionBallActivity extends BaseActivity {
         ll_xianshi = (LinearLayout) findViewById(R.id.ll_xianshi);
         ll_shengyin = (LinearLayout) findViewById(R.id.ll_shengyin);
         ll_gps = (LinearLayout) findViewById(R.id.ll_gps);
-        float_relativelayout2 = (RelativeLayout) findViewById(R.id.float_relativelayout2);
         iv_wifi = (ImageView) findViewById(R.id.iv_wifi);
         iv_liuliang = (ImageView) findViewById(R.id.iv_liuliang);
         iv_xianshi = (ImageView) findViewById(R.id.iv_xianshi);
@@ -174,14 +197,8 @@ public class BoostSuspensionBallActivity extends BaseActivity {
         iv_gps = (ImageView) findViewById(R.id.iv_gps);
         float_huojian = (ImageView) findViewById(R.id.float_huojian);
         float_huan = (ImageView) findViewById(R.id.float_huan);
-        float_xing1 = (ImageView) findViewById(R.id.float_xing1);
-        float_xing2 = (ImageView) findViewById(R.id.float_xing2);
-        float_guang1 = (ImageView) findViewById(R.id.float_guang1);
         float_memory = (TextView) findViewById(R.id.float_memory);
-        float_guang2 = (ImageView) findViewById(R.id.float_guang2);
-        float_guang3 = (ImageView) findViewById(R.id.float_guang3);
         float_tishi = (TextView) findViewById(R.id.float_tishi);
-        float_guang4 = (ImageView) findViewById(R.id.float_guang4);
     }
 
     private void startRamAnimtion() {
@@ -192,51 +209,37 @@ public class BoostSuspensionBallActivity extends BaseActivity {
             }
         }).start();
         CleanManager.getInstance(this).clearRam();
-
-        animSet = new AnimatorSet();
-        ObjectAnimator animator = ObjectAnimator.ofFloat(float_xing1, "alpha", 1f, 0f, 1f);
-        ObjectAnimator animator1 = ObjectAnimator.ofFloat(float_xing2, "alpha", 1f, 0f, 1f);
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startTween();
+            }
+        }, 200);
         //旋转
-        ObjectAnimator animator2 = ObjectAnimator.ofFloat(float_huan, "rotation", 0, 359);
+        animator2 = ObjectAnimator.ofFloat(float_huan, "rotation", 0, 359f);
         animator2.setDuration(500);
-        animator2.setRepeatCount(4);
+        animator2.setRepeatCount(-1);
         animator2.start();
-        //闪
-        animSet.setDuration(1000);
-        animSet.play(animator).with(animator1);
-        animSet.start();
-        //光动
-        animSet1 = new AnimatorSet();
 
-        ObjectAnimator animator3 = ObjectAnimator.ofFloat(float_guang1, "translationX",
-                0, -getResources().getDimension(R.dimen.d10));
-        ObjectAnimator animator4 = ObjectAnimator.ofFloat(float_guang1, "translationY",
-                0, getResources().getDimension(R.dimen.d24));
-        ObjectAnimator animator5 = ObjectAnimator.ofFloat(float_guang2, "translationX",
-                0, -getResources().getDimension(R.dimen.d10));
-        ObjectAnimator animator6 = ObjectAnimator.ofFloat(float_guang2, "translationY",
-                0, getResources().getDimension(R.dimen.d16));
-        ObjectAnimator animator7 = ObjectAnimator.ofFloat(float_guang3, "translationX",
-                0, -getResources().getDimension(R.dimen.d6));
-        ObjectAnimator animator8 = ObjectAnimator.ofFloat(float_guang3, "translationY",
-                0, getResources().getDimension(R.dimen.d28));
-        ObjectAnimator animator9 = ObjectAnimator.ofFloat(float_guang4, "translationX",
-                0, -getResources().getDimension(R.dimen.d10));
-        ObjectAnimator animator10 = ObjectAnimator.ofFloat(float_guang4, "translationY",
-                0, getResources().getDimension(R.dimen.d40));
-        ObjectAnimator animator11 = ObjectAnimator.ofFloat(float_huojian, "translationX",
+        animator11 = ObjectAnimator.ofFloat(float_huojian, "translationX",
                 0, getResources().getDimension(R.dimen.d100));
-        ObjectAnimator animator12 = ObjectAnimator.ofFloat(float_huojian, "translationY",
+        animator12 = ObjectAnimator.ofFloat(float_huojian, "translationY",
                 0, -getResources().getDimension(R.dimen.d100));
-        animSet1.setDuration(1000);
-        animSet1.play(animator3).with(animator4).with(animator5).with(animator6).with(animator7).with(animator8).
-                with(animator9).with(animator10).with(animator11).with(animator12);
-        animSet1.start();
-        animSet1AddListener();
+        animSet1 = new AnimatorSet();
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isdoudong = false;
+                animSet1.play(animator11).with(animator12);
+                animSet1.setDuration(800);
+                animSet1.start();
+                animSet1AddListener();
+            }
+        }, 2500);
     }
 
     private void animSet1AddListener() {
-        if (animSet != null) {
+        if (animSet1 != null) {
             animSet1.addListener(new Animator.AnimatorListener() {
                 @Override
                 public void onAnimationStart(Animator animation) {
@@ -245,71 +248,50 @@ public class BoostSuspensionBallActivity extends BaseActivity {
 
                 @Override
                 public void onAnimationEnd(Animator animation) {
-                    float_relativelayout2.startAnimation(suo);
-                    suo.setAnimationListener(new Animation.AnimationListener() {
+                    float_huojian.setVisibility(View.GONE);
+
+                    float_memory.setText(MyUtils.getMemory(BoostSuspensionBallActivity.this) + "%");
+                    float_tishi.setVisibility(View.VISIBLE);
+                    float_memory.setVisibility(View.VISIBLE);
+                    float_memory.startAnimation(fang);
+                    float_tishi.startAnimation(fang);
+                    myHandler.postDelayed(new Runnable() {
                         @Override
-                        public void onAnimationEnd(Animation animation) {
-                            float_relativelayout2.setVisibility(View.GONE);
-
-                            float_memory.setText(MyUtils.getMemory(BoostSuspensionBallActivity.this) + "%");
-                            float_tishi.setVisibility(View.VISIBLE);
-                            float_memory.setVisibility(View.VISIBLE);
-                            float_memory.startAnimation(fang);
-                            float_tishi.startAnimation(fang);
-                          /*  fang.setAnimationListener(new Animation.AnimationListener() {
-                                @Override
-                                public void onAnimationEnd(Animation animation) {
-                                    myHandler.postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            float_memory.startAnimation(suo);
-                                            float_tishi.startAnimation(suo);
-                                            suo.setAnimationListener(new Animation.AnimationListener() {
-                                                @Override
-                                                public void onAnimationEnd(Animation animation) {
-                                                    float_tishi.setVisibility(View.GONE);
-                                                    float_memory.setVisibility(View.GONE);
-                                                    float_relativelayout2.startAnimation(fang);
-                                                    float_huojian.startAnimation(fang);
-                                                    float_relativelayout2.setVisibility(View.VISIBLE);
-                                                }
-
-                                                @Override
-                                                public void onAnimationRepeat(Animation animation) {
-
-                                                }
-
-                                                @Override
-                                                public void onAnimationStart(Animation animation) {
-
-                                                }
-                                            });
-                                        }
-                                    }, 1000);
-                                }
-
-                                @Override
-                                public void onAnimationRepeat(Animation animation) {
-
-                                }
-
-                                @Override
-                                public void onAnimationStart(Animation animation) {
-
-                                }
-                            });*/
+                        public void run() {
+                            animator2.pause();
                         }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-
-                        }
-
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-
-                        }
-                    });
+                    }, 400);
+//                            myHandler.postDelayed(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    float_tishi.startAnimation(suo);
+//                                    float_memory.startAnimation(suo);
+//                                    suo.setAnimationListener(new Animation.AnimationListener() {
+//                                        @Override
+//                                        public void onAnimationStart(Animation animation) {
+//
+//                                        }
+//
+//                                        @Override
+//                                        public void onAnimationEnd(Animation animation) {
+//                                            animator11 = ObjectAnimator.ofFloat(float_huojian, "translationX",
+//                                                    0, -getResources().getDimension(R.dimen.d100));
+//                                            animator12 = ObjectAnimator.ofFloat(float_huojian, "translationY",
+//                                                    0, +getResources().getDimension(R.dimen.d100));
+//                                            animSet1.end();
+//                                            float_tishi.setVisibility(View.GONE);
+//                                            float_memory.setVisibility(View.GONE);
+//                                            float_huojian.setVisibility(View.VISIBLE);
+//                                            float_huojian.startAnimation(fang);
+//                                        }
+//
+//                                        @Override
+//                                        public void onAnimationRepeat(Animation animation) {
+//
+//                                        }
+//                                    });
+//                                }
+//                            }, 1000);
                 }
 
                 @Override
@@ -330,7 +312,6 @@ public class BoostSuspensionBallActivity extends BaseActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.float_huojian:
-                    Log.e("fssdf", "==========");
                     // 开启动画
                     startRamAnimtion();
                     break;
@@ -582,5 +563,8 @@ public class BoostSuspensionBallActivity extends BaseActivity {
         super.onPause();
         isdoudong = false;
         istween = false;
+        if (animator2 != null) {
+            animator2.pause();
+        }
     }
 }

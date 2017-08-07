@@ -1,4 +1,4 @@
-package com.myboost.junk.privacymodel;
+package com.myboost.junk.mymodelboost;
 
 import android.graphics.drawable.Drawable;
 

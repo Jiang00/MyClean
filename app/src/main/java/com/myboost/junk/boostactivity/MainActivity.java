@@ -50,8 +50,8 @@ import com.myboost.junk.privacycustomview.ScrollView;
 import com.myboost.junk.privacymodel.SideInfo;
 import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
 import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
-import com.myboost.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
-import com.myboost.module.charge.saver.privacyutils.UtilsPrivacy;
+import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
+import com.myboost.module.charge.saver.boostutils.BatteryUtils;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -272,7 +272,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         }
         adapter.clear();
 
-        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) UtilsPrivacy.readData(this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, false)));//充电屏保
+        adapter.addData(new SideInfo(R.string.side_charging, R.mipmap.side_charging, (boolean) BatteryUtils.readData(this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false)));//充电屏保
         adapter.addData(new SideInfo(R.string.side_float, R.mipmap.side_float, PreData.getDB(this, MyConstantPrivacy.FlOAT_SWITCH, true)));//桌面悬浮球
         adapter.addData(new SideInfo(R.string.side_ram, R.mipmap.side_ram));//内存加速
         adapter.addData(new SideInfo(R.string.side_junk, R.mipmap.side_junk));//垃圾清理
@@ -363,9 +363,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
                 }
-
             }
         }).start();
     }
@@ -421,7 +419,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
         }
         //提示
         if (PreData.getDB(this, MyConstantPrivacy.FIRST_BATTERY, true)) {
-            UtilsPrivacy.writeData(MainActivity.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, false);
+            BatteryUtils.writeData(MainActivity.this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false);
             main_battery.setVisibility(View.VISIBLE);
             LinearLayout battery_cha = (LinearLayout) findViewById(R.id.battery_cha);
             Button battery_button = (Button) findViewById(R.id.battery_button);
@@ -563,7 +561,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                 case R.id.battery_button:
                     main_battery.setVisibility(View.GONE);
                     PreData.putDB(MainActivity.this, MyConstantPrivacy.FIRST_BATTERY, false);
-                    UtilsPrivacy.writeData(MainActivity.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true);
+                    BatteryUtils.writeData(MainActivity.this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true);
                     initSideData();
                     adapter.notifyDataSetChanged();
                     SetAdUtilPrivacy.track("主界面", "充电屏保引导", "打开", 1);
@@ -571,7 +569,7 @@ public class MainActivity extends BaseActivity implements MainViewPrivacy, Drawe
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);
                     PreData.putDB(MainActivity.this, MyConstantPrivacy.FIRST_BATTERY, false);
-                    UtilsPrivacy.writeData(MainActivity.this, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, false);
+                    BatteryUtils.writeData(MainActivity.this, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false);
                     SetAdUtilPrivacy.track("主界面", "充电屏保引导", "叉掉", 1);
                     break;
             }

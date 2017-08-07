@@ -31,8 +31,8 @@ import com.myboost.junk.privacyservices.SuspensionBallServiceBoost;
 import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
 import com.myboost.junk.toolsprivacy.PrivacyUtilGp;
 import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
-import com.myboost.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
-import com.myboost.module.charge.saver.privacyutils.UtilsPrivacy;
+import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
+import com.myboost.module.charge.saver.boostutils.BatteryUtils;
 
 
 public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
@@ -163,13 +163,13 @@ public class PrivacySidebarAdapter extends MybaseAdapter<SideInfo> {
 
     private void onC(int position) {
         if (position == BATTERY) {
-            if ((boolean) UtilsPrivacy.readData(context, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true)) {
+            if ((boolean) BatteryUtils.readData(context, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true)) {
                 SetAdUtilPrivacy.track("侧边栏", "点击关闭充电屏保", "", 1);
-                UtilsPrivacy.writeData(context, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, false);
+                BatteryUtils.writeData(context, BoostBatteryConstants.CHARGE_SAVER_SWITCH, false);
             } else {
                 SetAdUtilPrivacy.track("侧边栏", "点击开启充电屏保", "", 1);
                 PreData.putDB(context, MyConstantPrivacy.FIRST_BATTERY, false);
-                UtilsPrivacy.writeData(context, BatteryConstantsPrivacy.CHARGE_SAVER_SWITCH, true);
+                BatteryUtils.writeData(context, BoostBatteryConstants.CHARGE_SAVER_SWITCH, true);
             }
         } else if (position == FLOAT) {
             if (PreData.getDB(context, MyConstantPrivacy.FlOAT_SWITCH, true)) {

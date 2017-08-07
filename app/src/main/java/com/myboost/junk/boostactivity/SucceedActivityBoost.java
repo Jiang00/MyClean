@@ -1,7 +1,10 @@
 package com.myboost.junk.activityprivacy;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,11 +30,11 @@ import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.privacycustomview.KuoShan;
 import com.myboost.junk.privacycustomview.PrivacyDrawHookView;
 import com.myboost.junk.privacycustomview.PrivacyImageAccessor;
 import com.myboost.junk.privacycustomview.PrivacyMainRoundView;
 import com.myboost.junk.privacycustomview.PrivacySlowScrollView;
+import com.myboost.junk.privacycustomview.RenderingView;
 import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
 import com.myboost.junk.toolsprivacy.PrivacyUtilGp;
 import com.myboost.junk.toolsprivacy.SetAdUtilPrivacy;
@@ -52,9 +54,6 @@ public class SucceedActivityBoost extends BaseActivity {
     RelativeLayout main_gboost_button;
     FrameLayout title_left;
     TextView main_rotate_good;
-    TextView clean_size;
-    KuoShan success_kuoshan;
-    ImageView success_diancirle, success_diancirle1;
     RelativeLayout main_ram_button;
     private boolean haveAd;
     private boolean animationEnd;
@@ -62,13 +61,15 @@ public class SucceedActivityBoost extends BaseActivity {
     RelativeLayout main_junk_button;
     TextView title_name;
     PrivacyMainRoundView mainRoundView;
+    ImageView success_eye_leght, success_eye_right, success_eye_right1;
+    ObjectAnimator animator1, animator2, animator3, animator4, animator5, animator6;
+    FrameLayout success_animator;
+    AnimatorSet animSet, animSet1;
     PrivacySlowScrollView scrollView;
     long endStart = -1;
     ObjectAnimator objectAnimator;
     int sizeInt;
     long sizeInt1;
-    PrivacyDrawHookView success_drawhook;
-    private boolean isdoudong;
     private TweenManager tweenManager;
     private boolean istween;
     private Handler myHandler;
@@ -78,6 +79,7 @@ public class SucceedActivityBoost extends BaseActivity {
     RelativeLayout main_cooling_button;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
+    RenderingView success_mouth;
     RelativeLayout main_picture_button;
     RelativeLayout main_file_button;
     TextView success_clean_size;
@@ -113,6 +115,8 @@ public class SucceedActivityBoost extends BaseActivity {
         setAnimationThread();
         myHandler = new Handler();
         if (TextUtils.equals("cooling", getIntent().getStringExtra("from"))) {
+            success_animator.setVisibility(View.GONE);
+            success_textview.setVisibility(View.GONE);
             //电池降温跳过动画
             //广告
             if (PreData.getDB(SucceedActivityBoost.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
@@ -120,6 +124,64 @@ public class SucceedActivityBoost extends BaseActivity {
             }
             //动画结束换内容的
             startSecondAnimation();
+        } else {
+            success_animator.setVisibility(View.VISIBLE);
+            success_textview.setVisibility(View.VISIBLE);
+            initAnimation();
+
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //左眼睛
+                    animator1 = ObjectAnimator.ofFloat(success_eye_leght, "alpha", 0f, 1f);
+                    //右眼睛
+                    animator2 = ObjectAnimator.ofFloat(success_eye_right1, "alpha", 0f, 1f);
+                    animSet = new AnimatorSet();
+                    animSet.setDuration(1000);
+                    animSet.play(animator1).with(animator2);
+                    animSet.start();
+                    animSet.addListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            //右眼睛
+                            animSet1 = new AnimatorSet();
+                            animator3 = ObjectAnimator.ofFloat(success_eye_right1, "alpha", 1f, 0f);
+                            animator4 = ObjectAnimator.ofFloat(success_eye_right, "alpha", 0f, 1f);
+                            animSet.setDuration(1000);
+                            animSet1.play(animator4).after(animator3);
+                            animSet1.start();
+                            success_mouth.setVisibility(View.VISIBLE);
+                            success_mouth.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.success_7));
+                            myHandler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    //广告
+                                    if (PreData.getDB(SucceedActivityBoost.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
+                                        AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
+                                    }
+                                    //动画结束换内容的
+                                    startSecondAnimation();
+                                }
+                            }, 1500);
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {
+
+                        }
+                    });
+                }
+            }, 1100);
         }
         if (getIntent().getStringExtra("name") != null) {
             title_name.setText(getIntent().getStringExtra("name"));
@@ -231,7 +293,6 @@ public class SucceedActivityBoost extends BaseActivity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             main_notifi_button.setVisibility(View.GONE);
         }
-        initAnimation();
 
         if (PreData.getDB(this, MyConstantPrivacy.IS_ROTATE, false)) {
             main_rotate_all.setVisibility(View.GONE);
@@ -291,9 +352,6 @@ public class SucceedActivityBoost extends BaseActivity {
     }
 
     public void startSizeAni(final long size, final String cleanName) {
-        success_kuoshan.setVisibility(View.VISIBLE);
-        clean_size.setVisibility(View.VISIBLE);
-        success_diancirle.setVisibility(View.VISIBLE);
 
         String[] str = MyUtils.convertStorage(size, false).split("\\.");
         if ("0".equals(str[0])) {
@@ -308,16 +366,6 @@ public class SucceedActivityBoost extends BaseActivity {
         } else if ("G".equals(strDanWei.substring(strDanWei.length() - 1, strDanWei.length()))) {
             sizeInt = sizeInt * 1024 * 1024;
         }
-        success_diancirle1.setVisibility(View.GONE);
-        objectAnimator = ObjectAnimator.ofFloat(success_diancirle, "rotation", 0f, 360f);
-        objectAnimator.setRepeatCount(-1);
-        LinearInterpolator lir = new LinearInterpolator();
-        objectAnimator.setInterpolator(lir);
-        objectAnimator.setDuration(300);
-        objectAnimator.start();
-        success_kuoshan.start(getResources().getDimensionPixelSize(com.myboost.module.charge.saver.R.dimen.d121),
-                getResources().getDimensionPixelSize(com.myboost.module.charge.saver.R.dimen.d82),
-                getResources().getDimensionPixelSize(com.myboost.module.charge.saver.R.dimen.d2), 15, 0.28f);
 
         new Thread(new Runnable() {
             @Override
@@ -325,53 +373,6 @@ public class SucceedActivityBoost extends BaseActivity {
                 if (objectAnimator != null) {
                     objectAnimator.pause();
                 }
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        success_diancirle.setVisibility(View.GONE);
-                        success_diancirle1.setVisibility(View.VISIBLE);
-                        if (clean_size != null && clean_size.getVisibility() == View.VISIBLE) {
-                            clean_size.setVisibility(View.GONE);
-                        }
-                        success_drawhook.setVisibility(View.VISIBLE);
-                    }
-                });
-                isdoudong = false;
-                success_drawhook.startProgress(500);
-                success_drawhook.setListener(new PrivacyDrawHookView.DrawHookListener() {
-
-                    @Override
-                    public void duogouSc() {
-                        if (PreData.getDB(SucceedActivityBoost.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
-                            AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                        }
-                        success_textview.setVisibility(View.VISIBLE);
-                        if (sizeInt1 != 0) {
-                            if ("app".equals(cleanName)) {
-                                success_textview.setText(getResources().getText(R.string.qingli) + " " + getString(R.string.power_1, String.valueOf(size)));
-                            } else if ("picture".equals(cleanName)) {
-                                success_textview.setText(getString(R.string.success_4, size));
-                            } else if ("noti".equals(cleanName)) {
-                                success_textview.setText(getString(R.string.success_6, size));
-                            }
-                        } else {
-                            success_textview.setText(MyUtils.convertStorage(size, true) + getResources().getText(R.string.qingli));
-                        }
-                        myHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                //广告
-                                if (PreData.getDB(SucceedActivityBoost.this, MyConstantPrivacy.FULL_SUCCESS, 0) == 1) {
-                                    AndroidSdk.showFullAd(AndroidSdk.FULL_TAG_PAUSE);
-                                }
-                                //动画结束换内容的
-                                startSecondAnimation();
-                                success_drawhook.setListener(null);
-                            }
-                        }, 1000);
-                    }
-                });
-//                }//
             }
         }).start();
     }
@@ -382,7 +383,6 @@ public class SucceedActivityBoost extends BaseActivity {
         title_left = (FrameLayout) findViewById(R.id.title_left);
         title_name = (TextView) findViewById(R.id.title_name);
         success_clean_size = (TextView) findViewById(R.id.success_clean_size);
-        success_drawhook = (PrivacyDrawHookView) findViewById(R.id.success_drawhook);
         mainRoundView = (PrivacyMainRoundView) findViewById(R.id.main_progress);
         success_textview = (TextView) findViewById(R.id.success_textview);
         scrollView = (PrivacySlowScrollView) findViewById(R.id.scrollView);
@@ -401,10 +401,11 @@ public class SucceedActivityBoost extends BaseActivity {
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
-        clean_size = (TextView) findViewById(R.id.clean_size);
-        success_diancirle = (ImageView) findViewById(R.id.success_diancirle);
-        success_diancirle1 = (ImageView) findViewById(R.id.success_diancirle1);
-        success_kuoshan = (KuoShan) findViewById(R.id.success_kuoshan);
+        success_mouth = (RenderingView) findViewById(R.id.success_mouth);
+        success_eye_leght = (ImageView) findViewById(R.id.success_eye_leght);
+        success_eye_right = (ImageView) findViewById(R.id.success_eye_right);
+        success_eye_right1 = (ImageView) findViewById(R.id.success_eye_right1);
+        success_animator = (FrameLayout) findViewById(R.id.success_animator);
     }
 
     private void addListener() {

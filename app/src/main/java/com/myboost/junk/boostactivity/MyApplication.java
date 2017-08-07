@@ -16,9 +16,9 @@ import com.myboost.junk.R;
 import com.myboost.junk.toolsprivacy.MyConstantPrivacy;
 import com.myboost.junk.privacyservices.NotificationServiceBoost;
 import com.myboost.junk.privacyservices.SuspensionBallServiceBoost;
-import com.myboost.module.charge.saver.privacyprotectservice.PrivacyServiceBattery;
-import com.myboost.module.charge.saver.privacyutils.BatteryConstantsPrivacy;
-import com.myboost.module.charge.saver.privacyutils.UtilsPrivacy;
+import com.myboost.module.charge.saver.boostprotectservice.ServiceBatteryBoost;
+import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
+import com.myboost.module.charge.saver.boostutils.BatteryUtils;
 import com.squareup.leakcanary.LeakCanary;
 //import com.vatermobi.kpa.DaemonClient;
 
@@ -36,9 +36,9 @@ public class MyApplication extends Application {
         super.onCreate();
         AndroidSdk.onCreate(this);
         //charging
-        startService(new Intent(this, PrivacyServiceBattery.class));
-        UtilsPrivacy.writeData(this, BatteryConstantsPrivacy.CHARGE_SAVER_TITLE, getString(R.string.app_name));
-        UtilsPrivacy.writeData(this, BatteryConstantsPrivacy.CHARGE_SAVER_ICON, R.mipmap.loading_icon_1);
+        startService(new Intent(this, ServiceBatteryBoost.class));
+        BatteryUtils.writeData(this, BoostBatteryConstants.CHARGE_SAVER_TITLE, getString(R.string.app_name));
+        BatteryUtils.writeData(this, BoostBatteryConstants.CHARGE_SAVER_ICON, R.mipmap.loading_icon_1);
 
         CleanManager.getInstance(this).startLoad();
 
