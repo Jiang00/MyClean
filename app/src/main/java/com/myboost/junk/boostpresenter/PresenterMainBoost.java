@@ -7,12 +7,12 @@ import android.support.v4.widget.ViewDragHelper;
 import android.util.DisplayMetrics;
 
 import com.myboost.clean.core.CleanManager;
+import com.myboost.clean.utilsprivacy.MemoryManager;
 import com.myboost.clean.utilsprivacy.MyUtils;
+import com.myboost.clean.utilsprivacy.PreData;
+import com.myboost.junk.boostinterfaceview.BoostMainView;
 import com.myboost.junk.boosttools.BoostMyConstant;
 import com.myboost.junk.boosttools.GetCpuTempReaderBoost;
-import com.myboost.junk.boostinterfaceview.BoostMainView;
-import com.myboost.clean.utilsprivacy.MemoryManager;
-import com.myboost.clean.utilsprivacy.PreData;
 
 import java.lang.reflect.Field;
 

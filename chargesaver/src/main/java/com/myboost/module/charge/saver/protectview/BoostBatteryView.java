@@ -35,7 +35,7 @@ public class BoostBatteryView extends View {
         // 画矩形(RectF)
         RectF rectf = new RectF(0, 0, w * battery / 100, getResources().getDimension(R.dimen.d84));
 //        canvas.drawRect(rectf, paint);
-        canvas.drawRoundRect(rectf, getResources().getDimension(R.dimen.d10), getResources().getDimension(R.dimen.d10), paint);//第二个参数是x半径，第三个参数是y半径
+        canvas.drawRoundRect(rectf, getResources().getDimension(R.dimen.d9), getResources().getDimension(R.dimen.d9), paint);//第二个参数是x半径，第三个参数是y半径
     }
 
     public void setDuShu(int battery) {

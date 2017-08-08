@@ -38,20 +38,20 @@ import com.myboost.clean.entity.JunkInfo;
 import com.myboost.clean.utilsprivacy.MyUtils;
 import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
-import com.myboost.junk.customadapterboost.SidebarAdapterBoost;
 import com.myboost.junk.boostinterfaceview.BoostMainView;
 import com.myboost.junk.boostpresenter.PresenterMainBoost;
-import com.myboost.junk.customviewboost.BoostListViewForScrollView;
-import com.myboost.junk.customviewboost.MainYuanHuView;
-import com.myboost.junk.customviewboost.CustomRoundCpuBoost;
-import com.myboost.junk.customviewboost.YuanHuViewBoost;
-import com.myboost.junk.customviewboost.PullToRefreshLayout;
-import com.myboost.junk.customviewboost.ScrollView;
-import com.myboost.junk.mymodelboost.SideInfo;
 import com.myboost.junk.boosttools.BoostMyConstant;
 import com.myboost.junk.boosttools.SetAdUtilPrivacy;
-import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
+import com.myboost.junk.customadapterboost.SidebarAdapterBoost;
+import com.myboost.junk.customviewboost.BoostListViewForScrollView;
+import com.myboost.junk.customviewboost.CustomRoundCpuBoost;
+import com.myboost.junk.customviewboost.MainYuanHuView;
+import com.myboost.junk.customviewboost.PullToRefreshLayout;
+import com.myboost.junk.customviewboost.ScrollView;
+import com.myboost.junk.customviewboost.YuanHuViewBoost;
+import com.myboost.junk.mymodelboost.SideInfo;
 import com.myboost.module.charge.saver.boostutils.BatteryUtils;
+import com.myboost.module.charge.saver.boostutils.BoostBatteryConstants;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -276,6 +276,7 @@ public class MainActivity extends BaseActivity implements BoostMainView, DrawerL
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
+        AndroidSdk.loadFullAd("full_exit");
         if (PreData.getDB(this, BoostMyConstant.FILEACTIVITY, 1) == 0) {
             main_file_button.setVisibility(View.GONE);
         }
@@ -717,9 +718,9 @@ public class MainActivity extends BaseActivity implements BoostMainView, DrawerL
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {
             main_drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (PreData.getDB(this, BoostMyConstant.FULL_EXIT, 0) == 1) {
-                AndroidSdk.showFullAd("flashclean_exit_full");
-            }
+//            if (PreData.getDB(this, BoostMyConstant.FULL_EXIT, 0) == 1) {
+            AndroidSdk.showFullAd("full_exit");
+//            }
             showExitDialog();
         }
     }
