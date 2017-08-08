@@ -3,9 +3,7 @@ package com.froumobic.clean.junk.mactivity;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -17,7 +15,6 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -33,6 +30,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -49,7 +47,6 @@ import com.android.ui.demo.cross.Builder;
 import com.android.ui.demo.cross.CrossView;
 import com.android.ui.demo.entry.CrossItem;
 import com.android.ui.demo.util.JsonParser;
-import com.frau.cleanmodule.cooling.BatteryCoolingActivity;
 import com.froumobic.clean.junk.R;
 import com.froumobic.clean.junk.adapter.MSideAdapter;
 import com.froumobic.clean.junk.entity.SideInfo;
@@ -105,11 +102,11 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     ListViewForScrollView side_listView;
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side;
+    ListView mopub_ad;
     com.mingle.widget.LinearLayout ll_ad_full;
     LinearLayout ll_ad_loading;
     LinearLayout ad_native_2;
     ProgressBar ad_progressbar;
-    TextView main_full_time;
     RelativeLayout main_qiu;
     ImageView main_red;
     RoundJindu main_msg_sd_backg;
@@ -186,6 +183,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         main_msg_cpu_percent = (TextView) findViewById(R.id.main_msg_cpu_percent);
         side_listView = (ListViewForScrollView) findViewById(R.id.side_listView);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        mopub_ad = (ListView) findViewById(R.id.mopub_ad);
         ll_ad_side = (LinearLayout) findViewById(R.id.ll_ad_side);
         ll_ad_full = (com.mingle.widget.LinearLayout) findViewById(R.id.ll_ad_full);
         ll_ad_loading = (LinearLayout) findViewById(R.id.ll_ad_loading);
@@ -205,7 +203,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dra);
-
         if (PreData.getDB(this, Constant.SIDE_ROTATE, false) && PreData.getDB(this, Constant.SIDE_DEEP, false)
                 && PreData.getDB(this, Constant.SIDE_NOTIFI, false)) {
             main_red.setVisibility(View.GONE);
@@ -366,6 +363,7 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         tuiguang(TUIGUAN_SIDE_SOFT, true, side_listView);
         tuiguang(TUIGUAN_SIDE, false, side_listView);
         tuiguangButton(TUIGUAN_TAB);
+        initSideData();
     }
 
     private void tuiguangButton(String tag) {
@@ -582,7 +580,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
     }
 
-    @Override
     public void initSideData() {
         if (adapter == null) {
             adapter = new MSideAdapter(this);
@@ -636,7 +633,8 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (PreData.getDB(this, Constant.FULL_MAIN, 0) == 1) {
         } else {
             int a = (int) (1 + Math.random() * (2)); //从1到10的int型随数
-            if (a == 1) {
+            if (true) {
+
                 View nativeView = AdUtil.getNativeAdView(TAG_MAIN, R.layout.native_ad_2);
                 if (ll_ad != null && nativeView != null) {
                     ll_ad.removeAllViews();
@@ -712,10 +710,8 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     ll_ad_loading.removeAllViews();
                     ll_ad_loading.addView(nativeView_full);
                     ll_ad_full.setVisibility(View.VISIBLE);
-                    findViewById(R.id.ad_delete).setVisibility(View.GONE);
-                    main_full_time = (TextView) findViewById(R.id.main_full_time);
-                    main_full_time.setVisibility(View.VISIBLE);
-                    main_full_time.setOnClickListener(new View.OnClickListener() {
+                    ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
+                    ad_delete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             handler.removeCallbacks(fullAdRunnale);
@@ -743,9 +739,8 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                                 public void onFinish(CrossView crossView) {
                                     ll_ad_loading.removeAllViews();
                                     ll_ad_loading.addView(crossView, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-                                    main_full_time = (TextView) findViewById(R.id.main_full_time);
-                                    main_full_time.setVisibility(View.VISIBLE);
-                                    main_full_time.setOnClickListener(new View.OnClickListener() {
+                                    ImageView ad_delete = (ImageView) findViewById(R.id.ad_delete);
+                                    ad_delete.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
                                             handler.removeCallbacks(fullAdRunnale);
@@ -753,7 +748,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                                         }
                                     });
                                     ll_ad_full.setVisibility(View.VISIBLE);
-                                    findViewById(R.id.ad_delete).setVisibility(View.GONE);
                                 }
                             });
                 } catch (Exception e) {
@@ -1075,9 +1069,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
     private void adDelete() {
         if (ll_ad_full == null) {
             return;
-        }
-        if (main_full_time != null) {
-            main_full_time.setVisibility(View.INVISIBLE);
         }
         if (onPause || !onResume) {
             ll_ad_full.setVisibility(View.GONE);

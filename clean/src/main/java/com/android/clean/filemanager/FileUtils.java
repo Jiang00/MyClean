@@ -25,7 +25,6 @@ public class FileUtils {
     public static String copyFile(String src, String dest) {
         File file = new File(src);
         if (!file.exists() || file.isDirectory()) {
-            Log.v("rqy", "copyFile: file not exist or is directory, " + src);
             return null;
         }
         FileInputStream fi = null;

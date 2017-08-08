@@ -12,14 +12,13 @@ public interface MainView extends IView {
 
     void initRam(int percent);
 
-    void startFenshu(int percent,boolean isRestart);
+    void startFenshu(int percent, boolean isRestart);
 
 
     void loadAirAnimator(TranslateAnimation translateAnimation);
 
     void setRotateGone();
 
-    void initSideData();
 
     void openDrawer();
 

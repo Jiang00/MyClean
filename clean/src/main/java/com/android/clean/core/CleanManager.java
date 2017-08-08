@@ -553,6 +553,9 @@ public class CleanManager {
         if (isAdd) {
             notificationList.add(notifiInfo);
         }
+        if (notificationCallBackList == null || notificationCallBackList.size() == 0) {
+            return;
+        }
         for (NotificationCallBack callBack : notificationCallBackList) {
             callBack.notificationChanged(notificationList);
         }

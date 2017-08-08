@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.client.AndroidSdk;
 import com.froumobic.module.charge.saver.R;
 import com.froumobic.module.charge.saver.entry.BatteryEntry;
 import com.froumobic.module.charge.saver.view.BatteryView;
@@ -100,6 +101,7 @@ public class ChargeActivity extends Activity {
 
     @Override
     protected void onResume() {
+//        MopubAdUtil.loadad(MopubAdUtil.BATTERY_NATIVE);
         super.onResume();
 
     }
@@ -113,6 +115,8 @@ public class ChargeActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+//        MopubAdUtil.distory();
+//        AndroidSdk.destroyNativeAdView();
         batteryView = null;
         super.onDestroy();
         try {

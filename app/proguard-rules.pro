@@ -115,4 +115,28 @@
 -dontwarn com.squareup.picasso.**
 -dontwarn com.squareup.okhttp.**
 
+-keepclassmembers class com.mopub.** { public *; }
+-keep public class com.mopub.**
+-keep public class android.webkit.JavascriptInterface {}
+-keep class * extends com.mopub.mobileads.CustomEventBanner {}
+-keepclassmembers class com.mopub.mobileads.CustomEventBannerAdapter {!private !public !protected *;}
+-keep class * extends com.mopub.mobileads.CustomEventInterstitial {}
+-keep class * extends com.mopub.mobileads.CustomEventNative {}
+-keep class com.google.android.gms.common.GooglePlayServicesUtil {*;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient {*;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {*;}
+-keep class * extends java.util.ListResourceBundle {
+     protected Object[][] getContents();
+ }
+ -keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+     public static final *** NULL;
+ }
+
+ -keepnames @com.google.android.gms.common.annotation.KeepName class *
+ -keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+  }
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+ }
 

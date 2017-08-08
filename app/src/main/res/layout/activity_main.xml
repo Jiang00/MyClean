@@ -552,6 +552,11 @@
                             android:gravity="center_horizontal"
                             android:orientation="vertical" />
 
+                        <ListView
+                            android:id="@+id/mopub_ad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
                         <LinearLayout
                             android:id="@+id/main_tuiguang"
                             android:layout_width="match_parent"
@@ -1093,7 +1098,7 @@
                     android:text="Skip"
                     android:textColor="@color/A8"
                     android:textSize="@dimen/s15"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/ad_delete"

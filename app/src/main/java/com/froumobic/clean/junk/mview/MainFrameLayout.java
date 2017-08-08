@@ -6,9 +6,15 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
 /**
- * Created by on 2017/3/2.
+ * The type Main  layout.
  */
 public class MainFrameLayout extends FrameLayout {
+    /**
+     * Instantiates a new Main frame layout.
+     *
+     * @param context the context
+     * @param attrs   the attrs
+     */
     public MainFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -18,7 +24,6 @@ public class MainFrameLayout extends FrameLayout {
         return true;
     }
 
-    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }

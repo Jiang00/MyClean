@@ -1,6 +1,7 @@
 package com.froumobic.module.charge.saver.view;
 
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -18,10 +19,12 @@ import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.froumobic.module.charge.saver.ADActivity;
+import com.froumobic.module.charge.saver.MopubAdUtil;
 import com.froumobic.module.charge.saver.R;
 import com.froumobic.module.charge.saver.Util.ADRequest;
 import com.froumobic.module.charge.saver.Util.Constants;
@@ -50,6 +53,7 @@ public class BatteryView extends FrameLayout {
 
     private BatteryView batteryView;
     private LinearLayout adLayout;
+    private ListView battery_ad_layout_mopub;
     private ImageView icon;
     private TextView title;
     private LinearLayout more;
@@ -99,7 +103,7 @@ public class BatteryView extends FrameLayout {
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private void showNativeAD() {
-        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad, null);
+        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad_2_mopub, null);
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);
@@ -244,8 +248,9 @@ public class BatteryView extends FrameLayout {
             initShell();
 
             updateTime();
-
+//native ad
             showNativeAD();
+//            MopubAdUtil.creat2((Activity) mContext, battery_ad_layout_mopub);
 
             halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 1.3f);
             setOnTouchListener(new OnTouchListener() {
@@ -350,6 +355,7 @@ public class BatteryView extends FrameLayout {
         switchLayout = (LinearLayout) findViewById(R.id.battery_switch);
         saverSwitch = (CheckBox) findViewById(R.id.battery_switch_check);
         adLayout = (LinearLayout) findViewById(R.id.battery_ad_layout);
+        battery_ad_layout_mopub = (ListView) findViewById(R.id.battery_ad_layout_mopub);
         icon = (ImageView) findViewById(R.id.battery_icon);
         title = (TextView) findViewById(R.id.battery_title);
         more = (LinearLayout) findViewById(R.id.battery_more);
