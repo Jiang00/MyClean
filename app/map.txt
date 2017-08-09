@@ -30796,27 +30796,27 @@ com.github.mikephil.charting.utils.ViewPortHandler -> com.github.mikephil.charti
     747:747:boolean canZoomInMoreY() -> z
 com.jaredrummler.android.processes.AndroidProcesses -> com.jaredrummler.android.processes.a:
     boolean loggingEnabled -> a
-    128:131:void log(java.lang.String,java.lang.Object[]) -> a
-    144:147:void log(java.lang.Throwable,java.lang.String,java.lang.Object[]) -> a
-    179:199:java.util.List getRunningAppProcesses() -> a
+    132:135:void log(java.lang.String,java.lang.Object[]) -> a
+    148:151:void log(java.lang.Throwable,java.lang.String,java.lang.Object[]) -> a
+    214:234:java.util.List getRunningAppProcesses() -> a
 com.jaredrummler.android.processes.models.AndroidAppProcess -> com.jaredrummler.android.processes.models.AndroidAppProcess:
     boolean SYS_SUPPORTS_SCHEDGROUPS -> e
     boolean foreground -> a
     int uid -> b
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    42:91:void <init>(int) -> <init>
-    98:98:java.lang.String getPackageName() -> a
-    125:128:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    131:134:void <init>(android.os.Parcel) -> <init>
-    33:136:void <clinit>() -> <clinit>
+    47:96:void <init>(int) -> <init>
+    103:103:java.lang.String getPackageName() -> a
+    130:133:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    136:139:void <init>(android.os.Parcel) -> <init>
+    33:141:void <clinit>() -> <clinit>
 com.jaredrummler.android.processes.models.AndroidAppProcess$1 -> com.jaredrummler.android.processes.models.AndroidAppProcess$1:
-    136:136:void <init>() -> <init>
-    139:139:com.jaredrummler.android.processes.models.AndroidAppProcess createFromParcel(android.os.Parcel) -> a
-    143:143:com.jaredrummler.android.processes.models.AndroidAppProcess[] newArray(int) -> a
-    136:136:java.lang.Object[] newArray(int) -> newArray
-    136:136:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    141:141:void <init>() -> <init>
+    144:144:com.jaredrummler.android.processes.models.AndroidAppProcess createFromParcel(android.os.Parcel) -> a
+    148:148:com.jaredrummler.android.processes.models.AndroidAppProcess[] newArray(int) -> a
+    141:141:java.lang.Object[] newArray(int) -> newArray
+    141:141:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.jaredrummler.android.processes.models.AndroidAppProcess$NotAndroidAppProcessException -> com.jaredrummler.android.processes.models.AndroidAppProcess$a:
-    150:151:void <init>(int) -> <init>
+    155:156:void <init>(int) -> <init>
 com.jaredrummler.android.processes.models.AndroidProcess -> com.jaredrummler.android.processes.models.AndroidProcess:
     java.lang.String name -> c
     int pid -> d
@@ -30872,19 +30872,19 @@ com.jaredrummler.android.processes.models.ControlGroup$1 -> com.jaredrummler.and
 com.jaredrummler.android.processes.models.ProcFile -> com.jaredrummler.android.processes.models.ProcFile:
     java.lang.String content -> b
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    40:51:java.lang.String readFile(java.lang.String) -> b
-    59:61:void <init>(java.lang.String) -> <init>
-    64:66:void <init>(android.os.Parcel) -> <init>
-    69:69:long length() -> length
-    73:73:int describeContents() -> describeContents
-    77:79:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    81:81:void <clinit>() -> <clinit>
+    40:54:java.lang.String readFile(java.lang.String) -> b
+    62:64:void <init>(java.lang.String) -> <init>
+    67:69:void <init>(android.os.Parcel) -> <init>
+    72:72:long length() -> length
+    76:76:int describeContents() -> describeContents
+    80:82:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    84:84:void <clinit>() -> <clinit>
 com.jaredrummler.android.processes.models.ProcFile$1 -> com.jaredrummler.android.processes.models.ProcFile$1:
-    81:81:void <init>() -> <init>
-    84:84:com.jaredrummler.android.processes.models.ProcFile createFromParcel(android.os.Parcel) -> a
-    88:88:com.jaredrummler.android.processes.models.ProcFile[] newArray(int) -> a
-    81:81:java.lang.Object[] newArray(int) -> newArray
-    81:81:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    84:84:void <init>() -> <init>
+    87:87:com.jaredrummler.android.processes.models.ProcFile createFromParcel(android.os.Parcel) -> a
+    91:91:com.jaredrummler.android.processes.models.ProcFile[] newArray(int) -> a
+    84:84:java.lang.Object[] newArray(int) -> newArray
+    84:84:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.jaredrummler.android.processes.models.Stat -> com.jaredrummler.android.processes.models.Stat:
     java.lang.String[] fields -> a
     android.os.Parcelable$Creator CREATOR -> CREATOR
@@ -32718,7 +32718,7 @@ com.mutter.clean.junk.R$styleable -> com.mutter.clean.junk.a$a:
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    6003:14989:void <clinit>() -> <clinit>
+    6007:14993:void <clinit>() -> <clinit>
 com.mutter.clean.junk.broadcast.UnloadBroadcast -> com.mutter.clean.junk.broadcast.UnloadBroadcast:
     23:23:void <init>() -> <init>
     27:55:void onReceive(android.content.Context,android.content.Intent) -> onReceive
