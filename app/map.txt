@@ -31719,86 +31719,86 @@ com.mutter.clean.core.CleanManager -> com.mutter.clean.core.a:
     java.util.ArrayList apkFiles -> t
     java.util.ArrayList logFiles -> u
     java.util.ArrayList systemCaches -> v
-    74:91:void <init>(android.content.Context) -> <init>
-    94:97:com.mutter.clean.core.CleanManager getInstance(android.content.Context) -> a
-    109:111:void startLoad() -> a
-    114:172:void load() -> b
-    175:207:void loadAppRam(com.mutter.clean.callback.AppRamCallBack) -> a
-    210:239:void loadUninstallResidual(com.mutter.clean.callback.UninstallResidualCallback) -> a
-    243:282:void loadAppCache(com.mutter.clean.callback.AppCacheCallBack) -> a
-    285:306:void loadApkFile(com.mutter.clean.callback.FileInfoCallBack) -> a
-    309:330:void loadLogFile(com.mutter.clean.callback.FileInfoCallBack) -> b
-    336:423:void loadSystemCache(com.mutter.clean.callback.SystemCacheCallBack) -> a
-    427:459:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
-    464:475:java.util.List getUsageStatistics(int) -> a
-    480:500:void clearSystemCache() -> c
-    504:521:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
-    526:541:void notificationChanged(com.mutter.clean.notifi.NotificationInfo,boolean) -> a
-    544:551:void clearNotificationInfo() -> d
-    554:564:void addNotificationCallBack(com.mutter.clean.notifi.NotificationCallBack) -> a
-    567:573:void removeNotificatioCallBack(com.mutter.clean.notifi.NotificationCallBack) -> b
-    577:577:long getCacheSize() -> e
-    585:585:long getApkSize() -> f
-    589:589:long getUnloadSize() -> g
-    593:593:long getLogSize() -> h
-    597:597:long getDataSize() -> i
-    601:601:long getRamSize() -> j
-    605:605:java.util.ArrayList getAppRamList() -> k
-    609:609:java.util.ArrayList getUninstallResiduals() -> l
-    613:613:java.util.ArrayList getAppCaches() -> m
-    617:617:java.util.ArrayList getSystemCaches() -> n
-    621:621:java.util.ArrayList getAppList() -> o
-    625:625:java.util.ArrayList getApkFiles() -> p
-    629:629:java.util.ArrayList getLogFiles() -> q
-    634:642:void removeRam(com.mutter.clean.entity.JunkInfo) -> a
-    645:650:void removeRamSelfBoot(com.mutter.clean.entity.JunkInfo) -> b
-    653:657:void clearRam() -> r
-    660:665:void removeAppCache(com.mutter.clean.entity.JunkInfo) -> c
-    668:672:void removeAppList(com.mutter.clean.entity.JunkInfo) -> d
-    675:680:void removeFilesOfUnintalledApk(com.mutter.clean.entity.JunkInfo) -> e
-    683:688:void removeApkFiles(com.mutter.clean.entity.JunkInfo) -> f
-    691:696:void removeAppLog(com.mutter.clean.entity.JunkInfo) -> g
-    59:59:void access$000(com.mutter.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
+    75:92:void <init>(android.content.Context) -> <init>
+    95:98:com.mutter.clean.core.CleanManager getInstance(android.content.Context) -> a
+    110:112:void startLoad() -> a
+    115:173:void load() -> b
+    176:261:void loadAppRam(com.mutter.clean.callback.AppRamCallBack) -> a
+    264:293:void loadUninstallResidual(com.mutter.clean.callback.UninstallResidualCallback) -> a
+    297:336:void loadAppCache(com.mutter.clean.callback.AppCacheCallBack) -> a
+    339:360:void loadApkFile(com.mutter.clean.callback.FileInfoCallBack) -> a
+    363:384:void loadLogFile(com.mutter.clean.callback.FileInfoCallBack) -> b
+    390:477:void loadSystemCache(com.mutter.clean.callback.SystemCacheCallBack) -> a
+    481:513:void getStatsCompleted(android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
+    518:529:java.util.List getUsageStatistics(int) -> a
+    534:554:void clearSystemCache() -> c
+    558:575:java.lang.reflect.Method getPackageSizeInfoMethod(android.content.Context) -> b
+    580:595:void notificationChanged(com.mutter.clean.notifi.NotificationInfo,boolean) -> a
+    598:605:void clearNotificationInfo() -> d
+    608:618:void addNotificationCallBack(com.mutter.clean.notifi.NotificationCallBack) -> a
+    621:627:void removeNotificatioCallBack(com.mutter.clean.notifi.NotificationCallBack) -> b
+    631:631:long getCacheSize() -> e
+    639:639:long getApkSize() -> f
+    643:643:long getUnloadSize() -> g
+    647:647:long getLogSize() -> h
+    651:651:long getDataSize() -> i
+    655:655:long getRamSize() -> j
+    659:659:java.util.ArrayList getAppRamList() -> k
+    663:663:java.util.ArrayList getUninstallResiduals() -> l
+    667:667:java.util.ArrayList getAppCaches() -> m
+    671:671:java.util.ArrayList getSystemCaches() -> n
+    675:675:java.util.ArrayList getAppList() -> o
+    679:679:java.util.ArrayList getApkFiles() -> p
+    683:683:java.util.ArrayList getLogFiles() -> q
+    688:696:void removeRam(com.mutter.clean.entity.JunkInfo) -> a
+    699:704:void removeRamSelfBoot(com.mutter.clean.entity.JunkInfo) -> b
+    707:711:void clearRam() -> r
+    714:719:void removeAppCache(com.mutter.clean.entity.JunkInfo) -> c
+    722:726:void removeAppList(com.mutter.clean.entity.JunkInfo) -> d
+    729:734:void removeFilesOfUnintalledApk(com.mutter.clean.entity.JunkInfo) -> e
+    737:742:void removeApkFiles(com.mutter.clean.entity.JunkInfo) -> f
+    745:750:void removeAppLog(com.mutter.clean.entity.JunkInfo) -> g
+    60:60:void access$000(com.mutter.clean.core.CleanManager,android.content.pm.PackageInfo,android.content.pm.PackageStats,java.util.concurrent.CountDownLatch) -> a
 com.mutter.clean.core.CleanManager$1 -> com.mutter.clean.core.a$1:
     com.mutter.clean.core.CleanManager this$0 -> a
-    115:115:void <init>(com.mutter.clean.core.CleanManager) -> <init>
-    118:122:void loadFinished(java.util.ArrayList,long) -> a
+    116:116:void <init>(com.mutter.clean.core.CleanManager) -> <init>
+    119:123:void loadFinished(java.util.ArrayList,long) -> a
 com.mutter.clean.core.CleanManager$2 -> com.mutter.clean.core.a$2:
     com.mutter.clean.core.CleanManager this$0 -> a
-    124:124:void <init>(com.mutter.clean.core.CleanManager) -> <init>
-    127:131:void loadFinished(java.util.List,java.util.List,long) -> a
+    125:125:void <init>(com.mutter.clean.core.CleanManager) -> <init>
+    128:132:void loadFinished(java.util.List,java.util.List,long) -> a
 com.mutter.clean.core.CleanManager$3 -> com.mutter.clean.core.a$3:
     com.mutter.clean.core.CleanManager this$0 -> a
-    133:133:void <init>(com.mutter.clean.core.CleanManager) -> <init>
-    136:140:void loadFinished(java.util.ArrayList,long) -> a
+    134:134:void <init>(com.mutter.clean.core.CleanManager) -> <init>
+    137:141:void loadFinished(java.util.ArrayList,long) -> a
 com.mutter.clean.core.CleanManager$4 -> com.mutter.clean.core.a$4:
     com.mutter.clean.core.CleanManager this$0 -> a
-    142:142:void <init>(com.mutter.clean.core.CleanManager) -> <init>
-    145:149:void loadFinished(java.util.ArrayList,long) -> a
+    143:143:void <init>(com.mutter.clean.core.CleanManager) -> <init>
+    146:150:void loadFinished(java.util.ArrayList,long) -> a
 com.mutter.clean.core.CleanManager$5 -> com.mutter.clean.core.a$5:
     com.mutter.clean.core.CleanManager this$0 -> a
-    151:151:void <init>(com.mutter.clean.core.CleanManager) -> <init>
-    154:158:void loadFinished(java.util.ArrayList,long) -> a
+    152:152:void <init>(com.mutter.clean.core.CleanManager) -> <init>
+    155:159:void loadFinished(java.util.ArrayList,long) -> a
 com.mutter.clean.core.CleanManager$6 -> com.mutter.clean.core.a$6:
     com.mutter.clean.core.CleanManager this$0 -> a
-    161:161:void <init>(com.mutter.clean.core.CleanManager) -> <init>
-    164:168:void loadFinished(java.util.ArrayList,long) -> a
+    162:162:void <init>(com.mutter.clean.core.CleanManager) -> <init>
+    165:169:void loadFinished(java.util.ArrayList,long) -> a
 com.mutter.clean.core.CleanManager$7 -> com.mutter.clean.core.a$7:
     android.content.pm.PackageInfo val$packageInfo -> a
     java.util.concurrent.CountDownLatch val$countDownLatch -> b
     com.mutter.clean.core.CleanManager this$0 -> c
-    394:394:void <init>(com.mutter.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
-    398:399:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
+    448:448:void <init>(com.mutter.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
+    452:453:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
 com.mutter.clean.core.CleanManager$8 -> com.mutter.clean.core.a$8:
     android.content.pm.PackageInfo val$packageInfo -> a
     java.util.concurrent.CountDownLatch val$countDownLatch -> b
     com.mutter.clean.core.CleanManager this$0 -> c
-    403:403:void <init>(com.mutter.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
-    407:408:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
+    457:457:void <init>(com.mutter.clean.core.CleanManager,android.content.pm.PackageInfo,java.util.concurrent.CountDownLatch) -> <init>
+    461:462:void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> onGetStatsCompleted
 com.mutter.clean.core.CleanManager$9 -> com.mutter.clean.core.a$9:
     com.mutter.clean.core.CleanManager this$0 -> a
-    488:488:void <init>(com.mutter.clean.core.CleanManager) -> <init>
-    492:493:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
+    542:542:void <init>(com.mutter.clean.core.CleanManager) -> <init>
+    546:547:void onRemoveCompleted(java.lang.String,boolean) -> onRemoveCompleted
 com.mutter.clean.core.CleanService -> com.mutter.clean.core.CleanService:
     android.os.Looper mServiceLooper -> a
     com.mutter.clean.core.CleanService$ServiceHandler mServiceHandler -> b
@@ -31868,25 +31868,26 @@ com.mutter.clean.entity.JunkInfo -> com.mutter.clean.entity.JunkInfo:
     long allSize -> d
     long date -> e
     long lastRunTime -> f
-    java.lang.String label -> g
-    boolean isChecked -> h
-    boolean isSelfBoot -> i
-    boolean isnotifiWhiteList -> j
-    boolean isWhiteList -> k
-    com.mutter.clean.entity.JunkInfo$TableType type -> l
-    20:27:void <init>() -> <init>
-    20:33:void <init>(java.lang.String,java.lang.String,long) -> <init>
-    20:41:void <init>(java.lang.String,java.lang.String,long,long) -> <init>
-    20:49:void <init>(java.lang.String,java.lang.String,java.lang.String,long) -> <init>
+    java.util.List pid -> g
+    java.lang.String label -> h
+    boolean isChecked -> i
+    boolean isSelfBoot -> j
+    boolean isnotifiWhiteList -> k
+    boolean isWhiteList -> l
+    com.mutter.clean.entity.JunkInfo$TableType type -> m
+    21:31:void <init>() -> <init>
+    21:37:void <init>(java.lang.String,java.lang.String,long) -> <init>
+    21:45:void <init>(java.lang.String,java.lang.String,long,long) -> <init>
+    21:53:void <init>(java.lang.String,java.lang.String,java.lang.String,long) -> <init>
 com.mutter.clean.entity.JunkInfo$TableType -> com.mutter.clean.entity.JunkInfo$TableType:
     com.mutter.clean.entity.JunkInfo$TableType APKFILE -> APKFILE
     com.mutter.clean.entity.JunkInfo$TableType LOGFILE -> LOGFILE
     com.mutter.clean.entity.JunkInfo$TableType APP -> APP
     com.mutter.clean.entity.JunkInfo$TableType[] $VALUES -> $VALUES
-    8:8:com.mutter.clean.entity.JunkInfo$TableType[] values() -> values
-    8:8:com.mutter.clean.entity.JunkInfo$TableType valueOf(java.lang.String) -> valueOf
-    8:8:void <init>(java.lang.String,int) -> <init>
-    8:9:void <clinit>() -> <clinit>
+    11:11:com.mutter.clean.entity.JunkInfo$TableType[] values() -> values
+    11:11:com.mutter.clean.entity.JunkInfo$TableType valueOf(java.lang.String) -> valueOf
+    11:11:void <init>(java.lang.String,int) -> <init>
+    11:12:void <clinit>() -> <clinit>
 com.mutter.clean.entity.Sizesort -> com.mutter.clean.entity.a:
     14:14:void <init>() -> <init>
     18:18:int compare(android.app.usage.UsageStats,android.app.usage.UsageStats) -> a

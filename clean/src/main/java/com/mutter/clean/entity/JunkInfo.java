@@ -1,5 +1,8 @@
 package com.mutter.clean.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  */
 
@@ -15,6 +18,7 @@ public class JunkInfo {
     public long allSize;
     public long date;
     public long lastRunTime;
+    public List<Integer> pid = new ArrayList<>();
 
     public String label;
     public boolean isChecked = true;
