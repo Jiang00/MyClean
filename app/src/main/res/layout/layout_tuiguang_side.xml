@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?selectableItemBackground"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="@dimen/d72"
+            android:layout_height="@dimen/d48"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/tuiguang_icon"
+                android:layout_width="@dimen/d24"
+                android:layout_height="@dimen/d24"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp" />
+
+        </RelativeLayout>
+
+        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+            android:id="@+id/tuiguang_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/rl"
+            android:text="aaaaaaa"
+            android:textColor="@color/B2"
+            android:textSize="@dimen/s13"
+            app:typeface="lyp_text.otf" />
+
+    </RelativeLayout>
+</LinearLayout>

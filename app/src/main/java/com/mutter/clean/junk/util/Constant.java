@@ -10,6 +10,12 @@ public class Constant {
 
     public static final String NOTIFI_WHILT_LIST = "NOTIFI_WHILT_LIST";//通知栏清理白名单
 
+    //    软推广
+    public static final String RAM_CLEAN_ACTION = "com.mutter.clean.RamAvtivity";
+    public static final String JUNK_CLEAN_ACTION = "com.mutter.clean.CleanActivity";
+    public static final String BATTERY_COOL_ACTION = "com.android.muttermobi.battery.cooling";
+
+
     public static final String GBOOST_LUN = "GBOOST_LUN";//第一次開啟游戏加速
 
     public static final String GBOOST_SI = "GBOOST_SI";//游戏加速快捷方式

@@ -21,9 +21,11 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.mutter.clean.BuildConfig;
 import com.mutter.clean.deepclean.CustomerAccessibilityService;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -197,6 +199,15 @@ public class Util {
             return true;
         }
         return false;
+    }
+
+    public static void loadImg(Context context, String url, int placeholder, ImageView view) {
+        Log.e("rqy", "url=" + url);
+        if (!TextUtils.isEmpty(url) && !TextUtils.isEmpty(url.trim())) {
+            Picasso.with(context).load(url).placeholder(placeholder).fit().config(Bitmap.Config.RGB_565).into(view);
+        } else {
+            view.setImageResource(placeholder);
+        }
     }
 
     public static List<String> getLauncherPkgs(Context context) {

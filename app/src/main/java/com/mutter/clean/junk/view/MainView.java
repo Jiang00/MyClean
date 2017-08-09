@@ -19,7 +19,6 @@ public interface MainView extends IView {
 
     void setRotateGone();
 
-    void initSideData();
 
     void openDrawer();
 

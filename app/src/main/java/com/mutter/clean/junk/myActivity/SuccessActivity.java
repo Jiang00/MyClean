@@ -63,6 +63,7 @@ public class SuccessActivity extends BaseActivity {
     //    ImageView delete;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
+    LinearLayout tuiguang_success;
 
     LinearLayout ad_native_2;
     private View nativeView;
@@ -102,6 +103,7 @@ public class SuccessActivity extends BaseActivity {
         ad_native_2 = (LinearLayout) findViewById(R.id.ad_native_2);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
+        tuiguang_success = (LinearLayout) findViewById(R.id.tuiguang_success);
     }
 
     @Override
@@ -225,6 +227,8 @@ public class SuccessActivity extends BaseActivity {
             }, 1000);
 
         }
+        tuiguang(TUIGUAN_SUCCESS_SOFT, true, tuiguang_success);
+        tuiguang(TUIGUAN_SUCCESS, false, tuiguang_success);
     }
 
 

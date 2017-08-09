@@ -80,6 +80,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     ProgressBar ad_progressbar;
     TextView main_full_time;
     ImageView main_circle;
+    LinearLayout tuiguang_main;
 
     // LottieAnimationView lot_side;
     ImageView side_title;
@@ -153,7 +154,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         lot_family = (ImageView) findViewById(R.id.lot_family);
         ad_delete = (FrameLayout) findViewById(R.id.ad_delete);
         main_ad = (FrameLayout) findViewById(R.id.main_ad);
-
+        tuiguang_main = (LinearLayout) findViewById(R.id.tuiguang_main);
     }
 
     @Override
@@ -249,6 +250,12 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         animation.setInterpolator(new LinearInterpolator());
         animation.setFillAfter(true);//动画执行完后是否停留在执行完的状态
         lot_family.startAnimation(animation);
+        tuiguang(TUIGUAN_MAIN_SOFT, true, tuiguang_main);
+        tuiguang(TUIGUAN_MAIN, false, tuiguang_main);
+        tuiguang(TUIGUAN_SIDE_SOFT, true, side_listView);
+        tuiguang(TUIGUAN_SIDE, false, side_listView);
+
+        initSideData();
     }
 
 
@@ -361,7 +368,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         }
     }
 
-    @Override
     public void initSideData() {
         if (adapter == null) {
             adapter = new SideAdapter(this);
