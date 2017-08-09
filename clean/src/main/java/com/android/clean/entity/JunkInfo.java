@@ -1,5 +1,8 @@
 package com.android.clean.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Ivy on 2017/5/19.
  */
@@ -18,6 +21,7 @@ public class JunkInfo {
     public long allSize;
     public long date;
     public long lastRunTime;
+    public List<Integer> pids = new ArrayList<>();
 
     public String label;
     public boolean isChecked = true;

@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -175,35 +176,87 @@ public class CleanManager {
     public void loadAppRam(AppRamCallBack appRamCallBack) {
         List<String> ignoreApp = CleanDBHelper.getInstance(mContext).getWhiteList(CleanDBHelper.TableType.Ram);
         List<String> whiteList = new ArrayList<>();
-        List<AndroidAppProcess> listInfo = AndroidProcesses.getRunningAppProcesses();
         ramSize = 0;
         appRamList.clear();
-        if (listInfo != null) {
-            for (AndroidAppProcess info : listInfo) {
-                int pid = info.pid;
-                String packageName = info.name;
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+            List<ActivityManager.RunningServiceInfo> runningServices = am.getRunningServices(200);
+            for (ActivityManager.RunningServiceInfo runServiceInfo : runningServices) {
+                // 获得Service所在的进程的信息
+                int pid = runServiceInfo.pid; // service所在的进程ID号
+//                if (pid == 0) {
+//                    continue;
+//                }
+                // 获得该Service的组件信息 可能是pkgname/servicename
+                ComponentName serviceCMP = runServiceInfo.service;
+                String pkgName = serviceCMP.getPackageName(); // 包名
+                if (pkgName.equals(mContext.getPackageName()) || ignoreApp.contains(pkgName) || pkgName.contains("com.fraumobi")) {
+                    continue;
+                }
                 try {
-                    ApplicationInfo otherInfo = mContext.getPackageManager().getApplicationInfo(packageName, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES);
-                    if (!Util.isThirdApp(otherInfo) || packageName.equals(mContext.getPackageName()) || packageName.contains("com.eosmobi")
-                            || packageName.contains("com.google") || packageName.contains("com.android.vending")) {
+                    ApplicationInfo appInfo = pm.getApplicationInfo(
+                            pkgName, 0);
+                    if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) > 0) {
                         continue;
                     }
-                    if (ignoreApp.contains(packageName)) {
-                        whiteList.add(packageName);
-                    } else {
-                        JunkInfo appRam = new JunkInfo();
-                        Debug.MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
-                        appRam.size = (long) processMemoryInfo[0].getTotalPrivateDirty() * 1024;
-                        appRam.isSelfBoot = Util.isStartSelf(mContext.getPackageManager(), packageName);
-                        appRam.pkg = packageName;
-                        appRam.processName = info.name;
-                        appRam.pid = pid;
-                        appRam.type = JunkInfo.TableType.APP;
-                        appRamList.add(appRam);
-                        ramSize += appRam.size;
+
+                    boolean isc = false;
+                    for (JunkInfo info : appRamList) {
+                        if (info.pkg.equals(pkgName)) {
+                            if (!info.pids.contains(pid)) {
+                                Debug.MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
+                                long size = (long) processMemoryInfo[0].getTotalPrivateDirty() * 1024;
+                                info.size += size;
+                                info.pids.add(pid);
+                            }
+                            isc = true;
+                        }
                     }
-                } catch (Exception e) {
-                    continue;
+                    if (isc) {
+                        continue;
+                    }
+                    JunkInfo appRam = new JunkInfo();
+                    Debug.MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
+                    appRam.size = (long) processMemoryInfo[0].getTotalPrivateDirty() * 1024;
+                    appRam.isSelfBoot = Util.isStartSelf(mContext.getPackageManager(), pkgName);
+                    appRam.pkg = pkgName;
+                    appRam.type = JunkInfo.TableType.APP;
+                    appRamList.add(appRam);
+                    ramSize += appRam.size;
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        } else {
+            List<AndroidAppProcess> listInfo = AndroidProcesses.getRunningAppProcesses();
+            if (listInfo != null) {
+                for (AndroidAppProcess info : listInfo) {
+                    int pid = info.pid;
+                    String packageName = info.name;
+                    try {
+                        ApplicationInfo otherInfo = mContext.getPackageManager().getApplicationInfo(packageName, PackageManager.GET_META_DATA | PackageManager.GET_SHARED_LIBRARY_FILES);
+                        if (!Util.isThirdApp(otherInfo) || packageName.equals(mContext.getPackageName()) || packageName.contains("com.eosmobi")
+                                || packageName.contains("com.google") || packageName.contains("com.android.vending")) {
+                            continue;
+                        }
+                        if (ignoreApp.contains(packageName)) {
+                            whiteList.add(packageName);
+                        } else {
+                            JunkInfo appRam = new JunkInfo();
+                            Debug.MemoryInfo[] processMemoryInfo = am.getProcessMemoryInfo(new int[]{pid});
+                            appRam.size = (long) processMemoryInfo[0].getTotalPrivateDirty() * 1024;
+                            appRam.isSelfBoot = Util.isStartSelf(mContext.getPackageManager(), packageName);
+                            appRam.pkg = packageName;
+                            appRam.processName = info.name;
+                            appRam.pid = pid;
+                            appRam.type = JunkInfo.TableType.APP;
+                            appRamList.add(appRam);
+                            ramSize += appRam.size;
+                        }
+                    } catch (Exception e) {
+                        continue;
+                    }
                 }
             }
         }
