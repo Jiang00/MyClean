@@ -104,7 +104,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LinearLayout ll_ad, ll_ad_side;
     com.mingle.widget.LinearLayout ll_ad_full;
     ProgressBar ad_progressbar;
-    TextView main_full_time;
 
     // LottieAnimationView lot_side;
     FrameLayout fl_lot_side;
@@ -825,12 +824,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             if (ll_ad_full != null && nativeView_full != null) {
                 ll_ad_full.addView(nativeView_full);
                 ll_ad_full.setVisibility(View.VISIBLE);
-                nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
-                main_full_time = (TextView) nativeView_full.findViewById(R.id.main_full_time);
+                ImageView ad_delete = (ImageView) nativeView_full.findViewById(R.id.ad_delete);
                 LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
                 loading_text.setOnClickListener(null);
-                main_full_time.setVisibility(View.VISIBLE);
-                main_full_time.setOnClickListener(new View.OnClickListener() {
+                ad_delete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         handler.removeCallbacks(fullAdRunnale);
