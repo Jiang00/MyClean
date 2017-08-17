@@ -28893,12 +28893,12 @@ com.android.async.QueuedExecutor: void finish()
 com.android.async.QueuedExecutor: void start()
 com.android.async.QueuedExecutor: void run()
 com.android.client.AdListener
-com.android.client.AdListener: void onReceiveReward(boolean,int)
-com.android.client.AdListener: void onFullAdClosed()
-com.android.client.AdListener: void onFullAdClicked()
-com.android.client.AdListener: void onVideoAdClosed()
-com.android.client.AdListener: void onBannerAdClicked()
-com.android.client.AdListener: void onCrossAdClicked()
+com.android.client.AdListener: void onReceiveReward(boolean,int,java.lang.String)
+com.android.client.AdListener: void onFullAdClosed(java.lang.String)
+com.android.client.AdListener: void onFullAdClicked(java.lang.String)
+com.android.client.AdListener: void onVideoAdClosed(java.lang.String)
+com.android.client.AdListener: void onBannerAdClicked(java.lang.String)
+com.android.client.AdListener: void onCrossAdClicked(java.lang.String)
 com.android.client.AndroidSdk
 com.android.client.AndroidSdk: android.content.Context context
 com.android.client.AndroidSdk: com.android.client.AndroidSdk$Builder builder
@@ -28921,6 +28921,7 @@ com.android.client.AndroidSdk: java.lang.String FULL_TAG_EXIT
 com.android.client.AndroidSdk: java.lang.String FULL_TAG_CUSTOM
 com.android.client.AndroidSdk: double BACK_HOME_AD_TIME
 com.android.client.AndroidSdk: boolean canShowBackHomeAd
+com.android.client.AndroidSdk: boolean hasRewardAd
 com.android.client.AndroidSdk: int NATIVE_AD_TYPE_OUR
 com.android.client.AndroidSdk: int NATIVE_AD_TYPE_ALL
 com.android.client.AndroidSdk: int NATIVE_AD_TYPE_THIRD
@@ -28948,6 +28949,7 @@ com.android.client.AndroidSdk: void setRewardAdListener(com.android.client.AdLis
 com.android.client.AndroidSdk: void onCreate(android.app.Activity)
 com.android.client.AndroidSdk: boolean valid()
 com.android.client.AndroidSdk: void onCreate(android.content.Context)
+com.android.client.AndroidSdk: void showFullAdAsActivity(java.lang.String)
 com.android.client.AndroidSdk: void onStart()
 com.android.client.AndroidSdk: void onStop()
 com.android.client.AndroidSdk: void onPause()
@@ -29110,18 +29112,21 @@ com.android.client.AndroidSdk$3
 com.android.client.AndroidSdk$3: AndroidSdk$3()
 com.android.client.AndroidSdk$3: void run()
 com.android.client.AndroidSdk$4
-com.android.client.AndroidSdk$4: AndroidSdk$4()
+com.android.client.AndroidSdk$4: java.lang.String val$tag
+com.android.client.AndroidSdk$4: AndroidSdk$4(java.lang.String)
 com.android.client.AndroidSdk$4: void onClick(android.view.View)
 com.android.client.AndroidSdk$5
 com.android.client.AndroidSdk$5: java.lang.String val$tag
 com.android.client.AndroidSdk$5: AndroidSdk$5(java.lang.String)
 com.android.client.AndroidSdk$5: void run()
 com.android.client.AndroidSdk$6
-com.android.client.AndroidSdk$6: AndroidSdk$6()
+com.android.client.AndroidSdk$6: java.lang.String val$pos
+com.android.client.AndroidSdk$6: AndroidSdk$6(java.lang.String)
 com.android.client.AndroidSdk$6: void onClick(android.view.View)
 com.android.client.AndroidSdk$7
+com.android.client.AndroidSdk$7: java.lang.String val$pos
 com.android.client.AndroidSdk$7: android.app.Dialog val$dlg
-com.android.client.AndroidSdk$7: AndroidSdk$7(android.app.Dialog)
+com.android.client.AndroidSdk$7: AndroidSdk$7(java.lang.String,android.app.Dialog)
 com.android.client.AndroidSdk$7: void onClick(android.view.View)
 com.android.client.AndroidSdk$8
 com.android.client.AndroidSdk$8: AndroidSdk$8()
@@ -29181,9 +29186,9 @@ com.android.client.Cocos: int SNS_RESULT_INVITE
 com.android.client.Cocos: int SNS_RESULT_CHALLENGE
 com.android.client.Cocos: int SNS_RESULT_LIKE
 com.android.client.Cocos: Cocos()
-com.android.client.Cocos: void rr(boolean,int)
-com.android.client.Cocos: void awc(int)
-com.android.client.Cocos: void awd(int)
+com.android.client.Cocos: void rr(boolean,int,java.lang.String)
+com.android.client.Cocos: void awc(int,java.lang.String)
+com.android.client.Cocos: void awd(int,java.lang.String)
 com.android.client.Cocos: void pr(int,int)
 com.android.client.Cocos: void pv()
 com.android.client.Cocos: void sns(int,boolean,int)
@@ -29261,12 +29266,12 @@ com.android.client.Cocos$1: void onReceiveChallengeResult(int)
 com.android.client.Cocos$1: void onReceiveLikeResult(boolean)
 com.android.client.Cocos$2
 com.android.client.Cocos$2: Cocos$2()
-com.android.client.Cocos$2: void onReceiveReward(boolean,int)
-com.android.client.Cocos$2: void onFullAdClosed()
-com.android.client.Cocos$2: void onFullAdClicked()
-com.android.client.Cocos$2: void onVideoAdClosed()
-com.android.client.Cocos$2: void onBannerAdClicked()
-com.android.client.Cocos$2: void onCrossAdClicked()
+com.android.client.Cocos$2: void onReceiveReward(boolean,int,java.lang.String)
+com.android.client.Cocos$2: void onFullAdClosed(java.lang.String)
+com.android.client.Cocos$2: void onFullAdClicked(java.lang.String)
+com.android.client.Cocos$2: void onVideoAdClosed(java.lang.String)
+com.android.client.Cocos$2: void onBannerAdClicked(java.lang.String)
+com.android.client.Cocos$2: void onCrossAdClicked(java.lang.String)
 com.android.client.Cocos$3
 com.android.client.Cocos$3: Cocos$3()
 com.android.client.Cocos$3: void onSuccess(int,java.lang.String)
@@ -29385,12 +29390,12 @@ com.android.client.Unity$1$1: void onReceiveLikeResult(boolean)
 com.android.client.Unity$1$2
 com.android.client.Unity$1$2: com.android.client.Unity$1 this$0
 com.android.client.Unity$1$2: Unity$1$2(com.android.client.Unity$1)
-com.android.client.Unity$1$2: void onReceiveReward(boolean,int)
-com.android.client.Unity$1$2: void onFullAdClosed()
-com.android.client.Unity$1$2: void onFullAdClicked()
-com.android.client.Unity$1$2: void onVideoAdClosed()
-com.android.client.Unity$1$2: void onBannerAdClicked()
-com.android.client.Unity$1$2: void onCrossAdClicked()
+com.android.client.Unity$1$2: void onReceiveReward(boolean,int,java.lang.String)
+com.android.client.Unity$1$2: void onFullAdClosed(java.lang.String)
+com.android.client.Unity$1$2: void onFullAdClicked(java.lang.String)
+com.android.client.Unity$1$2: void onVideoAdClosed(java.lang.String)
+com.android.client.Unity$1$2: void onBannerAdClicked(java.lang.String)
+com.android.client.Unity$1$2: void onCrossAdClicked(java.lang.String)
 com.android.client.Unity$1$3
 com.android.client.Unity$1$3: com.android.client.Unity$1 this$0
 com.android.client.Unity$1$3: Unity$1$3(com.android.client.Unity$1)
@@ -32341,7 +32346,6 @@ com.fast.clean.junk.R$id: int main_custom_ram
 com.fast.clean.junk.R$id: int main_custom_sd
 com.fast.clean.junk.R$id: int main_drawer
 com.fast.clean.junk.R$id: int main_file_button
-com.fast.clean.junk.R$id: int main_full_time
 com.fast.clean.junk.R$id: int main_gboost_button
 com.fast.clean.junk.R$id: int main_huojian
 com.fast.clean.junk.R$id: int main_junk_button
