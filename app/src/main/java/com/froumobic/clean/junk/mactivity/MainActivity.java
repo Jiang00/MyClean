@@ -352,11 +352,12 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
 
         if (PreData.getDB(this, Constant.FIRST_BATTERY, true)) {
             PreData.putDB(this, Constant.FIRST_BATTERY, false);
-            main_battery.setVisibility(View.VISIBLE);
-            ImageView battery_cha = (ImageView) findViewById(R.id.battery_cha);
-            Button battery_button = (Button) findViewById(R.id.battery_button);
-            battery_cha.setOnClickListener(onClickListener);
-            battery_button.setOnClickListener(onClickListener);
+            Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+//            main_battery.setVisibility(View.VISIBLE);
+//            ImageView battery_cha = (ImageView) findViewById(R.id.battery_cha);
+//            Button battery_button = (Button) findViewById(R.id.battery_button);
+//            battery_cha.setOnClickListener(onClickListener);
+//            battery_button.setOnClickListener(onClickListener);
         }
         tuiguang(TUIGUAN_MAIN_SOFT, true, main_tuiguang);
         tuiguang(TUIGUAN_MAIN, false, main_tuiguang);
@@ -374,8 +375,8 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
             while (tuiguang_2 == tuiguang_1) {
                 tuiguang_2 = (int) (Math.random() * crossItems.size());
             }
-            Util.loadImg(this, crossItems.get(tuiguang_1).getTagIconUrl(), R.mipmap.icon, main_button_tuiguang_1_icon);
-            Util.loadImg(this, crossItems.get(tuiguang_2).getTagIconUrl(), R.mipmap.icon, main_button_tuiguang_2_icon);
+            Util.loadImg(this, crossItems.get(tuiguang_1).getTagIconUrl(), R.mipmap.tuiguang_defult, main_button_tuiguang_1_icon);
+            Util.loadImg(this, crossItems.get(tuiguang_2).getTagIconUrl(), R.mipmap.tuiguang_defult, main_button_tuiguang_2_icon);
             main_button_tuiguang_1_lable.setText(crossItems.get(tuiguang_1).getTitle());
             main_button_tuiguang_2_lable.setText(crossItems.get(tuiguang_2).getTitle());
             AdUtil.track("交叉推广_广告位", "广告位_交叉", "展示" + crossItems.get(tuiguang_1).getPkgName(), 1);
@@ -671,34 +672,6 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                 }
             }
 
-
-            View nativeView_side = AdUtil.getNativeAdView(TAG_SIDE, R.layout.native_ad_2);
-            if (false) {
-                ll_ad_side.removeAllViews();
-                ll_ad_side.addView(nativeView_side);
-            } else {
-                try {
-                    UiManager.getCrossView(this, new Builder("cross")
-                                    .setServiceData(AndroidSdk.getExtraData())
-                                    .setType(Builder.Type.TYPE_SQUARE_193)
-                                    .setIsShouldShowDownLoadBtn(true).setAdTagImageId(R.mipmap.ad)
-                                    .setActionBtnBackground(R.drawable.select_text_ad)
-                                    .setActionTextColor(getResources().getColor(R.color.white_100))
-                                    .setTitleTextColor(getResources().getColor(R.color.B2))
-                                    .setTrackTag("广告位_侧边栏")
-                                    .setSubTitleTextColor(getResources().getColor(R.color.B3))
-                            , new CrossView.OnDataFinishListener() {
-                                @Override
-                                public void onFinish(CrossView crossView) {
-                                    ll_ad_side.removeAllViews();
-                                    ll_ad_side.addView(crossView);
-                                }
-                            });
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
         }
         if (PreData.getDB(this, Constant.FULL_START, 0) == 1) {
             AndroidSdk.showFullAd("start_full");
@@ -943,6 +916,9 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
                     break;
                 case R.id.battery_cha:
                     main_battery.setVisibility(View.GONE);
+                    Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+                    initSideData();
+                    adapter.notifyDataSetChanged();
                     AdUtil.track("主界面", "充电屏保引导", "叉掉了", 1);
                     break;
             }
@@ -1054,6 +1030,9 @@ public class MainActivity extends MBaseActivity implements MainView, DrawerLayou
         if (main_battery.getVisibility() == View.VISIBLE) {
             AdUtil.track("主界面", "充电屏保引导", "返回键退出", 1);
             main_battery.setVisibility(View.GONE);
+            Utils.writeData(MainActivity.this, Constants.CHARGE_SAVER_SWITCH, true);
+            initSideData();
+            adapter.notifyDataSetChanged();
             return;
         }
         if (main_drawer.isDrawerOpen(GravityCompat.START)) {

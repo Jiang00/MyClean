@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -103,7 +104,12 @@ public class BatteryView extends FrameLayout {
     private IntentFilter mIntentFilter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private void showNativeAD() {
-        adView = new ADRequest().showCustomNativeAD(Constants.TAG_CHARGING, R.layout.native_ad_2_mopub, null);
+        try {
+            adView = AndroidSdk.peekNativeAdViewWithLayout(Constants.TAG_CHARGING,
+                    AndroidSdk.NATIVE_AD_TYPE_ALL, R.layout.native_ad_2_mopub,
+                    null);
+        } catch (Exception e) {
+        }
         if (adLayout != null && adView != null) {
             if (adLayout.getVisibility() == View.GONE) {
                 adLayout.setVisibility(VISIBLE);

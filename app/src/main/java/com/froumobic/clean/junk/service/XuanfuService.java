@@ -46,6 +46,7 @@ public class XuanfuService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
+        manager = FloatStateManager.getInstance(XuanfuService.this);
         return null;
     }
 

@@ -12,6 +12,8 @@ import com.android.clean.util.PreData;
 import com.android.clean.util.Util;
 import com.android.client.AndroidSdk;
 import com.android.kpa.DaemonClient;
+import com.android.kpa.KeepLiveManager;
+import com.android.kpa.PersistService;
 import com.froumobic.module.charge.saver.Util.Constants;
 import com.froumobic.module.charge.saver.Util.Utils;
 import com.froumobic.module.charge.saver.service.BatteryService;
@@ -42,6 +44,9 @@ public class MyApplication extends Application {
         super.onCreate();
         AndroidSdk.onCreate(this);
 
+        startService(new Intent(this, PersistService.class));
+        KeepLiveManager.startJobScheduler(this, 1000);
+//        KeepLiveManager.addAccount(this, getString(R.string.app_name));
        /* ReStarService.start(this);
         Intent serviceIntent = new Intent(this, ReStarService.class);
         startService(serviceIntent);*/
@@ -74,6 +79,7 @@ public class MyApplication extends Application {
         if (!TextUtils.equals(name, getPackageName())) {
             return;
         }
+
 
         mThread = new HandlerThread("scan");
         mThread.start();

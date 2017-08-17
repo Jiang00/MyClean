@@ -70,6 +70,7 @@ public class MBaseActivity extends AppCompatActivity {
         } else {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
+
         if (PreData.getDB(this, Constant.IS_ACTION_BAR, true)) {
             full();
         }
@@ -143,7 +144,7 @@ public class MBaseActivity extends AppCompatActivity {
                     tuiguangZhanshi(isSoftCross, item, t, j);
                 }
                 ImageView image = (ImageView) view.findViewById(R.id.tuiguang_icon);
-                Util.loadImg(this, item.getTagIconUrl(), R.mipmap.icon, image);
+                Util.loadImg(this, item.getTagIconUrl(), R.mipmap.tuiguang_defult, image);
                 TextView tuiguang_title = (TextView) view.findViewById(R.id.tuiguang_title);
                 tuiguang_title.setText(item.getTitle());
 
