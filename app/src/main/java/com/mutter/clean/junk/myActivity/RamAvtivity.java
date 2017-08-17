@@ -180,9 +180,15 @@ public class RamAvtivity extends BaseActivity implements RamView {
     }
 
     @Override
-    public void addRamdata(long size, List<JunkInfo> list) {
-        adapterRam.upList(list);
-        adapterRam.notifyDataSetChanged();
+    public void addRamdata(long size, final List<JunkInfo> list) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                adapterRam.upList(list);
+                adapterRam.notifyDataSetChanged();
+            }
+        });
+
     }
 
     @Override
@@ -223,9 +229,14 @@ public class RamAvtivity extends BaseActivity implements RamView {
     }
 
     @Override
-    public void cleanAnimation(List<JunkInfo> cleanList, final long cleanSize) {
-        adapterRam.upList(cleanList);
-        adapterRam.notifyDataSetChanged();
+    public void cleanAnimation(final List<JunkInfo> cleanList, final long cleanSize) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                adapterRam.upList(cleanList);
+                adapterRam.notifyDataSetChanged();
+            }
+        });
         new Thread(new Runnable() {
             @Override
             public void run() {

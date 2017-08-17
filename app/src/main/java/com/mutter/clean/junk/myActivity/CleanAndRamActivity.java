@@ -214,10 +214,12 @@ public class CleanAndRamActivity extends BaseActivity implements JunkRamView {
 
     @Override
     public void addSystemdata(final long size, List<JunkInfo> list) {
-        for (JunkInfo info : list) {
-            if (info.size > 0) {
-                info.isChecked = true;
-                adapterSystem.addData(info);
+        if (list != null) {
+            for (JunkInfo info : list) {
+                if (info.size > 0) {
+                    info.isChecked = true;
+                    adapterSystem.addData(info);
+                }
             }
         }
         junk_system_list.setVisibility(View.GONE);

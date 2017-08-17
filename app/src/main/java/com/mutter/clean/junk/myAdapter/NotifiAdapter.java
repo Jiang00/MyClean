@@ -58,6 +58,7 @@ public class NotifiAdapter extends MybaseAdapter<NotificationInfo> {
             holder.rl_sys.setVisibility(View.VISIBLE);
         } else if (info.remoteViews != null) {
             View view = info.remoteViews.apply(context, holder.frameLayout);
+            holder.frameLayout.removeAllViews();
             holder.frameLayout.addView(view);
             holder.frameLayout.setVisibility(View.VISIBLE);
             holder.rl_sys.setVisibility(View.GONE);

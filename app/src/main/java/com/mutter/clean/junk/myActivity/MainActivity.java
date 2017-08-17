@@ -81,6 +81,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     TextView main_full_time;
     ImageView main_circle;
     LinearLayout tuiguang_main;
+    LinearLayout tuiguang_side;
+    RelativeLayout tuiguang_side_title;
 
     // LottieAnimationView lot_side;
     ImageView side_title;
@@ -155,6 +157,8 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         ad_delete = (FrameLayout) findViewById(R.id.ad_delete);
         main_ad = (FrameLayout) findViewById(R.id.main_ad);
         tuiguang_main = (LinearLayout) findViewById(R.id.tuiguang_main);
+        tuiguang_side = (LinearLayout) findViewById(R.id.tuiguang_side);
+        tuiguang_side_title = (RelativeLayout) findViewById(R.id.tuiguang_side_title);
     }
 
     @Override
@@ -252,9 +256,11 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
         lot_family.startAnimation(animation);
         tuiguang(TUIGUAN_MAIN_SOFT, true, tuiguang_main);
         tuiguang(TUIGUAN_MAIN, false, tuiguang_main);
-        tuiguang(TUIGUAN_SIDE_SOFT, true, side_listView);
-        tuiguang(TUIGUAN_SIDE, false, side_listView);
-
+        tuiguang(TUIGUAN_SIDE_SOFT, true, tuiguang_side);
+        tuiguang(TUIGUAN_SIDE, false, tuiguang_side);
+        if (tuiguang_side.getChildCount() == 0) {
+            tuiguang_side_title.setVisibility(View.GONE);
+        }
         initSideData();
     }
 

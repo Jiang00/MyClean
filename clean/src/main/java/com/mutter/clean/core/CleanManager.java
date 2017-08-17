@@ -367,7 +367,12 @@ public class CleanManager {
         if (cursor != null && cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
-                long size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
+                long size = 0;
+                try {
+                    size = Long.parseLong(cursor.getString(FileCategoryHelper.COLUMN_SIZE));
+                } catch (Exception e) {
+                    continue;
+                }
                 String path = cursor.getString(FileCategoryHelper.COLUMN_PATH);
                 String name = com.mutter.clean.filemanager.Util.getNameFromFilepath(path);
                 long date = cursor.getLong(FileCategoryHelper.COLUMN_DATE);
@@ -390,7 +395,9 @@ public class CleanManager {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             usageStatsList = getUsageStatistics(UsageStatsManager.INTERVAL_DAILY);
             System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
-            Collections.sort(usageStatsList, new Sizesort());
+            if (usageStatsList != null) {
+                Collections.sort(usageStatsList, new Sizesort());
+            }
         } else {
             recentTasks = am.getRecentTasks(10, ActivityManager.RECENT_IGNORE_UNAVAILABLE);
         }
@@ -484,9 +491,11 @@ public class CleanManager {
             appInfo.date = packageInfo.lastUpdateTime;
             appInfo.label = packageInfo.applicationInfo.loadLabel(pm).toString();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                for (int i = 0; i < usageStatsList.size(); i++) {
-                    if (TextUtils.equals(packageInfo.packageName, usageStatsList.get(i).getPackageName())) {
-                        appInfo.lastRunTime = i;
+                if (usageStatsList != null) {
+                    for (int i = 0; i < usageStatsList.size(); i++) {
+                        if (TextUtils.equals(packageInfo.packageName, usageStatsList.get(i).getPackageName())) {
+                            appInfo.lastRunTime = i;
+                        }
                     }
                 }
             } else {
@@ -519,13 +528,17 @@ public class CleanManager {
                 .getSystemService(Context.USAGE_STATS_SERVICE); //Context.USAGE_STATS_SERVICE
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.YEAR, -1);
+        try {
+
+        } catch (Exception e) {
+
+        }
+        if (mUsageStatsManager == null) {
+            return null;
+        }
         List<UsageStats> queryUsageStats = mUsageStatsManager
                 .queryUsageStats(intervalType, cal.getTimeInMillis(),
                         System.currentTimeMillis());
-
-        if (queryUsageStats.size() == 0) {
-//            mContext.startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        }
         return queryUsageStats;
     }
 

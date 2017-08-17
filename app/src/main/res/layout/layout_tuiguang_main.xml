@@ -18,31 +18,44 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/d16" />
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/d16"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:layout_weight="1">
 
-            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                android:id="@+id/tuiguang_title"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                    android:id="@+id/tuiguang_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/B2"
+                    android:textSize="@dimen/s14"
+                    app:typeface="lyp_text.otf" />
+
+                <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                    android:id="@+id/tuiguang_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d8"
+                    android:textColor="@color/B3"
+                    android:textSize="@dimen/s12"
+                    app:typeface="lyp_text.otf" />
+            </LinearLayout>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/B2"
-                android:textSize="@dimen/s14"
-                app:typeface="lyp_text.otf" />
-
-            <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
-                android:id="@+id/tuiguang_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d8"
-                android:textColor="@color/B3"
-                android:textSize="@dimen/s12"
-                app:typeface="lyp_text.otf" />
-        </LinearLayout>
+                android:layout_gravity="bottom|right"
+                android:text="AD"
+                android:textColor="@color/black_10"
+                android:textSize="@dimen/d9" />
+        </FrameLayout>
     </LinearLayout>
 
     <View

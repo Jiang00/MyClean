@@ -110,13 +110,18 @@ public class PhoneManager {
      * 设备网络连接类型 (OFFLINE ? WIFI ? MOBILE) permission.ACCESS_NETWORK_STATE
      */
     public String getPhoneNetworkType() {
-        NetworkInfo info = connManager.getActiveNetworkInfo();
-        if (!isOnline(info)) {
-            return "OFFLINE";
-        }
-        if (info != null) {
-            return info.getTypeName();
-        } else {
+        try {
+            NetworkInfo info = connManager.getActiveNetworkInfo();
+
+            if (!isOnline(info)) {
+                return "OFFLINE";
+            }
+            if (info != null) {
+                return info.getTypeName();
+            } else {
+                return "OFFLINE";
+            }
+        } catch (Exception e) {
             return "OFFLINE";
         }
     }

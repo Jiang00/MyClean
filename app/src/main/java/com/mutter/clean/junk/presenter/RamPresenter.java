@@ -66,7 +66,6 @@ public class RamPresenter extends BasePresenter<RamView> {
     }
 
     public void addAdapterData() {
-
         addRamAdapterData();
     }
 

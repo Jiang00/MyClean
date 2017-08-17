@@ -154,11 +154,7 @@ public class BaseActivity extends AppCompatActivity {
                         }
                     }
                 });
-                if (tag.equals(TUIGUAN_SIDE) || tag.equals(TUIGUAN_SIDE_SOFT)) {
-                    ((ListView) viewP).addHeaderView(view);
-                } else {
-                    ((LinearLayout) viewP).addView(view);
-                }
+                ((LinearLayout) viewP).addView(view);
             }
 
         }

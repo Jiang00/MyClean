@@ -209,7 +209,9 @@ public class MemoryManager {
         MemoryInfo info = new MemoryInfo();
         ActivityManager am = (ActivityManager) context
                 .getSystemService(Context.ACTIVITY_SERVICE);
-        am.getMemoryInfo(info);
+        try {
+            am.getMemoryInfo(info);
+        }catch (Exception e){}
         return info.availMem;
     }
 

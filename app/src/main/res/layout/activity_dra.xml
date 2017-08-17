@@ -74,13 +74,68 @@
 
             </FrameLayout>
 
-            <ListView
-                android:id="@+id/side_listView"
+            <com.mutter.clean.junk.myview.MyScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d8"
-                android:divider="#00000000"
-                android:dividerHeight="0dp" />
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.mutter.cleanmodule.view.ListViewForScrollView
+                        android:id="@+id/side_listView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/d8"
+                        android:divider="#00000000"
+                        android:dividerHeight="0dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/tuiguang_side_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/d40"
+                        android:background="@color/A10">
+
+                        <ImageView
+                            android:id="@+id/line"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/d16"
+                            android:src="@mipmap/setting_line" />
+
+                        <com.mutter.module.charge.saver.Aview.CustomerTypefaceTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/d5"
+                            android:layout_toRightOf="@id/line"
+                            android:text="Framily"
+                            android:textColor="@color/A5"
+                            android:textSize="@dimen/s13"
+                            app:typeface="lyp_text.otf" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:text="AD"
+                            android:textColor="@color/black_10"
+                            android:textSize="@dimen/d9" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tuiguang_side"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </LinearLayout>
+            </com.mutter.clean.junk.myview.MyScrollView>
+
+
         </LinearLayout>
     </com.mutter.clean.junk.myview.MainFrameLayout>
 

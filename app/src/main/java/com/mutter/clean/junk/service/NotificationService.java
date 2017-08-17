@@ -257,10 +257,14 @@ public class NotificationService extends Service {
     };
 
     private long getTotalRxBytes() {
-        // 得到整个手机的流量值  
-        return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
-                : (TrafficStats.getTotalRxBytes());//
-        // // 得到当前应用的流量值  
+        // 得到整个手机的流量值
+        try {
+            return TrafficStats.getUidRxBytes(getApplicationInfo().uid) == TrafficStats.UNSUPPORTED ? 0
+                    : (TrafficStats.getTotalRxBytes());//
+        } catch (Exception e) {
+            return 0;
+        }
+        // // 得到当前应用的流量值
         // return TrafficStats.getUidRxBytes(getApplicationInfo().uid) ==  
         // TrafficStats.UNSUPPORTED ? 0 : (TrafficStats  
         // .getUidRxBytes(getApplicationInfo().uid) / 1024);// 转为KB  
