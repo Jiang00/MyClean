@@ -7,6 +7,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
@@ -220,7 +221,7 @@ public class XuanfuActivity extends BaseActivity {
     public int killAll(Context context) {
         long ram_all = MemoryManager.getPhoneTotalRamMemory();
         final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
+        final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(PackageManager.GET_META_DATA);
         for (PackageInfo packageInfo : installedPackages) {
             if (packageInfo.packageName.equals(context.getPackageName())) {
                 continue;

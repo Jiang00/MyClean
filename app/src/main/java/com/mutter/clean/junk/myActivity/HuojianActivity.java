@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
@@ -139,7 +140,7 @@ public class HuojianActivity extends BaseActivity {
         final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         final long beforeMem = getAvailMemory(am);
         int count = 0;
-        final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
+        final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(PackageManager.GET_META_DATA);
         for (PackageInfo packageInfo : installedPackages) {
             if (onPause) {
                 break;

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -240,9 +241,9 @@ public class BatteryView extends FrameLayout {
             initShell();
 
             updateTime();
-
-            showNativeAD();
-
+            Log.e("charging_ad", "==1");
+//            showNativeAD();
+            Log.e("charging_ad", "==2");
             halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 1.3f);
             setOnTouchListener(new OnTouchListener() {
                 @Override
@@ -382,15 +383,6 @@ public class BatteryView extends FrameLayout {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        try {
-            JSONObject object = new JSONObject(AndroidSdk.getExtraData());
-            int state = analysisJson(object);
-//            if (state == 1) {
-//                mContext.startActivity(new Intent(mContext, ADActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
-//            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         if (isRegisterTimeUpdate) {
             unregisterTimeUpdateReceiver();
         }
