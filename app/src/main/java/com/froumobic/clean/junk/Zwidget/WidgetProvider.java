@@ -7,6 +7,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -250,7 +251,7 @@ public class WidgetProvider extends AutoUpdateWidgetProvider {
 
     public void killAll(Context context) {
         final ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
+        final List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(PackageManager.GET_META_DATA);
         for (PackageInfo packageInfo : installedPackages) {
             if (packageInfo.packageName.equals(context.getPackageName())) {
                 continue;

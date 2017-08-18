@@ -294,7 +294,7 @@ public class CleanManager {
 
     public void loadAppCache(AppCacheCallBack appCacheCallBack) {
 
-        List<PackageInfo> packages = mContext.getPackageManager().getInstalledPackages(0);
+        List<PackageInfo> packages = mContext.getPackageManager().getInstalledPackages(PackageManager.GET_META_DATA);
         String cacheFilePath = null;
         try {
             cacheFilePath = mContext.getExternalCacheDir().getAbsolutePath();
@@ -413,7 +413,7 @@ public class CleanManager {
             throw new Error("systemCacheCallBack can not be null");
         }
 
-        List<PackageInfo> packages = pm.getInstalledPackages(0);
+        List<PackageInfo> packages = pm.getInstalledPackages(PackageManager.GET_META_DATA);
 
         if (packages == null || packages.isEmpty()) {
             if (systemCacheCallBack != null) {
