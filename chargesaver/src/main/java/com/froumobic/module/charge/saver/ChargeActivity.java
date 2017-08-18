@@ -77,20 +77,9 @@ public class ChargeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("battery", "onCreate");
         hideBottomUIMenu();
-        String type;
-        try {
-            type = getIntent().getExtras().getString("type");
-        } catch (Exception e) {
-            type = "bar";
-        }
-        if (TextUtils.equals(type, "bar")) {
-            isBar = true;
-            doBar();
-        } else if (TextUtils.equals(type, "duck")) {
-//            isBar = false;
-//            doDuck();
-        }
+        doBar();
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
@@ -117,6 +106,7 @@ public class ChargeActivity extends Activity {
     protected void onDestroy() {
 //        MopubAdUtil.distory();
 //        AndroidSdk.destroyNativeAdView();
+        Log.e("battery", "onDestroy");
         batteryView = null;
         super.onDestroy();
         try {

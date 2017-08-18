@@ -12,6 +12,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 
@@ -83,10 +84,9 @@ public class BatteryService extends Service {
                 batteryChange(intent);
                 mHandler.removeCallbacks(batteryChangeRunnable);
                 mHandler.postDelayed(batteryChangeRunnable, MSG_BATTERY_CHANGE_DELAYED);
-            } else if (Intent.ACTION_SCREEN_ON.equals(action)) {
+            } else if (Intent.ACTION_SCREEN_ON.equals(action) || Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_POWER_CONNECTED.equals(action)) {
 //                mHandler.removeCallbacks(runnable);
 //                mHandler.postDelayed(runnable, MSG_SCREEN_ON_DELAYED);
-            } else {
                 showChargeView();
             }
         }
@@ -148,13 +148,7 @@ public class BatteryService extends Service {
             if (entry == null || !entry.isCharging()) {
                 return;
             }
-            Intent intent = new Intent().addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            if (Utils.readData(this, Constants.KEY_SAVER_TYPE, Constants.TYPE_HOR_BAR).equals(Constants.TYPE_HOR_BAR)) {
-                intent.putExtra("type", "bar");
-            } else {
-                intent.putExtra("type", "duck");
-            }
-            intent.setClass(this, ChargeActivity.class);
+            Intent intent = new Intent(this, ChargeActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             return;
         }
