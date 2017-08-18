@@ -24,7 +24,6 @@ public class ChargeActivity extends Activity {
 
     private BatteryView batteryView;
     private BatteryEntry entry;
-    private boolean isBar;
 
     @Override
     protected void onUserLeaveHint() {
@@ -142,11 +141,8 @@ public class ChargeActivity extends Activity {
             entry.update(intent);
             entry.evaluate();
         }
-        if (isBar) {
-            if (batteryView != null) {
-                batteryView.bind(entry);
-            }
-        } else {
+        if (batteryView != null) {
+            batteryView.bind(entry);
         }
     }
 
