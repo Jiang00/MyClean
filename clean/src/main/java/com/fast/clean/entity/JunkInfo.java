@@ -1,5 +1,8 @@
 package com.fast.clean.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by on 2017/5/19.
  */
@@ -16,6 +19,7 @@ public class JunkInfo {
     public long allSize;
     public long date;
     public long lastRunTime;
+    public List<Integer> pid = new ArrayList<>();
 
     public String label;
     public boolean isChecked = true;
