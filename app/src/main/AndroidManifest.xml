@@ -63,7 +63,8 @@
 
         <activity
             android:name="com.myboost.junk.boostactivity.LoadingActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -87,7 +88,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.myboost.junk.boostactivity.BoostRubbishActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.myboost.junk.BoostRubbishActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.myboost.junk.boostactivity.RubbishAndRamActivityBoost"
             android:exported="true"
@@ -100,7 +106,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.myboost.junk.boostactivity.MemoryAvtivityBoost"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.myboost.junk.MemoryAvtivityBoost" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.myboost.junk.boostactivity.BoostSetActivity"
             android:screenOrientation="portrait" />

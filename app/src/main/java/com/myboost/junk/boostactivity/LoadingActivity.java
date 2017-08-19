@@ -17,8 +17,8 @@ import com.myboost.clean.utilsprivacy.PreData;
 import com.myboost.junk.R;
 import com.myboost.junk.boosttools.BoostMyConstant;
 import com.myboost.junk.boosttools.PhonesManager;
-import com.myboost.junk.boosttools.ShortCutUtilsBoost;
 import com.myboost.junk.boosttools.SetAdUtilPrivacy;
+import com.myboost.junk.boosttools.ShortCutUtilsBoost;
 
 import org.json.JSONObject;
 
@@ -31,6 +31,8 @@ public class LoadingActivity extends BaseActivity {
     AnimatorSet animSet, animSet2;
     ObjectAnimator animator1;
     TextView loading_tv1, loading_tv2;
+
+    private static final String TAG = "LoadingActivity";
 
     @Override
     protected void findId() {
@@ -120,10 +122,12 @@ public class LoadingActivity extends BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
+        long endTime1 = System.currentTimeMillis();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_loading);
         ShortCutUtilsBoost.addShortcut(this);
+        long endTime2 = System.currentTimeMillis();
+        Log.e(TAG, "=====time1===" + (endTime2 - endTime1));
         loading_tv1 = (TextView) findViewById(R.id.loading_tv1);
         loading_tv2 = (TextView) findViewById(R.id.loading_tv2);
         myHandler = new Handler();
@@ -169,8 +173,8 @@ public class LoadingActivity extends BaseActivity {
 
             }
         });
-        myHandler.removeCallbacks(runnable1);
-        myHandler.postDelayed(runnable1, 2500);
+//        myHandler.removeCallbacks(runnable1);
+//        myHandler.postDelayed(runnable1, 2500);
     }
 
     @Override
@@ -187,9 +191,13 @@ public class LoadingActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        AndroidSdk.onCreate(this);
+        myHandler.removeCallbacks(runnable1);
+        myHandler.postDelayed(runnable1, 2500);
         AndroidSdk.onResumeWithoutTransition(this);
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onStop() {
         super.onStop();
