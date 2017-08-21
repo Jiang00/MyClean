@@ -87,7 +87,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".jiemian.LogActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.vatermobi.LogActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".jiemian.LogAndRamActivity"
             android:exported="true"
@@ -100,7 +105,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".jiemian.NeicunAvtivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.vatermobi.NeicunAvtivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".jiemian.SettingActivity"
             android:screenOrientation="portrait" />

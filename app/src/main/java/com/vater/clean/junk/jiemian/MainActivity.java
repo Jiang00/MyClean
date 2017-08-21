@@ -70,7 +70,6 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     LinearLayout main_picture_button;
     com.mingle.widget.LinearLayout ll_ad_full;
     ProgressBar ad_progressbar;
-    TextView main_full_time;
     LinearLayout main_battery;
     RelativeLayout main_all_cercle;
     RelativeLayout main_title;
@@ -347,26 +346,24 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             AndroidSdk.showFullAd("vater_start_full");
 
         } else {
-//            View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
-//            if (ll_ad_full != null && nativeView_full != null) {
-//                ll_ad_full.addView(nativeView_full);
-//                ll_ad_full.setVisibility(View.VISIBLE);
-//                nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
-//                main_full_time = (TextView) nativeView_full.findViewById(R.id.main_full_time);
-//                LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
-//                loading_text.setOnClickListener(null);
-//                main_full_time.setVisibility(View.VISIBLE);
-//                main_full_time.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        handler.removeCallbacks(fullAdRunnale);
-//                        adDelete();
-//                    }
-//                });
-//                int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
-//                handler.postDelayed(fullAdRunnale, skip * 1000);
-//            } else {
-//            }
+            View nativeView_full = AdUtil.getNativeAdView(TAG_START_FULL, R.layout.native_ad_full_main);
+            if (ll_ad_full != null && nativeView_full != null) {
+                ll_ad_full.addView(nativeView_full);
+                ll_ad_full.setVisibility(View.VISIBLE);
+                ImageView ad_delete = (ImageView) nativeView_full.findViewById(R.id.ad_delete);
+                LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
+                loading_text.setOnClickListener(null);
+                ad_delete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        handler.removeCallbacks(fullAdRunnale);
+                        adDelete();
+                    }
+                });
+                int skip = PreData.getDB(this, Constant.SKIP_TIME, 6);
+                handler.postDelayed(fullAdRunnale, skip * 1000);
+            } else {
+            }
         }
     }
 
