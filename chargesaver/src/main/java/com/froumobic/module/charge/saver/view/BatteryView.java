@@ -1,16 +1,11 @@
 package com.froumobic.module.charge.saver.view;
 
 import android.animation.ValueAnimator;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,9 +20,7 @@ import android.widget.TextView;
 
 import com.android.client.AndroidSdk;
 import com.froumobic.module.charge.saver.ADActivity;
-import com.froumobic.module.charge.saver.MopubAdUtil;
 import com.froumobic.module.charge.saver.R;
-import com.froumobic.module.charge.saver.Util.ADRequest;
 import com.froumobic.module.charge.saver.Util.Constants;
 import com.froumobic.module.charge.saver.Util.Utils;
 import com.froumobic.module.charge.saver.entry.BatteryEntry;
@@ -36,7 +29,6 @@ import com.sample.lottie.LottieAnimationView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -255,8 +247,7 @@ public class BatteryView extends FrameLayout {
 
             updateTime();
 //native ad
-            showNativeAD();
-//            MopubAdUtil.creat2((Activity) mContext, battery_ad_layout_mopub);
+//            showNativeAD();
 
             halfWidth = (int) (((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() / 1.3f);
             setOnTouchListener(new OnTouchListener() {

@@ -3,6 +3,7 @@ package com.froumobic.clean.junk.mactivity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 
@@ -59,11 +60,6 @@ public class MyApplication extends Application {
 
         CleanManager.getInstance(this).startLoad();
 
-        if (PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
-            Intent intent = new Intent(this, NotificationService.class);
-            intent.setAction("notification");
-            startService(intent);
-        }
 
         if (PreData.getDB(this, Constant.FlOAT_SWITCH, true)) {
             Intent intent1 = new Intent(this, XuanfuService.class);
@@ -80,13 +76,20 @@ public class MyApplication extends Application {
             return;
         }
 
-
         mThread = new HandlerThread("scan");
         mThread.start();
 
         if (PreData.getDB(this, Constant.FIRST_INSTALL, true)) {
             PreData.putDB(this, Constant.IS_ACTION_BAR, Util.checkDeviceHasNavigationBar(this));
             PreData.putDB(this, Constant.FIRST_INSTALL, false);
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+                PreData.putDB(this, Constant.TONGZHILAN_SWITCH, false);
+            }
+        }
+        if (PreData.getDB(this, Constant.TONGZHILAN_SWITCH, true)) {
+            Intent intent = new Intent(this, NotificationService.class);
+            intent.setAction("notification");
+            startService(intent);
         }
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;

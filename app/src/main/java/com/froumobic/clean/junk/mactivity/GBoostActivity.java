@@ -316,8 +316,12 @@ public class GBoostActivity extends MBaseActivity {
     }
 
     private void shortGame(boolean isChuangjian) {
-        search_edit_text.setText("");
-        Log.e("short", "chuangjian1 ");
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                search_edit_text.setText("");
+            }
+        });
         Intent shortcutIntent = new Intent();
         shortcutIntent.setAction(Intent.ACTION_VIEW);
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
