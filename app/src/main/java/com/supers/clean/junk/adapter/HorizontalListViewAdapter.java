@@ -95,7 +95,10 @@ public class HorizontalListViewAdapter extends BaseAdapter {
         holder.delete_app.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                list.remove(position);
+                try {
+                    list.remove(position);
+                } catch (Exception e) {
+                }
                 CleanManager.getInstance(mContext).removeRam(info);
                 notifyDataSetChanged();
                 Log.e("aaa", "delete_app======");

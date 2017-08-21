@@ -457,8 +457,13 @@ public class GBoostActivity extends BaseActivity {
     }
 
     private void shortGame(boolean isChuangjian) {
-        search_edit_text.setText("");
-        Log.e("short", "chuangjian1 ");
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                search_edit_text.setText("");
+            }
+        });
+
         Intent shortcutIntent = new Intent();
         shortcutIntent.setAction(Intent.ACTION_VIEW);
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
@@ -491,7 +496,6 @@ public class GBoostActivity extends BaseActivity {
 
             Bitmap bitmap = Util.getViewBitmap(shortcut_view);
             if (bitmap != null) {
-                Log.e("short", "chuangjian ");
 //                Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
 //                shortcutIntent.setClass(GBoostActivity.this, GBoostActivity.class);
 //                shortcutIntent.addCategory(Intent.CATEGORY_LAUNCHER);
