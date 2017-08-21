@@ -285,8 +285,12 @@ public class GameActivity extends BaseActivity {
     }
 
     private void shortGame(boolean isChuangjian) {
-        search_edit_text.setText("");
-        Log.e("short", "chuangjian1 ");
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                search_edit_text.setText("");
+            }
+        });
         Intent shortcutIntent = new Intent();
         shortcutIntent.setAction(Intent.ACTION_VIEW);
         shortcutIntent.setComponent(new ComponentName(getPackageName(),
@@ -320,7 +324,6 @@ public class GameActivity extends BaseActivity {
 
             Bitmap bitmap = Util.getViewBitmap(shortcut_view);
             if (bitmap != null) {
-                Log.e("short", "chuangjian ");
                 ShortCutUtils.removeShortcut(GameActivity.this, shortcutIntent, title);
                 ShortCutUtils.addShortcut(GameActivity.this, shortcutIntent, title, false, bitmap);
                 gboost_short_iv.setImageBitmap(bitmap);
