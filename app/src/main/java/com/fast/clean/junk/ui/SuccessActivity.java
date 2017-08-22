@@ -73,6 +73,7 @@ public class SuccessActivity extends BaseActivity {
     ImageView success_progress;
     LinearLayout ad_title;
     LinearLayout ll_ad_xiao;
+    LinearLayout tuiguang_success;
     ImageView power_icon;
     TextView power_text;
     TextView main_rotate_good;
@@ -121,6 +122,7 @@ public class SuccessActivity extends BaseActivity {
         success_progress = (ImageView) findViewById(R.id.success_progress);
         ad_title = (LinearLayout) findViewById(R.id.ad_title);
         ll_ad_xiao = (LinearLayout) findViewById(R.id.ll_ad_xiao);
+        tuiguang_success = (LinearLayout) findViewById(R.id.tuiguang_success);
         loading_text = (TextView) findViewById(R.id.loading_text);
     }
 
@@ -276,6 +278,8 @@ public class SuccessActivity extends BaseActivity {
                 }
             }, 1000);
         }
+        tuiguang(TUIGUAN_SUCCESS_SOFT, true, tuiguang_success);
+        tuiguang(TUIGUAN_SUCCESS, false, tuiguang_success);
     }
 
     Runnable runnable = new Runnable() {

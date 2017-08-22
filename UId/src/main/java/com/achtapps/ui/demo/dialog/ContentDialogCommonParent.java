@@ -1,4 +1,4 @@
-package com.mutter.ui.demo.dialog;
+package com.achtapps.ui.demo.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -13,8 +13,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mutter.ui.demo.R;
-import com.mutter.ui.demo.util.Utils;
+import com.achtapps.ui.demo.R;
+import com.achtapps.ui.demo.util.Utils;
 
 public abstract class ContentDialogCommonParent implements IContentDialog {
 

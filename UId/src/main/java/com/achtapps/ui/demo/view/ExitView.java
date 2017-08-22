@@ -1,4 +1,4 @@
-package com.mutter.ui.demo.view;
+package com.achtapps.ui.demo.view;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.mutter.ui.demo.R;
-import com.mutter.ui.demo.util.Utils;
+import com.achtapps.ui.demo.R;
+import com.achtapps.ui.demo.util.Utils;
 
 public class ExitView extends LinearLayout {
 

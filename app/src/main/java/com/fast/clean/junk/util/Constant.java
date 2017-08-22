@@ -124,5 +124,8 @@ public class Constant {
     public static final String FULL_SUCCESS_MAX_COUNT = "full_suc_max_count";
     public static final String AD_LOADING_TIME = "ad_loading_time";
     public static final String NEED_SHOW_FULL_SUCCESS = "need_show_full_success";
-
+    //    软推广
+    public static final String RAM_CLEAN_ACTION = "com.achtapps.NeicunAvtivity";
+    public static final String JUNK_CLEAN_ACTION = "com.achtapps.FileLajiActivity";
+    public static final String BATTERY_COOL_ACTION = "com.android.achtapps.battery.cooling";
 }

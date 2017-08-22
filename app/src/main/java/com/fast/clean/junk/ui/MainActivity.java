@@ -74,6 +74,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
     com.mingle.widget.LinearLayout ll_ad_full;
     ProgressBar ad_progressbar;
     LinearLayout main_battery;
+    LinearLayout tuiguang_main;
 
     LottieAnimationView lot_ad;
     ListViewForScrollView side_listView;
@@ -150,6 +151,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
 
         lot_ad = (LottieAnimationView) findViewById(R.id.lot_ad);
         main_battery = (LinearLayout) findViewById(R.id.main_battery);
+        tuiguang_main = (LinearLayout) findViewById(R.id.tuiguang_main);
     }
 
     @Override
@@ -178,7 +180,10 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
             ll_lot_ad.setVisibility(View.GONE);
         }
         PreData.putDB(this, Constant.MAIN_LOT_AD, ++main_lot_ad);
-
+        tuiguang(TUIGUAN_MAIN_SOFT, true, tuiguang_main);
+        tuiguang(TUIGUAN_MAIN, false, tuiguang_main);
+        tuiguang(TUIGUAN_SIDE_SOFT, true, side_listView);
+        tuiguang(TUIGUAN_SIDE, false, side_listView);
     }
 
 

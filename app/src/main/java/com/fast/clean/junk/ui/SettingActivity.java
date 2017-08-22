@@ -39,6 +39,7 @@ public class SettingActivity extends BaseActivity {
     RelativeLayout setting_tongzhi, setting_tongzhilan, setting_float, setting_battery, setting_power, setting_file,
             setting_picture, setting_gboost, setting_hui, setting_notifi, setting_white, setting_short, setting_rotate;
     LinearLayout ll_ad;
+    LinearLayout tuiguang_setting;
     ScrollView setting_scroll;
     private View nativeView;
 
@@ -68,6 +69,7 @@ public class SettingActivity extends BaseActivity {
         setting_float_check = (ImageView) findViewById(R.id.setting_float_check);
         setting_battery_check = (ImageView) findViewById(R.id.setting_battery_check);
         ll_ad = (LinearLayout) findViewById(R.id.ll_ad);
+        tuiguang_setting = (LinearLayout) findViewById(R.id.tuiguang_setting);
         setting_scroll = (ScrollView) findViewById(R.id.setting_scroll);
     }
 
@@ -94,6 +96,8 @@ public class SettingActivity extends BaseActivity {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             setting_notifi.setVisibility(View.GONE);
         }
+        tuiguang(TUIGUAN_SETTING_SOFT, true, tuiguang_setting);
+        tuiguang(TUIGUAN_SETTING, false, tuiguang_setting);
     }
 
     @Override

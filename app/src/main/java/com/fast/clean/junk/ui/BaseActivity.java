@@ -9,16 +9,31 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.achtapps.cleanmodule.activity.NeicunAvtivity;
+import com.achtapps.cleanmodule.battery.BatteryCoolingActivity;
+import com.fast.clean.junk.util.AdUtil;
 import com.fast.clean.mutil.PreData;
 import com.android.client.AndroidSdk;
 import com.fast.clean.junk.R;
 import com.fast.clean.junk.util.Constant;
+import com.fast.clean.mutil.Util;
+import com.achtapps.ui.demo.entry.CrossItem;
+import com.achtapps.ui.demo.util.JsonParser;
+
+import java.util.ArrayList;
 
 /**
  * Created by on 2017/2/28.
@@ -31,6 +46,14 @@ public class BaseActivity extends AppCompatActivity {
     protected boolean onPause = false;
     protected boolean onDestroyed = false;
     protected boolean onResume = false;
+    protected String TUIGUAN_MAIN = "main_hard";
+    protected String TUIGUAN_MAIN_SOFT = "main_soft";
+    protected String TUIGUAN_SIDE = "slide_hard";
+    protected String TUIGUAN_SIDE_SOFT = "slide_soft";
+    protected String TUIGUAN_SETTING = "setting_hard";
+    protected String TUIGUAN_SETTING_SOFT = "setting_soft";
+    protected String TUIGUAN_SUCCESS = "success_hard";
+    protected String TUIGUAN_SUCCESS_SOFT = "success_soft";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,8 +115,101 @@ public class BaseActivity extends AppCompatActivity {
         return result;
     }
 
-    public void tuiGuang() {
-        extraData = AndroidSdk.getExtraData();
+    public void tuiguang(final String tag, final boolean isSoftCross, View viewP) {
+        ArrayList<CrossItem> crossItems = JsonParser.getCrossData(this, AndroidSdk.getExtraData(), tag);
+        if (crossItems != null) {
+            for (int i = 0; i < crossItems.size(); i++) {
+                final CrossItem item = crossItems.get(i);
+                View view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
+                final int j = i + 4;
+                String t = "主界面";
+                if (tag.equals(TUIGUAN_MAIN) || tag.equals(TUIGUAN_MAIN_SOFT)) {
+                    t = "主界面";
+                    view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
+                    TextView tuiguang_sub_title = (TextView) view.findViewById(R.id.tuiguang_subtitle);
+                    tuiguang_sub_title.setText(item.getSubTitle());
+                    tuiguangZhanshi(isSoftCross, item, t, j);
+                } else if (tag.equals(TUIGUAN_SIDE) || tag.equals(TUIGUAN_SIDE_SOFT)) {
+                    t = "侧边栏";
+                    view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_side, null);
+                    tuiguangZhanshi(isSoftCross, item, t, j);
+                } else if (tag.equals(TUIGUAN_SETTING) || tag.equals(TUIGUAN_SETTING_SOFT)) {
+                    t = "设置";
+                    view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_setting, null);
+                    tuiguangZhanshi(isSoftCross, item, t, j);
+                } else if (tag.equals(TUIGUAN_SUCCESS) || tag.equals(TUIGUAN_SUCCESS_SOFT)) {
+                    t = "清理";
+                    view = LayoutInflater.from(this).inflate(R.layout.layout_tuiguang_main, null);
+                    TextView tuiguang_sub_title = (TextView) view.findViewById(R.id.tuiguang_subtitle);
+                    tuiguang_sub_title.setText(item.getSubTitle());
+                    tuiguangZhanshi(isSoftCross, item, t, j);
+                }
+                ImageView image = (ImageView) view.findViewById(R.id.tuiguang_icon);
+                Util.loadImg(this, item.getTagIconUrl(), R.mipmap.icon, image);
+                TextView tuiguang_title = (TextView) view.findViewById(R.id.tuiguang_title);
+                tuiguang_title.setText(item.getTitle());
+                final String finalT = t;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (isSoftCross) {
+                            if (com.achtapps.ui.demo.util.Utils.checkoutISAppHasInstalled(BaseActivity.this, item.getPkgName())) {
+                                try {
+                                    Intent intent = new Intent(item.getAction());
+                                    startActivity(intent);
+                                } catch (Exception e) {
+                                    Log.e("tuiguang", "not find action=" + item.getAction());
+                                    com.achtapps.ui.demo.util.Utils.openPlayStore(BaseActivity.this, item.getPkgName(), AndroidSdk.getExtraData());
+                                }
+                            } else {
+                                if (TextUtils.equals(item.action, Constant.RAM_CLEAN_ACTION)) {
+                                    //内存加速
+                                    Intent intent = new Intent(BaseActivity.this, NeicunAvtivity.class);
+                                    startActivity(intent);
+                                    AdUtil.track("交叉推广_广告位", "广告位_" + finalT + "1", "点击" + item.getPkgName(), 1);
+                                } else if (TextUtils.equals(item.action, Constant.JUNK_CLEAN_ACTION)) {
+                                    //垃圾清理
+                                    Intent intent = new Intent(BaseActivity.this, com.achtapps.cleanmodule.activity.FileLajiActivity.class);
+                                    startActivity(intent);
+                                    AdUtil.track("交叉推广_广告位", "广告位_" + finalT + "2", "点击" + item.getPkgName(), 1);
+                                } else if (TextUtils.equals(item.action, Constant.BATTERY_COOL_ACTION)) {
+                                    //电池降温
+                                    Intent intent = new Intent(BaseActivity.this, BatteryCoolingActivity.class);
+                                    startActivity(intent);
+                                    AdUtil.track("交叉推广_广告位", "广告位_" + finalT + "3", "点击" + item.getPkgName(), 1);
+                                } else {
+                                    com.achtapps.ui.demo.util.Utils.openPlayStore(BaseActivity.this, item.getPkgName(), AndroidSdk.getExtraData());
+                                }
+                            }
+                        } else {
+                            com.achtapps.ui.demo.util.Utils.reactionForAction(BaseActivity.this, AndroidSdk.getExtraData(), item.getPkgName(), item.getAction());
+                            AdUtil.track("交叉推广_广告位", "广告位_" + finalT + j, "点击" + item.getPkgName(), 1);
+                        }
+                    }
+                });
+                if (tag.equals(TUIGUAN_SIDE) || tag.equals(TUIGUAN_SIDE_SOFT)) {
+                    ((ListView) viewP).addHeaderView(view);
+                } else {
+                    ((LinearLayout) viewP).addView(view);
+                }
+            }
+        }
+    }
+
+    public void tuiguangZhanshi(boolean isSoftCross, CrossItem item, String t, int j) {
+        if (isSoftCross) {
+            if (TextUtils.equals(item.action, Constant.RAM_CLEAN_ACTION)) {
+                AdUtil.track("交叉推广_广告位", "广告位_" + t, "展示" + item.pkgName, 1);
+            } else if (TextUtils.equals(item.action, Constant.JUNK_CLEAN_ACTION)) {
+                //垃圾清理
+                AdUtil.track("交叉推广_广告位", "广告位_" + t, "展示" + item.pkgName, 1);
+            } else if (TextUtils.equals(item.action, Constant.BATTERY_COOL_ACTION)) {
+                //电池降温
+                AdUtil.track("交叉推广_广告位", "广告位_" + t, "展示" + item.pkgName, 1);
+            }
+        } else {
+            AdUtil.track("交叉推广_广告位", "广告位_" + t, "展示" + item.pkgName, 1);
+        }
     }
 
 

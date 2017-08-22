@@ -112,5 +112,6 @@
 -keep class com.sample.lottie.** { *;}
 
 -dontwarn com.squareup.picasso.**
+-dontwarn com.squareup.okhttp.**
 
 
