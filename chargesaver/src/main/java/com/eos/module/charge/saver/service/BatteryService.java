@@ -131,7 +131,7 @@ public class BatteryService extends Service {
                 }
                 mHandler.removeCallbacks(batteryChangeRunnable);
                 mHandler.postDelayed(batteryChangeRunnable, MSG_BATTERY_CHANGE_DELAYED);
-            } else if (Intent.ACTION_SCREEN_OFF.equals(action) || Intent.ACTION_POWER_CONNECTED.equals(action)) {
+            } else if (Intent.ACTION_SCREEN_ON.equals(action) || Intent.ACTION_POWER_CONNECTED.equals(action)) {
                 showChargeView();
             }
             if (!PreData.getDB(BatteryService.this, Constant.DETECT_KAIGUAN, true)) {

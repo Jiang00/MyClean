@@ -1037,7 +1037,7 @@ public class MainActivity extends BaseActivity implements MainView, DrawerLayout
                 case R.id.main_gboost_button:
                     AdUtil.track("主页面", "点击进入游戏加速", "", 1);
                     PreData.putDB(MainActivity.this, Constant.GBOOST_CLEAN, true);
-                    mainPresenter.jumpToActivity(GBoostActivity.class, 1);
+                    mainPresenter.jumpToActivity(PrivacyActivity.class, 1);
                     break;
                 case R.id.main_picture_button:
                     AdUtil.track("主页面", "点击进入相似图片", "", 1);
