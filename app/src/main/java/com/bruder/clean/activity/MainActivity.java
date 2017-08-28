@@ -87,7 +87,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
     RelativeLayout poweracativity, fileactivity, notifiactivity, main_more;
     DrawerLayout main_drawer;
     LinearLayout ll_ad, ll_ad_side, ad_native_2;
-    TextView main_full_time;
+    ImageView main_full_time;
     FrameLayout fl_lot_side;
 
     private boolean isFirstIn = false;// 判断是否是第一次登陆
@@ -670,7 +670,7 @@ public class MainActivity extends BaseActivity implements MainMyView, DrawerLayo
 //                ll_ad_full.addView(nativeView_full);
 //                ll_ad_full.setVisibility(View.VISIBLE);
                 nativeView_full.findViewById(R.id.ad_delete).setVisibility(View.GONE);
-                main_full_time = (TextView) nativeView_full.findViewById(R.id.main_full_time);
+                main_full_time = (ImageView) nativeView_full.findViewById(R.id.main_full_time);
                 LinearLayout loading_text = (LinearLayout) nativeView_full.findViewById(R.id.loading_text);
                 loading_text.setOnClickListener(null);
                 main_full_time.setVisibility(View.VISIBLE);

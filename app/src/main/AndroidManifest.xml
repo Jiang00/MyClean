@@ -89,9 +89,16 @@
         <activity
             android:name="com.bruder.clean.activity.CoolActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name="com.bruder.clean.activity.GarbageActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.bruder.junk.BruderGarbageActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name="com.bruder.clean.activity.GarbageAndRamActivity"
             android:exported="true"
@@ -102,9 +109,16 @@
         <activity
             android:name="com.bruder.clean.activity.InformationActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name="com.bruder.clean.activity.PhoneRamAvtivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.bruder.junk.BruderPhoneRamAvtivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name="com.bruder.clean.activity.SetActivity"
             android:screenOrientation="portrait" />
