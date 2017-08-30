@@ -16,6 +16,7 @@ public class SmsEntity extends PrivacyData implements Parcelable {
     public String date;
     public int read;
     public String status;
+    public String person;
 
     public SmsEntity() {
     }

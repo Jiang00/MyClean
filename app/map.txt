@@ -48473,17 +48473,17 @@ com.supers.clean.junk.activity.LoadingActivity -> com.supers.clean.junk.activity
     android.os.Handler myHandler -> a
     android.widget.TextView tv_tiaoguo -> b
     java.lang.Runnable runnable1 -> c
-    27:59:void <init>() -> <init>
+    27:415:void <init>() -> <init>
     33:36:void findId() -> a
-    42:57:void onCreate(android.os.Bundle) -> onCreate
-    75:77:void onResume() -> onResume
-    81:82:void onStop() -> onStop
-    86:88:void onDestroy() -> onDestroy
-    92:93:void onBackPressed() -> onBackPressed
+    42:413:void onCreate(android.os.Bundle) -> onCreate
+    431:433:void onResume() -> onResume
+    437:438:void onStop() -> onStop
+    442:444:void onDestroy() -> onDestroy
+    448:449:void onBackPressed() -> onBackPressed
 com.supers.clean.junk.activity.LoadingActivity$1 -> com.supers.clean.junk.activity.LoadingActivity$1:
     com.supers.clean.junk.activity.LoadingActivity this$0 -> a
-    59:59:void <init>(com.supers.clean.junk.activity.LoadingActivity) -> <init>
-    63:69:void run() -> run
+    415:415:void <init>(com.supers.clean.junk.activity.LoadingActivity) -> <init>
+    419:425:void run() -> run
 com.supers.clean.junk.activity.MainActivity -> com.supers.clean.junk.activity.MainActivity:
     com.supers.clean.junk.customeview.MyScrollView main_scroll_view -> a
     com.supers.clean.junk.customeview.PullToRefreshLayout main_pull_refresh -> b
@@ -51480,31 +51480,32 @@ com.supers.clean.junk.privacy.PrivacyClean -> com.supers.clean.junk.privacy.a:
     26:28:void <init>(android.content.Context) -> <init>
     32:35:com.supers.clean.junk.privacy.PrivacyClean getInstance(android.content.Context) -> a
     65:114:java.util.ArrayList queryCall() -> a
-    118:161:java.util.ArrayList querySms() -> b
-    179:191:void deleteSms(java.lang.String) -> a
-    194:203:void deleteCall(java.lang.String) -> b
-    246:272:java.lang.String getContactNameByPhoneNumber(java.lang.String) -> c
-    277:279:boolean isHaveCutText() -> c
-    283:286:void cleanCut() -> d
+    118:164:java.util.ArrayList querySms() -> b
+    182:194:void deleteSms(java.lang.String) -> a
+    197:206:void deleteCall(java.lang.String) -> b
+    249:275:java.lang.String getContactNameByPhoneNumber(java.lang.String) -> c
+    280:282:boolean isHaveCutText() -> c
+    286:289:void cleanCut() -> d
 com.supers.clean.junk.privacy.SmsEntity -> com.supers.clean.junk.privacy.SmsEntity:
     java.lang.String address -> a
     java.lang.String date -> b
     int read -> c
     java.lang.String status -> d
+    java.lang.String person -> e
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    20:21:void <init>() -> <init>
-    24:36:void <init>(android.os.Parcel) -> <init>
-    52:57:boolean equals(java.lang.Object) -> equals
-    63:63:int hashCode() -> hashCode
-    69:69:int describeContents() -> describeContents
-    74:85:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    38:38:void <clinit>() -> <clinit>
+    21:22:void <init>() -> <init>
+    25:37:void <init>(android.os.Parcel) -> <init>
+    53:58:boolean equals(java.lang.Object) -> equals
+    64:64:int hashCode() -> hashCode
+    70:70:int describeContents() -> describeContents
+    75:86:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    39:39:void <clinit>() -> <clinit>
 com.supers.clean.junk.privacy.SmsEntity$1 -> com.supers.clean.junk.privacy.SmsEntity$1:
-    38:38:void <init>() -> <init>
-    41:41:com.supers.clean.junk.privacy.SmsEntity createFromParcel(android.os.Parcel) -> a
-    46:46:com.supers.clean.junk.privacy.SmsEntity[] newArray(int) -> a
-    38:38:java.lang.Object[] newArray(int) -> newArray
-    38:38:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    39:39:void <init>() -> <init>
+    42:42:com.supers.clean.junk.privacy.SmsEntity createFromParcel(android.os.Parcel) -> a
+    47:47:com.supers.clean.junk.privacy.SmsEntity[] newArray(int) -> a
+    39:39:java.lang.Object[] newArray(int) -> newArray
+    39:39:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.supers.clean.junk.service.FloatService -> com.supers.clean.junk.service.FloatService:
     android.content.pm.PackageManager pm -> f
     android.app.ActivityManager am -> g

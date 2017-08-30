@@ -52,6 +52,7 @@ public class LoadingActivity extends BaseActivity {
             PreData.putDB(this, Constant.ROOT_TRAK, false);
             PreData.putDB(this, Constant.KEY_CLEAN_TIME, System.currentTimeMillis());
         }
+
         myHandler.removeCallbacks(runnable1);
         myHandler.postDelayed(runnable1, 2000);
     }

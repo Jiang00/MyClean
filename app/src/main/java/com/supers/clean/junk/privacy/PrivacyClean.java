@@ -131,10 +131,12 @@ public class PrivacyClean {
                         .getColumnIndexOrThrow("_id"));
                 String address = cursor.getString(cursor
                         .getColumnIndexOrThrow("address")); // 对方号码
-               /* String date = cursor.getString(cursor
+                String date = cursor.getString(cursor
                         .getColumnIndexOrThrow("date"));  // 发件日期
-                String date_sent = cursor.getString(cursor
-                        .getColumnIndexOrThrow("date_sent"));*/
+//                String date_sent = cursor.getString(cursor
+//                        .getColumnIndexOrThrow("date_sent"));
+                String person = cursor.getString(cursor
+                        .getColumnIndexOrThrow("person"));
                 int read = cursor.getInt(cursor
                         .getColumnIndexOrThrow("read")); //0 “未读”，1“已读”
                 String status = cursor.getString(cursor
@@ -147,7 +149,8 @@ public class PrivacyClean {
                 smsEntity.id = id;
                 smsEntity.address = address;
                 smsEntity.type = type;
-               /* smsEntity.date = date;*/
+                smsEntity.person = person;
+                smsEntity.date = date;
                 smsEntity.read = read;
                 smsEntity.status = status;
                 smsList.add(smsEntity);
