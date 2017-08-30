@@ -85,9 +85,16 @@
         <activity
             android:name="com.icleaner.junk.icleaneractivity.BatteriesActivity"
             android:screenOrientation="portrait" />
+        <!--垃圾-->
         <activity
             android:name="com.icleaner.junk.icleaneractivity.RubbishActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.icleaner.junk.RubbishActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name="com.icleaner.junk.icleaneractivity.RubbishAndRamActivity"
             android:exported="true"
@@ -98,9 +105,16 @@
         <activity
             android:name="com.icleaner.junk.icleaneractivity.PhonesMessageActivity"
             android:screenOrientation="portrait" />
+        <!--内存-->
         <activity
             android:name="com.icleaner.junk.icleaneractivity.MemoryAvtivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.icleaner.junk.MemoryAvtivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name="com.icleaner.junk.icleaneractivity.SetActivity"
             android:screenOrientation="portrait" />

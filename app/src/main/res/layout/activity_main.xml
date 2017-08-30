@@ -122,12 +122,14 @@
                             <com.icleaner.junk.mycustomview.VirtuaRingView
                                 android:id="@+id/virtuaringview"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true" />
                             <!--两个外圆-->
                             <com.icleaner.junk.mycustomview.CircleView
                                 android:id="@+id/main_circleview"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true" />
                             <!--水波纹球-->
                             <com.icleaner.junk.mycustomview.ICleanerWaterView
                                 android:id="@+id/main_water"
@@ -145,9 +147,8 @@
                             <TextView
                                 android:id="@+id/main_fenshu"
                                 android:layout_width="@dimen/d100"
-                                android:layout_height="@dimen/d50"
-                                android:layout_centerHorizontal="true"
-                                android:layout_centerVertical="true"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
                                 android:gravity="center"
                                 android:text="100"
                                 android:textColor="@color/B3"
@@ -157,7 +158,8 @@
                             <com.icleaner.junk.mycustomview.CircleWaveView
                                 android:id="@+id/main_circlewaveview"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true" />
                         </RelativeLayout>
 
                         <RelativeLayout

@@ -107,6 +107,7 @@ public class BatteryProtectActivity extends Activity {
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+
             if (TextUtils.equals(Intent.ACTION_BATTERY_CHANGED, intent.getAction())) {
                 batteryChange(intent);
             } else if (TextUtils.equals(Intent.ACTION_SCREEN_ON, intent.getAction())) {
@@ -123,6 +124,17 @@ public class BatteryProtectActivity extends Activity {
                 batteryView.setCharing(true);
             } else if (TextUtils.equals(Intent.ACTION_POWER_DISCONNECTED, intent.getAction())) {
                 batteryView.setCharing(false);
+            }
+
+
+            String action = intent.getAction();
+
+            if (TextUtils.equals(Intent.ACTION_BATTERY_CHANGED, action)) {
+                batteryChange(intent);
+                mHandler.removeCallbacks(batteryChangeRunnable);
+                mHandler.postDelayed(batteryChangeRunnable, MSG_BATTERY_CHANGE_DELAYED);
+            } else if (Intent.ACTION_POWER_CONNECTED.equals(action) || Intent.ACTION_SCREEN_ON.equals(action)) {  //修改部分ACTION_POWER_CONNECTED
+                showChargeView();
             }
         }
     };
