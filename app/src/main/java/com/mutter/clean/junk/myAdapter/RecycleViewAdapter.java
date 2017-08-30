@@ -126,10 +126,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         holder.recyclerView.setAdapter(new HomeAdapter(list));
         holder.recyclerView.setItemAnimator(new DefaultItemAnimator());
         if (list.size() == 0) {
-            return;
+        } else {
+            String time = list.get(0).tag_datetime.replace(':', '-');
+            holder.recycle_time.setText(time);
         }
-        String time = list.get(0).tag_datetime.replace(':', '-');
-        holder.recycle_time.setText(time);
     }
 
     public void reChangesData(int position) {

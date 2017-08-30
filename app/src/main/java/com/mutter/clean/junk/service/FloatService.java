@@ -169,7 +169,7 @@ public class FloatService extends Service {
     }
 
     public List<String> getLaunchers() {
-        List<String> packageNames = new ArrayList<String>();
+        List<String> packageNames = new ArrayList<>();
         PackageManager packageManager = this.getPackageManager();
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);

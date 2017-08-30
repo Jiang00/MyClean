@@ -593,17 +593,25 @@ public class CleanManager {
         if (notificationList == null) {
             notificationList = new ArrayList<>();
         }
-        for (NotificationInfo info : notificationList) {
-            if (TextUtils.equals(info.pkg, notifiInfo.pkg) && info.id == notifiInfo.id) {
-                notificationList.remove(info);
-                break;
+        if (notificationList.size() != 0) {
+            NotificationInfo add = null;
+            for (NotificationInfo info : notificationList) {
+                if (TextUtils.equals(info.pkg, notifiInfo.pkg) && info.id == notifiInfo.id) {
+                    add = info;
+                    break;
+                }
+            }
+            if (add != null) {
+                notificationList.remove(add);
             }
         }
         if (isAdd) {
             notificationList.add(notifiInfo);
         }
-        for (NotificationCallBack callBack : notificationCallBackList) {
-            callBack.notificationChanged(notificationList);
+        if (notificationCallBackList != null && notificationCallBackList.size() != 0) {
+            for (NotificationCallBack callBack : notificationCallBackList) {
+                callBack.notificationChanged(notificationList);
+            }
         }
     }
 
@@ -631,7 +639,7 @@ public class CleanManager {
     }
 
     public void removeNotificatioCallBack(NotificationCallBack notificationCallBack) {
-        if (notificationCallBack == null) {
+        if (notificationCallBack == null || notificationCallBackList == null) {
             return;
         }
         if (notificationCallBackList.contains(notificationCallBack)) {
